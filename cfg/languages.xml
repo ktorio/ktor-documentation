@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE lexers
+SYSTEM "https://helpserver.labs.jb.gg/help/languages.dtd">
+<lexers>
+    <lexer name="Java" lang="java"/>
+    <lexer name="Actionscript" lang="actionscript"/>
+    <lexer name="VB" lang="basic"/>
+    <lexer name="Console" lang="shell"/>
+    <lexer name="CSS" lang="css"/>
+    <lexer name="C++" lang="cpp"/>
+    <lexer name="VB.NET" lang="vbnet"/>
+    <lexer name="ASP.NET (VB)" lang="aspx-vb"/>
+    <lexer name="ASP.NET (C#)" lang="aspx-cs"/>
+    <lexer name="C#" lang="csharp"/>
+    <lexer name="Haskell" lang="haskell"/>
+    <lexer name="Razor" lang="html"/>
+    <lexer name="HTML" lang="html"/>
+    <lexer name="Javascript" lang="javascript"/>
+    <lexer name="Typescript" lang="ts"/>
+    <lexer name="JSP" lang="jsp"/>
+    <lexer name="Coffeescript" lang="javascript"/>
+    <lexer name="Make" lang="make"/>
+    <lexer name="CMake" lang="cmake"/>
+    <lexer name="Markup" lang="markup"/>
+    <lexer name="ObjC" lang="objective"/>
+    <lexer name="Generic" lang="shell"/>
+    <lexer name="PHP" lang="php"/>
+    <lexer name="Python" lang="python"/>
+    <lexer name="Resource" lang="resource"/>
+    <lexer name="Ruby" lang="ruby"/>
+    <lexer name="Shell" lang="shell"/>
+    <lexer name="SQL" lang="sql"/>
+    <lexer name="Velocity" lang="velocity"/>
+    <lexer name="Freemarker" lang="freemarker"/>
+    <lexer name="XML" lang="xml"/>
+    <lexer name="DTD" lang="dtd"/>
+    <lexer name="XSL" lang="xslt"/>
+    <lexer name="XSD" lang="xml"/>
+    <lexer name="Brainfuck" lang="xml"/>
+    <lexer name="Plain Text" lang="text"/>
+    <lexer name="Kotlin" lang="kotlin"/>
+	<lexer name="Go" lang="go"/>
+    <lexer name="yaml" lang="yaml"/>
+    <lexer name="Twig" lang="twig"/>
+    <lexer name="JSON" lang="json"/>
+    <lexer name="Groovy" lang="groovy"/>
+    <lexer name="Scala" lang="scala"/>
+    <lexer name="Gradle" lang="gradle"/>
+</lexers>

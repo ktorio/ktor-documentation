@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE categories
+        SYSTEM "https://helpserver.labs.jb.gg/help/categories.dtd">
+<categories>
+    <category id="kotlin" name="Kotlin" order="26"/>
+    <category id="admin-guide" name="Administrator's Guide" order="54"/>
+    <category id="pdf_resources" name="PDF Resources" order="500"/>
+    <category name="Search" id="search" order="11"/>
+    <category id="web_resources" name="Web Resources" order="99"/>
+    <category id="procedures" name="Procedures" order="4"/>
+    <category id="howto" name="How tos" order="5"/>
+    <category id="get_started" name="Getting Started" order="8"/>
+    <category id="javaee" name="Java EE and Web Development" order="220"/>
+    <category id="data_access" name="Data Access Support" order="130"/>
+    <category id="misc" name="Miscellaneous Improvements" order="999"/>
+    <category id="build_tools" name="Build Tools" order="210"/>
+    <category id="uml" name="UML" order="120"/>
+    <category id="seam" name="Seam Support" order="90"/>
+    <category id="spring" name="Spring Support" order="100"/>
+    <category id="performance" name="Performance Improvements" order="154"/>
+    <category id="navigation" name="Navigation" order="10"/>
+    <category id="rake" name="Rake Support" order="41"/>
+    <category id="haml" name="HAML Support" order="62"/>
+    <category id="groovy" name="Groovy and Groovy-Based Frameworks" order="111"/>
+    <category id="php" name="PHP Support" order="70"/>
+    <category id="external" name="External Links" order="56"/>
+    <category id="markup" name="Markup languages and style sheets" order="42"/>
+    <category id="tips" name="Tips" order="98"/>
+    <category id="reference" name="Reference" order="6"/>
+    <category id="plugins" name="Plugins" order="9"/>
+    <category id="js" name="JavaScript Support" order="141"/>
+    <category id="android" name="Android" order="51"/>
+    <category id="inspections" name="Inspections" order="60"/>
+    <category id="intentions" name="Intention Actions and Quick Fixes" order="61"/>
+    <category id="examples" name="Tutorials and Examples" order="101"/>
+    <category id="toolw" name="Tool Windows" order="7"/>
+    <category id="gwt" name="Google Web Toolkit (GWT) Support" order="110"/>
+    <category id="concepts" name="Concepts" order="13"/>
+    <category id="lang_fw" name="Language and Framework-Specific Guidelines" order="14"/>
+    <category id="ide" name="IDE" order="23"/>
+    <category id="xslt" name="XSLT Support" order="15"/>
+    <category id="remote_hosts" name="Remote Hosts" order="200"/>
+    <category id="vcs" name="Version Control" order="40"/>
+    <category id="python" name="Python Support" order="0"/>
+    <category id="django" name="Django Support" order="1"/>
+    <category id="editing" name="Code Editing" order="1"/>
+    <category id="as_flex" name="ActionScript and Flex" order="140"/>
+    <category id="run" name="Running" order="20"/>
+    <category id="configure_project" name="Configuring Project and IDE" order="2"/>
+    <category id="debug" name="Debugging" order="21"/>
+    <category id="profiling" name="Profiling" order="24"/>
+    <category id="cmd" name="Command Line Tools" order="201"/>
+    <category id="gae" name="Google App Engine Support" order="16"/>
+    <category id="flask" name="Flask" order="121"/>
+    <category id="projects_modules" name="Projects and Modules" order="12"/>
+    <category id="compiler" name="Compiler" order="31"/>
+    <category id="app_servers" name="Application Servers" order="52"/>
+    <category id="refactor" name="Refactoring" order="32"/>
+    <category id="gems" name="Ruby Gems" order="1"/>
+    <category id="analysis" name="Code Analysis" order="43"/>
+    <category id="lang_fw_tech" name="Languages, Frameworks and Technologies" order="3"/>
+    <category id="rails" name="Rails Support" order="2"/>
+    <category id="ruby" name="Ruby Support" order="0"/>
+    <category id="testing" name="Testing" order="22"/>
+</categories>

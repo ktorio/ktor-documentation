@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ihp
+        SYSTEM "https://helpserver.labs.jb.gg/help/ihp.dtd">
+<ihp version="2.0">
+    <settings/>
+
+    <module name="ktor"/>
+
+    <vars src="v.list"/>
+    <topics dir="topics"/>
+    <images dir="images" web-path="/img/ktor-supernova/1.3/"/>
+    <categories src="c.list"/>
+    <product src="ktor.tree" version="1.3" keymaps-mode="none"/>
+
+</ihp>

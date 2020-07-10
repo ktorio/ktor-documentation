@@ -1,0 +1,2632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dictionary
+        SYSTEM "https://helpserver.labs.jb.gg/help/completion-dictionary.dtd">
+<dictionary>
+    <entry-set for="img/alt">
+        <entry>%image_id%</entry>
+        <entry>%product% 'License Information' dialog</entry>
+        <entry>%product% C++: Parameter information</entry>
+        <entry>%product% C++: Postfix templates</entry>
+        <entry>%product% C++: code completion in dependent code</entry>
+        <entry>%product% C++: parameter and namespace name hints</entry>
+        <entry>%product% C++: quick-fix to initialize members</entry>
+        <entry>%product% Change Signature wizard</entry>
+        <entry>%product% Code Vision metrics on type and type member</entry>
+        <entry>%product% Includes analysis - Includees view</entry>
+        <entry>%product% Includes analysis - Includers view</entry>
+        <entry>%product% automatically escapes angle brackets in pasted string.</entry>
+        <entry>%product% automatically escapes double quotes in pasted string.</entry>
+        <entry>%product% choosing a view in the Explorer window</entry>
+        <entry>%product% controls in Visual Studio editor</entry>
+        <entry>%product% detects possible NullReferenceException</entry>
+        <entry>%product% detects unused field</entry>
+        <entry>%product% displays .NET Framework sources from symbol server</entry>
+        <entry>%product% helps add braces around single nested statement</entry>
+        <entry>%product% helps add missing using statement</entry>
+        <entry>%product% helps add missing using statement and assembly reference</entry>
+        <entry>%product% helps fixing types of variables and fields</entry>
+        <entry>%product% helps implement new C# features</entry>
+        <entry>%product% helps initialize variables in C++</entry>
+        <entry>%product% helps replacing the arrow operator with the dot</entry>
+        <entry>%product% helps replacing the dot operator with arrow</entry>
+        <entry>%product% highlighting automatically-set naming rules with yellow</entry>
+        <entry>%product% highlights code issues in the editor</entry>
+        <entry>%product% highlights context exits</entry>
+        <entry>%product% in the JetBrains Toolbox App</entry>
+        <entry>%product% in the Toolbox app</entry>
+        <entry>%product% indexes all the dependencies listed in different package.json file but stored in the root node_modules folder</entry>
+        <entry>%product% installer</entry>
+        <entry>%product% installer. Custom settings</entry>
+        <entry>%product% is downloading sources from symbol server</entry>
+        <entry>%product% main window</entry>
+        <entry>%product% menus and toolbars</entry>
+        <entry>%product% navigation bar</entry>
+        <entry>%product% quick-fix to synchronize namespace to the file location</entry>
+        <entry>%product% shows different indicators for unit tests in the editor</entry>
+        <entry>%product% shows unit tests in File Structure</entry>
+        <entry>%product% suggests adding a dependency with ng add</entry>
+        <entry>%product% suggests importing the code style from ESLint</entry>
+        <entry>%product% suggests importing the code style from tslint.json</entry>
+        <entry>%product% suggests to automatically do a null check on the variable</entry>
+        <entry>%product% tool windows</entry>
+        <entry>%product% warning. virtual method in constructor</entry>
+        <entry>%product% welcome screen</entry>
+        <entry>The %product% welcome screen</entry>
+        <entry>%product%'s Assembly Explorer view</entry>
+        <entry>%product%'s Assembly Explorer window</entry>
+        <entry>%product%'s NuGet package browser</entry>
+        <entry>%product%'s code inspection based on contract annotation</entry>
+        <entry>%product%'s file templates</entry>
+        <entry>%product%'s hot spot session for lambda completion</entry>
+        <entry>%product%. %todo% link to GitHub issue from the comment</entry>
+        <entry>%product%. 'License Information' dialog</entry>
+        <entry>%product%. 'Make Partial' refactoring</entry>
+        <entry>%product%. 'Make Static' refactoring</entry>
+        <entry>%product%. 'Obtain Permanent License' dialog</entry>
+        <entry>%product%. 'Setting Layers' dialog</entry>
+        <entry>%product%. 'To expression body' quick-fix</entry>
+        <entry>%product%. 'To statement body' quick-fix</entry>
+        <entry>%product%. Code Cleanup dialog</entry>
+        <entry>%product%. Copy Type refactoring</entry>
+        <entry>%product%. Encapsulate Field refactoring</entry>
+        <entry>%product%. Extract Method refactoring</entry>
+        <entry>%product%. Extract Superclass (Base class) refactoring</entry>
+        <entry>%product%. Extract class refactoring</entry>
+        <entry>%product%. Extracting interface from a class</entry>
+        <entry>%product%. File Formatting Info window</entry>
+        <entry>%product%. Generating constructors for TypeScript class</entry>
+        <entry>%product%. Generating overriding members for a TypeScript class</entry>
+        <entry>%product%. IntelliSense for localization resources</entry>
+        <entry>%product%. Introduce Field refactoring</entry>
+        <entry>%product%. Move to another file refactoring</entry>
+        <entry>%product%.'Move to Another Type' refactoring</entry>
+        <entry>%product%.Generating TypeScript class from usage</entry>
+        <entry>%product%: 'Failed Tests' window</entry>
+        <entry>%product%: 'Generate GUID' dialog</entry>
+        <entry>%product%: 'Surround with' context action</entry>
+        <entry>%product%: A quick fix for Clang-Tidy inspection</entry>
+        <entry>%product%: A quick-fix to move string literal to resource</entry>
+        <entry>%product%: A quick-fix to remove a resource entry</entry>
+        <entry>%product%: Add forward declaration quick-fix</entry>
+        <entry>%product%: Applying Clang-Tidy fixes with code cleanup</entry>
+        <entry>%product%: Build Log window</entry>
+        <entry>%product%: Build configuration selector on the toolbar</entry>
+        <entry>%product%: Build window</entry>
+        <entry>%product%: Check expression for null quick-fix</entry>
+        <entry>%product%: Checking parameter for null</entry>
+        <entry>%product%: Clang-Tidy inspection menu</entry>
+        <entry>%product%: Converting a usage of String.Format into string interpolation</entry>
+        <entry>%product%: Converting simple string to string interpolation</entry>
+        <entry>%product%: Debug window</entry>
+        <entry>%product%: Deploying an ASP.NET Core app</entry>
+        <entry>%product%: Detecting and fixing typos</entry>
+        <entry>%product%: Dragging the execution pointer</entry>
+        <entry>%product%: Errors in Solution window</entry>
+        <entry>%product%: F# Interactive in action</entry>
+        <entry>%product%: F# Interactive. Set recent command</entry>
+        <entry>%product%: F# compiler in Visual Studio Build Tools</entry>
+        <entry>%product%: File structure of a CSS file</entry>
+        <entry>%product%: Fuzzy matching search items</entry>
+        <entry>%product%: Generating the Deconstruct method with a quick-fix</entry>
+        <entry>%product%: Inspecting code with a single inspection</entry>
+        <entry>%product%: Inspection Results window</entry>
+        <entry>%product%: My Changes window</entry>
+        <entry>%product%: My Investigations window</entry>
+        <entry>%product%: Naming rules auto-detection notification</entry>
+        <entry>%product%: New Solution wizard. Xamarin</entry>
+        <entry>%product%: NuGet quick list</entry>
+        <entry>%product%: PDB contents displayed as an XML file</entry>
+        <entry>%product%: Project item properties</entry>
+        <entry>%product%: Rename refactoring</entry>
+        <entry>%product%: Select Target popup</entry>
+        <entry>%product%: Smart step into - stepping into selected call</entry>
+        <entry>%product%: Template editor</entry>
+        <entry>%product%: Unit Testing Quick List</entry>
+        <entry>%product%: Using C# Interactive</entry>
+        <entry>%product%: Why do you need step filters?</entry>
+        <entry>%product%: XAML Preview window</entry>
+        <entry>%product%: a shortcut for configuring null-check pattern</entry>
+        <entry>%product%: breakpoints. hit count</entry>
+        <entry>%product%: choosing a project to manage NuGet packages</entry>
+        <entry>%product%: conditional breakpoints</entry>
+        <entry>%product%: custom patterns for null checking</entry>
+        <entry>%product%: enabling debugging for compiled module</entry>
+        <entry>%product%: error highlighting in the Solution Explorer</entry>
+        <entry>%product%: finding breakpoints</entry>
+        <entry>%product%: fixing a code issue detected by ESLint</entry>
+        <entry>%product%: generating documentation comments</entry>
+        <entry>%product%: highlighting a code issue detected by ESLint</entry>
+        <entry>%product%: inline values</entry>
+        <entry>%product%: keep existing formatting for selected rules</entry>
+        <entry>%product%: login</entry>
+        <entry>%product%: order of CamelCase abbreviation</entry>
+        <entry>%product%: personal build details</entry>
+        <entry>%product%: searching settings</entry>
+        <entry>%product%: using navigation bar to open files</entry>
+        <entry>'Choose Template' dialog helps selecting file and surround templates</entry>
+        <entry>'Convert to auto-property' quick-fix</entry>
+        <entry>'Implement members' quick-fix</entry>
+        <entry>'ReSharper for VSTO' tutorial</entry>
+        <entry>'ReSharper for data access' tutorial</entry>
+        <entry>'Var' usage quick-fix</entry>
+        <entry>'itar' template expanded</entry>
+        <entry>...</entry>
+        <entry>1_addAttribute.PNG</entry>
+        <entry>1_addSubtag.PNG</entry>
+        <entry>1_attributeToTag.PNG</entry>
+        <entry>1_changeAttributeValue.PNG</entry>
+        <entry>1_convertContentsToAttribute.PNG</entry>
+        <entry>1_deleteAttribute.PNG</entry>
+        <entry>1_deleteTag.PNG</entry>
+        <entry>1_moveAttributeIn.PNG</entry>
+        <entry>1_moveAttributeOut.PNG</entry>
+        <entry>1_tagToAttribute.PNG</entry>
+        <entry>1_unwrapTag.PNG</entry>
+        <entry>1_wrapTag.PNG</entry>
+        <entry>1_wrapTagContents.PNG</entry>
+        <entry>Abstract class</entry>
+        <entry>Abstract method</entry>
+        <entry>Action group filter</entry>
+        <entry>Action list</entry>
+        <entry>the Active Debugger icon</entry>
+        <entry>Active Editor</entry>
+        <entry>Activity Monitor</entry>
+        <entry>Actual Size</entry>
+        <entry>Add</entry>
+        <entry>Add Association</entry>
+        <entry>Add Content Root</entry>
+        <entry>Add Extension to Chrome</entry>
+        <entry>Add Gruntfile</entry>
+        <entry>Add Maven Project</entry>
+        <entry>Add New Configuration</entry>
+        <entry>Add New Controller</entry>
+        <entry>Add New Model</entry>
+        <entry>Add SQL Server (jTds) as a data source</entry>
+        <entry>Add Section rule</entry>
+        <entry>Add a cell</entry>
+        <entry>Add a docker server</entry>
+        <entry>Add a new SDK</entry>
+        <entry>Add a new file type</entry>
+        <entry>Add a path</entry>
+        <entry>Add a project interpreter</entry>
+        <entry>Add a repository</entry>
+        <entry>Add a return tag</entry>
+        <entry>Add a user driver to an existing connection</entry>
+        <entry>Add an interpreter</entry>
+        <entry>Add class</entry>
+        <entry>Add configuration</entry>
+        <entry>Add item</entry>
+        <entry>Add mapping</entry>
+        <entry>Add new element</entry>
+        <entry>Add new scope</entry>
+        <entry>Add optional Argument(s)</entry>
+        <entry>Add param tags</entry>
+        <entry>Add parameter clause</entry>
+        <entry>Add profiling configuration</entry>
+        <entry>Add project interpreter</entry>
+        <entry>Add required plugin dialog</entry>
+        <entry>Add selection for the next occurence</entry>
+        <entry>Add server</entry>
+        <entry>Add server dialog</entry>
+        <entry>Add watch</entry>
+        <entry>AddNewFavoritesList</entry>
+        <entry>Adding Angular Material to a project with ng add</entry>
+        <entry>Adding CDI support</entry>
+        <entry>Adding a Pipenv environment</entry>
+        <entry>Adding a Python remote debug configuration</entry>
+        <entry>Adding a WSL interpreter</entry>
+        <entry>Adding a data source</entry>
+        <entry>Adding a new content root</entry>
+        <entry>Adding a new external annotation</entry>
+        <entry>Adding a new facet manually</entry>
+        <entry>Adding a project interpreter</entry>
+        <entry>Adding a system interpreter</entry>
+        <entry>Adding an action breakpoint</entry>
+        <entry>Adding an empty cell</entry>
+        <entry>Adding an interpreter</entry>
+        <entry>Adding application context</entry>
+        <entry>Adding environmental variables</entry>
+        <entry>Adding multiple variables to watches</entry>
+        <entry>Adding optional parentheses to clarify operation precedence</entry>
+        <entry>Adding pylint to the Run/Debug configuration</entry>
+        <entry>Adding the Flask package</entry>
+        <entry>Adding types to the type dependency diagram</entry>
+        <entry>AddingFavorites</entry>
+        <entry>AddressSanitizer</entry>
+        <entry>Advanced Settings</entry>
+        <entry>Akka inspections settings</entry>
+        <entry>Alternative actions for CamelHump navigation</entry>
+        <entry>Alternative style</entry>
+        <entry>Amazon Redshift</entry>
+        <entry>An icon to preview source code of the cell</entry>
+        <entry>Analyze Dependencies</entry>
+        <entry>Analyze Stacktrace</entry>
+        <entry>Analyzing unit test coverage with dotCover</entry>
+        <entry>Annotation</entry>
+        <entry>Another kernel start</entry>
+        <entry>Any problems with the new method signature</entry>
+        <entry>Application Servers tool window</entry>
+        <entry>Application in browser</entry>
+        <entry>Application stopped at breakpoint</entry>
+        <entry>Apply Current Layout</entry>
+        <entry>Applying and overriding %product% settings</entry>
+        <entry>Applying context action in a wider scope</entry>
+        <entry>Applying postfix template for null-check</entry>
+        <entry>Applying quick fixes for the missing import statements</entry>
+        <entry>Applying quick fixes from an inspection tooltip</entry>
+        <entry>Applying the 'Move to Resource' refactoring</entry>
+        <entry>Architecture View window</entry>
+        <entry>Arrow up</entry>
+        <entry>Artifacts</entry>
+        <entry>Ascending order</entry>
+        <entry>Assert failing report</entry>
+        <entry>Assigning a keyboard shortcut to suspend/resume ReSharper</entry>
+        <entry>Association fields</entry>
+        <entry>Atom on Stepik</entry>
+        <entry>Attach no Node.js run configuration: select the Reconnect automatically checkbox</entry>
+        <entry>Attach to Process menu item</entry>
+        <entry>Attach to Process with Profiling</entry>
+        <entry>Attaching editor tab</entry>
+        <entry>Auto import with quick-fix, multiple choices: suggestion list</entry>
+        <entry>Auto import with quick-fix: import statement added</entry>
+        <entry>Auto import with quick-fix: no choices</entry>
+        <entry>Auto import with suggestion from the TypeScript Language Service: multiple choices</entry>
+        <entry>Auto import with suggestion from the TypeScript Language Service: no choices</entry>
+        <entry>Auto mode</entry>
+        <entry>Auto-Scroll Preview</entry>
+        <entry>Autocompletion for a pytest fixture</entry>
+        <entry>Autocompletion for the test subject</entry>
+        <entry>Autoimport from project dependencies</entry>
+        <entry>Autoimport with quick-fix: information tooltip</entry>
+        <entry>Autoimport with quick-fix: suggestion list</entry>
+        <entry>Automatic completion in C++</entry>
+        <entry>Autoscroll from Source</entry>
+        <entry>Autoscroll to Source</entry>
+        <entry>Auxiliary</entry>
+        <entry>Available</entry>
+        <entry>Available filters</entry>
+        <entry>Azure</entry>
+        <entry>The Background Image button in Appearance preferences</entry>
+        <entry>The Background Image dialog</entry>
+        <entry>Background tasks</entry>
+        <entry>Backward Dependencies</entry>
+        <entry>Basic Code Completion</entry>
+        <entry>Basic Code Completion Static Methods</entry>
+        <entry>Basic completion</entry>
+        <entry>Basic completion: definition look-up</entry>
+        <entry>Basic completion: documentation look-up</entry>
+        <entry>Bidirectional strings</entry>
+        <entry>Bookmarks dialog</entry>
+        <entry>Bottom tool window bar with tool window buttons</entry>
+        <entry>Breadcrumbs Settings</entry>
+        <entry>Breadcrumbs highlighting</entry>
+        <entry>Breakpoint</entry>
+        <entry>Breakpoint hit</entry>
+        <entry>Breakpoint in Publisher thread</entry>
+        <entry>Breakpoint in the publisher</entry>
+        <entry>Breakpoint in the subscriber</entry>
+        <entry>Breakpoint inside the subscriber</entry>
+        <entry>Breakpoint properties</entry>
+        <entry>Broken tests</entry>
+        <entry>Brose</entry>
+        <entry>Browse</entry>
+        <entry>the Browse button</entry>
+        <entry>Browse courses</entry>
+        <entry>Browse week assignments</entry>
+        <entry>Browser icons</entry>
+        <entry>The Build Image on Docker popup</entry>
+        <entry>Build Results window</entry>
+        <entry>Build on Docker</entry>
+        <entry>Built-in type usage style quick-fix</entry>
+        <entry>Bundle Install dialog</entry>
+        <entry>Buttons for visible and hidden tool windows</entry>
+        <entry>CDI plugin is enabled in the list of plugins</entry>
+        <entry>CLion Sanitizers plain output</entry>
+        <entry>CLion Sanitizers visual output</entry>
+        <entry>CLion breadcrumbs</entry>
+        <entry>CMake maros for external tools</entry>
+        <entry>CPU Profiler</entry>
+        <entry>CSS hierarchy gutter mark</entry>
+        <entry>Call frames</entry>
+        <entry>Capture Events</entry>
+        <entry>Cargo run/debug configuration</entry>
+        <entry>Cell has been executed</entry>
+        <entry>Cell is being executed</entry>
+        <entry>Change a JDK</entry>
+        <entry>Change a Python SDK</entry>
+        <entry>Change line separator on the Status bar</entry>
+        <entry>Change question page</entry>
+        <entry>Change signature - updating calls with call diagram</entry>
+        <entry>Change signature animation</entry>
+        <entry>Change the transaction level</entry>
+        <entry>Changes toolbar</entry>
+        <entry>Changing a color using an intention action</entry>
+        <entry>Changing code style preference for 'var' keyword</entry>
+        <entry>Changing code style preference for braces</entry>
+        <entry>Changing hot spot session parameter</entry>
+        <entry>Changing inspection severity</entry>
+        <entry>Changing inspection severity level</entry>
+        <entry>Changing interpreter's name</entry>
+        <entry>Changing signature of a C++ function</entry>
+        <entry>Changing template parameter in the template editing mode</entry>
+        <entry>Changing the CDI version</entry>
+        <entry>Changing the Spring profile</entry>
+        <entry>Changing the naming style preference</entry>
+        <entry>Checking regular expressions</entry>
+        <entry>Checkout From Version Control</entry>
+        <entry>Checkout from Version Control</entry>
+        <entry>Child class</entry>
+        <entry>Choose Gradle project</entry>
+        <entry>Choose a course</entry>
+        <entry>Choose a language</entry>
+        <entry>Choose a role</entry>
+        <entry>Choose an assignment</entry>
+        <entry>Choose or type name</entry>
+        <entry>Choose the base interpreter</entry>
+        <entry>Choose your IDE</entry>
+        <entry>Choose your role</entry>
+        <entry>Choosing Angular Schematic</entry>
+        <entry>Choosing ReSharper keyboard shortcuts scheme</entry>
+        <entry>Choosing a color</entry>
+        <entry>Choosing the folder category</entry>
+        <entry>Choosing the target for quick documentation</entry>
+        <entry>Clang-Tidy checks in %product%</entry>
+        <entry>Class</entry>
+        <entry>Clear All</entry>
+        <entry>Clear all</entry>
+        <entry>Clear search history</entry>
+        <entry>Clone Repository</entry>
+        <entry>Clone Repository dialog</entry>
+        <entry>Clone a repository</entry>
+        <entry>Cloning source repository</entry>
+        <entry>Close</entry>
+        <entry>Cmake Profile</entry>
+        <entry>Code Generation command in the action list</entry>
+        <entry>Code Vision. Unity support</entry>
+        <entry>Code cell in a Jupyter Notebook</entry>
+        <entry>Code completion</entry>
+        <entry>Code completion for package names</entry>
+        <entry>Code completion for previous package versions</entry>
+        <entry>Code completion for pytest.mark.parametrize</entry>
+        <entry>Code completion for the directive names</entry>
+        <entry>Code completion in regular expressions</entry>
+        <entry>Code element tooltip in C++</entry>
+        <entry>Code highlighting</entry>
+        <entry>Code inspection</entry>
+        <entry>Code inspection and regular expression completion in JSON files</entry>
+        <entry>Code inspection results in a C++ project</entry>
+        <entry>Code inspection settings</entry>
+        <entry>Code inspections for Fortran</entry>
+        <entry>Code style indents</entry>
+        <entry>Code style settings</entry>
+        <entry>Code styles for Fortran</entry>
+        <entry>Code syntax style issues found in a solution</entry>
+        <entry>CodeAnalysis</entry>
+        <entry>Coding assistance for JSDoc types</entry>
+        <entry>Collapse All</entry>
+        <entry>Collapse all</entry>
+        <entry>Color Picker Add Abbreviation</entry>
+        <entry>Color assistance</entry>
+        <entry>Color preview on hovering over a color icon in the gutter</entry>
+        <entry>Color sample: Olive</entry>
+        <entry>Color sample: black</entry>
+        <entry>Color sample: blue</entry>
+        <entry>Color sample: bright blue</entry>
+        <entry>Color sample: bright navy</entry>
+        <entry>Color sample: brown</entry>
+        <entry>Color sample: dark cyan</entry>
+        <entry>Color sample: dark grayish blue</entry>
+        <entry>Color sample: dark grayish green</entry>
+        <entry>Color sample: dark grayish orange</entry>
+        <entry>Color sample: dark green</entry>
+        <entry>Color sample: dark olive</entry>
+        <entry>Color sample: dull green</entry>
+        <entry>Color sample: dull purple</entry>
+        <entry>Color sample: dull red</entry>
+        <entry>Color sample: green</entry>
+        <entry>Color sample: grey</entry>
+        <entry>Color sample: light blue</entry>
+        <entry>Color sample: light brown</entry>
+        <entry>Color sample: light grayish blue</entry>
+        <entry>Color sample: light green</entry>
+        <entry>Color sample: light olive</entry>
+        <entry>Color sample: light orange</entry>
+        <entry>Color sample: light purple</entry>
+        <entry>Color sample: orange</entry>
+        <entry>Color sample: purple</entry>
+        <entry>Color sample: red</entry>
+        <entry>Color sample: soft red</entry>
+        <entry>Color sample: strong cyan</entry>
+        <entry>Color sample: teal</entry>
+        <entry>Color sample: vivid cyan</entry>
+        <entry>Color sample: white</entry>
+        <entry>Colors in the completion auto-popup</entry>
+        <entry>Column</entry>
+        <entry>Column selection mode</entry>
+        <entry>Commit and Push</entry>
+        <entry>Compare responses</entry>
+        <entry>Compare tables</entry>
+        <entry>Compare the connection windows</entry>
+        <entry>Comparing folders</entry>
+        <entry>Comparing local and remote folders</entry>
+        <entry>Compilation database project</entry>
+        <entry>Compiler Properties</entry>
+        <entry>Complete Installation</entry>
+        <entry>Completing HTML tags and attributes</entry>
+        <entry>Completing a method declaration and the code constructs inside it</entry>
+        <entry>Completing enum members to produce equality/flag checks</entry>
+        <entry>Completing interface name with CamelHumps</entry>
+        <entry>Completing mistyped Count property for array</entry>
+        <entry>Completing mistyped Length property for collection</entry>
+        <entry>Completing overrides: generating the method body</entry>
+        <entry>Completing path</entry>
+        <entry>Completion for a class field</entry>
+        <entry>Completion for functions</entry>
+        <entry>Completion of tags in doc comments</entry>
+        <entry>Completion popup</entry>
+        <entry>Composition view of a type pattern</entry>
+        <entry>Conda environment location</entry>
+        <entry>Conda executable location</entry>
+        <entry>Configuration file that uses JSON5 with the default extension .json5</entry>
+        <entry>Configuration selector</entry>
+        <entry>Configure SQL Server in %product%</entry>
+        <entry>Configure code styles per data source</entry>
+        <entry>Configure leading spaces for comments in Go</entry>
+        <entry>Configure pylint as an external tool</entry>
+        <entry>Configure remote Python interpreter</entry>
+        <entry>Configure remote ruby interpreter</entry>
+        <entry>Configure shortcut: find action by name</entry>
+        <entry>Configuring Node.js on WSL as the default project node interpreter</entry>
+        <entry>Configuring a custom configuration file</entry>
+        <entry>Configuring a custom extension</entry>
+        <entry>Configuring checks from the context menu</entry>
+        <entry>Configuring colors for indicating coverage status in the editor</entry>
+        <entry>Configuring custom remote repository</entry>
+        <entry>Configuring files to be ignored by VCS</entry>
+        <entry>Configuring formatting rules for selected code</entry>
+        <entry>Configuring inspection severity for different scopes</entry>
+        <entry>Configuring keyboard shortcut: keymap copied</entry>
+        <entry>Configuring syntax highlighting for C++ identifiers</entry>
+        <entry>Configuring toolchains</entry>
+        <entry>Confirm delete application</entry>
+        <entry>Confirm uploading message</entry>
+        <entry>Connected Unity editor</entry>
+        <entry>Console shows breakpoint hit</entry>
+        <entry>Constants</entry>
+        <entry>Constraints view of a matcher entry</entry>
+        <entry>Context action to add or remove argument names</entry>
+        <entry>Context menu</entry>
+        <entry>Continuous testing status on Visual Studio toolbar</entry>
+        <entry>Controller action live template variables</entry>
+        <entry>Controller live template variables</entry>
+        <entry>Convert Module Groups to Qualified Names dialog</entry>
+        <entry>Convert statement</entry>
+        <entry>Convert xsl:if to xsl:choose</entry>
+        <entry>Convert xsl:if to xsl:choose Result</entry>
+        <entry>Converting a regular annotation to an external annotation</entry>
+        <entry>Copy</entry>
+        <entry>Copy Type refactoring in TypeScript</entry>
+        <entry>Copying found code issues to the clipboard</entry>
+        <entry>Copying fully-qualified type name with %product%</entry>
+        <entry>Copyright profile</entry>
+        <entry>Copyright settings</entry>
+        <entry>Count filter</entry>
+        <entry>Coursera assignments in Android Studio</entry>
+        <entry>Coursera assignments in IntelliJ IDEA</entry>
+        <entry>Coursera credentials</entry>
+        <entry>Coursera token</entry>
+        <entry>Coverage Controller dialog</entry>
+        <entry>Coverage Settings</entry>
+        <entry>Coverage Tree view in the Coverage Results Browser</entry>
+        <entry>Coverage Tree view in the Unit Test Coverage window</entry>
+        <entry>The Create Docker Configuration dialog</entry>
+        <entry>Create Run Configuration</entry>
+        <entry>Create Template</entry>
+        <entry>Create a code style for SQL</entry>
+        <entry>Create a new project</entry>
+        <entry>Create container</entry>
+        <entry>The Create container context menu item</entry>
+        <entry>Create gemset quick fix</entry>
+        <entry>Create run/debug configuration: select the configuration type</entry>
+        <entry>Create view from action</entry>
+        <entry>Creating a Dart application</entry>
+        <entry>Creating a decorator with ReSharper</entry>
+        <entry>Creating a new %product% project by dragging a folder to the Welcome Screen</entry>
+        <entry>Creating a new Flask project</entry>
+        <entry>Creating a new empty project</entry>
+        <entry>Creating a new file type</entry>
+        <entry>Creating a new project</entry>
+        <entry>Creating a project form scratch</entry>
+        <entry>Creating a run/debug configuration for test: selecting the configuration type</entry>
+        <entry>Creating an HTML file according to the HTML5 template</entry>
+        <entry>Creating imports</entry>
+        <entry>Creating new project with CDI support</entry>
+        <entry>Creating type parameter from usage in method parameters</entry>
+        <entry>Creating unit tests with %product%</entry>
+        <entry>Custom Clang-Tidy binary</entry>
+        <entry>Custom Documentation Lookup</entry>
+        <entry>Custom postfix template in action: creating a class for a React component</entry>
+        <entry>Customize Developer Tools</entry>
+        <entry>Customize console colors</entry>
+        <entry>Cygwin installation</entry>
+        <entry>Cygwin toolchain</entry>
+        <entry>DB data source</entry>
+        <entry>DB tool window</entry>
+        <entry>DBHSQLDB</entry>
+        <entry>DSM tool window</entry>
+        <entry>Dashed green arrow</entry>
+        <entry>the Data Sources and Drivers dialog</entry>
+        <entry>Database diagram</entry>
+        <entry>Db2</entry>
+        <entry>Debug</entry>
+        <entry>Debug Unity applications</entry>
+        <entry>Debug configurations</entry>
+        <entry>Debug console output</entry>
+        <entry>Debug in console</entry>
+        <entry>Debug tool window</entry>
+        <entry>Debug you application with the Run Anything action</entry>
+        <entry>Debugger hex view</entry>
+        <entry>Debugger variables</entry>
+        <entry>Debugging</entry>
+        <entry>Debugging Fortran</entry>
+        <entry>Debugging engine installed</entry>
+        <entry>Debugging on the remote server</entry>
+        <entry>Debugging symbols options in Visual Studio</entry>
+        <entry>Default Flask application</entry>
+        <entry>Default HTML language level dialog</entry>
+        <entry>Default color schemes for Java</entry>
+        <entry>Default color schemes for Python</entry>
+        <entry>Default context with Maven refresh</entry>
+        <entry>Define database</entry>
+        <entry>Defining scopes</entry>
+        <entry>Delete</entry>
+        <entry>Delete Image</entry>
+        <entry>Delete unused method</entry>
+        <entry>Deploy</entry>
+        <entry>Deploy All</entry>
+        <entry>Deployed</entry>
+        <entry>Deployment Connection Tab</entry>
+        <entry>Deployment File Transfer</entry>
+        <entry>Deployment Mapping Tab</entry>
+        <entry>Deployment configuration</entry>
+        <entry>Deployment output</entry>
+        <entry>Deployment sync</entry>
+        <entry>Deployment upload</entry>
+        <entry>Derby</entry>
+        <entry>Descending order</entry>
+        <entry>Detach and attach an editor tab</entry>
+        <entry>Detach profiler</entry>
+        <entry>Detailed weather information for Paris</entry>
+        <entry>Details of IL instruction in a tooltip</entry>
+        <entry>Details of specific type on the dependency diagram</entry>
+        <entry>Detected code issues in the Inspection Result window</entry>
+        <entry>Detecting possible architecture problems</entry>
+        <entry>Diagram Structure View</entry>
+        <entry>Diagram editor</entry>
+        <entry>Diagram showing dependencies between runtime beans</entry>
+        <entry>Diff viewer</entry>
+        <entry>Directory</entry>
+        <entry>Disable an intention action on the fly from the context menu</entry>
+        <entry>Disable intention action</entry>
+        <entry>Disabling TSLint rules on the fly by adding disable comments</entry>
+        <entry>Disabling breakpoints</entry>
+        <entry>Disabling localization inspection for project</entry>
+        <entry>Django application output</entry>
+        <entry>Django breakpoint</entry>
+        <entry>Django package is added</entry>
+        <entry>a Django project structure required for behave-django ntegration</entry>
+        <entry>Do refactor</entry>
+        <entry>Do you want to rename the getter?</entry>
+        <entry>Docker Compose remove application</entry>
+        <entry>Docker Compose stop all services</entry>
+        <entry>The Docker Registry dialog</entry>
+        <entry>Docker compose run</entry>
+        <entry>Docker connection settings</entry>
+        <entry>The Docker connection settings</entry>
+        <entry>Docker icon on the Notification bar</entry>
+        <entry>Docker image properties</entry>
+        <entry>Docker images without tags</entry>
+        <entry>Docker node</entry>
+        <entry>Docker settings</entry>
+        <entry>The Docker tool window, connected to Docker</entry>
+        <entry>The Docker tool window, text search</entry>
+        <entry>Docker tool window: pull image</entry>
+        <entry>Docker window</entry>
+        <entry>The Docker-compose configuration</entry>
+        <entry>Documentation tool window</entry>
+        <entry>Dotted grey arrow</entry>
+        <entry>Dotted red arrow</entry>
+        <entry>Download Sources and/or Documentation</entry>
+        <entry>Downloading a library from Maven</entry>
+        <entry>Dropping a frame during a debugging session</entry>
+        <entry>Dump threads</entry>
+        <entry>Duplicate analysis on TeamCity</entry>
+        <entry>Duplicates tool window</entry>
+        <entry>ESLint: errors and warnings are highlighted, the description of a problem is shown in a tooltip.</entry>
+        <entry>Edi Templates</entry>
+        <entry>Edit</entry>
+        <entry>Edit Artifact</entry>
+        <entry>Edit Configuration</entry>
+        <entry>Edit Configurations</entry>
+        <entry>The Edit Deployment Configuration dialog with bind mounts</entry>
+        <entry>The Edit Deployment Configuration dialog with bind ports</entry>
+        <entry>The Edit Deployment Configuration dialog with build-time arguments</entry>
+        <entry>The Edit Deployment Configuration dialog with command-line options</entry>
+        <entry>The Edit Deployment Configuration dialog with environment variables</entry>
+        <entry>Edit Highlighting Pattern dialog</entry>
+        <entry>Edit PHPUnit method template</entry>
+        <entry>The Edit Run Configuration window</entry>
+        <entry>Edit Source</entry>
+        <entry>Edit a regular expression fragment</entry>
+        <entry>Edit filters popup</entry>
+        <entry>Edit interpreter</entry>
+        <entry>The Edit run configuration gutter icon popup</entry>
+        <entry>Edit run configurations</entry>
+        <entry>Edit severity</entry>
+        <entry>Edit the HTML fragment in the dedicated editor</entry>
+        <entry>Edit the injected SQL query in the dedicated editor</entry>
+        <entry>Editing Run/Debug configuration</entry>
+        <entry>Editing a file on a remote host</entry>
+        <entry>Editing a single setting layer</entry>
+        <entry>Editing color values in Style Sheets</entry>
+        <entry>Editing file layout: matcher entry example</entry>
+        <entry>Editor Gutter Popup</entry>
+        <entry>Editor and preview mode</entry>
+        <entry>Editor only mode</entry>
+        <entry>Editor tips</entry>
+        <entry>Edu choose language java</entry>
+        <entry>Edu choose language kotlin</entry>
+        <entry>Edu choose language python</entry>
+        <entry>Edu choose language scala</entry>
+        <entry>Eliminate Duplicates</entry>
+        <entry>Ellipsis</entry>
+        <entry>Enable Gradle script debugging</entry>
+        <entry>Enable TCP/IP connections</entry>
+        <entry>Enable Zooming in the Editor</entry>
+        <entry>Enabling the Run dashboard</entry>
+        <entry>Encoding</entry>
+        <entry>Ensure that the SQL Server Browser is running</entry>
+        <entry>Enter a new line</entry>
+        <entry>Enter the parameter name</entry>
+        <entry>Entering your sudo password</entry>
+        <entry>Enumeration</entry>
+        <entry>The Environment Variables tab</entry>
+        <entry>Error message</entry>
+        <entry>Evaluate expression</entry>
+        <entry>Evaluate expressions</entry>
+        <entry>Evaluating a code fragment</entry>
+        <entry>Event log tool window shows the list of applied ESLint rules</entry>
+        <entry>Example HTTP request</entry>
+        <entry>Example of TODO comment</entry>
+        <entry>Example of TODO comments</entry>
+        <entry>Example of a Markdown fragment</entry>
+        <entry>Example of a regular expression</entry>
+        <entry>Example of a scope created for two attached projects</entry>
+        <entry>Example of completion for abbreviated names</entry>
+        <entry>Example of go generate</entry>
+        <entry>Example of go vet</entry>
+        <entry>Example of goimports</entry>
+        <entry>Example of the ALTER statement completion</entry>
+        <entry>Example of the Extract a method refactoring</entry>
+        <entry>Example of the Extract a variable refactoring</entry>
+        <entry>Example of the INSERT statement completion</entry>
+        <entry>Example of the JOIN statement completion</entry>
+        <entry>Example of the extract a constant refactoring</entry>
+        <entry>Example of the go fmt tool</entry>
+        <entry>Example of using Live Templates</entry>
+        <entry>Example template language inspection for unresolved references</entry>
+        <entry>Example template language intentions for fixing unresolved references</entry>
+        <entry>Example: intention action on C++</entry>
+        <entry>Example: intention action on JavaScript</entry>
+        <entry>Example: intention action on Objective-C</entry>
+        <entry>Example: intention action on Python</entry>
+        <entry>Exception</entry>
+        <entry>Exclude</entry>
+        <entry>Exclude by name pattern</entry>
+        <entry>Exclude file types from search</entry>
+        <entry>Exclude files from search</entry>
+        <entry>Excluded</entry>
+        <entry>Excluded folder</entry>
+        <entry>Excluded root</entry>
+        <entry>Excluding a framework from auto-detection</entry>
+        <entry>Excluding nodes from dotCover coverage results</entry>
+        <entry>The Exec tab with /bin/bash running</entry>
+        <entry>Execute Maven Goal</entry>
+        <entry>Execute a cell</entry>
+        <entry>Execute db:migrate</entry>
+        <entry>Executing pip command</entry>
+        <entry>Executing pipenv command</entry>
+        <entry>Existing Templates dialog</entry>
+        <entry>Existing search templates for HTML</entry>
+        <entry>Exit</entry>
+        <entry>Expand</entry>
+        <entry>Expand All</entry>
+        <entry>Expand all</entry>
+        <entry>Expand surround template</entry>
+        <entry>Expand the node</entry>
+        <entry>Expand word</entry>
+        <entry>Expanding an importitems template and specifying the path and the member</entry>
+        <entry>Expanding the Expression field to evaluate a code fragment</entry>
+        <entry>Exploring assembly metadata with dotPeek</entry>
+        <entry>Export</entry>
+        <entry>Export Test Results</entry>
+        <entry>Export Valgrind results</entry>
+        <entry>Export an item to the bug tracker</entry>
+        <entry>Export to Project dialog</entry>
+        <entry>Export to file</entry>
+        <entry>Extension Manager</entry>
+        <entry>Extension added to Chrome</entry>
+        <entry>External annotations</entry>
+        <entry>External annotations in the editor</entry>
+        <entry>External documentation in browser</entry>
+        <entry>External libraries</entry>
+        <entry>External library</entry>
+        <entry>Extract Field Dialog</entry>
+        <entry>Extract Method dialog</entry>
+        <entry>Extract Module dialog</entry>
+        <entry>Extract Parameter dialog</entry>
+        <entry>Extract Style refactoring in HTML</entry>
+        <entry>Extract Superclass dialog</entry>
+        <entry>Extract a parameter</entry>
+        <entry>Extract and initialize field</entry>
+        <entry>Extract field</entry>
+        <entry>Extract method dialog</entry>
+        <entry>Extract method in C++: Extracted method</entry>
+        <entry>Extract method in C++: Selecting expression</entry>
+        <entry>Extract method in C++: Specifying method details</entry>
+        <entry>Extract parameter</entry>
+        <entry>Extract variable</entry>
+        <entry>Failed tests</entry>
+        <entry>Failed tests in the TeamCity web interface</entry>
+        <entry>Failed to configure toolchains</entry>
+        <entry>Favorites window</entry>
+        <entry>Feature is available</entry>
+        <entry>Feature is not available</entry>
+        <entry>Fetch a source with go modules</entry>
+        <entry>Field</entry>
+        <entry>Fields</entry>
+        <entry>File Templates dialog</entry>
+        <entry>File Transfer tool window</entry>
+        <entry>File Transfer window</entry>
+        <entry>File Watcher Error Message</entry>
+        <entry>File mask</entry>
+        <entry>File mask search</entry>
+        <entry>File structure</entry>
+        <entry>File structure for a .RESX file</entry>
+        <entry>File type settings</entry>
+        <entry>Files with various statuses in the Version Control tool window</entry>
+        <entry>Filter</entry>
+        <entry>Filter Inspections</entry>
+        <entry>Filter TODO Items</entry>
+        <entry>Filter menu</entry>
+        <entry>The Filter menu</entry>
+        <entry>Filtering members in type hierarchy</entry>
+        <entry>Filters</entry>
+        <entry>Filters in completion pop-up</entry>
+        <entry>Final Java class</entry>
+        <entry>Final class</entry>
+        <entry>Final output</entry>
+        <entry>Final settings in extract method dialog</entry>
+        <entry>Find</entry>
+        <entry>Find Action</entry>
+        <entry>Find Action Registy</entry>
+        <entry>Find Action popup</entry>
+        <entry>Find Usages</entry>
+        <entry>Find Usages dialog (settings for Find Usages)</entry>
+        <entry>Find Usages for Fortran</entry>
+        <entry>Find action popup</entry>
+        <entry>Find all</entry>
+        <entry>Find in path</entry>
+        <entry>Find the New Scratch Buffer action</entry>
+        <entry>Find tool window</entry>
+        <entry>Find tool window preview area</entry>
+        <entry>Find tool window the results for boxed expression</entry>
+        <entry>Find usage</entry>
+        <entry>Find usage dialog</entry>
+        <entry>Find usages</entry>
+        <entry>Finding NuGet package by namespace with %product%</entry>
+        <entry>Finding NuGet packages by type with %product%</entry>
+        <entry>Finding naming style violations</entry>
+        <entry>Firefox</entry>
+        <entry>Firefox version 61 and earlier: type Listen 6000</entry>
+        <entry>First Run</entry>
+        <entry>Fit Content</entry>
+        <entry>Fix Rubocop offences</entry>
+        <entry>Fix in scope: bulk rename</entry>
+        <entry>Fixing implicit internal modifier</entry>
+        <entry>Fixing implicit private modifier</entry>
+        <entry>Fixing naming style violations</entry>
+        <entry>Fixing regex error with %product%</entry>
+        <entry>Flatten Modules</entry>
+        <entry>Flatten Packages</entry>
+        <entry>Folded fragment</entry>
+        <entry>Folder</entry>
+        <entry>For educator</entry>
+        <entry>Formatted macro expansion in quick documentation popup</entry>
+        <entry>Formatting markers</entry>
+        <entry>Found Occurrences in the Find tool window</entry>
+        <entry>Frame selection</entry>
+        <entry>Full signatures enabled</entry>
+        <entry>Function Completion</entry>
+        <entry>General tool window layout</entry>
+        <entry>Generate DDL definitions for database objects</entry>
+        <entry>Generate PHPDoc</entry>
+        <entry>Generate Sources and Update Folders for All Projects</entry>
+        <entry>Generate aliases</entry>
+        <entry>Generate code</entry>
+        <entry>Generated Sources Root</entry>
+        <entry>Generated Test Sources Root</entry>
+        <entry>Generated Test Sources root</entry>
+        <entry>Generating Angular CLI schematic: code completion and description is provided</entry>
+        <entry>Generating C++ field from usage</entry>
+        <entry>Generating Google Mock Methods</entry>
+        <entry>Generating Rails Application for a project</entry>
+        <entry>Generating a constructor</entry>
+        <entry>Generating constructors for C++ class</entry>
+        <entry>Generating copy and move actions for a C++ class</entry>
+        <entry>Generating declaration for C++ class member</entry>
+        <entry>Generating equality comparer with %product%</entry>
+        <entry>Generating equality members</entry>
+        <entry>Generating event subscriptions in VB.NET</entry>
+        <entry>Generating getters and setters for C++ class</entry>
+        <entry>Generating implementation for a function</entry>
+        <entry>Generating missing case statements in C++</entry>
+        <entry>Generating missing members for a C++ class</entry>
+        <entry>Generating overriding members for a C++ class</entry>
+        <entry>Generating partial members</entry>
+        <entry>Generating type members with %product%</entry>
+        <entry>Generative completion in C++</entry>
+        <entry>Get Performance Snapshot Rider</entry>
+        <entry>Git Login</entry>
+        <entry>Git file status</entry>
+        <entry>GitHub Pull Requests wool window</entry>
+        <entry>Give the variable a name</entry>
+        <entry>Global File Watcher</entry>
+        <entry>Go To File</entry>
+        <entry>Go To Symbol</entry>
+        <entry>Go to Declaration</entry>
+        <entry>Go to Declaration with Ctrl+click</entry>
+        <entry>Go to code</entry>
+        <entry>Go to declaration</entry>
+        <entry>Go to file</entry>
+        <entry>Go to symbol</entry>
+        <entry>Go to view</entry>
+        <entry>Goto Symbol</entry>
+        <entry>Gradle project initial settings</entry>
+        <entry>Grey triangle</entry>
+        <entry>Groovy class</entry>
+        <entry>Group By Scope Type</entry>
+        <entry>Group by Prefix</entry>
+        <entry>Group by Severity</entry>
+        <entry>Group by file structure</entry>
+        <entry>the Group by file structure button</entry>
+        <entry>Group by module</entry>
+        <entry>Group names completion</entry>
+        <entry>Group of modules</entry>
+        <entry>Group tabs result</entry>
+        <entry>Grouped run configurations</entry>
+        <entry>Grouping and sorting build results</entry>
+        <entry>Gutter icon for overriding method</entry>
+        <entry>H2</entry>
+        <entry>HTML descriptions in documentation for JSON schema definitions with x-intellij-html-description property</entry>
+        <entry>HTML injection comment</entry>
+        <entry>HTML quick documentation: compatible browsers are listed</entry>
+        <entry>HTML quick documentation: status Deprecated for &amp;lt;big&amp;gt; tag</entry>
+        <entry>Hector tooltip</entry>
+        <entry>Hello Rails</entry>
+        <entry>The Help menu</entry>
+        <entry>The Heroku cloud settings</entry>
+        <entry>Heroku credentials</entry>
+        <entry>Heroku deployment configuration</entry>
+        <entry>Hide</entry>
+        <entry>Hide system functions</entry>
+        <entry>Hide tool windows</entry>
+        <entry>Hide warnings</entry>
+        <entry>Hide/Show Chessboard</entry>
+        <entry>Hierarchy of C++ includes</entry>
+        <entry>Hierarchy of project references</entry>
+        <entry>Highlight Usages in File</entry>
+        <entry>Highlight an instance of the duplicate code</entry>
+        <entry>Highlighted hard-coded string literal</entry>
+        <entry>Highlighting Python syntax in the code block</entry>
+        <entry>Highlighting after adjusting colors</entry>
+        <entry>Highlighting and breadcrumbs for JSX tags in a React application</entry>
+        <entry>Highlighting before adjusting colors</entry>
+        <entry>Highlighting in a XML/HTML tag tree</entry>
+        <entry>Highlighting level popup</entry>
+        <entry>Highlighting mode list</entry>
+        <entry>Highlighting of JSDoc comments</entry>
+        <entry>Highlighting of escape sequence in a string</entry>
+        <entry>Highlighting of escape sequence in a template string</entry>
+        <entry>Highlighting of escape sequence in strings</entry>
+        <entry>Highlighting of regular expressions</entry>
+        <entry>Highlighting regular expressions in arguments</entry>
+        <entry>Hippie completion</entry>
+        <entry>Hot Spots view in the Coverage Results Browser</entry>
+        <entry>Hot Spots view in the Unit Test Coverage window</entry>
+        <entry>Hot spot session after applying quick-fix</entry>
+        <entry>Hot spot session deployed</entry>
+        <entry>How a Kubernetes resource file is recognized</entry>
+        <entry>How to add a custom plugin repository</entry>
+        <entry>IDEA.gif</entry>
+        <entry>IL Viewer window</entry>
+        <entry>Icon</entry>
+        <entry>Icon arrow left</entry>
+        <entry>Icon arrow right</entry>
+        <entry>Icon equal</entry>
+        <entry>Icon for quick access to tool windows</entry>
+        <entry>Icon not equal</entry>
+        <entry>Ignoring assignment in condition</entry>
+        <entry>Illustration</entry>
+        <entry>Implementing interface members in %lang%</entry>
+        <entry>Import CMake project</entry>
+        <entry>Import Project wizard</entry>
+        <entry>Import TSLint code style rules from the editor: context menu</entry>
+        <entry>Import Tests from File</entry>
+        <entry>Import file</entry>
+        <entry>Importing ESLint code style rules from JavaScript or YAML configuration files</entry>
+        <entry>Importing a live template in IntelliJ IDEA</entry>
+        <entry>Importing missing namespace in %lang%</entry>
+        <entry>Importing the NotNull attribute with code completion</entry>
+        <entry>In CLion Clang-Tidy works on-the-fly</entry>
+        <entry>Incert cell below</entry>
+        <entry>Include Test Dependencies</entry>
+        <entry>Incoming debugger connection Xdebug</entry>
+        <entry>Incorrect Callable format</entry>
+        <entry>Index</entry>
+        <entry>Indexing</entry>
+        <entry>Inject HTML code in a Python script</entry>
+        <entry>Inject an SQL query in a Ruby script</entry>
+        <entry>Injecting inside nowdoc/heredoc</entry>
+        <entry>Injecting with the lang annotation</entry>
+        <entry>Inline XAML Resource refactoring</entry>
+        <entry>Inline unnecessary method</entry>
+        <entry>Inline unnecessary variable</entry>
+        <entry>Inserting a doc comment</entry>
+        <entry>Inspect This list</entry>
+        <entry>Inspecting %lang% issues in specific scope</entry>
+        <entry>Inspecting watches</entry>
+        <entry>Inspection Options dialog</entry>
+        <entry>Inspection [name of inspection] sub-menu</entry>
+        <entry>Inspection options</entry>
+        <entry>Inspection results</entry>
+        <entry>Inspection scope</entry>
+        <entry>Inspection scopes</entry>
+        <entry>The Inspection tab</entry>
+        <entry>Inspections for finding unused code</entry>
+        <entry>Install</entry>
+        <entry>Install Cython extensions</entry>
+        <entry>Install Rubocop</entry>
+        <entry>Install a package</entry>
+        <entry>Install gems for debugging</entry>
+        <entry>Install rails gem</entry>
+        <entry>Installation step - select preferred SQL dialect</entry>
+        <entry>Installing EduTools</entry>
+        <entry>Installing a Python package</entry>
+        <entry>Installing packages required for the application</entry>
+        <entry>Integration with Amazon Redshift</entry>
+        <entry>Integration with Cassandra</entry>
+        <entry>Integration with ClickHouse</entry>
+        <entry>Integration with Db2</entry>
+        <entry>Integration with Derby</entry>
+        <entry>Integration with Exasol</entry>
+        <entry>Integration with H2</entry>
+        <entry>Integration with HSQLDB</entry>
+        <entry>Integration with Heroku Postgres</entry>
+        <entry>Integration with MariaDB</entry>
+        <entry>Integration with MySQL</entry>
+        <entry>Integration with Oracle</entry>
+        <entry>Integration with PostgreSQL</entry>
+        <entry>Integration with SQL Server</entry>
+        <entry>Integration with Sybase</entry>
+        <entry>Integration with go modules</entry>
+        <entry>IntelliSense for JSDoc keywords</entry>
+        <entry>Intention Action</entry>
+        <entry>Intention action for hard-coded string literals</entry>
+        <entry>Intentions settings</entry>
+        <entry>Interface</entry>
+        <entry>Internal entity usage</entry>
+        <entry>The Internationalize Hardcoded String dialog</entry>
+        <entry>Interpreter</entry>
+        <entry>Interpreter settings</entry>
+        <entry>Interrupt kernel</entry>
+        <entry>Introducing variable for substring</entry>
+        <entry>JSON schema downloaded from JSON Schema Store, the name of the applied schema is shown in the Status bar</entry>
+        <entry>JUnit Tool Window</entry>
+        <entry>Java class excluded from compilation</entry>
+        <entry>Java class located out of the Sources root</entry>
+        <entry>Java class with the Main method</entry>
+        <entry>JavaScript Debug configuration</entry>
+        <entry>JavaScript postfix templates</entry>
+        <entry>Javadoc reference generation dialog</entry>
+        <entry>Jest snapshots: compare the expected and actual snapshots in the %product% Difference Viewer</entry>
+        <entry>JetBrains Chrome Extension</entry>
+        <entry>JetBrains Chrome extension</entry>
+        <entry>Jets snapshot testing: jump from a test file to the corresponding snapshot</entry>
+        <entry>Join a course</entry>
+        <entry>Jump to Source</entry>
+        <entry>Jump to the failure line from a failed Jest test</entry>
+        <entry>Jump to the selected definition</entry>
+        <entry>Jupiter Notebook start dialog</entry>
+        <entry>Jupyter is set up in your project</entry>
+        <entry>Jupyter notebook is running in the console</entry>
+        <entry>Jupyter notebook kernel</entry>
+        <entry>Jupyter notebook toolbar</entry>
+        <entry>Jupyter server is running</entry>
+        <entry>Key modules of the Flask Web application</entry>
+        <entry>Kill processes</entry>
+        <entry>Language Defaults section under Color Scheme settings</entry>
+        <entry>Language injection settings</entry>
+        <entry>Language injections in C# strings with comments</entry>
+        <entry>Language injections settings</entry>
+        <entry>Language: ASP.NET</entry>
+        <entry>Language: Build Scripts</entry>
+        <entry>Language: C#</entry>
+        <entry>Language: C++</entry>
+        <entry>Language: C/C++</entry>
+        <entry>Language: CSS</entry>
+        <entry>Language: HTML</entry>
+        <entry>Language: JSON</entry>
+        <entry>Language: JavaScript</entry>
+        <entry>Language: Obj/C++</entry>
+        <entry>Language: Protobuf</entry>
+        <entry>Language: Python</entry>
+        <entry>Language: Razor</entry>
+        <entry>Language: Resx</entry>
+        <entry>Language: TypeScript</entry>
+        <entry>Language: VB.NET</entry>
+        <entry>Language: XAML</entry>
+        <entry>Language: XML</entry>
+        <entry>Language: YAML</entry>
+        <entry>LeakSanitizer</entry>
+        <entry>Leave a comment</entry>
+        <entry>Level up</entry>
+        <entry>Library</entry>
+        <entry>The License Activation dialog</entry>
+        <entry>The Licenses dialog</entry>
+        <entry>Limited search</entry>
+        <entry>Line Separator for new files</entry>
+        <entry>Line number</entry>
+        <entry>Link to an atom</entry>
+        <entry>Links that lack reference targets</entry>
+        <entry>Linux native menu enabled for the IDE</entry>
+        <entry>List of targets for Gradle Native Application</entry>
+        <entry>Live template Ruby</entry>
+        <entry>Live template body</entry>
+        <entry>Live template for a Python code snippet</entry>
+        <entry>Live template for a React component</entry>
+        <entry>Live template settings page</entry>
+        <entry>Live templates in PhpStorm IDE</entry>
+        <entry>Live templates in WebStorm IDE</entry>
+        <entry>Livelock snapshot</entry>
+        <entry>Load Path Root</entry>
+        <entry>Local Changes diagram</entry>
+        <entry>Local History</entry>
+        <entry>Login form</entry>
+        <entry>Look around</entry>
+        <entry>The Low Memory warning</entry>
+        <entry>Magnifier tool</entry>
+        <entry>Main elements of the IDE window</entry>
+        <entry>The Main window</entry>
+        <entry>Make auto-property get-only fix</entry>
+        <entry>Make field readonly quick-fix</entry>
+        <entry>Make non-readonly fix</entry>
+        <entry>Manage JDK modules</entry>
+        <entry>Manage Python SDK modules</entry>
+        <entry>Manging the window appearance</entry>
+        <entry>Mark Illegal</entry>
+        <entry>Mark all as read</entry>
+        <entry>Markdown complete a link</entry>
+        <entry>Markdown completion in fenced code blocks</entry>
+        <entry>Markdown custom CSS settings</entry>
+        <entry>Markdown insert a fenced code block</entry>
+        <entry>Marker bar</entry>
+        <entry>Markup error detected</entry>
+        <entry>Maven Settings</entry>
+        <entry>Maven logo</entry>
+        <entry>Members preview in the Hierarchy window</entry>
+        <entry>The Memory Settings dialog</entry>
+        <entry>MemorySanitizer</entry>
+        <entry>Menu information</entry>
+        <entry>Merge usages from the same line</entry>
+        <entry>Merging a variable declaration with its initialization using an intention action</entry>
+        <entry>Merging nested 'if' statements in C++</entry>
+        <entry>Metadata token values displayed by dotPeek</entry>
+        <entry>Meteo database</entry>
+        <entry>Method</entry>
+        <entry>Method Separators in Editor</entry>
+        <entry>Method is used in a test</entry>
+        <entry>Methods</entry>
+        <entry>Migration fields</entry>
+        <entry>MinGW installation</entry>
+        <entry>Missing Argument QuickFixes</entry>
+        <entry>Missing Template-Invocation Argument</entry>
+        <entry>Missing VCS root notification</entry>
+        <entry>Missing XPath Function Argument</entry>
+        <entry>Missing gems notification</entry>
+        <entry>Modification is applicable</entry>
+        <entry>Modify source</entry>
+        <entry>Modularity with %product%</entry>
+        <entry>Module</entry>
+        <entry>More rename settings</entry>
+        <entry>Move Class dialog</entry>
+        <entry>the Move Class dialog</entry>
+        <entry>Move Down</entry>
+        <entry>Move Instance Method Dialog</entry>
+        <entry>Move Up</entry>
+        <entry>Move cell down</entry>
+        <entry>Move cell up</entry>
+        <entry>Move dialog</entry>
+        <entry>Move down</entry>
+        <entry>Move instance method dialog</entry>
+        <entry>Move into new folder / Create new folder</entry>
+        <entry>Move members dialog</entry>
+        <entry>Move to Another File refactoring in HTML</entry>
+        <entry>Move up</entry>
+        <entry>Moving CSS ruleset to another file</entry>
+        <entry>Moving implementation out of class scope to the source file</entry>
+        <entry>Moving statement</entry>
+        <entry>Moving to the next template parameter</entry>
+        <entry>Moving type to matching file</entry>
+        <entry>Moving types into separate files in one go</entry>
+        <entry>Multi-line</entry>
+        <entry>Multi-line search</entry>
+        <entry>Multiline TODO comments</entry>
+        <entry>Multiline TODO comments example</entry>
+        <entry>Multiple attributes quick-fix</entry>
+        <entry>Multiselection</entry>
+        <entry>MySQL</entry>
+        <entry>Named colors</entry>
+        <entry>Namespace import quick-fix</entry>
+        <entry>Naming style settings in %product% options</entry>
+        <entry>Navigate from view to controller</entry>
+        <entry>Navigate to DDL</entry>
+        <entry>Navigate to Database tree</entry>
+        <entry>Navigating by using the left-hand gutter</entry>
+        <entry>Navigating from stack trace to exception</entry>
+        <entry>Navigating to action</entry>
+        <entry>Navigating to control flow target</entry>
+        <entry>Navigating to function exits</entry>
+        <entry>Navigating to implementing members</entry>
+        <entry>Navigating to overloads of a member</entry>
+        <entry>Navigating to recently modified items</entry>
+        <entry>Navigating to specializations of a template</entry>
+        <entry>Navigating to substitutions of generics</entry>
+        <entry>Navigating to type's extension methods</entry>
+        <entry>Navigation</entry>
+        <entry>New</entry>
+        <entry>New Directory</entry>
+        <entry>New Erb File</entry>
+        <entry>New File dialog</entry>
+        <entry>New Project dialog</entry>
+        <entry>New Project dialog / Empty</entry>
+        <entry>New Project dialog / Rails</entry>
+        <entry>The New Project wizard: step one</entry>
+        <entry>New Rails Application</entry>
+        <entry>New Ruby Class</entry>
+        <entry>New Rust project in CLion</entry>
+        <entry>The New Scratch Buffer action</entry>
+        <entry>New Watch</entry>
+        <entry>New class</entry>
+        <entry>New file</entry>
+        <entry>New file from template</entry>
+        <entry>New highlight severity</entry>
+        <entry>New local interpreter</entry>
+        <entry>New remote interpreter</entry>
+        <entry>New run/debug configuration</entry>
+        <entry>New session in the terminal</entry>
+        <entry>New version is available</entry>
+        <entry>Newly added WSL interpreter</entry>
+        <entry>Next</entry>
+        <entry>Next Failed Test</entry>
+        <entry>Next TODO</entry>
+        <entry>Next failed test</entry>
+        <entry>Next occurence</entry>
+        <entry>No JSON schema for the current file</entry>
+        <entry>No formatting in documentation for JSON schema definitions with description property</entry>
+        <entry>No more usages of the method</entry>
+        <entry>No sorting</entry>
+        <entry>Node.js application with nodemon running in the debug mode: check the port</entry>
+        <entry>Node.js run/debug configuration: Log tab</entry>
+        <entry>Normal quick-fixes for missing namespace import</entry>
+        <entry>Not supported</entry>
+        <entry>Notebook is in a browser</entry>
+        <entry>Notification about conflicting schema scopes in Settings/Preferences dialog</entry>
+        <entry>Notification about conflicting schema scopes in the editor</entry>
+        <entry>Notifications shown in the console</entry>
+        <entry>Now this code is a duplicate of the updated method</entry>
+        <entry>The Object Filter field in data source options</entry>
+        <entry>On-the-fly analysis for Rust code</entry>
+        <entry>Open</entry>
+        <entry>Open Find Usages Tool window</entry>
+        <entry>Open HTTP Requests Collection popup</entry>
+        <entry>Open a project</entry>
+        <entry>Open as Tool Window</entry>
+        <entry>Open menu</entry>
+        <entry>Open project in new window prompt</entry>
+        <entry>Open recent projects</entry>
+        <entry>Open snapshot</entry>
+        <entry>Open the project in the current window, new window, or attach it to the existing project</entry>
+        <entry>Opening HTTP request mappings from the Run dashboard</entry>
+        <entry>Opening HTTP request mappings in the Request editor</entry>
+        <entry>Opening NuGet packages from an online package source</entry>
+        <entry>Opening an Angular application and downloading the dependencies from package.json</entry>
+        <entry>Opening recent projects in the Run Anything dialog</entry>
+        <entry>Opera</entry>
+        <entry>Options</entry>
+        <entry>Options for build output window</entry>
+        <entry>Options for checks</entry>
+        <entry>Oracle</entry>
+        <entry>Orange triangle</entry>
+        <entry>Own fields</entry>
+        <entry>PDB Generation dialog</entry>
+        <entry>PHP Exception breakpoint</entry>
+        <entry>PHP test</entry>
+        <entry>PHP trait</entry>
+        <entry>The PSI Viewer dialog</entry>
+        <entry>Package</entry>
+        <entry>Pane above package.json: apply Prettier code style</entry>
+        <entry>Parameter</entry>
+        <entry>Parameter Completion</entry>
+        <entry>Parameter hints</entry>
+        <entry>Parameter hints in JavaScript</entry>
+        <entry>Parameter info popup</entry>
+        <entry>Parameter information for a method with many overloads</entry>
+        <entry>Partial commit changelists</entry>
+        <entry>Partial commit dialog</entry>
+        <entry>Passed tests</entry>
+        <entry>Pasting items from clipboard history</entry>
+        <entry>Path Variables dialog</entry>
+        <entry>Path mapping</entry>
+        <entry>Path mappings verification</entry>
+        <entry>Path to the pipenve executable is autodetected</entry>
+        <entry>Pattern Check</entry>
+        <entry>Pattern catalog in %product% options</entry>
+        <entry>Performance Profiler. Snapshot analysis</entry>
+        <entry>Personal build in TeamCity web UI</entry>
+        <entry>Picking a color</entry>
+        <entry>Pin</entry>
+        <entry>Pipenv inspection</entry>
+        <entry>Placeholders in structural search and replace patterns</entry>
+        <entry>PlantUML diagrams in markdown</entry>
+        <entry>Platform and Plugin Updates</entry>
+        <entry>The Plugins settings dialog</entry>
+        <entry>Pop-up with suggested templates</entry>
+        <entry>The Port Bindings tab</entry>
+        <entry>PostgreSQL</entry>
+        <entry>Preferences for member qualifiers</entry>
+        <entry>Prefix</entry>
+        <entry>Preview Diff</entry>
+        <entry>Preview Source</entry>
+        <entry>Preview available commands</entry>
+        <entry>The Preview changes window</entry>
+        <entry>Preview expression type</entry>
+        <entry>Preview only mode</entry>
+        <entry>Preview the Hello World app</entry>
+        <entry>Preview the page</entry>
+        <entry>Preview the rename</entry>
+        <entry>Preview type definition</entry>
+        <entry>Previewing a scatter chart</entry>
+        <entry>Previous</entry>
+        <entry>Previous Failed Test</entry>
+        <entry>Previous TODO</entry>
+        <entry>Previous failed test</entry>
+        <entry>Previous occurence</entry>
+        <entry>Print</entry>
+        <entry>Print Graph</entry>
+        <entry>Print Preview</entry>
+        <entry>Private</entry>
+        <entry>Productivity Guide</entry>
+        <entry>Profile Unit Tests</entry>
+        <entry>Profiler</entry>
+        <entry>Profiler popup informing that the data is ready</entry>
+        <entry>Profiling configurations in Rider</entry>
+        <entry>Project Architecture View window</entry>
+        <entry>Project Structure</entry>
+        <entry>Project Structure dialog / Module page</entry>
+        <entry>Project configurable</entry>
+        <entry>Project files</entry>
+        <entry>Project interpreter</entry>
+        <entry>Project page of the Project Structure dialog</entry>
+        <entry>The Project tab of the Project Structure dialog</entry>
+        <entry>Project view</entry>
+        <entry>Project view, Editor, and Tool Windows</entry>
+        <entry>Project-wide completion for CSS symbols in HTML</entry>
+        <entry>Properties</entry>
+        <entry>Property</entry>
+        <entry>Protected</entry>
+        <entry>Public</entry>
+        <entry>The Pull Image context menu item</entry>
+        <entry>The Pull Image dialog</entry>
+        <entry>Pull Members Up dialog</entry>
+        <entry>Pull members up error 1</entry>
+        <entry>Pull members up error 2</entry>
+        <entry>The Push Image context menu item</entry>
+        <entry>The Push Image dialog</entry>
+        <entry>Push Members Down dialog</entry>
+        <entry>Push image</entry>
+        <entry>Push members down error 2</entry>
+        <entry>Push members down error 3</entry>
+        <entry>Push the log to the tracker</entry>
+        <entry>Pytest run</entry>
+        <entry>Python console</entry>
+        <entry>Quick Definition Lookup for XML</entry>
+        <entry>Quick Definition popup</entry>
+        <entry>Quick Documentation Lookup</entry>
+        <entry>Quick Documentation Settings</entry>
+        <entry>Quick Documentation Window</entry>
+        <entry>Quick Documentation popup</entry>
+        <entry>Quick access to tool windows</entry>
+        <entry>Quick definition</entry>
+        <entry>Quick definition popup</entry>
+        <entry>Quick definition view</entry>
+        <entry>Quick documentation</entry>
+        <entry>Quick documentation for Rust code</entry>
+        <entry>Quick documentation look-up for packages</entry>
+        <entry>Quick documentation popup</entry>
+        <entry>Quick fix that help you add or remove argument names</entry>
+        <entry>Quick-fix for adding reference to the JetBrains.Annotations module</entry>
+        <entry>Quick-fix for naming style violation</entry>
+        <entry>Quick-fix for the string formatting method call</entry>
+        <entry>Quick-fixes for code issues in %product%</entry>
+        <entry>QuickFixes for Unresolved Variables</entry>
+        <entry>Rails application in a browser</entry>
+        <entry>Rails default page</entry>
+        <entry>Rails server output</entry>
+        <entry>ReSharper breakpoints window</entry>
+        <entry>ReSharper code analysis on TeamCity</entry>
+        <entry>ReSharper commands in the Quick Launch box</entry>
+        <entry>ReSharper features for Google Protocol Buffers (Protobuf) in .proto files</entry>
+        <entry>ReSharper features in Visual Studio editor</entry>
+        <entry>ReSharper helps adding missing includes automatically</entry>
+        <entry>ReSharper helps creating XAML resources from usage</entry>
+        <entry>ReSharper helps fix namespaces in a project</entry>
+        <entry>ReSharper helps removing unused XAML resources</entry>
+        <entry>ReSharper lets you quickly rearrange elements in a XAML file</entry>
+        <entry>ReSharper menu in Visual Studio</entry>
+        <entry>ReSharper quick-fix to synchronize namespace to the file location</entry>
+        <entry>ReSharper refactorings in XAML code</entry>
+        <entry>ReSharper showing JSDoc comments in a tooltip</entry>
+        <entry>ReSharper shows structure of a XAML file</entry>
+        <entry>ReSharper's NuGet package browser</entry>
+        <entry>ReSharper's Rename refactoring for static resources in XAML code</entry>
+        <entry>ReSharper's action indicators (gutter marks in a C++ file</entry>
+        <entry>ReSharper's context actions in XAML code of a Universal App</entry>
+        <entry>ReSharper's custom code inspections. Raw inspection pattern</entry>
+        <entry>ReSharper's navigation features in XAML code</entry>
+        <entry>ReSharper: Angular HTML template language support</entry>
+        <entry>React Native Run/Debug Configuration</entry>
+        <entry>Read an assignment description</entry>
+        <entry>Read-only</entry>
+        <entry>Read-only class</entry>
+        <entry>Reanalyze Dart Sources</entry>
+        <entry>Rearranging JavaScript code</entry>
+        <entry>Recent Changes</entry>
+        <entry>Recompilation failed</entry>
+        <entry>Recompilation successful</entry>
+        <entry>Recompile from the main menu</entry>
+        <entry>Recompile from the right-click menu</entry>
+        <entry>Redeploy</entry>
+        <entry>Redeployed application in browser</entry>
+        <entry>Redirecting data from a text file in standard input</entry>
+        <entry>Redundant call to string formatting method</entry>
+        <entry>Redundant nullability check for collection item</entry>
+        <entry>Refactor This list</entry>
+        <entry>Refactor a Python module to a package</entry>
+        <entry>Refactor duplicate code</entry>
+        <entry>Refactor this popup</entry>
+        <entry>Refactoring Preview window</entry>
+        <entry>Reference filter</entry>
+        <entry>Reformat Code in the Find Action dialog</entry>
+        <entry>Reformat code</entry>
+        <entry>Reformatting currently selected code</entry>
+        <entry>Refresh</entry>
+        <entry>Regex injection in C# string with comment</entry>
+        <entry>Regex search and replace fields</entry>
+        <entry>Register New File Type dialog</entry>
+        <entry>Registering a new file type</entry>
+        <entry>Registry Hex View</entry>
+        <entry>Regular expression error</entry>
+        <entry>Reimport All Maven Projects</entry>
+        <entry>Reinstalling a package with ng add</entry>
+        <entry>Reload</entry>
+        <entry>Reload classes?</entry>
+        <entry>Reload scripts</entry>
+        <entry>Reload tasks</entry>
+        <entry>Reload the interpreter paths</entry>
+        <entry>Remote Hosts tool window</entry>
+        <entry>Remote Run/Debug Configuration</entry>
+        <entry>Remote debugging</entry>
+        <entry>Remote interpreter via Deployment Configuration dialog</entry>
+        <entry>Remote interpreter via Docker dialog</entry>
+        <entry>Remote interpreter via SSH Credentials dialog</entry>
+        <entry>Remote interpreter via Vagrant dialog</entry>
+        <entry>Remove</entry>
+        <entry>Remove Association</entry>
+        <entry>Remove Configuration</entry>
+        <entry>Remove Gruntfile</entry>
+        <entry>Remove a param tag</entry>
+        <entry>Remove a project from the list of the recent projects on the Welcome Screen</entry>
+        <entry>Remove a recent project from the list of the recent projects</entry>
+        <entry>Remove content root</entry>
+        <entry>Remove extension from Chrome</entry>
+        <entry>Remove from the project view</entry>
+        <entry>Remove item</entry>
+        <entry>Remove redundant code quick-fix</entry>
+        <entry>Remove the path</entry>
+        <entry>Removed application in browser</entry>
+        <entry>Removing redundant parentheses</entry>
+        <entry>Removing region/endregion directives</entry>
+        <entry>Removing region/endregion directives in the whole solution</entry>
+        <entry>Removing unused #include directives</entry>
+        <entry>Rename dialog</entry>
+        <entry>Rename method</entry>
+        <entry>Rename parameter in code and comments</entry>
+        <entry>Rename refactoring for classes in HTML</entry>
+        <entry>Rename refactoring in TypeScript</entry>
+        <entry>Rename the class</entry>
+        <entry>Rename the field</entry>
+        <entry>Rename the method</entry>
+        <entry>Rename the updated method</entry>
+        <entry>Renaming file to match type name</entry>
+        <entry>Renaming interpreter</entry>
+        <entry>Renaming local variable</entry>
+        <entry>Reordering columns</entry>
+        <entry>Replace Anonymous Type with Named Class</entry>
+        <entry>Replace from left</entry>
+        <entry>Replace from right</entry>
+        <entry>Replace in file pane</entry>
+        <entry>Replace in path dialog</entry>
+        <entry>Replace template filter</entry>
+        <entry>Replace with regex result</entry>
+        <entry>Replacement hints</entry>
+        <entry>Replacing all occurrences</entry>
+        <entry>Replacing constructor with a factory method</entry>
+        <entry>Replacing dot with arrow in completion</entry>
+        <entry>Required plugin is disabled</entry>
+        <entry>Required plugin not installed warning</entry>
+        <entry>Rerun</entry>
+        <entry>Rerun Failed Tests</entry>
+        <entry>Rerun a failed Karma test</entry>
+        <entry>Rerun the kernel</entry>
+        <entry>Reset an assignment</entry>
+        <entry>Resolve conflicts</entry>
+        <entry>Resolve contexts</entry>
+        <entry>Resolving conflicts</entry>
+        <entry>Resolving refactoring conflicts</entry>
+        <entry>Resource bundle</entry>
+        <entry>Resource bundle editor</entry>
+        <entry>Resource bundle editor tab</entry>
+        <entry>Resource root</entry>
+        <entry>Resources Root</entry>
+        <entry>Restart Dart Analysis Server</entry>
+        <entry>Restart kernel</entry>
+        <entry>Restore layout</entry>
+        <entry>Resume Program</entry>
+        <entry>Revert changes</entry>
+        <entry>Rider. removing solution from the recent history</entry>
+        <entry>Rider: Build configuration selector on the toolbar</entry>
+        <entry>Rider: Code formatting settings</entry>
+        <entry>Rider: Dependencies of the selected NuGet package</entry>
+        <entry>Rider: choosing NuGet package sources</entry>
+        <entry>Rider: managing NuGet packages</entry>
+        <entry>Rin as cell</entry>
+        <entry>Rollback Local Changes</entry>
+        <entry>RuboCop intentions</entry>
+        <entry>Rubocop warning</entry>
+        <entry>Ruby SDK and Gems page</entry>
+        <entry>Ruby SDK and Gems page for RVM</entry>
+        <entry>Ruby SDK and Gems page for asdf</entry>
+        <entry>Ruby SDK and Gems page for chruby</entry>
+        <entry>Ruby SDK and Gems page for rbenv</entry>
+        <entry>Ruby SDK and Gems page for the specified project</entry>
+        <entry>Run</entry>
+        <entry>Run Anything</entry>
+        <entry>Run Anything / bundle install</entry>
+        <entry>Run Anything / gem install bundler</entry>
+        <entry>Run Anything / rake db:migrate</entry>
+        <entry>Run Anything / run configuration</entry>
+        <entry>Run Anything action</entry>
+        <entry>Run Anything command</entry>
+        <entry>Run Anything dialog</entry>
+        <entry>Run Anything help</entry>
+        <entry>Run Anything popup</entry>
+        <entry>Run Dashboard tool window</entry>
+        <entry>Run Development configuration</entry>
+        <entry>Run Flask app</entry>
+        <entry>Run Gradle task</entry>
+        <entry>Run Jupyter Notebook link</entry>
+        <entry>Run Maven Build</entry>
+        <entry>Run Menu</entry>
+        <entry>Run Python console</entry>
+        <entry>Run Settings</entry>
+        <entry>Run SqllocalDB.exe i v11.0 command</entry>
+        <entry>Run SqllocalDB.exe s v11.0</entry>
+        <entry>Run Test</entry>
+        <entry>Run Tool window / installing gems</entry>
+        <entry>Run a cell</entry>
+        <entry>Run a selection of tests</entry>
+        <entry>Run a specific test</entry>
+        <entry>Run all tests</entry>
+        <entry>Run configuration</entry>
+        <entry>Run configuration popup</entry>
+        <entry>Run configurations</entry>
+        <entry>Run configurations in the ReSharper Build &amp;amp; Run window</entry>
+        <entry>Run gutter</entry>
+        <entry>Run notebook link</entry>
+        <entry>Run on Docker</entry>
+        <entry>The Run on Docker gutter icon popup</entry>
+        <entry>The Run on Docker popup</entry>
+        <entry>Run popup</entry>
+        <entry>Run ruby script</entry>
+        <entry>Run tests</entry>
+        <entry>Run the SqllocalDB.exe i command</entry>
+        <entry>Run the pipenv update or pipenv lock commands</entry>
+        <entry>Run the script</entry>
+        <entry>Run the test</entry>
+        <entry>Run to cursor</entry>
+        <entry>Run tool window</entry>
+        <entry>Run tool window / run Rails application</entry>
+        <entry>Run tool window / running migrations</entry>
+        <entry>Run with Coverage</entry>
+        <entry>Run/Connect</entry>
+        <entry>Run/Debug Configuration</entry>
+        <entry>Run/Debug Configurations</entry>
+        <entry>Run/Debug Configurations dialog</entry>
+        <entry>Run/Debug configuration</entry>
+        <entry>Run/Debug configuration for a Django server</entry>
+        <entry>Run/Debug configuration in the Run anything dialog</entry>
+        <entry>Run/Debug templates</entry>
+        <entry>Running a debug configuration</entry>
+        <entry>Running an atom code on Stepik</entry>
+        <entry>Running bundler</entry>
+        <entry>Running code</entry>
+        <entry>Running manage.py in the console</entry>
+        <entry>Running one inspection</entry>
+        <entry>Running one inspection in uncommitted files</entry>
+        <entry>Running python command in the Run tool window</entry>
+        <entry>Running tests with a run configuration: select the run configuration</entry>
+        <entry>Running with the import fixed</entry>
+        <entry>Rust debugging</entry>
+        <entry>SQL Server</entry>
+        <entry>SQL injection comment</entry>
+        <entry>SSH and SSL settings of a data source</entry>
+        <entry>Safari</entry>
+        <entry>Safe delete dialog</entry>
+        <entry>Sample Python project</entry>
+        <entry>Sample action live template</entry>
+        <entry>Save a temporary run configuration</entry>
+        <entry>Save as live template dialog</entry>
+        <entry>Save diagram</entry>
+        <entry>Save or Save To in %product% options</entry>
+        <entry>Scalable quick-fix</entry>
+        <entry>The Scale context menu item</entry>
+        <entry>Schema</entry>
+        <entry>Scope highlighting in the editor tabs and search results</entry>
+        <entry>Scratches and Consoles</entry>
+        <entry>Scratches in the Project window</entry>
+        <entry>Screenshot</entry>
+        <entry>Scroll from Source</entry>
+        <entry>Scroll to the end</entry>
+        <entry>Search</entry>
+        <entry>Search Everywhere</entry>
+        <entry>Search History</entry>
+        <entry>Search Results</entry>
+        <entry>Search everywhere</entry>
+        <entry>Search field</entry>
+        <entry>Search field in Settings/Preferences dialog</entry>
+        <entry>Search for Settings</entry>
+        <entry>Search for a particular package</entry>
+        <entry>Search for a process to attach</entry>
+        <entry>Search for push action</entry>
+        <entry>Search in class hierarchy</entry>
+        <entry>Search target</entry>
+        <entry>Search templates dialog</entry>
+        <entry>Searching by an abbreviation</entry>
+        <entry>Searching coverage tree</entry>
+        <entry>Searching for actions</entry>
+        <entry>Searching for commands</entry>
+        <entry>Searching the settings</entry>
+        <entry>See all code usages</entry>
+        <entry>Select Pipenv when creating a new Python project</entry>
+        <entry>Select Ruby interpreter</entry>
+        <entry>Select String value</entry>
+        <entry>Select a UI theme</entry>
+        <entry>Select a process to attach</entry>
+        <entry>Select a statement to unwrap</entry>
+        <entry>Select an expression</entry>
+        <entry>Select an interpreter</entry>
+        <entry>Select in popup</entry>
+        <entry>Select replace all occurrences</entry>
+        <entry>Select the color scheme</entry>
+        <entry>Select the expression to extract</entry>
+        <entry>Select the variables loading policy</entry>
+        <entry>Selected actions</entry>
+        <entry>Selecting a live template</entry>
+        <entry>Selecting a run/debug configuration</entry>
+        <entry>Selecting default action for navigating to compiled code</entry>
+        <entry>Selecting default navigation for library symbols</entry>
+        <entry>Selecting settings layer in Template Explorer</entry>
+        <entry>Selecting severity level for an inspection</entry>
+        <entry>Semantic highlighting</entry>
+        <entry>Set a breakpoint</entry>
+        <entry>Set an interpreter</entry>
+        <entry>Set breakpoints</entry>
+        <entry>Set code style from another language</entry>
+        <entry>Setting SSH mappings</entry>
+        <entry>Setting a temporary breakpoint</entry>
+        <entry>Settings</entry>
+        <entry>Settings for Clang-Tidy checks</entry>
+        <entry>Settings of intention actions</entry>
+        <entry>Severity editor</entry>
+        <entry>Shelf Settings</entry>
+        <entry>Shortcut conflict dialog</entry>
+        <entry>Shortcut notification</entry>
+        <entry>Show Anonymous</entry>
+        <entry>Show Dependencies</entry>
+        <entry>Show Fields</entry>
+        <entry>Show Files</entry>
+        <entry>Show HTTP Requests History</entry>
+        <entry>Show Inherited</entry>
+        <entry>Show Modules</entry>
+        <entry>Show Options Menu</entry>
+        <entry>The Show Options menu</entry>
+        <entry>Show Properties</entry>
+        <entry>Show Scheme Actions</entry>
+        <entry>Show Source</entry>
+        <entry>Show Usages results window</entry>
+        <entry>Show Value for On Demand Variables Loading Policy</entry>
+        <entry>Show all interpreters</entry>
+        <entry>Show an interpreter path</entry>
+        <entry>Show as left diff version</entry>
+        <entry>Show as right diff version</entry>
+        <entry>Show available JDKs</entry>
+        <entry>Show available Python SDKs</entry>
+        <entry>Show available packages</entry>
+        <entry>Show coverage per test</entry>
+        <entry>Show editor only</entry>
+        <entry>Show files</entry>
+        <entry>Show ignored</entry>
+        <entry>Show import statements</entry>
+        <entry>Show in browser</entry>
+        <entry>Show included only</entry>
+        <entry>Show latest available versions including beta and release candidates</entry>
+        <entry>Show method definition</entry>
+        <entry>Show only Scientific processes in the list of the available processes</entry>
+        <entry>Show passed</entry>
+        <entry>Show preview only</entry>
+        <entry>Show read access</entry>
+        <entry>Show snapshots from the solution</entry>
+        <entry>Show tool window bars</entry>
+        <entry>Show tool windows</entry>
+        <entry>Show usages popup</entry>
+        <entry>Show usages: no results detected</entry>
+        <entry>Show watches in Variables tab</entry>
+        <entry>Show write access</entry>
+        <entry>Showing CSS color preview in the background</entry>
+        <entry>Showing parameter hints on completion</entry>
+        <entry>Showing the latest available package version</entry>
+        <entry>Simple Java Web App Demo page</entry>
+        <entry>Simple Java Web App Demo start page</entry>
+        <entry>Simplified view of a predefined template</entry>
+        <entry>Simplified view of a user-defined template</entry>
+        <entry>Skip external changes</entry>
+        <entry>Smart and basic completion</entry>
+        <entry>Smart code completion</entry>
+        <entry>Solid blue arrow</entry>
+        <entry>Solid red arrow</entry>
+        <entry>Solid yellow arrow</entry>
+        <entry>Sort</entry>
+        <entry>Sort Alphabetically</entry>
+        <entry>Sort by Duration</entry>
+        <entry>Sort by Type</entry>
+        <entry>Sort by Visibility</entry>
+        <entry>Sort by duration</entry>
+        <entry>Sort configurations</entry>
+        <entry>Sorting modifiers</entry>
+        <entry>Source folder</entry>
+        <entry>Source root</entry>
+        <entry>Source template in the completion list</entry>
+        <entry>Sources Root</entry>
+        <entry>Sources Root folder</entry>
+        <entry>Sources root</entry>
+        <entry>Specify Remote URLs of local files</entry>
+        <entry>Specify URL</entry>
+        <entry>Specifying a custom severity level for ESLint</entry>
+        <entry>Specifying a custom severity level for TSLint</entry>
+        <entry>Specifying the Linus distribution and the path to Node.js</entry>
+        <entry>Splitting editor tabs</entry>
+        <entry>Spring Application Context Dependencies diagram</entry>
+        <entry>The Spring Beans Dependencies diagram</entry>
+        <entry>Spring Java bean</entry>
+        <entry>Spring Live bean</entry>
+        <entry>Spring bean</entry>
+        <entry>Spring endpoints shown in the Run dashboard</entry>
+        <entry>Spring implicit bean</entry>
+        <entry>Spring tool window</entry>
+        <entry>Sqlite</entry>
+        <entry>Start Jupyter</entry>
+        <entry>Start Recording</entry>
+        <entry>Start a local server</entry>
+        <entry>Start debugging</entry>
+        <entry>Start profiling session</entry>
+        <entry>Start time for the active task</entry>
+        <entry>Statement completion</entry>
+        <entry>Static</entry>
+        <entry>Status bar</entry>
+        <entry>Status bar indents options</entry>
+        <entry>Status indicator</entry>
+        <entry>Status of line separators</entry>
+        <entry>Step into</entry>
+        <entry>Step into my code</entry>
+        <entry>Step over</entry>
+        <entry>Sticky selection</entry>
+        <entry>Stop</entry>
+        <entry>Stop container</entry>
+        <entry>The Stop context menu item</entry>
+        <entry>Stop on a breakpoint</entry>
+        <entry>Stop the execution</entry>
+        <entry>Stop time for the active task</entry>
+        <entry>Stop/Disconnect</entry>
+        <entry>The Structural Replace dialog</entry>
+        <entry>Structural Search dialog</entry>
+        <entry>Structure View popup</entry>
+        <entry>Structure tool window</entry>
+        <entry>Structure view for tests</entry>
+        <entry>Studying projects and containers</entry>
+        <entry>Submission graded</entry>
+        <entry>Submission status</entry>
+        <entry>Submit changes immediately</entry>
+        <entry>Submit changes manually</entry>
+        <entry>Submit ti Coursera</entry>
+        <entry>Successful submission</entry>
+        <entry>Suggested names for a newly declared variable</entry>
+        <entry>Suggested run/debug configuration for pytest</entry>
+        <entry>Suggestion to qualify with the base type name</entry>
+        <entry>Suggestion to remove redundant qualifier</entry>
+        <entry>Suggestions list narrowed down as you type</entry>
+        <entry>Superfluous Argument QuickFixes</entry>
+        <entry>Superfluous Template-Invocation Argument</entry>
+        <entry>Supported</entry>
+        <entry>Surround code</entry>
+        <entry>Surround template variables</entry>
+        <entry>Surrounded code</entry>
+        <entry>Surrounding a code block with #region</entry>
+        <entry>Surrounding a code block with a template</entry>
+        <entry>Surrounding a fragment of JavaScript code with an if...else construct</entry>
+        <entry>Suspend</entry>
+        <entry>Suspending the application before main thread notified</entry>
+        <entry>Switch Tabs</entry>
+        <entry>Switch tabs</entry>
+        <entry>Switch to the next assignment</entry>
+        <entry>Switch to the uppercase character example</entry>
+        <entry>Switching layout on the type dependency diagram</entry>
+        <entry>Sybase</entry>
+        <entry>Symfony code style settings</entry>
+        <entry>Symfony general settings</entry>
+        <entry>Symfony plugin notification</entry>
+        <entry>Symfony profiler toolbar</entry>
+        <entry>Synchronize All</entry>
+        <entry>System DB fields</entry>
+        <entry>System Interpreter warning message</entry>
+        <entry>System response on successful pipenv installation</entry>
+        <entry>TODO comments example</entry>
+        <entry>The TODO settings dialog</entry>
+        <entry>The TODO tool window</entry>
+        <entry>TSLint: errors and warnings are highlighted, the description of a problem is shown in a tooltip.</entry>
+        <entry>Table</entry>
+        <entry>Template Name Completion</entry>
+        <entry>Template language directives completion</entry>
+        <entry>Template language variables completion</entry>
+        <entry>Template options that could be turned off</entry>
+        <entry>Terminated</entry>
+        <entry>Test Resources Root</entry>
+        <entry>Test Root folder</entry>
+        <entry>Test Sources Root</entry>
+        <entry>Test case</entry>
+        <entry>Test error</entry>
+        <entry>Test failed</entry>
+        <entry>Test ignored</entry>
+        <entry>Test in progress</entry>
+        <entry>Test passed</entry>
+        <entry>Test result</entry>
+        <entry>Test results</entry>
+        <entry>Test root</entry>
+        <entry>Test runner in the Run tool window</entry>
+        <entry>Test runner tab</entry>
+        <entry>Test running for a behave configuration</entry>
+        <entry>Test status on Visual Studio status bar</entry>
+        <entry>Tests folder</entry>
+        <entry>Tests root</entry>
+        <entry>The Tests tab of the Run tool window</entry>
+        <entry>Thread dump</entry>
+        <entry>ThreadSanitizer</entry>
+        <entry>Three tests failed and one test passed for the car.brake function</entry>
+        <entry>To auto-property context action</entry>
+        <entry>To property with backing field context action</entry>
+        <entry>Toggle Auto-test</entry>
+        <entry>Toggle Offline Mode</entry>
+        <entry>Toggle Skip Test Mode</entry>
+        <entry>Toggle auto-test</entry>
+        <entry>Toggle bold mode</entry>
+        <entry>Toggle italic mode</entry>
+        <entry>Toggle monospaced mode</entry>
+        <entry>Toml type is recognized</entry>
+        <entry>Tool window layout</entry>
+        <entry>Tool window menu</entry>
+        <entry>Tool window quick access</entry>
+        <entry>Tool window tabs</entry>
+        <entry>Tool window: context menu on pressing the Settings button on the title bar</entry>
+        <entry>Tool windows bar and buttons</entry>
+        <entry>Toolbox App</entry>
+        <entry>The Touch Bar</entry>
+        <entry>The Touch Bar in debugger context</entry>
+        <entry>The Touch Bar with dialog confirmation buttons</entry>
+        <entry>Transitive dependency</entry>
+        <entry>Trigger</entry>
+        <entry>Two light bulbs for fixing the same issue</entry>
+        <entry>Type Check</entry>
+        <entry>Type Hierarchy of C++ classes</entry>
+        <entry>Type dependency diagram</entry>
+        <entry>Type hinting attributes</entry>
+        <entry>Type quick fix: rename refactoring</entry>
+        <entry>TypeScript file</entry>
+        <entry>Typo quick fix</entry>
+        <entry>Typo quick fix: change</entry>
+        <entry>UI theme</entry>
+        <entry>UndefinedBehaviorSanitizer</entry>
+        <entry>Undeploy</entry>
+        <entry>Undeployed</entry>
+        <entry>Uninstall</entry>
+        <entry>Uninstall (Delete)</entry>
+        <entry>Uninstall a package</entry>
+        <entry>Unit Test Explorer displays test from the entire solution</entry>
+        <entry>Unit Test Explorer displays tests from the entire solution</entry>
+        <entry>Unit test filters</entry>
+        <entry>Unit test statistics</entry>
+        <entry>Unity Explorer</entry>
+        <entry>Unity performance indicators</entry>
+        <entry>Unity toolbar</entry>
+        <entry>Unity-related actions</entry>
+        <entry>Unknown</entry>
+        <entry>Unknown file type</entry>
+        <entry>Unloading a module</entry>
+        <entry>Unmark source root</entry>
+        <entry>Unresolved Variable</entry>
+        <entry>Unshelve</entry>
+        <entry>Unused method is safe to delete</entry>
+        <entry>Unused namespace import quick-fix</entry>
+        <entry>Unwrapping result</entry>
+        <entry>Unwrapping statements</entry>
+        <entry>Update</entry>
+        <entry>Update a param tag</entry>
+        <entry>Update application</entry>
+        <entry>Updating %product% in the JetBrains Toolbox</entry>
+        <entry>Upgrade</entry>
+        <entry>Usage dependency</entry>
+        <entry>Usages found</entry>
+        <entry>Use Evaluate Expression to stop the loop</entry>
+        <entry>Use arrows to preview several definitions</entry>
+        <entry>Use auto-property quick-fix</entry>
+        <entry>Use soft wraps</entry>
+        <entry>User credentials</entry>
+        <entry>Using 'Save To' for saving %product% settings</entry>
+        <entry>Using Evaluate Expression to test the theory</entry>
+        <entry>Using IL Viewer</entry>
+        <entry>Using TODO patterns</entry>
+        <entry>Using a Live Template to create a Kubernetes deployment configuration</entry>
+        <entry>Using a conditional to capture livelock situation</entry>
+        <entry>Using code completion</entry>
+        <entry>Using docstrings to define parameter type(:type)</entry>
+        <entry>Using docstrings to define parameter type(Args)</entry>
+        <entry>Using manage.py to create locales</entry>
+        <entry>Using pass count</entry>
+        <entry>Using prefixes and suffixes in language injection</entry>
+        <entry>Using the Conda package manager</entry>
+        <entry>Valgrind Memcheck output</entry>
+        <entry>Valgrind settings</entry>
+        <entry>Valid links</entry>
+        <entry>Validate Regular Expression window</entry>
+        <entry>Validating regular expressions</entry>
+        <entry>Variable</entry>
+        <entry>Variable Completion</entry>
+        <entry>Variables debug info not available</entry>
+        <entry>Version Control System</entry>
+        <entry>View</entry>
+        <entry>View Modes</entry>
+        <entry>View Options</entry>
+        <entry>View Parameter Info</entry>
+        <entry>View all intentions on the Intentions page (Settings/Preferences)</entry>
+        <entry>View declaration</entry>
+        <entry>View definition in a tooltip</entry>
+        <entry>View external documentation</entry>
+        <entry>View for action</entry>
+        <entry>View interpreters</entry>
+        <entry>View the definition source code</entry>
+        <entry>View/edit ignored updates</entry>
+        <entry>Viewing %todo% items with %product%</entry>
+        <entry>Viewing IL code as comments in decompiled code</entry>
+        <entry>Viewing SQL Query map</entry>
+        <entry>Viewing assertEquals difference</entry>
+        <entry>Viewing file structure of a C++ file</entry>
+        <entry>Viewing quick documentation</entry>
+        <entry>Viewing results of previous tests</entry>
+        <entry>Viewing template parameter suggestions</entry>
+        <entry>Viewing the styles applied to the tag &amp;lt;body&amp;gt;</entry>
+        <entry>Viewing type hierarchy</entry>
+        <entry>Viewing usages of a symbol in the quick definition popup</entry>
+        <entry>Vim Emulator in the Tools menu</entry>
+        <entry>Virtual environment location</entry>
+        <entry>Visual Studio and ReSharper breakpoints windows</entry>
+        <entry>Visual Studio package manager options</entry>
+        <entry>Visualizing code for multiple frameworks</entry>
+        <entry>The Volume Bindings tab</entry>
+        <entry>Weather Demo</entry>
+        <entry>WebStorm and plugin updates</entry>
+        <entry>Welcome Screen</entry>
+        <entry>Welcome Screen / Git</entry>
+        <entry>The Welcome screen</entry>
+        <entry>Welcome screen</entry>
+        <entry>Whitespace list</entry>
+        <entry>Windows authentication with the Microsoft driver</entry>
+        <entry>Wrap text with a tag</entry>
+        <entry>Write-only</entry>
+        <entry>XPath Syntax check</entry>
+        <entry>Xdebug extension installed</entry>
+        <entry>Xdebug helper in Chrome</entry>
+        <entry>Zoom</entry>
+        <entry>Zoom In</entry>
+        <entry>Zoom Out</entry>
+        <entry>add</entry>
+        <entry>add a cell</entry>
+        <entry>add a package</entry>
+        <entry>add an external tool</entry>
+        <entry>add attribute</entry>
+        <entry>add source to cmakelists and reload</entry>
+        <entry>add-to-favorites</entry>
+        <entry>addUsers</entry>
+        <entry>adding a new watch</entry>
+        <entry>adding an interpreter via SSH</entry>
+        <entry>adding cells to the Python code</entry>
+        <entry>adjust linux kernel variables for the profiler</entry>
+        <entry>annotate</entry>
+        <entry>application pages</entry>
+        <entry>apply custom postfix template</entry>
+        <entry>asmdef files support</entry>
+        <entry>assert_check_method_configuration</entry>
+        <entry>attach to ros node</entry>
+        <entry>autoEncapsulation 1</entry>
+        <entry>autogenerated Pipfile</entry>
+        <entry>bdd scenarios</entry>
+        <entry>block details in the flame chart</entry>
+        <entry>bookmarks</entry>
+        <entry>braceHighlightingError</entry>
+        <entry>breakpoint intentions</entry>
+        <entry>breakpointDisable1</entry>
+        <entry>breakpoints</entry>
+        <entry>browse</entry>
+        <entry>build menu</entry>
+        <entry>build project action</entry>
+        <entry>bundle install command</entry>
+        <entry>c++ inferred type in quick documentation popup</entry>
+        <entry>call install from the main menu</entry>
+        <entry>call tree tab in the profiler results</entry>
+        <entry>The cell has changed</entry>
+        <entry>The cell is being executed</entry>
+        <entry>cell is being executed</entry>
+        <entry>cell number</entry>
+        <entry>the cell number has increased</entry>
+        <entry>change marker toolbar</entry>
+        <entry>change preview locale</entry>
+        <entry>changes from parents</entry>
+        <entry>changing variables during debugging in the Python console</entry>
+        <entry>choose a class to import</entry>
+        <entry>choose build configuration for remote run</entry>
+        <entry>choose imported classes</entry>
+        <entry>cl_goto_dir</entry>
+        <entry>cl_goto_symbol</entry>
+        <entry>cl_suggestion_list_defs</entry>
+        <entry>cl_suggestion_list_docs</entry>
+        <entry>clangd settings</entry>
+        <entry>classTypeTestCase</entry>
+        <entry>cmake highlighted and quick documentation for cmake</entry>
+        <entry>cmake profile for the remote toolchain</entry>
+        <entry>cmake settings for ros projects</entry>
+        <entry>cmakelists files in subdirectories</entry>
+        <entry>code completion</entry>
+        <entry>code completion for environment variables in cmake files</entry>
+        <entry>code validation with pylint</entry>
+        <entry>commit</entry>
+        <entry>commit labels</entry>
+        <entry>compare_responses_diff</entry>
+        <entry>compare_responses_menu</entry>
+        <entry>comparing files</entry>
+        <entry>comparing folders</entry>
+        <entry>complete declaration 1</entry>
+        <entry>complete declaration 2</entry>
+        <entry>complete paired Ruby tags</entry>
+        <entry>completing code construct</entry>
+        <entry>completion quick definition</entry>
+        <entry>conan plugin</entry>
+        <entry>configure remote interpreter</entry>
+        <entry>configure_assert_check_methods</entry>
+        <entry>configuring templates</entry>
+        <entry>the context menu</entry>
+        <entry>context menu for tab elements</entry>
+        <entry>copy</entry>
+        <entry>cpu snapshot from performance testing plugin</entry>
+        <entry>cpu usage indicator</entry>
+        <entry>create archive</entry>
+        <entry>create locale property</entry>
+        <entry>create new php test %php-test-framework% dialog</entry>
+        <entry>create new php test phpunit dialog</entry>
+        <entry>create new rvm gemset dialog</entry>
+        <entry>create property dialog</entry>
+        <entry>creating a gemset in the new project dialog</entry>
+        <entry>creating a new scientific project in PyCharm</entry>
+        <entry>creating a superuser</entry>
+        <entry>creating a template</entry>
+        <entry>creating tables in the database</entry>
+        <entry>credentials to access the remote host</entry>
+        <entry>cucumberCreateStepDefinition</entry>
+        <entry>cucumberCreateUndefinedStep</entry>
+        <entry>cucumberEnable</entry>
+        <entry>cucumberUndefinedStepInspection</entry>
+        <entry>cut</entry>
+        <entry>cython</entry>
+        <entry>dart file</entry>
+        <entry>The data editor</entry>
+        <entry>date_format</entry>
+        <entry>ddl data source</entry>
+        <entry>debug Python script</entry>
+        <entry>debug via run anything</entry>
+        <entry>debugger settings</entry>
+        <entry>default and modified setting layers</entry>
+        <entry>deleted line marker</entry>
+        <entry>deployment configuration for remote host access</entry>
+        <entry>deselect the previous occurrence</entry>
+        <entry>destroy action in editor</entry>
+        <entry>diagram popup in a project view</entry>
+        <entry>differences viewer</entry>
+        <entry>docked and undocked modes</entry>
+        <entry>documentation comments in auto-completion</entry>
+        <entry>dotCover helps executing unit tests</entry>
+        <entry>dotCover helps filtering coverage results</entry>
+        <entry>dotCover standalone application</entry>
+        <entry>dotPeek symbol server icon in the status bar</entry>
+        <entry>The drop-down arrow</entry>
+        <entry>drugging window</entry>
+        <entry>dupFinder output</entry>
+        <entry>dupFinder report transformed into an HTML page</entry>
+        <entry>edit</entry>
+        <entry>edit environmental variables</entry>
+        <entry>the element is wrapped with the trans tag</entry>
+        <entry>elements with stubs</entry>
+        <entry>enable Inplace Refactoring disabled</entry>
+        <entry>enabling a gemset in the new project dialog</entry>
+        <entry>enabling behave-django integration in the settings.py file</entry>
+        <entry>evaluating a math expression</entry>
+        <entry>evaluating expressions</entry>
+        <entry>example of adding a type hint for a class attribute</entry>
+        <entry>example of adding a type hint for a class attribute (Python 2)</entry>
+        <entry>example of adding a type hint for a class attribute (Python 3)</entry>
+        <entry>example of adding a type hint for a function</entry>
+        <entry>example of adding a type hint for a function (Python 2)</entry>
+        <entry>example of adding a type hint for a function (Python 3)</entry>
+        <entry>example of adding a type hint for a variable</entry>
+        <entry>example of adding a type hint for a variable (Python 2)</entry>
+        <entry>example of adding a type hint for a variable (Python 3)</entry>
+        <entry>executing makemigrations</entry>
+        <entry>executing python command</entry>
+        <entry>executing sqlmigrate pools 0001</entry>
+        <entry>expand</entry>
+        <entry>expand_post_template</entry>
+        <entry>export</entry>
+        <entry>export button in the inspection results tool window</entry>
+        <entry>expressions for extracting</entry>
+        <entry>extract constant</entry>
+        <entry>extract field</entry>
+        <entry>extract method</entry>
+        <entry>extract parameter</entry>
+        <entry>extract variable</entry>
+        <entry>extract-react-component.gif</entry>
+        <entry>feature is not supported</entry>
+        <entry>feature is supported</entry>
+        <entry>feature is supported only in parsing</entry>
+        <entry>file status</entry>
+        <entry>file transfer tool window</entry>
+        <entry>a file with restructured text</entry>
+        <entry>filter</entry>
+        <entry>find usages with overridden</entry>
+        <entry>find usages without overridden</entry>
+        <entry>findAddUsersIcon</entry>
+        <entry>folder</entry>
+        <entry>folders for run configurations</entry>
+        <entry>a fragment of the Pipfile.lock</entry>
+        <entry>from view to action</entry>
+        <entry>gem install bundler</entry>
+        <entry>gemfile warning</entry>
+        <entry>gemfiles without projects</entry>
+        <entry>generate method from usage</entry>
+        <entry>generate script output</entry>
+        <entry>get</entry>
+        <entry>go to</entry>
+        <entry>go to a specific line in a file</entry>
+        <entry>go to class</entry>
+        <entry>go to class by the full name</entry>
+        <entry>go to declaration</entry>
+        <entry>go to definition</entry>
+        <entry>go to directory</entry>
+        <entry>go to file</entry>
+        <entry>go to file camel case</entry>
+        <entry>go to nested file</entry>
+        <entry>go to symbol</entry>
+        <entry>go to symbol snake case</entry>
+        <entry>go to the superclass method</entry>
+        <entry>gradle</entry>
+        <entry>grep console plugin</entry>
+        <entry>groupBy</entry>
+        <entry>groupByPrefixes</entry>
+        <entry>groupBySeparator</entry>
+        <entry>grouping projects</entry>
+        <entry>help</entry>
+        <entry>hide</entry>
+        <entry>highlighting braces</entry>
+        <entry>html type</entry>
+        <entry>icon exclude from download</entry>
+        <entry>icon tooltip</entry>
+        <entry>icon_InsertReplace.gif</entry>
+        <entry>icon_InsertReplace2.gif</entry>
+        <entry>icon_php_storm</entry>
+        <entry>icon_ts_compile_all</entry>
+        <entry>icon_use_web_server_configuration_as_default</entry>
+        <entry>idle</entry>
+        <entry>ij_goto_dir</entry>
+        <entry>img</entry>
+        <entry>import</entry>
+        <entry>the import popup</entry>
+        <entry>incorrect type for unpacked variables</entry>
+        <entry>incorrect type hint</entry>
+        <entry>inline variable</entry>
+        <entry>install a stub package</entry>
+        <entry>install package inspection</entry>
+        <entry>intention action: wrap with trans tag</entry>
+        <entry>intentionActionSuppress1</entry>
+        <entry>interceptor1.gif</entry>
+        <entry>interceptor2.gif</entry>
+        <entry>interceptor3.gif</entry>
+        <entry>interceptor4.gif</entry>
+        <entry>interceptor5.gif</entry>
+        <entry>interceptor6.gif</entry>
+        <entry>interface areas with icons not supplied with tooltips</entry>
+        <entry>itar1.gif</entry>
+        <entry>itar2.gif</entry>
+        <entry>itar3.gif</entry>
+        <entry>itar4.gif</entry>
+        <entry>itar5.gif</entry>
+        <entry>jump to next commit</entry>
+        <entry>jumping to the corresponding stub</entry>
+        <entry>key</entry>
+        <entry>key promoter x plugin</entry>
+        <entry>kotlin/native applications in clion</entry>
+        <entry>lambda breakpoints</entry>
+        <entry>library</entry>
+        <entry>lineSeparatorMenu</entry>
+        <entry>lineSeparatorMenu_non_ij</entry>
+        <entry>lineSeparatorPopup</entry>
+        <entry>A list of suggested completion variants for an Angular attribute</entry>
+        <entry>A list of suggested completion variants for an Angular component</entry>
+        <entry>log view</entry>
+        <entry>login page</entry>
+        <entry>The main page of the MeteoMaster application</entry>
+        <entry>mainToolbarSave</entry>
+        <entry>makefile support plugin</entry>
+        <entry>manage.py task is running in the Docker</entry>
+        <entry>markdown editor and preview</entry>
+        <entry>mergeLibraryIcon</entry>
+        <entry>message compilation</entry>
+        <entry>method breakpoint properties</entry>
+        <entry>method list tab in the profiler results</entry>
+        <entry>migration</entry>
+        <entry>missing bracket</entry>
+        <entry>missing key warning</entry>
+        <entry>move class</entry>
+        <entry>move up</entry>
+        <entry>moving tool window</entry>
+        <entry>navigate to class window</entry>
+        <entry>navigate to keys</entry>
+        <entry>navigating to symbol declaration with Ctrl+click</entry>
+        <entry>new RVM gemset popup</entry>
+        <entry>notebook URL:http://mysite.jupyter-notebook:8888/?token=7bf5166bb9b1615efcc94fed9cee1edd201d1958716f3f6f</entry>
+        <entry>notebook appears in the list of the discovered notebooks</entry>
+        <entry>a notebook instance is running</entry>
+        <entry>nyan cat progress bar</entry>
+        <entry>open</entry>
+        <entry>open files dialog</entry>
+        <entry>open recent project</entry>
+        <entry>open recent project from Run Anything</entry>
+        <entry>open ros project</entry>
+        <entry>open_eclipse_project</entry>
+        <entry>open_request_in_browser</entry>
+        <entry>open_response</entry>
+        <entry>The order of variables in the Edit Variables dialog determines the order in which the cursor jumps between input fields in the expanded template</entry>
+        <entry>output of the running node</entry>
+        <entry>override method of a superclass</entry>
+        <entry>packages that are listed in the Pipfile are missing</entry>
+        <entry>pe_findResults</entry>
+        <entry>pin tab</entry>
+        <entry>pinned tab</entry>
+        <entry>place caret</entry>
+        <entry>place the caret</entry>
+        <entry>plus</entry>
+        <entry>A pop-up with the list of live templates</entry>
+        <entry>preview details</entry>
+        <entry>preview diagram</entry>
+        <entry>preview locale property</entry>
+        <entry>private_class</entry>
+        <entry>profiler settings</entry>
+        <entry>profiler tool window on linux</entry>
+        <entry>profiling finished balloon</entry>
+        <entry>project interpreter</entry>
+        <entry>a project selected in the project tree</entry>
+        <entry>project structure</entry>
+        <entry>the project structure page</entry>
+        <entry>project tool window views</entry>
+        <entry>a project tree with one project</entry>
+        <entry>a project tree with several projects</entry>
+        <entry>properties.gif</entry>
+        <entry>property</entry>
+        <entry>ps_move_class_10</entry>
+        <entry>ps_move_class_11</entry>
+        <entry>ps_move_class_12</entry>
+        <entry>ps_move_class_15</entry>
+        <entry>ps_move_class_2</entry>
+        <entry>ps_move_class_3</entry>
+        <entry>ps_move_class_4</entry>
+        <entry>ps_move_class_6</entry>
+        <entry>ps_move_class_7</entry>
+        <entry>ps_move_class_8</entry>
+        <entry>ps_requests_history</entry>
+        <entry>public_class</entry>
+        <entry>py_breakpointDisable1</entry>
+        <entry>py_code_coverage</entry>
+        <entry>py_file_types_tmbundle</entry>
+        <entry>py_gotoSymbol_1</entry>
+        <entry>py_goto_dir</entry>
+        <entry>py_type_hinting_return2</entry>
+        <entry>pylint installation</entry>
+        <entry>pylint is shown in the External Tools menu</entry>
+        <entry>pytest-bdd results</entry>
+        <entry>python_find_usages</entry>
+        <entry>python_import1. choose imported classes</entry>
+        <entry>quick documentation for locale keys</entry>
+        <entry>A quick-fix that helps generate dispose pattern</entry>
+        <entry>quick-fixed for inspection results</entry>
+        <entry>quick-fixes for member can be static inspection</entry>
+        <entry>rails g controller</entry>
+        <entry>rails model diagram</entry>
+        <entry>rebuild configuration</entry>
+        <entry>recompile several files in the project tree</entry>
+        <entry>redirecting data from a text file to the standard input</entry>
+        <entry>refactor this popup</entry>
+        <entry>The refactoring dialog</entry>
+        <entry>A region in a File Structure window</entry>
+        <entry>reloading cmake project with remote toolchain</entry>
+        <entry>remote toolchain configured successfully</entry>
+        <entry>remove</entry>
+        <entry>renaming the YAML anchor</entry>
+        <entry>replace all occurrences</entry>
+        <entry>rerun</entry>
+        <entry>rerunConsole</entry>
+        <entry>response_results</entry>
+        <entry>The result of the Match Case selection</entry>
+        <entry>rightArrowInMenu</entry>
+        <entry>rm_breakpointDisable1</entry>
+        <entry>rm_regexp_multiline</entry>
+        <entry>rm_select_diagram_type</entry>
+        <entry>root path</entry>
+        <entry>rootExcluded.gif</entry>
+        <entry>ros chatter node running</entry>
+        <entry>ros nodes list</entry>
+        <entry>rspec</entry>
+        <entry>ru_search_everywhere1</entry>
+        <entry>ruby class diagram</entry>
+        <entry>ruby script</entry>
+        <entry>ruby_capistrano_tasks_suggestion_list</entry>
+        <entry>ruby_code_coverage</entry>
+        <entry>ruby_irb_console_breakpoint</entry>
+        <entry>ruby_irb_console_breakpoint_hit</entry>
+        <entry>ruby_irb_console_debugger</entry>
+        <entry>run</entry>
+        <entry>run Capistrano command</entry>
+        <entry>run RSpec test</entry>
+        <entry>run anything</entry>
+        <entry>run anything dialog</entry>
+        <entry>run configuration for tests</entry>
+        <entry>run gutter menu with the profiler option</entry>
+        <entry>run in context</entry>
+        <entry>run ruby script</entry>
+        <entry>run/debug configurations dialog</entry>
+        <entry>run/debug templates</entry>
+        <entry>runBuild.gif</entry>
+        <entry>runConfigMenu.gif</entry>
+        <entry>run_request_in_env</entry>
+        <entry>running tests</entry>
+        <entry>save</entry>
+        <entry>scope_pattern</entry>
+        <entry>search</entry>
+        <entry>search everything window</entry>
+        <entry>search everywhere popup</entry>
+        <entry>search history</entry>
+        <entry>search string</entry>
+        <entry>A search template preview</entry>
+        <entry>search_everywhere</entry>
+        <entry>select code for a method extracting</entry>
+        <entry>selecting a project type</entry>
+        <entry>send pointer</entry>
+        <entry>setting color scheme for reStructuredText</entry>
+        <entry>setting the default web page</entry>
+        <entry>settings</entry>
+        <entry>shiftEnter1.gif</entry>
+        <entry>show diff</entry>
+        <entry>show-quick-list</entry>
+        <entry>show-recent</entry>
+        <entry>showUsages</entry>
+        <entry>side_by_side_left</entry>
+        <entry>side_by_side_left_off</entry>
+        <entry>site administration page</entry>
+        <entry>socket</entry>
+        <entry>sort alphabetically</entry>
+        <entry>sort by relevance</entry>
+        <entry>specifying authentication details</entry>
+        <entry>splitLibraryIcon</entry>
+        <entry>start debugger</entry>
+        <entry>start page</entry>
+        <entry>start_listening_php_debug_connections</entry>
+        <entry>The status bar</entry>
+        <entry>step definitions generation</entry>
+        <entry>stop listening php debug connections</entry>
+        <entry>The stub package inspection</entry>
+        <entry>successfully load cmake project</entry>
+        <entry>The data editor context menu</entry>
+        <entry>too many arguments</entry>
+        <entry>toolbox settings</entry>
+        <entry>type hints</entry>
+        <entry>type hints in the stub</entry>
+        <entry>type in the profiler tool window to start the search</entry>
+        <entry>ui extension plugins</entry>
+        <entry>uiEditor</entry>
+        <entry>uiStatusLineEnding</entry>
+        <entry>A unit test session displayed in the Unit Tests window</entry>
+        <entry>unmerged conflicts</entry>
+        <entry>unwrap the if statement</entry>
+        <entry>update libraries in the editor</entry>
+        <entry>url patterns</entry>
+        <entry>vagrant_select_box</entry>
+        <entry>vagrant_select_folder</entry>
+        <entry>validation of compilation database file</entry>
+        <entry>vcsToolbarCompareIcon.gif</entry>
+        <entry>velocity_add_pattern</entry>
+        <entry>view references to a localized tag</entry>
+        <entry>view.py code</entry>
+        <entry>viewing html and python code</entry>
+        <entry>wi_add-to-favorites</entry>
+        <entry>wrap code into the if statement</entry>
+        <entry>ws_rearrange_code_via_find_action.gif</entry>
+        <entry>ws_ts_change_signature_preview</entry>
+    </entry-set>
+    <entry-set for="icon/alt">
+        <entry>the Add New Configuration icon</entry>
+        <entry>the Add SDK icon</entry>
+        <entry>the Add Section Rule button</entry>
+        <entry>the Add alias button</entry>
+        <entry>the Add button</entry>
+        <entry>the Add icon</entry>
+        <entry>the Add scope (Insert) icon</entry>
+        <entry>the Apply Current Layout button</entry>
+        <entry>the Back icon</entry>
+        <entry>the Bookmark icon</entry>
+        <entry>the Breakpoint icon</entry>
+        <entry>the Browse button</entry>
+        <entry>the Checkmark icon</entry>
+        <entry>the Checkout button</entry>
+        <entry>the Cherry-Pick button</entry>
+        <entry>the Chrome extension control icon</entry>
+        <entry>the Close button</entry>
+        <entry>the Cogwheel icon</entry>
+        <entry>the Collapse All button</entry>
+        <entry>the Columns button</entry>
+        <entry>the Command Line Tools Console icon</entry>
+        <entry>the Commit button</entry>
+        <entry>the Compare new files with each other button</entry>
+        <entry>the Compare with last uploaded version button</entry>
+        <entry>the Compile all button</entry>
+        <entry>the Connect button</entry>
+        <entry>the Constructors button</entry>
+        <entry>the Content root icon</entry>
+        <entry>the Copy Configuration button</entry>
+        <entry>the Copy Template button</entry>
+        <entry>the Copy to Clipboard icon</entry>
+        <entry>the Copy to clipboard button</entry>
+        <entry>the Create Template button</entry>
+        <entry>the Data Editor button</entry>
+        <entry>the Data Source Properties button</entry>
+        <entry>The Data Source Properties icon</entry>
+        <entry>the Debug button</entry>
+        <entry>the Diff icon</entry>
+        <entry>the Diff with current icon</entry>
+        <entry>the Down button</entry>
+        <entry>the Down icon</entry>
+        <entry>the Dump Threads button</entry>
+        <entry>the Duplicate button</entry>
+        <entry>the Edit Source button</entry>
+        <entry>the Edit associated jobs button</entry>
+        <entry>the Edit button</entry>
+        <entry>the Edit icon</entry>
+        <entry>the Ellipsis icon</entry>
+        <entry>the Excluded root icon</entry>
+        <entry>the Execute icon</entry>
+        <entry>the Exit icon</entry>
+        <entry>the Expand All button</entry>
+        <entry>the Expand area icon</entry>
+        <entry>the Expand button</entry>
+        <entry>the Expand icon</entry>
+        <entry>the Export button</entry>
+        <entry>the Export to Text file button</entry>
+        <entry>the External annotation icon</entry>
+        <entry>the Eye icon</entry>
+        <entry>the Favorite icon</entry>
+        <entry>the Fit Content button</entry>
+        <entry>the Flatten Packages button</entry>
+        <entry>the Flatten modules button</entry>
+        <entry>the Fork icon</entry>
+        <entry>the Gear icon</entry>
+        <entry>the Get thread dump button</entry>
+        <entry>the Go to Driver icon</entry>
+        <entry>the Go to snapshot icon</entry>
+        <entry>the Group by method button</entry>
+        <entry>the Group by module button</entry>
+        <entry>the Group by test/production button</entry>
+        <entry>the Group by usage type button</entry>
+        <entry>the HTML5 icon</entry>
+        <entry>the Hector icon</entry>
+        <entry>the Help icon</entry>
+        <entry>the Hide/Show Chessboard button</entry>
+        <entry>the Implemented method icon</entry>
+        <entry>the Implementing Drupal Hook icon</entry>
+        <entry>the Implementing method icon</entry>
+        <entry>the Import button</entry>
+        <entry>the Insert below from left button</entry>
+        <entry>the Insert below from left icon</entry>
+        <entry>the Insert below from right button</entry>
+        <entry>the Insert below from right icon</entry>
+        <entry>the Insert from left icon</entry>
+        <entry>the Insert from right button</entry>
+        <entry>the Insert from right icon</entry>
+        <entry>the IntelliSort button</entry>
+        <entry>the Intention action button</entry>
+        <entry>the Intention action icon</entry>
+        <entry>the Ipynb file icon</entry>
+        <entry>the JDK icon</entry>
+        <entry>the JavaScript icon</entry>
+        <entry>the Jump to Console button</entry>
+        <entry>the Jupyter notebook icon</entry>
+        <entry>the Key Columns button</entry>
+        <entry>the Kill Process button</entry>
+        <entry>the Library icon</entry>
+        <entry>the Locked icon</entry>
+        <entry>the Meteor icon</entry>
+        <entry>the Method breakpoint icon</entry>
+        <entry>the Method icon</entry>
+        <entry>the Module icon</entry>
+        <entry>the Move down button</entry>
+        <entry>the Move up button</entry>
+        <entry>the Neighborhood mode icon</entry>
+        <entry>the New icon</entry>
+        <entry>the Next Change button</entry>
+        <entry>the OK icon</entry>
+        <entry>the Open HTTP Requests Collection button</entry>
+        <entry>the Open URL in browser button</entry>
+        <entry>the Open local version button</entry>
+        <entry>the Overridden method icon</entry>
+        <entry>the Overriding method icon</entry>
+        <entry>the PHP script icon</entry>
+        <entry>the PHP test class icon</entry>
+        <entry>the Pause button</entry>
+        <entry>the PhpStorm icon</entry>
+        <entry>the Pin button</entry>
+        <entry>the Plugin Settings icon</entry>
+        <entry>the Plus icon</entry>
+        <entry>the Preview Command button</entry>
+        <entry>the Preview Source button</entry>
+        <entry>the Preview Usages button</entry>
+        <entry>the Previous Change button</entry>
+        <entry>the Print button</entry>
+        <entry>the Project Root icon</entry>
+        <entry>the Project Structure button</entry>
+        <entry>the Project Structure button</entry>
+        <entry>the Project Structure icon</entry>
+        <entry>the Project icon</entry>
+        <entry>the Properties button</entry>
+        <entry>the Quick-fix button</entry>
+        <entry>the Red bulb icon</entry>
+        <entry>the Refresh button</entry>
+        <entry>the Reject icon</entry>
+        <entry>the Reload button</entry>
+        <entry>the Reload command list from executable button</entry>
+        <entry>the Remote coverage server icon</entry>
+        <entry>the Remove button</entry>
+        <entry>the Remove icon</entry>
+        <entry>the Rerun Failed Tests button</entry>
+        <entry>the Rerun button</entry>
+        <entry>the Reset to defaults button</entry>
+        <entry>the Resolve simple conflicts button</entry>
+        <entry>the Resource bundle icon</entry>
+        <entry>the Resources root icon</entry>
+        <entry>the Restore Layout button</entry>
+        <entry>the Resume icon</entry>
+        <entry>the Revert icon</entry>
+        <entry>the Revert to last uploaded version button</entry>
+        <entry>the Run a test sample by using a gutter icon</entry>
+        <entry>the Run button</entry>
+        <entry>the Run cell icon</entry>
+        <entry>the Run with Coverage button</entry>
+        <entry>the Save button</entry>
+        <entry>the Save diagram button</entry>
+        <entry>the Scope icon</entry>
+        <entry>the Scroll to the end button</entry>
+        <entry>the Search Everywhere button</entry>
+        <entry>the Settings button</entry>
+        <entry>the Settings sync icon</entry>
+        <entry>the Settings synced icon</entry>
+        <entry>the Settings/Preferences button</entry>
+        <entry>the Settings/Preferences icon</entry>
+        <entry>the Show Ignored button</entry>
+        <entry>the Show Options Menu icon</entry>
+        <entry>the Show Passed button</entry>
+        <entry>the Show Visualization button</entry>
+        <entry>the Show diff icon</entry>
+        <entry>the Show documentation icon</entry>
+        <entry>the Show ignored files button</entry>
+        <entry>the Show import statements button</entry>
+        <entry>the Show phpinfo button</entry>
+        <entry>the Show project errors toggle button</entry>
+        <entry>the Show read access button</entry>
+        <entry>the Soft-Wrap button</entry>
+        <entry>the Sort Alphabetically button</entry>
+        <entry>the Sort by Relevance button</entry>
+        <entry>the Source root icon</entry>
+        <entry>the Spring Beans Dependencies icon</entry>
+        <entry>the Spring Boot icon</entry>
+        <entry>the Spring Request method icon</entry>
+        <entry>the Spy.js icon</entry>
+        <entry>the Start Listening for PHP Debug Connections button</entry>
+        <entry>the Start containers button</entry>
+        <entry>the Start services button</entry>
+        <entry>the Stop Listening for PHP Debug Connections button</entry>
+        <entry>the Stop button</entry>
+        <entry>the Submit icon</entry>
+        <entry>the Symfony route icon</entry>
+        <entry>the Synchronize button</entry>
+        <entry>the Synchronize icon</entry>
+        <entry>the Terminal tool window button</entry>
+        <entry>the Tests root icon</entry>
+        <entry>the Tool windows icon</entry>
+        <entry>the Twig icon</entry>
+        <entry>the Unfold button</entry>
+        <entry>the Unlocked icon</entry>
+        <entry>the Unmark root button</entry>
+        <entry>the Up button</entry>
+        <entry>the Up icon</entry>
+        <entry>the Upload current remote file button</entry>
+        <entry>the Use as default button</entry>
+        <entry>the View Parameters button</entry>
+        <entry>the View as HTML button</entry>
+        <entry>the View as JSON button</entry>
+        <entry>the View as XML button</entry>
+        <entry>the View variable filters button</entry>
+        <entry>the Warning icon</entry>
+        <entry>the Yaml localization key icon</entry>
+        <entry>the Yellow bulb icon</entry>
+    </entry-set>
+</dictionary>

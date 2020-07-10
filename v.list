@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE vars
+        SYSTEM "https://helpserver.labs.jb.gg/help/vars.dtd">
+
+<vars>
+
+    <var name="example" value="An example of string inteprolation var"/>
+
+
+</vars>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE root
+        SYSTEM "https://helpserver.labs.jb.gg/help/build-script.dtd">
+<root>
+    <builds>
+        <product id="ktor" master="project.ihp" family="idea">
+            <artifact type="web2"/>
+        </product>
+    </builds>
+</root>

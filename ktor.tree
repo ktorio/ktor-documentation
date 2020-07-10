@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE product-profile
+        SYSTEM "https://helpserver.labs.jb.gg/help/product-profile.dtd">
+<product-profile id="ktor"
+                 name="Ktor"
+                 status="eap"
+                 start-page="welcome.md">
+
+    <toc-element id="welcome.md"/>
+
+
+</product-profile>
