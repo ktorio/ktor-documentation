@@ -1,3 +1,3 @@
-[//]: # (title: Getting Started)
+[//]: # (title: getting_started)
 
 Start writing here.

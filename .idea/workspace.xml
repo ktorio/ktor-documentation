@@ -19,10 +19,41 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="">
+    <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="Layout of TOC">
+      <change afterPath="$PROJECT_DIR$/topics/A_Ktor_Application.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/Auto_reload.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/Configurations.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/Debugging_routes.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/Engines.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/FAQ.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/How_Ktor_works.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/Metrics_and_Performance_Monitoring.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/Pipelines.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/Running_applications.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/SSL_and_certificates.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/Serving_Static_Content.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/Static_Routes.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/Working_with_views.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/auto_head_response.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/body_contents.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/caching.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/containers.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/cors.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/custom_headers.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/developing_applications.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/extending_ktor.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/hosting.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/logging.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/multipart_support.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/proguard.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/redirects.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/request_parameters.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/route_parameters.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/serialization.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/status_pages.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ktor.tree" beforeDir="false" afterPath="$PROJECT_DIR$/ktor.tree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/welcome.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/Getting_Started.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Getting_Started.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +67,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1f2QAy9XlkgW94A8YdL0Q3jNbwm" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -66,8 +100,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1595413567891</updated>
-      <workItem from="1595413569037" duration="1755000" />
+      <workItem from="1595413569037" duration="3619000" />
     </task>
+    <task id="LOCAL-00001" summary="Layout of TOC">
+      <created>1595417880622</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1595417880622</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Layout of TOC">
+      <created>1595417886310</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1595417886311</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -84,15 +133,27 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Layout of TOC" />
+    <option name="LAST_COMMIT_MESSAGE" value="Layout of TOC" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="301" y="336" key="SettingsEditor" timestamp="1595414463674">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="301" y="336" key="SettingsEditor/0.23.3008.1669@0.23.3008.1669" timestamp="1595414463674" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1595413615483">
+    <state width="500" height="445" key="SwitcherDM" timestamp="1595420530843">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
-    <state width="500" height="445" key="SwitcherDM/0.23.3008.1669@0.23.3008.1669" timestamp="1595413615483" />
+    <state width="500" height="445" key="SwitcherDM/0.23.3008.1669@0.23.3008.1669" timestamp="1595420530843" />
+    <state x="399" y="437" key="Vcs.Push.Dialog.v2" timestamp="1595417890441">
+      <screen x="0" y="23" width="3008" height="1669" />
+    </state>
+    <state x="399" y="437" key="Vcs.Push.Dialog.v2/0.23.3008.1669@0.23.3008.1669" timestamp="1595417890441" />
+    <state x="1088" y="360" width="604" height="735" key="find.popup" timestamp="1595419998057">
+      <screen x="0" y="23" width="3008" height="1669" />
+    </state>
+    <state x="1088" y="360" width="604" height="735" key="find.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1595419998057" />
     <state x="464" y="394" width="670" height="676" key="search.everywhere.popup" timestamp="1595414423631">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>

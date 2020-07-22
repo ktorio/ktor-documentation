@@ -4,86 +4,93 @@
 <product-profile id="ktor"
                  name="Ktor"
                  status="eap"
-                 start-page="welcome.md">
+                 start-page="Welcome.md">
 
-    <toc-element id="getting_started" toc-title="Getting Started">
-
-    </toc-element>
-    <toc-element id="Tutorials.md" toc-title="Tutorials">
+    <toc-element id="Welcome.md"/>
+    <toc-element id="Getting_Started.md" toc-title="Getting Started">
 
     </toc-element>
+    <toc-element toc-title="Tutorials">
+
+    </toc-element>
 
 
-    <toc-element id="documentation" toc-title="Documentation">
+    <toc-element toc-title="Documentation">
 
-        <toc-element id="server" toc-title="Ktor on the Server">
-            <toc-element id="developer_application.md" toc-title="Developing Applications">
-                <toc-element id="A_ktor_Application.md" toc-title="A Ktor Application"/>
-                <toc-element id="Engines.md" toc-title="Engines"/>
-                <toc-element id="Configuration.md" toc-title="Configuration"/>
-                <toc-element id="Running_applications.md" toc-title="Running applications"/>
-                <toc-element id="routing.md" toc-title="Routing"/>
-                <toc-element id="static_routes.md" toc-title="Static routes"/>
-                <toc-element id="serving_static_content.md" toc-title="Serving Static Content"/>
-                <toc-element id="error_handling.md" toc-title="Error Handling"/>
-                <toc-element id="status_pages.md" toc-title="Status pages"/>
+        <toc-element toc-title="Ktor on the Server">
+            <toc-element id="developing_applications.md">
+                <toc-element id="A_Ktor_Application.md"/>
+                <toc-element id="Engines.md"/>
+                <toc-element id="Configurations.md"/>
+                <toc-element id="Running_applications.md"/>
+                <toc-element toc-title="Routing">
 
-
-                <toc-element id="Authentication" toc-title="Authentication">
 
                 </toc-element>
-                <toc-element id="Uploading_content" toc-title="Uploading content">
-                    <toc-element id="Partial_Content.md" toc-title="Partial Content"/>
+                <toc-element id="Static_Routes.md"/>
+                <toc-element id="Serving_Static_Content.md"/>
+                <toc-element toc-title="Error Handling">
+                    <toc-element id="status_pages.md"/>
                 </toc-element>
-                <toc-element id="logging.md" toc-title="Logging"/>
-                <toc-element id="serialization.md" toc-title="Serialization and Content Negotiation"/>
-                <toc-element id="Working_with_views.md" toc-title="Working with Views"/>
-
-            </toc-element>
-            <toc-element id="Advanced">
-                <toc-element id="auto_head_response.md" toc-title="Auto Head Response"/>
-                <toc-element id="custom_headers.md" toc-title="Custom Headers"/>
-                <toc-element id="caching.md" toc-title="Caching"/>
-                <toc-element id="cors.md" toc-title="CORS"/>
-                <toc-element id="redirects.md" toc-title="Redirects"/>
-                <toc-element id="extending_ktor" toc-title="Extending Ktor">
-                    <toc-element id="How_Ktor_works"/>
-                    <toc-element id="Pipelines"/>
+                <toc-element toc-title="Submitting information">
+                    <toc-element id="request_parameters.md"/>
+                    <toc-element id="route_parameters.md"/>
+                    <toc-element id="body_contents.md"/>
+                    <toc-element id="multipart_support.md"/>
                 </toc-element>
 
-            </toc-element>
-            <toc-element id="running_and_debugging" toc-title="Running and Debugging">
-                <toc-element id="Auto_reload.md" toc-title="Auto reload"/>
-                <toc-element id="Debugging_routes.md" toc-title="Debugging routes"/>
-
-            </toc-element>
-            <toc-element id="testing">
-
-            </toc-element>
-            <toc-element id="Deployments">
-                <toc-element id="containers" toc-title="Containers">
+                <toc-element toc-title="Authentication and Authorization" >
 
                 </toc-element>
-                <toc-element id="hosting">
+                <toc-element id="logging.md"/>
+                <toc-element id="serialization.md"/>
+                <toc-element id="Working_with_views.md"/>
+
+            </toc-element>
+            <toc-element toc-title="Advanced">
+                <toc-element id="auto_head_response.md"/>
+                <toc-element id="custom_headers.md"/>
+                <toc-element id="caching.md"/>
+                <toc-element id="cors.md"/>
+                <toc-element id="redirects.md"/>
+                <toc-element toc-title="Extending Ktor" >
+                    <toc-element id="How_Ktor_works.md"/>
+                    <toc-element id="Pipelines.md"/>
+                </toc-element>
+
+            </toc-element>
+            <toc-element toc-title="Running and Debugging" >
+                <toc-element id="Auto_reload.md"/>
+                <toc-element id="Debugging_routes.md"/>
+
+            </toc-element>
+            <toc-element toc-title="Testing">
+
+            </toc-element>
+            <toc-element toc-title="Deployments">
+                <toc-element id="containers.md" >
+
+                </toc-element>
+                <toc-element id="hosting.md">
 
                 </toc-element>
                 <toc-element id="SSL_and_certificates.md"/>
                 <toc-element id="Metrics_and_Performance_Monitoring.md"/>
-                <toc-element id="proguard.md" toc-title="Proguard"/>
+                <toc-element id="proguard.md"/>
             </toc-element>
         </toc-element>
 
-        <toc-element id="client" toc-title="Ktor on the Client">
+        <toc-element toc-title="Client" >
 
         </toc-element>
 
-        <toc-element id="web_sockets" toc-title="Websockets">
+        <toc-element toc-title="Web Sockets" >
 
         </toc-element>
     </toc-element>
 
-    <toc-element id="api_reference" toc-title="API Reference"/>
-    <toc-element id="FAQ"/>
+    <toc-element toc-title="API Reference.md"/>
+    <toc-element id="FAQ.md"/>
 
 
 </product-profile>
