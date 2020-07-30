@@ -19,8 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="Grammar mistake">
+    <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="Added list of topics for tracking">
+      <change afterPath="$PROJECT_DIR$/topics/Organizing_Routes.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ktor.tree" beforeDir="false" afterPath="$PROJECT_DIR$/ktor.tree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/Serving_Static_Content.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Serving_Static_Content.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/Static_Routes.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +81,7 @@
       <workItem from="1596011280143" duration="693000" />
       <workItem from="1596034901135" duration="4794000" />
       <workItem from="1596052899004" duration="4776000" />
-      <workItem from="1596087493832" duration="590000" />
+      <workItem from="1596087493832" duration="4698000" />
     </task>
     <task id="LOCAL-00001" summary="Layout of TOC">
       <created>1595417880622</created>
@@ -121,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596087187633</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added list of topics for tracking">
+      <created>1596088262760</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1596088262760</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,7 +158,8 @@
     <MESSAGE value="Static Content Done." />
     <MESSAGE value="Fixed issue with unique IDs" />
     <MESSAGE value="Grammar mistake" />
-    <option name="LAST_COMMIT_MESSAGE" value="Grammar mistake" />
+    <MESSAGE value="Added list of topics for tracking" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added list of topics for tracking" />
   </component>
   <component name="WindowStateProjectService">
     <state x="205" y="259" key="SettingsEditor" timestamp="1596087479212">
@@ -155,11 +167,11 @@
     </state>
     <state x="205" y="259" key="SettingsEditor/0.23.2048.1257@0.23.2048.1257" timestamp="1596087479212" />
     <state x="301" y="336" key="SettingsEditor/0.23.3008.1669@0.23.3008.1669" timestamp="1595414463674" />
-    <state width="500" height="400" key="SwitcherDM" timestamp="1596054584382">
-      <screen x="0" y="23" width="2048" height="1257" />
+    <state width="500" height="445" key="SwitcherDM" timestamp="1596105977099">
+      <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state width="500" height="400" key="SwitcherDM/0.23.2048.1257@0.23.2048.1257" timestamp="1596054584382" />
-    <state width="500" height="445" key="SwitcherDM/0.23.3008.1669@0.23.3008.1669" timestamp="1595420565637" />
+    <state width="500" height="445" key="SwitcherDM/0.23.3008.1669@0.23.3008.1669" timestamp="1596105977099" />
     <state x="567" y="494" key="VCS.EditChangelistDialog" timestamp="1595486739877">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
@@ -173,14 +185,14 @@
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="1520" y="738" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.3008.1669@0.23.3008.1669" timestamp="1596009249701" />
-    <state x="1088" y="360" width="604" height="735" key="find.popup" timestamp="1595419998057">
+    <state x="1088" y="360" width="604" height="735" key="find.popup" timestamp="1596131052262">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
-    <state x="1088" y="360" width="604" height="735" key="find.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1595419998057" />
-    <state x="316" y="302" width="670" height="510" key="search.everywhere.popup" timestamp="1596086045288">
-      <screen x="0" y="23" width="2048" height="1257" />
+    <state x="1088" y="360" width="604" height="735" key="find.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1596131052262" />
+    <state x="464" y="394" width="670" height="676" key="search.everywhere.popup" timestamp="1596130992273">
+      <screen x="0" y="23" width="3008" height="1669" />
     </state>
-    <state x="316" y="302" width="670" height="510" key="search.everywhere.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1596086045288" />
-    <state x="464" y="394" width="670" height="676" key="search.everywhere.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1595414423631" />
+    <state x="316" y="302" width="670" height="510" key="search.everywhere.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1596088220955" />
+    <state x="464" y="394" width="670" height="676" key="search.everywhere.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1596130992273" />
   </component>
 </project>

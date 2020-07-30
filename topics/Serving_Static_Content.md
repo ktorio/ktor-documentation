@@ -36,7 +36,7 @@ routing {
 `files("css")` would then allow for any file located in the folder `css` to be served as static content under the given
 URL pattern, which in this case is `assets`. This means that a request to
 
-`/assets/stylesheet.cs` would serve the file `/css/stylesheet.cs` 
+`/assets/stylesheet.css` would serve the file `/css/stylesheet.css` 
 
 We can have as many folders as we like under a single path. For instance the following would also be valid
 
@@ -181,7 +181,7 @@ personalising error handling, please see [status pages](status_pages.md)
 
 ## Customising Content Type header
 
-Ktor automatically looks up the content type of a file based on its extension and set the appropriate `Content-Type` header. The list of supported MIME types 
+Ktor automatically looks up the content type of a file based on its extension and sets the appropriate `Content-Type` header. The list of supported MIME types 
 is defined in the `mimelist.csv` resource file located in `ktor-server-core` artifact. 
  
 

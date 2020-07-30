@@ -24,8 +24,8 @@
                 <toc-element id="Configurations.md"/>
                 <toc-element id="Running_applications.md"/>
                 <toc-element toc-title="Routing">
+                    <toc-element id="Organizing_Routes.md"/>
                 </toc-element>
-                <toc-element id="Static_Routes.md"/>
                 <toc-element id="Serving_Static_Content.md"/>
                 <toc-element toc-title="Error Handling">
                     <toc-element id="status_pages.md"/>
