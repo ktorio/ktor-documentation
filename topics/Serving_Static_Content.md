@@ -120,7 +120,7 @@ routing {
 }
 ```
 
-### Serving individual files
+### Serving individual resources
 
 In addition to serving files from resources, we can also specify individuals files we would like to make available by 
 using the `resource` function. Optionally this takes a second argument which allows us to map a physical filename to a virtual one.
@@ -133,7 +133,7 @@ routing {
     }
 }
 ```
-### Defining a default file
+### Defining a default resource
 
 For a specific path, we can also define the default file to be loaded
 
@@ -146,7 +146,7 @@ routing {
 }
 ```
 
-### Changing the default root folder
+### Changing the default resource package
 
 Ktor also provides us the ability to specify a different base resource package from where contents is served.
 
