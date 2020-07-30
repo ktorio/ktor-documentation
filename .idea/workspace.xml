@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="Static Content Done.">
+    <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="Fixed issue with unique IDs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/Serving_Static_Content.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Serving_Static_Content.md" afterDir="false" />
     </list>
@@ -77,7 +77,7 @@
       <workItem from="1596008658936" duration="1143000" />
       <workItem from="1596011280143" duration="693000" />
       <workItem from="1596034901135" duration="4794000" />
-      <workItem from="1596052899004" duration="3350000" />
+      <workItem from="1596052899004" duration="4480000" />
     </task>
     <task id="LOCAL-00001" summary="Layout of TOC">
       <created>1595417880622</created>
@@ -107,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596055365561</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fixed issue with unique IDs">
+      <created>1596086181622</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1596086181622</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,10 +133,13 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Layout of TOC" />
     <MESSAGE value="Finished off first round of TOC" />
     <MESSAGE value="Static Content Done." />
-    <option name="LAST_COMMIT_MESSAGE" value="Static Content Done." />
+    <MESSAGE value="Fixed issue with unique IDs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed issue with unique IDs" />
   </component>
   <component name="WindowStateProjectService">
     <state x="301" y="336" key="SettingsEditor" timestamp="1595414463674">
@@ -145,10 +155,10 @@
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="567" y="494" key="VCS.EditChangelistDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1595486739877" />
-    <state x="272" y="335" key="Vcs.Push.Dialog.v2" timestamp="1596055371963">
+    <state x="272" y="335" key="Vcs.Push.Dialog.v2" timestamp="1596086182976">
       <screen x="0" y="23" width="2048" height="1257" />
     </state>
-    <state x="272" y="335" key="Vcs.Push.Dialog.v2/0.23.2048.1257@0.23.2048.1257" timestamp="1596055371963" />
+    <state x="272" y="335" key="Vcs.Push.Dialog.v2/0.23.2048.1257@0.23.2048.1257" timestamp="1596086182976" />
     <state x="399" y="437" key="Vcs.Push.Dialog.v2/0.23.3008.1669@0.23.3008.1669" timestamp="1595420580260" />
     <state x="1520" y="738" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596009249701">
       <screen x="0" y="23" width="3008" height="1669" />
@@ -158,9 +168,10 @@
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="1088" y="360" width="604" height="735" key="find.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1595419998057" />
-    <state x="464" y="394" width="670" height="676" key="search.everywhere.popup" timestamp="1595414423631">
-      <screen x="0" y="23" width="3008" height="1669" />
+    <state x="316" y="302" width="670" height="510" key="search.everywhere.popup" timestamp="1596086045288">
+      <screen x="0" y="23" width="2048" height="1257" />
     </state>
+    <state x="316" y="302" width="670" height="510" key="search.everywhere.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1596086045288" />
     <state x="464" y="394" width="670" height="676" key="search.everywhere.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1595414423631" />
   </component>
 </project>

@@ -96,7 +96,7 @@ which would then map any request to `/docs` to the physical folder `/system/fold
 
 ## Embedded Application Resources
 
-We can embed content as resources in our applications and serve using the `resource` and `resources` functions
+We can embed content as resources in our applications and serve these using the `resource` and `resources` functions
 
 ```kotlin
 static("assets") {
