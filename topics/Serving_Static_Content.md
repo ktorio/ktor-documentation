@@ -191,7 +191,7 @@ An example application that serves static files using both folders and resources
 
 ```kotlin
 ```
-{src="/feature/static-content/src/StaticContentApplication.kt"}
+{src="https://github.com/ktorio/ktor-samples/blob/master/feature/static-content/src/StaticContentApplication.kt"}
 
 
 

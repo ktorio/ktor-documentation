@@ -19,7 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="Fixed link" />
+    <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="Fixed link">
+      <change beforePath="$PROJECT_DIR$/topics/Serving_Static_Content.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Serving_Static_Content.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,7 +77,7 @@
       <workItem from="1596011280143" duration="693000" />
       <workItem from="1596034901135" duration="4794000" />
       <workItem from="1596052899004" duration="4776000" />
-      <workItem from="1596087493832" duration="14644000" />
+      <workItem from="1596087493832" duration="15546000" />
     </task>
     <task id="LOCAL-00001" summary="Layout of TOC">
       <created>1595417880622</created>
@@ -161,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596188179627</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Fixed link">
+      <created>1596188612390</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1596188612390</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,20 +213,20 @@
     </state>
     <state x="205" y="259" key="SettingsEditor/0.23.2048.1257@0.23.2048.1257" timestamp="1596087479212" />
     <state x="301" y="336" key="SettingsEditor/0.23.3008.1669@0.23.3008.1669" timestamp="1595414463674" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1596188160552">
+    <state width="500" height="445" key="SwitcherDM" timestamp="1596188586381">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state width="500" height="400" key="SwitcherDM/0.23.2048.1257@0.23.2048.1257" timestamp="1596172706641" />
-    <state width="500" height="445" key="SwitcherDM/0.23.3008.1669@0.23.3008.1669" timestamp="1596188160552" />
+    <state width="500" height="445" key="SwitcherDM/0.23.3008.1669@0.23.3008.1669" timestamp="1596188586381" />
     <state x="567" y="494" key="VCS.EditChangelistDialog" timestamp="1595486739877">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="567" y="494" key="VCS.EditChangelistDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1595486739877" />
-    <state x="399" y="437" key="Vcs.Push.Dialog.v2" timestamp="1596188177549">
+    <state x="399" y="437" key="Vcs.Push.Dialog.v2" timestamp="1596188613660">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="272" y="335" key="Vcs.Push.Dialog.v2/0.23.2048.1257@0.23.2048.1257" timestamp="1596086182976" />
-    <state x="399" y="437" key="Vcs.Push.Dialog.v2/0.23.3008.1669@0.23.3008.1669" timestamp="1596188177549" />
+    <state x="399" y="437" key="Vcs.Push.Dialog.v2/0.23.3008.1669@0.23.3008.1669" timestamp="1596188613660" />
     <state x="1520" y="738" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596009249701">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
@@ -226,10 +235,10 @@
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="1088" y="360" width="615" height="735" key="find.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1596187946763" />
-    <state x="464" y="394" width="670" height="676" key="search.everywhere.popup" timestamp="1596184658387">
+    <state x="464" y="394" width="670" height="676" key="search.everywhere.popup" timestamp="1596191297702">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="316" y="302" width="670" height="510" key="search.everywhere.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1596172677109" />
-    <state x="464" y="394" width="670" height="676" key="search.everywhere.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1596184658387" />
+    <state x="464" y="394" width="670" height="676" key="search.everywhere.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1596191297702" />
   </component>
 </project>
