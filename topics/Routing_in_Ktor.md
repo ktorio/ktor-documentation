@@ -18,7 +18,7 @@ install(Routing) {
 
 `route` takes three parameters:
 
-* The URL [pattern](#url-patterns.md)
+* The URL [pattern](#url_patterns.md)
 * The Verb, which can be `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, or `PATCH`
 * The Handler, which provides us with access to handling the request 
 
