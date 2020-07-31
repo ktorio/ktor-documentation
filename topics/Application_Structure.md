@@ -110,7 +110,7 @@ necessary to use objects in case we’re worried about any kind of overhead.
 Having everything in a single file can become a bit cumbersome as the file grows. 
 What we could do instead is use folders (i.e. packages) to define different areas and then have each route in its own file.
 
-![Grouping by folders](images/ktor-routing-1.png)
+![Grouping by folders](ktor-routing-1.png)
 
 While this does provide the advantage of a nice layout when it comes to routes and the individual actions, it could certainly 
 lead to “package overload”, and potentially having tons of filenames named the same, making navigation somewhat more difficult.
@@ -120,7 +120,7 @@ lead to “package overload”, and potentially having tons of filenames named t
 
 Frameworks such as ASP.NET MVC (or Ruby on Rails), have the concept of structuring applications using three folders - Model, View, and Controllers (Routes).
 
-![Model View Controller](images/ktor-routing-2.png)
+![Model View Controller](ktor-routing-2.png)
 
 
 This isn’t far-fetched with the schema we have above which is grouping routes in their own packages/files, our views in the resources folder in the case of Ktor, and 
@@ -129,7 +129,7 @@ of course, nothings prevents us from having a package model where we place any d
 While this approach may work and is similar to other frameworks, some would argue that it would make more sense to group things by features, i.e. instead of having the project 
 distributed by routes, models and views, have these groups by specific behaviour/features, i.e. `OrderProcessPayment`, `CustomerAddressChange`, etc.
 
-![Feature grouping](images/ktor-routing-3.png)
+![Feature grouping](ktor-routing-3.png)
 
 With many frameworks, this kind of organization of code isn’t viable without seriously hacking the underlying conventions. However with Ktor, given how flexible it is, 
 in principle it shouldn’t be a problem. With one caveat - when we’re using a [template engine](Working_with_views.md), resources could be an issue. But let’s see how we could solve this.
