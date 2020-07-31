@@ -24,7 +24,8 @@
                 <toc-element id="Configurations.md"/>
                 <toc-element id="Running_applications.md"/>
                 <toc-element toc-title="Routing">
-                    <toc-element id="Organizing_Routes.md"/>
+                    <toc-element id="Routing_in_Ktor.md"/>
+                    <toc-element id="Application_Structure.md"/>
                 </toc-element>
                 <toc-element id="Serving_Static_Content.md"/>
                 <toc-element toc-title="Error Handling">
@@ -48,8 +49,14 @@
                 <toc-element id="caching.md"/>
                 <toc-element id="cors.md"/>
                 <toc-element id="redirects.md"/>
+                <toc-element toc-title="Routing under the covers">
+                    <toc-element id="resolution_algorithms.md"/>
+                    <toc-element id="tracing_routes.md"/>
+                    <toc-element id="intercepting_routes.md"/>
+                </toc-element>
                 <toc-element toc-title="Extending Ktor" >
                     <toc-element id="How_Ktor_works.md"/>
+
                     <toc-element id="Pipelines.md"/>
                 </toc-element>
             </toc-element>

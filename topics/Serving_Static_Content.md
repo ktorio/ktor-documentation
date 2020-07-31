@@ -6,7 +6,7 @@ given this is such a common functionality, Ktor simplifies the entire process fo
 
 The first step in defining a static route is to 
 define the path under which the content should be served. For instance, if you want everything under the route `assets` to be treated as static content, you need to add the following
-to your application setup
+to your application setup:
 
 ```kotlin
 routing {
@@ -23,7 +23,7 @@ The next step is to define where we want the content to be served from, which ca
 
 ## Folders
 
-In order to serve the contents from a folder, we need to specify the folder name using the `files` function. The path is **always relative to the application path**
+In order to serve the contents from a folder, we need to specify the folder name using the `files` function. The path is **always relative to the application path**:
 
 ```kotlin
 routing {
@@ -38,7 +38,7 @@ URL pattern, which in this case is `assets`. This means that a request to
 
 `/assets/stylesheet.css` would serve the file `/css/stylesheet.css` 
 
-We can have as many folders as we like under a single path. For instance the following would also be valid
+We can have as many folders as we like under a single path. For instance the following would also be valid:
 
 ```kotlin
 routing {
@@ -52,7 +52,7 @@ routing {
 ### Serving individual files
 
 In addition to serving files from folders, we can also specify individuals files we would like to make available by 
-using the `file` function. Optionally this takes a second argument which allows us to map a physical filename to a virtual one.
+using the `file` function. Optionally this takes a second argument which allows us to map a physical filename to a virtual one:
 
 ```kotlin
 routing {
@@ -65,7 +65,7 @@ routing {
 
 ### Defining a default file
 
-For a specific path, we can also define the default file to be loaded
+For a specific path, we can also define the default file to be loaded:
 
 ```kotlin
 routing {
@@ -83,7 +83,7 @@ which would cause a request to `/assets/` to serve `index.html`.
 Ktor also provides us the ability to specify a different root folder from where contents is served. This is useful for instance
 if we want to dynamically define where contents should be served from, or even use absolute paths.
 
-We can do this by setting the value of the `staticRootFolder` property 
+We can do this by setting the value of the `staticRootFolder` property: 
 
 ```kotlin
 static("docs") {
@@ -96,7 +96,7 @@ which would then map any request to `/docs` to the physical folder `/system/fold
 
 ## Embedded Application Resources
 
-We can embed content as resources in our applications and serve these using the `resource` and `resources` functions
+We can embed content as resources in our applications and serve these using the `resource` and `resources` functions:
 
 ```kotlin
 static("assets") {
@@ -109,7 +109,7 @@ URL pattern, which in this case is `assets`. This means that a request to
 
 `/assets/stylesheet.cs` would serve the file `/css/stylesheet.cs` 
 
-We can have as many resources as we like under a single path. For instance the following would also be valid
+We can have as many resources as we like under a single path. For instance the following would also be valid:
 
 ```kotlin
 routing {
@@ -123,7 +123,7 @@ routing {
 ### Serving individual resources
 
 In addition to serving files from resources, we can also specify individuals files we would like to make available by 
-using the `resource` function. Optionally this takes a second argument which allows us to map a physical filename to a virtual one.
+using the `resource` function. Optionally this takes a second argument which allows us to map a physical filename to a virtual one:
 
 ```kotlin
 routing {
@@ -135,7 +135,7 @@ routing {
 ```
 ### Defining a default resource
 
-For a specific path, we can also define the default file to be loaded
+For a specific path, we can also define the default file to be loaded:
 
 ```kotlin
 routing {
@@ -150,7 +150,7 @@ routing {
 
 Ktor also provides us the ability to specify a different base resource package from where contents is served.
 
-We can do this by setting the value of the `staticBasePackage` property 
+We can do this by setting the value of the `staticBasePackage` property: 
 
 ```kotlin
 static("docs") {
@@ -161,7 +161,7 @@ static("docs") {
 
 ## Sub-routes
 
-If we want to have sub-routes, we can nest `static` functions
+If we want to have sub-routes, we can nest `static` functions:
 
 ```kotlin
 static("assets") {
@@ -187,7 +187,7 @@ is defined in the `mimelist.csv` resource file located in `ktor-server-core` art
 
 ## Example 
 
-An example application that serves static files using both folders and resources can be found below
+An example application that serves static files using both folders and resources can be found below:
 
 ```kotlin
 ```

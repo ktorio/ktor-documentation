@@ -53,7 +53,7 @@
 [ ] Metrics with Micrometer metrics
 [ ] Metrics with Dropwizard metrics
 [ ] Partial Content
-[ ] Routing
+[X] Routing - Pending Tracing and Intercepting Routing which goes in the Advanced Section
 [ ] Sessions
 [ ] Client/Server
 [ ] Cookie/Header
