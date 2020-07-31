@@ -35,7 +35,7 @@ install(Routing) {
 where we can see that the `route` function is replaced with a `get` function that now only needs to take the URL and the code to handle the request. In a similar 
 way Ktor provides functions for all the other verbs, that is `put`, `post`, `head`, and so on.
 
-# Routing Function
+## Routing Function
  
 Similar to how the `get` function simplifies defining routes, installing routes is also made easier by using the `routing` function. This means that
 instead of having to use `install(Routing)` we can simply use the function `routing`:
@@ -93,7 +93,7 @@ routing {
 }
 ```
 
-# Using Route Extension Functions
+## Using Route Extension Functions
 
 A common pattern is to use extension functions on the `Route` type to define the actual routes, allowing us easy access to the verbs, and 
 remove clutter of having all routes in a single routing function. We can apply this pattern independently of how we decide 

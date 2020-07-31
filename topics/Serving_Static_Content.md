@@ -1,6 +1,6 @@
 [//]: # (title: Serving Static Content)
 
-Whether we're creating a website (stylesheets, scripts, images, etc.) or an HTTP endpoint, many applications need to serve files, 
+Whether we're creating a website or an HTTP endpoint, many applications need to serve files (such as stylesheets, scripts, images, etc.), 
 While it is certainly possible with Ktor to load the contents of a file and send it in response to a request,
 given this is such a common functionality, Ktor simplifies the entire process for us with the `static` Feature.
 

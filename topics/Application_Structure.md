@@ -4,7 +4,7 @@ One of Ktor’s strong points is in the flexibility it offers in terms of struct
 
 In this section we're going to examine the different options we have to structure our applications.
 
-# Grouping by file
+## Grouping by file
 
 One approach is to group routes that are related in a single file. If our application is dealing with Customers and Orders for instance,
 this would mean having a `CustomerRoutes.kt` and an `OrderRoutes.kt` file:
@@ -46,7 +46,7 @@ What would happen with sub-routes? Such as order/shipment for instance? It somew
 If we’re talking about these as resources (which they are), shipment itself could therefore be a resource, and could easily map 
 to another file `ShipmentRoutes.kt`.
 
-# Grouping routing definitions
+## Grouping routing definitions
 
 One advantage of this approach is that we can also group the routing definitions, and potentially features, per file. For instance, let’s assume 
 that we follow the group per file layout as above. Even though are routes in a different files, we need to declare them at Application level. As such 
@@ -99,13 +99,13 @@ We can even take this one step further - install features per application, as ne
 the Authentication feature which depends on specific routes. One important note however is that Ktor will detect if a 
 feature has been installed twice by throwing an DuplicateApplicationFeatureException exception.
 
-## A note on using objects
+### A note on using objects
 
 Using objects to group routing functions doesn’t provide any kind of performance or memory benefits, as top-level functions in Ktor are 
 instantiated a single time. While it can provide some sort of cohesive structure where we may want to share common functionality, it isn’t 
 necessary to use objects in case we’re worried about any kind of overhead.
 
-# Grouping by folders
+## Grouping by folders
 
 Having everything in a single file can become a bit cumbersome as the file grows. 
 What we could do instead is use folders (i.e. packages) to define different areas and then have each route in its own file.
@@ -116,7 +116,7 @@ While this does provide the advantage of a nice layout when it comes to routes a
 lead to “package overload”, and potentially having tons of filenames named the same, making navigation somewhat more difficult.
  On the other hand, as we’ll see in the next example, we could also merely prefix each file with area (i.e. `CustomerCreate.kt` for instance).
 
-# Grouping by features
+## Grouping by features
 
 Frameworks such as ASP.NET MVC (or Ruby on Rails), have the concept of structuring applications using three folders - Model, View, and Controllers (Routes).
 
