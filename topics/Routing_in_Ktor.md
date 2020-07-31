@@ -18,7 +18,7 @@ install(Routing) {
 
 `route` takes three parameters:
 
-* The URL [pattern](Routing_in_Ktor.md#url_patterns)
+* The URL pattern
 * The Verb, which can be `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, or `PATCH`
 * The Handler, which provides us with access to handling the request 
 
