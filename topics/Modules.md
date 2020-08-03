@@ -1,3 +1,3 @@
-[//]: # (title: Modules.md)
+[//]: # (title: Modules)
 
 Start writing here.

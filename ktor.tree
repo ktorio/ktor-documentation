@@ -20,6 +20,7 @@
         <toc-element toc-title="Ktor on the Server">
             <toc-element id="developing_applications.md">
                 <toc-element id="A_Ktor_Application.md"/>
+                <toc-element id="Modules.md"/>
                 <toc-element id="Engines.md"/>
                 <toc-element id="Configurations.md"/>
                 <toc-element id="Running_applications.md"/>
