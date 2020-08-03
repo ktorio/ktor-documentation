@@ -18,6 +18,6 @@ A Ktor Application consists of a series of one or more modules, each of which ca
  
 Each module consists of....
 
-![Module Diagram](module-diagram.png)
+![Module Diagram](module-diagram.svg)
 
 
