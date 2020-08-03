@@ -6,10 +6,18 @@ static and dynamic pages, an HTTP endpoint, a RESTful system, or even microservi
 In this section we're going to cover the basics of what a Ktor Server Application is and how the pieces all fit together. For more advanced
 topics and to dive deeper into Ktor under the covers, see the [Advanced section]()
 
+## The Simplest Ktor Application
+
+
 ## Modules
 
 A Ktor Application consists of a series of one or more modules, each of which can house any kind of functionality. 
 
 ![App Diagram](app-diagram.png)
  
+ 
+Each module consists of....
+
+![Module Diagram](module-diagram.png)
+
 
