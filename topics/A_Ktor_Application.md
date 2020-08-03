@@ -13,7 +13,7 @@ topics and to dive deeper into Ktor under the covers, see the [Advanced section]
 
 A Ktor Application consists of a series of one or more modules, each of which can house any kind of functionality. 
 
-![App Diagram](app-diagram.png)
+![App Diagram](app-diagram.svg)
  
  
 Each module consists of....

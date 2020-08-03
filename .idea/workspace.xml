@@ -19,8 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="Created first diagram for testing">
+    <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="Trying new image">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/A_Ktor_Application.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/A_Ktor_Application.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/images/app-diagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/images/module-diagram.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +100,7 @@
       <workItem from="1596052899004" duration="4776000" />
       <workItem from="1596087493832" duration="20559000" />
       <workItem from="1596430044866" duration="1021000" />
-      <workItem from="1596432413169" duration="2366000" />
+      <workItem from="1596432413169" duration="3583000" />
     </task>
     <task id="LOCAL-00001" summary="Layout of TOC">
       <created>1595417880622</created>
@@ -239,7 +242,21 @@
       <option name="project" value="LOCAL" />
       <updated>1596439660675</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Trying new image">
+      <created>1596440430333</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1596440430333</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Trying new image">
+      <created>1596440440711</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1596440440711</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,7 +292,8 @@
     <MESSAGE value="Fixed heading issues" />
     <MESSAGE value="Fixed titles in two markdown files" />
     <MESSAGE value="Created first diagram for testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created first diagram for testing" />
+    <MESSAGE value="Trying new image" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trying new image" />
   </component>
   <component name="WindowStateProjectService">
     <state x="799" y="884" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596175947740">
@@ -296,11 +314,11 @@
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="567" y="494" key="VCS.EditChangelistDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1595486739877" />
-    <state x="399" y="437" key="Vcs.Push.Dialog.v2" timestamp="1596439662295">
+    <state x="399" y="437" key="Vcs.Push.Dialog.v2" timestamp="1596440441552">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="272" y="335" key="Vcs.Push.Dialog.v2/0.23.2048.1257@0.23.2048.1257" timestamp="1596434191367" />
-    <state x="399" y="437" key="Vcs.Push.Dialog.v2/0.23.3008.1669@0.23.3008.1669" timestamp="1596439662295" />
+    <state x="399" y="437" key="Vcs.Push.Dialog.v2/0.23.3008.1669@0.23.3008.1669" timestamp="1596440441552" />
     <state x="1520" y="738" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596009249701">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
