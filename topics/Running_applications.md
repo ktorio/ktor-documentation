@@ -1,3 +1,3 @@
-[//]: # (title: Running_applications.md)
+[//]: # (title: Running Applications)
 
 Start writing here.

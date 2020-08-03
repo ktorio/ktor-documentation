@@ -1,3 +1,3 @@
-[//]: # (title: Configurations.md)
+[//]: # (title: Configurations)
 
 Start writing here.
