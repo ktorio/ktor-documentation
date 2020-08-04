@@ -19,60 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="Trying new image">
-      <change afterPath="$PROJECT_DIR$/images/feature-pipeline-routing.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/feature-pipeline.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/request-response-pipeline.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/Creating_custom_features.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/Features.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/working_with_cookies.md" afterDir="false" />
+    <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="Added Features and architecture info">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagrams/App.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/diagrams/App.drawio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ktor.tree" beforeDir="false" afterPath="$PROJECT_DIR$/ktor.tree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/A_Ktor_Application.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/A_Ktor_Application.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/Application_Structure.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Structuring_Applications.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/Configurations.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Configurations.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/Debugging_routes.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Debugging_routes.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/Documentation.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Documentation.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/Engines.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Engines.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/FAQ.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/FAQ.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/Getting_Started.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Getting_Started.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/How_Ktor_works.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/How_Ktor_works.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/Metrics_and_Performance_Monitoring.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Metrics_and_Performance_Monitoring.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/Modules.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Modules.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/Pipelines.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Lifecycle.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/Routing_in_Ktor.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Routing_in_Ktor.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/Running_applications.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/SSL_and_certificates.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/SSL_and_certificates.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/Tutorials.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Tutorials.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/Welcome.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Welcome.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/Working_with_views.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Working_with_views.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto_head_response.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto_head_response.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/body_contents.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/body_contents.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/caching.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/caching.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/containers.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/containers.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cors.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cors.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/custom_headers.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/custom_headers.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/developing_applications.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/developing_applications.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/extending_ktor.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/extending_ktor.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/hosting.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/hosting.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/images/app-diagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/images/app-diagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/images/ktor-routing-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/ktor-routing-1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/images/ktor-routing-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/ktor-routing-2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/images/ktor-routing-3.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/ktor-routing-3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/images/module-diagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/images/module-diagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/intercepting_routes.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/intercepting_routes.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/logging.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/logging.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/multipart_support.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/multipart_support.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/proguard.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/proguard.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/redirects.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/redirects.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/request_parameters.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/request_parameters.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/resolution_algorithms.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/resolution_algorithms.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/route_parameters.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/route_parameters.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/serialization.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/serialization.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/status_pages.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/status_pages.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/tracing_routes.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/tracing_routes.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +89,7 @@
       <workItem from="1596087493832" duration="20559000" />
       <workItem from="1596430044866" duration="1021000" />
       <workItem from="1596432413169" duration="7557000" />
-      <workItem from="1596516907967" duration="6954000" />
+      <workItem from="1596516907967" duration="7444000" />
     </task>
     <task id="LOCAL-00001" summary="Layout of TOC">
       <created>1595417880622</created>
@@ -302,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596441655208</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Added Features and architecture info">
+      <created>1596533765085</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1596533765086</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,7 +297,8 @@
     <MESSAGE value="Fixed titles in two markdown files" />
     <MESSAGE value="Created first diagram for testing" />
     <MESSAGE value="Trying new image" />
-    <option name="LAST_COMMIT_MESSAGE" value="Trying new image" />
+    <MESSAGE value="Added Features and architecture info" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Features and architecture info" />
   </component>
   <component name="WindowStateProjectService">
     <state x="799" y="884" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596175947740">
@@ -352,20 +310,20 @@
     </state>
     <state x="205" y="259" key="SettingsEditor/0.23.2048.1257@0.23.2048.1257" timestamp="1596431066818" />
     <state x="301" y="336" key="SettingsEditor/0.23.3008.1669@0.23.3008.1669" timestamp="1595414463674" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1596532739219">
+    <state width="500" height="445" key="SwitcherDM" timestamp="1596533664492">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state width="500" height="400" key="SwitcherDM/0.23.2048.1257@0.23.2048.1257" timestamp="1596520035792" />
-    <state width="500" height="445" key="SwitcherDM/0.23.3008.1669@0.23.3008.1669" timestamp="1596532739219" />
+    <state width="500" height="445" key="SwitcherDM/0.23.3008.1669@0.23.3008.1669" timestamp="1596533664492" />
     <state x="567" y="494" key="VCS.EditChangelistDialog" timestamp="1595486739877">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="567" y="494" key="VCS.EditChangelistDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1595486739877" />
-    <state x="399" y="437" key="Vcs.Push.Dialog.v2" timestamp="1596441656683">
+    <state x="399" y="437" key="Vcs.Push.Dialog.v2" timestamp="1596533766363">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="272" y="335" key="Vcs.Push.Dialog.v2/0.23.2048.1257@0.23.2048.1257" timestamp="1596434191367" />
-    <state x="399" y="437" key="Vcs.Push.Dialog.v2/0.23.3008.1669@0.23.3008.1669" timestamp="1596441656683" />
+    <state x="399" y="437" key="Vcs.Push.Dialog.v2/0.23.3008.1669@0.23.3008.1669" timestamp="1596533766363" />
     <state x="1520" y="738" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596009249701">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>

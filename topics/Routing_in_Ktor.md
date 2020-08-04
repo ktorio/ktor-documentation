@@ -22,7 +22,7 @@ install(Routing) {
 * The Verb, which can be `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, or `PATCH`
 * The Handler, which provides us with access to handling the request 
 
-Given the Routing Feature is so common in any application, there is a convenient `routing` function that makes it simpler to define routes:
+Given the Routing Feature is so common in any application, there is a convenient `routing` function that makes it simpler to install routing:
 
 ```kotlin
 routing {
@@ -34,12 +34,12 @@ routing {
 }
 ```
 
-where we can see that we've replaced `install(Routing)` with the `routing` function.
+We can see that we've replaced `install(Routing)` with the `routing` function.
 
 ## Verbs as functions
 
-Similar to how `routing` simplifies usage of the Routing Feature, Ktor provides a series of functions that make route definitions much easier and more concise. 
-The previous code could be expressed as:
+Similar to how `routing` simplifies usage of the Routing Feature, Ktor provides a series of functions that make defining route handlers much easier and more concise. 
+The previous code can be expressed as:
 
 ```kotlin
 install(Routing) {
@@ -49,14 +49,13 @@ install(Routing) {
 }
 ```
 
-where we can see that the `route` function is replaced with a `get` function that now only needs to take the URL and the code to handle the request. In a similar 
+We can see that the `route` function is replaced with a `get` function that now only needs to take the URL and the code to handle the request. In a similar 
 way Ktor provides functions for all the other verbs, that is `put`, `post`, `head`, and so on.
 
+## Defining multiple route handlers
 
+If we want to define multiple route handlers, which of course is the case for any application, we can just add them to the `routing` function:
 
-<note>
-    <p>The {id} part of the path is how we define route parmeters in Ktor, which is covered in detail in <a href="route_parameters.md">Route Parameters</a></p>
-</note>
 
 ```kotlin
 routing {
@@ -72,9 +71,13 @@ routing {
 }
 ```
 
+<note>
+    <p>The {id} part of the path is how we define route parmeters in Ktor, which is covered in detail in <a href="route_parameters.md">Route Parameters</a></p>
+</note>
+
 In this case, each route has its own function and responds to the specific endpoint and HTTP verb.
 
-An alternative way is to group these by paths, whereby we define the path and then place the verbs for that path as nested functions: 
+An alternative way is to group these by paths, whereby we define the path and then place the verbs for that path as nested functions, using the `route` function: 
 
 ```kotlin
 routing {
@@ -90,7 +93,7 @@ routing {
 }
 ```
 
-Independently of how we do the grouping, Ktor also allows us to have sub-routes. The following example shows us how to respond to incoming requests to `/order/shipment`:
+Independently of how we do the grouping, Ktor also allows us to have sub-routes as parameters to `route` functions. The following example shows us how to respond to incoming requests to `/order/shipment`:
 
 ```kotlin
 routing {
@@ -146,8 +149,14 @@ fun Route.createOrder() {
 }
 ```
 
+For our application to scale when it comes to maintainability, it is recommended to follow certain [Structuring patterns](Structuring_Applications.md).
 
+<note>
+<p>
 For more advanced topics around routing please see [Advanced Routing].
+</p>
+</note>
+
 
  
 
