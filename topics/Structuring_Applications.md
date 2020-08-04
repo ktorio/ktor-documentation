@@ -1,4 +1,4 @@
-[//]: # (title: Application Structure)
+[//]: # (title: Structuring Applications)
 
 One of Ktor’s strong points is in the flexibility it offers in terms of structuring our application. Different to many other server-side frameworks, it doesn’t force us into a specific pattern such as having to place all cohesive routes in a single class name `CustomerController` for instance. While it is certainly possible, it's not required.
 
@@ -48,7 +48,7 @@ to another file `ShipmentRoutes.kt`.
 
 ## Grouping routing definitions
 
-One advantage of this approach is that we can also group the routing definitions, and potentially features, per file. For instance, let’s assume 
+One advantage of this approach is that we can also group the routing definitions, and potentially functionality, per file. For instance, let’s assume 
 that we follow the group per file layout as above. Even though are routes in a different files, we need to declare them at Application level. As such 
 our app would look something like the following:
 

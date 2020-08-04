@@ -1,0 +1,1 @@
+- Fix up the routing and structure...it feels divided right now

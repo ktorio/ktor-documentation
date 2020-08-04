@@ -4,7 +4,7 @@
 Routing is at the heart of a Ktor application. It's what allows incoming requests to be handled. When a request such as `/hello` 
 is made, the routing mechanism in Ktor allows us to define how we want this to request to be served. 
 
-This is accomplished using the `Routing` Feature that can be installed in any Ktor server application:
+This is accomplished using the `Routing` [Feature](Features.md) which can be installed in any Ktor server application:
 
 ```Kotlin
 install(Routing) {
@@ -22,7 +22,24 @@ install(Routing) {
 * The Verb, which can be `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, or `PATCH`
 * The Handler, which provides us with access to handling the request 
 
-For convenience, Ktor provides a series of functions that make route definitions much easier and more concise. The previous code could be expressed as:
+Given the Routing Feature is so common in any application, there is a convenient `routing` function that makes it simpler to define routes:
+
+```kotlin
+routing {
+    route("/hello", HttpMethod.Get) {
+        handle {
+            call.respondText("Hello")
+        }
+    }
+}
+```
+
+where we can see that we've replaced `install(Routing)` with the `routing` function.
+
+## Verbs as functions
+
+Similar to how `routing` simplifies usage of the Routing Feature, Ktor provides a series of functions that make route definitions much easier and more concise. 
+The previous code could be expressed as:
 
 ```kotlin
 install(Routing) {
@@ -35,10 +52,7 @@ install(Routing) {
 where we can see that the `route` function is replaced with a `get` function that now only needs to take the URL and the code to handle the request. In a similar 
 way Ktor provides functions for all the other verbs, that is `put`, `post`, `head`, and so on.
 
-## Routing Function
- 
-Similar to how the `get` function simplifies defining routes, installing routes is also made easier by using the `routing` function. This means that
-instead of having to use `install(Routing)` we can simply use the function `routing`:
+
 
 <note>
     <p>The {id} part of the path is how we define route parmeters in Ktor, which is covered in detail in <a href="route_parameters.md">Route Parameters</a></p>
@@ -95,7 +109,7 @@ routing {
 
 ## Using Route Extension Functions
 
-A common pattern is to use extension functions on the `Route` type to define the actual routes, allowing us easy access to the verbs, and 
+A common pattern is to use extension functions on the `Route` type to define the actual routes, allowing us easy access to the verbs and 
 remove clutter of having all routes in a single routing function. We can apply this pattern independently of how we decide 
 to group routes. As such, the first example could be represented in a cleaner way:
 
@@ -131,6 +145,7 @@ fun Route.createOrder() {
     }
 }
 ```
+
 
 For more advanced topics around routing please see [Advanced Routing].
 

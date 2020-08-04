@@ -20,13 +20,13 @@
         <toc-element toc-title="Ktor on the Server">
             <toc-element id="developing_applications.md">
                 <toc-element id="A_Ktor_Application.md"/>
-                <toc-element id="Modules.md"/>
+                <toc-element id="Features.md"/>
                 <toc-element id="Engines.md"/>
                 <toc-element id="Configurations.md"/>
-                <toc-element id="Running_applications.md"/>
-                <toc-element toc-title="Routing">
+                <toc-element toc-title="Application Structure">
+                    <toc-element id="Modules.md"/>
                     <toc-element id="Routing_in_Ktor.md"/>
-                    <toc-element id="Application_Structure.md"/>
+                    <toc-element id="Structuring_Applications.md"/>
                 </toc-element>
                 <toc-element id="Serving_Static_Content.md"/>
                 <toc-element toc-title="Error Handling">
@@ -38,30 +38,32 @@
                     <toc-element id="body_contents.md"/>
                     <toc-element id="multipart_support.md"/>
                 </toc-element>
-                <toc-element toc-title="Authentication and Authorization" >
+                <toc-element toc-title="Authentication and Authorization">
                 </toc-element>
                 <toc-element id="logging.md"/>
                 <toc-element id="serialization.md"/>
+                <toc-element id="working_with_cookies.md"/>
                 <toc-element id="Working_with_views.md"/>
-            </toc-element>
-            <toc-element toc-title="Advanced">
                 <toc-element id="auto_head_response.md"/>
                 <toc-element id="custom_headers.md"/>
                 <toc-element id="caching.md"/>
                 <toc-element id="cors.md"/>
                 <toc-element id="redirects.md"/>
+            </toc-element>
+            <toc-element toc-title="Advanced">
+                <toc-element toc-title="Extending Ktor">
+                    <toc-element id="How_Ktor_works.md"/>
+                    <toc-element id="Lifecycle.md"/>
+                    <toc-element id="Pipelines.md"/>
+                    <toc-element id="Creating_custom_features.md"/>
+                </toc-element>
                 <toc-element toc-title="Routing under the covers">
                     <toc-element id="resolution_algorithms.md"/>
                     <toc-element id="tracing_routes.md"/>
                     <toc-element id="intercepting_routes.md"/>
                 </toc-element>
-                <toc-element toc-title="Extending Ktor" >
-                    <toc-element id="How_Ktor_works.md"/>
-
-                    <toc-element id="Pipelines.md"/>
-                </toc-element>
             </toc-element>
-            <toc-element toc-title="Running and Debugging" >
+            <toc-element toc-title="Running and Debugging">
                 <toc-element id="Auto_reload.md"/>
                 <toc-element id="Debugging_routes.md"/>
 
@@ -70,7 +72,7 @@
 
             </toc-element>
             <toc-element toc-title="Deployments">
-                <toc-element id="containers.md" >
+                <toc-element id="containers.md">
 
                 </toc-element>
                 <toc-element id="hosting.md">
@@ -82,11 +84,11 @@
             </toc-element>
         </toc-element>
 
-        <toc-element toc-title="Client" >
+        <toc-element toc-title="Client">
 
         </toc-element>
 
-        <toc-element toc-title="Web Sockets" >
+        <toc-element toc-title="Web Sockets">
 
         </toc-element>
     </toc-element>
