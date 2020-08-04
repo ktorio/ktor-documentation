@@ -50,7 +50,7 @@ function which takes a Feature as a parameter:
 
 ```kotlin
 install(Routing)
-install(ContentNegotiation)
+install(Encoding)
 ```
 
 In addition to intercepting requests and responses, Features can have an option configuration section which is configured during this step.
