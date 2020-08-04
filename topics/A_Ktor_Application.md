@@ -34,7 +34,11 @@ how Ktor works and explain some of the concepts we've used.
 
 The request and response flow for a Ktor application is represented by the following diagram:
 
+
+
 ![Request and response pipeline](request-response-pipeline.svg)
+
+
 
 When a request comes in, it is processed by the routing mechanism, which redirects it to the route handler. This route handle consists 
 of our application logic which could be anything from responding with a simple text (like the example above), to processing the input, storing

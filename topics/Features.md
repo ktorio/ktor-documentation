@@ -3,7 +3,11 @@
 
 As mentioned in [A Ktor Application](A_Ktor_Application.md), a typical request/response pipeline in Ktor looks like the following:
 
+
+
 ![Request Response Pipeline](request-response-pipeline.svg)
+
+
 
 It starts with a request, which is routed to a specific handler, processed by our application logic, and finally responded to. 
 
@@ -15,7 +19,11 @@ what we call **Features**.
 
 If we look at the previous pipeline diagram, Features sit between the request/response and the application logic:
 
+
+
 ![Feature pipeline](feature-pipeline.svg)
+
+
 
 As a request comes in:
 
@@ -29,7 +37,11 @@ As a request comes in:
 Features have been designed in a way to offer maximum flexibility, and allow them to be present in any segment of the request/response pipeline.
 In fact, what we've been calling `routing` until now, is nothing more than a Feature. 
 
+
+
 ![Routing as a Feature](feature-pipeline-routing.svg)
+
+
 
 ## Installing Features
 
