@@ -19,10 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="Added Features and architecture info">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/Routing_in_Ktor.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Routing_in_Ktor.md" afterDir="false" />
+    <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="Fixed up routing">
+      <change beforePath="$PROJECT_DIR$/topics/Features.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Features.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +87,7 @@
       <workItem from="1596087493832" duration="20559000" />
       <workItem from="1596430044866" duration="1021000" />
       <workItem from="1596432413169" duration="7557000" />
-      <workItem from="1596516907967" duration="7444000" />
+      <workItem from="1596516907967" duration="7845000" />
     </task>
     <task id="LOCAL-00001" summary="Layout of TOC">
       <created>1595417880622</created>
@@ -259,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596533765086</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Fixed up routing">
+      <created>1596534084002</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1596534084002</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,7 +303,8 @@
     <MESSAGE value="Created first diagram for testing" />
     <MESSAGE value="Trying new image" />
     <MESSAGE value="Added Features and architecture info" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Features and architecture info" />
+    <MESSAGE value="Fixed up routing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed up routing" />
   </component>
   <component name="WindowStateProjectService">
     <state x="799" y="884" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596175947740">
@@ -319,20 +325,20 @@
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="567" y="494" key="VCS.EditChangelistDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1595486739877" />
-    <state x="399" y="437" key="Vcs.Push.Dialog.v2" timestamp="1596533766363">
+    <state x="399" y="437" key="Vcs.Push.Dialog.v2" timestamp="1596534085379">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="272" y="335" key="Vcs.Push.Dialog.v2/0.23.2048.1257@0.23.2048.1257" timestamp="1596434191367" />
-    <state x="399" y="437" key="Vcs.Push.Dialog.v2/0.23.3008.1669@0.23.3008.1669" timestamp="1596533766363" />
+    <state x="399" y="437" key="Vcs.Push.Dialog.v2/0.23.3008.1669@0.23.3008.1669" timestamp="1596534085379" />
     <state x="1520" y="738" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596009249701">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="1520" y="738" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.3008.1669@0.23.3008.1669" timestamp="1596009249701" />
-    <state x="1088" y="360" width="615" height="735" key="find.popup" timestamp="1596532733237">
+    <state x="1088" y="360" width="615" height="735" key="find.popup" timestamp="1596534470547">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="741" y="277" width="568" height="554" key="find.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1596518621967" />
-    <state x="1088" y="360" width="615" height="735" key="find.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1596532733237" />
+    <state x="1088" y="360" width="615" height="735" key="find.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1596534470547" />
     <state x="316" y="302" width="670" height="510" key="search.everywhere.popup" timestamp="1596434153902">
       <screen x="0" y="23" width="2048" height="1257" />
     </state>
