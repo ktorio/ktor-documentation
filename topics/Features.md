@@ -20,9 +20,9 @@ If we look at the previous pipeline diagram, Features sit between the request/re
 As a request comes in:
 
 * It is routed to the correct handler via the routing mechanism 
-* Before being handed off to the handler, it goes through one or more Features
-* The handler (application logic) handles the request
-* Before the response is send to the client, it goes through one or more Features
+* before being handed off to the handler, it goes through one or more Features
+* the handler (application logic) handles the request
+* before the response is sent to the client, it goes through one or more Features
 
 ## Routing is a Feature
 
