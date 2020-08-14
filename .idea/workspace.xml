@@ -19,8 +19,27 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="Spacing between images">
-      <change beforePath="$PROJECT_DIR$/topics/Features.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Features.md" afterDir="false" />
+    <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="Paired up code with diagram">
+      <change afterPath="$PROJECT_DIR$/codeSnippets/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codeSnippets/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/autohead/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/autohead/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/autohead/resources/application.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/autohead/resources/logback.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/autohead/src/AutoHead.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codeSnippets/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codeSnippets/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codeSnippets/settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codeSnippets/synchronize_maven.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/preview/Features.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/preview/HelpTOC.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/preview/auto_head_response.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/preview/autoheadresponse.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/preview/config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/autoheadresponse.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ktor.tree" beforeDir="false" afterPath="$PROJECT_DIR$/ktor.tree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto_head_response.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +48,13 @@
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Startdust Ktor Feature" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,7 +82,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
     <property name="stardust.first.run4" value="yes" />
   </component>
   <component name="RecentsManager">
@@ -65,6 +91,27 @@
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/diagrams" />
     </key>
+  </component>
+  <component name="RunManager" selected="Stardust Article Preview.Preview autoheadresponse.md">
+    <configuration name="Preview Features.md" type="STARDUST_ARTICLE_PREVIEW" factoryName="Stardust Article Preview Configuration Factory">
+      <option name="previewWhat" value="$PROJECT_DIR$/topics/Features.md" />
+      <option name="autoOpen" value="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Preview [default]" type="STARDUST_ARTICLE_PREVIEW" factoryName="Stardust Article Preview Configuration Factory">
+      <option name="autoOpen" value="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Preview auto_head_response.md" type="STARDUST_ARTICLE_PREVIEW" factoryName="Stardust Article Preview Configuration Factory">
+      <option name="previewWhat" value="$PROJECT_DIR$/topics/auto_head_response.md" />
+      <option name="autoOpen" value="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Preview autoheadresponse.md" type="STARDUST_ARTICLE_PREVIEW" factoryName="Stardust Article Preview Configuration Factory">
+      <option name="previewWhat" value="$PROJECT_DIR$/topics/autoheadresponse.md" />
+      <option name="autoOpen" value="true" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -88,7 +135,15 @@
       <workItem from="1596087493832" duration="20559000" />
       <workItem from="1596430044866" duration="1021000" />
       <workItem from="1596432413169" duration="7557000" />
-      <workItem from="1596516907967" duration="10492000" />
+      <workItem from="1596516907967" duration="12414000" />
+      <workItem from="1597075824168" duration="614000" />
+      <workItem from="1597131844088" duration="627000" />
+      <workItem from="1597218109255" duration="6000" />
+      <workItem from="1597403307100" duration="615000" />
+      <workItem from="1597408484469" duration="765000" />
+      <workItem from="1597409396529" duration="3630000" />
+      <workItem from="1597417947421" duration="598000" />
+      <workItem from="1597428526852" duration="641000" />
     </task>
     <task id="LOCAL-00001" summary="Layout of TOC">
       <created>1595417880622</created>
@@ -314,7 +369,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596537030972</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Paired up code with diagram">
+      <created>1596537346606</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1596537346606</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,7 +398,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Layout of TOC" />
     <MESSAGE value="Finished off first round of TOC" />
     <MESSAGE value="Static Content Done." />
     <MESSAGE value="Fixed issue with unique IDs" />
@@ -361,23 +422,44 @@
     <MESSAGE value="Fixed image backgrounds" />
     <MESSAGE value="Update images to remove background box" />
     <MESSAGE value="Spacing between images" />
-    <option name="LAST_COMMIT_MESSAGE" value="Spacing between images" />
+    <MESSAGE value="Paired up code with diagram" />
+    <option name="LAST_COMMIT_MESSAGE" value="Paired up code with diagram" />
   </component>
   <component name="WindowStateProjectService">
     <state x="799" y="884" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596175947740">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="799" y="884" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1596175947740" />
-    <state x="205" y="259" key="SettingsEditor" timestamp="1596431066818">
-      <screen x="0" y="23" width="2048" height="1257" />
+    <state width="1494" height="300" key="GridCell.Tab.0.bottom" timestamp="1597429068406">
+      <screen x="0" y="23" width="3008" height="1669" />
+    </state>
+    <state width="1494" height="419" key="GridCell.Tab.0.bottom/0.0.2048.1280@0.0.2048.1280" timestamp="1597414675247" />
+    <state width="1494" height="300" key="GridCell.Tab.0.bottom/0.23.3008.1669@0.23.3008.1669" timestamp="1597429068406" />
+    <state width="1494" height="300" key="GridCell.Tab.0.center" timestamp="1597429068405">
+      <screen x="0" y="23" width="3008" height="1669" />
+    </state>
+    <state width="1494" height="419" key="GridCell.Tab.0.center/0.0.2048.1280@0.0.2048.1280" timestamp="1597414675247" />
+    <state width="1494" height="300" key="GridCell.Tab.0.center/0.23.3008.1669@0.23.3008.1669" timestamp="1597429068405" />
+    <state width="1494" height="300" key="GridCell.Tab.0.left" timestamp="1597429068404">
+      <screen x="0" y="23" width="3008" height="1669" />
+    </state>
+    <state width="1494" height="419" key="GridCell.Tab.0.left/0.0.2048.1280@0.0.2048.1280" timestamp="1597414675246" />
+    <state width="1494" height="300" key="GridCell.Tab.0.left/0.23.3008.1669@0.23.3008.1669" timestamp="1597429068404" />
+    <state width="1494" height="300" key="GridCell.Tab.0.right" timestamp="1597429068405">
+      <screen x="0" y="23" width="3008" height="1669" />
+    </state>
+    <state width="1494" height="419" key="GridCell.Tab.0.right/0.0.2048.1280@0.0.2048.1280" timestamp="1597414675247" />
+    <state width="1494" height="300" key="GridCell.Tab.0.right/0.23.3008.1669@0.23.3008.1669" timestamp="1597429068405" />
+    <state x="220" y="337" width="1505" height="951" key="SettingsEditor" timestamp="1597429168604">
+      <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="205" y="259" key="SettingsEditor/0.23.2048.1257@0.23.2048.1257" timestamp="1596431066818" />
-    <state x="301" y="336" key="SettingsEditor/0.23.3008.1669@0.23.3008.1669" timestamp="1595414463674" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1596533664492">
+    <state x="220" y="337" width="1505" height="951" key="SettingsEditor/0.23.3008.1669@0.23.3008.1669" timestamp="1597429168604" />
+    <state width="500" height="445" key="SwitcherDM" timestamp="1597428838032">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state width="500" height="400" key="SwitcherDM/0.23.2048.1257@0.23.2048.1257" timestamp="1596520035792" />
-    <state width="500" height="445" key="SwitcherDM/0.23.3008.1669@0.23.3008.1669" timestamp="1596533664492" />
+    <state width="500" height="445" key="SwitcherDM/0.23.3008.1669@0.23.3008.1669" timestamp="1597428838032" />
     <state x="567" y="494" key="VCS.EditChangelistDialog" timestamp="1595486739877">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
@@ -387,19 +469,23 @@
     </state>
     <state x="272" y="335" key="Vcs.Push.Dialog.v2/0.23.2048.1257@0.23.2048.1257" timestamp="1596434191367" />
     <state x="399" y="437" key="Vcs.Push.Dialog.v2/0.23.3008.1669@0.23.3008.1669" timestamp="1596537032665" />
+    <state x="881" y="408" width="1336" height="897" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1597428876629">
+      <screen x="0" y="23" width="3008" height="1669" />
+    </state>
+    <state x="881" y="408" width="1336" height="897" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1597428876629" />
     <state x="1520" y="738" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596009249701">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="1520" y="738" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.3008.1669@0.23.3008.1669" timestamp="1596009249701" />
-    <state x="1088" y="360" width="615" height="735" key="find.popup" timestamp="1596537322794">
+    <state x="1088" y="360" width="615" height="735" key="find.popup" timestamp="1597410128643">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="741" y="277" width="568" height="554" key="find.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1596518621967" />
-    <state x="1088" y="360" width="615" height="735" key="find.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1596537322794" />
-    <state x="316" y="302" width="670" height="510" key="search.everywhere.popup" timestamp="1596434153902">
-      <screen x="0" y="23" width="2048" height="1257" />
+    <state x="1088" y="360" width="615" height="735" key="find.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1597410128643" />
+    <state x="464" y="394" width="670" height="676" key="search.everywhere.popup" timestamp="1597428553150">
+      <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="316" y="302" width="670" height="510" key="search.everywhere.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1596434153902" />
-    <state x="464" y="394" width="670" height="676" key="search.everywhere.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1596200879858" />
+    <state x="464" y="394" width="670" height="676" key="search.everywhere.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1597428553150" />
   </component>
 </project>

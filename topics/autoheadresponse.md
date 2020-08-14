@@ -1,0 +1,46 @@
+[//]: # (title: Auto Head Response)
+
+## Feature
+The corresponding feature that provides this functionality is `AutoHeadResponse`
+## Description
+Ktor has the ability to automatically respond to `HEAD` request for every route that has a `GET` defined.
+## Usage
+In order to take advantage of this functionality, we need to install the `AutoHeadResponse` feature in our application
+
+```kotlin
+```
+{src="/feature/autohead/src/AutoHead.kt" lines="11-19"}
+
+In our case the `/home` route will now respond to `HEAD` request even though there is no explicit definition for this verb.
+
+It's important to note that if we're using this feature, custom `HEAD` definitions for the same `GET` route will be ignored.
+### Artifacts
+The following artifacts need to be included in the build script to use this feature:
+
+<tabs>
+    <tab title="Gradle (Groovy)">
+        <code style="block" lang="Groovy" title="Sample">
+        implementation "io.ktor.features.AutoHeadResponse:1.3.1"
+        </code>
+    </tab>
+    <tab title="Gradle (Kotlin)">
+        <code style="block" lang="Kotlin" title="Sample">
+            implementation("io.ktor.features.AutoHeadResponse:1.3.1")
+        </code>
+    </tab>
+    <tab title="Maven">
+        <code style="block" lang="XML" title="Sample">
+        <![CDATA[        
+            <dependency>
+                <scope>compile</scope>
+                <groupId>io.ktor</groupId>
+                <artifactId>AutoHeadResponse</artifactId>
+                <version>1.3.1</version>
+            </dependency>
+        ]]>
+        </code>
+   </tab>
+</tabs>
+
+## Options
+`AutoHeadResponse` does not provide any additional configuration options.

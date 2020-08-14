@@ -40,15 +40,18 @@
                 </toc-element>
                 <toc-element toc-title="Authentication and Authorization">
                 </toc-element>
-                <toc-element id="logging.md"/>
-                <toc-element id="serialization.md"/>
-                <toc-element id="working_with_cookies.md"/>
-                <toc-element id="Working_with_views.md"/>
-                <toc-element id="auto_head_response.md"/>
-                <toc-element id="custom_headers.md"/>
-                <toc-element id="caching.md"/>
-                <toc-element id="cors.md"/>
-                <toc-element id="redirects.md"/>
+                <toc-element toc-title="Features">
+                    <toc-element id="logging.md"/>
+                    <toc-element id="serialization.md"/>
+                    <toc-element id="working_with_cookies.md"/>
+                    <toc-element id="Working_with_views.md"/>
+                    <toc-element id="autoheadresponse.md"/>
+                    <toc-element id="custom_headers.md"/>
+                    <toc-element id="caching.md"/>
+                    <toc-element id="cors.md"/>
+                    <toc-element id="redirects.md"/>
+                </toc-element>
+
             </toc-element>
             <toc-element toc-title="Advanced">
                 <toc-element toc-title="Extending Ktor">
@@ -81,6 +84,9 @@
                 <toc-element id="SSL_and_certificates.md"/>
                 <toc-element id="Metrics_and_Performance_Monitoring.md"/>
                 <toc-element id="proguard.md"/>
+            </toc-element>
+            <toc-element toc-title="Recipes">
+
             </toc-element>
         </toc-element>
 
