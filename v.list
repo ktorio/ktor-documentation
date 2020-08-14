@@ -4,7 +4,6 @@
 
 <vars>
 
-    <var name="example" value="An example of string inteprolation var"/>
-
+    <var name="ktor_version" value="1.4.0"/>
 
 </vars>
