@@ -191,7 +191,7 @@ An example application that serves static files using both folders and resources
 
 ```kotlin
 ```
-{src="/feature/static-content/src/StaticContentApplication.kt"}
+{src="/sample/static-content/src/StaticContentApplication.kt"}
 
 
 

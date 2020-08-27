@@ -28,25 +28,25 @@ A collection of ready-to-use samples for [Ktor](https://ktor.io).
   * [sse](other/sse) &mdash; Shows how to use SSE (Server-Sent Events) using Ktor.
   
 * Small single-feature samples:
-  * [async](feature/async) &mdash; long-running asynchronous computation that happens in a separate thread-pool context.
-  * [auth](feature/auth) &mdash; using authorization.
-  * [post](feature/post) &mdash; form post and multipart file upload.
-  * [sessions](feature/sessions) &mdash; store information that will be kept between requests. 
-  * [custom-feature](feature/custom-feature) &mdash; implementation of a custom feature.
-  * [html-widget](feature/html-widget) &mdash; custom html widget.
+  * [async](sample/async) &mdash; long-running asynchronous computation that happens in a separate thread-pool context.
+  * [auth](sample/auth) &mdash; using authorization.
+  * [post](sample/post) &mdash; form post and multipart file upload.
+  * [sessions](sample/sessions) &mdash; store information that will be kept between requests. 
+  * [custom-feature](sample/custom-feature) &mdash; implementation of a custom feature.
+  * [html-widget](sample/html-widget) &mdash; custom html widget.
   * Content Negotiation
-    * [gson](feature/gson) &mdash; using [Gson](https://github.com/google/gson).
-    * [jackson](feature/jackson) &mdash; using [Jackson](https://github.com/FasterXML/jackson).
-    * [json-client](feature/json-client) &mdash; HTTP client with JSON support feature. 
+    * [gson](sample/gson) &mdash; using [Gson](https://github.com/google/gson).
+    * [jackson](sample/jackson) &mdash; using [Jackson](https://github.com/FasterXML/jackson).
+    * [json-client](sample/json-client) &mdash; HTTP client with JSON support feature. 
   * Dependency Injection
-    * [guice](feature/guice) &mdash; using [Guice](https://github.com/google/guice).
+    * [guice](sample/guice) &mdash; using [Guice](https://github.com/google/guice).
     * [kodein](other/di-kodein) &mdash; using [Kodein](https://kodein.org/Kodein-DI/).
-  * [locations](feature/locations) &mdash; _experimental_ locations feature.
-  * [metrics](feature/metrics) &mdash; metrics feature.
-  * [http2-push](feature/http2-push) &mdash; HTTP/2 with server-side push.
-  * [ssl](feature/ssl) &mdash; SSL support.
-  * [static content](feature/static-content) &mdash; serving static content.
-  * [testable](feature/testable) &mdash; application writing tests for Ktor applications.
+  * [locations](sample/locations) &mdash; _experimental_ locations feature.
+  * [metrics](sample/metrics) &mdash; metrics feature.
+  * [http2-push](sample/http2-push) &mdash; HTTP/2 with server-side push.
+  * [ssl](sample/ssl) &mdash; SSL support.
+  * [static content](sample/static-content) &mdash; serving static content.
+  * [testable](sample/testable) &mdash; application writing tests for Ktor applications.
   * websocket (tba)
  
 * Relatively big sample applications:
