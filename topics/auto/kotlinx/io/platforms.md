@@ -8,7 +8,7 @@
 Platform-specific functionality to deal with each platform APIs.
 
 ## JVM
-{ #jvm }
+{id="jvm "}
 
 ### NIO Channels
 
@@ -50,7 +50,7 @@ fun OutputStream.asOutput(): Output = OutputStreamAdapter(IoBuffer.Pool, this)
 ```
 
 ## JavaScript
-{ #js }
+{id="js "}
 
 ### TypedArrays
 

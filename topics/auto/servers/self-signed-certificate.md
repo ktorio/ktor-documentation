@@ -8,9 +8,9 @@ Ktor allows you to create and use self-signed certificates for serving HTTPS or 
 
 {% include artifact.html kind="function" method="io.ktor.network.tls.certificates.generateCertificate" artifact="io.ktor:ktor-network-tls:$ktor_version" %}
 
-**Table of contents:**
 
-* TOC
+
+
 
 To create a self-signed certificate using Ktor, you have to call the `generateCertificate` function.
 
@@ -96,7 +96,7 @@ ktor {
 
 After that you can just write a normal plain Ktor module: 
 
-{% capture module-kt %}
+
 ```kotlin
 package io.ktor.samples.http2
 
@@ -136,7 +136,7 @@ fun Application.main() {
     }
 }
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="Module.kt" tab1-content=module-kt

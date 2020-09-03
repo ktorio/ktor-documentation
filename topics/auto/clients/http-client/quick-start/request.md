@@ -60,7 +60,7 @@ We cannot live only on *get* requests, Ktor allows you to build complex requests
 
 ### Default http methods
 
-{ #shortcut-methods }
+{id="shortcut-methods "}
 
 Similar to `request`, there are several extension methods to perform requests
 with the most common HTTP verbs: `GET`, `POST`, `PUT`, `DELETE`, `PATCH`, `HEAD` and `OPTIONS`.
@@ -117,7 +117,7 @@ val call = client.request<String> {
 
 ### Posting forms
 
-{ #submit-form }
+{id="submit-form "}
 
 There are a couple of convenience extension methods for submitting form information.
 The detailed refrence is listed [here](https://api.ktor.io/{{ site.ktor_version }}/io.ktor.client.request.forms/).
@@ -162,7 +162,7 @@ val data: List<PartData> = formData {
 
 ### Specifying custom headers
 
-{ #custom-headers}
+{id="custom-headers"}
 
 When building requests with `HttpRequestBuilder`, you can set custom headers.
 There is a final property `val headers: HeadersBuilder` that inherits from `StringValuesBuilder`.
@@ -259,7 +259,7 @@ If you try to send a class that is inside a function, the feature will send a *n
 
 ## Uploading multipart/form-data
 
-{ #multipart-form-data }
+{id="multipart-form-data "}
 
 Ktor HTTP Client has support for making MultiPart requests.
 The idea is to use the `MultiPartFormDataContent(parts: List<PartData>)` as `OutgoingContent` for the body of the request.

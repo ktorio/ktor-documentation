@@ -8,9 +8,9 @@ Depending on the complexity of the code of your server, you might want to struct
 one way or another. This page proposes some strategies to structure your code according to its
 complexity, adapting to its growth, while keeping it as simple as possible.
 
-**Table of contents:**
 
-* TOC
+
+
 
 ## Hello World
 

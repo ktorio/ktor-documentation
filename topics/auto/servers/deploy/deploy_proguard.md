@@ -9,7 +9,7 @@ you can use proguard to shrink it. If you are using gradle, it is pretty straigh
 `proguard-gradle` plugin. You only have to remember to keep: your main module method, the EngineMain
 class, and the Kotlin reflect classes. You can then fine-tune it as required:
 
-{% capture build-gradle %}
+
 ```groovy
 buildscript {
     ext.proguard_version = '6.0.1'
@@ -43,7 +43,7 @@ task minimizedJar(type: proguard.gradle.ProGuardTask, dependsOn: shadowJar) {
     }
 }
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="build.gradle" tab1-content=build-gradle

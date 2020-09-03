@@ -17,12 +17,12 @@ or a close or ping/pong message. Frames can be marked as incomplete or final.
 
 {% include feature.html %}
 
-**Table of contents:**
 
-* TOC
+
+
 
 ## Installing
-{ #installing}
+{id="installing"}
 
 In order to use the WebSockets functionality you first have to install it: 
 
@@ -42,7 +42,7 @@ install(WebSockets) {
 ```
 
 ## Usage
-{ #usage}
+{id="usage"}
 
 Once installed, you can define the `webSocket` routes for the [routing](/servers/features/routing.html) feature:
 
@@ -55,7 +55,7 @@ instance as the receiver. That interface defines an `incoming` (ReceiveChannel) 
 property, as well as a `close` method. Check the full [WebSocketSession](#WebSocketSession) for more information.
 
 ### Usage as an suspend actor
-{ #actor}
+{id="actor"}
 
 ```kotlin
 routing {
@@ -81,7 +81,7 @@ a leak.
 { .note}
 
 ### Usage as a Channel
-{ #channel}
+{id="channel"}
 
 Since the `incoming` property is a ReceiveChannel, you can use it with its stream-like interface:
 
@@ -100,10 +100,10 @@ routing {
 ``` 
 
 ## Interface
-{ #interface}
+{id="interface"}
 
 ### The WebSocketSession interface
-{ #WebSocketSession}
+{id="WebSocketSession"}
 
 You receive a WebSocketSession as the receiver (this), giving you direct access
 to these members inside your webSocket handler.
@@ -141,7 +141,7 @@ your websocket block.
 { .note}
 
 ### The Frame interface
-{ #Frame}
+{id="Frame"}
 
 A frame is each packet sent and received at the WebSocket protocol level.
 There are two message types: TEXT and BINARY. And three control packets: CLOSE, PING, and PONG.
@@ -172,12 +172,12 @@ sealed class Frame {
 ```
 
 ## Testing
-{ #testing}
+{id="testing"}
 
 You can test WebSocket conversations by using the `handleWebSocketConversation`
 method inside a `withTestApplication` block.
 
-{% capture test-kt %}
+
 ```kotlin
 class MyAppTest {
     @Test
@@ -214,7 +214,7 @@ class MyAppTest {
     }
 }
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="test.kt" tab1-content=test-kt
@@ -223,7 +223,7 @@ class MyAppTest {
 ## FAQ
 
 ### Standard Events: `onConnect`, `onMessage`, `onClose` and `onError`
-{ #standard-events}
+{id="standard-events"}
 
 How do the [standard events from the WebSocket API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) maps to Ktor?
 

@@ -9,21 +9,14 @@ During development, it is important to have a fast feedback loop cycle.
 Often, restarting the server can take some time, so Ktor provides a basic auto-reload facility that
 reloads your Application classes.
 
-Autoreload is experimental under JDK9+. If it doesn't work, feel free to [open an issue](https://github.com/ktorio/ktor/issues/new/choose) and 
-please stick to **JDK 8** in this case.
-{ .note }
-{ #java9 }
-
-There is a performance penalty when using auto-reloading. So keep in mind that you should not use
-it in production or when doing benchmarks.
-{ .note.performance}
-
-**Table of contents:**
-
-* TOC
+>Autoreload is experimental under JDK9+. If it doesn't work, feel free to [open an issue](https://github.com/ktorio/ktor/issues/new/choose) and 
+>please stick to **JDK 8** in this case.
+>There is a performance penalty when using auto-reloading. So keep in mind that you should not use it in production or when doing benchmarks.
+>
+{type="note" id="java9"}
 
 ## Automatic reloading on class changes
-{ #basics}
+{id="basics"}
 
 In both cases, when using the [embeddedServer](#embedded-server) or a [configuration file](#configuration-file), you will have to provide a list of watch substrings
 that should match the classloaders you want to watch.
@@ -34,7 +27,7 @@ So for example, a typical class loader when using gradle would look like: \\
 In this case, you can use the `solutions/exercise4` string or just `exercise4` when watching, so it will match that classloader.
 
 ## Using embeddedServer
-{ #embedded-server}
+{id="embedded-server"}
 
 When using a custom main and `embeddedServer`,
 you can use the optional parameter `watchPaths` to provide
@@ -70,7 +63,7 @@ Exception in thread "main" java.lang.RuntimeException: Module function provided 
 
 To fix this error, you just have to extract your lambda body to an Application extension method (module) just like this:
 
-{% capture left %}
+
 ❌ Code that *won't* work:
 ```kotlin
 fun main(args: Array<String>) {
@@ -85,9 +78,9 @@ fun main(args: Array<String>) {
 }
 ```
 { .error }
-{% endcapture %}
 
-{% capture right %}
+
+
 ✅ Code that will work:
 ```kotlin
 fun main(args: Array<String>) {
@@ -108,12 +101,12 @@ fun Application.mymodule() {
 }
 ```
 { .success }
-{% endcapture %}
+
 
 {% include two-column.html left=left right=right %}
 
 ## Using the `application.conf`
-{ #configuration-file}
+{id="configuration-file"}
 
 When using a configuration file, for example with an [`EngineMain`](/servers/engine.html) to either run
 from the command line or hosted within a server container: 
@@ -160,7 +153,7 @@ it will listen for additional source changes and recompile when necessary. And t
 You can then use another terminal to run the application with `gradle run`. If you use IntelliJ IDEA to run the application, you should properly configure its [compilation output locations](https://www.jetbrains.com/help/idea/specifying-compilation-settings.html) because it uses a different output location from that gradle uses.
 
 ## Example
-{ #example}
+{id="example"}
 
 Consider the following example:
 
@@ -168,7 +161,7 @@ You can run the application by using either a `build.gradle` or directly within 
 Executing the main method in the example file, or by executing: `io.ktor.server.netty.EngineMain.main`.
 EngineMain using `commandLineEnvironment` will be in charge of loading the `application.conf` file (that is in HOCON format).
 
-{% capture main-kt %}
+
 ```kotlin
 package io.ktor.exercise.autoreload
 
@@ -197,9 +190,9 @@ fun Application.module() {
     }
 }
 ```
-{% endcapture %}
 
-{% capture application-conf %}
+
+
 ```kotlin
 ktor {
     deployment {
@@ -212,7 +205,7 @@ ktor {
     }
 }
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="main.kt" tab1-content=main-kt

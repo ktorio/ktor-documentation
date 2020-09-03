@@ -14,7 +14,7 @@ as javascript libraries and css as part of your uber-jar.
 
 ## Installing the feature
 
-{ #installing }
+{id="installing "}
 
 ```kotlin
     install(Webjars) {

@@ -12,17 +12,17 @@ Can't find an answer for your question? Head over our #ktor [Kotlin Slack](http:
 and we will try to help you!
 { .note}
 
-**Table of contents:**
 
-* TOC
+
+
 
 ## What is the proper way to pronounce ktor?
-{ #pronounce }
+{id="pronounce "}
 
 > `kay-tor`
 
 ## How do I put questions, report bugs, contact you, contribute, give feedback, etc.?
-{ #feedback }
+{id="feedback "}
 
 Depending on the content, you might consider several channels:
 
@@ -58,13 +58,13 @@ and temporarily publish a patched version in your own artifactory, bintray or si
 until it is merged and a new version released (since the timing might not be aligned with your needs).
 
 ## What does CIO mean?
-{ #cio }
+{id="cio "}
 
 CIO stands for Coroutine-based I/O. Usually we call it to an engine that uses Kotlin and Coroutines to implement
 the logic implementing an IETF RFC or another protocol without relying on external JVM-based libraries.
 
 ## Ktor imports are not being resolved. Imports are in red.
-{ #ktor-artifact }
+{id="ktor-artifact "}
 
 > Ensure that you are including the ktor artifact. For example, for gradle and Netty engine it would be:
 > ```kotlin
@@ -76,7 +76,7 @@ the logic implementing an IETF RFC or another protocol without relying on extern
 > * For maven, check: <https://ktor.io/quickstart/maven.html>
 
 ## Does ktor provide a way to catch IPC signals (e.g. SIGTERM or SIGINT) so the server shutdown can be handled gracefully?
-{ #sigterm }
+{id="sigterm "}
 
 > If you are running a `DevelopmentEngine`/`EngineMain`, it will be handled automatically.
 >
@@ -84,19 +84,19 @@ the logic implementing an IETF RFC or another protocol without relying on extern
 > You can use `Runtime.getRuntime().addShutdownHook` JVM's facility.
 
 ## How do I get the client IP behind a proxy?
-{ #proxy-ip }
+{id="proxy-ip "}
 
 > The property `call.request.origin` gives connection information about the original caller (the proxy)
 > if the proxy provides proper headers, and the feature `XForwardedHeaderSupport` is installed.
 
 ## I get the error 'java.lang.IllegalStateException: No instance for key AttributeKey: Locations'
-{ #no-attribute-key-locations }
+{id="no-attribute-key-locations "}
 
 > You get this error if you try to use the locations feature without actually installing it. Check the locations feature:
 > <https://ktor.io/features/locations.html>
 
 ## How can I test the latest commits on master?
-{ #bleeding-edge }
+{id="bleeding-edge "}
 
 You can use jitpack to get builds from master that are not yet released:
 <https://jitpack.io/#ktorio/ktor>
@@ -104,14 +104,14 @@ Also you can [build Ktor from source](/advanced/building-from-source.html), and 
 or to upload your artifacts to your own artifactory/bintray.  
 
 ## How can I be sure of which version of Ktor am I using?
-{ #ktor-version-used }
+{id="ktor-version-used "}
 
 You can use the [`DefaultHeaders` feature](/servers/features/default-headers.html) that will send a
 Server header with the Ktor version on it.
 Something similar to `Server: ktor-server-core/1.0.0 ktor-server-core/1.0.0` should be sent as part of the response headers. 
 
 ## Website accessibility tips and tricks
-{ #website-tricks }
+{id="website-tricks "}
 
 > You can use the keys <kbd>s</kbd> (search), <kbd>t</kbd> (github file finder flavor) or <kbd>#</kbd> to access the search in any page
 > of the documentation website.
@@ -134,13 +134,13 @@ Something similar to `Server: ktor-server-core/1.0.0 ktor-server-core/1.0.0` sho
 > After clicking, you can copy the new url in your browser including the `#` to link to a specific section in that page.
 
 ## My route is not being executed, how can I debug it?
-{ #route-not-executing }
+{id="route-not-executing "}
 
 Ktor provides a tracing mechanism for the routing feature to help troubleshooting
 routing decisions. Check the [Tracing the routing decisions](/servers/features/routing.html#tracing) section in the Routing page.
 
 ## I get a `io.ktor.pipeline.InvalidPhaseException: Phase Phase('YourPhase') was not registered for this pipeline`.
-{ #invalid-phase }
+{id="invalid-phase "}
 
 This means that you are trying to use a phase that is not registered as a reference for another phase.
 This might happen for example in the Routing feature if you try to register a phase relation inside a node,
@@ -153,18 +153,18 @@ route.insertPhaseAfter(PhaseDefinedInAncestor, MyNodePhase)
 ```
 
 ## I get a `io.ktor.server.engine.BaseApplicationResponse$ResponseAlreadySentException: Response has already been sent`
-{ #response-already-sent }
+{id="response-already-sent "}
 
 This means that you, or a feature or interceptor, have already called `call.respond*` functions and you are calling it
 again. 
 
 ## How can I subscribe to Ktor events?
-{ #ktor-events }
+{id="ktor-events "}
 
 There is a page [explaining the Ktor's application-level event system](/advanced/events.html). 
 
 ## I get a `Exception in thread "main" com.typesafe.config.ConfigException$Missing: No configuration setting found for key 'ktor'` exception
-{ #cannot-find-application-conf }
+{id="cannot-find-application-conf "}
 
 This means that Ktor was not able to find the `application.conf` file. Re-check that it is in the `resources` folder,
 and that the resources folder is marked as such.
@@ -172,7 +172,7 @@ You can consider to set-up a project using the [project generator](/quickstart/g
 to have a working project as base.
 
 ## Can I use ktor on Android?
-{ #android-support }
+{id="android-support "}
 
 Ktor is known to work on Android 7 or greater (API 24). It will fail in lower versions like Android 5.
 
@@ -193,7 +193,7 @@ For more informatio, check [Issue #495](https://github.com/ktorio/ktor/issues/49
 question](https://stackoverflow.com/questions/49945584/attempting-to-run-an-embedded-ktor-http-server-on-android)
 
 ## CURL -I returns a 404 Not Found
-{ #curl-head-not-found }
+{id="curl-head-not-found "}
 
 `CURL -I` that is an alias of `CURL --head` that performs a `HEAD` request.
 By default Ktor doesn't handle `HEAD` requests for `GET` handlers, so you might get something like: 
@@ -219,7 +219,7 @@ install(AutoHeadResponse)
 ```
 
 ## I get an infinite redirect when using the `HttpsRedirect` feature
-{ #infinite-redirect }
+{id="infinite-redirect "}
 
 The most probable cause is that your backend is behind a reverse-proxy or a load balancer, and that this intermediary
 is making normal HTTP requests to your backend, thus the HttpsRedirect feature inside your Ktor backend believes

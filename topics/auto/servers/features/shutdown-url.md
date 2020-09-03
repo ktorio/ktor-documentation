@@ -16,7 +16,7 @@ There are two ways to use it: [Automatically using HOCON](#hocon) and [Installin
 {% include feature.html %}
 
 ## Automatically using HOCON
-{ #hocon}
+{id="hocon"}
 
 You can configure a shutdown URL using HOCON with the 
 [ktor.deployment.shutdown.url](/servers/configuration.html#general) property.
@@ -30,7 +30,7 @@ ktor {
 ```
 
 ## Installing the feature
-{ #install}
+{id="install"}
 
 You can manually install the feature, with `ShutDownUrl.ApplicationCallFeature` and set the `shutDownUrl` and an `exitCodeSupplier`:
 

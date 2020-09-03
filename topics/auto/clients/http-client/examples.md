@@ -6,7 +6,7 @@
 
 ## Interchanging JSON: Ktor server / Ktor client
 
-{ #example-json }
+{id="example-json "}
 
 ```kotlin
 fun main(args: Array<String>) {
@@ -60,5 +60,6 @@ fun Application.mymodule() {
 }
 ```
 
-You can check the [ktor-samples](https://github.com/ktorio/ktor-samples) and [ktor-exercises](https://github.com/ktorio/ktor-exercises) repositories for samples and exercises.
-{ .note }
+>You can check the [ktor-samples](https://github.com/ktorio/ktor-samples) and [ktor-exercises](https://github.com/ktorio/ktor-exercises) repositories for samples and exercises.
+>
+{type="note"}

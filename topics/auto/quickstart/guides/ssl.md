@@ -5,14 +5,14 @@
 [//]: # (permalink: /quickstart/guides/ssl.html)
 [//]: # (ktor_version_review: 1.0.0)
 
-{:options toc_levels="1" /}
+
 {% include nomnoml-support.html %}
 
 ![](lets-encrypt.svg)
 
-**Table of contents:**
 
-* TOC
+
+
 
 You can buy a certificate and configure Ktor to use it,
 **or** you can use Let's Encrypt to automatically get a **free certificate** to serve `https://` and `wss://` requests
@@ -22,7 +22,7 @@ for a single domain or by using Docker with nginx to serve different application
 a single machine easily.
 
 ## Option1: With Ktor serving SSL directly
-{ #ktor}
+{id="ktor"}
 
 ### Configuring an `A` register pointing to the machine
 
@@ -32,10 +32,11 @@ If that machine is behind routers, you will need to configure the router to DMZ 
 or to redirect at least the port 80 (HTTP) to that machine, and later you will probably want to configure the
 port 443 (HTTPS) too.
 
-Let's Encrypt will always access the PORT 80 of your public IP, even if you configure Ktor to bind to another port,
-you have to configure your routes to redirect the port 80 to the correct local IP and port of the machine
-hosting ktor.
-{ .note }
+>Let's Encrypt will always access the PORT 80 of your public IP, even if you configure Ktor to bind to another port,
+>you have to configure your routes to redirect the port 80 to the correct local IP and port of the machine
+>hosting ktor.
+>
+{type="note"}
 
 ### Generating a certificate
 
@@ -55,7 +56,7 @@ export ALIAS=myalias
 certbot certonly -n -d $DOMAIN --email "$EMAIL" --agree-tos --standalone --preferred-challenges http --http-01-port $PORT
 ```
 
-{% capture left %}
+
 ❌ Error output sample:
 
 ```text
@@ -91,9 +92,8 @@ IMPORTANT NOTES:
    making regular backups of this folder is ideal.
 ```
 { .error}
-{% endcapture %}
 
-{% capture right %}
+
 ✅ Working output sample:
 
 ```text
@@ -120,7 +120,7 @@ IMPORTANT NOTES:
    Donating to EFF:                    https://eff.org/donate-le
 ```
 { .success}
-{% endcapture %}
+
 
 {% include two-column.html left=left right=right %}
 
@@ -177,7 +177,7 @@ ktor {
 If everything went well, Ktor should be listening on port 8889 in HTTP and listening on port 8890 in HTTPS.
 
 ## Option2: With Docker and Nginx as reverse proxy
-{ #docker}
+{id="docker"}
 
 When using Docker with multiple domains, you might want to use the [nginx-proxy] image and the [letsencrypt-nginx-proxy-companion]
 image to serve multiple domains/subdomains on a single machine/ip and to automatically provide HTTPS, using Let’s Encrypt.
@@ -286,7 +286,7 @@ networks:
 
 #### `Dockerfile`
 
-{% capture my_include %}{% include docker-sample.md %}{% endcapture %}
+{% include docker-sample.md %}
 {{ my_include | markdownify }}
 
 You can find more information about [how to deploy a docker and the Dockerfile](/quickstart/quickstart/docker.html).

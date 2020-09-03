@@ -15,9 +15,9 @@ Publishing a Ktor application to docker is very easy and only takes a few steps:
 
 In this page we will guide you through creating a docker image and publishing an application to it.
 
-**Table of contents:**
 
-* TOC
+
+
 
 ## Package an application using Gradle
 
@@ -75,7 +75,7 @@ For more information about configuring this plugin see [documentation for the pl
 
 So a full `build.gradle` file would look like this:
 
-{% capture build-gradle %}
+
 ```groovy
 buildscript {
     ext.kotlin_version = '{{site.kotlin_version}}'
@@ -122,9 +122,9 @@ shadowJar {
     version = null
 }
 ```
-{% endcapture %}
 
-{% capture resources-application-conf %}
+
+
 ```groovy
 ktor {
     deployment {
@@ -136,9 +136,9 @@ ktor {
     }
 }
 ```
-{% endcapture %}
 
-{% capture src-hello-application-kt %}
+
+
 ```kotlin
 package io.ktor.samples.hello
 
@@ -167,7 +167,7 @@ fun Application.main() {
     }
 }
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="build.gradle" tab1-content=build-gradle
@@ -175,14 +175,15 @@ fun Application.main() {
     tab3-title="src/HelloApplication.kt" tab3-content=src-hello-application-kt
 %}
 
-You can check this [full example](https://github.com/ktorio/ktor-samples/tree/master/deployment/docker) at the ktor-samples repository.
-{ .note }
+>You can check this [full example](https://github.com/ktorio/ktor-samples/tree/master/deployment/docker) at the ktor-samples repository.
+>
+{type="note"}
 
 ## Prepare Docker image
 
 In the root folder of your project create a file named `Dockerfile` with the following contents:
 
-{% capture dockerfile %}{% include docker-sample.md %}{% endcapture %}
+{% include docker-sample.md %}
 {% include tabbed-code.html
     tab1-title="Dockerfile" tab1-content=dockerfile
     no-height="true"

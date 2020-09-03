@@ -12,9 +12,9 @@ Ktor also provides functionality to [handle raw sockets](/servers/raw-sockets.ht
 its pipeline.
 { .note}
 
-**Table of contents:**
 
-* TOC
+
+
 
 ## Application
 
@@ -44,7 +44,7 @@ You can read more about [features](/servers/features.html) in its dedicated page
 { .note}
 
 ## Modules
-{ #modules}
+{id="modules"}
 
 A Ktor module is just a user-defined function receiving the `Application` class that is in charge of configuring
 the server pipeline, install features, registering routes, handling requests, etc.
@@ -53,7 +53,7 @@ You have to specify the modules to load when the server starts in [the `applicat
 
 A simple module function would look like this:
 
-{% capture main-kt %}
+
 ```kotlin
 package com.example.myapp
 
@@ -65,7 +65,7 @@ fun Application.mymodule() {
     }
 }
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="Main.kt" tab1-content=main-kt

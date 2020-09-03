@@ -6,7 +6,7 @@
 [//]: # (ktor_version_review: 1.0.0)
 
 ## Client-side/Server-side sessions (Session Content vs Session Id)
-{ #client-server-cookies }
+{id="client-server-cookies "}
 
 Ktor allows you to transfer either the session content or a session id.
 
@@ -14,7 +14,7 @@ Depending on the application, the size of the payload and the security, you migh
 the session in the client or the server.
 
 ### Client-side sessions and transforms (Sending Session Content)
-{ #client-cookies}
+{id="client-cookies"}
 
 Without additional arguments for the `cookie` and `header` methods, the session is configured to keep the payload
 at the client. And the full payload will be sent back and forth. In this mode, you can, and should apply
@@ -41,7 +41,7 @@ You can check the [transformers page](/servers/features/sessions/transformers.ht
 and for more information.
 
 ### Server-side sessions and storages (Sending Session Id)
-{ #server-cookies }
+{id="server-cookies "}
 
 If you specify storage, then the session will be configured to be stored on the server using that storage, and
 a sessionId will be transferred between the server and the client instead of the full payload: 
@@ -53,7 +53,7 @@ application.install(Sessions) {
 ```
 
 ## Security examples for client-side sessions
-{ #security }
+{id="security "}
 
 If you plan to use client-side sessions, you need to understand the security implications it has. You have to keep
 your secret hash/encryption keys safe, as if they are compromised, a person with the keys would potentially be able 
@@ -92,7 +92,7 @@ to impersonate any user. It is also a problem as then changing the key will inva
   Server-side sessions are also vulnerable to this, but the attacker would have to keep those sessions alive.
 
 ## Invalidating Client-side sessions
-{ #invalidating-client-sessions }
+{id="invalidating-client-sessions "}
 
 Since client-side sessions can't be invalidated directly like server sessions. You can manually mark an expiration
 time for the session by including an expiration timestamp as part of your session payload.

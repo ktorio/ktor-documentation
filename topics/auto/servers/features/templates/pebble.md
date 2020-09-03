@@ -17,7 +17,7 @@ feature.  Initialize the Pebble feature with the
 {% include feature.html %}
 
 ## Installation
-{ #installation}
+{id="installation"}
 
 You can install Pebble, and configure the `PebbleEngine.Builder`.
 
@@ -32,7 +32,7 @@ install(Pebble) { // this: PebbleEngine.Builder
 This loader will look for the template files on the classpath in the "templates" package.
 
 ## Usage
-{ #usage}
+{id="usage"}
 
 A basic template looks like this:
 

@@ -5,16 +5,16 @@
 [//]: # (- /features/sessions/transformers.html: - /features/sessions/transformers.html)
 [//]: # (ktor_version_review: 1.0.0)
 
-{:options toc_levels="1" /}
 
-**Table of contents:**
 
-* TOC
+
+
+
 
 ## Standard Transformers
 
 ### SessionTransportTransformerDigest
-{ #SessionTransportTransformerDigest}
+{id="SessionTransportTransformerDigest"}
 
 The `SessionTransportTransformerEncrypt` provides a session transport transformer that includes
 a hash of the payload with a salt and verifies it. It uses `SHA-256` as the default
@@ -74,7 +74,7 @@ session payload and can potentially impersonate anyone.
 It is important to note that changing the key will invalidate all the sessions from all the users.
 
 ### SessionTransportTransformerMessageAuthentication
-{ #SessionTransportTransformerMessageAuthentication}
+{id="SessionTransportTransformerMessageAuthentication"}
 
 The `SessionTransportTransformerMessageAuthentication` provides a session transport transformer that includes
 an authenticated hash of the payload and verifies it. It is similar to SessionTransportTransformerDigest
@@ -90,7 +90,7 @@ cookie<TestUserSession>(cookieName) {
 ``` 
 
 ### SessionTransportTransformerEncrypt
-{ #SessionTransportTransformerEncrypt}
+{id="SessionTransportTransformerEncrypt"}
 
 The `SessionTransportTransformerEncrypt` provides a session transport transformer that encrypts the payload
 and authenticates it. By default it uses `AES` and `HmacSHA256`, but you can configure it. It requires 
@@ -106,7 +106,7 @@ cookie<TestUserSession>(cookieName) {
 ``` 
 
 ## Custom transport transformers
-{ #extending-transport-transformers}
+{id="extending-transport-transformers"}
 
 The Sessions API provides a `SessionTransportTransformer` interface, that looks like this:
 

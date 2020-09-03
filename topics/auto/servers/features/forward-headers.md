@@ -21,9 +21,9 @@ Only install these features if you have a reverse proxy supporting these headers
 In other cases, a client will be able to manipulate these headers.
 { .note.security}
 
-**Table of contents:**
 
-* TOC
+
+
 
 {% include feature.html %}
 
@@ -103,5 +103,6 @@ Forwarded: by=<identifier>; for=<identifier>; host=<host>; proto=<http|https>
 * `host` - The Host request header field as received by the proxy.
 * `proto` - Indicates which protocol was used to make the request (typically "http" or "https").
 
-You can read more about [Forwarded](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded) in the MDN documentation.
-{ .note }
+>You can read more about [Forwarded](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded) in the MDN documentation.
+>
+{type="note"}

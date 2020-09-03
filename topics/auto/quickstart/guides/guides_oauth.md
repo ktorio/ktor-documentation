@@ -4,16 +4,16 @@
 [//]: # (permalink: /quickstart/guides/oauth.html)
 [//]: # (ktor_version_review: 1.0.0)
 
-{:options toc_levels="1" /}
+
 
 In this guide we are going to implement a login using OAuth.
 
 This is an advanced tutorial and it assumes you have some basic knowledge about Ktor,
 so you should follow the [guide about making a Website](/quickstart/guides/website.html) first.
 
-**Table of contents:**
 
-* TOC
+
+
 
 ## Creating a host entry pointing to 127.0.0.1
 
@@ -178,22 +178,22 @@ authenticate("google-oauth") {
 } 
 ```
 
-We have to install the Session feature first. Check the [Full Example](#full-example) for details:
-{ .note }
-
-The ID from the user information is a string that looks like a number. Remember that JSON does not define long types,
-and that in cases like Twitter or Google, that have tons and tons of users and entities, that ID could be greater
-than 31 bits for a signed integer or even than 51 bits of precision from a standard Double.<br /> 
-As a rule of thumb you should always treat IDs and other number-like values as strings if you don't need
-to do arithmetic with them.
-{ .note }
+>We have to install the Session feature first. Check the [Full Example](#full-example) for details.
+>The ID from the user information is a string that looks like a number. Remember that JSON does not define long types,
+>and that in cases like Twitter or Google, that have tons and tons of users and entities, that ID could be greater
+>than 31 bits for a signed integer or even than 51 bits of precision from a standard Double.<br /> 
+>As a rule of thumb you should always treat IDs and other number-like values as strings if you don't need
+>to do arithmetic with them.
+>
+{type="note"}
 
 ## Full Example
-{ #full-example }
+{id="full-example"}
 
 A simple embedded application would look like this:
 
-{% capture oauth-kt %}
+<tabs>
+
 ```kotlin
 val googleOauthProvider = OAuthServerSettings.OAuth2ServerSettings(
     name = "google",
@@ -262,13 +262,7 @@ private fun ApplicationCall.redirectUrl(path: String): String {
     return "$protocol://$hostPort$path"
 }
 ```
-{% endcapture %}
-
-{% include tabbed-code.html
-    tab1-title="OAuthApp.kt" tab1-content=oauth-kt
-%}
-
-&nbsp;
+</tabs>
 
 ## Testing
 

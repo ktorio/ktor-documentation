@@ -9,9 +9,9 @@ Ktor is designed to allow the creation of applications that are easily testable.
 Ktor infrastructure itself is well tested with unit, integration, and stress tests.
 In this section, you will learn how to test your applications. 
 
-**Table of contents:**
 
-* TOC
+
+
 
 ## TestEngine
 
@@ -109,7 +109,7 @@ The HttpsRedirect changes how testing is performed.
 Check the [testing section of the HttpsRedirect feature](/servers/features/https-redirect.html#testing) for more information.
 
 ## Testing several requests preserving sessions/cookies
-{ #preserving-cookies }
+{id="preserving-cookies "}
 
 You can easily test several requests in a row keeping the `Cookie` information among them. By using the `cookiesSession` method.
 This method defines a session context that will hold cookies, and exposes a `CookieTrackerTestApplicationEngine.handleRequest`
@@ -181,7 +181,7 @@ In some cases we will need some services and dependencies. Instead of storing th
 to create a separate function receiving the service dependencies. This allows you to pass different
 (potentially mocked) dependencies in your tests: 
 
-{% capture build-gradle %}
+
 ```groovy
 // ...
 dependencies {
@@ -189,9 +189,9 @@ dependencies {
     testCompile("io.ktor:ktor-server-test-host:$ktor_version")
 }
 ```
-{% endcapture %}
 
-{% capture module-kt %}
+
+
 ```kotlin
 fun Application.testableModule() {
     testableModuleWithDependencies(
@@ -207,9 +207,9 @@ fun Application.testableModuleWithDependencies(random: Random) {
     }
 }
 ```
-{% endcapture %}
 
-{% capture test-kt %}
+
+
 ```kotlin
 class ApplicationTest {
     class ConstantRandom(val value: Int) : Random() {
@@ -231,7 +231,7 @@ class ApplicationTest {
     }
 }
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="test.kt"      tab1-content=test-kt

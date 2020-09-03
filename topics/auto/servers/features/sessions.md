@@ -12,7 +12,7 @@
 [//]: # (- /features/sessions.html: - /features/sessions.html)
 [//]: # (ktor_version_review: 1.0.0)
 
-{:options toc_levels="1" /}
+
 
 A session is a mechanism to persist data between different HTTP requests. Establishing a conversational
 context into the otherwise stateless nature of HTTP. They allow servers to keep a piece of information associated
@@ -27,14 +27,14 @@ to be consumed by other backends or an AJAX requests.
 They are either client-side when the entire serialized object goes back and forth between the client and the server,
 or server-side when only the session ID is transferred and the associated data is stored entirely in the server. 
 
-**Table of contents:**
 
-* TOC
+
+
 
 {% include feature.html %}
 
 ## Installation
-{ #installation }
+{id="installation "}
 
 Sessions are usually represented as immutable data classes (and session is changed by calling the `.copy` method):
 
@@ -72,7 +72,7 @@ Since there are several combinations for configuring sessions, there is a sectio
 { .note}
 
 ## Usage
-{ #usage }
+{id="usage "}
 
 In order to access or set the session content, you have to use the `call.sessions` property:
 
@@ -122,7 +122,7 @@ call.sessions.clear<SampleSession>() // Clears the session of this type
 { .note.summarizing }
 
 ## Multiple sessions
-{ #multiple-sessions}
+{id="multiple-sessions"}
 
 Since there could be several conversational states for a single application, you can install multiple session mappings.
 For example:
@@ -158,7 +158,7 @@ For multiple session mappings, _both_ type and name should be unique.
 { .note} 
 
 ## Configuration
-{ #configuration}
+{id="configuration"}
 
 You can configure the sessions in several different ways:
 
@@ -192,7 +192,7 @@ For cookies & headers that are server-side with a `SessionStorage`, additional c
 that should generate a new ID when the new session is created.
 
 ## Deciding how to configure sessions
-{ #configuring}
+{id="configuring"}
 
 ### Cookie vs Header
 
@@ -227,7 +227,7 @@ install(Sessions) {
 ```
 
 ### Storing a session id in a cookie, and storing session contents in-memory
-{ #SessionStorageMemory }
+{id="SessionStorageMemory "}
 
 `SessionStorageMemory` don't have parameters at this point.
 
@@ -247,7 +247,7 @@ the old sessions at all.
 This implementation is not intended for production environments.
 
 ### Storing a session id in a cookie, and storing session contents in a file
-{ #directorySessionStorage }
+{id="directorySessionStorage "}
 
 You have to include an additional artifact for the `directorySessionStorage` function.
 
@@ -273,9 +273,9 @@ if it doesn't exist already).
 There is also an optional cache argument, which when set, will keep a 60-second in-memory cache to prevent
 calling the OS and reading the session from disk each time.
 
-{% comment %}
+
 ### Storing a session id in a cookie, and storing session contents in redis
-{ #redisStorage }
+{id="redisStorage "}
 
 > <https://github.com/ktorio/ktor/pull/504>{ target="_blank"}
 
@@ -290,10 +290,10 @@ install(Sessions) {
 
 {% include artifact.html kind="class" class="io.ktor.sessions.RedisSessionStorage" artifact="io.ktor:ktor-server-session-redis:$ktor_version" %}
 
-{% endcomment %}
+
 
 ## Extending
-{ #extending }
+{id="extending "}
 
 Sessions are designed to be extensible, and there are some cases where you might want to further compose
 or change the default sessions behaviour.

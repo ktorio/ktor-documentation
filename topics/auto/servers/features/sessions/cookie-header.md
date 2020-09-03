@@ -9,7 +9,7 @@ You can either use cookies or custom HTTP headers for sessions. The code is roug
 call either the `cookie` or `header` method, depending on where you want to send the session information.
 
 ## Cookies vs Headers sessions
-{ #cookies-headers }
+{id="cookies-headers "}
 
 Depending on the consumer, you might want to transfer the sessionId or the payload using a cookie,
 or a header. For example, for a website, you will normally use cookies, while for an API you might want to use headers.
@@ -68,7 +68,7 @@ application.install(Sessions) {
 ```
 
 ## Custom storages
-{ #extending-storages}
+{id="extending-storages"}
 
 The Sessions API provides a `SessionStorage` interface, that looks like this:
 
@@ -89,7 +89,7 @@ that you have to provide: it is your responsibility to open and close them.
 You can read more about `ByteWriteChannel` and `ByteReadChannel` in their libraries documentation.
 If you just need to load or store a ByteArray, you can use this snippet which provides a simplified session storage:
 
-{% capture simplified-session-storage-sample-kt %}{% include simplified-session-storage-sample.md %}{% endcapture %}
+{% include simplified-session-storage-sample.md %}
 
 {% include tabbed-code.html
     tab1-title="SimplifiedSessionStorage.kt" tab1-content=simplified-session-storage-sample-kt

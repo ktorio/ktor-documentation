@@ -6,9 +6,9 @@
 
 # Ktor server introduction and key concepts
 
-**Table of contents:**
 
-* TOC
+
+
 
 ## Application and ApplicationEnvironment
 

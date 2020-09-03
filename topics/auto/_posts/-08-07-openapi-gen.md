@@ -1,5 +1,5 @@
 [//]: # (layout: post)
-[//]: # (title: "OpenAPI generation in the Ktor plugin and website")
+[//]: # (title: OpenAPI generation in the Ktor plugin and website)
 [//]: # (categories: plugin)
 [//]: # (featured: true)
 [//]: # (#image: /blog/images/openapi_ktor_idea_plugin.svg)

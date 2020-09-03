@@ -6,9 +6,9 @@
 In addition to HTTP handling for the [server](/servers/application.html) and the [client](/clients/index.html), Ktor supports client and server, TCP and UDP raw sockets.
 It exposes a suspending API that uses NIO under the hoods.
 
-**Table of contents:**
 
-* TOC
+
+
 
 ## Sockets
 
@@ -71,7 +71,7 @@ the function that is accepting the sockets from suspending.
 
 ### Simple Echo Server:
 
-{% capture echo-server-kt %}
+
 ```kotlin
 fun main(args: Array<String>) {
     runBlocking {
@@ -103,7 +103,7 @@ fun main(args: Array<String>) {
     }
 }
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="echo-server.kt" tab1-content=echo-server-kt
@@ -141,7 +141,7 @@ val socket = aSocket(selector).tcp().connect(InetSocketAddress("127.0.0.1", 2323
 
 ### Simple Client Connecting to an Echo Server:
 
-{% capture echo-client-kt %}
+
 ```kotlin
 fun main(args: Array<String>) {
     runBlocking {
@@ -155,7 +155,7 @@ fun main(args: Array<String>) {
     }
 }
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="echo-client.kt" tab1-content=echo-client-kt
@@ -163,7 +163,7 @@ fun main(args: Array<String>) {
 %}
 
 ## Secure Sockets (SSL/TLS)
-{ #secure }
+{id="secure "}
 
 Ktor supports secure sockets. To enable them you will need to include the
 `io.ktor:ktor-network-tls:$ktor_version` artifact, and call the `.tls()` to a connected socket.

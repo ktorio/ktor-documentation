@@ -4,7 +4,7 @@
 [//]: # (permalink: /quickstart/guides/website.html)
 [//]: # (ktor_version_review: 1.0.0)
 
-{:options toc_levels="1" /}
+
 
 In this guide you will learn how to create an HTML Website using Ktor.
 We are going to create a simple website with HTML rendered at the back-end with users, a login form,
@@ -21,9 +21,9 @@ To achieve this, we are going to use the [Routing], [StatusPages], [Authenticati
 [FreeMarker]: /servers/features/templates/freemarker.html
 [HTML DSL]: /servers/features/templates/html-dsl.html
 
-**Table of contents:**
 
-* TOC
+
+
 
 ## Setting up the project
 
@@ -169,7 +169,8 @@ and we are not going to implement a registration form.
 
 Create a `resources/templates/login.ftl`:
 
-```kotlin
+```html
+
 <html>
 <head>
     <link rel="stylesheet" href="/static/styles.css">
@@ -216,19 +217,16 @@ to display the same form but with an error.
 In some cases, like route refactoring or forms, we will want to perform redirections (either temporary or permanent).
 In this case, we want to temporarily redirect to the homepage upon successful login, instead of replying with plain text.
 
-<table class="compare-table"><thead><tr><th>Original:</th><th>Change:</th></tr></thead><tbody><tr><td markdown="1">
+<compare>
 
 ```kotlin
 call.respondText("OK")
 ```
 
-</td><td markdown="1">
-
 ```kotlin
 call.respondRedirect("/", permanent = false)
 ```
-
-</td></tr></tbody></table>
+</compare>
 
 ## Using the Form authentication
 

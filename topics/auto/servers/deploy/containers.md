@@ -5,7 +5,7 @@
 [//]: # (ktor_version_review: 1.0.0)
 
 ## Docker
-{ #docker}
+{id="docker"}
 
 Docker is a container engine: it allows you to pack and run applications, in a sandboxed layered
 lightweight environment, with its own isolated filesystem, operating system, and resources.
@@ -15,7 +15,7 @@ when your container needs to interact with other services, like for example a da
 
 First you have to create a [fat-jar file](/servers/deploy/packing/fatjar) with your application. And a `Dockerfile`, which looks like this:
 
-{% capture docker-file %}{% include docker-sample.md %}{% endcapture %}
+{% include docker-sample.md %}
 
 {% include tabbed-code.html
     tab1-title="Dockerfile" tab1-content=docker-file
@@ -25,7 +25,7 @@ First you have to create a [fat-jar file](/servers/deploy/packing/fatjar) with y
 For deploying to Docker simply you can check out the [docker quickstart](/quickstart/quickstart/docker.html) page for full details.
 
 ### Nginx
-{ #nginx}
+{id="nginx"}
 
 When using Docker with multiple domains, you might want to use the 
 [nginx-proxy](https://github.com/jwilder/nginx-proxy) image and the 
@@ -36,7 +36,7 @@ using let's encrypt.
 After configuring the nginx-proxy and letsencrypt-nginx-proxy-companion, your docker-compose.yml file
 (without additional services) might look like this:
 
-{% capture docker-compose-yml %}
+
 ```yaml
 version: '2'
 services:
@@ -61,7 +61,7 @@ networks:
     external:
       name: reverse-proxy
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="docker-compose.yml" tab1-content=docker-compose-yml
@@ -77,7 +77,7 @@ for you. So you will be able to access your http-only service via: https://mydom
 and will contact your server via plain HTTP.
 
 ## Tomcat
-{ #tomcat}
+{id="tomcat"}
 
 You have to generate a [war file](/servers/deploy/packing/war) and put it in the Tomcat `webapps` folder.
 
@@ -86,7 +86,7 @@ For a complete example, check:
 { .note.example}
 
 ## Jetty
-{ #jetty}
+{id="jetty"}
 
 You have to generate a [war file](/servers/deploy/packing/war) and put it in the Jetty `webapps` folder.
 

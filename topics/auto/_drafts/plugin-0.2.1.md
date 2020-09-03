@@ -1,5 +1,5 @@
 [//]: # (layout: post)
-[//]: # (title: "Ktor IntelliJ IDEA Plugin 0.2.1")
+[//]: # (title: Ktor IntelliJ IDEA Plugin 0.2.1)
 [//]: # (categories: plugin)
 [//]: # (date: 2018-08-13)
 [//]: # (featured: true)

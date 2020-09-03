@@ -13,12 +13,12 @@ This is the preferred way for running it in a container like [docker](/servers/d
 or when being reverse-proxied with [nginx](/servers/deploy/containers.html#nginx). 
 
 ## Gradle
-{ #fat-jar-gradle}
+{id="fat-jar-gradle"}
 
 When using Gradle, you can use the [`shadow`](https://imperceptiblethoughts.com/shadow/) gradle plugin to generate it. For example,
 to generate a fat JAR using netty as an engine:
 
-{% capture build-gradle %}
+
 ```groovy
 buildscript {
     repositories {
@@ -43,9 +43,9 @@ shadowJar {
     }
 }
 ```
-{% endcapture %}
 
-{% capture build-gradle-kts %}
+
+
 ```kotlin
 plugins {
     application
@@ -68,7 +68,7 @@ tasks.withType<Jar> {
     }
 }
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="build.gradle" tab1-content=build-gradle
@@ -77,12 +77,12 @@ tasks.withType<Jar> {
 %}
 
 ## Maven
-{ #fat-jar-maven}
+{id="fat-jar-maven"}
 
 When using Maven, you can generate a fat JAR archive with the `maven-assembly-plugin`. For example, to generate
 a fat JAR using netty as an engine:
 
-{% capture pom-xml %}
+
 ```xml
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
@@ -110,7 +110,7 @@ a fat JAR using netty as an engine:
     </executions>
 </plugin>
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="pom.xml" tab1-content=pom-xml

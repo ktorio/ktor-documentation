@@ -37,7 +37,7 @@ You can also get the default serializer by calling `io.ktor.client.features.json
 
 ### Gson
 
-{ #gson }
+{id="gson "}
 
 ```kotlin
 val client = HttpClient(HttpClientEngine) {
@@ -52,7 +52,7 @@ To use this feature, you need to include `io.ktor:ktor-client-gson` artifact.
 
 ### Jackson
 
-{ #jackson }
+{id="jackson "}
 
 ```kotlin
 val client = HttpClient(HttpClientEngine) {
@@ -67,7 +67,7 @@ To use this feature, you need to include `io.ktor:ktor-client-jackson` artifact.
 
 ### Kotlinx.Serialization
 
-{ #kotlinx-serialization }
+{id="kotlinx-serialization "}
 
 ```kotlin
 val client = HttpClient(HttpClientEngine) {

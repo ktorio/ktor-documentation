@@ -8,7 +8,7 @@
 
 ## Receiving the body of a response
 
-{ #receive}
+{id="receive"}
 
 By default you can use `HttpResponse` or `String` as possible types for typed
 HttpClient requests. So for example:
@@ -27,7 +27,7 @@ val helloWorld = client.get<HelloWorld>("http://127.0.0.1:8080/")
 
 ### The `HttpResponse` class
 
-{ #HttpResponse }
+{id="HttpResponse "}
 
 `HttpResponse` API reference is listed [here](https://api.ktor.io/{{site.ktor_version}}/io.ktor.client.response/-http-response/).
 

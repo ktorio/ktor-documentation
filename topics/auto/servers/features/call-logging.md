@@ -44,7 +44,7 @@ the call will be logged.
 In the example, it will log both: `/section1/*` and `/section2/*` requests.
 
 ## MDC
-{ #mdc }
+{id="mdc "}
 
 The `CallLogging` feature supports `MDC` (Mapped Diagnostic Context) from slf4j
 to associate information as part of the request.
@@ -62,7 +62,8 @@ install(CallLogging) {
 }
 ```
 
-MDC works by using ThreadLocals, while Ktor uses coroutines that are not bound to a specific Thread.
-This feature uses internally the `kotlinx.coroutines` [ThreadContextElement](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.experimental/-thread-context-element/index.html){ target="_blank"}
-to address it.
-{ .note }
+>MDC works by using ThreadLocals, while Ktor uses coroutines that are not bound to a specific Thread.
+>This feature uses internally the `kotlinx.coroutines` [ThreadContextElement](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.experimental/-thread-context-element/index.html){ target="_blank"}
+>to address it.
+>
+{type="note"}

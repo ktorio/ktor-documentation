@@ -7,14 +7,14 @@
 [//]: # (ktor_version_review: 1.0.0)
 
 ## Handling URL-encoded properties
-{ #url-encoded}
+{id="url-encoded"}
 
 Ktor exposes a few extension methods for parsing and generating url-encoded strings (in the `application/x-www-form-urlencoded` mimetype format).
 
 URL-encoded strings look like: `param=value&other=hi`.
 
 ### Parsing:
-{ #url-encoded-parse}
+{id="url-encoded-parse"}
 
 There is an extension method for `String` that allows you to get a parsed `Parameters` object from it. You can limit the maximum number of parsed parameters with the optional `limit` parameter.
 
@@ -23,7 +23,7 @@ fun String.parseUrlEncodedParameters(defaultEncoding: Charset = Charsets.UTF_8, 
 ```
 
 ### Encoding:
-{ #url-encoded-encode}
+{id="url-encoded-encode"}
 
 You can generate a URL-encoded string either from a List of Pairs of Strings or a `Parameters` instance: 
 

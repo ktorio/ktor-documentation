@@ -16,9 +16,9 @@ so a handler is unable to receive it again.
 This feature is experimental including all options and behaviour. It is not guaranteed to work the same way in future releases.
 { .note.experimental}
 
-**Table of contents:**
 
-* TOC
+
+
 
 ## Usage
 

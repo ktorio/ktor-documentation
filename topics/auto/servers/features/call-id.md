@@ -44,7 +44,7 @@ install(CallId) {
 ```
 
 ## Extending [CallLogging](/servers/features/call-logging.html)
-{ #call-logging-interop }
+{id="call-logging-interop "}
 
 The CallId feature includes a `callIdMdc` extension method to be used when configuring the CallLogging.
 It allows to associate the `callId` to the specified key to be put in the MDC context. 

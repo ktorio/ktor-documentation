@@ -188,7 +188,7 @@ a builder function similar to built-in.
 Path parsing is not extensible.
 
 ## Tracing the routing decisions
-{ #tracing }
+{id="tracing "}
 
 If you have problems trying to figure out why your route is not being executed,
 Ktor provides a `trace` method inside the routing feature.
@@ -231,5 +231,6 @@ Trace for [bar]
   /*, segment:0 -> FAILURE "Better match was already found" @ /*)
 ```
 
-Remember to remove or disable this function when going into production.
-{ .note }
+>Remember to remove or disable this function when going into production.
+>
+{type="note"}

@@ -6,13 +6,13 @@
 
 Ktor HTTP Client has a common interface but allows to specify an engine that processes the network request. Different engines have different configurations, dependencies and supporting features.
 
-**Table of contents:**
 
-* TOC
+
+
 
 ## Default engine
 
-{ #default}
+{id="default"}
 
 By calling to the `HttpClient` method without specifying an engine, it uses a default engine.
 
@@ -29,7 +29,7 @@ For js, it uses the predefined one.
 
 ## Configuring engines
 
-{ #configuring}
+{id="configuring"}
 
 Ktor HttpClient lets you configure the parameters of each engine by calling:
 
@@ -59,7 +59,7 @@ val client = HttpClient(MyHttpEngine) {
 
 ### Apache
 
-{ #apache}
+{id="apache"}
 
 Apache is the most configurable HTTP client about right now. It supports HTTP/1.1 and HTTP/2. It is the only one that supports following redirects and allows you to configure timeouts, proxies among other things it is supported by `org.apache.httpcomponents:httpasyncclient`.
 
@@ -120,7 +120,7 @@ val client = HttpClient(Apache) {
 
 ### CIO
 
-{ #cio}
+{id="cio"}
 
 CIO (Coroutine-based I/O) is a Ktor implementation with no additional dependencies and is fully asynchronous.
 It only supports HTTP/1.x for now.
@@ -204,7 +204,7 @@ val client = HttpClient(CIO) {
 
 ### Jetty
 
-{ #jetty}
+{id="jetty"}
 
 Jetty provides an additional `sslContextFactory` for configuring. It only supports HTTP/2 for now.
 
@@ -224,7 +224,7 @@ val client = HttpClient(Jetty) {
 
 ### OkHttp
 
-{ #okhttp }
+{id="okhttp "}
 
 There is a engine based on OkHttp:
 
@@ -255,7 +255,7 @@ val client = HttpClient(OkHttp) {
 
 ### Android
 
-{ #android }
+{id="android "}
 
 The Android engine doesn't have additional dependencies and uses a ThreadPool with a normal HttpURLConnection,
 to perform the requests. And can be configured like this:
@@ -278,7 +278,7 @@ val client = HttpClient(Android) {
 
 ## iOS
 
-{ #ios }
+{id="ios "}
 
 The iOS engine uses the asynchronous `NSURLSession` internally. And have no additional configuration.
 
@@ -313,7 +313,7 @@ You can also call the `JsClient()` function to get the `Js` engine singleton.
 
 ## Curl
 
-{ #curl }
+{id="curl "}
 
 There is an engine based on Curl:
 

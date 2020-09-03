@@ -19,1044 +19,99 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="Switched to including symbols">
-      <change afterPath="$PROJECT_DIR$/images/app-diagram.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/images/empty.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/images/ktor_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/images/ktor_logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/images/ktor_logo_white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/images/ktor_logo_white.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/images/ktor_mark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/logo/download_eap.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/logo/download_stable.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/logo/jb_official.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/logo/license.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/bootstrap/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/css/fonts/ElegantIcons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow-up-down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_carrot-2down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_carrot-2down_alt2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_carrot-2dwnn_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_carrot-2left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_carrot-2left_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_carrot-2left_alt2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_carrot-2right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_carrot-2right_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_carrot-2right_alt2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_carrot-2up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_carrot-2up_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_carrot-2up_alt2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_carrot-down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_carrot-down_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_carrot-down_alt2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_carrot-left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_carrot-left_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_carrot-left_alt2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_carrot-right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_carrot-right_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_carrot-right_alt2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_carrot-up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_carrot-up_alt2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_carrot_up_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_condense.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_condense_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_down_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_expand.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_expand_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_expand_alt2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_expand_alt3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_left-down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_left-down_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_left-right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_left-right_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_left-up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_left-up_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_left_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_move.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_right-down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_right-down_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_right-up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_right-up_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_right_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_triangle-down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_triangle-down_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_triangle-down_alt2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_triangle-left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_triangle-left_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_triangle-left_alt2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_triangle-right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_triangle-right_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_triangle-right_alt2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_triangle-up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_triangle-up_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_triangle-up_alt2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_up-down_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/arrow_up_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_adjust-horiz.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_adjust-vert.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_archive.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_archive_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_bag.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_bag_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_balance.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_blocked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_book.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_book_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_box-checked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_box-empty.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_box-selected.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_briefcase.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_briefcase_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_building.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_building_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_calculator_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_calendar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_calulator.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_camera.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_camera_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_cart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_cart_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_chat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_chat_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_check.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_check_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_check_alt2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_circle-empty.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_circle-slelected.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_clipboard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_clock.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_clock_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_close.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_close_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_close_alt2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_cloud-download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_cloud-download_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_cloud-upload.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_cloud-upload_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_cloud.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_cloud_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_cog.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_cogs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_comment.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_comment_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_compass.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_compass_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_cone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_cone_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_contacts.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_contacts_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_creditcard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_currency.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_currency_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_cursor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_cursor_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_datareport.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_datareport_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_desktop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_dislike.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_dislike_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_document.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_document_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_documents.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_documents_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_drawer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_drawer_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_drive.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_drive_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_easel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_easel_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_error-circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_error-circle_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_error-oct.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_error-oct_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_error-triangle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_error-triangle_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_film.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_floppy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_floppy_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_flowchart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_flowchart_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_folder-add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_folder-add_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_folder-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_folder-open.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_folder-open_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_folder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_folder_download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_folder_upload.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_genius.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_gift.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_gift_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_globe-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_globe.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_globe_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_grid-2x2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_grid-3x3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_group.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_headphones.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_heart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_heart_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_hourglass.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_house.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_house_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_id-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_id-2_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_id.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_id_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_images.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_info.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_info_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_key.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_key_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_laptop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_lifesaver.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_lightbulb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_lightbulb_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_like.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_like_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_link.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_link_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_loading.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_lock-open.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_lock-open_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_lock.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_lock_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_mail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_mail_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_map.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_map_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_menu-circle_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_menu-circle_alt2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_menu-square_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_menu-square_alt2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_menu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_mic.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_mic_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_minus-06.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_minus-box.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_minus_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_minus_alt2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_mobile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_mug.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_mug_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_music.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_ol.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_paperclip.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_pause.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_pause_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_pause_alt2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_pencil-edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_pencil-edit_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_pencil.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_pencil_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_pens.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_pens_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_percent.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_percent_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_phone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_piechart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_pin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_pin_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_plus-box.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_plus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_plus_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_plus_alt2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_printer-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_printer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_profile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_pushpin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_pushpin_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_puzzle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_puzzle_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_question.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_question_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_question_alt2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_quotations.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_quotations_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_quotations_alt2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_refresh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_ribbon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_ribbon_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_rook.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_search2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_search_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_shield.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_shield_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_star-half.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_star-half_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_star.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_star_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_stop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_stop_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_stop_alt2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_table.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_tablet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_tag.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_tag_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_tags.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_tags_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_target.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_tool.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_toolbox.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_toolbox_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_tools.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_trash.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_trash_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_ul.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_upload.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_vol-mute.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_vol-mute_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_volume-high.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_volume-high_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_volume-low.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_volume-low_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_wallet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_wallet_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_zoom-in.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_zoom-in_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_zoom-out.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/icon_zoom-out_alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_blogger.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_blogger_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_blogger_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_delicious.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_delicious_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_delicious_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_deviantart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_deviantart_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_deviantart_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_dribbble.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_dribbble_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_dribbble_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_facebook.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_facebook_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_facebook_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_flickr.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_flickr_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_flickr_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_googledrive.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_googledrive_alt2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_googledrive_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_googleplus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_googleplus_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_googleplus_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_instagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_instagram_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_instagram_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_linkedin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_linkedin_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_linkedin_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_myspace.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_myspace_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_myspace_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_picassa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_picassa_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_picassa_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_pinterest.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_pinterest_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_pinterest_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_rss.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_rss_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_rss_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_share.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_share_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_share_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_skype.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_skype_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_skype_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_spotify.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_spotify_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_spotify_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_stumbleupon_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_stumbleupon_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_tumbleupon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_tumblr.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_tumblr_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_tumblr_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_twitter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_twitter_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_twitter_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_vimeo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_vimeo_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_vimeo_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_wordpress.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_wordpress_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_wordpress_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_youtube.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_youtube_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/PNG/social_youtube_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow-up-down.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_back.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_carrot-2down.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_carrot-2down_alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_carrot-2dwnn_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_carrot-2left.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_carrot-2left_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_carrot-2left_alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_carrot-2right.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_carrot-2right_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_carrot-2right_alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_carrot-2up.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_carrot-2up_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_carrot-2up_alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_carrot-down.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_carrot-down_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_carrot-down_alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_carrot-left.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_carrot-left_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_carrot-left_alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_carrot-right.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_carrot-right_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_carrot-right_alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_carrot-up.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_carrot-up_alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_carrot_up_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_condense.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_condense_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_down.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_down_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_expand.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_expand_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_expand_alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_expand_alt3.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_left-down.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_left-down_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_left-right.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_left-right_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_left-up.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_left-up_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_left.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_left_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_move.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_right-down.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_right-down_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_right-up.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_right-up_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_right.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_right_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_triangle-down.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_triangle-down_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_triangle-down_alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_triangle-left.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_triangle-left_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_triangle-left_alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_triangle-right.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_triangle-right_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_triangle-right_alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_triangle-up.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_triangle-up_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_triangle-up_alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_up-down_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_up.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/arrow_up_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_adjust-horiz.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_adjust-vert.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_archive.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_archive_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_bag.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_bag_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_balance.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_blocked.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_book.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_book_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_box-checked.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_box-empty.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_box-selected.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_briefcase.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_briefcase_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_building.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_building_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_calculator_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_calendar.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_calulator.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_camera.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_camera_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_cart.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_cart_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_chat.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_chat_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_check.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_check_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_check_alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_circle-empty.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_circle-slelected.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_clipboard.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_clock.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_clock_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_close.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_close_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_close_alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_cloud-download.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_cloud-download_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_cloud-upload.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_cloud-upload_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_cloud.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_cloud_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_cog.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_cogs.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_comment.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_comment_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_compass.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_compass_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_cone.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_cone_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_contacts.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_contacts_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_creditcard.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_currency.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_currency_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_cursor.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_cursor_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_datareport.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_datareport_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_desktop.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_dislike.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_dislike_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_document.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_document_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_documents.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_documents_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_download.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_drawer.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_drawer_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_drive.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_drive_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_easel.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_easel_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_error-circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_error-circle_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_error-oct.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_error-oct_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_error-triangle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_error-triangle_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_film.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_floppy.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_floppy_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_flowchart.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_flowchart_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_folder-add.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_folder-add_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_folder-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_folder-open.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_folder-open_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_folder.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_folder_download.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_folder_upload.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_genius.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_gift.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_gift_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_globe-2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_globe.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_globe_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_grid-2x2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_grid-3x3.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_group.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_headphones.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_heart.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_heart_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_hourglass.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_house.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_house_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_id-2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_id-2_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_id.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_id_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_image.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_images.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_info.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_info_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_key.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_key_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_laptop.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_lifesaver.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_lightbulb.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_lightbulb_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_like.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_like_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_link.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_link_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_loading.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_lock-open.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_lock-open_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_lock.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_lock_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_mail.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_mail_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_map.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_map_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_menu-circle_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_menu-circle_alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_menu-square_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_menu-square_alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_menu.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_mic.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_mic_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_minus-06.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_minus-box.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_minus_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_minus_alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_mobile.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_mug.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_mug_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_music.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_ol.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_paperclip.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_pause.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_pause_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_pause_alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_pencil-edit.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_pencil-edit_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_pencil.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_pencil_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_pens.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_pens_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_percent.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_percent_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_phone.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_piechart.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_pin.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_pin_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_plus-box.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_plus.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_plus_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_plus_alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_printer-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_printer.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_profile.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_pushpin.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_pushpin_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_puzzle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_puzzle_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_question.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_question_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_question_alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_quotations.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_quotations_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_quotations_alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_refresh.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_ribbon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_ribbon_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_rook.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_search.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_search2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_search_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_shield.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_shield_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_star-half.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_star-half_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_star.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_star_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_stop.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_stop_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_stop_alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_table.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_tablet.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_tag.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_tag_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_tags.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_tags_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_target.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_tool.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_toolbox.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_toolbox_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_tools.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_trash.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_trash_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_ul.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_upload.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_vol-mute.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_vol-mute_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_volume-high.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_volume-high_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_volume-low.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_volume-low_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_wallet.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_wallet_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_zoom-in.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_zoom-in_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_zoom-out.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/icon_zoom-out_alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_blogger.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_blogger_circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_blogger_square.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_delicious.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_delicious_circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_delicious_square.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_deviantart.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_deviantart_circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_deviantart_square.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_dribbble.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_dribbble_circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_dribbble_square.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_facebook.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_facebook_circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_facebook_square.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_flickr.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_flickr_circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_flickr_square.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_googledrive.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_googledrive_alt2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_googledrive_square.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_googleplus.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_googleplus_circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_googleplus_square.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_instagram.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_instagram_circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_instagram_square.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_linkedin.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_linkedin_circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_linkedin_square.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_myspace.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_myspace_circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_myspace_square.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_picassa.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_picassa_circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_picassa_square.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_pinterest.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_pinterest_circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_pinterest_square.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_rss.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_rss_circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_rss_square.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_share.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_share_circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_share_square.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_skype.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_skype_circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_skype_square.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_spotify.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_spotify_circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_spotify_square.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_stumbleupon_circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_stumbleupon_square.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_tumbleupon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_tumblr.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_tumblr_circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_tumblr_square.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_twitter.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_twitter_circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_twitter_square.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_vimeo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_vimeo_circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_vimeo_square.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_wordpress.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_wordpress_circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_wordpress_square.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_youtube.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_youtube_circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/elegant_font/images/SVG/social_youtube_square.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/font-awesome/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/font-awesome5/sprites/brands.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/font-awesome5/sprites/regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/font-awesome5/sprites/solid.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/font-awesome5/webfonts/fa-brands-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/font-awesome5/webfonts/fa-regular-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/assets/plugins/font-awesome5/webfonts/fa-solid-900.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/blog/images/0.9.2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/blog/images/0.9.3.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/blog/images/openapi_ktor_idea_plugin.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/blog/images/plugin-0.2.1/api-http-run.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/blog/images/plugin-0.2.1/api-http.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/blog/images/plugin-0.2.1/swagger-login-heuristics.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/blog/images/plugin.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/info" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/1/ktor_build_gradle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/1/ktor_hello_world_main.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/1/screenshot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/code-style/code-style-imports.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/api/IU-bad-credentials/bad-credentials-request.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/api/IU-bad-credentials/bad-credentials-response.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/api/IU-env/http-client.env.json.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/api/IU-env/select_env_for_running.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/api/IU-env/use_host_env.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/api/IU-final/final-request.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/api/IU-final/final-response.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/api/IU-http-login-register-request.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/api/IU-http-login-register-response.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/api/IU-http-new-file.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/api/IU-http-request.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/api/IU-http-response.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/api/IU-http-snippets-env-auth_token-request.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/api/IU-http-snippets-env-auth_token-response.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/api/postman.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/api/snippets_get.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/api/snippets_get_new.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/oauth/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/oauth/10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/oauth/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/oauth/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/oauth/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/oauth/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/oauth/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/oauth/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/oauth/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/oauth/9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/oauth/etc_hosts.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/ssl/lets-encrypt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/website/website1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/guides/website/website2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/intellij-idea/build-gradle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/intellij-idea/create-kotlin-file-name.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/intellij-idea/create-kotlin-file.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/intellij-idea/file-new-project.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/intellij-idea/gradle-config.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/intellij-idea/gradle-kotlin-jvm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/intellij-idea/groupid.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/intellij-idea/program-run-config.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/intellij-idea/program-run.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/intellij-idea/program.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/intellij-idea/project-location-name.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/intellij-idea/project-structure.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/intellij-idea/website.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/quickstart/intellij-idea/plugin/install0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/quickstart/intellij-idea/plugin/install01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/quickstart/intellij-idea/plugin/install1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/quickstart/intellij-idea/plugin/install2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/quickstart/intellij-idea/plugin/install3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/quickstart/intellij-idea/plugin/ktor-plugin-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/quickstart/quickstart/intellij-idea/plugin/ktor-plugin-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/servers/features/metrics/jmx.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/servers/features/metrics/slf4j.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/auto/what-is-ktor-shadow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/feature-pipeline-routing.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/feature-pipeline.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ktor-routing-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ktor-routing-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ktor-routing-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/module-diagram.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/request-response-pipeline.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/.github/ISSUE_TEMPLATE/bug_report.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/CHECKS.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/__MIGRATION_STATS.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/_drafts/plugin-0.2.1.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/_includes/docker-sample.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/_includes/simplified-session-storage-sample.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/_posts/-06-04-0.9.2.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/_posts/-06-26-0.9.3.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/_posts/-08-06-plugin-0.2.0.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/_posts/-08-07-openapi-gen.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/advanced/advanced_authentication.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/advanced/advanced_engines.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/advanced/advanced_features.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/advanced/advanced_http2.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/advanced/advanced_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/advanced/build-from-source.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/advanced/events.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/advanced/pipeline.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/advanced/pipeline/attributes.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/advanced/pipeline/route.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/advanced/utilities.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/assets/plugins/github-embed/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/clients_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/clients_raw-sockets.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/clients_websockets.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/examples.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/features/default-request.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/features/features_auth.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/features/features_logging.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/features/http-client_features_websockets.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/features/http-cookies.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/features/http-plain-text.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/features/http-redirect.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/features/json-feature.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/features/proxy.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/features/response-validation.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/features/timeout.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/features/user-agent.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/http-client_engines.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/http-client_features.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/http-client_multiplatform.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/http-client_testing.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/quick-start.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/quick-start/client.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/quick-start/request.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/quick-start/response.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/quick-start/streaming.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/info" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/kotlinx/atomicfu.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/kotlinx/io/encoding.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/kotlinx/io/encoding/byteorder.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/kotlinx/io/encoding/charset.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/kotlinx/io/io/channels.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/kotlinx/io/io/input-output.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/kotlinx/io/io/iobuffer.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/kotlinx/io/io/packets.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/kotlinx/io/io_io.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/kotlinx/io/platforms.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/kotlinx/io/setup.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/kotlinx/io/tools.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/kotlinx/kotlinx_coroutines.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/kotlinx/kotlinx_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/kotlinx/kotlinx_io.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/kotlinx/kotlinx_multiplatform.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/kotlinx/serialization.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/ktorio.github.io_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/artifacts.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/code-style.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/generator.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_api.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_application.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_chat.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_oauth.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides/ssl.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides/website.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.0.0-beta-3.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.0.0.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.1.1.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.1.2.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.1.3.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.1.4.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.2.0.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.2.3.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.2.4.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.3.0.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.4.0.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/quickstart/docker.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/quickstart/gradle.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/quickstart/intellij-idea.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/quickstart/maven.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/quickstart_api.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/quickstart_coroutines.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/quickstart_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/quickstart/zfaq.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/app.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/app/app_chat.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/app/httpbin.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/app/kweet.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/app/youkube.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/deployment.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/deployment/netty-embedded.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/deployment/netty.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/feature.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/feature/async.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/feature/custom-feature.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/feature/feature_auth.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/feature/feature_gson.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/feature/feature_http2.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/feature/feature_jackson.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/feature/feature_locations.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/feature/feature_metrics.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/feature/guice.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/feature/html.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/feature/post.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/feature/static.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/feature/testable.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/fullstack.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/open-source.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/other.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/other/client-multipart.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/other/client-tools.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/other/css-dsl.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/other/di-kodein.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/other/filelisting.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/other/maven-google-app-engine-standard.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/other/maven-netty.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/other/multiple-connectors.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/other/other_fullstack-mpp.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/other/other_proguard.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/other/redirect-with-exception.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/other/reverse-proxy.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/other/rx.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/other/simulate-slow-server.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/other/sse.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/other/structured-logging.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/samples_fullstack-mpp.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/samples/samples_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/autoreload.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/calls.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/calls/requests.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/calls/responses.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/certificates.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/configuration.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/configuration/environments.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/deploy.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/containers.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/deploy_proguard.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/hosting.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/hosting/google-app-engine.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/hosting/heroku.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/packing.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/packing/fatjar.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/packing/war.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/engine.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/authentication/authentication_oauth.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/authentication/basic.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/authentication/digest.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/authentication/jwt.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/authentication/ldap.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/autoheadresponse.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/caching-headers.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/call-id.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/call-logging.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/compression.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/conditional-headers.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/content-negotiation.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/content-negotiation/content-negotiation_gson.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/content-negotiation/content-negotiation_jackson.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/content-negotiation/serialization-converter.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/cors.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/data-conversion.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/default-headers.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/double-receive.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/features_authentication.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/features_locations.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/features_metrics.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/forward-headers.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/hsts.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/https-redirect.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/metrics-micrometer.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/partial-content.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/routing.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/servers_features_websockets.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/sessions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/sessions/client-server.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/sessions/cookie-header.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/sessions/serializers.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/sessions/storages.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/sessions/transformers.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/shutdown-url.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/static-content.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/status-pages.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/templates.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/templates/freemarker.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/templates/html-dsl.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/templates/mustache.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/templates/pebble.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/templates/thymeleaf.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/templates/velocity.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/features/webjars.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/intro.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/lifecycle.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/self-signed-certificate.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/servers_application.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/servers_logging.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/servers_raw-sockets.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/servers_testing.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/structure.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/uploads.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/zfeatures.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/auto/servers/zindex.md" afterDir="false" />
+    <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ktor-documentation.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ktor.tree" beforeDir="false" afterPath="$PROJECT_DIR$/ktor.tree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/images/app-diagram.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/images/feature-pipeline-routing.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/images/feature-pipeline.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/images/ktor-routing-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/images/ktor-routing-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/images/ktor-routing-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/images/module-diagram.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/images/request-response-pipeline.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/_drafts/plugin-0.2.1.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/_drafts/plugin-0.2.1.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/_posts/-06-04-0.9.2.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/_posts/-06-04-0.9.2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/_posts/-06-26-0.9.3.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/_posts/-06-26-0.9.3.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/_posts/-08-06-plugin-0.2.0.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/_posts/-08-06-plugin-0.2.0.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/_posts/-08-07-openapi-gen.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/_posts/-08-07-openapi-gen.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/advanced/advanced_engines.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/advanced/advanced_engines.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/advanced/advanced_http2.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/advanced/advanced_http2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/advanced/build-from-source.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/advanced/build-from-source.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/advanced/pipeline.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/advanced/pipeline.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/advanced/pipeline/route.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/advanced/pipeline/route.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/advanced/utilities.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/advanced/utilities.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/clients/clients_index.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/clients_index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/clients/http-client/examples.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/examples.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/clients/http-client/features/json-feature.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/features/json-feature.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/clients/http-client/http-client_engines.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/http-client_engines.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/clients/http-client/quick-start/request.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/quick-start/request.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/clients/http-client/quick-start/response.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/quick-start/response.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/kotlinx/io/platforms.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/kotlinx/io/platforms.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/kotlinx/io/tools.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/kotlinx/io/tools.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_api.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_api.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_application.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_application.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_chat.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_chat.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_oauth.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_oauth.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/guides/ssl.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides/ssl.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/guides/website.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides/website.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration/.0.0-beta-3.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.0.0-beta-3.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration/.0.0.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.0.0.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration/.1.1.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.1.1.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration/.1.2.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.1.2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration/.1.3.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.1.3.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration/.1.4.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.1.4.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration/.2.0.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.2.0.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration/.2.3.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.2.3.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration/.2.4.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.2.4.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration/.3.0.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.3.0.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration/.4.0.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.4.0.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/quickstart/docker.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/quickstart/docker.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/quickstart/gradle.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/quickstart/gradle.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/quickstart/maven.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/quickstart/maven.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/quickstart_index.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/quickstart_index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/zfaq.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/zfaq.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/autoreload.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/autoreload.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/calls/requests.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/calls/requests.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/calls/responses.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/calls/responses.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/configuration.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/configuration.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/configuration/environments.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/configuration/environments.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/deploy.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/deploy.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/deploy/containers.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/containers.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/deploy/deploy_proguard.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/deploy_proguard.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/deploy/hosting.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/hosting.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/deploy/hosting/google-app-engine.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/hosting/google-app-engine.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/deploy/packing.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/packing.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/deploy/packing/fatjar.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/packing/fatjar.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/deploy/packing/war.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/packing/war.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/engine.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/engine.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/authentication/authentication_oauth.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/authentication/authentication_oauth.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/call-id.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/call-id.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/call-logging.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/call-logging.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/content-negotiation.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/content-negotiation.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/data-conversion.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/data-conversion.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/double-receive.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/double-receive.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/features_authentication.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/features_authentication.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/features_locations.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/features_locations.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/forward-headers.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/forward-headers.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/https-redirect.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/https-redirect.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/routing.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/routing.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/servers_features_websockets.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/servers_features_websockets.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/sessions.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/sessions.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/sessions/client-server.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/sessions/client-server.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/sessions/cookie-header.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/sessions/cookie-header.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/sessions/serializers.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/sessions/serializers.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/sessions/storages.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/sessions/storages.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/sessions/transformers.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/sessions/transformers.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/shutdown-url.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/shutdown-url.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/static-content.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/static-content.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/status-pages.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/status-pages.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/templates/html-dsl.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/templates/html-dsl.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/templates/pebble.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/templates/pebble.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/templates/velocity.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/templates/velocity.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/webjars.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/webjars.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/intro.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/intro.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/lifecycle.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/lifecycle.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/self-signed-certificate.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/self-signed-certificate.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/servers_application.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/servers_application.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/servers_logging.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/servers_logging.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/servers_raw-sockets.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/servers_raw-sockets.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/servers_testing.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/servers_testing.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/structure.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/structure.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/zfeatures.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/zfeatures.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1095,7 +150,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/topics" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -1167,7 +222,7 @@
       <workItem from="1597409396529" duration="3630000" />
       <workItem from="1597417947421" duration="598000" />
       <workItem from="1597428526852" duration="3498000" />
-      <workItem from="1599129843439" duration="287000" />
+      <workItem from="1599129843439" duration="3304000" />
     </task>
     <task id="LOCAL-00001" summary="Layout of TOC">
       <created>1595417880622</created>
@@ -1414,7 +469,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597441513862</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Adding autoimport files">
+      <created>1599130159212</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1599130159212</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1436,7 +498,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fixed issue with unique IDs" />
     <MESSAGE value="Grammar mistake" />
     <MESSAGE value="Added list of topics for tracking" />
     <MESSAGE value="Grammar and extension fixes" />
@@ -1461,17 +522,26 @@
     <MESSAGE value="Paired up code with diagram" />
     <MESSAGE value="Sample Feature doc" />
     <MESSAGE value="Switched to including symbols" />
-    <option name="LAST_COMMIT_MESSAGE" value="Switched to including symbols" />
+    <MESSAGE value="Adding autoimport files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding autoimport files" />
   </component>
   <component name="WindowStateProjectService">
     <state x="799" y="884" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596175947740">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="799" y="884" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1596175947740" />
+    <state x="525" y="196" key="CommitChangelistDialog2" timestamp="1599130157993">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="525" y="196" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1599130157993" />
     <state x="881" y="408" width="1336" height="897" key="DiffContextDialog" timestamp="1597429287105">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="881" y="408" width="1336" height="897" key="DiffContextDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1597429287105" />
+    <state x="766" y="268" key="FileChooserDialogImpl" timestamp="1599133497268">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="766" y="268" key="FileChooserDialogImpl/0.0.1920.1200@0.0.1920.1200" timestamp="1599133497268" />
     <state width="1494" height="300" key="GridCell.Tab.0.bottom" timestamp="1597472768652">
       <screen x="0" y="23" width="2048" height="1257" />
     </state>
@@ -1510,9 +580,10 @@
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="567" y="494" key="VCS.EditChangelistDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1595486739877" />
-    <state x="272" y="335" key="Vcs.Push.Dialog.v2" timestamp="1597441516032">
-      <screen x="0" y="23" width="2048" height="1257" />
+    <state x="255" y="298" key="Vcs.Push.Dialog.v2" timestamp="1599130160563">
+      <screen x="0" y="0" width="1920" height="1200" />
     </state>
+    <state x="255" y="298" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1599130160563" />
     <state x="272" y="335" key="Vcs.Push.Dialog.v2/0.23.2048.1257@0.23.2048.1257" timestamp="1597441516032" />
     <state x="399" y="437" key="Vcs.Push.Dialog.v2/0.23.3008.1669@0.23.3008.1669" timestamp="1597429207052" />
     <state x="881" y="408" width="1336" height="897" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1597428876629">
@@ -1523,14 +594,16 @@
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="1520" y="738" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.3008.1669@0.23.3008.1669" timestamp="1596009249701" />
-    <state x="1088" y="360" width="615" height="735" key="find.popup" timestamp="1597410128643">
-      <screen x="0" y="23" width="3008" height="1669" />
+    <state x="694" y="242" width="1008" height="572" key="find.popup" timestamp="1599136990333">
+      <screen x="0" y="0" width="1920" height="1200" />
     </state>
+    <state x="694" y="242" width="1008" height="572" key="find.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1599136990333" />
     <state x="741" y="277" width="568" height="554" key="find.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1596518621967" />
     <state x="1088" y="360" width="615" height="735" key="find.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1597410128643" />
-    <state x="464" y="394" width="670" height="676" key="search.everywhere.popup" timestamp="1597428553150">
-      <screen x="0" y="23" width="3008" height="1669" />
+    <state x="296" y="267" width="670" height="487" key="search.everywhere.popup" timestamp="1599136636847">
+      <screen x="0" y="0" width="1920" height="1200" />
     </state>
+    <state x="296" y="267" width="670" height="487" key="search.everywhere.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1599136636847" />
     <state x="316" y="302" width="670" height="510" key="search.everywhere.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1596434153902" />
     <state x="464" y="394" width="670" height="676" key="search.everywhere.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1597428553150" />
   </component>

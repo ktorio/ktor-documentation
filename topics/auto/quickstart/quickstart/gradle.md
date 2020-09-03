@@ -11,12 +11,12 @@
 In this guide, we will show you how to create a `build.gradle` file
 and how to configure it to support Ktor.
 
-**Table of contents:**
 
-* TOC
+
+
 
 ## Basic Kotlin `build.gradle` file (without Ktor)
-{ #initial }
+{id="initial "}
 
 First of all, you need a skeleton `build.gradle` file including Kotlin.
 You can create it with any text editor, or you can use IntelliJ to create
@@ -24,7 +24,7 @@ it following the [IntelliJ guide](/quickstart/quickstart/intellij-idea.html).
 
 The initial file looks like this:
 
-{% capture build-gradle %}
+
 ```groovy
 group 'Example'
 version '1.0-SNAPSHOT'
@@ -54,14 +54,14 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="build.gradle" tab1-content=build-gradle
 %}
 
 ## Add Ktor dependencies and configure build settings
-{ #ktor-dependencies}
+{id="ktor-dependencies"}
 
 Ktor artifacts are located in a specific repository on bintray.
 And its core has dependencies on the `kotlinx.coroutines` library that
@@ -93,7 +93,7 @@ versions, you have to use double-quoted strings.
 { .note.tip }
 
 You need to tell the Kotlin compiler to generate bytecode compatible with Java 8:
-{ #java8}
+{id="java8"}
 
 ```groovy
 compileKotlin {
@@ -105,7 +105,7 @@ compileTestKotlin {
 ```
 
 ## Choose your engine and configure it
-{ #engine}
+{id="engine"}
 
 Ktor can run in many environments, such as Netty, Jetty or any other
 Servlet-compatible Application Container such as Tomcat.
@@ -124,11 +124,11 @@ compile "io.ktor:ktor-server-netty:$ktor_version"
 ```
 
 ## Final `build.gradle` (with Ktor)
-{ #complete}
+{id="complete"}
 
 When you are done, the `build.gradle` file should look like this:
 
-{% capture build-gradle %}
+
 ```groovy
 group 'Example'
 version '1.0-SNAPSHOT'
@@ -172,7 +172,7 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="build.gradle" tab1-content=build-gradle
@@ -240,7 +240,7 @@ You can set-up a simple Ktor application using Gradle like this:
 
 ![Ktor Build with Gradle](ktor_build_gradle.png)
 
-{% capture gradle-kotlin-build %}
+
 ```kotlin
 // build.gradle.kts
 
@@ -280,9 +280,9 @@ dependencies {
     testCompile(group = "junit", name = "junit", version = "4.12")
 }
 ```
-{% endcapture %}
 
-{% capture gradle-groovy-build %}
+
+
 ```groovy
 // build.gradle
 
@@ -322,7 +322,7 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 ```
-{% endcapture %}
+
 
 Text version:
 {% include gradle.html gradle-kotlin=gradle-kotlin-build gradle-groovy=gradle-groovy-build %}
@@ -351,7 +351,7 @@ Select that directory and create a new kotlin file under it named `BlogApp`
 
 Copy and paste in the most basic setup for an app so that it looks like:
 
-{% capture blog-app %}
+
 ```kotlin
 package blog
 
@@ -372,7 +372,7 @@ fun main(args: Array<String>) {
     }.start(wait = true)
 }
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="BlogApp.kt" tab1-content=blog-app
@@ -404,7 +404,7 @@ and referring to that from an embeddedServer call in the main function.
 
 Change your code in BlogApp.kt to the following to try this:
 
-{% capture blog-app %}
+
 ```kotlin
 package blog
 
@@ -430,7 +430,7 @@ fun main(args: Array<String>) {
     embeddedServer(Netty, 8080, watchPaths = listOf("BlogAppKt"), module = Application::module).start()
 }
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="BlogApp.kt" tab1-content=blog-app
@@ -441,7 +441,7 @@ fun main(args: Array<String>) {
 
 Although we can designate some application configuration data in the main function embeddedServer call, we can provide more flexibility for future deployments and changes by extracting this out to a separate configuration file.  In the `src/main/resources` directory we will create a new text file named `application.conf` with the following content:
 
-{% capture application-conf %}
+
 ```kotlin
 ktor {
     deployment {
@@ -453,7 +453,7 @@ ktor {
     }
 }
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="application.conf" tab1-content=application-conf
@@ -464,7 +464,7 @@ Then we delete the main function from `BlogApp.kt` and change `fun Application.m
 
 This requires us to indicate a new main class as IntelliJ IDEA will no longer be able to find it automatically.  In `build.gradle` we add:
 
-{% capture gradle-groovy-build %}
+
 ```groovy
 // build.gradle
 
@@ -473,9 +473,9 @@ apply plugin: 'application'
 //mainClassName = 'io.ktor.server.netty.DevelopmentEngine' // For versions < 1.0.0-beta-3
 mainClassName = 'io.ktor.server.netty.EngineMain' // Starting with 1.0.0-beta-3
 ```
-{% endcapture %}
 
-{% capture gradle-kotlin-build %}
+
+
 ```kotlin
 // build.gradle.kts
 
@@ -488,7 +488,7 @@ application {
     mainClassName = "io.ktor.server.netty.EngineMain"
 }
 ```
-{% endcapture %}
+
 
 {% include gradle.html gradle-kotlin=gradle-kotlin-build gradle-groovy=gradle-groovy-build %}
 
@@ -498,7 +498,7 @@ And then go to `Run -> Edit Configurations` select the `blog.BlogAppKt` configur
 Now when we run the new configuration, the application will start again.
 
 ## Configure logging
-{ #logging}
+{id="logging"}
 
 If you want to log application events and useful information,
 you can read about it further in the [logging](/servers/logging.html) page.

@@ -16,9 +16,9 @@ While not yet entirely there, the goal of Ktor is to provide an end-to-end multi
 Currently, JVM client and server scenarios are supported, as well as JavaScript, iOS and Android clients, and we are working on bringing server facilities to native
 environments, and client facilities to other native targets.
 
-**Table of contents:**
 
-* TOC
+
+
 
 ## Set up a Ktor project
 
@@ -46,7 +46,7 @@ A simple hello world in Ktor looks like this:
 4. Actual routes: In this case, it will handle a *GET request* for the path `/demo`, and will reply with a `HELLO WORLD!` message.
 5. Actually *start the server* and wait for connections.
 
-{% capture main-kt %}
+
 ```kotlin
 import io.ktor.application.*
 import io.ktor.http.*
@@ -69,7 +69,7 @@ fun main(args: Array<String>) {
     server.start(wait = true)
 }
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="Main.kt" tab1-content=main-kt

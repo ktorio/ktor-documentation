@@ -44,7 +44,7 @@ If the storage doesn't provide a meaningful way to store information as a stream
 a simplified adaptor that just reads and writes it using `ByteArray`. It can also be used as an example to know
 how to deal with the API in its primitive stream-based version.
 
-{% capture simplified-session-storage-sample-kt %}{% include simplified-session-storage-sample.md %}{% endcapture %}
+{% include simplified-session-storage-sample.md %}
 
 {% include tabbed-code.html
     tab1-title="SimplifiedSessionStorage.kt" tab1-content=simplified-session-storage-sample-kt

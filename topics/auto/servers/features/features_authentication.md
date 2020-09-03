@@ -11,7 +11,7 @@
 [//]: # (- /features/authentication.html: - /features/authentication.html)
 [//]: # (ktor_version_review: 1.0.0)
 
-{:options toc_levels="1" /}
+
 
 Ktor supports authentication out of the box as a standard pluggable feature.
 It supports mechanisms to read *credentials*, and to authenticate *principals*.
@@ -19,9 +19,9 @@ It supports mechanisms to read *credentials*, and to authenticate *principals*.
 It can be used in some cases along with the [sessions feature](/servers/features/sessions.html)
 to keep the login information between requests.
 
-**Table of contents:**
 
-* TOC
+
+
 
 {% include feature.html %}
 

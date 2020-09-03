@@ -6,7 +6,7 @@
 [//]: # (ktor_version_review: 1.0.0)
 
 ## Serializers
-{ #serializer}
+{id="serializer"}
 
 You can specify a custom serializer with:
 
@@ -21,7 +21,7 @@ application.install(Sessions) {
 If you do not specify any serializer, it will use one with an internal optimized format.
 
 ### SessionSerializerReflection
-{ #SessionSerializerReflection}
+{id="SessionSerializerReflection"}
 
 This is the default serializer, when no serializer is specified:
 
@@ -32,7 +32,7 @@ cookie<MySession>("SESSION") {
 ```
 
 ## Custom serializers
-{ #extending-serializers}
+{id="extending-serializers"}
 
 The Sessions API provides a `SessionSerializer` interface, that looks like this:
 

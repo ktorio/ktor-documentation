@@ -27,8 +27,8 @@ keytool -keystore test.jks -genkeypair -alias testkey -keyalg RSA -keysize 4096 
 
 The next step is configuring Ktor to use your keystore. See the example application.conf:
 
-{% capture application-conf %}
-```
+
+```kotlin
 ktor {
     deployment {
         port = 8080
@@ -50,12 +50,6 @@ ktor {
     }
 }
 ```
-{% endcapture %}
-
-{% include tabbed-code.html
-    tab1-title="application.conf" tab1-content=application-conf
-    no-height="true"
-%}
 
 ## ALPN implementation
 

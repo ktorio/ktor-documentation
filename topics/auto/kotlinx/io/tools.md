@@ -5,7 +5,7 @@
 [//]: # (ktor_version_review: 1.0.0)
 
 ## ObjectPool
-{ #objectpool }
+{id="objectpool "}
 
 `ObjectPool` is a general purpose lock-free concurrent-safe object pool. It is also leak-safe:
 all object that haven't been recycled but collected by GC do not cause any issues with a pool but only an allocation penalty.

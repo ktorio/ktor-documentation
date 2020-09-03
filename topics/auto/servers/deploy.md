@@ -5,18 +5,18 @@
 [//]: # (caption: Deployment)
 [//]: # (children: /servers/deploy/)
 
-{:options toc_levels="1" /}
+
 
 Once you are ready with your application, you will probably want to put it somewhere.
 
 In this page, you will learn how to deploy your application to several providers and containers. 
 
-**Table of contents:**
+
 
 {% include list-children.html %}
 
 ## Samples
-{ #samples }
+{id="samples "}
 
 In the Ktor's samples repository, you can find examples and README files
 on [how to deploy to specific providers](https://github.com/ktorio/ktor-samples/tree/master/deployment).

@@ -5,9 +5,9 @@
 
 Ktor applications can be self-hosted or hosted on an Application Server. This section shows you how to host Ktor applications externally.
 
-**Table of contents:**
 
-* TOC
+
+
 
 ## Running an application in an external host
 

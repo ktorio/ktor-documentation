@@ -9,12 +9,12 @@
 In this tutorial you will learn how to create a simple self-hosted Ktor server application that responds to HTTP requests with `Hello, World!`.
 Ktor applications can be built using common build systems such as [Maven](/quickstart/quickstart/maven.html) or [Gradle](/quickstart/quickstart/gradle.html).
 
-**Table of contents:**
 
-* TOC
+
+
 
 ## Including the right dependencies
-{ #dependencies }
+{id="dependencies "}
 
 Ktor is split up into several groups of artifacts,
 allowing you to include only the functionality that you will need. And thus reducing the size of a fat-jar containing all the code, and the startup time.
@@ -31,7 +31,7 @@ For a more detailed guide on setting up build files with different build systems
 * [Setting up Maven Build](/quickstart/quickstart/maven.html)
 
 ## Creating a self-hosted Application
-{ #self-hosted}
+{id="self-hosted"}
 
 Ktor allows applications to run within an Application Server compatible with Servlets, such as Tomcat,
 or as an embedded application, using Jetty, Netty or CIO.
@@ -48,7 +48,7 @@ the text `Hello, world!`
 After defining the routes, you have to start the server by calling the `server.start` method,
 passing as argument a boolean to indicate whether you want the main thread of the application to block.
 
-{% capture main-kt %}
+
 ```kotlin
 import io.ktor.application.*
 import io.ktor.http.*
@@ -68,7 +68,7 @@ fun main(args: Array<String>) {
     server.start(wait = true)
 }
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="Main.kt" tab1-content=main-kt
@@ -82,7 +82,7 @@ you will normally call the server.start with `wait = true`.
 { .note}
 
 ## Running the Application
-{ #running }
+{id="running "}
 
 Given that the entry point of your application is the standard Kotlin `main` function, 
 you can simply run it, effectively starting the server and listening on the specified port.
@@ -90,7 +90,7 @@ you can simply run it, effectively starting the server and listening on the spec
 Checking the `localhost:8080` page in your browser, you should see the `Hello, world!` text. 
 
 ## Next Steps
-{ #next-steps }
+{id="next-steps "}
 
 This was the simplest example of getting a self-hosted Ktor application up and running. 
 A recommended tour to continue learning Ktor on the server would be:

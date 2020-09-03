@@ -9,18 +9,18 @@
 In this guide, we will show you how to create a Maven `pom.xml` file
 and how to configure it to support Ktor.
 
-**Table of contents:**
 
-* TOC
+
+
 
 ## Basic Kotlin `pom.xml` file (without Ktor)
-{ #initial }
+{id="initial "}
 
 Maven is a build automation tool used primarily for Java projects.
 It reads project configuration from `pom.xml` files.
 Here is a basic `pom.xml` file for building Kotlin applications:
 
-{% capture pom-xml %}
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -90,14 +90,14 @@ Here is a basic `pom.xml` file for building Kotlin applications:
     </build>
 </project>
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="pom.xml" tab1-content=pom-xml
 %}
 
 ## Add Ktor dependencies and configure build settings
-{ #ktor-dependencies}
+{id="ktor-dependencies"}
 
 Ktor artifacts are located in a specific repository on bintray.
 And its core has dependencies on the `kotlinx.coroutines` library that
@@ -138,7 +138,7 @@ Now you have to add `ktor-server-core` artifact using the `ktor.version` you spe
 ```
 
 ## Choose your engine and configure it
-{ #engine}
+{id="engine"}
 
 Ktor can run in many environments, such as Netty, Jetty or any other
 Servlet-compatible Application Container such as Tomcat.
@@ -161,11 +161,11 @@ application on top of it:
 ```
 
 ## Final `pom.xml` (with Ktor)
-{ #complete}
+{id="complete"}
 
 When you are done, the `pom.xml` file should look like:
 
-{% capture pom-xml %}
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -257,7 +257,7 @@ When you are done, the `pom.xml` file should look like:
     </repositories>
 </project>
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="pom.xml" tab1-content=pom-xml
@@ -266,7 +266,7 @@ When you are done, the `pom.xml` file should look like:
 You can now run `mvn package` to fetch dependencies and verify everything is set up correctly.
 
 ## Configure logging
-{ #logging}
+{id="logging"}
 
 If you want to log application events and useful information,
 you can read further in the [logging](/servers/logging.html) page.

@@ -4,7 +4,7 @@
 [//]: # (permalink: /quickstart/guides/api.html)
 [//]: # (ktor_version_review: 1.0.0)
 
-{:options toc_levels="1" /}
+
 
 In this guide you will learn how to create an API using ktor.
 We are going to create a simple API to store simple text snippets (like a small pastebin-like API).
@@ -20,15 +20,13 @@ To achieve this, we are going to use the [Routing], [StatusPages], [Authenticati
 [ContentNegotiation]: /servers/features/content-negotiation.html
 [Jackson]: /servers/features/content-negotiation/jackson.html
 
-While many frameworks advocate how to create REST API's the majority aren't actually talking about REST APIs but HTTP APIs.
-Ktor, much like many other frameworks can be used to create systems that comply with REST constraints. However,
-this tutorial is not talking about REST but HTTP APIs, i.e. endpoints using HTTP verbs that may or may not return JSON, XML or any other format.
-If you want to learn more about RESTful systems, you can start reading <https://en.wikipedia.org/wiki/Representational_state_transfer>{target="_blank"}.
-{ .note }
+>While many frameworks advocate how to create REST API's the majority aren't actually talking about REST APIs but HTTP APIs.
+>Ktor, much like many other frameworks can be used to create systems that comply with REST constraints. However,
+>this tutorial is not talking about REST but HTTP APIs, i.e. endpoints using HTTP verbs that may or may not return JSON, XML or any other format.
+>If you want to learn more about RESTful systems, you can start reading [](https://en.wikipedia.org/wiki/Representational_state_transfer){target="_blank"}.
+>
+{type="note"}
 
-**Table of contents:**
-
-* TOC
 
 ## Setting up the project
 
@@ -147,7 +145,7 @@ If you have IntelliJ IDEA Ultimate, you can use its built-in powerful HTTP Reque
 if not, you can also use postman or curl:
 
 ### IntelliJ IDEA Ultimate:
-{ #first-request-intellij }
+{id="first-request-intellij "}
 
 IntelliJ IDEA Ultimate, along PhpStorm and other IDEs from JetBrains include a
 very nice [Editor-Based Rest Client](https://blog.jetbrains.com/phpstorm/2017/09/editor-based-rest-client/){target="_blank"}.
@@ -185,9 +183,9 @@ And allows you fetch and locally store responses and visually compare them.
 { .note}
 
 ### CURL:
-{ #first-request-curl }
+{id="first-request-curl"}
 
-<table class="compare-table"><thead><tr><th>Bash:</th><th>Response:</th></tr></thead><tbody><tr><td markdown="1">
+<compare>
 
 ```bash
 curl \
@@ -197,7 +195,6 @@ curl \
   http://127.0.0.1:8080/snippets
 ```
 
-</td><td markdown="1">
 
 ```json
 {
@@ -205,9 +202,7 @@ curl \
 }
 ```
 
-</td></tr></tbody></table>
-
----
+</compare>
 
 Let's do the GET request again:
 
@@ -336,9 +331,9 @@ routing {
 
 Now we can already try to obtain a JWT token for our user:
 
-{% comment %}
+
 ### IntelliJ
-{% endcomment %}
+
 
 Using the Editor-Based HTTP client for IntelliJ IDEA Ultimate,
 you can make the POST request, and check that the content is valid,
@@ -366,10 +361,10 @@ After this, you can start using the user-defined `{% raw %}{{host}}{% endraw %}`
 When trying to run a request, you will be able to choose the environment to use:
 ![](select_env_for_running.png)
 
-{% comment %}
+
 ### Curl
 
-<table class="compare-table"><thead><tr><th>Bash:</th><th>Response:</th></tr></thead><tbody><tr><td markdown="1">
+<compare>
 
 ```bash
 curl -v \
@@ -379,7 +374,6 @@ curl -v \
   http://127.0.0.1:8080/login-register
 ```
 
-</td><td markdown="1">
 
 ```json
 {
@@ -387,11 +381,11 @@ curl -v \
 }
 ```
 
-</td></tr></tbody></table>
+</compare>
 
 And with that token, we can already publish snippets:
 
-<table class="compare-table"><thead><tr><th>Bash:</th><th>Response:</th></tr></thead><tbody><tr><td markdown="1">
+<compare>
 
 ```bash
 curl -v \
@@ -402,17 +396,13 @@ curl -v \
   http://127.0.0.1:8080/snippets
 ```
 
-</td><td markdown="1">
-
 ```json
 {
   "OK" : true
 }
 ```
 
-</td></tr></tbody></table>
-
-{% endcomment %}
+</compare>
 
 ## Associating users to snippets
 
@@ -456,8 +446,7 @@ Let's try this:
 
 ![](final-response.png)
 
-{% comment %}
-<table class="compare-table"><thead><tr><th>Bash:</th><th>Response:</th></tr></thead><tbody><tr><td markdown="1">
+<compare>
 
 ```bash
 curl -v \
@@ -465,7 +454,6 @@ curl -v \
   http://127.0.0.1:8080/snippets
 ```
 
-</td><td markdown="1">
 
 ```json
 {
@@ -482,8 +470,7 @@ curl -v \
 }
 ```
 
-</td></tr></tbody></table>
-{% endcomment %}
+</compare>
 
 Awesome!
 
@@ -560,7 +547,7 @@ Now our API is accessible from any host :)
 
 ## Full Source
 
-{% capture application-kt %}
+
 ```kotlin
 package com.example
 
@@ -663,9 +650,9 @@ class InvalidCredentialsException(message: String) : RuntimeException(message)
 
 class LoginRegister(val user: String, val password: String)
 ```
-{% endcapture %}
 
-{% capture my-api-http %}
+
+
 ```
 {% raw %}
 # Get all the snippets
@@ -704,9 +691,9 @@ Content-Type: application/json
 ###
 {% endraw %}
 ```
-{% endcapture %}
 
-{% capture http-client-env-json %}
+
+
 ```json
 {
   "localhost": {
@@ -717,7 +704,7 @@ Content-Type: application/json
   }
 }
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="application.kt" tab1-content=application-kt

@@ -9,9 +9,9 @@ of small, simple pieces, but if you don't know what's happening, then it is like
 In this section, you will discover what Ktor is doing under the hood, and you will learn more
 about its generic infrastructure. 
 
-**Table of contents:**
 
-* TOC
+
+
 
 ## Entry points
 

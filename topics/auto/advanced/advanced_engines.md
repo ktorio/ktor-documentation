@@ -16,7 +16,8 @@ Ktor includes several artifacts and engines:
 
 A simplified version of the `ApplicationEngine` looks like this:
 
-{% capture application-engine-interface %}
+<tabs>
+
 ```kotlin
 interface ApplicationEngineFactory<
     out TEngine : ApplicationEngine,
@@ -70,11 +71,8 @@ abstract class BaseApplicationEngine(
     val application: Application
 }
 ```
-{% endcapture %}
 
-{% include tabbed-code.html
-    tab1-title="ApplicationEngineInterface.kt" tab1-content=application-engine-interface
-%}
+</tabs>
 
 ## `ApplicationEngineFactory`
 

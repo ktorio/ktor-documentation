@@ -17,14 +17,14 @@ If you are using the [Locations feature](/servers/features/locations.html) and w
 custom types as part of its parameters, you can add new custom converters with this
 service.
 
-**Table of contents:**
 
-* TOC
+
+
 
 {% include feature.html %}
 
 ## Basic Installation
-{ #basic-installation }
+{id="basic-installation "}
 
 Installing the DataConversion is pretty easy, and it should be cover primitive types:
 
@@ -33,7 +33,7 @@ install(DataConversion)
 ```
 
 ## Adding Converters
-{ #adding-converters }
+{id="adding-converters "}
 
 The DataConversion configuration, provide a `convert<T>` method to define
 type conversions. Inside, you have to provide a decoder and an encoder
@@ -99,7 +99,7 @@ enum class LocationEnum {
 ```
 
 ## Accessing the Service
-{ #service }
+{id="service "}
 
 You can easily access the DataConversion service, from any call with:
 
@@ -108,7 +108,7 @@ val dataConversion = call.conversionService
 ```
 
 ## The ConversionService Interface
-{ #interface }
+{id="interface "}
 
 ```kotlin
 interface ConversionService {
@@ -116,7 +116,7 @@ interface ConversionService {
     fun toValues(value: Any?): List<String>
 }
 ```
-{ #ConversionService }
+{id="ConversionService "}
 
 ```kotlin
 class DelegatingConversionService(private val klass: KClass<*>) : ConversionService {
@@ -124,4 +124,4 @@ class DelegatingConversionService(private val klass: KClass<*>) : ConversionServ
     fun encode(converter: (value: Any?) -> List<String>)
 }
 ```
-{ #DelegatingConversionService }
+{id="DelegatingConversionService "}

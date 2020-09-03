@@ -10,7 +10,7 @@ It also serves when deploying to [google app engine](https://cloud.google.com/ap
 
 To generate a war file, you can use the gretty gradle plugin. You also need a `WEB-INF/web.xml` which looks like this:
 
-{% capture web-xml %}
+
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 
@@ -48,9 +48,9 @@ To generate a war file, you can use the gretty gradle plugin. You also need a `W
 
 </web-app>
 ```
-{% endcapture %}
 
-{% capture build-gradle %}
+
+
 ```groovy
 buildscript {
     ext.gretty_version = '2.0.0'
@@ -99,7 +99,7 @@ afterEvaluate {
     run.dependsOn(tasks.findByName("appRun"))
 }
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="webapp/WEB-INF/web.xml" tab1-content=web-xml

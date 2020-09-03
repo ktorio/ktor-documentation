@@ -15,7 +15,7 @@ This feature provides automatic content conversion according to `Content-Type` a
 {% include feature.html %}
 
 ## Basic Usage
-{ #basic}
+{id="basic"}
 
 The ContentNegotiation feature allows you to register and configure custom converters.
 
@@ -36,7 +36,7 @@ install(ContentNegotiation) {
 ```
 
 ## Sending
-{ #sending }
+{id="sending "}
 
 When you respond with an object that is not directly handled, like a custom data class,
 this feature checks the client's `Accept` header to determine which `Content-Type` will be 
@@ -51,7 +51,7 @@ client's `Accept` header. There is an [issue to implement other strategies](http
 { .note} 
 
 ## Receiving
-{ #receiving }
+{id="receiving "}
 
 When receiving, the `Content-Type` of the request will be used to determine
 which `ContentConverter` will be used to process that request:
@@ -61,7 +61,7 @@ val myDataClass = call.receive<MyDataClass>()
 ```
 
 ## The ContentConverter interface
-{ #content-converter}
+{id="content-converter"}
 
 If you want to write your own converter, you have to implement the `ContentConverter` interface:
 
@@ -90,7 +90,7 @@ class GsonConverter(private val gson: Gson = Gson()) : ContentConverter {
 ```
 
 ## Available out of the box ContentConverter
-{ #available-converters}
+{id="available-converters"}
 
 Ktor provide some content converters out of the box:
 

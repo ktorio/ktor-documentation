@@ -145,7 +145,7 @@ Update done!
 
 For your project, you can use gradle and the official `appengine-gradle-plugin`. So a `build.gradle` would look like this:
 
-{% capture build-gradle %}
+
 ```groovy
 buildscript {
     ext.appengine_version = '1.9.60'
@@ -188,7 +188,7 @@ kotlin.experimental.coroutines = 'enable'
 
 task run(dependsOn: appengineRun)
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="build.gradle" tab1-content=build-gradle

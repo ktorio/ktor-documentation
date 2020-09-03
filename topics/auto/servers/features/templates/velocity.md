@@ -17,7 +17,7 @@ feature.  Initialize the Velocity feature with the
 {% include feature.html %}
 
 ## Installation
-{ #installation}
+{id="installation"}
 
 You can install Velocity, and configure the `VelocityEngine`.
 
@@ -30,7 +30,7 @@ install(Velocity) {
 ```
 
 ## Usage
-{ #usage}
+{id="usage"}
 
 When Velocity is configured, you can call the `call.respond` method with a `VelocityContent` instance: 
 

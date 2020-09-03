@@ -16,12 +16,12 @@ memory for the whole HTML.
 {% include feature.html %}
 
 ## Installing
-{ #install }
+{id="install "}
 
 This feature doesn't require installation.
 
 ## Basic Usage
-{ #basic-usage }
+{id="basic-usage "}
 
 When generating the response, instead of calling the `respond`/`respondText` methods, you have to call `ApplicationCall.respondHtml`:
 
@@ -41,7 +41,7 @@ call.respondHtml {
 For documentation about generating HTML using kotlinx.html, please check [its wiki](https://github.com/kotlin/kotlinx.html/wiki/Getting-started).
 
 ## Templates & Layouts
-{ #templates-and-layouts }
+{id="templates-and-layouts "}
 
 In addition to plain HTML generation with the DSL, ktor exposes a simple typed templating engine.
 You can use it to generate complex layouts in a typed way. It is pretty simple, yet powerful:

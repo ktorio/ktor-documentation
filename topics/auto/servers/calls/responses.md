@@ -14,12 +14,12 @@ That `call` contains a property called `response` that allows you to emit the re
 Also, the call itself has some useful convenience properties and methods 
 that interact with the response.
 
-**Table of contents:**
 
-* TOC
+
+
 
 ## Context
-{ #context}
+{id="context"}
 
 When using the [Routing](/servers/features/routing.html) feature, you can access
 the `call` property inside route handlers:
@@ -43,7 +43,7 @@ intercept(ApplicationCallPipeline.Call) {
 ```
 
 ## Controlling the HTTP headers and the status
-{ #properties}
+{id="properties"}
 
 You can control how the response is generated, the HTTP status, the headers, cookies, and the payload.
 
@@ -91,7 +91,7 @@ Convenience methods to set headers usually set by the infrastructure:
 * `response.contentRange(1024L until 2048L, 4096L)` - Sets the `Content-Range` header (check the [PartialContent](/servers/features/partial-content.html) feature) 
 
 ## HTTP/2 pushing and HTTP/1 `Link `header
-{ #pushing}
+{id="pushing"}
 
 The `call` supports pushing.
 
@@ -127,7 +127,7 @@ If you want to make redirections that stop the control flow by throwing an excep
 ## Sending response content
 
 Sending generic content (compatible with [Content negotiation](#content-negotiation)):
-{ #call-respond}
+{id="call-respond"}
 
 * `call.respond(MyDataClass("hello", "world"))` - Check the [Content Negotiation](#content-negotiation) section
 * `call.respond(HttpStatusCode.NotFound, MyDataClass("hello", "world"))` - Specifies a status code, and sends a payload in a single call. Check [StatusPages](/servers/features/status-pages.html)
@@ -180,7 +180,7 @@ To specify a default content type for the request:
 * `call.defaultTextContentType(contentType: ContentType?): ContentType`
 
 The OutgoingContent interface for configuring responses:
-{ #outgoing-content}
+{id="outgoing-content"}
 
 ```kotlin
 class OutgoingContent {
@@ -194,7 +194,7 @@ class OutgoingContent {
 ```
 
 ## Making files downloadable
-{ #content-disposition }
+{id="content-disposition "}
 
 You can make files "downloadable", by adding the [`Content-Disposition` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition).
 
@@ -211,22 +211,22 @@ call.response.header(HttpHeaders.ContentDisposition, ContentDisposition.Attachme
 ```
 
 ## Content negotiation
-{ #content-negotiation}
+{id="content-negotiation"}
 
 When configuring plugins for content negotiation, the pipeline may accept additional
 types for the [`call.respond`](#call-respond) methods.
 
 ### Sending HTML with the DSL
-{ #html-dsl}
+{id="html-dsl"}
 
 Ktor includes an optional [feature to send HTML content using a DSL](/servers/features/templates/html-dsl.html).
 
 ### Sending HTML with FreeMarker
-{ #html-freemarker}
+{id="html-freemarker"}
 
 Ktor includes an optional [feature to send HTML content using FreeMarker](/servers/features/templates/freemarker.html).
 
 ### Sending JSON with data classes
-{ #json}
+{id="json"}
 
 Ktor includes an optional [feature to send JSON content using Content negotiation](/servers/features/content-negotiation/gson.html).

@@ -47,7 +47,7 @@ fun Application.main() {
 ```
 
 ## Testing
-{ #testing }
+{id="testing "}
 
 Applying this feature changes how [testing](/servers/testing.html) works.
 After applying this feature, each `handleRequest` you perform, results in a redirection response.

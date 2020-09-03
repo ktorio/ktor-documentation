@@ -16,9 +16,9 @@ To achieve this, we are going to use the [Routing], [WebSockets] and [Sessions] 
 This is an advanced tutorial and it assumes you have some basic knowledge about Ktor,
 so you should follow the [guide about making a Website](/quickstart/guides/website.html) first.
 
-**Table of contents:**
 
-* TOC
+
+
 
 ## Setting up the project
 

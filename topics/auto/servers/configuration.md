@@ -15,15 +15,14 @@ In this case, you configure the server engine to be used with the `mainClassName
 Ktor also uses a set of lambdas with a typed DSL (Domain Specific Language) to configure the application
 and server engine when using `embeddedServer`.
 
-Starting with Ktor 1.0.0-beta-2, the `DevelopmentEngine` class has been renamed to `EngineMain`, for older versions just rename it.
-{ .note }
+>Starting with Ktor 1.0.0-beta-2, the `DevelopmentEngine` class has been renamed to `EngineMain`, for older versions just rename it.
+>
+{type="note"}
 
-**Table of contents:**
 
-* TOC
 
 ## The HOCON file
-{ #hocon-file}
+{id="hocon-file"}
 
 This is the preferred way of configuring Ktor applications as it allows you
 to easily change the configuration without recompiling your application.
@@ -122,7 +121,7 @@ There is an [IntelliJ plugin for HOCON](https://plugins.jetbrains.com/plugin/104
 { .note.tip}
 
 ## Command Line
-{ #command-line}
+{id="command-line"}
 
 When using [`commandLineEnvironment`](https://github.com/ktorio/ktor/blob/master/ktor-server/ktor-server-host-common/src/io/ktor/server/engine/CommandLine.kt)
 (any `EngineMain` main) there are several switches and configuration parameters you can use to configure
@@ -138,7 +137,7 @@ Using switches, you can, for example, override the bound port defined by executi
 There is a [list of available command line switches](#available-config) in this document.
 
 ## Configuring the embeddedServer
-{ #embedded-server}
+{id="embedded-server"}
 
 embeddedServer is a simple way to start a Ktor application. You provide your own main function,
 and being more explicit, it is easier to understand what happens exactly.
@@ -303,7 +302,7 @@ your own engines](/advanced/engines.html) and provide custom configurations for 
 { .note}
 
 ## Available configuration parameters
-{ #available-config}
+{id="available-config"}
 
 There is a list of properties which Ktor understands out of the box and that you can
 pass from the command line or the HOCON file. 
@@ -358,7 +357,7 @@ You can use `-P:` to specify parameters that don't have a specific switch. For e
 `-P:ktor.deployment.callGroupSize=7`.
 
 ## Reading the configuration from code
-{ #accessing-config}
+{id="accessing-config"}
 
 If you are using a `EngineMain` instead of an `embeddedServer`, the HOCON file is loaded,
 and you are able to access its configuration properties.
@@ -413,7 +412,7 @@ val config = HoconApplicationConfig(ConfigFactory.load())
 ```
 
 ## Using environment variables
-{ #environment-variables}
+{id="environment-variables"}
 
 For *HOCON*, if you want to configure some parameters using environment variables,
 you can use environment substitution using `${ENV}` syntax. For example:
@@ -451,7 +450,7 @@ val port = System.getenv("PORT")?.toInt() ?: 8080
 ```
 
 ## Custom configuration systems
-{ #custom}
+{id="custom"}
 
 Ktor provides an interface that you can implement the configuration in, available at `application.environment.config`.
 You can construct and set the configuration properties inside an `applicationEngineEnvironment`.

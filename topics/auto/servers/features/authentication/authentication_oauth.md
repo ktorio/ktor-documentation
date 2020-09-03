@@ -19,7 +19,7 @@ A simplified OAuth 2.0 workflow:
 
 *Example*:
 
-{% capture oauth-sample-kt %}
+
 ```kotlin
 @Location("/login/{type?}") class login(val type: String = "")
 
@@ -62,7 +62,7 @@ routing {
     }
 }
 ```
-{% endcapture %}
+
 
 {% include tabbed-code.html
     tab1-title="AuthSample.kt" tab1-content=oauth-sample-kt
