@@ -1,0 +1,35 @@
+---
+title: search
+layout: none
+search: exclude
+---
+
+{%- assign version = site.ktor_version -%}
+{%- assign length = version | size -%}
+{%- assign pixels_left = 65 -%}
+{%- assign pixels_right = length | times: 7.5 -%}
+{%- assign pixels_right_minus_padding = pixels_right | minus: 8 -%}
+{%- assign pixels = pixels_left | plus: pixels_right -%}
+
+<svg xmlns="http://www.w3.org/2000/svg" width="{{ pixels }}" height="20">
+    <linearGradient id="b" x2="0" y2="100%">
+        <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
+        <stop offset="1" stop-opacity=".1"/>
+    </linearGradient>
+    <clipPath id="a">
+        <rect width="{{ pixels }}" height="20" rx="3" fill="#fff"/>
+    </clipPath>
+    <g clip-path="url(#a)">
+        <path fill="#555" d="M0 0 h{{ pixels_left }} v20 H0 z"/>
+        <path fill="#007ec6" d="M{{ pixels_left }} 0 h{{ pixels_right }} v20 H{{ pixels_left }} z"/>
+        <path fill="url(#b)" d="M0 0 h{{ pixels }} v20 H0z"/>
+    </g>
+    <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="110">
+        <text x="335" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="550">Download</text>
+        <text x="335" y="140" transform="scale(.1)" textLength="550">Download</text>
+        <g text-anchor="start">
+            <text x="685" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="{{ pixels_right_minus_padding | times: 10 }}">{{ version }}</text>
+            <text x="685" y="140" transform="scale(.1)" textLength="{{ pixels_right_minus_padding | times: 10 }}">{{ version }}</text>
+        </g>
+    </g>
+</svg>

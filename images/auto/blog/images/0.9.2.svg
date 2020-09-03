@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="1100" height="370" viewBox="0, 0, 1100, 370">
+  <defs>
+    <linearGradient id="Gradient_1" gradientUnits="userSpaceOnUse" x1="502.064" y1="369.296" x2="597.936" y2="0.704">
+      <stop offset="0" stop-color="#E1E1E1"/>
+      <stop offset="0.153" stop-color="#FFFFFF"/>
+      <stop offset="0.847" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#DCDCDC"/>
+    </linearGradient>
+    <linearGradient id="Gradient_2" gradientUnits="userSpaceOnUse" x1="-16.973" y1="144.97" x2="-16.973" y2="383.972" gradientTransform="matrix(0.707, -0.707, 0.707, 0.707, 0, 0)">
+      <stop offset="0" stop-color="#00B0FF"/>
+      <stop offset="0.165" stop-color="#00AEFF"/>
+      <stop offset="0.499" stop-color="#955FF9"/>
+      <stop offset="0.762" stop-color="#E87353"/>
+      <stop offset="1" stop-color="#FF8900"/>
+    </linearGradient>
+  </defs>
+  <g id="Back">
+    <path d="M0,0 L1100,0 L1100,370 L0,370 z" fill="url(#Gradient_1)"/>
+  </g>
+  <g id="Front">
+    <g id="ktor_logo">
+      <g id="Image">
+        <path d="M48,157 L133,72 L302,241 L217,326 L48,157 z" fill="url(#Gradient_2)"/>
+        <path d="M132,157 L218,157 L218,241 L132,241 L132,157 z" fill="#000000"/>
+      </g>
+      <g id="Text">
+        <path d="M608,155 L608,238 L631,238 L631,208 C631,208 630.062,178 658,178 L658,152.99 C658,152.99 638.07,152.159 631,172 L631,155 L608,155 z" fill="#000000"/>
+        <path d="M549,152.99 C573.853,152.99 594,172.468 594,196.495 C594,220.522 573.853,240 549,240 C524.147,240 504,220.522 504,196.495 C504,172.468 524.147,152.99 549,152.99 z M549,173 C536.85,173 527,183.521 527,196.5 C527,209.479 536.85,220 549,220 C561.15,220 571,209.479 571,196.5 C571,183.521 561.15,173 549,173 z" fill="#000000"/>
+        <path d="M443,155 L443,175 L453,175 L453,216 C453,216 452.133,241.763 477,239 C495,237 496,234 496,234 L496,215 C496,215 477,226 477,210 C477,191 477,175 477,175 L496,175 L496,155 L477,155 L477,134 L453,134 L453,155 L443,155 z" fill="#000000"/>
+        <path d="M346,129 L369,129 L369,177 L413,129 L442,129 L399,175 L444,238 L416,238 L382,192 L370,205 L370,238 L346,238 L346,129 z" fill="#000000"/>
+      </g>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 876.5, 187)">
+      <tspan x="-156.188" y="48" font-family="ArialMT" font-size="140" fill="#000000">0.9.2</tspan>
+    </text>
+  </g>
+</svg>
