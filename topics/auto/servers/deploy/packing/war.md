@@ -1,5 +1,5 @@
 [//]: # (title: WAR)
-[//]: # (caption: WAR (Servlet Container))
+[//]: # (caption: WAR \(Servlet Container\))
 [//]: # (category: servers)
 [//]: # (permalink: /servers/deploy/packing/war.html)
 [//]: # (ktor_version_review: 1.0.0)
@@ -50,8 +50,6 @@ To generate a war file, you can use the gretty gradle plugin. You also need a `W
 </web-app>
 ```
 
-
-
 ```groovy
 buildscript {
     ext.gretty_version = '2.0.0'
@@ -100,6 +98,8 @@ afterEvaluate {
     run.dependsOn(tasks.findByName("appRun"))
 }
 ```
+
+</tabs>
 
 This gradle buildscript defines [several tasks](http://akhikhl.github.io/gretty-doc/Gretty-tasks) that
 you can use to run your application.

@@ -51,16 +51,17 @@ authentication {
 }
 ```
 
-<div markdown="1" class="note" style="margin-bottom:1em;">
+
 `HA1` (`H(A1)`) comes from [RFC 2069 (An Extension to HTTP: Digest Access Authentication)](https://tools.ietf.org/html/rfc2069)  
-```
+
+```text
 HA1=MD5(username:realm:password) <-- You usually store this.
 HA2=MD5(method:digestURI)
 response=MD5(HA1:nonce:HA2) <-- The client and the server sends and checks this.
 ```
-</div>
 
-While `realm` is guaranteed to be the `realm` passed to the `digestAuthentication` function and it is passed just for convenience,
-`userName` *can* be any value, so take this into account and remember to escape and or validate it, when using that value
-for accessing the file system, accessing databases, storing it, generating HTML, etc.
-{ .security.note}
+>While `realm` is guaranteed to be the `realm` passed to the `digestAuthentication` function and it is passed just for convenience,
+>`userName` *can* be any value, so take this into account and remember to escape and or validate it, when using that value
+>for accessing the file system, accessing databases, storing it, generating HTML, etc.
+>
+{type="note"}

@@ -29,7 +29,6 @@ When Ktor is started using a `EngineMain`, or by calling the `commandLineEnviron
 it tries to load a HOCON file called `application.conf` from the application resources.
 You can change the location of the file using [command line arguments](#command-line).
 
-<div markdown="1" class="note" style="margin-bottom: 1em;">
 Available development engines that you can use as `mainClassName`:
 
 * `io.ktor.server.cio.EngineMain`
@@ -37,7 +36,6 @@ Available development engines that you can use as `mainClassName`:
 * `io.ktor.server.jetty.EngineMain`
 * `io.ktor.server.netty.EngineMain`
 
-</div>
 
 Ktor only requires you to specify which [module or modules](/servers/application.html#modules)
 you want it to load when starting the server using the `ktor.application.modules` property.

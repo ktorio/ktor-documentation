@@ -76,9 +76,10 @@ application.install(Authentication) {
 }
 ```
 
-The idea here is that you are not storing the actual password but a hash, so even if your data source is leaked,
-the passwords are not directly compromised. Though keep in mind that when using poor passwords and weak hashing algorithms
-it is possible to do brute-force attacks. You can append (instead of prepend) long salt values and do multiple hash
-stages or do key derivate functions to increase security and make brute-force attacks non-viable.
-You can also enforce or encourage strong passwords when creating users.
-{ .security.note}
+>The idea here is that you are not storing the actual password but a hash, so even if your data source is leaked,
+>the passwords are not directly compromised. Though keep in mind that when using poor passwords and weak hashing algorithms
+>it is possible to do brute-force attacks. You can append (instead of prepend) long salt values and do multiple hash
+>stages or do key derivate functions to increase security and make brute-force attacks non-viable.
+>You can also enforce or encourage strong passwords when creating users.
+>
+{type="note"}

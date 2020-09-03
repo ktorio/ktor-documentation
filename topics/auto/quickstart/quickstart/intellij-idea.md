@@ -34,7 +34,6 @@ You can get the plugin from:
 
 ![](install01.png)
 
-<div style="clear:both;"></div>
-
 ![](install2.png)
+
 ![](install3.png)
