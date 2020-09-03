@@ -6,7 +6,7 @@
 
 You can check out a full google appengine sample, here:
 <https://github.com/ktorio/ktor-samples/tree/master/deployment/google-appengine-standard>
-{ .note.example}
+{type="note"}
 
 ## Preparing
 
@@ -188,12 +188,6 @@ kotlin.experimental.coroutines = 'enable'
 
 task run(dependsOn: appengineRun)
 ```
-
-
-{% include tabbed-code.html
-    tab1-title="build.gradle" tab1-content=build-gradle
-    no-height="true"
-%}
 
 Once everything is configured, you can now run the application locally, using the gradle task `appengineRun`:
 

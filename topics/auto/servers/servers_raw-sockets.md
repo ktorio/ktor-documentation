@@ -13,7 +13,7 @@ It exposes a suspending API that uses NIO under the hoods.
 ## Sockets
 
 This functionality is exposed through the `io.ktor:ktor-network:$ktor_version` artifact.
-{ .note.artifact }
+{type="note"}
 
 In order to create either server or client sockets, you have to use the `aSocket` builder,
 with a mandatory `ActorSelectorManager`: `aSocket(selector)`. For example: `aSocket(ActorSelectorManager(Dispatchers.IO))`.
@@ -47,7 +47,7 @@ val output: ByteWriteChannel = socket.openWriteChannel(autoFlush = true)
 You can read the KDoc for [ByteReadChannel](https://github.com/Kotlin/kotlinx-io/blob/master/kotlinx-coroutines-io/src/main/kotlin/kotlinx/coroutines/experimental/io/ByteReadChannel.kt)
 and [ByteWriteChannel](https://github.com/Kotlin/kotlinx-io/blob/master/kotlinx-coroutines-io/src/main/kotlin/kotlinx/coroutines/experimental/io/ByteWriteChannel.kt)
 for further information on the available methods.
-{ .note}
+{type="note"}
 
 ## Server
 
@@ -67,7 +67,7 @@ val socket = server.accept()
 
 If you want to support multiple clients at once, remember to call `launch { }` to prevent
 the function that is accepting the sockets from suspending.
-{ .note}
+{type="note"}
 
 ### Simple Echo Server:
 
@@ -103,11 +103,6 @@ fun main(args: Array<String>) {
     }
 }
 ```
-
-
-{% include tabbed-code.html
-    tab1-title="echo-server.kt" tab1-content=echo-server-kt
-%}
 
 Then you can connect to it using *telnet* and start typing:
 
@@ -156,14 +151,8 @@ fun main(args: Array<String>) {
 }
 ```
 
-
-{% include tabbed-code.html
-    tab1-title="echo-client.kt" tab1-content=echo-client-kt
-    no-height="true"
-%}
-
 ## Secure Sockets (SSL/TLS)
-{id="secure "}
+{id="secure"}
 
 Ktor supports secure sockets. To enable them you will need to include the
 `io.ktor:ktor-network-tls:$ktor_version` artifact, and call the `.tls()` to a connected socket.

@@ -10,6 +10,7 @@ It also serves when deploying to [google app engine](https://cloud.google.com/ap
 
 To generate a war file, you can use the gretty gradle plugin. You also need a `WEB-INF/web.xml` which looks like this:
 
+<tabs>
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1" ?>
@@ -100,18 +101,11 @@ afterEvaluate {
 }
 ```
 
-
-{% include tabbed-code.html
-    tab1-title="webapp/WEB-INF/web.xml" tab1-content=web-xml
-    tab2-title="build.gradle" tab2-content=build-gradle
-%}
-
 This gradle buildscript defines [several tasks](http://akhikhl.github.io/gretty-doc/Gretty-tasks) that
 you can use to run your application.
 
-In the case where you only need to generate a war file, there is a `war` task defined in the war plugin.<br />
-Just run `./gradlew war` and it will generate a `/build/libs/projectname.war` file.
-{ .note #generate-war-file }
-
-For a full example: <https://github.com/ktorio/ktor-samples/tree/master/deployment/jetty-war>
-{ .note.example}
+>In the case where you only need to generate a war file, there is a `war` task defined in the war plugin.<br />
+>Just run `./gradlew war` and it will generate a `/build/libs/projectname.war` file.
+>For a full example: <https://github.com/ktorio/ktor-samples/tree/master/deployment/jetty-war>
+>
+{type="note" id="generate-war-file"}

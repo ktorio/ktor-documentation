@@ -48,7 +48,7 @@ local maven repository:
 ```
 
 ## Troubleshooting
-{id="troubleshooting "}
+{id="troubleshooting"}
 
 If you get an error similar to:
 

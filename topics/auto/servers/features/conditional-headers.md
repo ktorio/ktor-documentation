@@ -15,7 +15,7 @@ checking the `ETag` or `LastModified` properties of the `Resource` or `FinalCont
 properties to what client indicates it is having. If the conditions allow it, the entire content is not sent and a
 "304 Not Modified" response is sent instead. 
 
-{% include feature.html %}
+
 
 ## Configuration
 

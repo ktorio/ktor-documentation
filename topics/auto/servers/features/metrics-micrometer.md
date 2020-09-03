@@ -13,7 +13,7 @@ The Metrics feature allows you to configure the [Metrics](https://micrometer.io/
 to get useful information about the server and incoming requests. This implementation 
 uses Micrometer Metrics which requires a JRE 8 or higher. 
 
-{% include feature.html %}
+
 
 ## Exposed Metrics
 

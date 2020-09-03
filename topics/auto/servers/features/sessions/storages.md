@@ -8,7 +8,7 @@
 There are two predefined storages: `SessionStorageMemory`, `DirectoryStorage`. And another composable storage: `CacheStorage`.
 
 `DirectoryStorage` and `CacheStorage` are dependant on the `io.ktor:ktor-server-sessions:$ktor_version` artifact.
-{ .note.artifact } 
+{type="note"} 
 
 In this mode, you are just sending a Session Id instead of the actual session contents.
 This id is used to store its contents on the server side using a specific `SessionStorage`.
@@ -44,8 +44,7 @@ If the storage doesn't provide a meaningful way to store information as a stream
 a simplified adaptor that just reads and writes it using `ByteArray`. It can also be used as an example to know
 how to deal with the API in its primitive stream-based version.
 
-{% include simplified-session-storage-sample.md %}
+```text
 
-{% include tabbed-code.html
-    tab1-title="SimplifiedSessionStorage.kt" tab1-content=simplified-session-storage-sample-kt
-%}
+```
+{src="simplified-session-storage-sample.md"}

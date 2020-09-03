@@ -13,10 +13,10 @@ In this page, you will learn how to deploy your application to several providers
 
 
 
-{% include list-children.html %}
+
 
 ## Samples
-{id="samples "}
+{id="samples"}
 
 In the Ktor's samples repository, you can find examples and README files
 on [how to deploy to specific providers](https://github.com/ktorio/ktor-samples/tree/master/deployment).

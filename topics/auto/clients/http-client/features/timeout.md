@@ -14,7 +14,7 @@ Timeout allows limiting the time of the request execution or execution steps suc
 
 By default all these timeouts are infinite and should be explicitly specified when needed. Timeouts could be specified for all requests of a particular client or for a single request.
 
-{% include feature.html %}
+
 
 ## Install
 
@@ -44,8 +44,9 @@ client.get<String>(url) {
 }
 ```
 
-Be aware that to assign per-request timeout it's still required to have timeout feature installed. In case per-request configuration is specified without installed feature an `IllegalArgumentException` will be thrown with message _"Consider install HttpTimeout feature because request requires it to be installed"_.
-{ .note}
+>Be aware that to assign per-request timeout it's still required to have timeout feature installed. In case per-request configuration is specified without installed feature an `IllegalArgumentException` will be thrown with message _"Consider install HttpTimeout feature because request requires it to be installed"_.
+>
+{type="note"}
 
 In case of timeout an exception will be thrown. The type of exception depends on type of occured timeout: `HttpRequestTimeoutException` in case of request timeout, `HttpConnectTimeoutException` in case of connect timeout and `HttpSocketTimeoutException` in case of socket timeout.
 

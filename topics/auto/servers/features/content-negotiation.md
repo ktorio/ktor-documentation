@@ -12,7 +12,7 @@
 
 This feature provides automatic content conversion according to `Content-Type` and `Accept` headers.
 
-{% include feature.html %}
+
 
 ## Basic Usage
 {id="basic"}
@@ -36,7 +36,7 @@ install(ContentNegotiation) {
 ```
 
 ## Sending
-{id="sending "}
+{id="sending"}
 
 When you respond with an object that is not directly handled, like a custom data class,
 this feature checks the client's `Accept` header to determine which `Content-Type` will be 
@@ -48,10 +48,10 @@ call.respond(MyDataClass("hello", "world"))
 
 Right now, the only supported ContentNegotiation strategy when sending, is the
 client's `Accept` header. There is an [issue to implement other strategies](https://github.com/ktorio/ktor/issues/357).
-{ .note} 
+{type="note"} 
 
 ## Receiving
-{id="receiving "}
+{id="receiving"}
 
 When receiving, the `Content-Type` of the request will be used to determine
 which `ContentConverter` will be used to process that request:

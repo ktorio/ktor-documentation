@@ -12,7 +12,7 @@
 The CachingOptions feature adds the ability to send the headers `Cache-Control` and `Expires`
 used by clients and proxies to cache requests in an easy way.
 
-{% include feature.html %}
+
 
 The basic feature is installed just like many others, but for it to do something, you have to define
 `options` blocks transforming outputContent to CachingOptions using for example:

@@ -20,43 +20,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ktor-documentation.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/_drafts/plugin-0.2.1.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/_drafts/plugin-0.2.1.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/_posts/-06-04-0.9.2.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/_posts/-06-04-0.9.2.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/_posts/-06-26-0.9.3.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/_posts/-06-26-0.9.3.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/_posts/-08-06-plugin-0.2.0.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/_posts/-08-06-plugin-0.2.0.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/_posts/-08-07-openapi-gen.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/_posts/-08-07-openapi-gen.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/advanced/advanced_engines.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/advanced/advanced_engines.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/advanced/advanced_http2.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/advanced/advanced_http2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/advanced/advanced_index.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/advanced/advanced_index.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/advanced/build-from-source.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/advanced/build-from-source.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/advanced/pipeline.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/advanced/pipeline.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/advanced/pipeline/route.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/advanced/pipeline/route.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/advanced/utilities.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/advanced/utilities.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/clients/clients_index.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/clients_index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/clients/clients_websockets.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/clients_websockets.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/clients/http-client/examples.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/examples.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/clients/http-client/features/default-request.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/features/default-request.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/clients/http-client/features/features_logging.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/features/features_logging.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/clients/http-client/features/http-cookies.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/features/http-cookies.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/clients/http-client/features/http-plain-text.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/features/http-plain-text.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/clients/http-client/features/http-redirect.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/features/http-redirect.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/clients/http-client/features/json-feature.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/features/json-feature.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/clients/http-client/features/response-validation.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/features/response-validation.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/clients/http-client/features/timeout.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/features/timeout.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/clients/http-client/features/user-agent.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/features/user-agent.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/clients/http-client/http-client_engines.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/http-client_engines.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/clients/http-client/http-client_features.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/http-client_features.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/clients/http-client/http-client_testing.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/http-client_testing.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/clients/http-client/quick-start.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/quick-start.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/clients/http-client/quick-start/request.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/quick-start/request.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/clients/http-client/quick-start/response.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/quick-start/response.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/kotlinx/io/encoding.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/kotlinx/io/encoding.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/kotlinx/io/io_io.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/kotlinx/io/io_io.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/kotlinx/io/platforms.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/kotlinx/io/platforms.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/kotlinx/io/tools.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/kotlinx/io/tools.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/guides.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_api.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_api.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_application.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_application.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_chat.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_chat.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_oauth.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_oauth.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/guides/ssl.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides/ssl.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/guides/website.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides/website.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration/.0.0-beta-3.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.0.0-beta-3.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration/.0.0.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.0.0.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration/.1.1.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.1.1.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration/.1.2.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.1.2.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration/.1.3.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.1.3.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration/.1.4.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.1.4.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration/.2.0.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.2.0.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration/.2.3.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.2.3.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration/.2.4.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.2.4.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration/.3.0.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.3.0.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration/.4.0.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.4.0.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/quickstart/docker.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/quickstart/docker.md" afterDir="false" />
@@ -64,6 +64,13 @@
       <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/quickstart/maven.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/quickstart/maven.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/quickstart_index.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/quickstart_index.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/zfaq.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/zfaq.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/samples/app.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/app.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/samples/deployment.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/deployment.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/samples/feature.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/feature.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/samples/feature/async.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/feature/async.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/samples/feature/feature_jackson.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/feature/feature_jackson.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/samples/other.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/other.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/samples/samples_index.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/samples_index.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/autoreload.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/autoreload.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/calls/requests.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/calls/requests.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/calls/responses.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/calls/responses.md" afterDir="false" />
@@ -74,44 +81,62 @@
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/deploy/deploy_proguard.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/deploy_proguard.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/deploy/hosting.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/hosting.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/deploy/hosting/google-app-engine.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/hosting/google-app-engine.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/deploy/hosting/heroku.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/hosting/heroku.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/deploy/packing.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/packing.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/deploy/packing/fatjar.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/packing/fatjar.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/deploy/packing/war.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/packing/war.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/servers/engine.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/engine.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/authentication/authentication_oauth.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/authentication/authentication_oauth.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/authentication/jwt.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/authentication/jwt.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/authentication/ldap.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/authentication/ldap.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/autoheadresponse.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/autoheadresponse.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/caching-headers.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/caching-headers.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/call-id.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/call-id.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/call-logging.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/call-logging.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/compression.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/compression.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/conditional-headers.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/conditional-headers.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/content-negotiation.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/content-negotiation.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/content-negotiation/content-negotiation_gson.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/content-negotiation/content-negotiation_gson.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/content-negotiation/content-negotiation_jackson.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/content-negotiation/content-negotiation_jackson.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/content-negotiation/serialization-converter.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/content-negotiation/serialization-converter.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/cors.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/cors.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/data-conversion.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/data-conversion.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/default-headers.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/default-headers.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/double-receive.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/double-receive.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/features_authentication.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/features_authentication.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/features_locations.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/features_locations.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/features_metrics.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/features_metrics.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/forward-headers.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/forward-headers.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/hsts.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/hsts.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/https-redirect.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/https-redirect.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/metrics-micrometer.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/metrics-micrometer.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/partial-content.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/partial-content.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/routing.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/routing.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/servers_features_websockets.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/servers_features_websockets.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/sessions.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/sessions.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/sessions/client-server.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/sessions/client-server.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/sessions/cookie-header.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/sessions/cookie-header.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/sessions/serializers.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/sessions/serializers.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/sessions/storages.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/sessions/storages.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/sessions/transformers.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/sessions/transformers.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/shutdown-url.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/shutdown-url.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/static-content.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/static-content.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/status-pages.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/status-pages.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/templates.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/templates.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/templates/freemarker.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/templates/freemarker.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/templates/html-dsl.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/templates/html-dsl.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/templates/mustache.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/templates/mustache.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/templates/pebble.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/templates/pebble.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/templates/thymeleaf.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/templates/thymeleaf.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/templates/velocity.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/templates/velocity.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/webjars.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/webjars.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/servers/intro.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/intro.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/servers/lifecycle.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/lifecycle.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/self-signed-certificate.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/self-signed-certificate.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/servers_application.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/servers_application.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/servers_logging.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/servers_logging.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/servers_raw-sockets.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/servers_raw-sockets.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/servers_testing.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/servers_testing.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/structure.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/structure.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/uploads.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/uploads.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/zfeatures.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/zfeatures.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/zindex.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/zindex.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +247,7 @@
       <workItem from="1597409396529" duration="3630000" />
       <workItem from="1597417947421" duration="598000" />
       <workItem from="1597428526852" duration="3498000" />
-      <workItem from="1599129843439" duration="3304000" />
+      <workItem from="1599129843439" duration="5555000" />
     </task>
     <task id="LOCAL-00001" summary="Layout of TOC">
       <created>1595417880622</created>
@@ -476,7 +501,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599130159212</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Syntax cleanup, step 1">
+      <created>1599137262460</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1599137262460</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -498,7 +530,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Grammar mistake" />
     <MESSAGE value="Added list of topics for tracking" />
     <MESSAGE value="Grammar and extension fixes" />
     <MESSAGE value="Added Routing." />
@@ -523,17 +554,18 @@
     <MESSAGE value="Sample Feature doc" />
     <MESSAGE value="Switched to including symbols" />
     <MESSAGE value="Adding autoimport files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding autoimport files" />
+    <MESSAGE value="Syntax cleanup, step 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Syntax cleanup, step 1" />
   </component>
   <component name="WindowStateProjectService">
     <state x="799" y="884" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596175947740">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="799" y="884" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1596175947740" />
-    <state x="525" y="196" key="CommitChangelistDialog2" timestamp="1599130157993">
+    <state x="525" y="196" key="CommitChangelistDialog2" timestamp="1599137262041">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="525" y="196" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1599130157993" />
+    <state x="525" y="196" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1599137262041" />
     <state x="881" y="408" width="1336" height="897" key="DiffContextDialog" timestamp="1597429287105">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
@@ -594,16 +626,16 @@
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="1520" y="738" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.3008.1669@0.23.3008.1669" timestamp="1596009249701" />
-    <state x="694" y="242" width="1008" height="572" key="find.popup" timestamp="1599136990333">
+    <state x="694" y="242" width="1008" height="572" key="find.popup" timestamp="1599141136370">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="694" y="242" width="1008" height="572" key="find.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1599136990333" />
+    <state x="694" y="242" width="1008" height="572" key="find.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1599141136370" />
     <state x="741" y="277" width="568" height="554" key="find.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1596518621967" />
     <state x="1088" y="360" width="615" height="735" key="find.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1597410128643" />
-    <state x="296" y="267" width="670" height="487" key="search.everywhere.popup" timestamp="1599136636847">
+    <state x="296" y="267" width="670" height="487" key="search.everywhere.popup" timestamp="1599137480964">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="296" y="267" width="670" height="487" key="search.everywhere.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1599136636847" />
+    <state x="296" y="267" width="670" height="487" key="search.everywhere.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1599137480964" />
     <state x="316" y="302" width="670" height="510" key="search.everywhere.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1596434153902" />
     <state x="464" y="394" width="670" height="676" key="search.everywhere.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1597428553150" />
   </component>

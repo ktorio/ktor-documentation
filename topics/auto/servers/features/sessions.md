@@ -31,10 +31,10 @@ or server-side when only the session ID is transferred and the associated data i
 
 
 
-{% include feature.html %}
+
 
 ## Installation
-{id="installation "}
+{id="installation"}
 
 Sessions are usually represented as immutable data classes (and session is changed by calling the `.copy` method):
 
@@ -69,10 +69,10 @@ optional [server-side storage](/servers/features/sessions/client-server.html), a
 If you want to further customize sessions. Please read the [extending](#extending) section.
 
 Since there are several combinations for configuring sessions, there is a section about [deciding how to configure sessions](#configuring).
-{ .note}
+{type="note"}
 
 ## Usage
-{id="usage "}
+{id="usage"}
 
 In order to access or set the session content, you have to use the `call.sessions` property:
 
@@ -119,7 +119,7 @@ call.sessions.set(SampleSession(name = "John", value = 12)) // Sets a session of
 call.sessions.clear<SampleSession>() // Clears the session of this type 
 ```
 </div>
-{ .note.summarizing }
+{type="note"}
 
 ## Multiple sessions
 {id="multiple-sessions"}
@@ -155,7 +155,7 @@ install(Sessions) {
 ```
 
 For multiple session mappings, _both_ type and name should be unique.
-{ .note} 
+{type="note"} 
 
 ## Configuration
 {id="configuration"}
@@ -227,7 +227,7 @@ install(Sessions) {
 ```
 
 ### Storing a session id in a cookie, and storing session contents in-memory
-{id="SessionStorageMemory "}
+{id="SessionStorageMemory"}
 
 `SessionStorageMemory` don't have parameters at this point.
 
@@ -247,7 +247,7 @@ the old sessions at all.
 This implementation is not intended for production environments.
 
 ### Storing a session id in a cookie, and storing session contents in a file
-{id="directorySessionStorage "}
+{id="directorySessionStorage"}
 
 You have to include an additional artifact for the `directorySessionStorage` function.
 
@@ -275,7 +275,7 @@ calling the OS and reading the session from disk each time.
 
 
 ### Storing a session id in a cookie, and storing session contents in redis
-{id="redisStorage "}
+{id="redisStorage"}
 
 > <https://github.com/ktorio/ktor/pull/504>{ target="_blank"}
 
@@ -288,12 +288,12 @@ install(Sessions) {
 }
 ```
 
-{% include artifact.html kind="class" class="io.ktor.sessions.RedisSessionStorage" artifact="io.ktor:ktor-server-session-redis:$ktor_version" %}
+
 
 
 
 ## Extending
-{id="extending "}
+{id="extending"}
 
 Sessions are designed to be extensible, and there are some cases where you might want to further compose
 or change the default sessions behaviour.

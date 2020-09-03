@@ -75,6 +75,7 @@ For more information about configuring this plugin see [documentation for the pl
 
 So a full `build.gradle` file would look like this:
 
+<tabs>
 
 ```groovy
 buildscript {
@@ -167,13 +168,7 @@ fun Application.main() {
     }
 }
 ```
-
-
-{% include tabbed-code.html
-    tab1-title="build.gradle" tab1-content=build-gradle
-    tab2-title="resources/application.conf" tab2-content=resources-application-conf
-    tab3-title="src/HelloApplication.kt" tab3-content=src-hello-application-kt
-%}
+</tabs>
 
 >You can check this [full example](https://github.com/ktorio/ktor-samples/tree/master/deployment/docker) at the ktor-samples repository.
 >
@@ -183,11 +178,9 @@ fun Application.main() {
 
 In the root folder of your project create a file named `Dockerfile` with the following contents:
 
-{% include docker-sample.md %}
-{% include tabbed-code.html
-    tab1-title="Dockerfile" tab1-content=dockerfile
-    no-height="true"
-%}
+```text
+```
+{src="docker-sample.md"}
 
 Let's see what is what:
 

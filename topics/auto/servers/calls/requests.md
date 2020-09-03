@@ -39,7 +39,7 @@ intercept(ApplicationCallPipeline.Call) {
 ```
 
 ## Request information
-{id="info "}
+{id="info"}
 
 As part of the `request`, you can get access to its internal context:
 
@@ -49,7 +49,7 @@ val pipeline: ApplicationReceivePipeline = request.pipeline
 ```
 
 ### URL, method, scheme, protocol, host, path, httpVersion, remoteHost, clientIp
-{id=" info-url "}
+{id=" info-url"}
 
 ```kotlin
 val version: String = request.httpVersion // "HTTP/1.1"
@@ -64,7 +64,7 @@ val remoteHost: String = request.origin.remoteHost // The IP address of the clie
 ```
 
 ### Reverse proxy support: `origin` and `local`
-{id="info-origin-local "}
+{id="info-origin-local"}
 
 When behind a reverse-proxy (for example an nginx or a load balancer), the received request is not performed by the end-user, but that reverse proxy.
 That means that the client IP address of the connection would be the one of the proxy instead of the client.
@@ -72,7 +72,7 @@ Also the reverse proxy might be serving via HTTPS and requesting to your server 
 Popular reverse proxies send `X-Forwarded-` headers to be able to access this information. 
 
 Note that for this to work when under a reverse-proxy you have to install the [`XForwardedHeaderSupport` feature](/servers/features/forward-headers.html).
-{ .note}
+{type="note"}
 
 As part of the request object, there are two properties `local` and `origin` that allows to get information of the original request
 or the local/proxied one. 
@@ -97,7 +97,7 @@ interface RequestConnectionPoint {
 ```
 
 ## GET / Query parameters
-{id="get "}
+{id="get"}
 
 If you need to access the query parameters `?param1=value&param2=value` as a collection,
 you can use `queryParameters`. It implements the `StringValues` interface where
@@ -125,7 +125,7 @@ will lead to `RequestAlreadyConsumedException` error unless you have [DoubleRece
 { .note #receiving-several-times}
 
 ### Raw payload
-{id="payload-data "}
+{id="payload-data"}
 
 To access the raw bits of the payload, you can use `receiveChannel`, but it is
 directly part of the `call` instead of `call.request`:
@@ -148,7 +148,7 @@ The types `ByteReadChannel`, `ByteArray`, `InputStream`, `MultiPartData`, `Strin
 `ApplicationReceivePipeline.installDefaultTransformations` that is installed by default.
 
 ### Form Parameters (urlencoded or multipart)
-{id="post "}
+{id="post"}
 
 To parse a form urlencoded or with multipart, you can use `receiveParameters` or `receive<Parameters>`:
 
@@ -157,7 +157,7 @@ val postParameters: Parameters = call.receiveParameters()
 ```
 
 ### Receive Typed Objects, Content-Type and JSON
-{id="typed-objects "}
+{id="typed-objects"}
 
 The call also supports receiving generic objects:
 
@@ -202,19 +202,19 @@ Remember that your classes must be defined top level (outside of any other class
 { .note #receiving-gson-top-level}
 
 ### Multipart, Files and Uploads
-{id="post-files "}
+{id="post-files"}
 
 Check the [uploads](/servers/uploads.html) section.
 
 ### Custom receive transformers
-{id="custom-receive-transformers "}
+{id="custom-receive-transformers"}
 
 You can create custom transformers by calling
 `application.receivePipeline.intercept(ApplicationReceivePipeline.Transform) { query ->`
 and then calling `proceedWith(ApplicationReceiveRequest(query.type, transformed))` as does the [ContentNegotiation feature](/servers/features/content-negotiation.html).
 
 ## Cookies
-{id="cookies "}
+{id="cookies"}
 
 There is a `cookies` property to access the `Cookie` headers sent by the client,
 just as if it was a collection:
@@ -227,7 +227,7 @@ val mycookie: String? = request.cookies["mycookie"]
 To handle sessions using cookies, have a look to the [Sessions](/servers/features/sessions.html) feature.
 
 ## Headers
-{id="headers "}
+{id="headers"}
 
 To access the headers the request objects has a `headers: Headers` property.
 It implements the `StringValues` interface where each key can have a list of Strings associated with it.

@@ -14,7 +14,7 @@ It uses the `ApplicationEnvironment.log` (`LoggerFactory.getLogger("Application"
 that uses slf4j so you can easily configure the output. For more information
 on logging in Ktor, please check the [logging in the ktor](/servers/logging.html) page.
 
-{% include feature.html %}
+
 
 ## Basic usage
 
@@ -44,7 +44,7 @@ the call will be logged.
 In the example, it will log both: `/section1/*` and `/section2/*` requests.
 
 ## MDC
-{id="mdc "}
+{id="mdc"}
 
 The `CallLogging` feature supports `MDC` (Mapped Diagnostic Context) from slf4j
 to associate information as part of the request.

@@ -8,4 +8,3 @@
 When dealing with I/O, either files, streams or sockets, you have to encode and decode numbers and strings in different formats.
 These classes deal with the binary representation.  
 
-{% include children_list.html context=page.children %}

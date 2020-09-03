@@ -44,12 +44,7 @@ task minimizedJar(type: proguard.gradle.ProGuardTask, dependsOn: shadowJar) {
 }
 ```
 
-
-{% include tabbed-code.html
-    tab1-title="build.gradle" tab1-content=build-gradle
-%}
-
-&nbsp;
-
-You have a full example on: <https://github.com/ktorio/ktor-samples/tree/master/other/proguard> 
-{ .note.example}
+>You have a full example on: <https://github.com/ktorio/ktor-samples/tree/master/other/proguard> 
+>
+>
+{type="note"}

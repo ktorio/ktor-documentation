@@ -16,7 +16,7 @@ HTTPS counterpart before processing the call.
 By default the redirection is a `301 Moved Permanently`,
 but it can be configured to be a `302 Found` redirect.
 
-{% include feature.html %}
+
 
 ## Usage
 
@@ -31,7 +31,7 @@ The code above installs the HttpsRedirect feature with the default configuration
 
 When behind a reverse-proxy, you will need to install the `ForwardedHeaderSupport` or the `XForwardedHeaderSupport`
 feature, for the `HttpsRedirect` feature to properly detect HTTPS requests.
-{ .note}
+{type="note"}
 
 ## Configuration
 
@@ -47,7 +47,7 @@ fun Application.main() {
 ```
 
 ## Testing
-{id="testing "}
+{id="testing"}
 
 Applying this feature changes how [testing](/servers/testing.html) works.
 After applying this feature, each `handleRequest` you perform, results in a redirection response.

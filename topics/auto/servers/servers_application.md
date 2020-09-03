@@ -8,13 +8,10 @@ A Ktor Server Application is a custom program listening to one or more ports usi
 composed by [modules](#modules) with the application logic, that install [features](#features), like [routing](/servers/features/routing.html),
 [sessions](/servers/features/sessions.html), [compression](/servers/features/compression.html), etc. to handle HTTP/S 1.x/2.x and WebSocket requests.
 
-Ktor also provides functionality to [handle raw sockets](/servers/raw-sockets.html), but not as part of the Application and
-its pipeline.
-{ .note}
-
-
-
-
+>Ktor also provides functionality to [handle raw sockets](/servers/raw-sockets.html), but not as part of the Application and
+>its pipeline.
+>
+{type="note"}
 
 ## Application
 
@@ -27,8 +24,9 @@ compression, etc. that ends handling the request.
 Normally, a Ktor program configures the Application pipeline through [modules](#modules)
 that [install and configure features](#features).
 
-You can read further information about the pipeline, in the [lifecycle](/servers/lifecycle.html) section.
-{ .note}
+>You can read further information about the pipeline, in the [lifecycle](/servers/lifecycle.html) section.
+>
+{type="note"}
 
 ## ApplicationCall
 
@@ -40,8 +38,9 @@ A feature is a singleton (usually a companion object) that you can install and c
 Ktor includes some standard features, but you can add your own or other features from the community. 
 You can install features in any pipeline, like the application itself, or specific routes.
 
-You can read more about [features](/servers/features.html) in its dedicated page.
-{ .note}
+>You can read more about [features](/servers/features.html) in its dedicated page.
+>
+{type="note"}
 
 ## Modules
 {id="modules"}
@@ -66,12 +65,6 @@ fun Application.mymodule() {
 }
 ```
 
-
-{% include tabbed-code.html
-    tab1-title="Main.kt" tab1-content=main-kt
-    no-height="true"
-%}
-
 Of course, you can split the module function in several smaller functions or classes.
 
 Modules are referenced by their fully qualified name: the fully qualified name of the class and the method name,
@@ -83,12 +76,13 @@ So for the example, the module's fully qualified name would be:
 com.example.myapp.MainKt.mymodule
 ```
 
-`mymodule` is an extension method of the class `Application` (where `Application` is the *receiver*).
-Since it is defined as a top-level function, Kotlin creates a JVM class with a `Kt` suffix (`FileNameKt`),
-and adds the extension method as a static method with the receiver as its first parameter.
-In this case, the class name is `MainKt` in the `com.example.myapp` package, and the Java method signature would be
-`static public void mymodule(Application app)`.
-{ .note}
+>`mymodule` is an extension method of the class `Application` (where `Application` is the *receiver*).
+>Since it is defined as a top-level function, Kotlin creates a JVM class with a `Kt` suffix (`FileNameKt`),
+>and adds the extension method as a static method with the receiver as its first parameter.
+>In this case, the class name is `MainKt` in the `com.example.myapp` package, and the Java method signature would be
+>`static public void mymodule(Application app)`.
+>
+{type="note"}
 
 ## What's next
 

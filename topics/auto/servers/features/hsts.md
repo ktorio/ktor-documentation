@@ -14,12 +14,12 @@ This feature will add the required _HTTP Strict Transport Security_ headers to t
 
 HSTS policy headers are ignored over an insecure HTTP connection. For HSTS to take effect, it should be
 served over a secure (https) connection.
-{ .note} 
+{type="note"} 
 
 When the browser receives HSTS policy headers, it will no longer attempt to connect to the server with insecure connections 
 for the given period of time. 
 
-{% include feature.html %}
+
 
 ## Usage
 

@@ -8,7 +8,6 @@
 
 This feature allows to processes the plain text content in request and response: fills `Accept` header with registered charsets, encode request body and decode response body according to `ContentType` charset.
 
-{% include feature.html %}
 
 ## Configuration
 
@@ -31,5 +30,3 @@ val client = HttpClient(HttpClientEngine) {
     }
 }
 ```
-
-{ .note}

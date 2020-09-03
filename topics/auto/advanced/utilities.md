@@ -69,9 +69,10 @@ mapOf(
 ).toList().formUrlEncode()
 ```
 
-URL-encoded strings allow you to have repeated keys. If you use a `Map<String, String>` as base, you won't be able to represent repeated keys.
-In this case consider using `parametersOf`, `List` or `Parameters.build`.
-{ .note}
+>URL-encoded strings allow you to have repeated keys. If you use a `Map<String, String>` as base, you won't be able to represent repeated keys.
+>In this case consider using `parametersOf`, `List` or `Parameters.build`.
+>
+{type="note"}
 
 You can also construct it from a `Map<String, List<String>>` by *flatMapping* it first:
 

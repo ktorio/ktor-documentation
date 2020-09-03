@@ -44,7 +44,7 @@ shadowJar {
 }
 ```
 
-
+<tabs>
 
 ```kotlin
 plugins {
@@ -69,12 +69,7 @@ tasks.withType<Jar> {
 }
 ```
 
-
-{% include tabbed-code.html
-    tab1-title="build.gradle" tab1-content=build-gradle
-    tab2-title="build.gradle.kts" tab2-content=build-gradle-kts
-    no-height="true"
-%}
+</tabs>
 
 ## Maven
 {id="fat-jar-maven"}
@@ -110,9 +105,3 @@ a fat JAR using netty as an engine:
     </executions>
 </plugin>
 ```
-
-
-{% include tabbed-code.html
-    tab1-title="pom.xml" tab1-content=pom-xml
-    no-height="true"
-%}

@@ -6,7 +6,7 @@
 [//]: # (ktor_version_review: 1.0.0)
 
 
-{% include nomnoml-support.html %}
+
 
 ![](lets-encrypt.svg)
 
@@ -122,7 +122,7 @@ IMPORTANT NOTES:
 { .success}
 
 
-{% include two-column.html left=left right=right %}
+
 
 ### Converting the private key and certificate for Ktor
 
@@ -286,7 +286,7 @@ networks:
 
 #### `Dockerfile`
 
-{% include docker-sample.md %}
+
 {{ my_include | markdownify }}
 
 You can find more information about [how to deploy a docker and the Dockerfile](/quickstart/quickstart/docker.html).

@@ -13,7 +13,7 @@ This feature enables a URL that when accessed, shutdowns the server.
 
 There are two ways to use it: [Automatically using HOCON](#hocon) and [Installing the feature](#install)
 
-{% include feature.html %}
+
 
 ## Automatically using HOCON
 {id="hocon"}

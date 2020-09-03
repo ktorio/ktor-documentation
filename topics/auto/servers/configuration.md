@@ -19,8 +19,6 @@ and server engine when using `embeddedServer`.
 >
 {type="note"}
 
-
-
 ## The HOCON file
 {id="hocon-file"}
 
@@ -114,11 +112,13 @@ youkube {
 
 There is a [list of the available core configurations](#available-config) in this document.
 
-You can use HOCON to [set properties from environment variables](https://github.com/lightbend/config/blob/master/HOCON.md#substitutions). 
-{ .note.tip}
+>You can use HOCON to [set properties from environment variables](https://github.com/lightbend/config/blob/master/HOCON.md#substitutions). 
+>
+{type="note"}
 
-There is an [IntelliJ plugin for HOCON](https://plugins.jetbrains.com/plugin/10481-hocon), that you may want to install. 
-{ .note.tip}
+>There is an [IntelliJ plugin for HOCON](https://plugins.jetbrains.com/plugin/10481-hocon), that you may want to install. 
+>
+{type="note"}
 
 ## Command Line
 {id="command-line"}
@@ -297,9 +297,10 @@ embeddedServer(Tomcat, configure = {
 }.start(true)
 ```
 
-Those are the official engines developed for Ktor, but it is also possible to [create
-your own engines](/advanced/engines.html) and provide custom configurations for them. 
-{ .note}
+>Those are the official engines developed for Ktor, but it is also possible to [create
+>your own engines](/advanced/engines.html) and provide custom configurations for them. 
+>
+{type="note"}
 
 ## Available configuration parameters
 {id="available-config"}

@@ -109,7 +109,7 @@ The HttpsRedirect changes how testing is performed.
 Check the [testing section of the HttpsRedirect feature](/servers/features/https-redirect.html#testing) for more information.
 
 ## Testing several requests preserving sessions/cookies
-{id="preserving-cookies "}
+{id="preserving-cookies"}
 
 You can easily test several requests in a row keeping the `Cookie` information among them. By using the `cookiesSession` method.
 This method defines a session context that will hold cookies, and exposes a `CookieTrackerTestApplicationEngine.handleRequest`
@@ -181,6 +181,7 @@ In some cases we will need some services and dependencies. Instead of storing th
 to create a separate function receiving the service dependencies. This allows you to pass different
 (potentially mocked) dependencies in your tests: 
 
+<tabs>
 
 ```groovy
 // ...
@@ -232,9 +233,4 @@ class ApplicationTest {
 }
 ```
 
-
-{% include tabbed-code.html
-    tab1-title="test.kt"      tab1-content=test-kt
-    tab2-title="module.kt"    tab2-content=module-kt
-    tab3-title="build.gradle" tab3-content=build-gradle
-%}
+</tabs>

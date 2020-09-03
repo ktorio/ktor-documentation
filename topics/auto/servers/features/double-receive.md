@@ -14,7 +14,7 @@
 so a handler is unable to receive it again.
 
 This feature is experimental including all options and behaviour. It is not guaranteed to work the same way in future releases.
-{ .note.experimental}
+{type="note"}
 
 
 
@@ -36,7 +36,7 @@ val theSame = call.receiveText()
 ```
 
 Not every content could be received twice. For example, a stream or a channel can't be received twice unless `receiveEntireContent` option is enabled.
-{ .note.warning}
+{type="note"}
 
 Types that could be always received twice with this feature are: `ByteArray`, `String` and `Parameters` and all types provided by [ContentNegotiation](/servers/features/content-negotiation.html) feature (for example, objects deserialized from JSON payloads).
 

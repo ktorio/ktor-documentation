@@ -27,7 +27,7 @@ install(Thymeleaf) {
 This TemplateResolver sets up Thymeleaf to look for the template files on the classpath in the
 "templates" package, relative to the current class path.  A basic template looks like this:
 
-{% include feature.html %}
+
 
 ```html
 <!DOCTYPE html >

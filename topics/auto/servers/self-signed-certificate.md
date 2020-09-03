@@ -6,7 +6,7 @@
 
 Ktor allows you to create and use self-signed certificates for serving HTTPS or HTTP/2 requests.
 
-{% include artifact.html kind="function" method="io.ktor.network.tls.certificates.generateCertificate" artifact="io.ktor:ktor-network-tls:$ktor_version" %}
+
 
 
 
@@ -136,12 +136,6 @@ fun Application.main() {
     }
 }
 ```
-
-
-{% include tabbed-code.html
-    tab1-title="Module.kt" tab1-content=module-kt
-    no-height="true"
-%}
 
 ## Accessing your server
 

@@ -14,7 +14,7 @@ Ktor applications can be built using common build systems such as [Maven](/quick
 
 
 ## Including the right dependencies
-{id="dependencies "}
+{id="dependencies"}
 
 Ktor is split up into several groups of artifacts,
 allowing you to include only the functionality that you will need. And thus reducing the size of a fat-jar containing all the code, and the startup time.
@@ -70,19 +70,13 @@ fun main(args: Array<String>) {
 ```
 
 
-{% include tabbed-code.html
-    tab1-title="Main.kt" tab1-content=main-kt
-    no-height="true"
-%}
-
-&nbsp;
-
-If your server is just listening for HTTP requests and do not want to do anything else after that in the setup,
-you will normally call the server.start with `wait = true`.
-{ .note}
+>If your server is just listening for HTTP requests and do not want to do anything else after that in the setup,
+>you will normally call the server.start with `wait = true`.
+>
+{type="note"}
 
 ## Running the Application
-{id="running "}
+{id="running"}
 
 Given that the entry point of your application is the standard Kotlin `main` function, 
 you can simply run it, effectively starting the server and listening on the specified port.
@@ -90,7 +84,7 @@ you can simply run it, effectively starting the server and listening on the spec
 Checking the `localhost:8080` page in your browser, you should see the `Hello, world!` text. 
 
 ## Next Steps
-{id="next-steps "}
+{id="next-steps"}
 
 This was the simplest example of getting a self-hosted Ktor application up and running. 
 A recommended tour to continue learning Ktor on the server would be:

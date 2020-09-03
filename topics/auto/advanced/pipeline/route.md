@@ -39,12 +39,12 @@ fun Route.intercept(phase: PipelinePhase, block: PipelineInterceptor<Unit, Appli
 ```
 
 ## Getting the route being handled
-{id="route-from-call "}
+{id="route-from-call"}
 
 You can get the route being handled by casting the `call: ApplicationCall` to `RoutingApplicationCall` that has a `route: Route` property.
 
 ## Getting the route path
-{id="route-path "}
+{id="route-path"}
 
 `Route` overrides the `toString()` method to generate a path to the route, something like:
 

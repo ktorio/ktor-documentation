@@ -5,7 +5,7 @@
 [//]: # (children: /advanced/pipeline/)
 [//]: # (ktor_version_review: 1.0.0)
 
-{% include nomnoml-support.html %}
+
 
 ## Description
 
@@ -88,12 +88,11 @@ pipeline.execute(context, subject)
 ```
 
 You can omit calling the `addPhase` method when using the `insertPhase*` methods unless you need to register a Phase that would otherwise be included by calling `Pipeline.merge` later.
-<br/>
 
-For example if you define a Phase inside a node in the routing feature, and then, in an inner node, try to insert a phase using that one as reference, you would get an exception similar to `io.ktor.pipeline.InvalidPhaseException: Phase Phase('YourPhase') was not registered for this pipeline`.
-<br/>
-In this case you can just call `addPhase`, so the phase is referenced before merging.
-{ .note}
+>For example if you define a Phase inside a node in the routing feature, and then, in an inner node, try to insert a phase using that one as reference, you would get an exception similar to `io.ktor.pipeline.InvalidPhaseException: Phase Phase('YourPhase') was not registered for this pipeline`.
+>In this case you can just call `addPhase`, so the phase is referenced before merging.
+>
+{type="note"}
 
 ## Interceptors and the PipelineContext
 
@@ -125,8 +124,9 @@ The order of the blocks is determined first by the order of phases they are inst
 
 Phases are defined when the pipeline is created and can be augmented to add more phases using `pipeline.phases`.
 
-For a `PipelineContext` that has an `ApplicationCall` as context, there is a convenience extension property `call` as an alias to `context`.
-{ .note}
+>For a `PipelineContext` that has an `ApplicationCall` as context, there is a convenience extension property `call` as an alias to `context`.
+>
+{type="note"}
 
 ## The Subject
 
@@ -137,8 +137,9 @@ You can change the instance (for example for immutable subjects) using the `Pipe
 
 When using this method, the pipeline will continue with the new subject instance and will return to the caller with the last instance passed by the pipeline, effectively allowing it to process the subject in later interceptions.
 
-For a pipeline without a subject you can use `Unit`, for example, since the `ApplicationCallPipeline` doesn't require a subject; it uses `Unit`.
-{ .note}
+>For a pipeline without a subject you can use `Unit`, for example, since the `ApplicationCallPipeline` doesn't require a subject; it uses `Unit`.
+>
+{type="note"}
 
 ## Merging  
 
@@ -151,7 +152,7 @@ Pipelines are merged when there are different points where interceptors can be i
 ## Ktor pipelines
 
 ### ApplicationCallPipeline
-{id="ApplicationCallPipeline "}
+{id="ApplicationCallPipeline"}
 
 Ktor defines a pipeline without a subject, and the `ApplicationCall` as a context
 defining five phases (`Setup`, `Monitoring`, `Features`, `Call` and `Fallback`) to be executed in this order:
@@ -214,8 +215,9 @@ Each node in the `Route` tree defines its own pipeline that is later merged per 
 
 By merging the tree pipelines, you can define phases and interceptions at some point in the tree, and then they will be executed in the order defined by the phase relationships.
 
-Since `Route` nodes have their own pipeline and the merge happens later, if you plan to add relationships to some phases defined in other ancestor `Route` nodes, you will have to add them with `Pipeline.addPhase` in the specific `Route` node to avoid the `io.ktor.pipeline.InvalidPhaseException: Phase Phase('YourPhase') was not registered for this pipeline` exception.
-{ .note}
+>Since `Route` nodes have their own pipeline and the merge happens later, if you plan to add relationships to some phases defined in other ancestor `Route` nodes, you will have to add them with `Pipeline.addPhase` in the specific `Route` node to avoid the `io.ktor.pipeline.InvalidPhaseException: Phase Phase('YourPhase') was not registered for this pipeline` exception.
+>
+{type="note"}
 
 ### Other
 

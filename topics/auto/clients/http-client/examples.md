@@ -6,7 +6,7 @@
 
 ## Interchanging JSON: Ktor server / Ktor client
 
-{id="example-json "}
+{id="example-json"}
 
 ```kotlin
 fun main(args: Array<String>) {

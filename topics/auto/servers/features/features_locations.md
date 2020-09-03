@@ -15,16 +15,16 @@ Ktor provides a mechanism to create routes in a typed way, for both:
 constructing URLs and reading the parameters.
 
 Locations are an experimental feature.
-{ .note.experimental}
+{type="note"}
 
 
 
 
 
-{% include feature.html %}
+
 
 ## Installing the feature
-{id="installing "}
+{id="installing"}
 
 The Locations feature doesn't require any special configuration:
 
@@ -33,7 +33,7 @@ install(Locations)
 ```
 
 ## Defining route classes
-{id="route-classes "}
+{id="route-classes"}
 
 For each typed route you want to handle, you need to create a class (usually a data class)
 containing the parameters that you want to handle.
@@ -42,7 +42,7 @@ The parameters must be of any type supported by the [Data Conversion](/servers/f
 By default, you can use `Int`, `Long`, `Float`, `Double`, `Boolean`, `String`, enums and `Iterable` as parameters.
 
 ### URL parameters
-{id="parameters-url "}
+{id="parameters-url"}
 
 That class must be annotated with `@Location` specifying
 a path to match with placeholders between curly brackets `{` and `}`. For example: `{propertyName}`.
@@ -57,7 +57,7 @@ data class Listing(val name: String, val page: Int)
 * Will construct: `Listing(name = "movies", page = 10)`
 
 ### GET parameters
-{id="parameters-get "}
+{id="parameters-get"}
 
 If you provide additional class properties that are not part of the path of the `@Location`,
 those parameters will be obtained from the GET's query string or POST parameters:
@@ -71,7 +71,7 @@ data class Listing(val name: String, val page: Int, val count: Int)
 * Will construct: `Listing(name = "movies", page = 10, count = 20)`
 
 ## Defining route handlers
-{id="route-handlers "}
+{id="route-handlers"}
 
 Once you have [defined the classes](#route-classes) annotated with `@Location`,
 this feature artifact exposes new typed methods for defining route handlers:
@@ -87,10 +87,10 @@ routing {
 
 Some of these generic methods with one type parameter, defined in the `io.ktor.locations`, have the same name as other methods defined in the `io.ktor.routing` package. If you import the routing package before the locations one, the IDE might suggest you generalize those methods instead of importing the right package. You can manually add `import io.ktor.locations.*` if that happens to you.
 Remember this API is experimental. This issue is already [reported at github](https://github.com/ktorio/ktor/issues/368).
-{ .note}
+{type="note"}
 
 ## Building URLs
-{id="building-urls "}
+{id="building-urls"}
 
 You can construct URLs to your routes by calling `application.locations.href` with
 an instance of a class annotated with `@Location`:
@@ -109,7 +109,7 @@ If you construct the URLs like this, and you decide to change the format of the 
 you will just have to update the `@Location` path, which is really convenient.
 
 ## Subroutes with parameters
-{id="subroutes "}
+{id="subroutes"}
 
 You have to create classes referencing to another class annotated with `@Location` like this, and register them normally:
 

@@ -10,7 +10,7 @@ Ktor doesn't impose any way for doing this, but here are some guidelines you can
 case you were wondering about it.
 
 ## HOCON & ENV
-{id="proposal "}
+{id="proposal"}
 
 You can use the `application.conf` file to set a variable that will hold the environment, then check that variable
 at runtime and decide what to do.

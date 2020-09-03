@@ -8,7 +8,7 @@
 
 This feature adds a User-Agent header to requests.
 
-{% include feature.html %}
+
 
 ## Install
 

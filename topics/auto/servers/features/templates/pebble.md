@@ -14,7 +14,7 @@ Ktor includes support for [Pebble](https://pebbletemplates.io) templates through
 feature.  Initialize the Pebble feature with the
 [PebbleEngine.Builder](https://pebbletemplates.io/com/mitchellbosecke/pebble/PebbleEngine/Builder/):
 
-{% include feature.html %}
+
 
 ## Installation
 {id="installation"}

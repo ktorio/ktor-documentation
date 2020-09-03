@@ -15,7 +15,7 @@ in a myriad of languages.
 
 This feature will handle `Authorization: Bearer <JWT-TOKEN>`.
 
-{% include feature.html %}
+
 
 Ktor has a couple of classes to use the JWT Payload as `Credential` or as `Principal`.
 

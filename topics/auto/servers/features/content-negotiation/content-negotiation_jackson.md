@@ -14,7 +14,7 @@ the [jackson](https://github.com/FasterXML/jackson) library.
 
 This feature is a [ContentNegotiation](/servers/features/content-negotiation.html) converter.
 
-{% include feature.html %}
+
 
 ## Basic usage
 

@@ -89,7 +89,7 @@ application.install(Authentication) {
 
 You can see [advanced examples for LDAP authentication](https://github.com/ktorio/ktor/blob/master/ktor-features/ktor-auth-ldap/test/io/ktor/tests/auth/ldap/LdapAuthTest.kt) in the Ktor's tests.
 
-{% include feature.html %}
+
 
 Bear in mind that current LDAP implementation is synchronous.
 { .performance.note}

@@ -114,8 +114,9 @@ val googleOauthProvider = OAuthServerSettings.OAuth2ServerSettings(
 )
 ```
 
-Remember to adjust the defaultScopes to just request what you really need for the sake of security, user privacy, and trust. 
-{ .note}
+>Remember to adjust the defaultScopes to just request what you really need for the sake of security, user privacy, and trust. 
+>
+{type="note"}
 
 We also have to install the OAuth feature and configure it. We need to provide a HTTP client instance, a provider lookup
 where we determine the provider from the call (we don't need to put logic here since we are just supporting Google for this guide) and

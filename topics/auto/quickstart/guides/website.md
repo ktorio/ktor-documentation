@@ -29,7 +29,7 @@ To achieve this, we are going to use the [Routing], [StatusPages], [Authenticati
 
 The first step is to set up a project. You can follow the [Quick Start](/quickstart/index.html) guide, or use the following form to create one:
 
-{% include preconfigured-form.html hash="dependency=html-dsl&dependency=css-dsl&dependency=freemarker&dependency=static-content&dependency=auth&dependency=ktor-sessions&dependency=status-pages&dependency=routing&artifact-name=website-example" %}
+
 
 ## Simple routing
 
@@ -146,8 +146,9 @@ And the result:
 
 Now we have a colorful website from 1990!
 
-Static files are not only text files! Try to add an image (what about a fancy animated blinking gif file? 👩🏻‍🎨) to the `static` folder, and include a `<img src="...">` tag to the HTML template.
-{ .note.exercise}
+>Static files are not only text files! Try to add an image (what about a fancy animated blinking gif file? 👩🏻‍🎨) to the `static` folder, and include a `<img src="...">` tag to the HTML template.
+>
+{type="note"}
 
 ## Enabling partial content: large files and videos
 

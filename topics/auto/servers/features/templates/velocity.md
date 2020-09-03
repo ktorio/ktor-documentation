@@ -14,7 +14,7 @@ Ktor includes support for [Velocity](http://velocity.apache.org/) templates thro
 feature.  Initialize the Velocity feature with the
 [VelocityEngine](https://velocity.apache.org/engine/1.7/apidocs/org/apache/velocity/app/VelocityEngine.html):
 
-{% include feature.html %}
+
 
 ## Installation
 {id="installation"}

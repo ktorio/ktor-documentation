@@ -14,7 +14,7 @@ the [google-gson](https://github.com/google/gson) library.
 
 This feature is a [ContentNegotiation](/servers/features/content-negotiation.html) converter.
 
-{% include feature.html %}
+
 
 ## Basic usage
 

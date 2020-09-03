@@ -9,7 +9,7 @@
 
 This feature allows you to configure some defaults for all the requests for a specific client.
 
-{% include feature.html %}
+
 
 ## Installation
 

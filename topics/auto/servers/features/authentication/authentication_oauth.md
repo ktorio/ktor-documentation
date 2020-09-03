@@ -63,12 +63,6 @@ routing {
 }
 ```
 
-
-{% include tabbed-code.html
-    tab1-title="AuthSample.kt" tab1-content=oauth-sample-kt
-    no-height="true"
-%}
-
 Depending on the OAuth version, you will get a different Principal
 
 ```kotlin

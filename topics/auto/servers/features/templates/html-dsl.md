@@ -13,15 +13,15 @@ This feature integrates with [kotlinx.html](https://github.com/Kotlin/kotlinx.ht
 to directly emit HTML using Chunked transfer encoding without having to keep
 memory for the whole HTML.
 
-{% include feature.html %}
+
 
 ## Installing
-{id="install "}
+{id="install"}
 
 This feature doesn't require installation.
 
 ## Basic Usage
-{id="basic-usage "}
+{id="basic-usage"}
 
 When generating the response, instead of calling the `respond`/`respondText` methods, you have to call `ApplicationCall.respondHtml`:
 
@@ -41,7 +41,7 @@ call.respondHtml {
 For documentation about generating HTML using kotlinx.html, please check [its wiki](https://github.com/kotlin/kotlinx.html/wiki/Getting-started).
 
 ## Templates & Layouts
-{id="templates-and-layouts "}
+{id="templates-and-layouts"}
 
 In addition to plain HTML generation with the DSL, ktor exposes a simple typed templating engine.
 You can use it to generate complex layouts in a typed way. It is pretty simple, yet powerful:

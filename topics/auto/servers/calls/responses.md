@@ -108,7 +108,7 @@ routing {
 
 Pushing reduces the time between the request and the display of the page.
 But beware that sending content beforehand might send content that is already cached by the client.
-{ .note.performance }
+{type="note"}
 
 ## Redirections
 
@@ -122,7 +122,7 @@ call.respondRedirect("/moved/here", permanent = true)
 Remember that once this function is executed, the rest of the function is still executed. Therefore, if you have it in a guard
 clause, you should return from the function to avoid continuing with the rest of the handler.
 If you want to make redirections that stop the control flow by throwing an exception, check out this [sample from status pages](/servers/features/status-pages.html#redirect).
-{ .note}
+{type="note"}
 
 ## Sending response content
 
@@ -155,7 +155,7 @@ Sending URL-encoded forms (`application/x-www-form-urlencoded`):
 
 When sending files based on the request parameters,
 be especially careful validating and limiting the input.
-{ .note.security #validate-respond-file-parameters }
+{type="note"}
 
 Sending chunked content using a Writer:
 
@@ -194,7 +194,7 @@ class OutgoingContent {
 ```
 
 ## Making files downloadable
-{id="content-disposition "}
+{id="content-disposition"}
 
 You can make files "downloadable", by adding the [`Content-Disposition` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition).
 

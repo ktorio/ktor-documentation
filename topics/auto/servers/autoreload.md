@@ -52,9 +52,10 @@ fun Application.mymodule() {
 }
 ```
 
-When using `watchPaths` you should *not* use a lambda to configure the server, but to provide a method reference to your
-Application module.
-{ .note}
+>When using `watchPaths` you should *not* use a lambda to configure the server, but to provide a method reference to your
+>Application module.
+>
+{type="note"}
 
 If you try to use a lambda instead of a method reference, you will get the following error:
 ```
@@ -77,10 +78,6 @@ fun main(args: Array<String>) {
     }.start(true)
 }
 ```
-{ .error }
-
-
-
 ✅ Code that will work:
 ```kotlin
 fun main(args: Array<String>) {
@@ -100,10 +97,10 @@ fun Application.mymodule() {
     }
 }
 ```
-{ .success }
 
 
-{% include two-column.html left=left right=right %}
+
+
 
 ## Using the `application.conf`
 {id="configuration-file"}
@@ -130,14 +127,16 @@ For now watch keys are just strings that are matched with `contains`, against th
 application, such as a jar name or a project directory name. 
 These classes are then loaded with a special `ClassLoader` that is recycled when a change is detected.
 
-`ktor-server-core` classes are specifically excluded from auto-reloading, so if you are working on something in ktor itself, 
-don't expect it to be reloaded automatically. It cannot work because core classes are loaded before the auto-reload kicks in. 
-The exclusion can potentially be smaller, but it is hard to analyze all the transitive closure of types loaded during
-startup.
-{ .note}
+>`ktor-server-core` classes are specifically excluded from auto-reloading, so if you are working on something in ktor itself, 
+>don't expect it to be reloaded automatically. It cannot work because core classes are loaded before the auto-reload kicks in. 
+>The exclusion can potentially be smaller, but it is hard to analyze all the transitive closure of types loaded during
+>startup.
+>
+{type="note"}
 
-Classpath entries look like `file:///path/to/project/build/classes/myproject.jar`, so `to/project` would match, but `com.mydomain` would not.
-{ .note}
+>Classpath entries look like `file:///path/to/project/build/classes/myproject.jar`, so `to/project` would match, but `com.mydomain` would not.
+>
+{type="note"}
 
 ## Recompiling automatically on source changes
 
@@ -161,6 +160,7 @@ You can run the application by using either a `build.gradle` or directly within 
 Executing the main method in the example file, or by executing: `io.ktor.server.netty.EngineMain.main`.
 EngineMain using `commandLineEnvironment` will be in charge of loading the `application.conf` file (that is in HOCON format).
 
+<tabs>
 
 ```kotlin
 package io.ktor.exercise.autoreload
@@ -206,10 +206,6 @@ ktor {
 }
 ```
 
-
-{% include tabbed-code.html
-    tab1-title="main.kt" tab1-content=main-kt
-    tab2-title="application.conf" tab2-content=application-conf
-%}
+</tabs>
 
 As you can see, you need to specify a list of strings to match the classloaders you want to watch –in this case only `solutions/exercise4`– which should then be reloaded upon modification.

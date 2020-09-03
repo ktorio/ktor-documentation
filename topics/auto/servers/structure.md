@@ -79,7 +79,7 @@ fun Routing.root() {
 
 Inside the `routing { ... }` block there is an implicit `this: Routing`, you can call the `root` method directly,
 it is effectively like calling `this.root()`.
-{ .note}
+{type="note"}
 
 ## Deployment and `application.conf`
 
@@ -92,13 +92,11 @@ or arbitrary configurations.
 
 You can read more about using `application.conf` in the [configuration page](/servers/configuration.html).
 
-{:comment}
+
 ## Dependency injection using Guice
 
 Ktor doesn't impose any dependency injection system. In fact, you can easily write even big applications
 without using any.
-{/comment}
-
 ## Health checks
 
 Depending on your application, you might want to use different ways to create a health check.

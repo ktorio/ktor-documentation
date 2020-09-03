@@ -7,7 +7,7 @@
 Ktor uses [SLF4J](https://www.slf4j.org/) for logging.
 
 ## SLF4J Providers
-{id="providers "}
+{id="providers"}
 
 If you don't add a logging provider, you will see the
 following message when you run your application:
@@ -21,13 +21,14 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 We can set up logging to remove these warning messages and get
 a better idea of what is happening with the app by adding a provider.
 
-Providers use Java's [ServiceLoader](https://docs.oracle.com/javase/7/docs/api/java/util/ServiceLoader.html) mechanism,
-and so are discovered and added automatically without having to do anything
-else by code.
-{ .note.tip }
+>Providers use Java's [ServiceLoader](https://docs.oracle.com/javase/7/docs/api/java/util/ServiceLoader.html) mechanism,
+>and so are discovered and added automatically without having to do anything
+>else by code.
+>
+{type="note"}
 
 ### Logback provider
-{id="providers-logback "}
+{id="providers-logback"}
 
 You can use [logback](https://logback.qos.ch/),
 which is the successor of log4j, as a SLF4J provider:
@@ -51,7 +52,7 @@ in the Run pane of IDEA. However, these logging messages are not as
 helpful as they could be.
 
 ### Configuring the Logback provider
-{id="providers-logback-config "}
+{id="providers-logback-config"}
 
 If the default logging is not enough, you can put a `logback.xml` or `logback-test.xml` (that has higher priority) file in your `src/main/resources` folder
 to adjust the logging if it is not useful to you. For example:
@@ -74,12 +75,6 @@ to adjust the logging if it is not useful to you. For example:
 </configuration>
 ```
 
-
-{% include tabbed-code.html
-    tab1-title="logback.xml" tab1-content=logback-xml
-    no-height="true"
-%}
-
 After it is added, if you stop your app, and run it again, after going
 to localhost:8080 in your browser, 
 you should see a log message now in the IDEA run pane, something like:
@@ -88,14 +83,15 @@ you should see a log message now in the IDEA run pane, something like:
 2017-05-29 23:08:12.926 [nettyCallPool-4-1] TRACE ktor.application - 200 OK: GET - /
 ```
 
-You can install the [Call Logging](/servers/features/call-logging.html) feature to catch and log requests.
-{ .note}
+>You can install the [Call Logging](/servers/features/call-logging.html) feature to catch and log requests.
+>
+{type="note"}
 
 To understand how to change the `logback.xml` configuration file
 and change the logging, see the [logback manual](https://logback.qos.ch/manual/index.html).
 
 ## Accessing the main logger
-{id="main-logger "}
+{id="main-logger"}
 
 The `ApplicationEnvironment` interface has a `log` property.
 You can access it inside an `ApplicationCall` with `call.application.environment.log`.

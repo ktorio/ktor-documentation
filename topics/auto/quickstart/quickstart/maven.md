@@ -14,7 +14,7 @@ and how to configure it to support Ktor.
 
 
 ## Basic Kotlin `pom.xml` file (without Ktor)
-{id="initial "}
+{id="initial"}
 
 Maven is a build automation tool used primarily for Java projects.
 It reads project configuration from `pom.xml` files.
@@ -90,11 +90,6 @@ Here is a basic `pom.xml` file for building Kotlin applications:
     </build>
 </project>
 ```
-
-
-{% include tabbed-code.html
-    tab1-title="pom.xml" tab1-content=pom-xml
-%}
 
 ## Add Ktor dependencies and configure build settings
 {id="ktor-dependencies"}
@@ -257,11 +252,6 @@ When you are done, the `pom.xml` file should look like:
     </repositories>
 </project>
 ```
-
-
-{% include tabbed-code.html
-    tab1-title="pom.xml" tab1-content=pom-xml
-%}
 
 You can now run `mvn package` to fetch dependencies and verify everything is set up correctly.
 

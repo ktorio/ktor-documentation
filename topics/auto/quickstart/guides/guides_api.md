@@ -32,7 +32,7 @@ To achieve this, we are going to use the [Routing], [StatusPages], [Authenticati
 
 The first step is to set up a project. You can follow the [Quick Start](/quickstart/index.html) guide, or use the following form to create one:
 
-{% include preconfigured-form.html hash="dependency=auth&dependency=auth-jwt&dependency=ktor-jackson&dependency=cors&artifact-group=com.example&artifact-name=api-example" %}
+
 
 ## Simple routing
 
@@ -81,9 +81,10 @@ routing {
 
 Now the browser or client should respond to `http://127.0.0.1:8080/snippets` with `{"OK":true}`
 
-If you get an error like `Response pipeline couldn't transform '...' to the OutgoingContent`, check that you have
-installed the [ContentNegotiation](/servers/features/content-negotiation.html) feature with Jackson.
-{ .note}
+>If you get an error like `Response pipeline couldn't transform '...' to the OutgoingContent`, check that you have
+>installed the [ContentNegotiation](/servers/features/content-negotiation.html) feature with Jackson.
+>
+{type="note"}
 
 You can also use typed objects as part of the reply (but ensure that your classes are not defined
 inside a function or it won't work). So for example:
@@ -145,7 +146,7 @@ If you have IntelliJ IDEA Ultimate, you can use its built-in powerful HTTP Reque
 if not, you can also use postman or curl:
 
 ### IntelliJ IDEA Ultimate:
-{id="first-request-intellij "}
+{id="first-request-intellij"}
 
 IntelliJ IDEA Ultimate, along PhpStorm and other IDEs from JetBrains include a
 very nice [Editor-Based Rest Client](https://blog.jetbrains.com/phpstorm/2017/09/editor-based-rest-client/){target="_blank"}.
@@ -170,17 +171,19 @@ And then in the play gutter icon from the URL, you can perform the call, and get
 
 And that's it!
 
-This allows you to define files (plain or scratches) that include definition for several HTTP requests,
-allowing to include headers, provide a payload inline, or from files, use environment variables defined in a JSON file,
-process the response using JavaScript to perform assertions, or to store some environment variables like
-authentication credentials so they are available to other requests. It supports autocompletion, templates, and
-automatic language injection based on Content-Type, including JSON, XML, etc..
-{ .note}
+>This allows you to define files (plain or scratches) that include definition for several HTTP requests,
+>allowing to include headers, provide a payload inline, or from files, use environment variables defined in a JSON file,
+>process the response using JavaScript to perform assertions, or to store some environment variables like
+>authentication credentials so they are available to other requests. It supports autocompletion, templates, and
+>automatic language injection based on Content-Type, including JSON, XML, etc..
+>
+{type="note"}
 
-In addition to easily test your backends inside your editor, it also helps your to document your APIs
-by including a file with the endpoints on it.
-And allows you fetch and locally store responses and visually compare them.
-{ .note}
+>In addition to easily test your backends inside your editor, it also helps your to document your APIs
+>by including a file with the endpoints on it.
+>And allows you fetch and locally store responses and visually compare them.
+>
+{type="note"}
 
 ### CURL:
 {id="first-request-curl"}
@@ -651,7 +654,7 @@ class InvalidCredentialsException(message: String) : RuntimeException(message)
 class LoginRegister(val user: String, val password: String)
 ```
 
-
+<tabs>
 
 ```
 {% raw %}
@@ -705,12 +708,7 @@ Content-Type: application/json
 }
 ```
 
-
-{% include tabbed-code.html
-    tab1-title="application.kt" tab1-content=application-kt
-    tab2-title="my-api.http" tab2-content=my-api-http
-    tab3-title="http-client.env.json" tab3-content=http-client-env-json
-%}
+</tabs>
 
 ## Exercises
 

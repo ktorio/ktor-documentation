@@ -10,7 +10,7 @@
 
 This feature allows to validate HTTP response and handle transformation exceptions from engine and pipelines.
 
-{% include feature.html %}
+
 
 ## Configuration
 

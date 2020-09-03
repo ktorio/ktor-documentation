@@ -12,17 +12,13 @@
 In addition to HTTP serving, Ktor also includes a flexible asynchronous HTTP client.
 This client supports several [configurable engines](/clients/http-client/engines.html), and has its own set of [features](/clients/http-client/features.html).
 
-The main functionality is available through the `io.ktor:ktor-client-core:$ktor_version` artifact.
-And each engine, is provided in [separate artifacts](/clients/http-client/engines.html).
-{ .note.artifact }
-
-
-
-
+>The main functionality is available through the `io.ktor:ktor-client-core:$ktor_version` artifact.
+>And each engine, is provided in [separate artifacts](/clients/http-client/engines.html).
+>
+{type="note"}
 
 ## Calls: Requests and Responses
-
-{id="requests-responses "}
+{id="requests-responses"}
 
 You can check [how to make requests](/clients/http-client/quick-start/requests.html),
 and [how to receive responses](/clients/http-client/quick-start/responses.html) in their respective sections.
@@ -70,7 +66,7 @@ suspend fun parallelRequests() = coroutineScope<Unit> {
 ```
 
 ## Examples
-{id="examples "}
+{id="examples"}
 
 For more information, check the [examples page](/clients/http-client/examples.html) with some examples.
 

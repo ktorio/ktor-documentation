@@ -6,7 +6,7 @@
 [//]: # (ktor_version_review: 1.0.0)
 
 ## Client-side/Server-side sessions (Session Content vs Session Id)
-{id="client-server-cookies "}
+{id="client-server-cookies"}
 
 Ktor allows you to transfer either the session content or a session id.
 
@@ -33,7 +33,7 @@ You should only use client-side sessions if your payload can't suffer from repla
 modifications, ensure that you are transforming the session with at least authentication, but ideally with encryption too.
 This should prevent payload modification if you keep your secret key safe. But remember that if your key is compromised
 and thus, you have to change the key, all the previous sessions will be marked invalid.
-{ .note.security }
+{type="note"}
 
 Client-side Sessions use transformers to manipulate the payload, for example to authenticate and/or encrypt it.
 
@@ -41,7 +41,7 @@ You can check the [transformers page](/servers/features/sessions/transformers.ht
 and for more information.
 
 ### Server-side sessions and storages (Sending Session Id)
-{id="server-cookies "}
+{id="server-cookies"}
 
 If you specify storage, then the session will be configured to be stored on the server using that storage, and
 a sessionId will be transferred between the server and the client instead of the full payload: 
@@ -53,7 +53,7 @@ application.install(Sessions) {
 ```
 
 ## Security examples for client-side sessions
-{id="security "}
+{id="security"}
 
 If you plan to use client-side sessions, you need to understand the security implications it has. You have to keep
 your secret hash/encryption keys safe, as if they are compromised, a person with the keys would potentially be able 
@@ -92,7 +92,7 @@ to impersonate any user. It is also a problem as then changing the key will inva
   Server-side sessions are also vulnerable to this, but the attacker would have to keep those sessions alive.
 
 ## Invalidating Client-side sessions
-{id="invalidating-client-sessions "}
+{id="invalidating-client-sessions"}
 
 Since client-side sessions can't be invalidated directly like server sessions. You can manually mark an expiration
 time for the session by including an expiration timestamp as part of your session payload.

@@ -19,13 +19,9 @@ request when it's behind a proxy.
 
 Only install these features if you have a reverse proxy supporting these headers serving your requests.
 In other cases, a client will be able to manipulate these headers.
-{ .note.security}
+{type="note"}
 
 
-
-
-
-{% include feature.html %}
 
 ## Usage
 

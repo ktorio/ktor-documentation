@@ -7,4 +7,3 @@
 
 
 
-{% include list-children.html %}

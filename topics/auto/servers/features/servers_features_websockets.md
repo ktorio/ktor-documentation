@@ -15,7 +15,7 @@ the server and the client.
 Each message from this channel is called Frame: a frame can be a text or binary message,
 or a close or ping/pong message. Frames can be marked as incomplete or final.
 
-{% include feature.html %}
+
 
 
 
@@ -78,7 +78,7 @@ routing {
 An exception will be thrown while receiving a Frame if the client closes the connection
 explicitly or the TCP socket is closed. So even with a `while (true)` loop, this shouldn't be
 a leak.
-{ .note}
+{type="note"}
 
 ### Usage as a Channel
 {id="channel"}
@@ -138,7 +138,7 @@ interface WebSocketSession {
 If you need information about the connection. For example the client ip, you have access
 to the call property. So you can do things like `call.request.origin.host` inside
 your websocket block.
-{ .note}
+{type="note"}
 
 ### The Frame interface
 {id="Frame"}
@@ -214,11 +214,6 @@ class MyAppTest {
     }
 }
 ```
-
-
-{% include tabbed-code.html
-    tab1-title="test.kt" tab1-content=test-kt
-%}
 
 ## FAQ
 

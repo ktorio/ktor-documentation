@@ -16,7 +16,7 @@ size of the response.
 install(Compression)
 ```
 
-{% include feature.html %}
+
 
 ## Configuration
 
@@ -104,7 +104,7 @@ access an https page controlled by the attacker) to inject a javascript or place
 page mutating an input (get, post or header parameters) that are reflected in either the headers or the response body,
 then the access point can measure the length of the responses to guess a secret with as little as 100 to 10000 requests
 that are forced to be done by your browser with either the javascript or image requests without the user ever noticing.
-{ .note.security }
+{type="note"}
 
 ## Extensibility
 

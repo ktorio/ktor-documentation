@@ -24,7 +24,7 @@ There are three main configuration options provided to StatusPages:
 2. `status` - Configures response to status code value
 3. `statusFile` - Configures standard file response from classpath
 
-{% include feature.html %}
+
 
 
 
@@ -126,7 +126,7 @@ This will resolve two resources from the classpath.
 The `statusFile` configuration replaces any `#` character with the value of the status code within the list of configured statuses.
 
 ## Redirections using StatusPages
-{id="redirect "}
+{id="redirect"}
 
 When doing redirections by executing `call.respondRedirect("/moved/here", permanent = true)`, the rest of the callee function is executed.
 So when doing redirections inside guard clauses, you have to return the function.

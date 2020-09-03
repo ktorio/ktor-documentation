@@ -23,11 +23,11 @@ to keep the login information between requests.
 
 
 
-{% include feature.html %}
+
 
 ## Mechanisms
 
-{% include list-children.html %}
+
 
 ## Basic usage
 
@@ -42,7 +42,7 @@ directly to the application and it *won't* work in another `ApplicationCallPipel
 
 You might still be able to call the install code inside a Route if you have the Application injected in a nested DSL,
 but it will be applied to the application itself.
-{ .note}
+{type="note"}
 
 Using its DSL, it allows you to configure the authentication providers available:
 
@@ -90,10 +90,10 @@ val principal: UserIdPrincipal? = call.authentication.principal<UserIdPrincipal>
 
 In the generic, you have to put a specific type that *must* match the generated Principal.
 It will return null in the case you provide another type. 
-{ .note}
+{type="note"}
 
 The handler won't be executed if the configured authentication fails (when returning `null` in the authentication mechanism)
-{ .note}
+{type="note"}
 
 ## Naming the AuthenticationProvider
 
@@ -155,4 +155,4 @@ If you want to create custom authentication strategies,
 you can check the [Authentication feature](https://github.com/ktorio/ktor/tree/master/ktor-features/ktor-auth/jvm/src/io/ktor/auth) as a reference.
 
 The authentication feature defines two stages as part of its [Pipeline](https://github.com/ktorio/ktor/blob/master/ktor-features/ktor-auth/jvm/src/io/ktor/auth/AuthenticationPipeline.kt): `RequestAuthentication` and `CheckAuthentication`.
-{ .note}
+{type="note"}

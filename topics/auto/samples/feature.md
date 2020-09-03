@@ -4,4 +4,3 @@
 [//]: # (permalink: /samples/feature.html)
 [//]: # (children: /samples/feature/)
 
-{% include list-children.html %}

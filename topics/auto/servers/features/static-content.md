@@ -11,7 +11,7 @@
 
 Ktor has built-in support for serving static content. This can come in useful when you want to serve style sheets, scripts, images, etc. 
 
-{% include feature.html %}
+
 
 ## Specifying Files and Folders
 
@@ -109,7 +109,7 @@ fun Route.static(remotePath: String, configure: Route.() -> Unit) = route(remote
 which is essentially just another route definition. 
 
 ## Handling HEAD requests in static content
-{id="head-requests "}
+{id="head-requests"}
 
 Ktor do not handle `HEAD` requests by default, thus the static content feature do not handle `HEAD` requests either.
 To automatically handle `HEAD` requests for each `GET` route you can install the [`AutoHeadResponse` feature](/servers/features/autoheadresponse.html).

@@ -9,7 +9,7 @@
 
 This feature keeps cookies between calls or forces specific cookies.
 
-{% include feature.html %}
+
 
 ## Installation
 

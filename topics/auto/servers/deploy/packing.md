@@ -11,4 +11,3 @@ classes, dependencies, and resources packed together: either in a single JAR arc
 
 
 
-{% include list-children.html %}

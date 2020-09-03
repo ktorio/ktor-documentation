@@ -7,7 +7,7 @@
 [//]: # (class: io.ktor.client.features.websocket.WebSockets)
 [//]: # (ktor_version_review: 1.2.0)
 
-{% include feature.html %}
+
 
 Ktor provides a WebSocket client for the following engines: CIO, OkHttp, Js. To get more information about the server side, follow this [section](/servers/features/websockets.html).
 

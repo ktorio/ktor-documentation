@@ -12,7 +12,7 @@
 This feature adds a default set of headers to HTTP responses. The list of headers is customizable, and the `Date` header is cached
 to avoid building complex strings on each response.   
 
-{% include feature.html %}
+
 
 ## Usage
 

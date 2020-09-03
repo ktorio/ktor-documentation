@@ -19,7 +19,7 @@ download managers, or in unreliable networks.
 
 It is especially useful for the [Static Content Feature](/servers/features/static-content.html).
 
-{% include feature.html %}
+
 
 ## Usage
 
@@ -65,4 +65,4 @@ as long as its length is defined, like for example the `LocalFileContent`.
 { .performance.note}
 
 This HTTP mechanism for Partial Content is described in the [RFC-7233](https://tools.ietf.org/html/rfc7233#section-4.1).
-{ .note}
+{type="note"}

@@ -59,7 +59,7 @@ install(Sessions) {
   to a previous state.
 * Serving a session with an Encrypt transform prevents people from determining the actual contents and modifying it,
   but it is still vulnerable to exploitation and being returned to previous states.
-{ .note.security }
+{type="note"}
   
 It is possible to store a timestamp or a nonce encryption and authentication, but you will have to limit the
 session time or verify it at the server, reducing the benefits of this mode.

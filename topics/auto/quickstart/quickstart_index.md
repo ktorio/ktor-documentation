@@ -70,31 +70,27 @@ fun main(args: Array<String>) {
 }
 ```
 
-
-{% include tabbed-code.html
-    tab1-title="Main.kt" tab1-content=main-kt
-    no-height="true"
-%}
-
 ## Accessing your application
 
 Since you have a main method, you can execute it with your IDE. That will open a HTTP server,
 listening on [http://127.0.0.1:8080](http://127.0.0.1:8080/), You can try opening it with your favorite web browser.
 
-If that doesn't work, maybe your computer is using that port already. You can try changing the
-port 8080 (in line 10) and adjust it as needed.
-{ .note}
+>If that doesn't work, maybe your computer is using that port already. You can try changing the
+>port 8080 (in line 10) and adjust it as needed.
+>
+{type="note"}
 
 ![Ktor Hello World Browser](screenshot.png){ width="50""}
 
 At this point you should have a very simple Web Back-end running, so you can make changes,
 and see the results in your browser.
 
-Since you have configured a Gradle project with the application plugin and the `mainClassName`,
-you can also run it from a terminal using `./gradlew run` on Linux/Mac, or `gradlew run` on a Windows machine.
-{.note}
+>Since you have configured a Gradle project with the application plugin and the `mainClassName`,
+>you can also run it from a terminal using `./gradlew run` on Linux/Mac, or `gradlew run` on a Windows machine.
+>
+{type="note"}
 
-{:comment}
+
 ## Next step
 
 Now we are ready for the next step. *What kind of application are you developing?*
@@ -104,8 +100,5 @@ Now we are ready for the next step. *What kind of application are you developing
     * [Let's describe and serve some HTML, fully typed, using kotlinx.html the DSL way](/quickstart/html-dsl.html)
     * [Let's serve some HTML using FreeMarker template engine](/quickstart/html-freemarker.html)
     
-{/comment}
-
 ## Walkthroughs
 
-{% include category-list.html %}

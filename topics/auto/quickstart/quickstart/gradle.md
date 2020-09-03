@@ -16,7 +16,7 @@ and how to configure it to support Ktor.
 
 
 ## Basic Kotlin `build.gradle` file (without Ktor)
-{id="initial "}
+{id="initial"}
 
 First of all, you need a skeleton `build.gradle` file including Kotlin.
 You can create it with any text editor, or you can use IntelliJ to create
@@ -55,11 +55,6 @@ dependencies {
 }
 ```
 
-
-{% include tabbed-code.html
-    tab1-title="build.gradle" tab1-content=build-gradle
-%}
-
 ## Add Ktor dependencies and configure build settings
 {id="ktor-dependencies"}
 
@@ -87,13 +82,13 @@ Now you have to add the `ktor-server-core` artifact, referencing the `ktor_versi
 compile "io.ktor:ktor-server-core:$ktor_version"
 ```
 
-In groovy, there are single-quoted strings (instead of characters)
-and double-quoted strings, to be able to interpolate variables like
-versions, you have to use double-quoted strings.
-{ .note.tip }
+>In groovy, there are single-quoted strings (instead of characters)
+>and double-quoted strings, to be able to interpolate variables like
+>versions, you have to use double-quoted strings.
+>
+{type="note" id="java8"}
 
 You need to tell the Kotlin compiler to generate bytecode compatible with Java 8:
-{id="java8"}
 
 ```groovy
 compileKotlin {
@@ -173,11 +168,6 @@ dependencies {
 }
 ```
 
-
-{% include tabbed-code.html
-    tab1-title="build.gradle" tab1-content=build-gradle
-%}
-
 You can now run Gradle (just `gradle` or `./gradlew` if using the wrapper)
 to fetch dependencies and verify everything is set up correctly.
 
@@ -227,14 +217,16 @@ You can check this in IntelliJ IDEA in the main menu:
 
 For a more detailed guide on setting up the `build.gradle` file, check the [Getting Started with Gradle](/quickstart/quickstart/gradle.html) section. 
 
-When auto-import options, shows up (likely on bottom right hand side) click allow auto-import. 
-{ .note}
+>When auto-import options, shows up (likely on bottom right hand side) click allow auto-import. 
+>
+{type="note"}
 
 ## IntelliJ: Gradle Setup
 
-This section assumes you have some basic knowledge of Gradle. If you have never used Gradle,
-gradle.org provides [several guides](https://guides.gradle.org/building-java-applications/) to help you get started.
-{ .note}
+>This section assumes you have some basic knowledge of Gradle. If you have never used Gradle,
+>gradle.org provides [several guides](https://guides.gradle.org/building-java-applications/) to help you get started.
+>
+{type="note"}
 
 You can set-up a simple Ktor application using Gradle like this:
 
@@ -325,7 +317,7 @@ dependencies {
 
 
 Text version:
-{% include gradle.html gradle-kotlin=gradle-kotlin-build gradle-groovy=gradle-groovy-build %}
+
 
 Since Ktor is not yet 1.0, we have custom Maven repositories for distributing our early preview artifacts.
 You have to set up a couple of repositories as shown below, so your tools can find Ktor artifacts and dependencies.
@@ -372,12 +364,6 @@ fun main(args: Array<String>) {
     }.start(wait = true)
 }
 ```
-
-
-{% include tabbed-code.html
-    tab1-title="BlogApp.kt" tab1-content=blog-app
-    no-height="true"
-%}
 
 ![Ktor IntelliJ: Program](program.png)
 
@@ -431,12 +417,6 @@ fun main(args: Array<String>) {
 }
 ```
 
-
-{% include tabbed-code.html
-    tab1-title="BlogApp.kt" tab1-content=blog-app
-    no-height="true"
-%}
-
 ## IntelliJ: Extract out Configuration Data
 
 Although we can designate some application configuration data in the main function embeddedServer call, we can provide more flexibility for future deployments and changes by extracting this out to a separate configuration file.  In the `src/main/resources` directory we will create a new text file named `application.conf` with the following content:
@@ -453,12 +433,6 @@ ktor {
     }
 }
 ```
-
-
-{% include tabbed-code.html
-    tab1-title="application.conf" tab1-content=application-conf
-    no-height="true"
-%}
 
 Then we delete the main function from `BlogApp.kt` and change `fun Application.module()` to `fun Application.main()`.  However, if we run the application now, it will fail with an error message like "Top-level function 'main' not found in package blog."  Our `Application.main()` function is now a function extension and does not qualify as a top-level main function.   
 
@@ -490,7 +464,7 @@ application {
 ```
 
 
-{% include gradle.html gradle-kotlin=gradle-kotlin-build gradle-groovy=gradle-groovy-build %}
+
 
 And then go to `Run -> Edit Configurations` select the `blog.BlogAppKt` configuration and change its Main class to:
 `io.ktor.server.netty.EngineMain`

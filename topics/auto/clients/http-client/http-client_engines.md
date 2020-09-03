@@ -116,7 +116,7 @@ val client = HttpClient(Apache) {
 
 { .compact}
 
-{% include artifact.html kind="engine" class="io.ktor.client.engine.apache.Apache" artifact="io.ktor:ktor-client-apache:$ktor_version" transitive="org.apache.httpcomponents:httpasyncclient" %}
+
 
 ### CIO
 
@@ -200,7 +200,7 @@ val client = HttpClient(CIO) {
 
 { .compact}
 
-{% include artifact.html kind="engine" class="io.ktor.client.engine.cio.CIO" artifact="io.ktor:ktor-client-cio:$ktor_version" %}
+
 
 ### Jetty
 
@@ -218,13 +218,13 @@ val client = HttpClient(Jetty) {
 }
 ```
 
-{% include artifact.html kind="engine" class="io.ktor.client.engine.jetty.Jetty" artifact="io.ktor:ktor-client-jetty:$ktor_version" transitive="org.eclipse.jetty.http2:http2-client" %}
+
 
 ## JVM and Android
 
 ### OkHttp
 
-{id="okhttp "}
+{id="okhttp"}
 
 There is a engine based on OkHttp:
 
@@ -251,11 +251,11 @@ val client = HttpClient(OkHttp) {
 }
 ```
 
-{% include artifact.html kind="engine" class="io.ktor.client.engine.okhttp.OkHttp" artifact="io.ktor:ktor-client-okhttp:$ktor_version" transitive="com.squareup.okhttp3:okhttp" %}
+
 
 ### Android
 
-{id="android "}
+{id="android"}
 
 The Android engine doesn't have additional dependencies and uses a ThreadPool with a normal HttpURLConnection,
 to perform the requests. And can be configured like this:
@@ -274,11 +274,11 @@ val client = HttpClient(Android) {
 }
 ```
 
-{% include artifact.html kind="engine" class="io.ktor.client.engine.android.Android" artifact="io.ktor:ktor-client-android:$ktor_version" %}
+
 
 ## iOS
 
-{id="ios "}
+{id="ios"}
 
 The iOS engine uses the asynchronous `NSURLSession` internally. And have no additional configuration.
 
@@ -294,7 +294,7 @@ val client = HttpClient(Ios) {
 }
 ```
 
-{% include artifact.html kind="engine" class="io.ktor.client.engine.ios.Ios" artifact="io.ktor:ktor-client-ios:$ktor_version" %}
+
 
 ## Js (JavaScript)
 
@@ -309,11 +309,11 @@ val client = HttpClient(Js) {
 
 You can also call the `JsClient()` function to get the `Js` engine singleton.
 
-{% include artifact.html kind="engine" class="io.ktor.client.engine.js.Js" artifact="io.ktor:ktor-client-js:$ktor_version" %}
+
 
 ## Curl
 
-{id="curl "}
+{id="curl"}
 
 There is an engine based on Curl:
 
@@ -323,7 +323,7 @@ val client = HttpClient(Curl)
 
 Supported platforms: linux_x64, macos_x64, mingw_x64. Please note that to use the engine you must have the installed curl library at least version 7.63
 
-{% include artifact.html kind="engine" class="io.ktor.client.engine.curl.Curl" artifact="io.ktor:ktor-client-curl:$ktor_version" %}
+
 
 ### MockEngine
 

@@ -25,7 +25,7 @@ so you should follow the [guide about making a Website](/quickstart/guides/websi
 The first step is to set up a project. You can follow the [Quick Start](/quickstart/index.html) guide,
 or use the following form to create one:
 
-{% include preconfigured-form.html hash="dependency=ktor-sessions&dependency=routing&dependency=ktor-websockets&artifact-name=chat" %}
+
 
 ## Understanding WebSockets
 

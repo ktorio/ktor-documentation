@@ -33,7 +33,7 @@ powerful routing system.
 In particular, `get` is an alias to `route(HttpMethod.Get, path) { handle(body) }`, where `body` is a lambda passed to the
 `get` function. 
 
-{% include feature.html %}
+
 
 ## Routing Tree
 
@@ -188,7 +188,7 @@ a builder function similar to built-in.
 Path parsing is not extensible.
 
 ## Tracing the routing decisions
-{id="tracing "}
+{id="tracing"}
 
 If you have problems trying to figure out why your route is not being executed,
 Ktor provides a `trace` method inside the routing feature.

@@ -14,7 +14,7 @@ The SerializationConverter feature allows you to handle JSON content in your app
 
 This feature is a [ContentNegotiation](/servers/features/content-negotiation.html) converter.
 
-{% include feature.html %}
+
 
 ## Basic usage
 

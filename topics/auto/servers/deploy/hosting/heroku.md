@@ -5,7 +5,7 @@
 [//]: # (ktor_version_review: 1.0.0)
 
 There is a quickstart repository for Heroku: <https://github.com/orangy/ktor-heroku-start>
-{ .note.example}
+{type="note"}
 
 ## Preparing
 
@@ -150,10 +150,10 @@ GRADLE_TASK: shadowJar
 ```
 
 Remember that Heroku sets an environment variable called `PORT` which you have to bind to instead of
-a fixed port.<br/>
+a fixed port.
 When using embeddedServer you will have to use `System.getenv`, while when using `application.conf` you will
-have to set `ktor.deployment.port = ${PORT}`.<br/>
+have to set `ktor.deployment.port = ${PORT}`.
 Check out the page about
 [using environment variables in the configuration](/servers/configuration.html#environment-variables)
 for more information.
-{ .note}
+{type="note"}
