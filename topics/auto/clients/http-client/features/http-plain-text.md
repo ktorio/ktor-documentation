@@ -1,6 +1,6 @@
-[//]: # (title: Text & Charsets)
+[//]: # (title: Text &amp; Charsets)
 [//]: # (category: clients)
-[//]: # (caption: Text & Charsets)
+[//]: # (caption: Text &amp; Charsets)
 [//]: # (feature: feature)
 [//]: # (artifact: io.ktor)
 [//]: # (class: io.ktor.client.features.HttpPlainText)
