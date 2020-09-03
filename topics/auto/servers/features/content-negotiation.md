@@ -46,8 +46,9 @@ used and thus which `ContentConverter` will be called.
 call.respond(MyDataClass("hello", "world"))
 ```
 
-Right now, the only supported ContentNegotiation strategy when sending, is the
-client's `Accept` header. There is an [issue to implement other strategies](https://github.com/ktorio/ktor/issues/357).
+>Right now, the only supported ContentNegotiation strategy when sending, is the
+>client's `Accept` header. There is an [issue to implement other strategies](https://github.com/ktorio/ktor/issues/357).
+>
 {type="note"} 
 
 ## Receiving

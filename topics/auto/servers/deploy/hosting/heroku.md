@@ -4,7 +4,8 @@
 [//]: # (permalink: /servers/deploy/hosting/heroku.html)
 [//]: # (ktor_version_review: 1.0.0)
 
-There is a quickstart repository for Heroku: <https://github.com/orangy/ktor-heroku-start>
+>There is a quickstart repository for Heroku: <https://github.com/orangy/ktor-heroku-start>
+>
 {type="note"}
 
 ## Preparing
@@ -149,11 +150,12 @@ Setting GRADLE_TASK and restarting ⬢ demo-demo-12345... done, v4
 GRADLE_TASK: shadowJar
 ```
 
-Remember that Heroku sets an environment variable called `PORT` which you have to bind to instead of
-a fixed port.
-When using embeddedServer you will have to use `System.getenv`, while when using `application.conf` you will
-have to set `ktor.deployment.port = ${PORT}`.
-Check out the page about
-[using environment variables in the configuration](/servers/configuration.html#environment-variables)
-for more information.
+>Remember that Heroku sets an environment variable called `PORT` which you have to bind to instead of
+>a fixed port.
+>When using embeddedServer you will have to use `System.getenv`, while when using `application.conf` you will
+>have to set `ktor.deployment.port = ${PORT}`.
+>Check out the page about
+>[using environment variables in the configuration](/servers/configuration.html#environment-variables)
+>for more information.
+>
 {type="note"}

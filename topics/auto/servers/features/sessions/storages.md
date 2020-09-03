@@ -7,7 +7,8 @@
 
 There are two predefined storages: `SessionStorageMemory`, `DirectoryStorage`. And another composable storage: `CacheStorage`.
 
-`DirectoryStorage` and `CacheStorage` are dependant on the `io.ktor:ktor-server-sessions:$ktor_version` artifact.
+>`DirectoryStorage` and `CacheStorage` are dependant on the `io.ktor:ktor-server-sessions:$ktor_version` artifact.
+>
 {type="note"} 
 
 In this mode, you are just sending a Session Id instead of the actual session contents.

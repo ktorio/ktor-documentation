@@ -106,8 +106,9 @@ routing {
 }
 ```
 
-Pushing reduces the time between the request and the display of the page.
-But beware that sending content beforehand might send content that is already cached by the client.
+>Pushing reduces the time between the request and the display of the page.
+>But beware that sending content beforehand might send content that is already cached by the client.
+>
 {type="note"}
 
 ## Redirections
@@ -119,15 +120,17 @@ to send `301 Moved Permanently` or `302 Found` redirects, with a `Location` head
 call.respondRedirect("/moved/here", permanent = true)
 ```
 
-Remember that once this function is executed, the rest of the function is still executed. Therefore, if you have it in a guard
-clause, you should return from the function to avoid continuing with the rest of the handler.
-If you want to make redirections that stop the control flow by throwing an exception, check out this [sample from status pages](/servers/features/status-pages.html#redirect).
+>Remember that once this function is executed, the rest of the function is still executed. Therefore, if you have it in a guard
+>clause, you should return from the function to avoid continuing with the rest of the handler.
+>If you want to make redirections that stop the control flow by throwing an exception, check out this [sample from status pages](/servers/features/status-pages.html#redirect).
+>
 {type="note"}
 
 ## Sending response content
+{id="call-respond"}
 
 Sending generic content (compatible with [Content negotiation](#content-negotiation)):
-{id="call-respond"}
+
 
 * `call.respond(MyDataClass("hello", "world"))` - Check the [Content Negotiation](#content-negotiation) section
 * `call.respond(HttpStatusCode.NotFound, MyDataClass("hello", "world"))` - Specifies a status code, and sends a payload in a single call. Check [StatusPages](/servers/features/status-pages.html)
@@ -153,9 +156,9 @@ Sending URL-encoded forms (`application/x-www-form-urlencoded`):
 
 * Use `Parameters.formUrlEncode`. Check the [Utilities page](/advanced/utilities.html) for more information about this.
 
-When sending files based on the request parameters,
-be especially careful validating and limiting the input.
-{type="note"}
+>When sending files based on the request parameters,
+>be especially careful validating and limiting the input.
+>
 
 Sending chunked content using a Writer:
 

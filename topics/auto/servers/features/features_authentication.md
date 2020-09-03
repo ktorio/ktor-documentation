@@ -40,8 +40,9 @@ Ktor defines two concepts: credentials and principals.
 To install it, you have to call to `application.install(Authentication)`. You have to install this feature
 directly to the application and it *won't* work in another `ApplicationCallPipeline` like `Route`.
 
-You might still be able to call the install code inside a Route if you have the Application injected in a nested DSL,
-but it will be applied to the application itself.
+>You might still be able to call the install code inside a Route if you have the Application injected in a nested DSL,
+>but it will be applied to the application itself.
+>
 {type="note"}
 
 Using its DSL, it allows you to configure the authentication providers available:
@@ -88,11 +89,13 @@ You can get the generated `Principal` instance inside your handler with:
 val principal: UserIdPrincipal? = call.authentication.principal<UserIdPrincipal>()
 ```
 
-In the generic, you have to put a specific type that *must* match the generated Principal.
-It will return null in the case you provide another type. 
+>In the generic, you have to put a specific type that *must* match the generated Principal.
+>It will return null in the case you provide another type. 
+>
 {type="note"}
 
-The handler won't be executed if the configured authentication fails (when returning `null` in the authentication mechanism)
+>The handler won't be executed if the configured authentication fails (when returning `null` in the authentication mechanism)
+>
 {type="note"}
 
 ## Naming the AuthenticationProvider
@@ -151,8 +154,8 @@ authentication {
 
 ## Advanced
 
-If you want to create custom authentication strategies,
-you can check the [Authentication feature](https://github.com/ktorio/ktor/tree/master/ktor-features/ktor-auth/jvm/src/io/ktor/auth) as a reference.
-
-The authentication feature defines two stages as part of its [Pipeline](https://github.com/ktorio/ktor/blob/master/ktor-features/ktor-auth/jvm/src/io/ktor/auth/AuthenticationPipeline.kt): `RequestAuthentication` and `CheckAuthentication`.
+>If you want to create custom authentication strategies,
+>you can check the [Authentication feature](https://github.com/ktorio/ktor/tree/master/ktor-features/ktor-auth/jvm/src/io/ktor/auth) as a reference.
+>The authentication feature defines two stages as part of its [Pipeline](https://github.com/ktorio/ktor/blob/master/ktor-features/ktor-auth/jvm/src/io/ktor/auth/AuthenticationPipeline.kt): `RequestAuthentication` and `CheckAuthentication`.
+>
 {type="note"}

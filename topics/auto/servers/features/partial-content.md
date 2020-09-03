@@ -60,9 +60,11 @@ It is only enabled for responses that define the `Content-Length`. And it:
 * Adds the `Content-Range` header with the requested Ranges
 * Serves only the requested slice of the content
 
-It should work with any served content of the type `OutgoingContent.ReadChannelContent`
-as long as its length is defined, like for example the `LocalFileContent`.
-{ .performance.note}
+>It should work with any served content of the type `OutgoingContent.ReadChannelContent`
+>as long as its length is defined, like for example the `LocalFileContent`.
+>
+{type="note"}
 
-This HTTP mechanism for Partial Content is described in the [RFC-7233](https://tools.ietf.org/html/rfc7233#section-4.1).
+>This HTTP mechanism for Partial Content is described in the [RFC-7233](https://tools.ietf.org/html/rfc7233#section-4.1).
+>
 {type="note"}

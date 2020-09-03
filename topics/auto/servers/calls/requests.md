@@ -71,7 +71,8 @@ That means that the client IP address of the connection would be the one of the 
 Also the reverse proxy might be serving via HTTPS and requesting to your server via HTTP.
 Popular reverse proxies send `X-Forwarded-` headers to be able to access this information. 
 
-Note that for this to work when under a reverse-proxy you have to install the [`XForwardedHeaderSupport` feature](/servers/features/forward-headers.html).
+>Note that for this to work when under a reverse-proxy you have to install the [`XForwardedHeaderSupport` feature](/servers/features/forward-headers.html).
+>
 {type="note"}
 
 As part of the request object, there are two properties `local` and `origin` that allows to get information of the original request

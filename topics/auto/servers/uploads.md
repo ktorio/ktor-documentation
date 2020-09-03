@@ -6,7 +6,8 @@
 
 Ktor supports handling HTTP Uploads. As well as [receiving any other kind of content](/servers/calls/requests.html).
 
-You can check out the [Youkube example](/samples/app/youkube.html) for a full example of this in action.
+>You can check out the [Youkube example](/samples/app/youkube.html) for a full example of this in action.
+>
 {type="note"}
 
 ## Receiving files using multipart

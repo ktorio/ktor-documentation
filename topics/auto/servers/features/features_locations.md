@@ -14,13 +14,9 @@
 Ktor provides a mechanism to create routes in a typed way, for both:
 constructing URLs and reading the parameters.
 
-Locations are an experimental feature.
+>Locations are an experimental feature.
+>
 {type="note"}
-
-
-
-
-
 
 
 ## Installing the feature
@@ -85,8 +81,9 @@ routing {
 }
 ```
 
-Some of these generic methods with one type parameter, defined in the `io.ktor.locations`, have the same name as other methods defined in the `io.ktor.routing` package. If you import the routing package before the locations one, the IDE might suggest you generalize those methods instead of importing the right package. You can manually add `import io.ktor.locations.*` if that happens to you.
-Remember this API is experimental. This issue is already [reported at github](https://github.com/ktorio/ktor/issues/368).
+>Some of these generic methods with one type parameter, defined in the `io.ktor.locations`, have the same name as other methods defined in the `io.ktor.routing` package. If you import the routing package before the locations one, the IDE might suggest you generalize those methods instead of importing the right package. You can manually add `import io.ktor.locations.*` if that happens to you.
+>Remember this API is experimental. This issue is already [reported at github](https://github.com/ktorio/ktor/issues/368).
+>
 {type="note"}
 
 ## Building URLs

@@ -29,10 +29,11 @@ application.install(Sessions) {
 } 
 ```
 
-You should only use client-side sessions if your payload can't suffer from replay attacks. Also if you need to prevent
-modifications, ensure that you are transforming the session with at least authentication, but ideally with encryption too.
-This should prevent payload modification if you keep your secret key safe. But remember that if your key is compromised
-and thus, you have to change the key, all the previous sessions will be marked invalid.
+>You should only use client-side sessions if your payload can't suffer from replay attacks. Also if you need to prevent
+>modifications, ensure that you are transforming the session with at least authentication, but ideally with encryption too.
+>This should prevent payload modification if you keep your secret key safe. But remember that if your key is compromised
+>and thus, you have to change the key, all the previous sessions will be marked invalid.
+>
 {type="note"}
 
 Client-side Sessions use transformers to manipulate the payload, for example to authenticate and/or encrypt it.

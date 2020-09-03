@@ -68,7 +68,8 @@ optional [server-side storage](/servers/features/sessions/client-server.html), a
 
 If you want to further customize sessions. Please read the [extending](#extending) section.
 
-Since there are several combinations for configuring sessions, there is a section about [deciding how to configure sessions](#configuring).
+>Since there are several combinations for configuring sessions, there is a section about [deciding how to configure sessions](#configuring).
+>
 {type="note"}
 
 ## Usage
@@ -110,7 +111,6 @@ call.sessions.clear<MySession>()
 
 After calling this, retrieving that session will return null, until set again.
 
-<div markdown='1'>
 When handling requests, you can get, set, or clear your sessions:
 
 ```kotlin
@@ -118,8 +118,6 @@ val session = call.sessions.get<SampleSession>() // Gets a session of this type 
 call.sessions.set(SampleSession(name = "John", value = 12)) // Sets a session of this type
 call.sessions.clear<SampleSession>() // Clears the session of this type 
 ```
-</div>
-{type="note"}
 
 ## Multiple sessions
 {id="multiple-sessions"}
@@ -154,7 +152,8 @@ install(Sessions) {
 }
 ```
 
-For multiple session mappings, _both_ type and name should be unique.
+>For multiple session mappings, _both_ type and name should be unique.
+>
 {type="note"} 
 
 ## Configuration

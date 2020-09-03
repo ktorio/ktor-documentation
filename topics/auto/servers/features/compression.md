@@ -96,14 +96,15 @@ application.install(Compression) {
 }
 ```
 
-TL;DR; Even when HTTPS prevents an eavesdropper to know the content of a request, it does not hide the response length.
-So one of your users could be connecting to an evil access point, for example by connecting to a public network
-or one with a well-known password, or a private network with an Evil Twin. That access point can intercept all the
-encrypted messages and measure the length. Then can modify any non-https connection (or social engineer the user to
-access an https page controlled by the attacker) to inject a javascript or place images pointing to the vulnerable
-page mutating an input (get, post or header parameters) that are reflected in either the headers or the response body,
-then the access point can measure the length of the responses to guess a secret with as little as 100 to 10000 requests
-that are forced to be done by your browser with either the javascript or image requests without the user ever noticing.
+>TL;DR; Even when HTTPS prevents an eavesdropper to know the content of a request, it does not hide the response length.
+>So one of your users could be connecting to an evil access point, for example by connecting to a public network
+>or one with a well-known password, or a private network with an Evil Twin. That access point can intercept all the
+>encrypted messages and measure the length. Then can modify any non-https connection (or social engineer the user to
+>access an https page controlled by the attacker) to inject a javascript or place images pointing to the vulnerable
+>page mutating an input (get, post or header parameters) that are reflected in either the headers or the response body,
+>then the access point can measure the length of the responses to guess a secret with as little as 100 to 10000 requests
+>that are forced to be done by your browser with either the javascript or image requests without the user ever noticing.
+>
 {type="note"}
 
 ## Extensibility

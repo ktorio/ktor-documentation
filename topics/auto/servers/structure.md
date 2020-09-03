@@ -77,8 +77,9 @@ fun Routing.root() {
 }
 ```
 
-Inside the `routing { ... }` block there is an implicit `this: Routing`, you can call the `root` method directly,
-it is effectively like calling `this.root()`.
+>Inside the `routing { ... }` block there is an implicit `this: Routing`, you can call the `root` method directly,
+>it is effectively like calling `this.root()`.
+>
 {type="note"}
 
 ## Deployment and `application.conf`

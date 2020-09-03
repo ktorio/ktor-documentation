@@ -17,8 +17,9 @@ request when it's behind a proxy.
 * `ForwardedHeaderSupport` handles the standard `Forwarded` header ([RFC 7239](https://tools.ietf.org/html/rfc7239))
 * `XForwardedHeaderSupport` handles the non-standard (but standard de-facto) `X-Forwarded-Host`/`X-Forwarded-Server`, `X-Forwarded-For`, `X-Forwarded-By`, `X-Forwarded-Proto`/`X-Forwarded-Protocol` and `X-Forwarded-SSL`/`Front-End-Https`
 
-Only install these features if you have a reverse proxy supporting these headers serving your requests.
-In other cases, a client will be able to manipulate these headers.
+>Only install these features if you have a reverse proxy supporting these headers serving your requests.
+>In other cases, a client will be able to manipulate these headers.
+>
 {type="note"}
 
 

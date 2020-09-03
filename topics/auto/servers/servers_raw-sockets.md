@@ -12,7 +12,8 @@ It exposes a suspending API that uses NIO under the hoods.
 
 ## Sockets
 
-This functionality is exposed through the `io.ktor:ktor-network:$ktor_version` artifact.
+>This functionality is exposed through the `io.ktor:ktor-network:$ktor_version` artifact.
+>
 {type="note"}
 
 In order to create either server or client sockets, you have to use the `aSocket` builder,
@@ -44,9 +45,10 @@ val input : ByteReadChannel  = socket.openReadChannel()
 val output: ByteWriteChannel = socket.openWriteChannel(autoFlush = true)
 ```
 
-You can read the KDoc for [ByteReadChannel](https://github.com/Kotlin/kotlinx-io/blob/master/kotlinx-coroutines-io/src/main/kotlin/kotlinx/coroutines/experimental/io/ByteReadChannel.kt)
-and [ByteWriteChannel](https://github.com/Kotlin/kotlinx-io/blob/master/kotlinx-coroutines-io/src/main/kotlin/kotlinx/coroutines/experimental/io/ByteWriteChannel.kt)
-for further information on the available methods.
+>You can read the KDoc for [ByteReadChannel](https://github.com/Kotlin/kotlinx-io/blob/master/kotlinx-coroutines-io/src/main/kotlin/kotlinx/coroutines/experimental/io/ByteReadChannel.kt)
+>and [ByteWriteChannel](https://github.com/Kotlin/kotlinx-io/blob/master/kotlinx-coroutines-io/src/main/kotlin/kotlinx/coroutines/experimental/io/ByteWriteChannel.kt)
+>for further information on the available methods.
+>
 {type="note"}
 
 ## Server
@@ -65,8 +67,9 @@ a connected socket for each incoming connection pending in the *backlog*:
 val socket = server.accept()
 ```
 
-If you want to support multiple clients at once, remember to call `launch { }` to prevent
-the function that is accepting the sockets from suspending.
+>If you want to support multiple clients at once, remember to call `launch { }` to prevent
+>the function that is accepting the sockets from suspending.
+>
 {type="note"}
 
 ### Simple Echo Server:

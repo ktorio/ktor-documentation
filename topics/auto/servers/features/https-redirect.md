@@ -29,8 +29,9 @@ fun Application.main() {
 
 The code above installs the HttpsRedirect feature with the default configuration.
 
-When behind a reverse-proxy, you will need to install the `ForwardedHeaderSupport` or the `XForwardedHeaderSupport`
-feature, for the `HttpsRedirect` feature to properly detect HTTPS requests.
+>When behind a reverse-proxy, you will need to install the `ForwardedHeaderSupport` or the `XForwardedHeaderSupport`
+>feature, for the `HttpsRedirect` feature to properly detect HTTPS requests.
+>
 {type="note"}
 
 ## Configuration

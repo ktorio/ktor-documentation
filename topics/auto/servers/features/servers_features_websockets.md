@@ -75,9 +75,10 @@ routing {
 }
 ```
 
-An exception will be thrown while receiving a Frame if the client closes the connection
-explicitly or the TCP socket is closed. So even with a `while (true)` loop, this shouldn't be
-a leak.
+>An exception will be thrown while receiving a Frame if the client closes the connection
+>explicitly or the TCP socket is closed. So even with a `while (true)` loop, this shouldn't be
+>a leak.
+>
 {type="note"}
 
 ### Usage as a Channel
@@ -135,9 +136,10 @@ interface WebSocketSession {
 }
 ```
 
-If you need information about the connection. For example the client ip, you have access
-to the call property. So you can do things like `call.request.origin.host` inside
-your websocket block.
+>If you need information about the connection. For example the client ip, you have access
+>to the call property. So you can do things like `call.request.origin.host` inside
+>your websocket block.
+>
 {type="note"}
 
 ### The Frame interface
