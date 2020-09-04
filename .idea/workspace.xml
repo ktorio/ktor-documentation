@@ -19,792 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="Switched to including symbols">
-      <change afterPath="$PROJECT_DIR$/.gradle/6.6/executionHistory/executionHistory.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/6.6/fileChanges/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/6.6/fileHashes/fileHashes.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/6.6/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/configuration-cache/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/classes/kotlin/main/META-INF/docker.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/classes/kotlin/main/io/ktor/samples/hello/HelloApplicationKt$main$1$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/classes/kotlin/main/io/ktor/samples/hello/HelloApplicationKt$main$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/classes/kotlin/main/io/ktor/samples/hello/HelloApplicationKt$main$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/classes/kotlin/main/io/ktor/samples/hello/HelloApplicationKt.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/build-history.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/lookups/counters.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/deployment/docker/build/kotlin/compileKotlin/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/classes/kotlin/main/META-INF/async.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/classes/kotlin/main/io/ktor/samples/async/AsyncApplicationKt$main$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/classes/kotlin/main/io/ktor/samples/async/AsyncApplicationKt$main$2$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/classes/kotlin/main/io/ktor/samples/async/AsyncApplicationKt$main$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/classes/kotlin/main/io/ktor/samples/async/AsyncApplicationKt$respondHandlingLongCalculation$$inlined$measureTimeMillis$lambda$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/classes/kotlin/main/io/ktor/samples/async/AsyncApplicationKt$respondHandlingLongCalculation$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/classes/kotlin/main/io/ktor/samples/async/AsyncApplicationKt$respondHandlingLongCalculation$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/classes/kotlin/main/io/ktor/samples/async/AsyncApplicationKt.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/classes/kotlin/test/META-INF/async.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/classes/kotlin/test/io/ktor/samples/async/tests/AsyncApplicationTest$checks main route$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/classes/kotlin/test/io/ktor/samples/async/tests/AsyncApplicationTest$checks main route$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/classes/kotlin/test/io/ktor/samples/async/tests/AsyncApplicationTest$checks main route$2$1$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/classes/kotlin/test/io/ktor/samples/async/tests/AsyncApplicationTest$checks main route$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/classes/kotlin/test/io/ktor/samples/async/tests/AsyncApplicationTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/build-history.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/lookups/counters.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileKotlin/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/build-history.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/lookups/counters.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/kotlin/compileTestKotlin/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/resources/main/application.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/async/build/resources/main/logback.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/META-INF/auth.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthApplication$main$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthApplicationKt$basicAuthApplication$1$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthApplicationKt$basicAuthApplication$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthApplicationKt$basicAuthApplication$1$2$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthApplicationKt$basicAuthApplication$1$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthApplicationKt$basicAuthApplication$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthApplicationKt$basicAuthApplication$2$1$$special$$inlined$get$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthApplicationKt$basicAuthApplication$2$1$$special$$inlined$get$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthApplicationKt$basicAuthApplication$2$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthApplicationKt$basicAuthApplication$2$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthApplicationKt$basicAuthApplication$2$2$$special$$inlined$get$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthApplicationKt$basicAuthApplication$2$2$$special$$inlined$get$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthApplicationKt$basicAuthApplication$2$2$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthApplicationKt$basicAuthApplication$2$2$2$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthApplicationKt$basicAuthApplication$2$2$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthApplicationKt$basicAuthApplication$2$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthApplicationKt$basicAuthApplication$2$3$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthApplicationKt$basicAuthApplication$2$3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthApplicationKt$basicAuthApplication$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthApplicationKt$hashedUserTable$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthApplicationKt.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthWithLdapKt$basicAuthWithLdap$1$1$1$1$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthWithLdapKt$basicAuthWithLdap$1$1$1$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthWithLdapKt$basicAuthWithLdap$1$1$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthWithLdapKt$basicAuthWithLdap$1$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthWithLdapKt$basicAuthWithLdap$1$1$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthWithLdapKt$basicAuthWithLdap$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthWithLdapKt$basicAuthWithLdap$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/BasicAuthWithLdapKt.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/Files.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/FormPostApplicationKt$formPostAuthApplication$1$1$1$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/FormPostApplicationKt$formPostAuthApplication$1$1$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/FormPostApplicationKt$formPostAuthApplication$1$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/FormPostApplicationKt$formPostAuthApplication$1$1$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/FormPostApplicationKt$formPostAuthApplication$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/FormPostApplicationKt$formPostAuthApplication$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/FormPostApplicationKt.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/JwkApplicationKt$jwkApplication$1$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/JwkApplicationKt$jwkApplication$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/JwkApplicationKt$jwkApplication$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/JwkApplicationKt$jwkApplication$2$1$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/JwkApplicationKt$jwkApplication$2$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/JwkApplicationKt$jwkApplication$2$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/JwkApplicationKt$jwkApplication$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/JwkApplicationKt.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/JwtApplicationKt$jwtApplication$1$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/JwtApplicationKt$jwtApplication$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/JwtApplicationKt$jwtApplication$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/JwtApplicationKt$jwtApplication$2$1$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/JwtApplicationKt$jwtApplication$2$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/JwtApplicationKt$jwtApplication$2$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/JwtApplicationKt$jwtApplication$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/JwtApplicationKt.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/Manual.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginApplicationKt$OAuthLoginApplication$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginApplicationKt$OAuthLoginApplicationWithDeps$1$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginApplicationKt$OAuthLoginApplicationWithDeps$1$1$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginApplicationKt$OAuthLoginApplicationWithDeps$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginApplicationKt$OAuthLoginApplicationWithDeps$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginApplicationKt$OAuthLoginApplicationWithDeps$2$$special$$inlined$get$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginApplicationKt$OAuthLoginApplicationWithDeps$2$$special$$inlined$get$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginApplicationKt$OAuthLoginApplicationWithDeps$2$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginApplicationKt$OAuthLoginApplicationWithDeps$2$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginApplicationKt$OAuthLoginApplicationWithDeps$2$2$1$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginApplicationKt$OAuthLoginApplicationWithDeps$2$2$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginApplicationKt$OAuthLoginApplicationWithDeps$2$2$1$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginApplicationKt$OAuthLoginApplicationWithDeps$2$2$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginApplicationKt$OAuthLoginApplicationWithDeps$2$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginApplicationKt$OAuthLoginApplicationWithDeps$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginApplicationKt$loggedInSuccessResponse$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginApplicationKt$loginFailedPage$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginApplicationKt$loginPage$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginApplicationKt.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginNoLocationsKt$OAuthLoginNoLocationApplication$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginNoLocationsKt$OAuthLoginNoLocationApplication$1$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginNoLocationsKt$OAuthLoginNoLocationApplication$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginNoLocationsKt$OAuthLoginNoLocationApplication$2$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginNoLocationsKt$OAuthLoginNoLocationApplication$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/OAuthLoginNoLocationsKt.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/SimpleUserTable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/index.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/main/io/ktor/samples/auth/login.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/test/META-INF/auth.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/test/io/ktor/samples/auth/OAuthTest$testOAuthLogin$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/test/io/ktor/samples/auth/OAuthTest$testOAuthLogin$1$3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/test/io/ktor/samples/auth/OAuthTest$testOAuthLogin$1$mockEngine$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/test/io/ktor/samples/auth/OAuthTest$testOAuthLogin$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/test/io/ktor/samples/auth/OAuthTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/classes/kotlin/test/io/ktor/samples/auth/OAuthTestKt.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/build-history.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/lookups/counters.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileKotlin/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/build-history.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/package-parts.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/package-parts.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/package-parts.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/package-parts.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/package-parts.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/package-parts.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/package-parts.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/lookups/counters.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/kotlin/compileTestKotlin/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/resources/main/application.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/auth/build/resources/main/logback.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/classes/kotlin/main/META-INF/custom-feature.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/classes/kotlin/main/io/ktor/samples/feature/CustomHeader$Configuration.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/classes/kotlin/main/io/ktor/samples/feature/CustomHeader$Feature$install$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/classes/kotlin/main/io/ktor/samples/feature/CustomHeader$Feature.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/classes/kotlin/main/io/ktor/samples/feature/CustomHeader.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/classes/kotlin/main/io/ktor/samples/feature/FeatureApplicationKt$main$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/classes/kotlin/main/io/ktor/samples/feature/FeatureApplicationKt$main$2$1$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/classes/kotlin/main/io/ktor/samples/feature/FeatureApplicationKt$main$2$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/classes/kotlin/main/io/ktor/samples/feature/FeatureApplicationKt$main$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/classes/kotlin/main/io/ktor/samples/feature/FeatureApplicationKt.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/classes/kotlin/test/CustomFeatureTest$testCustomHeader$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/classes/kotlin/test/CustomFeatureTest$testCustomHeader$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/classes/kotlin/test/CustomFeatureTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/classes/kotlin/test/META-INF/custom-feature.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/build-history.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/lookups/counters.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileKotlin/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/build-history.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/lookups/counters.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/kotlin/compileTestKotlin/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/resources/main/application.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codeSnippets/feature/custom-feature/build/resources/main/logback.xml" afterDir="false" />
+    <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="Added code snippet project">
+      <change afterPath="$PROJECT_DIR$/topics/sessions.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/chat/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/chat/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/chat/resources/application.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/chat/resources/logback.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/chat/resources/web/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/chat/resources/web/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/chat/src/ChatApplication.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/chat/src/ChatServer.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/chat/test/ChatApplicationTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/httpbin/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/httpbin/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/httpbin/resources/application.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/httpbin/resources/logback.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/httpbin/resources/static/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/httpbin/resources/static/UTF-8-demo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/httpbin/resources/static/forms-post.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/httpbin/resources/static/httpbin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/httpbin/resources/static/httpbin.postman_collection.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/httpbin/resources/static/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/httpbin/resources/static/jackal.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/httpbin/resources/static/moby.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/httpbin/resources/static/pig_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/httpbin/resources/static/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/httpbin/resources/static/sample.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/httpbin/resources/static/svg_logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/httpbin/resources/static/wolf_1.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/httpbin/src/Helpers.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/httpbin/src/HttpBinApplication.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/httpbin/src/HttpBinError.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/httpbin/src/HttpBinResponse.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/httpbin/test/HttpBinApplicationTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/resources/application.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/resources/blog.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/resources/logback.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/resources/templates/index.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/resources/templates/login.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/resources/templates/new-kweet.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/resources/templates/register.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/resources/templates/template.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/resources/templates/user.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/resources/templates/view-kweet.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/src/Delete.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/src/Index.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/src/KweetApplication.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/src/Login.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/src/PostNew.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/src/Register.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/src/Styles.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/src/UserPage.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/src/ViewKweet.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/src/dao/Cache.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/src/dao/DAOFacadeDatabase.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/src/dao/Kweets.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/src/dao/Users.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/src/model/Kweet.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/src/model/User.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/test/KweetApplicationTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/kweet/test/KweetApplicationWithTrackCookiesTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/youkube/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/youkube/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/youkube/resources/application.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/youkube/resources/blog.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/youkube/resources/logback.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/youkube/src/Database.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/youkube/src/Login.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/youkube/src/Page.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/youkube/src/Styles.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/youkube/src/Upload.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/youkube/src/Video.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/youkube/src/Videos.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/youkube/src/YoukubeApplication.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/app/youkube/test/YoukubeApplicationTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/feature/autohead/src/AutoHead.kt" beforeDir="false" afterPath="$PROJECT_DIR$/codeSnippets/feature/autohead/src/AutoHead.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/codeSnippets/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/codeSnippets/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/codeSnippets/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/codeSnippets/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/codeSnippets/gradlew.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/client-mpp-ios.xcodeproj/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/client-mpp-ios.xcodeproj/project.pbxproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/client-mpp-ios.xcodeproj/project.xcworkspace/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/client-mpp-ios.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/client-mpp-ios.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/client-mpp-ios/AppDelegate.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/client-mpp-ios/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/client-mpp-ios/Assets.xcassets/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/client-mpp-ios/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/client-mpp-ios/Base.lproj/Main.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/client-mpp-ios/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/client-mpp-ios/ViewController.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/commonMain/kotlin/io/ktor/samples/mpp/client/Api.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/iosMain/kotlin/io/ktor/samples/mpp/client/Dispatcher.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/jsMain/kotlin/io.ktor.samples.mpp.client/ApplicationDispatcher.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/jsMain/kotlin/io.ktor.samples.mpp.client/JsMain.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/jsMain/resources/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/jsMain/resources/require.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/macosX64Main/kotlin/io.ktor/samples.mpp.client/ApplicationDispatcher.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/macosX64Main/kotlin/io.ktor/samples.mpp.client/MacMain.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/main/java/io/ktor/samples/mpp/client/ApplicationDispatcher.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/main/java/io/ktor/samples/mpp/client/MainActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/main/res/layout/activity_main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/main/res/values/colors.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/main/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/client-mpp/src/main/res/values/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/fullstack-mpp/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/fullstack-mpp/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/fullstack-mpp/src/backendMain/kotlin/BackendCode.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/fullstack-mpp/src/backendMain/resources/application.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/fullstack-mpp/src/backendMain/resources/logback.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/fullstack-mpp/src/commonMain/kotlin/CommonCode.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/fullstack-mpp/src/commonTest/kotlin/CommonCodeTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/fullstack-mpp/src/frontendMain/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/fullstack-mpp/src/frontendMain/kotlin/FrontendCode.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/fullstack-mpp/src/frontendMain/resources/require.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/client-multipart/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/client-multipart/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/client-multipart/src/MultipartApp.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/client-tools/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/client-tools/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/client-tools/src/ToolsApp.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/css-dsl/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/css-dsl/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/css-dsl/src/CssDslApplication.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/di-kodein/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/di-kodein/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/di-kodein/src/KodeinAdvancedApplication.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/di-kodein/src/KodeinSimpleApplication.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/di-kodein/test/KodeinSimpleApplicationTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/filelisting/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/filelisting/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/filelisting/files/a.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/filelisting/files/b.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/filelisting/files/folder/a.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/filelisting/src/FileListingApplication.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/maven-google-appengine-standard/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/maven-google-appengine-standard/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/maven-google-appengine-standard/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/maven-google-appengine-standard/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/maven-google-appengine-standard/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/maven-google-appengine-standard/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/maven-google-appengine-standard/resources/application.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/maven-google-appengine-standard/src/HelloApplication.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/maven-google-appengine-standard/webapp/WEB-INF/appengine-web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/maven-google-appengine-standard/webapp/WEB-INF/logging.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/maven-google-appengine-standard/webapp/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/maven-netty/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/maven-netty/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/maven-netty/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/maven-netty/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/maven-netty/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/maven-netty/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/maven-netty/resources/application.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/maven-netty/resources/logback.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/maven-netty/src/HelloApplication.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/multiple-connectors/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/multiple-connectors/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/multiple-connectors/src/Main.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/multiple-connectors/test/MultiportsAppTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/proguard/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/proguard/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/proguard/resources/application.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/proguard/resources/logback.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/proguard/src/HelloApplication.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/redirect-with-exception/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/redirect-with-exception/src/RedirectWithExceptionApplication.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/reverse-proxy-ws/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/reverse-proxy-ws/src/ReverseProxyWsApplication.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/reverse-proxy/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/reverse-proxy/src/ReverseProxyApplication.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/rx/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/rx/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/rx/src/RxApplication.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/sandbox/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/sandbox/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/sandbox/src/SandboxApplication.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/simulate-slow-server/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/simulate-slow-server/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/simulate-slow-server/src/SimulateSlowServerApplication.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/sse/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/sse/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/sse/src/SseApplication.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/structured-logging/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/structured-logging/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/structured-logging/resources/logback.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/structured-logging/src/Application.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/structured-logging/src/StructuredLogging.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/autoheadresponse.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/autoheadresponse.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ktor.tree" beforeDir="false" afterPath="$PROJECT_DIR$/ktor.tree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -925,6 +146,8 @@
       <workItem from="1598451757804" duration="567000" />
       <workItem from="1598507792252" duration="5394000" />
       <workItem from="1598560705166" duration="213000" />
+      <workItem from="1598561134165" duration="620000" />
+      <workItem from="1599196103073" duration="683000" />
     </task>
     <task id="LOCAL-00001" summary="Layout of TOC">
       <created>1595417880622</created>
@@ -1178,7 +401,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597480514323</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Added code snippet project">
+      <created>1598561396793</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1598561396793</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1200,7 +430,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fixed issue with unique IDs" />
     <MESSAGE value="Grammar mistake" />
     <MESSAGE value="Added list of topics for tracking" />
     <MESSAGE value="Grammar and extension fixes" />
@@ -1225,7 +454,8 @@
     <MESSAGE value="Paired up code with diagram" />
     <MESSAGE value="Sample Feature doc" />
     <MESSAGE value="Switched to including symbols" />
-    <option name="LAST_COMMIT_MESSAGE" value="Switched to including symbols" />
+    <MESSAGE value="Added code snippet project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added code snippet project" />
   </component>
   <component name="WindowStateProjectService">
     <state x="799" y="884" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596175947740">
@@ -1236,39 +466,39 @@
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="881" y="408" width="1336" height="897" key="DiffContextDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1597429287105" />
-    <state width="1494" height="300" key="GridCell.Tab.0.bottom" timestamp="1597480544013">
+    <state width="578" height="352" key="GridCell.Tab.0.bottom" timestamp="1598590438691">
       <screen x="0" y="23" width="2048" height="1257" />
     </state>
     <state width="1494" height="419" key="GridCell.Tab.0.bottom/0.0.2048.1280@0.0.2048.1280" timestamp="1597414675247" />
-    <state width="1494" height="300" key="GridCell.Tab.0.bottom/0.23.2048.1257@0.23.2048.1257" timestamp="1597480544013" />
+    <state width="578" height="352" key="GridCell.Tab.0.bottom/0.23.2048.1257@0.23.2048.1257" timestamp="1598590438691" />
     <state width="1494" height="300" key="GridCell.Tab.0.bottom/0.23.3008.1669@0.23.3008.1669" timestamp="1597430193178" />
-    <state width="1494" height="300" key="GridCell.Tab.0.center" timestamp="1597480544013">
+    <state width="578" height="352" key="GridCell.Tab.0.center" timestamp="1598590438691">
       <screen x="0" y="23" width="2048" height="1257" />
     </state>
     <state width="1494" height="419" key="GridCell.Tab.0.center/0.0.2048.1280@0.0.2048.1280" timestamp="1597414675247" />
-    <state width="1494" height="300" key="GridCell.Tab.0.center/0.23.2048.1257@0.23.2048.1257" timestamp="1597480544013" />
+    <state width="578" height="352" key="GridCell.Tab.0.center/0.23.2048.1257@0.23.2048.1257" timestamp="1598590438691" />
     <state width="1494" height="300" key="GridCell.Tab.0.center/0.23.3008.1669@0.23.3008.1669" timestamp="1597430193177" />
-    <state width="1494" height="300" key="GridCell.Tab.0.left" timestamp="1597480544013">
+    <state width="578" height="352" key="GridCell.Tab.0.left" timestamp="1598590438691">
       <screen x="0" y="23" width="2048" height="1257" />
     </state>
     <state width="1494" height="419" key="GridCell.Tab.0.left/0.0.2048.1280@0.0.2048.1280" timestamp="1597414675246" />
-    <state width="1494" height="300" key="GridCell.Tab.0.left/0.23.2048.1257@0.23.2048.1257" timestamp="1597480544013" />
+    <state width="578" height="352" key="GridCell.Tab.0.left/0.23.2048.1257@0.23.2048.1257" timestamp="1598590438691" />
     <state width="1494" height="300" key="GridCell.Tab.0.left/0.23.3008.1669@0.23.3008.1669" timestamp="1597430193177" />
-    <state width="1494" height="300" key="GridCell.Tab.0.right" timestamp="1597480544013">
+    <state width="578" height="352" key="GridCell.Tab.0.right" timestamp="1598590438691">
       <screen x="0" y="23" width="2048" height="1257" />
     </state>
     <state width="1494" height="419" key="GridCell.Tab.0.right/0.0.2048.1280@0.0.2048.1280" timestamp="1597414675247" />
-    <state width="1494" height="300" key="GridCell.Tab.0.right/0.23.2048.1257@0.23.2048.1257" timestamp="1597480544013" />
+    <state width="578" height="352" key="GridCell.Tab.0.right/0.23.2048.1257@0.23.2048.1257" timestamp="1598590438691" />
     <state width="1494" height="300" key="GridCell.Tab.0.right/0.23.3008.1669@0.23.3008.1669" timestamp="1597430193178" />
     <state x="220" y="337" width="1505" height="951" key="SettingsEditor" timestamp="1597429168604">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="205" y="259" key="SettingsEditor/0.23.2048.1257@0.23.2048.1257" timestamp="1596431066818" />
     <state x="220" y="337" width="1505" height="951" key="SettingsEditor/0.23.3008.1669@0.23.3008.1669" timestamp="1597429168604" />
-    <state width="500" height="400" key="SwitcherDM" timestamp="1597441466324">
+    <state width="500" height="400" key="SwitcherDM" timestamp="1599196167756">
       <screen x="0" y="23" width="2048" height="1257" />
     </state>
-    <state width="500" height="400" key="SwitcherDM/0.23.2048.1257@0.23.2048.1257" timestamp="1597441466324" />
+    <state width="500" height="400" key="SwitcherDM/0.23.2048.1257@0.23.2048.1257" timestamp="1599196167756" />
     <state width="500" height="445" key="SwitcherDM/0.23.3008.1669@0.23.3008.1669" timestamp="1597430180241" />
     <state x="567" y="494" key="VCS.EditChangelistDialog" timestamp="1595486739877">
       <screen x="0" y="23" width="3008" height="1669" />
@@ -1287,15 +517,19 @@
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="1520" y="738" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.3008.1669@0.23.3008.1669" timestamp="1596009249701" />
-    <state x="1088" y="360" width="615" height="735" key="find.popup" timestamp="1598301392997">
-      <screen x="0" y="23" width="3008" height="1669" />
+    <state x="741" y="277" width="574" height="554" key="find.popup" timestamp="1598561186098">
+      <screen x="0" y="23" width="2048" height="1257" />
     </state>
-    <state x="741" y="277" width="568" height="554" key="find.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1596518621967" />
+    <state x="741" y="277" width="574" height="554" key="find.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1598561186098" />
     <state x="1088" y="360" width="615" height="735" key="find.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1598301392997" />
-    <state x="464" y="394" width="670" height="676" key="search.everywhere.popup" timestamp="1597428553150">
-      <screen x="0" y="23" width="3008" height="1669" />
+    <state x="772" y="375" width="700" height="530" key="recent.locations.popup" timestamp="1599196666778">
+      <screen x="0" y="23" width="2048" height="1257" />
     </state>
-    <state x="316" y="302" width="670" height="510" key="search.everywhere.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1596434153902" />
+    <state x="772" y="375" width="700" height="530" key="recent.locations.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1599196666778" />
+    <state x="316" y="302" width="670" height="510" key="search.everywhere.popup" timestamp="1599196707616">
+      <screen x="0" y="23" width="2048" height="1257" />
+    </state>
+    <state x="316" y="302" width="670" height="510" key="search.everywhere.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1599196707616" />
     <state x="464" y="394" width="670" height="676" key="search.everywhere.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1597428553150" />
   </component>
 </project>

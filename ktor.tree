@@ -50,6 +50,7 @@
                     <toc-element id="caching.md"/>
                     <toc-element id="cors.md"/>
                     <toc-element id="redirects.md"/>
+                    <toc-element id="sessions.md"/>
                 </toc-element>
 
             </toc-element>
