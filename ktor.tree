@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <product-profile id="ktor" name="Ktor" start-page="quickstart_api.md" status="eap">
+ <toc-element toc-title="Generator">
+    <toc-element id="generator.md" toc-title="Generator"/>
+ <toc-element toc-title="API Docs">
+    <toc-element id="API Docs" toc-title="API Docs"/>
+ <toc-element toc-title="Quick Start">
     <toc-element toc-title="Quick Start">
-        <toc-element id="quickstart_api.md" toc-title="API Docs"/>
         <toc-element id="code-style.md"/>
         <toc-element id="guides.md">
             <toc-element id="guides_application.md" toc-title="First App"/>
@@ -11,7 +15,6 @@
             <toc-element id="website.md" toc-title="Website"/>
             <toc-element id="guides_chat.md" toc-title="Chat"/>
         </toc-element>
-        <toc-element id="generator.md" toc-title="Generator"/>
         <toc-element id="artifacts.md" toc-title="Artifacts"/>
         <toc-element id="migration.md">
             <toc-element id=".2.3.md" toc-title="1.2.3"/>
