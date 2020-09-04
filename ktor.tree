@@ -1,245 +1,238 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <product-profile id="ktor" name="Ktor" start-page="quickstart_api.md" status="eap">
+ <toc-element toc-title="Generator">
     <toc-element id="generator.md" toc-title="Generator"/>
-    <toc-element id="quickstart_api.md" toc-title="API Docs"/>
-    <toc-element toc-title="Quick Start">
-        <toc-element id="code-style.md"/>
-        <toc-element id="guides.md">
+ <toc-element toc-title="API Docs">
+    <toc-element id="API Docs" toc-title="API Docs"/>
+ </toc-element>
+    <toc-element id="quickstart_index.md" toc-title="Quick Start">
+        <toc-element id="docker.md" toc-title="Docker"/>
+        <toc-element id="gradle.md" toc-title="Gradle"/>
+        <toc-element id="intellij-idea.md" toc-title="IntelliJ IDEA"/>
+        <toc-element id="maven.md" toc-title="Maven"/>
+     <toc-element id="guides.md">
             <toc-element id="guides_application.md" toc-title="First App"/>
-            <toc-element id="ssl.md" toc-title="SSL"/>
-            <toc-element id="guides_oauth.md" toc-title="Google OAuth"/>
-            <toc-element id="guides_api.md" toc-title="HTTP API"/>
             <toc-element id="website.md" toc-title="Website"/>
+            <toc-element id="guides_api.md" toc-title="HTTP API"/>
             <toc-element id="guides_chat.md" toc-title="Chat"/>
+            <toc-element id="guides_oauth.md" toc-title="Google OAuth"/>
+            <toc-element id="ssl.md" toc-title="SSL"/>
         </toc-element>
+             <toc-element id="code-style.md"/>
         <toc-element id="artifacts.md" toc-title="Artifacts"/>
+        <toc-element id="quickstart_coroutines.md"/>
         <toc-element id="migration.md">
-            <toc-element id=".2.3.md" toc-title="1.2.3"/>
-            <toc-element id=".1.4.md" toc-title="1.1.4"/>
             <toc-element id=".0.0-beta-3.md" toc-title="1.0.0-beta-3"/>
             <toc-element id=".0.0.md" toc-title="1.0.0"/>
             <toc-element id=".1.1.md" toc-title="1.1.1"/>
-            <toc-element id=".4.0.md" toc-title="1.4.0"/>
             <toc-element id=".1.2.md" toc-title="1.1.2"/>
-            <toc-element id=".3.0.md" toc-title="1.3.0"/>
-            <toc-element id=".2.0.md" toc-title="1.2.0"/>
             <toc-element id=".1.3.md" toc-title="1.1.3"/>
+            <toc-element id=".1.4.md" toc-title="1.1.4"/>
+            <toc-element id=".2.0.md" toc-title="1.2.0"/>
+            <toc-element id=".2.3.md" toc-title="1.2.3"/>
             <toc-element id=".2.4.md" toc-title="1.2.4"/>
+            <toc-element id=".3.0.md" toc-title="1.3.0"/>
+            <toc-element id=".4.0.md" toc-title="1.4.0"/>
             <toc-element id="-06-04-0.9.2.md"/>
             <toc-element id="-06-26-0.9.3.md"/>
             <toc-element id="-08-06-plugin-0.2.0.md"/>
             <toc-element id="-08-07-openapi-gen.md"/>
             <toc-element id="bug_report.md"/>
         </toc-element>
-        <toc-element id="quickstart_coroutines.md"/>
-        <toc-element id="quickstart_index.md" toc-title="Quick Start">
-            <toc-element id="intellij-idea.md" toc-title="IntelliJ IDEA"/>
-            <toc-element id="gradle.md" toc-title="Gradle"/>
-            <toc-element id="maven.md" toc-title="Maven"/>
-            <toc-element id="docker.md" toc-title="Docker"/>
-        </toc-element>
         <toc-element id="zfaq.md" toc-title="FAQ"/>
     </toc-element>
     <toc-element toc-title="Servers">
-        <toc-element id="self-signed-certificate.md" toc-title="Self-Signed Certificate"/>
-        <toc-element id="lifecycle.md" toc-title="Lifecycle"/>
-        <toc-element id="structure.md" toc-title="Structure"/>
+        <toc-element id="intro.md" toc-title="Server introduction"/>
         <toc-element id="servers_application.md" toc-title="Application"/>
-        <toc-element id="engine.md" toc-title="Running"/>
+        <toc-element id="autoreload.md" toc-title="Autoreload"/>
         <toc-element id="calls.md" toc-title="Calls">
             <toc-element id="requests.md" toc-title="Requests"/>
             <toc-element id="responses.md" toc-title="Responses"/>
-        </toc-element>
-        <toc-element id="autoreload.md" toc-title="Autoreload"/>
-        <toc-element id="uploads.md" toc-title="Uploads"/>
-        <toc-element id="servers_testing.md" toc-title="Testing"/>
-        <toc-element id="intro.md" toc-title="Server introduction"/>
+        <toc-element id="certificates.md"/ toc-title="Certificates">
+        <toc-element id="configuration.md" toc-title="Configuration">
+            <toc-element id="environments.md" toc-title="Environments"/>
         <toc-element id="deploy.md" toc-title="Deploy">
+            <toc-element id="packing.md">
+                <toc-element id="fatjar.md"/>
+                <toc-element id="war.md" toc-title="WAR"/>
             <toc-element id="deploy_proguard.md"/>
+            <toc-element id="containers.md"/>
             <toc-element id="hosting.md">
                 <toc-element id="google-app-engine.md" toc-title="GAE"/>
                 <toc-element id="heroku.md"/>
-            </toc-element>
-            <toc-element id="containers.md"/>
-            <toc-element id="packing.md">
-                <toc-element id="war.md" toc-title="WAR"/>
-                <toc-element id="fatjar.md"/>
-            </toc-element>
-        </toc-element>
+        <toc-element id="engine.md" toc-title="Running"/>
+        <toc-element id="lifecycle.md" toc-title="Lifecycle"/>
+        <toc-element id="servers_logging.md" toc-title="Logging"/>
+        <toc-element id="servers_raw-sockets.md" toc-title="Sockets"/>
+        <toc-element id="self-signed-certificate.md" toc-title="Self-Signed Certificate"/>
+        <toc-element id="structure.md" toc-title="Structure"/>
+        <toc-element id="servers_testing.md" toc-title="Testing"/>
+        <toc-element id="uploads.md" toc-title="Uploads"/>
         <toc-element id="zfeatures.md" toc-title="Features">
+        </toc-element>
             <toc-element id="features_authentication.md" toc-title="Authentication">
                 <toc-element id="basic.md" toc-title="Basic and Form"/>
-                <toc-element id="jwt.md" toc-title="JWT and JWK"/>
-                <toc-element id="authentication_oauth.md" toc-title="OAuth"/>
-                <toc-element id="ldap.md" toc-title="LDAP"/>
                 <toc-element id="digest.md" toc-title="Digest"/>
+                <toc-element id="jwt.md" toc-title="JWT and JWK"/>
+                <toc-element id="ldap.md" toc-title="LDAP"/>
+                <toc-element id="authentication_oauth.md" toc-title="OAuth"/>
             </toc-element>
-            <toc-element id="routing.md" toc-title="Routing"/>
-            <toc-element id="metrics-micrometer.md"/>
-            <toc-element id="content-negotiation.md" toc-title="Content Negotiation">
-                <toc-element id="serialization-converter.md" toc-title="kotlinx.serialization"/>
+        <toc-element id="autoheadresponse.md" toc-title="Auto Head Response"/>
+        <toc-element id="caching-headers.md" toc-title="Caching Headers"/>
+        <toc-element id="call-id.md"/>
+        <toc-element id="call-logging.md" toc-title="Call Logging"/>
+        <toc-element id="compression.md" toc-title="Compression"/>
+        <toc-element id="conditional-headers.md" toc-title="Conditional Headers"/>
+        <toc-element id="content-negotiation.md" toc-title="Content Negotiation">
+                <toc-element id="content-negotiation_gson.md" toc-title="Gson"/> 
                 <toc-element id="content-negotiation_jackson.md" toc-title="Jackson"/>
-                <toc-element id="content-negotiation_gson.md" toc-title="Gson"/>
-            </toc-element>
-            <toc-element id="https-redirect.md" toc-title="HttpsRedirect"/>
-            <toc-element id="call-id.md"/>
-            <toc-element id="templates.md">
-                <toc-element id="mustache.md" toc-title="Mustache"/>
-                <toc-element id="velocity.md" toc-title="Velocity"/>
-                <toc-element id="thymeleaf.md" toc-title="Thymeleaf"/>
-                <toc-element id="html-dsl.md" toc-title="HTML DSL"/>
-                <toc-element id="freemarker.md" toc-title="Freemarker"/>
-                <toc-element id="pebble.md" toc-title="Pebble"/>
-            </toc-element>
-            <toc-element id="features_locations.md" toc-title="Locations"/>
-            <toc-element id="forward-headers.md" toc-title="ForwardedHeaderSupport"/>
-            <toc-element id="partial-content.md" toc-title="Partial Content"/>
-            <toc-element id="call-logging.md" toc-title="Call Logging"/>
-            <toc-element id="conditional-headers.md" toc-title="Conditional Headers"/>
-            <toc-element id="static-content.md" toc-title="Static Content"/>
-            <toc-element id="hsts.md" toc-title="HSTS"/>
-            <toc-element id="status-pages.md" toc-title="Status Pages"/>
-            <toc-element id="webjars.md" toc-title="Webjars"/>
-            <toc-element id="cors.md" toc-title="CORS"/>
-            <toc-element id="caching-headers.md" toc-title="Caching Headers"/>
-            <toc-element id="double-receive.md" toc-title="DoubleReceive"/>
-            <toc-element id="data-conversion.md"/>
-            <toc-element id="sessions.md" toc-title="Sessions">
-                <toc-element id="cookie-header.md" toc-title="Cookie/Header"/>
+                <toc-element id="serialization-converter.md" toc-title="kotlinx.serialization"/>
+        <toc-element id="cors.md" toc-title="CORS"/>
+        <toc-element id="data-conversion.md"/>
+        <toc-element id="default-headers.md" toc-title="Default Headers"/>
+        <toc-element id="double-receive.md" toc-title="DoubleReceive"/>
+        <toc-element id="forward-headers.md" toc-title="ForwardedHeaderSupport"/>
+        <toc-element id="hsts.md" toc-title="HSTS"/>
+        <toc-element id="https-redirect.md" toc-title="HttpsRedirect"/>
+        <toc-element id="features_locations.md" toc-title="Locations"/>
+        <toc-element id="metrics-micrometer.md"/>
+        <toc-element id="features_metrics.md"/>
+        <toc-element id="partial-content.md" toc-title="Partial Content"/>
+        <toc-element id="routing.md" toc-title="Routing"/>
+        <toc-element id="sessions.md" toc-title="Sessions">
                 <toc-element id="client-server.md" toc-title="Client/Server"/>
+                <toc-element id="cookie-header.md" toc-title="Cookie/Header"/>
+                <toc-element id="serializers.md" toc-title="Serializers"/>
                 <toc-element id="storages.md" toc-title="Storages"/>
                 <toc-element id="transformers.md" toc-title="Transformers"/>
-                <toc-element id="serializers.md" toc-title="Serializers"/>
-            </toc-element>
-            <toc-element id="features_metrics.md"/>
-            <toc-element id="autoheadresponse.md" toc-title="Auto Head Response"/>
-            <toc-element id="default-headers.md" toc-title="Default Headers"/>
-            <toc-element id="shutdown-url.md" toc-title="Shutdown URL"/>
-            <toc-element id="compression.md" toc-title="Compression"/>
-            <toc-element id="servers_features_websockets.md"/>
-        </toc-element>
-        <toc-element id="configuration.md" toc-title="Configuration">
-            <toc-element id="environments.md" toc-title="Environments"/>
-        </toc-element>
-        <toc-element id="servers_logging.md" toc-title="Logging"/>
-        <toc-element id="certificates.md"/>
-        <toc-element id="servers_raw-sockets.md" toc-title="Sockets"/>
+        <toc-element id="shutdown-url.md" toc-title="Shutdown URL"/>
+        <toc-element id="static-content.md" toc-title="Static Content"/>
+        <toc-element id="status-pages.md" toc-title="Status Pages"/>
+        <toc-element id="templates.md">
+                <toc-element id="freemarker.md" toc-title="Freemarker"/>
+                <toc-element id="html-dsl.md" toc-title="HTML DSL"/>
+                <toc-element id="mustache.md" toc-title="Mustache"/>
+                <toc-element id="pebble.md" toc-title="Pebble"/>
+                <toc-element id="thymeleaf.md" toc-title="Thymeleaf"/>
+                <toc-element id="velocity.md" toc-title="Velocity"/>
+        </toc-element>      
+        <toc-element id="webjars.md" toc-title="Webjars"/>
+        <toc-element id="servers_features_websockets.md"/>
         <toc-element id="zindex.md" toc-title="Index"/>
-    </toc-element>
+    </toc-element>         
     <toc-element toc-title="Clients">
-        <toc-element id="clients_raw-sockets.md" toc-title="Sockets"/>
         <toc-element id="clients_index.md">
-            <toc-element id="http-client_multiplatform.md" toc-title="Multiplatform"/>
-            <toc-element id="http-client_engines.md" toc-title="Engines"/>
-            <toc-element id="quick-start.md" toc-title="Quick start">
-                <toc-element id="streaming.md" toc-title="Streaming"/>
-                <toc-element id="response.md" toc-title="Response"/>
-                <toc-element id="request.md" toc-title="Request"/>
+        <toc-element id="quick-start.md" toc-title="Quick start">
                 <toc-element id="client.md" toc-title="Client"/>
+                <toc-element id="request.md" toc-title="Request"/>
+                <toc-element id="response.md" toc-title="Response"/>
+                <toc-element id="streaming.md" toc-title="Streaming"/>
             </toc-element>
-            <toc-element id="http-client_testing.md" toc-title="Testing"/>
+        <toc-element id="http-client_engines.md" toc-title="Engines"/>
+        <toc-element id="http-client_multiplatform.md" toc-title="Multiplatform"/>
+        <toc-element id="http-client_testing.md" toc-title="Testing"/>
+        <toc-element id="examples.md" toc-title="Examples"/>
             <toc-element id="http-client_features.md" toc-title="Features">
+                <toc-element id="features_auth.md"/>
+                <toc-element id="default-request.md"/>
                 <toc-element id="http-cookies.md"/>
-                <toc-element id="response-validation.md"/>
-                <toc-element id="user-agent.md"/>
+                <toc-element id="http-plain-text.md"/>
                 <toc-element id="http-redirect.md"/>
                 <toc-element id="json-feature.md"/>
-                <toc-element id="default-request.md"/>
-                <toc-element id="http-plain-text.md"/>
                 <toc-element id="features_logging.md"/>
-                <toc-element id="features_auth.md"/>
-                <toc-element id="timeout.md"/>
                 <toc-element id="proxy.md"/>
+                <toc-element id="response-validation.md"/>
+                <toc-element id="timeout.md"/>
+                <toc-element id="user-agent.md"/>
                 <toc-element id="http-client_features_websockets.md"/>
             </toc-element>
-            <toc-element id="examples.md" toc-title="Examples"/>
-        </toc-element>
-        <toc-element id="clients_websockets.md"/>
+        <toc-element id="clients_raw-sockets.md" toc-title="Sockets"/>
+        <toc-element id="clients_websockets.md"/>       
     </toc-element>
     <toc-element toc-title="Kotlinx">
+        <toc-element id="kotlinx_index.md"/>
+        <toc-element id="kotlinx_multiplatform.md"/>
         <toc-element id="atomicfu.md" toc-title="kotlinx.atomicfu"/>
         <toc-element id="kotlinx_coroutines.md" toc-title="kotlinx.coroutines"/>
-        <toc-element id="kotlinx_index.md"/>
         <toc-element id="serialization.md" toc-title="kotlinx.serialization"/>
-        <toc-element id="kotlinx_multiplatform.md"/>
         <toc-element id="kotlinx_io.md" toc-title="kotlinx-io">
+            <toc-element id="setup.md"/>
             <toc-element id="platforms.md"/>
             <toc-element id="encoding.md">
-                <toc-element id="charset.md"/>
                 <toc-element id="byteorder.md"/>
+                <toc-element id="charset.md"/>
             </toc-element>
-            <toc-element id="setup.md"/>
             <toc-element id="io_io.md">
-                <toc-element id="iobuffer.md"/>
-                <toc-element id="packets.md"/>
                 <toc-element id="channels.md"/>
                 <toc-element id="input-output.md"/>
+                <toc-element id="iobuffer.md"/>
+                <toc-element id="packets.md"/>
             </toc-element>
             <toc-element id="tools.md"/>
-        </toc-element>
+        </toc-element>   
     </toc-element>
     <toc-element toc-title="Samples">
         <toc-element id="app.md" toc-title="Applications">
-            <toc-element id="kweet.md" toc-title="Kweet"/>
             <toc-element id="app_chat.md" toc-title="Chat"/>
             <toc-element id="httpbin.md" toc-title="HttpBin"/>
+            <toc-element id="kweet.md" toc-title="Kweet"/>
             <toc-element id="youkube.md" toc-title="YouKube"/>
         </toc-element>
         <toc-element id="deployment.md">
-            <toc-element id="netty.md"/>
             <toc-element id="netty-embedded.md" toc-title="Embedded"/>
+            <toc-element id="netty.md"/>
+        </toc-element>
+         <toc-element id="feature.md">
+            <toc-element id="async.md" toc-title="Asynchronous"/>
+            <toc-element id="feature_auth.md" toc-title="Authenticate"/>
+            <toc-element id="custom-feature.md" toc-title="Custom Feature"/>
+            <toc-element id="feature_gson.md" toc-title="GSON"/>
+            <toc-element id="guice.md" toc-title="Guice"/>
+            <toc-element id="html.md" toc-title="Html"/>
+            <toc-element id="feature_http2.md" toc-title="HTTP/2"/>
+            <toc-element id="feature_jackson.md" toc-title="Jackson"/>
+            <toc-element id="feature_locations.md" toc-title="Locations"/>
+            <toc-element id="feature_metrics.md" toc-title="Metrics"/>
+            <toc-element id="post.md" toc-title="POST"/>
+            <toc-element id="static.md" toc-title="Static"/>
+            <toc-element id="testable.md" toc-title="Testable"/>
         </toc-element>
         <toc-element id="other.md">
-            <toc-element id="css-dsl.md"/>
-            <toc-element id="rx.md" toc-title="RX"/>
-            <toc-element id="other_fullstack-mpp.md"/>
-            <toc-element id="multiple-connectors.md"/>
-            <toc-element id="maven-netty.md"/>
-            <toc-element id="simulate-slow-server.md"/>
-            <toc-element id="di-kodein.md"/>
-            <toc-element id="redirect-with-exception.md"/>
-            <toc-element id="structured-logging.md"/>
-            <toc-element id="sse.md"/>
-            <toc-element id="maven-google-app-engine-standard.md"/>
-            <toc-element id="other_proguard.md"/>
-            <toc-element id="client-tools.md"/>
-            <toc-element id="filelisting.md"/>
-            <toc-element id="reverse-proxy.md" toc-title="Reverse Proxy"/>
             <toc-element id="client-multipart.md"/>
+            <toc-element id="client-tools.md"/>
+            <toc-element id="css-dsl.md"/>
+            <toc-element id="di-kodein.md"/>
+            <toc-element id="filelisting.md"/>
+            <toc-element id="other_fullstack-mpp.md"/>
+            <toc-element id="maven-google-app-engine-standard.md"/>
+            <toc-element id="maven-netty.md"/>
+            <toc-element id="multiple-connectors.md"/>
+            <toc-element id="other_proguard.md"/>
+            <toc-element id="redirect-with-exception.md"/>
+            <toc-element id="reverse-proxy.md" toc-title="Reverse Proxy"/>
+            <toc-element id="rx.md" toc-title="RX"/>
+            <toc-element id="simulate-slow-server.md"/>
+            <toc-element id="sse.md"/>
+            <toc-element id="structured-logging.md"/>
         </toc-element>
-        <toc-element id="samples_index.md" toc-title="Samples"/>
         <toc-element id="fullstack.md" toc-title="FullStack"/>
+        <toc-element id="samples_index.md" toc-title="Samples"/>
         <toc-element id="samples_fullstack-mpp.md" toc-title="FullStack MPP"/>
-        <toc-element id="feature.md">
-            <toc-element id="static.md" toc-title="Static"/>
-            <toc-element id="custom-feature.md" toc-title="Custom Feature"/>
-            <toc-element id="feature_locations.md" toc-title="Locations"/>
-            <toc-element id="async.md" toc-title="Asynchronous"/>
-            <toc-element id="guice.md" toc-title="Guice"/>
-            <toc-element id="feature_jackson.md" toc-title="Jackson"/>
-            <toc-element id="post.md" toc-title="POST"/>
-            <toc-element id="feature_auth.md" toc-title="Authenticate"/>
-            <toc-element id="testable.md" toc-title="Testable"/>
-            <toc-element id="feature_metrics.md" toc-title="Metrics"/>
-            <toc-element id="feature_http2.md" toc-title="HTTP/2"/>
-            <toc-element id="feature_gson.md" toc-title="GSON"/>
-            <toc-element id="html.md" toc-title="Html"/>
-        </toc-element>
         <toc-element id="open-source.md" toc-title="Open Source"/>
-    </toc-element>
-    <toc-element href="https://api.ktor.io" toc-title="Api"/>
+    </toc-element>      
+    <toc-element href="https://api.ktor.io" toc-title="Api"/>    
     <toc-element toc-title="Advanced">
+        <toc-element id="advanced_index.md" toc-title="Advanced"/>
         <toc-element id="advanced_authentication.md" toc-title="Authentication"/>
+        <toc-element id="build-from-source.md" toc-title="Building Ktor"/>
+        <toc-element id="advanced_engines.md" toc-title="Custom Engines"/>
+        <toc-element id="events.md" toc-title="Application monitoring"/>
+        <toc-element id="advanced_features.md" toc-title="Features"/>
+        <toc-element id="advanced_http2.md" toc-title="HTTP/2"/>
         <toc-element id="pipeline.md" toc-title="Pipeline">
             <toc-element id="attributes.md" toc-title="Attributes"/>
             <toc-element id="route.md" toc-title="Route interception"/>
         </toc-element>
-        <toc-element id="build-from-source.md" toc-title="Building Ktor"/>
-        <toc-element id="advanced_index.md" toc-title="Advanced"/>
         <toc-element id="utilities.md" toc-title="Utilities"/>
-        <toc-element id="advanced_features.md" toc-title="Features"/>
-        <toc-element id="advanced_http2.md" toc-title="HTTP/2"/>
-        <toc-element id="events.md" toc-title="Application monitoring"/>
-        <toc-element id="advanced_engines.md" toc-title="Custom Engines"/>
     </toc-element>
 </product-profile>
