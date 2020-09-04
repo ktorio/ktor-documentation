@@ -1,6 +1,6 @@
 [//]: # (name: Bug report)
 [//]: # (about: Please read Important notice below)
-[//]: # (title: '')
+[//]: # (title: Bug report)
 [//]: # (labels: '')
 [//]: # (assignees: '')
 
