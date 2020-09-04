@@ -6,7 +6,3 @@
 [//]: # (- /samples/post.html: - /samples/post.html)
 
 Browse the source code on GitHub: [ktor-samples-post](https://github.com/ktorio/ktor-samples/blob/master/feature/post)
-
-{% include sample.html paths='
-    feature/post/src/PostApplication.kt
-' %}

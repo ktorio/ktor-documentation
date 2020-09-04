@@ -8,13 +8,6 @@
 
 This feature adds multiplatform logging for HTTP calls.
 
-{% include 
-    mpp_feature.html
-    targets="common,jvm,native,js"
-    base="ktor-client-logging"
-    classifiers=",-jvm,-native,-js"
-%}
-
 ## Installation
 
 ```kotlin

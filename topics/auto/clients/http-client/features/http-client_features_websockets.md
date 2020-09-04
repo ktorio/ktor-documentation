@@ -9,10 +9,3 @@
 
 This feature enables bi-directional WebSocket connections with the server.
 You can read more about it in its [dedicated WebSockets page](/clients/websockets.html).
-
-{% include 
-    mpp_feature.html
-    targets="common,jvm,native,js"
-    base="ktor-client-websockets"
-    classifiers=",-jvm,-native,-js"
-%}

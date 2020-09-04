@@ -6,8 +6,3 @@
 [//]: # (- /samples/testable.html: - /samples/testable.html)
 
 Browse the source code on GitHub: [ktor-samples-testable](https://github.com/ktorio/ktor-samples/tree/master/feature/testable)
-
-{% include sample.html paths='
-    feature/testable/src/TestableApplication.kt,
-    feature/testable/test/ApplicationTest.kt
-' %}

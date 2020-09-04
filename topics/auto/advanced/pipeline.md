@@ -209,7 +209,7 @@ applications handling http requests.
 
 ### Routing
 
-The [routing feature](/servers/features/routing.html) defines a nested pipeline attached to the Call phase in the Application pipeline.
+The [routing feature](routing.md) defines a nested pipeline attached to the Call phase in the Application pipeline.
 You can get the routing root node pipeline by calling `val routing = application.routing {}`.
 Each node in the `Route` tree defines its own pipeline that is later merged per each route.
 

@@ -286,9 +286,6 @@ networks:
 
 #### `Dockerfile`
 
-
-{{ my_include | markdownify }}
-
 You can find more information about [how to deploy a docker and the Dockerfile](/quickstart/quickstart/docker.html).
 
 ### Simplified overview
