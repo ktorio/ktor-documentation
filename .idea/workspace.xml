@@ -20,7 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/topics/auto/.github/ISSUE_TEMPLATE/bug_report.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/.github/ISSUE_TEMPLATE/bug_report.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.ihp" beforeDir="false" afterPath="$PROJECT_DIR$/project.ihp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +133,7 @@
       <workItem from="1597417947421" duration="598000" />
       <workItem from="1597428526852" duration="3498000" />
       <workItem from="1599129843439" duration="9303000" />
-      <workItem from="1599200191505" duration="2434000" />
+      <workItem from="1599200191505" duration="2469000" />
     </task>
     <task id="LOCAL-00001" summary="Layout of TOC">
       <created>1595417880622</created>
@@ -449,7 +450,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599202593367</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Title change">
+      <created>1599203212673</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1599203212673</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -471,7 +479,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fixed link" />
     <MESSAGE value="Fixed src URL for Sample App" />
     <MESSAGE value="Reverted src URL" />
     <MESSAGE value="Fixed heading issues" />
@@ -496,17 +503,18 @@
     <MESSAGE value="Notes, step 2" />
     <MESSAGE value="Notes, step 3" />
     <MESSAGE value="Typo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Typo" />
+    <MESSAGE value="Title change" />
+    <option name="LAST_COMMIT_MESSAGE" value="Title change" />
   </component>
   <component name="WindowStateProjectService">
     <state x="799" y="884" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596175947740">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="799" y="884" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1596175947740" />
-    <state x="525" y="196" key="CommitChangelistDialog2" timestamp="1599202593274">
+    <state x="525" y="196" key="CommitChangelistDialog2" timestamp="1599203212575">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="525" y="196" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1599202593274" />
+    <state x="525" y="196" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1599203212575" />
     <state x="881" y="408" width="1336" height="897" key="DiffContextDialog" timestamp="1597429287105">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
@@ -554,10 +562,10 @@
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="567" y="494" key="VCS.EditChangelistDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1595486739877" />
-    <state x="255" y="298" key="Vcs.Push.Dialog.v2" timestamp="1599202595240">
+    <state x="255" y="298" key="Vcs.Push.Dialog.v2" timestamp="1599203214120">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="255" y="298" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1599202595240" />
+    <state x="255" y="298" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1599203214120" />
     <state x="272" y="335" key="Vcs.Push.Dialog.v2/0.23.2048.1257@0.23.2048.1257" timestamp="1597441516032" />
     <state x="399" y="437" key="Vcs.Push.Dialog.v2/0.23.3008.1669@0.23.3008.1669" timestamp="1597429207052" />
     <state x="881" y="408" width="1336" height="897" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1597428876629">
