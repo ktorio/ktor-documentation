@@ -31,4 +31,4 @@ You can try the [realworld swagger model](https://github.com/ktorio/ktor-init-to
 * Generate `logback.xml` file.
 * Additional templates.
 
-You can read [more about the plugin here](intellj-idea.md).
+You can read [more about the plugin here](intellij-idea.md).
