@@ -62,6 +62,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TEXT" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/topics" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -72,7 +73,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="stardust.first.run4" value="yes" />
   </component>
   <component name="RecentsManager">
@@ -136,13 +137,7 @@
       <workItem from="1597428526852" duration="3498000" />
       <workItem from="1599129843439" duration="9303000" />
       <workItem from="1599200191505" duration="6927000" />
-    </task>
-    <task id="LOCAL-00002" summary="Layout of TOC">
-      <created>1595417886310</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1595417886311</updated>
+      <workItem from="1599568559145" duration="655000" />
     </task>
     <task id="LOCAL-00003" summary="Finished off first round of TOC">
       <created>1595420577260</created>
@@ -480,7 +475,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599227563970</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="SYntax fixes">
+      <created>1599290062160</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1599290062160</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -534,10 +536,10 @@
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="799" y="884" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1596175947740" />
-    <state x="525" y="196" key="CommitChangelistDialog2" timestamp="1599227563871">
+    <state x="525" y="196" key="CommitChangelistDialog2" timestamp="1599290062059">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="525" y="196" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1599227563871" />
+    <state x="525" y="196" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1599290062059" />
     <state x="881" y="408" width="1336" height="897" key="DiffContextDialog" timestamp="1597429287105">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
@@ -570,13 +572,14 @@
     <state width="1494" height="419" key="GridCell.Tab.0.right/0.0.2048.1280@0.0.2048.1280" timestamp="1597414675247" />
     <state width="1494" height="300" key="GridCell.Tab.0.right/0.23.2048.1257@0.23.2048.1257" timestamp="1597472768651" />
     <state width="1494" height="300" key="GridCell.Tab.0.right/0.23.3008.1669@0.23.3008.1669" timestamp="1597430193178" />
-    <state x="192" y="109" key="MergeDialog" timestamp="1599227482369">
+    <state x="192" y="109" key="MergeDialog" timestamp="1599571974301">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="192" y="109" key="MergeDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1599227482369" />
-    <state x="220" y="337" width="1505" height="951" key="SettingsEditor" timestamp="1597429168604">
-      <screen x="0" y="23" width="3008" height="1669" />
+    <state x="192" y="109" key="MergeDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1599571974301" />
+    <state x="140" y="226" width="961" height="722" key="SettingsEditor" timestamp="1599491279862">
+      <screen x="0" y="0" width="1920" height="1200" />
     </state>
+    <state x="140" y="226" width="961" height="722" key="SettingsEditor/0.0.1920.1200@0.0.1920.1200" timestamp="1599491279862" />
     <state x="205" y="259" key="SettingsEditor/0.23.2048.1257@0.23.2048.1257" timestamp="1596431066818" />
     <state x="220" y="337" width="1505" height="951" key="SettingsEditor/0.23.3008.1669@0.23.3008.1669" timestamp="1597429168604" />
     <state width="500" height="400" key="SwitcherDM" timestamp="1599202562302">
@@ -589,10 +592,10 @@
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="567" y="494" key="VCS.EditChangelistDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1595486739877" />
-    <state x="255" y="298" key="Vcs.Push.Dialog.v2" timestamp="1599227564871">
+    <state x="255" y="298" key="Vcs.Push.Dialog.v2" timestamp="1599290063431">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="255" y="298" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1599227564871" />
+    <state x="255" y="298" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1599290063431" />
     <state x="272" y="335" key="Vcs.Push.Dialog.v2/0.23.2048.1257@0.23.2048.1257" timestamp="1597441516032" />
     <state x="399" y="437" key="Vcs.Push.Dialog.v2/0.23.3008.1669@0.23.3008.1669" timestamp="1597429207052" />
     <state x="881" y="408" width="1336" height="897" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1597428876629">
