@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <product-profile id="ktor" name="Ktor" start-page="quickstart_api.md" status="eap">
-    <toc-element toc-title="Quick Start">
+    <toc-element toc-title="Quick Start.TEST">
         <toc-element id="quickstart_api.md" toc-title="API Docs"/>
         <toc-element id="code-style.md"/>
         <toc-element id="guides.md">
