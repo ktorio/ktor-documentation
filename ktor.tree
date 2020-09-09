@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <product-profile id="ktor" name="Ktor" start-page="generator.md" status="eap">
-    <toc-element id="generator.md" toc-title="Generator"/>
-    <toc-element toc-title="API Docs" href="https://api.ktor.io"/>
     <toc-element id="quickstart_index.md" toc-title="Quick Start">
-            <toc-element id="docker.md" toc-title="Docker"/>
-            <toc-element id="gradle.md" toc-title="Gradle"/>
+        <toc-element href="https://api.ktor.io" toc-title="API Docs"/>
+        <toc-element toc-title="Setup">
+            <toc-element id="generator.md" toc-title="Generator"/>
             <toc-element id="intellij-idea.md" toc-title="IntelliJ IDEA"/>
             <toc-element id="maven.md" toc-title="Maven"/>
-    </toc-element>
+             toc-element id="gradle.md" toc-title="Gradle"/>
+        </toc-element>
+        <toc-element id="docker.md" toc-title="Docker"/>
         <toc-element id="guides.md" toc-title="Guides">
             <toc-element id="guides_application.md" toc-title="First App"/>
             <toc-element id="website.md" toc-title="Website"/>
@@ -34,6 +35,7 @@
         </toc-element>
         <toc-element id="bug_report.md"/>
         <toc-element id="zfaq.md" toc-title="FAQ"/>
+    </toc-element>
     <toc-element toc-title="Servers">
         <toc-element id="intro.md" toc-title="Server introduction"/>
         <toc-element id="servers_application.md" toc-title="Application"/>
@@ -42,7 +44,6 @@
             <toc-element id="requests.md" toc-title="Requests"/>
             <toc-element id="responses.md" toc-title="Responses"/>
         </toc-element>
-    </toc-element>
         <toc-element id="certificates.md" toc-title="Certificates"/>
         <toc-element id="configuration.md" toc-title="Configuration">
             <toc-element id="environments.md" toc-title="Environments"/>
@@ -117,38 +118,37 @@
                 <toc-element id="velocity.md" toc-title="Velocity"/>
             </toc-element>
             <toc-element id="webjars.md" toc-title="Webjars"/>
-            <toc-element id="servers_features_websockets.md"/>
+            <toc-element id="servers_features_websockets.md" toc-title="WebSockets"/>
         </toc-element>
         <toc-element id="zindex.md" toc-title="Index"/>
-    <toc-element toc-title="Clients">
-        <toc-element id="clients_index.md" toc-title="Clients">
-            <toc-element id="quick-start.md" toc-title="Quick start">
-                <toc-element id="client.md" toc-title="Client"/>
-                <toc-element id="request.md" toc-title="Request"/>
-                <toc-element id="response.md" toc-title="Response"/>
-                <toc-element id="streaming.md" toc-title="Streaming"/>
-            </toc-element>
-            <toc-element id="http-client_engines.md" toc-title="Engines"/>
-            <toc-element id="http-client_multiplatform.md" toc-title="Multiplatform"/>
-            <toc-element id="http-client_testing.md" toc-title="Testing"/>
-            <toc-element id="examples.md" toc-title="Examples"/>
-            <toc-element id="http-client_features.md" toc-title="Features">
-                <toc-element id="features_auth.md" toc-title="Auth"/>
-                <toc-element id="default-request.md" toc-title="Default Request"/>
-                <toc-element id="http-cookies.md" toc-title="Cookies"/>
-                <toc-element id="http-plain-text.md" toc-title="Text and Charsets"/>
-                <toc-element id="http-redirect.md" toc-title="Redirect"/>
-                <toc-element id="json-feature.md" toc-title="Json"/>
-                <toc-element id="features_logging.md" toc-title="Logging"/>
-                <toc-element id="proxy.md" toc-title="Proxy"/>
-                <toc-element id="response-validation.md" toc-title="Response Validation"/>
-                <toc-element id="timeout.md" toc-title="Timeout"/>
-                <toc-element id="user-agent.md" toc-title="User Agent"/>
-                <toc-element id="http-client_features_websockets.md" toc-title="WebSockets"/>
-            </toc-element>
-            <toc-element id="clients_raw-sockets.md" toc-title="Sockets"/>
-            <toc-element id="clients_websockets.md" toc-title="WebSockets"/>
+    </toc-element>
+    <toc-element id="clients_index.md" toc-title="Clients">
+        <toc-element id="quick-start.md" toc-title="Quick start">
+            <toc-element id="client.md" toc-title="Client"/>
+            <toc-element id="request.md" toc-title="Request"/>
+            <toc-element id="response.md" toc-title="Response"/>
+            <toc-element id="streaming.md" toc-title="Streaming"/>
         </toc-element>
+        <toc-element id="http-client_engines.md" toc-title="Engines"/>
+        <toc-element id="http-client_multiplatform.md" toc-title="Multiplatform"/>
+        <toc-element id="http-client_testing.md" toc-title="Testing"/>
+        <toc-element id="examples.md" toc-title="Examples"/>
+        <toc-element id="http-client_features.md" toc-title="Features">
+            <toc-element id="features_auth.md" toc-title="Auth"/>
+            <toc-element id="default-request.md" toc-title="Default Request"/>
+            <toc-element id="http-cookies.md" toc-title="Cookies"/>
+            <toc-element id="http-plain-text.md" toc-title="Text and Charsets"/>
+            <toc-element id="http-redirect.md" toc-title="Redirect"/>
+            <toc-element id="json-feature.md" toc-title="Json"/>
+            <toc-element id="features_logging.md" toc-title="Logging"/>
+            <toc-element id="proxy.md" toc-title="Proxy"/>
+            <toc-element id="response-validation.md" toc-title="Response Validation"/>
+            <toc-element id="timeout.md" toc-title="Timeout"/>
+            <toc-element id="user-agent.md" toc-title="User Agent"/>
+            <toc-element id="http-client_features_websockets.md" toc-title="WebSockets"/>
+        </toc-element>
+        <toc-element id="clients_raw-sockets.md" toc-title="Sockets"/>
+        <toc-element id="clients_websockets.md" toc-title="WebSockets"/>
     </toc-element>
     <toc-element toc-title="Kotlinx">
         <toc-element id="kotlinx_index.md" toc-title="Kotlinx Libraries"/>
@@ -221,7 +221,6 @@
         <toc-element id="fullstack.md" toc-title="FullStack"/>
         <toc-element id="open-source.md" toc-title="Open Source"/>
     </toc-element>
-    <toc-element href="https://api.ktor.io" toc-title="Api"/>
     <toc-element toc-title="Advanced">
         <toc-element id="advanced_index.md" toc-title="Advanced"/>
         <toc-element id="advanced_authentication.md" toc-title="Authentication"/>
