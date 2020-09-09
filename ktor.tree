@@ -221,7 +221,6 @@
             <toc-element id="fullstack.md" toc-title="FullStack"/>
             <toc-element id="open-source.md" toc-title="Open Source"/>
         </toc-element>
-    <toc-element href="https://api.ktor.io" toc-title="Api"/>
     <toc-element id="advanced_index.md" toc-title="Advanced"/>        
             <toc-element id="advanced_authentication.md" toc-title="Authentication"/>
             <toc-element id="build-from-source.md" toc-title="Building Ktor"/>
