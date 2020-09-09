@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<product-profile id="ktor" name="Ktor" start-page="quickstart_api.md" status="eap">
+<product-profile id="ktor" name="Ktor" start-page="quickstart_index.md" status="eap">
     <toc-element toc-title="Generator"/>
     <toc-element id="generator.md" toc-title="Generator"/>
     <toc-element toc-title="API Docs" href="https://api.ktor.io"/>
