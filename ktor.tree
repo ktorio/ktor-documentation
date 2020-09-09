@@ -147,7 +147,6 @@
             <toc-element id="user-agent.md" toc-title="User Agent"/>
             <toc-element id="http-client_features_websockets.md" toc-title="WebSockets"/>
         </toc-element>
-        <toc-element id="clients_raw-sockets.md" toc-title="Sockets"/>
         <toc-element id="clients_websockets.md" toc-title="WebSockets"/>
     </toc-element>
     <toc-element toc-title="Kotlinx">
