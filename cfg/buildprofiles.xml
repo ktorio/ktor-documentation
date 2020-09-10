@@ -6,6 +6,7 @@
         <download-page/>
         <search-scope/>
         <fallback-url/>
+        <images-prefix-override>images/</images-prefix-override>
         <help-app-version>3</help-app-version>
         <config-feedbackRequireEmail>false</config-feedbackRequireEmail>
         <config-showDownloadButton>true</config-showDownloadButton>
