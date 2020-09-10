@@ -10,6 +10,6 @@
     <topics dir="topics"/>
     <images dir="images" web-path="/img/ktor/1.3/"/>
     <categories src="c.list"/>
-    <product src="ktor.tree" version="1.3.1" keymaps-mode="none" id="help/ktor"/>
+    <product src="ktor.tree" version="1.3.1" keymaps-mode="none" id="docs"/>
 
 </ihp>
