@@ -1,0 +1,30 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'application'
+
+mainClassName = "io.ktor.samples.filedownload.DownloaderKt"
+
+sourceSets {
+    main.kotlin.srcDirs = [ 'src' ]
+    main.resources.srcDirs = [ 'resources' ]
+    test.kotlin.srcDirs = [ 'test' ]
+    test.resources.srcDirs = [ 'testresources' ]
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    api "io.ktor:ktor-client-apache:$ktor_version"
+}
+

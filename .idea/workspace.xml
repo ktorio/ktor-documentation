@@ -19,13 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="Added code snippet project">
-      <change afterPath="$PROJECT_DIR$/topics/sessions.md" afterDir="false" />
+    <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="Added templates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ktor.tree" beforeDir="false" afterPath="$PROJECT_DIR$/ktor.tree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +142,7 @@
       <workItem from="1598507792252" duration="5394000" />
       <workItem from="1598560705166" duration="213000" />
       <workItem from="1598561134165" duration="620000" />
-      <workItem from="1599196103073" duration="683000" />
+      <workItem from="1599196103073" duration="1730000" />
     </task>
     <task id="LOCAL-00001" summary="Layout of TOC">
       <created>1595417880622</created>
@@ -408,7 +403,21 @@
       <option name="project" value="LOCAL" />
       <updated>1598561396793</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Cleanup of unnecessary files">
+      <created>1599196902555</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1599196902555</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Added templates">
+      <created>1599197149568</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1599197149568</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -430,8 +439,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Grammar mistake" />
-    <MESSAGE value="Added list of topics for tracking" />
     <MESSAGE value="Grammar and extension fixes" />
     <MESSAGE value="Added Routing." />
     <MESSAGE value="Fixed images" />
@@ -455,16 +462,23 @@
     <MESSAGE value="Sample Feature doc" />
     <MESSAGE value="Switched to including symbols" />
     <MESSAGE value="Added code snippet project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added code snippet project" />
+    <MESSAGE value="Cleanup of unnecessary files" />
+    <MESSAGE value="Added templates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added templates" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="843" y="495" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1599197138785">
+      <screen x="0" y="23" width="2048" height="1257" />
+    </state>
+    <state x="843" y="495" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.23.2048.1257@0.23.2048.1257" timestamp="1599197138785" />
     <state x="799" y="884" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596175947740">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="799" y="884" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1596175947740" />
-    <state x="881" y="408" width="1336" height="897" key="DiffContextDialog" timestamp="1597429287105">
-      <screen x="0" y="23" width="3008" height="1669" />
+    <state x="600" y="313" width="910" height="676" key="DiffContextDialog" timestamp="1599197173118">
+      <screen x="0" y="23" width="2048" height="1257" />
     </state>
+    <state x="600" y="313" width="910" height="676" key="DiffContextDialog/0.23.2048.1257@0.23.2048.1257" timestamp="1599197173118" />
     <state x="881" y="408" width="1336" height="897" key="DiffContextDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1597429287105" />
     <state width="578" height="352" key="GridCell.Tab.0.bottom" timestamp="1598590438691">
       <screen x="0" y="23" width="2048" height="1257" />
@@ -490,11 +504,11 @@
     <state width="1494" height="419" key="GridCell.Tab.0.right/0.0.2048.1280@0.0.2048.1280" timestamp="1597414675247" />
     <state width="578" height="352" key="GridCell.Tab.0.right/0.23.2048.1257@0.23.2048.1257" timestamp="1598590438691" />
     <state width="1494" height="300" key="GridCell.Tab.0.right/0.23.3008.1669@0.23.3008.1669" timestamp="1597430193178" />
-    <state x="220" y="337" width="1505" height="951" key="SettingsEditor" timestamp="1597429168604">
+    <state x="205" y="671" width="1505" height="951" key="SettingsEditor" timestamp="1599215689278">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="205" y="259" key="SettingsEditor/0.23.2048.1257@0.23.2048.1257" timestamp="1596431066818" />
-    <state x="220" y="337" width="1505" height="951" key="SettingsEditor/0.23.3008.1669@0.23.3008.1669" timestamp="1597429168604" />
+    <state x="205" y="671" width="1505" height="951" key="SettingsEditor/0.23.3008.1669@0.23.3008.1669" timestamp="1599215689278" />
     <state width="500" height="400" key="SwitcherDM" timestamp="1599196167756">
       <screen x="0" y="23" width="2048" height="1257" />
     </state>
