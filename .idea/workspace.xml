@@ -21,7 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ktor.tree" beforeDir="false" afterPath="$PROJECT_DIR$/ktor.tree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.ihp" beforeDir="false" afterPath="$PROJECT_DIR$/project.ihp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,14 +137,8 @@
       <workItem from="1597428526852" duration="3498000" />
       <workItem from="1599129843439" duration="9303000" />
       <workItem from="1599200191505" duration="6927000" />
-      <workItem from="1599568559145" duration="655000" />
-    </task>
-    <task id="LOCAL-00003" summary="Finished off first round of TOC">
-      <created>1595420577260</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1595420577260</updated>
+      <workItem from="1599568559145" duration="1219000" />
+      <workItem from="1599641413313" duration="872000" />
     </task>
     <task id="LOCAL-00004" summary="Static Content Done.">
       <created>1596055365561</created>
@@ -482,7 +476,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599290062160</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="SYntax fixes">
+      <created>1599571996117</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1599571996118</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -536,10 +537,10 @@
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="799" y="884" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1596175947740" />
-    <state x="525" y="196" key="CommitChangelistDialog2" timestamp="1599290062059">
+    <state x="525" y="196" key="CommitChangelistDialog2" timestamp="1599571995996">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="525" y="196" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1599290062059" />
+    <state x="525" y="196" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1599571995996" />
     <state x="881" y="408" width="1336" height="897" key="DiffContextDialog" timestamp="1597429287105">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
@@ -588,14 +589,18 @@
     <state width="500" height="400" key="SwitcherDM/0.0.1920.1200@0.0.1920.1200" timestamp="1599202562302" />
     <state width="500" height="400" key="SwitcherDM/0.23.2048.1257@0.23.2048.1257" timestamp="1597441466324" />
     <state width="500" height="445" key="SwitcherDM/0.23.3008.1669@0.23.3008.1669" timestamp="1597430180241" />
+    <state x="750" y="288" key="VCS.ChangeListViewerDialog" timestamp="1599641459698">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="750" y="288" key="VCS.ChangeListViewerDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1599641459698" />
     <state x="567" y="494" key="VCS.EditChangelistDialog" timestamp="1595486739877">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="567" y="494" key="VCS.EditChangelistDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1595486739877" />
-    <state x="255" y="298" key="Vcs.Push.Dialog.v2" timestamp="1599290063431">
+    <state x="255" y="298" key="Vcs.Push.Dialog.v2" timestamp="1599646934824">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="255" y="298" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1599290063431" />
+    <state x="255" y="298" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1599646934824" />
     <state x="272" y="335" key="Vcs.Push.Dialog.v2/0.23.2048.1257@0.23.2048.1257" timestamp="1597441516032" />
     <state x="399" y="437" key="Vcs.Push.Dialog.v2/0.23.3008.1669@0.23.3008.1669" timestamp="1597429207052" />
     <state x="881" y="408" width="1336" height="897" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1597428876629">
@@ -613,10 +618,10 @@
     <state x="694" y="242" width="1008" height="572" key="find.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1599203192123" />
     <state x="741" y="277" width="568" height="554" key="find.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1596518621967" />
     <state x="1088" y="360" width="615" height="735" key="find.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1597410128643" />
-    <state x="296" y="267" width="670" height="487" key="search.everywhere.popup" timestamp="1599223188401">
+    <state x="296" y="267" width="670" height="487" key="search.everywhere.popup" timestamp="1599646929684">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="296" y="267" width="670" height="487" key="search.everywhere.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1599223188401" />
+    <state x="296" y="267" width="670" height="487" key="search.everywhere.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1599646929684" />
     <state x="316" y="302" width="670" height="510" key="search.everywhere.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1596434153902" />
     <state x="464" y="394" width="670" height="676" key="search.everywhere.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1597428553150" />
   </component>
