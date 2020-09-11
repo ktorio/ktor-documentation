@@ -6,6 +6,7 @@
         <download-page/>
         <search-scope/>
         <fallback-url/>
+        <generate-sitemap-url-prefix>https://ktor.io/docs/</generate-sitemap-url-prefix>
         <images-prefix-override>images/</images-prefix-override>
         <help-app-version>3</help-app-version>
         <config-feedbackRequireEmail>false</config-feedbackRequireEmail>
