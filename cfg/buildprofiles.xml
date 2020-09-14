@@ -9,7 +9,7 @@
         <generate-sitemap-url-prefix>https://ktor.io/docs/</generate-sitemap-url-prefix>
         <images-prefix-override>images/</images-prefix-override>
         <help-app-version>3</help-app-version>
-        <index-page-url-prefix>https://ktor.shared.aws.intellij.net/docs/</index-page-url-prefix>
+        <index-page-url-prefix></index-page-url-prefix>
         <config-feedbackRequireEmail>false</config-feedbackRequireEmail>
         <config-showDownloadButton>true</config-showDownloadButton>
         <config-disqus-id>jetbrains</config-disqus-id>

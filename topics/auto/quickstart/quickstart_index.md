@@ -27,10 +27,10 @@ You can set up a Ktor project using [Maven](/quickstart/quickstart/maven.html), 
 The plugin allows you to create a Ktor project as well as [start.ktor.io](/quickstart/generator.html#), but with the additional convenience of being fully integrated in the IDE.
 
 ### 1) In a first step, you can configure the project to generate and select features to install:
-![](ktor-plugin-1.png){ width="100" }
+![](ktor-plugin-1.png){ width="500" }
 
 ### 2) In a second step, you can configure the project artifacts:
-![](ktor-plugin-2.png){ width="100" }
+![](ktor-plugin-2.png){ width="500" }
 
 And that's it. A new project will be created and opened inside your IDE.
 
@@ -38,7 +38,7 @@ And that's it. A new project will be created and opened inside your IDE.
 
 A simple hello world in Ktor looks like this:
 
-![Ktor Hello World](ktor_hello_world_main.png){ width="100" }
+![Ktor Hello World](ktor_hello_world_main.png){ width="500" }
 
 1. Here you define a plain callable *main method*.
 2. Then you create an embedded *server using Netty* as the back-end that will listen on *port 8080*.
@@ -80,7 +80,7 @@ listening on [http://127.0.0.1:8080](http://127.0.0.1:8080/), You can try openin
 >
 {type="note"}
 
-![Ktor Hello World Browser](screenshot.png){ width="50""}
+![Ktor Hello World Browser](screenshot.png){ width="500"}
 
 At this point you should have a very simple Web Back-end running, so you can make changes,
 and see the results in your browser.
