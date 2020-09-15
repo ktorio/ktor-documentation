@@ -5,7 +5,7 @@
         <web-community-path>Developer Community:http://www.jetbrains.net/devnet/community/idea/kb</web-community-path>
         <download-page/>
         <search-scope/>
-        <fallback-url>https://ktor.io/docs/quick-start.html</fallback-url>
+        <fallback-url>https://ktor.io/docs/quickstart-index.html</fallback-url>
         <generate-sitemap-url-prefix>https://ktor.io/docs/</generate-sitemap-url-prefix>
         <images-prefix-override>images/</images-prefix-override>
         <help-app-version>3</help-app-version>
