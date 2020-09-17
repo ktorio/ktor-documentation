@@ -25,8 +25,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="Fix formatting issue in Ktor.tree (WIP)">
-      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/quickstart_index.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/quickstart_index.md" afterDir="false" />
+    <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ktor.tree" beforeDir="false" afterPath="$PROJECT_DIR$/ktor.tree" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,21 +143,9 @@
       <workItem from="1599129843439" duration="9303000" />
       <workItem from="1599200191505" duration="6927000" />
       <workItem from="1599568559145" duration="1219000" />
-      <workItem from="1599641413313" duration="3898000" />
-    </task>
-    <task id="LOCAL-00009" summary="Added Routing.">
-      <created>1596185631170</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1596185631170</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Fixed images">
-      <created>1596187664301</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1596187664301</updated>
+      <workItem from="1599641413313" duration="8445000" />
+      <workItem from="1600180255918" duration="153000" />
+      <workItem from="1600335946104" duration="72000" />
     </task>
     <task id="LOCAL-00011" summary="Fixed link">
       <created>1596187961810</created>
@@ -487,7 +476,21 @@
       <option name="project" value="LOCAL" />
       <updated>1599813993960</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Don't forget to change this for release">
+      <created>1599843429901</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1599843429901</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Version -&gt; 1.4.0 (hack, uses version as a part of name, don't do that :)">
+      <created>1600171013479</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1600171013480</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -509,8 +512,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fixed up routing" />
-    <MESSAGE value="Fixed broken link" />
     <MESSAGE value="Fixed errors" />
     <MESSAGE value="Moved images back to topics" />
     <MESSAGE value="Fixed reference to previous section" />
@@ -534,17 +535,19 @@
     <MESSAGE value="Image paths" />
     <MESSAGE value="Product id for search" />
     <MESSAGE value="Sitemaps" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sitemaps" />
+    <MESSAGE value="Don't forget to change this for release" />
+    <MESSAGE value="Version -&gt; 1.4.0 (hack, uses version as a part of name, don't do that :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version -&gt; 1.4.0 (hack, uses version as a part of name, don't do that :)" />
   </component>
   <component name="WindowStateProjectService">
     <state x="799" y="884" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596175947740">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="799" y="884" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1596175947740" />
-    <state x="525" y="196" key="CommitChangelistDialog2" timestamp="1599813993817">
+    <state x="525" y="196" key="CommitChangelistDialog2" timestamp="1600171013356">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="525" y="196" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1599813993817" />
+    <state x="525" y="196" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1600171013356" />
     <state x="881" y="408" width="1336" height="897" key="DiffContextDialog" timestamp="1597429287105">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
@@ -577,10 +580,10 @@
     <state width="1494" height="419" key="GridCell.Tab.0.right/0.0.2048.1280@0.0.2048.1280" timestamp="1597414675247" />
     <state width="1494" height="300" key="GridCell.Tab.0.right/0.23.2048.1257@0.23.2048.1257" timestamp="1597472768651" />
     <state width="1494" height="300" key="GridCell.Tab.0.right/0.23.3008.1669@0.23.3008.1669" timestamp="1597430193178" />
-    <state x="192" y="109" key="MergeDialog" timestamp="1599571974301">
+    <state x="192" y="109" key="MergeDialog" timestamp="1600170925910">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="192" y="109" key="MergeDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1599571974301" />
+    <state x="192" y="109" key="MergeDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1600170925910" />
     <state x="140" y="226" width="961" height="722" key="SettingsEditor" timestamp="1599491279862">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
@@ -601,10 +604,10 @@
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="567" y="494" key="VCS.EditChangelistDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1595486739877" />
-    <state x="255" y="298" key="Vcs.Push.Dialog.v2" timestamp="1599813995197">
+    <state x="255" y="298" key="Vcs.Push.Dialog.v2" timestamp="1600171014948">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="255" y="298" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1599813995197" />
+    <state x="255" y="298" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1600171014948" />
     <state x="272" y="335" key="Vcs.Push.Dialog.v2/0.23.2048.1257@0.23.2048.1257" timestamp="1597441516032" />
     <state x="399" y="437" key="Vcs.Push.Dialog.v2/0.23.3008.1669@0.23.3008.1669" timestamp="1597429207052" />
     <state x="881" y="408" width="1336" height="897" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1597428876629">
@@ -622,10 +625,10 @@
     <state x="694" y="242" width="1008" height="572" key="find.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1599203192123" />
     <state x="741" y="277" width="568" height="554" key="find.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1596518621967" />
     <state x="1088" y="360" width="615" height="735" key="find.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1597410128643" />
-    <state x="296" y="267" width="670" height="487" key="search.everywhere.popup" timestamp="1599646929684">
+    <state x="296" y="267" width="670" height="487" key="search.everywhere.popup" timestamp="1600335964734">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="296" y="267" width="670" height="487" key="search.everywhere.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1599646929684" />
+    <state x="296" y="267" width="670" height="487" key="search.everywhere.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1600335964734" />
     <state x="316" y="302" width="670" height="510" key="search.everywhere.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1596434153902" />
     <state x="464" y="394" width="670" height="676" key="search.everywhere.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1597428553150" />
   </component>

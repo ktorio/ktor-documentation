@@ -9,6 +9,7 @@
              toc-element id="gradle.md" toc-title="Gradle"/>
         </toc-element>
         <toc-element id="docker.md" toc-title="Docker"/>
+        <toc-element id="gradle.md" toc-title="Gradle"/>
         <toc-element id="guides.md" toc-title="Guides">
             <toc-element id="guides_application.md" toc-title="First App"/>
             <toc-element id="website.md" toc-title="Website"/>
