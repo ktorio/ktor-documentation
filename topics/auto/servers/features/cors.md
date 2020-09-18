@@ -1,5 +1,5 @@
 [//]: # (title: CORS)
-[//]: # (caption: Enable Cross-Origin Resource Sharing (CORS))
+[//]: # (caption: Enable Cross-Origin Resource Sharing \(CORS\))
 [//]: # (category: servers)
 [//]: # (permalink: /servers/features/cors.html)
 [//]: # (feature: feature)
