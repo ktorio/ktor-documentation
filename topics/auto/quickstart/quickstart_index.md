@@ -90,15 +90,3 @@ and see the results in your browser.
 >
 {type="note"}
 
-
-## Next step
-
-Now we are ready for the next step. *What kind of application are you developing?*
-
-1. [RESTful API: Let's serve a *data class* as JSON](/quickstart/restful.html)
-2. Web Application:
-    * [Let's describe and serve some HTML, fully typed, using kotlinx.html the DSL way](/quickstart/html-dsl.html)
-    * [Let's serve some HTML using FreeMarker template engine](/quickstart/html-freemarker.html)
-    
-## Walkthroughs
-
