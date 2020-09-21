@@ -146,14 +146,7 @@
       <workItem from="1599641413313" duration="8445000" />
       <workItem from="1600180255918" duration="153000" />
       <workItem from="1600335946104" duration="567000" />
-      <workItem from="1600416597202" duration="2277000" />
-    </task>
-    <task id="LOCAL-00015" summary="Reverted src URL">
-      <created>1596193710305</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1596193710305</updated>
+      <workItem from="1600416597202" duration="3300000" />
     </task>
     <task id="LOCAL-00016" summary="Fixed heading issues">
       <created>1596196617553</created>
@@ -491,7 +484,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600676661412</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="WH-1856">
+      <created>1600705126817</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1600705126817</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -513,7 +513,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update images to remove background box" />
     <MESSAGE value="Spacing between images" />
     <MESSAGE value="Paired up code with diagram" />
     <MESSAGE value="Sample Feature doc" />
@@ -538,17 +537,18 @@
     <MESSAGE value="Syntax fix" />
     <MESSAGE value="No more text" />
     <MESSAGE value="WH-1857" />
-    <option name="LAST_COMMIT_MESSAGE" value="WH-1857" />
+    <MESSAGE value="WH-1856" />
+    <option name="LAST_COMMIT_MESSAGE" value="WH-1856" />
   </component>
   <component name="WindowStateProjectService">
     <state x="799" y="884" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596175947740">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="799" y="884" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1596175947740" />
-    <state x="525" y="196" key="CommitChangelistDialog2" timestamp="1600676661269">
+    <state x="525" y="196" key="CommitChangelistDialog2" timestamp="1600705126686">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="525" y="196" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1600676661269" />
+    <state x="525" y="196" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1600705126686" />
     <state x="881" y="408" width="1336" height="897" key="DiffContextDialog" timestamp="1597429287105">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
@@ -605,10 +605,10 @@
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="567" y="494" key="VCS.EditChangelistDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1595486739877" />
-    <state x="255" y="298" key="Vcs.Push.Dialog.v2" timestamp="1600676663381">
+    <state x="255" y="298" key="Vcs.Push.Dialog.v2" timestamp="1600705128306">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="255" y="298" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1600676663381" />
+    <state x="255" y="298" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1600705128306" />
     <state x="272" y="335" key="Vcs.Push.Dialog.v2/0.23.2048.1257@0.23.2048.1257" timestamp="1597441516032" />
     <state x="399" y="437" key="Vcs.Push.Dialog.v2/0.23.3008.1669@0.23.3008.1669" timestamp="1597429207052" />
     <state x="881" y="408" width="1336" height="897" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1597428876629">
