@@ -9,6 +9,7 @@
         <generate-sitemap-url-prefix>https://ktor.io/docs/</generate-sitemap-url-prefix>
         <images-prefix-override>images/</images-prefix-override>
         <help-app-version>3</help-app-version>
+        <do-not-use-default-favicons>true</do-not-use-default-favicons>
         <index-page-url-prefix></index-page-url-prefix>
         <config-feedbackRequireEmail>false</config-feedbackRequireEmail>
         <config-showDownloadButton>true</config-showDownloadButton>
