@@ -73,7 +73,7 @@ and will contact your server via plain HTTP.
 You have to generate a [war file](/servers/deploy/packing/war) and put it in the Tomcat `webapps` folder.
 
 >For a complete example, check:
-><https://github.com/ktorio/ktor-samples/tree/master/deployment/tomcat-war>
+><https://github.com/ktorio/ktor-samples/tree/1.3.0/deployment/tomcat-war>
 >
 {type="note"}
 
@@ -83,6 +83,6 @@ You have to generate a [war file](/servers/deploy/packing/war) and put it in the
 You have to generate a [war file](/servers/deploy/packing/war) and put it in the Jetty `webapps` folder.
 
 >For a complete example, check:
-><https://github.com/ktorio/ktor-samples/tree/master/deployment/jetty-war>
+><https://github.com/ktorio/ktor-samples/tree/1.3.0/deployment/jetty-war>
 >
 {type="note"}

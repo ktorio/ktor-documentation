@@ -5,4 +5,4 @@
 [//]: # (redirect_from: redirect_from)
 [//]: # (- /samples/embedded.html: - /samples/embedded.html)
 
-Browse the source code on GitHub: [ktor-samples-embedded](https://github.com/ktorio/ktor-samples/tree/master/deployment/netty-embedded)
+Browse the source code on GitHub: [ktor-samples-embedded](https://github.com/ktorio/ktor-samples/tree/1.3.0/deployment/netty-embedded)

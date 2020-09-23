@@ -222,7 +222,7 @@ fun Application.main() {
 }
 ```
 
-You can see a complete example of this in [ktor-samples/multiple-connectors](https://github.com/ktorio/ktor-samples/tree/master/other/multiple-connectors).
+You can see a complete example of this in [ktor-samples/multiple-connectors](https://github.com/ktorio/ktor-samples/tree/1.3.0/other/multiple-connectors).
 
 ### Netty
 {.no_toc}

@@ -273,4 +273,4 @@ You can [provide a test HttpClient for testing OAuth](https://github.com/ktorio/
 
 * Google OAuth playground: <https://developers.google.com/oauthplayground/>{target="_blank"}
 * List of available google oauth scopes: <https://developers.google.com/identity/protocols/googlescopes>{target="_blank"} 
-* Example with several oauth providers: <https://github.com/ktorio/ktor-samples/blob/master/feature/auth/src/io/ktor/samples/auth/OAuthLoginApplication.kt>{target="_blank"} 
+* Example with several oauth providers: <https://github.com/ktorio/ktor-samples/blob/1.3.0/feature/auth/src/io/ktor/samples/auth/OAuthLoginApplication.kt>{target="_blank"} 

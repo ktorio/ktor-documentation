@@ -5,4 +5,4 @@
 [//]: # (redirect_from: redirect_from)
 [//]: # (- /samples/static.html: - /samples/static.html)
 
-Browse the source code on GitHub: [ktor-samples-static](https://github.com/ktorio/ktor-samples/tree/master/feature/static-content)
+Browse the source code on GitHub: [ktor-samples-static](https://github.com/ktorio/ktor-samples/tree/1.3.0/feature/static-content)

@@ -5,7 +5,7 @@
 [//]: # (ktor_version_review: 1.0.0)
 
 >You can check out a full google appengine sample, here:
-><https://github.com/ktorio/ktor-samples/tree/master/deployment/google-appengine-standard>
+><https://github.com/ktorio/ktor-samples/tree/1.3.0/deployment/google-appengine-standard>
 >
 {type="note"}
 

@@ -5,4 +5,4 @@
 [//]: # (redirect_from: redirect_from)
 [//]: # (- /samples/auth.html: - /samples/auth.html)
 
-Browse the source code on GitHub: [ktor-samples/feature/auth](https://github.com/ktorio/ktor-samples/tree/master/feature/auth)
+Browse the source code on GitHub: [ktor-samples/feature/auth](https://github.com/ktorio/ktor-samples/tree/1.3.0/feature/auth)

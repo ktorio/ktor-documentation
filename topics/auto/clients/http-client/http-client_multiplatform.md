@@ -78,7 +78,7 @@ dependencies {
 
 ## Samples
 
-There is a full sample using the common client in the ktor-samples repository [mpp/client-mpp](https://github.com/ktorio/ktor-samples/tree/master/mpp/client-mpp).
+There is a full sample using the common client in the ktor-samples repository [mpp/client-mpp](https://github.com/ktorio/ktor-samples/tree/1.3.0/mpp/client-mpp).
 
 You can use this project as a reference. This project also expose some experimental Gradle tasks to build, install and run the
 Android and iOS applications directly from Gradle.
@@ -99,5 +99,5 @@ Android and iOS applications directly from Gradle.
 * `:client-mpp-ios:launchSimulator` - executes the application inside the simulator
 
 Since those tasks are experimental, might fail with your specific setup. Please let us know so we can improve them.
-Or help us with [the iOS tasks](https://github.com/ktorio/ktor-samples/blob/master/mpp/client-mpp/ios/build.gradle){target="_blank"},
-and [the Android ones](https://github.com/ktorio/ktor-samples/blob/master/mpp/client-mpp/android/build.gradle){target="_blank"}.
+Or help us with [the iOS tasks](https://github.com/ktorio/ktor-samples/blob/1.3.0/mpp/client-mpp/ios/build.gradle){target="_blank"},
+and [the Android ones](https://github.com/ktorio/ktor-samples/blob/1.3.0/mpp/client-mpp/android/build.gradle){target="_blank"}.

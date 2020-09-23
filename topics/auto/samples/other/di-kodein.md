@@ -2,6 +2,6 @@
 [//]: # (category: samples)
 [//]: # (caption: Kodein DI)
 
-Browse the source code on GitHub: [ktor-samples-di-kodein](https://github.com/ktorio/ktor-samples/tree/master/other/di-kodein)
+Browse the source code on GitHub: [ktor-samples-di-kodein](https://github.com/ktorio/ktor-samples/tree/1.3.0/other/di-kodein)
 
 This show how to use the [Dependency Injection library Kodein](http://kodein.org/Kodein-DI/){target="_blank"} with ktor.

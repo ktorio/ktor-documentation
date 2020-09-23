@@ -5,4 +5,4 @@
 [//]: # (redirect_from: redirect_from)
 [//]: # (- /samples/custom-feature.html: - /samples/custom-feature.html)
 
-Browse the source code on GitHub: [ktor-samples/feature/custom-feature](https://github.com/ktorio/ktor-samples/tree/master/feature/custom-feature)
+Browse the source code on GitHub: [ktor-samples/feature/custom-feature](https://github.com/ktorio/ktor-samples/tree/1.3.0/feature/custom-feature)

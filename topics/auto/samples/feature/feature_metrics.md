@@ -5,4 +5,4 @@
 [//]: # (redirect_from: redirect_from)
 [//]: # (- /samples/metrics.html: - /samples/metrics.html)
 
-Browse the source code on GitHub: [ktor-samples-metrics](https://github.com/ktorio/ktor-samples/blob/master/feature/metrics/src/MetricsApplication.kt)
+Browse the source code on GitHub: [ktor-samples-metrics](https://github.com/ktorio/ktor-samples/blob/1.3.0/feature/metrics/src/MetricsApplication.kt)

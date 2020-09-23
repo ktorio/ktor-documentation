@@ -5,4 +5,4 @@
 [//]: # (redirect_from: redirect_from)
 [//]: # (- /samples/http2.html: - /samples/http2.html)
 
-Browse the source code on GitHub: [ktor-samples-http2](https://github.com/ktorio/ktor-samples/blob/master/feature/http2-push)
+Browse the source code on GitHub: [ktor-samples-http2](https://github.com/ktorio/ktor-samples/blob/1.3.0/feature/http2-push)

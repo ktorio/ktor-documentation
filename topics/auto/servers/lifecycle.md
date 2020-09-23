@@ -19,7 +19,7 @@ You can run a Ktor application in several ways:
 
 * With a plain `main` by calling `embeddedServer`
 * Running a `EngineMain` `main` function and [using a HOCON `application.conf` configuration file](/servers/configuration.html)
-* [As a Servlet within a web server](https://github.com/ktorio/ktor-samples/tree/master/deployment)
+* [As a Servlet within a web server](https://github.com/ktorio/ktor-samples/tree/1.3.0/deployment)
 * As part of a test using `withTestApplication` from the [`ktor-server-test-host`](https://github.com/ktorio/ktor/tree/master/ktor-server/ktor-server-test-host) artifact
 
 ## Start-up

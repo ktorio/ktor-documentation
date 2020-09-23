@@ -5,4 +5,4 @@
 [//]: # (redirect_from: redirect_from)
 [//]: # (- /samples/guice.html: - /samples/guice.html)
 
-Browse the source code on GitHub: [ktor-samples-guice](https://github.com/ktorio/ktor-samples/tree/master/feature/guice)
+Browse the source code on GitHub: [ktor-samples-guice](https://github.com/ktorio/ktor-samples/tree/1.3.0/feature/guice)

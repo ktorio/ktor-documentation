@@ -2,4 +2,4 @@
 [//]: # (category: samples)
 [//]: # (caption: Client Tools)
 
-Browse the source code on GitHub: [ktor-samples-client-tools](https://github.com/ktorio/ktor-samples/tree/master/other/client-tools)
+Browse the source code on GitHub: [ktor-samples-client-tools](https://github.com/ktorio/ktor-samples/tree/1.3.0/other/client-tools)

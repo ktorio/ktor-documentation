@@ -170,7 +170,7 @@ fun Application.main() {
 ```
 </tabs>
 
->You can check this [full example](https://github.com/ktorio/ktor-samples/tree/master/deployment/docker) at the ktor-samples repository.
+>You can check this [full example](https://github.com/ktorio/ktor-samples/tree/1.3.0/deployment/docker) at the ktor-samples repository.
 >
 {type="note"}
 
@@ -261,4 +261,4 @@ check [docker push](https://docs.docker.com/engine/reference/commandline/push/) 
 
 ## Sample
 
-You can check a [full sample](https://github.com/ktorio/ktor-samples/tree/master/deployment/docker) at the ktor-samples repository.
+You can check a [full sample](https://github.com/ktorio/ktor-samples/tree/1.3.0/deployment/docker) at the ktor-samples repository.

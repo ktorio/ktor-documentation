@@ -5,4 +5,4 @@
 [//]: # (redirect_from: redirect_from)
 [//]: # (- /samples/testable.html: - /samples/testable.html)
 
-Browse the source code on GitHub: [ktor-samples-testable](https://github.com/ktorio/ktor-samples/tree/master/feature/testable)
+Browse the source code on GitHub: [ktor-samples-testable](https://github.com/ktorio/ktor-samples/tree/1.3.0/feature/testable)
