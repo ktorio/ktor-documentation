@@ -7,7 +7,7 @@ Sample project for [Ktor](https://ktor.io) running as an embedded application wi
 
 Run this project with:
 
-```
+```text
 ./mvnw compile exec:java
 ```
  
@@ -17,6 +17,6 @@ And navigate to [http://localhost:8080/](http://localhost:8080/) to see the samp
 
 Package a single fat JAR archive with:
 
-```
+```text
 ./mvnw package
 ```

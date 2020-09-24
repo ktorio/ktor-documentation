@@ -7,7 +7,7 @@ using [Jackson](https://github.com/FasterXML/jackson).
 
 Run this project with:
 
-```
+```text
 ./gradlew :jackson:run
 ```
  

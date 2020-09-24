@@ -27,56 +27,34 @@
   <component name="ChangeListManager">
     <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/advanced/advanced_features.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/advanced/advanced_features.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/clients/http-client/http-client_multiplatform.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/http-client_multiplatform.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codeSnippets/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/codeSnippets/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codeSnippets/deployment/google-appengine-standard/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/codeSnippets/deployment/google-appengine-standard/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codeSnippets/feature/gson/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/codeSnippets/feature/gson/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codeSnippets/feature/jackson/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/codeSnippets/feature/jackson/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codeSnippets/feature/json-client/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/codeSnippets/feature/json-client/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/fullstack-mpp/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/codeSnippets/mpp/fullstack-mpp/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codeSnippets/other/maven-google-appengine-standard/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/codeSnippets/other/maven-google-appengine-standard/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codeSnippets/other/maven-netty/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/codeSnippets/other/maven-netty/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/advanced/advanced_http2.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/advanced/advanced_http2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/advanced/build-from-source.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/advanced/build-from-source.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/advanced/pipeline.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/advanced/pipeline.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/clients/http-client/quick-start/request.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/quick-start/request.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_api.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_api.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_oauth.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_oauth.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/guides/ssl.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides/ssl.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration/.0.0-beta-3.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.0.0-beta-3.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/quickstart/docker.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/quickstart/docker.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/app/httpbin.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/app/httpbin.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/app/kweet.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/app/kweet.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/app/youkube.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/app/youkube.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/deployment/netty-embedded.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/deployment/netty-embedded.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/deployment/netty.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/deployment/netty.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/feature/async.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/feature/async.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/feature/custom-feature.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/feature/custom-feature.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/feature/feature_auth.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/feature/feature_auth.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/feature/feature_gson.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/feature/feature_gson.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/feature/feature_http2.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/feature/feature_http2.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/feature/feature_jackson.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/feature/feature_jackson.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/feature/feature_locations.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/feature/feature_locations.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/feature/feature_metrics.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/feature/feature_metrics.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/feature/guice.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/feature/guice.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/feature/html.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/feature/html.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/feature/post.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/feature/post.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/feature/static.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/feature/static.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/feature/testable.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/feature/testable.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/other/client-multipart.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/other/client-multipart.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/other/client-tools.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/other/client-tools.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/other/css-dsl.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/other/css-dsl.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/other/di-kodein.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/other/di-kodein.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/other/filelisting.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/other/filelisting.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/other/maven-google-app-engine-standard.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/other/maven-google-app-engine-standard.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/other/maven-netty.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/other/maven-netty.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/other/multiple-connectors.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/other/multiple-connectors.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/other/other_fullstack-mpp.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/other/other_fullstack-mpp.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/other/other_proguard.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/other/other_proguard.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/other/redirect-with-exception.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/other/redirect-with-exception.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/other/reverse-proxy.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/other/reverse-proxy.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/other/rx.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/other/rx.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/other/simulate-slow-server.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/other/simulate-slow-server.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/other/sse.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/other/sse.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/other/structured-logging.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/other/structured-logging.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/samples/samples_fullstack-mpp.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/samples/samples_fullstack-mpp.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/zfaq.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/zfaq.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/autoreload.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/autoreload.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/configuration.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/configuration.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/servers/deploy.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/deploy.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/servers/deploy/containers.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/containers.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/servers/deploy/deploy_proguard.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/deploy_proguard.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/configuration/environments.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/configuration/environments.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/auto/servers/deploy/hosting/google-app-engine.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/hosting/google-app-engine.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/servers/deploy/packing/war.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/packing/war.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/authentication/authentication_oauth.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/authentication/authentication_oauth.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/servers/intro.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/intro.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/servers/lifecycle.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/lifecycle.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/servers/servers_testing.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/servers_testing.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/deploy/hosting/heroku.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/hosting/heroku.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/features_authentication.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/features_authentication.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/routing.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/routing.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/self-signed-certificate.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/self-signed-certificate.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/servers_application.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/servers_application.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/servers_logging.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/servers_logging.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/auto/servers/servers_raw-sockets.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/servers_raw-sockets.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,14 +173,7 @@
       <workItem from="1599641413313" duration="8445000" />
       <workItem from="1600180255918" duration="153000" />
       <workItem from="1600335946104" duration="567000" />
-      <workItem from="1600416597202" duration="6241000" />
-    </task>
-    <task id="LOCAL-00018" summary="Created first diagram for testing">
-      <created>1596434180376</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1596434180376</updated>
+      <workItem from="1600416597202" duration="8361000" />
     </task>
     <task id="LOCAL-00019" summary="Created first diagram for testing">
       <created>1596434189952</created>
@@ -540,7 +511,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600709613335</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="Lots of GH links">
+      <created>1600886062469</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1600886062469</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,7 +540,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Paired up code with diagram" />
     <MESSAGE value="Sample Feature doc" />
     <MESSAGE value="Switched to including symbols" />
     <MESSAGE value="Adding autoimport files" />
@@ -587,17 +564,18 @@
     <MESSAGE value="WH-1857" />
     <MESSAGE value="WH-1856" />
     <MESSAGE value="W/o version" />
-    <option name="LAST_COMMIT_MESSAGE" value="W/o version" />
+    <MESSAGE value="Lots of GH links" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lots of GH links" />
   </component>
   <component name="WindowStateProjectService">
     <state x="799" y="884" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596175947740">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="799" y="884" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1596175947740" />
-    <state x="525" y="196" key="CommitChangelistDialog2" timestamp="1600709613220">
+    <state x="525" y="196" key="CommitChangelistDialog2" timestamp="1600886062189">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="525" y="196" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1600709613220" />
+    <state x="525" y="196" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1600886062189" />
     <state x="881" y="408" width="1336" height="897" key="DiffContextDialog" timestamp="1597429287105">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
@@ -654,10 +632,10 @@
       <screen x="0" y="23" width="3008" height="1669" />
     </state>
     <state x="567" y="494" key="VCS.EditChangelistDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1595486739877" />
-    <state x="255" y="298" key="Vcs.Push.Dialog.v2" timestamp="1600709614660">
+    <state x="255" y="298" key="Vcs.Push.Dialog.v2" timestamp="1600886064314">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="255" y="298" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1600709614660" />
+    <state x="255" y="298" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1600886064314" />
     <state x="272" y="335" key="Vcs.Push.Dialog.v2/0.23.2048.1257@0.23.2048.1257" timestamp="1597441516032" />
     <state x="399" y="437" key="Vcs.Push.Dialog.v2/0.23.3008.1669@0.23.3008.1669" timestamp="1597429207052" />
     <state x="881" y="408" width="1336" height="897" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1597428876629">
@@ -669,16 +647,16 @@
     </state>
     <state x="970" y="514" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1200@0.0.1920.1200" timestamp="1599227451321" />
     <state x="1520" y="738" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.3008.1669@0.23.3008.1669" timestamp="1596009249701" />
-    <state x="694" y="242" width="1008" height="572" key="find.popup" timestamp="1600885990814">
+    <state x="694" y="242" width="1008" height="572" key="find.popup" timestamp="1600970427361">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="694" y="242" width="1008" height="572" key="find.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1600885990814" />
+    <state x="694" y="242" width="1008" height="572" key="find.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1600970427361" />
     <state x="741" y="277" width="568" height="554" key="find.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1596518621967" />
     <state x="1088" y="360" width="615" height="735" key="find.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1597410128643" />
-    <state x="296" y="267" width="670" height="487" key="search.everywhere.popup" timestamp="1600879820452">
+    <state x="296" y="267" width="670" height="487" key="search.everywhere.popup" timestamp="1600970257975">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="296" y="267" width="670" height="487" key="search.everywhere.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1600879820452" />
+    <state x="296" y="267" width="670" height="487" key="search.everywhere.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1600970257975" />
     <state x="316" y="302" width="670" height="510" key="search.everywhere.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1596434153902" />
     <state x="464" y="394" width="670" height="676" key="search.everywhere.popup/0.23.3008.1669@0.23.3008.1669" timestamp="1597428553150" />
   </component>

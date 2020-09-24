@@ -59,7 +59,7 @@ A collection of ready-to-use samples for [Ktor](https://ktor.io).
 
 Each sample can be run with 
 
-```
+```text
 ./gradlew :<sample-name>:run
 ```
 

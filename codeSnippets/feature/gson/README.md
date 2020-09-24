@@ -7,13 +7,13 @@ using [Gson](https://github.com/google/gson).
 
 Run this project with:
 
-```
+```text
 ./gradlew :gson:run
 ```
  
 Use the following command scripts for testing:
 
-```bash
+```text
 curl -v --compress --header "Accept: application/json" http://localhost:8080/v1
 ```
 

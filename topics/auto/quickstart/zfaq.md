@@ -179,7 +179,7 @@ Ktor is known to work on Android 7 or greater (API 24). It will fail in lower ve
 
 In unsupported versions it would fail with an exception similar to:
 
-```
+```text
 E/AndroidRuntime: FATAL EXCEPTION: main Process: com.mypackage.example, PID: 4028 java.lang.NoClassDefFoundError: 
 io.ktor.application.ApplicationEvents$subscribe$1 at io.ktor.application.ApplicationEvents.subscribe(ApplicationEvents.kt:18) at 
 io.ktor.server.engine.BaseApplicationEngine.<init>(BaseApplicationEngine.kt:29) at 

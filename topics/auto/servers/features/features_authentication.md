@@ -107,7 +107,7 @@ You cannot repeat authentication provider names, and you can define just one pro
 
 In the case you repeat a name for the provider or try to define two unnamed providers, an exception will be thrown:
 
-```
+```text
 java.lang.IllegalArgumentException: Provider with the name `authName` is already registered
 ```
 

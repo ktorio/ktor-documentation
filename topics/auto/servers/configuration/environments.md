@@ -21,7 +21,7 @@ For example:
 
 ### application.conf:
 
-```
+```text
 ktor {
     environment = dev
     environment = ${?KTOR_ENV}

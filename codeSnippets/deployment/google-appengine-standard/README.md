@@ -13,7 +13,7 @@ standard infrastructure.
 
 Run this project under local dev mode with:
 
-```
+```text
 gradle appengineRun
 ```
  
@@ -26,7 +26,7 @@ Use Google Cloud SDK to create application similarly to
 
 Install all the Google Cloud components and login into your account:
 
-```
+```text
 gcloud init
 gcloud components install app-engine-java
 gcloud components update  
@@ -35,14 +35,14 @@ gcloud auth application-default login
 
 Create project and application:
 
-```
+```text
 gcloud projects create <unique-project-id> --set-as-default
 gcloud app create
 ```                                
 
 Then deploy your application with:
 
-```
+```text
 gradle appengineDeploy
 ```
 

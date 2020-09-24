@@ -221,7 +221,7 @@ routing {
 
 The output if requesting `/bar` would be:
 
-```
+```text
 Trace for [bar]
 /, segment:0 -> SUCCESS @ /bar/(method:GET))
   /bar, segment:1 -> SUCCESS @ /bar/(method:GET))

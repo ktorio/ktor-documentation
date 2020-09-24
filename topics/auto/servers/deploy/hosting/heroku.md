@@ -16,7 +16,7 @@ You will also need to configure your public key in the Heroku configuration.
 
 You can try the `heroku --version` command to see if you have the command line installed:
 
-```
+```text
 > heroku --version
 heroku-cli/6.15.36 (darwin-x64) node-v9.9.0
 ```
@@ -32,13 +32,14 @@ You will also need an `app.json` file describing your projects and your dependen
 ```
 
 You will also need a `Procfile` describing what to execute:
-```
+
+```text
 web:    java -jar target/helloworld.jar
 ```
 
 And a `system.properties` file describing your java version:
 
-```
+```text
 java.runtime.version=1.8
 ```
 
@@ -60,7 +61,7 @@ JDBC_DATABASE_URL=jdbc:postgresql://localhost:5432/java_database_name?user=user&
 
 You will also first need to create the database:
 
-```
+```text
 > psql -c "CREATE DATABASE java_database_name;"
 
 CREATE DATABASE
@@ -77,7 +78,7 @@ You first have to create an app or set the git remote. `heroku create` will crea
 with a random available name and it will set a git remote of the repo.
 After calling `heroku create`, you should see something like this:
 
-```
+```text
 > heroku create
 Creating app... done, ⬢ demo-demo-12345
 https://demo-demo-12345.herokuapp.com/ | https://git.heroku.com/demo-demo-12345.git
@@ -85,7 +86,7 @@ https://demo-demo-12345.herokuapp.com/ | https://git.heroku.com/demo-demo-12345.
 
 This effectively adds a `heroku` remote to your git clone:
 
-```
+```text
 > cat .git/config
 ...
 [remote "heroku"]
@@ -95,7 +96,7 @@ This effectively adds a `heroku` remote to your git clone:
 
 After that, you have to push your git changes to the `heroku` remote. And it does a build on push:
 
-```
+```text
 > git push heroku master
 Counting objects: 90, done.
 Delta compression using up to 4 threads.
@@ -131,20 +132,22 @@ To https://git.heroku.com/demo-demo-12345.git
 
 Now you can execute `heroku open` to open your application in your browser:
 
-```
+```text
 heroku open
 ```
 
 In this case, it will open: https://demo-demo-12345.herokuapp.com/
 
 If you encountered:
-```
+
+```text
 remote:  !     ERROR: Failed to run Gradle!
 remote:        It looks like your project does not contain a 'stage' task, which Heroku needs in order
 remote:        to build your app.
 ```
 It probably means that Heroku doesn't know how to build your app and you have to set it manually. For example, if you used [shadowJar](https://github.com/johnrengelman/shadow) you have to set it using:
-```
+
+```text
 > heroku config:set GRADLE_TASK="shadowJar"
 Setting GRADLE_TASK and restarting ⬢ demo-demo-12345... done, v4
 GRADLE_TASK: shadowJar

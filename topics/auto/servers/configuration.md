@@ -312,11 +312,11 @@ pass from the command line or the HOCON file.
 
 **Parameter paths** are paths inside the `application.conf` file:
 
-```
+```text
 ktor.deployment.port = 8080
 ```
 
-```
+```text
 ktor {
     deployment {
         port = 8080
@@ -426,7 +426,7 @@ ktor {
 
 This will look for a `PORT` environment variable, and if not found an exception will be thrown:
 
-```
+```text
 Exception in thread "main" com.typesafe.config.ConfigException$UnresolvedSubstitution: application.conf @ file:/path/to/application.conf: 3: Could not resolve substitution to a value: ${PORT}
 ```
 

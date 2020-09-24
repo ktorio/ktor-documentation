@@ -11,13 +11,13 @@
 After client configuration we're ready to perform our first request.
 Most of the simple requests are made with pattern
 
-```
+```kotlin
 val response = client.'http-method'<'ResponseType'>("url-string")
 ```
 
 or even simpler form(due to kotlin generic type inference):
 
-```
+```kotlin
 val response: ResponseType = client.'http-method'("url-string")
 ```
 

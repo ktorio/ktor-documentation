@@ -21,7 +21,7 @@ Additionally, you can use jitpack to get bleeding edge artifacts compiled from m
 
 You can get the latest version of Ktor using git to clone Ktor's repository:
 
-```
+```text
 git clone https://github.com/ktorio/ktor.git
 cd ktor
 ```
@@ -33,7 +33,7 @@ Ktor uses gradle for building. It should work with any gradle version
 greater than 4.3, but for best results we provide a gradle wrapper,
 which should work with any supported system with a JDK installed: 
 
-```
+```text
 ./gradlew build
 ```
 
@@ -43,7 +43,7 @@ which should work with any supported system with a JDK installed:
 Ktor provides a gradle install task that installs Ktor artifacts in your
 local maven repository:
 
-```
+```text
 ./gradlew publishToMavenLocal
 ```
 
@@ -52,7 +52,7 @@ local maven repository:
 
 If you get an error similar to:
 
-```
+```text
 * Where:
 Build file '/.../ktor/ktor-server/ktor-server-benchmarks/build.gradle' line: 2
 

@@ -69,7 +69,7 @@ should be used (see <https://www.eclipse.org/jetty/documentation/9.4.x/alpn-chap
 
 The following JVM options should be applied (the path can be relative):
 
-```
+```text
 -Xbootclasspath/p:/path/to/alpn-boot-8.1.11.v20170118.jar
 ```
 
@@ -101,7 +101,7 @@ In Maven you could use `maven-dependency-plugin` (goal `copy-dependencies`) or `
 
 If all of the above is done properly, Jetty will log that ssl, alpn, and h2 are enabled:
 
-```
+```text
 INFO  org.eclipse.jetty.server.Server - jetty-9.4.6.v20170531
 INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@337762cd{HTTP/1.1,[http/1.1, h2c]}{0.0.0.0:8080}
 INFO  o.e.jetty.util.ssl.SslContextFactory - x509=X509@433defed(testkey,h=[],w=[]) for SslContextFactory@2a693f59(null,null)

@@ -6,15 +6,9 @@
 
 Ktor allows you to create and use self-signed certificates for serving HTTPS or HTTP/2 requests.
 
-
-
-
-
-
-
 To create a self-signed certificate using Ktor, you have to call the `generateCertificate` function.
 
-```
+```kotlin
 io.ktor.network.tls.certificates.generateCertificate(File("mycert.jks"))
 ```
 

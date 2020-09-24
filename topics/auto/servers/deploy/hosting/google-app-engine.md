@@ -16,7 +16,7 @@ You first need to install the `gcloud` cli. You can grab it from here:
 
 For example, a macOS setup might look something like this:
 
-```
+```text
 > wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-194.0.0-darwin-x86_64.tar.gz
 > tar -xzf google-cloud-sdk-194.0.0-darwin-x86_64.tar.gz
 > cd google-cloud-sdk
@@ -92,7 +92,7 @@ For more information on how to get started, please visit:
 
 After that, you can start a new shell, and you should have access to the `gcloud` cli. For example:
 
-```
+```text
 > gcloud --version
 Google Cloud SDK 194.0.0
 bq 2.0.30
@@ -102,7 +102,7 @@ gsutil 4.29
 
 You will also need to install some components with the cli (`gcloud components install app-engine-java`):
 
-```
+```text
 > gcloud components install app-engine-java
 
 Your current Cloud SDK version is: 194.0.0
@@ -194,7 +194,7 @@ Once everything is configured, you can now run the application locally, using th
 
 In this case, these commands are executed in the root of the ktor-samples repository <https://github.com/ktorio/ktor-samples/>:  
 
-```
+```text
 ./gradlew :google-appengine-standard:appengineRun
 ```
 
@@ -204,7 +204,7 @@ It should start the server in <http://localhost:8080/> and the admin in <http://
 
 First, we need to create a project `gcloud projects create demo-demo-123456 --set-as-default`:
 
-```
+```text
 > gcloud projects create demo-demo-123456 --set-as-default
 Create in progress for [https://cloudresourcemanager.googleapis.com/v1/projects/demo-demo-123456].
 Waiting for [operations/pc.7618150612308930095] to finish...done.
@@ -213,7 +213,7 @@ Updated property [core/project] to [demo-demo-123456].
 
 And then we need to create an application using `gcloud app create`:
 
-```
+```text
 > gcloud app create
 You are creating an app for the project [demo-demo-123456].
 WARNING: Creating an App Engine application for a project is irreversible, and the region
@@ -243,7 +243,7 @@ Success! The app is now created. Please use `gcloud app deploy` to deploy your f
 
 Now we can deploy the application using `gradle appengineDeploy`:
 
-```
+```text
 > gradle :google-appengine-standard:appengineDeploy
 Starting a Gradle Daemon (subsequent builds will be faster)
 Reading application configuration data...

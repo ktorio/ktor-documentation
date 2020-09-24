@@ -58,7 +58,8 @@ fun Application.mymodule() {
 {type="note"}
 
 If you try to use a lambda instead of a method reference, you will get the following error:
-```
+
+```text
 Exception in thread "main" java.lang.RuntimeException: Module function provided as lambda cannot be unlinked for reload
 ```
 
@@ -98,10 +99,6 @@ fun Application.mymodule() {
 }
 ```
 
-
-
-
-
 ## Using the `application.conf`
 {id="configuration-file"}
 
@@ -112,7 +109,7 @@ To enable this feature, add `watch` keys to `ktor.deployment` configuration.
 
 `watch` - Array of classpath entries that should be watched and automatically reloaded.
 
-```
+```text
 ktor {
     deployment {
         port = 8080

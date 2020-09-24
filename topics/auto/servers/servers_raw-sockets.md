@@ -109,14 +109,14 @@ fun main(args: Array<String>) {
 
 Then you can connect to it using *telnet* and start typing:
 
-```
+```text
 telnet 127.0.0.1 2323
 ```
 
 For each line that you type (you have to press the return key), the server will reply
 with the same line:
 
-```
+```text
 Trying 127.0.0.1...
 Connected to 127.0.0.1
 Escape character is '^]'.

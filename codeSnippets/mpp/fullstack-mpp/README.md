@@ -12,7 +12,7 @@ The structure:
 
 Run this project with:
 
-```
+```text
 ./gradlew :fullstack-mpp:run
 ```
  

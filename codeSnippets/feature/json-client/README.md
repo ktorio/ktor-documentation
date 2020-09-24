@@ -12,7 +12,7 @@ First run one of the server-side samples.
 
 Then run this project with:
 
-```
+```text
 ./gradlew :json-client:run
 ```
 

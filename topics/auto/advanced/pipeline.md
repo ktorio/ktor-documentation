@@ -74,7 +74,7 @@ pipeline.intercept(phase1) { println("Phase1[B]") }
 ```
 
 Would print:
-```
+```text
 Phase1[A]
 Phase1[B]
 Phase2[A]
@@ -185,7 +185,7 @@ The purpose for intercepting each phase:
 
 The code looks like this:
 
-```
+```kotlin
 open class ApplicationCallPipeline : Pipeline<Unit, ApplicationCall>(Setup, Monitoring, Features, Call, Fallback) {
     val receivePipeline = ApplicationReceivePipeline()
     val sendPipeline = ApplicationSendPipeline()

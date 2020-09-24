@@ -12,7 +12,7 @@ Ktor uses [SLF4J](https://www.slf4j.org/) for logging.
 If you don't add a logging provider, you will see the
 following message when you run your application:
 
-```
+```text
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
@@ -79,7 +79,7 @@ After it is added, if you stop your app, and run it again, after going
 to localhost:8080 in your browser, 
 you should see a log message now in the IDEA run pane, something like:
 
-```
+```text
 2017-05-29 23:08:12.926 [nettyCallPool-4-1] TRACE ktor.application - 200 OK: GET - /
 ```
 

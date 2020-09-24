@@ -48,7 +48,7 @@ public network, or you can forward ports in your router to 80:8889, and the doma
 it will then request a challenge, expose the `/.well-known/acme-challenge/file` with the proper content, generate a 
 domain private key, and retrieve the certificate chain:  
 
-```
+```text
 export DOMAIN=my.example.com
 export EMAIL=root@example.com
 export PORT=8889
@@ -130,20 +130,20 @@ Now you have to convert the private key and certificates written by `certbot` to
 
 The chain and private keys are stored in `/etc/letsencrypt/live/$DOMAIN` as `fullchain.pem` and `privkey.pem`.
 
-```
+```text
 openssl pkcs12 -export -out /etc/letsencrypt/live/$DOMAIN/keystore.p12 -inkey /etc/letsencrypt/live/$DOMAIN/privkey.pem -in /etc/letsencrypt/live/$DOMAIN/fullchain.pem -name $ALIAS
 ```
 
 This will request a password for the export (you need to provide one for the next step to work):
 
-```
+```text
 Enter Export Password: mypassword
 Verifying - Enter Export Password: mypassword
 ```
 
 With th p12 file, we can use the `keytool` cli to generate a JKS file: 
 
-```
+```text
 keytool -importkeystore -alias $ALIAS -destkeystore /etc/letsencrypt/live/$DOMAIN/keystore.jks -srcstoretype PKCS12 -srckeystore /etc/letsencrypt/live/$DOMAIN/keystore.p12
 ```
 

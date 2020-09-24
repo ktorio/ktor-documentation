@@ -158,7 +158,7 @@ Then you have to type the method, url, headers and payload like this:
 
 ![](IU-http-request.png)
 
-```
+```text
 POST http://127.0.0.1:8080/snippets
 Content-Type: application/json
 
@@ -656,8 +656,7 @@ class LoginRegister(val user: String, val password: String)
 
 <tabs>
 
-```
-{% raw %}
+```text
 # Get all the snippets
 GET {{host}}/snippets
 
@@ -692,7 +691,6 @@ Content-Type: application/json
 {"user" : "test", "password" : "invalid-password"}
 
 ###
-{% endraw %}
 ```
 
 

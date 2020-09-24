@@ -72,7 +72,7 @@ separated by a dot (`.`).
 
 So for the example, the module's fully qualified name would be:
 
-```
+```kotlin
 com.example.myapp.MainKt.mymodule
 ```
 

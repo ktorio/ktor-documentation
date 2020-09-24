@@ -28,7 +28,7 @@ For this, you can add an entry in [the hosts file](https://en.wikipedia.org/wiki
 For this guide we are going to associate `me.mydomain.com` to `127.0.0.1`, but you can change it according to your needs,
 as long as it is like a public top-level domain (.com, .org...) or has at least two components.
 
-```
+```text
 127.0.0.1       me.mydomain.com
 ```
 
@@ -42,9 +42,15 @@ by several host names separated by spaces or tabs.
 
 In MacOS and Linux (Unix) computers, you can find the host file in `/etc/hosts`. You will need root access to edit it.
 
-```sudo nano /etc/hosts```
+```text
+sudo nano /etc/hosts
+```
+
 or
-```sudo vi /etc/hosts```
+
+```text
+sudo vi /etc/hosts
+```
 
 ### Windows
 
