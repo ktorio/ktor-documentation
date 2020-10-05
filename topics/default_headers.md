@@ -1,6 +1,6 @@
 [//]: # (title: Default Headers)
 
-The `DefaultHeaders` [feature](Features.md) allows you to configure default headers that will be merged into each response. Installing this feature adds the standard `Server` and `Date` headers automatically.
+The `DefaultHeaders` [feature](Features.md) allows you to configure default headers that will be merged into each response. Installing this feature adds the standard `Server` and `Date` headers automatically. You can also provide additional headers, or even add desired headers depending on the request parameters.
 
 ## Install Default Headers {id="install"}
 To install the `DefaultHeaders` feature, pass it to the `install` function. For example, you can do this inside the `main` function ...
