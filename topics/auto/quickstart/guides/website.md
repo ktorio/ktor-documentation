@@ -59,7 +59,7 @@ For now, we are going to store the templates embedded as part of the resources i
 
 Create a file called `resources/templates/index.ftl` and put in the following content to create a simple HTML list:
 
-```freemarker
+```html
 <#-- @ftlvariable name="data" type="com.example.IndexData" -->
 <html>
 	<body>
@@ -128,7 +128,7 @@ body {
 ```
 
 In addition to this, we will have to update our template to include the `style.css` file:
-```freemarker
+```html
 <#-- @ftlvariable name="data" type="com.example.IndexData" -->
 <html>
     <head>
