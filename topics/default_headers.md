@@ -12,7 +12,7 @@ fun Application.main() {
   // ...
 }
 ```
-... or a specified [module](Modules.md):
+... or enable default headers for a specified [module](Modules.md):
 ```kotlin
 import io.ktor.features.*
 // ...
@@ -50,7 +50,7 @@ To customize a list of default headers, pass the desired header to `install`  by
 
 ## Customize Headers for Specific Routes {id="route_headers"}
 
-If you need to add default headers for specific [routes](Routing_in_Ktor.md) only, use [route interception](intercepting_routes.md). In this case, you can add additional headers to `call.response.headers`.
+If you need to add default headers for specific [routes](Routing_in_Ktor.md) only, you can use [route interception](intercepting_routes.md). In this case, you can check a request URI and add desired headers into a response, for example:
 ```kotlin
 fun Route.listOrdersRoute() {
     intercept(ApplicationCallPipeline.Call) {
@@ -62,6 +62,3 @@ fun Route.listOrdersRoute() {
     // ...
 }
 ```
-
-
-
