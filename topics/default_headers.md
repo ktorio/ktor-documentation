@@ -1,6 +1,6 @@
 [//]: # (title: Default Headers)
 
-The `%DefaultHeaders%` [feature](Features.md) adds the standard `Server` and `Date` headers into each response. Moreover, you can provide additional default headers and override the `Server` header.
+The `DefaultHeaders` [feature](Features.md) adds the standard `Server` and `Date` headers into each response. Moreover, you can provide additional default headers and override the `Server` header.
 
 
 ## Install Default Headers {id="install"}
