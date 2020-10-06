@@ -1,10 +1,10 @@
 [//]: # (title: Default Headers)
 
-The `DefaultHeaders` [feature](Features.md) adds the standard `Server` and `Date` headers into each response. Moreover, you can provide additional default headers and override the `Server` header.
+The `%DefaultHeaders%` [feature](Features.md) adds the standard `Server` and `Date` headers into each response. Moreover, you can provide additional default headers and override the `Server` header.
 
 
 ## Install Default Headers {id="install"}
-To install the `DefaultHeaders` feature, pass it to the `install` function. For example, you can do this inside the `main` function ...
+To install the `DefaultHeaders` feature, pass it to the `install` function in the application initialization code. This can be the `main` function ...
 ```kotlin
 import io.ktor.features.*
 // ...
@@ -13,7 +13,7 @@ fun Application.main() {
   // ...
 }
 ```
-... or enable default headers for a specified [module](Modules.md):
+... or a specified [module](Modules.md):
 ```kotlin
 import io.ktor.features.*
 // ...
@@ -22,44 +22,42 @@ fun Application.module() {
     // ...
 }
 ```
-This adds the `Server` and `Date` headers into each response. If necessary, you can override the `Server`, as described in the [next chapter](#customize).
-> Note that the `Date` header is cached due to performance reasons and cannot be overridden by using `DefaultHeaders`. If you need to override it, do not install the `DefaultHeaders` feature and use [route interception](#route_headers) instead.
+The `DefaultHeaders` feature adds the `Server` and `Date` headers into each response. If necessary, you can override the `Server`, as described in [](#override).
 
-## Customize Default Headers {id="customize"}
-To customize a list of default headers, pass the desired header to `install`  by using the `header(name, value)` function. Below are a few examples:
 
-* Pass a header name using a `HttpHeaders` value:
+## Add Additional Headers {id="add"}
+To customize a list of default headers, pass a desired header to `install`  by using the `header(name, value)` function. The `name` parameter accepts an `HttpHeaders` value, for example:
 ```kotlin
     install(DefaultHeaders) {
         header(HttpHeaders.ETag, "7c876b7e")
     }
 ```
-
-* To override the `Server` header, use a corresponding `HttpHeaders` value:
-```kotlin
-    install(DefaultHeaders) {
-        header(HttpHeaders.Server, "Custom")
-    }
-```
-
-* To add a custom header, pass its name as a string value:
+To add a custom header, pass its name as a string value:
 ```kotlin
     install(DefaultHeaders) {
         header("Custom-Header", "Some value")
     }
 ```
 
+
+## Override Default Headers {id="override"}
+To override the `Server` header, use a corresponding `HttpHeaders` value:
+```kotlin
+    install(DefaultHeaders) {
+        header(HttpHeaders.Server, "Custom")
+    }
+```
+Note that the `Date` header is cached due to performance reasons and cannot be overridden by using `DefaultHeaders`. If you need to override it, do not install the `DefaultHeaders` feature and use [route interception](intercepting_routes.md) instead.
+
+
+
+
 ## Customize Headers for Specific Routes {id="route_headers"}
 
-If you need to add default headers for specific [routes](Routing_in_Ktor.md) only, you can use [route interception](intercepting_routes.md). In this case, you can check a request URI and add desired headers into a response, for example:
+If you need to add headers for a specific route only, you can append desired headers into a response. The code snippet below shows how to do this for the `/order` request:
 ```kotlin
-fun Route.listOrdersRoute() {
-    intercept(ApplicationCallPipeline.Call) {
-        if (call.request.uri == "/order") {
-            call.response.headers.append(HttpHeaders.ETag, "7c876b7e")
-            // ...
-        }
-    }
-    // ...
+get("/order") {
+    call.response.headers.append(HttpHeaders.ETag, "7c876b7e")
 }
 ```
+You can learn more about routing in %product% from [](Routing_in_Ktor.md).
