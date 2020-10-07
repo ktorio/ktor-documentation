@@ -49,4 +49,4 @@ client.ws(
 }
 ```
 
-For more information about the WebSocketSession, check the [WebSocketSession page](/servers/features/websockets.html#WebSocketSession) and the [API reference](https://api.ktor.io/{{ site.ktor_version }}/io.ktor.client.features.websocket/).
+For more information about the WebSocketSession, check the [WebSocketSession page](/servers/features/websockets.html#WebSocketSession) and the [API reference](https://api.ktor.io/%ktor_version%/io.ktor.client.features.websocket/).

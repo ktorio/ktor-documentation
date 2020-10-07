@@ -110,7 +110,7 @@ You have to add both to the `repositories` block in the `pom.xml` file:
 ``` 
 
 Visit [Bintray](https://bintray.com/kotlin/ktor/ktor) and determine the latest version of ktor.
-In this case it is `{{site.ktor_version}}`.
+In this case it is `%ktor_version%`.
 
 You have to specify that version in each Ktor artifact reference,
 and to avoid repetitions, you can specify that version in an extra property

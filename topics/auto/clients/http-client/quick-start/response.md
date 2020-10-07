@@ -29,7 +29,7 @@ val helloWorld = client.get<HelloWorld>("http://127.0.0.1:8080/")
 
 {id="HttpResponse"}
 
-`HttpResponse` API reference is listed [here](https://api.ktor.io/{{site.ktor_version}}/io.ktor.client.response/-http-response/).
+`HttpResponse` API reference is listed [here](https://api.ktor.io/%ktor_version%/io.ktor.client.response/-http-response/).
 
 From an `HttpResponse`, you can get the response content easily:
 

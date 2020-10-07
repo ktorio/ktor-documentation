@@ -79,9 +79,9 @@ Ktor HttpClient follows `CoroutineScope` lifecycle. Check out [Coroutines guide]
 
 ## Client configuration
 
-To configure the client you can pass additional functional parameter to client constructor. The client configured with [HttpClientEngineConfig](https://api.ktor.io/{{ site.ktor_version }}/io.ktor.client.engine/-http-client-engine-config/index.html).
+To configure the client you can pass additional functional parameter to client constructor. The client configured with [HttpClientEngineConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine/-http-client-engine-config/index.html).
 
-For example you can limit `threadCount` or setup [proxy](/clients/http-client/features/proxy.html):
+For example, you can limit `threadCount` or setup [proxy](/clients/http-client/features/proxy.html):
 
 ```kotlin
 val client = HttpClient(CIO) {
@@ -89,7 +89,7 @@ val client = HttpClient(CIO) {
 }
 ```
 
-You also can configure engine using the `engine` method in block:
+You also can configure an engine using the `engine` method in a block:
 
 ```kotlin
 val client = HttpClient(CIO) {
