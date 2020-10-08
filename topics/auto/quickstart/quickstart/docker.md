@@ -79,8 +79,8 @@ So a full `build.gradle` file would look like this:
 
 ```groovy
 buildscript {
-    ext.kotlin_version = '{{site.kotlin_version}}'
-    ext.ktor_version = '{{site.ktor_version}}'
+    ext.kotlin_version = '%kotlin_version%'
+    ext.ktor_version = '%ktor_version%'
     ext.logback_version = '1.2.3'
     ext.slf4j_version = '1.7.25'
     repositories {

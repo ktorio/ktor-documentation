@@ -36,7 +36,7 @@ Here is a basic `pom.xml` file for building Kotlin applications:
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <kotlin.version>{{site.kotlin_version}}</kotlin.version>
+        <kotlin.version>%kotlin_version%</kotlin.version>
         <junit.version>4.12</junit.version>
     </properties>
 
@@ -118,7 +118,7 @@ in the `properties` block for using it later:
 
 ```xml
 <properties>
-    <ktor.version>{{site.ktor_version}}</ktor.version>
+    <ktor.version>%ktor_version%</ktor.version>
 </properties>
 ```
 
@@ -177,8 +177,8 @@ When you are done, the `pom.xml` file should look like:
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <kotlin.version>{{site.kotlin_version}}</kotlin.version>
-        <ktor.version>{{site.ktor_version}}</ktor.version>
+        <kotlin.version>%kotlin_version%</kotlin.version>
+        <ktor.version>%ktor_version%</ktor.version>
         <junit.version>4.12</junit.version>
     </properties>
 
