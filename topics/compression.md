@@ -1,6 +1,6 @@
 [//]: # (title: Compression)
 
-%product% provides the capability to compress outgoing content by using the [Compression](https://api.ktor.io/%ktor_version%/io.ktor.features/-compression/index.html) feature. You can use different compression algorithms, including `gzip` and `deflate`, 
+Ktor provides the capability to compress outgoing content by using the [Compression](https://api.ktor.io/%ktor_version%/io.ktor.features/-compression/index.html) feature. You can use different compression algorithms, including `gzip` and `deflate`, 
 specify the required conditions for compressing data (such as a content type or response size), or even compress data based on specific request parameters.
 
 <var name="feature_name" value="Compression"/>
@@ -34,7 +34,7 @@ install(Compression) {
 In the example above, `deflate` has a higher priority value and takes precedence over `gzip`. Note that the server first looks at the [quality](https://developer.mozilla.org/en-US/docs/Glossary/Quality_Values) values within the [Accept-Encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding) header and then takes into account the specified priorities.
 
 ### Configure Content Type {id="configure_content_type"}
-By default, %product% doesn't compress specific content types, such as `audio`, `video`, `image`, and `text/event-stream`. 
+By default, Ktor doesn't compress specific content types, such as `audio`, `video`, `image`, and `text/event-stream`. 
 You can choose the content types to compress by calling [matchContentType](https://api.ktor.io/%ktor_version%/io.ktor.features/match-content-type.html) or exclude the desired media types from compression by using [excludeContentType](https://api.ktor.io/%ktor_version%/io.ktor.features/exclude-content-type.html). The code snippet below shows how to compress all text subtypes and JavaScript code using `gzip`:
 ```kotlin
 install(Compression) {
@@ -72,7 +72,7 @@ install(Compression) {
 
 
 ## HTTPS Security {id="security"}
-HTTPS with the enabled compression is vulnerable to the [BREACH](https://en.wikipedia.org/wiki/BREACH) attack. You can use various ways to mitigate this attack. For example, you can disable compression whenever the referrer header indicates a cross-site request. In %product%, this can be done by checking the referrer header value:
+HTTPS with the enabled compression is vulnerable to the [BREACH](https://en.wikipedia.org/wiki/BREACH) attack. You can use various ways to mitigate this attack. For example, you can disable compression whenever the referrer header indicates a cross-site request. In Ktor, this can be done by checking the referrer header value:
 ```kotlin
 install(Compression) {
     gzip {
