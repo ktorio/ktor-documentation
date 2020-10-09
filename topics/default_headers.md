@@ -3,25 +3,9 @@
 The `DefaultHeaders` [feature](Features.md) adds the standard `Server` and `Date` headers into each response. Moreover, you can provide additional default headers and override the `Server` header.
 
 
-## Install Default Headers {id="install"}
-To install the `DefaultHeaders` feature, pass it to the `install` function in the application initialization code. This can be the `main` function ...
-```kotlin
-import io.ktor.features.*
-// ...
-fun Application.main() {
-  install(DefaultHeaders)
-  // ...
-}
-```
-... or a specified [module](Modules.md):
-```kotlin
-import io.ktor.features.*
-// ...
-fun Application.module() {
-    install(DefaultHeaders)
-    // ...
-}
-```
+<var name="feature_name" value="DefaultHeaders"/>
+<include src="lib.md" include-id="install_feature"/>
+
 The `DefaultHeaders` feature adds the `Server` and `Date` headers into each response. If necessary, you can override the `Server`, as described in [](#override).
 
 
@@ -40,7 +24,7 @@ To add a custom header, pass its name as a string value:
 ```
 
 
-## Override Default Headers {id="override"}
+## Override Headers {id="override"}
 To override the `Server` header, use a corresponding `HttpHeaders` value:
 ```kotlin
     install(DefaultHeaders) {
