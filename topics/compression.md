@@ -6,21 +6,21 @@ specify the required conditions for compressing data (such as a content type or 
 <var name="feature_name" value="Compression"/>
 <include src="lib.md" include-id="install_feature"/>
 
-This enables the `gzip`, `deflate`, and `identity` encoders on a server. In the next chapter, we'll show how to enable only specific encoders and configure conditions for compressing data.
+This enables the `gzip`, `deflate`, and `identity` encoders on a server. In the next chapter, we'll see how to enable only specific encoders and configure conditions for compressing data.
 
 
 ## Configure Compression Settings {id="configure"}
 You can configure compression in multiple ways: enable only specific encoders, specify their priorities, compress only specific content types, and so on.
 
 ### Add Specific Encoders {id="add_specific_encoders"}
-To enable only specific encoders, call corresponding extension functions, for example:
+To enable only specific encoders, call the corresponding extension functions, for example:
 ```kotlin
 install(Compression) {
     gzip()
     deflate()
 }
 ```
-You can specify the priority for each compression algorithm by providing `priority`:
+You can specify the priority for each compression algorithm by establishing the `priority` property:
 ```kotlin
 install(Compression) {
     gzip {
