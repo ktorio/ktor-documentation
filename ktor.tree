@@ -47,6 +47,8 @@
                     <toc-element id="Working_with_views.md"/>
                     <toc-element id="autoheadresponse.md"/>
                     <toc-element id="default_headers.md"/>
+                    <toc-element id="compression.md"
+                                 show-structure-depth="2"/>
                     <toc-element id="custom_headers.md"/>
                     <toc-element id="caching.md"/>
                     <toc-element id="cors.md"/>
