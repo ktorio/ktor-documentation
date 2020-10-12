@@ -4,7 +4,7 @@
 [//]: # (permalink: /advanced/authentication.html)
 [//]: # (ktor_version_review: 1.0.0)
 
-Requires reading first [Advanced Pipeline](pipeline.md) and the [Authentication Feature](advanced_authentication.md).
+Requires reading first [Advanced Pipeline](pipeline.md).
 
 `Authentication` feature creates an `AuthenticationPipeline` which is executed right after the `Features` phase
 in the call pipeline. All authentication protocols such as basic, digest, oauth are implemented as interceptors on `AuthenticationPipeline`.
