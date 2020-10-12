@@ -1,7 +1,7 @@
 [//]: # (title: Testing)
 [//]: # (category: clients)
 [//]: # (permalink: /clients/http-client/testing.html)
-[//]: # (caption: Testing Http Client (MockEngine))
+[//]: # (caption: Testing Http Client \(MockEngine\))
 [//]: # (ktor_version_review: 1.2.0)
 
 Ktor exposes a `MockEngine` for the HttpClient. This engine allows simulating HTTP calls without actually connecting to the endpoint. It allows to set a code block, that can handle the request and generates a response.

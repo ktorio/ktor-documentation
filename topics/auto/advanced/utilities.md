@@ -1,5 +1,5 @@
 [//]: # (title: Utilities)
-[//]: # (caption: Utilities exposed by Ktor (URL-Encoding))
+[//]: # (caption: Utilities exposed by Ktor \(URL-Encoding\))
 [//]: # (category: advanced)
 [//]: # (permalink: /advanced/utilities.html)
 [//]: # (keywords: >-)
