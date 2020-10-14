@@ -114,8 +114,6 @@ val client = HttpClient(Apache) {
 }
 ```
 
-{ .compact}
-
 
 
 ### CIO
@@ -198,8 +196,6 @@ val client = HttpClient(CIO) {
 }
 ```
 
-{ .compact}
-
 
 
 ### Jetty
@@ -247,7 +243,6 @@ val client = HttpClient(OkHttp) {
          */
         preconfigured = okHttpClientInstance
     }
-
 }
 ```
 
