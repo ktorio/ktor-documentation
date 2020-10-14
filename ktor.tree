@@ -51,7 +51,13 @@
                     <toc-element id="caching.md"/>
                     <toc-element id="cors.md"/>
                     <toc-element id="redirects.md"/>
-                    <toc-element id="sessions.md"/>
+                    <toc-element id="sessions.md">
+                        <toc-element id="client_server.md"/>
+                        <toc-element id="cookie_header.md"/>
+                        <toc-element id="serializers.md"/>
+                        <toc-element id="storages.md"/>
+                        <toc-element id="transformers.md"/>
+                    </toc-element>
                 </toc-element>
 
             </toc-element>
