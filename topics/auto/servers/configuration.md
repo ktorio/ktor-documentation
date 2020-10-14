@@ -106,7 +106,6 @@ youkube {
   }
 }
 ```
-{ .compact}
 
 There is a [list of the available core configurations](#available-config) in this document.
 

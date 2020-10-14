@@ -88,7 +88,6 @@ Backing up [/Users/user/.zshrc] to [/Users/user/.zshrc.backup].
 For more information on how to get started, please visit:
   https://cloud.google.com/sdk/docs/quickstarts
 ```
-{ .compact}
 
 After that, you can start a new shell, and you should have access to the `gcloud` cli. For example:
 
