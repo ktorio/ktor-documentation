@@ -1,11 +1,11 @@
 [//]: # (title: Sessions)
 
-Sessions provide a mechanism to persist data between different HTTP requests. Typical use cases include storing user ID of the currently logged-in user, the contents of a shopping basket, or keeping user preferences on the client. In Ktor, you can implement sessions by using cookies or custom headers, choose whether to store session data on the server or pass it to the client, sign and encrypt session data, and more. 
+Sessions provide a mechanism to persist data between different HTTP requests. Typical use cases include storing a logged-in user's ID, the contents of a shopping basket, or keeping user preferences on the client. In Ktor, you can implement sessions by using cookies or custom headers, choose whether to store session data on the server or pass it to the client, sign and encrypt session data, and more.
 
-In this topic, we'll take a look on how to configure sessions, install the `Sessions` feature, and set the session's content.
+In this topic, we'll look at how to configure sessions, install the `Sessions` feature, and set the session's content.
 
 
-## Sessions Configuration Overview {id="configure"}
+## Session Configuration Overview {id="configure"}
 You can configure sessions in the following ways:
 - *[How to pass data between the server and client](cookie_header.md)*: using cookies or custom headers. Cookies suit better for plain HTML applications while custom headers are intended for APIs.
 - *[Where to store the session payload](client_server.md)*: on the client or server. You can pass the [serialized](serializers.md) session's data to the client using a cookie/header value or store the payload on the server and pass only a session ID.
@@ -35,7 +35,7 @@ fun Application.module() {
 You can now [set the session content](#set-content), modify the session, or clear it.
 
 ### Multiple Sessions {id="multiple"}
-If you need several sessions in your application, you need to create a separate data class for each session. For example, you can create a separate data classes for storing a user login and settings:
+If you need several sessions in your application, you need to create a separate data class for each session. For example, you can create separate data classes for storing a user login and settings:
 ```kotlin
 data class LoginSession(val username: String, val count: Int)
 data class SettingsSession(val username: String, val settings: Settings)
@@ -77,9 +77,6 @@ When you need to clear a session for any reason (for example, when a user logs o
 call.sessions.clear<LoginSession>()
 ```
 
-
-
-## Examples
 
 
 
