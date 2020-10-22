@@ -135,7 +135,7 @@
         <toc-element id="http-client_testing.md" toc-title="Testing"/>
         <toc-element id="examples.md" toc-title="Examples"/>
         <toc-element id="http-client_features.md" toc-title="Features">
-            <toc-element id="features_auth.md" toc-title="Auth"/>
+            <toc-element id="features_auth.md" toc-title="Auth" accepts-web-file-names="auth.html"/>
             <toc-element id="default-request.md" toc-title="Default Request"/>
             <toc-element id="http-cookies.md" toc-title="Cookies"/>
             <toc-element id="http-plain-text.md" toc-title="Text and Charsets"/>
