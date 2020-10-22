@@ -17,6 +17,17 @@
 
     <toc-element toc-title="Documentation">
 
+        <toc-element toc-title="Set Up a Ktor Project">
+            <toc-element toc-title="Generate a New Project">
+                <toc-element toc-title="Intellij IDEA"/>
+                <toc-element toc-title="Generator"/>
+            </toc-element>
+            <toc-element toc-title="Add Ktor to an Existing Project">
+                <toc-element id="Gradle.md"/>
+                <toc-element id="Maven.md"/>
+            </toc-element>
+        </toc-element>
+
         <toc-element toc-title="Ktor on the Server">
             <toc-element id="developing_applications.md">
                 <toc-element id="A_Ktor_Application.md"/>
@@ -81,7 +92,7 @@
                 <toc-element id="Debugging_routes.md"/>
 
             </toc-element>
-            <toc-element toc-title="Testing">
+            <toc-element id="Testing.md">
 
             </toc-element>
             <toc-element toc-title="Deployments">
