@@ -21,12 +21,12 @@ The following artifacts need to be included in the build script to use this feat
 <tabs>
     <tab title="Gradle (Groovy)">
         <code style="block" lang="Groovy" title="Sample">
-        implementation "io.ktor.features.autoheadresponse:%\ktor_version%"
+        implementation "io.ktor.features.autoheadresponse:%ktor_version%"
         </code>
     </tab>
     <tab title="Gradle (Kotlin)">
         <code style="block" lang="Kotlin" title="Sample">
-            implementation("io.ktor.features.autoheadresponse:%\ktor_version%")
+            implementation("io.ktor.features.autoheadresponse:%ktor_version%")
         </code>
     </tab>
     <tab title="Maven">
@@ -36,7 +36,7 @@ The following artifacts need to be included in the build script to use this feat
                 <scope>compile</scope>
                 <groupId>io.ktor</groupId>
                 <artifactId>autoheadresponse</artifactId>
-                <version>%\ktor_version%</version>
+                <version>%ktor_version%</version>
             </dependency>
         ]]>
         </code>
