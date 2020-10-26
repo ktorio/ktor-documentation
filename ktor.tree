@@ -32,7 +32,7 @@
             <toc-element id="developing_applications.md">
                 <toc-element id="A_Ktor_Application.md"/>
                 <toc-element id="Features.md"/>
-                <toc-element id="Engines.md"/>
+                <toc-element id="Engines.md" show-structure-depth="2"/>
                 <toc-element id="Configurations.md"/>
                 <toc-element toc-title="Application Structure">
                     <toc-element id="Modules.md"/>
