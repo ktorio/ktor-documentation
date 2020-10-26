@@ -16,7 +16,7 @@ Before using the desired engine, you need to add a corresponding dependency to y
 * `ktor-server-tomcat`
 * `ktor-server-cio`
 
-For example, you can add a Netty artifact in the following ways:
+For example, you can add the Netty artifact in the following ways:
 
 <tabs>
     <tab title="Gradle (Groovy)">
@@ -48,7 +48,7 @@ There is also the `ktor-server-servlet` dependency that allows you to run an app
 
 
 ## Configure Engines {id="configure"}
-A Ktor application can be run in two main ways: using the `embeddedServer` or `EngineMain`. `embeddedServer` allows you to run and configure a server in code while `EngineMain` tries to load an `application.conf` configuration file. You can learn more about configuring Ktor from [](Configurations.md).
+A Ktor server application can be run in two ways: using the `embeddedServer` or `EngineMain`. `embeddedServer` allows you to configure a server in code while `EngineMain` tries to load an `application.conf` configuration file. You can learn more about configuring Ktor from [](Configurations.md).
 
 ### embeddedServer {id="embeddedServer"}
 The [embeddedServer](https://api.ktor.io/%ktor_version%/io.ktor.server.engine/embedded-server.html) function accepts the required engine factory as a parameter:
@@ -65,7 +65,7 @@ fun main() {
     }.start(wait = true)
 }
 ```
-In this case, you can configure the required server parameters in code. Learn more from the [](Configurations.md) topic.
+In this case, you can configure required server parameters in code.
 
 ### EngineMain {id="EngineMain"}
 `EngineMain` represents a development engine for running a server. You can use the following engines:
