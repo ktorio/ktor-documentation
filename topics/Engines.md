@@ -43,7 +43,7 @@ For example, you can add a Netty artifact in the following ways:
 </tabs>
 
 
-For the [testing](Testing.md), you need to add the `ktor-server-test-host` dependency. 
+For [testing](Testing.md), you need to add the `ktor-server-test-host` dependency. 
 There is also the `ktor-server-servlet` dependency that allows you to run an application in a servlet container like Jetty or Tomcat. Learn more at [](containers.md).
 
 
@@ -87,7 +87,7 @@ fun Application.module(testing: Boolean = false) {
 }
 ```
 
-In this case, you need to point your build system to `EngineMain` as a main class:
+In this case, you need to point your build system to `EngineMain` as the main class:
 
 <tabs>
         <tab title="Gradle (Groovy)">
