@@ -36,7 +36,7 @@ Here is a basic `pom.xml` file for building Kotlin applications:
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <kotlin.version>{{site.kotlin_version}}</kotlin.version>
+        <kotlin.version>%kotlin_version%</kotlin.version>
         <junit.version>4.12</junit.version>
     </properties>
 
@@ -110,7 +110,7 @@ You have to add both to the `repositories` block in the `pom.xml` file:
 ``` 
 
 Visit [Bintray](https://bintray.com/kotlin/ktor/ktor) and determine the latest version of ktor.
-In this case it is `{{site.ktor_version}}`.
+In this case it is `%ktor_version%`.
 
 You have to specify that version in each Ktor artifact reference,
 and to avoid repetitions, you can specify that version in an extra property
@@ -118,7 +118,7 @@ in the `properties` block for using it later:
 
 ```xml
 <properties>
-    <ktor.version>{{site.ktor_version}}</ktor.version>
+    <ktor.version>%ktor_version%</ktor.version>
 </properties>
 ```
 
@@ -177,8 +177,8 @@ When you are done, the `pom.xml` file should look like:
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <kotlin.version>{{site.kotlin_version}}</kotlin.version>
-        <ktor.version>{{site.ktor_version}}</ktor.version>
+        <kotlin.version>%kotlin_version%</kotlin.version>
+        <ktor.version>%ktor_version%</ktor.version>
         <junit.version>4.12</junit.version>
     </properties>
 

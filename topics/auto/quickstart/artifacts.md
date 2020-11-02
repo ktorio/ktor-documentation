@@ -12,7 +12,7 @@ The typical Ktor application would require `ktor-server-core` and a correspondin
 
 All artifacts in Ktor belong to `io.ktor` group and hosted on JCenter and Maven Central. Pre-release versions are published at [Bintray](https://bintray.com/kotlin/ktor)
 
-[![Download](https://api.bintray.com/packages/kotlin/ktor/ktor/images/download.svg?version={{site.ktor_version}})](https://bintray.com/kotlin/ktor/ktor/{{site.ktor_version}})
+[![Download](https://api.bintray.com/packages/kotlin/ktor/ktor/images/download.svg?version=%ktor_version%)](https://bintray.com/kotlin/ktor/ktor/%ktor_version%)
     
 Ktor is split into several groups of modules:
 

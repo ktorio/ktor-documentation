@@ -77,10 +77,12 @@ So a full `build.gradle` file would look like this:
 
 <tabs>
 
+<tab title="Gradle">
+
 ```groovy
 buildscript {
-    ext.kotlin_version = '{{site.kotlin_version}}'
-    ext.ktor_version = '{{site.ktor_version}}'
+    ext.kotlin_version = '%kotlin_version%'
+    ext.ktor_version = '%ktor_version%'
     ext.logback_version = '1.2.3'
     ext.slf4j_version = '1.7.25'
     repositories {
@@ -124,7 +126,9 @@ shadowJar {
 }
 ```
 
+</tab>
 
+<tab title="application.conf">
 
 ```groovy
 ktor {
@@ -138,7 +142,9 @@ ktor {
 }
 ```
 
+</tab>
 
+<tab title="Application.kt">
 
 ```kotlin
 package io.ktor.samples.hello
@@ -168,6 +174,9 @@ fun Application.main() {
     }
 }
 ```
+
+</tab>
+
 </tabs>
 
 >You can check this [full example](https://github.com/ktorio/ktor-samples/tree/1.3.0/deployment/docker) at the ktor-samples repository.
@@ -178,9 +187,9 @@ fun Application.main() {
 
 In the root folder of your project create a file named `Dockerfile` with the following contents:
 
-```text
+```dockerfile
 ```
-{src="docker-sample.md"}
+{src="docker-sample.Dockerfile"}
 
 Let's see what is what:
 

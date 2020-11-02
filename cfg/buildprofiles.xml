@@ -37,6 +37,8 @@
         <config-search-scopes-provider>https://data.services.jetbrains.com/search/</config-search-scopes-provider>
         <og-twitter>@JetBrainsKtor</og-twitter>
         <og-image>https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png</og-image>
+        <allow-indexable-eaps>true</allow-indexable-eaps>
+
     </variables>
 
     <build-profile product="ktor"/>

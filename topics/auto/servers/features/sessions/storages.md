@@ -45,7 +45,6 @@ If the storage doesn't provide a meaningful way to store information as a stream
 a simplified adaptor that just reads and writes it using `ByteArray`. It can also be used as an example to know
 how to deal with the API in its primitive stream-based version.
 
-```text
-
+```kotlin
 ```
-{src="simplified-session-storage-sample.md"}
+{src="simplified-session-storage-sample.kt"}

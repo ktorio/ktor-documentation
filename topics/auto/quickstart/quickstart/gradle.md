@@ -30,7 +30,7 @@ group 'Example'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '{{site.kotlin_version}}'
+    ext.kotlin_version = '%kotlin_version%'
 
     repositories {
         mavenCentral()
@@ -73,7 +73,7 @@ and to avoid repetitions, you can specify that version in an extra property
 in the `buildscript` block (or in a `gradle.properties` file) for using it later:
 
 ```groovy
-ext.ktor_version = '{{site.ktor_version}}'
+ext.ktor_version = '%ktor_version%'
 ```
 
 Now you have to add the `ktor-server-core` artifact, referencing the `ktor_version` you specified:
@@ -129,8 +129,8 @@ group 'Example'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '{{site.kotlin_version}}'
-    ext.ktor_version = '{{site.ktor_version}}'
+    ext.kotlin_version = '%kotlin_version%'
+    ext.ktor_version = '%ktor_version%'
 
     repositories {
         mavenCentral()
@@ -242,11 +242,11 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 group = "Example"
 version = "1.0-SNAPSHOT"
 
-val ktor_version = "{{ site.ktor_version }}"
+val ktor_version = "%ktor_version%"
 
 plugins {
     application
-    kotlin("jvm") version "{{ site.kotlin_version }}"
+    kotlin("jvm") version "%kotlin_version%"
 }
 
 repositories {
@@ -282,8 +282,8 @@ group 'Example'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '{{ site.kotlin_version }}'
-    ext.ktor_version = '{{ site.ktor_version }}'
+    ext.kotlin_version = '%kotlin_version%'
+    ext.ktor_version = '%ktor_version%'
 
     repositories {
         mavenCentral()

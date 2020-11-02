@@ -89,10 +89,9 @@ that you have to provide: it is your responsibility to open and close them.
 You can read more about `ByteWriteChannel` and `ByteReadChannel` in their libraries documentation.
 If you just need to load or store a ByteArray, you can use this snippet which provides a simplified session storage:
 
-```text
-
+```kotlin
 ```
-{src="simplified-session-storage-sample.md"}
+{src="simplified-session-storage-sample.kt"}
 
 With this simplified storage you only have to implement two simpler methods:
 

@@ -35,13 +35,13 @@ And in the case you are interested in the raw bits, you can read a `ByteArray`:
 val channel: ByteArray = client.get("https://en.wikipedia.org/wiki/Main_Page")
 ```
 
-Or get full [HttpResponse](https://api.ktor.io/{{ site.ktor_version }}/io.ktor.client.statement/-http-response/index.html):
+Or get full [HttpResponse](https://api.ktor.io/%ktor_version%/io.ktor.client.statement/-http-response/index.html):
 
 ```kotlin
 val response: HttpResponse = client.get("https://en.wikipedia.org/wiki/Main_Page")
 ```
 
-The [HttpResponse](https://api.ktor.io/{{ site.ktor_version }}/io.ktor.client.statement/-http-response/index.html) is downloaded in memory by default. To learn how to download response partially or work with a stream data consult with the [Streaming](/clients/http-client/quick-start/streaming.html) section.
+The [HttpResponse](https://api.ktor.io/%ktor_version%/io.ktor.client.statement/-http-response/index.html) is downloaded in memory by default. To learn how to download response partially or work with a stream data consult with the [Streaming](/clients/http-client/quick-start/streaming.html) section.
 
 And even your data class using [Json](/clients/http-client/features/json-feature.html) feature:
 
@@ -78,7 +78,7 @@ val text = client.post<String>("http://127.0.0.1:8080/") {
 }
 ```
 
-The [HttpRequestBuilder](https://api.ktor.io/{{ site.ktor_version }}/io.ktor.client.request/-http-request-builder/) looks like this:
+The [HttpRequestBuilder](https://api.ktor.io/%ktor_version%/io.ktor.client.request/-http-request-builder/) looks like this:
 
 ```kotlin
 class HttpRequestBuilder : HttpMessageBuilder {
@@ -100,7 +100,7 @@ class HttpRequestBuilder : HttpMessageBuilder {
 ```
 
 The `HttpClient` class only offers some basic functionality, and all the methods for building requests are exposed as extensions.\\
-You can check the standard available [HttpClient build extension methods](https://api.ktor.io/{{ site.ktor_version }}/io.ktor.client.request/).
+You can check the standard available [HttpClient build extension methods](https://api.ktor.io/%ktor_version%/io.ktor.client.request/).
 
 ### Customize method
 
@@ -120,7 +120,7 @@ val call = client.request<String> {
 {id="submit-form"}
 
 There are a couple of convenience extension methods for submitting form information.
-The detailed refrence is listed [here](https://api.ktor.io/{{ site.ktor_version }}/io.ktor.client.request.forms/).
+The detailed reference is listed [here](https://api.ktor.io/%ktor_version%/io.ktor.client.request.forms/).
 
 The `submitForm` method:
 
@@ -189,7 +189,7 @@ headers { // this: HeadersBuilder
 }
 ```
 
-Complete `HeadersBuilder` API is listed [here](https://api.ktor.io/{{ site.ktor_version }}/io.ktor.http/-headers-builder/).
+Complete `HeadersBuilder` API is listed [here](https://api.ktor.io/%ktor_version%/io.ktor.http/-headers-builder/).
 
 ## Specifying a body for requests
 

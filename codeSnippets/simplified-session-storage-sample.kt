@@ -1,4 +1,3 @@
-```kotlin
 abstract class SimplifiedSessionStorage : SessionStorage {
     abstract suspend fun read(id: String): ByteArray?
     abstract suspend fun write(id: String, data: ByteArray?): Unit
@@ -29,4 +28,3 @@ suspend fun ByteReadChannel.readAvailable(): ByteArray {
     }
     return data.toByteArray()
 }
-```

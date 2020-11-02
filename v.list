@@ -5,5 +5,6 @@
 <vars>
 
     <var name="ktor_version" value="1.4.0"/>
+    <var name="kotlin_version" value="1.4.0"/>
 
 </vars>

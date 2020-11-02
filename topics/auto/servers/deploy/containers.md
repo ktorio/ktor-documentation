@@ -15,9 +15,9 @@ when your container needs to interact with other services, like for example a da
 
 First you have to create a [fat-jar file](/servers/deploy/packing/fatjar) with your application. And a `Dockerfile`, which looks like this:
 
-```text
+```dockerfile
 ```
-{src="docker-sample.md"}
+{src="docker-sample.Dockerfile"}
 
 For deploying to Docker simply you can check out the [docker quickstart](/quickstart/quickstart/docker.html) page for full details.
 

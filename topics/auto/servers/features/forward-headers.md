@@ -1,5 +1,5 @@
 [//]: # (title: ForwardedHeaderSupport)
-[//]: # (caption: XForwardedHeaderSupport (Reverse Proxy Support))
+[//]: # (caption: XForwardedHeaderSupport \(Reverse Proxy Support\))
 [//]: # (category: servers)
 [//]: # (permalink: /servers/features/forward-headers.html)
 [//]: # (feature: feature)
