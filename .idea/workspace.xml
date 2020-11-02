@@ -27,34 +27,7 @@
   <component name="ChangeListManager">
     <list default="true" id="32470eac-439c-4791-b8f1-1ab007b59702" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/codeSnippets/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/deployment/google-appengine-standard/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/codeSnippets/deployment/google-appengine-standard/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/feature/gson/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/codeSnippets/feature/gson/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/feature/jackson/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/codeSnippets/feature/jackson/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/feature/json-client/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/codeSnippets/feature/json-client/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/mpp/fullstack-mpp/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/codeSnippets/mpp/fullstack-mpp/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/maven-google-appengine-standard/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/codeSnippets/other/maven-google-appengine-standard/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeSnippets/other/maven-netty/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/codeSnippets/other/maven-netty/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/advanced/advanced_http2.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/advanced/advanced_http2.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/advanced/build-from-source.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/advanced/build-from-source.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/advanced/pipeline.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/advanced/pipeline.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/clients/http-client/quick-start/request.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/clients/http-client/quick-start/request.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_api.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_api.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_oauth.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides/guides_oauth.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/guides/ssl.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/guides/ssl.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/migration/.0.0-beta-3.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/migration/.0.0-beta-3.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/quickstart/zfaq.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/quickstart/zfaq.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/servers/autoreload.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/autoreload.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/servers/configuration.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/configuration.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/servers/configuration/environments.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/configuration/environments.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/servers/deploy/hosting/google-app-engine.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/hosting/google-app-engine.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/servers/deploy/hosting/heroku.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/deploy/hosting/heroku.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/features_authentication.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/features_authentication.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/servers/features/routing.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/features/routing.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/servers/self-signed-certificate.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/self-signed-certificate.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/servers/servers_application.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/servers_application.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/servers/servers_logging.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/servers_logging.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/auto/servers/servers_raw-sockets.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/auto/servers/servers_raw-sockets.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfg/buildprofiles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cfg/buildprofiles.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +68,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TEXT" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/topics" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -174,6 +147,7 @@
       <workItem from="1600180255918" duration="153000" />
       <workItem from="1600335946104" duration="567000" />
       <workItem from="1600416597202" duration="8361000" />
+      <workItem from="1604334059718" duration="686000" />
     </task>
     <task id="LOCAL-00019" summary="Created first diagram for testing">
       <created>1596434189952</created>
@@ -584,28 +558,32 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="766" y="268" key="FileChooserDialogImpl/0.0.1920.1200@0.0.1920.1200" timestamp="1599133497268" />
-    <state width="1494" height="300" key="GridCell.Tab.0.bottom" timestamp="1597472768652">
-      <screen x="0" y="23" width="2048" height="1257" />
+    <state width="1878" height="330" key="GridCell.Tab.0.bottom" timestamp="1602160042676">
+      <screen x="0" y="23" width="1920" height="1177" />
     </state>
     <state width="1494" height="419" key="GridCell.Tab.0.bottom/0.0.2048.1280@0.0.2048.1280" timestamp="1597414675247" />
+    <state width="1878" height="330" key="GridCell.Tab.0.bottom/0.23.1920.1177@0.23.1920.1177" timestamp="1602160042676" />
     <state width="1494" height="300" key="GridCell.Tab.0.bottom/0.23.2048.1257@0.23.2048.1257" timestamp="1597472768652" />
     <state width="1494" height="300" key="GridCell.Tab.0.bottom/0.23.3008.1669@0.23.3008.1669" timestamp="1597430193178" />
-    <state width="1494" height="300" key="GridCell.Tab.0.center" timestamp="1597472768651">
-      <screen x="0" y="23" width="2048" height="1257" />
+    <state width="1878" height="330" key="GridCell.Tab.0.center" timestamp="1602160042674">
+      <screen x="0" y="23" width="1920" height="1177" />
     </state>
     <state width="1494" height="419" key="GridCell.Tab.0.center/0.0.2048.1280@0.0.2048.1280" timestamp="1597414675247" />
+    <state width="1878" height="330" key="GridCell.Tab.0.center/0.23.1920.1177@0.23.1920.1177" timestamp="1602160042674" />
     <state width="1494" height="300" key="GridCell.Tab.0.center/0.23.2048.1257@0.23.2048.1257" timestamp="1597472768651" />
     <state width="1494" height="300" key="GridCell.Tab.0.center/0.23.3008.1669@0.23.3008.1669" timestamp="1597430193177" />
-    <state width="1494" height="300" key="GridCell.Tab.0.left" timestamp="1597472768651">
-      <screen x="0" y="23" width="2048" height="1257" />
+    <state width="1878" height="330" key="GridCell.Tab.0.left" timestamp="1602160042674">
+      <screen x="0" y="23" width="1920" height="1177" />
     </state>
     <state width="1494" height="419" key="GridCell.Tab.0.left/0.0.2048.1280@0.0.2048.1280" timestamp="1597414675246" />
+    <state width="1878" height="330" key="GridCell.Tab.0.left/0.23.1920.1177@0.23.1920.1177" timestamp="1602160042674" />
     <state width="1494" height="300" key="GridCell.Tab.0.left/0.23.2048.1257@0.23.2048.1257" timestamp="1597472768651" />
     <state width="1494" height="300" key="GridCell.Tab.0.left/0.23.3008.1669@0.23.3008.1669" timestamp="1597430193177" />
-    <state width="1494" height="300" key="GridCell.Tab.0.right" timestamp="1597472768651">
-      <screen x="0" y="23" width="2048" height="1257" />
+    <state width="1878" height="330" key="GridCell.Tab.0.right" timestamp="1602160042675">
+      <screen x="0" y="23" width="1920" height="1177" />
     </state>
     <state width="1494" height="419" key="GridCell.Tab.0.right/0.0.2048.1280@0.0.2048.1280" timestamp="1597414675247" />
+    <state width="1878" height="330" key="GridCell.Tab.0.right/0.23.1920.1177@0.23.1920.1177" timestamp="1602160042675" />
     <state width="1494" height="300" key="GridCell.Tab.0.right/0.23.2048.1257@0.23.2048.1257" timestamp="1597472768651" />
     <state width="1494" height="300" key="GridCell.Tab.0.right/0.23.3008.1669@0.23.3008.1669" timestamp="1597430193178" />
     <state x="192" y="109" key="MergeDialog" timestamp="1600170925910">
