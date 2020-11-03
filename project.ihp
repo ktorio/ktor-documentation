@@ -8,7 +8,7 @@
 
     <vars src="v.list"/>
     <topics dir="topics"/>
-    <images dir="images" web-path="/img/ktor/1.3/"/>
+    <images dir="images" web-path="/img/ktor/old/1.3/"/>
     <categories src="c.list"/>
     <product src="ktor.tree"
              web-path="/docs/old/"
