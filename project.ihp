@@ -8,8 +8,11 @@
 
     <vars src="v.list"/>
     <topics dir="topics"/>
-    <images dir="images" web-path="/img/ktor-supernova/1.3/"/>
+    <images dir="images" web-path="/img/ktor-supernova/1.5/"/>
     <categories src="c.list"/>
-    <product src="ktor.tree" version="1.3" keymaps-mode="none"/>
+    <product src="ktor.tree"
+             web-path="/docs/"
+             version="1.5"
+             keymaps-mode="none"/>
 
 </ihp>
