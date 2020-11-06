@@ -2,6 +2,7 @@
 
 The `DefaultHeaders` [feature](Features.md) adds the standard `Server` and `Date` headers into each response. Moreover, you can provide additional default headers and override the `Server` header.
 
+## Install DefaultHeaders {id="install_feature"}
 
 <var name="feature_name" value="DefaultHeaders"/>
 <include src="lib.md" include-id="install_feature"/>

@@ -52,7 +52,7 @@
                 <toc-element toc-title="Authentication and Authorization">
                 </toc-element>
                 <toc-element toc-title="Features">
-                    <toc-element id="logging.md"/>
+                    <toc-element id="logging.md" show-structure-depth="2"/>
                     <toc-element id="serialization.md"/>
                     <toc-element id="working_with_cookies.md"/>
                     <toc-element id="Working_with_views.md"/>
