@@ -53,7 +53,7 @@
                 </toc-element>
                 <toc-element toc-title="Features">
                     <toc-element id="logging.md" show-structure-depth="2"/>
-                    <toc-element id="serialization.md">
+                    <toc-element id="serialization.md" show-structure-depth="2">
                         <toc-element id="gson.md"/>
                         <toc-element id="jackson.md"/>
                         <toc-element id="kotlin_serialization.md"/>
