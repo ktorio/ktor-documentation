@@ -56,7 +56,7 @@
                     <toc-element id="serialization.md" show-structure-depth="2">
                         <toc-element id="gson.md"/>
                         <toc-element id="jackson.md"/>
-                        <toc-element id="kotlin_serialization.md"/>
+                        <toc-element id="kotlin_serialization.md" show-structure-depth="2"/>
                     </toc-element>
                     <toc-element id="working_with_cookies.md"/>
                     <toc-element id="Working_with_views.md"/>

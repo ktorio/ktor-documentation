@@ -1,11 +1,10 @@
-[//]: # (title: Serialization and Content Negotiation)
+[//]: # (title: Content Negotiation and Serialization)
 
-The [ContentNegotiation](https://api.ktor.io/%ktor_version%/io.ktor.features/-content-negotiation/index.html) feature enables automatic conversion of request/response data and uses the following HTTP headers:
+The [ContentNegotiation](https://api.ktor.io/%ktor_version%/io.ktor.features/-content-negotiation/index.html) feature serves two primary purposes:
+* Serializing response data depending on the `Accept` request header value. Based on this value, Ktor chooses a suitable content converter, serializes data, and sends a response with a corresponding `Content-Type`.
+* Deserializing incoming data based on the `Content-Type` request header value. In this case, Ktor uses the required converter to deserialize data to a specified class object.
 
-* The `Content-Type` header is used to detect the type of incoming data.
-* The `Accept` header is used to select the converter type for sending data.
-
-`ContentNegotiation` can be useful for deserializing JSON to a specified class object and vice versa. In Ktor, you can choose from the built-in JSON converters or implement your own conversion logic.
+In both cases, you can use built-in serializers (JSON, CBOR, ProtoBuf, etc.) to convert incoming/outgoing data, or you can implement your own conversion logic.
 
 
 ## Install ContentNegotiation {id="install_feature"}
@@ -25,12 +24,12 @@ install(ContentNegotiation) {
 }
 ```
 
-### Built-in JSON Converters {id="json_converters"}
-Ktor provides the set of built-in converters for handing JSON content without writing your own logic:
+### Built-in Converters {id="built_in_converters"}
+Ktor provides the set of built-in converters for handing various content types without writing your own logic:
 
-* [Gson](gson.md)
-* [Jackson](jackson.md)
-* [kotlinx.serialization](kotlin_serialization.md)
+* [Gson](gson.md) for JSON
+* [Jackson](jackson.md) for JSON
+* [kotlinx.serialization](kotlin_serialization.md) for JSON, Protobuf, CBOR, and so on
 
 See a corresponding topic to learn how to install the required dependencies, register, and configure a converter.
 
@@ -57,7 +56,7 @@ post("/customer") {
     val customer = call.receive<Customer>()
 }
 ```
-The `Content-Type` of the request will be used to determine a [converter](#register_converter), which will be used to process the request. The example below shows a sample [HTTP client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html) request containing JSON data that will be converted to a `Customer` object on the server side:
+The `Content-Type` of the request will be used to choose a [converter](#register_converter) for processing the request. The example below shows a sample [HTTP client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html) request containing JSON data that will be converted to a `Customer` object on the server side:
 
 ```HTTP
 POST http://0.0.0.0:8080/customer
