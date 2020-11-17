@@ -1,10 +1,8 @@
 [//]: # (title: Content Negotiation and Serialization)
 
 The [ContentNegotiation](https://api.ktor.io/%ktor_version%/io.ktor.features/-content-negotiation/index.html) feature serves two primary purposes:
-* Serializing response data depending on the `Accept` request header value. Based on this value, Ktor chooses a suitable content converter, serializes data, and sends a response with a corresponding `Content-Type`.
-* Deserializing incoming data based on the `Content-Type` request header value. In this case, Ktor uses the required converter to deserialize data to a specified class object.
-
-In both cases, you can use built-in serializers (JSON, CBOR, ProtoBuf, etc.) to convert incoming/outgoing data, or you can implement your own conversion logic.
+* Negotiating media types between the client and server. For this, it uses the `Accept` and `Content-Type` headers.
+* Serializing/deserializing the content in the specific format, which is provided by either the built-in `kotlinx.serialization` library or external ones, such as `Gson` and `Jackson`, amongst others.
 
 
 ## Install ContentNegotiation {id="install_feature"}
