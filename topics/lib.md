@@ -51,3 +51,30 @@ fun Application.module() {
    </tab>
 </tabs>
 </chunk>
+
+
+<chunk id="add_artifact">
+<tabs>
+    <tab title="Gradle (Groovy)">
+        <code style="block" lang="Groovy" title="Sample">
+            implementation "%group_id%:%artifact_name%:$%version%"
+        </code>
+    </tab>
+    <tab title="Gradle (Kotlin)">
+        <code style="block" lang="Kotlin" title="Sample">
+            implementation("%group_id%:%artifact_name%:$%version%")
+        </code>
+    </tab>
+    <tab title="Maven">
+        <code style="block" lang="XML" title="Sample">
+        <![CDATA[
+        <dependency>
+            <groupId>%group_id%</groupId>
+            <artifactId>%artifact_name%</artifactId>
+            <version>${%version%}</version>
+        </dependency>
+        ]]>
+        </code>
+   </tab>
+</tabs>
+</chunk>

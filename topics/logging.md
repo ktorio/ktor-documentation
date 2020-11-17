@@ -5,29 +5,10 @@ Ktor provides the capability to log application events using the [SLF4J](http://
 ## Add Dependencies {id="add_dependencies"}
 To enable logging, you need to include [Logback](https://logback.qos.ch/) artifacts in the build script:
 
-<tabs>
-<tab title="Gradle (Groovy)">
-<code style="block" lang="Groovy" title="Sample">
-implementation "ch.qos.logback:logback-classic:$logback_version"
-</code>
-</tab>
-<tab title="Gradle (Kotlin)">
-<code style="block" lang="Kotlin" title="Sample">
-implementation("ch.qos.logback:logback-classic:$logback_version")
-</code>
-</tab>
-<tab title="Maven">
-<code style="block" lang="XML" title="Sample">
-<![CDATA[
-<dependency>
-    <groupId>ch.qos.logback</groupId>
-    <artifactId>logback-classic</artifactId>
-    <version>$logback_version</version>
-</dependency>
-]]>
-</code>
-</tab>
-</tabs>
+<var name="group_id" value="ch.qos.logback"/>
+<var name="artifact_name" value="logback-classic"/>
+<var name="version" value="logback_version"/>
+<include src="lib.md" include-id="add_artifact"/>
 
 
 ## Access the Logger {id="access_logger"}

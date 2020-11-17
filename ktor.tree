@@ -75,6 +75,10 @@
                         <toc-element id="storages.md"/>
                         <toc-element id="transformers.md"/>
                     </toc-element>
+                    <toc-element toc-title="Metrics">
+                        <toc-element id="micrometer_metrics.md" show-structure-depth="2"/>
+                        <toc-element id="dropwizard_metrics.md"/>
+                    </toc-element>
                 </toc-element>
 
             </toc-element>
