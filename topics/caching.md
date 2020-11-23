@@ -10,14 +10,7 @@ The [CachingHeaders](https://api.ktor.io/%ktor_version%/io.ktor.features/-cachin
 After installing `CachingHeaders`, you can [configure](#configure) caching settings for various content types.
 
 ## Configure Caching {id="configure"}
-To configure the `CachingHeaders` feature, follow the steps below:
-1. Define the [options](https://api.ktor.io/%ktor_version%/io.ktor.features/-caching-headers/-configuration/options.html) block that should provide caching options for a specified content type.
-1. Specify the desired [ContentType](https://api.ktor.io/%ktor_version%/io.ktor.http/-content-type/index.html) as a parameter.
-1. Create the [CachingOptions](https://api.ktor.io/%ktor_version%/io.ktor.http.content/-caching-options/index.html) object and pass the required `Cache-Control` and `Expires` headers as parameters:
-    * The `cacheControl` parameter accepts a [CacheControl](https://api.ktor.io/%ktor_version%/io.ktor.http/-cache-control/index.html) value. You can use [CacheControl.MaxAge](https://api.ktor.io/%ktor_version%io.ktor.http/-cache-control/-max-age/index.html) to specify the `max-age` parameter and related settings, such as visibility, revalidation options, and so on. If necessary, you can disable caching by using `CacheControl.NoCache`/`CacheControl.NoStore`.
-    * The `expires` parameter allows you to specify the `Expires` header as a `GMTDate` or `ZonedDateTime` value.
-   
-The code snippet below shows how to add the `Cache-Control` header with the `max-age` option for CSS content type:
+To configure the `CachingHeaders` feature, you need to define the [options](https://api.ktor.io/%ktor_version%/io.ktor.features/-caching-headers/-configuration/options.html) function to provide specified caching options for a given content type. The code snippet below shows how to add the `Cache-Control` header with the `max-age` option for CSS:
 
 ```kotlin
 install(CachingHeaders) {
@@ -30,10 +23,16 @@ install(CachingHeaders) {
 }
 ```
 
+The [CachingOptions](https://api.ktor.io/%ktor_version%/io.ktor.http.content/-caching-options/index.html) object accepts `Cache-Control` and `Expires` header values as parameters:
+
+* The `cacheControl` parameter accepts a [CacheControl](https://api.ktor.io/%ktor_version%/io.ktor.http/-cache-control/index.html) value. You can use [CacheControl.MaxAge](https://api.ktor.io/%ktor_version%io.ktor.http/-cache-control/-max-age/index.html) to specify the `max-age` parameter and related settings, such as visibility, revalidation options, and so on. If necessary, you can disable caching by using `CacheControl.NoCache`/`CacheControl.NoStore`.
+* The `expires` parameter allows you to specify the `Expires` header as a `GMTDate` or `ZonedDateTime` value.
+
+
 
 ## Customize Headers for Specific Routes {id="route_headers"}
 
-If you need to add caching headers for a specific route only, you can append desired headers into a response. The code snippet below shows how to do this for GET requests to `/profile`:
+If you need to add caching headers for a specific route only, you can append desired headers into a response. The code snippet below shows how to disable caching for the `/profile` route:
 
 ```kotlin
 get("/profile") {

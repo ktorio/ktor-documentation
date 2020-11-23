@@ -66,6 +66,7 @@
                                  show-structure-depth="2"/>
                     <toc-element id="custom_headers.md"/>
                     <toc-element id="caching.md"/>
+                    <toc-element id="conditional_headers.md"/>
                     <toc-element id="cors.md"/>
                     <toc-element id="redirects.md"/>
                     <toc-element id="sessions.md" show-structure-depth="2">
