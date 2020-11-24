@@ -1,6 +1,6 @@
 [//]: # (title: Caching Headers)
 
-The [CachingHeaders](https://api.ktor.io/%ktor_version%/io.ktor.features/-caching-headers/index.html) feature adds the capability to configure the `Cache-Control` and `Expires` headers used for HTTP caching. You can introduce different caching strategies for specific content types, such as images, CSS and JavaScript files, and so on.
+The [CachingHeaders](https://api.ktor.io/%ktor_version%/io.ktor.features/-caching-headers/index.html) feature adds the capability to configure the `Cache-Control` and `Expires` headers used for HTTP caching. You can introduce different [caching strategies](#configure) for specific content types, such as images, CSS and JavaScript files, and so on.
 
 ## Install CachingHeaders {id="install_feature"}
 
@@ -25,14 +25,14 @@ install(CachingHeaders) {
 
 The [CachingOptions](https://api.ktor.io/%ktor_version%/io.ktor.http.content/-caching-options/index.html) object accepts `Cache-Control` and `Expires` header values as parameters:
 
-* The `cacheControl` parameter accepts a [CacheControl](https://api.ktor.io/%ktor_version%/io.ktor.http/-cache-control/index.html) value. You can use [CacheControl.MaxAge](https://api.ktor.io/%ktor_version%io.ktor.http/-cache-control/-max-age/index.html) to specify the `max-age` parameter and related settings, such as visibility, revalidation options, and so on. If necessary, you can disable caching by using `CacheControl.NoCache`/`CacheControl.NoStore`.
+* The `cacheControl` parameter accepts a [CacheControl](https://api.ktor.io/%ktor_version%/io.ktor.http/-cache-control/index.html) value. You can use [CacheControl.MaxAge](https://api.ktor.io/%ktor_version%io.ktor.http/-cache-control/-max-age/index.html) to specify the `max-age` parameter and related settings, such as visibility, revalidation options, and so on. You can disable caching by using `CacheControl.NoCache`/`CacheControl.NoStore`.
 * The `expires` parameter allows you to specify the `Expires` header as a `GMTDate` or `ZonedDateTime` value.
 
 
 
 ## Customize Headers for Specific Routes {id="route_headers"}
 
-If you need to add caching headers for a specific route only, you can append desired headers into a response. The code snippet below shows how to disable caching for the `/profile` route:
+If you need to add caching headers for a specific route only, you can append the desired headers into a response. In this case, you don't need to [install](#install_feature) `CachingHeaders`. The code snippet below shows how to disable caching for the `/profile` route:
 
 ```kotlin
 get("/profile") {

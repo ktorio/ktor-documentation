@@ -1,6 +1,6 @@
 [//]: # (title: Conditional Headers)
 
-The [ConditionalHeaders](https://api.ktor.io/%ktor_version%/io.ktor.features/-conditional-headers/index.html) feature enables Ktor to avoid sending a full response if the client already has the required content version. This is achieved by using the following headers:
+The [ConditionalHeaders](https://api.ktor.io/%ktor_version%/io.ktor.features/-conditional-headers/index.html) feature avoids sending the body of content if it has not changed since the last request. This is achieved by using the following headers:
 * The `Last-Modified` response header contains a resource modification time. For example, if the client request contains the `If-Modified-Since` value, Ktor will send a full response only if a resource has been modified after the given date. Note that for [static files](Serving_Static_Content.md) Ktor appends the `Last-Modified` header automatically after [installing](#install_feature) `ConditionalHeaders`.
 * The `Etag` response header is an identifier for a specific resource version. For instance, if the client request contains the `If-None-Match` value, Ktor won't send a full response in case this value matches the `Etag`. You can specify the `Etag` value when [configuring](#configure) `ConditionalHeaders`.
 
