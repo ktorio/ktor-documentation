@@ -11,7 +11,7 @@ As mentioned in [A Ktor Application](A_Ktor_Application.md), a typical request/r
 
 It starts with a request, which is routed to a specific handler, processed by our application logic, and finally responded to. 
 
-## Adding functionality with Features
+## Adding functionality with Features {id="add_functionality"}
 
 Many applications require common functionality that is out of scope of the application logic. This could be things like 
 serialization and content encoding, compression, headers, cookie support, etc. All of these are provided in Ktor by means of 
@@ -32,7 +32,7 @@ As a request comes in:
 * the handler (application logic) handles the request
 * before the response is sent to the client, it goes through one or more Features
 
-## Routing is a Feature
+## Routing is a Feature {id="routing"}
 
 Features have been designed in a way to offer maximum flexibility, and allow them to be present in any segment of the request/response pipeline.
 In fact, what we've been calling `routing` until now, is nothing more than a Feature. 
@@ -43,7 +43,7 @@ In fact, what we've been calling `routing` until now, is nothing more than a Fea
 
 
 
-## Installing Features
+## Installing Features {id="install"}
 
 Features are generally configured during the initialization phase of the server using the `install`
 function which takes a Feature as a parameter:
@@ -63,7 +63,7 @@ install(Sessions) {
 } 
 ```
 
-## Default, Available, and Custom Features
+## Default, Available, and Custom Features {id="default_available_custom"}
 
 By default, Ktor does not activate any Feature, and it's up to us as developers to install the functionality our application need.
 

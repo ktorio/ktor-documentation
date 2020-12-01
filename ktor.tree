@@ -59,7 +59,14 @@
                         <toc-element id="kotlin_serialization.md" show-structure-depth="2"/>
                     </toc-element>
                     <toc-element id="working_with_cookies.md"/>
-                    <toc-element id="Working_with_views.md"/>
+                    <toc-element id="Working_with_views.md">
+                        <toc-element id="html_dsl.md"/>
+                        <toc-element id="css_dsl.md"/>
+                        <toc-element id="freemarker.md"/>
+                        <toc-element id="velocity.md"/>
+                        <toc-element id="mustache.md"/>
+                        <toc-element id="thymeleaf.md"/>
+                    </toc-element>
                     <toc-element id="autoheadresponse.md"/>
                     <toc-element id="default_headers.md"/>
                     <toc-element id="compression.md"
