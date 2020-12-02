@@ -7,3 +7,5 @@ Ktor provides different ways for working with views: you can build HTML/CSS usin
 * [](velocity.md)
 * [](mustache.md)
 * [](thymeleaf.md)
+
+> To learn how to serve static HTML files, see [](Serving_Static_Content.md).

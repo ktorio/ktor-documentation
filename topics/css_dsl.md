@@ -1,6 +1,6 @@
 [//]: # (title: CSS DSL)
 
-CSS DSL extends the [HTML DSL](html_dsl.md) feature and allows you to author stylesheets in Kotlin by using the [kotlin-css](https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-css/README.md) wrapper.
+CSS DSL extends [HTML DSL](html_dsl.md) and allows you to author stylesheets in Kotlin by using the [kotlin-css](https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-css/README.md) wrapper.
 
 > Learn how to serve stylesheets as static content from [](Serving_Static_Content.md).
 
