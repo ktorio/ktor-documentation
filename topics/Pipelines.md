@@ -1,3 +1,2 @@
-[//]: # (title: Pipelines.md)
+[//]: # (title: Pipelines)
 
-Start writing here.

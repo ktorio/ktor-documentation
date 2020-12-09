@@ -26,14 +26,25 @@
 
     <toc-element toc-title="Ktor on the Server">
         <toc-element id="developing_applications.md">
-            <toc-element id="A_Ktor_Application.md"/>
+            <toc-element id="A_Ktor_Application.md"
+                         accepts-web-file-names="intro.html,servers-application.html"/>
             <toc-element id="Features.md"/>
             <toc-element id="Engines.md" show-structure-depth="2"/>
-            <toc-element id="Configurations.md"/>
+            <toc-element id="Configurations.md"
+                         accepts-web-file-names="configuration.html">
+                <toc-element id="environments.md"/>
+                <toc-element id="certificates.md"/>
+                <toc-element id="self-signed-certificate.md"/>
+            </toc-element>
             <toc-element toc-title="Application Structure">
                 <toc-element id="Modules.md"/>
                 <toc-element id="Routing_in_Ktor.md"/>
-                <toc-element id="Structuring_Applications.md"/>
+                <toc-element id="Structuring_Applications.md"
+                             accepts-web-file-names="structure.html"/>
+            </toc-element>
+            <toc-element id="calls.md">
+                <toc-element id="requests.md"/>
+                <toc-element id="responses.md"/>
             </toc-element>
             <toc-element id="Serving_Static_Content.md"/>
             <toc-element toc-title="Error Handling">
@@ -43,14 +54,17 @@
                 <toc-element id="request_parameters.md"/>
                 <toc-element id="route_parameters.md"/>
                 <toc-element id="body_contents.md"/>
-                <toc-element id="multipart_support.md"/>
+                <toc-element id="multipart_support.md"
+                             accepts-web-file-names="uploads.html"/>
             </toc-element>
             <toc-element toc-title="Authentication and Authorization"
                          id="features_authentication.md">
                 <toc-element id="jwt.md"/>
             </toc-element>
             <toc-element toc-title="Features">
-                <toc-element id="logging.md" show-structure-depth="2"/>
+                <toc-element id="logging.md"
+                             show-structure-depth="2"
+                             accepts-web-file-names="servers-logging.html"/>
                 <toc-element id="serialization.md" show-structure-depth="2">
                     <toc-element id="gson.md"/>
                     <toc-element id="jackson.md"/>
@@ -102,14 +116,16 @@
             </toc-element>
         </toc-element>
         <toc-element toc-title="Running and Debugging">
-            <toc-element id="Auto_reload.md"/>
+            <toc-element id="running.md"
+                         accepts-web-file-names="engine.html"/>
+            <toc-element id="Auto_reload.md"
+                         accepts-web-file-names="autoreload.html"/>
             <toc-element id="Debugging_routes.md"/>
 
         </toc-element>
-        <toc-element id="Testing.md">
-
-        </toc-element>
-        <toc-element toc-title="Deployments">
+        <toc-element id="Testing.md"/>
+        <toc-element toc-title="Deployments"
+                     id="deploy.md">
             <toc-element id="docker.md"/>
             <toc-element id="containers.md"/>
             <toc-element id="hosting.md"/>
@@ -136,8 +152,10 @@
         <toc-element id="guides_oauth.md"/>
         <toc-element id="ssl.md"/>
     </toc-element>
-    <toc-element id="FAQ.md"/>
+    <toc-element id="FAQ.md" accepts-web-file-names="zfaq.html"/>
+    <toc-element toc-title="Contributing to Ktor">
+        <toc-element id="bug_report.md"/>
+        <toc-element id="code-style.md"/>
+    </toc-element>
     <toc-element toc-title="API Reference.md"/>
-
-
 </product-profile>

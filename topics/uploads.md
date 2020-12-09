@@ -1,8 +1,8 @@
-[//]: # (title: Multipart Support)
+[//]: # (title: Uploads)
 
 <include src="lib.md" include-id="outdated_warning"/>
 
-Ktor supports handling HTTP Uploads. As well as [receiving any other kind of content](requests.md).
+Ktor supports handling HTTP Uploads. As well as [receiving any other kind of content](/servers/calls/requests.html).
 
 >You can check out the [Youkube example](/samples/app/youkube.html) for a full example of this in action.
 >
@@ -54,4 +54,3 @@ suspend fun InputStream.copyToSuspend(
     }
 }
 ```
-
