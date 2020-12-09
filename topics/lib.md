@@ -78,3 +78,12 @@ fun Application.module() {
    </tab>
 </tabs>
 </chunk>
+
+
+<chunk id="outdated_warning">
+
+> This help topic is in development and will be updated in the future.
+> 
+{type="warning"}
+
+</chunk>

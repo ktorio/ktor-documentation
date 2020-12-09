@@ -6,138 +6,138 @@
                  status="eap"
                  start-page="Welcome.md">
 
-    <toc-element id="Welcome.md"/>
-    <toc-element id="Getting_Started.md" toc-title="Getting Started">
+    <toc-element id="Welcome.md"
+                 accepts-web-file-names="quickstart-index.html"/>
+    <toc-element id="Getting_Started.md" toc-title="Getting Started"/>
+
+
+
+    <toc-element toc-title="Set Up a Ktor Project">
+        <toc-element toc-title="Generate a New Project">
+            <toc-element id="intellij-idea.md"/>
+            <toc-element id="generator.md"/>
+        </toc-element>
+        <toc-element toc-title="Add Ktor to an Existing Project">
+            <toc-element id="Gradle.md"/>
+            <toc-element id="Maven.md"/>
+            <toc-element id="artifacts.md"/>
+        </toc-element>
+    </toc-element>
+
+    <toc-element toc-title="Ktor on the Server">
+        <toc-element id="developing_applications.md">
+            <toc-element id="A_Ktor_Application.md"/>
+            <toc-element id="Features.md"/>
+            <toc-element id="Engines.md" show-structure-depth="2"/>
+            <toc-element id="Configurations.md"/>
+            <toc-element toc-title="Application Structure">
+                <toc-element id="Modules.md"/>
+                <toc-element id="Routing_in_Ktor.md"/>
+                <toc-element id="Structuring_Applications.md"/>
+            </toc-element>
+            <toc-element id="Serving_Static_Content.md"/>
+            <toc-element toc-title="Error Handling">
+                <toc-element id="status_pages.md"/>
+            </toc-element>
+            <toc-element toc-title="Submitting information">
+                <toc-element id="request_parameters.md"/>
+                <toc-element id="route_parameters.md"/>
+                <toc-element id="body_contents.md"/>
+                <toc-element id="multipart_support.md"/>
+            </toc-element>
+            <toc-element toc-title="Authentication and Authorization"
+                         id="features_authentication.md">
+                <toc-element id="jwt.md"/>
+            </toc-element>
+            <toc-element toc-title="Features">
+                <toc-element id="logging.md" show-structure-depth="2"/>
+                <toc-element id="serialization.md" show-structure-depth="2">
+                    <toc-element id="gson.md"/>
+                    <toc-element id="jackson.md"/>
+                    <toc-element id="kotlin_serialization.md" show-structure-depth="2"/>
+                </toc-element>
+                <toc-element id="working_with_cookies.md"/>
+                <toc-element id="Working_with_views.md">
+                    <toc-element id="html_dsl.md"/>
+                    <toc-element id="css_dsl.md"/>
+                    <toc-element id="freemarker.md"/>
+                    <toc-element id="velocity.md"/>
+                    <toc-element id="mustache.md"/>
+                    <toc-element id="thymeleaf.md"/>
+                </toc-element>
+                <toc-element id="autoheadresponse.md"/>
+                <toc-element id="default_headers.md"/>
+                <toc-element id="compression.md"
+                             show-structure-depth="2"/>
+                <toc-element id="custom_headers.md"/>
+                <toc-element id="caching.md"/>
+                <toc-element id="conditional_headers.md"/>
+                <toc-element id="cors.md"/>
+                <toc-element id="redirects.md"/>
+                <toc-element id="sessions.md" show-structure-depth="2">
+                    <toc-element id="cookie_header.md" show-structure-depth="2"/>
+                    <toc-element id="client_server.md" show-structure-depth="2"/>
+                    <toc-element id="serializers.md"/>
+                    <toc-element id="storages.md"/>
+                    <toc-element id="transformers.md"/>
+                </toc-element>
+                <toc-element toc-title="Metrics">
+                    <toc-element id="micrometer_metrics.md" show-structure-depth="2"/>
+                    <toc-element id="dropwizard_metrics.md"/>
+                </toc-element>
+            </toc-element>
+
+        </toc-element>
+        <toc-element toc-title="Advanced">
+            <toc-element toc-title="Extending Ktor">
+                <toc-element id="How_Ktor_works.md"/>
+                <toc-element id="Lifecycle.md"/>
+                <toc-element id="Pipelines.md"/>
+                <toc-element id="Creating_custom_features.md"/>
+            </toc-element>
+            <toc-element toc-title="Routing under the covers">
+                <toc-element id="resolution_algorithms.md"/>
+                <toc-element id="tracing_routes.md"/>
+                <toc-element id="intercepting_routes.md"/>
+            </toc-element>
+        </toc-element>
+        <toc-element toc-title="Running and Debugging">
+            <toc-element id="Auto_reload.md"/>
+            <toc-element id="Debugging_routes.md"/>
+
+        </toc-element>
+        <toc-element id="Testing.md">
+
+        </toc-element>
+        <toc-element toc-title="Deployments">
+            <toc-element id="docker.md"/>
+            <toc-element id="containers.md"/>
+            <toc-element id="hosting.md"/>
+            <toc-element id="SSL_and_certificates.md"/>
+            <toc-element id="Metrics_and_Performance_Monitoring.md"/>
+            <toc-element id="proguard.md"/>
+        </toc-element>
+        <toc-element toc-title="Recipes">
+
+        </toc-element>
+    </toc-element>
+
+    <toc-element toc-title="Client">
 
     </toc-element>
+
+    <toc-element toc-title="Web Sockets"
+                 id="servers_features_websockets.md"/>
     <toc-element toc-title="Tutorials">
-
+        <toc-element id="guides_application.md"/>
+        <toc-element id="website.md"/>
+        <toc-element id="guides_api.md"/>
+        <toc-element id="guides_chat.md"/>
+        <toc-element id="guides_oauth.md"/>
+        <toc-element id="ssl.md"/>
     </toc-element>
-
-
-    <toc-element toc-title="Documentation">
-
-        <toc-element toc-title="Set Up a Ktor Project">
-            <toc-element toc-title="Generate a New Project">
-                <toc-element toc-title="Intellij IDEA"/>
-                <toc-element toc-title="Generator"/>
-            </toc-element>
-            <toc-element toc-title="Add Ktor to an Existing Project">
-                <toc-element id="Gradle.md"/>
-                <toc-element id="Maven.md"/>
-            </toc-element>
-        </toc-element>
-
-        <toc-element toc-title="Ktor on the Server">
-            <toc-element id="developing_applications.md">
-                <toc-element id="A_Ktor_Application.md"/>
-                <toc-element id="Features.md"/>
-                <toc-element id="Engines.md" show-structure-depth="2"/>
-                <toc-element id="Configurations.md"/>
-                <toc-element toc-title="Application Structure">
-                    <toc-element id="Modules.md"/>
-                    <toc-element id="Routing_in_Ktor.md"/>
-                    <toc-element id="Structuring_Applications.md"/>
-                </toc-element>
-                <toc-element id="Serving_Static_Content.md"/>
-                <toc-element toc-title="Error Handling">
-                    <toc-element id="status_pages.md"/>
-                </toc-element>
-                <toc-element toc-title="Submitting information">
-                    <toc-element id="request_parameters.md"/>
-                    <toc-element id="route_parameters.md"/>
-                    <toc-element id="body_contents.md"/>
-                    <toc-element id="multipart_support.md"/>
-                </toc-element>
-                <toc-element toc-title="Authentication and Authorization">
-                </toc-element>
-                <toc-element toc-title="Features">
-                    <toc-element id="logging.md" show-structure-depth="2"/>
-                    <toc-element id="serialization.md" show-structure-depth="2">
-                        <toc-element id="gson.md"/>
-                        <toc-element id="jackson.md"/>
-                        <toc-element id="kotlin_serialization.md" show-structure-depth="2"/>
-                    </toc-element>
-                    <toc-element id="working_with_cookies.md"/>
-                    <toc-element id="Working_with_views.md">
-                        <toc-element id="html_dsl.md"/>
-                        <toc-element id="css_dsl.md"/>
-                        <toc-element id="freemarker.md"/>
-                        <toc-element id="velocity.md"/>
-                        <toc-element id="mustache.md"/>
-                        <toc-element id="thymeleaf.md"/>
-                    </toc-element>
-                    <toc-element id="autoheadresponse.md"/>
-                    <toc-element id="default_headers.md"/>
-                    <toc-element id="compression.md"
-                                 show-structure-depth="2"/>
-                    <toc-element id="custom_headers.md"/>
-                    <toc-element id="caching.md"/>
-                    <toc-element id="conditional_headers.md"/>
-                    <toc-element id="cors.md"/>
-                    <toc-element id="redirects.md"/>
-                    <toc-element id="sessions.md" show-structure-depth="2">
-                        <toc-element id="cookie_header.md" show-structure-depth="2"/>
-                        <toc-element id="client_server.md" show-structure-depth="2"/>
-                        <toc-element id="serializers.md"/>
-                        <toc-element id="storages.md"/>
-                        <toc-element id="transformers.md"/>
-                    </toc-element>
-                    <toc-element toc-title="Metrics">
-                        <toc-element id="micrometer_metrics.md" show-structure-depth="2"/>
-                        <toc-element id="dropwizard_metrics.md"/>
-                    </toc-element>
-                </toc-element>
-
-            </toc-element>
-            <toc-element toc-title="Advanced">
-                <toc-element toc-title="Extending Ktor">
-                    <toc-element id="How_Ktor_works.md"/>
-                    <toc-element id="Lifecycle.md"/>
-                    <toc-element id="Pipelines.md"/>
-                    <toc-element id="Creating_custom_features.md"/>
-                </toc-element>
-                <toc-element toc-title="Routing under the covers">
-                    <toc-element id="resolution_algorithms.md"/>
-                    <toc-element id="tracing_routes.md"/>
-                    <toc-element id="intercepting_routes.md"/>
-                </toc-element>
-            </toc-element>
-            <toc-element toc-title="Running and Debugging">
-                <toc-element id="Auto_reload.md"/>
-                <toc-element id="Debugging_routes.md"/>
-
-            </toc-element>
-            <toc-element id="Testing.md">
-
-            </toc-element>
-            <toc-element toc-title="Deployments">
-                <toc-element id="containers.md">
-
-                </toc-element>
-                <toc-element id="hosting.md">
-
-                </toc-element>
-                <toc-element id="SSL_and_certificates.md"/>
-                <toc-element id="Metrics_and_Performance_Monitoring.md"/>
-                <toc-element id="proguard.md"/>
-            </toc-element>
-            <toc-element toc-title="Recipes">
-
-            </toc-element>
-        </toc-element>
-
-        <toc-element toc-title="Client">
-
-        </toc-element>
-
-        <toc-element toc-title="Web Sockets">
-
-        </toc-element>
-    </toc-element>
-
-    <toc-element toc-title="API Reference.md"/>
     <toc-element id="FAQ.md"/>
+    <toc-element toc-title="API Reference.md"/>
 
 
 </product-profile>
