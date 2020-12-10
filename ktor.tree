@@ -163,18 +163,44 @@
             <toc-element id="Metrics_and_Performance_Monitoring.md"/>
             <toc-element id="proguard.md"/>
         </toc-element>
-        <toc-element toc-title="Recipes">
+        <toc-element toc-title="Recipes"/>
+    </toc-element>
 
+    <toc-element id="clients_index.md"
+                 accepts-web-file-names="quick-start.html">
+        <toc-element toc-title="Quick start">
+            <toc-element id="client.md"/>
+            <toc-element id="request.md"/>
+            <toc-element id="response.md"/>
+            <toc-element id="streaming.md"/>
+        </toc-element>
+        <toc-element id="http-client_engines.md"/>
+        <toc-element id="http-client_multiplatform.md"/>
+        <toc-element id="http-client_testing.md"/>
+        <toc-element id="examples.md"/>
+        <toc-element id="http-client_features.md">
+            <toc-element id="features_auth.md" accepts-web-file-names="auth.html"/>
+            <toc-element id="default-request.md"/>
+            <toc-element id="http-cookies.md"/>
+            <toc-element id="http-plain-text.md"/>
+            <toc-element id="http-redirect.md"/>
+            <toc-element id="json-feature.md"/>
+            <toc-element id="features_logging.md"/>
+            <toc-element id="proxy.md"/>
+            <toc-element id="response-validation.md"/>
+            <toc-element id="timeout.md"/>
+            <toc-element id="user-agent.md"/>
+            <toc-element id="http-client_features_websockets.md"/>
         </toc-element>
     </toc-element>
 
-    <toc-element toc-title="Client">
-
-    </toc-element>
 
     <toc-element toc-title="Web Sockets"
                  id="websockets.md"
-                 accepts-web-file-names="servers-features-websockets.html"/>
+                 accepts-web-file-names="servers-features-websockets.html">
+        <toc-element id="clients_websockets.md"/>
+    </toc-element>
+
     <toc-element toc-title="Tutorials">
         <toc-element id="guides_application.md"/>
         <toc-element id="website.md"/>
@@ -183,10 +209,15 @@
         <toc-element id="guides_oauth.md"/>
         <toc-element id="ssl.md"/>
     </toc-element>
-    <toc-element id="FAQ.md" accepts-web-file-names="zfaq.html"/>
+
+    <toc-element id="FAQ.md"
+                 accepts-web-file-names="zfaq.html"/>
+
     <toc-element toc-title="Contributing to Ktor">
         <toc-element id="bug_report.md"/>
         <toc-element id="code-style.md"/>
     </toc-element>
-    <toc-element toc-title="API Reference.md"/>
+
+    <toc-element href="https://api.ktor.io"
+                 toc-title="API Docs"/>
 </product-profile>
