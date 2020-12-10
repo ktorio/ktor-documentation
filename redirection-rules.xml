@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rules SYSTEM "https://helpserver.labs.jb.gg/help/redirection-rules.dtd">
+<rules>
+    <rule id="kotlin_docs">
+        <accepts>kotlinx-index.html</accepts>
+        <accepts>kotlinx-multiplatform.html</accepts>
+        <accepts>atomicfu.html</accepts>
+        <accepts>kotlinx-coroutines.html</accepts>
+        <accepts>kotlinx-io.html</accepts>
+        <accepts>setup.html</accepts>
+        <accepts>platforms.html</accepts>
+        <accepts>encoding.html</accepts>
+        <accepts>byteorder.html</accepts>
+        <accepts>charset.html</accepts>
+        <accepts>io-io.html</accepts>
+        <accepts>channels.html</accepts>
+        <accepts>input-output.html</accepts>
+        <accepts>iobuffer.html</accepts>
+        <accepts>packets.html</accepts>
+        <accepts>tools.html</accepts>
+    </rule>
+</rules>

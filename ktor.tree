@@ -220,4 +220,9 @@
 
     <toc-element href="https://api.ktor.io"
                  toc-title="API Docs"/>
+
+    <toc-element href="https://kotlinlang.org/docs/home.html"
+                 toc-title="Kotlin docs"
+                 hidden="true"
+                 accepts-web-file-names-ref="kotlin_docs"/>
 </product-profile>
