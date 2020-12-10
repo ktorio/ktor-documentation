@@ -7,9 +7,10 @@
                  start-page="Welcome.md">
 
     <toc-element id="Welcome.md"
-                 accepts-web-file-names="quickstart-index.html"/>
-    <toc-element id="Getting_Started.md" toc-title="Getting Started"/>
-
+                 accepts-web-file-names-ref="kotlin_docs">
+        <toc-element id="FAQ.md"
+                     accepts-web-file-names="zfaq.html"/>
+    </toc-element>
 
 
     <toc-element toc-title="Set Up a Ktor Project">
@@ -24,12 +25,18 @@
         </toc-element>
     </toc-element>
 
+
     <toc-element toc-title="Ktor on the Server">
-        <toc-element id="developing_applications.md">
+        <toc-element toc-title="Developing Applications">
             <toc-element id="A_Ktor_Application.md"
                          accepts-web-file-names="intro.html,servers-application.html"/>
+            <toc-element id="How_Ktor_works.md"
+                         accepts-web-file-names="lifecycle.html"/>
             <toc-element id="Features.md"/>
-            <toc-element id="Engines.md" show-structure-depth="2"/>
+            <toc-element id="Engines.md"
+                         show-structure-depth="2">
+                <toc-element id="advanced_http2.md"/>
+            </toc-element>
             <toc-element id="Configurations.md"
                          accepts-web-file-names="configuration.html">
                 <toc-element id="environments.md"/>
@@ -129,21 +136,6 @@
                                  accepts-web-file-names="features-metrics.html"/>
                 </toc-element>
             </toc-element>
-
-        </toc-element>
-        <toc-element toc-title="Advanced">
-            <toc-element toc-title="Extending Ktor">
-                <toc-element id="How_Ktor_works.md"/>
-                <toc-element id="Lifecycle.md"/>
-                <toc-element id="Pipelines.md"/>
-                <toc-element id="Creating_custom_features.md"/>
-                <toc-element id="custom_engines.md"/>
-            </toc-element>
-            <toc-element toc-title="Routing under the covers">
-                <toc-element id="resolution_algorithms.md"/>
-                <toc-element id="tracing_routes.md"/>
-                <toc-element id="intercepting_routes.md"/>
-            </toc-element>
         </toc-element>
         <toc-element toc-title="Running and Debugging">
             <toc-element id="running.md"
@@ -165,6 +157,7 @@
         </toc-element>
         <toc-element toc-title="Recipes"/>
     </toc-element>
+
 
     <toc-element id="clients_index.md"
                  accepts-web-file-names="quick-start.html">
@@ -201,6 +194,7 @@
         <toc-element id="clients_websockets.md"/>
     </toc-element>
 
+
     <toc-element toc-title="Tutorials">
         <toc-element id="guides_application.md"/>
         <toc-element id="website.md"/>
@@ -210,20 +204,37 @@
         <toc-element id="ssl.md"/>
     </toc-element>
 
-    <toc-element id="FAQ.md"
-                 accepts-web-file-names="zfaq.html"/>
+
+    <toc-element id="samples.md"
+                 accepts-web-file-names-ref="samples"/>
+
+
+    <toc-element toc-title="Extending Ktor">
+        <toc-element id="Pipelines.md">
+            <toc-element id="attributes.md"/>
+        </toc-element>
+        <toc-element toc-title="Routing under the covers">
+            <toc-element id="resolution_algorithms.md"/>
+            <toc-element id="tracing_routes.md"/>
+            <toc-element id="intercepting_routes.md"
+                         accepts-web-file-names="route.html"/>
+        </toc-element>
+        <toc-element id="Creating_custom_features.md"
+                     accepts-web-file-names="advanced-index.html"/>
+        <toc-element id="custom_engines.md"/>
+        <toc-element id="advanced_authentication.md"/>
+        <toc-element id="events.md"/>
+        <toc-element id="utilities.md"/>
+    </toc-element>
+
 
     <toc-element toc-title="Contributing to Ktor">
         <toc-element id="bug_report.md"/>
         <toc-element id="code-style.md"/>
+        <toc-element id="build-from-source.md"/>
     </toc-element>
+
 
     <toc-element href="https://api.ktor.io"
                  toc-title="API Docs"/>
-
-    <toc-element href="https://kotlinlang.org/docs/home.html"
-                 toc-title="Kotlin docs"
-                 id="kotlin_docs.md"
-                 hidden="true"
-                 accepts-web-file-names-ref="kotlin_docs"/>
 </product-profile>
