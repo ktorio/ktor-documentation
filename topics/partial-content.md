@@ -10,7 +10,7 @@ the served content when required.
 Partial Content is well-suited for streaming content or resume partial downloads with
 download managers, or in unreliable networks.
 
-It is especially useful for the [Static Content Feature](/servers/features/static-content.html).
+It is especially useful for the [Static Content Feature](Serving_Static_Content.md).
 
 
 

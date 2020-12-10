@@ -12,7 +12,7 @@ There are two ways to use it: [Automatically using HOCON](#hocon) and [Installin
 {id="hocon"}
 
 You can configure a shutdown URL using HOCON with the 
-[ktor.deployment.shutdown.url](/servers/configuration.html#general) property.
+[ktor.deployment.shutdown.url](Configurations.md#available-config) property.
 
 ```kotlin
 ktor {
