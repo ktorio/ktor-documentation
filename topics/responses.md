@@ -149,7 +149,7 @@ Sending files:
 
 Sending URL-encoded forms (`application/x-www-form-urlencoded`):
 
-* Use `Parameters.formUrlEncode`. Check the [Utilities page](/advanced/utilities.html) for more information about this.
+* Use `Parameters.formUrlEncode`. Check the [Utilities page](utilities.md) for more information about this.
 
 >When sending files based on the request parameters,
 >be especially careful validating and limiting the input.

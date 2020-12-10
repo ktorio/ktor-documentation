@@ -195,6 +195,9 @@
     </toc-element>
 
 
+    <toc-element id="servers_raw-sockets.md"/>
+
+
     <toc-element toc-title="Tutorials">
         <toc-element id="guides_application.md"/>
         <toc-element id="website.md"/>

@@ -69,8 +69,8 @@ the logic implementing an IETF RFC or another protocol without relying on extern
 >     compile("io.ktor:ktor-server-netty:$ktor_version")
 > }
 > ```
-> * For gradle, check: <https://ktor.io/quickstart/gradle.html#engine>
-> * For maven, check: <https://ktor.io/quickstart/maven.html>
+> * For Gradle, check [](Gradle.md)
+> * For Maven, check [](Maven.md)
 
 ## Does ktor provide a way to catch IPC signals (e.g. SIGTERM or SIGINT) so the server shutdown can be handled gracefully?
 {id="sigterm"}
@@ -97,7 +97,7 @@ the logic implementing an IETF RFC or another protocol without relying on extern
 
 You can use jitpack to get builds from master that are not yet released:
 <https://jitpack.io/#ktorio/ktor>
-Also you can [build Ktor from source](/advanced/building-from-source.html), and use your `mavenLocal` repository for the artifact
+Also you can [build Ktor from source](build-from-source.md), and use your `mavenLocal` repository for the artifact
 or to upload your artifacts to your own artifactory/bintray.
 
 ## How can I be sure of which version of Ktor am I using?
@@ -158,7 +158,7 @@ again.
 ## How can I subscribe to Ktor events?
 {id="ktor-events"}
 
-There is a page [explaining the Ktor's application-level event system](/advanced/events.html).
+There is a page [explaining the Ktor's application-level event system](events.md).
 
 ## I get a `Exception in thread "main" com.typesafe.config.ConfigException$Missing: No configuration setting found for key 'ktor'` exception
 {id="cannot-find-application-conf"}
@@ -186,7 +186,7 @@ io.ktor.server.engine.EmbeddedServerKt.embeddedServer(EmbeddedServer.kt:40) at
 io.ktor.server.engine.EmbeddedServerKt.embeddedServer$default(EmbeddedServer.kt:27)
 ```
 
-For more informatio, check [Issue #495](https://github.com/ktorio/ktor/issues/495) and [StackOverflow
+For more information, check [Issue #495](https://github.com/ktorio/ktor/issues/495) and [StackOverflow
 question](https://stackoverflow.com/questions/49945584/attempting-to-run-an-embedded-ktor-http-server-on-android)
 
 ## CURL -I returns a 404 Not Found

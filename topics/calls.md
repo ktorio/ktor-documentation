@@ -29,10 +29,10 @@ This is just an example, and usually, page requests are not handled in this way,
 Most functions available on `ApplicationCall` (such as `respondText` above) are `suspend` functions, indicating that they 
 can potentially execute asynchronously.
  
-See advanced topic [Pipeline](/advanced/pipeline) for more information on the mechanics of processing `ApplicationCall`s.
+See advanced topic [](Pipelines.md) for more information on the mechanics of processing `ApplicationCall`s.
 
 ## What's next
 
-- [Application lifecycle explanation](https://ktor.io/servers/lifecycle.html)
+- [Application lifecycle explanation](How_Ktor_works.md)
 - [Application configuration](Configurations.md)
-- [Pipelines explained](/advanced/pipeline)
+- [Pipelines explained](Pipelines.md)
