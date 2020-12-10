@@ -11,7 +11,7 @@ To achieve this, we are going to use the [Routing], [StatusPages], [Authenticati
 
 [Routing]: Routing_in_Ktor.md
 [StatusPages]: status_pages.md
-[Authentication]: features_authentication.md
+[Authentication]: authentication.md
 [Sessions]: sessions.md
 [StaticContent]: Serving_Static_Content.md
 [FreeMarker]: freemarker.md

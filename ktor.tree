@@ -58,8 +58,14 @@
                              accepts-web-file-names="uploads.html"/>
             </toc-element>
             <toc-element toc-title="Authentication and Authorization"
-                         id="features_authentication.md">
+                         id="authentication.md"
+                         accepts-web-file-names="features-authentication.html">
+                <toc-element id="basic.md"/>
+                <toc-element id="digest.md"/>
                 <toc-element id="jwt.md"/>
+                <toc-element id="ldap.md"/>
+                <toc-element id="oauth.md"
+                             accepts-web-file-names="authentication-oauth.html"/>
             </toc-element>
             <toc-element toc-title="Features">
                 <toc-element id="logging.md"
