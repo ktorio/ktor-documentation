@@ -223,6 +223,7 @@
 
     <toc-element href="https://kotlinlang.org/docs/home.html"
                  toc-title="Kotlin docs"
+                 id="kotlin_docs.md"
                  hidden="true"
                  accepts-web-file-names-ref="kotlin_docs"/>
 </product-profile>
