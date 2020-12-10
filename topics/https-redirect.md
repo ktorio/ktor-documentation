@@ -42,7 +42,7 @@ fun Application.main() {
 ## Testing
 {id="testing"}
 
-Applying this feature changes how [testing](/servers/testing.html) works.
+Applying this feature changes how [testing](Testing.md) works.
 After applying this feature, each `handleRequest` you perform, results in a redirection response.
 And probably this is not what you want in most cases, since that behaviour is already tested.
 
@@ -108,4 +108,4 @@ that the `HttpsRedirect` feature is installed and other things that you are not 
 ### I get an infinite redirect when using this feature
 
 Have you installed the `XForwardedHeaderSupport` or the `ForwardedHeaderSupport` feature?
-Check [this FAQ entry](/quickstart/faq.html#infinite-redirect) for more details.
+Check [this FAQ entry](FAQ.md#infinite-redirect) for more details.

@@ -28,7 +28,7 @@ install(Locations)
 For each typed route you want to handle, you need to create a class (usually a data class)
 containing the parameters that you want to handle.
 
-The parameters must be of any type supported by the [Data Conversion](/servers/features/data-conversion.html) feature.
+The parameters must be of any type supported by the [Data Conversion](data-conversion.md) feature.
 By default, you can use `Int`, `Long`, `Float`, `Double`, `Boolean`, `String`, enums and `Iterable` as parameters.
 
 ### URL parameters

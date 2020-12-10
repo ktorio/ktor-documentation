@@ -13,9 +13,6 @@ service.
 
 
 
-
-
-
 ## Basic Installation
 {id="basic-installation"}
 

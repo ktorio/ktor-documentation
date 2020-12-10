@@ -98,7 +98,7 @@ fun Application.mymodule() {
 ## Using the `application.conf`
 {id="configuration-file"}
 
-When using a configuration file, for example with an [`EngineMain`](/servers/engine.html) to either run
+When using a configuration file, for example with an [`EngineMain`](Engines.md#EngineMain) to either run
 from the command line or hosted within a server container:
 
 To enable this feature, add `watch` keys to `ktor.deployment` configuration.

@@ -2,9 +2,9 @@
 
 <include src="lib.md" include-id="outdated_warning"/>
 
-Ktor supports handling HTTP Uploads. As well as [receiving any other kind of content](/servers/calls/requests.html).
+Ktor supports handling HTTP Uploads. As well as [receiving any other kind of content](requests.md).
 
->You can check out the [Youkube example](/samples/app/youkube.html) for a full example of this in action.
+>You can check out the [Youkube example](samples.md#applications) for a full example of this in action.
 >
 {type="note"}
 

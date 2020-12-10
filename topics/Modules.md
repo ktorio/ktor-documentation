@@ -14,7 +14,7 @@ A Ktor Application consists of a series of one or more modules, each of which ca
 A Ktor module is just a user-defined function receiving the `Application` class that is in charge of configuring
 the server pipeline, install features, registering routes, handling requests, etc.
 
-You have to specify the modules to load when the server starts in [the `application.conf` file](/servers/configuration.html#hocon-file).
+You have to specify the modules to load when the server starts in [the `application.conf` file](Configurations.md#hocon-file).
 
 A simple module function would look like this:
 

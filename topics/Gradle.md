@@ -207,7 +207,6 @@ You can check this in IntelliJ IDEA in the main menu:
 
     ![Ktor IntelliJ: Build Gradle](build-gradle.png)
 
-For a more detailed guide on setting up the `build.gradle` file, check the [Getting Started with Gradle](/quickstart/quickstart/gradle.html) section.
 
 >When auto-import options, shows up (likely at the bottom right-hand side) click allow auto-import.
 >

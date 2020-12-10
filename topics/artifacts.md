@@ -41,7 +41,7 @@ a generic servlet. It also contains a TestEngine for setting up application test
   * `ktor-client-okhttp` adds support for [OkHttp](https://square.github.io/okhttp/) client backend.
   * `ktor-client-auth-basic` adds support for [authentication](features_auth.md)
   * `ktor-client-json` adds support for [json content negotiation](json-feature.md)
-* `ktor-network` includes [raw sockets](/servers/raw-sockets.html) for client/server, and TCP/UDP
+* `ktor-network` includes [raw sockets](servers_raw-sockets.md) for client/server, and TCP/UDP
   * `ktor-network-tls` contains TLS support for raw sockets
  
 See instructions for setting up a project with

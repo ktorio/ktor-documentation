@@ -32,7 +32,7 @@ install(WebSockets) {
 ## Usage
 {id="usage"}
 
-Once installed, you can define the `webSocket` routes for the [routing](/servers/features/routing.html) feature:
+Once installed, you can define the `webSocket` routes for the [routing](Routing_in_Ktor.md) feature:
 
 Instead of the short-lived normal route handlers, webSocket handlers are meant to be long-lived.
 And all the relevant WebSocket methods are suspended so that the function will be suspended in
@@ -42,8 +42,7 @@ a non-blocking way while receiving or sending messages.
 instance as the receiver. That interface defines an `incoming` (ReceiveChannel) property and an `outgoing` (SendChannel)
 property, as well as a `close` method. Check the full [WebSocketSession](#WebSocketSession) for more information.
 
-### Usage as an suspend actor
-{id="actor"}
+### Usage as an suspend actor {id="actor"}
 
 ```kotlin
 routing {
@@ -69,8 +68,7 @@ routing {
 >
 {type="note"}
 
-### Usage as a Channel
-{id="channel"}
+### Usage as a Channel {id="channel"}
 
 Since the `incoming` property is a ReceiveChannel, you can use it with its stream-like interface:
 
@@ -88,11 +86,9 @@ routing {
 }
 ``` 
 
-## Interface
-{id="interface"}
+## Interface {id="interface"}
 
-### The WebSocketSession interface
-{id="WebSocketSession"}
+### The WebSocketSession interface {id="WebSocketSession"}
 
 You receive a WebSocketSession as the receiver (this), giving you direct access
 to these members inside your webSocket handler.
