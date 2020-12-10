@@ -21,18 +21,18 @@ a generic servlet. It also contains a TestEngine for setting up application test
   * `ktor-server-servlet` is used by Jetty and Tomcat and allows running in a generic servlet container
   * `ktor-server-test-host` allows running application tests faster without starting the full host
 * `ktor-features` groups modules for features that are optional and may not be required by every application
-  * `ktor-auth` provides support for different [authentication systems](/servers/features/authentication.html) like Basic, Digest, Forms, OAuth 1a and 2
-  * `ktor-auth-jwt` adds the ability to authenticate against [JWT](/servers/features/authentication/jwt.html)
-  * `ktor-auth-ldap` adds the ability to authenticate against [LDAP](/servers/features/authentication/ldap.html) instance
-  * `ktor-freemarker` integrates Ktor with [Freemarker templates](/servers/features/templates/freemarker.html)
-  * `ktor-velocity` integrates Ktor with [Velocity templates](/servers/features/templates/velocity.html)
-  * `ktor-gson` integrates with [Gson](/servers/features/content-negotiation/gson.html) adding JSON content negotiation
-  * `ktor-jackson` integrates with [Jackson](/servers/features/content-negotiation/jackson.html) adding JSON content negotiation
-  * `ktor-html-builder` integrates Ktor with [kotlinx.html builders](/servers/features/templates/html-dsl.html)
-  * `ktor-locations` contains experimental support for [typed locations](/servers/features/locations.html)
-  * `ktor-metrics` adds the ability to add some [metrics](/servers/features/metrics.html) to the server
-  * `ktor-server-sessions` adds the ability to use [stateful sessions stored on a server](/servers/features/sessions.html)
-  * `ktor-websockets` provides support for [Websockets](/servers/features/websockets.html)
+  * `ktor-auth` provides support for different [authentication systems](authentication.md) like Basic, Digest, Forms, OAuth 1a and 2
+  * `ktor-auth-jwt` adds the ability to authenticate against [JWT](jwt.md)
+  * `ktor-auth-ldap` adds the ability to authenticate against [LDAP](ldap.md) instance
+  * `ktor-freemarker` integrates Ktor with [Freemarker templates](freemarker.md)
+  * `ktor-velocity` integrates Ktor with [Velocity templates](velocity.md)
+  * `ktor-gson` integrates with [Gson](gson.md) adding JSON content negotiation
+  * `ktor-jackson` integrates with [Jackson](jackson.md) adding JSON content negotiation
+  * `ktor-html-builder` integrates Ktor with [kotlinx.html builders](kotlin_serialization.md)
+  * `ktor-locations` contains experimental support for [typed locations](features_locations.md)
+  * `ktor-metrics` adds the ability to add some [metrics](dropwizard_metrics.md) to the server
+  * `ktor-server-sessions` adds the ability to use [stateful sessions stored on a server](sessions.md)
+  * `ktor-websockets` provides support for [Websockets](websockets.md)
 * `ktor-client` contains modules for [performing http requests](/clients/index.html)
   * `ktor-client-core` is a core package where most of the http HttpClient API is located
   * `ktor-client-apache` adds support for the Apache asynchronous HttpClient
@@ -46,6 +46,6 @@ a generic servlet. It also contains a TestEngine for setting up application test
  
 See instructions for setting up a project with
 
-* [Maven](/quickstart/quickstart/maven.html)
-* [Gradle](/quickstart/quickstart/gradle.html)
-* [Generate a project online](/quickstart/generator.html)
+* [Maven](Maven.md)
+* [Gradle](Gradle.md)
+* [Generate a project online](generator.md)

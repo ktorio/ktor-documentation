@@ -134,7 +134,7 @@ Something similar to `Server: ktor-server-core/1.0.0 ktor-server-core/1.0.0` sho
 {id="route-not-executing"}
 
 Ktor provides a tracing mechanism for the routing feature to help troubleshooting
-routing decisions. Check the [Tracing the routing decisions](/servers/features/routing.html#tracing) section in the Routing page.
+routing decisions. Check the [Tracing the routing decisions](tracing_routes.md) section in the Routing page.
 
 ## I get a `io.ktor.pipeline.InvalidPhaseException: Phase Phase('YourPhase') was not registered for this pipeline`.
 {id="invalid-phase"}
@@ -165,7 +165,7 @@ There is a page [explaining the Ktor's application-level event system](/advanced
 
 This means that Ktor was not able to find the `application.conf` file. Re-check that it is in the `resources` folder,
 and that the `resources` folder is marked as such.
-You can consider to set up a project using the [project generator](/quickstart/generator.html) or the [IntelliJ plugin](intellij-idea.md)
+You can consider to set up a project using the [project generator](generator.md) or the [IntelliJ plugin](intellij-idea.md)
 to have a working project as base.
 
 ## Can I use ktor on Android?
@@ -224,6 +224,6 @@ that it is a normal HTTP request and responds with the redirect.
 
 Normally, reverse-proxies send some headers describing the original request (like it was HTTPS, or the original IP address),
 and there is a feature [`XForwardedHeaderSupport`](forward-headers.md)
-to parse those headers so the [`HttpsRedirect`](/servers/features/https-redirect.html) feature knows that the original request was HTTPS.
+to parse those headers so the [`HttpsRedirect`](https-redirect.md) feature knows that the original request was HTTPS.
 
 

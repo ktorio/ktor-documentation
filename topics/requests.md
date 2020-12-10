@@ -200,7 +200,7 @@ Remember that your classes must be defined top level (outside of any other class
 ### Multipart, Files and Uploads
 {id="post-files"}
 
-Check the [uploads](uploads.md) section.
+Check the [uploads](multipart_support.md) section.
 
 ### Custom receive transformers
 {id="custom-receive-transformers"}

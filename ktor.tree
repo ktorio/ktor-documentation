@@ -137,6 +137,7 @@
                 <toc-element id="Lifecycle.md"/>
                 <toc-element id="Pipelines.md"/>
                 <toc-element id="Creating_custom_features.md"/>
+                <toc-element id="custom_engines.md"/>
             </toc-element>
             <toc-element toc-title="Routing under the covers">
                 <toc-element id="resolution_algorithms.md"/>

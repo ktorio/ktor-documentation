@@ -292,7 +292,7 @@ embeddedServer(Tomcat, configure = {
 ```
 
 >Those are the official engines developed for Ktor, but it is also possible to [create
->your own engines](advanced_engines.md) and provide custom configurations for them.
+>your own engines](custom_engines.md) and provide custom configurations for them.
 >
 {type="note"}
 
