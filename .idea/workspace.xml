@@ -74,7 +74,7 @@
       <recent name="$PROJECT_DIR$/diagrams" />
     </key>
   </component>
-  <component name="RunManager" selected="Stardust Article Preview.Preview Serving_Static_Content.md">
+  <component name="RunManager">
     <configuration name="Preview Features.md" type="STARDUST_ARTICLE_PREVIEW" factoryName="Stardust Article Preview Configuration Factory">
       <option name="previewWhat" value="$PROJECT_DIR$/topics/Features.md" />
       <option name="autoOpen" value="true" />
