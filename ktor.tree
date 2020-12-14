@@ -166,6 +166,7 @@
             <toc-element toc-title="SSL and Certificates">
                 <toc-element id="certificates.md"/>
                 <toc-element id="self-signed-certificate.md"/>
+                <toc-element id="ssl.md"/>
             </toc-element>
 <!--            <toc-element id="Metrics_and_Performance_Monitoring.md"/>-->
             <toc-element toc-title="Metrics and Performance Monitoring">
