@@ -124,7 +124,6 @@
                 <toc-element id="https-redirect.md"/>
                 <toc-element id="features_locations.md"/>
 <!--                <toc-element id="redirects.md"/>-->
-                <toc-element toc-title="Redirects"/>
                 <toc-element id="partial-content.md"/>
                 <toc-element id="sessions.md" show-structure-depth="2">
                     <toc-element id="cookie_header.md" show-structure-depth="2"/>
