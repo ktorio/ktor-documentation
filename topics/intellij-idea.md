@@ -1,4 +1,4 @@
-[//]: # (title: IntelliJ IDEA)
+[//]: # (title: IntelliJ IDEA Plugin)
 
 <include src="lib.md" include-id="outdated_warning"/>
 

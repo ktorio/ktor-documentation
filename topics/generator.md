@@ -1,4 +1,4 @@
-[//]: # (title: Generator)
+[//]: # (title: New Project Generator)
 
 <include src="lib.md" include-id="outdated_warning"/>
 
