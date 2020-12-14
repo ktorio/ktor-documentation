@@ -8,25 +8,28 @@
 
     <toc-element id="Welcome.md"
                  accepts-web-file-names-ref="kotlin_docs">
-        <toc-element id="FAQ.md"
-                     accepts-web-file-names="zfaq.html"/>
-    </toc-element>
-
-
-    <toc-element toc-title="Set Up a Ktor Project">
-        <toc-element toc-title="Generate a New Project">
+        <toc-element toc-title="Create a New Ktor Project">
             <toc-element id="intellij-idea.md"/>
             <toc-element id="generator.md"/>
         </toc-element>
-        <toc-element toc-title="Add Ktor to an Existing Project">
-            <toc-element id="Gradle.md"/>
+        <toc-element toc-title="Adding Ktor to an Existing Project">
+            <toc-element id="Gradle.md"
+                         accepts-web-file-names="artifacts.html"/>
             <toc-element id="Maven.md"/>
-            <toc-element id="artifacts.md"/>
         </toc-element>
     </toc-element>
 
 
-    <toc-element toc-title="Ktor on the Server">
+    <toc-element toc-title="Tutorials">
+        <toc-element id="getting_started_ktor.md"
+                     accepts-web-file-names-ref="tutorials"/>
+<!--        <toc-element id="guides_oauth.md"/>
+        <toc-element id="ssl.md"/>-->
+    </toc-element>
+
+
+
+    <toc-element toc-title="Server">
         <toc-element toc-title="Developing Applications">
             <toc-element id="A_Ktor_Application.md"
                          accepts-web-file-names="intro.html,servers-application.html"/>
@@ -188,28 +191,14 @@
     </toc-element>
 
 
-    <toc-element toc-title="Web Sockets"
-                 id="websockets.md"
-                 accepts-web-file-names="servers-features-websockets.html">
+    <toc-element toc-title="WebSockets">
+        <toc-element id="websockets.md"
+                     accepts-web-file-names="servers-features-websockets.html"/>
         <toc-element id="clients_websockets.md"/>
     </toc-element>
 
 
     <toc-element id="servers_raw-sockets.md"/>
-
-
-    <toc-element toc-title="Tutorials">
-        <toc-element id="guides_application.md"/>
-        <toc-element id="website.md"/>
-        <toc-element id="guides_api.md"/>
-        <toc-element id="guides_chat.md"/>
-        <toc-element id="guides_oauth.md"/>
-        <toc-element id="ssl.md"/>
-    </toc-element>
-
-
-    <toc-element id="samples.md"
-                 accepts-web-file-names-ref="samples"/>
 
 
     <toc-element toc-title="Extending Ktor">
@@ -240,4 +229,9 @@
 
     <toc-element href="https://api.ktor.io"
                  toc-title="API Docs"/>
+
+    <toc-element id="FAQ.md"
+                 accepts-web-file-names="zfaq.html"/>
+    <toc-element id="samples.md"
+                 accepts-web-file-names-ref="samples"/>
 </product-profile>

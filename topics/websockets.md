@@ -1,4 +1,4 @@
-[//]: # (title: Web Sockets)
+[//]: # (title: Server WebSockets)
 
 <include src="lib.md" include-id="outdated_warning"/>
 

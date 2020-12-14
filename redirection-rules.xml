@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rules SYSTEM "https://helpserver.labs.jb.gg/help/redirection-rules.dtd">
 <rules>
+    <rule id="tutorials">
+        <accepts>guides-application.html</accepts>
+        <accepts>website.html</accepts>
+        <accepts>guides-api.html</accepts>
+        <accepts>guides-chat.html</accepts>
+        <accepts>guides-oauth.html</accepts>
+        <accepts>ssl.html</accepts>
+    </rule>
     <rule id="samples">
         <accepts>samples-index.html</accepts>
         <accepts>app.html</accepts>
