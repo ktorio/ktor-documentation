@@ -13,7 +13,3 @@ You can use [`keytool`](https://docs.oracle.com/javase/8/docs/technotes/tools/un
 ```bash
 keytool -import -v -trustcacerts -alias keyAlias -file server.cer -keystore cacerts.jks -keypass changeit
 ```
-
-## SSL
-
-You can check the [SSL guide](ssl.md) for more details.

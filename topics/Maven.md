@@ -131,7 +131,7 @@ Ktor can run in many environments, such as Netty, Jetty or any other
 Servlet-compatible Application Container such as Tomcat.
 
 This example shows how to configure Ktor with Netty.
-For other engines see [artifacts](artifacts.md) for a list of
+For other engines, see [](Engines.md#dependencies) for a list of
 available artifacts.
 
 You will add a dependency for `ktor-server-netty` using the
