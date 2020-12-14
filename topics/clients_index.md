@@ -13,8 +13,8 @@ This client supports several [configurable engines](http-client_engines.md), and
 ## Calls: Requests and Responses
 {id="requests-responses"}
 
-You can check [how to make requests](requests.md),
-and [how to receive responses](responses.md) in their respective sections.
+You can check [how to make requests](request.md),
+and [how to receive responses](response.md) in their respective sections.
 
 ## Concurrency
 
