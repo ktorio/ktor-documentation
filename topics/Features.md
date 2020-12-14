@@ -55,7 +55,7 @@ install(Encoding)
 
 In addition to intercepting requests and responses, Features can have an option configuration section which is configured during this step.
 
-For instance, when installing [Cookies](working_with_cookies.md) we can set certain parameters such as where we want Cookies to be stored, or their name:
+For instance, when installing `Cookies` we can set certain parameters such as where we want Cookies to be stored, or their name:
 
 ```kotlin
 install(Sessions) {

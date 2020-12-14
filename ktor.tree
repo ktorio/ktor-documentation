@@ -149,9 +149,19 @@
         <toc-element id="Testing.md"/>
         <toc-element toc-title="Deployments"
                      id="deploy.md">
-            <toc-element id="docker.md"/>
-<!--            <toc-element id="containers.md"/>-->
+            <toc-element toc-title="Packing">
+                <toc-element id="fatjar.md"
+                             accepts-web-file-names="packing.html"/>
+                <toc-element id="war.md" toc-title="WAR"/>
+            </toc-element>
+            <toc-element id="containers.md">
+                <toc-element id="docker.md"/>
+            </toc-element>
 <!--            <toc-element id="hosting.md"/>-->
+            <toc-element toc-title="Hosting">
+                <toc-element id="google-app-engine.md"/>
+                <toc-element id="heroku.md"/>
+            </toc-element>
 <!--            <toc-element id="SSL_and_certificates.md"/>-->
             <toc-element toc-title="SSL and Certificates">
                 <toc-element id="certificates.md"/>
@@ -165,7 +175,8 @@
                 <toc-element id="dropwizard_metrics.md"
                              accepts-web-file-names="features-metrics.html"/>
             </toc-element>
-<!--            <toc-element id="proguard.md"/>-->
+            <toc-element id="proguard.md"
+                         accepts-web-file-names="deploy-proguard.html"/>
         </toc-element>
         <toc-element toc-title="Recipes"/>
     </toc-element>

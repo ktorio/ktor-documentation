@@ -71,9 +71,11 @@ routing {
 }
 ```
 
-<note>
-    <p>The {id} part of the path is how we define route parmeters in Ktor, which is covered in detail in <a href="route_parameters.md">Route Parameters</a></p>
-</note>
+[comment]: <> (<note>)
+
+[comment]: <> (    <p>The {id} part of the path is how we define route parameters in Ktor, which is covered in detail in <a href="route_parameters.md">Route Parameters</a></p>)
+
+[comment]: <> (</note>)
 
 In this case, each route has its own function and responds to the specific endpoint and HTTP verb.
 
