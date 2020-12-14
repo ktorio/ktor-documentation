@@ -152,7 +152,7 @@ val client = HttpClient(CIO) {
             /**
              * Maximum number of attempts for retrying a connection.
              */
-            connectRetryAttempts = 5
+            connectAttempts = 5
         }
 
         /**
