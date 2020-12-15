@@ -84,6 +84,6 @@ fun Application.module() {
 
 > This help topic is in development and will be updated in the future.
 > 
-{type="warning"}
+{type="note"}
 
 </chunk>
