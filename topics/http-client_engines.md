@@ -53,7 +53,7 @@ val client = HttpClient(MyHttpEngine) {
 
 ### Apache {id="apache"}
 
-Apache is the most configurable HTTP client about right now. It supports HTTP/1.1 and HTTP/2. It is the only one that supports following redirects and allows you to configure timeouts, proxies among other things it is supported by `org.apache.httpcomponents:httpasyncclient`.
+Apache HTTP client supports HTTP/1.1 and provides multiple configuration options. It is the only one that supports following redirects and allows you to configure timeouts, proxies among other things it is supported by `org.apache.httpcomponents:httpasyncclient`.
 
 A sample configuration would look like:
 
