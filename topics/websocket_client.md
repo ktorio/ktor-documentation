@@ -5,9 +5,9 @@
 
 
 
-Ktor provides a WebSocket client for the following engines: CIO, OkHttp, Js. To get more information about the server side, follow this [section](websockets.md).
+Ktor provides a WebSocket client for the following engines: CIO, OkHttp, Js. To get more information about the server side, follow this [section](websocket.md).
 
-Once connected, client and server WebSockets share the same [WebSocketSession](websockets.md#WebSocketSession)
+Once connected, client and server WebSockets share the same [WebSocketSession](websocket.md#WebSocketSession)
 interface for communication.
 
 The basic usage to create an HTTP client supporting WebSockets is pretty simple:
@@ -45,4 +45,4 @@ client.ws(
 }
 ```
 
-For more information about the WebSocketSession, check the [WebSocketSession page](websockets.md#WebSocketSession) and the [API reference](https://api.ktor.io/%ktor_version%/io.ktor.client.features.websocket/).
+For more information about the WebSocketSession, check the [WebSocketSession page](websocket.md#WebSocketSession) and the [API reference](https://api.ktor.io/%ktor_version%/io.ktor.client.features.websocket/).

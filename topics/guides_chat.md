@@ -8,7 +8,7 @@ We are going to use WebSockets for a real-time bidirectional communication.
 To achieve this, we are going to use the [Routing], [WebSockets] and [Sessions] features.
 
 [Routing]: Routing_in_Ktor.md
-[WebSockets]: websockets.md
+[WebSockets]: websocket.md
 [Sessions]: sessions.md
 
 This is an advanced tutorial and it assumes you have some basic knowledge about Ktor,
@@ -38,7 +38,7 @@ You can see Frames as WebSocket messages. Frames could be the following types: t
 You will normally handle `Text` and `Binary` frames, and the other will be handled by Ktor in most of the cases
 (though you can use a raw mode where you can handle those extra frame types yourself).
 
-In its page, you can read more about the [WebSockets feature](websockets.md).  
+In its page, you can read more about the [WebSockets feature](websocket.md).  
 
 ## WebSocket route
 
