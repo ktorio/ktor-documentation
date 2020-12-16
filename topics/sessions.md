@@ -15,7 +15,7 @@ You can configure sessions in the following ways:
 
 
 ## Install Sessions {id="install"}
-Before installing a session, you need to create a [data class](https://kotlinlang.org/docs/reference/data-classes.html) for storing session data, for example:
+Before installing a session, you need to create a [data class](https://kotlinlang.org/docs/data-classes.html) for storing session data, for example:
 ```kotlin
 data class LoginSession(val username: String, val count: Int)
 ```
