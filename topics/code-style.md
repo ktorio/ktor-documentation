@@ -4,7 +4,7 @@
 
 ## Official Code Convention
 
-Ktor as well as other official Kotlin libraries use the [official Kotlin Coding Conventions](https://kotlinlang.org/docs/reference/coding-conventions.html).
+Ktor as well as other official Kotlin libraries use the [official Kotlin Coding Conventions](https://kotlinlang.org/docs/coding-conventions.html).
 
 You can use the official coding standard by adding `kotlin.code.style=official` to your `gradle.properties` file.
 
