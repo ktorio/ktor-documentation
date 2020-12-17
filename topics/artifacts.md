@@ -32,7 +32,7 @@ a generic servlet. It also contains a TestEngine for setting up application test
   * `ktor-locations` contains experimental support for [typed locations](features_locations.md)
   * `ktor-metrics` adds the ability to add some [metrics](dropwizard_metrics.md) to the server
   * `ktor-server-sessions` adds the ability to use [stateful sessions stored on a server](sessions.md)
-  * `ktor-websockets` provides support for [Websockets](websockets.md)
+  * `ktor-websockets` provides support for [Websockets](websocket.md)
 * `ktor-client` contains modules for [performing http requests](clients_index.md)
   * `ktor-client-core` is a core package where most of the http HttpClient API is located
   * `ktor-client-apache` adds support for the Apache asynchronous HttpClient
