@@ -18,7 +18,7 @@ In order to use the WebSockets functionality you first have to install it:
 install(WebSockets)
 ```
 
-You can adjust a few parameters when installing if required:
+If required, you can adjust parameters during the installation of the feature:
 
 ```kotlin
 install(WebSockets) {
@@ -26,6 +26,10 @@ install(WebSockets) {
     timeout = Duration.ofSeconds(15)
     maxFrameSize = Long.MAX_VALUE // Disabled (max value). The connection will be closed if surpassed this length. 
     masking = false
+    
+    extensions { 
+        // install(...)
+    }
 }
 ```
 
@@ -106,6 +110,9 @@ interface WebSocketSession {
     // The call and the context
     val call: ApplicationCall
     val application: Application
+    
+    // List of WebSocket extensions negotiated for the current session
+    val extensions: List<WebSocketExtension<*>>
 
     // Modifiable properties for this request. Their initial value comes from the feature configuration.
     var pingInterval: Duration?
@@ -144,6 +151,11 @@ sealed class Frame {
     val frameType: FrameType // The Type of the frame
     val buffer: ByteBuffer // Payload
     val disposableHandle: DisposableHandle
+    
+    // Extension bits
+    val rsv1: Boolean
+    val rsv2: Boolean
+    val rsv3: Boolean
 
     class Binary : Frame
     class Text : Frame {
