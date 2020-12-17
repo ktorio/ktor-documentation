@@ -5,7 +5,7 @@
 
 
 
-Ktor provides a WebSocket client for the following engines: CIO, OkHttp, Js. To get more information about the server side, follow this [section](websocket.md).
+Ktor provides Websocket client support for the following engines: CIO, OkHttp, Js. To get more information about the server side, follow this [section](websocket.md).
 
 Once connected, client and server WebSockets share the same [WebSocketSession](websocket.md#WebSocketSession)
 interface for communication.

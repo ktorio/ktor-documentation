@@ -18,7 +18,7 @@ In order to use the WebSockets functionality you first have to install it:
 install(WebSockets)
 ```
 
-You can adjust a few parameters and install [WebSocketExtension](websocket_extensions_api.md)  when installing if required:
+If required, you can adjust parameters during the installation of the feature:
 
 ```kotlin
 install(WebSockets) {

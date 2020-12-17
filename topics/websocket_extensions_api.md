@@ -1,19 +1,15 @@
 [//]: # (title: WebSocket extensions API)
 
-Ktor WebSocket API supports writing your own extensions(like [RFC-7692](https://tools.ietf.org/html/rfc7692))
+Ktor WebSocket API supports writing your own extensions(such as [RFC-7692](https://tools.ietf.org/html/rfc7692))
 or any custom extensions.
 
-This API is production ready, but can be slightly modified in the minor release. To indicate this we require users to
-explicitly optin `@ExperimentalWebSocketExtensionsApi` annotation:
-```kotlin
-@OptIn(ExperimentalWebSocketExtensionApi::class)
-```
-If you want to leave your feedback or subscribe on updates, check
-[KTOR-688](https://youtrack.jetbrains.com/issue/KTOR-688) design issue.
+<var name="annotation_name" value="ExperimentalWebSocketExtensionsApi"/>
+<var name="issue_number" value="688"/>
+<include src="lib.md" include-id="experimental"/>
 
 ## Installing extension
 
-To install and configure the extensions we provide 2 methods:  `extensions` and `install` which can be used in the following way:
+To install and configure the extensions we provide two methods:  `extensions` and `install` which can be used in the following way:
 ```kotlin
 install(WebSockets) {
     extensions { /* WebSocketExtensionConfig.() -> Unit */
@@ -24,15 +20,15 @@ install(WebSockets) {
 }
 ```
 
-The extensions are used in order of installation. This way looks familiar to existing features installation API and works for client and server in the same way.
-
+The extensions are used in order of installation.
 
 ## Checking if the extension is negotiated
 
 All installed extensions go through negotiation process and only negotiated extensions are used for the request.
-We introduce `WebSocketSession.extensions: : List<WebSocketExtension<*>>` property with list of all extensions used by for the current session.
+You can use `WebSocketSession.extensions: : List<WebSocketExtension<*>>` property with list of all extensions used
+by for the current session.
 
-There are 2 methods to check if the extension is in use: `WebSocketSession.extension` and `WebSocketSession.extensionOrNull`:
+There are two methods to check if the extension is in use: `WebSocketSession.extension` and `WebSocketSession.extensionOrNull`:
 ```kotlin
 webSocket("/echo") {
     val myExtension = extension(MyWebSocketException) // will throw if `MyWebSocketException` is not negotiated
@@ -41,18 +37,20 @@ webSocket("/echo") {
 }
 ```
 
-## Writing new extension
+## Writing a new extension
 
+There are two interfaces for implementing a new extension: `WebSocketExtension<ConfigType: Any>` and
+`WebSocketExtensionFactory<ConfigType : Any, ExtensionType : WebSocketExtension<ConfigType>>`.
+A single implementation can work for both clients and servers.
 
-There are 2 interfaces for implementing new extension: `WebSocketExtension<ConfigType: Any>` and `WebSocketExtensionFactory<ConfigType : Any, ExtensionType : WebSocketExtension<ConfigType>>`. The new extension can be made by implementing all of them. The single implementation is working for client and server as well.
-
-Here is the example of how the simple frame logging extension can be implemented:
+Below is an example of how a simple frame logging extension can be implemented:
 
 ```kotlin
 class FrameLoggerExtension(val logger: Logger) : WebSocketExtension<FrameLogger.Config> {
 ```
 
-The feature has 2 groups of fields and methods. The first group is for extension negotiation:
+The feature has two groups of fields and methods. The first group is for extension negotiation:
+
 ```kotlin
     /** List of protocols will be send in client request for negotiation **/
     override val protocols: List<WebSocketExtensionHeader> = emptyList()
@@ -76,7 +74,8 @@ The feature has 2 groups of fields and methods. The first group is for extension
 
 ```
 
-The second group is the place for actual frame processing. Metods will take frame and produce new processed frame if necessarry:
+The second group is the place for actual frame processing. Methods will take a frame and produce a new processed frame if necessary:
+
 ```kotlin
     override fun processOutgoingFrame(frame: Frame): Frame {
         logger.log("Process outgoing frame: $frame")
@@ -89,7 +88,8 @@ The second group is the place for actual frame processing. Metods will take fram
     }
 ```
 
-There are also some implementation details: the feature has `Config` and referenfe to the origin `factory.
+There are also some implementation details: the feature has `Config` and reference to the origin `factory.
+
 ```kotlin
     class Config {
         lateinit var logger: Logger
@@ -100,7 +100,9 @@ There are also some implementation details: the feature has `Config` and referen
     */
     override val factory: WebSocketExtensionFactory<Config, FrameLogger> = FrameLoggerExtension
 ```
-The factory is usually implemented in companion object(similar to regular features):
+
+The factory is usually implemented in a companion object (similar to regular features):
+
 ```kotlin
     companion object : WebSocketExtensionFactory<Config, FrameLogger> {
         /* Key to discover installed extension instance */

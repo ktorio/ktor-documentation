@@ -1,19 +1,12 @@
 [//]: # (title: WebSocket Deflate extension)
 
 Ktor implements `Deflate` WebSocket extensions [RFC-7692](https://tools.ietf.org/html/rfc7692) 
-for client and server. The extension can transparently compress frames before sending and decompress after receive. 
-It's usefull to enable this extension if you're sending large amount of text data (or any kind of data that can be 
-deflated efficiently).
+for client and server. The extension can transparently compress frame before sending, and decompress after receiving.
+It's useful to enable this extension if you're sending large amounts of text data.
 
-
-This API is production ready, but can be slightly modified in the minor release. To indicate this we require users to
-explicitly optin `@ExperimentalWebSocketExtensionsApi` annotation:
-```kotlin
-@OptIn(ExperimentalWebSocketExtensionApi::class)
-```
-If you want to leave your feedback or subscribe on updates, check 
-[KTOR-688](https://youtrack.jetbrains.com/issue/KTOR-688) design issue.
-
+<var name="annotation_name" value="ExperimentalWebSocketExtensionsApi"/>
+<var name="issue_number" value="688"/>
+<include src="lib.md" include-id="experimental"/>
 
 ## Installation
 
@@ -38,15 +31,14 @@ install(WebSockets) {
 }
 ```
 
-There are also several parameters that can be configured:
-
 ### Advanced configuration parameters 
 
 #### Context takeover
 
-Specify if the client(server) should use compression window. Enabling these parameters reduce the amount of space 
-allocated per single session. Please note that window size can not be configured due to limitations 
-of [java.util.zip.Deflater] API and always equal to `15`.
+Specify if the client (and server) should use compression window. Enabling these parameters reduce the amount of space 
+allocated per single session. Please note that window size
+cannot be configured to limitations of [java.util.zip.Deflater] API. The value is fixed to `15`.
+
 ```kotlin
 clientNoContextTakeOver = false
 
@@ -57,17 +49,22 @@ These parameters are described in [RFC-7692 Section 7.1.1](https://tools.ietf.or
 
 #### Specify compress condition
 
-To specify compress condition explicitly `compressIf` method can be used. To compress text-only frames we can specify:
+To specify a compress condition explicitly, you can use the compressIf method. 
+
+To specify a compress condition explicitly, you can use the `compressIf` method can be used.
+To specify a compress condition explicitly, you can use the compressIf method. For instance, to compress text-only, 
+you frames can specify:
+
 ```kotlin
 compressIf { frame -> 
     frame is Frame.Text
 }
 ```
-All calls to `compressIf` will be evaluated before compress a frame.
+All calls to `compressIf` will be evaluated before compression takes place.
 
 #### Fine-tune list of protocols
 
-The list of protocols to send can be edited as desired using `configureProtocols` method:
+The list of protocols to send can be edited as needed using the `configureProtocols` method:
 
 ```kotlin
 configureProtocols { protocols ->
