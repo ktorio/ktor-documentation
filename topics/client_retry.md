@@ -3,38 +3,33 @@
 ## Intro
 
 Every client code doing HTTP requests is facing network errors from time to time.
-Usually such errors could be eliminated by retrying the request.
-Sometimes, remote web services may be temporarily unavailable for short periods
-of time or produce error HTTP status codes that could be easily recovered by doing
-a retry.
+Usually these errors could be eliminated by retries of the request.
+Sometimes remote web services may temporarily be unavailable for short periods of time, or product HTTP status codes that could easily be handled via retries.
 
 ## Retry feature
 
-Ktor provides optional feature `Retry` that does retry on I/O errors and unsuccessful HTTP status codes.
+Ktor provides an optional `Retry` feature that performs retry on I/O errors and unsuccessful HTTP status codes.
 
-This feature provides ability to recover from network errors
-identified as `IOException` and `HttpRequestTimeoutException` and `UnresolvedAddressException`.
+This feature provides the ability to recover from network errors
+identified as `IOException`, and `HttpRequestTimeoutException` and `UnresolvedAddressException`.
 It also may recover from request validation that usually produce `ResponseException`
 on a non-successful response status code.
 
-The number of retries is limited by `retries` property.
-After every failed attempt it does a fixed time delay configured by `retryIntervalInSeconds`.
+The number of retries is limited by the `retries` property.
+After a failed attempt, it performs a delay for a fixed amount of time configured by the `retryIntervalInSeconds` property.
 
-When all attempts exceeded, `RequestRetriesExceededException` exception is thrown
+When all attempts have been exceeded, a `RequestRetriesExceededException` exception is thrown
 having a list of all errors in the suppressed list and a cause.
 
 
 Please note that HTTP status codes are checked by the request validation feature.
 Once you disable it, the retry feature will **not** retry such responses anymore.
 
-Remember that there are always network delays and, due to the network architecture,
- sometimes there is absolutely
-no way to identify, if a request was delivered to the server or not.
-Therefore, retrying a "failed" request may lead to double requests.
-There are cases when double requests are not acceptable. For example, a request
-for doing payments or changing some state.
-In this case this feature is not suitable and a different retry approach should
-be used, or a double requests prevention mechanism should be applied like using
+It's important to note that there can always be network delays. Often due to the network architecture, there is no way to identify if a request has been delivered to the server or not.
+Therefore retrying a failed request may lead to duplicate requests.
+Duplicate requests are not acceptable in some cases. For example, a request
+for doing payments or changing some state. So a different retry approach should
+be used, or a duplicate requests prevention mechanism should be applied like using
 transaction id and tracking them on server side.
 
 ## Usage
