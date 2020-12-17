@@ -6,9 +6,27 @@ Every client code doing HTTP requests is facing network errors from time to time
 Usually these errors could be eliminated by retries of the request.
 Sometimes remote web services may temporarily be unavailable for short periods of time, or product HTTP status codes that could easily be handled via retries.
 
+A typical code performing retries may look like this:
+
+```
+loop@do {
+    try {
+        return client.get<String>("$myService/url")
+    } catch (cause: Throwable) {
+        when (cause) {
+          is IOException,
+          is HttpRequestTimeoutException -> continue@loop
+          else -> throw cause
+        }
+    }
+}
+```
+
+Applying this approach to every request requires too much effort and looks terribly clumsy.
+
 ## Retry feature
 
-Ktor provides an optional `Retry` feature that performs retry on I/O errors and unsuccessful HTTP status codes.
+Fortunately, Ktor provides an optional `Retry` feature that performs retry on I/O errors and unsuccessful HTTP status codes.
 
 This feature provides the ability to recover from network errors
 identified as `IOException`, and `HttpRequestTimeoutException` and `UnresolvedAddressException`.
