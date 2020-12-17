@@ -2,19 +2,19 @@
 
 <include src="lib.md" include-id="outdated_warning"/>
 
-Ktor is divided into modules to allow fine-grained inclusion of dependencies based on the functionality required. 
+Ktor is divided into modules to allow fine-grained inclusion of dependencies based on the functionality required.
 The typical Ktor application would require `ktor-server-core` and a corresponding engine depending on whether it's self-hosted
- or using an Application Server. 
+ or using an Application Server.
 
 All artifacts in Ktor belong to `io.ktor` group and hosted on JCenter and Maven Central. Pre-release versions are published at [Bintray](https://bintray.com/kotlin/ktor)
 
 [![Download](https://api.bintray.com/packages/kotlin/ktor/ktor/images/download.svg?version=%ktor_version%)](https://bintray.com/kotlin/ktor/ktor/%ktor_version%)
-    
+
 Ktor is split into several groups of modules:
 
-* `ktor-server` contains modules that support running the Ktor Application with different engines: Netty, Jetty, Tomcat, and 
+* `ktor-server` contains modules that support running the Ktor Application with different engines: Netty, Jetty, Tomcat, and
 a generic servlet. It also contains a TestEngine for setting up application tests without starting the real server
-  * `ktor-server-core` is a core package where most of the application API and implementation is located 
+  * `ktor-server-core` is a core package where most of the application API and implementation is located
   * `ktor-server-jetty` supports a deployed or embedded Jetty instance
   * `ktor-server-netty` supports Netty in embedded mode
   * `ktor-server-tomcat` supports Tomcat servers
@@ -41,9 +41,10 @@ a generic servlet. It also contains a TestEngine for setting up application test
   * `ktor-client-okhttp` adds support for [OkHttp](https://square.github.io/okhttp/) client backend.
   * `ktor-client-auth-basic` adds support for [authentication](features_auth.md)
   * `ktor-client-json` adds support for [json content negotiation](json-feature.md)
+  * `ktor-client-retry` adds support for [client Retry feature](client_retry.md)
 * `ktor-network` includes [raw sockets](servers_raw-sockets.md) for client/server, and TCP/UDP
   * `ktor-network-tls` contains TLS support for raw sockets
- 
+
 See instructions for setting up a project with
 
 * [Maven](Maven.md)
