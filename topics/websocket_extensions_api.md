@@ -24,7 +24,7 @@ The extensions are used in order of installation.
 
 ## Checking if the extension is negotiated
 
-All installed extensions go through negotiation process and only negotiated extensions are used for the request.
+All installed extensions go through the negotiation process and those that are successfully negotiated are used during the request.
 You can use `WebSocketSession.extensions: : List<WebSocketExtension<*>>` property with list of all extensions used
 by for the current session.
 

@@ -38,7 +38,7 @@ You can see Frames as WebSocket messages. Frames could be the following types: t
 You will normally handle `Text` and `Binary` frames, and the other will be handled by Ktor in most of the cases
 (though you can use a raw mode where you can handle those extra frame types yourself).
 
-In its page, you can read more about the [WebSockets feature](websocket.md).  
+You can read more about this in the [WebSockets feature documentation](websocket.md).  
 
 ## WebSocket route
 
