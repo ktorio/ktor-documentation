@@ -9,7 +9,7 @@ or any custom extensions.
 
 ## Installing extension
 
-To install and configure the extensions we provide two methods:  `extensions` and `install` which can be used in the following way:
+To install and configure the extensions we provide two methods: `extensions` and `install` which can be used in the following way:
 ```kotlin
 install(WebSockets) {
     extensions { /* WebSocketExtensionConfig.() -> Unit */
@@ -24,7 +24,7 @@ The extensions are used in order of installation.
 
 ## Checking if the extension is negotiated
 
-All installed extensions go through the negotiation process and those that are successfully negotiated are used during the request.
+All installed extensions go through the negotiation process, and those that are successfully negotiated are used during the request.
 You can use `WebSocketSession.extensions: : List<WebSocketExtension<*>>` property with list of all extensions used
 by for the current session.
 
@@ -88,7 +88,7 @@ The second group is the place for actual frame processing. Methods will take a f
     }
 ```
 
-There are also some implementation details: the feature has `Config` and reference to the origin `factory.
+There are also some implementation details: the feature has `Config` and reference to the origin `factory`.
 
 ```kotlin
     class Config {
@@ -115,7 +115,7 @@ The factory is usually implemented in a companion object (similar to regular fea
         override val rsv2: Boolean = false
         override val rsv3: Boolean = false
 
-       /** Create feture instance. Will be called for each WebSocket session **/
+       /** Create feature instance. Will be called for each WebSocket session **/
         override fun install(config: Config.() -> Unit): FrameLogger {
             return FrameLogger(Config().apply(config).logger)
         }

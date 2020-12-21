@@ -1,7 +1,7 @@
 [//]: # (title: WebSocket Deflate extension)
 
 Ktor implements `Deflate` WebSocket extensions [RFC-7692](https://tools.ietf.org/html/rfc7692) 
-for client and server. The extension can transparently compress frame before sending, and decompress after receiving.
+for the client and server. The extension can transparently compress frame before sending, and decompress after receiving.
 It's useful to enable this extension if you're sending large amounts of text data.
 
 <var name="annotation_name" value="ExperimentalWebSocketExtensionsApi"/>
@@ -37,7 +37,7 @@ install(WebSockets) {
 
 Specify if the client (and server) should use compression window. Enabling these parameters reduce the amount of space 
 allocated per single session. Please note that window size
-cannot be configured to limitations of [java.util.zip.Deflater] API. The value is fixed to `15`.
+cannot be configured due to limitations of `java.util.zip.Deflater` API. The value is fixed to `15`.
 
 ```kotlin
 clientNoContextTakeOver = false
@@ -49,11 +49,7 @@ These parameters are described in [RFC-7692 Section 7.1.1](https://tools.ietf.or
 
 #### Specify compress condition
 
-To specify a compress condition explicitly, you can use the compressIf method. 
-
-To specify a compress condition explicitly, you can use the `compressIf` method can be used.
-To specify a compress condition explicitly, you can use the compressIf method. For instance, to compress text-only, 
-you frames can specify:
+To specify a compress condition explicitly, you can use the `compressIf` method. For instance, to compress text-only:
 
 ```kotlin
 compressIf { frame -> 
