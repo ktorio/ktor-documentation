@@ -3,42 +3,41 @@
 ## Serializers
 {id="serializer"}
 
-Server session serializers provide a way to pass session objects between client and server. They are used in both stateless and stateful scenarios.
-In the stateless scenario, the whole session is passed with every request. Usually it is done by sending it inside of cookies.
-When the stateful scenario is used, a session is never exposed to clients but a session id. A session object is stored somewhere on server-side, for example in memory or on disk.
+[Sessions](sessions.md) allow you to choose whether to pass the entire payload between the client and server or store session data on the server and pass only a session ID. In both cases, Ktor uses [the default serializer](#default-session-serializer) to serialize session data. You can also provide your own [custom serializer](#extending-serializers) and, for example, convert session data to JSON.
 
-When configuring [sessions](sessions.md), you get the default session serializer or a [custom serializer](#extending-serializers) could be provided.
-
-### The default session serializer
+## Default Serializer
 {id="default-session-serializer"}
 
-The default session serializer is used when no serializer specified explicitly and constructed with `defaultSessionSerializer()` function. It has no configuration and uses the text format described below. Unlike general purpose serializers, it is optimized for size to produce short one-line serialized strings. Although, it has limitations:
-- session class should be a regular class, a sealed class with non-abstract sub-classes;
-- no polymorphic serialization supported except for the limited support of sealed classes, abstract classes are not allowed;
-- session class properties should have type one of the following:
+The default session serializer is used when no serializer is specified explicitly and constructed with [`defaultSessionSerializer`](https://api.ktor.io/latest/io.ktor.sessions/default-session-serializer.html) function. It has no configuration and uses the [text format](#text-format). Unlike general purpose serializers, it is optimized for size to produce short one-line serialized strings.
+
+### Limitations
+{id="limitations"}
+
+The default session serializer has the following limitations:
+
+- Session class should be a regular or sealed class.
+- Polymorphic serialization is limited to only sealed classes: abstract classes are not allowed.
+- Properties of a session class should have one of the following types:
   * primitive types;
   * `String`;
   * enum class;
-  * collection `List`, `Set`, `Map`;
+  * collection classes such as `List`, `Set`, `Map`;
   * data class;
   * sealed class;
   * object;
-- only the common collections supported: List, Set and Map;
-- type parameters of collections should be primitive or `String`;
-- inner classes are not supported;
-- cyclic object graphs are not supported.
+- Type parameters of collections should be primitive or `String`.
+- Inner classes are not supported.
+- Cyclic object graphs are not supported.
 
-The default text format is a form-url-encoded bundle where names are properties and values are encoded with a type prefix starting with a `#` hash character. The character following the hash character points to a value type. For example, `#i` points to the `Int` type.
+### Text Format
+{id="text-format"}
 
-Example of an encoded data class having a single integer property named "test":
-`test=#i1`
+The default serializer converts data into a [form-url-encoded](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) bundle where names are properties and values are encoded with a type prefix starting with a `#` hash character. The character following the hash character points to a value type. For example, a data class with a single integer property is encoded to `test=#i1`.
 
-Note: sealed classes support is introduced since ktor 1.5.0. Before this version, a session class should have no properties having custom class types except for enum classes.
-
-## Custom serializers
+## Custom Serializers
 {id="extending-serializers"}
 
-The Sessions API provides a `SessionSerializer` interface, that looks like this:
+The Sessions API provides the [`SessionSerializer`](https://api.ktor.io/1.5.0/io.ktor.sessions/-session-serializer/index.html) interface that looks like this:
 
 ```kotlin
 interface SessionSerializer<T> {
@@ -55,7 +54,7 @@ cookie<MySession>("NAME") {
 }
 ```
 
-So for example you can create a JSON session serializer using Gson:
+So for example you can create a JSON session serializer using [Gson](https://github.com/google/gson):
 
 ```kotlin
 class GsonSessionSerializer<T>(
