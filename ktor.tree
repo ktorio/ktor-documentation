@@ -35,7 +35,8 @@
                          accepts-web-file-names="intro.html,servers-application.html"/>
             <toc-element id="How_Ktor_works.md"
                          accepts-web-file-names="lifecycle.html"/>
-            <toc-element id="Features.md"/>
+            <toc-element id="Features.md"
+                         accepts-web-file-names="zfeatures.html"/>
             <toc-element id="Engines.md"
                          show-structure-depth="2">
                 <toc-element id="advanced_http2.md"/>
