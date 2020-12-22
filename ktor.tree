@@ -200,7 +200,8 @@
             <toc-element id="http-cookies.md"/>
             <toc-element id="http-plain-text.md"/>
             <toc-element id="http-redirect.md"/>
-            <toc-element id="json-feature.md"/>
+            <toc-element id="json-feature.md"
+                         show-structure-depth="2"/>
             <toc-element id="features_logging.md"/>
             <toc-element id="proxy.md"/>
             <toc-element id="response-validation.md"/>

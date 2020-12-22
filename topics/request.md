@@ -207,7 +207,7 @@ The `HttpRequestBuilder.body` property can be a subtype of `OutgoingContent` as 
 * `body = JarFileContent(File("myjar.jar"), "test.txt", ContentType.fromFileExtension("txt").first())`
 * `body = URIFileContent("https://en.wikipedia.org/wiki/Main_Page")`
 
-If you install the *JsonFeature*, and set the content type to `application/json`
+If you install the [JsonFeature](json-feature.md), and set the content type to `application/json`
 you can use arbitrary instances as the `body`, and they will be serialized as JSON:
 
 ```kotlin
