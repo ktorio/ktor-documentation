@@ -54,7 +54,7 @@ cookie<MySession>("NAME") {
 }
 ```
 
-So for example you can create a JSON session serializer using [Gson](https://github.com/google/gson):
+For example, you can create a JSON session serializer using [Gson](https://github.com/google/gson)...
 
 ```kotlin
 class GsonSessionSerializer<T>(
@@ -71,7 +71,7 @@ class GsonSessionSerializer<T>(
 }
 ```
 
-And configuring it:
+...and configure it:
 
 ```kotlin
 cookie<MySession>("NAME") {
