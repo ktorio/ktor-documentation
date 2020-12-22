@@ -17,10 +17,11 @@
         <config-webmaster>webmaster@jetbrains.com</config-webmaster>
         <config-feedback-support>https://www.jetbrains.com/support/</config-feedback-support>
         <config-sideblocks>true</config-sideblocks>
-        <config-productid>help/idea-sdk</config-productid>
+        <config-productid>docs</config-productid>
         <config-search-scopes-provider>https://data.services.jetbrains.com/search/</config-search-scopes-provider>
         <allow-indexable-eaps>true</allow-indexable-eaps>
         <images-prefix-override>images/</images-prefix-override>
+        <generate-sitemap-url-prefix>https://ktor.io/docs/</generate-sitemap-url-prefix>
 
     </variables>
     
