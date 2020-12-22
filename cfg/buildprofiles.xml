@@ -20,6 +20,7 @@
         <config-productid>help/idea-sdk</config-productid>
         <config-search-scopes-provider>https://data.services.jetbrains.com/search/</config-search-scopes-provider>
         <allow-indexable-eaps>true</allow-indexable-eaps>
+        <images-prefix-override>images/</images-prefix-override>
 
     </variables>
     
