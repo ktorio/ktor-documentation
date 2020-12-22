@@ -68,5 +68,17 @@
         <accepts>iobuffer.html</accepts>
         <accepts>packets.html</accepts>
         <accepts>tools.html</accepts>
+
+        <accepts>migration.html</accepts>
+        <accepts>0-0-beta-3.html</accepts>
+        <accepts>0-0.html</accepts>
+        <accepts>1-1.html</accepts>
+        <accepts>1-2.html</accepts>
+        <accepts>1-3.html</accepts>
+        <accepts>1-4.html</accepts>
+        <accepts>2-0.html</accepts>
+        <accepts>2-3.html</accepts>
+        <accepts>3-0.html</accepts>
+        <accepts>4-0.html</accepts>
     </rule>
 </rules>
