@@ -1,8 +1,5 @@
 [//]: # (title: Serializers)
 
-## Serializers
-{id="serializer"}
-
 [Sessions](sessions.md) allow you to choose whether to pass the entire payload between the client and server or store session data on the server and pass only a session ID. In both cases, Ktor uses [the default serializer](#default-session-serializer) to serialize session data. You can also provide your own [custom serializer](#extending-serializers) and, for example, convert session data to JSON.
 
 ## Default Serializer
