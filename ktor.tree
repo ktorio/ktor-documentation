@@ -237,7 +237,7 @@
                          accepts-web-file-names="route.html"/>
         </toc-element>
         <toc-element id="Creating_custom_features.md"
-                     accepts-web-file-names="advanced-index.html"/>
+                     accepts-web-file-names="advanced-index.html,advanced-features.html"/>
         <toc-element id="custom_engines.md"/>
         <toc-element id="advanced_authentication.md"/>
         <toc-element id="events.md"/>
