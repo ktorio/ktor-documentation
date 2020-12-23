@@ -5,9 +5,18 @@
 This feature enables serving static content provided by [webjars](https://www.webjars.org/). It allows you to package your assets such
 as javascript libraries and css as part of your uber-jar.
 
-## Installing the feature
+## Add Dependencies {id="add_dependencies"}
+To enable `Webjars` support, you need to include the `ktor-webjars` artifact in the build script:
+<var name="artifact_name" value="ktor-webjars"/>
+<include src="lib.md" include-id="add_ktor_artifact"/>
 
-{id="installing"}
+## Install Webjars {id="install_feature"}
+
+<var name="feature_name" value="Webjars"/>
+<include src="lib.md" include-id="install_feature"/>
+
+
+## Configure Webjars {id="configure"}
 
 ```kotlin
     install(Webjars) {

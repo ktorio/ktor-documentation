@@ -13,16 +13,19 @@ constructing URLs and reading the parameters.
 {type="note"}
 
 
-## Installing the feature
-{id="installing"}
+## Add Dependencies {id="add_dependencies"}
+To enable `Locations` support, you need to include the `ktor-locations` artifact in the build script:
+<var name="artifact_name" value="ktor-locations"/>
+<include src="lib.md" include-id="add_ktor_artifact"/>
 
-The Locations feature doesn't require any special configuration:
 
-```kotlin
-install(Locations)
-```
+## Install Locations {id="install_feature"}
 
-## Defining route classes
+<var name="feature_name" value="Locations"/>
+<include src="lib.md" include-id="install_feature"/>
+
+
+## Define route classes
 {id="route-classes"}
 
 For each typed route you want to handle, you need to create a class (usually a data class)
@@ -60,7 +63,7 @@ data class Listing(val name: String, val page: Int, val count: Int)
 * Will match: `/list/movies?page=10&count=20`
 * Will construct: `Listing(name = "movies", page = 10, count = 20)`
 
-## Defining route handlers
+## Define route handlers
 {id="route-handlers"}
 
 Once you have [defined the classes](#route-classes) annotated with `@Location`,
@@ -80,7 +83,7 @@ routing {
 >
 {type="note"}
 
-## Building URLs
+## Build URLs
 {id="building-urls"}
 
 You can construct URLs to your routes by calling `application.locations.href` with

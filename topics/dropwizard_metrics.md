@@ -5,9 +5,12 @@
 The Metrics feature allows you to configure the [Metrics](http://metrics.dropwizard.io/4.0.0/)
 to get useful information about the server and incoming requests.
 
+## Add Dependencies {id="add_dependencies"}
+To enable `Metrics` support, you need to include the `ktor-metrics` artifact in the build script:
+<var name="artifact_name" value="ktor-metrics"/>
+<include src="lib.md" include-id="add_ktor_artifact"/>
 
-
-## Installing
+## Install Metrics
 
 The Metrics feature exposes a `registry` property, that can be used to build and start
 metric reporters.

@@ -4,8 +4,14 @@
 
 OAuth defines a mechanism for authentication using external providers like Google or Facebook safely.
 You can read more about [OAuth](https://oauth.net/).
-Ktor has a feature to work with OAuth 1a and 2.0
+Ktor has a feature to work with OAuth 1a and 2.0. 
 
+## Add Dependencies {id="add_dependencies"}
+To enable `OAuth` support, you need to include the `ktor-auth` artifact in the build script:
+<var name="artifact_name" value="ktor-auth"/>
+<include src="lib.md" include-id="add_ktor_artifact"/>
+
+## Usage {id="usage"}
 A simplified OAuth 2.0 workflow:
 * The client is redirected to an authorize URL for the specified provider (Google, Facebook, Twitter, Github...).
   specifying the `clientId` and a valid redirection URL.
@@ -14,8 +20,8 @@ A simplified OAuth 2.0 workflow:
 * Ktor's OAuth feature verifies the token and generates a Principal `OAuthAccessTokenResponse`.
 * With the auth token, you can request, for example, the user's email or id depending on the provider.
 
-*Example*:
 
+## Example {id="example"}
 
 ```kotlin
 @Location("/login/{type?}") class login(val type: String = "")

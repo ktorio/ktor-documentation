@@ -9,7 +9,13 @@ Each message from this channel is called Frame: a frame can be a text or binary 
 or a close or ping/pong message. Frames can be marked as incomplete or final.
 
 
-## Installing
+## Add Dependencies {id="add_dependencies"}
+To enable `WebSockets` support, you need to include the `ktor-websockets` artifact in the build script:
+<var name="artifact_name" value="ktor-websockets"/>
+<include src="lib.md" include-id="add_ktor_artifact"/>
+
+
+## Install WebSockets {id="install_feature"}
 {id="installing"}
 
 In order to use the WebSockets functionality you first have to install it: 

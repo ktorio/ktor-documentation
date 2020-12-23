@@ -2,6 +2,13 @@
 
 <include src="lib.md" include-id="outdated_warning"/>
 
+## Add Dependencies {id="add_dependencies"}
+To enable `basic` and `form` authentication, you need to include the `ktor-auth` artifact in the build script:
+<var name="artifact_name" value="ktor-auth"/>
+<include src="lib.md" include-id="add_ktor_artifact"/>
+
+## Usage {id="usage"}
+
 Ktor supports two methods of authentication with the user and raw password as credentials:
 `basic` and `form`.
 
@@ -26,7 +33,7 @@ or null for invalid credentials. That callback is marked as *suspending*, so tha
 
 You can use several strategies for validating:
 
-## Strategy: Manual credential validation
+### Manual credential validation
 
 Since there is a validate callback for authentication, you can just put your code there.
 So you can do things like checking the password against a constant, authenticating using a database
@@ -48,7 +55,7 @@ Remember to escape and/or validate them when accessing with those values to the 
 when storing them, or generating HTML with its content, etc.
 { .security.note }
 
-## Strategy: Validating using UserHashedTableAuth
+### Validating using UserHashedTableAuth
 
 There is a class that handles hashed passwords in-memory to authenticate `UserPasswordCredential`.
 You can populate it from constants in code or from another source. You can use predefined digest functions

@@ -2,6 +2,42 @@
 
 <include src="lib.md" include-id="outdated_warning"/>
 
+## Add Dependencies {id="add_dependencies"}
+To enable `LDAP` authentication, you need to include the `ktor-auth` and `ktor-auth-ldap` artifacts in the build script:
+
+<tabs>
+    <tab title="Gradle (Groovy)">
+        <code style="block" lang="Groovy" title="Sample">
+            implementation "io.ktor:ktor-auth:$ktor_version"
+            implementation "io.ktor:ktor-auth-ldap:$ktor_version"
+        </code>
+    </tab>
+    <tab title="Gradle (Kotlin)">
+        <code style="block" lang="Kotlin" title="Sample">
+            implementation("io.ktor:ktor-auth:$ktor_version")
+            implementation("io.ktor:ktor-auth-ldap:$ktor_version")
+        </code>
+    </tab>
+    <tab title="Maven">
+        <code style="block" lang="XML" title="Sample">
+        <![CDATA[
+        <dependency>
+            <groupId>io.ktor</groupId>
+            <artifactId>ktor-auth</artifactId>
+            <version>${ktor_version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.ktor</groupId>
+            <artifactId>ktor-auth-ldap</artifactId>
+            <version>${ktor_version}</version>
+        </dependency>
+        ]]>
+        </code>
+   </tab>
+</tabs>
+
+
+## Usage {id="usage"}
 Ktor supports LDAP (Lightweight Directory Access Protocol) for credential authentication.
 
 ```kotlin
