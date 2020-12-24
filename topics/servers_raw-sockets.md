@@ -6,7 +6,7 @@ In addition to HTTP handling for the [server](A_Ktor_Application.md) and the [cl
 It exposes a suspending API that uses NIO under the hoods.
 
 ## Add Dependencies {id="add_dependencies"}
-To enable `Sockets` support, you need to include the `ktor-network` artifact in the build script:
+To enable sockets support, you need to include the `ktor-network` artifact in the build script:
 <var name="artifact_name" value="ktor-network"/>
 <include src="lib.md" include-id="add_ktor_artifact"/>
 
