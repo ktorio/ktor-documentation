@@ -21,11 +21,6 @@ Then, add an artifact for a target platform:
     <var name="artifact_name" value="ktor-client-websockets-jvm"/>
     <include src="lib.md" include-id="add_ktor_artifact"/>
 
-* iOS:
-
-    <var name="artifact_name" value="ktor-client-websockets-native"/>
-    <include src="lib.md" include-id="add_ktor_artifact"/>
-
 * JS:
 
     <var name="artifact_name" value="ktor-client-websockets-js"/>

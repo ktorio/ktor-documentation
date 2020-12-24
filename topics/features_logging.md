@@ -11,11 +11,6 @@ To enable logging, you need to include the following artifacts in the build scri
    <var name="artifact_name" value="ktor-client-logging-jvm"/>
    <include src="lib.md" include-id="add_ktor_artifact"/>
 
-* iOS:   
-  
-   <var name="artifact_name" value="ktor-client-logging-native"/>
-   <include src="lib.md" include-id="add_ktor_artifact"/>
-
 * JS:
 
    <var name="artifact_name" value="ktor-client-logging-js"/>

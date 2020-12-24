@@ -11,11 +11,6 @@ To enable authentication, you need to include the following artifacts in the bui
    <var name="artifact_name" value="ktor-client-auth-jvm"/>
    <include src="lib.md" include-id="add_ktor_artifact"/>
 
-* iOS:
-
-   <var name="artifact_name" value="ktor-client-auth-native"/>
-   <include src="lib.md" include-id="add_ktor_artifact"/>
-
 * JS:
 
    <var name="artifact_name" value="ktor-client-auth-js"/>
