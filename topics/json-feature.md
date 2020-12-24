@@ -27,14 +27,12 @@ For multiplatform projects, you can use the `kotlinx.serialization` library. You
 1. Add the Kotlin serialization plugin, as described in the [Setup](https://github.com/Kotlin/kotlinx.serialization#setup) section.
 1. Add the dependency required for a specific platform:
     * JVM:
+      
       <var name="artifact_name" value="ktor-client-serialization-jvm"/>
       <include src="lib.md" include-id="add_ktor_artifact"/>
       
-    * iOS:
-      <var name="artifact_name" value="ktor-client-serialization-native"/>
-      <include src="lib.md" include-id="add_ktor_artifact"/>
-      
     * JS:
+      
       <var name="artifact_name" value="ktor-client-serialization-js"/>
       <include src="lib.md" include-id="add_ktor_artifact"/>
       
