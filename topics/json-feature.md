@@ -25,16 +25,10 @@ For Jackson, add the following dependency:
 
 For multiplatform projects, you can use the `kotlinx.serialization` library. You can add it to the project as follows:
 1. Add the Kotlin serialization plugin, as described in the [Setup](https://github.com/Kotlin/kotlinx.serialization#setup) section.
-1. Add the dependency required for a specific platform:
-    * JVM:
-      
-      <var name="artifact_name" value="ktor-client-serialization-jvm"/>
-      <include src="lib.md" include-id="add_ktor_artifact"/>
-      
-    * JS:
-      
-      <var name="artifact_name" value="ktor-client-serialization-js"/>
-      <include src="lib.md" include-id="add_ktor_artifact"/>
+1. Add the `ktor-client-serialization` dependency:
+   
+<var name="artifact_name" value="ktor-client-serialization"/>
+<include src="lib.md" include-id="add_ktor_artifact"/>
       
 
 ## Install JsonFeature {id="install_feature"}
