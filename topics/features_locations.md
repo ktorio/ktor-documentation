@@ -14,8 +14,9 @@ constructing URLs and reading the parameters.
 
 
 ## Add Dependencies {id="add_dependencies"}
-To enable `Locations` support, you need to include the `ktor-locations` artifact in the build script:
+<var name="feature_name" value="Locations"/>
 <var name="artifact_name" value="ktor-locations"/>
+<include src="lib.md" include-id="add_ktor_artifact_intro"/>
 <include src="lib.md" include-id="add_ktor_artifact"/>
 
 

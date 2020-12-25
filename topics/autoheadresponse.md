@@ -4,8 +4,9 @@
 The `AutoHeadResponse` feature provides us with the ability to automatically respond to `HEAD` request for every route that has a `GET` defined. 
 
 ## Add Dependencies {id="add_dependencies"}
-To enable `AutoHeadResponse` support, you need to include the `autoheadresponse` artifact in the build script:
+<var name="feature_name" value="AutoHeadResponse"/>
 <var name="artifact_name" value="autoheadresponse"/>
+<include src="lib.md" include-id="add_ktor_artifact_intro"/>
 <include src="lib.md" include-id="add_ktor_artifact"/>
 
 ## Usage

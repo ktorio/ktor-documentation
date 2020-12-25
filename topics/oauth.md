@@ -7,8 +7,9 @@ You can read more about [OAuth](https://oauth.net/).
 Ktor has a feature to work with OAuth 1a and 2.0. 
 
 ## Add Dependencies {id="add_dependencies"}
-To enable `OAuth` support, you need to include the `ktor-auth` artifact in the build script:
+<var name="feature_name" value="OAuth"/>
 <var name="artifact_name" value="ktor-auth"/>
+<include src="lib.md" include-id="add_ktor_artifact_intro"/>
 <include src="lib.md" include-id="add_ktor_artifact"/>
 
 ## Usage {id="usage"}

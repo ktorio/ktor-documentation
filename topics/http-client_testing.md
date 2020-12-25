@@ -10,18 +10,6 @@ To use `MockEngine`, you need to include the `ktor-client-mock` artifact in the 
 <var name="artifact_name" value="ktor-client-mock"/>
 <include src="lib.md" include-id="add_ktor_artifact"/>
 
-Then, add an artifact for a target platform:
-* JVM:
-
-    <var name="artifact_name" value="ktor-client-mock-jvm"/>
-    <include src="lib.md" include-id="add_ktor_artifact"/>
-
-* JS:
-
-    <var name="artifact_name" value="ktor-client-mock-js"/>
-    <include src="lib.md" include-id="add_ktor_artifact"/>
-
-
 
 ## Usage {id="usage"}
 

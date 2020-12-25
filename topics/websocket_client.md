@@ -15,17 +15,6 @@ To use `WebSockets`, you need to include the `ktor-client-websockets` artifact i
 <var name="artifact_name" value="ktor-client-websockets"/>
 <include src="lib.md" include-id="add_ktor_artifact"/>
 
-Then, add an artifact for a target platform:
-* JVM:
-
-    <var name="artifact_name" value="ktor-client-websockets-jvm"/>
-    <include src="lib.md" include-id="add_ktor_artifact"/>
-
-* JS:
-
-    <var name="artifact_name" value="ktor-client-websockets-js"/>
-    <include src="lib.md" include-id="add_ktor_artifact"/>
-
 
 ## Usage {id="usage"}
 

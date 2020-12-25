@@ -9,9 +9,13 @@ It supports mechanisms to read *credentials*, and to authenticate *principals*.
 It can be used in some cases along with the [sessions feature](sessions.md)
 to keep the login information between requests.
 
+## Add Dependencies {id="add_dependencies"}
+To enable authentication, you need to include the `ktor-auth` artifact in the build script:
 
-## Mechanisms
+<var name="artifact_name" value="ktor-auth"/>
+<include src="lib.md" include-id="add_ktor_artifact"/>
 
+Note that some authentication features (for example [JWT/JWK](jwt.md) and [LDAP](ldap.md)) might require additional artifacts.
 
 
 ## Basic usage

@@ -25,6 +25,12 @@ fun Application.module() {
 </chunk>
 
 
+<chunk id="add_ktor_artifact_intro">
+
+To enable `%feature_name%` support, you need to include the `%artifact_name%` artifact in the build script:
+
+</chunk>
+
 
 <chunk id="add_ktor_artifact">
 <tabs>

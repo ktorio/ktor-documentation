@@ -6,8 +6,9 @@ This feature enables serving static content provided by [webjars](https://www.we
 as javascript libraries and css as part of your uber-jar.
 
 ## Add Dependencies {id="add_dependencies"}
-To enable `Webjars` support, you need to include the `ktor-webjars` artifact in the build script:
+<var name="feature_name" value="Webjars"/>
 <var name="artifact_name" value="ktor-webjars"/>
+<include src="lib.md" include-id="add_ktor_artifact_intro"/>
 <include src="lib.md" include-id="add_ktor_artifact"/>
 
 ## Install Webjars {id="install_feature"}
