@@ -5,8 +5,9 @@ Ktor allows you to use [Mustache templates](https://github.com/spullara/mustache
 
 
 ## Add Dependencies {id="add_dependencies"}
-To enable `Mustache` support, you need to include the `ktor-mustache` artifact in the build script:
+<var name="feature_name" value="Mustache"/>
 <var name="artifact_name" value="ktor-mustache"/>
+<include src="lib.md" include-id="add_ktor_artifact_intro"/>
 <include src="lib.md" include-id="add_ktor_artifact"/>
 
 ## Install Mustache {id="install_feature"}

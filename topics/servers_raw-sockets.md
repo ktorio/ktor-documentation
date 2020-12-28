@@ -5,15 +5,15 @@
 In addition to HTTP handling for the [server](A_Ktor_Application.md) and the [client](clients_index.md), Ktor supports client and server, TCP and UDP raw sockets.
 It exposes a suspending API that uses NIO under the hoods.
 
+## Add Dependencies {id="add_dependencies"}
+<var name="feature_name" value="Sockets"/>
+<var name="artifact_name" value="ktor-network"/>
+<include src="lib.md" include-id="add_ktor_artifact_intro"/>
+<include src="lib.md" include-id="add_ktor_artifact"/>
 
 
 
-
-## Sockets
-
->This functionality is exposed through the `io.ktor:ktor-network:$ktor_version` artifact.
->
-{type="note"}
+## Usage
 
 In order to create either server or client sockets, you have to use the `aSocket` builder,
 with a mandatory `ActorSelectorManager`: `aSocket(selector)`. For example: `aSocket(ActorSelectorManager(Dispatchers.IO))`.

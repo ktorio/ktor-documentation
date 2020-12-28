@@ -8,6 +8,16 @@ the server side, follow this [section](websocket.md).
 Once connected, client and server WebSockets share the same [WebSocketSession](websocket.md#WebSocketSession)
 interface for communication.
 
+
+## Add Dependencies {id="add_dependencies"}
+To use `WebSockets`, you need to include the `ktor-client-websockets` artifact in the build script:
+
+<var name="artifact_name" value="ktor-client-websockets"/>
+<include src="lib.md" include-id="add_ktor_artifact"/>
+
+
+## Usage {id="usage"}
+
 The basic usage to create an HTTP client supporting WebSockets is pretty simple:
 
 ```kotlin

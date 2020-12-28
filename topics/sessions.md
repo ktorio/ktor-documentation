@@ -4,6 +4,11 @@ Sessions provide a mechanism to persist data between different HTTP requests. Ty
 
 In this topic, we'll look at how to configure sessions, install the `Sessions` feature, and set the session's content.
 
+## Add Dependencies {id="add_dependencies"}
+To enable support for sessions, you need to include the `ktor-server-sessions` artifact in the build script:
+<var name="artifact_name" value="ktor-server-sessions"/>
+<include src="lib.md" include-id="add_ktor_artifact"/>
+
 
 ## Session Configuration Overview {id="configure"}
 You can configure sessions in the following ways:

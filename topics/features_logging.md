@@ -4,7 +4,14 @@
 
 This feature adds multiplatform logging for HTTP calls.
 
-## Installation
+## Add Dependencies {id="add_dependencies"}
+To enable logging, you need to include the `ktor-client-logging` artifact in the build script:
+
+<var name="artifact_name" value="ktor-client-logging"/>
+<include src="lib.md" include-id="add_ktor_artifact"/>
+
+
+## Installation {id="installation"}
 
 ```kotlin
 val client = HttpClient() {
@@ -14,7 +21,3 @@ val client = HttpClient() {
     }
 }
 ```
-
->To use this feature, you need to include `io.ktor:ktor-client-logging-jvm` artifact on the JVM and `ktor-client-logging-native` on iOS.
->
-{type="note"}

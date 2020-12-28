@@ -4,9 +4,9 @@ Ktor allows you to use [Thymeleaf templates](https://www.thymeleaf.org/) as view
 
 
 ## Add Dependencies {id="add_dependencies"}
-To enable `Thymeleaf` support, you need to include the `ktor-thymeleaf` artifact in the build script:
-
+<var name="feature_name" value="Thymeleaf"/>
 <var name="artifact_name" value="ktor-thymeleaf"/>
+<include src="lib.md" include-id="add_ktor_artifact_intro"/>
 <include src="lib.md" include-id="add_ktor_artifact"/>
 
 ## Install Thymeleaf {id="install_feature"}

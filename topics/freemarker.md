@@ -5,9 +5,10 @@ Ktor allows you to use [FreeMarker templates](https://freemarker.apache.org/) as
 
 
 ## Add Dependencies {id="add_dependencies"}
-To enable `FreeMarker` support, you need to include the `ktor-freemarker` artifact in the build script:
-  <var name="artifact_name" value="ktor-freemarker"/>
-  <include src="lib.md" include-id="add_ktor_artifact"/>
+<var name="feature_name" value="FreeMarker"/>
+<var name="artifact_name" value="ktor-freemarker"/>
+<include src="lib.md" include-id="add_ktor_artifact_intro"/>
+<include src="lib.md" include-id="add_ktor_artifact"/>
 
 ## Install FreeMarker {id="install_feature"}
 

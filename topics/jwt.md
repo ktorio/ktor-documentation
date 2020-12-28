@@ -17,6 +17,43 @@ class JWTCredential(val payload: Payload) : Credential
 class JWTPrincipal(val payload: Payload) : Principal
 ```
 
+
+## Add Dependencies {id="add_dependencies"}
+To enable `JWT` and `JWK` authentication, you need to include the `ktor-auth` and `ktor-auth-jwt` artifacts in the build script:
+
+<tabs>
+    <tab title="Gradle (Groovy)">
+        <code style="block" lang="Groovy" title="Sample">
+            implementation "io.ktor:ktor-auth:$ktor_version"
+            implementation "io.ktor:ktor-auth-jwt:$ktor_version"
+        </code>
+    </tab>
+    <tab title="Gradle (Kotlin)">
+        <code style="block" lang="Kotlin" title="Sample">
+            implementation("io.ktor:ktor-auth:$ktor_version")
+            implementation("io.ktor:ktor-auth-jwt:$ktor_version")
+        </code>
+    </tab>
+    <tab title="Maven">
+        <code style="block" lang="XML" title="Sample">
+        <![CDATA[
+        <dependency>
+            <groupId>io.ktor</groupId>
+            <artifactId>ktor-auth</artifactId>
+            <version>${ktor_version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.ktor</groupId>
+            <artifactId>ktor-auth-jwt</artifactId>
+            <version>${ktor_version}</version>
+        </dependency>
+        ]]>
+        </code>
+   </tab>
+</tabs>
+
+
+
 ## Configuring server/routes:
 
 JWT and JWK each have their own method with slightly different parameters. 

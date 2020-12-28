@@ -4,6 +4,13 @@
 
 Ktor client supports authentication out of the box as a standard pluggable feature.
 
+## Add Dependencies {id="add_dependencies"}
+To enable authentication, you need to include the `ktor-client-auth` artifact in the build script:
+
+<var name="artifact_name" value="ktor-client-auth"/>
+<include src="lib.md" include-id="add_ktor_artifact"/>
+
+
 ## Installation
 
 ``` kotlin
