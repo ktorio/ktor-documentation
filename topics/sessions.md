@@ -10,7 +10,7 @@ You can configure sessions in the following ways:
 - *[How to pass data between the server and client](cookie_header.md)*: using cookies or custom headers. Cookies suit better for plain HTML applications while custom headers are intended for APIs.
 - *[Where to store the session payload](client_server.md)*: on the client or server. You can pass the [serialized](serializers.md) session's data to the client using a cookie/header value or store the payload on the server and pass only a session ID.
 - *[How to serialize session data](serializers.md)*: using a default format, JSON, or a custom engine.
-- *[Where to store the payload on the server](storages.md)*: in memory, in a folder, or Redis. You can also implement a custom storage for keeping session data.
+- *[Where to store the payload on the server](storages.md)*: in the server memory or in a folder. You can also implement a custom storage for keeping session data.
 - *[How to transform the payload](transformers.md)*: you can sign or encrypt data sent to the client for security reasons.
 
 
