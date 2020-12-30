@@ -89,8 +89,7 @@ the logic implementing an IETF RFC or another protocol without relying on extern
 ## I get the error 'java.lang.IllegalStateException: No instance for key AttributeKey: Locations'
 {id="no-attribute-key-locations"}
 
-> You get this error if you try to use the locations feature without actually installing it. Check the locations feature:
-> <https://ktor.io/features/locations.html>
+> You get this error if you try to use the [Locations](features_locations.md) feature without actually installing it. 
 
 ## How can I test the latest commits on master?
 {id="bleeding-edge"}
@@ -165,7 +164,7 @@ There is a page [explaining the Ktor's application-level event system](events.md
 
 This means that Ktor was not able to find the `application.conf` file. Re-check that it is in the `resources` folder,
 and that the `resources` folder is marked as such.
-You can consider to set up a project using the [project generator](generator.md) or the [IntelliJ plugin](intellij-idea.md)
+You can consider to set up a project using the [project generator](generator.md) or the [IntelliJ plugin](intellij-idea.xml)
 to have a working project as base.
 
 ## Can I use ktor on Android?
