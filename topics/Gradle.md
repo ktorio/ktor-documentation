@@ -12,7 +12,7 @@ and how to configure it to support Ktor.
 
 First of all, you need a skeleton `build.gradle` file including Kotlin.
 You can create it with any text editor, or you can use IntelliJ to create
-it following the [IntelliJ guide](intellij-idea.md).
+it following the [IntelliJ guide](intellij-idea.xml).
 
 The initial file looks like this:
 
