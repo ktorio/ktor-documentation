@@ -170,13 +170,13 @@
                     <li>
                         <p>
                             The <code>EngineMain.main</code> function is used to start a server with the Netty
-                            <a href="Engines.md">engine</a> specified during a project <a anchor="create_ktor_project">creation</a>.
+                            <a href="Engines.md">engine</a> specified during a project creation.
                         </p>
                     </li>
                     <li>
                         <p>
-                            The <code>get</code> function receives GET requests made to the <path>/</path> path
-                            and responds with a plain text response.
+                            The <code>get</code> function within the <a href="Routing_in_Ktor.md">routing</a> block
+                            receives GET requests made to the <path>/</path> path and responds with a plain text response.
                         </p>
                     </li>
                 </list>
