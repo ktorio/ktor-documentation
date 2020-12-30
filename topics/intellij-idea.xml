@@ -202,7 +202,12 @@
                     You can click this link to open the application in a default browser:
                 </p>
                 <img src="ktor_idea_new_project_browser.png" alt="Ktor app in a browser" width="430"/>
-                <p>And that's it! You can start learning more about Ktor applications from <a href="A_Ktor_Application.md"/>.</p>
+                <p>
+                    And that's it!
+                    You can create more real-world Ktor applications with the help of
+                    <a href="getting_started_ktor.md">hands-on labs</a>, or
+                    you can start learning more about Ktor applications from <a href="A_Ktor_Application.md"/>.
+                </p>
             </step>
         </procedure>
     </chapter>
