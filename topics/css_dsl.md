@@ -15,7 +15,7 @@ CSS DSL doesn't need [installation](Features.md#install), but requires including
 1. The `kotlin-css-jvm` artifact for building CSS:
    <var name="group_id" value="org.jetbrains"/>
    <var name="artifact_name" value="kotlin-css-jvm"/>
-   <var name="version" value="1.0.0-pre.129-kotlin-1.4.20"/>
+   <var name="version" value="kotlin_css_version"/>
    <include src="lib.md" include-id="add_artifact"/>
 
 
