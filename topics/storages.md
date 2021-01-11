@@ -1,35 +1,34 @@
 [//]: # (title: Storages)
 
-<include src="lib.md" include-id="outdated_warning"/>
+Ktor allows you to store [session](sessions.md) data [on the server](client_server.md) and pass only a session ID between the server and the client. In this case, you can choose where to keep the payload on the server. 
 
-There are two predefined storages: `SessionStorageMemory`, `DirectoryStorage`. And another composable storage: `CacheStorage`.
 
->`DirectoryStorage` and `CacheStorage` are dependent on the `io.ktor:ktor-server-sessions:$ktor_version` artifact.
->
-{type="note"}
+## Built-in Storages {id="builtin_storages"}
+The following storage types are available out-of-the-box:
+* [SessionStorageMemory](https://api.ktor.io/%ktor_version%/io.ktor.sessions/-session-storage-memory/index.html) enables storing a session's content in memory. This storage keeps data while the server is running and discards information once the server stops. 
+* [directorySessionStorage](https://api.ktor.io/%ktor_version%/io.ktor.sessions/directory-session-storage.html) can be used to store a session's data in a file under the specified directory.
 
-In this mode, you are just sending a Session Id instead of the actual session contents.
-This id is used to store its contents on the server side using a specific `SessionStorage`.
-This mode is used when you specify a second argument with a storage in the `cookie` or `header` methods.
-
-Example:
+To create the required storage type, pass it as a second parameter to the [cookie](cookie_header.md#cookie) or [header](cookie_header.md#header) method. For example, you can store cookies in the server memory as follows:
 
 ```kotlin
 install(Sessions) {
-    cookie<SampleSession>("SESSION_FEATURE_SESSION_ID", SessionStorageMemory()) {
-        cookie.path = "/"
-    }
+    cookie<SampleSession>("SAMPLE_SESSION", storage = SessionStorageMemory())
 }
 ```
 
-## Custom SessionStorage
+To store cookies in a file under the `.sessions` directory, create the `directorySessionStorage` in this way:
+```kotlin
+import java.io.File
+// ...
+install(Sessions) {
+    cookie<SampleSession>("SAMPLE_SESSION", storage = directorySessionStorage(File(".sessions")))
+}
+```
 
-`SessionStorage` is in charge of storing and retrieving session payload. The interface is *suspendable*,
-so you can, and should if it is possible, transfer the data asynchronously.
 
-The data is transferred as a stream and the callee will pass consumers and providers offering the binary payload,
-and the callee will be in charge of opening and closing those byte channels.
+## Custom Storage {id="custom_storage"}
 
+Ktor provides the [SessionStorage](https://api.ktor.io/%ktor_version%/io.ktor.sessions/-session-storage/index.html) interface that allows you to implement a custom storage. 
 ```kotlin
 interface SessionStorage {
     suspend fun write(id: String, provider: suspend (ByteWriteChannel) -> Unit)
@@ -37,10 +36,8 @@ interface SessionStorage {
     suspend fun <R> read(id: String, consumer: suspend (ByteReadChannel) -> R): R
 }
 ```
-
-If the storage doesn't provide a meaningful way to store information as a stream, you might want to use
-a simplified adaptor that just reads and writes it using `ByteArray`. It can also be used as an example to know
-how to deal with the API in its primitive stream-based version.
+All three functions are [suspending](https://kotlinlang.org/docs/composing-suspending-functions.html) and use [ByteWriteChannel](https://api.ktor.io/%ktor_version%/io.ktor.utils.io/-byte-write-channel/) and [ByteReadChannel](https://api.ktor.io/%ktor_version%/io.ktor.utils.io/-byte-read-channel/index.html) to read and write data from/to an asynchronous channel.
+The example below shows how to implement the `SessionStorage` interface to store session data in a `ByteArray`:
 
 ```kotlin
 ```
