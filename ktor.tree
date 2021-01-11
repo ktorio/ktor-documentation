@@ -145,7 +145,8 @@
             <toc-element toc-title="Debugging Routes"/>
 
         </toc-element>
-        <toc-element id="Testing.md"/>
+        <toc-element id="Testing.md"
+                     accepts-web-file-names="servers-testing.html"/>
         <toc-element toc-title="Deployments"
                      id="deploy.md">
             <toc-element toc-title="Packing">
