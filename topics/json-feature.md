@@ -11,12 +11,10 @@ Before installing `JsonFeature`, you need to add a dependency for the desired se
 
 ### JVM: Gson and Jackson  {id="jvm_dependency"}
 To use Gson, add the following artifact to the build script:
-
 <var name="artifact_name" value="ktor-client-gson"/>
 <include src="lib.md" include-id="add_ktor_artifact"/>
 
 For Jackson, add the following dependency:
-
 <var name="artifact_name" value="ktor-client-jackson"/>
 <include src="lib.md" include-id="add_ktor_artifact"/>
 
