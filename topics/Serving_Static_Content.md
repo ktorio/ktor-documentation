@@ -90,7 +90,7 @@ static("static") {
 }
 ```
 You can also raise the priority of one compression type over another.
-In the example below, Ktor tries to serve `*.br` over `*.gz` files:
+In the example below, Ktor tries to serve `*.br` files over `*.gz`:
 
 ```kotlin
 static("static") {
@@ -99,7 +99,7 @@ static("static") {
     }
 }
 ```
-For example, a request to `/static/index.html` tries to serve `assets/html/index.html.br` first.
+For example, for a request made to `/static/index.html` Ktor tries to serve `assets/html/index.html.br` first.
 
 
 
