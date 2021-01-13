@@ -56,6 +56,7 @@
                 <toc-element id="responses.md"/>
             </toc-element>
             <toc-element id="Serving_Static_Content.md"
+                         show-structure-depth="2"
                          accepts-web-file-names="static-content.html"/>
             <toc-element toc-title="Error Handling">
                 <toc-element id="status_pages.md"/>
