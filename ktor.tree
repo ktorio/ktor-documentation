@@ -47,6 +47,7 @@
             <toc-element toc-title="Application Structure">
                 <toc-element id="Modules.md"/>
                 <toc-element id="Routing_in_Ktor.md"
+                             show-structure-depth="2"
                              accepts-web-file-names="routing.html"/>
                 <toc-element id="Structuring_Applications.md"
                              accepts-web-file-names="structure.html"/>
