@@ -2,7 +2,7 @@
 
 <include src="lib.md" include-id="outdated_warning"/>
 
-This feature allows to validate HTTP response and handle transformation exceptions from engine and pipelines.
+This feature allows validating HTTP response and handle transformation exceptions from engine and pipelines.
 
 
 
