@@ -42,6 +42,8 @@
             </toc-element>
             <toc-element id="Configurations.md"
                          accepts-web-file-names="configuration.html">
+                <toc-element id="development_mode.xml"
+                             show-structure-depth="2"/>
                 <toc-element id="environments.md"/>
             </toc-element>
             <toc-element toc-title="Application Structure">
@@ -141,8 +143,8 @@
         <toc-element toc-title="Running and Debugging">
             <toc-element id="running.md"
                          accepts-web-file-names="engine.html"/>
-            <toc-element id="Auto_reload.md"
-                         accepts-web-file-names="autoreload.html"/>
+<!--            <toc-element id="Auto_reload.md" accepts-web-file-names="autoreload.html"/>-->
+            <toc-element id="Auto_reload.xml" accepts-web-file-names="autoreload.html"/>
 <!--            <toc-element id="Debugging_routes.md"/>-->
             <toc-element toc-title="Debugging Routes"/>
 
