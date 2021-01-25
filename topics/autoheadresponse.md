@@ -1,13 +1,7 @@
 [//]: # (title: Auto Head Response)
 
 
-The `AutoHeadResponse` feature provides us with the ability to automatically respond to `HEAD` request for every route that has a `GET` defined. 
-
-## Add Dependencies {id="add_dependencies"}
-<var name="feature_name" value="AutoHeadResponse"/>
-<var name="artifact_name" value="autoheadresponse"/>
-<include src="lib.md" include-id="add_ktor_artifact_intro"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+The `AutoHeadResponse` feature provides us with the ability to automatically respond to `HEAD` request for every route that has a `GET` defined.
 
 ## Usage
 In order to take advantage of this functionality, we need to install the `AutoHeadResponse` feature in our application

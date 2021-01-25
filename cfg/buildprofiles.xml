@@ -20,7 +20,6 @@
         <config-productid>docs</config-productid>
         <config-search-scopes-provider>https://data.services.jetbrains.com/search/</config-search-scopes-provider>
         <allow-indexable-eaps>true</allow-indexable-eaps>
-        <images-prefix-override>images/</images-prefix-override>
         <generate-sitemap-url-prefix>https://ktor.io/docs/</generate-sitemap-url-prefix>
 
     </variables>

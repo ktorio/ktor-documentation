@@ -3,6 +3,8 @@
 Ktor provides the capability to compress outgoing content by using the [Compression](https://api.ktor.io/%ktor_version%/io.ktor.features/-compression/index.html) feature. You can use different compression algorithms, including `gzip` and `deflate`, 
 specify the required conditions for compressing data (such as a content type or response size), or even compress data based on specific request parameters.
 
+> To learn how to serve pre-compressed static files in Ktor, see [](Serving_Static_Content.md#precompressed).
+
 ## Install Compression {id="install_feature"}
 
 <var name="feature_name" value="Compression"/>
