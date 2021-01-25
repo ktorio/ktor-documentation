@@ -9,7 +9,7 @@
     <p>
         Ktor is an asynchronous framework for creating microservices, web applications, and more.
         You can create and configure a new Ktor project using a dedicated plugin for IntelliJ IDEA.
-        In this guide, we'll show you how to create and run a simple Ktor application.
+        In this guide, we'll show you how to create, run, and test a simple Ktor application.
     </p>
 
 
@@ -202,13 +202,51 @@
                     You can click this link to open the application in a default browser:
                 </p>
                 <img src="ktor_idea_new_project_browser.png" alt="Ktor app in a browser" width="430"/>
-                <p>
-                    And that's it!
-                    You can create more real-world Ktor applications with the help of
-                    <a href="getting_started_ktor.md">hands-on labs</a>, or
-                    you can start learning more about Ktor applications from <a href="A_Ktor_Application.md"/>.
-                </p>
             </step>
         </procedure>
+    </chapter>
+
+
+    <chapter title="Test a Ktor application" id="test_app">
+        <p>
+            Now let's test the <a anchor="create_ktor_project">created</a> application:
+        </p>
+        <procedure>
+            <step>
+                <p>
+                    Open the <path>ApplicationTest.kt</path> file placed by the following path:
+                    <path>src/test/kotlin/com/example/ApplicationTest.kt</path>.
+                    In this file, the <code>handleRequest</code> function makes the GET request to <path>/</path>
+                    and checks a response status and content.
+                </p>
+            </step>
+            <step>
+                <p>
+                    To run a test, click the gutter icon next to the <code>testRoot</code> function and choose <control>Run 'ApplicationTest.test'</control>.
+                </p>
+                <img src="ktor_idea_new_project_run_test_gutter.png" alt="Run a test" width="706"/>
+            </step>
+            <step>
+                <p>
+                    Wait until IntelliJ IDEA performs a test and displays results in the Run tool window.
+                </p>
+                <img src="ktor_idea_new_project_run_test_output.png" alt="Run test outpup" width="706"/>
+            </step>
+        </procedure>
+    </chapter>
+
+    <chapter title="Next Steps" id="next-steps">
+        <list>
+            <li>
+                <p>
+                    Create real-world Ktor applications with the help of <a href="getting_started_ktor.md">hands-on labs</a>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Learn more about Ktor concepts from <a href="A_Ktor_Application.md"/>.
+                </p>
+            </li>
+        </list>
     </chapter>
 </topic>
