@@ -3,6 +3,7 @@
         SYSTEM "https://helpserver.labs.jb.gg/help/product-profile.dtd">
 <product-profile id="ktor"
                  name="Ktor"
+                 status="release"
                  start-page="Welcome.md">
 
     <toc-element id="Welcome.md"
