@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Configuration"
+       id="Configurations">
+
+    <p>
+        Ktor allows you to configure various server parameters, such as a host address and port, <a href="Modules.md">modules</a> to load, and so on.
+        Configuration depends on the way you used to create a server - <a href="create_server.xml">embeddedServer or EngineMain</a>:
+    </p>
+    <list>
+        <li>
+            <p>
+                For <a anchor="embedded-server">embeddedServer</a>,
+                you can configure server parameters in code by passing the required parameters to the <code>embeddedServer</code> constructor.
+                Learn more from <a anchor="embedded-server"/>.
+            </p>
+        </li>
+        <li>
+            <p>
+                For <code>EngineMain</code>, Ktor loads its configuration from an <a anchor="hocon-file">external file</a> that uses the <a href="https://github.com/lightbend/config/blob/master/HOCON.md">HOCON</a> format. This way provides more flexibility to configure a server and allows you to change a configuration without recompiling your application. Moreover, you can run your application from a command line and override the required server parameters by passing corresponding <a anchor="command-line">command-line</a> arguments.
+            </p>
+        </li>
+    </list>
+
+
+    <chapter title="Configure embeddedServer" id="embedded-server">
+        <list>
+            <li>
+                <p>
+                    Basic (host, port, module[link], watch paths[link]):
+                </p>
+                <code style="block"
+                      lang="kotlin"
+                      src="snippets/_misc/EmbeddedServerConfigure.kt">
+                </code>
+            </li>
+            <li>
+                <p>
+                    Engine, learn more from <a href="Engines.md" anchor="configure-engine"/>
+                </p>
+                <code style="block"
+                      lang="kotlin"
+                      src="snippets/_misc/EmbeddedServerConfigureEngine.kt">
+                </code>
+            </li>
+            <li>
+                <p>
+                    Custom environment (multiple connectors, provide a Hocon config, etc.):
+                </p>
+                <code style="block"
+                      lang="kotlin"
+                      src="snippets/_misc/EmbeddedServerConfigureCustomEnv.kt">
+                </code>
+            </li>
+        </list>
+    </chapter>
+
+
+    <chapter title="HOCON File" id="hocon-file">
+        <p>
+            If you use <a href="create_server.xml" anchor="engine-main">EngineMain</a> to start a server, Ktor loads configurations settings from the <path>application.conf</path> HOCON file from placed in application resources.
+        </p>
+        <list>
+            <li>
+                <p>
+                    Basic configuration file:
+                </p>
+                <code style="block">
+                    ktor {
+                        deployment {
+                            port = 8080
+                        }
+                        application {
+                            modules = [ com.example.ApplicationKt.module ]
+                        }
+                    }
+                </code>
+                <p>
+                    <code>modules</code> loads this:
+                </p>
+                <code style="block"
+                      lang="kotlin"
+                      src="snippets/_misc/HelloWorldEngineMain.kt">
+                </code>
+            </li>
+            <li>
+                <p>
+                    Advanced settings, for example, SSL. See: <a href="ssl.md" anchor="configuring-ktor-to-use-the-generated-jks"/>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Create a custom configuration and <a anchor="read-configuration-in-code">read it in code</a>:
+                </p>
+                <code style="block" lang="kotlin">
+                    val youkubeConfig = environment.config.config("youkube")
+                </code>
+                <p>
+                    https://github.com/ktorio/ktor-samples/blob/1.3.0/app/youkube/src/YoukubeApplication.kt
+                </p>
+            </li>
+        </list>
+
+
+        <p>
+            If necessary, you can load settings from another file by passing its name as the <code>config</code> <a anchor="command-line">command-line argument</a>:
+        </p>
+        <code style="block">
+            java -jar sample-app.jar -config=anotherfile.conf
+        </code>
+
+        <p>
+            Command line <a anchor="command-line"/>.
+            Customize Hocon, override properties.
+        </p>
+
+
+
+    </chapter>
+
+    <chapter title="Command Line" id="command-line">
+        <p>
+            If you use <a href="create_server.xml" anchor="engine-main">EngineMain</a> to create a server, you can run your application from a command line and override the required server parameters by passing corresponding command-line arguments. For example, you can override a port specified in the <path>application.conf</path> file in the following way:
+        </p>
+        <code style="block">
+            java -jar sample-app.jar -port=8080
+        </code>
+        <p>
+            List of switches:
+        </p>
+        <list>
+            <li>
+                <p>
+                    <code>jar</code>: Path to JAR file (<a href="fatjar.md">fatjar</a>)
+                </p>
+            </li>
+            <li>
+                <p>
+                    <code>config</code>: Path to config file (instead of <path>application.conf</path> from resources)
+                </p>
+            </li>
+            <li>
+                <p>
+                    <code>host</code>: Bound host
+                </p>
+            </li>
+            <li>
+                <p>
+                    <code>port</code>: Bound port
+                </p>
+            </li>
+            <li>
+                <p>
+                    <code>watch</code>: Package paths to watch for reloading (link to Development mode)
+                </p>
+            </li>
+        </list>
+        <p>
+            <a href="ssl.md">SSL-specific</a> options:
+        </p>
+        <list>
+            <li>
+                <p>
+                    <code>sslPort</code>: SSL port
+                </p>
+            </li>
+            <li>
+                <p>
+                    <code>sslKeyStore</code>: SSL key store
+                </p>
+            </li>
+        </list>
+        <p>
+            If you need to override an arbitrary parameter that doesn't have a corresponding command-line option, use the <code>-P</code> flag, for example:
+        </p>
+        <code style="block">
+            java -jar sample-app.jar -P:ktor.deployment.callGroupSize=7
+        </code>
+
+    </chapter>
+
+    <chapter title="Read Configuration in Code" id="read-configuration-in-code">
+        <p>
+            Custom option in <path>application.conf</path>
+        </p>
+        <code style="block">
+            ktor {
+                deployment {
+                    port = 8000
+                }
+            }
+        </code>
+        <code style="block" lang="kotlin">
+            fun Application.module(testing: Boolean = false) {
+                val port = environment.config.propertyOrNull("ktor.deployment.port")?.getString() ?: "8080"
+                routing {
+                    get {
+                        call.respondText("Listening on port $port")
+                    }
+                }
+            }
+        </code>
+    </chapter>
+
+
+    <chapter title="Using Environment Variables" id="environment-variables">
+        <p>
+            In HOCON, you can substitute parameters with environment variables by using the <code>${ENV}</code> syntax.
+            For example, you can add a custom <code>environment</code> option to the <path>application.conf</path> file and assign the <code>KTOR_ENV</code> environment variable to this option in the following way:
+        </p>
+        <code style="block">
+            ktor {
+                environment = ${?KTOR_ENV}
+            }
+        </code>
+        <p>
+            Then, you can access the <code>environment</code> value at runtime by <a anchor="read-configuration-in-code">reading configuration in code</a>:
+        </p>
+        <code style="block" lang="kotlin">
+            fun Application.module(testing: Boolean = false) {
+                val env = environment.config.propertyOrNull("ktor.environment")?.getString()
+                routing {
+                    get {
+                        call.respondText(when (env) {
+                            "dev" -> "Development"
+                            "prod" -> "Production"
+                            else -> "..."
+                        })
+                    }
+                }
+            }
+        </code>
+        <p>
+            In case you want to provide a default value for a property because the environment variable doesn't exist, you can set the property with the default value, and then set it again with the <code>${?ENV}</code> syntax:
+        </p>
+        <code style="block">
+            ktor {
+                environment = dev
+                environment = ${?KTOR_ENV}
+            }
+        </code>
+    </chapter>
+
+</topic>

@@ -1,4 +1,4 @@
-[//]: # (title: Routing in Ktor)
+[//]: # (title: Routing)
 
 Routing is the core Ktor [feature](Features.md) for handling incoming requests in a server application. When the client makes a request to a specific URL (for example, `/hello`), the routing mechanism allows us to define how we want this request to be served. 
 

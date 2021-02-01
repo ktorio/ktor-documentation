@@ -1,0 +1,94 @@
+<topic xmlns="" xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="A_Ktor_Application" title="A Ktor Application">
+    <p>Ktor can be used to create a variety of server and <a href="clients_index.md">client-side</a> applications.
+        Whether we want to create a website that serves static and dynamic pages, an HTTP endpoint, a RESTful system, or
+        even microservices, Ktor makes it all possible.
+    </p>
+    <p>In this section, we're going to cover the basics of what a Ktor Server Application is and how the pieces all fit
+        together.
+    </p>
+    <chapter id="hello-world" title="The Simplest Ktor Application">
+        <p>One of Ktor's goals is to remain as simple as possible and to avoid any kind of <i>magic</i>. The equivalent
+            to a <i>Hello World</i> application in Ktor would be:
+        </p>
+        <code style="block"
+              lang="kotlin"
+              src="snippets/_misc/HelloWorld.kt"
+              include-symbol="main">
+        </code>
+        <p>
+            We start by <a href="create_server.xml">creating a server</a>, in this case using Netty as an <a href="Engines.md">Engine</a>, and setting the port to 8000. After this, we define a route to respond to requests made to <path>/</path> with a simple <emphasis>Hello, world!</emphasis> text. Finally, we start the server.
+        </p>
+    </chapter>
+
+
+
+    <chapter title="Next Steps" id="next">
+        <p>
+            In the next chapters, we'll take a look at the main concepts of creating a Ktor application -
+            from configuring a server to using features, which is core to all Ktor applications:
+        </p>
+
+        <list>
+            <li>
+                <p>
+                    <a href="create_server.xml">Choose a way to create a server</a>:
+                    you can quickly configure a server using the <code>embeddedServer</code> function, or you can use <code>EngineMain</code> to have additional configuration possibilities.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <a href="Engines.md">Choose an engine</a>:
+                    configuring a server requires choosing an engine, such as Netty, Jetty, Tomcat, and so on.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <a href="Configurations.xml">Configure</a>:
+                    learn how to configure various server parameters (such as a host address and port, modules to load, etc.), read the configuration in code, and use environment variables.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <a href="Features.md">Features</a>:
+                    get acquainted with features that provide common functionality, for example, serialization and content encoding, compression, headers, cookie support, etc.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <a href="Routing_in_Ktor.md">Routing</a>:
+                    learn how to handle incoming requests made to different URLs using routing.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <a href="Modules.md">Modules</a>:
+                     use modules to divide your application into logical parts, each of which can house any functionality.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <a href="Structuring_Applications.md">Application Structure</a>:
+                    learn how to structure your application to keep it maintainable as the application grows.
+                </p>
+            </li>
+        </list>
+    </chapter>
+
+
+
+<!--    <chapter id="the-request-and-response-pipeline" title="The Request and Response Pipeline">
+        <p>The request and response flow for a Ktor application is represented by the following diagram:</p>
+        <p>
+            <img src="request-response-pipeline.svg" alt="Request and response pipeline"/>
+        </p>
+        <p>When a request comes in, it is processed by the routing mechanism, which redirects it to the route handler.
+            This route handle consists of our application logic which could be anything from responding with a simple
+            text (like the example above), to processing the input, storing it in a database, etc. Finally, once
+            everything is done, the handler should respond to the request.
+        </p>
+        <p>In the next section we'll look <a href="Features.md">Features</a> which is core to all Ktor applications, and
+            provides much of the functionality, including routing!
+        </p>
+    </chapter>-->
+</topic>
