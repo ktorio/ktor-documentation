@@ -211,7 +211,7 @@
             <toc-element id="features_logging.md"/>
             <toc-element id="proxy.md"/>
             <toc-element id="response-validation.md"/>
-            <toc-element id="client_retry.md"/>
+<!--            <toc-element id="client_retry.md"/>-->
             <toc-element id="timeout.md"/>
             <toc-element id="user-agent.md"/>
             <toc-element id="http-client_features_websockets.md"/>
