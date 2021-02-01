@@ -36,8 +36,6 @@
             <code style="block">
                 ktor {
                     development = true
-                    deployment {
-                        ; ...
                 }
             </code>
         </chapter>
