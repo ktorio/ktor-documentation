@@ -4,7 +4,21 @@
 
 Ktor HTTP Client has a common interface but allows to specify an engine that processes the network request. Different engines have different configurations, dependencies and supporting features.
 
+## Adding an engine dependency {id="dependencies"}
 
+The first thing you need to do before using the client is to add a client engine dependency. Supported engines and required dependencies are listed below: 
+* [`Apache`](#apache): `ktor-client-apache`
+* [`OkHttp`](#okhttp): `ktor-client-okhttp`
+* [`Android`](#android): `ktor-client-android`
+* [`Ios`](#ios): `ktor-client-ios`
+* [`Js`](#js-javascript): `ktor-client-js`
+* [`Jetty`](#jetty): `ktor-client-jetty`
+* [`CIO`](#cio): `ktor-client-cio`
+* [`Mock`](#mock): `ktor-client-mock`
+
+For example, you can add a `CIO` engine dependency as follows:
+<var name="artifact_name" value="ktor-client-cio"/>
+<include src="lib.md" include-id="add_ktor_artifact"/>
 
 
 
