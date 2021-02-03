@@ -15,7 +15,7 @@
 
     <chapter title="Install the Ktor plugin" id="install_plugin">
         <p>
-            Before starting this tutorial, make sure the <control>Ktor</control> plugin is installed and enabled.
+            Before starting this tutorial, make sure the <a href="https://plugins.jetbrains.com/plugin/16008-ktor">Ktor</a> plugin is installed and enabled.
             Learn how to do this from the
             <a href="https://www.jetbrains.com/help/idea/managing-plugins.html#open-plugin-settings">Manage plugins</a> topic.
         </p>
