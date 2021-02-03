@@ -68,7 +68,7 @@ install(Sessions) {
 By default, Ktor does not activate any Feature, and it's up to us as developers to install the functionality our application need.
 
 Ktor does however provide a variety of Features that ship out of the box. We can see a complete list of these 
-either on the [Project Generator Site](https://start.ktor.io) or in the [IntelliJ IDEA Wizard](https://plugins.jetbrains.com/plugin/10823-ktor). In addition
+either on the [Project Generator Site](https://start.ktor.io) or in the [IntelliJ IDEA Wizard](intellij-idea.md). In addition
 we can also create our own [custom Features](Creating_custom_features.md)
 
 For more information about sequencing of Features and how they intercept the request/response pipeline, see [Pipeline](Pipelines.md) in the Advanced section of the

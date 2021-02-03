@@ -64,28 +64,10 @@ When creating your HOCON configuration file, you have to add the `ktor.deploymen
 properties to define the ssl port and the keyStore:
 
 `resources/application.conf`:
-```groovy
-ktor {
-    deployment {
-        port = 8080
-        sslPort = 8443
-        watch = [ http2 ]
-    }
 
-    application {
-        modules = [ io.ktor.samples.http2.Http2ApplicationKt.main ]
-    }
-
-    security {
-        ssl {
-            keyStore = build/temporary.jks
-            keyAlias = mykey
-            keyStorePassword = changeit
-            privateKeyPassword = changeit
-        }
-    }
-}
+```kotlin
 ```
+{src="snippets/_misc/SslExample.conf"}
 
 ## Ktor normal module
 
