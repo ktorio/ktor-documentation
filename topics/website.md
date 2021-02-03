@@ -320,7 +320,7 @@ The main benefits of an HTML DSL is that you have full statically typed access t
 with the code base.
 
 The downside of all this is that you have to recompile to change the HTML, and you can't search complete HTML blocks.
-But it is lightning fast, and you can use the [autoreload feature](Auto_reload.md) to recompile
+But it is lightning fast, and you can use the [autoreload feature](Auto_reload.xml) to recompile
 on change and reload the relevant JVM classes.
 
 ## Exercises

@@ -70,4 +70,4 @@ ktor {
 }
 ```
 
-Check [Automatic Reloading](Auto_reload.md) article for more details.
+Check [Automatic Reloading](Auto_reload.xml) article for more details.

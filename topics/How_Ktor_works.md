@@ -30,7 +30,7 @@ You can run a Ktor application in several ways:
 To begin with, this immutable environment has to be built;
 with a classLoader, a logger, a [configuration](Configurations.md),
 a monitor that acts as an event bus for application events,
-and a set of connectors and modules, that will form the application and [watchPaths](Auto_reload.md).
+and a set of connectors and modules, that will form the application and [watchPaths](Auto_reload.xml).
 
 You can build it using `ApplicationEngineEnvironmentBuilder`,
 and handy DSL functions `applicationEngineEnvironment`, `commandLineEnvironment` among others.
