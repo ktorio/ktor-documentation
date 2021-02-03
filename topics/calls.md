@@ -33,6 +33,5 @@ See advanced topic [](Pipelines.md) for more information on the mechanics of pro
 
 ## What's next
 
-- [Application lifecycle explanation](How_Ktor_works.md)
-- [Application configuration](Configurations.md)
+- [Application configuration](Configurations.xml)
 - [Pipelines explained](Pipelines.md)
