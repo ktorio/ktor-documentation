@@ -289,7 +289,7 @@
             </code>
             <p>
                 In this case, an environment variable value will be used to specify a listening port.
-                In case you want to provide a default value for a property because the environment variable doesn't exist, you can set the property with the default value, and then set it again with the <code>${?ENV}</code> syntax:
+                If the <code>PORT</code> environment variable variable doesn't exist at runtime, you can provide a default port value before assigning <code>${?PORT}</code> as follows:
             </p>
             <code style="block">
                 ktor {
@@ -304,7 +304,8 @@
 
         <chapter title="Read Configuration in Code" id="read-configuration-in-code">
             <p>
-                Custom option in <path>application.conf</path>
+                Ktor allows you to access property values specified in <path>application.conf</path> in code.
+                For example, if you've specified the <code>ktor.deployment.port</code> property,...
             </p>
             <code style="block">
                 ktor {
@@ -313,6 +314,9 @@
                     }
                 }
             </code>
+            <p>
+                ... you can access the application's configuration using <a href="https://api.ktor.io/1.5.1/io.ktor.application/-application-environment/config.html">ApplicationEnvironment.config</a> and get the required property value in the following way:
+            </p>
             <code style="block" lang="kotlin">
                 fun Application.module(testing: Boolean = false) {
                     val port = environment.config.propertyOrNull("ktor.deployment.port")?.getString() ?: "8080"
@@ -323,6 +327,9 @@
                     }
                 }
             </code>
+            <p>
+                This is especially useful when you keep <a anchor="custom-property">custom settings</a> in a configuration file and need to access its values.
+            </p>
         </chapter>
     </chapter>
 
@@ -333,13 +340,10 @@
 
 
 
-    <chapter title="Example: How to Specify an Environment Using a Custom Property" id="specify-environment">
+    <chapter title="Example: How to Specify an Environment Using a Custom Property" id="custom-property">
         <p>
-            You might want to do different things depending on whether your server is running locally or on your production machine.
-        </p>
-        <p>
-            In HOCON, you can substitute parameters with environment variables by using the <code>${ENV}</code> syntax.
-            For example, you can add a custom <code>environment</code> option to the <path>application.conf</path> file and assign the <code>KTOR_ENV</code> environment variable to this option in the following way:
+            You might want to do different things depending on whether a server is running locally or on a production machine.
+            To achieve this, you can add a custom property in <path>application.conf</path> and initialize it with a dedicated <a anchor="environment-variables">environment variable</a> whose value depends on whether a server is running locally or on production. In the example below, the <code>KTOR_ENV</code> environment variable is assigned to a custom <code>ktor.environment</code> property.
         </p>
         <code style="block">
             ktor {
@@ -347,7 +351,7 @@
             }
         </code>
         <p>
-            Then, you can access the <code>environment</code> value at runtime by <a anchor="read-configuration-in-code">reading configuration in code</a>:
+            You can access the <code>ktor.environment</code> value at runtime by <a anchor="read-configuration-in-code">reading configuration in code</a> and perform the required actions:
         </p>
         <code style="block" lang="kotlin">
             fun Application.module(testing: Boolean = false) {
@@ -361,15 +365,6 @@
                         })
                     }
                 }
-            }
-        </code>
-        <p>
-            In case you want to provide a default value for a property because the environment variable doesn't exist, you can set the property with the default value, and then set it again with the <code>${?ENV}</code> syntax:
-        </p>
-        <code style="block">
-            ktor {
-                environment = dev
-                environment = ${?KTOR_ENV}
             }
         </code>
     </chapter>
