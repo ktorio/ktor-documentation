@@ -10,15 +10,11 @@ The first thing you need to do before using the client is to add a client engine
 [`Ios`](http-client_engines.md#ios),
 [`Js`](http-client_engines.md#js-javascript),
 [`Jetty`](http-client_engines.md#jetty),
-[`CIO`](http-client_engines.md#cio) and [`Mock`](http-client_engines.md#mock). You can read more in the [Multiplatform](http-client_multiplatform.md) section.
+[`CIO`](http-client_engines.md#cio) and [`Mock`](http-client_engines.md#mock). For a full list of dependencies required for a specific engine, see [](http-client_engines.md#dependencies). 
 
-For example, you can add `CIO` engine dependency in `build.gradle` like this:
-
-```kotlin
-dependencies {
-    implementation("io.ktor:ktor-client-cio:$ktor_version")
-}
-```
+For example, you can add a `CIO` engine dependency as follows:
+<var name="artifact_name" value="ktor-client-cio"/>
+<include src="lib.md" include-id="add_ktor_artifact"/>
 
 ## Creating client
 
