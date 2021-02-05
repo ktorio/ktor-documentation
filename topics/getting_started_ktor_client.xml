@@ -9,15 +9,26 @@
     <p>
         Ktor includes a multiplatform asynchronous HTTP client, which allows you to make requests and handle responses, extend its functionality with <a href="http-client_features.md">features</a>, such as authentication, JSON serialization, and so on.
         In this tutorial, we'll create a simple client application for sending a request and receiving a response.
-        We'll use <a href="https://www.jetbrains.com/help/idea/installation-guide.html">IntelliJ IDEA</a> to create the application.
+        We'll use IntelliJ IDEA to create the application.
     </p>
 
     <chapter title="Prerequisites" id="prerequisites">
         <p>
-            Before starting this tutorial, make sure the <a href="https://plugins.jetbrains.com/plugin/6954-kotlin">Kotlin</a> plugin is installed and enabled.
-            Learn how to do this from the
-            <a href="https://www.jetbrains.com/help/idea/managing-plugins.html#open-plugin-settings">Manage plugins</a> topic.
+            Before starting this tutorial:
         </p>
+        <list>
+            <li>
+                <p>
+                    <a href="https://www.jetbrains.com/help/idea/installation-guide.html">Install IntelliJ IDEA</a>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Make sure the <a href="https://plugins.jetbrains.com/plugin/6954-kotlin">Kotlin</a> plugin is installed and enabled. Learn how to do this from the
+                    <a href="https://www.jetbrains.com/help/idea/managing-plugins.html#open-plugin-settings">Manage plugins</a> topic.
+                </p>
+            </li>
+        </list>
     </chapter>
 
     <chapter title="Create a new Gradle project" id="new-project">
@@ -102,9 +113,6 @@
                     Click the <control>Load Gradle Changes</control> icon at the top right corner of the <path>build.gradle</path> file to install newly added dependencies.
                 </p>
                 <img src="client_get_started_load_gradle_changes_name.png" alt="Load Gradle Changes" width="706"/>
-                <p>
-                    This will be <path>Application.kt</path> file in our case.
-                </p>
             </step>
         </procedure>
 
@@ -118,7 +126,7 @@
         <procedure>
             <step>
                 <p>
-                    Invoke the <a href="https://www.jetbrains.com/help/idea/project-tool-window.html">Project view</a> expand the <path>src/main</path> folder.
+                    Invoke the <a href="https://www.jetbrains.com/help/idea/project-tool-window.html">Project view</a> and expand the <path>src/main</path> folder.
                 </p>
 
             </step>
@@ -133,6 +141,9 @@
                     Specify a file name in the invoked popup and press <control>Enter</control> to create a Kotlin file.
                 </p>
                 <img src="client_get_started_new_kotlin_file.png" alt="Application.kt" width="362"/>
+                <p>
+                    This will be <path>Application.kt</path> file in our case.
+                </p>
             </step>
         </procedure>
 
@@ -156,10 +167,14 @@
                         val client = HttpClient(CIO)
                     }
                 </code>
+                <p>
+                    A client is represented by the <a href="https://api.ktor.io/%ktor_version%/io.ktor.client/-http-client/index.html">HttpClient</a> class.
+                </p>
             </step>
             <step>
                 <p>
-                    To make a request to a specific URL, we need to call a client's method corresponding to an HTTP verb, for example, <code>HttpClient.get</code>. This method returns an <code>HttpResponse</code> object containing a response. Add the <code>HttpClient.get</code> method call as follows:
+                    To make a request to a specific URL, we need to call a client's method corresponding to an HTTP verb, for example, <code>HttpClient.get</code>.
+                    A response will be received as a <code>HttpResponse</code> class object.
                 </p>
                 <code style="block" lang="kotlin">
                     import io.ktor.client.*
@@ -193,18 +208,9 @@
                     Finally, add <code>println</code> to print a status code returned by a server.
                     Our <path>Application.kt</path> file should look in the following way:
                 </p>
-                <code style="block" lang="kotlin">
-                    import io.ktor.client.*
-                    import io.ktor.client.engine.cio.*
-                    import io.ktor.client.request.*
-                    import io.ktor.client.statement.*
-
-                    suspend fun main() {
-                        val client = HttpClient(CIO)
-                        val response: HttpResponse = client.get("https://ktor.io/")
-                        println(response.status)
-                    }
-                </code>
+                <code style="block"
+                      lang="kotlin"
+                      src="snippets/_misc_client/GetStartedClient.kt"/>
                 <p>
                     In the next section, we'll run our program and make a request.
                 </p>
