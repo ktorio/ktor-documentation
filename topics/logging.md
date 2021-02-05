@@ -12,7 +12,7 @@ To enable logging, you need to include [Logback](https://logback.qos.ch/) artifa
 
 
 ## Access the Logger {id="access_logger"}
-The Logger instance is represented by a class that implements the [Logger](http://www.slf4j.org/api/org/slf4j/Logger.html) interface. The Logger instance in a Ktor application is created when building the [application environment](Configurations.md), and this instance is assigned to the [ApplicationEnvironment.log](https://api.ktor.io/%ktor_version%/io.ktor.application/-application-environment/log.html) property. You can access the Logger from [ApplicationCall](https://api.ktor.io/%ktor_version%/io.ktor.application/-application-call/index.html) using the `call.application.environment.log` property:
+The Logger instance is represented by a class that implements the [Logger](http://www.slf4j.org/api/org/slf4j/Logger.html) interface. The Logger instance in a Ktor application is created when building the [application environment](Configurations.xml), and this instance is assigned to the [ApplicationEnvironment.log](https://api.ktor.io/%ktor_version%/io.ktor.application/-application-environment/log.html) property. You can access the Logger from [ApplicationCall](https://api.ktor.io/%ktor_version%/io.ktor.application/-application-call/index.html) using the `call.application.environment.log` property:
 ```kotlin
     routing {
         get("/api/v1") {
