@@ -133,27 +133,6 @@ There is a [list of available command line switches](#available-config) in this 
 ## Configuring the embeddedServer
 {id="embedded-server"}
 
-embeddedServer is a simple way to start a Ktor application. You provide your own main function,
-and being more explicit, it is easier to understand what happens exactly.
-
-`embeddedServer` includes an optional parameter `configure` that allows you to set the configuration for the
-engine specified in the first parameter.
-Independent to the engine used, you will have some available properties to configure:
-
-```kotlin
-embeddedServer(AnyEngine, configure = {
-    // Size of the event group for accepting connections
-    connectionGroupSize = parallelism / 2 + 1
-    // Size of the event group for processing connections,
-    // parsing messages and doing engine's internal work 
-    workerGroupSize = parallelism / 2 + 1
-    // Size of the event group for running application code 
-    callGroupSize = parallelism 
-}) {
-    // ...
-}.start(true)
-```
-
 ### Multiple connectors
 
 It is possible to define by code several connectors using the `applicationEngineEnvironment`.
@@ -220,81 +199,7 @@ fun Application.main() {
 
 You can see a complete example of this in [ktor-samples/multiple-connectors](https://github.com/ktorio/ktor-samples/tree/1.3.0/other/multiple-connectors).
 
-### Netty
-{.no_toc}
 
-When using Netty as the engine, in addition to common properties, you can configure some other properties:
-
-```kotlin
-embeddedServer(Netty, configure = {
-    // Size of the queue to store [ApplicationCall] instances that cannot be immediately processed
-    requestQueueLimit = 16 
-    // Do not create separate call event group and reuse worker group for processing calls
-    shareWorkGroup = false 
-    // User-provided function to configure Netty's [ServerBootstrap]
-    configureBootstrap = {
-        // ...
-    } 
-    // Timeout in seconds for sending responses to client
-    responseWriteTimeoutSeconds = 10 
-}) {
-    // ...
-}.start(true)
-```
-
-### Jetty
-{.no_toc}
-
-When using Jetty as the engine, in addition to common properties, you can configure the Jetty server.
-
-```kotlin
-embeddedServer(Jetty, configure = {
-    // Property to provide a lambda that will be called during Jetty
-    // server initialization with the server instance as an argument.
-    configureServer = {
-        // ...
-    } 
-}) {
-    // ...
-}.start(true)
-```
-
-### CIO
-{.no_toc}
-
-When using CIO (Coroutine I/O) as the engine, in addition to common properties, you can configure the `connectionIdleTimeoutSeconds` property.
-
-```kotlin
-embeddedServer(CIO, configure = {
-    // Number of seconds that the server will keep HTTP IDLE connections open.
-    // A connection is IDLE if there are no active requests running.
-    connectionIdleTimeoutSeconds = 45
-}) {
-    // ...
-}.start(true)
-```
-
-### Tomcat
-{.no_toc}
-
-When using Tomcat, in addition to common properties, you can configure the Tomcat server.
-
-```kotlin
-embeddedServer(Tomcat, configure = {
-    // Property to provide a lambda that will be called during Tomcat
-    // server initialization with the server instance as argument.
-    configureTomcat { // this: Tomcat ->
-        // ...
-    }
-}) {
-    // ...
-}.start(true)
-```
-
->Those are the official engines developed for Ktor, but it is also possible to [create
->your own engines](custom_engines.md) and provide custom configurations for them.
->
-{type="note"}
 
 ## Available configuration parameters
 {id="available-config"}

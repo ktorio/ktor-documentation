@@ -156,7 +156,7 @@ GRADLE_TASK: shadowJar
 >When using embeddedServer you will have to use `System.getenv`, while when using `application.conf` you will
 >have to set `ktor.deployment.port = ${PORT}`.
 >Check out the page about
->[using environment variables in the configuration](Configurations.md#environment-variables)
+>[using environment variables in the configuration](Configurations.xml#environment-variables)
 >for more information.
 >
 {type="note"}

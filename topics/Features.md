@@ -1,7 +1,7 @@
 [//]: # (title: Features)
 
 
-As mentioned in [A Ktor Application](A_Ktor_Application.md), a typical request/response pipeline in Ktor looks like the following:
+As mentioned in [A Ktor Application](A_Ktor_Application.xml), a typical request/response pipeline in Ktor looks like the following:
 
 
 

@@ -32,30 +32,31 @@
 
     <toc-element toc-title="Server">
         <toc-element toc-title="Developing Applications">
-            <toc-element id="A_Ktor_Application.md"
-                         accepts-web-file-names="intro.html,servers-application.html"/>
-            <toc-element id="How_Ktor_works.md"
-                         accepts-web-file-names="lifecycle.html"/>
-            <toc-element id="Features.md"
-                         accepts-web-file-names="zfeatures.html"/>
+            <toc-element id="A_Ktor_Application.xml"
+                         show-structure-depth="2"
+                         accepts-web-file-names="intro.html,servers-application.html,how-ktor-works.html,lifecycle.html"/>
+<!--            <toc-element id="How_Ktor_works.md"
+                         accepts-web-file-names="lifecycle.html"/>-->
+            <toc-element id="create_server.xml" show-structure-depth="2"/>
             <toc-element id="Engines.md"
                          show-structure-depth="2">
                 <toc-element id="advanced_http2.md"/>
             </toc-element>
-            <toc-element id="Configurations.md"
+            <toc-element id="Configurations.xml"
+                         show-structure-depth="2"
                          accepts-web-file-names="configuration.html">
+<!--                <toc-element id="environments.md"/>-->
                 <toc-element id="development_mode.xml"
                              show-structure-depth="2"/>
-                <toc-element id="environments.md"/>
             </toc-element>
-            <toc-element toc-title="Application Structure">
-                <toc-element id="Modules.md"/>
-                <toc-element id="Routing_in_Ktor.md"
-                             show-structure-depth="2"
-                             accepts-web-file-names="routing.html"/>
-                <toc-element id="Structuring_Applications.md"
-                             accepts-web-file-names="structure.html"/>
-            </toc-element>
+            <toc-element id="Modules.md"/>
+            <toc-element id="Routing_in_Ktor.md"
+                         show-structure-depth="2"
+                         accepts-web-file-names="routing.html"/>
+            <toc-element id="Features.md"
+                         accepts-web-file-names="zfeatures.html"/>
+            <toc-element id="Structuring_Applications.md"
+                         accepts-web-file-names="structure.html"/>
             <toc-element id="calls.md">
                 <toc-element id="requests.md"/>
                 <toc-element id="responses.md"/>

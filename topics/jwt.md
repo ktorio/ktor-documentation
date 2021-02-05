@@ -67,12 +67,8 @@ You can also check the payload within `validate` callback to ensure everything i
 ### application.conf:
 
 ```kotlin
-jwt {
-    domain = "https://jwt-provider-domain/"
-    audience = "jwt-audience"
-    realm = "ktor sample app"
-}
 ```
+{src="snippets/_misc/JwtExample.conf"}
 
 ### JWT auth:
 

@@ -52,7 +52,7 @@ Running applications in a development environment such as IntelliJ IDEA, is supp
 Once the configuration is saved, you can now run your application for development/debug purposes from inside IntelliJ IDEA, without having to deploy to a container or setup
 any application servers.
 
-See also: [Configuration](Configurations.md)
+See also: [Configuration](Configurations.xml)
 
 ## Use automatic reloading
 
