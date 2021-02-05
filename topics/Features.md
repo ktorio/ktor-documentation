@@ -63,6 +63,48 @@ install(Sessions) {
 } 
 ```
 
+### Installing features in sub routes 
+
+Features that implement `DynamicConfigFeature` can be installed in sub routes with independent configurations:
+
+```kotlin
+routing {
+    route("/no-store") {
+        install(CachingHeaders) {
+            options { CachingOptions(CacheControl.NoStore(CacheControl.Visibility.Private)) }
+            options { CachingOptions(CacheControl.MaxAge(15)) }
+        }
+        ...
+    }
+    route("/no-cache") {
+        install(CachingHeaders) {
+            options { CachingOptions(CacheControl.NoCache(CacheControl.Visibility.Private)) }
+        }
+        ...
+    }
+}
+```
+
+Please note that routing will merge installations from the same route and the last install will win. For example for such application
+```kotlin
+routing {
+    route("root") {
+        install(SomeFeature) { someValue = "first install" }
+        get("a") {
+            call.respond(call.receive<String>())
+        }
+    }
+    route("root") {
+        install(SomeFeature) { someValue = "second install" }
+        get("b") {
+            call.respond(call.receive<String>())
+        }
+    }
+}
+```
+
+both calls to `root/a` and `root/b` will be handled by only second installation of the feature.
+
 ## Default, Available, and Custom Features {id="default_available_custom"}
 
 By default, Ktor does not activate any Feature, and it's up to us as developers to install the functionality our application need.
