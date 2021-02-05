@@ -50,6 +50,48 @@ val response: User = client.get("https://myapi.com/user?id=1")
 
 Please note that some of response types are `Closeable` and can hold resources.
 
+## Concurrency
+
+Remember that requests are asynchronous, but when performing requests, the API suspends further requests
+and your function will be suspended until done. If you want to perform several requests at once
+in the same block, you can use `launch` or `async` functions and later get the results.
+For example:
+
+### Sequential requests
+
+```kotlin
+suspend fun sequentialRequests() {
+    val client = HttpClient()
+
+    // Get the content of an URL.
+    val firstBytes = client.get<ByteArray>("https://127.0.0.1:8080/a")
+
+    // Once the previous request is done, get the content of an URL.
+    val secondBytes = client.get<ByteArray>("https://127.0.0.1:8080/b")
+
+    client.close()
+}
+```
+
+### Parallel requests
+
+```kotlin
+suspend fun parallelRequests() = coroutineScope<Unit> {
+    val client = HttpClient()
+
+    // Start two requests asynchronously.
+    val firstRequest = async { client.get<ByteArray>("https://127.0.0.1:8080/a") }
+    val secondRequest = async { client.get<ByteArray>("https://127.0.0.1:8080/b") }
+
+    // Get the request contents without blocking threads, but suspending the function until both
+    // requests are done.
+    val bytes1 = firstRequest.await() // Suspension point.
+    val bytes2 = secondRequest.await() // Suspension point.
+
+    client.close()
+}
+```
+
 ## Customizing requests
 
 We cannot live only on *get* requests, Ktor allows you to build complex requests with any of the HTTP verbs, with the flexibility to process responses in many ways.

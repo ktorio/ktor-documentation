@@ -2,7 +2,7 @@
 
 <include src="lib.md" include-id="outdated_warning"/>
 
-In addition to HTTP handling for the [server](A_Ktor_Application.md) and the [client](clients_index.md), Ktor supports client and server, TCP and UDP raw sockets.
+In addition to HTTP handling for the [server](A_Ktor_Application.md) and the [client](client.md), Ktor supports client and server, TCP and UDP raw sockets.
 It exposes a suspending API that uses NIO under the hoods.
 
 ## Add Dependencies {id="add_dependencies"}

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Getting Started with a Ktor Client"
+       id="getting_started_ktor_client">
+
+    <p>
+        Ktor includes a multiplatform asynchronous HTTP client, which allows you to make requests and handle responses, extend its functionality with <a href="http-client_features.md">features</a>, such as authentication, JSON serialization, and so on.
+        In this tutorial, we'll create a simple client application for sending a request and receiving a response.
+        We'll use <a href="https://www.jetbrains.com/help/idea/installation-guide.html">IntelliJ IDEA</a> to create the application.
+    </p>
+
+    <chapter title="Prerequisites" id="prerequisites">
+        <p>
+            Before starting this tutorial, make sure the <a href="https://plugins.jetbrains.com/plugin/6954-kotlin">Kotlin</a> plugin is installed and enabled.
+            Learn how to do this from the
+            <a href="https://www.jetbrains.com/help/idea/managing-plugins.html#open-plugin-settings">Manage plugins</a> topic.
+        </p>
+    </chapter>
+
+    <chapter title="Create a new Gradle project" id="new-project">
+        <p>
+            To try out a Ktor client in action, we'll create a Gradle project.
+            <a href="https://www.jetbrains.com/help/idea/run-for-the-first-time.html">Open IntelliJ IDEA</a>, and follow
+            the steps below:
+        </p>
+        <procedure>
+            <step>
+                <p>
+                    If the Welcome screen opens, click <control>New Project</control>.
+                </p>
+                <p>
+                    Otherwise, from the main menu, select <menupath>File | New | Project</menupath>.
+                </p>
+            </step>
+            <step>
+                <p>
+                    In the <control>New Project</control> wizard, choose <control>Gradle</control> from the list on the left.
+                </p>
+            </step>
+            <step>
+                <p>
+                    On the right pane, specify the following settings:
+                </p>
+                <img src="client_get_started_new_gradle_project.png" alt="New Project" width="706"/>
+                <list>
+                    <li>
+                        <p>
+                            Choose the <control>Project SDK</control> from the list.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Select <control>Kotlin/JVM</control> in the <control>Additional Libraries and Frameworks</control> area.
+                        </p>
+                    </li>
+                </list>
+                <p>
+                    Click <control>Next</control>.
+                </p>
+            </step>
+            <step>
+                <p>
+                    On the next wizard page, specify the project name and click <control>Finish</control>.
+                </p>
+                <img src="client_get_started_new_gradle_project_name.png" alt="Project name" width="706"/>
+            </step>
+            <step>
+                <p>
+                    Wait until IntelliJ IDEA creates and builds a project.
+                </p>
+                <img src="client_get_started_build_gradle.png" alt="Build" width="706"/>
+            </step>
+        </procedure>
+    </chapter>
+
+
+    <chapter title="Add Dependencies" id="add-dependencies">
+        <p>
+            The next thing we need is to install dependencies required for a Ktor client.
+
+        </p>
+        <procedure>
+            <step>
+                <p>
+                    Open the <path>build.gradle</path> file and add the following artifacts to the dependencies block:
+                </p>
+                <code style="block" lang="groovy">
+                    dependencies {
+                        implementation "io.ktor:ktor-client-core:%ktor_version%"
+                        implementation "io.ktor:ktor-client-cio:%ktor_version%"
+                    }
+                </code>
+                <p>
+                    <code>ktor-client-core</code> is a core dependency that provides the main client functionality, while <code>ktor-client-cio</code> is a dependency for an <a href="http-client_engines.md">engine</a> processing network requests.
+                </p>
+            </step>
+            <step>
+                <p>
+                    Click the <control>Load Gradle Changes</control> icon at the top right corner of the <path>build.gradle</path> file to install newly added dependencies.
+                </p>
+                <img src="client_get_started_load_gradle_changes_name.png" alt="Load Gradle Changes" width="706"/>
+                <p>
+                    This will be <path>Application.kt</path> file in our case.
+                </p>
+            </step>
+        </procedure>
+
+
+    </chapter>
+
+    <chapter title="Create the Application.kt file" id="create-kotlin-file">
+        <p>
+            Now we are ready to create a client.
+        </p>
+        <procedure>
+            <step>
+                <p>
+                    Invoke the <a href="https://www.jetbrains.com/help/idea/project-tool-window.html">Project view</a> expand the <path>src/main</path> folder.
+                </p>
+
+            </step>
+            <step>
+                <p>
+                    Right-click the <path>kotlin</path> folder and choose <menupath>New | Kotlin Class/File</menupath>.
+                </p>
+                <img src="client_get_started_project_view_kotlin.png" alt="Project view" width="320"/>
+            </step>
+            <step>
+                <p>
+                    Specify a file name in the invoked popup and press <control>Enter</control> to create a Kotlin file.
+                </p>
+                <img src="client_get_started_new_kotlin_file.png" alt="Application.kt" width="362"/>
+            </step>
+        </procedure>
+
+    </chapter>
+
+
+    <chapter title="Create a Client" id="create-client">
+        <p>
+            Now we can add a client's code to the <a anchor="create-kotlin-file">created Kotlin file</a>.
+        </p>
+        <procedure>
+            <step>
+                <p>
+                    Add the following code to the <path>Application.kt</path> file:
+                </p>
+                <code style="block" lang="kotlin">
+                    import io.ktor.client.*
+                    import io.ktor.client.engine.cio.*
+
+                    fun main() {
+                        val client = HttpClient(CIO)
+                    }
+                </code>
+            </step>
+            <step>
+                <p>
+                    To make a request to a specific URL, we need to call a client's method corresponding to an HTTP verb, for example, <code>HttpClient.get</code>. This method returns an <code>HttpResponse</code> object containing a response. Add the <code>HttpClient.get</code> method call as follows:
+                </p>
+                <code style="block" lang="kotlin">
+                    import io.ktor.client.*
+                    import io.ktor.client.engine.cio.*
+                    import io.ktor.client.request.*
+                    import io.ktor.client.statement.*
+
+                    fun main() {
+                        val client = HttpClient(CIO)
+                        val response: HttpResponse = client.get("https://ktor.io/")
+                    }
+                </code>
+            </step>
+            <step>
+                <p>
+                    After adding the code above, the IDE shows the following error for the <code>get</code> function: <emphasis>Suspend function 'get' should be called only from a coroutine or another suspend function</emphasis>.
+                </p>
+                <img src="client_get_started_suspend_error.png" alt="Suspend function error" width="706"/>
+                <p>
+                    You can learn more about calling suspending functions from <a href="https://kotlinlang.org/docs/basics.html">Coroutines basics</a>. In the next step, we'll make our <code>main</code> function suspending to fix this issue.
+                </p>
+            </step>
+            <step>
+                <p>
+                    Click the red bulb and choose <control>Make main suspend</control>.
+                </p>
+                <img src="client_get_started_suspend_error_fix.png" alt="Make main suspend" width="706"/>
+            </step>
+            <step>
+                <p>
+                    Finally, add <code>println</code> to print a status code returned by a server.
+                    Our <path>Application.kt</path> file should look in the following way:
+                </p>
+                <code style="block" lang="kotlin">
+                    import io.ktor.client.*
+                    import io.ktor.client.engine.cio.*
+                    import io.ktor.client.request.*
+                    import io.ktor.client.statement.*
+
+                    suspend fun main() {
+                        val client = HttpClient(CIO)
+                        val response: HttpResponse = client.get("https://ktor.io/")
+                        println(response.status)
+                    }
+                </code>
+                <p>
+                    In the next section, we'll run our program and make a request.
+                </p>
+            </step>
+        </procedure>
+    </chapter>
+
+
+    <chapter title="Run a Program and Make a Request" id="make-request">
+        <p>
+            Now we are ready to run our program a make a request.
+        </p>
+        <procedure>
+            <step>
+                <p>
+                    Click the gutter icon next to the <code>main</code> function and choose <control>Run 'ApplicationKt'</control>.
+                </p>
+                <img src="client_get_started_run_main.png" alt="Run app" width="706"/>
+            </step>
+            <step>
+                <p>
+                    Wait until Intellij IDEA runs the application.
+                    A server should respond with the <code>200 OK</code> (hopefully!) message.
+                </p>
+                <img src="client_get_started_run_output.png" alt="Server response" width="485"/>
+            </step>
+        </procedure>
+    </chapter>
+</topic>

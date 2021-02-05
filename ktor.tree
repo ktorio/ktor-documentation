@@ -189,16 +189,16 @@
     </toc-element>
 
 
-    <toc-element id="clients_index.md"
-                 accepts-web-file-names="quick-start.html">
-        <toc-element toc-title="Quick start">
-            <toc-element id="client.md"/>
-            <toc-element id="request.md"/>
-            <toc-element id="response.md"/>
-            <toc-element id="streaming.md"/>
-        </toc-element>
+    <toc-element toc-title="Client">
+        <toc-element id="getting_started_ktor_client.xml"/>
+        <toc-element id="client.md"
+                     accepts-web-file-names="clients-index.html,quick-start.html"/>
         <toc-element id="http-client_engines.md"/>
         <toc-element id="http-client_multiplatform.md"/>
+        <toc-element id="request.md"/>
+        <toc-element id="response.md">
+            <toc-element id="streaming.md"/>
+        </toc-element>
         <toc-element id="http-client_testing.md"/>
         <toc-element id="examples.md"/>
         <toc-element id="http-client_features.md">
