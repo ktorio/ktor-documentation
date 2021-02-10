@@ -30,12 +30,7 @@
         </p>
         <procedure>
             <step>
-                <p>
-                    If the Welcome screen opens, click <control>New Project</control>.
-                </p>
-                <p>
-                    Otherwise, from the main menu, select <menupath>File | New | Project</menupath>.
-                </p>
+                <include src="lib.md" include-id="new_project_idea"/>
             </step>
             <step>
                 <p>
@@ -109,7 +104,7 @@
                 <p>
                     For now, let's install only the <a href="Routing_in_Ktor.md">Routing</a> feature to
                     handle incoming requests.
-                    Start typing <emphasis>Routing</emphasis> at the top left search box,
+                    Start typing <emphasis>routing</emphasis> at the top left search box,
                     find <control>Routing</control> in the list, and click <control>Add</control>.
                 </p>
                 <img src="ktor_idea_new_project_features.png" alt="Add the Routing feature" width="706" animated="true"/>

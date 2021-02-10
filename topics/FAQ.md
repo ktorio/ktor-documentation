@@ -69,7 +69,7 @@ the logic implementing an IETF RFC or another protocol without relying on extern
 >     compile("io.ktor:ktor-server-netty:$ktor_version")
 > }
 > ```
-> * For Gradle, check [](Gradle.md)
+> * For Gradle, check [](Gradle.xml)
 > * For Maven, check [](Maven.md)
 
 ## Does ktor provide a way to catch IPC signals (e.g. SIGTERM or SIGINT) so the server shutdown can be handled gracefully?
