@@ -110,7 +110,7 @@ If you want to leave your feedback or subscribe on updates, check
 
 <chunk id="new_project_idea">
 <p>
-If the Welcome screen opens, click <control>New Project</control>.
+On the Welcome screen, click <control>New Project</control>.
 </p>
 <p>
 Otherwise, from the main menu, select <menupath>File | New | Project</menupath>.
