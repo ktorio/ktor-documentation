@@ -55,11 +55,16 @@
                 <p>
                     On the right pane, specify the following settings:
                 </p>
-                <img src="client_get_started_new_gradle_project.png" alt="New Project" width="706"/>
+                <img src="ktor_idea_new_gradle_project_settings.png" alt="Gradle Project Settings" width="628"/>
                 <list>
                     <li>
                         <p>
                             Choose the <control>Project SDK</control> from the list.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            (Optional) Enable the <control>Kotlin DSL build script</control> option to use Kotlin instead of Groovy DSL.
                         </p>
                     </li>
                     <li>
@@ -96,21 +101,34 @@
         <procedure>
             <step>
                 <p>
-                    Open the <path>build.gradle</path> file and add the following artifacts to the dependencies block:
+                    Open the <path>build.gradle</path> or <path>build.gradle.kts</path> file and add the following artifacts to the dependencies block:
                 </p>
-                <code style="block" lang="groovy">
-                    dependencies {
-                        implementation "io.ktor:ktor-client-core:%ktor_version%"
-                        implementation "io.ktor:ktor-client-cio:%ktor_version%"
-                    }
-                </code>
+                <tabs>
+                    <tab title="Gradle (Groovy)">
+                        <code style="block" lang="groovy">
+                            dependencies {
+                                implementation "io.ktor:ktor-client-core:%ktor_version%"
+                                implementation "io.ktor:ktor-client-cio:%ktor_version%"
+                            }
+                        </code>
+                    </tab>
+                    <tab title="Gradle (Kotlin)">
+                        <code style="block" lang="kotlin">
+                            dependencies {
+                                implementation("io.ktor:ktor-client-core:%ktor_version%")
+                                implementation("io.ktor:ktor-client-cio:%ktor_version%")
+                            }
+                        </code>
+                    </tab>
+                </tabs>
+
                 <p>
                     <code>ktor-client-core</code> is a core dependency that provides the main client functionality, while <code>ktor-client-cio</code> is a dependency for an <a href="http-client_engines.md">engine</a> processing network requests.
                 </p>
             </step>
             <step>
                 <p>
-                    Click the <control>Load Gradle Changes</control> icon at the top right corner of the <path>build.gradle</path> file to install newly added dependencies.
+                    Click the <control>Load Gradle Changes</control> icon at the top right corner of the <path>build.gradle</path> / <path>build.gradle.kts</path> file to install newly added dependencies.
                 </p>
                 <img src="client_get_started_load_gradle_changes_name.png" alt="Load Gradle Changes" width="706"/>
             </step>
