@@ -30,12 +30,7 @@
         </p>
         <procedure>
             <step>
-                <p>
-                    If the Welcome screen opens, click <control>New Project</control>.
-                </p>
-                <p>
-                    Otherwise, from the main menu, select <menupath>File | New | Project</menupath>.
-                </p>
+                <include src="lib.md" include-id="new_project_idea"/>
             </step>
             <step>
                 <p>

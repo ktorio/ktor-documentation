@@ -105,3 +105,14 @@ If you want to leave your feedback or subscribe on updates, check
 [KTOR-%issue_number%](https://youtrack.jetbrains.com/issue/KTOR-%issue_number%) design issue.
 
 </chunk>
+
+
+
+<chunk id="new_project_idea">
+<p>
+If the Welcome screen opens, click <control>New Project</control>.
+</p>
+<p>
+Otherwise, from the main menu, select <menupath>File | New | Project</menupath>.
+</p>
+</chunk>
