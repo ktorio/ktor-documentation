@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Maven"
+       id="Maven">
+
+    <p>
+        In this tutorial, we'll show you how to integrate Ktor into the existing Maven project.
+    </p>
+
+
+    <chapter title="Prerequisites" id="prerequisites">
+        <p>
+            Before starting this tutorial, do the following:
+        </p>
+        <list>
+            <li>
+                <p>
+                    <a href="https://www.jetbrains.com/help/idea/installation-guide.html">Install IntelliJ IDEA</a>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Make sure the <control>Maven</control> and <control>Maven Extension</control> plugins are <a href="https://www.jetbrains.com/help/idea/managing-plugins.html#open-plugin-settings">installed and enabled</a>.
+                </p>
+            </li>
+        </list>
+    </chapter>
+
+
+    <chapter title="Create a new Maven project" id="create-new-maven-project">
+        <p>
+            To create a new Maven project,
+            <a href="https://www.jetbrains.com/help/idea/run-for-the-first-time.html">open IntelliJ IDEA</a>, and follow
+            the steps below:
+        </p>
+        <procedure hide-from-structure="true">
+            <step>
+                <include src="lib.md" include-id="new_project_idea"/>
+            </step>
+            <step>
+                <p>
+                    In the <control>New Project</control> wizard, choose <control>Maven</control> from the list on the left and specify the following settings:
+                </p>
+                <img src="ktor_idea_new_gradle_project_settings.png" alt="Gradle Project Settings" width="628"/>
+                <list>
+                    <li>
+                        <p>
+                            Choose the <control>Project SDK</control> from the list.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            (Optional) Enable the <control>Kotlin DSL build script</control> option to use Kotlin instead of Groovy DSL.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Select <control>Kotlin/JVM</control> in the <control>Additional Libraries and Frameworks</control> area.
+                        </p>
+                    </li>
+                </list>
+            </step>
+            <step>
+                <p>
+                    On the next wizard page, specify a project's name and location.
+                </p>
+                <img src="ktor_idea_new_gradle_project_name.png" alt="Gradle Project Name" width="628"/>
+                <p>
+                    Click <control>Finish</control> and wait until IntelliJ IDEA creates and builds a project.
+                </p>
+            </step>
+        </procedure>
+    </chapter>
+
+</topic>
