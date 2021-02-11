@@ -35,3 +35,5 @@ module('snippets', 'testable')
 module('snippets', 'timeout')
 module('snippets', 'autohead')
 module('snippets', 'client-download-file')
+module('snippets', 'features-api')
+

@@ -59,7 +59,7 @@
                          show-structure-depth="2"
                          accepts-web-file-names="routing.html"/>
             <toc-element id="Features.md"
-                         accepts-web-file-names="zfeatures.html"/>
+                         accepts-web-file-names="features.html"/>
             <toc-element id="Structuring_Applications.md"
                          accepts-web-file-names="structure.html"/>
             <toc-element id="calls.md">
@@ -274,3 +274,27 @@
     <toc-element id="samples.md"
                  accepts-web-file-names-ref="samples"/>
 </product-profile>
+                 status="release"
+    <toc-element id="Welcome.md"
+                 accepts-web-file-names-ref="kotlin_docs">
+        <toc-element toc-title="Creating a New Ktor Project">
+<!--            <toc-element id="intellij-idea.md"/>-->
+            <toc-element id="intellij-idea.xml"/>
+            <toc-element id="generator.md"/>
+        </toc-element>
+        <toc-element toc-title="Adding Ktor to an Existing Project">
+<!--            <toc-element id="Gradle.md" accepts-web-file-names="artifacts.html"/>-->
+            <toc-element id="Gradle.xml"
+                         show-structure-depth="2"
+                         show-structure-for="chapter,procedure"
+                         accepts-web-file-names="artifacts.html"/>
+            <toc-element id="Maven.xml"
+                         show-structure-depth="2"
+                         show-structure-for="chapter,procedure"/>
+        </toc-element>
+
+
+        <toc-element id="getting_started_ktor.md"
+                     accepts-web-file-names-ref="tutorials"/>
+<!--        <toc-element id="guides_oauth.md"/>
+        <toc-element id="ssl.md"/>-->
