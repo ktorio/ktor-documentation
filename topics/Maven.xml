@@ -23,6 +23,11 @@
             </li>
             <li>
                 <p>
+                    Make sure the <control>Kotlin</control> plugin is <a href="https://www.jetbrains.com/help/idea/managing-plugins.html#open-plugin-settings">installed and enabled</a>.
+                </p>
+            </li>
+            <li>
+                <p>
                     Make sure the <control>Maven</control> and <control>Maven Extension</control> plugins are <a href="https://www.jetbrains.com/help/idea/managing-plugins.html#open-plugin-settings">installed and enabled</a>.
                 </p>
             </li>
