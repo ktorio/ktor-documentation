@@ -26,7 +26,7 @@ buildscript {
 apply plugin: 'kotlin'
 apply plugin: 'application'
 
-mainClassName = "io.ktor.samples.http2push.MainKt"
+mainClassName = "io.ktor.snippets.http2push.MainKt"
 
 sourceSets {
     main.kotlin.srcDirs = [ 'src' ]
@@ -35,7 +35,6 @@ sourceSets {
 
 repositories {
     mavenCentral()
-    maven { url "https://dl.bintray.com/kotlin/ktor" }
 }
 
 

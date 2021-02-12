@@ -14,7 +14,7 @@ Run this project with:
 Use the following command scripts for testing:
 
 ```bash
-curl -v --compress --header "Accept: application/json" http://localhost:8080/v1
+curl -v --compressed --header "Accept: application/json" http://localhost:8080/v1
 ```
 
 Should respond with something like:
