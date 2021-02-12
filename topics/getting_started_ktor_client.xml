@@ -93,7 +93,7 @@
     </chapter>
 
 
-    <chapter title="Add Dependencies" id="add-dependencies">
+    <chapter title="Add dependencies" id="add-dependencies">
         <p>
             The next thing we need is to install dependencies required for a Ktor client.
 
@@ -168,7 +168,7 @@
     </chapter>
 
 
-    <chapter title="Create a Client" id="create-client">
+    <chapter title="Create a client" id="create-client">
         <p>
             Now we can add a client's code to the <a anchor="create-kotlin-file">created Kotlin file</a>.
         </p>
@@ -237,7 +237,7 @@
     </chapter>
 
 
-    <chapter title="Run a Program and Make a Request" id="make-request">
+    <chapter title="Run a program and make a request" id="make-request">
         <p>
             Now we are ready to run our program a make a request.
         </p>
