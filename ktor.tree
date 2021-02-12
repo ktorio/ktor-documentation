@@ -19,7 +19,9 @@
                          show-structure-depth="2"
                          show-structure-for="chapter,procedure"
                          accepts-web-file-names="artifacts.html"/>
-            <toc-element id="Maven.md"/>
+            <toc-element id="Maven.xml"
+                         show-structure-depth="2"
+                         show-structure-for="chapter,procedure"/>
         </toc-element>
     </toc-element>
 
@@ -47,7 +49,7 @@
             </toc-element>
             <toc-element id="Configurations.xml"
                          show-structure-depth="2"
-                         accepts-web-file-names="configuration.html">
+                         accepts-web-file-names="configuration.html,environments.html">
 <!--                <toc-element id="environments.md"/>-->
                 <toc-element id="development_mode.xml"
                              show-structure-depth="2"/>
