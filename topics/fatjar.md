@@ -30,8 +30,7 @@ apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'kotlin'
 apply plugin: 'application'
 
-//mainClassName = 'io.ktor.server.netty.DevelopmentEngine' // For versions < 1.0.0-beta-3
-mainClassName = 'io.ktor.server.netty.EngineMain' // Starting with 1.0.0-beta-3
+mainClassName = 'io.ktor.server.netty.EngineMain'
 
 // This task will generate your fat JAR and put it in the ./build/libs/ directory
 shadowJar {

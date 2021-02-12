@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'kotlin'
 apply plugin: 'application'
 
-mainClassName = "io.ktor.server.jetty.DevelopmentEngine"
+mainClassName = "io.ktor.server.jetty.EngineMain"
 
 sourceSets {
     main.kotlin.srcDirs = [ 'src' ]
