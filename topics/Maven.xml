@@ -42,35 +42,307 @@
             </step>
             <step>
                 <p>
-                    In the <control>New Project</control> wizard, choose <control>Maven</control> from the list on the left and specify the following settings:
+                    In the <control>New Project</control> wizard, choose <control>Kotlin</control> from the list on the left and specify the following settings:
                 </p>
-                <img src="ktor_idea_new_gradle_project_settings.png" alt="Gradle Project Settings" width="628"/>
+                <img src="ktor_idea_new_maven_project_settings.png" alt="Gradle Project Settings" width="861"/>
                 <list>
                     <li>
                         <p>
-                            Choose the <control>Project SDK</control> from the list.
+                            Specify a project's <control>Name</control>.
                         </p>
                     </li>
                     <li>
                         <p>
-                            (Optional) Enable the <control>Kotlin DSL build script</control> option to use Kotlin instead of Groovy DSL.
+                            Set <control>Project Template</control> to <control>Application</control>.
                         </p>
                     </li>
                     <li>
                         <p>
-                            Select <control>Kotlin/JVM</control> in the <control>Additional Libraries and Frameworks</control> area.
+                            Select <control>Maven</control> as a build system.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Choose the <control>Project JDK</control> from the list.
                         </p>
                     </li>
                 </list>
+                <p>
+                    Click <control>Next</control>.
+                </p>
             </step>
             <step>
                 <p>
-                    On the next wizard page, specify a project's name and location.
+                    On the next wizard page, leave the default settings and click <control>Finish</control>.
                 </p>
-                <img src="ktor_idea_new_gradle_project_name.png" alt="Gradle Project Name" width="628"/>
+                <img src="ktor_idea_new_maven_project_name.png" alt="Gradle Project Name" width="861"/>
                 <p>
-                    Click <control>Finish</control> and wait until IntelliJ IDEA creates and builds a project.
+                    Wait until IntelliJ IDEA creates and builds a project.
                 </p>
+            </step>
+        </procedure>
+    </chapter>
+
+
+    <chapter title="Add Ktor dependencies" id="add-ktor-dependencies">
+        <p>
+            After <a anchor="create-new-maven-project">creating an empty project</a>, we are ready to examine a Maven configuration file and add Ktor dependencies to it:
+        </p>
+        <procedure hide-from-structure="true">
+            <step>
+                <p>
+                    Open the <path>pom.xml</path> file. It should look something like this:
+                </p>
+                <code style="block" lang="XML"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>mainModule</artifactId>
+    <groupId>me.jetbrains</groupId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>mainModule</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <kotlin.code.style>official</kotlin.code.style>
+        <kotlin.compiler.jvmTarget>13</kotlin.compiler.jvmTarget>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>mavenCentral</id>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
+    </repositories>
+
+    <build>
+        <sourceDirectory>src/main/kotlin</sourceDirectory>
+        <testSourceDirectory>src/test/kotlin</testSourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-maven-plugin</artifactId>
+                <version>%kotlin_version%</version>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>test-compile</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>test-compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-test-junit</artifactId>
+            <version>%kotlin_version%</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib-jdk8</artifactId>
+            <version>%kotlin_version%</version>
+        </dependency>
+    </dependencies>
+</project>]]></code>
+                <p>
+                    This configuration file includes the <a href="https://kotlinlang.org/docs/maven.html">kotlin-maven-plugin</a> for compiling Kotlin sources.
+                    Moreover, it declares the Maven Central repository in the <control>repositories</control> block.
+                    Since Ktor dependencies are stored in Maven Central, we don't need to change anything here.
+                </p>
+            </step>
+            <step>
+                <p>
+                    To create a simple Ktor application, we need to add at least the following dependencies:
+                </p>
+                <list>
+                    <li>
+                        <p>
+                            <code>ktor-server-core</code>: contains core Ktor functionality.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            A dependency for an <a href="Engines.md">engine</a> (for example, <code>ktor-server-netty</code>).
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Logback artifacts for <a href="logging.md">logging</a>.
+                        </p>
+                    </li>
+                </list>
+                <p>
+                    The <code>properties</code> and <code>dependencies</code> blocks might look as follows:
+                </p>
+                <code style="block" lang="XML"><![CDATA[<properties>
+    <ktor.version>%ktor_version%</ktor.version>
+    <logback_version>%logback_version%</logback_version>
+</properties>
+
+<dependencies>
+    <dependency>
+        <groupId>io.ktor</groupId>
+        <artifactId>ktor-server-core</artifactId>
+        <version>${ktor.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>io.ktor</groupId>
+        <artifactId>ktor-server-netty</artifactId>
+        <version>${ktor.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>${logback_version}</version>
+    </dependency>
+</dependencies>]]></code>
+                <p>
+                    Note that other engines and <a href="Features.md">features</a> that extend Ktor functionality might required additional dependencies.
+                    You can learn more from corresponding topics.
+                </p>
+            </step>
+            <step>
+                <p>
+                    The resulting <path>pom.xml</path> file should look something like this:
+                </p>
+                <code style="block" lang="XML"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>mainModule</artifactId>
+    <groupId>me.jetbrains</groupId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>mainModule</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <kotlin.code.style>official</kotlin.code.style>
+        <kotlin.compiler.jvmTarget>13</kotlin.compiler.jvmTarget>
+        <ktor.version>%ktor_version%</ktor.version>
+        <logback_version>%logback_version%</logback_version>
+        <main.class>io.ktor.server.netty.EngineMain</main.class>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>mavenCentral</id>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
+    </repositories>
+
+    <build>
+        <sourceDirectory>src/main/kotlin</sourceDirectory>
+        <testSourceDirectory>src/test/kotlin</testSourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-maven-plugin</artifactId>
+                <version>%kotlin_version%</version>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>test-compile</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>test-compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-test-junit</artifactId>
+            <version>%kotlin_version%</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib-jdk8</artifactId>
+            <version>%kotlin_version%</version>
+        </dependency>
+        <dependency>
+            <groupId>io.ktor</groupId>
+            <artifactId>ktor-server-core</artifactId>
+            <version>${ktor.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.ktor</groupId>
+            <artifactId>ktor-server-netty</artifactId>
+            <version>${ktor.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback_version}</version>
+        </dependency>
+    </dependencies>
+</project>
+                ]]></code>
+            </step>
+        </procedure>
+    </chapter>
+
+
+    <include src="Gradle.xml" include-id="create-server"/>
+
+
+    <chapter title="Run an application" id="run-app">
+        <p>
+            Now we can run our Ktor application:
+        </p>
+        <procedure>
+            <step>
+                <p>
+                    To run the application, click the gutter icon next to the <code>main</code> function
+                    and choose <control>Run 'ApplicationKt'</control>.
+                </p>
+                <img src="ktor_idea_new_project_run_gutter.png" alt="Run a Ktor application" width="706"/>
+            </step>
+            <step>
+                <p>
+                    Wait until Intellij IDEA runs the application.
+                    The Run tool window should show the following message:
+                </p>
+                <code style="block">
+                    [main] INFO  Application - Responding at http://0.0.0.0:8080
+                </code>
+<!--                <img src="ktor_idea_new_project_run_tool_window.png" alt="Run tool window" width="1000"/>-->
+                <p>
+                    This means that the server is ready to accept requests at the <path>http://0.0.0.0:8080</path> address.
+                    You can click this link to open the application in a default browser:
+                </p>
+                <img src="ktor_idea_new_project_browser.png" alt="Ktor app in a browser" width="430"/>
             </step>
         </procedure>
     </chapter>
