@@ -29,7 +29,7 @@ buildscript {
     }
 
     repositories {
-        jcenter()
+        mavenCentral()
         google()
         maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
         maven {
