@@ -9,7 +9,6 @@
         <fallback-url/>
         <help-app-version>3</help-app-version>
         <config-feedbackRequireEmail>false</config-feedbackRequireEmail>
-        <config-showDownloadButton>true</config-showDownloadButton>
         <config-disqus-id>jetbrains</config-disqus-id>
         <config-disqus-show>false</config-disqus-show>
         <config-feedback-url>https://data.services.jetbrains.com/feedback</config-feedback-url>

@@ -19,7 +19,7 @@
                          show-structure-depth="2"
                          show-structure-for="chapter,procedure"
                          accepts-web-file-names="artifacts.html"/>
-            <toc-element id="Maven.md"/>
+            <toc-element id="Maven.xml"/>
         </toc-element>
     </toc-element>
 
