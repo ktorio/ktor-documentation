@@ -1,13 +1,13 @@
 # Locations
 
-Sample project for [Ktor](https://ktor.io) demonstrating _experimental_ locations feature.
+A sample Ktor project demonstrating an _experimental_ [Locations](https://ktor.io/docs/features-locations.html) feature.
 
 ## Running
 
-Execute this command in the repository's root directory to run this sample:
+To run this sample, execute the following command in a repository's root directory:
 
 ```bash
 ./gradlew :locations:run
 ```
  
-And navigate to [http://localhost:8080/](http://localhost:8080/) to see the sample home page.  
+Then, navigate to [http://localhost:8080/](http://localhost:8080/) to see the sample home page. 

@@ -1,15 +1,13 @@
 # Metrics
 
-Sample project for [Ktor](https://ktor.io) demonstrating metrics feature.
+A sample Ktor project demonstrating the [Metrics](https://ktor.io/docs/dropwizard-metrics.html) feature.
 
 ## Running
 
-Execute this command in the repository's root directory to run this sample:
+To run this sample, execute the following command in a repository's root directory:
 
 ```bash
 ./gradlew :metrics:run
 ```
  
-And navigate to [http://localhost:8080/](http://localhost:8080/) to see the sample home page.  
-
-Watch the log. This sample logs Ktor metrics every 10 seconds.
+Then, navigate to [http://localhost:8080/](http://localhost:8080/) to see the sample home page. Metrics will be logged every 10 seconds and displayed in a server's output.
