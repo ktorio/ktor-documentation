@@ -19,7 +19,6 @@ sourceSets {
 
 repositories {
     mavenCentral()
-    maven { url "https://dl.bintray.com/kotlin/ktor" }
 }
 
 dependencies {
