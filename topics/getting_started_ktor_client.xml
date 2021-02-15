@@ -224,6 +224,7 @@
             <step>
                 <p>
                     Finally, add <code>println</code> to print a status code returned by a server.
+                    Note that you also need to release resources holding by a client using the <code>close</code> method.
                     Our <path>Application.kt</path> file should look in the following way:
                 </p>
                 <code style="block"
