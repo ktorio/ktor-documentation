@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'kotlin'
 apply plugin: 'application'
 
-mainClassName = "io.ktor.samples.jsonclient.JsonClientKt"
+mainClassName = "io.ktor.snippets.jsonclient.JsonClientKt"
 
 sourceSets {
     main.kotlin.srcDirs = [ 'src' ]
@@ -19,8 +19,6 @@ sourceSets {
 
 repositories {
     mavenCentral()
-    maven { url "https://dl.bintray.com/kotlin/ktor" }
-    maven { url "https://dl.bintray.com/kotlin/kotlinx" } // Required since 0.9.4 since ktor-client-gson includes ktor-client-json that depends on kotlinx-serialization
 }
 
 dependencies {
