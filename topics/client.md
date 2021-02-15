@@ -1,6 +1,14 @@
-[//]: # (title: Client)
+[//]: # (title: Client Overview)
 
 <include src="lib.md" include-id="outdated_warning"/>
+
+In addition to HTTP serving, Ktor also includes a flexible asynchronous HTTP client.
+This client supports several [configurable engines](http-client_engines.md), and has its own set of [features](http-client_features.md).
+
+>The main functionality is available through the `io.ktor:ktor-client-core:$ktor_version` artifact.
+>And each engine, is provided in [separate artifacts](http-client_engines.md).
+>
+{type="note"}
 
 ## Adding an engine dependency
 
@@ -94,3 +102,4 @@ val client = HttpClient(CIO) {
 See [Engines](http-client_engines.md) section for additional details.
 
 Proceed to [Preparing the request](request.md).
+
