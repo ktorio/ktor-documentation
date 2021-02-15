@@ -1,9 +1,9 @@
 buildscript {
-    ext.tomcat_plugin_version = '2.4.2'
-    ext.tomcat_version = '9.0.4'
+    ext.tomcat_plugin_version = '2.5'
+    ext.tomcat_version = '9.0.43'
 
     repositories {
-        jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
@@ -29,8 +29,7 @@ sourceSets {
 }
 
 repositories {
-    jcenter()
-    maven { url "https://dl.bintray.com/kotlin/ktor" }
+    mavenCentral()
 }
 
 dependencies {

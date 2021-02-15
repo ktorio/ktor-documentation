@@ -19,7 +19,7 @@ to generate a fat JAR using netty as an engine:
 ```groovy
 buildscript {
     repositories {
-        jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath 'com.github.jengelman.gradle.plugins:shadow:6.1.0'
@@ -30,8 +30,7 @@ apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'kotlin'
 apply plugin: 'application'
 
-//mainClassName = 'io.ktor.server.netty.DevelopmentEngine' // For versions < 1.0.0-beta-3
-mainClassName = 'io.ktor.server.netty.EngineMain' // Starting with 1.0.0-beta-3
+mainClassName = 'io.ktor.server.netty.EngineMain'
 
 // This task will generate your fat JAR and put it in the ./build/libs/ directory
 shadowJar {
@@ -52,7 +51,7 @@ plugins {
 }
 
 application {
-    mainClassName = "io.ktor.server.netty.EngineMain"
+    mainClass.set("io.ktor.server.netty.EngineMain")
 }
 
 tasks.withType<Jar> {

@@ -83,7 +83,7 @@ buildscript {
     ext.logback_version = '1.2.3'
     ext.slf4j_version = '1.7.25'
     repositories {
-        jcenter()
+        mavenCentral()
         maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
@@ -104,7 +104,7 @@ sourceSets {
 }
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {

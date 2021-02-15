@@ -38,7 +38,7 @@ apply plugin: 'kotlin'
 sourceCompatibility = 1.8
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
@@ -57,7 +57,7 @@ can be found on `jcenter`.
 You have to add both to the `repositories` block in the `build.gradle` file:
 
 ```groovy
-jcenter()
+mavenCentral()
 ```
 
 You have to specify that version in each Ktor artifact reference,
@@ -148,7 +148,7 @@ kotlin {
 }
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
@@ -201,7 +201,7 @@ You can check this in IntelliJ IDEA in the main menu:
 
 6.  Update your `build.gradle` file with the artifact and repositories for the classes to be available:
     * Include `compile("io.ktor:ktor-server-netty:$ktor_version")`, in your `build.gradle`'s `dependencies` block
-    * Include  `jcenter()` in your `repositories` block
+    * Include  `mavenCentral()` in your `repositories` block
 
     ![Ktor IntelliJ: Build Gradle](build-gradle.png)
 

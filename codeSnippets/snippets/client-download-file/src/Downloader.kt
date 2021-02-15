@@ -1,4 +1,4 @@
-package io.ktor.snippets.filedownload
+package io.ktor.samples.filedownload
 
 import io.ktor.client.*
 import io.ktor.client.request.*
