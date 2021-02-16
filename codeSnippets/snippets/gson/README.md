@@ -1,11 +1,10 @@
 # Gson
 
-Sample project for [Ktor](https://ktor.io) demonstrating content negotiation feature
-using [Gson](https://github.com/google/gson).
+A sample Ktor project demonstrating the [ContentNegotiation](https://ktor.io/docs/serialization.html) feature using Gson.
 
 ## Running
 
-Run this project with:
+To run this sample, execute the following command in a repository's root directory:
 
 ```
 ./gradlew :gson:run
@@ -14,10 +13,10 @@ Run this project with:
 Use the following command scripts for testing:
 
 ```bash
-curl -v --compress --header "Accept: application/json" http://localhost:8080/v1
+curl -v --compressed --header "Accept: application/json" http://localhost:8080/v1
 ```
 
-Should respond with something like:
+A server should respond with something like this:
 
 ```json
 {
@@ -40,7 +39,7 @@ Should respond with something like:
 }
 ```
 
-The result is pretty printed, to show off how to configure gson, but it is possible to use the default gson as well
+The result is pretty printed, to show off how to configure Gson, but it is possible to use the default gson as well
 
 Another test:
 

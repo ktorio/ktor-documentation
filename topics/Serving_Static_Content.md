@@ -1,6 +1,6 @@
 [//]: # (title: Serving Static Content)
 
-Whether we're creating a website or an HTTP endpoint, many applications need to serve files (such as stylesheets, scripts, images, etc.), 
+Whether we're creating a website or an HTTP endpoint, many applications need to serve files (such as stylesheets, scripts, images, etc.).  
 While it is certainly possible with Ktor to load the contents of a file and send it in response to a request,
 given this is such a common functionality, Ktor simplifies the entire process for us with the `static` Feature.
 
@@ -76,7 +76,32 @@ routing {
 }
 ```
  
-which would cause a request to `/assets/` to serve `index.html`. 
+which would cause a request to `/assets` to serve `index.html`. 
+
+### Serving pre-compressed files {id="precompressed"}
+
+Ktor provides the ability to serve pre-compressed files and avoid using [dynamic compression](compression.md). 
+For example, to serve pre-compressed files from the `assets/html` folder, call `files` inside the `preCompressed` function in the following way:
+```kotlin
+static("static") {
+    preCompressed {
+        files("assets/html")
+    }
+}
+```
+You can also raise the priority of one compression type over another.
+In the example below, Ktor tries to serve `*.br` files over `*.gz`:
+
+```kotlin
+static("static") {
+    preCompressed(CompressedFileType.BROTLI, CompressedFileType.GZIP) {
+        files("assets/html")
+    }
+}
+```
+For example, for a request made to `/static/index.html` Ktor tries to serve `assets/html/index.html.br` first.
+
+
 
 ### Changing the default root folder
 
@@ -176,8 +201,7 @@ allowing for `/assets/themes` to load files from the `/data`
 
 ## Handling errors
 
-If the request content is not found, Ktor will automatically respond with a `404 Not Found` HTTP status code. For more information about 
-personalising error handling, please see [status pages](status_pages.md)
+If the request content is not found, Ktor will automatically respond with a `404 Not Found` HTTP status code. For more information about personalising error handling, please see [status pages](status_pages.md).
 
 ## Customising Content Type header
 

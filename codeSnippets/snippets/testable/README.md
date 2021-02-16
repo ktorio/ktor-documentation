@@ -1,36 +1,24 @@
 # Testable
 
-Sample project for [Ktor](https://ktor.io) demonstrating tests for Ktor applications.
+A sample project demonstrating [tests](https://ktor.io/docs/testing.html) for a Ktor applications.
 
 ## Running
 
-Execute this command in the repository's root directory to run this sample:
+To run this sample, execute the following command in a repository's root directory:
 
 ```bash
 ./gradlew :testable:run
 ```
  
-And navigate to [http://localhost:8080/](http://localhost:8080/) to see the sample home page
+Then, navigate to [http://localhost:8080/](http://localhost:8080/) to see the sample home page
 with a simple text string.
 
-## Writing tests
-
-The simple test code looks like this:
-
-```kotlin
-   fun testRequests() = withTestApplication(Application::main) {
-        with(handleRequest(HttpMethod.Get, "/")) {
-            assertEquals(HttpStatusCode.OK, response.status())
-            assertEquals("Hello from Ktor Testable sample application", response.content)
-        }
-    }
-```  
 
 > See [ApplicationTest.kt](test/ApplicationTest.kt)
 
 ## Running tests
 
-To run the tests:
+To run the tests, execute the following command:
 
 ```bash
 ./gradlew :testable:test

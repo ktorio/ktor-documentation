@@ -1,11 +1,10 @@
 # Jetty
 
-Sample project for [Ktor](https://ktor.io) running as an application with 
-[Jetty](https://www.eclipse.org/jetty/) engine.
+A sample Ktor project running as an application with a Jetty [engine](https://ktor.io/docs/engines.html).
 
 ## Running
 
-Execute this command in the repository's root directory to run this sample:
+To run this sample, execute the following command in a repository's root directory:
 
 ```bash
 ./gradlew :jetty:run

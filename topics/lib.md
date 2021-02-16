@@ -25,6 +25,12 @@ fun Application.module() {
 </chunk>
 
 
+<chunk id="add_ktor_artifact_intro">
+
+To enable `%feature_name%` support, you need to include the `%artifact_name%` artifact in the build script:
+
+</chunk>
+
 
 <chunk id="add_ktor_artifact">
 <tabs>
@@ -77,4 +83,36 @@ fun Application.module() {
         </code>
    </tab>
 </tabs>
+</chunk>
+
+
+<chunk id="outdated_warning">
+
+> This help topic is in development and will be updated in the future.
+> 
+{type="note"}
+
+</chunk>
+
+<chunk id="experimental">
+
+The API is production ready, but may be slightly modified in a minor release. This is why it's marked with the
+`@%annotation_name%` annotation. If you want to use this API you need to `OptIn`:
+```kotlin
+@OptIn(%annotation_name%::class)
+```
+If you want to leave your feedback or subscribe on updates, check
+[KTOR-%issue_number%](https://youtrack.jetbrains.com/issue/KTOR-%issue_number%) design issue.
+
+</chunk>
+
+
+
+<chunk id="new_project_idea">
+<p>
+On the Welcome screen, click <control>New Project</control>.
+</p>
+<p>
+Otherwise, from the main menu, select <menupath>File | New | Project</menupath>.
+</p>
 </chunk>

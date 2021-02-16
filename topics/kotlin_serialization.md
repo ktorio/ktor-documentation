@@ -12,7 +12,7 @@ Before registering a required converter, perform the following steps:
     <include src="lib.md" include-id="add_ktor_artifact"/>
    
     This will be enough for converting JSON. 
-1. (Optional) To convert other formats (for example, CBOR or ProtoBuf), you need to include a corresponding artifact. Learn more from the [Formats](https://kotlinlang.org/docs/reference/serialization.html#formats) section.
+1. (Optional) To convert other formats (for example, CBOR or ProtoBuf), you need to include a corresponding artifact. Learn more from the [Formats](https://kotlinlang.org/docs/serialization.html#formats) section.
 
 
 ## Register a Converter {id="register_converter"}

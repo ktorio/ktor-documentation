@@ -1,7 +1,7 @@
 [//]: # (title: Features)
 
 
-As mentioned in [A Ktor Application](A_Ktor_Application.md), a typical request/response pipeline in Ktor looks like the following:
+As mentioned in [A Ktor Application](A_Ktor_Application.xml), a typical request/response pipeline in Ktor looks like the following:
 
 
 
@@ -55,7 +55,7 @@ install(Encoding)
 
 In addition to intercepting requests and responses, Features can have an option configuration section which is configured during this step.
 
-For instance, when installing [Cookies](working_with_cookies.md) we can set certain parameters such as where we want Cookies to be stored, or their name:
+For instance, when installing `Cookies` we can set certain parameters such as where we want Cookies to be stored, or their name:
 
 ```kotlin
 install(Sessions) {
@@ -68,7 +68,7 @@ install(Sessions) {
 By default, Ktor does not activate any Feature, and it's up to us as developers to install the functionality our application need.
 
 Ktor does however provide a variety of Features that ship out of the box. We can see a complete list of these 
-either on the [Project Generator Site](https://start.ktor.io) or in the [IntelliJ IDEA Wizard](https://plugins.jetbrains.com/plugin/10823-ktor). In addition
+either on the [Project Generator Site](https://start.ktor.io) or in the [IntelliJ IDEA Wizard](intellij-idea.xml). In addition
 we can also create our own [custom Features](Creating_custom_features.md)
 
 For more information about sequencing of Features and how they intercept the request/response pipeline, see [Pipeline](Pipelines.md) in the Advanced section of the

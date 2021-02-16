@@ -1,15 +1,17 @@
 # Timeout
 
-Sample project for [Ktor](https://ktor.io) demonstrating how to use timeout.
+A sample Ktor project demonstrating how to use the [HttpTimeout](https://ktor.io/docs/timeout.html) feature.
 
 ## Running
 
-Execute this command in the repository's root directory to run this sample:
+To run this sample, execute the following command in a repository's root directory:
 
 ```bash
 ./gradlew :timeout:run
 ```
 
-This example consists of two endpoints. First endpoint `/timeout` emulates some long-running process that might hangup.
-Second endpoint `/proxy` represents a proxy to `/timeout` that protects a user against such hang-ups. If user connects
-to `/proxy` and request hanged proxy will automatically abort request using `HttpTimeout` feature.
+This example consists of two endpoints:
+* `/timeout` emulates some long-running process that might hangup.
+* `/proxy` represents a proxy to `/timeout` that protects a user against such hang-ups. 
+  
+If a user connects to `/proxy` and request hangs, proxy automatically aborts a request using `HttpTimeout` feature.

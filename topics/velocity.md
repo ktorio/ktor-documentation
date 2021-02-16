@@ -6,8 +6,9 @@ Ktor allows you to use [Velocity templates](https://velocity.apache.org/engine/)
 
 
 ## Add Dependencies {id="add_dependencies"}
-To enable `Velocity` support, you need to include the `ktor-velocity` artifact in the build script:
+<var name="feature_name" value="Velocity"/>
 <var name="artifact_name" value="ktor-velocity"/>
+<include src="lib.md" include-id="add_ktor_artifact_intro"/>
 <include src="lib.md" include-id="add_ktor_artifact"/>
 
 ## Install Velocity {id="install_feature"}

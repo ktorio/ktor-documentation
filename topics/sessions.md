@@ -4,18 +4,23 @@ Sessions provide a mechanism to persist data between different HTTP requests. Ty
 
 In this topic, we'll look at how to configure sessions, install the `Sessions` feature, and set the session's content.
 
+## Add Dependencies {id="add_dependencies"}
+To enable support for sessions, you need to include the `ktor-server-sessions` artifact in the build script:
+<var name="artifact_name" value="ktor-server-sessions"/>
+<include src="lib.md" include-id="add_ktor_artifact"/>
+
 
 ## Session Configuration Overview {id="configure"}
 You can configure sessions in the following ways:
 - *[How to pass data between the server and client](cookie_header.md)*: using cookies or custom headers. Cookies suit better for plain HTML applications while custom headers are intended for APIs.
 - *[Where to store the session payload](client_server.md)*: on the client or server. You can pass the [serialized](serializers.md) session's data to the client using a cookie/header value or store the payload on the server and pass only a session ID.
 - *[How to serialize session data](serializers.md)*: using a default format, JSON, or a custom engine.
-- *[Where to store the payload on the server](storages.md)*: in memory, in a folder, or Redis. You can also implement a custom storage for keeping session data.
+- *[Where to store the payload on the server](storages.md)*: in the server memory or in a folder. You can also implement a custom storage for keeping session data.
 - *[How to transform the payload](transformers.md)*: you can sign or encrypt data sent to the client for security reasons.
 
 
 ## Install Sessions {id="install"}
-Before installing a session, you need to create a [data class](https://kotlinlang.org/docs/reference/data-classes.html) for storing session data, for example:
+Before installing a session, you need to create a [data class](https://kotlinlang.org/docs/data-classes.html) for storing session data, for example:
 ```kotlin
 data class LoginSession(val username: String, val count: Int)
 ```

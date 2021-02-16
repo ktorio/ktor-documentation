@@ -1,22 +1,20 @@
 # Json client
 
-Sample project for [Ktor](https://ktor.io) HTTP client with JSON support feature. 
-
-It runs against either one of the following server-side samples:
-* [gson](../gson/README.md) &mdash; using [Gson](https://github.com/google/gson).
-* [jackson](../jackson/README.md) &mdash; using [Jackson](https://github.com/FasterXML/jackson).
+A sample Ktor project demonstrating the HTTP client with [JsonFeature ](https://ktor.io/docs/json-feature.html). 
 
 ## Running
 
-First run one of the server-side samples.
+First off, run one of the server-side samples:
+* [gson](../gson/README.md)
+* [jackson](../jackson/README.md)
 
-Then run this project with:
+Then, run this project with by executing the following command in a repository's root directory:
 
 ```
 ./gradlew :json-client:run
 ```
 
-The resulting output is:
+The resulting output should be:
 
 ```text
 Requesting model...
