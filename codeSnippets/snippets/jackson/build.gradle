@@ -2,6 +2,7 @@ buildscript {
     ext.jackson_version = '2.9.8'
     
     repositories {
+        jcenter()
         mavenCentral()
     }
     dependencies {
@@ -21,6 +22,7 @@ sourceSets {
 }
 
 repositories {
+    jcenter()
     mavenCentral()
 }
 

@@ -3,6 +3,7 @@ buildscript {
     ext.appengine_plugin_version = '1.3.4'
 
     repositories {
+        jcenter()
         mavenCentral()
     }
     dependencies {
@@ -23,6 +24,7 @@ sourceSets {
 }
 
 repositories {
+    jcenter()
     mavenCentral()
 }
 

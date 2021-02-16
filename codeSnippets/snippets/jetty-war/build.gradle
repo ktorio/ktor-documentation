@@ -2,6 +2,7 @@ buildscript {
     ext.gretty_version = '2.0.0'
 
     repositories {
+        jcenter()
         mavenCentral()
     }
     dependencies {
@@ -27,6 +28,7 @@ sourceSets {
 }
 
 repositories {
+    jcenter()
     mavenCentral()
 }
 
