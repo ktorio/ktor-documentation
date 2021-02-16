@@ -1,13 +1,13 @@
 # AutoHeadResponse
 
-Sample project for [Ktor](https://ktor.io) showing AutoHeadResponse functionality.
+A sample Ktor project showing [AutoHeadResponse](https://ktor.io/docs/autoheadresponse.html) functionality.
 
 ## Running
 
-Execute this command in the repository's root directory to run this sample:
+To run this sample, execute the following command in a repository's root directory:
 
 ```bash
 ./gradlew :autohead:run
 ```
  
-And make a HEAD request to [http://localhost:8080/home] to see the response.
+Then, make a HEAD request to [http://localhost:8080/home](http://localhost:8080/home) to see the response.

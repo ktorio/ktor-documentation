@@ -1,13 +1,13 @@
 # Static content
 
-Sample project for [Ktor](https://ktor.io) serving static content.
+A sample Ktor project demonstrating how to serve [static content](https://ktor.io/docs/serving-static-content.html).
 
 ## Running
 
-Execute this command in the repository's root directory to run this sample:
+To run this sample, execute the following command in a repository's root directory:
 
 ```bash
 ./gradlew :static-content:run
 ```
  
-And navigate to [http://localhost:8080/](http://localhost:8080/) to see the sample home page.  
+Then, navigate to [http://localhost:8080/](http://localhost:8080/) to see the sample home page.  

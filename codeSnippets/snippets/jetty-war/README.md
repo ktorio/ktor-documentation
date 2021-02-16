@@ -1,14 +1,13 @@
 # Jetty WAR
 
-Sample project for [Ktor](https://ktor.io) running as a WAR application under 
-[Jetty](https://www.eclipse.org/jetty/) application server.
+A sample Ktor project running as a [WAR](https://ktor.io/docs/war.html) application under the [Jetty](https://www.eclipse.org/jetty/) application server.
 
 ## Running
 
-Execute this command in the repository's root directory to run this sample:
+To run this sample, execute the following command in a repository's root directory:
 
 ```bash
 ./gradlew :jetty-war:run
 ```
  
-And navigate to [http://localhost:8080/](http://localhost:8080/) to see the sample home page.  
+Then, navigate to [http://localhost:8080/](http://localhost:8080/) to see the sample home page.  

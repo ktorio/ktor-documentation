@@ -1,12 +1,13 @@
 # Client Downloader
 
-Sample project for [Ktor](https://ktor.io) showing how to download and store file with the HttpClient.
+A sample Ktor project showing how to download and store a file with the [Http client](https://ktor.io/docs/client.html).
 
 ## Running
 
-Execute this command in the repository's root directory to run this sample:
+To run this sample, execute the following command in a repository's root directory:
 
 ```bash
 ./gradlew :client-download-file:run
 ```
- 
+
+A client will save a file in a default temporary-file directory.
