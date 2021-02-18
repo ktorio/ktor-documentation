@@ -46,16 +46,33 @@ In fact, what we've been calling `routing` until now, is nothing more than a Fea
 ## Installing Features {id="install"}
 
 Features are generally configured during the initialization phase of the server using the `install`
-function which takes a Feature as a parameter:
+function which takes a Feature as a parameter. Depending on the way you used to [create a server](create_server.xml), you can install a feature inside the `main` function ...
 
 ```kotlin
-install(Routing)
-install(Encoding)
+import io.ktor.features.*
+// ...
+fun Application.main() {
+    install(Routing)
+    install(Encoding)
+    // ...
+}
+```
+
+... or a specified [module](Modules.md):
+
+```kotlin
+import io.ktor.features.*
+// ...
+fun Application.module() {
+    install(Routing)
+    install(Encoding)
+    // ...
+}
 ```
 
 In addition to intercepting requests and responses, Features can have an option configuration section which is configured during this step.
 
-For instance, when installing `Cookies` we can set certain parameters such as where we want Cookies to be stored, or their name:
+For instance, when installing [Cookies](cookie_header.md) we can set certain parameters such as where we want Cookies to be stored, or their name:
 
 ```kotlin
 install(Sessions) {
