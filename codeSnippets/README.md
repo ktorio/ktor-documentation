@@ -7,14 +7,13 @@ This repository contains runnable code examples that show how to work with vario
 Each sample has its own `README` file with instructions on how to run it. You can find links to all samples in the [Samples](https://ktor.io/docs/samples.html) documentation page.
 
 ## Referencing Code Snippets
-To display a specific source file in docs, use the following syntax:
-
+To display a specific source file in a Markdown topic, use the `src` attribute as follows:
 ````
 ```kotlin
 ```
 {src="/snippets/autohead/src/AutoHead.kt"}
 ````
-If you want to display only a specific function, use the `include-symbol` attribute:
+If you want to display only a specific function from this source file, use the `include-symbol` attribute:
 ````
 ```kotlin
 ```
