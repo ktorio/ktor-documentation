@@ -1,59 +1,38 @@
 [//]: # (title: Samples)
 
-<include src="lib.md" include-id="outdated_warning"/>
-
-Ktor comes with a number of examples in its repository, which cover many features and use cases. If you check out the Ktor source code, you can browse various samples, navigate to the implementations and even step through with a debugger to see how it all works.
-
-## Applications {id="applications"}
-* [Chat](https://github.com/ktorio/ktor-samples/tree/1.3.0/app/chat)
-* [HttpBin](https://github.com/ktorio/ktor-samples/tree/1.3.0/app/httpbin)
-* [Kweet](https://github.com/ktorio/ktor-samples/tree/1.3.0/app/kweet)
-* [YouKube](https://github.com/ktorio/ktor-samples/tree/1.3.0/app/youkube)
-
+A [Ktor documentation repository](https://github.com/ktorio/ktor-documentation) comes with a number of [runnable examples](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets), which cover many features and use cases.
 
 ## Deployment {id="deployment"}
-* [Embedded](https://github.com/ktorio/ktor-samples/tree/1.3.0/deployment/netty-embedded)
-* [Netty](https://github.com/ktorio/ktor-samples/tree/1.3.0/deployment/netty/)
-
+* [Netty Embedded](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/netty-embedded)
+* [Netty](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/netty)
+* [Jetty Embedded](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/jetty-embedded)
+* [Jetty](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/jetty)
+* [Jetty WAR](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/jetty-war)
+* [Tomcat WAR](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/tomcat-war)
+* [Docker](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/docker)
+* [Google App Engine Standard](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/google-appengine-standard)
 
 ## Features {id="features"}
-* [Asynchronous](https://github.com/ktorio/ktor-samples/tree/1.3.0/feature/async)
-* [Authenticate](https://github.com/ktorio/ktor-samples/tree/1.3.0/feature/auth)
-* [Custom Feature](https://github.com/ktorio/ktor-samples/tree/1.3.0/feature/custom-feature)
-* [GSON](https://github.com/ktorio/ktor-samples/tree/1.3.0/feature/gson)
-* [Guice](https://github.com/ktorio/ktor-samples/tree/1.3.0/feature/guice)
-* [Html](https://github.com/ktorio/ktor-samples/tree/1.3.0/feature/html-widget)
-* [HTTP/2](https://github.com/ktorio/ktor-samples/blob/1.3.0/feature/http2-push)
-* [Jackson](https://github.com/ktorio/ktor-samples/tree/1.3.0/feature/jackson)
-* [Locations](https://github.com/ktorio/ktor-samples/tree/1.3.0/feature/locations)
-* [Metrics](https://github.com/ktorio/ktor-samples/blob/1.3.0/feature/metrics/)
-* [POST](https://github.com/ktorio/ktor-samples/blob/1.3.0/feature/post)
-* [Static](https://github.com/ktorio/ktor-samples/tree/1.3.0/feature/static-content)
-* [Testable](https://github.com/ktorio/ktor-samples/tree/1.3.0/feature/testable)
+* [Asynchronous](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/async)
+* [Authenticate](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/auth)
+* [AutoHeadResponse](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/autohead)
+* [Custom Feature](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/custom-feature)
+* [GSON](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/gson)
+* [Guice](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/guice)
+* [Html](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/html-widget)
+* [HTTP/2](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/http2-push)
+* [Jackson](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/jackson)
+* [Locations](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/locations)
+* [Metrics](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/metrics)
+* [POST](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/post)
+* [Sessions](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/sessions)
+* [SSL](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/ssl)
+* [Static](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/static-content)
+* [Testable](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/testable)
 
 
-## FullStack {id="full_stack"}
-* [FullStack MPP](https://github.com/ktorio/ktor-samples/tree/1.3.0/mpp/fullstack-mpp)
-* [FullStack](https://github.com/Kotlin/kotlin-fullstack-sample)
+## Client {id="client"}
+* [Client Downloader](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/client-download-file)
+* [Json client](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/json-client)
+* [Timeout](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/timeout)
 
-
-## Other {id="other"}
-* [Client Multipart](https://github.com/ktorio/ktor-samples/tree/1.3.0/other/client-multipart)
-* [Client Tools](https://github.com/ktorio/ktor-samples/tree/1.3.0/other/client-tools)
-* [CSS DSL](https://github.com/ktorio/ktor-samples/tree/1.3.0/other/css-dsl)
-* [Kodein DI](https://github.com/ktorio/ktor-samples/tree/1.3.0/other/di-kodein)
-* [File Listing](https://github.com/ktorio/ktor-samples/tree/1.3.0/other/filelisting)
-* [Maven with Google App Engine](https://github.com/ktorio/ktor-samples/tree/1.3.0/other/maven-google-appengine-standard)
-* [Maven with Netty](https://github.com/ktorio/ktor-samples/tree/1.3.0/other/maven-netty)
-* [Multiple Connectors](https://github.com/ktorio/ktor-samples/tree/1.3.0/other/multiple-connectors)
-* [Proguard](https://github.com/ktorio/ktor-samples/tree/1.3.0/other/proguard)
-* [Redirect with Exception](https://github.com/ktorio/ktor-samples/tree/1.3.0/other/redirect-with-exception)
-* [Reverse Proxy](https://github.com/ktorio/ktor-samples/tree/1.3.0/other/reverse-proxy)
-* [RX](https://github.com/ktorio/ktor-samples/tree/1.3.0/other/rx)
-* [Simulate Slow Server](https://github.com/ktorio/ktor-samples/tree/1.3.0/other/simulate-slow-server)
-* [SSE (Server-Sent Events)](https://github.com/ktorio/ktor-samples/tree/1.3.0/other/sse)
-* [Structured Logging](https://github.com/ktorio/ktor-samples/tree/1.3.0/other/structured-logging)
-
-
-## Open Source {id="open_source"}
-* [Javanese.Online](https://github.com/JavaneseOnline/JavaneseBackend)
