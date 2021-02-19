@@ -15,13 +15,13 @@ In this page, you will learn how to deploy your application to several providers
 ## Samples
 {id="samples"}
 
-In the Ktor's samples repository, you can find examples and README files
-on [how to deploy to specific providers](https://github.com/ktorio/ktor-samples/tree/1.3.0/deployment).
+In the Ktor's samples repository, you can find examples and README files on how to deploy to specific providers.
 
-* <https://github.com/ktorio/ktor-samples/tree/1.3.0/deployment/docker>
-* <https://github.com/ktorio/ktor-samples/tree/1.3.0/deployment/google-appengine-standard>
-* <https://github.com/ktorio/ktor-samples/tree/1.3.0/deployment/jetty-embedded>
-* <https://github.com/ktorio/ktor-samples/tree/1.3.0/deployment/jetty-war>
-* <https://github.com/ktorio/ktor-samples/tree/1.3.0/deployment/jetty>
-* <https://github.com/ktorio/ktor-samples/tree/1.3.0/deployment/netty>
-* <https://github.com/ktorio/ktor-samples/tree/1.3.0/deployment/tomcat-war>
+* [Netty Embedded](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/netty-embedded)
+* [Netty](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/netty)
+* [Jetty Embedded](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/jetty-embedded)
+* [Jetty](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/jetty)
+* [Jetty WAR](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/jetty-war)
+* [Tomcat WAR](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/tomcat-war)
+* [Docker](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/docker)
+* [Google App Engine Standard](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/google-appengine-standard)
