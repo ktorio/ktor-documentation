@@ -3,7 +3,7 @@
 <include src="lib.md" include-id="outdated_warning"/>
 
 >You can check out a full google appengine sample, here:
-><https://github.com/ktorio/ktor-samples/tree/1.3.0/deployment/google-appengine-standard>
+><https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/google-appengine-standard>
 >
 {type="note"}
 
@@ -189,7 +189,7 @@ task run(dependsOn: appengineRun)
 
 Once everything is configured, you can now run the application locally, using the gradle task `appengineRun`:
 
-In this case, these commands are executed in the root of the ktor-samples repository <https://github.com/ktorio/ktor-samples/>:  
+In this case, these commands are executed in the root of the codeSnippets project <https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets>:  
 
 ```text
 ./gradlew :google-appengine-standard:appengineRun

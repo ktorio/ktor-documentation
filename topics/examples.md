@@ -56,6 +56,6 @@ fun Application.mymodule() {
 }
 ```
 
->You can check the [ktor-samples](https://github.com/ktorio/ktor-samples) and [ktor-exercises](https://github.com/ktorio/ktor-exercises) repositories for samples and exercises.
+>You can check the [ktor-samples](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets) repository for samples.
 >
 {type="note"}
