@@ -9,6 +9,7 @@ def module(group, name) {
 
 // ---------------------------
 
+module('snippets', 'default-headers')
 module('snippets', 'netty')
 module('snippets', 'netty-embedded')
 module('snippets', 'jetty')
