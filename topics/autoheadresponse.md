@@ -1,5 +1,10 @@
 [//]: # (title: Auto Head Response)
 
+<microformat>
+<var name="example_name" value="autohead"/>
+<include src="lib.md" include-id="download_example"/>
+</microformat>
+
 
 The `AutoHeadResponse` feature provides us with the ability to automatically respond to `HEAD` request for every route that has a `GET` defined.
 

@@ -1,5 +1,10 @@
 [//]: # (title: Creating Custom Features)
 
+<microformat>
+<var name="example_name" value="custom-feature"/>
+<include src="lib.md" include-id="download_example"/>
+</microformat>
+
 <include src="lib.md" include-id="outdated_warning"/>
 
 You can develop your own features and reuse them across all your Ktor applications, or you can share them with the community.
@@ -53,7 +58,3 @@ fun Application.main() {
     }
 }
 ```
-
-See a complete example in the [custom feature sample](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/custom-feature).
-
-

@@ -1,5 +1,10 @@
 [//]: # (title: Docker)
 
+<microformat>
+<var name="example_name" value="docker"/>
+<include src="lib.md" include-id="download_example"/>
+</microformat>
+
 In this section we'll see how to deploy a Ktor application to a [Docker](https://www.docker.com) container which can then be run either locally or on
 your cloud provider of choice.
 
@@ -69,7 +74,7 @@ to run the image.
 
 ## Building and running the Docker image
 
-First step is to build the actual application (in this case using Gradle)
+First step is to build the actual application (in this case using Gradle):
 
 ```bash
 ./gradlew build
@@ -90,11 +95,7 @@ docker run -p 8080:8080 my-application
 For more information about running a docker image please consult [docker run](https://docs.docker.com/engine/reference/run) 
 documentation.
 
-If using [IntelliJ IDEA](https://www.jetbrains.com/idea), you can simply click `Run` in the Dockcerfile
-to perform these steps
+If using [IntelliJ IDEA](https://www.jetbrains.com/idea), you can simply click `Run` in the Dockerfile
+to perform these steps.
 
 ![Docker Run](run-docker.png){width="291"}
-
->Download the [full example](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/docker).
->
-{type="note"}

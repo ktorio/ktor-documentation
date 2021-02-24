@@ -1,5 +1,10 @@
 [//]: # (title: Authentication and Authorization)
 
+<microformat>
+<var name="example_name" value="auth"/>
+<include src="lib.md" include-id="download_example"/>
+</microformat>
+
 <include src="lib.md" include-id="outdated_warning"/>
 
 

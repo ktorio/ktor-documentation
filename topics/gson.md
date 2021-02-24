@@ -1,5 +1,10 @@
 [//]: # (title: Gson)
 
+<microformat>
+<var name="example_name" value="gson"/>
+<include src="lib.md" include-id="download_example"/>
+</microformat>
+
 [ContentNegotiation](serialization.md) provides the built-in [Gson](https://github.com/google/gson) converter for handing JSON data in your application.
 
 

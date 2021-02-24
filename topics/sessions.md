@@ -1,5 +1,10 @@
 [//]: # (title: Sessions)
 
+<microformat>
+<var name="example_name" value="sessions"/>
+<include src="lib.md" include-id="download_example"/>
+</microformat>
+
 Sessions provide a mechanism to persist data between different HTTP requests. Typical use cases include storing a logged-in user's ID, the contents of a shopping basket, or keeping user preferences on the client. In Ktor, you can implement sessions by using cookies or custom headers, choose whether to store session data on the server or pass it to the client, sign and encrypt session data, and more.
 
 In this topic, we'll look at how to configure sessions, install the `Sessions` feature, and set the session's content.
