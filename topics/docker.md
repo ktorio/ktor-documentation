@@ -42,7 +42,7 @@ can be accomplished using the [assembly](http://maven.apache.org/guides/mini/gui
 
 ```kotlin
 ```
-{src ="snippets/docker/src/HelloAppliction.kt"}
+{src ="snippets/docker/src/HelloApplication.kt"}
 
 </tab>
 
