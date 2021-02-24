@@ -6,7 +6,7 @@
         <download-page>https://ktor.io/download/</download-page>
         <config-showDownloadButton>true</config-showDownloadButton>
         <enable-browser-edits>true</enable-browser-edits>
-        <browser-edits-url>https://github.com/ktorio/ktor-documentation/tree/master/</browser-edits-url>
+        <browser-edits-url>https://github.com/ktorio/ktor-documentation/edit/master/</browser-edits-url>
         <search-scope/>
         <fallback-url/>
         <help-app-version>3</help-app-version>
