@@ -26,7 +26,7 @@ can be accomplished using the [assembly](http://maven.apache.org/guides/mini/gui
 
 ```groovy
 ```
-{src="docker/build.gradle"}
+{src="snippets/docker/build.gradle"}
 
 </tab>
 
@@ -34,7 +34,7 @@ can be accomplished using the [assembly](http://maven.apache.org/guides/mini/gui
 
 ```groovy
 ```
-{src="resources/application.conf"}
+{src="snippets/docker/resources/application.conf"}
 
 </tab>
 
@@ -42,7 +42,7 @@ can be accomplished using the [assembly](http://maven.apache.org/guides/mini/gui
 
 ```kotlin
 ```
-{src ="src/HelloAppliction.kt"}
+{src ="snippets/docker/src/HelloAppliction.kt"}
 
 </tab>
 
@@ -55,7 +55,7 @@ In the root folder of the project create a file named `Dockerfile` with the foll
 
 ```dockerfile
 ```
-{src="docker-sample.Dockerfile"}
+{src="snippets/docker/Dockerfile"}
 
 
 The Dockerfile indicates a few things:
@@ -93,7 +93,7 @@ documentation.
 If using [IntelliJ IDEA](https://www.jetbrains.com/idea), you can simply click `Run` in the Dockcerfile
 to perform these steps
 
-![Docker Run](run-docker.png)
+![Docker Run](run-docker.png){width="291"}
 
 >Download the [full example](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/docker).
 >
