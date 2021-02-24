@@ -6,12 +6,10 @@ buildscript {
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "com.github.jengelman.gradle.plugins:shadow:5.0.0"
     }
 }
 
 apply plugin: 'kotlin'
-apply plugin: "com.github.johnrengelman.shadow"
 apply plugin: 'application'
 
 mainClassName = "io.ktor.server.netty.EngineMain"
@@ -24,7 +22,6 @@ sourceSets {
 repositories {
     jcenter()
     mavenCentral()
-    maven { url "https://dl.bintray.com/kotlin/ktor" }
 }
 
 dependencies {
@@ -32,11 +29,5 @@ dependencies {
     compile "io.ktor:ktor-server-netty:$ktor_version"
     compile "io.ktor:ktor-html-builder:$ktor_version"
     compile "ch.qos.logback:logback-classic:$logback_version"
-}
-
-shadowJar {
-    baseName = 'my-application'
-    classifier = null
-    version = null
 }
 
