@@ -1,5 +1,10 @@
 [//]: # (title: SSL)
 
+<microformat>
+<var name="example_name" value="ssl"/>
+<include src="lib.md" include-id="download_example"/>
+</microformat>
+
 <include src="lib.md" include-id="outdated_warning"/>
 
 You can buy a certificate and configure Ktor to use it,

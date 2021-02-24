@@ -1,5 +1,10 @@
 [//]: # (title: Dropwizard Metrics)
 
+<microformat>
+<var name="example_name" value="metrics"/>
+<include src="lib.md" include-id="download_example"/>
+</microformat>
+
 <include src="lib.md" include-id="outdated_warning"/>
 
 The Metrics feature allows you to configure the [Metrics](http://metrics.dropwizard.io/4.0.0/)

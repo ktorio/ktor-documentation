@@ -1,5 +1,10 @@
 [//]: # (title: Testing)
 
+<microformat>
+<var name="example_name" value="testable"/>
+<include src="lib.md" include-id="download_example"/>
+</microformat>
+
 <include src="lib.md" include-id="outdated_warning"/>
 
 Ktor is designed to allow the creation of applications that are easily testable. And of course,

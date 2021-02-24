@@ -2,6 +2,11 @@
 
 <include src="lib.md" include-id="outdated_warning"/>
 
+<microformat>
+<var name="example_name" value="timeout"/>
+<include src="lib.md" include-id="download_example"/>
+</microformat>
+
 Timeout allows limiting the time of the request execution or execution steps such as a connection or a TCP packet awaiting. The following timeout types are available:
 
 * __request timeout__ — time-bound of the whole request processing,

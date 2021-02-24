@@ -1,5 +1,10 @@
 [//]: # (title: Jackson)
 
+<microformat>
+<var name="example_name" value="jackson"/>
+<include src="lib.md" include-id="download_example"/>
+</microformat>
+
 [ContentNegotiation](serialization.md) provides the built-in [Jackson](https://github.com/FasterXML/jackson) converter for handing JSON data in your application. 
 
 ## Add Dependencies {id="add_dependencies"}

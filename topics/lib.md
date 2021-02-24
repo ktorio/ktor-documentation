@@ -116,3 +116,11 @@ On the Welcome screen, click <control>New Project</control>.
 Otherwise, from the main menu, select <menupath>File | New | Project</menupath>.
 </p>
 </chunk>
+
+
+
+<chunk id="download_example">
+<p>
+Code example: <a href="https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/%example_name%">%example_name%</a>
+</p>
+</chunk>
