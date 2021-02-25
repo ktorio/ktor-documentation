@@ -10,11 +10,6 @@ application {
     // applicationDefaultJvmArgs = ["-Dio.ktor.development=true"]
 }
 
-sourceSets {
-    main.kotlin.srcDirs = [ 'src']
-    main.resources.srcDirs = [ 'resources' ]
-}
-
 repositories {
     jcenter()
     mavenCentral()

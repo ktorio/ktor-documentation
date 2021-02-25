@@ -1,4 +1,4 @@
-package io.ktor.snippets.autoreload
+package com.example
 
 import io.ktor.application.*
 import io.ktor.features.*
@@ -13,4 +13,3 @@ fun Application.main() {
         }
     }
 }
-

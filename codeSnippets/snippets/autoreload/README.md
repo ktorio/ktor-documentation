@@ -1,6 +1,6 @@
 # Auto-reload
 
-A sample Ktor project showing [Auto-reload](https://ktor.io/docs/auto-reload.html) functionality. This feature works only in a development mode, which is enabled in [application.conf](resources/application.conf).
+A sample Ktor project showing [Auto-reload](https://ktor.io/docs/auto-reload.html) functionality. This feature works only in a development mode, which is enabled in [application.conf](src/main/resources/application.conf).
 
 ## Running
 
@@ -15,5 +15,5 @@ Follow the steps below to see the Auto-reload feature in action:
    ./gradlew :autoreload:run
    ```
 1. Open [http://localhost:8080/](http://localhost:8080/) to see a sample text in a browser.
-1. Change a text passed to the  `respondText` method in [Autoreload.kt](src/Autoreload.kt) and save a file.
+1. Change a text passed to the  `respondText` method in [Autoreload.kt](src/main/kotlin/com/example/Autoreload.kt) and save a file.
 1. Refresh the [http://localhost:8080/](http://localhost:8080/) page to see the updated text.
