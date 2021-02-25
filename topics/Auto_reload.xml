@@ -6,6 +6,11 @@
        title="Auto-reload"
        id="Auto_reload">
 
+    <microformat>
+        <var name="example_name" value="autoreload"/>
+        <include src="lib.md" include-id="download_example"/>
+    </microformat>
+
     <p>
         <a href="running.md">Restarting</a> a server during development might take some time. Ktor allows you to overcome this limitation by using the <emphasis>Auto-reload</emphasis> feature, which reloads application classes on code changes and provides a fast feedback loop.
     </p>
