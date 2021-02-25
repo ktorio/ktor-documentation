@@ -9,11 +9,11 @@ Since the Auto-reload feature detects changes in output files, we need to enable
 ./gradlew -t :autoreload:build
 ```
 
-Then, follow the steps below to see the Auto-reload feature in action:
+Follow the steps below to see the Auto-reload feature in action:
 1. Open another terminal tab and run a sample:
    ```bash
    ./gradlew :autoreload:run
    ```
-1. Open [http://localhost:8080/](http://localhost:8080/) to see a sample text.
-1. Change a text passed to the  `respondText` method in [Autoreload.kt](src/Autoreload.kt) and save the file.
+1. Open [http://localhost:8080/](http://localhost:8080/) to see a sample text in a browser.
+1. Change a text passed to the  `respondText` method in [Autoreload.kt](src/Autoreload.kt) and save a file.
 1. Refresh the [http://localhost:8080/](http://localhost:8080/) page to see the updated text.
