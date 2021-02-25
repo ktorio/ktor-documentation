@@ -14,7 +14,7 @@ apply plugin: 'application'
 mainClassName = "io.ktor.server.netty.EngineMain"
 
 application {
-    // Uncomment this line to enable the development mode.
+    // As an alternative way, uncomment this line to enable the development mode using the 'io.ktor.development' system property
     // applicationDefaultJvmArgs = ["-Dio.ktor.development=true"]
 }
 
