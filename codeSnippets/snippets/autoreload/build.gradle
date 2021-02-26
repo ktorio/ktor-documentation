@@ -1,0 +1,23 @@
+plugins {
+    id 'application'
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+mainClassName = "io.ktor.server.netty.EngineMain"
+
+application {
+    // As an alternative way, uncomment this line to enable the development mode using the 'io.ktor.development' system property
+    // applicationDefaultJvmArgs = ["-Dio.ktor.development=true"]
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compile "io.ktor:ktor-server-netty:$ktor_version"
+    compile "io.ktor:ktor-html-builder:$ktor_version"
+    compile "ch.qos.logback:logback-classic:$logback_version"
+}
