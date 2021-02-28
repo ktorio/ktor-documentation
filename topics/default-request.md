@@ -8,7 +8,7 @@ This feature allows you to configure some defaults for all the requests for a sp
 
 ## Installation
 
-When configuring the client, there is an extension method provided by this feature to set come defaults for this client.
+When configuring the client, there is an extension method provided by this feature to set some defaults for this client.
 For example, if you want to add a header to all the requests, or configure the host, port, and method or just set the path.
 
 ```kotlin
