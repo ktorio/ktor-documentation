@@ -230,9 +230,9 @@ How do the [standard events from the WebSocket API](https://developer.mozilla.or
 * `onConnect` happens at the start of the block.
 * `onMessage` happens after successfully reading a message (for example with `incoming.receive()`) or using suspended iteration with `for(frame in incoming)`.
 * `onClose` happens when the `incoming` channel is closed. That would complete the suspended iteration, or throw a `ClosedReceiveChannelException` when trying to receive a message`.
-* `onError` is equivalent to other other exceptions.
+* `onError` is equivalent to other exceptions.
 
-In both `onClose` and `onError`, the [`closeReason` property](https://api.ktor.io/1.0.0-beta-1/io.ktor.http.cio.websocket/-default-web-socket-session/close-reason.html) is set.
+In both `onClose` and `onError`, the [`closeReason` property](https://api.ktor.io/%ktor_version%/io.ktor.http.cio.websocket/-default-web-socket-session/close-reason.html) is set.
 
 To illustrate this:
 

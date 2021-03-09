@@ -34,7 +34,7 @@ The default serializer converts data into a [form-url-encoded](https://developer
 ## Custom Serializers
 {id="extending-serializers"}
 
-The Sessions API provides the [`SessionSerializer`](https://api.ktor.io/1.5.0/io.ktor.sessions/-session-serializer/index.html) interface that looks like this:
+The Sessions API provides the [`SessionSerializer`](https://api.ktor.io/%ktor_version%/io.ktor.sessions/-session-serializer/index.html) interface that looks like this:
 
 ```kotlin
 interface SessionSerializer<T> {
