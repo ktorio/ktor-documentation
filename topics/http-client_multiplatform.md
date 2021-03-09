@@ -78,24 +78,4 @@ dependencies {
 
 There is a full sample using the common client in the ktor-samples repository [mpp/client-mpp](https://github.com/ktorio/ktor-samples/tree/1.3.0/mpp/client-mpp).
 
-You can use this project as a reference. This project also expose some experimental Gradle tasks to build, install and run the
-Android and iOS applications directly from Gradle.
-
-### Android tasks
-
-* `:client-mpp-android:emulatorList` - lists all the available emulators
-* `:client-mpp-android:emulatorStart` - starts the emulator (this would block Gradle for now, so better to do in a separate terminal)
-* `:client-mpp-android:emulatorInstall` - install the application inside the emulator
-* `:client-mpp-android:emulatorRun` - executes the application inside the emulator
-
-### iOS tasks
-
-* `:client-mpp-ios:startSimulator` - starts the simulator
-* `:client-mpp-ios:shutdownSimulator` - shutdowns the simulator
-* `:client-mpp-ios:buildXcode` - builds the XCode project that uses the .framework from Kotlin/Native
-* `:client-mpp-ios:installSimulator` - installs the application inside the simulator
-* `:client-mpp-ios:launchSimulator` - executes the application inside the simulator
-
-Since those tasks are experimental, might fail with your specific setup. Please let us know so we can improve them.
-Or help us with [the iOS tasks](https://github.com/ktorio/ktor-samples/blob/1.3.0/mpp/client-mpp/ios/build.gradle){target="_blank"},
-and [the Android ones](https://github.com/ktorio/ktor-samples/blob/1.3.0/mpp/client-mpp/android/build.gradle){target="_blank"}.
+You can use this project as a reference.
