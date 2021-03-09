@@ -35,5 +35,6 @@ A [Ktor documentation repository](https://github.com/ktorio/ktor-documentation) 
 ## Client {id="client"}
 * [Client Downloader](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/client-download-file)
 * [Json client](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/json-client)
+* [Logging](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/client-logging)
 * [Timeout](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/timeout)
 
