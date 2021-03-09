@@ -78,4 +78,4 @@ dependencies {
 
 There is a full sample using the common client in the ktor-samples repository [mpp/client-mpp](https://github.com/ktorio/ktor-samples/tree/1.3.0/mpp/client-mpp).
 
-You can use this project as a reference.
+You can use this project as a reference. Please check Kotlin documentation to learn about running different targets: [JVM](https://kotlinlang.org/docs/jvm-get-started.html), [Native](https://kotlinlang.org/docs/native-get-started.html), [JS](https://kotlinlang.org/docs/js-get-started.html)
