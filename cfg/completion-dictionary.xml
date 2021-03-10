@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE dictionary
-        SYSTEM "https://helpserver.labs.jb.gg/help/completion-dictionary.dtd">
+        SYSTEM "https://resources.jetbrains.com/stardust/completion-dictionary.dtd">
 <dictionary>
     <entry-set for="img/alt">
         <entry>%image_id%</entry>
