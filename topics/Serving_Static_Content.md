@@ -33,7 +33,7 @@ In order to serve the contents from a folder, we need to specify the folder name
 ```kotlin
 routing {
     static("assets") {
-      files("css")
+        files("css")
     }
 }
 ```
@@ -48,8 +48,8 @@ We can have as many folders as we like under a single path. For instance the fol
 ```kotlin
 routing {
     static("assets") {
-      files("css")
-      files("js")
+        files("css")
+        files("js")
     }
 }
 ```
@@ -75,8 +75,8 @@ For a specific path, we can also define the default file to be loaded:
 ```kotlin
 routing {
     static("assets") {
-      files("css")
-      default("index.html")
+        files("css")
+        default("index.html")
     }
 }
 ```
@@ -144,8 +144,8 @@ We can have as many resources as we like under a single path. For instance the f
 ```kotlin
 routing {
     static("assets") {
-      resources("css")
-      resources("js")
+        resources("css")
+        resources("js")
     }
 }
 ```
@@ -170,8 +170,8 @@ For a specific path, we can also define the default file to be loaded:
 ```kotlin
 routing {
     static("assets") {
-      resources("css")
-      defaultResource("index.html")
+        resources("css")
+        defaultResource("index.html")
     }
 }
 ```
