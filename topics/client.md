@@ -4,7 +4,7 @@ Ktor includes a multiplatform asynchronous HTTP client, which allows you to make
 In this topic, we'll take an overview of the client - from setting it up to making requests and installing features. 
 
 ## Add Dependencies {id="add-dependencies"}
-To use the Ktor HTTP client in your project, you need to add at least two dependencies: a client dependency and an [engine](http-client_engines.md) dependency. If you want to extend the client functionality with specific features, you also need to add the appropriate dependencies.
+To use the Ktor HTTP client in your project, you need to add at least two dependencies: a client dependency and an [engine](http-client_engines.md) dependency. If you want to extend the client functionality with specific [features](http-client_features.md), you also need to add the appropriate dependencies.
 
 ### Client Dependency {id="client-dependency"}
 The main client functionality is available in the `ktor-client-core` artifact. Depending on your build system, you can add it in the following way:
@@ -13,7 +13,7 @@ The main client functionality is available in the `ktor-client-core` artifact. D
 
 
 ### Engine Dependency {id="engine-dependency"}
-An engine is in charge of processing network requests. There are different client engines are available for [various platforms](http-client_multiplatform.md), such as Apache, CIO, Android, iOS, and so on. For example, you can add a `CIO` engine dependency as follows:
+An engine is in charge of processing network requests. There are different client engines available for [various platforms](http-client_multiplatform.md), such as Apache, CIO, Android, iOS, and so on. For example, you can add a `CIO` engine dependency as follows:
 <var name="artifact_name" value="ktor-client-cio"/>
 <include src="lib.md" include-id="add_ktor_artifact"/>
 
@@ -45,7 +45,7 @@ In this case, the client will choose an engine automatically depending on the ar
 
 ### Basic Configuration {id="basic-config"}
 
-To configure the client, you can pass additional functional parameter to client constructor. The client configured with [HttpClientEngineConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine/-http-client-engine-config/index.html). In the example below, receiving HTTP errors in response don't cause exceptions:
+To configure the client, you can pass an additional functional parameter to the client constructor. The [HttpClientEngineConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine/-http-client-engine-config/index.html) class is a base class for configuring the client. In the example below, receiving HTTP errors in response don't cause exceptions:
 
 ```kotlin
 val client = HttpClient(CIO) {
@@ -54,7 +54,7 @@ val client = HttpClient(CIO) {
 ```
 
 ### Engine Configuration {id="engine-config"}
-You also can configure an engine using the `engine` method in a block:
+You can configure an engine using the `engine` method in a block:
 
 ```kotlin
 val client = HttpClient(CIO) {
@@ -132,7 +132,7 @@ val response: HttpResponse = client.post("http://127.0.0.1:8080/") {
 
 
 ### Receive a Response {id="response"}
-Depending on your requirements, the client allows you to receive a response in several ways:
+Functions used to make a request (`request`, `get`, `post`, etc.) allow you to receive a response in several ways:
 * As an [HttpResponse](https://api.ktor.io/%ktor_version%/io.ktor.client.statement/-http-response/index.html) object:
    ```kotlin
    val httpResponse: HttpResponse = client.get("https://ktor.io/")
@@ -167,4 +167,4 @@ val status = HttpClient().use { client ->
 }
 ```
 
-Note that the `close` function prohibits the creation of new requests, but doesn't terminate currently active ones. Resources will only be released after all client requests are completed.
+Note that the `close` function prohibits creating new requests but doesn't terminate currently active ones. Resources will only be released after all client requests are completed.
