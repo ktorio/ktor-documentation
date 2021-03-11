@@ -98,7 +98,7 @@
                 <p>
                     Open the <path>pom.xml</path> file. It should look something like this:
                 </p>
-                <code style="block" lang="XML"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+                <code style="block" lang="XML" interpolate-variables="true"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -196,7 +196,7 @@
                 <p>
                     The <code>properties</code> and <code>dependencies</code> blocks might look as follows:
                 </p>
-                <code style="block" lang="XML"><![CDATA[<properties>
+                <code style="block" lang="XML" interpolate-variables="true"><![CDATA[<properties>
     <ktor.version>%ktor_version%</ktor.version>
     <logback_version>%logback_version%</logback_version>
 </properties>
@@ -227,7 +227,7 @@
                 <p>
                     The resulting <path>pom.xml</path> file should look something like this:
                 </p>
-                <code style="block" lang="XML"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+                <code style="block" lang="XML" interpolate-variables="true"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
