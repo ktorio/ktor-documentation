@@ -41,7 +41,7 @@ The _ProxyConfig_ class maps to [Proxy](https://docs.oracle.com/javase/7/docs/ap
 val httpProxy = Proxy(Proxy.Type.HTTP, InetSocketAddress(4040))
 ```
 
-The most of Jvm client engines support it out of the box.
+Most Jvm client engines support it out of the box.
 
 Note: Apache and CIO engines support HTTP proxy only. Jetty client engine doesn't support any proxy.
 
