@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE terms SYSTEM "https://helpserver.labs.jb.gg/help/glossary.dtd">
+<!DOCTYPE terms SYSTEM "https://resources.jetbrains.com/stardust/glossary.dtd">
 <terms>
     <term name="changelist">
         A set of local changes that you haven't committed to a VCS yet. All changes to project files are automatically placed
