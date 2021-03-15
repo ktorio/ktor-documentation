@@ -1,3 +1,7 @@
+import io.ktor.client.*
+import io.ktor.client.engine.apache.*
+import org.apache.http.HttpHost
+
 val client = HttpClient(Apache) {
     engine {
         // this: [[[ApacheEngineConfig|https://api.ktor.io/%ktor_version%/io.ktor.client.engine.apache/-apache-engine-config/index.html]]]
@@ -13,7 +17,7 @@ val client = HttpClient(Apache) {
             // ...
         }
         customizeRequest {
-            // this: RequestConfig.Builder from Apache.
+            // this: RequestConfig.Builder
         }
     }
 }

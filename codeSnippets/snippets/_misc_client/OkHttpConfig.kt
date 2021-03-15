@@ -1,11 +1,14 @@
+import io.ktor.client.*
+import io.ktor.client.engine.okhttp.*
+
 val client = HttpClient(OkHttp) {
     engine {
-        // https://square.github.io/okhttp/3.x/okhttp/okhttp3/OkHttpClient.Builder.html
-        config { // this: OkHttpClient.Builder ->
+        // this: [[[OkHttpConfig|https://api.ktor.io/%ktor_version%/io.ktor.client.engine.okhttp/-ok-http-config/index.html]]]
+        config {
+            // this: OkHttpClient.Builder
             followRedirects(true)
             // ...
         }
-        // https://square.github.io/okhttp/3.x/okhttp/okhttp3/Interceptor.html
         addInterceptor(interceptor)
         addNetworkInterceptor(interceptor)
 
