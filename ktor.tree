@@ -199,7 +199,8 @@
         <toc-element id="getting_started_ktor_client.xml"/>
         <toc-element id="client.md"
                      accepts-web-file-names="clients-index.html,quick-start.html"/>
-        <toc-element id="http-client_engines.md"/>
+        <toc-element id="http-client_engines.md"
+                     show-structure-depth="2"/>
         <toc-element id="http-client_multiplatform.md"/>
         <toc-element id="request.md"/>
         <toc-element id="response.md">
