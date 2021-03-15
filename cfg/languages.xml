@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE lexers
-SYSTEM "https://helpserver.labs.jb.gg/help/languages.dtd">
+SYSTEM "https://resources.jetbrains.com/stardust/languages.dtd">
 <lexers>
     <lexer name="Java" lang="java"/>
     <lexer name="Actionscript" lang="actionscript"/>

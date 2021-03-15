@@ -1,4 +1,4 @@
-<topic xmlns="" xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/topic.v2.xsd"
+<topic xmlns="" xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="development_mode" title="Development Mode">
     <p>
         Ktor provides a special mode targeted for development. This mode enables the following capabilities:

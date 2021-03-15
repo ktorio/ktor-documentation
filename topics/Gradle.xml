@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/html-entities.dtd">
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
 
-<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/topic.v2.xsd"
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        title="Gradle"
        id="Gradle">
@@ -89,7 +89,7 @@
                 </p>
                 <tabs>
                     <tab title="Gradle (Groovy)">
-                        <code style="block" lang="Groovy">
+                        <code style="block" lang="Groovy" interpolate-variables="true">
                             plugins {
                                 id 'org.jetbrains.kotlin.jvm' version '%kotlin_version%'
                             }
@@ -107,7 +107,7 @@
                         </code>
                     </tab>
                     <tab title="Gradle (Kotlin)">
-                        <code style="block" lang="Kotlin">
+                        <code style="block" lang="Kotlin" interpolate-variables="true">
                             plugins {
                                 kotlin("jvm") version "%kotlin_version%"
                             }
@@ -156,7 +156,7 @@
                 </p>
                 <tabs>
                     <tab title="Gradle (Groovy)">
-                        <code style="block" lang="Groovy">
+                        <code style="block" lang="Groovy" interpolate-variables="true">
                             dependencies {
                                 implementation "io.ktor:ktor-server-core:%ktor_version%"
                                 implementation "io.ktor:ktor-server-netty:%ktor_version%"
@@ -165,7 +165,7 @@
                         </code>
                     </tab>
                     <tab title="Gradle (Kotlin)">
-                        <code style="block" lang="Kotlin">
+                        <code style="block" lang="Kotlin" interpolate-variables="true">
                             dependencies {
                                 implementation("io.ktor:ktor-server-core:%ktor_version%")
                                 implementation("io.ktor:ktor-server-netty:%ktor_version%")
@@ -331,7 +331,7 @@
                 </p>
                 <tabs>
                     <tab title="Gradle (Groovy)">
-                        <code style="block" lang="Groovy">
+                        <code style="block" lang="Groovy" interpolate-variables="true">
                             plugins {
                                 id 'application'
                                 id 'org.jetbrains.kotlin.jvm' version '%kotlin_version%'
@@ -357,7 +357,7 @@
                         </code>
                     </tab>
                     <tab title="Gradle (Kotlin)">
-                        <code style="block" lang="Kotlin">
+                        <code style="block" lang="Kotlin" interpolate-variables="true">
                             plugins {
                                 application
                                 kotlin("jvm") version "%kotlin_version%"
