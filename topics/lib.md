@@ -10,6 +10,7 @@ fun Application.main() {
   // ...
 }
 ```
+{interpolate-variables="true"}
 
 ... or a specified [module](Modules.md):
 
@@ -21,6 +22,7 @@ fun Application.module() {
     // ...
 }
 ```
+{interpolate-variables="true"}
 
 </chunk>
 
@@ -35,17 +37,17 @@ To enable `%feature_name%` support, you need to include the `%artifact_name%` ar
 <chunk id="add_ktor_artifact">
 <tabs>
     <tab title="Gradle (Groovy)">
-        <code style="block" lang="Groovy" title="Sample">
+        <code style="block" lang="Groovy" title="Sample" interpolate-variables="true">
             implementation "io.ktor:%artifact_name%:$ktor_version"
         </code>
     </tab>
     <tab title="Gradle (Kotlin)">
-        <code style="block" lang="Kotlin" title="Sample">
+        <code style="block" lang="Kotlin" title="Sample" interpolate-variables="true">
             implementation("io.ktor:%artifact_name%:$ktor_version")
         </code>
     </tab>
     <tab title="Maven">
-        <code style="block" lang="XML" title="Sample">
+        <code style="block" lang="XML" title="Sample" interpolate-variables="true">
         <![CDATA[
         <dependency>
             <groupId>io.ktor</groupId>
@@ -101,6 +103,7 @@ The API is production ready, but may be slightly modified in a minor release. Th
 ```kotlin
 @OptIn(%annotation_name%::class)
 ```
+{interpolate-variables="true"}
 If you want to leave your feedback or subscribe on updates, check
 [KTOR-%issue_number%](https://youtrack.jetbrains.com/issue/KTOR-%issue_number%) design issue.
 
