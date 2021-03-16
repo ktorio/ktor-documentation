@@ -39,7 +39,7 @@ In this example, we use the [CIO](https://api.ktor.io/%ktor_version%/io.ktor.cli
 ```
 {src="snippets/_misc_client/DefaultEngineCreate.kt"}
 
-In this case, the client will choose an engine automatically depending on the artifacts [added in a build script](#engine-dependency). You can learn more from the [](http-client_engines.md#default) section.
+In this case, the client will choose an engine automatically depending on the artifacts [added in a build script](#engine-dependency). You can learn how the client chooses an engine from the [](http-client_engines.md#default) documentation section.
 
 ## Configure the Client {id="configure-client"}
 
@@ -52,7 +52,7 @@ To configure the client, you can pass an additional functional parameter to the 
 {src="snippets/_misc_client/BasicClientConfig.kt"}
 
 ### Engine Configuration {id="engine-config"}
-You can configure an engine using the `engine` method in a block:
+You can configure an engine using the `engine` function:
 
 ```kotlin
 ```
