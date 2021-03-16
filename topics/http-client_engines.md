@@ -1,10 +1,10 @@
 [//]: # (title: Engines)
 
-The [Ktor HTTP client](client.md) can be used on [different platforms](https://kotlinlang.org/docs/multiplatform.html), including JVM, [Android](https://kotlinlang.org/docs/android-overview.html), [JavaScript](https://kotlinlang.org/docs/js-overview.html), and [Native](https://kotlinlang.org/docs/native-overview.html) (iOS and desktop). A specific platform may require a specific engine that processes network requests. For example, you can `Apache`, `Jetty`, or `CIO` for JVM, `OkHttp` for Android, and so on. Different engines may have specific features and provide different configuration options.
+The [Ktor HTTP client](client.md) can be used on [different platforms](http-client_multiplatform.md), including JVM, [Android](https://kotlinlang.org/docs/android-overview.html), [JavaScript](https://kotlinlang.org/docs/js-overview.html), and [Native](https://kotlinlang.org/docs/native-overview.html) (iOS and desktop). A specific platform may require a specific engine that processes network requests. For example, you can use `Apache`, `Jetty`, or `CIO` for JVM, `OkHttp` for Android, and so on. Different engines may have specific features and provide different configuration options.
 
 ## Add an Engine Dependency {id="dependencies"}
 
-Each engine requires a separate dependency. For each of the supported platform, you can see the available engines and required dependencies:
+Besides the [ktor-client-core](client.md#client-dependency) artifact, the Ktor client requires adding a specific dependency for each engine. For each of the supported platform, you can see the available engines and required dependencies in a corresponding section:
 * [JVM and Android](#jvm-android)
 * [iOS](#ios)
 * [JavaScript](#js)
@@ -23,7 +23,7 @@ If you call the `HttpClient` constructor without an argument, the client will ch
 ```
 {src="snippets/_misc_client/DefaultEngineCreate.kt"}
 
-This can be useful for [multiplatform projects](http-client_multiplatform.md). For example, for a project targeting both [Android and iOS](https://kotlinlang.org/docs/mobile/create-first-app.html), you can add the [Android](#android) dependency to the `androidMain` source set and the [Ios](#ios) dependency to the `iosMain` source set. The required dependency will be selected at compile time.
+This can be useful for [multiplatform projects](http-client_multiplatform.md). For example, for a project targeting both [Android and iOS](https://kotlinlang.org/docs/mobile/create-first-app.html), you can add the [Android](#android) dependency to the `androidMain` source set and the [Ios](#ios) dependency to the `iosMain` source set. The necessary dependency will be selected at compile time.
 
 
 ## Configure an Engine {id="configure"}
@@ -31,7 +31,7 @@ You can configure an engine using the `engine` method. All engines share several
 
 ```kotlin
 ```
-{src="snippets/_misc_client/BasicEngineConfigExample.kt" interpolate-variables="true"}
+{src="snippets/_misc_client/BasicEngineConfigExample.kt" interpolate-variables="true" disable-links="false"}
 
 To learn how to configure a specific engine, see a corresponding section below.
 
@@ -51,7 +51,7 @@ The `Apache` engine supports HTTP/1.1 and provides multiple configuration option
 1. To configure an engine, pass settings exposed by [ApacheEngineConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.apache/-apache-engine-config/index.html) to the `engine` method:
    ```kotlin
    ```
-   {src="snippets/_misc_client/ApacheConfig.kt" interpolate-variables="true"}
+   {src="snippets/_misc_client/ApacheConfig.kt" interpolate-variables="true" disable-links="false"}
 
 
 ### Java (JVM) {id="java"}
@@ -66,7 +66,7 @@ The `Java` engine uses the [Java HTTP Client](https://openjdk.java.net/groups/ne
 1. To configure an engine, pass settings exposed by [JavaHttpConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.java/-java-http-config/index.html) to the `engine` method:
    ```kotlin
    ```
-   {src="snippets/_misc_client/JavaConfig.kt" interpolate-variables="true"}
+   {src="snippets/_misc_client/JavaConfig.kt" interpolate-variables="true" disable-links="false"}
 
 ### Jetty (JVM) {id="jetty"}
 The `Jetty` engine supports only HTTP/2 and can be configured in the following way:
@@ -80,7 +80,7 @@ The `Jetty` engine supports only HTTP/2 and can be configured in the following w
 1. To configure an engine, pass settings exposed by [JettyEngineConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.jetty/-jetty-engine-config/index.html) to the `engine` method:
    ```kotlin
    ```
-   {src="snippets/_misc_client/JettyConfig.kt" interpolate-variables="true"}
+   {src="snippets/_misc_client/JettyConfig.kt" interpolate-variables="true" disable-links="false"}
 
 ### CIO (JVM and Android) {id="cio"}
 CIO is a fully asynchronous coroutine-based engine that can be used for both JVM and Android platforms. It supports only HTTP/1.x for now. To use it, follow the steps below:
@@ -95,7 +95,7 @@ CIO is a fully asynchronous coroutine-based engine that can be used for both JVM
 1. To configure an engine, pass settings exposed by [CIOEngineConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.cio/-c-i-o-engine-config/index.html) to the `engine` method:
    ```kotlin
    ```
-   {src="snippets/_misc_client/CioConfig.kt" interpolate-variables="true"}
+   {src="snippets/_misc_client/CioConfig.kt" interpolate-variables="true" disable-links="false"}
 
 ### Android (Android) {id="android"}
 The `Android` engine targets Android and can be configured in the following way:
@@ -109,7 +109,7 @@ The `Android` engine targets Android and can be configured in the following way:
 1. To configure an engine, pass settings exposed by [AndroidEngineConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.android/-android-engine-config/index.html) to the `engine` method:
    ```kotlin
    ```
-   {src="snippets/_misc_client/AndroidConfig.kt" interpolate-variables="true"}
+   {src="snippets/_misc_client/AndroidConfig.kt" interpolate-variables="true" disable-links="false"}
 
 ### OkHttp (Android) {id="okhttp"}
 The `OkHttp` engine is based on OkHttp can be configured in the following way:
@@ -123,7 +123,7 @@ The `OkHttp` engine is based on OkHttp can be configured in the following way:
 1. To configure an engine, pass settings exposed by [OkHttpConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.okhttp/-ok-http-config/index.html) to the `engine` method:
    ```kotlin
    ```
-   {src="snippets/_misc_client/OkHttpConfig.kt" interpolate-variables="true"}
+   {src="snippets/_misc_client/OkHttpConfig.kt" interpolate-variables="true" disable-links="false"}
 
 ## iOS {id="ios"}
 The `iOS` engine targets iOS and uses [NSURLSession](https://developer.apple.com/documentation/foundation/nsurlsession) internally. To use it, follow the steps below:
