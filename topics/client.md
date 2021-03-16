@@ -13,7 +13,7 @@ The main client functionality is available in the `ktor-client-core` artifact. D
 
 
 ### Engine Dependency {id="engine-dependency"}
-An engine is in charge of processing network requests. There are different client engines available for [various platforms](http-client_multiplatform.md), such as Apache, CIO, Android, iOS, and so on. For example, you can add a `CIO` engine dependency as follows:
+An engine is responsible for processing network requests. There are different client engines available for [various platforms](http-client_multiplatform.md), such as Apache, CIO, Android, iOS, and so on. For example, you can add a `CIO` engine dependency as follows:
 <var name="artifact_name" value="ktor-client-cio"/>
 <include src="lib.md" include-id="add_ktor_artifact"/>
 
@@ -30,65 +30,44 @@ If you want to use additional client features, you need to add a corresponding d
 To instantiate the client, create the [HttpClient](https://api.ktor.io/%ktor_version%/io.ktor.client/-http-client/index.html) class instance and pass an engine as a parameter:
 
 ```kotlin
-import io.ktor.client.*
-import io.ktor.client.engine.cio.*
-
-val client = HttpClient(CIO)
 ```
+{src="snippets/_misc_client/CioCreate.kt"}
 
 In this example, we use the [CIO](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.cio/-c-i-o/index.html) engine. You can also omit an engine:
 
 ```kotlin
-import io.ktor.client.*
-
-val client = HttpClient()
 ```
+{src="snippets/_misc_client/DefaultEngineCreate.kt"}
 
-In this case, the client will choose an engine automatically depending on the artifacts [added in a build script](#engine-dependency). You can learn more from the [Engines](http-client_engines.md#default) topic.
+In this case, the client will choose an engine automatically depending on the artifacts [added in a build script](#engine-dependency). You can learn more from the [](http-client_engines.md#default) section.
 
 ## Configure the Client {id="configure-client"}
 
 ### Basic Configuration {id="basic-config"}
 
-To configure the client, you can pass an additional functional parameter to the client constructor. The [HttpClientEngineConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine/-http-client-engine-config/index.html) class is a base class for configuring the client. In the example below, receiving HTTP errors in response don't cause exceptions:
+To configure the client, you can pass an additional functional parameter to the client constructor. The [HttpClientEngineConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine/-http-client-engine-config/index.html) class is a base class for configuring the client. For instance, we can change the behaviour of exceptions as follows:
 
 ```kotlin
-import io.ktor.client.*
-import io.ktor.client.engine.cio.*
-
-val client = HttpClient(CIO) {
-    expectSuccess = false
-}
 ```
+{src="snippets/_misc_client/BasicClientConfig.kt"}
 
 ### Engine Configuration {id="engine-config"}
 You can configure an engine using the `engine` method in a block:
 
 ```kotlin
-import io.ktor.client.*
-import io.ktor.client.engine.cio.*
-
-val client = HttpClient(CIO) {
-    engine {
-        // Configure an engine
-    }
-}
 ```
+{src="snippets/_misc_client/BasicEngineConfig.kt"}
 
-See [Engines](http-client_engines.md) section for additional details.
+See the [Engines](http-client_engines.md) section for additional details.
 
 ### Features {id="features"}
 
-Ktor lets you use additional client functionality (features) that is not available by default, for example, logging, authorization, or serialization. Most of them are distributed in separate artifacts. For example, you can log HTTP calls by installing the [Logging](features_logging.md) feature:
-```kotlin
-import io.ktor.client.*
-import io.ktor.client.engine.cio.*
-import io.ktor.client.features.logging.*
+Ktor lets you use additional client functionality (features) that is not available by default, for example, logging, authorization, or serialization. Most of them are provided in separate artifacts. For example, you can log HTTP calls by installing the [Logging](features_logging.md) feature:
 
-val client = HttpClient(CIO) {
-    install(Logging)
-}
+```kotlin
 ```
+{src="snippets/_misc_client/InstallLoggingFeature.kt"}
+
 You can also configure a feature inside the `install` block. For example, for the `Logging` feature, you can specify the logger and logging level:
 ```kotlin
 ```
@@ -96,15 +75,12 @@ You can also configure a feature inside the `install` block. For example, for th
 
 ## Make a Request {id="make-request"}
 
-The main way for making HTTP requests is the [request](https://api.ktor.io/%ktor_version%/io.ktor.client.request/request.html) function that takes URL as a parameter. Inside this function, you can configure various request parameters: specify an HTTP method, add headers, specify the request body, and so on. These parameters are exposed by the [HttpRequestBuilder](https://api.ktor.io/%ktor_version%/io.ktor.client.request/-http-request-builder/index.html) class.
-```kotlin
-import io.ktor.client.request.*
-import io.ktor.client.statement.*
+The main way for making HTTP requests is the [request](https://api.ktor.io/%ktor_version%/io.ktor.client.request/request.html) function that takes a URL as a parameter. Inside this function, you can configure various request parameters: specify an HTTP method, add headers, specify the request body, and so on. These parameters are exposed by the [HttpRequestBuilder](https://api.ktor.io/%ktor_version%/io.ktor.client.request/-http-request-builder/index.html) class.
 
-val response: HttpResponse = client.request("https://ktor.io/") {
-    // Configure request parameters exposed by HttpRequestBuilder
-}
+```kotlin
 ```
+{src="snippets/_misc_client/RequestMethodWithoutParams.kt"}
+
 Note that this function allows you to [receive a response](#response) in various ways. In this example, we receive a response as an `HttpResponse` object.
 
 > `request` is a suspending function, so requests should be executed only from a coroutine or another suspend function. You can learn more about calling suspending functions from [Coroutines basics](https://kotlinlang.org/docs/coroutines-basics.html).
@@ -114,71 +90,44 @@ Note that this function allows you to [receive a response](#response) in various
 When calling the `request` function, you can specify the desired HTTP method using the `method` property:
 
 ```kotlin
-import io.ktor.client.request.*
-import io.ktor.client.statement.*
-import io.ktor.http.*
-
-val response: HttpResponse = client.request("https://ktor.io/") {
-    method = HttpMethod.Get
-}
 ```
+{src="snippets/_misc_client/RequestMethodWithParams.kt"}
 
 In addition to the `request` function, `HttpClient` provides specific functions for basic HTTP methods: `get`, `post`, `put`, and so on. For example, you can replace the example above with the following code:
 ```kotlin
-import io.ktor.client.request.*
-import io.ktor.client.statement.*
-
-val response: HttpResponse = client.get("https://ktor.io/")
 ```
+{src="snippets/_misc_client/GetMethodWithoutParams.kt"}
 
 ### Add Headers {id="headers"}
 To add headers to the request, use the `headers` function as follows:
 ```kotlin
-import io.ktor.client.request.*
-import io.ktor.client.statement.*
-import io.ktor.http.*
-
-val response: HttpResponse = client.get("https://ktor.io/") {
-    headers {
-        append(HttpHeaders.Accept, "text/html")
-        append(HttpHeaders.Authorization, "token")
-        append(HttpHeaders.UserAgent, "ktor client")
-    }
-}
 ```
+{src="snippets/_misc_client/GetMethodWithHeaders.kt"}
 
 
 ### Specify Body {id="body"}
 To set the body of a request, assign a value to the `body` property. You can assign a string or an [OutgoingContent](https://api.ktor.io/%ktor_version%/io.ktor.http.content/-outgoing-content/index.html) object to this property. For example, sending data with a `text/plain` text MIME type can be implemented as follows:
 ```kotlin
-import io.ktor.client.request.*
-import io.ktor.client.statement.*
-import io.ktor.content.*
-import io.ktor.http.*
-
-val response: HttpResponse = client.post("http://127.0.0.1:8080/") {
-    body = TextContent(
-        text = "Body content",
-        contentType = ContentType.Text.Plain
-    )
-}
 ```
+{src="snippets/_misc_client/PostMethodWithBody.kt"}
 
 
 ### Receive a Response {id="response"}
-Functions used to make a request (`request`, `get`, `post`, etc.) allow you to receive a response in several ways:
+All request functions (`request`, `get`, `post`, etc.) allow you to receive a response in several ways:
 * As an [HttpResponse](https://api.ktor.io/%ktor_version%/io.ktor.client.statement/-http-response/index.html) object:
    ```kotlin
-   val httpResponse: HttpResponse = client.get("https://ktor.io/")
    ```
+  {src="snippets/_misc_client/ResponseTypes.kt" include-symbol="httpResponse"}
+  
 * As a string:
    ```kotlin
-      val stringResponse: String = client.get("https://ktor.io/")
    ```
+  {src="snippets/_misc_client/ResponseTypes.kt" include-symbol="stringResponse"}
+  
 * As a byte array:
    ```kotlin
-      val byteArrayResponse: ByteArray = client.get("https://ktor.io/")
    ```
+  {src="snippets/_misc_client/ResponseTypes.kt" include-symbol="byteArrayResponse"}
 
 You can learn more from the [](response.md) topic.
 
@@ -187,7 +136,7 @@ You can learn more from the [](response.md) topic.
 
 ## Close the HTTP client {id="close-client"}
 
-After you finish working with the HTTP client, you need to free up the resources: threads, connections, and `CoroutineScope` for coroutines. To do this, call up the `close()` function in `HttpClient`:
+After you finish working with the HTTP client, you need to free up the resources: threads, connections, and `CoroutineScope` for coroutines. To do this, call the `HttpClient.close` function:
 
 ```kotlin
 client.close()
