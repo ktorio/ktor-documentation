@@ -1,6 +1,6 @@
 [//]: # (title: Engines)
 
-The [Ktor HTTP client](client.md) can be used on [different platforms](http-client_multiplatform.md), including JVM, [Android](https://kotlinlang.org/docs/android-overview.html), [JavaScript](https://kotlinlang.org/docs/js-overview.html), and [Native](https://kotlinlang.org/docs/native-overview.html) (iOS and desktop). A specific platform may require a specific engine that processes network requests. For example, you can use `Apache`, `Jetty`, or `CIO` for JVM, `OkHttp` for Android, and so on. Different engines may have specific features and provide different configuration options.
+The [Ktor HTTP client](client.md) can be used on different platforms, including JVM, [Android](https://kotlinlang.org/docs/android-overview.html), [JavaScript](https://kotlinlang.org/docs/js-overview.html), and [Native](https://kotlinlang.org/docs/native-overview.html) (iOS and desktop). A specific platform may require a specific engine that processes network requests. For example, you can use `Apache`, `Jetty`, or `CIO` for JVM, `OkHttp` for Android, and so on. Different engines may have specific features and provide different configuration options.
 
 ## Add an Engine Dependency {id="dependencies"}
 
@@ -145,6 +145,9 @@ The `Js` engine can be used for [JavaScript projects](https://kotlinlang.org/doc
    ```
 
 ## Native {id="native"}
+In this section, we'll have a look on how to configure engines targeted for [Kotlin/Native](https://kotlinlang.org/docs/native-overview.html).
+> Note that engines targeting Kotlin/Native require a [multithreaded version](https://kotlinlang.org/docs/mobile/concurrency-and-coroutines.html#multithreaded-coroutines) of `kotlinx.coroutines`.
+
 ### iOS {id="ios"}
 The `iOS` engine targets iOS and uses [NSURLSession](https://developer.apple.com/documentation/foundation/nsurlsession) internally. To use it, follow the steps below:
 
@@ -163,18 +166,12 @@ The `iOS` engine targets iOS and uses [NSURLSession](https://developer.apple.com
 
 ### Desktop {id="desktop"}
 
-For [desktop platforms](https://kotlinlang.org/docs/native-overview.html), Ktor provides the `Curl` engine. This engine is supported for the following platforms: `linuxX64`, `macosX64`, `mingwX64`. To use the `Curl` engine, follow the steps below:
+For desktop platforms, Ktor provides the `Curl` engine. This engine is supported for the following platforms: `linuxX64`, `macosX64`, `mingwX64`. To use the `Curl` engine, follow the steps below:
 
 1. Install the [curl library](https://curl.se/download.html).
-1. Add the following dependencies:
-     * Add the `ktor-client-curl` engine dependency:
-     <var name="artifact_name" value="ktor-client-curl"/>
-     <include src="lib.md" include-id="add_ktor_artifact"/>
-     * Add a [multithreaded version](https://kotlinlang.org/docs/mobile/concurrency-and-coroutines.html#multithreaded-coroutines) of `kotlinx.coroutines`:
-     ```kotlin
-     ```
-     {src="snippets/_misc_client/MultithreadedCoroutines.kt" interpolate-variables="true"}
-
+1. Add the `ktor-client-curl` dependency:
+   <var name="artifact_name" value="ktor-client-curl"/>
+   <include src="lib.md" include-id="add_ktor_artifact"/>
 1. Pass the `Curl` class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
