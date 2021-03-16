@@ -35,7 +35,7 @@ For multiplatform projects, you can use the `kotlinx.serialization` library. You
       
 
 ## Install JsonFeature {id="install_feature"}
-To install `JsonFeature`, pass it to the `install` function inside a [client configuration block](client.md#client-configuration):
+To install `JsonFeature`, pass it to the `install` function inside a [client configuration block](client.md#configure-client):
 ```kotlin
 val client = HttpClient(CIO) {
     install(JsonFeature)

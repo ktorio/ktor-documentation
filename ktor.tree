@@ -198,6 +198,7 @@
     <toc-element toc-title="Client">
         <toc-element id="getting_started_ktor_client.xml"/>
         <toc-element id="client.md"
+                     show-structure-depth="2"
                      accepts-web-file-names="clients-index.html,quick-start.html"/>
         <toc-element id="http-client_engines.md"
                      show-structure-depth="2"/>
