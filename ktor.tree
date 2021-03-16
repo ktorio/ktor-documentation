@@ -207,7 +207,6 @@
             <toc-element id="streaming.md"/>
         </toc-element>
         <toc-element id="http-client_testing.md"/>
-        <toc-element id="examples.md"/>
         <toc-element id="http-client_features.md">
             <toc-element id="features_auth.md" accepts-web-file-names="auth.html"/>
             <toc-element id="default-request.md"/>

@@ -48,6 +48,7 @@
         <accepts>samples-fullstack-mpp.html</accepts>
         <accepts>fullstack.html</accepts>
         <accepts>open-source.html</accepts>
+        <accepts>examples.html</accepts>
     </rule>
     <rule id="kotlin_docs">
         <accepts>quickstart-index.html</accepts>
