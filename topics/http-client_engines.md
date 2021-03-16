@@ -163,11 +163,17 @@ The `Js` engine can be used for [JavaScript projects](https://kotlinlang.org/doc
 
 ## Desktop {id="desktop"}
 
-The `Curl` engine can be used for the following [desktop platforms](https://kotlinlang.org/docs/native-overview.html): `linuxX64`, `macosX64`, `mingwX64`. Note that you need to install the curl library with a minimum version of 7.63. To use the `Curl` engine, follow the steps below:
+For [desktop platforms](https://kotlinlang.org/docs/native-overview.html), Ktor provides the `Curl` engine. This engine is supported for the following platforms: `linuxX64`, `macosX64`, `mingwX64`. To use the `Curl` engine, follow the steps below:
 
-1. Add the `ktor-client-curl` dependency:
-   <var name="artifact_name" value="ktor-client-curl"/>
-   <include src="lib.md" include-id="add_ktor_artifact"/>
+1. Install the [curl library](https://curl.se/download.html).
+1. Add the following dependencies:
+    * Add the `ktor-client-curl` engine dependency:
+      <var name="artifact_name" value="ktor-client-curl"/>
+      <include src="lib.md" include-id="add_ktor_artifact"/>
+    * Add a [multithreaded version](https://kotlinlang.org/docs/mobile/concurrency-and-coroutines.html#multithreaded-coroutines) of `kotlinx.coroutines`:
+      ```kotlin
+      ```
+      {src="snippets/_misc_client/MultithreadedCoroutines.kt" interpolate-variables="true"}
 1. Pass the `Curl` class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
