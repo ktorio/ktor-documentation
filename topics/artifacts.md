@@ -6,10 +6,8 @@ Ktor is divided into modules to allow fine-grained inclusion of dependencies bas
 The typical Ktor application would require `ktor-server-core` and a corresponding engine depending on whether it's self-hosted
  or using an Application Server. 
 
-All artifacts in Ktor belong to `io.ktor` group and hosted on JCenter and Maven Central. Pre-release versions are published at [Bintray](https://bintray.com/kotlin/ktor)
+All artifacts in Ktor belong to `io.ktor` group and hosted on [Maven Central](https://mvnrepository.com/artifact/io.ktor). Eap-release versions are published at [jetbrains.space](https://ktor.io/eap)
 
-[![Download](https://api.bintray.com/packages/kotlin/ktor/ktor/images/download.svg?version=%ktor_version%)](https://bintray.com/kotlin/ktor/ktor/%ktor_version%)
-    
 Ktor is split into several groups of modules:
 
 * `ktor-server` contains modules that support running the Ktor Application with different engines: Netty, Jetty, Tomcat, and 

@@ -3,7 +3,6 @@ buildscript {
     ext.tomcat_version = '9.0.43'
 
     repositories {
-        jcenter()
         mavenCentral()
     }
     dependencies {
@@ -30,7 +29,6 @@ sourceSets {
 }
 
 repositories {
-    jcenter()
     mavenCentral()
 }
 

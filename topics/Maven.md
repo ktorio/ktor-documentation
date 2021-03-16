@@ -86,22 +86,11 @@ Here is a basic `pom.xml` file for building Kotlin applications:
 ## Add Ktor dependencies and configure build settings
 {id="ktor-dependencies"}
 
-Ktor artifacts are located in a specific repository on bintray.
+Ktor artifacts are located in a specific repository on Maven Central.
 And its core has dependencies on the `kotlinx.coroutines` library that
-can be found on `jcenter`.
+can be found on `mavenCentral`.
 
-You have to add both to the `repositories` block in the `pom.xml` file:
-
-```xml
-<repositories>
-    <repository>
-        <id>jcenter</id>
-        <url>https://jcenter.bintray.com</url>
-    </repository>
-</repositories>
-``` 
-
-Visit [Bintray](https://bintray.com/kotlin/ktor/ktor) and determine the latest version of ktor.
+Visit [Maven Central](https://mvnrepository.com/artifact/io.ktor/ktor-server-core) and determine the latest version of ktor.
 In this case it is `%ktor_version%`.
 
 You have to specify that version in each Ktor artifact reference,
@@ -235,13 +224,6 @@ When you are done, the `pom.xml` file should look like:
             </plugin>
         </plugins>
     </build>
-
-    <repositories>
-        <repository>
-            <id>jcenter</id>
-            <url>http://jcenter.bintray.com</url>
-        </repository>
-    </repositories>
 </project>
 ```
 
