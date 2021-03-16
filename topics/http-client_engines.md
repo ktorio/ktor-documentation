@@ -31,7 +31,7 @@ This can be useful for [multiplatform projects](http-client_multiplatform.md). F
 
 
 ## Configure an Engine {id="configure"}
-You can configure an engine using the `engine` method in a block. All engines share several common properties exposed by [HttpClientEngineConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine/-http-client-engine-config/index.html), for example:
+You can configure an engine using the `engine` method. All engines share several common properties exposed by [HttpClientEngineConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine/-http-client-engine-config/index.html), for example:
 
 ```kotlin
 HttpClient() {
@@ -62,7 +62,7 @@ The `Apache` engine supports HTTP/1.1 and provides multiple configuration option
 
    val client = HttpClient(Apache)
    ```
-1. To configure an engine, pass settings exposed by [ApacheEngineConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.apache/-apache-engine-config/index.html) to the `engine` method block:
+1. To configure an engine, pass settings exposed by [ApacheEngineConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.apache/-apache-engine-config/index.html) to the `engine` method:
    ```kotlin
    ```
    {src="snippets/_misc_client/ApacheConfig.kt" interpolate-variables="true"}
@@ -80,7 +80,7 @@ The `Java` engine uses the [Java HTTP Client](https://openjdk.java.net/groups/ne
    
    val client = HttpClient(Java)
    ```
-1. To configure an engine, pass settings exposed by [JavaHttpConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.java/-java-http-config/index.html) to the `engine` method block:
+1. To configure an engine, pass settings exposed by [JavaHttpConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.java/-java-http-config/index.html) to the `engine` method:
    ```kotlin
    ```
    {src="snippets/_misc_client/JavaConfig.kt" interpolate-variables="true"}
@@ -97,7 +97,7 @@ The `Jetty` engine supports only HTTP/2 and can be configured in the following w
    
    val client = HttpClient(Jetty)
    ```
-1. To configure an engine, pass settings exposed by [JettyEngineConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.jetty/-jetty-engine-config/index.html) to the `engine` method block:
+1. To configure an engine, pass settings exposed by [JettyEngineConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.jetty/-jetty-engine-config/index.html) to the `engine` method:
    ```kotlin
    ```
    {src="snippets/_misc_client/JettyConfig.kt" interpolate-variables="true"}
@@ -114,7 +114,7 @@ CIO is a fully asynchronous coroutine-based engine that can be used for both JVM
    
    val client = HttpClient(CIO)
    ```
-1. To configure an engine, pass settings exposed by [CIOEngineConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.cio/-c-i-o-engine-config/index.html) to the `engine` method block:
+1. To configure an engine, pass settings exposed by [CIOEngineConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.cio/-c-i-o-engine-config/index.html) to the `engine` method:
    ```kotlin
    ```
    {src="snippets/_misc_client/CioConfig.kt" interpolate-variables="true"}
@@ -131,7 +131,7 @@ The `Android` engine targets Android and can be configured in the following way:
    
    val client = HttpClient(Android)
    ```
-1. To configure an engine, pass settings exposed by [AndroidEngineConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.android/-android-engine-config/index.html) to the `engine` method block:
+1. To configure an engine, pass settings exposed by [AndroidEngineConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.android/-android-engine-config/index.html) to the `engine` method:
    ```kotlin
    ```
    {src="snippets/_misc_client/AndroidConfig.kt" interpolate-variables="true"}
@@ -148,7 +148,7 @@ The `OkHttp` engine is based on OkHttp can be configured in the following way:
    
    val client = HttpClient(OkHttp)
    ```
-1. To configure an engine, pass settings exposed by [OkHttpConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.okhttp/-ok-http-config/index.html) to the `engine` method block:
+1. To configure an engine, pass settings exposed by [OkHttpConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.okhttp/-ok-http-config/index.html) to the `engine` method:
    ```kotlin
    ```
    {src="snippets/_misc_client/OkHttpConfig.kt" interpolate-variables="true"}
@@ -166,7 +166,7 @@ The `iOS` engine targets iOS and uses [NSURLSession](https://developer.apple.com
    
    val client = HttpClient(Ios)
    ```
-1. To configure an engine, pass settings exposed by `IosClientEngineConfig` to the `engine` method block:
+1. To configure an engine, pass settings exposed by `IosClientEngineConfig` to the `engine` method:
    ```kotlin
    ```
    {src="snippets/_misc_client/IosConfig.kt"}
@@ -212,7 +212,7 @@ The `Curl` engine can be used for the following [desktop platforms](https://kotl
 
    val client = HttpClient(Curl)
    ```
-1. To configure an engine, pass settings exposed by `CurlClientEngineConfig` to the `engine` method block:
+1. To configure an engine, pass settings exposed by `CurlClientEngineConfig` to the `engine` method:
    ```kotlin
    ```
    {src="snippets/_misc_client/CurlConfig.kt"}
