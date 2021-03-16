@@ -1,5 +1,10 @@
 [//]: # (title: Logging)
 
+<microformat>
+<var name="example_name" value="client-logging"/>
+<include src="lib.md" include-id="download_example"/>
+</microformat>
+
 Ktor client provides the capability to log HTTP calls using the `Logging` feature. This feature uses the [SLF4J](http://www.slf4j.org/) library for logging.
 
 
