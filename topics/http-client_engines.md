@@ -6,9 +6,8 @@ The [Ktor HTTP client](client.md) can be used on [different platforms](http-clie
 
 Besides the [ktor-client-core](client.md#client-dependency) artifact, the Ktor client requires adding a specific dependency for each engine. For each of the supported platform, you can see the available engines and required dependencies in a corresponding section:
 * [JVM and Android](#jvm-android)
-* [iOS](#ios)
 * [JavaScript](#js)
-* [Desktop](#desktop)
+* [Native](#desktop)
 * [Testing](#test)
 
 ## Create a Client with a Specified Engine {id="create"}
@@ -125,21 +124,6 @@ The `OkHttp` engine is based on OkHttp can be configured in the following way:
    ```
    {src="snippets/_misc_client/OkHttpConfig.kt" interpolate-variables="true" disable-links="false"}
 
-## iOS {id="ios"}
-The `iOS` engine targets iOS and uses [NSURLSession](https://developer.apple.com/documentation/foundation/nsurlsession) internally. To use it, follow the steps below:
-
-1. Add the `ktor-client-ios` dependency:
-   <var name="artifact_name" value="ktor-client-ios"/>
-   <include src="lib.md" include-id="add_ktor_artifact"/>
-1. Pass the `Ios` class as an argument to the `HttpClient` constructor:
-   ```kotlin
-   ```
-   {src="snippets/_misc_client/IosCreate.kt"}
-1. To configure an engine, pass settings exposed by `IosClientEngineConfig` to the `engine` method:
-   ```kotlin
-   ```
-   {src="snippets/_misc_client/IosConfig.kt"}
-
 
 ## JavaScript {id="js"}
 
@@ -160,20 +144,37 @@ The `Js` engine can be used for [JavaScript projects](https://kotlinlang.org/doc
    val client = JsClient()
    ```
 
+## Native {id="native"}
+### iOS {id="ios"}
+The `iOS` engine targets iOS and uses [NSURLSession](https://developer.apple.com/documentation/foundation/nsurlsession) internally. To use it, follow the steps below:
 
-## Desktop {id="desktop"}
+1. Add the `ktor-client-ios` dependency:
+   <var name="artifact_name" value="ktor-client-ios"/>
+   <include src="lib.md" include-id="add_ktor_artifact"/>
+1. Pass the `Ios` class as an argument to the `HttpClient` constructor:
+   ```kotlin
+   ```
+   {src="snippets/_misc_client/IosCreate.kt"}
+1. To configure an engine, pass settings exposed by `IosClientEngineConfig` to the `engine` method:
+   ```kotlin
+   ```
+   {src="snippets/_misc_client/IosConfig.kt"}
+
+
+### Desktop {id="desktop"}
 
 For [desktop platforms](https://kotlinlang.org/docs/native-overview.html), Ktor provides the `Curl` engine. This engine is supported for the following platforms: `linuxX64`, `macosX64`, `mingwX64`. To use the `Curl` engine, follow the steps below:
 
 1. Install the [curl library](https://curl.se/download.html).
 1. Add the following dependencies:
-    * Add the `ktor-client-curl` engine dependency:
-      <var name="artifact_name" value="ktor-client-curl"/>
-      <include src="lib.md" include-id="add_ktor_artifact"/>
-    * Add a [multithreaded version](https://kotlinlang.org/docs/mobile/concurrency-and-coroutines.html#multithreaded-coroutines) of `kotlinx.coroutines`:
-      ```kotlin
-      ```
-      {src="snippets/_misc_client/MultithreadedCoroutines.kt" interpolate-variables="true"}
+     * Add the `ktor-client-curl` engine dependency:
+     <var name="artifact_name" value="ktor-client-curl"/>
+     <include src="lib.md" include-id="add_ktor_artifact"/>
+     * Add a [multithreaded version](https://kotlinlang.org/docs/mobile/concurrency-and-coroutines.html#multithreaded-coroutines) of `kotlinx.coroutines`:
+     ```kotlin
+     ```
+     {src="snippets/_misc_client/MultithreadedCoroutines.kt" interpolate-variables="true"}
+
 1. Pass the `Curl` class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
