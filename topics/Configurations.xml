@@ -315,7 +315,7 @@
                 }
             </code>
             <p>
-                ... you can access the application's configuration using <a href="https://api.ktor.io/1.5.1/io.ktor.application/-application-environment/config.html">ApplicationEnvironment.config</a> and get the required property value in the following way:
+                ... you can access the application's configuration using <a href="https://api.ktor.io/%ktor_version%/io.ktor.application/-application-environment/config.html">ApplicationEnvironment.config</a> and get the required property value in the following way:
             </p>
             <code style="block" lang="kotlin">
                 fun Application.module(testing: Boolean = false) {

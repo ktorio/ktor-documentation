@@ -212,7 +212,7 @@
                 </p>
                 <img src="client_get_started_suspend_error.png" alt="Suspend function error" width="706"/>
                 <p>
-                    You can learn more about calling suspending functions from <a href="https://kotlinlang.org/docs/basics.html">Coroutines basics</a>. In the next step, we'll make our <code>main</code> function suspending to fix this issue.
+                    You can learn more about calling suspending functions from <a href="https://kotlinlang.org/docs/coroutines-basics.html">Coroutines basics</a>. In the next step, we'll make our <code>main</code> function suspending to fix this issue.
                 </p>
             </step>
             <step>
