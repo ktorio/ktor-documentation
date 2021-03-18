@@ -162,6 +162,8 @@
         <toc-element toc-title="Deployments"
                      id="deploy.md">
             <toc-element toc-title="Packing">
+                <toc-element id="application-gradle-plugin.md"
+                             toc-title="Gradle Application plugin"/>
                 <toc-element id="fatjar.md"
                              accepts-web-file-names="packing.html"/>
                 <toc-element id="war.md" toc-title="WAR"/>

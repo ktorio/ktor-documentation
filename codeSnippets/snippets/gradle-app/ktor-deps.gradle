@@ -1,0 +1,8 @@
+ext.ktor_version = "%ktor_version%"
+
+dependencies {
+    // ...
+    implementation "io.ktor:ktor-server-core:$ktor_version"
+    implementation "io.ktor:ktor-server-cio:$ktor_version"
+    implementation "ch.qos.logback:logback-classic:1.2.3"
+}
