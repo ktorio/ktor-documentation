@@ -225,7 +225,7 @@
             </step>
             <step>
                 <p>
-                    The resulting <path>pom.xml</path> file should look something like this:
+                    The resulting <path>pom.xml</path> file should look as shown below.
                 </p>
                 <code style="block" lang="XML" interpolate-variables="true"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -314,6 +314,11 @@
     </dependencies>
 </project>
                 ]]></code>
+                <tip>
+                    <p>
+                        To load changes made in <path>pom.xml</path>, you can click <control>Load Maven Changes</control> at the right part of the editor.
+                    </p>
+                </tip>
             </step>
         </procedure>
     </chapter>
