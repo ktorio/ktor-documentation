@@ -1,0 +1,22 @@
+<properties>
+    <ktor.version>%ktor_version%</ktor.version>
+    <logback_version>%logback_version%</logback_version>
+</properties>
+
+<dependencies>
+<dependency>
+    <groupId>io.ktor</groupId>
+    <artifactId>ktor-server-core</artifactId>
+    <version>${ktor.version}</version>
+</dependency>
+<dependency>
+    <groupId>io.ktor</groupId>
+    <artifactId>ktor-server-netty</artifactId>
+    <version>${ktor.version}</version>
+</dependency>
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>${logback_version}</version>
+</dependency>
+</dependencies>
