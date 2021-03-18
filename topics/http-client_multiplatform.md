@@ -1,81 +1,57 @@
 [//]: # (title: Multiplatform)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<microformat>
+<p>
+Code example: <a href="https://github.com/ktorio/ktor-samples/tree/master/client-mpp">client-mpp</a>
+</p>
+</microformat>
 
-The HTTP Client supports several platforms, using the experimental [multiplatform support](https://kotlinlang.org/docs/multiplatform.html)
-that was introduced in [Kotlin 1.2](https://blog.jetbrains.com/kotlin/2017/11/kotlin-1-2-released/).
+The [Ktor HTTP client](client.md) can be used in [multiplatform projects](https://kotlinlang.org/docs/multiplatform.html) and supports the following platforms:
+* JVM
+* [Android](https://kotlinlang.org/docs/android-overview.html)
+* [JavaScript](https://kotlinlang.org/docs/js-overview.html)
+* [Native](https://kotlinlang.org/docs/native-overview.html) (`iOS` and desktop, including `linuxX64`, `macosX64`, `mingwX64`)
 
-Right now, the supported platforms are JVM, Android, iOS, Js and native.
+## Add Dependencies {id="add-dependencies"}
+To use the Ktor HTTP client in your project, you need to add at least two dependencies: a client dependency and an [engine](http-client_engines.md) dependency. For a multiplatform project, you need to add these dependencies as follows:
+1. To use the Ktor client in common code, add the dependency to `ktor-client-core` to the `commonMain` source set in the `build.gradle` or `build.gradle.kts` file:
+   <var name="platform_name" value="common"/>
+   <var name="artifact_name" value="ktor-client-core"/>
+   <include src="lib.md" include-id="add_ktor_artifact_multiplatform"/>
+1. Add an [engine dependency](http-client_engines.md#dependencies) for the required platform to the corresponding source set. For Android, you can add the [Android](http-client_engines.md#android) engine dependency to the `androidMain` source set:
+   <var name="platform_name" value="android"/>
+   <var name="artifact_name" value="ktor-client-android"/>
+   <include src="lib.md" include-id="add_ktor_artifact_multiplatform"/>
+   
+   For iOS, you need to add the [iOS](http-client_engines.md#ios) engine dependency to `iosMain`:
+   <var name="platform_name" value="ios"/>
+   <var name="artifact_name" value="ktor-client-ios"/>
+   <include src="lib.md" include-id="add_ktor_artifact_multiplatform"/>
+   
+   To learn which engines are supported for each platform, see [](http-client_engines.md#dependencies).
 
-## Common
 
-For [multiplatform projects](https://kotlinlang.org/docs/multiplatform.html) that for example
-share code between multiple platforms, we can create a common module.
-That common module can only access APIs that are available on all the targets.
-Ktor HTTP Client exposes a common module that can be used for such projects:
-
-```kotlin
-dependencies {
-    implementation("io.ktor:ktor-client-core:$ktor_version")
-    // ...
-}
-```
-
-## JVM
-
-To use Ktor on JVM, you have to include [one of the supported JVM Engines](http-client_engines.md#jvm) to your  `build.gradle`(`build.gradle.kts`).
-
-## Android
-
-To use Android engine you have to add the dependency in your `build.gradle`(`build.gradle.kts`):
-
-```kotlin
-dependencies {
-    implementation("io.ktor:ktor-client-android:$ktor_version")
-    // ...
-}
-```
-
-You can then use Android Studio, or Gradle to build your project.
-
-## iOS
-
-In the case of iOS, you have to use [Kotlin/Native](https://github.com/JetBrains/kotlin-native), and analogously
-to android, you have to put this artifact as part of the `dependencies` block.
+## Create the Client {id="create-client"}
+To create the client in a multiplatform project, call the [HttpClient](https://api.ktor.io/%ktor_version%/io.ktor.client/-http-client/index.html) constructor in a project's [common code](https://kotlinlang.org/docs/mpp-discover-project.html#source-sets):
 
 ```kotlin
-dependencies {
-    implementation("io.ktor:ktor-client-ios:$ktor_version")
-    // ...
-}
 ```
+{src="snippets/_misc_client/DefaultEngineCreate.kt"}
 
-In the case of iOS, we usually create a `.framework`, and the application project is a regular XCode project written either in Swift or Objective-C that includes that framework. So you first have to build the framework using the Gradle tasks exposed by Kotlin/Native, and then open the XCode project.
+In this code snippet, the `HttpClient` constructor doesn't accept an engine as a parameter: the client will choose an engine for the required platform depending on the artifacts [added in a build script](#add-dependencies). 
 
-## Javascript
-
-In the case of a browser or node-js applications, you have to use [Kotlin/Js](https://kotlinlang.org/docs/tutorials/javascript/kotlin-to-javascript/kotlin-to-javascript.html).
-
+If you need to adjust an engine configuration for specific platforms, pass a corresponding engine class as an argument to the `HttpClient` constructor and configure an engine using the `engine` method, for example:
 ```kotlin
-dependencies {
-    implementation("io.ktor:ktor-client-js:$ktor_version")
-    // ...
-}
 ```
+{src="snippets/_misc_client/AndroidConfig.kt" interpolate-variables="true" disable-links="false"}
 
-## Posix compatible desktops: MacOS, Linux, Windows
+You can learn how to configure all engine types from [](http-client_engines.md).
 
-As an alternative to JVM compatible engines, you also could use ktor client with [Kotlin/Native](https://github.com/JetBrains/kotlin-native)using `curl` backend.
 
-```kotlin
-dependencies {
-    implementation("io.ktor:ktor-client-curl:$ktor_version")
-    // ...
-}
-```
+## Use the Client {id="use-client"}
+After you've [added](#add-dependencies) all the required dependencies and [created](#create-client) the client, you can use it to make requests and receive responses. Learn more from [](client.md#make-request). 
 
-## Samples
 
-There is a full sample using the common client in the ktor-samples repository [mpp/client-mpp](https://github.com/ktorio/ktor-samples/tree/master/client-mpp).
+## Code Example {id="code-example"}
 
-You can use this project as a reference. Please check Kotlin documentation to learn about running different targets: [JVM](https://kotlinlang.org/docs/jvm-get-started.html), [Native](https://kotlinlang.org/docs/native-get-started.html), [JS](https://kotlinlang.org/docs/js-get-started.html)
+The [mpp/client-mpp](https://github.com/ktorio/ktor-samples/tree/master/client-mpp) project shows how to use a Ktor client in a multiplatform application. This application works on the following platforms: `Android`, `iOS`, `JavaScript`, and `macosX64`.

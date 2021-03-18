@@ -33,7 +33,9 @@ To instantiate the client, create the [HttpClient](https://api.ktor.io/%ktor_ver
 ```
 {src="snippets/_misc_client/CioCreate.kt"}
 
-In this example, we use the [CIO](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.cio/-c-i-o/index.html) engine. You can also omit an engine:
+In this example, we use the [CIO](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.cio/-c-i-o/index.html) engine. 
+
+You can also omit an engine:
 
 ```kotlin
 ```
