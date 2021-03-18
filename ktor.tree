@@ -200,9 +200,9 @@
         <toc-element id="client.md"
                      show-structure-depth="2"
                      accepts-web-file-names="clients-index.html,quick-start.html"/>
+        <toc-element id="http-client_multiplatform.md"/>
         <toc-element id="http-client_engines.md"
                      show-structure-depth="2"/>
-        <toc-element id="http-client_multiplatform.md"/>
         <toc-element id="request.md"/>
         <toc-element id="response.md">
             <toc-element id="streaming.md"/>

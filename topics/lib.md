@@ -87,6 +87,29 @@ To enable `%feature_name%` support, you need to include the `%artifact_name%` ar
 </tabs>
 </chunk>
 
+<chunk id="add_ktor_artifact_multiplatform">
+<tabs>
+    <tab title="Gradle (Groovy)">
+        <code style="block" lang="Groovy" title="Sample" interpolate-variables="true">
+%platform_name%Main {
+    dependencies {
+        implementation "io.ktor:%artifact_name%:$ktor_version"
+    }
+}
+        </code>
+    </tab>
+    <tab title="Gradle (Kotlin)">
+        <code style="block" lang="Kotlin" title="Sample" interpolate-variables="true">
+val %platform_name%Main by getting {
+    dependencies {
+        implementation("io.ktor:%artifact_name%:$ktor_version")
+    }
+}
+        </code>
+    </tab>
+</tabs>
+</chunk>
+
 
 <chunk id="outdated_warning">
 
