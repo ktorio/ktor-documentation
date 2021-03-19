@@ -1,11 +1,10 @@
-package io.ktor.snippets.hello
+package com.example
 
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.html.*
 import io.ktor.routing.*
 import kotlinx.html.*
-
 
 fun Application.main() {
     install(DefaultHeaders)
