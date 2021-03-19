@@ -237,7 +237,7 @@ delete("{id}") {
 
 Similar to the definition of our `get` request, we make sure that the `id` is not null. If the `id` is absent, we respond with a 400 "Bad Request" error.
 
-### Registering the routes
+### Registering the routes {id="register-customer-routes"}
 
 Up until now, we have only defined our routes inside an extension function on `Route` – so Ktor doesn't know about our routes yet, and we need to register them. While we could certainly add each route directly in `Application.module` inside a `routing` block, it's more maintainable to group route registration in the corresponding file. We then just call the corresponding function to register all of them. Once we look at our implementation for `Orders`, this will hopefully be even more apparent.
 
@@ -378,7 +378,7 @@ fun Route.totalizeOrderRoute() {
 
 A small thing to note here is that we are not limited to suffixes of routes for parameters – as we can see, it's absolutely possible to have a section in the middle be a route parameter (`/order/{id}/total`).
 
-### Registering the routes
+### Registering the routes {id="register-order-routes"}
 
 Finally, much like the case of customers, we need to register the routes. Hopefully, this makes it clear why grouping routes makes more sense as the number of routes grow. Still in `OrderRoutes.kt`, we add an `Application` extension function called `registerOrderRoutes`:
 
