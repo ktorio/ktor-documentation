@@ -73,7 +73,7 @@ Ktor lets you use additional client functionality (features) that is not availab
 You can also configure a feature inside the `install` block. For example, for the `Logging` feature, you can specify the logger and logging level:
 ```kotlin
 ```
-{src="snippets/client-logging/src/main/kotlin/com/example/Application.kt" include-symbol="client"}
+{src="snippets/client-logging/src/main/kotlin/com/example/Application.kt"}
 
 ## Make a Request {id="make-request"}
 
