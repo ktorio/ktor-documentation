@@ -33,4 +33,4 @@ val client = HttpClient(CIO) {
 The `Logging` feature allows you to configure the desired logger using the `logger` property and the level of logging using the `level` property:
 ```kotlin
 ```
-{src="/snippets/client-logging/src/main/kotlin/com/example/Application.kt" include-symbol="client"}
+{src="/snippets/client-logging/src/main/kotlin/com/example/Application.kt"}
