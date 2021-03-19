@@ -39,7 +39,7 @@ can be accomplished using the [assembly](http://maven.apache.org/guides/mini/gui
 
 ```groovy
 ```
-{src="snippets/docker/resources/application.conf"}
+{src="snippets/docker/src/main/resources/application.conf"}
 
 </tab>
 
@@ -47,7 +47,7 @@ can be accomplished using the [assembly](http://maven.apache.org/guides/mini/gui
 
 ```kotlin
 ```
-{src ="snippets/docker/src/HelloApplication.kt"}
+{src ="snippets/docker/src/main/kotlin/com/example/Application.kt"}
 
 </tab>
 
@@ -74,10 +74,10 @@ to run the image.
 
 ## Building and running the Docker image
 
-First step is to build the actual application (in this case using Gradle):
+First step is to create the distribution of the application (in this case using Gradle):
 
 ```bash
-./gradlew build
+./gradlew installDist
 ```
 
 Next step is to build and tag the Docker image:
