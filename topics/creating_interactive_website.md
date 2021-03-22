@@ -153,7 +153,8 @@ fun Application.module() {
 ```
 In the configuration block for the `FreeMarker` feature, we're passing two parameters:
 
-- The `templateLoader` setting tells our application that FreeMarker templates will be located in the `templates` directory inside our application `resources`: ![Template](templates_location.png)
+- The `templateLoader` setting tells our application that FreeMarker templates will be located in the `templates` directory inside our application `resources`: 
+  ![Template](templates_location.png){width="566"}
 - The `outputFormat` setting helps convert control characters provided by the user to their corresponding HTML entities. This ensures that when one of our journal entries contains a String like `<b>Hello</b>`, it is actually printed as `<b>Hello</b>`, not **Hello**. This so-called [escaping](https://freemarker.apache.org/docs/dgui_misc_autoescaping.html) is an essential step in preventing [XSS attacks](https://owasp.org/www-community/attacks/xss/).
 
 Now that Ktor knows where to find our FreeMarker templates, we can start writing the template for the journal main page.
