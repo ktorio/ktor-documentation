@@ -37,7 +37,7 @@ Now that we have confidence in the technology we want to use for the implementat
 
 ## Project setup
 
-Because our application will be two independent parts (chat server and chat client) we structure our application as two separate Gradle projects. Since these two projects are completely independent, they could be created manually, via the online [Ktor Project Generator](https://start.ktor.io/#), or the [plugin for IntelliJ IDEA](intellij-idea.xml).
+Because our application will be two independent parts (chat server and chat client), we structure our application as two separate Gradle projects. Since these two projects are completely independent, they could be created manually, via the online [Ktor Project Generator](https://start.ktor.io/#), or the [plugin for IntelliJ IDEA](intellij-idea.xml).
 
 To skip over these configuration steps, a starter template is available for this specific tutorial, which includes all configuration and required dependencies for our two projects already.
 
@@ -64,7 +64,7 @@ dependencies {
 ```
 
 - `ktor-server-netty` adds Ktor together with the Netty engine, allowing us to use server functionality without having to rely on an external application container.
-- `ktor-websockets` allows us to use the [WebSocket Ktor feature](https://ktor.io/docs/servers-features-websockets.html), the main communication mechanism for our chat.
+- `ktor-websockets` allows us to use the [WebSocket Ktor feature](websocket.md), the main communication mechanism for our chat.
 - `logback-classic` provides an implementation of [SLF4J](http://www.slf4j.org/), allowing us to see nicely formatted logs in our console.
 
 #### Configuration for the `server` project
@@ -134,7 +134,11 @@ At this point, we have already built a fully-functioning echo server – a littl
 
 For now, we can use a web-based WebSocket client to connect to our echo service, send a message, and receive the echoed reply. Once we have finished implementing the server-side functionality, we will also build our own chat client in Kotlin.
 
-Let's start the server by pressing the play button in the gutter next to the definition of fun main in our server's Application.kt. After our project has finished compiling, we should see a confirmation that the server is running in IntelliJ IDEAs "Run" window: `Application - Responding at http://0.0.0.0:8080`. To try out the service, we can open the WebSocket client provided at [www.websocket.org/echo.html](https://www.websocket.org/echo.html) and use it to connect to `ws://localhost:8080/chat`.
+Let's start the server by pressing the play button in the gutter next to the definition of `fun main` in our server's Application.kt. After our project has finished compiling, we should see a confirmation that the server is running in IntelliJ IDEAs Run tool window: 
+
+`Application - Responding at http://0.0.0.0:8080`. 
+
+To try out the service, we can open the WebSocket client provided at [www.websocket.org/echo.html](https://www.websocket.org/echo.html) and use it to connect to `ws://localhost:8080/chat`.
 
 ![Echo Test](image-20201022122125926.png){width="951"}
 
@@ -248,7 +252,7 @@ Here, we first create an `HttpClient` and set up Ktor's `WebSocket` feature (the
 
 However, this "straightforward" implementation actually contains an issue which prevents it from being used as a proper chat client: when invoking `readLine()`, our program waits until the user enters a message. During this time, we can't see any messages which have been typed out by other users. Likewise, because we invoke `readLine()` after every received message, we would only ever see one new message at a time.
 
-You can also validate this for yourself: with the server process running, start two instances of the chat client by clicking play icon in the gutter in `client/src/main/kotlin/com/jetbrains/handson/chat/client/ChatClient.kt`. Use the tabs in the "Run" tool window to navigate between the two client instances, and send some messages back and forth.
+You can also validate this for yourself: with the server process running, start two instances of the chat client by clicking play icon in the gutter in `client/src/main/kotlin/com/jetbrains/handson/chat/client/ChatClient.kt`. Use the tabs in the Run tool window to navigate between the two client instances, and send some messages back and forth.
 
 ![Run tool window](image-20201111191815343.png){width="1207"}
 
@@ -347,7 +351,7 @@ Congratulations on finishing this tutorial on creating a chat application using 
 At this point, we have implemented the absolute basics for a chat service, both on client and server side. If you want to, you can keep expanding on this project. To get you started, here are a few ideas of how to improve the application, in no particular order:
 
 - **Custom usernames!** Instead of automatically assigning numbers to your users, you can ask users on application startup to enter a user name, and persist this name alongside the Connection information on the server.
-- **Private messages!** If your users have something to say, but don't want to share it with the whole group, you could implement a /whisper command, which only relays the message to a certain person or select group of participants. You could even expand this functionality to handle more generic **chat commands!**
+- **Private messages!** If your users have something to say, but don't want to share it with the whole group, you could implement a `/whisper` command, which only relays the message to a certain person or select group of participants. You could even expand this functionality to handle more generic **chat commands!**
 - **Nicer UI!** So far, the client's user interface is very rudimentary, with only text input and output. If you're feeling adventurous, you can pick up a framework like [TornadoFX](https://tornadofx.io/), [Compose for Desktop](https://www.jetbrains.com/lp/compose/), or other, and try implementing a fancy user interface for the chat.
 - **Mobile app!** The Ktor client libraries are also available for mobile applications. Feel free to try integrating what you have learned in this tutorial in the context of an Android application, and build the next big mobile chat product!
 

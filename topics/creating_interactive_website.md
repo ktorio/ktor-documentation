@@ -72,7 +72,7 @@ Before we dive into making a _dynamic_ application, let's start by doing somethi
 
 In the context of our journal, there are a number of things that we probably want to serve as static files – one example being a header image (a logo that identifies our site). Luckily for us, the template repository already has a PNG file included which we can use: `ktor.png` inside the folder `src/main/resources/files`:
 
-![](ktor_image_location.png){width="561}
+![](ktor_image_location.png){width="561"}
 
 For serving static content, we can use a specific [routing](Routing_in_Ktor.md) function already built in to Ktor named [static](Serving_Static_Content.md). The function takes two parameters: the route under which the static content should be made available, and a lambda where we can define the location from where the content should be served. In the file called `Application.kt`, let's change the implementation for `Application.module()` to look like this:
 
