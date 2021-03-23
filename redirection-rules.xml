@@ -8,6 +8,7 @@
         <accepts>guides-chat.html</accepts>
         <accepts>guides-oauth.html</accepts>
         <accepts>ssl.html</accepts>
+        <accepts>getting-started-ktor.html</accepts>
     </rule>
     <rule id="samples">
         <accepts>samples-index.html</accepts>
