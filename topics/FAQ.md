@@ -50,10 +50,6 @@ If you have a functionality or bugfix you think would be worth including in Ktor
 Have in mind that we usually review and merge PRs in batches, so the PR could be outstanding for a few weeks.
 But still we encourage you to contribute if you can!
 
-If you have a bugfix that need to use right away we recommend you to fork Ktor, compile it yourself,
-and temporarily publish a patched version in your own artifactory, bintray or similar and use that version
-until it is merged and a new version released (since the timing might not be aligned with your needs).
-
 ## What does CIO mean?
 {id="cio"}
 
@@ -97,7 +93,7 @@ the logic implementing an IETF RFC or another protocol without relying on extern
 You can use jitpack to get builds from master that are not yet released:
 <https://jitpack.io/#ktorio/ktor>
 Also you can [build Ktor from source](build-from-source.md), and use your `mavenLocal` repository for the artifact
-or to upload your artifacts to your own artifactory/bintray.
+or to upload your artifacts to your own artifactory.
 
 ## How can I be sure of which version of Ktor am I using?
 {id="ktor-version-used"}

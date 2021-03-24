@@ -6,7 +6,6 @@ plugins {
 mainClassName = "io.ktor.server.netty.EngineMain"
 
 repositories {
-    jcenter()
     mavenCentral()
 }
 

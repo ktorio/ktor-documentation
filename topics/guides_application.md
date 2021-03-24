@@ -18,8 +18,8 @@ allowing you to include only the functionality that you will need. And thus redu
 In this case, you only need to include the artifact `ktor-server-netty`.
 For a list of all the artifacts available, please check the [Artifacts](artifacts.md) page.  
 
-Release versions of these dependencies are available at jcenter and maven central.
-For pre-releases we host them on [Bintray kotlin/ktor](https://bintray.com/kotlin/ktor).
+Release versions of these dependencies are available at maven central.
+For pre-releases we host them on [jetbrains.space](https://ktor.io/eap).
 
 For a more detailed guide on setting up build files with different build systems check:
 

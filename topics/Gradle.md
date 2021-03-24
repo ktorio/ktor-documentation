@@ -50,9 +50,9 @@ dependencies {
 ## Add Ktor dependencies and configure build settings
 {id="ktor-dependencies"}
 
-Ktor artifacts are located in a specific repository on bintray.
+Ktor artifacts are located in a specific repository on mavenCentral.
 And its core has dependencies on the `kotlinx.coroutines` library that
-can be found on `jcenter`.
+can be found on `mavenCentral`.
 
 You have to add both to the `repositories` block in the `build.gradle` file:
 
