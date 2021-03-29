@@ -1,6 +1,20 @@
-[//]: # (title: Calls)
+[//]: # (title: Handling Requests and Responses)
 
-<include src="lib.md" include-id="outdated_warning"/>
+
+Ktor allows you to handle incoming requests and send responses inside [route handlers](Routing_in_Ktor.md#define_route).
+Access to [ApplicationCall](https://api.ktor.io/%ktor_version%/io.ktor.application/-application-call/index.html)
+* For a request, you can get various information, such as headers, cookies
+* 
+
+```kotlin
+routing {
+    get("/") {
+        val uri = call.request.uri
+        call.respondText("Request uri: $uri")
+    }
+}
+```
+
 
 When handling routes, or directly intercepting the pipeline, you get a context with an ApplicationCall.
 
