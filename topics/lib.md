@@ -60,6 +60,32 @@ To enable `%feature_name%` support, you need to include the `%artifact_name%` ar
 </tabs>
 </chunk>
 
+<chunk id="add_ktor_artifact_maven_jvm">
+<tabs>
+    <tab title="Gradle (Groovy)">
+        <code style="block" lang="Groovy" title="Sample" interpolate-variables="true">
+            implementation "io.ktor:%artifact_name%:$ktor_version"
+        </code>
+    </tab>
+    <tab title="Gradle (Kotlin)">
+        <code style="block" lang="Kotlin" title="Sample" interpolate-variables="true">
+            implementation("io.ktor:%artifact_name%:$ktor_version")
+        </code>
+    </tab>
+    <tab title="Maven (jvm)">
+        <code style="block" lang="XML" title="Sample" interpolate-variables="true">
+        <![CDATA[
+        <dependency>
+            <groupId>io.ktor</groupId>
+            <artifactId>%artifact_name%-jvm</artifactId>
+            <version>${ktor_version}</version>
+        </dependency>
+        ]]>
+        </code>
+   </tab>
+</tabs>
+</chunk>
+
 
 <chunk id="add_artifact">
 <tabs>

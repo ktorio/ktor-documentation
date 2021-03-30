@@ -15,7 +15,7 @@ The main client functionality is available in the `ktor-client-core` artifact. D
 ### Engine Dependency {id="engine-dependency"}
 An engine is responsible for processing network requests. There are different client engines available for [various platforms](http-client_multiplatform.md), such as Apache, CIO, Android, iOS, and so on. For example, you can add a `CIO` engine dependency as follows:
 <var name="artifact_name" value="ktor-client-cio"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.md" include-id="add_ktor_artifact_maven_jvm"/>
 
 For a full list of dependencies required for a specific engine, see [](http-client_engines.md#dependencies).
 

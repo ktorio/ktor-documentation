@@ -85,7 +85,7 @@ The `Jetty` engine supports only HTTP/2 and can be configured in the following w
 CIO is a fully asynchronous coroutine-based engine that can be used for both JVM and Android platforms. It supports only HTTP/1.x for now. To use it, follow the steps below:
 1. Add the `ktor-client-cio` dependency:
    <var name="artifact_name" value="ktor-client-cio"/>
-   <include src="lib.md" include-id="add_ktor_artifact"/>
+   <include src="lib.md" include-id="add_ktor_artifact_maven_jvm"/>
 1. Pass the [CIO](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.cio/-c-i-o/index.html) class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
