@@ -99,12 +99,10 @@ A _route parameter_ (`{param}`) matches a path segment and captures it as a para
 * `/user/{login}` matches `/user/john`, but doesn't match `/user`.
 * `/user/{login?}` matches `/user/john` as well as `/user`.
 
-To access a parameter value inside the route handler, use the `call.parameters` property. For example, `call.parameters["login"]` in the code snippet below will return _john_ for the `/user/john` path:
+To access a parameter value inside the route handler, use the `call.parameters` property. For example, `call.parameters["login"]` in the code snippet below will return _admin_ for the `/user/admin` path:
 ```kotlin
-get("/user/{login}") {
-  call.respondText("Hello, ${call.parameters["login"]}")
-}
 ```
+{src="snippets/_misc/RouteParameter.kt"}
 
 > To learn how to access URL query parameters inside the handler, see [](requests.md#query_parameters).
 
