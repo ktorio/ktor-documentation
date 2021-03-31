@@ -75,10 +75,10 @@ You can obtain the `first_name` parameter value in code as follows:
 The `firstName` variable will be initialized with _Jet_.
 
 ### Multipart form data {id="form_data"}
-If you need to receive a file sent as a part of a multipart request, you can use the [receiveMultipart](https://api.ktor.io/%ktor_version%/io.ktor.request/receive-multipart.html) function. The example below shows how to do this:
+If you need to receive a file sent as a part of a multipart request, call the [receiveMultipart](https://api.ktor.io/%ktor_version%/io.ktor.request/receive-multipart.html) function and then loop over each part as required. In the example below, `PartData.FileItem` is used to receive a file as a byte stream.
 ```kotlin
 ```
-{src="/snippets/multipart/src/main/kotlin/com/example/Multipart.kt" include-symbol="main"}
+{src="/snippets/upload-file/src/main/kotlin/com/example/UploadFile.kt" include-symbol="main"}
 
 Learn how to run this sample from [Multipart](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/multipart).
 
