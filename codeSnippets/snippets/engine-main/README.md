@@ -1,6 +1,6 @@
 # EngineMain
 
-A sample Ktor project showing how to create a server using the [embeddedServer](https://ktor.io/docs/create-server.html#embedded-server) function.
+A sample Ktor project showing how to create a server using [EngineMain](https://ktor.io/docs/create-server.html#engine-main).
 
 ## Running
 
