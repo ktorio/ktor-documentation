@@ -13,7 +13,7 @@
         </p>
         <code style="block"
               lang="kotlin"
-              src="snippets/_misc/HelloWorld.kt"
+              src="snippets/embedded-server/src/main/kotlin/com/example/Application.kt"
               include-symbol="main">
         </code>
         <p>

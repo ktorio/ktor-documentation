@@ -39,7 +39,7 @@ The [embeddedServer](https://api.ktor.io/%ktor_version%/io.ktor.server.engine/em
 
 ```kotlin
 ```
-{src="snippets/_misc/HelloWorld.kt"}
+{src="snippets/embedded-server/src/main/kotlin/com/example/Application.kt"}
 
 ### EngineMain {id="EngineMain"}
 `EngineMain` represents an engine for running a server. You can use the following engines:
@@ -55,7 +55,7 @@ The `EngineMain.main` function is used to start a server with the selected engin
 
 ```kotlin
 ```
-{src="snippets/_misc/HelloWorldEngineMain.kt"}
+{src="snippets/engine-main/src/main/kotlin/com/example/Application.kt"}
 
 </tab>
 
@@ -63,7 +63,7 @@ The `EngineMain.main` function is used to start a server with the selected engin
 
 ```kotlin
 ```
-{src="snippets/_misc/HelloWorldEngineMain.conf"}
+{src="snippets/engine-main/src/main/resources/application.conf"}
 
 </tab>
 </tabs>
