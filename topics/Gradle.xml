@@ -212,7 +212,7 @@
                 </p>
                 <code style="block"
                       lang="kotlin"
-                      src="snippets/_misc/HelloWorld.kt">
+                      src="snippets/embedded-server/src/main/kotlin/com/example/Application.kt">
                 </code>
             </step>
         </procedure>
@@ -224,7 +224,7 @@
                 </p>
                 <code style="block"
                       lang="kotlin"
-                      src="snippets/_misc/HelloWorldEngineMain.kt">
+                      src="snippets/engine-main/src/main/kotlin/com/example/Application.kt">
                 </code>
                 <p>
                     The <code>Application.module</code> function is a <a href="Modules.md">module</a> loaded by the server.
@@ -236,7 +236,7 @@
                     Create the <path>application.conf</path> file in the <path>src/main/resources</path> folder and copy the following configuration:
                 </p>
                 <code style="block"
-                      src="snippets/_misc/HelloWorldEngineMain.conf">
+                      src="snippets/engine-main/src/main/resources/application.conf">
                 </code>
                 <p>
                     This file specifies a fully qualified name of the <code>Application.module</code> module to load and sets a listening port to <code>8080</code>.

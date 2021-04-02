@@ -81,7 +81,7 @@
             </p>
             <code style="block"
                   lang="kotlin"
-                  src="snippets/_misc/HelloWorldEngineMain.kt">
+                  src="snippets/engine-main/src/main/kotlin/com/example/Application.kt">
             </code>
             <p>
                 Besides modules to load, you can configure various server settings, including <a anchor="predefined-properties">predefined</a> (such as a port or host, SSL settings, etc.) and custom ones.
