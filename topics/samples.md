@@ -12,6 +12,10 @@ A [Ktor documentation repository](https://github.com/ktorio/ktor-documentation) 
 * [Docker](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/docker)
 * [Google App Engine Standard](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/google-appengine-standard)
 
+## Server Upload and Download {id="upload-download"}
+* [Upload](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/upload-file)
+* [Download](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/download-file)
+
 ## Features {id="features"}
 * [Asynchronous](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/async)
 * [Authenticate](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/auth)
@@ -25,7 +29,6 @@ A [Ktor documentation repository](https://github.com/ktorio/ktor-documentation) 
 * [Jackson](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/jackson)
 * [Locations](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/locations)
 * [Metrics](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/metrics)
-* [Multipart](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/multipart)
 * [POST](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/post)
 * [Sessions](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/sessions)
 * [SSL](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/ssl)
