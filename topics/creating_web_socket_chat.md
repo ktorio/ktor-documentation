@@ -138,7 +138,7 @@ Let's start the server by pressing the play button in the gutter next to the def
 
 `Application - Responding at http://0.0.0.0:8080`. 
 
-To try out the service, we can open the WebSocket client provided at [www.websocket.org/echo.html](https://www.websocket.org/echo.html) and use it to connect to `ws://localhost:8080/chat`.
+To try out the service, we can open the WebSocket client provided at [www.websocket.org/echo.html](https://www.websocket.org/echo.html) and use it to connect to `ws://localhost:8080/chat`. Note: some browsers will block connections on the insecure channel `ws` to localhost, so the website above may not work for you. In that case, you can try to use your favourite Websocket Client Testing Library, like [WebSocket Test Client](https://chrome.google.com/webstore/detail/websocket-test-client/fgponpodhbmadfljofbimhhlengambbn) on the Chrome Web Store
 
 ![Echo Test](image-20201022122125926.png){width="951"}
 
