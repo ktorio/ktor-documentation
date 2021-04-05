@@ -64,7 +64,7 @@ In summary, you need to specify the following settings to define a route:
   Specify a path pattern used to [match a URL path](#match_url), for example, `/hello`, `/customer/{id}`. You can pass a path pattern right to the `get`/`post`/etc. function, or you can use the `route` function to group [route handlers](#multiple_routes) and define nested routes.
   
 * **Handler**  
-  Specify how to [handle requests and responses](calls.md). Inside the handler, you can get access to `ApplicationCall`, handle client requests, and send responses.
+  Specify how to handle [requests](requests.md) and [responses](responses.md). Inside the handler, you can get access to `ApplicationCall`, handle client requests, and send responses.
 
 
 
