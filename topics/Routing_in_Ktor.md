@@ -33,11 +33,11 @@ import io.ktor.http.*
 import io.ktor.response.*
 
 routing {
-  route("/hello", HttpMethod.Get) {
-    handle {
-      call.respondText("Hello")
+    route("/hello", HttpMethod.Get) {
+        handle {
+            call.respondText("Hello")
+        }
     }
-  }
 }
 ```
 
