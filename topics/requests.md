@@ -16,7 +16,7 @@ routing {
     }
 }
 ```
-> The [call.respondText](responses.md) method is used to send a response back to the client.
+> The [call.respondText](responses.md#plain-text) method is used to send a response back to the client.
 
 The [ApplicationRequest](https://api.ktor.io/%ktor_version%/io.ktor.request/-application-request/index.html) object allows you to get access to various request data, for example:
 * Headers  
@@ -80,7 +80,7 @@ If you need to receive a file sent as a part of a multipart request, call the [r
 ```
 {src="/snippets/upload-file/src/main/kotlin/com/example/UploadFile.kt" include-symbol="main"}
 
-Learn how to run this sample from [Multipart](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/upload-file).
+Learn how to run this sample from [upload-file](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/upload-file).
 
 
 ### Raw payload {id="raw"}

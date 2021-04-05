@@ -19,7 +19,7 @@ get("/") {
 
 ### HTML {id="html"}
 Ktor provides two main ways to send HTML responses a to client:
-* By building HTML using Kotlin HTML DSL
+* By building HTML using Kotlin HTML DSL.
 * By using JVM template engines, such as Freemarker, Velocity, and so on.
 
 To send HTML build using Kotlin DSL, use the [call.respondHtml](https://api.ktor.io/%ktor_version%/io.ktor.html/respond-html.html) function:
@@ -39,7 +39,7 @@ get("/index") {
     call.respondTemplate("index.ftl", mapOf("user" to sampleUser))
 }
 ```
-Learn more about working with views from [](Working_with_views.md).
+You can learn more from the [](Working_with_views.md) help section.
 
 
 ### Object {id="object"}
@@ -53,7 +53,7 @@ post("/customer") {
 
 
 ### File {id="file"}
-To respond to a client with a content of a file, use the [call.respondFile](https://api.ktor.io/%ktor_version%/io.ktor.response/respond-file.html) function. A code snippet below shows how respond with a specified file and make this file downloadable by using the [Content-Disposition](#headers) header:
+To respond to a client with a content of a file, use the [call.respondFile](https://api.ktor.io/%ktor_version%/io.ktor.response/respond-file.html) function. A code snippet below shows how to send a specified file in a response and make this file downloadable by adding the `Content-Disposition` [header](#headers):
 ```kotlin
 ```
 {src="/snippets/download-file/src/main/kotlin/com/example/DownloadFile.kt" include-symbol="main"}
