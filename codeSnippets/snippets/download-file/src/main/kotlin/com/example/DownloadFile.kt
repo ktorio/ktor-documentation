@@ -8,8 +8,8 @@ import java.io.File
 
 fun Application.main() {
     routing {
-        post("/download") {
-            val file = File("/files/ktor_logo.png")
+        get("/download") {
+            val file = File("files/ktor_logo.png")
             call.response.header(
                 HttpHeaders.ContentDisposition,
                 ContentDisposition.Attachment.withParameter(ContentDisposition.Parameters.FileName, "ktor_logo.png")
