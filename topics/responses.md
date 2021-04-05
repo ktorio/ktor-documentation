@@ -3,9 +3,10 @@
 Ktor allows you to handle incoming [requests](requests.md) and send responses inside [route handlers](Routing_in_Ktor.md#define_route). You can send different types of responses: plain text, HTML documents and templates, serialized data objects, and so on. For each response, you can also configure various [response parameters](#parameters), such as a content type, headers, and cookies.
 
 Inside a route handler, the following API is available for working with responses:
-* A set of functions targeted for sending a specific content type, for example, [call.respondText](https://api.ktor.io/%ktor_version%/io.ktor.response/respond-text.html), [call.respondHtml](https://api.ktor.io/%ktor_version%/io.ktor.html/respond-html.html), and so on.
-* The [call.respond](https://api.ktor.io/%ktor_version%/io.ktor.response/respond.html) function that allows you to send any data inside a response. For example, with the enabled [ContentNegotiation](serialization.md) feature, you can send a data object serialized in a specific format.
-* The [call.response](https://api.ktor.io/%ktor_version%/io.ktor.application/-application-call/response.html) property that returns the [ApplicationResponse](https://api.ktor.io/%ktor_version%/io.ktor.response/-application-response/index.html) object providing access to response parameters and allowing you to set a status code, add headers, and configure cookies.
+* A set of functions targeted for [sending a specific content type](#payload), for example, [call.respondText](https://api.ktor.io/%ktor_version%/io.ktor.response/respond-text.html), [call.respondHtml](https://api.ktor.io/%ktor_version%/io.ktor.html/respond-html.html), and so on. 
+* The [call.respond](https://api.ktor.io/%ktor_version%/io.ktor.response/respond.html) function that allows you to [send any data](#payload) inside a response. For example, with the enabled [ContentNegotiation](serialization.md) feature, you can send a data object serialized in a specific format.
+* The [call.response](https://api.ktor.io/%ktor_version%/io.ktor.application/-application-call/response.html) property that returns the [ApplicationResponse](https://api.ktor.io/%ktor_version%/io.ktor.response/-application-response/index.html) object providing access to [response parameters](#parameters) and allowing you to set a status code, add headers, and configure cookies.
+* The [call.respondRedirect](https://api.ktor.io/%ktor_version%/io.ktor.response/respond-redirect.html) provides the capability to add redirects.
 
 
 ## Set response payload {id="payload"}
@@ -27,7 +28,7 @@ To send HTML build using Kotlin DSL, use the [call.respondHtml](https://api.ktor
 ```
 {src="snippets/html/src/main/kotlin/com/example/Application.kt" lines="12-26"}
 
-If you want to respond with a template, call the [call.respond](https://api.ktor.io/%ktor_version%/io.ktor.response/respond.html) function with a specific content ...
+To send a template in a response, call the [call.respond](https://api.ktor.io/%ktor_version%/io.ktor.response/respond.html) function with a specific content ...
 ```kotlin
 ```
 {src="snippets/freemarker/src/main/kotlin/com/example/Application.kt" lines="16-19"}
@@ -53,7 +54,7 @@ post("/customer") {
 
 
 ### File {id="file"}
-To respond to a client with a content of a file, use the [call.respondFile](https://api.ktor.io/%ktor_version%/io.ktor.response/respond-file.html) function. A code snippet below shows how to send a specified file in a response and make this file downloadable by adding the `Content-Disposition` [header](#headers):
+To respond to a client with a contents of a file, use the [call.respondFile](https://api.ktor.io/%ktor_version%/io.ktor.response/respond-file.html) function. A code sample below shows how to send a specified file in a response and make this file downloadable by adding the `Content-Disposition` [header](#headers):
 ```kotlin
 ```
 {src="/snippets/download-file/src/main/kotlin/com/example/DownloadFile.kt" include-symbol="main"}
