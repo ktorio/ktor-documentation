@@ -83,7 +83,7 @@ get("/") {
 Note that functions for sending a [payload](#payload) have overloads for specifying a status code.
 
 ### Content type {id="content-type"}
-When you send a content using a function targeted for sending a [specific content type](#payload), Ktor specifies a content type automatically. If required, you can specify a content type manually by passing a corresponding parameter. For example, the `call.respondText` function below accepts `ContentType.Text.Plain` as a parameter:
+With the installed [ContentNegotiation](serialization.md) feature, Ktor chooses a content type for a [response](#payload) automatically. If required, you can specify a content type manually by passing a corresponding parameter. For example, the `call.respondText` function in a code snippet below accepts `ContentType.Text.Plain` as a parameter:
 ```kotlin
 get("/") {
     call.respondText("Hello, world!", ContentType.Text.Plain, HttpStatusCode.OK)
