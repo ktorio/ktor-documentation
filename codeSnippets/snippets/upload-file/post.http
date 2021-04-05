@@ -1,4 +1,4 @@
-POST http://localhost:8080/post
+POST http://localhost:8080/upload
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 
 --WebAppBoundary
