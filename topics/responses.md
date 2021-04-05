@@ -4,8 +4,8 @@ Ktor allows you to handle incoming [requests](requests.md) and send responses in
 
 Inside a route handler, the following API is available for working with responses:
 * A set of methods targeted for sending a specific content type, for example, [call.respondText](https://api.ktor.io/%ktor_version%/io.ktor.response/respond-text.html), [call.respondHtml](https://api.ktor.io/%ktor_version%/io.ktor.html/respond-html.html), and so on.
-* The [call.respond](https://api.ktor.io/%ktor_version%/io.ktor.response/respond.html) function allows you to send any data inside a response. For example, with the enabled [ContentNegotiation](serialization.md) feature, you can send a data object serialized in a specific format.
-* The [call.response](https://api.ktor.io/%ktor_version%/io.ktor.application/-application-call/response.html) property returns the [ApplicationResponse](https://api.ktor.io/%ktor_version%/io.ktor.response/-application-response/index.html) object and provides access to response parameters and allows you to set a status code, add headers, and configure cookies.
+* The [call.respond](https://api.ktor.io/%ktor_version%/io.ktor.response/respond.html) function that allows you to send any data inside a response. For example, with the enabled [ContentNegotiation](serialization.md) feature, you can send a data object serialized in a specific format.
+* The [call.response](https://api.ktor.io/%ktor_version%/io.ktor.application/-application-call/response.html) property that returns the [ApplicationResponse](https://api.ktor.io/%ktor_version%/io.ktor.response/-application-response/index.html) object providing access to response parameters and allowing you to set a status code, add headers, and configure cookies.
 
 
 ## Set response payload {id="payload"}
