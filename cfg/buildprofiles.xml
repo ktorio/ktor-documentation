@@ -21,7 +21,9 @@
         <config-sideblocks>true</config-sideblocks>
         <config-productid>docs</config-productid>
         <config-search-scopes-provider>https://data.services.jetbrains.com/search/</config-search-scopes-provider>
-        <allow-indexable-eaps>true</allow-indexable-eaps>
+        <noindex-content-in-deprecated>true</noindex-content-in-deprecated>
+        <noindex-content-in-eap>true</noindex-content-in-eap>
+        <noindex-content-in-release>false</noindex-content-in-release>
         <generate-sitemap-url-prefix>https://ktor.io/docs/</generate-sitemap-url-prefix>
 
     </variables>
