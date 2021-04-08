@@ -160,7 +160,7 @@ There is a page [explaining the Ktor's application-level event system](events.md
 
 This means that Ktor was not able to find the `application.conf` file. Re-check that it is in the `resources` folder,
 and that the `resources` folder is marked as such.
-You can consider to set up a project using the [project generator](generator.md) or the [IntelliJ plugin](intellij-idea.xml)
+You can consider to set up a project using the [project generator](https://start.ktor.io/) or the [IntelliJ plugin](intellij-idea.xml)
 to have a working project as base.
 
 ## Can I use ktor on Android?
