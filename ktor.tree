@@ -88,9 +88,6 @@
                              accepts-web-file-names="authentication-oauth.html"/>
             </toc-element>
             <toc-element toc-title="Features">
-                <toc-element id="logging.md"
-                             show-structure-depth="2"
-                             accepts-web-file-names="servers-logging.html,call-logging.html"/>
                 <toc-element id="call-id.md"/>
                 <toc-element id="serialization.md"
                              show-structure-depth="2"
@@ -148,8 +145,11 @@
                          accepts-web-file-names="engine.html"/>
 <!--            <toc-element id="Auto_reload.md" accepts-web-file-names="autoreload.html"/>-->
             <toc-element id="Auto_reload.xml" accepts-web-file-names="autoreload.html"/>
+            <toc-element id="logging.md"
+                         show-structure-depth="2"
+                         accepts-web-file-names="servers-logging.html,call-logging.html"/>
 <!--            <toc-element id="Debugging_routes.md"/>-->
-            <toc-element toc-title="Debugging Routes"/>
+<!--            <toc-element toc-title="Debugging Routes"/>-->
 
         </toc-element>
         <toc-element id="Testing.md"
