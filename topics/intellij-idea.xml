@@ -3,7 +3,7 @@
 
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       title="IntelliJ IDEA Plugin"
+       title="Creating a New Ktor Project"
        id="intellij-idea">
 
     <p>
@@ -41,7 +41,7 @@
                 <p>
                     On the right pane, you can specify the following settings:
                 </p>
-                <img src="ktor_idea_new_project_settings.png" alt="Ktor Project Settings" width="706"/>
+                <img src="ktor_idea_new_project_settings.png" alt="Ktor Project Settings" width="702"/>
                 <list>
                     <li>
                         <p>
@@ -59,9 +59,8 @@
                         <p>
                             <control>Build System</control>:
                             Choose the desired build system.
-                            This can be <a href="https://www.jetbrains.com/help/idea/gradle.html">Gradle</a>
-                            with Kotlin or Groovy DSL,
-                            or <a href="https://www.jetbrains.com/help/idea/maven-support.html">Maven</a>.
+                            This can be <a href="Gradle.xml">Gradle</a> with Kotlin or Groovy DSL,
+                            or <a href="Maven.xml">Maven</a>.
                         </p>
                     </li>
                     <li>
@@ -88,6 +87,18 @@
                             Select an <a href="Engines.md">engine</a> used to run a server.
                         </p>
                     </li>
+                    <li>
+                        <p>
+                            <control>Configuration in</control>:
+                            Choose whether to specify server parameters <a href="create_server.xml">in code or in a HOCON file</a>.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <control>Add sample code</control>:
+                            Leave this option enabled to add sample code for features added on the next page.
+                        </p>
+                    </li>
                 </list>
                 <p>
                     In this tutorial, we leave the default values for these settings.
@@ -100,14 +111,14 @@
                     building blocks that provide common functionality of a Ktor application, for example,
                     authentication, serialization and content encoding, compression, cookie support, and so on.
                 </p>
-                <img src="ktor_idea_new_project_features_list.png" alt="Ktor features" width="706"/>
+                <img src="ktor_idea_new_project_features_list.png" alt="Ktor features" width="702"/>
                 <p>
                     For now, let's install only the <a href="Routing_in_Ktor.md">Routing</a> feature to
                     handle incoming requests.
                     Start typing <emphasis>routing</emphasis> at the top left search box,
                     find <control>Routing</control> in the list, and click <control>Add</control>.
                 </p>
-                <img src="ktor_idea_new_project_features.png" alt="Add the Routing feature" width="706" animated="true"/>
+                <img src="ktor_idea_new_project_features.png" alt="Add the Routing feature" width="702" animated="true"/>
                 <p>
                     Click <control>Finish</control> and wait until IntelliJ IDEA generates a project and
                     installs the dependencies.
@@ -130,30 +141,24 @@
                     and open the <path>Application.kt</path> file placed by the following path:
                 </p>
                 <path>src/main/kotlin/com/example/Application.kt</path>
-                <img src="ktor_idea_new_project_view.png" alt="Project view" width="355"/>
+                <img src="ktor_idea_new_project_view.png" alt="Project view" width="324"/>
             </step>
             <step>
                 <p>
                     The <path>Application.kt</path> file has the following code added automatically:
                 </p>
-                <code style="block" lang="kotlin" initial-collapse-state="expanded" collapsed-title="fun Application.module">
+                <code style="block" lang="kotlin" initial-collapse-state="expanded" collapsed-title="fun main">
 <![CDATA[
                     package com.example
 
-                    import io.ktor.application.*
-                    import io.ktor.response.*
-                    import io.ktor.routing.*
+                    import io.ktor.server.engine.*
+                    import io.ktor.server.netty.*
+                    import com.example.plugins.*
 
-                    fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
-
-                    @Suppress("unused") // Referenced in application.conf
-                    @kotlin.jvm.JvmOverloads
-                    fun Application.module(testing: Boolean = false) {
-                        routing {
-                            get {
-                                call.respondText("Hello World!")
-                            }
-                        }
+                    fun main() {
+                        embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
+                            configureRouting()
+                        }.start(wait = true)
                     }
                     ]]>
                 </code>
@@ -164,14 +169,29 @@
                 <list>
                     <li>
                         <p>
-                            The <code>EngineMain.main</code> function is used to start a server with the Netty
-                            <a href="Engines.md">engine</a> specified during a project creation.
+                            The <a href="create_server.xml" anchor="embedded-server">embeddedServer</a> function is used to configure server parameters in code and run an application.
                         </p>
                     </li>
                     <li>
                         <p>
-                            The <code>get</code> function within the <a href="Routing_in_Ktor.md">routing</a> block
-                            receives GET requests made to the <path>/</path> path and responds with a plain text response.
+                            The <code>configureRouting</code> is an extension function that defines <a href="Routing_in_Ktor.md">routing</a>. This function is defined in a separate <code>plugins</code> package (the <path>Routing.kt</path> file).
+                        </p>
+                        <code style="block" lang="kotlin" initial-collapse-state="expanded" collapsed-title="fun Application.configureRouting">
+<![CDATA[
+                            package com.example.plugins
+                            // ...
+
+                            fun Application.configureRouting() {
+                                routing {
+                                    get("/") {
+                                        call.respondText("Hello World!")
+                                    }
+                                }
+                            }
+                            ]]>
+                </code>
+                        <p>
+                            The <code>get</code> function within the <code>routing</code> block receives GET requests made to the <path>/</path> path and responds with a plain text response.
                         </p>
                     </li>
                 </list>
@@ -189,9 +209,9 @@
                     The Run tool window should show the following message:
                 </p>
                 <code style="block">
-                    [main] INFO  Application - Responding at http://0.0.0.0:8080
+                    [main] INFO  ktor.application - Responding at http://0.0.0.0:8080
                 </code>
-                <img src="ktor_idea_new_project_run_tool_window.png" alt="Run tool window" width="1000"/>
+                <img src="ktor_idea_new_project_run_tool_window.png" alt="Run tool window" width="706"/>
                 <p>
                     This means that the server is ready to accept requests at the <path>http://0.0.0.0:8080</path> address.
                     You can click this link to open the application in a default browser:
