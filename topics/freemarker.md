@@ -1,6 +1,11 @@
 [//]: # (title: FreeMarker)
 [freemarker_template_loading]: https://freemarker.apache.org/docs/pgui_config_templateloading.html
 
+<microformat>
+<var name="example_name" value="freemarker"/>
+<include src="lib.md" include-id="download_example"/>
+</microformat>
+
 Ktor allows you to use [FreeMarker templates](https://freemarker.apache.org/) as views within your application by installing the [Freemarker](https://api.ktor.io/%ktor_version%/io.ktor.freemarker/-free-marker/index.html) feature.
 
 
@@ -22,27 +27,19 @@ Inside the `install` block, you can [configure](#configure) the desired [Templat
 ### Configure Template Loading {id="template_loading"}
 To load templates, you need to assign the desired [TemplateLoader][freemarker_template_loading] type to the `templateLoader` property. For example, the code snippet below enables Ktor to look up templates in the `templates` package relative to the current classpath:
 ```kotlin
-import io.ktor.freemarker.*
-
-install(FreeMarker) {
-    templateLoader = ClassTemplateLoader(this::class.java.classLoader, "templates")
-}
 ```
+{src="snippets/freemarker/src/main/kotlin/com/example/Application.kt" lines="12-14"}
 
 ### Send a Template in Response {id="use_template"}
 Imagine you have the `index.ftl` template in `resources/templates`:
 ```html
-<html>
-    <body>
-        <h1>Hello, ${user.name}!</h1>
-    </body>
-</html>
 ```
+{src="snippets/freemarker/src/main/resources/templates/index.ftl"}
 
 A data model for a user looks as follows:
 ```kotlin
-data class User(val id: Int, val name: String)
 ```
+{src="snippets/freemarker/src/main/kotlin/com/example/Application.kt" lines="23"}
 
 To use the template for the specified [route](Routing_in_Ktor.md), pass `FreeMarkerContent` to the `call.respond` method in the following way:
 ```kotlin

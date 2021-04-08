@@ -50,10 +50,9 @@ data class Customer(val id: Int, val firstName: String, val lastName: String)
 ### Receive Data {id="receive_data"}
 To receive and convert a content for a request, call the [receive](https://api.ktor.io/%ktor_version%/io.ktor.request/receive.html) method that accepts a data class as a parameter:
 ```kotlin
-post("/customer") {
-    val customer = call.receive<Customer>()
-}
 ```
+{src="snippets/_misc/SerializationReceiveObject.kt"}
+
 The `Content-Type` of the request will be used to choose a [converter](#register_converter) for processing the request. The example below shows a sample [HTTP client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html) request containing JSON data that will be converted to a `Customer` object on the server side:
 
 ```HTTP

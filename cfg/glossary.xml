@@ -1,53 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE terms SYSTEM "https://resources.jetbrains.com/stardust/glossary.dtd">
 <terms>
-    <term name="changelist">
-        A set of local changes that you haven't committed to a VCS yet. All changes to project files are automatically placed
-        in the active changelist (normally, the Default changelist).
-    </term>
-    <term name="context">
-        A context is a set of opened files associated with a changelist.
-    </term>
-    <term name="favorite_branch">
-        To mark a branch as a favorite, hover the mouse cursor over the branch name and click the star next to it.
-    </term>
-    <term name="git_detached_head">
-        A detached HEAD means a specific commit is checked out instead of a branch.
-    </term>
-    <term name="GString">
-        A double quoted string that contains a Groovy expression with the ${expression} syntax.
-    </term>
-    <term name="HTTP">
-        Hypertext Transfer Protocol
-    </term>
-    <term name="HTTPS">
-        Hypertext Transfer Protocol Secure (HTTP over TLS/SSL)
-    </term>
-    <term name="javac">
-        The main Java compiler that converts source code into JVM bytecode (included in the JDK).
-    </term>
-    <term name="JDK">
-        Java Development Kit: a software package that contains libraries and tools for developing and testing Java applications,
-        and for running applications on the Java platform.
-    </term>
-    <term name="JRE">
-        Java Runtime Environment: a software package that contains libraries and tools for running applications on the Java platform.
-    </term>
-    <term name="JVM">
-        Java Virtual Machine: a virtual machine that executes Java bytecode (included in the JDK).
-    </term>
-    <term name="REPL">
-        Read-eval-print loop, also known as a language shell, is a simple programming environment that evaluates user input and returns the result.
-    </term>
-    <term name="staged_changes">
-        Local changes that have not been committed yet.
-    </term>
-
-    <!-- DataGrip-->
-    <term name="database_console">
-        SQL file that is already connected to a data source.
-    </term>
-    <term name="editor_area">
-        Area of %product% where you write and edit your code.
+    <term name="query_string">
+        A part of a URL that assigns values to specified parameters and starts with the ? character.
     </term>
 </terms>

@@ -12,17 +12,30 @@ A [Ktor documentation repository](https://github.com/ktorio/ktor-documentation) 
 * [Docker](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/docker)
 * [Google App Engine Standard](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/google-appengine-standard)
 
+## Server Upload and Download {id="upload-download"}
+* [Upload](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/upload-file)
+* [Download](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/download-file)
+
+## Working with Views {id="views"}
+* [Html](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/html)
+* [Html widget](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/html-widget)
+* [FreeMarker](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/freemarker)
+* [Velocity](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/velocity)
+* [Mustache](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/mustache)
+* [Thymeleaf](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/thymeleaf)
+
+## Serialization {id="serialization"}
+* [GSON](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/gson)
+* [Jackson](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/jackson)
+
 ## Features {id="features"}
 * [Asynchronous](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/async)
 * [Authenticate](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/auth)
 * [AutoHeadResponse](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/autohead)
 * [Autoreload](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/autoreload)
 * [Custom Feature](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/custom-feature)
-* [GSON](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/gson)
 * [Guice](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/guice)
-* [Html](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/html-widget)
 * [HTTP/2](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/http2-push)
-* [Jackson](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/jackson)
 * [Locations](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/locations)
 * [Metrics](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/metrics)
 * [POST](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/post)

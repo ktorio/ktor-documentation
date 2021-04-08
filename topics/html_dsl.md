@@ -18,22 +18,8 @@ HTML DSL doesn't need [installation](Features.md#install) but requires the `ktor
 ## Send HTML in Response {id="html_response"}
 To send an HTML response, call the [ApplicationCall.respondHtml](https://api.ktor.io/%ktor_version%/io.ktor.html/respond-html.html) method inside the required [route](Routing_in_Ktor.md):
 ```kotlin
-get("/") {
-    val name = "Ktor"
-    call.respondHtml {
-        head {
-            title {
-                +name
-            }
-        }
-        body {
-            h1 {
-                +"Hello from $name!"
-            }
-        }
-    }
-}
 ```
+{src="snippets/html/src/main/kotlin/com/example/Application.kt" lines="12-26"}
 
 In this case, the following HTML will be sent to the client:
 ```html
