@@ -174,7 +174,7 @@
                     </li>
                     <li>
                         <p>
-                            The <code>configureRouting</code> is an extension function that defines <a href="Routing_in_Ktor.md">routing</a>. This function is defined in a separate <code>plugins</code> package (the <path>Routing.kt</path> file).
+                            <code>configureRouting</code> is an extension function that defines <a href="Routing_in_Ktor.md">routing</a>. This function is declared in a separate <code>plugins</code> package (the <path>Routing.kt</path> file).
                         </p>
                         <code style="block" lang="kotlin" initial-collapse-state="expanded" collapsed-title="fun Application.configureRouting">
 <![CDATA[
