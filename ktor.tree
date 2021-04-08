@@ -8,10 +8,9 @@
 
     <toc-element id="Welcome.md"
                  accepts-web-file-names-ref="kotlin_docs">
-        <toc-element id="intellij-idea.xml">
-            <toc-element accepts-web-file-names="generator.html"
-                         target-for-accept-web-file-names="https://start.ktor.io/"/>
-        </toc-element>
+        <toc-element id="intellij-idea.xml"/>
+        <toc-element hidden="true" accepts-web-file-names="generator.html"
+                     target-for-accept-web-file-names="https://start.ktor.io/"/>
         <toc-element toc-title="Adding Ktor to an Existing Project">
             <toc-element id="Gradle.xml"
                          show-structure-depth="2"
