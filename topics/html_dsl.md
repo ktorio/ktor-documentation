@@ -14,7 +14,7 @@ HTML DSL doesn't need [installation](Features.md#install) but requires the `ktor
 <var name="artifact_name" value="ktor-html-builder"/>
 <include src="lib.md" include-id="add_ktor_artifact"/>
 
-Note that this artifact is placed on a [Space Packages](https://www.jetbrains.com/help/space/packages.html) repository:
+Note that this artifact depends on `kotlinx-html-jvm`, which is placed on a [Space Packages](https://www.jetbrains.com/help/space/packages.html) repository:
 
 <tabs>
 <tab title="Gradle (Groovy)">
