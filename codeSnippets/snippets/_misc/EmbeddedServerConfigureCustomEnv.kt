@@ -1,5 +1,5 @@
 fun main() {
-    embeddedServer(Netty, env = applicationEngineEnvironment {
+    embeddedServer(Netty, environment = applicationEngineEnvironment {
         log = LoggerFactory.getLogger("ktor.application")
         config = HoconApplicationConfig(ConfigFactory.load())
 
