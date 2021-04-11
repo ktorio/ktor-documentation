@@ -2,7 +2,7 @@
 
 <microformat>
 <p>
-Code example: <a href="https://github.com/ktorio/ktor-samples/tree/master/client-mpp">client-mpp</a>
+Code example: <a href="https://github.com/ktorio/ktor-samples/tree/main/client-mpp">client-mpp</a>
 </p>
 </microformat>
 
@@ -54,4 +54,4 @@ After you've [added](#add-dependencies) all the required dependencies and [creat
 
 ## Code Example {id="code-example"}
 
-The [mpp/client-mpp](https://github.com/ktorio/ktor-samples/tree/master/client-mpp) project shows how to use a Ktor client in a multiplatform application. This application works on the following platforms: `Android`, `iOS`, `JavaScript`, and `macosX64`.
+The [mpp/client-mpp](https://github.com/ktorio/ktor-samples/tree/main/client-mpp) project shows how to use a Ktor client in a multiplatform application. This application works on the following platforms: `Android`, `iOS`, `JavaScript`, and `macosX64`.

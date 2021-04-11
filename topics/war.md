@@ -104,6 +104,6 @@ you can use to run your application.
 
 >In the case where you only need to generate a war file, there is a `war` task defined in the war plugin.<br />
 >Just run `./gradlew war` and it will generate a `/build/libs/projectname.war` file.
->For a full example: <https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/jetty-war>
+>For a full example: <https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/jetty-war>
 >
 {type="note" id="generate-war-file"}

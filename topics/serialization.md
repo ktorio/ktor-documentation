@@ -86,6 +86,6 @@ interface ContentConverter {
     suspend fun convertForReceive(context: PipelineContext<ApplicationReceiveRequest, ApplicationCall>): Any?
 }
 ```
-Take a look at the [GsonConverter](https://github.com/ktorio/ktor/blob/master/ktor-features/ktor-gson/jvm/src/io/ktor/gson/GsonSupport.kt) class as an implementation example.  
+Take a look at the [GsonConverter](https://github.com/ktorio/ktor/blob/main/ktor-features/ktor-gson/jvm/src/io/ktor/gson/GsonSupport.kt) class as an implementation example.  
 
 

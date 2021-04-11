@@ -190,7 +190,7 @@ task run(dependsOn: appengineRun)
 
 Once everything is configured, you can now run the application locally, using the gradle task `appengineRun`:
 
-In this case, these commands are executed in the root of the codeSnippets project <https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets>:  
+In this case, these commands are executed in the root of the codeSnippets project <https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets>:  
 
 ```text
 ./gradlew :google-appengine-standard:appengineRun

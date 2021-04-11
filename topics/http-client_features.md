@@ -9,10 +9,10 @@ there is a pipeline for client HTTP requests, and there are interceptors and ins
 
 ## Creating Custom Features
 
-If you want to create features, you can use the [standard features](https://github.com/ktorio/ktor/tree/master/ktor-client/ktor-client-core/common/src/io/ktor/client/features) as a reference.
+If you want to create features, you can use the [standard features](https://github.com/ktorio/ktor/tree/main/ktor-client/ktor-client-core/common/src/io/ktor/client/features) as a reference.
 
->You can also check the [HttpRequestPipeline.Phases](https://github.com/ktorio/ktor/blob/master/ktor-client/ktor-client-core/common/src/io/ktor/client/request/HttpRequestPipeline.kt)
->and [HttpResponsePipeline.Phases](https://github.com/ktorio/ktor/blob/master/ktor-client/ktor-client-core/common/src/io/ktor/client/statement/HttpResponsePipeline.kt)
+>You can also check the [HttpRequestPipeline.Phases](https://github.com/ktorio/ktor/blob/main/ktor-client/ktor-client-core/common/src/io/ktor/client/request/HttpRequestPipeline.kt)
+>and [HttpResponsePipeline.Phases](https://github.com/ktorio/ktor/blob/main/ktor-client/ktor-client-core/common/src/io/ktor/client/statement/HttpResponsePipeline.kt)
 >to understand the interception points available.
 >
 {type="note"}

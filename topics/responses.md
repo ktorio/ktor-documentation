@@ -59,7 +59,7 @@ To respond to a client with a contents of a file, use the [call.respondFile](htt
 ```
 {src="/snippets/download-file/src/main/kotlin/com/example/DownloadFile.kt" include-symbol="main"}
 
-To learn how to run this sample, see [download-file](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/download-file).
+To learn how to run this sample, see [download-file](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/download-file).
 
 
 ### Raw payload {id="raw"}
