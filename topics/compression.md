@@ -88,4 +88,4 @@ install(Compression) {
 ```
 
 ## Implement Custom Encoder {id="custom_encoder"}
-If necessary, you can provide your own encoder by implementing the [CompressionEncoder](https://api.ktor.io/%ktor_version%/io.ktor.features/-compression-encoder/index.html) interface. See [GzipEncoder](https://github.com/ktorio/ktor/blob/master/ktor-server/ktor-server-core/jvm/src/io/ktor/features/Compression.kt) as an example implementation.
+If necessary, you can provide your own encoder by implementing the [CompressionEncoder](https://api.ktor.io/%ktor_version%/io.ktor.features/-compression-encoder/index.html) interface. See [GzipEncoder](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-core/jvm/src/io/ktor/features/Compression.kt) as an example implementation.

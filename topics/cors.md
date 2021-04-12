@@ -32,8 +32,8 @@ The default configuration to the CORS feature handles only `GET`, `POST` and `HE
 
 ## Advanced
 
-- [source code](https://github.com/ktorio/ktor/blob/master/ktor-server/ktor-server-core/jvm/src/io/ktor/features/CORS.kt)
-- [tests](https://github.com/ktorio/ktor/blob/master/ktor-server/ktor-server-tests/jvm/test/io/ktor/tests/server/features/CORSTest.kt)
+- [source code](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-core/jvm/src/io/ktor/features/CORS.kt)
+- [tests](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-tests/jvm/test/io/ktor/tests/server/features/CORSTest.kt)
 
 Here is an advanced example that demonstrates most of CORS-related API functions
 

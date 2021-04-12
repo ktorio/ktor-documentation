@@ -124,4 +124,4 @@ you will have to disable that warning.
 
 Ktor has a full example using self-signed certificates here:
 
-<https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/http2-push>
+<https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/http2-push>

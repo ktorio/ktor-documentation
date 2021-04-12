@@ -56,6 +56,6 @@ fun Application.mymodule() {
 }
 ```
 
->You can check the [ktor-samples](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets) repository for samples.
+>You can check the [ktor-samples](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets) repository for samples.
 >
 {type="note"}

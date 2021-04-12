@@ -19,13 +19,13 @@ You can run a Ktor application in several ways:
 * With a plain `main` by calling `embeddedServer`
 * Running a `EngineMain` `main` function and [using a HOCON `application.conf` configuration file](Configurations.md)
 * [As a Servlet within a web server](https://github.com/ktorio/ktor-samples/tree/1.3.0/deployment)
-* As part of a test using `withTestApplication` from the [`ktor-server-test-host`](https://github.com/ktorio/ktor/tree/master/ktor-server/ktor-server-test-host) artifact
+* As part of a test using `withTestApplication` from the [`ktor-server-test-host`](https://github.com/ktorio/ktor/tree/main/ktor-server/ktor-server-test-host) artifact
 
 ## Start-up
 
 ### Common
 
-**[`ApplicationEngineEnvironment`](https://github.com/ktorio/ktor/blob/master/ktor-server/ktor-server-host-common/jvm/src/io/ktor/server/engine/ApplicationEngineEnvironment.kt):**
+**[`ApplicationEngineEnvironment`](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-host-common/jvm/src/io/ktor/server/engine/ApplicationEngineEnvironment.kt):**
 
 To begin with, this immutable environment has to be built;
 with a classLoader, a logger, a [configuration](Configurations.md),
@@ -35,7 +35,7 @@ and a set of connectors and modules, that will form the application and [watchPa
 You can build it using `ApplicationEngineEnvironmentBuilder`,
 and handy DSL functions `applicationEngineEnvironment`, `commandLineEnvironment` among others.
 
-**[`ApplicationEngine`](https://github.com/ktorio/ktor/blob/master/ktor-server/ktor-server-host-common/jvm/src/io/ktor/server/engine/ApplicationEngine.kt):**
+**[`ApplicationEngine`](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-host-common/jvm/src/io/ktor/server/engine/ApplicationEngine.kt):**
 
 There are multiple `ApplicationEngine`, one per supported server like:
 Netty, Jetty, CIO or Tomcat.
@@ -50,7 +50,7 @@ by using SSL, certificates and so on, with the specified workers.
 Connectors will be used for listening to specific http/https hosts and ports.
 While the `Application` pipeline will be used to handle the requests.
 
-**[Application](https://github.com/ktorio/ktor/blob/master/ktor-server/ktor-server-core/jvm/src/io/ktor/application/Application.kt) Pipeline**:
+**[Application](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-core/jvm/src/io/ktor/application/Application.kt) Pipeline**:
 
 It is created by the `ApplicationEngineEnvironment` and it is initially empty.
 It is a pipeline without a subject that has `ApplicationCall` as the context.
@@ -73,12 +73,12 @@ and how to configure the server.
 
 Those classes are normally declared in `CommandLine.kt` source files.
 
-* CIO: [`io.ktor.server.cio.EngineMain.main`](https://github.com/ktorio/ktor/blob/master/ktor-server/ktor-server-cio/jvm/src/io/ktor/server/cio/EngineMain.kt)
-* Jetty: [`io.ktor.server.jetty.EngineMain.main`](https://github.com/ktorio/ktor/blob/master/ktor-server/ktor-server-jetty/jvm/src/io/ktor/server/jetty/EngineMain.kt)
-* Netty: [`io.ktor.server.netty.EngineMain.main`](https://github.com/ktorio/ktor/blob/master/ktor-server/ktor-server-netty/jvm/src/io/ktor/server/netty/EngineMain.kt)
-* Tomcat: [`io.ktor.server.tomcat.EngineMain.main`](https://github.com/ktorio/ktor/blob/master/ktor-server/ktor-server-tomcat/jvm/src/io/ktor/server/tomcat/EngineMain.kt)
+* CIO: [`io.ktor.server.cio.EngineMain.main`](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-cio/jvm/src/io/ktor/server/cio/EngineMain.kt)
+* Jetty: [`io.ktor.server.jetty.EngineMain.main`](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-jetty/jvm/src/io/ktor/server/jetty/EngineMain.kt)
+* Netty: [`io.ktor.server.netty.EngineMain.main`](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-netty/jvm/src/io/ktor/server/netty/EngineMain.kt)
+* Tomcat: [`io.ktor.server.tomcat.EngineMain.main`](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-tomcat/jvm/src/io/ktor/server/tomcat/EngineMain.kt)
 
-### [TestApplicationEngine](https://github.com/ktorio/ktor/blob/master/ktor-server/ktor-server-test-host/jvm/src/io/ktor/server/testing/TestApplicationEngine.kt)
+### [TestApplicationEngine](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-test-host/jvm/src/io/ktor/server/testing/TestApplicationEngine.kt)
 
 For testing, Ktor defines a `TestApplicationEngine` and `withTestApplication` handy method,
 that will allow you to test your application modules, pipeline, and other features without
@@ -92,7 +92,7 @@ Associated with the environment is a monitor instance that Ktor uses to raise ap
 You can use it to subscribe to events. For example, you can subscribe to a stop application event
 to shutdown specific services or finalize some resources.
 
-A list of [Ktor defined events](https://github.com/ktorio/ktor/blob/master/ktor-server/ktor-server-core/jvm/src/io/ktor/application/ApplicationEvents.kt):
+A list of [Ktor defined events](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-core/jvm/src/io/ktor/application/ApplicationEvents.kt):
 
 ```kotlin
 val ApplicationStarting = EventDefinition<Application>()
@@ -102,7 +102,7 @@ val ApplicationStopping = EventDefinition<Application>()
 val ApplicationStopped = EventDefinition<Application>()
 ```
 
-## [Pipelines](https://github.com/ktorio/ktor/blob/master/ktor-utils/common/src/io/ktor/util/pipeline/Pipeline.kt)
+## [Pipelines](https://github.com/ktorio/ktor/blob/main/ktor-utils/common/src/io/ktor/util/pipeline/Pipeline.kt)
 
 Ktor defines pipelines for asynchronous extensible computations. Pipelines are used all over Ktor.
 
@@ -129,7 +129,7 @@ on the same phase, but on interceptors from previous phases.
 
 When executing a pipeline, all the registered interceptors will be executed in the order defined by the phases.
 
-### [ApplicationCallPipeline](https://github.com/ktorio/ktor/blob/master/ktor-server/ktor-server-core/jvm/src/io/ktor/application/ApplicationCallPipeline.kt)
+### [ApplicationCallPipeline](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-core/jvm/src/io/ktor/application/ApplicationCallPipeline.kt)
 
 The server part of Ktor defines an `ApplicationCallPipeline` without a subject
 and with `ApplicationCall` as context.
@@ -156,7 +156,7 @@ val Fallback = PipelinePhase("Fallback") // Phase for handling unprocessed calls
 
 ## [Features](Features.md)
 
-Ktor defines application features using the [`ApplicationFeature`](https://github.com/ktorio/ktor/blob/master/ktor-server/ktor-server-core/jvm/src/io/ktor/application/ApplicationFeature.kt) class.
+Ktor defines application features using the [`ApplicationFeature`](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-core/jvm/src/io/ktor/application/ApplicationFeature.kt) class.
 A feature is something that you can `install` to a specific pipeline.
 It has access to the pipeline, and it can register interceptors and do all sorts of other things.
 

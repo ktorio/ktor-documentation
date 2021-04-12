@@ -87,10 +87,10 @@ the logic implementing an IETF RFC or another protocol without relying on extern
 
 > You get this error if you try to use the [Locations](features_locations.md) feature without actually installing it. 
 
-## How can I test the latest commits on master?
+## How can I test the latest commits on main?
 {id="bleeding-edge"}
 
-You can use jitpack to get builds from master that are not yet released:
+You can use jitpack to get builds from main that are not yet released:
 <https://jitpack.io/#ktorio/ktor>
 Also you can [build Ktor from source](build-from-source.md), and use your `mavenLocal` repository for the artifact
 or to upload your artifacts to your own artifactory.

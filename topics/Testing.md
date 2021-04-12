@@ -175,8 +175,8 @@ fun CookieTrackerTestApplicationEngine.handleRequest(
 
 ## Example with dependencies
 
-See full example of application testing in [ktor-samples-testable](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/testable).
-Also, most [`ktor-samples`](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets) modules provide
+See full example of application testing in [ktor-samples-testable](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/testable).
+Also, most [`ktor-samples`](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets) modules provide
 examples of how to test specific functionalities.
 
 In some cases we will need some services and dependencies. Instead of storing them globally, we suggest you

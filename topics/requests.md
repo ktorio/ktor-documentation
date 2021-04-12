@@ -79,7 +79,7 @@ If you need to receive a file sent as a part of a multipart request, call the [r
 ```
 {src="/snippets/upload-file/src/main/kotlin/com/example/UploadFile.kt" include-symbol="main"}
 
-Learn how to run this sample from [upload-file](https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/upload-file).
+Learn how to run this sample from [upload-file](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/upload-file).
 
 
 ### Raw payload {id="raw"}
