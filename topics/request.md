@@ -68,44 +68,25 @@ With the enabled [Json](json-feature.md) feature, you can send a class instance 
 
 You can learn more from the [](json-feature.md) help section.
 
-### Form data {id="form_data"}
+### Form parameters {id="form_parameters"}
 The Ktor client provides two functions for sending form data:
 * [submitForm](https://api.ktor.io/%ktor_version%/io.ktor.client.request.forms/submit-form.html) for sending form parameters using both `GET` and `POST` requests.
 * [submitFormWithBinaryData](https://api.ktor.io/%ktor_version%/io.ktor.client.request.forms/submit-form-with-binary-data.html) for sending files using `POST` requests.
 
-Or use `submitForm`:
+The example below shows `submitForm`:
 ```kotlin
-val response2: HttpResponse = client.submitForm(
-    url = "http://localhost:8080/post",
-    formParameters = Parameters.build {
-        append("first_name", "Jet")
-        append("last_name", "Brains")
-    },
-    encodeInQuery = true
-)
 ```
+{src="snippets/_misc_client/SubmitForm.kt"}
 
-Example:
+
+### Example: upload a file {id="upload_file"}
+File example:
 
 ```kotlin
-var fileBytes = File("snippets/client-logging/ktor_logo.png").readBytes()
-
-val parts: List<PartData> = formData {
-    append("description", "Ktor logo")
-    append(
-        "image",
-        fileBytes,
-        Headers.build {
-            append(HttpHeaders.ContentType, "image/png")
-            append(HttpHeaders.ContentDisposition, "filename=ktor_logo.png")
-        })
-}
-
-val response3: HttpResponse = client.submitFormWithBinaryData(
-    url = "http://localhost:8080/upload",
-    formData = parts
-)
 ```
+{src="snippets/client-upload-file/src/main/kotlin/com/example/Application.kt" include-symbol="main"}
+
+Learn how to run this sample from [client-upload-file](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-upload-file).
 
 
 
