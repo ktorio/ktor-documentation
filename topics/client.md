@@ -1,4 +1,4 @@
-[//]: # (title: Client Overview)
+[//]: # (title: Set up a Client)
 
 Ktor includes a multiplatform asynchronous HTTP client, which allows you to make requests and handle responses, extend its functionality with features, such as authentication, JSON serialization, and so on.
 In this topic, we'll take an overview of the client - from setting it up to making requests and installing features. 
@@ -81,7 +81,7 @@ The main way for making HTTP requests is the [request](https://api.ktor.io/%ktor
 
 ```kotlin
 ```
-{src="snippets/_misc_client/RequestMethodWithoutParams.kt"}
+{src="snippets/_misc_client/RequestMethodWithoutParams.kt" interpolate-variables="true" disable-links="false"}
 
 Note that this function allows you to [receive a response](#response) in various ways. In this example, we receive a response as an `HttpResponse` object.
 

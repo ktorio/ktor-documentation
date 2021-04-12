@@ -1,56 +1,116 @@
-[//]: # (title: Request)
+[//]: # (title: Send a request)
 
-<include src="lib.md" include-id="outdated_warning"/>
+After adding the necessary [dependencies](client.md#add-dependencies) and [creating the client](client.md#create-client), you can send HTTP requests. You can configure the following request parameters:
+* Specify an HTTP method, such as `GET`, `POST`, `PUT`, and so on.
+* Add headers and cookies.
+* Set the body of a request, for example, plain text, data objects, forms, and so on.
 
-## Making request
-
-After client configuration we're ready to perform our first request.
-Most of the simple requests are made with pattern
-
-```kotlin
-val response = client.'http-method'<'ResponseType'>("url-string")
-```
-
-or even simpler form(due to kotlin generic type inference):
+The main way for making HTTP requests is the [request](https://api.ktor.io/%ktor_version%/io.ktor.client.request/request.html) function that takes a URL as a parameter. Inside this function, you can configure various request parameters: specify an HTTP method, add headers, specify the request body, and so on. These parameters are exposed by the [HttpRequestBuilder](https://api.ktor.io/%ktor_version%/io.ktor.client.request/-http-request-builder/index.html) class.
 
 ```kotlin
-val response: ResponseType = client.'http-method'("url-string")
 ```
+{src="snippets/_misc_client/RequestMethodWithoutParams.kt" interpolate-variables="true" disable-links="false"}
 
-For example to perform a `GET` request fully reading a `String`:
+Note that this function allows you to [receive a response](response.md) in various ways. In this example, we receive a response as an `HttpResponse` object.
+
+> `request` is a suspending function, so requests should be executed only from a coroutine or another suspend function. You can learn more about calling suspending functions from [Coroutines basics](https://kotlinlang.org/docs/coroutines-basics.html).
+
+
+## Specify an HTTP method {id="http-method"}
+
+When calling the `request` function, you can specify the desired HTTP method using the `method` property:
 
 ```kotlin
-val htmlContent = client.get<String>("https://en.wikipedia.org/wiki/Main_Page")
-// same as
-val content: String = client.get("https://en.wikipedia.org/wiki/Main_Page")
 ```
+{src="snippets/_misc_client/RequestMethodWithParams.kt"}
 
-And in the case you are interested in the raw bits, you can read a `ByteArray`:
+In addition to the `request` function, `HttpClient` provides specific functions for basic HTTP methods: `get`, `post`, `put`, and so on. For example, you can replace the example above with the following code:
+```kotlin
+```
+{src="snippets/_misc_client/GetMethodWithoutParams.kt"}
+
+## Add headers {id="headers"}
+To add headers to the request, use the [headers](https://api.ktor.io/%ktor_version%/io.ktor.client.request/-http-request-builder/headers.html) function as follows:
+```kotlin
+```
+{src="snippets/_misc_client/GetMethodWithHeaders.kt"}
+
+
+
+## Add cookies {id="cookies"}
+To send cookies, use the [cookie](https://api.ktor.io/%ktor_version%/io.ktor.client.request/cookie.html) function:
 
 ```kotlin
-val channel: ByteArray = client.get("https://en.wikipedia.org/wiki/Main_Page")
 ```
+{src="snippets/_misc_client/GetMethodWithCookies.kt"}
 
-Or get full [HttpResponse](https://api.ktor.io/%ktor_version%/io.ktor.client.statement/-http-response/index.html):
+Note that Ktor provides the [](http-cookies.md) feature that allows you to keep cookies between calls.
+
+
+
+
+## Specify body {id="body"}
+To set the body of a request, you need to specify the [body](https://api.ktor.io/%ktor_version%/io.ktor.client.request/-http-request-builder/body.html) property exposed by `HttpRequestBuilder`. This property accepts different types of payload, including plain text, arbitrary class instances, form data, byte arrays, and so on. Note that you also need to specify a content type for a request using the [contentType](https://api.ktor.io/%ktor_version%/io.ktor.http/content-type.html) function. Below we'll take a look at several examples.
+
+### Text {id="text"}
+Sending plain text as body can be implemented as follows:
+```kotlin
+```
+{src="snippets/_misc_client/PostMethodWithBody.kt"}
+
+
+### Objects {id="objects"}
+With the enabled [Json](json-feature.md) feature, you can send a class instance within a request body as JSON. To do this, assign a class instance to the `body` property and set the content type to `application/json`:
 
 ```kotlin
-val response: HttpResponse = client.get("https://en.wikipedia.org/wiki/Main_Page")
+```
+{src="snippets/_misc_client/PostMethodWithObject.kt"}
+
+You can learn more from the [](json-feature.md) help section.
+
+### Form data {id="form_data"}
+The Ktor client provides two functions for sending form data:
+* [submitForm](https://api.ktor.io/%ktor_version%/io.ktor.client.request.forms/submit-form.html) for sending form parameters using both `GET` and `POST` requests.
+* [submitFormWithBinaryData](https://api.ktor.io/%ktor_version%/io.ktor.client.request.forms/submit-form-with-binary-data.html) for sending files using `POST` requests.
+
+Or use `submitForm`:
+```kotlin
+val response2: HttpResponse = client.submitForm(
+    url = "http://localhost:8080/post",
+    formParameters = Parameters.build {
+        append("first_name", "Jet")
+        append("last_name", "Brains")
+    },
+    encodeInQuery = true
+)
 ```
 
-The [HttpResponse](https://api.ktor.io/%ktor_version%/io.ktor.client.statement/-http-response/index.html) is downloaded in memory by default. To learn how to download response partially or work with a stream data consult with the [Streaming](streaming.md) section.
-
-And even your data class using [Json](json-feature.md) feature:
+Example:
 
 ```kotlin
-@Serializable
-data class User(val id: Int)
+var fileBytes = File("snippets/client-logging/ktor_logo.png").readBytes()
 
-val response: User = client.get("https://myapi.com/user?id=1")
+val parts: List<PartData> = formData {
+    append("description", "Ktor logo")
+    append(
+        "image",
+        fileBytes,
+        Headers.build {
+            append(HttpHeaders.ContentType, "image/png")
+            append(HttpHeaders.ContentDisposition, "filename=ktor_logo.png")
+        })
+}
+
+val response3: HttpResponse = client.submitFormWithBinaryData(
+    url = "http://localhost:8080/upload",
+    formData = parts
+)
 ```
 
-Please note that some of response types are `Closeable` and can hold resources.
 
-## Concurrency
+
+
+## Concurrency {id="concurrency"}
 
 Remember that requests are asynchronous, but when performing requests, the API suspends further requests
 and your function will be suspended until done. If you want to perform several requests at once
@@ -92,225 +152,4 @@ suspend fun parallelRequests() = coroutineScope<Unit> {
 }
 ```
 
-## Customizing requests
-
-We cannot live only on *get* requests, Ktor allows you to build complex requests with any of the HTTP verbs, with the flexibility to process responses in many ways.
-
-### Default http methods
-
-{id="shortcut-methods"}
-
-Similar to `request`, there are several extension methods to perform requests
-with the most common HTTP verbs: `GET`, `POST`, `PUT`, `DELETE`, `PATCH`, `HEAD` and `OPTIONS`.
-
-```kotlin
-val text = client.post<String>("http://127.0.0.1:8080/")
-```
-
-When calling request methods, you can provide a lambda to build the request
-parameters like the URL, the HTTP method(verb), the body, or the headers:
-
-```kotlin
-val text = client.post<String>("http://127.0.0.1:8080/") {
-    header("Hello", "World")
-}
-```
-
-The [HttpRequestBuilder](https://api.ktor.io/%ktor_version%/io.ktor.client.request/-http-request-builder/) looks like this:
-
-```kotlin
-class HttpRequestBuilder : HttpMessageBuilder {
-    var method: HttpMethod
-
-    val url: URLBuilder
-    fun url(block: URLBuilder.(URLBuilder) -> Unit)
-
-    val headers: HeadersBuilder
-    fun header(key: String, value: String)
-    fun headers(block: HeadersBuilder.() -> Unit)
-
-    var body: Any = EmptyContent
-
-    val executionContext: CompletableDeferred<Unit>
-    fun setAttributes(block: Attributes.() -> Unit)
-    fun takeFrom(builder: HttpRequestBuilder): HttpRequestBuilder
-}
-```
-
-The `HttpClient` class only offers some basic functionality, and all the methods for building requests are exposed as extensions.\\
-You can check the standard available [HttpClient build extension methods](https://api.ktor.io/%ktor_version%/io.ktor.client.request/).
-
-### Customize method
-
-In addition to call, there is a `request` method for performing a typed request,
-[receiving a specific type](response.md#receive) like String, HttpResponse, or an arbitrary class.
-You have to specify the URL and the method when building the request.
-
-```kotlin
-val call = client.request<String> {
-    url("http://127.0.0.1:8080/")
-    method = HttpMethod.Get
-}
-```
-
-### Posting forms
-
-{id="submit-form"}
-
-There are a couple of convenience extension methods for submitting form information.
-The detailed reference is listed [here](https://api.ktor.io/%ktor_version%/io.ktor.client.request.forms/).
-
-The `submitForm` method:
-
-```kotlin
-client.submitForm(
-    formParameters: Parameters = Parameters.Empty,
-    encodeInQuery: Boolean = false,
-    block: HttpRequestBuilder.() -> Unit = {}
-)
-```
-
-It allows requesting with the `Parameters` encoded in the query string(`GET` by default) or requesting with the `Parameters` encoded as multipart(`POST` by default) depending on the `encodeInQuery` parameter.
-
-The `submitFormWithBinaryData` method:
-
-```kotlin
-client.submitFormWithBinaryData(
-    formData: List<PartData>,
-    block: HttpRequestBuilder.() -> Unit = {}
-): T
-```
-
-It allows to generate a multipart POST request from a list of `PartData`.
-`PartData` can be `PartData.FormItem`, `PartData.BinaryItem` or `PartData.FileItem`.
-
-To build a list of `PartData`, you can use the `formData` builder:
-
-```kotlin
-val data: List<PartData> = formData {
-    // Can append: String, Number, ByteArray and Input.
-    append("hello", "world")
-    append("number", 10)
-    append("ba", byteArrayOf(1, 2, 3, 4))
-    appendInput("input", size = knownSize.orNull()) { openInputStream().asInput() }
-    // Allow to set headers to the part:
-    append("hello", "world", headersOf("X-My-Header" to "MyValue"))
-}
-```
-
-### Specifying custom headers
-
-{id="custom-headers"}
-
-When building requests with `HttpRequestBuilder`, you can set custom headers.
-There is a final property `val headers: HeadersBuilder` that inherits from `StringValuesBuilder`.
-You can add or remove headers using it, or with the `header` convenience methods.
-
-```kotlin
-// this : HttpMessageBuilder
-
-// Convenience method to add a header
-header("My-Custom-Header", "HeaderValue")
-
-// Calls methods from the headers: HeadersBuilder to manipulate the headers
-headers.clear()
-headers.append("My-Custom-Header", "HeaderValue")
-headers.appendAll("My-Custom-Header", listOf("HeaderValue1", "HeaderValue2"))
-headers.remove("My-Custom-Header")
-
-// Applies the headers with the `headers` convenience method
-headers { // this: HeadersBuilder
-    clear()
-    append("My-Custom-Header", "HeaderValue")
-    appendAll("My-Custom-Header", listOf("HeaderValue1", "HeaderValue2"))
-    remove("My-Custom-Header")
-}
-```
-
-Complete `HeadersBuilder` API is listed [here](https://api.ktor.io/%ktor_version%/io.ktor.http/-headers-builder/).
-
-## Specifying a body for requests
-
-For `POST` and `PUT` requests, you can set the `body` property:
-
-```kotlin
-client.post<Unit> {
-    url("http://127.0.0.1:8080/")
-    body = // ...
-}
-```
-
-The `HttpRequestBuilder.body` property can be a subtype of `OutgoingContent` as well as a `String` instance:
-
-* `body = "HELLO WORLD!"`
-* `body = TextContent("HELLO WORLD!", ContentType.Text.Plain)`
-* `body = ByteArrayContent("HELLO WORLD!".toByteArray(Charsets.UTF_8))`
-* `body = LocalFileContent(File("build.gradle"))`
-* `body = JarFileContent(File("myjar.jar"), "test.txt", ContentType.fromFileExtension("txt").first())`
-* `body = URIFileContent("https://en.wikipedia.org/wiki/Main_Page")`
-
-If you install the [JsonFeature](json-feature.md), and set the content type to `application/json`
-you can use arbitrary instances as the `body`, and they will be serialized as JSON:
-
-```kotlin
-data class HelloWorld(val hello: String)
-
-val client = HttpClient(Apache) {
-    install(JsonFeature) {
-        serializer = GsonSerializer {
-            // Configurable .GsonBuilder
-            serializeNulls()
-            disableHtmlEscaping()
-        }
-    }
-}
-
-client.post<Unit> {
-    url("http://127.0.0.1:8080/")
-    body = HelloWorld(hello = "world")
-}
-```
-
-Alternatively (using the integrated `JsonSerializer`):
-
-```kotlin
-val json = io.ktor.client.features.json.defaultSerializer()
-client.post<Unit>() {
-    url("http://127.0.0.1:8080/")
-    body = json.write(HelloWorld(hello = "world")) // Generates an OutgoingContent
-}
-```
-
-Or using Jackson (JVM only):
-
-```kotlin
-val json = jacksonObjectMapper()
-client.post<Unit> {
-    url("http://127.0.0.1:8080/")
-    body = TextContent(json.writeValueAsString(userData), contentType = ContentType.Application.Json)
-}
-```
-
->Remember that your classes must be *top-level* to be recognized by `Gson`. \\
->If you try to send a class that is inside a function, the feature will send a *null*.
->
-{type="note"}
-
-## Uploading multipart/form-data
-{id="multipart-form-data"}
-
-Ktor HTTP Client has support for making MultiPart requests.
-The idea is to use the `MultiPartFormDataContent(parts: List<PartData>)` as `OutgoingContent` for the body of the request.
-
-The easiest way is to use the [`submitFormWithBinaryData` method](#submit-form).
-
-Alternatively, you can set the body directly:
-
-```kotlin
-val request = client.request {
-    method = HttpMethod.Post
-    body = MultiPartFormDataContent(formData {
-        append("key", "value")
-    })
-}
-```
+## Cancel a request {id="cancel-request"}
