@@ -8,10 +8,9 @@
 
     <toc-element id="Welcome.md"
                  accepts-web-file-names-ref="kotlin_docs">
-        <toc-element toc-title="Creating a New Ktor Project">
-            <toc-element id="intellij-idea.xml"/>
-            <toc-element id="generator.md"/>
-        </toc-element>
+        <toc-element id="intellij-idea.xml"/>
+        <toc-element hidden="true" accepts-web-file-names="generator.html"
+                     target-for-accept-web-file-names="https://start.ktor.io/"/>
         <toc-element toc-title="Adding Ktor to an Existing Project">
             <toc-element id="Gradle.xml"
                          show-structure-depth="2"
@@ -61,29 +60,22 @@
             <toc-element id="Routing_in_Ktor.md"
                          show-structure-depth="2"
                          accepts-web-file-names="routing.html"/>
-            <toc-element id="Features.md"
-                         accepts-web-file-names="zfeatures.html"/>
-            <toc-element id="Structuring_Applications.md"
-                         accepts-web-file-names="structure.html"/>
-            <toc-element id="calls.md">
-                <toc-element id="requests.md"/>
-                <toc-element id="responses.md"/>
+            <toc-element toc-title="Handling Requests and Responses">
+                <toc-element id="requests.md"
+                             show-structure-depth="2"
+                             accepts-web-file-names="multipart-support.html,uploads.html,calls.html"/>
+                <toc-element id="responses.md"
+                             show-structure-depth="2"/>
             </toc-element>
             <toc-element id="Serving_Static_Content.md"
                          show-structure-depth="2"
                          accepts-web-file-names="static-content.html"/>
+            <toc-element id="Features.md"
+                         accepts-web-file-names="zfeatures.html"/>
+            <toc-element id="Structuring_Applications.md"
+                         accepts-web-file-names="structure.html"/>
             <toc-element toc-title="Error Handling">
                 <toc-element id="status_pages.md"/>
-            </toc-element>
-            <toc-element toc-title="Submitting information">
-<!--                <toc-element id="request_parameters.md"/>
-                <toc-element id="route_parameters.md"/>
-                <toc-element id="body_contents.md"/>-->
-                <toc-element toc-title="Request Parameters"/>
-                <toc-element toc-title="Route Parameters"/>
-                <toc-element toc-title="Body Contents"/>
-                <toc-element id="multipart_support.md"
-                             accepts-web-file-names="uploads.html"/>
             </toc-element>
             <toc-element toc-title="Authentication and Authorization"
                          id="authentication.md"
@@ -96,9 +88,6 @@
                              accepts-web-file-names="authentication-oauth.html"/>
             </toc-element>
             <toc-element toc-title="Features">
-                <toc-element id="logging.md"
-                             show-structure-depth="2"
-                             accepts-web-file-names="servers-logging.html,call-logging.html"/>
                 <toc-element id="call-id.md"/>
                 <toc-element id="serialization.md"
                              show-structure-depth="2"
@@ -156,8 +145,11 @@
                          accepts-web-file-names="engine.html"/>
 <!--            <toc-element id="Auto_reload.md" accepts-web-file-names="autoreload.html"/>-->
             <toc-element id="Auto_reload.xml" accepts-web-file-names="autoreload.html"/>
+            <toc-element id="logging.md"
+                         show-structure-depth="2"
+                         accepts-web-file-names="servers-logging.html,call-logging.html"/>
 <!--            <toc-element id="Debugging_routes.md"/>-->
-            <toc-element toc-title="Debugging Routes"/>
+<!--            <toc-element toc-title="Debugging Routes"/>-->
 
         </toc-element>
         <toc-element id="Testing.md"

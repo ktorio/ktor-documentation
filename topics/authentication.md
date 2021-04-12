@@ -149,7 +149,7 @@ authentication {
 ## Advanced
 
 >If you want to create custom authentication strategies,
->you can check the [Authentication feature](https://github.com/ktorio/ktor/tree/master/ktor-features/ktor-auth/jvm/src/io/ktor/auth) as a reference.
->The authentication feature defines two stages as part of its [Pipeline](https://github.com/ktorio/ktor/blob/master/ktor-features/ktor-auth/jvm/src/io/ktor/auth/AuthenticationPipeline.kt): `RequestAuthentication` and `CheckAuthentication`.
+>you can check the [Authentication feature](https://github.com/ktorio/ktor/tree/main/ktor-features/ktor-auth/jvm/src/io/ktor/auth) as a reference.
+>The authentication feature defines two stages as part of its [Pipeline](https://github.com/ktorio/ktor/blob/main/ktor-features/ktor-auth/jvm/src/io/ktor/auth/AuthenticationPipeline.kt): `RequestAuthentication` and `CheckAuthentication`.
 >
 {type="note"}

@@ -1,0 +1,14 @@
+POST http://localhost:8080/upload
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="description"
+Content-Type: text/plain
+
+Ktor logo
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="ktor_logo.png"
+Content-Type: image/png
+
+< ./ktor_logo.png
+--WebAppBoundary--

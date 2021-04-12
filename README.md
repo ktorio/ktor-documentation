@@ -9,5 +9,5 @@ Welcome to the repository containing [Ktor documentation](https://ktor.io/docs/)
 There are multiple ways in which you can contribute to Ktor docs:
 * Scroll down to the bottom of a documentation page and send feedback from the **'Was this page helpful'** area.
 * Create an issue in [YouTrack](https://youtrack.jetbrains.com/issues/KTOR).
-* Fork this documentation repository, make additions or changes, and submit a [pull request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests) to merge to the **master** branch.
+* Fork this documentation repository, make additions or changes, and submit a [pull request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests) to merge to the **main** branch.
   > If you want to add some code to documentation, consider creating a code snippet or a runnable code example in [codeSnippets](codeSnippets) and then add a reference to it.

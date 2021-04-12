@@ -117,7 +117,7 @@ application.install(Authentication) {
 }
 ```
 
-You can see [advanced examples for LDAP authentication](https://github.com/ktorio/ktor/blob/master/ktor-features/ktor-auth-ldap/test/io/ktor/tests/auth/ldap/LdapAuthTest.kt) in the Ktor's tests.
+You can see [advanced examples for LDAP authentication](https://github.com/ktorio/ktor/blob/main/ktor-features/ktor-auth-ldap/test/io/ktor/tests/auth/ldap/LdapAuthTest.kt) in the Ktor's tests.
 
 
 

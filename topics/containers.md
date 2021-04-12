@@ -71,7 +71,7 @@ and will contact your server via plain HTTP.
 You have to generate a [war file](war.md) and put it in the Tomcat `webapps` folder.
 
 >For a complete example, check:
-><https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/tomcat-war>
+><https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/tomcat-war>
 >
 {type="note"}
 
@@ -81,7 +81,7 @@ You have to generate a [war file](war.md) and put it in the Tomcat `webapps` fol
 You have to generate a [war file](war.md) and put it in the Jetty `webapps` folder.
 
 >For a complete example, check:
-><https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/jetty-war>
+><https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/jetty-war>
 >
 {type="note"}
 

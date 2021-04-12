@@ -2,7 +2,7 @@
 
 <include src="lib.md" include-id="outdated_warning"/>
 
-Ktor uses [HOCON (Human-Optimized Config Object Notation)](https://github.com/lightbend/config/blob/master/HOCON.md)
+Ktor uses [HOCON (Human-Optimized Config Object Notation)](https://github.com/lightbend/config/blob/main/HOCON.md)
 format in the external configuration file. In this file, you can configure things like the port to listen to,
 or the [modules](Modules.md) to be loaded. This format is similar to JSON,
 but is optimized to be read and written by humans, and supports additional
@@ -106,7 +106,7 @@ youkube {
 
 There is a [list of the available core configurations](#available-config) in this document.
 
->You can use HOCON to [set properties from environment variables](https://github.com/lightbend/config/blob/master/HOCON.md#substitutions).
+>You can use HOCON to [set properties from environment variables](https://github.com/lightbend/config/blob/main/HOCON.md#substitutions).
 >
 {type="note"}
 
@@ -117,7 +117,7 @@ There is a [list of the available core configurations](#available-config) in thi
 ## Command Line
 {id="command-line"}
 
-When using [`commandLineEnvironment`](https://github.com/ktorio/ktor/blob/master/ktor-server/ktor-server-host-common/src/io/ktor/server/engine/CommandLine.kt)
+When using [`commandLineEnvironment`](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-host-common/src/io/ktor/server/engine/CommandLine.kt)
 (any `EngineMain` main) there are several switches and configuration parameters you can use to configure
 your application module.
 

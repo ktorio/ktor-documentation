@@ -147,6 +147,6 @@ Otherwise, from the main menu, select <menupath>File | New | Project</menupath>.
 
 <chunk id="download_example">
 <p>
-Code example: <a href="https://github.com/ktorio/ktor-documentation/tree/master/codeSnippets/snippets/%example_name%">%example_name%</a>
+Code example: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/%example_name%">%example_name%</a>
 </p>
 </chunk>

@@ -65,7 +65,7 @@ To set the session content for a specific [route](Routing_in_Ktor.md), use the [
 ```kotlin
 routing {
     get("/") {
-        call.sessions.set(LoginSession(name = "John", value = 1))
+        call.sessions.set(LoginSession(username = "John", count = 1))
     }
 }
 ```
