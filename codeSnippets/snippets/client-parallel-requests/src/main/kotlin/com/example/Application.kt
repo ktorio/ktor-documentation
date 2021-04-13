@@ -12,8 +12,8 @@ fun main() {
         val client = HttpClient(CIO)
 
         // Sequential requests
-/*        val firstRequestContent = client.get<String>("http://localhost:8080/path1")
-        val secondRequestContent = client.get<String>("http://localhost:8080/path2")*/
+/*        val firstRequestContent: String = client.get("http://localhost:8080/path1")
+        val secondRequestContent: String = client.get("http://localhost:8080/path2")*/
 
         // Parallel requests
         val firstRequest: Deferred<String> = async { client.get("http://localhost:8080/path1") }

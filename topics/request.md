@@ -69,18 +69,19 @@ With the enabled [Json](json-feature.md) feature, you can send a class instance 
 You can learn more from the [](json-feature.md) help section.
 
 ### Form parameters {id="form_parameters"}
-The Ktor client provides two functions for sending form data:
-* [submitForm](https://api.ktor.io/%ktor_version%/io.ktor.client.request.forms/submit-form.html) for sending form parameters using both `GET` and `POST` requests.
-* [submitFormWithBinaryData](https://api.ktor.io/%ktor_version%/io.ktor.client.request.forms/submit-form-with-binary-data.html) for sending files using `POST` requests.
+The Ktor client provides the [submitForm](https://api.ktor.io/%ktor_version%/io.ktor.client.request.forms/submit-form.html) function for sending form parameters using both `x-www-form-urlencoded` and `multipart/form-data` types. In a code snippet below, this function accepts the following parameters:
+* `url` specifies a URL for sending a request.
+* `formParameters` a set of form parameters built using [Parameters.build](https://api.ktor.io/%ktor_version%/io.ktor.http/-parameters/build.html).
+* `encodeInQuery` is used to send form data in URL parameters by using the `GET` request.
 
-The example below shows `submitForm`:
 ```kotlin
 ```
 {src="snippets/_misc_client/SubmitForm.kt"}
 
 
-### Example: upload a file {id="upload_file"}
-File example:
+### Upload a file {id="upload_file"}
+
+If you need to send a file with a form, use the [submitFormWithBinaryData](https://api.ktor.io/%ktor_version%/io.ktor.client.request.forms/submit-form-with-binary-data.html) function. When calling this function, you need to specify the `formData` parameter, which can be initialized using the [formData](https://api.ktor.io/%ktor_version%/io.ktor.client.request.forms/form-data.html) function. A code example below shows how to do this:
 
 ```kotlin
 ```
@@ -102,3 +103,10 @@ To see a full example, go to [client-parallel-requests](https://github.com/ktori
 
 
 ## Cancel a request {id="cancel-request"}
+
+If you need to cancel a request, you can cancel a coroutine that runs this request. For instance, the [launch](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/launch.html) returns a `Job` that can be used to cancel the running coroutine:
+```kotlin
+```
+{src="snippets/_misc_client/CancelRequest.kt"}
+
+Learn more from the [Cancellation and timeouts](https://kotlinlang.org/docs/cancellation-and-timeouts.html) help topic.
