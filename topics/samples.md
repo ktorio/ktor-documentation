@@ -1,8 +1,8 @@
 [//]: # (title: Samples)
 
 A [Ktor documentation repository](https://github.com/ktorio/ktor-documentation) comes with a number of [runnable examples](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets), which cover many features and use cases.
-
-## Deployment {id="deployment"}
+## Server {id="server"}
+### Deployment {id="deployment"}
 * [Netty Embedded](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/netty-embedded)
 * [Netty](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/netty)
 * [Jetty Embedded](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/jetty-embedded)
@@ -12,11 +12,11 @@ A [Ktor documentation repository](https://github.com/ktorio/ktor-documentation) 
 * [Docker](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/docker)
 * [Google App Engine Standard](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/google-appengine-standard)
 
-## Server Upload and Download {id="upload-download"}
+### Upload and Download {id="upload-download"}
 * [Upload](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/upload-file)
 * [Download](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/download-file)
 
-## Working with Views {id="views"}
+### Working with Views {id="views"}
 * [Html](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/html)
 * [Html widget](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/html-widget)
 * [FreeMarker](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/freemarker)
@@ -24,11 +24,11 @@ A [Ktor documentation repository](https://github.com/ktorio/ktor-documentation) 
 * [Mustache](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/mustache)
 * [Thymeleaf](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/thymeleaf)
 
-## Serialization {id="serialization"}
+### Serialization {id="serialization"}
 * [GSON](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/gson)
 * [Jackson](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/jackson)
 
-## Features {id="features"}
+### Features {id="features"}
 * [Asynchronous](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/async)
 * [Authenticate](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth)
 * [AutoHeadResponse](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/autohead)
@@ -46,8 +46,10 @@ A [Ktor documentation repository](https://github.com/ktorio/ktor-documentation) 
 
 
 ## Client {id="client"}
-* [Client Downloader](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-download-file)
+* [Download file](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-download-file)
+* [Upload file](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-upload-file)
 * [Json client](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/json-client)
+* [Parallel requests](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-parallel-requests)
 * [Logging](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-logging)
 * [Timeout](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/timeout)
 
