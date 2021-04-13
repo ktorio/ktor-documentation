@@ -91,46 +91,14 @@ Learn how to run this sample from [client-upload-file](https://github.com/ktorio
 
 
 
-## Concurrency {id="concurrency"}
+## Parallel requests {id="parallel_requests"}
 
-Remember that requests are asynchronous, but when performing requests, the API suspends further requests
-and your function will be suspended until done. If you want to perform several requests at once
-in the same block, you can use `launch` or `async` functions and later get the results.
-For example:
-
-### Sequential requests
-
+When sending two requests at once, the client suspends the second request execution until the first is finished. If you need to perform several requests at once, you can use [launch](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/launch.html) or [async](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html) functions. The code snippet below shows how to perform two requests asynchronously:
 ```kotlin
-suspend fun sequentialRequests() {
-    val client = HttpClient()
-
-    // Get the content of an URL.
-    val firstBytes = client.get<ByteArray>("https://127.0.0.1:8080/a")
-
-    // Once the previous request is done, get the content of an URL.
-    val secondBytes = client.get<ByteArray>("https://127.0.0.1:8080/b")
-
-    client.close()
-}
 ```
+{src="snippets/client-parallel-requests/src/main/kotlin/com/example/Application.kt" lines="12,19-22"}
 
-### Parallel requests
+To see a full example, go to [client-parallel-requests](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-parallel-requests).
 
-```kotlin
-suspend fun parallelRequests() = coroutineScope<Unit> {
-    val client = HttpClient()
-
-    // Start two requests asynchronously.
-    val firstRequest = async { client.get<ByteArray>("https://127.0.0.1:8080/a") }
-    val secondRequest = async { client.get<ByteArray>("https://127.0.0.1:8080/b") }
-
-    // Get the request contents without blocking threads, but suspending the function until both
-    // requests are done.
-    val bytes1 = firstRequest.await() // Suspension point.
-    val bytes2 = secondRequest.await() // Suspension point.
-
-    client.close()
-}
-```
 
 ## Cancel a request {id="cancel-request"}
