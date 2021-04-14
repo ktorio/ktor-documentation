@@ -13,8 +13,9 @@ apply plugin: 'application'
 mainClassName = "io.ktor.server.netty.EngineMain"
 
 sourceSets {
-    main.kotlin.srcDirs = [ 'src']
+    main.kotlin.srcDirs = [ 'src' ]
     main.resources.srcDirs = [ 'resources' ]
+    test.kotlin.srcDirs = [ 'test' ]
 }
 
 repositories {
@@ -27,5 +28,7 @@ dependencies {
     compile "io.ktor:ktor-server-netty:$ktor_version"
     compile "io.ktor:ktor-html-builder:$ktor_version"
     compile "ch.qos.logback:logback-classic:$logback_version"
+
+    testCompile "io.ktor:ktor-server-tests:$ktor_version"
 }
 
