@@ -49,7 +49,7 @@ You can learn how to configure all engine types from [](http-client_engines.md).
 
 
 ## Use the Client {id="use-client"}
-After you've [added](#add-dependencies) all the required dependencies and [created](#create-client) the client, you can use it to make requests and receive responses. Learn more from [](client.md#make-request). 
+After you've [added](#add-dependencies) all the required dependencies and [created](#create-client) the client, you can use it to make requests and receive responses. Learn more from [](request.md) and [](response.md). 
 
 
 ## Code Example {id="code-example"}

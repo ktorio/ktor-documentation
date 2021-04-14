@@ -199,7 +199,7 @@
             <toc-element id="http-client_engines.md"
                          show-structure-depth="2"/>
         </toc-element>
-        <toc-element id="request.md"/>
+        <toc-element id="request.md" show-structure-depth="2"/>
         <toc-element id="response.md">
             <toc-element id="streaming.md"/>
         </toc-element>

@@ -87,8 +87,6 @@ Note that this function allows you to [receive a response](#response) in various
 
 > `request` is a suspending function, so requests should be executed only from a coroutine or another suspend function. You can learn more about calling suspending functions from [Coroutines basics](https://kotlinlang.org/docs/coroutines-basics.html).
 
-### Specify an HTTP Method {id="http-method"}
-
 When calling the `request` function, you can specify the desired HTTP method using the `method` property:
 
 ```kotlin
@@ -100,18 +98,8 @@ In addition to the `request` function, `HttpClient` provides specific functions 
 ```
 {src="snippets/_misc_client/GetMethodWithoutParams.kt"}
 
-### Add Headers {id="headers"}
-To add headers to the request, use the `headers` function as follows:
-```kotlin
-```
-{src="snippets/_misc_client/GetMethodWithHeaders.kt"}
+To learn how to add headers, cookies, and specify a request body, see the [](request.md) help topic.
 
-
-### Specify Body {id="body"}
-To set the body of a request, assign a value to the `body` property. You can assign a string or an [OutgoingContent](https://api.ktor.io/%ktor_version%/io.ktor.http.content/-outgoing-content/index.html) object to this property. For example, sending data with a `text/plain` text MIME type can be implemented as follows:
-```kotlin
-```
-{src="snippets/_misc_client/PostMethodWithBody.kt"}
 
 
 ### Receive a Response {id="response"}

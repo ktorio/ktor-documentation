@@ -3,7 +3,7 @@
 After adding the necessary [dependencies](client.md#add-dependencies) and [creating the client](client.md#create-client), you can send HTTP requests. You can configure the following request parameters:
 * Specify an HTTP method, such as `GET`, `POST`, `PUT`, and so on.
 * Add headers and cookies.
-* Set the body of a request, for example, plain text, data objects, forms, and so on.
+* Set the body of a request, for example, a plain text, a data object, form parameters, and so on.
 
 The main way for making HTTP requests is the [request](https://api.ktor.io/%ktor_version%/io.ktor.client.request/request.html) function that takes a URL as a parameter. Inside this function, you can configure various request parameters: specify an HTTP method, add headers, specify the request body, and so on. These parameters are exposed by the [HttpRequestBuilder](https://api.ktor.io/%ktor_version%/io.ktor.client.request/-http-request-builder/index.html) class.
 
@@ -16,7 +16,11 @@ Note that this function allows you to [receive a response](response.md) in vario
 > `request` is a suspending function, so requests should be executed only from a coroutine or another suspend function. You can learn more about calling suspending functions from [Coroutines basics](https://kotlinlang.org/docs/coroutines-basics.html).
 
 
-## Specify an HTTP method {id="http-method"}
+## Set request parameters {id="parameters"}
+In this section, we'll see on how to specify various request parameters, including an HTTP method, headers, and cookies. If you need to configure some default parameters for all requests of a specific client, use the [](default-request.md) feature.
+
+
+### Specify an HTTP method {id="http-method"}
 
 When calling the `request` function, you can specify the desired HTTP method using the `method` property:
 
@@ -24,12 +28,12 @@ When calling the `request` function, you can specify the desired HTTP method usi
 ```
 {src="snippets/_misc_client/RequestMethodWithParams.kt"}
 
-In addition to the `request` function, `HttpClient` provides specific functions for basic HTTP methods: `get`, `post`, `put`, and so on. For example, you can replace the example above with the following code:
+In addition to the `request` function, `HttpClient` provides specific functions for basic HTTP methods: [get](https://api.ktor.io/%ktor_version%/io.ktor.client.request/get.html), [post](https://api.ktor.io/%ktor_version%/io.ktor.client.request/post.html), [put](https://api.ktor.io/%ktor_version%/io.ktor.client.request/put.html), and so on. For example, you can replace the example above with the following code:
 ```kotlin
 ```
 {src="snippets/_misc_client/GetMethodWithoutParams.kt"}
 
-## Add headers {id="headers"}
+### Add headers {id="headers"}
 To add headers to the request, use the [headers](https://api.ktor.io/%ktor_version%/io.ktor.client.request/-http-request-builder/headers.html) function as follows:
 ```kotlin
 ```
@@ -37,7 +41,7 @@ To add headers to the request, use the [headers](https://api.ktor.io/%ktor_versi
 
 
 
-## Add cookies {id="cookies"}
+### Add cookies {id="cookies"}
 To send cookies, use the [cookie](https://api.ktor.io/%ktor_version%/io.ktor.client.request/cookie.html) function:
 
 ```kotlin
@@ -49,7 +53,7 @@ Note that Ktor provides the [](http-cookies.md) feature that allows you to keep 
 
 
 
-## Specify body {id="body"}
+## Set request body {id="body"}
 To set the body of a request, you need to specify the [body](https://api.ktor.io/%ktor_version%/io.ktor.client.request/-http-request-builder/body.html) property exposed by `HttpRequestBuilder`. This property accepts different types of payload, including plain text, arbitrary class instances, form data, byte arrays, and so on. Note that you also need to specify a content type for a request using the [contentType](https://api.ktor.io/%ktor_version%/io.ktor.http/content-type.html) function. Below we'll take a look at several examples.
 
 ### Text {id="text"}
@@ -104,7 +108,7 @@ To see a full example, go to [client-parallel-requests](https://github.com/ktori
 
 ## Cancel a request {id="cancel-request"}
 
-If you need to cancel a request, you can cancel a coroutine that runs this request. For instance, the [launch](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/launch.html) returns a `Job` that can be used to cancel the running coroutine:
+If you need to cancel a request, you can cancel a coroutine that runs this request. For instance, the [launch](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/launch.html) function returns a `Job` that can be used to cancel the running coroutine:
 ```kotlin
 ```
 {src="snippets/_misc_client/CancelRequest.kt"}
