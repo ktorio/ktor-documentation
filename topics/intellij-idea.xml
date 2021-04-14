@@ -6,6 +6,12 @@
        title="Creating a New Ktor Project"
        id="intellij-idea">
 
+    <microformat>
+        <p>
+            <control>Final project</control>: <a href="https://github.com/ktorio/ktor-get-started/tree/main">ktor-get-started</a>
+        </p>
+    </microformat>
+
     <p>
         Ktor is an asynchronous framework for creating microservices, web applications, and more.
         You can create and configure a new Ktor project using a dedicated plugin for IntelliJ IDEA.

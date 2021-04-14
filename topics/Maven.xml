@@ -6,6 +6,12 @@
        title="Maven"
        id="Maven">
 
+    <microformat>
+        <p>
+            <control>Final project</control>: <a href="https://github.com/ktorio/ktor-maven-sample/tree/main">ktor-maven-sample</a>
+        </p>
+    </microformat>
+
     <p>
         In this tutorial, we'll show you how to integrate Ktor into the existing Maven project.
     </p>

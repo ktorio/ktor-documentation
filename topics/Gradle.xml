@@ -6,6 +6,12 @@
        title="Gradle"
        id="Gradle">
 
+    <microformat>
+        <p>
+            <control>Final project</control>: <a href="https://github.com/ktorio/ktor-gradle-sample/tree/main">ktor-gradle-sample</a>
+        </p>
+    </microformat>
+
     <p>
         In this tutorial, we'll show you how to integrate Ktor into the existing Gradle project.
     </p>
