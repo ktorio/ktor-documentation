@@ -5,7 +5,7 @@ After adding the necessary [dependencies](client.md#add-dependencies) and [creat
 * Add headers and cookies.
 * Set the body of a request, for example, a plain text, a data object, form parameters, and so on.
 
-The main way for making HTTP requests is the [request](https://api.ktor.io/%ktor_version%/io.ktor.client.request/request.html) function that takes a URL as a parameter. Inside this function, you can configure various request parameters: specify an HTTP method, add headers, specify the request body, and so on. These parameters are exposed by the [HttpRequestBuilder](https://api.ktor.io/%ktor_version%/io.ktor.client.request/-http-request-builder/index.html) class.
+The main way for making HTTP requests is the [request](https://api.ktor.io/%ktor_version%/io.ktor.client.request/request.html) function that takes a URL as a parameter. Inside this function, you can configure various request parameters: specify an HTTP method, add headers, specify the request body and content type, and so on. These parameters are exposed by the [HttpRequestBuilder](https://api.ktor.io/%ktor_version%/io.ktor.client.request/-http-request-builder/index.html) class.
 
 ```kotlin
 ```
@@ -20,7 +20,7 @@ Note that this function allows you to [receive a response](response.md) in vario
 In this section, we'll see on how to specify various request parameters, including an HTTP method, headers, and cookies. If you need to configure some default parameters for all requests of a specific client, use the [](default-request.md) feature.
 
 
-### Specify an HTTP method {id="http-method"}
+### HTTP method {id="http-method"}
 
 When calling the `request` function, you can specify the desired HTTP method using the `method` property:
 
@@ -33,7 +33,7 @@ In addition to the `request` function, `HttpClient` provides specific functions 
 ```
 {src="snippets/_misc_client/GetMethodWithoutParams.kt"}
 
-### Add headers {id="headers"}
+### Headers {id="headers"}
 To add headers to the request, use the [headers](https://api.ktor.io/%ktor_version%/io.ktor.client.request/-http-request-builder/headers.html) function as follows:
 ```kotlin
 ```
@@ -41,7 +41,7 @@ To add headers to the request, use the [headers](https://api.ktor.io/%ktor_versi
 
 
 
-### Add cookies {id="cookies"}
+### Cookies {id="cookies"}
 To send cookies, use the [cookie](https://api.ktor.io/%ktor_version%/io.ktor.client.request/cookie.html) function:
 
 ```kotlin
@@ -54,7 +54,7 @@ Note that Ktor provides the [](http-cookies.md) feature that allows you to keep 
 
 
 ## Set request body {id="body"}
-To set the body of a request, you need to specify the [body](https://api.ktor.io/%ktor_version%/io.ktor.client.request/-http-request-builder/body.html) property exposed by `HttpRequestBuilder`. This property accepts different types of payload, including plain text, arbitrary class instances, form data, byte arrays, and so on. Note that you also need to specify a content type for a request using the [contentType](https://api.ktor.io/%ktor_version%/io.ktor.http/content-type.html) function. Below we'll take a look at several examples.
+To set the body of a request, you need to specify the [body](https://api.ktor.io/%ktor_version%/io.ktor.client.request/-http-request-builder/body.html) property exposed by `HttpRequestBuilder`. This property accepts different types of payload, including plain text, arbitrary class instances, form data, byte arrays, and so on. Below we'll take a look at several examples.
 
 ### Text {id="text"}
 Sending plain text as body can be implemented as follows:
@@ -64,7 +64,7 @@ Sending plain text as body can be implemented as follows:
 
 
 ### Objects {id="objects"}
-With the enabled [Json](json-feature.md) feature, you can send a class instance within a request body as JSON. To do this, assign a class instance to the `body` property and set the content type to `application/json`:
+With the enabled [Json](json-feature.md) feature, you can send a class instance within a request body as JSON. To do this, assign a class instance to the `body` property and set the content type to `application/json` using the [contentType](https://api.ktor.io/%ktor_version%/io.ktor.http/content-type.html) function:
 
 ```kotlin
 ```
