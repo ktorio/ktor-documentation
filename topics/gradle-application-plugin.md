@@ -15,7 +15,7 @@ Before starting this tutorial, do the following:
 
 
 ## Apply the Application plugin and configure the main class {id="apply-plugin"}
-To package an application, you need to apply the Application plugin first.
+To package an application, you need to apply the Application plugin first:
 1. Open the [ktor-gradle-sample](https://github.com/ktorio/ktor-gradle-sample) project in IntelliJ IDEA.
 1. Make sure that the `build.gradle` file contains the following code:
    ```groovy
@@ -43,6 +43,8 @@ In this topic, we'll use `installDist`:
    </tabs>
    
    Gradle will create an image of the application in the `build/install/ktor-gradle-sample` folder. 
+
+> To learn how to use the resulting package to deploy your application using Docker, see the [](docker.md) help topic.
 
 ## Run the application {id="run"}
 To run the [packaged application](#package):
