@@ -15,7 +15,7 @@ First you have to create a [distribution](gradle-application-plugin.md) with you
 
 ```dockerfile
 ```
-{src="docker-sample.Dockerfile"}
+{src="snippets/docker/Dockerfile"}
 
 For deploying to Docker simply you can check out the [docker quickstart](docker.md) page for full details.
 
