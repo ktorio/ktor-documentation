@@ -33,6 +33,7 @@ The Application plugin provides various ways for packaging the application, for 
 In this topic, we'll use `installDist`:
 1. Open the [terminal](https://www.jetbrains.com/help/idea/terminal-emulator.html).
 1. Run the `installDist` in one of the following ways depending on your operating system:
+   
    <tabs>
    <tab title="Linux/MacOS">
    <code style="block" lang="Bash">./gradlew installDist</code>
@@ -50,6 +51,7 @@ In this topic, we'll use `installDist`:
 To run the [packaged application](#package):
 1. Go to the `build/install/ktor-gradle-sample` folder in a terminal.
 1. Depending on your operating system, run the `ktor-gradle-sample` or `ktor-gradle-sample.bat` executable:
+   
    <tabs>
    <tab title="Linux/MacOS">
    <code style="block" lang="Bash">./ktor-gradle-sample</code>
@@ -58,6 +60,7 @@ To run the [packaged application](#package):
    <code style="block" lang="CMD">ktor-gradle-sample.bat</code>
    </tab>
    </tabs>
+   
 1. Wait until the following message is shown:
    ```
    [main] INFO  Application - Responding at http://0.0.0.0:8080
