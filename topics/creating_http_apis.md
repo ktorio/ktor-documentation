@@ -262,7 +262,7 @@ fun Application.registerCustomerRoutes() {
 Now we just need to invoke this function in our `Application.module()` function in `Application.kt`:
 
 ```kotlin
-import registerCustomerRoutes
+import com.jetbrains.handson.httpapi.routes.registerCustomerRoutes
 
 fun Application.module() {
     install(ContentNegotiation) {
@@ -410,8 +410,8 @@ fun Application.registerOrderRoutes() {
 We then add the function call in our `Application.module()` function in `Application.kt`:
 
 ```kotlin
-import registerCustomerRoutes
-import registerOrderRoutes
+import com.jetbrains.handson.httpapi.routes.registerCustomerRoutes
+import com.jetbrains.handson.httpapi.routes.registerOrderRoutes
 
 fun Application.module() {
     install(ContentNegotiation) {
