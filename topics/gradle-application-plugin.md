@@ -6,7 +6,7 @@
 </p>
 </microformat>
 
-A Gradle [Application plugin](https://docs.gradle.org/current/userguide/application_plugin.html) provides the ability to package applications, including code dependencies and generated start scripts. In this topic, we'll show you how to package and run a Ktor application created in the [](Gradle.xml) topic.
+The Gradle [Application plugin](https://docs.gradle.org/current/userguide/application_plugin.html) provides the ability to package applications, including code dependencies and generated start scripts. In this topic, we'll show you how to package and run a Ktor application created in the [](Gradle.xml) topic.
 
 ## Prerequisites {id="prerequisites"}
 Before starting this tutorial, do the following:

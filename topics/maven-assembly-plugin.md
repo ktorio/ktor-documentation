@@ -9,7 +9,7 @@
 </p>
 </microformat>
 
-A Maven [Assembly plugin](http://maven.apache.org/plugins/maven-assembly-plugin/) provides the ability to combine project output into a single distributable archive that contains dependencies, modules, site documentation, and other files. In this topic, we'll show you how to build an assembly and run it for a Ktor application created in the [](Maven.xml) topic.
+The Maven [Assembly plugin](http://maven.apache.org/plugins/maven-assembly-plugin/) provides the ability to combine project output into a single distributable archive that contains dependencies, modules, site documentation, and other files. In this topic, we'll show you how to build an assembly and run it for a Ktor application created in the [](Maven.xml) topic.
 
 ## Prerequisites {id="prerequisites"}
 Before starting this tutorial, do the following:
