@@ -26,9 +26,7 @@ To package an application, you need to apply the Application plugin first:
 
 
 ## Package the application {id="package"}
-The Application plugin provides various ways for packaging the application, for example:
-* The `installDist` task installs the application with all runtime dependencies and start scripts into a specified directory.
-* The `distZip` and `distTar` tasks create full distribution archives.
+The Application plugin provides various ways for packaging the application, for example, the `installDist` task installs the application with all runtime dependencies and start scripts. To create full distribution archives, you can use the `distZip` and `distTar` tasks.
 
 In this topic, we'll use `installDist`:
 1. Open the [terminal](https://www.jetbrains.com/help/idea/terminal-emulator.html).
