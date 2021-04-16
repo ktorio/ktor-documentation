@@ -30,7 +30,7 @@ The Application plugin provides various ways for packaging the application, for 
 
 In this topic, we'll use `installDist`:
 1. Open the [terminal](https://www.jetbrains.com/help/idea/terminal-emulator.html).
-1. Run the `installDist` in one of the following ways depending on your operating system:
+1. Run the `installDist` task in one of the following ways depending on your operating system:
    
    <tabs>
    <tab title="Linux/MacOS">
