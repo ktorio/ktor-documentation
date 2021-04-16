@@ -11,11 +11,11 @@ lightweight environment, with its own isolated filesystem, operating system, and
 You usually have to create a `Dockerfile` for monolithic services, and a `docker-compose.yml`
 when your container needs to interact with other services, like for example a database or a redis.
 
-First you have to create a [fat-jar file](fatjar.md) with your application. And a `Dockerfile`, which looks like this:
+First you have to create a [distribution](gradle-application-plugin.md) with your application. And a `Dockerfile`, which looks like this:
 
 ```dockerfile
 ```
-{src="docker-sample.Dockerfile"}
+{src="snippets/docker/Dockerfile"}
 
 For deploying to Docker simply you can check out the [docker quickstart](docker.md) page for full details.
 

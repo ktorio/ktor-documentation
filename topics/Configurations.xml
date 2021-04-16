@@ -223,7 +223,7 @@
             <list>
                 <li>
                     <p>
-                        <code>jar</code>: A path to <a href="fatjar.md">JAR</a> file.
+                        <code>jar</code>: A path to JAR file.
                     </p>
                 </li>
                 <li>
