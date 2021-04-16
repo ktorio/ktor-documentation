@@ -2,10 +2,10 @@
 
 <microformat>
 <p>
-<a href="https://github.com/kotlin-hands-on/creating-http-api-ktor/">Template project</a>
+<a href="https://github.com/ktorio/ktor-http-api-sample/">Template project</a>
 </p>
 <p>
-<a href="https://github.com/kotlin-hands-on/creating-http-api-ktor/tree/final">Final project</a>
+<a href="https://github.com/ktorio/ktor-http-api-sample/tree/final">Final project</a>
 </p>
 </microformat>
 
@@ -19,7 +19,7 @@ We will build a convenient way of listing all customers & orders in our system, 
 
 We will be using two ways to define routes and organize these by files. They certainly aren't the only ways to define routes in applications, but they showcase differently maintainable approaches. For other styles and options check out the [Routing in Ktor](Routing_in_Ktor.md) help topic.
 
-You can find the [template project](https://github.com/kotlin-hands-on/creating-http-api-ktor/) as well as the source code of the [final](https://github.com/kotlin-hands-on/creating-http-api-ktor/tree/final) application on the corresponding GitHub repository.
+You can find the [template project](https://github.com/ktorio/ktor-http-api-sample/) as well as the source code of the [final](https://github.com/ktorio/ktor-http-api-sample/tree/final) application on the corresponding GitHub repository.
 
 
 ## Project setup
@@ -28,7 +28,7 @@ If we were to start a fresh idea from zero, Ktor would have a few ways of settin
 
 For this tutorial, however, we have made a starter template available that includes all configuration and required dependencies for the project.
 
-[Please clone the project repository from GitHub, and open it in IntelliJ IDEA.](https://github.com/kotlin-hands-on/creating-http-api-ktor/)
+[Please clone the project repository from GitHub, and open it in IntelliJ IDEA.](https://github.com/ktorio/ktor-http-api-sample/)
 
 The template repository contains a basic Gradle projects for us to build our project. Because it already contains all dependencies that we will need throughout the hands-on, **you don't need to make any changes to the Gradle configuration.**
 

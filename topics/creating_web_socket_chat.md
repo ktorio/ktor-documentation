@@ -2,10 +2,10 @@
 
 <microformat>
 <p>
-<a href="https://github.com/kotlin-hands-on/chat-app-websockets">Template project</a>
+<a href="https://github.com/ktorio/ktor-websockets-chat-sample">Template project</a>
 </p>
 <p>
-<a href="https://github.com/kotlin-hands-on/chat-app-websockets/tree/final">Final project</a>
+<a href="https://github.com/ktorio/ktor-websockets-chat-sample/tree/final">Final project</a>
 </p>
 </microformat>
 
@@ -41,7 +41,7 @@ Because our application will be two independent parts (chat server and chat clie
 
 To skip over these configuration steps, a starter template is available for this specific tutorial, which includes all configuration and required dependencies for our two projects already.
 
-[Please clone the repository from GitHub, and open it in IntelliJ IDEA.](https://github.com/kotlin-hands-on/chat-app-websockets)
+[Please clone the repository from GitHub, and open it in IntelliJ IDEA.](https://github.com/ktorio/ktor-websockets-chat-sample)
 
 The template repository contains two barebones Gradle projects for us to build our project: the `client` and `server` projects. Both of them are already preconfigured with the dependencies that we will need throughout the hands-on, so you **don't need to make any changes to the Gradle configuration.**
 
@@ -334,7 +334,7 @@ We have now finished implementing our WebSocket-based chat client with Kotlin an
 
 You might still notice some smaller usability issues caused by the limitations of terminal input, like incoming messages overwriting messages which are currently being composed. Managing more complex terminal user interfaces is outside the scope of this tutorial, though, and as such left as an exercise to the reader 😉.
 
-[You can also find the final version of the project on the final branch on GitHub.](https://github.com/kotlin-hands-on/chat-app-websockets/tree/final)
+[You can also find the final version of the project on the final branch on GitHub.](https://github.com/ktorio/ktor-websockets-chat-sample/tree/final)
 
 ![App in action](app_in_action.png){animated="true" width="674"}
 
