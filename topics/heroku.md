@@ -65,7 +65,7 @@ You will also first need to create the database:
 CREATE DATABASE
 ```
 
-With these files, you can use Gradle or Maven to create a [fat-jar](fatjar.md) and adjust the `Procfile`
+With these files, you can use Gradle or Maven to create a `fat-jar` and adjust the `Procfile`
 to point to the right file.
 
 After building the jar, in Unix systems you can use `heroku local:start` to start your server.
