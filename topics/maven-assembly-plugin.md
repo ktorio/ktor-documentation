@@ -12,14 +12,12 @@
 The Maven [Assembly plugin](http://maven.apache.org/plugins/maven-assembly-plugin/) provides the ability to combine project output into a single distributable archive that contains dependencies, modules, site documentation, and other files. In this topic, we'll show you how to build an assembly and run it for a Ktor application created in the [](Maven.xml) topic.
 
 ## Prerequisites {id="prerequisites"}
-Before starting this tutorial, do the following:
-* [Install IntelliJ IDEA](https://www.jetbrains.com/help/idea/installation-guide.html)
-* Clone the [ktor-maven-sample](https://github.com/ktorio/ktor-maven-sample) repository.
+Before starting this tutorial, clone the [ktor-maven-sample](https://github.com/ktorio/ktor-maven-sample) repository.
 
 
 ## Configure the Assembly plugin {id="configure-plugin"}
 To build an assembly, you need to configure the Assembly plugin first:
-1. Open the [ktor-maven-sample](https://github.com/ktorio/ktor-maven-sample) project in IntelliJ IDEA.
+1. Open the [ktor-maven-sample](https://github.com/ktorio/ktor-maven-sample) project.
 1. Go to the `pom.xml` file and add `maven-assembly-plugin` to the `plugins` block as follows:
    ```xml
    ```

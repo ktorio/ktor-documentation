@@ -9,14 +9,12 @@
 The Gradle [Application plugin](https://docs.gradle.org/current/userguide/application_plugin.html) provides the ability to package applications, including code dependencies and generated start scripts. In this topic, we'll show you how to package and run a Ktor application created in the [](Gradle.xml) topic.
 
 ## Prerequisites {id="prerequisites"}
-Before starting this tutorial, do the following:
-* [Install IntelliJ IDEA](https://www.jetbrains.com/help/idea/installation-guide.html)
-* Clone the [ktor-gradle-sample](https://github.com/ktorio/ktor-gradle-sample) repository.
+Before starting this tutorial, clone the [ktor-gradle-sample](https://github.com/ktorio/ktor-gradle-sample) repository.
 
 
 ## Apply the Application plugin and configure the main class {id="apply-plugin"}
 To package an application, you need to apply the Application plugin first:
-1. Open the [ktor-gradle-sample](https://github.com/ktorio/ktor-gradle-sample) project in IntelliJ IDEA.
+1. Open the [ktor-gradle-sample](https://github.com/ktorio/ktor-gradle-sample) project.
 1. Make sure that the `build.gradle` file contains the following code:
    ```groovy
    ```
@@ -29,7 +27,7 @@ To package an application, you need to apply the Application plugin first:
 The Application plugin provides various ways for packaging the application, for example, the `installDist` task installs the application with all runtime dependencies and start scripts. To create full distribution archives, you can use the `distZip` and `distTar` tasks.
 
 In this topic, we'll use `installDist`:
-1. Open the [terminal](https://www.jetbrains.com/help/idea/terminal-emulator.html).
+1. Open a terminal.
 1. Run the `installDist` task in one of the following ways depending on your operating system:
    
    <tabs>
