@@ -13,10 +13,10 @@ fun Application.main() {
     }
     routing {
         get("/path1") {
-            call.respondText("Current time: ${LocalTime.now()}")
+            call.respondText("Response time: ${LocalTime.now()}")
         }
         get("/path2") {
-            call.respondText("Current time: ${LocalTime.now()}")
+            call.respondText("Response time: ${LocalTime.now()}")
         }
     }
 }

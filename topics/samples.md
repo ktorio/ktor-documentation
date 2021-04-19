@@ -51,5 +51,5 @@ A [Ktor documentation repository](https://github.com/ktorio/ktor-documentation) 
 * [Json client](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/json-client)
 * [Parallel requests](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-parallel-requests)
 * [Logging](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-logging)
-* [Timeout](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/timeout)
+* [Timeout](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-timeout)
 
