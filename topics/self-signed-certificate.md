@@ -1,4 +1,4 @@
-[//]: # (title: Self-Signed Certificate)
+[//]: # (title: Self-signed certificate)
 
 <include src="lib.md" include-id="outdated_warning"/>
 

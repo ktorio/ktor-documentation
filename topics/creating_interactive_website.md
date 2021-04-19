@@ -1,4 +1,4 @@
-[//]: # (title: Creating an Interactive Website)
+[//]: # (title: Creating an interactive website)
 
 <microformat>
 <p>

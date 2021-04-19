@@ -5,7 +5,7 @@
 This feature enables serving static content provided by [webjars](https://www.webjars.org/). It allows you to package your assets such
 as javascript libraries and css as part of your uber-jar.
 
-## Add Dependencies {id="add_dependencies"}
+## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="Webjars"/>
 <var name="artifact_name" value="ktor-webjars"/>
 <include src="lib.md" include-id="add_ktor_artifact_intro"/>

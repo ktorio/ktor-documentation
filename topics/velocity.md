@@ -10,7 +10,7 @@
 Ktor allows you to use [Velocity templates](https://velocity.apache.org/engine/) as views within your application by installing the [Velocity](https://api.ktor.io/%ktor_version%/io.ktor.velocity/-velocity/index.html) feature.
 
 
-## Add Dependencies {id="add_dependencies"}
+## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="Velocity"/>
 <var name="artifact_name" value="ktor-velocity"/>
 <include src="lib.md" include-id="add_ktor_artifact_intro"/>
@@ -23,13 +23,13 @@ Ktor allows you to use [Velocity templates](https://velocity.apache.org/engine/)
 
 
 ## Configure Velocity {id="configure"}
-### Configure Template Loading {id="template_loading"}
+### Configure template loading {id="template_loading"}
 Inside the `install` block, you can configure the [VelocityEngine][velocity_engine]. For example, if you want to use templates from the classpath, use a resource loader for `classpath`:
 ```kotlin
 ```
 {src="snippets/velocity/src/main/kotlin/com/example/Application.kt" lines="13-16"}
 
-### Send a Template in Response {id="use_template"}
+### Send a template in response {id="use_template"}
 Imagine you have the `index.vl` template in `resources/templates`:
 ```html
 ```

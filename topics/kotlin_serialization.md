@@ -3,7 +3,7 @@
 [ContentNegotiation](serialization.md) allows you to use content converters provided by the [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization) library. This library supports JSON, CBOR, ProtoBuf, and other formats.
 
 
-## Add Dependencies {id="add_dependencies"}
+## Add dependencies {id="add_dependencies"}
 Before registering a required converter, perform the following steps:
 
 1. Add the Kotlin serialization plugin, as described in the [Setup](https://github.com/Kotlin/kotlinx.serialization#setup) section.
@@ -15,9 +15,9 @@ Before registering a required converter, perform the following steps:
 1. (Optional) To convert other formats (for example, CBOR or ProtoBuf), you need to include a corresponding artifact. Learn more from the [Formats](https://kotlinlang.org/docs/serialization.html#formats) section.
 
 
-## Register a Converter {id="register_converter"}
+## Register a converter {id="register_converter"}
 
-### Register the JSON Converter {id="register_json_converter"}
+### Register the JSON converter {id="register_json_converter"}
 To register the JSON converter in your application, call the `json` method:
 ```kotlin
 import io.ktor.serialization.*
@@ -39,7 +39,7 @@ install(ContentNegotiation) {
 To learn how to receive and send data, see [](serialization.md#receive_send_data).
 
 
-### Register an Arbitrary Converter {id="register_arbitrary_converter"}
+### Register an arbitrary converter {id="register_arbitrary_converter"}
 
 To register an arbitrary converter from the kotlinx.serialization library (such as Protobuf or CBOR), call the [serialization](https://api.ktor.io/%ktor_version%/io.ktor.serialization/serialization.html) method and pass two parameters:
 * The required [ContentType](https://api.ktor.io/%ktor_version%/io.ktor.http/-content-type/index.html) value.

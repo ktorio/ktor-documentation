@@ -1,4 +1,4 @@
-[//]: # (title: Partial Content)
+[//]: # (title: Partial content)
 
 <include src="lib.md" include-id="outdated_warning"/>
 

@@ -1,4 +1,4 @@
-[//]: # (title: User Agent)
+[//]: # (title: User agent)
 
 <include src="lib.md" include-id="outdated_warning"/>
 

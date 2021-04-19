@@ -5,7 +5,7 @@
 In addition to HTTP handling for the [server](A_Ktor_Application.xml) and the [client](client.md), Ktor supports client and server, TCP and UDP raw sockets.
 It exposes a suspending API that uses NIO under the hoods.
 
-## Add Dependencies {id="add_dependencies"}
+## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="Sockets"/>
 <var name="artifact_name" value="ktor-network"/>
 <include src="lib.md" include-id="add_ktor_artifact_intro"/>
@@ -153,7 +153,7 @@ fun main(args: Array<String>) {
 }
 ```
 
-## Secure Sockets (SSL/TLS)
+## Secure sockets (SSL/TLS)
 {id="secure"}
 
 Ktor supports secure sockets. To enable them you will need to include the

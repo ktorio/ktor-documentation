@@ -2,7 +2,7 @@
 
 <include src="lib.md" include-id="outdated_warning"/>
 
-## Add Dependencies {id="add_dependencies"}
+## Add dependencies {id="add_dependencies"}
 To enable `LDAP` authentication, you need to include the `ktor-auth` and `ktor-auth-ldap` artifacts in the build script:
 
 <tabs>

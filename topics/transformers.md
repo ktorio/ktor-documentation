@@ -3,7 +3,7 @@
 <include src="lib.md" include-id="outdated_warning"/>
 
 
-## Standard Transformers
+## Standard transformers
 
 ### SessionTransportTransformerDigest
 {id="SessionTransportTransformerDigest"}

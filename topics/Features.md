@@ -80,7 +80,7 @@ install(Sessions) {
 } 
 ```
 
-## Default, Available, and Custom Features {id="default_available_custom"}
+## Default, available, and custom Features {id="default_available_custom"}
 
 By default, Ktor does not activate any Feature, and it's up to us as developers to install the functionality our application need.
 

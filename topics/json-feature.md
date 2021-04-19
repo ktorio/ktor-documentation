@@ -10,7 +10,7 @@
 > On the server, Ktor provides the [ContentNegotiation](serialization.md) feature for serializing/deserializing content.
 
 
-## Add Dependencies {id="add_dependencies"}
+## Add dependencies {id="add_dependencies"}
 Before installing `JsonFeature`, you need to add a dependency for the desired serializer. If your project targets only JVM, you can add [Gson or Jackson](#jvm_dependency) dependency. For [multiplatform](http-client_multiplatform.md) projects, use the [kotlinx.serialization](#kotlinx_dependency) library. Depending on the included artifacts, Ktor chooses a default serializer automatically. If required, you can [specify the serializer](#configure_serializer) explicitly and configure it.
 
 
@@ -44,7 +44,7 @@ val client = HttpClient(CIO) {
 Now you can [configure](#configure_serializer) the required JSON serializer.
 
 
-## Configure a Serializer {id="configure_serializer"}
+## Configure a serializer {id="configure_serializer"}
 
 Depending on the [included artifacts](#add_dependencies), Ktor chooses a default serializer automatically. You can get this serializer by calling the [io.ktor.client.features.json.defaultSerializer](https://api.ktor.io/%ktor_version%/io.ktor.client.features.json/default-serializer.html) function.
 
@@ -114,8 +114,8 @@ install(JsonFeature) {
 
 
 
-## Receive and Send Data {id="receive_send_data"}
-### Create a Data Class {id="create_data_class"}
+## Receive and send data {id="receive_send_data"}
+### Create a data class {id="create_data_class"}
 To deserialize received data into an object, you need to create a data class, for example:
 ```kotlin
 data class Customer(val id: Int, val firstName: String, val lastName: String)
@@ -128,7 +128,7 @@ import kotlinx.serialization.Serializable
 data class Customer(val id: Int, val firstName: String, val lastName: String)
 ```
 
-### Send Data {id="send_data"}
+### Send data {id="send_data"}
 
 To send a [class instance](#create_data_class) within a [request](request.md) body as JSON, assign this instance to the `body` property and set the content type to `application/json` by calling `contentType`:
 
@@ -140,7 +140,7 @@ client.post<Unit>() {
 }
 ```
 
-### Receive Data {id="receive_data"}
+### Receive data {id="receive_data"}
 
 When a server sends a [response](response.md) with the `application/json` content, you can deserialize it by specifying a [data class](#create_data_class) as a parameter of the required request method, for example:
 ```kotlin

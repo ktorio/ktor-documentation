@@ -1,5 +1,5 @@
 <topic xmlns="" xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="development_mode" title="Development Mode">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="development_mode" title="Development mode">
     <p>
         Ktor provides a special mode targeted for development. This mode enables the following capabilities:
     </p>
@@ -20,7 +20,7 @@
         </p>
     </note>
 
-    <chapter title="Enable Development Mode" id="enable">
+    <chapter title="Enable development mode" id="enable">
         <p>
             You can enable development mode in different ways: in the application configuration file,
             using a dedicated system property or environment variable.

@@ -1,4 +1,4 @@
-[//]: # (title: Authentication and Authorization)
+[//]: # (title: Authentication and authorization)
 
 <microformat>
 <var name="example_name" value="auth"/>
@@ -14,7 +14,7 @@ It supports mechanisms to read *credentials*, and to authenticate *principals*.
 It can be used in some cases along with the [sessions feature](sessions.md)
 to keep the login information between requests.
 
-## Add Dependencies {id="add_dependencies"}
+## Add dependencies {id="add_dependencies"}
 To enable authentication, you need to include the `ktor-auth` artifact in the build script:
 
 <var name="artifact_name" value="ktor-auth"/>
@@ -92,7 +92,7 @@ val principal: UserIdPrincipal? = call.authentication.principal<UserIdPrincipal>
 >
 {type="note"}
 
-## Naming the AuthenticationProvider
+## Naming the authentication provider
 
 It is possible to give arbitrary names to the authentication providers you specify,
 or to not provide a name at all (unnamed provider) by not setting the name argument or passing a null.
@@ -124,7 +124,7 @@ install(Authentication) {
 }
 ```
 
-## Skipping/Omitting Authentication providers
+## Skipping/omitting authentication providers
 
 You can also skip an authentication based on a criteria.
 

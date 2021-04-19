@@ -9,7 +9,7 @@
 Ktor allows you to use [Mustache templates](https://github.com/spullara/mustache.java) as views within your application by installing the [Mustache](https://api.ktor.io/%ktor_version%/io.ktor.mustache/-mustache/index.html) feature.
 
 
-## Add Dependencies {id="add_dependencies"}
+## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="Mustache"/>
 <var name="artifact_name" value="ktor-mustache"/>
 <include src="lib.md" include-id="add_ktor_artifact_intro"/>
@@ -24,13 +24,13 @@ Inside the `install` block, you can [configure](#template_loading) the [Mustache
 
 
 ## Configure Mustache {id="configure"}
-### Configure Template Loading {id="template_loading"}
+### Configure template loading {id="template_loading"}
 To load templates, you need to assign the [MustacheFactory][mustache_factory] to the `mustacheFactory` property. For example, the code snippet below enables Ktor to look up templates in the `templates` package relative to the current classpath:
 ```kotlin
 ```
 {src="snippets/mustache/src/main/kotlin/com/example/Application.kt" lines="12-14"}
 
-### Send a Template in Response {id="use_template"}
+### Send a template in response {id="use_template"}
 Imagine you have the `index.hbs` template in `resources/templates`:
 ```html
 ```
