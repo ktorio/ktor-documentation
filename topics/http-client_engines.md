@@ -2,7 +2,7 @@
 
 The [Ktor HTTP client](client.md) can be used on different platforms, including JVM, [Android](https://kotlinlang.org/docs/android-overview.html), [JavaScript](https://kotlinlang.org/docs/js-overview.html), and [Native](https://kotlinlang.org/docs/native-overview.html) (iOS and desktop). A specific platform may require a specific engine that processes network requests. For example, you can use `Apache`, `Jetty`, or `CIO` for JVM, `OkHttp` for Android, and so on. Different engines may have specific features and provide different configuration options.
 
-## Add an Engine Dependency {id="dependencies"}
+## Add an engine dependency {id="dependencies"}
 
 Besides the [ktor-client-core](client.md#client-dependency) artifact, the Ktor client requires adding a specific dependency for each engine. For each of the supported platform, you can see the available engines and required dependencies in a corresponding section:
 * [JVM and Android](#jvm-android)
@@ -10,7 +10,7 @@ Besides the [ktor-client-core](client.md#client-dependency) artifact, the Ktor c
 * [Native](#desktop)
 * [Testing](#test)
 
-## Create a Client with a Specified Engine {id="create"}
+## Create a client with a specified engine {id="create"}
 To create the HTTP client with a specific engine, pass an engine class as an argument to the [HttpClient](https://api.ktor.io/%ktor_version%/io.ktor.client/-http-client.html) constructor. For example, you can create a client with the `CIO` engine as follows:
 ```kotlin
 ```
@@ -25,7 +25,7 @@ If you call the `HttpClient` constructor without an argument, the client will ch
 This can be useful for [multiplatform projects](http-client_multiplatform.md). For example, for a project targeting both [Android and iOS](https://kotlinlang.org/docs/mobile/create-first-app.html), you can add the [Android](#android) dependency to the `androidMain` source set and the [Ios](#ios) dependency to the `iosMain` source set. The necessary dependency will be selected at compile time.
 
 
-## Configure an Engine {id="configure"}
+## Configure an engine {id="configure"}
 You can configure an engine using the `engine` method. All engines share several common properties exposed by [HttpClientEngineConfig](https://api.ktor.io/%ktor_version%/io.ktor.client.engine/-http-client-engine-config/index.html), for example:
 
 ```kotlin

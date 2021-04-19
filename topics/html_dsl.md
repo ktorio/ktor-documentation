@@ -8,7 +8,7 @@
 HTML DSL integrates the [kotlinx.html](https://github.com/Kotlin/kotlinx.html) library into Ktor and allows you to respond to a client with HTML blocks. With HTML DSL, you can write pure HTML in Kotlin, interpolate variables into views, and even build complex HTML layouts using templates.
 
 
-## Add Dependencies {id="add_dependencies"}
+## Add dependencies {id="add_dependencies"}
 HTML DSL doesn't need [installation](Features.md#install) but requires the `ktor-html-builder` artifact. You can include it in the build script as follows:
 
 <var name="artifact_name" value="ktor-html-builder"/>
@@ -47,7 +47,7 @@ repositories {
 
   
 
-## Send HTML in Response {id="html_response"}
+## Send HTML in response {id="html_response"}
 To send an HTML response, call the [ApplicationCall.respondHtml](https://api.ktor.io/%ktor_version%/io.ktor.html/respond-html.html) method inside the required [route](Routing_in_Ktor.md):
 ```kotlin
 ```

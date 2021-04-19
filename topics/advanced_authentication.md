@@ -7,7 +7,7 @@ Requires reading first [Advanced Pipeline](Pipelines.md).
 `Authentication` feature creates an `AuthenticationPipeline` which is executed right after the `Features` phase
 in the call pipeline. All authentication protocols such as basic, digest, oauth are implemented as interceptors on `AuthenticationPipeline`.
 
-## Phases:
+## Phases
 
 `AuthenticationPipeline` has two phases:
 
@@ -16,7 +16,7 @@ in the call pipeline. All authentication protocols such as basic, digest, oauth 
 
 The subject of the pipeline is an `AuthenticationContext` instance.
 
-## Protocol:
+## Protocol
 
 * Auth provider interceptor tries to find a `Principal` in the context of the current call.
 * If the principal is found, it is returned, and the pipeline is finished.
@@ -24,7 +24,7 @@ The subject of the pipeline is an `AuthenticationContext` instance.
 * At the end of the pipeline, if there is no principal, we start calling challenges in order.
 * Whichever challenge succeeds first wins. 
 
-## Example Flow:
+## Example Flow
 
 * Basic auth examines the `Authorization` header. 
 * If it's missing or invalid, or the user is not recognized, a 401 Unauthorized is sent back to the client, and the current call ends.

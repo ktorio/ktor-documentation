@@ -1,5 +1,5 @@
 <topic xmlns="" xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="A_Ktor_Application" title="A Ktor Application">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="A_Ktor_Application" title="A Ktor application">
     <p>Ktor can be used to create a variety of server and <a href="client.md">client-side</a> applications.
         Whether we want to create a website that serves static and dynamic pages, an HTTP endpoint, a RESTful system, or
         even microservices, Ktor makes it all possible.
@@ -7,7 +7,7 @@
     <p>In this section, we're going to cover the basics of what a Ktor Server Application is and how the pieces all fit
         together.
     </p>
-    <chapter id="hello-world" title="The Simplest Ktor Application">
+    <chapter id="hello-world" title="The simplest Ktor application">
         <p>One of Ktor's goals is to remain as simple as possible and to avoid any kind of <i>magic</i>. The equivalent
             to a <i>Hello World</i> application in Ktor would be:
         </p>
@@ -23,7 +23,7 @@
 
 
 
-    <chapter title="Next Steps" id="next">
+    <chapter title="Next steps" id="next">
         <p>
             In the next chapters, we'll take a look at the main concepts of creating a Ktor application -
             from configuring a server to using features, which is core to all Ktor applications:

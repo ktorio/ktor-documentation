@@ -43,7 +43,7 @@
     </chapter>
 
 
-    <chapter title="Watch Specific Paths" id="watch-paths">
+    <chapter title="Watch specific paths" id="watch-paths">
         <p>
             When you <a anchor="enable">enable</a> development mode,
             Ktor starts watching output files from the working directory.
@@ -98,7 +98,7 @@
         </list>
     </chapter>
 
-    <chapter title="Recompile on Changes" id="recompile">
+    <chapter title="Recompile on changes" id="recompile">
         <p>
             Since the Auto-reload feature detects changes in output files,
             you need to rebuild a project.

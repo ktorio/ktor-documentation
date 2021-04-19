@@ -1,4 +1,4 @@
-[//]: # (title: Data Conversion)
+[//]: # (title: Data conversion)
 
 <include src="lib.md" include-id="outdated_warning"/>
 
@@ -13,7 +13,7 @@ service.
 
 
 
-## Basic Installation
+## Basic installation
 {id="basic-installation"}
 
 Installing the DataConversion is pretty easy, and it should be cover primitive types:
@@ -22,7 +22,7 @@ Installing the DataConversion is pretty easy, and it should be cover primitive t
 install(DataConversion)
 ```
 
-## Adding Converters
+## Adding converters
 {id="adding-converters"}
 
 The DataConversion configuration, provide a `convert<T>` method to define
@@ -88,7 +88,7 @@ enum class LocationEnum {
 }
 ```
 
-## Accessing the Service
+## Accessing the service
 {id="service"}
 
 You can easily access the DataConversion service, from any call with:
@@ -97,7 +97,7 @@ You can easily access the DataConversion service, from any call with:
 val dataConversion = call.conversionService
 ```
 
-## The ConversionService Interface
+## The ConversionService interface
 {id="interface"}
 
 ```kotlin

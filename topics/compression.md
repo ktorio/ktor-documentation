@@ -13,10 +13,10 @@ specify the required conditions for compressing data (such as a content type or 
 This enables the `gzip`, `deflate`, and `identity` encoders on a server. In the next chapter, we'll see how to enable only specific encoders and configure conditions for compressing data.
 
 
-## Configure Compression Settings {id="configure"}
+## Configure compression settings {id="configure"}
 You can configure compression in multiple ways: enable only specific encoders, specify their priorities, compress only specific content types, and so on.
 
-### Add Specific Encoders {id="add_specific_encoders"}
+### Add specific encoders {id="add_specific_encoders"}
 To enable only specific encoders, call the corresponding extension functions, for example:
 ```kotlin
 install(Compression) {
@@ -37,7 +37,7 @@ install(Compression) {
 ```
 In the example above, `deflate` has a higher priority value and takes precedence over `gzip`. Note that the server first looks at the [quality](https://developer.mozilla.org/en-US/docs/Glossary/Quality_Values) values within the [Accept-Encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding) header and then takes into account the specified priorities.
 
-### Configure Content Type {id="configure_content_type"}
+### Configure content type {id="configure_content_type"}
 By default, Ktor doesn't compress specific content types, such as `audio`, `video`, `image`, and `text/event-stream`. 
 You can choose the content types to compress by calling [matchContentType](https://api.ktor.io/%ktor_version%/io.ktor.features/match-content-type.html) or exclude the desired media types from compression by using [excludeContentType](https://api.ktor.io/%ktor_version%/io.ktor.features/exclude-content-type.html). The code snippet below shows how to compress all text subtypes and JavaScript code using `gzip`:
 ```kotlin
@@ -51,7 +51,7 @@ install(Compression) {
 }
 ```
 
-### Configure Response Size {id="configure_response_size"}
+### Configure response size {id="configure_response_size"}
 The `Compression` feature allows you to disable compression for responses whose size doesn't exceed the specified value. To do this, pass the desired value (in bytes) to the [minimumSize](https://api.ktor.io/%ktor_version%/io.ktor.features/minimum-size.html) function:
 ```kotlin
     install(Compression) {
@@ -62,7 +62,7 @@ The `Compression` feature allows you to disable compression for responses whose 
 
 ```
 
-### Specify Custom Conditions {id="specify_custom_conditions"}
+### Specify custom conditions {id="specify_custom_conditions"}
 If necessary, you can provide a custom condition using the [condition](https://api.ktor.io/%ktor_version%/io.ktor.features/condition.html) function and compress data depending on the specific request parameters. The code snippet below shows how to compress requests for the specified URI:
 ```kotlin
 install(Compression) {
@@ -75,7 +75,7 @@ install(Compression) {
 ```
 
 
-## HTTPS Security {id="security"}
+## HTTPS security {id="security"}
 HTTPS with the enabled compression is vulnerable to the [BREACH](https://en.wikipedia.org/wiki/BREACH) attack. You can use various ways to mitigate this attack. For example, you can disable compression whenever the referrer header indicates a cross-site request. In Ktor, this can be done by checking the referrer header value:
 ```kotlin
 install(Compression) {
@@ -87,5 +87,5 @@ install(Compression) {
 }
 ```
 
-## Implement Custom Encoder {id="custom_encoder"}
+## Implement custom encoder {id="custom_encoder"}
 If necessary, you can provide your own encoder by implementing the [CompressionEncoder](https://api.ktor.io/%ktor_version%/io.ktor.features/-compression-encoder/index.html) interface. See [GzipEncoder](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-core/jvm/src/io/ktor/features/Compression.kt) as an example implementation.

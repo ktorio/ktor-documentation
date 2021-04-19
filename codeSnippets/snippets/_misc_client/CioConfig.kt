@@ -20,6 +20,7 @@ val client = HttpClient(CIO) {
             cipherSuites = CIOCipherSuites.SupportedSuites
             trustManager = myCustomTrustManager
             random = mySecureRandom
+            addKeyStore(myKeyStore, myKeyStorePassword)
         }
     }
 }

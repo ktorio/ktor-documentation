@@ -3,7 +3,7 @@
 Ktor allows you to store [session](sessions.md) data [on the server](client_server.md) and pass only a session ID between the server and the client. In this case, you can choose where to keep the payload on the server. 
 
 
-## Built-in Storages {id="builtin_storages"}
+## Built-in storages {id="builtin_storages"}
 The following storage types are available out-of-the-box:
 * [SessionStorageMemory](https://api.ktor.io/%ktor_version%/io.ktor.sessions/-session-storage-memory/index.html) enables storing a session's content in memory. This storage keeps data while the server is running and discards information once the server stops. 
 * [directorySessionStorage](https://api.ktor.io/%ktor_version%/io.ktor.sessions/directory-session-storage.html) can be used to store a session's data in a file under the specified directory.
@@ -26,7 +26,7 @@ install(Sessions) {
 ```
 
 
-## Custom Storage {id="custom_storage"}
+## Custom storage {id="custom_storage"}
 
 Ktor provides the [SessionStorage](https://api.ktor.io/%ktor_version%/io.ktor.sessions/-session-storage/index.html) interface that allows you to implement a custom storage. 
 ```kotlin

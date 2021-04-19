@@ -2,10 +2,10 @@
 
 <microformat>
 <p>
-<a href="https://github.com/kotlin-hands-on/creating-http-api-ktor/">Template project</a>
+<a href="https://github.com/ktorio/ktor-http-api-sample/">Template project</a>
 </p>
 <p>
-<a href="https://github.com/kotlin-hands-on/creating-http-api-ktor/tree/final">Final project</a>
+<a href="https://github.com/ktorio/ktor-http-api-sample/tree/final">Final project</a>
 </p>
 </microformat>
 
@@ -19,7 +19,7 @@ We will build a convenient way of listing all customers & orders in our system, 
 
 We will be using two ways to define routes and organize these by files. They certainly aren't the only ways to define routes in applications, but they showcase differently maintainable approaches. For other styles and options check out the [Routing in Ktor](Routing_in_Ktor.md) help topic.
 
-You can find the [template project](https://github.com/kotlin-hands-on/creating-http-api-ktor/) as well as the source code of the [final](https://github.com/kotlin-hands-on/creating-http-api-ktor/tree/final) application on the corresponding GitHub repository.
+You can find the [template project](https://github.com/ktorio/ktor-http-api-sample/) as well as the source code of the [final](https://github.com/ktorio/ktor-http-api-sample/tree/final) application on the corresponding GitHub repository.
 
 
 ## Project setup
@@ -28,7 +28,7 @@ If we were to start a fresh idea from zero, Ktor would have a few ways of settin
 
 For this tutorial, however, we have made a starter template available that includes all configuration and required dependencies for the project.
 
-[Please clone the project repository from GitHub, and open it in IntelliJ IDEA.](https://github.com/kotlin-hands-on/creating-http-api-ktor/)
+[Please clone the project repository from GitHub, and open it in IntelliJ IDEA.](https://github.com/ktorio/ktor-http-api-sample/)
 
 The template repository contains a basic Gradle projects for us to build our project. Because it already contains all dependencies that we will need throughout the hands-on, **you don't need to make any changes to the Gradle configuration.**
 
@@ -51,10 +51,10 @@ dependencies {
 Let's briefly go through these dependencies one-by-one:
 
 - `ktor-server-core` adds Ktor's core components to our project.
-- `ktor-server-netty` adds the [Netty](https://netty.io/) engine to our project, allowing us to use server functionality without having to rely on an external application container.
+- `ktor-server-netty` adds the Netty [engine](Engines.md) to our project, allowing us to use server functionality without having to rely on an external application container.
 - `logback-classic` provides an implementation of [SLF4J](http://www.slf4j.org/), allowing us to see nicely formatted logs in our console.
-- `ktor-serialization` provides a convenient mechanism for converting Kotlin objects into a serialized form like JSON, and vice versa. We will use it to format our APIs output, and to consume user input that is structured in JSON. In order to use `ktor-serialization`, we also have to apply the `org.jetbrains.kotlin.plugin.serialization` plugin.
-- `ktor-server-tests` allows us to test parts of our Ktor application without having to use the whole HTTP stack in the process. We will use this to define unit tests for our project.
+- `ktor-serialization` provides a convenient mechanism for converting Kotlin objects into a [serialized form](kotlin_serialization.md) like JSON, and vice versa. We will use it to format our APIs output, and to consume user input that is structured in JSON. In order to use `ktor-serialization`, we also have to apply the `org.jetbrains.kotlin.plugin.serialization` plugin.
+- `ktor-server-tests` allows us to [test](Testing.md) parts of our Ktor application without having to use the whole HTTP stack in the process. We will use this to define unit tests for our project.
 
 ### Configurations: application.conf and logback.xml
 
@@ -85,7 +85,7 @@ First, let's tackle the `Customer` side of our application. We need to create a 
 
 For our case, a customer should store some basic information in the form of text: A customer should have an `id` by which we can identify them, a first and last name, and an email address. An easy way to model this in Kotlin is by using a data class.
 
-Create a file name `Customer.kt` in a new package named `models` and add the following:
+Create a file name `Customer.kt` in a [new package](https://www.jetbrains.com/help/idea/add-items-to-project.html#new-package) named `models` and add the following:
 
 ```kotlin
 import kotlinx.serialization.Serializable
@@ -142,6 +142,11 @@ Notice also how we actually have two entries for `get`: one without a route para
 To list all customers, we can simply return the `customerStorage` list by using the `call.respond` function in Ktor. which can take a Kotlin object and return it serialized in a specified format. For the `get` handler, it looks like this:
 
 ```kotlin
+import io.ktor.application.*
+import io.ktor.http.*
+import io.ktor.request.*
+import io.ktor.response.*
+
 get {
     if (customerStorage.isNotEmpty()) {
         call.respond(customerStorage)
@@ -163,6 +168,10 @@ When a client makes such a request, content negotiation allows the server to exa
 In our case, we're going to install the `ContentNegotiation` feature and enable its support for JSON. Let's add the following code to the `Application.module()` function:
 
 ```kotlin
+import io.ktor.application.*
+import io.ktor.features.*
+import io.ktor.serialization.*
+
 fun Application.module() {
     install(ContentNegotiation) {
         json()
@@ -170,7 +179,7 @@ fun Application.module() {
 }
 ```
 
-JSON support is powered by `kotlinx-serialization`. We previously used its annotation `@Serializable` to annotate our `Customer` data class, meaning that Ktor now knows how to serialize `Customer`s (and collections of `Customer`s!)
+JSON support is powered by [kotlinx.serialization](kotlin_serialization.md). We previously used its annotation `@Serializable` to annotate our `Customer` data class, meaning that Ktor now knows how to serialize `Customer`s (and collections of `Customer`s!)
 
 #### Returning a specific customer
 
@@ -253,6 +262,8 @@ fun Application.registerCustomerRoutes() {
 Now we just need to invoke this function in our `Application.module()` function in `Application.kt`:
 
 ```kotlin
+import com.jetbrains.handson.httpapi.routes.registerCustomerRoutes
+
 fun Application.module() {
     install(ContentNegotiation) {
         json()
@@ -332,6 +343,11 @@ For listing all orders, we'll follow the same pattern as with customers – the 
 being that we're defining it in its own function. Let's create a file called `OrderRoutes.kt` inside the `routes` package, and start with the implementation of the route inside a function called `listOrdersRoute()`.
 
 ```kotlin
+import io.ktor.application.*
+import io.ktor.http.*
+import io.ktor.response.*
+import io.ktor.routing.*
+
 fun Route.listOrdersRoute() {
     get("/order") {
         if (orderStorage.isNotEmpty()) {
@@ -394,6 +410,9 @@ fun Application.registerOrderRoutes() {
 We then add the function call in our `Application.module()` function in `Application.kt`:
 
 ```kotlin
+import com.jetbrains.handson.httpapi.routes.registerCustomerRoutes
+import com.jetbrains.handson.httpapi.routes.registerOrderRoutes
+
 fun Application.module() {
     install(ContentNegotiation) {
         json()
@@ -474,15 +493,15 @@ Inside this file, we have now specified a bunch of HTTP requests, using all the 
 Before we can run a request, we need to first start our API server. The easiest
 way to do this is to use IntelliJ IDEA and click on the Run icon in the gutter:
 
-![Run Server](run-app.png){width="965"}
+![Run Server](run-app.png){width="706"}
 
 Once the server is up and running, we can execute each request by pressing Alt+Enter or by using the Run icon in the gutter:
 
-![Run POST Request](run-post-request.png){width="965"}
+![Run POST Request](run-post-request.png){width="706"}
 
 If everything is correct, we should see the output in the Run tool window:
 
-![Run Output](run-output.png){width="968"}
+![Run Output](run-output.png){width="706"}
 
 ### Order endpoints
 
@@ -510,6 +529,12 @@ tests requests, one significant one being `withTestApplication`.
 Let's write a unit test to ensure that our order route returns properly formatted JSON content. We create a new file under `test/kotlin` called `OrderTests.kt` and add the following code:
 
 ```kotlin
+import com.jetbrains.handson.httpapi.module
+import io.ktor.http.*
+import io.ktor.server.testing.*
+import org.junit.Test
+import kotlin.test.assertEquals
+
 class OrderRouteTests {
     @Test
     fun testGetOrder() {
@@ -542,7 +567,7 @@ fun Application.module(testing: Boolean = false) {
 }
 ```
 
-With this, we can now run our unit test from the IDE and see the results. Much like we've done for this endpoint, we can add all other endpoints as tests and automate the testing of our HTTP API.
+With this, we can now [run our unit test from the IDE](https://www.jetbrains.com/help/idea/performing-tests.html) and see the results. Much like we've done for this endpoint, we can add all other endpoints as tests and automate the testing of our HTTP API.
 
 And just like that, we have finished building our small JSON-based HTTP API. Of course, there are tons of topics you can still explore around Ktor and building APIs with it, so your learning journey doesn't have to stop here!
 

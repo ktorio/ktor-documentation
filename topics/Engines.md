@@ -15,7 +15,7 @@ In addition to the engines mentioned above, Ktor provides a special engine type 
 >
 {type="note"}
 
-## Add Dependencies {id="dependencies"}
+## Add dependencies {id="dependencies"}
 Before using the desired engine, you need to add the corresponding dependency to your [build.gradle](Gradle.xml) or [pom.xml](Maven.xml) file:
 * `ktor-server-netty`
 * `ktor-server-jetty`
@@ -30,7 +30,7 @@ Below are examples of adding a dependency for Netty:
 There is also the `ktor-server-servlet` dependency that allows you to run an application in a servlet container like Jetty or Tomcat. Learn more at [](containers.md).
 
 
-## Choose How to Create a Server {id="choose-create-server"}
+## Choose how to create a server {id="choose-create-server"}
 A Ktor server application can be [created and run in two ways](create_server.xml): using the [embeddedServer](#embeddedServer) to quickly pass server parameters in code, or using [EngineMain](#EngineMain) to load the configuration from the external `application.conf` file.
 
 ### embeddedServer {id="embeddedServer"}
@@ -97,7 +97,7 @@ If you need to start a server using a build system task, you need to configure t
 </tabs>
 
 
-## Configure an Engine {id="configure-engine"}
+## Configure an engine {id="configure-engine"}
 
 In this section, we'll take a look how to specify various engine-specific options.
 

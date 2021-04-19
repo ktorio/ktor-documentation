@@ -1,11 +1,11 @@
-[//]: # (title: Creating an Interactive Website)
+[//]: # (title: Creating an interactive website)
 
 <microformat>
 <p>
-<a href="https://github.com/kotlin-hands-on/creating-website-ktor">Template project</a>
+<a href="https://github.com/ktorio/ktor-website-sample">Template project</a>
 </p>
 <p>
-<a href="https://github.com/kotlin-hands-on/creating-website-ktor/tree/final">Final project</a>
+<a href="https://github.com/ktorio/ktor-website-sample/tree/final">Final project</a>
 </p>
 </microformat>
 
@@ -19,7 +19,7 @@ The goal of this hands-on is to write a minimal journal app. We'll start by seei
 
 ![](ktor_journal.png){animated="true" width="434"}
 
-You can find the [template project](https://github.com/kotlin-hands-on/creating-website-ktor) as well as the source code of the [final](https://github.com/kotlin-hands-on/creating-website-ktor/tree/final) application on the corresponding GitHub repository.
+You can find the [template project](https://github.com/ktorio/ktor-website-sample) as well as the source code of the [final](https://github.com/ktorio/ktor-website-sample/tree/final) application on the corresponding GitHub repository.
 
 Let's dive right in and start setting up our project for development!
 
@@ -30,7 +30,7 @@ If we were to start a fresh idea from zero, Ktor would have a few ways of settin
 
 For this tutorial, however, we have made a starter template available that includes all configuration and required dependencies for the project.
 
-[Please clone the project repository from GitHub, and open it in IntelliJ IDEA.](https://github.com/kotlin-hands-on/creating-website-ktor/)
+[Please clone the project repository from GitHub, and open it in IntelliJ IDEA.](https://github.com/ktorio/ktor-website-sample/)
 
 The template repository contains a basic Gradle projects for us to build our project. Because it already contains all dependencies that we will need throughout the hands-on, **you don't need to make any changes to the Gradle configuration.**
 
@@ -302,7 +302,7 @@ It's time to pat ourselves on the back – we've put together a nice little jour
 
 ![](ktor_journal.png){animated="true" width="434"}
 
-This concludes the guided part of this hands-on. We have included the final state of the journal application in the GitHub repository on the [`final` branch](https://github.com/kotlin-hands-on/creating-website-ktor/tree/final). But of course, your journey doesn't have to stop here. Check out the _What's next_ section to get an idea of how you could expand the application, and where to go if you need help in your endeavors!
+This concludes the guided part of this hands-on. We have included the final state of the journal application in the GitHub repository on the [`final` branch](https://github.com/ktorio/ktor-website-sample/tree/final). But of course, your journey doesn't have to stop here. Check out the _What's next_ section to get an idea of how you could expand the application, and where to go if you need help in your endeavors!
 
 
 ## What's next

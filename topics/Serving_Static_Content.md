@@ -1,4 +1,4 @@
-[//]: # (title: Serving Static Content)
+[//]: # (title: Serving static content)
 
 <microformat>
 <var name="example_name" value="static-content"/>

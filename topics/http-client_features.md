@@ -7,7 +7,7 @@ there is a pipeline for client HTTP requests, and there are interceptors and ins
 
 
 
-## Creating Custom Features
+## Creating custom features
 
 If you want to create features, you can use the [standard features](https://github.com/ktorio/ktor/tree/main/ktor-client/ktor-client-core/common/src/io/ktor/client/features) as a reference.
 

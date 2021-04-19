@@ -11,7 +11,7 @@
         <toc-element id="intellij-idea.xml"/>
         <toc-element hidden="true" accepts-web-file-names="generator.html"
                      target-for-accept-web-file-names="https://start.ktor.io/"/>
-        <toc-element toc-title="Adding Ktor to an Existing Project">
+        <toc-element toc-title="Adding Ktor to an existing project">
             <toc-element id="Gradle.xml"
                          show-structure-depth="2"
                          show-structure-for="chapter,procedure"
@@ -38,7 +38,7 @@
 
 
     <toc-element toc-title="Server">
-        <toc-element toc-title="Developing Applications">
+        <toc-element toc-title="Developing applications">
             <toc-element id="A_Ktor_Application.xml"
                          show-structure-depth="2"
                          accepts-web-file-names="intro.html,servers-application.html,how-ktor-works.html,lifecycle.html"/>
@@ -60,7 +60,7 @@
             <toc-element id="Routing_in_Ktor.md"
                          show-structure-depth="2"
                          accepts-web-file-names="routing.html"/>
-            <toc-element toc-title="Handling Requests and Responses">
+            <toc-element toc-title="Handling requests and responses">
                 <toc-element id="requests.md"
                              show-structure-depth="2"
                              accepts-web-file-names="multipart-support.html,uploads.html,calls.html"/>
@@ -74,11 +74,10 @@
                          accepts-web-file-names="zfeatures.html"/>
             <toc-element id="Structuring_Applications.md"
                          accepts-web-file-names="structure.html"/>
-            <toc-element toc-title="Error Handling">
+            <toc-element toc-title="Error handling">
                 <toc-element id="status_pages.md"/>
             </toc-element>
-            <toc-element toc-title="Authentication and Authorization"
-                         id="authentication.md"
+            <toc-element id="authentication.md"
                          accepts-web-file-names="features-authentication.html">
                 <toc-element id="basic.md" show-structure-depth="2"/>
                 <toc-element id="digest.md"/>
@@ -102,15 +101,15 @@
                 </toc-element>
                 <toc-element id="data-conversion.md"/>
 <!--                <toc-element id="working_with_cookies.md"/>-->
-                <toc-element toc-title="Working with Cookies"/>
+                <toc-element toc-title="Working with cookies"/>
                 <toc-element id="Working_with_views.md"
                              accepts-web-file-names="templates.html">
                     <toc-element id="html_dsl.md"/>
                     <toc-element id="css_dsl.md"/>
-                    <toc-element id="freemarker.md"/>
-                    <toc-element id="velocity.md"/>
-                    <toc-element id="mustache.md"/>
-                    <toc-element id="thymeleaf.md"/>
+                    <toc-element id="freemarker.md" show-structure-depth="2"/>
+                    <toc-element id="velocity.md" show-structure-depth="2"/>
+                    <toc-element id="mustache.md" show-structure-depth="2"/>
+                    <toc-element id="thymeleaf.md" show-structure-depth="2"/>
                 </toc-element>
                 <toc-element id="autoheadresponse.md"/>
                 <toc-element id="default_headers.md"/>
@@ -140,7 +139,7 @@
                 <toc-element id="webjars.md"/>
             </toc-element>
         </toc-element>
-        <toc-element toc-title="Running and Debugging">
+        <toc-element toc-title="Running and debugging">
             <toc-element id="running.md"
                          accepts-web-file-names="engine.html"/>
 <!--            <toc-element id="Auto_reload.md" accepts-web-file-names="autoreload.html"/>-->
@@ -171,13 +170,13 @@
                 <toc-element id="heroku.md"/>
             </toc-element>
 <!--            <toc-element id="SSL_and_certificates.md"/>-->
-            <toc-element toc-title="SSL and Certificates">
+            <toc-element toc-title="SSL and certificates">
                 <toc-element id="certificates.md"/>
                 <toc-element id="self-signed-certificate.md"/>
                 <toc-element id="ssl.md"/>
             </toc-element>
 <!--            <toc-element id="Metrics_and_Performance_Monitoring.md"/>-->
-            <toc-element toc-title="Metrics and Performance Monitoring">
+            <toc-element toc-title="Metrics and performance monitoring">
                 <toc-element id="micrometer_metrics.md"
                              show-structure-depth="2"
                              accepts-web-file-names="metrics-micrometer.html"/>

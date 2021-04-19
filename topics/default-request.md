@@ -1,4 +1,4 @@
-[//]: # (title: Default Request)
+[//]: # (title: Default request)
 
 <include src="lib.md" include-id="outdated_warning"/>
 

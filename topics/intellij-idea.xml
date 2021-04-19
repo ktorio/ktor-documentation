@@ -3,7 +3,7 @@
 
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       title="Creating a New Ktor Project"
+       title="Creating a new Ktor project"
        id="intellij-idea">
 
     <microformat>
@@ -258,7 +258,7 @@
         </procedure>
     </chapter>
 
-    <chapter title="Next Steps" id="next-steps">
+    <chapter title="Next steps" id="next-steps">
         <list>
             <li>
                 <p>

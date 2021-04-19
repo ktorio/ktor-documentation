@@ -18,7 +18,7 @@ class JWTPrincipal(val payload: Payload) : Principal
 ```
 
 
-## Add Dependencies {id="add_dependencies"}
+## Add dependencies {id="add_dependencies"}
 To enable `JWT` and `JWK` authentication, you need to include the `ktor-auth` and `ktor-auth-jwt` artifacts in the build script:
 
 <tabs>
@@ -54,12 +54,12 @@ To enable `JWT` and `JWK` authentication, you need to include the `ktor-auth` an
 
 
 
-## Configuring server/routes:
+## Configuring server/routes
 
 JWT and JWK each have their own method with slightly different parameters. 
 Both require the `realm` parameter, which is used in the WWW-Authenticate response header.
 
-## Using a verifier and a validator:
+## Using a verifier and a validator
 
 The verifier will use the secret to verify the signature to trust the source.
 You can also check the payload within `validate` callback to ensure everything is right and to produce a Principal.
@@ -70,7 +70,7 @@ You can also check the payload within `validate` callback to ensure everything i
 ```
 {src="snippets/_misc/JwtExample.conf"}
 
-### JWT auth:
+### JWT auth
 
 ```kotlin
 val jwtIssuer = environment.config.property("jwt.domain").getString()
