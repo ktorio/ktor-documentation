@@ -7,15 +7,19 @@ import io.ktor.utils.io.jvm.javaio.*
 import kotlinx.coroutines.runBlocking
 import java.io.File
 
-fun main(args: Array<String>) {
+fun main() {
     val client = HttpClient()
+    val file = File.createTempFile("files", "index")
 
     runBlocking {
-        val channel = client.get<ByteReadChannel>("https://ktor.io/index.html")
-        val file = File.createTempFile("files", "index")
+        client.downloadMainPage(file)
+    }
+}
 
-        file.outputStream().use {
-            channel.copyTo(it)
-        }
+suspend fun HttpClient.downloadMainPage(file: File) {
+    val channel = get<ByteReadChannel>("https://ktor.io/index.html")
+
+    file.outputStream().use { fileStream ->
+        channel.copyTo(fileStream)
     }
 }
