@@ -1,56 +1,57 @@
 [//]: # (title: Timeout)
 
-<include src="lib.md" include-id="outdated_warning"/>
-
 <microformat>
-<var name="example_name" value="timeout"/>
+<var name="example_name" value="client-timeout"/>
 <include src="lib.md" include-id="download_example"/>
 </microformat>
 
-Timeout allows limiting the time of the request execution or execution steps such as a connection or a TCP packet awaiting. The following timeout types are available:
+The `HttpTimeout` feature allows you to configure the following timeouts:
+* __request timeout__ — a time period required to process an HTTP call: from sending a request to receiving a response.
+* __connection timeout__ — a time period in which a client should establish a connection with a server.
+* __socket timeout__ — a maximum time of inactivity between two data packets when exchanging data with a server.
 
-* __request timeout__ — time-bound of the whole request processing,
-* __connect timeout__ — time-bound of the connection establishment,
-* __socket timeout__ — time-bound of the interval between any two subsequent packets (read/write timeout).
+You can specify these timeouts for all requests or only specific ones.
 
-By default, all these timeouts are infinite and should be explicitly specified when needed. Timeouts could be specified for all requests of a particular client or for a single request.
-
+## Add dependencies {id="add_dependencies"}
+`HttpTimeout` only requires the [ktor-client-core](client.md#client-dependency) artifact and doesn't need any specific dependencies.
 
 
-## Install
+## Install HttpTimeout {id="install_feature"}
 
-Request, connect and socket timeouts could be specified for all requests of a particular client it the configuration specified during the feature installation:
-
-``` kotlin
-val client = HttpClient() {
-    install(HttpTimeout) {
-        // timeout config
-        requestTimeoutMillis = 1000
-    }
-}
-```
-
-Besides, all timeouts could also be specified for a single request and so that override high-level values:
-
-``` kotlin
-val client = HttpClient() {
+To install `HttpTimeout`, pass it to the `install` function inside a [client configuration block](client.md#configure-client):
+```kotlin
+val client = HttpClient(CIO) {
     install(HttpTimeout)
 }
-
-client.get<String>(url) {
-    timeout {
-        // timeout config
-        requestTimeoutMillis = 5000
-    }
-}
 ```
 
->Be aware that to assign per-request timeout it's still required to have timeout feature installed. In case per-request configuration is specified without installed feature an `IllegalArgumentException` will be thrown with message _"Consider install HttpTimeout feature because request requires it to be installed"_.
->
-{type="note"}
 
-In case of timeout an exception will be thrown. The type of exception depends on type of occured timeout: `HttpRequestTimeoutException` in case of request timeout, `HttpConnectTimeoutException` in case of connect timeout and `HttpSocketTimeoutException` in case of socket timeout.
+## Configure timeouts {id="configure_feature"}
 
-## Platform-specific behaviour
+To configure timeouts, you can use corresponding properties:
+* [requestTimeoutMillis](https://api.ktor.io/%ktor_version%/io.ktor.client.features/-http-timeout/-http-timeout-capability-configuration/request-timeout-millis.html) for a request timeout.
+* [connectTimeoutMillis](https://api.ktor.io/%ktor_version%/io.ktor.client.features/-http-timeout/-http-timeout-capability-configuration/connect-timeout-millis.html) for a connection timeout.
+* [socketTimeoutMillis](https://api.ktor.io/%ktor_version%/io.ktor.client.features/-http-timeout/-http-timeout-capability-configuration/socket-timeout-millis.html) for a socket timeout.
 
-Not all client engines support all timeout types. `Curl` doesn't support socket timeout, `Ios` doesn't support connect timeout and `Js` supports only request timeout.
+You can specify timeouts for all requests inside the `install` block. The code sample below shows how to set a request timout using `requestTimeoutMillis`:
+```kotlin
+```
+{src="/snippets/client-timeout/src/main/kotlin/com/example/Application.kt" lines="13-17"}
+
+If you need to set a timeout only for a specific request, use the [HttpRequestBuilder.timeout](https://api.ktor.io/%ktor_version%/io.ktor.client.features/timeout.html) property:
+
+```kotlin
+```
+{src="/snippets/client-timeout/src/main/kotlin/com/example/Application.kt" lines="20-24"}
+
+Note that timeouts specified for a specific request override global timeouts from the `install` block.
+
+In a case of a timeout, Ktor throws `HttpRequestTimeoutException`, `HttpConnectTimeoutException`, or `HttpSocketTimeoutException`.
+
+
+## Limitations {id="limitations"}
+
+`HttpTimeout` has some limitations for specific [engines](http-client_engines.md):
+* [iOS](http-client_engines.md#ios) doesn't support a connection timeout.
+* [JavaScript](http-client_engines.md#js) supports only a request timeout.
+* [Curl](http-client_engines.md#desktop) doesn't support a socket timeout.
