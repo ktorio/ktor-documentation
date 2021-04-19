@@ -12,11 +12,11 @@ A [Ktor documentation repository](https://github.com/ktorio/ktor-documentation) 
 * [Docker](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/docker)
 * [Google App Engine Standard](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/google-appengine-standard)
 
-### Upload and Download {id="upload-download"}
+### Upload and download {id="upload-download"}
 * [Upload](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/upload-file)
 * [Download](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/download-file)
 
-### Working with Views {id="views"}
+### Working with views {id="views"}
 * [Html](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/html)
 * [Html widget](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/html-widget)
 * [FreeMarker](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/freemarker)
