@@ -1,4 +1,4 @@
-[//]: # (title: Creating Custom Features)
+[//]: # (title: Creating custom features)
 
 <microformat>
 <var name="example_name" value="custom-feature"/>

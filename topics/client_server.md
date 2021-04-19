@@ -16,7 +16,7 @@ install(Sessions) {
 }
 ```
 
-### Invalidate Client-Side Sessions
+### Invalidate client-side sessions
 Client-side sessions can't be invalidated directly like server sessions. You can pass a session expiration time as a part of your session payload:
 ```kotlin
 data class ExpirableLoginSession(val username: String, val expiration: Long)

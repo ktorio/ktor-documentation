@@ -1,4 +1,4 @@
-[//]: # (title: Creating a WebSocket Chat)
+[//]: # (title: Creating a WebSocket chat)
 
 <microformat>
 <p>

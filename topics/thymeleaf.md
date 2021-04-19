@@ -8,7 +8,7 @@
 Ktor allows you to use [Thymeleaf templates](https://www.thymeleaf.org/) as views within your application by installing the [Thymeleaf](https://api.ktor.io/%ktor_version%/io.ktor.thymeleaf/-thymeleaf/index.html) feature.
 
 
-## Add Dependencies {id="add_dependencies"}
+## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="Thymeleaf"/>
 <var name="artifact_name" value="ktor-thymeleaf"/>
 <include src="lib.md" include-id="add_ktor_artifact_intro"/>
@@ -22,13 +22,13 @@ Ktor allows you to use [Thymeleaf templates](https://www.thymeleaf.org/) as view
 
 
 ## Configure Thymeleaf {id="configure"}
-### Configure Template Loading {id="template_loading"}
+### Configure template loading {id="template_loading"}
 Inside the `install` block, you can configure the `ClassLoaderTemplateResolver`. For example, the code snippet below enables Ktor to look up `*.html` templates in the `templates` package relative to the current classpath:
 ```kotlin
 ```
 {src="snippets/thymeleaf/src/main/kotlin/com/example/Application.kt" lines="12-18"}
 
-### Send a Template in Response {id="use_template"}
+### Send a template in response {id="use_template"}
 Imagine you have the `index.html` template in `resources/templates`:
 ```html
 ```

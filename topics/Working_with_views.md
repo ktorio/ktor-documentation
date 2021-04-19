@@ -1,4 +1,4 @@
-[//]: # (title: Working with Views)
+[//]: # (title: Working with views)
 
 Ktor provides different ways for working with views: you can build HTML/CSS using Kotlin DSL, or you can choose between JVM template engines, such as Freemarker, Velocity, and so on. 
 * [](html_dsl.md)

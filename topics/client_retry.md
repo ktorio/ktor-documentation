@@ -5,7 +5,7 @@ Every client code making HTTP requests is facing network errors from time to tim
 Ktor provides the `Retry` feature that performs retry action on I/O errors and unsuccessful HTTP status codes. This feature provides the ability to recover from network errors identified as `IOException`, and `HttpRequestTimeoutException`, and `UnresolvedAddressException`. It also may recover from request validation that usually produces `ResponseException` on a non-successful response status code.
 
 
-## Add Dependencies {id="add_dependencies"}
+## Add dependencies {id="add_dependencies"}
 To use the `Retry` feature, you need to include the `ktor-client-retry` artifact in the build script:
 <var name="artifact_name" value="ktor-client-retry"/>
 <include src="lib.md" include-id="add_ktor_artifact"/>

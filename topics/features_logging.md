@@ -8,7 +8,7 @@
 Ktor client provides the capability to log HTTP calls using the `Logging` feature. This feature uses the [SLF4J](http://www.slf4j.org/) library for logging.
 
 
-## Add Dependencies {id="add_dependencies"}
+## Add dependencies {id="add_dependencies"}
 To enable logging, you need to include the following artifacts in the build script:
 * An artifact with the required SLF4J implementation, for example, [Logback](https://logback.qos.ch/):
   <var name="group_id" value="ch.qos.logback"/>

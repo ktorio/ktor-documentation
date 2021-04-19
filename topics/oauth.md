@@ -6,7 +6,7 @@ OAuth defines a mechanism for authentication using external providers like Googl
 You can read more about [OAuth](https://oauth.net/).
 Ktor has a feature to work with OAuth 1a and 2.0. 
 
-## Add Dependencies {id="add_dependencies"}
+## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="OAuth"/>
 <var name="artifact_name" value="ktor-auth"/>
 <include src="lib.md" include-id="add_ktor_artifact_intro"/>

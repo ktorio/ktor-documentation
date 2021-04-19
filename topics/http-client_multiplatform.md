@@ -12,7 +12,7 @@ The [Ktor HTTP client](client.md) can be used in [multiplatform projects](https:
 * [JavaScript](https://kotlinlang.org/docs/js-overview.html)
 * [Native](https://kotlinlang.org/docs/native-overview.html) (`iOS` and desktop, including `linuxX64`, `macosX64`, `mingwX64`)
 
-## Add Dependencies {id="add-dependencies"}
+## Add dependencies {id="add-dependencies"}
 To use the Ktor HTTP client in your project, you need to add at least two dependencies: a client dependency and an [engine](http-client_engines.md) dependency. For a multiplatform project, you need to add these dependencies as follows:
 1. To use the Ktor client in common code, add the dependency to `ktor-client-core` to the `commonMain` source set in the `build.gradle` or `build.gradle.kts` file:
    <var name="platform_name" value="common"/>
@@ -31,7 +31,7 @@ To use the Ktor HTTP client in your project, you need to add at least two depend
    To learn which engines are supported for each platform, see [](http-client_engines.md#dependencies).
 
 
-## Create the Client {id="create-client"}
+## Create the client {id="create-client"}
 To create the client in a multiplatform project, call the [HttpClient](https://api.ktor.io/%ktor_version%/io.ktor.client/-http-client/index.html) constructor in a project's [common code](https://kotlinlang.org/docs/mpp-discover-project.html#source-sets):
 
 ```kotlin
@@ -48,10 +48,10 @@ If you need to adjust an engine configuration for specific platforms, pass a cor
 You can learn how to configure all engine types from [](http-client_engines.md).
 
 
-## Use the Client {id="use-client"}
+## Use the client {id="use-client"}
 After you've [added](#add-dependencies) all the required dependencies and [created](#create-client) the client, you can use it to make requests and receive responses. Learn more from [](client.md#make-request). 
 
 
-## Code Example {id="code-example"}
+## Code example {id="code-example"}
 
 The [mpp/client-mpp](https://github.com/ktorio/ktor-samples/tree/main/client-mpp) project shows how to use a Ktor client in a multiplatform application. This application works on the following platforms: `Android`, `iOS`, `JavaScript`, and `macosX64`.

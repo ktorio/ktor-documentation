@@ -1,14 +1,14 @@
-[//]: # (title: Code Style)
+[//]: # (title: Code style)
 
 <include src="lib.md" include-id="outdated_warning"/>
 
-## Official Code Convention
+## Official code convention
 
 Ktor as well as other official Kotlin libraries use the [official Kotlin Coding Conventions](https://kotlinlang.org/docs/coding-conventions.html).
 
 You can use the official coding standard by adding `kotlin.code.style=official` to your `gradle.properties` file.
 
-## With Star Imports
+## With star imports
 
 The Official Coding Conventions don't define what's the recommended way of using imports.
 The IntelliJ default is to include star (`*`) imports after importing at least 5 symbols from a package. But in Ktor and other libraries at JetBrains we use and recommend using star imports always.

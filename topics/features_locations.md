@@ -18,7 +18,7 @@ constructing URLs and reading the parameters.
 {type="note"}
 
 
-## Add Dependencies {id="add_dependencies"}
+## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="Locations"/>
 <var name="artifact_name" value="ktor-locations"/>
 <include src="lib.md" include-id="add_ktor_artifact_intro"/>

@@ -1,4 +1,4 @@
-[//]: # (title: Caching Headers)
+[//]: # (title: Caching headers)
 
 The [CachingHeaders](https://api.ktor.io/%ktor_version%/io.ktor.features/-caching-headers/index.html) feature adds the capability to configure the `Cache-Control` and `Expires` headers used for HTTP caching. You can introduce different [caching strategies](#configure) for specific content types, such as images, CSS and JavaScript files, and so on.
 
@@ -9,7 +9,7 @@ The [CachingHeaders](https://api.ktor.io/%ktor_version%/io.ktor.features/-cachin
 
 After installing `CachingHeaders`, you can [configure](#configure) caching settings for various content types.
 
-## Configure Caching {id="configure"}
+## Configure caching {id="configure"}
 To configure the `CachingHeaders` feature, you need to define the [options](https://api.ktor.io/%ktor_version%/io.ktor.features/-caching-headers/-configuration/options.html) function to provide specified caching options for a given content type. The code snippet below shows how to add the `Cache-Control` header with the `max-age` option for CSS:
 
 ```kotlin
@@ -30,7 +30,7 @@ The [CachingOptions](https://api.ktor.io/%ktor_version%/io.ktor.http.content/-ca
 
 
 
-## Customize Headers for Specific Routes {id="route_headers"}
+## Customize headers for specific routes {id="route_headers"}
 
 If you need to add caching headers for a specific route only, you can append the desired headers into a response. In this case, you don't need to [install](#install_feature) `CachingHeaders`. The code snippet below shows how to disable caching for the `/profile` route:
 

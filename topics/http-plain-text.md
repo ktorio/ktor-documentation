@@ -1,4 +1,4 @@
-[//]: # (title: Text &amp; Charsets)
+[//]: # (title: Text &amp; charsets)
 
 <include src="lib.md" include-id="outdated_warning"/>
 

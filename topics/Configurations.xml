@@ -63,7 +63,7 @@
     </chapter>
 
 
-    <chapter title="HOCON File" id="hocon-file">
+    <chapter title="HOCON file" id="hocon-file">
         <chapter title="Overview" id="hocon-overview">
             <p>
                 If you use <a href="create_server.xml" anchor="engine-main">EngineMain</a> to start a server, Ktor loads configurations settings from the <path>application.conf</path> HOCON file placed in application resources.
@@ -127,7 +127,7 @@
 
 
 
-        <chapter title="Predefined Properties" id="predefined-properties">
+        <chapter title="Predefined properties" id="predefined-properties">
             <p>
                 Below is a list of predefined settings that you can use inside a <a anchor="hocon-overview">configuration file</a>.
             </p>
@@ -210,7 +210,7 @@
 
 
 
-        <chapter title="Command Line" id="command-line">
+        <chapter title="Command line" id="command-line">
             <p>
                 If you use <a href="create_server.xml" anchor="engine-main">EngineMain</a> to create a server, you can run your application from a command line and override the required server parameters by passing corresponding command-line arguments. For example, you can override a port specified in the <path>application.conf</path> file in the following way:
             </p>
@@ -275,7 +275,7 @@
         </chapter>
 
 
-        <chapter title="Environment Variables" id="environment-variables">
+        <chapter title="Environment variables" id="environment-variables">
             <p>
                 In HOCON, you can substitute parameters with environment variables by using the <code>${ENV}</code> syntax.
                 For example, you can assign the <code>PORT</code> environment variable to the <code>ktor.deployment.port</code> property in the following way:
@@ -302,7 +302,7 @@
         </chapter>
 
 
-        <chapter title="Read Configuration in Code" id="read-configuration-in-code">
+        <chapter title="Read configuration in code" id="read-configuration-in-code">
             <p>
                 Ktor allows you to access property values specified in <path>application.conf</path> in code.
                 For example, if you've specified the <code>ktor.deployment.port</code> property,...
@@ -340,7 +340,7 @@
 
 
 
-    <chapter title="Example: How to Specify an Environment Using a Custom Property" id="custom-property">
+    <chapter title="Example: How to specify an environment using a custom property" id="custom-property">
         <p>
             You might want to do different things depending on whether a server is running locally or on a production machine.
             To achieve this, you can add a custom property in <path>application.conf</path> and initialize it with a dedicated <a anchor="environment-variables">environment variable</a> whose value depends on whether a server is running locally or on production. In the example below, the <code>KTOR_ENV</code> environment variable is assigned to a custom <code>ktor.environment</code> property.

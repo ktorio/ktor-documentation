@@ -1,4 +1,4 @@
-[//]: # (title: Auto Head Response)
+[//]: # (title: AutoHeadResponse)
 
 <microformat>
 <var name="example_name" value="autohead"/>

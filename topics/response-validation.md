@@ -1,4 +1,4 @@
-[//]: # (title: Response Validation)
+[//]: # (title: Response validation)
 
 <include src="lib.md" include-id="outdated_warning"/>
 
