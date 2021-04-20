@@ -51,6 +51,14 @@ To send cookies, use the [cookie](https://api.ktor.io/%ktor_version%/io.ktor.cli
 Note that Ktor provides the [](http-cookies.md) feature that allows you to keep cookies between calls.
 
 
+### Query parameters {id="query_parameters"}
+
+To add <emphasis tooltip="query_string">query string</emphasis> parameters, call the [parameter](https://api.ktor.io/%ktor_version%/io.ktor.client.request/parameter.html) function:
+
+```kotlin
+```
+{src="snippets/_misc_client/GetMethodWithQueryParam.kt"}
+
 
 
 ## Set request body {id="body"}
