@@ -1,4 +1,4 @@
-[//]: # (title: Response)
+[//]: # (title: Receiving responses)
 
 <include src="lib.md" include-id="outdated_warning"/>
 

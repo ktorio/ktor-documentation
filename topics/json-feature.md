@@ -133,12 +133,8 @@ data class Customer(val id: Int, val firstName: String, val lastName: String)
 To send a [class instance](#create_data_class) within a [request](request.md) body as JSON, assign this instance to the `body` property and set the content type to `application/json` by calling `contentType`:
 
 ```kotlin
-client.post<Unit>() {
-    url("http://127.0.0.1:8080/customer")
-    contentType(ContentType.Application.Json)
-    body = Customer(1, "Jet", "Brains")
-}
 ```
+{src="snippets/_misc_client/PostMethodWithObject.kt"}
 
 ### Receive data {id="receive_data"}
 

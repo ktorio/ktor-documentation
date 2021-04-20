@@ -1,4 +1,4 @@
-[//]: # (title: Client overview)
+[//]: # (title: Setting up a client)
 
 Ktor includes a multiplatform asynchronous HTTP client, which allows you to make requests and handle responses, extend its functionality with features, such as authentication, JSON serialization, and so on.
 In this topic, we'll take an overview of the client - from setting it up to making requests and installing features. 
@@ -81,13 +81,11 @@ The main way for making HTTP requests is the [request](https://api.ktor.io/%ktor
 
 ```kotlin
 ```
-{src="snippets/_misc_client/RequestMethodWithoutParams.kt"}
+{src="snippets/_misc_client/RequestMethodWithoutParams.kt" interpolate-variables="true" disable-links="false"}
 
 Note that this function allows you to [receive a response](#response) in various ways. In this example, we receive a response as an `HttpResponse` object.
 
 > `request` is a suspending function, so requests should be executed only from a coroutine or another suspend function. You can learn more about calling suspending functions from [Coroutines basics](https://kotlinlang.org/docs/coroutines-basics.html).
-
-### Specify an HTTP method {id="http-method"}
 
 When calling the `request` function, you can specify the desired HTTP method using the `method` property:
 
@@ -100,21 +98,11 @@ In addition to the `request` function, `HttpClient` provides specific functions 
 ```
 {src="snippets/_misc_client/GetMethodWithoutParams.kt"}
 
-### Add headers {id="headers"}
-To add headers to the request, use the `headers` function as follows:
-```kotlin
-```
-{src="snippets/_misc_client/GetMethodWithHeaders.kt"}
+To learn how to add headers, cookies, and specify a request body, see the [](request.md) help topic.
 
 
-### Specify body {id="body"}
-To set the body of a request, assign a value to the `body` property. You can assign a string or an [OutgoingContent](https://api.ktor.io/%ktor_version%/io.ktor.http.content/-outgoing-content/index.html) object to this property. For example, sending data with a `text/plain` text MIME type can be implemented as follows:
-```kotlin
-```
-{src="snippets/_misc_client/PostMethodWithBody.kt"}
 
-
-### Receive a response {id="response"}
+### Receive a Response {id="response"}
 All request functions (`request`, `get`, `post`, etc.) allow you to receive a response in several ways:
 * As an [HttpResponse](https://api.ktor.io/%ktor_version%/io.ktor.client.statement/-http-response/index.html) object:
    ```kotlin
