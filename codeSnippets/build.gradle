@@ -162,3 +162,9 @@ if (build_snapshot_train) {
         }
     }
 }
+
+subprojects {
+    tasks.withType(Test).all {
+        systemProperty 'gradlew', file('../../gradlew').absolutePath
+    }
+}
