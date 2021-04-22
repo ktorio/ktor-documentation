@@ -12,7 +12,9 @@ fun Application.main() {
             validate { credentials ->
                 if (credentials.name == "jetbrains" && credentials.password == "foobar") {
                     UserIdPrincipal(credentials.name)
-                } else null
+                } else {
+                    null
+                }
             }
         }
     }
