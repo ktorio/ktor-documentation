@@ -4,7 +4,11 @@ A sample project demonstrating how to use [basic HTTP authentication](https://kt
 ## Running
 To run this sample, execute the following command in a repository's root directory:
 ```bash
+# macOS/Linux
 ./gradlew :auth-basic:run
+
+# Windows
+gradlew.bat :auth-basic:run
 ```
 
 Then, open [http://localhost:8080/](http://localhost:8080/) and enter the `jetbrains`/`foobar` credentials in a login dialog to see a web page.

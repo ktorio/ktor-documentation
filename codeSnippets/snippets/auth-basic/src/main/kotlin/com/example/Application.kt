@@ -10,9 +10,9 @@ fun Application.main() {
         basic("auth-basic") {
             realm = "Access to the '/' path"
             validate { credentials ->
-                if (credentials.name == "jetbrains" && credentials.password == "foobar")
+                if (credentials.name == "jetbrains" && credentials.password == "foobar") {
                     UserIdPrincipal(credentials.name)
-                else null
+                } else null
             }
         }
     }

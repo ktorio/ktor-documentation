@@ -5,7 +5,11 @@ A sample project demonstrating how to use [form HTTP authentication](https://kto
 ## Running
 To run this sample, execute the following command in a repository's root directory:
 ```bash
-./gradlew :auth-basic:run
+# macOS/Linux
+./gradlew :auth-form:run
+
+# Windows
+gradlew.bat :auth-form:run
 ```
 
 Then, send form credentials in one of the following ways:
