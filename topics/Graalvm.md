@@ -1,4 +1,4 @@
-[//]: # (title: Gradle Application plugin)
+[//]: # (title: GraalVM)
 
 <microformat>
 <p>
@@ -14,7 +14,7 @@ Currently, Ktor Server applications that want to leverage GraalVM has to use CIO
 ## Preparing for GraalVM
 
 In addition to installing GraalVM and having the installation directory in the system path, you need to prepare your application 
-so that all dependencies are bundled, i.e. you need to create a [fatjar](fatjar.md).
+so that all dependencies are bundled, i.e. you need to create a fat jar.
 
 ### Reflection Configuration 
 
