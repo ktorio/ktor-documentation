@@ -3,16 +3,10 @@
 <include src="lib.md" include-id="outdated_warning"/>
 
 <microformat>
-<p><control>Samples</control></p>
-<p>
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-basic">Basic authentication</a>
-</p>
-<p>
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-basic-hash-table">Basic authentication with UserHashedTableAuth</a>
-</p>
-<p>
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-form">Form authentication</a>
-</p>
+<p>Code examples:</p>
+<p><a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-basic">Basic authentication</a></p>
+<p><a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-basic-hash-table">Basic authentication with UserHashedTableAuth</a></p>
+<p><a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-form">Form authentication</a></p>
 </microformat>
 
 ## Add dependencies {id="add_dependencies"}
