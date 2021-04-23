@@ -42,19 +42,9 @@ directly to the application and it *won't* work in another `ApplicationCallPipel
 Using its DSL, it allows you to configure the authentication providers available:
 
 ```kotlin
-install(Authentication) {
-    basic(name = "myauth1") {
-        realm = "Ktor Server"
-        validate { credentials ->
-            if (credentials.name == credentials.password) {
-                UserIdPrincipal(credentials.name)
-            } else {
-                null
-            }
-        }
-    }
-}
 ```
+{src="snippets/auth-basic/src/main/kotlin/com/example/Application.kt" lines="9-18"}
+
 
 After defining one or more authentication providers (named or unnamed), with the [routing feature](Routing_in_Ktor.md)
 you can create a route group, that will apply that authentication to all the routes defined in that group:
