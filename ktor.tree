@@ -160,7 +160,7 @@
                              accepts-web-file-names="fatjar.html,packing.html"/>
                 <toc-element id="maven-assembly-plugin.md"/>
                 <toc-element id="war.md" toc-title="WAR"/>
-                <toc-element id="graalvm.md" toc-title="GraalVM"/>
+                <toc-element id="GraalVM.md"/>
             </toc-element>
             <toc-element id="containers.md">
                 <toc-element id="docker.md"/>
