@@ -118,14 +118,14 @@ install(JsonFeature) {
 ### Create a data class {id="create_data_class"}
 To deserialize received data into an object, you need to create a data class, for example:
 ```kotlin
-data class Customer(val id: Int, val firstName: String, val lastName: String)
+data class Customer(val firstName: String, val lastName: String)
 ```
 If you use [kotlinx.serialization](#kotlinx), make sure that this class has the `@Serializable` annotation:
 ```kotlin
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Customer(val id: Int, val firstName: String, val lastName: String)
+data class Customer(val firstName: String, val lastName: String)
 ```
 
 ### Send data {id="send_data"}
