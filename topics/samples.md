@@ -28,9 +28,15 @@ A [Ktor documentation repository](https://github.com/ktorio/ktor-documentation) 
 * [GSON](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/gson)
 * [Jackson](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/jackson)
 
+### Authentication {id="authentication"}
+* [Basic authentication](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-basic)
+* [Basic authentication with UserHashedTableAuth](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-basic-hash-table)
+* [Form authentication](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-form)
+* [Digest authentication](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-digest)
+* [Authentication](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth)
+
 ### Features {id="features"}
 * [Asynchronous](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/async)
-* [Authenticate](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth)
 * [AutoHeadResponse](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/autohead)
 * [Autoreload](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/autoreload)
 * [Custom Feature](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/custom-feature)
