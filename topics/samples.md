@@ -33,6 +33,8 @@ A [Ktor documentation repository](https://github.com/ktorio/ktor-documentation) 
 * [Basic authentication with UserHashedTableAuth](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-basic-hash-table)
 * [Form authentication](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-form)
 * [Digest authentication](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-digest)
+* [JWT authentication](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-jwt)
+* [JWK authentication](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-jwk)
 * [Authentication](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth)
 
 ### Features {id="features"}
