@@ -1,7 +1,7 @@
 import e2e.WithTestServer
 import e2e.defaultServer
 import e2e.readString
-import e2e.runGradleApp
+import e2e.runGradleAppWaiting
 import io.ktor.application.*
 import io.ktor.http.content.*
 import io.ktor.request.*
@@ -28,7 +28,7 @@ class ApplicationTest: WithTestServer() {
 
     @Test
     fun clientSendsMultipartData() {
-        val output = runGradleApp().inputStream.readString()
+        val output = runGradleAppWaiting().inputStream.readString()
         assertEquals(
             output,
             "description:Ktor logo,image:[image/png][form-data; name=image; filename=ktor_logo.png]\n"
