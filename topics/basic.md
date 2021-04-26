@@ -4,9 +4,9 @@
 
 <microformat>
 <p>Code examples:</p>
-<p><a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-basic">Basic authentication</a></p>
-<p><a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-basic-hash-table">Basic authentication with UserHashedTableAuth</a></p>
-<p><a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-form">Form authentication</a></p>
+<p><a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-basic">auth-basic</a></p>
+<p><a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-basic-hash-table">auth-basic-hash-table</a></p>
+<p><a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-form">auth-form</a></p>
 </microformat>
 
 ## Add dependencies {id="add_dependencies"}
