@@ -28,7 +28,7 @@ class DockerTest {
 
         port = getFreePort()
         dockerRunProcess = runDocker("run", "-p", "$port:8080", "docker-project")
-        dockerRunProcess.waitFor(2, TimeUnit.SECONDS)
+        dockerRunProcess.waitFor(4, TimeUnit.SECONDS)
     }
 
     @After

@@ -7,10 +7,10 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class EmbeddedServerTest: TestServer() {
+class EngineMainTest: TestServer() {
     @Test
     fun rootRouteRespondsWithHelloWorldString(): Unit = runBlocking {
-        val response: String = HttpClient().get<HttpResponse>("http://localhost:8000/").receive()
+        val response: String = HttpClient().get<HttpResponse>("http://localhost:8080/").receive()
         assertEquals("Hello, world!", response)
     }
 }
