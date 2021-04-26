@@ -13,7 +13,7 @@ gradlew.bat :auth-form:run
 ```
 
 Then, send form credentials in one of the following ways:
-* Open the [post](post.http) file and make a post request with credentials using an [HTTP client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html).
+* Open the [post.http](post.http) file and make a post request with credentials using an [HTTP client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html).
 * Execute the following command in a terminal:
    ```Bash
   curl -X POST --location "http://localhost:8080" \

@@ -116,7 +116,7 @@
                         The <path>application.conf</path> file below contains a custom <code>jwt</code> group to store <a href="jwt.md" anchor="using-a-verifier-and-a-validator">JWT</a> settings.
                     </p>
                     <code style="block"
-                          src="snippets/_misc/JwtExample.conf">
+                          src="snippets/auth-jwt/src/main/resources/application.conf" lines="11-15">
                     </code>
                     <p>
                         You can <a anchor="read-configuration-in-code">read and handle such settings</a> in code.
