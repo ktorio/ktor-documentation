@@ -20,26 +20,27 @@ fun Application.main() {
         .build()
 
     install(Authentication) {
-        jwt("auth-jwt") {
-            verifier(jwkProvider, jwkIssuer)
+        jwt("auth-jwk") {
             realm = jwkRealm
+            verifier(jwkProvider, jwkIssuer)
             validate { credential ->
-                if (credential.payload.audience.contains(jwkAudience))
+                if (credential.payload.audience.contains(jwkAudience)) {
                     JWTPrincipal(credential.payload)
-                else
+                } else {
                     null
+                }
             }
         }
     }
     routing {
-        authenticate("auth-jwt") {
+        authenticate("auth-jwk") {
             get("/") {
                 val principal = call.authentication.principal<JWTPrincipal>()
                 val subjectString = principal!!.payload.subject.removePrefix("auth0|")
-                call.respondText("Success, $subjectString")
+                call.respondText("Hello, $subjectString!")
             }
         }
-        static("certs") {
+        static(".well-known") {
             staticRootFolder = File("certs")
             file("jwks.json")
         }

@@ -33,9 +33,9 @@ fun Application.main() {
     routing {
         authenticate("auth-jwt") {
             get("/") {
-/*                val principal = call.authentication.principal<JWTPrincipal>()
-                val subjectString = principal!!.payload.subject.removePrefix("auth0|")*/
-                call.respondText("Success!")
+                val principal = call.authentication.principal<JWTPrincipal>()
+                val subjectString = principal!!.payload.subject.removePrefix("auth0|")
+                call.respondText("Hello, $subjectString!")
             }
         }
     }
