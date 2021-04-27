@@ -99,10 +99,10 @@ Summarizing:
 
 ```kotlin
 install(Authentication) {
-    basic { // Unamed `basic` provider
+    basic { // Unnamed `basic` provider
         // ...
     }
-    form { // Unamed `form` provider (exception, already defined a provider with name = null) 
+    form { // Unnamed `form` provider (exception, already defined a provider with name = null) 
         // ...
     }
     basic("name1") { // "name1" provider
