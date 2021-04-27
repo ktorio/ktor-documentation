@@ -2,6 +2,11 @@
 
 <include src="lib.md" include-id="outdated_warning"/>
 
+<microformat>
+<var name="example_name" value="auth-ldap"/>
+<include src="lib.md" include-id="download_example"/>
+</microformat>
+
 ## Add dependencies {id="add_dependencies"}
 To enable `LDAP` authentication, you need to include the `ktor-auth` and `ktor-auth-ldap` artifacts in the build script:
 
@@ -41,23 +46,15 @@ To enable `LDAP` authentication, you need to include the `ktor-auth` and `ktor-a
 Ktor supports LDAP (Lightweight Directory Access Protocol) for credential authentication.
 
 ```kotlin
-authentication {
-    basic("authName") {
-        realm = "realm"
-        validate { credential ->
-            ldapAuthenticate(credential, "ldap://$localhost:${ldapServer.port}", "uid=%s,ou=system")
-        }
-    }
-}
 ```
+{src="snippets/auth-ldap/src/main/kotlin/com/example/Application.kt" lines="10-16"}
 
 Optionally you can define an additional validation check:
 ```kotlin
 authentication {
-    basic("authName") { 
-        realm = "realm"
+    basic("auth-ldap") {
         validate { credential ->
-            ldapAuthenticate(credentials, "ldap://localhost:389", "cn=%s ou=users") {
+            ldapAuthenticate(credentials, "ldap://localhost:389", "cn=%s,dc=ktor,dc=io") {
                 if (it.name == it.password) {
                     UserIdPrincipal(it.name)
                 } else {
@@ -116,10 +113,6 @@ application.install(Authentication) {
     }
 }
 ```
-
-You can see [advanced examples for LDAP authentication](https://github.com/ktorio/ktor/blob/main/ktor-features/ktor-auth-ldap/test/io/ktor/tests/auth/ldap/LdapAuthTest.kt) in the Ktor's tests.
-
-
 
 Bear in mind that current LDAP implementation is synchronous.
 { .performance.note}

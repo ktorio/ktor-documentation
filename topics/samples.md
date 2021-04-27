@@ -29,12 +29,13 @@ A [Ktor documentation repository](https://github.com/ktorio/ktor-documentation) 
 * [Jackson](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/jackson)
 
 ### Authentication {id="authentication"}
-* [Basic authentication](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-basic)
-* [Basic authentication with UserHashedTableAuth](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-basic-hash-table)
-* [Form authentication](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-form)
-* [Digest authentication](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-digest)
-* [JWT authentication](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-jwt)
-* [JWK authentication](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-jwk)
+* [Basic](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-basic)
+* [Basic with UserHashedTableAuth](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-basic-hash-table)
+* [Form](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-form)
+* [Digest](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-digest)
+* [JWT](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-jwt)
+* [JWK](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-jwk)
+* [LDAP](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-ldap)
 * [Authentication](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth)
 
 ### Features {id="features"}
