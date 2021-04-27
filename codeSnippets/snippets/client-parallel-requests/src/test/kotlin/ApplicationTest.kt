@@ -1,7 +1,7 @@
 import e2e.WithTestServer
 import e2e.defaultServer
 import e2e.readString
-import e2e.runGradleApp
+import e2e.runGradleAppWaiting
 import io.ktor.application.*
 import io.ktor.response.*
 import io.ktor.routing.*
@@ -19,6 +19,6 @@ class ApplicationTest: WithTestServer() {
 
     @Test
     fun concatenatedResponseFromBothRequests(): Unit = runBlocking {
-        assertEquals("path1\npath2\n", runGradleApp().inputStream.readString())
+        assertEquals("path1\npath2\n", runGradleAppWaiting().inputStream.readString())
     }
 }

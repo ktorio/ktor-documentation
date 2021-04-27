@@ -1,7 +1,7 @@
 import e2e.WithTestServer
 import e2e.defaultServer
 import e2e.readString
-import e2e.runGradleApp
+import e2e.runGradleAppWaiting
 import io.ktor.application.*
 import io.ktor.response.*
 import io.ktor.routing.*
@@ -19,7 +19,7 @@ class ApplicationTest: WithTestServer() {
     @Test
     fun applicationOutputMatchesPattern() {
         assertThat(
-            runGradleApp().inputStream.readString(),
+            runGradleAppWaiting().inputStream.readString(),
             matchesPattern(
                 """^Request time: \d{2}:\d{2}:\d{2}\.\d+
                 |result

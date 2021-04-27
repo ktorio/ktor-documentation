@@ -1,5 +1,5 @@
 import e2e.readString
-import e2e.runGradle
+import e2e.runGradleWaiting
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.request.*
@@ -20,7 +20,7 @@ class DockerTest {
 
     @Before
     fun runDocker() {
-        runGradle("installDist")
+        runGradleWaiting("installDist")
         checkDockerBinary()
         val dockerBuild = runDocker("build", "-t", "docker-project", ".")
         dockerBuild.waitFor()
@@ -28,7 +28,7 @@ class DockerTest {
 
         port = getFreePort()
         dockerRunProcess = runDocker("run", "-p", "$port:8080", "docker-project")
-        dockerRunProcess.waitFor(2, TimeUnit.SECONDS)
+        dockerRunProcess.waitFor(4, TimeUnit.SECONDS)
     }
 
     @After
