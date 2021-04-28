@@ -9,7 +9,7 @@
 Ktor Server applications can make use of [GraalVM](https://graalvm.org) in order to have native images for different platforms, and of course,
 take advantage of the faster start-up times and other benefits that GraalVM provides. 
 
-Currently, Ktor Server applications that want to leverage GraalVM has to use CIO as the [application engine](Engines.md). 
+Currently, Ktor Server applications that want to leverage GraalVM have to use CIO as the [application engine](Engines.md). 
 
 ## Preparing for GraalVM
 
