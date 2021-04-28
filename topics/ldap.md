@@ -53,7 +53,7 @@ Optionally you can define an additional validation check:
 ```kotlin
 authentication {
     basic("auth-ldap") {
-        validate { credential ->
+        validate { credentials ->
             ldapAuthenticate(credentials, "ldap://localhost:389", "cn=%s,dc=ktor,dc=io") {
                 if (it.name == it.password) {
                     UserIdPrincipal(it.name)
