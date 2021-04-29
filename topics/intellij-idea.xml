@@ -14,14 +14,14 @@
 
     <p>
         Ktor is an asynchronous framework for creating microservices, web applications, and more.
-        You can create and configure a new Ktor project using a dedicated plugin for IntelliJ IDEA.
+        You can create and configure a new Ktor project using a dedicated plugin for IntelliJ IDEA Ultimate, or using a web-based project generator.
         In this guide, we'll show you how to create, run, and test a simple Ktor application.
     </p>
 
 
     <chapter title="Install the Ktor plugin" id="install_plugin">
         <p>
-            Before starting this tutorial, make sure the <a href="https://plugins.jetbrains.com/plugin/16008-ktor">Ktor</a> plugin is installed and enabled.
+            Before starting this tutorial, install the <a href="https://plugins.jetbrains.com/plugin/16008-ktor">Ktor plugin</a> if you are using IntelliJ IDEA Ultimate.
             Learn how to do this from the
             <a href="https://www.jetbrains.com/help/idea/managing-plugins.html#open-plugin-settings">Manage plugins</a> topic.
         </p>
@@ -29,6 +29,10 @@
 
 
     <chapter title="Create a new Ktor project" id="create_ktor_project">
+        <p>
+            This section describes project setup using the <a href="https://plugins.jetbrains.com/plugin/16008-ktor">Ktor plugin</a> for Intellij IDEA Ultimate.
+            If you are using IntelliJ IDEA Community Edition, use the <a href="https://start.ktor.io/">Ktor Project Generator</a> instead.
+        </p>
         <p>
             To create a new Ktor project,
             <a href="https://www.jetbrains.com/help/idea/run-for-the-first-time.html">open IntelliJ IDEA</a>, and follow
