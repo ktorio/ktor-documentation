@@ -1,7 +1,7 @@
 # LDAP authentication
-A sample project demonstrating how to use [LDAP authentication](https://ktor.io/docs/ldap.html) in Ktor. Note that to run this sample you need to run a test LDAP server. This project includes Docker configuration for running a test [OpenLDAP](https://github.com/osixia/docker-openldap) server populated with sample data.
+A sample project demonstrating how to use [LDAP authentication](https://ktor.io/docs/ldap.html) in Ktor. This project includes Docker configuration for running a test [OpenLDAP](https://github.com/osixia/docker-openldap) server populated with sample data.
 
-## Running a sample LDAP server
+## Running an LDAP server
 To run an LDAP server, execute the following command in a project directory:
 ```bash
 docker-compose up
