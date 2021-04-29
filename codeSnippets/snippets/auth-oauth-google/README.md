@@ -4,7 +4,10 @@ A sample project demonstrating how to use [OAuth](https://ktor.io/docs/oauth.htm
 ## Obtaining client credentials
 To obtain client credentials required for accessing Google APIs, follow the steps below:
 1. Create a Google account.
-1. Obtain a client ID and client secret from the [Google API Console](https://console.developers.google.com/).
+1. Open the [Google API Console](https://console.developers.google.com/) and create a new application.
+1. Create the OAuth 2.0 client ID for this application and make sure that the following settings are specified:
+   * **Authorised JavaScript origins**: `http://localhost:8080`
+   * **Authorised redirect URIs**: `http://localhost:8080/callback`
 1. Assign a client ID and client secret to the `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` environment variables:
    ```shell
    # macOS/Linux
