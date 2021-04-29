@@ -11,6 +11,7 @@
         <toc-element id="intellij-idea.xml"/>
         <toc-element hidden="true" accepts-web-file-names="generator.html"
                      target-for-accept-web-file-names="https://start.ktor.io/"/>
+        <toc-element id="openapi_swagger.md"/>
         <toc-element toc-title="Adding Ktor to an existing project">
             <toc-element id="Gradle.xml"
                          show-structure-depth="2"
