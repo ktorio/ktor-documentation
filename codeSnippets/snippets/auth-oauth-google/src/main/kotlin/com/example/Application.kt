@@ -5,22 +5,24 @@ import io.ktor.auth.*
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
 import io.ktor.client.features.json.*
+import io.ktor.client.features.json.serializer.*
 import io.ktor.client.request.*
 import io.ktor.html.*
 import io.ktor.http.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.sessions.*
-import kotlinx.html.a
-import kotlinx.html.body
-import kotlinx.html.p
+import kotlinx.html.*
+import kotlinx.serialization.*
 
 fun Application.main() {
     install(Sessions) {
         cookie<UserSession>("user_session")
     }
     val httpClient = HttpClient(CIO) {
-        install(JsonFeature)
+        install(JsonFeature) {
+            serializer = KotlinxSerializer()
+        }
     }
     install(Authentication) {
         oauth("auth-oauth-google") {
@@ -77,11 +79,12 @@ fun Application.main() {
 }
 
 data class UserSession(val token: String)
+@Serializable
 data class UserInfo(
     val id: String,
     val name: String,
-    val givenName: String,
-    val familyName: String,
+    @SerialName("given_name") val givenName: String,
+    @SerialName("family_name") val familyName: String,
     val picture: String,
     val locale: String
 )
