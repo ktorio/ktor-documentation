@@ -65,7 +65,7 @@ fun Application.main() {
             if (userSession != null) {
                 val userInfo: UserInfo = httpClient.get("https://www.googleapis.com/oauth2/v2/userinfo") {
                     headers {
-                        append(HttpHeaders.Authorization, "Bearer ${userSession?.token}")
+                        append(HttpHeaders.Authorization, "Bearer ${userSession.token}")
                     }
                 }
                 call.respondText("Hello, ${userInfo.name}!")
