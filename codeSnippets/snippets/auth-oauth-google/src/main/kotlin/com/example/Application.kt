@@ -6,10 +6,14 @@ import io.ktor.client.*
 import io.ktor.client.engine.cio.*
 import io.ktor.client.features.json.*
 import io.ktor.client.request.*
+import io.ktor.html.*
 import io.ktor.http.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.sessions.*
+import kotlinx.html.a
+import kotlinx.html.body
+import kotlinx.html.p
 
 fun Application.main() {
     install(Sessions) {
@@ -37,6 +41,10 @@ fun Application.main() {
     }
     routing {
         authenticate("auth-oauth-google") {
+            get("login") {
+                call.respondRedirect("/callback")
+            }
+
             get("/callback") {
                 val principal: OAuthAccessTokenResponse.OAuth2? = call.authentication.principal()
                 call.sessions.set(UserSession(principal?.accessToken.toString()))
@@ -44,19 +52,36 @@ fun Application.main() {
             }
         }
         get("/") {
-            call.respondRedirect("/callback")
+            call.respondHtml {
+                body {
+                    p {
+                        a("/login") { +"Login with Google" }
+                    }
+                }
+            }
         }
         get("/hello") {
             val userSession: UserSession? = call.sessions.get<UserSession>()
-            val userInfo: UserInfo = httpClient.get("https://www.googleapis.com/oauth2/v2/userinfo") {
-                headers {
-                    append(HttpHeaders.Authorization, "Bearer ${userSession?.token}")
+            if (userSession != null) {
+                val userInfo: UserInfo = httpClient.get("https://www.googleapis.com/oauth2/v2/userinfo") {
+                    headers {
+                        append(HttpHeaders.Authorization, "Bearer ${userSession?.token}")
+                    }
                 }
+                call.respondText("Hello, ${userInfo.name}!")
+            } else {
+                call.respondRedirect("/")
             }
-            call.respondText("Hello, ${userInfo.name}!")
         }
     }
 }
 
 data class UserSession(val token: String)
-data class UserInfo(val id: String, val name: String, val given_name: String, val family_name: String, val picture: String, val locale: String)
+data class UserInfo(
+    val id: String,
+    val name: String,
+    val givenName: String,
+    val familyName: String,
+    val picture: String,
+    val locale: String
+)
