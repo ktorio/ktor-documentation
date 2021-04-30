@@ -36,7 +36,7 @@ A [Ktor documentation repository](https://github.com/ktorio/ktor-documentation) 
 * [JWT](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-jwt)
 * [JWK](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-jwk)
 * [LDAP](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-ldap)
-* [Authentication](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth)
+* [OAuth Google](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-oauth-google)
 
 ### Features {id="features"}
 * [Asynchronous](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/async)

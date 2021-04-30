@@ -271,5 +271,6 @@
     <toc-element id="FAQ.md"
                  accepts-web-file-names="zfaq.html"/>
     <toc-element id="samples.md"
+                 show-structure-depth="2"
                  accepts-web-file-names-ref="samples"/>
 </product-profile>

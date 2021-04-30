@@ -2,6 +2,11 @@
 
 <include src="lib.md" include-id="outdated_warning"/>
 
+<microformat>
+<var name="example_name" value="auth-oauth-google"/>
+<include src="lib.md" include-id="download_example"/>
+</microformat>
+
 OAuth defines a mechanism for authentication using external providers like Google or Facebook safely.
 You can read more about [OAuth](https://oauth.net/).
 Ktor has a feature to work with OAuth 1a and 2.0. 
