@@ -28,7 +28,7 @@ val theSame = call.receiveText()
 >
 {type="note"}
 
-Types that could be always received twice with this feature are: `ByteArray`, `String` and `Parameters` and all types provided by [ContentNegotiation](serialization.md) feature (for example, objects deserialized from JSON payloads).
+Types that could be always received twice with this feature are: `ByteArray`, `String` and `Parameters` and all types provided by [ContentNegotiation](serialization-server.md) feature (for example, objects deserialized from JSON payloads).
 
 Receiving different types from the same call is not guaranteed to work without `receiveEntireContent` but may work in some specific cases. For example, receiving a text after receiving a byte array always works.
 

@@ -51,12 +51,12 @@ You can also obtain the entire query string using the [ApplicationRequest.queryS
 This section shows how to receive body contents sent with `POST`, `PUT`, or `PATCH`:
 
 ### Objects {id="objects"}
-Ktor provides a [ContentNegotiation](serialization.md) feature to negotiate the media type of request and deserialize content to an object of a required type. To receive and convert content for a request, call the [receive](https://api.ktor.io/%ktor_version%/io.ktor.request/receive.html) method that accepts a data class as a parameter: 
+Ktor provides a [ContentNegotiation](serialization-server.md) feature to negotiate the media type of request and deserialize content to an object of a required type. To receive and convert content for a request, call the [receive](https://api.ktor.io/%ktor_version%/io.ktor.request/receive.html) method that accepts a data class as a parameter: 
 ```kotlin
 ```
 {src="snippets/_misc/SerializationReceiveObject.kt"}
 
-You can learn more from [](serialization.md).
+You can learn more from [](serialization-server.md).
 
 ### Form parameters {id="form_parameters"}
 Ktor allows you to receive form parameters sent with both `x-www-form-urlencoded` and `multipart/form-data` types using the [receiveParameters](https://api.ktor.io/%ktor_version%/io.ktor.request/receive-parameters.html) function. The example below shows an [HTTP client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html) `POST` request with parameters passed in a body:

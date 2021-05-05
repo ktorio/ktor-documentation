@@ -1,6 +1,6 @@
 [//]: # (title: kotlinx.serialization)
 
-[ContentNegotiation](serialization.md) allows you to use content converters provided by the [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization) library. This library supports JSON, CBOR, ProtoBuf, and other formats.
+ContentNegotiation for [server](serialization-server.md) and [client](serialization-client.md) allows you to use content converters provided by the [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization) library. This library supports JSON, CBOR, ProtoBuf, and other formats.
 
 
 ## Add dependencies {id="add_dependencies"}
@@ -8,7 +8,7 @@ Before registering a required converter, perform the following steps:
 
 1. Add the Kotlin serialization plugin, as described in the [Setup](https://github.com/Kotlin/kotlinx.serialization#setup) section.
 1. Include the following artifacts in the build script: 
-    <var name="artifact_name" value="ktor-serialization"/>
+    <var name="artifact_name" value="ktor-shared-serialization-kotlinx"/>
     <include src="lib.md" include-id="add_ktor_artifact"/>
    
     This will be enough for converting JSON. 
@@ -20,7 +20,7 @@ Before registering a required converter, perform the following steps:
 ### Register the JSON converter {id="register_json_converter"}
 To register the JSON converter in your application, call the `json` method:
 ```kotlin
-import io.ktor.serialization.*
+import io.ktor.shared.serializaion.kotlinx.*
 
 install(ContentNegotiation) {
     json()
@@ -36,7 +36,7 @@ install(ContentNegotiation) {
     })
 }
 ```
-To learn how to receive and send data, see [](serialization.md#receive_send_data).
+To learn how to receive and send data, see [server](serialization-server.md#receive_send_data) or [client](serialization-client.md#receive_send_data) docs.
 
 
 ### Register an arbitrary converter {id="register_arbitrary_converter"}

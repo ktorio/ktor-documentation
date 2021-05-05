@@ -5,18 +5,18 @@
 <include src="lib.md" include-id="download_example"/>
 </microformat>
 
-[ContentNegotiation](serialization.md) provides the built-in [Jackson](https://github.com/FasterXML/jackson) converter for handing JSON data in your application. 
+ContentNegotiation for [server](serialization-server.md) and [client](serialization-client.md) provides the built-in [Jackson](https://github.com/FasterXML/jackson) converter for handing JSON data in your application. 
 
 ## Add dependencies {id="add_dependencies"}
 Before registering the Jackson converter, you need to include the following artifacts in the build script:
-<var name="artifact_name" value="ktor-jackson"/>
+<var name="artifact_name" value="ktor-shared-serialization-jackson"/>
 <include src="lib.md" include-id="add_ktor_artifact"/>
 
 
 ## Register the Jackson converter {id="register_jackson_converter"}
 To register the Jackson converter in your application, call the [jackson](https://api.ktor.io/%ktor_version%/io.ktor.jackson/jackson.html) method:
 ```kotlin
-import io.ktor.jackson.*
+import io.ktor.shared.serializaion.jackson.*
 
 install(ContentNegotiation) {
     jackson()
@@ -32,4 +32,4 @@ install(ContentNegotiation) {
     }
 }
 ```
-To learn how to receive and send data, see [](serialization.md#receive_send_data).
+To learn how to receive and send data, see [server](serialization-server.md#receive_send_data) or [client](serialization-client.md#receive_send_data) docs.

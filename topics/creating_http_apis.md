@@ -156,7 +156,7 @@ get {
 }
 ```
 
-In order for this to work, we need to enable [content negotiation](serialization.md) in Ktor. What does content negotiation do? Let us consider the following request:
+In order for this to work, we need to enable [content negotiation](serialization-server.md) in Ktor. What does content negotiation do? Let us consider the following request:
 
 ```http request
 GET http://0.0.0.0:8080/customer

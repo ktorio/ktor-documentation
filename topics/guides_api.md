@@ -15,7 +15,7 @@ To achieve this, we are going to use the [Routing], [StatusPages], [Authenticati
 [Authentication]: authentication.md
 [JWT Authentication]: jwt.md
 [CORS]: cors.md
-[ContentNegotiation]: serialization.md
+[ContentNegotiation]: serialization-server.md
 [Jackson]: jackson.md
 
 >While many frameworks advocate how to create REST API's the majority aren't actually talking about REST APIs but HTTP APIs.
@@ -53,7 +53,7 @@ fun Application.module() {
 
 ## Serving JSON content
 
-A HTTP API usually responds with JSON. You can use the [Content Negotiation](serialization.md) feature with [Jackson](jackson.md) for this:
+A HTTP API usually responds with JSON. You can use the [Content Negotiation](serialization-server.md) feature with [Jackson](jackson.md) for this:
 
 ```kotlin
 fun Application.module() {
@@ -80,7 +80,7 @@ routing {
 Now the browser or client should respond to `http://127.0.0.1:8080/snippets` with `{"OK":true}`
 
 >If you get an error like `Response pipeline couldn't transform '...' to the OutgoingContent`, check that you have
->installed the [ContentNegotiation](serialization.md) feature with Jackson.
+>installed the [ContentNegotiation](serialization-server.md) feature with Jackson.
 >
 {type="note"}
 
