@@ -66,12 +66,10 @@ Content-Type: application/x-www-form-urlencoded
 
 first_name=Jet&last_name=Brains
 ```
-You can obtain the `first_name` parameter value in code as follows:
+You can obtain the `first_name` and `last_name` parameter values in code as follows:
 ```kotlin
 ```
 {src="snippets/_misc/FormParameter.kt"}
-
-The `firstName` variable will be initialized with _Jet_.
 
 ### Multipart form data {id="form_data"}
 If you need to receive a file sent as a part of a multipart request, call the [receiveMultipart](https://api.ktor.io/%ktor_version%/io.ktor.request/receive-multipart.html) function and then loop over each part as required. In the example below, `PartData.FileItem` is used to receive a file as a byte stream.
