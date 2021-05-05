@@ -116,7 +116,8 @@ install(JsonFeature) {
 
 ## Receive and send data {id="receive_send_data"}
 ### Create a data class {id="create_data_class"}
-To deserialize received data into an object, you need to create a data class, for example:
+
+To receive and send data, you need to have a data class, for example:
 ```kotlin
 data class Customer(val firstName: String, val lastName: String)
 ```
@@ -127,6 +128,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Customer(val firstName: String, val lastName: String)
 ```
+To learn more about kotlinx.serialization, see the [Kotlin Serialization Guide](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serialization-guide.md).
 
 ### Send data {id="send_data"}
 
