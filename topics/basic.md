@@ -1,4 +1,4 @@
-[//]: # (title: Basic and form)
+[//]: # (title: Basic)
 
 <include src="lib.md" include-id="outdated_warning"/>
 
@@ -6,31 +6,22 @@
 <p>Code examples:</p>
 <p><a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-basic">auth-basic</a></p>
 <p><a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-basic-hash-table">auth-basic-hash-table</a></p>
-<p><a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-form">auth-form</a></p>
 </microformat>
 
 ## Add dependencies {id="add_dependencies"}
-To enable `basic` and `form` authentication, you need to include the `ktor-auth` artifact in the build script:
+To enable the `basic` authentication, you need to include the `ktor-auth` artifact in the build script:
 <var name="artifact_name" value="ktor-auth"/>
 <include src="lib.md" include-id="add_ktor_artifact"/>
 
 ## Usage {id="usage"}
 
-Ktor supports two methods of authentication with the user and raw password as credentials:
-`basic` and `form`.
+The `basic` authentication uses a username and password as credentials:
 
-* `basic`
-   ```kotlin
-   ```
-   {src="snippets/auth-basic/src/main/kotlin/com/example/Application.kt" lines="9-18"}
+```kotlin
+  ```
+{src="snippets/auth-basic/src/main/kotlin/com/example/Application.kt" lines="9-20"}
 
-* `form`
-   ```kotlin
-   ```
-  {src="snippets/auth-form/src/main/kotlin/com/example/Application.kt" lines="9-20"}
-
-
-Both authentication providers have a method `validate` to provide a callback that must generate a Principal from given a `UserPasswordCredential`
+The `validate` method provides a callback that must generate a Principal from given a `UserPasswordCredential`
 or null for invalid credentials. That callback is marked as *suspending*, so that you can validate credentials in an asynchronous fashion.
 
 You can use several strategies for validating:
@@ -43,7 +34,7 @@ or composing several validation mechanisms.
 
 ```kotlin
 ```
-{src="snippets/auth-basic/src/main/kotlin/com/example/Application.kt" lines="9-18"}
+{src="snippets/auth-basic/src/main/kotlin/com/example/Application.kt" lines="9-20"}
 
 Remember that both the `name` and the `password` from the credentials are arbitrary values.
 Remember to escape and/or validate them when accessing with those values to the file system, a database,

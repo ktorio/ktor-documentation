@@ -78,40 +78,50 @@
             <toc-element toc-title="Error handling">
                 <toc-element id="status_pages.md"/>
             </toc-element>
+            <toc-element id="sessions.md" show-structure-depth="2">
+                <toc-element id="cookie_header.md" show-structure-depth="2"/>
+                <toc-element id="client_server.md" show-structure-depth="2"/>
+                <toc-element id="serializers.md"/>
+                <toc-element id="storages.md"/>
+                <toc-element id="transformers.md"/>
+            </toc-element>
             <toc-element id="authentication.md"
+                         show-structure-depth="2"
                          accepts-web-file-names="features-authentication.html">
                 <toc-element id="basic.md" show-structure-depth="2"/>
                 <toc-element id="digest.md"/>
+                <toc-element id="form.md"/>
                 <toc-element id="jwt.md"/>
                 <toc-element id="ldap.md"/>
                 <toc-element id="oauth.md"
                              accepts-web-file-names="authentication-oauth.html"/>
+                <toc-element id="session-auth.md"/>
+            </toc-element>
+            <toc-element id="Working_with_views.md"
+                         accepts-web-file-names="templates.html">
+                <toc-element id="html_dsl.md"/>
+                <toc-element id="css_dsl.md"/>
+                <toc-element id="freemarker.md" show-structure-depth="2"/>
+                <toc-element id="velocity.md" show-structure-depth="2"/>
+                <toc-element id="mustache.md" show-structure-depth="2"/>
+                <toc-element id="thymeleaf.md" show-structure-depth="2"/>
+            </toc-element>
+            <toc-element id="serialization.md"
+                         show-structure-depth="2"
+                         accepts-web-file-names="content-negotiation.html">
+                <toc-element id="gson.md"
+                             accepts-web-file-names="content-negotiation-gson.html"/>
+                <toc-element id="jackson.md"
+                             accepts-web-file-names="content-negotiation-jackson.html"/>
+                <toc-element id="kotlin_serialization.md"
+                             show-structure-depth="2"
+                             accepts-web-file-names="serialization-converter.html"/>
             </toc-element>
             <toc-element toc-title="Features">
                 <toc-element id="call-id.md"/>
-                <toc-element id="serialization.md"
-                             show-structure-depth="2"
-                             accepts-web-file-names="content-negotiation.html">
-                    <toc-element id="gson.md"
-                                 accepts-web-file-names="content-negotiation-gson.html"/>
-                    <toc-element id="jackson.md"
-                                 accepts-web-file-names="content-negotiation-jackson.html"/>
-                    <toc-element id="kotlin_serialization.md"
-                                 show-structure-depth="2"
-                                 accepts-web-file-names="serialization-converter.html"/>
-                </toc-element>
                 <toc-element id="data-conversion.md"/>
 <!--                <toc-element id="working_with_cookies.md"/>-->
                 <toc-element toc-title="Working with cookies"/>
-                <toc-element id="Working_with_views.md"
-                             accepts-web-file-names="templates.html">
-                    <toc-element id="html_dsl.md"/>
-                    <toc-element id="css_dsl.md"/>
-                    <toc-element id="freemarker.md" show-structure-depth="2"/>
-                    <toc-element id="velocity.md" show-structure-depth="2"/>
-                    <toc-element id="mustache.md" show-structure-depth="2"/>
-                    <toc-element id="thymeleaf.md" show-structure-depth="2"/>
-                </toc-element>
                 <toc-element id="autoheadresponse.md"/>
                 <toc-element id="default_headers.md"/>
                 <toc-element id="compression.md"
@@ -129,13 +139,6 @@
                 <toc-element id="features_locations.md"/>
 <!--                <toc-element id="redirects.md"/>-->
                 <toc-element id="partial-content.md"/>
-                <toc-element id="sessions.md" show-structure-depth="2">
-                    <toc-element id="cookie_header.md" show-structure-depth="2"/>
-                    <toc-element id="client_server.md" show-structure-depth="2"/>
-                    <toc-element id="serializers.md"/>
-                    <toc-element id="storages.md"/>
-                    <toc-element id="transformers.md"/>
-                </toc-element>
                 <toc-element id="shutdown-url.md"/>
                 <toc-element id="webjars.md"/>
             </toc-element>

@@ -1,4 +1,4 @@
-[//]: # (title: JWT and JWK)
+[//]: # (title: JSON Web Tokens)
 
 <include src="lib.md" include-id="outdated_warning"/>
 
