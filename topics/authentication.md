@@ -30,10 +30,10 @@ HTTP provides a [general framework](https://developer.mozilla.org/en-US/docs/Web
 [LDAP](ldap.md) is an open and cross-platform protocol used for directory services authentication. Ktor provides the [ldapAuthenticate](https://api.ktor.io/%ktor_version%/io.ktor.auth.ldap/ldap-authenticate.html) function to authenticate user credentials against a specified LDAP server.
 
 ### OAuth {id="oauth"}
-[OAuth](oauth.md) is an open standard or securing access to APIs. The `oauth` provider in Ktor allows you to implement authentication using external providers like Google, Facebook, Twitter, and so on.
+[OAuth](oauth.md) is an open standard for securing access to APIs. The `oauth` provider in Ktor allows you to implement authentication using external providers like Google, Facebook, Twitter, and so on.
 
 ### Session {id="sessions"}
-[Sessions](sessions.md) provide a mechanism to persist data between different HTTP requests. Typical use cases include storing a logged-in user's ID, the contents of a shopping basket, or keeping user preferences on the client. In Ktor, a user that already have an associated session can be authenticated using the `session` provider. Learn how to do this from [](session-auth.md).
+[Sessions](sessions.md) provide a mechanism to persist data between different HTTP requests. Typical use cases include storing a logged-in user's ID, the contents of a shopping basket, or keeping user preferences on the client. In Ktor, a user that already has an associated session can be authenticated using the `session` provider. Learn how to do this from [](session-auth.md).
 
 
 ## Add dependencies {id="add_dependencies"}
@@ -66,7 +66,7 @@ install(Authentication) {
     }
 }
 ```
-Inside this function, you can [configure](#configure-provider) settings specific for this provider.
+Inside this function, you can [configure](#configure-provider) settings specific to this provider.
 
 
 ### Step 2: Specify a provider name {id="provider-name"}
@@ -100,9 +100,16 @@ Each [provider type](#choose-provider) has its own configuration. For instance, 
 
 To understand how the `validate` function works, we need to introduce two terms:
 * A _principal_ is an entity that can be authenticated: a user, a computer, a service, etc. In Ktor, various authentication providers might use different principals. For example, the `basic` and `form` providers authenticate [UserIdPrincipal](https://api.ktor.io/%ktor_version%/io.ktor.auth/-user-id-principal/index.html) while the `jwt` provider verifies [JWTPrincipal](https://api.ktor.io/%ktor_version%/io.ktor.auth.jwt/-j-w-t-principal/index.html).
-* A _credential_ is a set of properties for a server to authenticate a principal. The `basic` and `form` providers use [UserPasswordCredential](https://api.ktor.io/%ktor_version%/io.ktor.auth/-user-password-credential/index.html) to validate a user name and password while `jwt` validates [JWTCredential](https://api.ktor.io/%ktor_version%/io.ktor.auth.jwt/-j-w-t-credential/index.html).
+  > If you use [session authentication](session-auth.md), a principal might be a data class that stores session data.
+* A _credential_ is a set of properties for a server to authenticate a principal: a user/password pair, an API key, and so on. For instance, the `basic` and `form` providers use [UserPasswordCredential](https://api.ktor.io/%ktor_version%/io.ktor.auth/-user-password-credential/index.html) to validate a user name and password while `jwt` validates [JWTCredential](https://api.ktor.io/%ktor_version%/io.ktor.auth.jwt/-j-w-t-credential/index.html).
 
 So, the `validate` function checks a specified [Credential](https://api.ktor.io/%ktor_version%/io.ktor.auth/-credential.html) and returns a [Principal](https://api.ktor.io/%ktor_version%/io.ktor.auth/-principal.html) in a case of successful authentication or `null` if authentication fails.
+
+> To skip authentication based on a specific criteria, use [skipWhen](https://api.ktor.io/%ktor_version%/io.ktor.auth/-authentication-provider/-configuration/skip-when.html). For example, you can skip `basic` authentication if a [session](sessions.md) already exists:
+> ```kotlin
+> basic {
+>     skipWhen { call -> call.sessions.get<UserSession>() != null }
+> }
 
 
 ### Step 4: Authenticate routes {id="authenticate-route"}
@@ -129,46 +136,21 @@ routing {
 Note that you can omit a provider name to use an unnamed provider.
 
 
-### Step 5: Get a principal inside a route {id="get-principal"}
+### Step 5: Get a principal inside a route handler {id="get-principal"}
 
-
-Retrieves authenticated Principal for this call successful authentication
-
-You can get the generated `Principal` instance inside your handler with:
+In a case of successful authentication, you can retrieve an authenticated [Principal](https://api.ktor.io/%ktor_version%/io.ktor.auth/-principal.html) inside a route handler using the [call.principal](https://api.ktor.io/%ktor_version%/io.ktor.auth/principal.html) function. This function accepts a specific principal type returned by the [configured authentication provider](#configure-provider). In a code sample below, `call.principal` is used to obtain `UserIdPrincipal` and get a name of an authenticated user.
 
 ```kotlin
 ```
 {src="snippets/auth-basic/src/main/kotlin/com/example/Application.kt" lines="21-27"}
 
->In the generic, you have to put a specific type that *must* match the generated Principal.
->It will return null in the case you provide another type.
->
-{type="note"}
 
->The handler won't be executed if the configured authentication fails (when returning `null` in the authentication mechanism)
->
-{type="note"}
-
-
-
-## Skip Authentication {id="skip"}
-
-You can also skip an authentication based on a criteria.
+If you use [session authentication](session-auth.md), a principal might be a data class that stores session data. So, you need to pass this data class to `call.principal`:
 
 ```kotlin
-/**
- * Authentication filters specifying if authentication is required for particular [ApplicationCall]
- * If there is no filters, authentication is required. If any filter returns true, authentication is not required.
- */
-fun AuthenticationProvider.skipWhen(predicate: (ApplicationCall) -> Boolean)
 ```
+{src="snippets/auth-session/src/main/kotlin/com/example/Application.kt" lines="47-53,57-59,64"}
 
-For example, to skip a basic authentication if there is already a session, you could write:
 
-```kotlin
-authentication {
-    basic {
-        skipWhen { call -> call.sessions.get<UserSession>() != null }
-    }
-}
-```
+
+
