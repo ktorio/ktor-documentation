@@ -25,7 +25,6 @@ val helloWorld = client.get<HelloWorld>("http://127.0.0.1:8080/")
 
 From an `HttpResponse`, you can get the response content easily:
 
-* `val readChannel: ByteReadChannel = response.content`
 * `val bytes: ByteArray = response.readBytes()`
 * `val text: String = response.readText()`
 * `val readChannel = response.receive<ByteReadChannel>()`
