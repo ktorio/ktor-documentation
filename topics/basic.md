@@ -18,7 +18,7 @@ To enable the `basic` authentication, you need to include the `ktor-auth` artifa
 The `basic` authentication uses a username and password as credentials:
 
 ```kotlin
-  ```
+```
 {src="snippets/auth-basic/src/main/kotlin/com/example/Application.kt" lines="9-20"}
 
 The `validate` method provides a callback that must generate a Principal from given a `UserPasswordCredential`
