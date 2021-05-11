@@ -37,7 +37,6 @@ Imagine you have the `index.hbs` template in `resources/templates`:
 {src="snippets/mustache/src/main/resources/templates/index.hbs"}
 
 A data model for a user looks as follows:
-A data model for a user looks as follows:
 ```kotlin
 ```
 {src="snippets/mustache/src/main/kotlin/com/example/Application.kt" lines="23"}
