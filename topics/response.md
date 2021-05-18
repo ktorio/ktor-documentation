@@ -22,7 +22,7 @@ val helloWorld = client.get<HelloWorld>("http://127.0.0.1:8080/")
 
 ## Download progress {id="download-progress"}
 
-If you need to react on download progress change, use `downloadProgress` extension block in `HttpRequestBuilder`:
+If you need to react on download progress change, use `onDownload` extension function in `HttpRequestBuilder`:
 ```kotlin
 ```
 {src="snippets/_misc_client/DownloadProgress.kt"}
