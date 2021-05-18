@@ -124,7 +124,7 @@ Learn more about [Cancellation and timeouts](https://kotlinlang.org/docs/cancell
 
 ## Upload progress {id="upload-progress"}
 
-If you need to react on upload progress change, wrap your body in `observableBodyOf`:
+If you need to react on upload progress change, use `onUpload` extension function in `HttpRequestBuilder`:
 ```kotlin
 ```
 {src="snippets/_misc_client/UploadProgress.kt"}
