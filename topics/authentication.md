@@ -6,7 +6,7 @@ Code examples: <a href="samples.md" anchor="authentication">Authentication</a>
 </p>
 </microformat>
 
-Ktor provides the `Authentication` feature to handle authentication and access control. Typical usage scenarios include logging in users, granting access to specific resources, and secure transmitting information between parties. You can also use `Authentication` with the [Sessions](sessions.md) feature to keep a user's information between requests.
+Ktor provides the `Authentication` feature to handle authentication and access control. Typical usage scenarios include logging in users, granting access to specific resources, and secure transmitting information between parties. You can also use `Authentication` with [Sessions](sessions.md) to keep a user's information between requests.
 
 ## Supported authentication types {id="supported"}
 Ktor supports different authentication schemes: from general HTTP authentication schemes such as Basic and Digest to OAuth 2.0 for accessing external resources.
