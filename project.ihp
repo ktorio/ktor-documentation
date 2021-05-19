@@ -12,7 +12,7 @@
     <categories src="c.list"/>
     <product src="ktor.tree"
              web-path="/docs/"
-             version="1.5.4"
+             version="1.6.0"
              keymaps-mode="none"/>
 
 </ihp>
