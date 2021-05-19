@@ -1,7 +1,7 @@
 [//]: # (title: Features)
 
 
-As mentioned in [A Ktor Application](A_Ktor_Application.md), a typical request/response pipeline in Ktor looks like the following:
+A typical request/response pipeline in Ktor looks like the following:
 
 
 
@@ -46,16 +46,33 @@ In fact, what we've been calling `routing` until now, is nothing more than a Fea
 ## Installing Features {id="install"}
 
 Features are generally configured during the initialization phase of the server using the `install`
-function which takes a Feature as a parameter:
+function which takes a Feature as a parameter. Depending on the way you used to [create a server](create_server.xml), you can install a feature inside the `main` function ...
 
 ```kotlin
-install(Routing)
-install(Encoding)
+import io.ktor.features.*
+// ...
+fun Application.main() {
+    install(Routing)
+    install(Encoding)
+    // ...
+}
+```
+
+... or a specified [module](Modules.md):
+
+```kotlin
+import io.ktor.features.*
+// ...
+fun Application.module() {
+    install(Routing)
+    install(Encoding)
+    // ...
+}
 ```
 
 In addition to intercepting requests and responses, Features can have an option configuration section which is configured during this step.
 
-For instance, when installing [Cookies](working_with_cookies.md) we can set certain parameters such as where we want Cookies to be stored, or their name:
+For instance, when installing [Cookies](cookie_header.md) we can set certain parameters such as where we want Cookies to be stored, or their name:
 
 ```kotlin
 install(Sessions) {
@@ -110,7 +127,7 @@ both calls to `root/a` and `root/b` will be handled by only second installation 
 By default, Ktor does not activate any Feature, and it's up to us as developers to install the functionality our application need.
 
 Ktor does however provide a variety of Features that ship out of the box. We can see a complete list of these 
-either on the [Project Generator Site](https://start.ktor.io) or in the [IntelliJ IDEA Wizard](https://plugins.jetbrains.com/plugin/10823-ktor). In addition
+either on the [Project Generator Site](https://start.ktor.io) or in the [IntelliJ IDEA Wizard](intellij-idea.xml). In addition
 we can also create our own [custom Features](Creating_custom_features.md)
 
 For more information about sequencing of Features and how they intercept the request/response pipeline, see [Pipeline](Pipelines.md) in the Advanced section of the

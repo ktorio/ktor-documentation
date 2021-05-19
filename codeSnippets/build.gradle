@@ -29,16 +29,8 @@ buildscript {
     }
 
     repositories {
-        jcenter()
+        mavenCentral()
         google()
-        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
-        maven {
-            url "https://kotlin.bintray.com/kotlin-dev"
-            credentials {
-                username = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER') ?: ""
-                password = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY') ?: ""
-            }
-        }
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
@@ -83,7 +75,7 @@ allprojects {
     }
 
     repositories {
-        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+        mavenCentral()
     }
 }
 
@@ -168,5 +160,11 @@ if (build_snapshot_train) {
                 }
             }
         }
+    }
+}
+
+subprojects {
+    tasks.withType(Test).all {
+        systemProperty 'gradlew', file('../../gradlew').absolutePath
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE ihp
-        SYSTEM "https://helpserver.labs.jb.gg/help/ihp.dtd">
+        SYSTEM "https://resources.jetbrains.com/stardust/ihp.dtd">
 <ihp version="2.0">
     <settings/>
 
@@ -8,11 +8,11 @@
 
     <vars src="v.list"/>
     <topics dir="topics"/>
-    <images dir="images" web-path="/img/ktor/1.5/"/>
+    <images dir="images" web-path="images/"/>
     <categories src="c.list"/>
     <product src="ktor.tree"
              web-path="/docs/"
-             version="1.5"
+             version="1.6.0"
              keymaps-mode="none"/>
 
 </ihp>

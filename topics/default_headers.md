@@ -1,4 +1,4 @@
-[//]: # (title: Default Headers)
+[//]: # (title: Default headers)
 
 The `DefaultHeaders` [feature](Features.md) adds the standard `Server` and `Date` headers into each response. Moreover, you can provide additional default headers and override the `Server` header.
 
@@ -10,7 +10,7 @@ The `DefaultHeaders` [feature](Features.md) adds the standard `Server` and `Date
 The `DefaultHeaders` feature adds the `Server` and `Date` headers into each response. If necessary, you can override the `Server`, as described in [](#override).
 
 
-## Add Additional Headers {id="add"}
+## Add additional headers {id="add"}
 To customize a list of default headers, pass a desired header to `install`  by using the `header(name, value)` function. The `name` parameter accepts an `HttpHeaders` value, for example:
 ```kotlin
     install(DefaultHeaders) {
@@ -25,7 +25,7 @@ To add a custom header, pass its name as a string value:
 ```
 
 
-## Override Headers {id="override"}
+## Override headers {id="override"}
 To override the `Server` header, use a corresponding `HttpHeaders` value:
 ```kotlin
     install(DefaultHeaders) {
@@ -37,7 +37,7 @@ Note that the `Date` header is cached due to performance reasons and cannot be o
 
 
 
-## Customize Headers for Specific Routes {id="route_headers"}
+## Customize headers for specific routes {id="route_headers"}
 
 If you need to add headers for a specific route only, you can append desired headers into a response. The code snippet below shows how to do this for the `/order` request:
 ```kotlin

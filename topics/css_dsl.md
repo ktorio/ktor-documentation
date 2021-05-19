@@ -5,7 +5,7 @@ CSS DSL extends [HTML DSL](html_dsl.md) and allows you to author stylesheets in 
 > Learn how to serve stylesheets as static content from [](Serving_Static_Content.md).
 
 
-## Add Dependencies {id="add_dependencies"}
+## Add dependencies {id="add_dependencies"}
 CSS DSL doesn't need [installation](Features.md#install), but requires including the following artifacts in the build script:
 
 1. The `ktor-html-builder` artifact for HTML DSL:
@@ -15,8 +15,9 @@ CSS DSL doesn't need [installation](Features.md#install), but requires including
 1. The `kotlin-css-jvm` artifact for building CSS:
    <var name="group_id" value="org.jetbrains"/>
    <var name="artifact_name" value="kotlin-css-jvm"/>
-   <var name="version" value="1.0.0-pre.129-kotlin-1.4.20"/>
+   <var name="version" value="kotlin_css_version"/>
    <include src="lib.md" include-id="add_artifact"/>
+   You can replace `$kotlin_css_version` with the required version of the `kotlin-css-jvm` artifact, for example, `%kotlin_css_version%`.
 
 
 ## Use CSS DSL {id="use_css"}

@@ -1,17 +1,14 @@
 # HTTP/2 Push
 
-Sample project for [Ktor](https://ktor.io) demonstrating HTTP/2 protocol server-side push.
-
-This application is written as an embedded application with a custom main function 
-[here](src/Main.kt) to generate temporary SSL certificate before starting Ktor Netty engine,
-because browsers support HTTP/2 only with SSL.  
+A sample Ktor project demonstrating server-side push for the [HTTP/2](https://ktor.io/docs/advanced-http2.html) protocol.
+This application is written as an embedded application with a custom `main` function [here](src/Main.kt) to generate a temporary SSL certificate before starting a Netty engine, because browsers support HTTP/2 only with SSL. 
 
 ## Running
 
-Execute this command in the repository's root directory to run this sample:
+To run this sample, execute the following command in a repository's root directory:
 
 ```bash
 ./gradlew :http2-push:run
 ```
  
-And navigate to [https://localhost:8443/](https://localhost:8443/) to see the sample home page.  
+Then, navigate to [https://localhost:8443/](https://localhost:8443/) to see the sample home page.  

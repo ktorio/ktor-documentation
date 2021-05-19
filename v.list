@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE vars
-        SYSTEM "https://helpserver.labs.jb.gg/help/vars.dtd">
+        SYSTEM "https://resources.jetbrains.com/stardust/vars.dtd">
 
 <vars>
 
-    <var name="ktor_version" value="1.5.0"/>
+    <var name="ktor_version" value="1.6.0"/>
+    <var name="kotlin_version" value="1.4.32"/>
+    <var name="coroutines_version" value="1.4.3"/>
+    <var name="kotlin_css_version" value="1.0.0-pre.148-kotlin-1.4.30"/>
+    <var name="logback_version" value="1.2.3"/>
 
 </vars>

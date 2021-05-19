@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rules SYSTEM "https://resources.jetbrains.com/stardust/redirection-rules.dtd">
+<rules>
+    <rule id="tutorials">
+        <accepts>guides-application.html</accepts>
+        <accepts>website.html</accepts>
+        <accepts>guides-api.html</accepts>
+        <accepts>guides-chat.html</accepts>
+        <accepts>guides-oauth.html</accepts>
+        <accepts>ssl.html</accepts>
+        <accepts>getting-started-ktor.html</accepts>
+    </rule>
+    <rule id="samples">
+        <accepts>samples-index.html</accepts>
+        <accepts>app.html</accepts>
+        <accepts>app-chat.html</accepts>
+        <accepts>httpbin.html</accepts>
+        <accepts>kweet.html</accepts>
+        <accepts>youkube.html</accepts>
+        <accepts>netty-embedded.html</accepts>
+        <accepts>netty.html</accepts>
+        <accepts>async.html</accepts>
+        <accepts>feature-auth.html</accepts>
+        <accepts>custom-feature.html</accepts>
+        <accepts>feature-gson.html</accepts>
+        <accepts>guice.html</accepts>
+        <accepts>html.html</accepts>
+        <accepts>feature-http2.html</accepts>
+        <accepts>feature-jackson.html</accepts>
+        <accepts>feature-locations.html</accepts>
+        <accepts>feature-metrics.html</accepts>
+        <accepts>post.html</accepts>
+        <accepts>static.html</accepts>
+        <accepts>testable.html</accepts>
+        <accepts>client-multipart.html</accepts>
+        <accepts>client-tools.html</accepts>
+        <accepts>di-kodein.html</accepts>
+        <accepts>filelisting.html</accepts>
+        <accepts>maven-google-app-engine-standard.html</accepts>
+        <accepts>maven-netty.html</accepts>
+        <accepts>multiple-connectors.html</accepts>
+        <accepts>other-proguard.html</accepts>
+        <accepts>redirect-with-exception.html</accepts>
+        <accepts>reverse-proxy.html</accepts>
+        <accepts>rx.html</accepts>
+        <accepts>simulate-slow-server.html</accepts>
+        <accepts>sse.html</accepts>
+        <accepts>structured-logging.html</accepts>
+        <accepts>samples-fullstack-mpp.html</accepts>
+        <accepts>fullstack.html</accepts>
+        <accepts>open-source.html</accepts>
+        <accepts>examples.html</accepts>
+    </rule>
+    <rule id="kotlin_docs">
+        <accepts>quickstart-index.html</accepts>
+        <accepts>quickstart-coroutines.html</accepts>
+        <accepts>kotlinx-index.html</accepts>
+        <accepts>kotlinx-multiplatform.html</accepts>
+        <accepts>atomicfu.html</accepts>
+        <accepts>kotlinx-coroutines.html</accepts>
+        <accepts>kotlinx-io.html</accepts>
+        <accepts>setup.html</accepts>
+        <accepts>platforms.html</accepts>
+        <accepts>encoding.html</accepts>
+        <accepts>byteorder.html</accepts>
+        <accepts>charset.html</accepts>
+        <accepts>io-io.html</accepts>
+        <accepts>channels.html</accepts>
+        <accepts>input-output.html</accepts>
+        <accepts>iobuffer.html</accepts>
+        <accepts>packets.html</accepts>
+        <accepts>tools.html</accepts>
+
+        <accepts>migration.html</accepts>
+        <accepts>0-0-beta-3.html</accepts>
+        <accepts>0-0.html</accepts>
+        <accepts>1-1.html</accepts>
+        <accepts>1-2.html</accepts>
+        <accepts>1-3.html</accepts>
+        <accepts>1-4.html</accepts>
+        <accepts>2-0.html</accepts>
+        <accepts>2-3.html</accepts>
+        <accepts>3-0.html</accepts>
+        <accepts>4-0.html</accepts>
+    </rule>
+</rules>

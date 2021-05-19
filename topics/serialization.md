@@ -1,4 +1,4 @@
-[//]: # (title: Content Negotiation and Serialization)
+[//]: # (title: Content negotiation and serialization)
 
 The [ContentNegotiation](https://api.ktor.io/%ktor_version%/io.ktor.features/-content-negotiation/index.html) feature serves two primary purposes:
 * Negotiating media types between the client and server. For this, it uses the `Accept` and `Content-Type` headers.
@@ -11,7 +11,7 @@ The [ContentNegotiation](https://api.ktor.io/%ktor_version%/io.ktor.features/-co
 <include src="lib.md" include-id="install_feature"/>
 
 
-## Register a Converter {id="register_converter"}
+## Register a converter {id="register_converter"}
 
 To register a converter for a specified `Content-Type`, you need to call the [register](https://api.ktor.io/%ktor_version%/io.ktor.features/-content-negotiation/-configuration/register.html) method. In the example below, two [custom converters](#implement_custom_converter) are registered to deserialize `application/json` and `application/xml` data:
 
@@ -22,7 +22,7 @@ install(ContentNegotiation) {
 }
 ```
 
-### Built-in Converters {id="built_in_converters"}
+### Built-in converters {id="built_in_converters"}
 Ktor provides the set of built-in converters for handing various content types without writing your own logic:
 
 * [Gson](gson.md) for JSON
@@ -32,9 +32,9 @@ Ktor provides the set of built-in converters for handing various content types w
 See a corresponding topic to learn how to install the required dependencies, register, and configure a converter.
 
 
-## Receive and Send Data {id="receive_send_data"}
+## Receive and send data {id="receive_send_data"}
 
-### Create a Data Class {id="create_data_class"}
+### Create a data class {id="create_data_class"}
 To deserialize received data into an object, you need to create a data class, for example:
 ```kotlin
 data class Customer(val id: Int, val firstName: String, val lastName: String)
@@ -47,13 +47,12 @@ import kotlinx.serialization.Serializable
 data class Customer(val id: Int, val firstName: String, val lastName: String)
 ```
 
-### Receive Data {id="receive_data"}
+### Receive data {id="receive_data"}
 To receive and convert a content for a request, call the [receive](https://api.ktor.io/%ktor_version%/io.ktor.request/receive.html) method that accepts a data class as a parameter:
 ```kotlin
-post("/customer") {
-    val customer = call.receive<Customer>()
-}
 ```
+{src="snippets/_misc/SerializationReceiveObject.kt"}
+
 The `Content-Type` of the request will be used to choose a [converter](#register_converter) for processing the request. The example below shows a sample [HTTP client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html) request containing JSON data that will be converted to a `Customer` object on the server side:
 
 ```HTTP
@@ -67,7 +66,7 @@ Content-Type: application/json
 }
 ```
 
-### Send Data {id="send_data"}
+### Send data {id="send_data"}
 To pass a data object in a response, you can use the [respond](https://api.ktor.io/%ktor_version%/io.ktor.response/respond.html) method:
 ```kotlin
 post("/customer") {
@@ -78,7 +77,7 @@ In this case, Ktor uses the `Accept` header to choose the required [converter](#
 
 
 
-## Implement a Custom Converter {id="implement_custom_converter"}
+## Implement a custom converter {id="implement_custom_converter"}
 
 In Ktor, you can write your own [converter](#register_converter) for serializing/deserializing data. To do this, you need to implement the [ContentConverter](https://api.ktor.io/%ktor_version%/io.ktor.features/-content-converter/index.html) interface:
 ```kotlin
@@ -87,6 +86,6 @@ interface ContentConverter {
     suspend fun convertForReceive(context: PipelineContext<ApplicationReceiveRequest, ApplicationCall>): Any?
 }
 ```
-Take a look at the [GsonConverter](https://github.com/ktorio/ktor/blob/master/ktor-features/ktor-gson/jvm/src/io/ktor/gson/GsonSupport.kt) class as an implementation example.  
+Take a look at the [GsonConverter](https://github.com/ktorio/ktor/blob/main/ktor-features/ktor-gson/jvm/src/io/ktor/gson/GsonSupport.kt) class as an implementation example.  
 
 

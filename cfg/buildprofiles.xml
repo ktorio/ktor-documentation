@@ -3,12 +3,14 @@
     <variables>
         <web-root>http://www.jetbrains.com/idea/</web-root>
         <web-community-path>Developer Community:http://www.jetbrains.net/devnet/community/idea/kb</web-community-path>
-        <download-page/>
+        <download-page>https://ktor.io/download/</download-page>
+        <config-showDownloadButton>true</config-showDownloadButton>
+        <enable-browser-edits>true</enable-browser-edits>
+        <browser-edits-url>https://github.com/ktorio/ktor-documentation/edit/main/</browser-edits-url>
         <search-scope/>
         <fallback-url/>
         <help-app-version>3</help-app-version>
         <config-feedbackRequireEmail>false</config-feedbackRequireEmail>
-        <config-showDownloadButton>true</config-showDownloadButton>
         <config-disqus-id>jetbrains</config-disqus-id>
         <config-disqus-show>false</config-disqus-show>
         <config-feedback-url>https://data.services.jetbrains.com/feedback</config-feedback-url>
@@ -17,9 +19,12 @@
         <config-webmaster>webmaster@jetbrains.com</config-webmaster>
         <config-feedback-support>https://www.jetbrains.com/support/</config-feedback-support>
         <config-sideblocks>true</config-sideblocks>
-        <config-productid>help/idea-sdk</config-productid>
+        <config-productid>docs</config-productid>
         <config-search-scopes-provider>https://data.services.jetbrains.com/search/</config-search-scopes-provider>
-        <allow-indexable-eaps>true</allow-indexable-eaps>
+        <noindex-content-in-deprecated>true</noindex-content-in-deprecated>
+        <noindex-content-in-eap>true</noindex-content-in-eap>
+        <noindex-content-in-release>false</noindex-content-in-release>
+        <generate-sitemap-url-prefix>https://ktor.io/docs/</generate-sitemap-url-prefix>
 
     </variables>
     

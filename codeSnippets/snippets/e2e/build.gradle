@@ -1,0 +1,9 @@
+apply plugin: "kotlin"
+
+dependencies {
+    implementation "junit:junit:4.13"
+
+    api "io.ktor:ktor-server-core:$ktor_version"
+    api "io.ktor:ktor-server-cio:$ktor_version"
+    api "io.ktor:ktor-server-host-common:$ktor_version"
+}

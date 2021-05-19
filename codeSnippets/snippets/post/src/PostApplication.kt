@@ -47,15 +47,15 @@ fun Application.main() {
             val multipart = call.receiveMultipart()
             call.respondTextWriter {
                 if (!call.request.isMultipart()) {
-                    appendln("Not a multipart request")
+                    appendLine("Not a multipart request")
                 } else {
                     while (true) {
                         val part = multipart.readPart() ?: break
                         when (part) {
                             is PartData.FormItem ->
-                                appendln("FormItem: ${part.name} = ${part.value}")
+                                appendLine("FormItem: ${part.name} = ${part.value}")
                             is PartData.FileItem ->
-                                appendln("FileItem: ${part.name} -> ${part.originalFileName} of ${part.contentType}")
+                                appendLine("FileItem: ${part.name} -> ${part.originalFileName} of ${part.contentType}")
                         }
                         part.dispose()
                     }

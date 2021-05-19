@@ -1,11 +1,10 @@
 # Jackson
 
-Sample project for [Ktor](https://ktor.io) demonstrating content negotiation feature
-using [Jackson](https://github.com/FasterXML/jackson).
+A sample Ktor project demonstrating the [ContentNegotiation](https://ktor.io/docs/serialization.html) feature using Jackson.
 
 ## Running
 
-Run this project with:
+To run this sample, execute the following command in a repository's root directory:
 
 ```
 ./gradlew :jackson:run
@@ -14,10 +13,10 @@ Run this project with:
 Use the following command scripts for testing:
 
 ```bash
-curl -v --compress --header "Accept: application/json" http://localhost:8080/v1
+curl -v --compressed --header "Accept: application/json" http://localhost:8080/v1
 ```
 
-Should respond with something like:
+A server should respond with something like this:
 
 ```json
 {

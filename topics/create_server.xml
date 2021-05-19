@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Create a server"
+       id="create_server" auxiliary-id="start_server">
+
+    <p>
+        To run a Ktor server application, you need to create a server first.
+        Server configuration can include different settings:
+        a server <a href="Engines.md">engine</a> (such as Netty, Jetty, etc.),
+        various engine-specific options, host and port values, and so on.
+        There are two main approaches in Ktor for creating and running a server:
+    </p>
+
+    <list>
+        <li>
+            <p>
+                The <a anchor="embedded-server">embeddedServer</a> function is a simple way to configure server parameters in code and quickly run an application.
+            </p>
+        </li>
+        <li>
+            <p>
+                <a anchor="engine-main">EngineMain</a> provides more flexibility to configure a server. You can specify server parameters in an <path>application.conf</path> file and change a configuration without recompiling your application. Moreover, you can run your application from a command line and override the required server parameters by passing corresponding command-line arguments.
+            </p>
+        </li>
+    </list>
+
+
+    <chapter title="embeddedServer" id="embedded-server">
+        <p>
+            The <code>embeddedServer</code> function is a simple way to configure server parameters in code and quickly run an application.
+            In the code snippet below, it accepts an <a href="Engines.md">engine</a> and port as parameters to start a server.
+            In the example below, we run a server with the <code>Netty</code> engine and listen on the <code>8000</code> port:
+        </p>
+        <code style="block"
+              lang="kotlin"
+              src="snippets/embedded-server/src/main/kotlin/com/example/Application.kt">
+        </code>
+    </chapter>
+
+    <chapter title="EngineMain" id="engine-main">
+        <p>
+            <code>EngineMain</code> starts a server with the selected engine and loads the <a href="Modules.md">application module</a> specified in the external <a href="Configurations.xml" anchor="hocon-file">application.conf</a> file. Besides modules to load, this file can include various server parameters (the <code>8080</code> port in the example below).
+        </p>
+
+        <tabs>
+            <tab title="Application.kt">
+                <code style="block"
+                      lang="kotlin"
+                      src="snippets/engine-main/src/main/kotlin/com/example/Application.kt">
+                </code>
+            </tab>
+            <tab title="application.conf">
+                <code style="block"
+                      src="snippets/engine-main/src/main/resources/application.conf">
+                </code>
+            </tab>
+        </tabs>
+    </chapter>
+
+
+</topic>

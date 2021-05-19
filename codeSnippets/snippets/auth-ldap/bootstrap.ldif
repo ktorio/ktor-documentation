@@ -1,0 +1,42 @@
+dn: cn=jetbrains,dc=ktor,dc=io
+changetype: add
+objectclass: inetOrgPerson
+cn: jetbrains
+givenname: jetbrains
+sn: Jetbrains
+displayname: Jetbrains
+mail: jetbrains@ktor.io
+userpassword: foobar
+
+dn: cn=sampleuser,dc=ktor,dc=io
+changetype: add
+objectclass: inetOrgPerson
+cn: sampleuser
+givenname: sampleuser
+sn: Sampleuser
+displayname: Sample User
+mail: sampleuser@ktor.io
+userpassword: 123456
+
+dn: ou=Groups,dc=ktor,dc=io
+changetype: add
+objectclass: organizationalUnit
+ou: Groups
+
+dn: ou=Users,dc=ktor,dc=io
+changetype: add
+objectclass: organizationalUnit
+ou: Users
+
+dn: cn=Admins,ou=Groups,dc=ktor,dc=io
+changetype: add
+cn: Admins
+objectclass: groupOfUniqueNames
+uniqueMember: cn=admin,dc=ktor,dc=io
+
+dn: cn=Maintainers,ou=Groups,dc=ktor,dc=io
+changetype: add
+cn: Maintainers
+objectclass: groupOfUniqueNames
+uniqueMember: cn=jetbrains,dc=ktor,dc=io
+uniqueMember: cn=sampleuser,dc=ktor,dc=io

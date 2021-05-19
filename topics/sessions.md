@@ -1,21 +1,31 @@
 [//]: # (title: Sessions)
 
+<microformat>
+<var name="example_name" value="sessions"/>
+<include src="lib.md" include-id="download_example"/>
+</microformat>
+
 Sessions provide a mechanism to persist data between different HTTP requests. Typical use cases include storing a logged-in user's ID, the contents of a shopping basket, or keeping user preferences on the client. In Ktor, you can implement sessions by using cookies or custom headers, choose whether to store session data on the server or pass it to the client, sign and encrypt session data, and more.
 
 In this topic, we'll look at how to configure sessions, install the `Sessions` feature, and set the session's content.
 
+## Add dependencies {id="add_dependencies"}
+To enable support for sessions, you need to include the `ktor-server-sessions` artifact in the build script:
+<var name="artifact_name" value="ktor-server-sessions"/>
+<include src="lib.md" include-id="add_ktor_artifact"/>
 
-## Session Configuration Overview {id="configure"}
+
+## Session configuration overview {id="configure"}
 You can configure sessions in the following ways:
 - *[How to pass data between the server and client](cookie_header.md)*: using cookies or custom headers. Cookies suit better for plain HTML applications while custom headers are intended for APIs.
 - *[Where to store the session payload](client_server.md)*: on the client or server. You can pass the [serialized](serializers.md) session's data to the client using a cookie/header value or store the payload on the server and pass only a session ID.
 - *[How to serialize session data](serializers.md)*: using a default format, JSON, or a custom engine.
-- *[Where to store the payload on the server](storages.md)*: in memory, in a folder, or Redis. You can also implement a custom storage for keeping session data.
+- *[Where to store the payload on the server](storages.md)*: in the server memory or in a folder. You can also implement a custom storage for keeping session data.
 - *[How to transform the payload](transformers.md)*: you can sign or encrypt data sent to the client for security reasons.
 
 
 ## Install Sessions {id="install"}
-Before installing a session, you need to create a [data class](https://kotlinlang.org/docs/reference/data-classes.html) for storing session data, for example:
+Before installing a session, you need to create a [data class](https://kotlinlang.org/docs/data-classes.html) for storing session data, for example:
 ```kotlin
 data class LoginSession(val username: String, val count: Int)
 ```
@@ -34,7 +44,7 @@ fun Application.module() {
 ```
 You can now [set the session content](#set-content), modify the session, or clear it.
 
-### Multiple Sessions {id="multiple"}
+### Multiple sessions {id="multiple"}
 If you need several sessions in your application, you need to create a separate data class for each session. For example, you can create separate data classes for storing a user login and settings:
 ```kotlin
 data class LoginSession(val username: String, val count: Int)
@@ -50,12 +60,12 @@ install(Sessions) {
 Note that session names should be unique.
 
 
-## Set Session Content {id="set-content"}
+## Set session content {id="set-content"}
 To set the session content for a specific [route](Routing_in_Ktor.md), use the [call.sessions](https://api.ktor.io/%ktor_version%/io.ktor.sessions/sessions.html) property. The [set](https://api.ktor.io/%ktor_version%/io.ktor.sessions/-current-session/set.html) method allows you to create a new session instance:
 ```kotlin
 routing {
     get("/") {
-        call.sessions.set(LoginSession(name = "John", value = 1))
+        call.sessions.set(LoginSession(username = "John", count = 1))
     }
 }
 ```
