@@ -14,7 +14,7 @@ It starts with a request, which is routed to a specific handler, processed by ou
 ## Adding functionality with Features {id="add_functionality"}
 
 Many applications require common functionality that is out of scope of the application logic. This could be things like 
-serialization and content encoding, compression, headers, cookie support, etc. All of these are provided in Ktor by means of 
+serialization and content negotiation, compression, headers, cookie support, etc. All of these are provided in Ktor by means of 
 what we call **Features**. 
 
 If we look at the previous pipeline diagram, Features sit between the request/response and the application logic:
@@ -52,8 +52,8 @@ function which takes a Feature as a parameter. Depending on the way you used to 
 import io.ktor.features.*
 // ...
 fun Application.main() {
-    install(Routing)
-    install(Encoding)
+    install(ContentNegotiation)
+    install(DefaultHeaders)
     // ...
 }
 ```
@@ -64,8 +64,8 @@ fun Application.main() {
 import io.ktor.features.*
 // ...
 fun Application.module() {
-    install(Routing)
-    install(Encoding)
+    install(ContentNegotiation)
+    install(DefaultHeaders)
     // ...
 }
 ```
