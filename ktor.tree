@@ -72,6 +72,7 @@
             <toc-element id="Structuring_Applications.md"
                          accepts-web-file-names="structure.html"/>
             <toc-element id="Features.md"
+                         show-structure-depth="2"
                          accepts-web-file-names="zfeatures.html">
                 <toc-element id="Serving_Static_Content.md"
                              show-structure-depth="2"
