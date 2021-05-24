@@ -94,7 +94,7 @@ fun main(args: Array<String>) {
                         val line = input.readUTF8Line()
                         
                         println("${socket.remoteAddress}: $line")
-                        output.write("$line\r\n")
+                        output.writeFully("$line\r\n".toByteArray(Charsets.UTF_8))
                     }
                 } catch (e: Throwable) {
                     e.printStackTrace()
@@ -146,7 +146,7 @@ fun main(args: Array<String>) {
         val input = socket.openReadChannel()
         val output = socket.openWriteChannel(autoFlush = true)
 
-        output.write("hello\r\n")
+        output.writeFully("hello\r\n".toByteArray(Charsets.UTF_8))
         val response = input.readUTF8Line()
         println("Server said: '$response'")
     }
@@ -164,9 +164,9 @@ Ktor supports secure sockets. To enable them you will need to include the
 runBlocking {
     val socket = aSocket(ActorSelectorManager(Dispatchers.IO)).tcp().connect(InetSocketAddress("google.com", 443)).tls()
     val w = socket.openWriteChannel(autoFlush = false)
-    w.write("GET / HTTP/1.1\r\n")
-    w.write("Host: google.com\r\n")
-    w.write("\r\n")
+    w.writeFully("GET / HTTP/1.1\r\n".toByteArray(Charsets.UTF_8))
+    w.writeFully("Host: google.com\r\n".toByteArray(Charsets.UTF_8))
+    w.writeFully("\r\n".toByteArray(Charsets.UTF_8))
     w.flush()
     val r = socket.openReadChannel()
     println(r.readUTF8Line())
