@@ -102,8 +102,6 @@ If you need to send a file with a form, use the [submitFormWithBinaryData](https
 Learn how to run this sample from [client-upload-file](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-upload-file).
 
 
-
-
 ## Parallel requests {id="parallel_requests"}
 
 When sending two requests at once, the client suspends the second request execution until the first one is finished. If you need to perform several requests at once, you can use [launch](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/launch.html) or [async](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html) functions. The code snippet below shows how to perform two requests asynchronously:
@@ -122,3 +120,11 @@ If you need to cancel a request, you can cancel a coroutine that runs this reque
 {src="snippets/_misc_client/CancelRequest.kt"}
 
 Learn more about [Cancellation and timeouts](https://kotlinlang.org/docs/cancellation-and-timeouts.html).
+
+
+## Upload progress {id="upload-progress"}
+
+If you need to react on upload progress change, use `onUpload` extension function in `HttpRequestBuilder`:
+```kotlin
+```
+{src="snippets/_misc_client/UploadProgress.kt"}
