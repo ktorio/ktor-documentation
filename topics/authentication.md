@@ -112,10 +112,10 @@ So, the `validate` function checks a specified [Credential](https://api.ktor.io/
 > }
 
 
-### Step 4: Authenticate routes {id="authenticate-route"}
+### Step 4: Protect specific routes {id="authenticate-route"}
 
-After defining and configuring an authentication provider, you can authenticate specific [routes](Routing_in_Ktor.md) using the
-[authenticate](https://api.ktor.io/%ktor_version%/io.ktor.auth/authenticate.html) function. This function can accept [a name of a provider](#provider-name) used to authenticate nested routes. The code snippet below uses a provider with the _auth-basic_ name to authenticate the `/login` and `/orders` routes:
+After defining and configuring an authentication provider, you can protect specific [routes](Routing_in_Ktor.md) using the
+[authenticate](https://api.ktor.io/%ktor_version%/io.ktor.auth/authenticate.html) function. This function can accept [a name of a provider](#provider-name) used to authenticate nested routes. The code snippet below uses a provider with the _auth-basic_ name to protect the `/login` and `/orders` routes:
 
 ```kotlin
 routing {

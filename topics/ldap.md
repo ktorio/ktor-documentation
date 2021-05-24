@@ -1,4 +1,4 @@
-[//]: # (title: LDAP)
+[//]: # (title: LDAP authentication)
 
 <include src="lib.md" include-id="outdated_warning"/>
 

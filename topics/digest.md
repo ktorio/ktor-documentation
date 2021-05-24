@@ -1,4 +1,4 @@
-[//]: # (title: Digest)
+[//]: # (title: Digest authentication)
 
 <microformat>
 <var name="example_name" value="auth-digest"/>
