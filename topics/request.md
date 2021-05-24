@@ -93,13 +93,16 @@ The Ktor client provides the [submitForm](https://api.ktor.io/%ktor_version%/io.
 
 ### Upload a file {id="upload_file"}
 
-If you need to send a file with a form, use the [submitFormWithBinaryData](https://api.ktor.io/%ktor_version%/io.ktor.client.request.forms/submit-form-with-binary-data.html) function. When calling this function, you need to specify the `formData` parameter, which can be initialized using the [formData](https://api.ktor.io/%ktor_version%/io.ktor.client.request.forms/form-data.html) function. A code example below shows how to do this:
+If you need to send a file with a form, use the [submitFormWithBinaryData](https://api.ktor.io/%ktor_version%/io.ktor.client.request.forms/submit-form-with-binary-data.html) function. When calling this function, you need to specify the `formData` parameter, which can be initialized using the [formData](https://api.ktor.io/%ktor_version%/io.ktor.client.request.forms/form-data.html) function. A [runnable code example](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-upload-file) below shows how to do this:
 
 ```kotlin
 ```
 {src="snippets/client-upload-file/src/main/kotlin/com/example/Application.kt" include-symbol="main"}
 
-Learn how to run this sample from [client-upload-file](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-upload-file).
+If you need to react on upload progress change, use `onUpload` extension function in `HttpRequestBuilder`:
+```kotlin
+```
+{src="snippets/_misc_client/UploadProgress.kt"}
 
 
 ## Parallel requests {id="parallel_requests"}
@@ -120,11 +123,3 @@ If you need to cancel a request, you can cancel a coroutine that runs this reque
 {src="snippets/_misc_client/CancelRequest.kt"}
 
 Learn more about [Cancellation and timeouts](https://kotlinlang.org/docs/cancellation-and-timeouts.html).
-
-
-## Upload progress {id="upload-progress"}
-
-If you need to react on upload progress change, use `onUpload` extension function in `HttpRequestBuilder`:
-```kotlin
-```
-{src="snippets/_misc_client/UploadProgress.kt"}

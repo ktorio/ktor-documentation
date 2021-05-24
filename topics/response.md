@@ -20,7 +20,7 @@ val helloWorld = client.get<HelloWorld>("http://127.0.0.1:8080/")
 ```
 
 
-## Download progress {id="download-progress"}
+### Download progress {id="download-progress"}
 
 If you need to react on download progress change, use `onDownload` extension function in `HttpRequestBuilder`:
 ```kotlin
@@ -28,7 +28,7 @@ If you need to react on download progress change, use `onDownload` extension fun
 {src="snippets/_misc_client/DownloadProgress.kt"}
 
 
-### The `HttpResponse` class {id="HttpResponse"}
+## API reference {id="HttpResponse"}
 
 `HttpResponse` API reference is listed [here](https://api.ktor.io/%ktor_version%/io.ktor.client.response/-http-response/).
 
