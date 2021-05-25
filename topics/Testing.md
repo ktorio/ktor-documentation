@@ -183,7 +183,9 @@ In some cases we will need some services and dependencies. Instead of storing th
 to create a separate function receiving the service dependencies. This allows you to pass different
 (potentially mocked) dependencies in your tests:
 
+
 <tabs>
+<tab title="build.gradle">
 
 ```groovy
 // ...
@@ -193,7 +195,9 @@ dependencies {
 }
 ```
 
+</tab>
 
+<tab title="module.kt">
 
 ```kotlin
 fun Application.testableModule() {
@@ -211,7 +215,10 @@ fun Application.testableModuleWithDependencies(random: Random) {
 }
 ```
 
+</tab>
 
+
+<tab title="test.kt">
 
 ```kotlin
 class ApplicationTest {
@@ -234,5 +241,7 @@ class ApplicationTest {
     }
 }
 ```
+
+</tab>
 
 </tabs>
