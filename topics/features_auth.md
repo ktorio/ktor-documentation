@@ -63,8 +63,8 @@ This feature implements the IETF's [RFC 2617](https://tools.ietf.org/html/rfc261
 
 ### Bearer
 
-This provider sends an `Authorization: Bearer` with the provided token. To configure `Bearer` authentication you should
-define how to get initial token(with `loadTokens`) and how to obtain new token if the old is invalid(with `refreshTokens`):
+This provider sends `Authorization: Bearer` with the provided token. To configure `Bearer` authentication, you need to
+define how to get an initial token (using `loadTokens`) and how to obtain a new token if the old one is invalid (using `refreshTokens`):
 
 ```kotlin
 val client = HttpClient() {
