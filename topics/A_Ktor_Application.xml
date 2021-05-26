@@ -26,7 +26,7 @@
     <chapter title="Next steps" id="next">
         <p>
             In the next chapters, we'll take a look at the main concepts of creating a Ktor application -
-            from configuring a server to using features, which is core to all Ktor applications:
+            from configuring a server to using plugins, which is core to all Ktor applications:
         </p>
 
         <list>
@@ -50,8 +50,8 @@
             </li>
             <li>
                 <p>
-                    <a href="Features.md">Add functionality with Features</a><br/>
-                    Get acquainted with features that provide common functionality, for example, serialization and content encoding, compression, headers, cookie support, etc.
+                    <a href="Plugins.md">Add functionality with Plugins (formerly known as Features)</a><br/>
+                    Get acquainted with plugins that provide common functionality, for example, serialization and content encoding, compression, headers, cookie support, etc.
                 </p>
             </li>
             <li>
@@ -74,21 +74,4 @@
             </li>
         </list>
     </chapter>
-
-
-
-<!--    <chapter id="the-request-and-response-pipeline" title="The Request and Response Pipeline">
-        <p>The request and response flow for a Ktor application is represented by the following diagram:</p>
-        <p>
-            <img src="request-response-pipeline.svg" alt="Request and response pipeline"/>
-        </p>
-        <p>When a request comes in, it is processed by the routing mechanism, which redirects it to the route handler.
-            This route handle consists of our application logic which could be anything from responding with a simple
-            text (like the example above), to processing the input, storing it in a database, etc. Finally, once
-            everything is done, the handler should respond to the request.
-        </p>
-        <p>In the next section we'll look <a href="Features.md">Features</a> which is core to all Ktor applications, and
-            provides much of the functionality, including routing!
-        </p>
-    </chapter>-->
 </topic>

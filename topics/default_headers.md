@@ -1,13 +1,13 @@
 [//]: # (title: Default headers)
 
-The `DefaultHeaders` [feature](Features.md) adds the standard `Server` and `Date` headers into each response. Moreover, you can provide additional default headers and override the `Server` header.
+The `DefaultHeaders` [plugin](Plugins.md) adds the standard `Server` and `Date` headers into each response. Moreover, you can provide additional default headers and override the `Server` header.
 
 ## Install DefaultHeaders {id="install_feature"}
 
 <var name="feature_name" value="DefaultHeaders"/>
 <include src="lib.md" include-id="install_feature"/>
 
-The `DefaultHeaders` feature adds the `Server` and `Date` headers into each response. If necessary, you can override the `Server`, as described in [](#override).
+The `DefaultHeaders` plugin adds the `Server` and `Date` headers into each response. If necessary, you can override the `Server`, as described in [](#override).
 
 
 ## Add additional headers {id="add"}
@@ -32,7 +32,7 @@ To override the `Server` header, use a corresponding `HttpHeaders` value:
         header(HttpHeaders.Server, "Custom")
     }
 ```
-Note that the `Date` header is cached due to performance reasons and cannot be overridden by using `DefaultHeaders`. If you need to override it, do not install the `DefaultHeaders` feature and use [route interception](intercepting_routes.md) instead.
+Note that the `Date` header is cached due to performance reasons and cannot be overridden by using `DefaultHeaders`. If you need to override it, do not install the `DefaultHeaders` plugin and use [route interception](intercepting_routes.md) instead.
 
 
 

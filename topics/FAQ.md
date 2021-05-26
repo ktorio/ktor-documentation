@@ -85,7 +85,7 @@ the logic implementing an IETF RFC or another protocol without relying on extern
 ## I get the error 'java.lang.IllegalStateException: No instance for key AttributeKey: Locations'
 {id="no-attribute-key-locations"}
 
-> You get this error if you try to use the [Locations](features_locations.md) feature without actually installing it. 
+> You get this error if you try to use the [Locations](locations.md) feature without actually installing it. 
 
 ## How can I test the latest commits on main?
 {id="bleeding-edge"}

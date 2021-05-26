@@ -11,7 +11,7 @@
 
 In this hands-on tutorial we're going to create an interactive website using Kotlin and [Ktor](https://ktor.io), a framework for building connected applications.
 
-Using the different features and integrations provided by Ktor, we will see how to host static content like images and HTML pages. We will see how supported HTML templating engines like [Freemarker](http://freemarker.org/) make it easy to control how data from our application is rendered in the browser. By using [kotlinx.html](https://github.com/Kotlin/kotlinx.html), we'll learn about a domain-specific language that allows us to mix Kotlin code and markup directly, allowing us to write our site's display logic in pure Kotlin.
+Using the different plugins (formerly known as features) and integrations provided by Ktor, we will see how to host static content like images and HTML pages. We will see how supported HTML templating engines like [Freemarker](http://freemarker.org/) make it easy to control how data from our application is rendered in the browser. By using [kotlinx.html](https://github.com/Kotlin/kotlinx.html), we'll learn about a domain-specific language that allows us to mix Kotlin code and markup directly, allowing us to write our site's display logic in pure Kotlin.
 
 ## What we will build
 
@@ -26,7 +26,7 @@ Let's dive right in and start setting up our project for development!
 
 ## Project Setup
 
-If we were to start a fresh idea from zero, Ktor would have a few ways of setting up a preconfigured Gradle project: [start.ktor.io](https://start.ktor.io/) and the [Ktor IntelliJ IDEA plugin](intellij-idea.xml) make it easy to create a starting-off point for projects using a variety of features from the framework.
+If we were to start a fresh idea from zero, Ktor would have a few ways of setting up a preconfigured Gradle project: [start.ktor.io](https://start.ktor.io/) and the [Ktor IntelliJ IDEA plugin](intellij-idea.xml) make it easy to create a starting-off point for projects using a variety of plugins from the framework.
 
 For this tutorial, however, we have made a starter template available that includes all configuration and required dependencies for the project.
 
@@ -136,9 +136,9 @@ However, a static page that contains a few paragraphs can hardly be called a jou
 
 It's time to build the main page of our journal which is in charge of displaying multiple journal entries. We will create this page with the help of a *template engine*. Template engines are quite common in web development, and Ktor supports a [variety of them](Working_with_views.md). In our case we're going to choose [FreeMarker](https://freemarker.apache.org/).
 
-### Adding FreeMarker as a Ktor feature
+### Adding FreeMarker as a Ktor plugin
 
-[Features](Features.md) are a mechanism that Ktor provides to enable support for certain functionality, such as encoding, compression, logging, authentication, among others. While the implementation details of Ktor features (acting as interceptors / middleware providing extra functionality) aren't relevant for this hands-on tutorial, we will use this mechanism to `install` the `FreeMarker` feature, by adding the following lines to the top of our `Application.module()` definition in the `Application.kt` file:
+[Plugins](Plugins.md) are a mechanism that Ktor provides to enable support for certain functionality, such as encoding, compression, logging, authentication, among others. While the implementation details of Ktor plugins (acting as interceptors / middleware providing extra functionality) aren't relevant for this hands-on tutorial, we will use this mechanism to `install` the `FreeMarker` plugin, by adding the following lines to the top of our `Application.module()` definition in the `Application.kt` file:
 
 ```kotlin
 fun Application.module() {
@@ -151,7 +151,7 @@ fun Application.module() {
     }
 }
 ```
-In the configuration block for the `FreeMarker` feature, we're passing two parameters:
+In the configuration block for the `FreeMarker` plugin, we're passing two parameters:
 
 - The `templateLoader` setting tells our application that FreeMarker templates will be located in the `templates` directory inside our application `resources`: 
   ![Template](templates_location.png){width="566"}
@@ -307,14 +307,14 @@ This concludes the guided part of this hands-on. We have included the final stat
 
 ## What's next
 
-At this point, you should have gotten a basic idea of how to serve static files with Ktor and how the integration of features such as FreeMarker or kotlinx.html can enable you to write basic applications that can even react to user input.
+At this point, you should have gotten a basic idea of how to serve static files with Ktor and how the integration of plugins such as FreeMarker or kotlinx.html can enable you to write basic applications that can even react to user input.
 
 ### Feature requests for the journal
 
 At this point, our journal application is still rather barebones, so of course it might be a fun challenge to add more features to the project, and learn even more about building interactive sites with Kotlin and Ktor. To get you started, here's a few ideas of how the application could still be improved, in no particular order:
 
 - **Make it consistent!** You would usually not mix FreeMarker and kotlinx.html – we've taken some liberty here to explore more than one way of structuring your application. Consider powering your whole journal with kotlinx.html or FreeMarker, and make it consistent!
-- **Authentication!** Our current version of the journal allows all visitors to post content to our journal. We could use [Ktor's authentication features](authentication.md) to ensure that only select users can post to the journal, while keeping read access open to everyone.
+- **Authentication!** Our current version of the journal allows all visitors to post content to our journal. We could use [Ktor's authentication plugins](authentication.md) to ensure that only select users can post to the journal, while keeping read access open to everyone.
 - **Persistence!** Currently, all our journal entries vanish when we stop our application, as we are only storing them in a variable. You could try integrating your application with a database like PostgreSQL or MongoDB, using one of the plenty projects that allow database access from Kotlin, like [Exposed](https://github.com/JetBrains/Exposed) or [KMongo](https://litote.org/kmongo/).
 - **Make it look nicer!** The stylesheets for the journal are currently rudimentary at best. Consider creating your own style sheet, and serving it as a static `.css` file from Ktor!
 - **Organize your routes!** As the complexity of our application increases, so does the number of routes we try to support. For bigger applications, we usually want to add structure to our routing – like separating routes out into separate files. If you'd like to learn about different ways to organize your routes with Ktor, check out the [](Routing_in_Ktor.md) help topic.

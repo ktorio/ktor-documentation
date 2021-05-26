@@ -13,7 +13,7 @@
 Ktor provides a mechanism to create routes in a typed way, for both:
 constructing URLs and reading the parameters.
 
->Locations are an experimental feature.
+>Locations are an experimental plugin.
 >
 {type="note"}
 
@@ -37,7 +37,7 @@ constructing URLs and reading the parameters.
 For each typed route you want to handle, you need to create a class (usually a data class)
 containing the parameters that you want to handle.
 
-The parameters must be of any type supported by the [Data Conversion](data-conversion.md) feature.
+The parameters must be of any type supported by the [Data Conversion](data-conversion.md) plugin.
 By default, you can use `Int`, `Long`, `Float`, `Double`, `Boolean`, `String`, enums and `Iterable` as parameters.
 
 ### URL parameters

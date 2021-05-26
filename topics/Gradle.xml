@@ -181,7 +181,7 @@
                     </tab>
                 </tabs>
                 <p>
-                    Note that other engines and <a href="Features.md">features</a> that extend Ktor functionality might required additional dependencies.
+                    Note that other engines and <a href="Plugins.md">plugins</a> that extend Ktor functionality might required additional dependencies.
                     You can learn more from corresponding topics.
                 </p>
             </step>

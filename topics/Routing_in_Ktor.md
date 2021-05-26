@@ -1,10 +1,10 @@
 [//]: # (title: Routing)
 
-Routing is the core Ktor [feature](Features.md) for handling incoming requests in a server application. When the client makes a request to a specific URL (for example, `/hello`), the routing mechanism allows us to define how we want this request to be served. 
+Routing is the core Ktor [plugin](Plugins.md) for handling incoming requests in a server application. When the client makes a request to a specific URL (for example, `/hello`), the routing mechanism allows us to define how we want this request to be served. 
 
 ## Install Routing {id="install_feature"}
 
-The Routing feature can be installed in the following way:
+The Routing plugin can be installed in the following way:
 
 ```Kotlin
 import io.ktor.routing.*
@@ -14,7 +14,7 @@ install(Routing) {
 }
 ```
 
-Given the `Routing` feature is so common in any application, there is a convenient `routing` function that makes it simpler to install routing. In the code snippet below, `install(Routing)` is replaced with the `routing` function:
+Given the `Routing` plugin is so common in any application, there is a convenient `routing` function that makes it simpler to install routing. In the code snippet below, `install(Routing)` is replaced with the `routing` function:
 
 ```kotlin
 import io.ktor.routing.*
@@ -26,7 +26,7 @@ routing {
 
 ## Define a route handler {id="define_route"}
 
-After [installing](#install_feature) the Routing feature, you can call the [route](https://api.ktor.io/%ktor_version%/io.ktor.routing/route.html) function inside `routing` to define a route:
+After [installing](#install_feature) the Routing plugin, you can call the [route](https://api.ktor.io/%ktor_version%/io.ktor.routing/route.html) function inside `routing` to define a route:
 ```kotlin
 import io.ktor.routing.*
 import io.ktor.http.*

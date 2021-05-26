@@ -71,8 +71,8 @@
 
             <toc-element id="Structuring_Applications.md"
                          accepts-web-file-names="structure.html"/>
-            <toc-element id="Features.md"
-                         accepts-web-file-names="zfeatures.html">
+            <toc-element id="Plugins.md"
+                         accepts-web-file-names="zfeatures.html,features.html">
                 <toc-element id="Serving_Static_Content.md"
                              show-structure-depth="2"
                              accepts-web-file-names="static-content.html"/>
@@ -128,7 +128,8 @@
                 <toc-element id="forward-headers.md"/>
                 <toc-element id="hsts.md"/>
                 <toc-element id="https-redirect.md"/>
-                <toc-element id="features_locations.md"/>
+                <toc-element id="locations.md"
+                             accepts-web-file-names="features-locations.html"/>
 <!--                <toc-element id="redirects.md"/>-->
                 <toc-element id="partial-content.md"/>
                 <toc-element id="shutdown-url.md"/>

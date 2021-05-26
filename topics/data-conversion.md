@@ -6,7 +6,7 @@
 
 By default, it handles primitive types and enums, but it can also be configured to handle additional types. 
 
-If you are using the [Locations feature](features_locations.md) and want to support
+If you are using the [Locations feature](locations.md) and want to support
 custom types as part of its parameters, you can add new custom converters with this
 service.
 
