@@ -203,7 +203,9 @@
         </toc-element>
         <toc-element id="http-client_testing.md"/>
         <toc-element id="http-client_features.md">
-            <toc-element id="features_auth.md" accepts-web-file-names="auth.html"/>
+            <toc-element id="features_auth.md"
+                         accepts-web-file-names="auth.html"
+                         show-structure-depth="2"/>
             <toc-element id="default-request.md"/>
             <toc-element id="http-cookies.md"/>
             <toc-element id="http-plain-text.md"/>

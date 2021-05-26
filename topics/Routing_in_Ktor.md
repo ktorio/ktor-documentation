@@ -72,7 +72,7 @@ In summary, you need to specify the following settings to define a route:
 
 A path pattern passed to the [routing](#define_route) functions (`route`, `get`, `post`, etc.) is used to match a _path_ component of the URL. A path can contain a sequence of path segments separated by a slash `/` character.
 
-[comment]: <> (> Note that Ktor distinguishes paths with and without a trailing slash. You can change this behaviour by [installing]&#40;Features.md#install&#41; the `IgnoreTrailingSlash` feature.)
+> Note that Ktor distinguishes paths with and without a trailing slash. You can change this behaviour by [installing](Features.md#install) the `IgnoreTrailingSlash` feature.
 
 Below are several path examples:
 * `/hello`  

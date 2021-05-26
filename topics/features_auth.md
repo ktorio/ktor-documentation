@@ -5,11 +5,11 @@
 Ktor client supports authentication out of the box as a standard pluggable feature.
 
 ## Add dependencies {id="add_dependencies"}
+
 To enable authentication, you need to include the `ktor-client-auth` artifact in the build script:
 
 <var name="artifact_name" value="ktor-client-auth"/>
 <include src="lib.md" include-id="add_ktor_artifact"/>
-
 
 ## Installation
 
@@ -49,8 +49,10 @@ This provider sends an `Authorization: Digest` with the specified credentials:
 val client = HttpClient() {
     install(Auth) {
         digest {
-            username = "username"
-            password = "password"
+            credentials {
+                DigestAuthCredentials(username = "Hello", password = "World!")
+            }
+
             realm = "custom"
         }
     }
@@ -58,3 +60,24 @@ val client = HttpClient() {
 ```
 
 This feature implements the IETF's [RFC 2617](https://tools.ietf.org/html/rfc2617).
+
+### Bearer
+
+This provider sends `Authorization: Bearer` with the provided token. To configure `Bearer` authentication, you need to
+define how to get an initial token (using `loadTokens`) and how to obtain a new token if the old one is invalid (using `refreshTokens`):
+
+```kotlin
+val client = HttpClient() {
+    install(Auth) {
+        bearer {
+            loadTokens {
+                BearerTokens(accessToken = "hello", refreshToken = "world")
+            }
+
+            refreshTokens { response: HttpResponse ->
+                BearerTokens(accessToken = "hello", refreshToken = "world")
+            }
+        }
+    }
+}
+```
