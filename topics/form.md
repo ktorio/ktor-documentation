@@ -3,8 +3,12 @@
 <include src="lib.md" include-id="outdated_warning"/>
 
 <microformat>
-<var name="example_name" value="auth-form"/>
-<include src="lib.md" include-id="download_example"/>
+<p>
+Required dependencies: <code>io.ktor:ktor-auth</code>
+</p>
+<p>
+Code examples: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-form">auth-form</a>, <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-form-html-dsl">auth-form-html-dsl</a>
+</p>
 </microformat>
 
 
