@@ -24,7 +24,7 @@ To enable the `basic` authentication, you need to include the `ktor-auth` artifa
 
 The basic authentication flow looks as follows:
 
-1. A client sends a request without the `Authorization` header to a specific [route](Routing_in_Ktor.md) in a server application.
+1. A client makes a request without the `Authorization` header to a specific [route](Routing_in_Ktor.md) in a server application.
 1. A server responds to a client with a `401` (Unauthorized) response status and uses a `WWW-Authenticate` response header to provide information that the basic authentication scheme is used to protect a route. A typical `WWW-Authenticate` header looks like this:
    
    ```
@@ -34,7 +34,7 @@ The basic authentication flow looks as follows:
    
    In Ktor, you can specify the realm and charset using corresponding properties when [configuring](#configure-provider) the `basic` authentication provider.
 
-1. Usually a client displays a login dialog where a user can enter credentials. Then, a client sends a request with the `Authorization` header containing a user name and password pair encoded using Base64, for example:
+1. Usually a client displays a login dialog where a user can enter credentials. Then, a client makes a request with the `Authorization` header containing a user name and password pair encoded using Base64, for example:
    
    ```
    Authorization: Basic amV0YnJhaW5zOmZvb2Jhcg
