@@ -5,7 +5,7 @@ A typical request/response pipeline in Ktor looks like the following:
 
 
 
-![Request Response Pipeline](request-response-pipeline.svg)
+![Request Response Pipeline](request-response-pipeline.png){width="600"}
 
 
 
@@ -21,7 +21,7 @@ If we look at the previous pipeline diagram, Plugins sit between the request/res
 
 
 
-![Plugin pipeline](feature-pipeline.svg)
+![Plugin pipeline](feature-pipeline.png){width="600"}
 
 
 
@@ -39,7 +39,7 @@ In fact, what we've been calling `routing` until now, is nothing more than a Plu
 
 
 
-![Routing as a Plugin](feature-pipeline-routing.svg)
+![Routing as a Plugin](feature-pipeline-routing.png){width="600"}
 
 
 
