@@ -95,9 +95,9 @@ fun Application.module() {
 }
 ```
 
-We can even take this one step further - install features per application, as needed, especially for instance when we’re using 
-the Authentication feature which depends on specific routes. One important note however is that Ktor will detect if a 
-feature has been installed twice by throwing an DuplicateApplicationFeatureException exception.
+We can even take this one step further - install plugins per application, as needed, especially for instance when we’re using 
+the Authentication plugin which depends on specific routes. One important note however is that Ktor will detect if a 
+plugin has been installed twice by throwing an DuplicateApplicationFeatureException exception.
 
 ### A note on using objects
 

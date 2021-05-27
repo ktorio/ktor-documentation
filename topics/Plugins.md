@@ -86,7 +86,7 @@ By default, Ktor does not activate any Plugin, and it's up to us as developers t
 
 Ktor does however provide a variety of Plugins that ship out of the box. We can see a complete list of these 
 either on the [Project Generator Site](https://start.ktor.io) or in the [IntelliJ IDEA Wizard](intellij-idea.xml). In addition
-we can also create our own [custom Plugins](Creating_custom_features.md)
+we can also create our own [custom Plugins](Creating_custom_plugins.md)
 
 For more information about sequencing of Plugins and how they intercept the request/response pipeline, see [Pipeline](Pipelines.md) in the Advanced section of the documentation. 
 

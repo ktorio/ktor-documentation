@@ -2,7 +2,7 @@
 
 <include src="lib.md" include-id="outdated_warning"/>
 
-This feature adds a User-Agent header to requests.
+This plugin adds a User-Agent header to requests.
 
 
 

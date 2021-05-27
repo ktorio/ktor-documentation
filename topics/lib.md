@@ -1,6 +1,6 @@
 <chunk id="install_feature">
 
-To install the `%feature_name%` feature, pass it to the `install` function in the application initialization code. This can be the `main` function ...
+To install the `%feature_name%` plugin, pass it to the `install` function in the application initialization code. This can be the `main` function ...
 
 ```kotlin
 import io.ktor.features.*

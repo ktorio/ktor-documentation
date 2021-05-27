@@ -9,10 +9,9 @@ Code examples: <a href="samples.md" anchor="authentication">Authentication</a>
 <include src="lib.md" include-id="outdated_warning"/>
 
 
-Ktor supports authentication out of the box as a standard pluggable feature.
-It supports mechanisms to read *credentials*, and to authenticate *principals*.
+Ktor supports authentication out of the box. It supports mechanisms to read *credentials*, and to authenticate *principals*.
 
-It can be used in some cases along with the [sessions feature](sessions.md)
+It can be used in some cases along with the [sessions plugin](sessions.md)
 to keep the login information between requests.
 
 ## Add dependencies {id="add_dependencies"}
@@ -21,7 +20,7 @@ To enable authentication, you need to include the `ktor-auth` artifact in the bu
 <var name="artifact_name" value="ktor-auth"/>
 <include src="lib.md" include-id="add_ktor_artifact"/>
 
-Note that some authentication features (for example [JWT/JWK](jwt.md) and [LDAP](ldap.md)) might require additional artifacts.
+Note that some authentication plugins (for example [JWT/JWK](jwt.md) and [LDAP](ldap.md)) might require additional artifacts.
 
 
 ## Basic usage
@@ -32,7 +31,7 @@ Ktor defines two concepts: credentials and principals.
 * A credential is an object that represents a set of properties for the server to authenticate a principal:
   a user/password, an API key or an authenticated payload signature, etc.
 
-To install it, you have to call to `application.install(Authentication)`. You have to install this feature
+To install it, you have to call to `application.install(Authentication)`. You have to install this plugin
 directly to the application and it *won't* work in another `ApplicationCallPipeline` like `Route`.
 
 >You might still be able to call the install code inside a Route if you have the Application injected in a nested DSL,
@@ -47,7 +46,7 @@ Using its DSL, it allows you to configure the authentication providers available
 {src="snippets/auth-basic/src/main/kotlin/com/example/Application.kt" lines="9-18"}
 
 
-After defining one or more authentication providers (named or unnamed), with the [routing feature](Routing_in_Ktor.md)
+After defining one or more authentication providers (named or unnamed), with the [routing plugin](Routing_in_Ktor.md)
 you can create a route group, that will apply that authentication to all the routes defined in that group:
 
 ```kotlin
@@ -140,7 +139,7 @@ authentication {
 ## Advanced
 
 >If you want to create custom authentication strategies,
->you can check the [Authentication feature](https://github.com/ktorio/ktor/tree/main/ktor-features/ktor-auth/jvm/src/io/ktor/auth) as a reference.
->The authentication feature defines two stages as part of its [Pipeline](https://github.com/ktorio/ktor/blob/main/ktor-features/ktor-auth/jvm/src/io/ktor/auth/AuthenticationPipeline.kt): `RequestAuthentication` and `CheckAuthentication`.
+>you can check the [Authentication plugin](https://github.com/ktorio/ktor/tree/main/ktor-features/ktor-auth/jvm/src/io/ktor/auth) as a reference.
+>The authentication plugin defines two stages as part of its [Pipeline](https://github.com/ktorio/ktor/blob/main/ktor-features/ktor-auth/jvm/src/io/ktor/auth/AuthenticationPipeline.kt): `RequestAuthentication` and `CheckAuthentication`.
 >
 {type="note"}

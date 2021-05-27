@@ -17,7 +17,7 @@ Note that this function allows you to [receive a response](response.md) in vario
 
 
 ## Set request parameters {id="parameters"}
-In this section, we'll see on how to specify various request parameters, including an HTTP method, headers, and cookies. If you need to configure some default parameters for all requests of a specific client, use the [](default-request.md) feature.
+In this section, we'll see on how to specify various request parameters, including an HTTP method, headers, and cookies. If you need to configure some default parameters for all requests of a specific client, use the [](default-request.md) plugin.
 
 
 ### HTTP method {id="http-method"}
@@ -48,7 +48,7 @@ To send cookies, use the [cookie](https://api.ktor.io/%ktor_version%/io.ktor.cli
 ```
 {src="snippets/_misc_client/GetMethodWithCookies.kt"}
 
-Note that Ktor provides the [](http-cookies.md) feature that allows you to keep cookies between calls.
+Note that Ktor provides the [](http-cookies.md) plugin that allows you to keep cookies between calls.
 
 
 ### Query parameters {id="query_parameters"}
@@ -72,13 +72,13 @@ Sending plain text as body can be implemented in the following way:
 
 
 ### Objects {id="objects"}
-With the enabled [Json](json-feature.md) feature, you can send a class instance within a request body as JSON. To do this, assign a class instance to the `body` property and set the content type to `application/json` using the [contentType](https://api.ktor.io/%ktor_version%/io.ktor.http/content-type.html) function:
+With the enabled [Json](json.md) plugin, you can send a class instance within a request body as JSON. To do this, assign a class instance to the `body` property and set the content type to `application/json` using the [contentType](https://api.ktor.io/%ktor_version%/io.ktor.http/content-type.html) function:
 
 ```kotlin
 ```
 {src="snippets/_misc_client/PostMethodWithObject.kt"}
 
-You can learn more from the [](json-feature.md) help section.
+You can learn more from the [](json.md) help section.
 
 ### Form parameters {id="form_parameters"}
 The Ktor client provides the [submitForm](https://api.ktor.io/%ktor_version%/io.ktor.client.request.forms/submit-form.html) function for sending form parameters using both `x-www-form-urlencoded` and `multipart/form-data` types. In a code snippet below, this function accepts the following parameters:

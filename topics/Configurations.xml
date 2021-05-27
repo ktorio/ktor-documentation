@@ -164,7 +164,7 @@
                     <p>
                         <code>ktor.deployment.shutdown.url</code>:
                         A shutdown URL.
-                        Note that this option uses the <a href="shutdown-url.md"/> feature.
+                        Note that this option uses the <a href="shutdown-url.md"/> plugin.
                     </p>
                 </li>
                 <li>

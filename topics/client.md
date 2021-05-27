@@ -1,10 +1,10 @@
 [//]: # (title: Setting up a client)
 
-Ktor includes a multiplatform asynchronous HTTP client, which allows you to make requests and handle responses, extend its functionality with features, such as authentication, JSON serialization, and so on.
-In this topic, we'll take an overview of the client - from setting it up to making requests and installing features. 
+Ktor includes a multiplatform asynchronous HTTP client, which allows you to make requests and handle responses, extend its functionality with plugins (formerly known as features), such as authentication, JSON serialization, and so on.
+In this topic, we'll take an overview of the client - from setting it up to making requests and installing plugins. 
 
 ## Add dependencies {id="add-dependencies"}
-To use the Ktor HTTP client in your project, you need to add at least two dependencies: a client dependency and an [engine](http-client_engines.md) dependency. If you want to extend the client functionality with specific [features](http-client_features.md), you also need to add the appropriate dependencies.
+To use the Ktor HTTP client in your project, you need to add at least two dependencies: a client dependency and an [engine](http-client_engines.md) dependency. If you want to extend the client functionality with specific [plugins](http-client_plugins.md), you also need to add the appropriate dependencies.
 
 ### Client dependency {id="client-dependency"}
 The main client functionality is available in the `ktor-client-core` artifact. Depending on your build system, you can add it in the following way:
@@ -19,8 +19,8 @@ An engine is responsible for processing network requests. There are different cl
 
 For a full list of dependencies required for a specific engine, see [](http-client_engines.md#dependencies).
 
-### Feature dependency {id="feature-dependency"}
-If you want to use additional client features, you need to add a corresponding dependency. You can learn which dependencies you need from a topic for a required feature.
+### Plugin dependency {id="feature-dependency"}
+If you want to use additional client plugins, you need to add a corresponding dependency. You can learn which dependencies you need from a topic for a required plugin.
 
 
 
@@ -62,15 +62,15 @@ You can configure an engine using the `engine` function:
 
 See the [Engines](http-client_engines.md) section for additional details.
 
-### Features {id="features"}
+### Plugins {id="features"}
 
-Ktor lets you use additional client functionality (features) that is not available by default, for example, logging, authorization, or serialization. Most of them are provided in separate artifacts. For example, you can log HTTP calls by installing the [Logging](features_logging.md) feature:
+Ktor lets you use additional client functionality (plugins, formerly known as features) that is not available by default, for example, logging, authorization, or serialization. Most of them are provided in separate artifacts. For example, you can log HTTP calls by installing the [Logging](client_logging.md) plugin:
 
 ```kotlin
 ```
 {src="snippets/_misc_client/InstallLoggingFeature.kt"}
 
-You can also configure a feature inside the `install` block. For example, for the [Logging](features_logging.md) feature, you can specify the logger and logging level:
+You can also configure a plugin inside the `install` block. For example, for the [Logging](client_logging.md) plugin, you can specify the logger and logging level:
 ```kotlin
 ```
 {src="snippets/client-logging/src/main/kotlin/com/example/Application.kt" lines="12-17"}
@@ -121,7 +121,7 @@ All request functions (`request`, `get`, `post`, etc.) allow you to receive a re
 
 You can learn more from the [](response.md) topic.
 
-> With the [JSON feature](json-feature.md#receive_data) installed, you can deserialize JSON content into a custom data object.
+> With the [JSON plugin](json.md#receive_data) installed, you can deserialize JSON content into a custom data object.
 
 
 ## Close the HTTP client {id="close-client"}

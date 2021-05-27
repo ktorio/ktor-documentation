@@ -4,7 +4,7 @@ Ktor allows you to handle incoming [requests](requests.md) and send responses in
 
 Inside a route handler, the following API is available for working with responses:
 * A set of functions targeted for [sending a specific content type](#payload), for example, [call.respondText](https://api.ktor.io/%ktor_version%/io.ktor.response/respond-text.html), [call.respondHtml](https://api.ktor.io/%ktor_version%/io.ktor.html/respond-html.html), and so on. 
-* The [call.respond](https://api.ktor.io/%ktor_version%/io.ktor.response/respond.html) function that allows you to [send any data](#payload) inside a response. For example, with the enabled [ContentNegotiation](serialization.md) feature, you can send a data object serialized in a specific format.
+* The [call.respond](https://api.ktor.io/%ktor_version%/io.ktor.response/respond.html) function that allows you to [send any data](#payload) inside a response. For example, with the enabled [ContentNegotiation](serialization.md) plugin, you can send a data object serialized in a specific format.
 * The [call.response](https://api.ktor.io/%ktor_version%/io.ktor.application/-application-call/response.html) property that returns the [ApplicationResponse](https://api.ktor.io/%ktor_version%/io.ktor.response/-application-response/index.html) object providing access to [response parameters](#parameters) and allowing you to set a status code, add headers, and configure cookies.
 * The [call.respondRedirect](https://api.ktor.io/%ktor_version%/io.ktor.response/respond-redirect.html) provides the capability to add redirects.
 
@@ -44,7 +44,7 @@ You can learn more from the [](Working_with_views.md) help section.
 
 
 ### Object {id="object"}
-To enable serialization of data objects in Ktor, you need to install the [ContentNegotiation](serialization.md) feature and register a required converter (for example, JSON). Then, you can use the [call.respond](https://api.ktor.io/%ktor_version%/io.ktor.response/respond.html) function to pass a data object in a response:
+To enable serialization of data objects in Ktor, you need to install the [ContentNegotiation](serialization.md) plugin and register a required converter (for example, JSON). Then, you can use the [call.respond](https://api.ktor.io/%ktor_version%/io.ktor.response/respond.html) function to pass a data object in a response:
 
 ```kotlin
 post("/customer") {
@@ -84,7 +84,7 @@ get("/") {
 Note that functions for sending a [payload](#payload) have overloads for specifying a status code.
 
 ### Content type {id="content-type"}
-With the installed [ContentNegotiation](serialization.md) feature, Ktor chooses a content type for a [response](#payload) automatically. If required, you can specify a content type manually by passing a corresponding parameter. For example, the `call.respondText` function in a code snippet below accepts `ContentType.Text.Plain` as a parameter:
+With the installed [ContentNegotiation](serialization.md) plugin, Ktor chooses a content type for a [response](#payload) automatically. If required, you can specify a content type manually by passing a corresponding parameter. For example, the `call.respondText` function in a code snippet below accepts `ContentType.Text.Plain` as a parameter:
 ```kotlin
 get("/") {
     call.respondText("Hello, world!", ContentType.Text.Plain, HttpStatusCode.OK)
@@ -121,7 +121,7 @@ There are several ways to send specific headers in a response:
    }
    ```
 
-> To add the standard `Server` and `Date` headers into each response, install the [DefaultHeaders](default_headers.md) feature.
+> To add the standard `Server` and `Date` headers into each response, install the [DefaultHeaders](default_headers.md) plugin.
 >
 {type="tip"}
 

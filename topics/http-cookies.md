@@ -2,7 +2,7 @@
 
 <include src="lib.md" include-id="outdated_warning"/>
 
-This feature keeps cookies between calls or forces specific cookies.
+This plugin keeps cookies between calls or forces specific cookies.
 
 
 

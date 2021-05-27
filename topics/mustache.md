@@ -6,7 +6,7 @@
 <include src="lib.md" include-id="download_example"/>
 </microformat>
 
-Ktor allows you to use [Mustache templates](https://github.com/spullara/mustache.java) as views within your application by installing the [Mustache](https://api.ktor.io/%ktor_version%/io.ktor.mustache/-mustache/index.html) feature.
+Ktor allows you to use [Mustache templates](https://github.com/spullara/mustache.java) as views within your application by installing the [Mustache](https://api.ktor.io/%ktor_version%/io.ktor.mustache/-mustache/index.html) plugin.
 
 
 ## Add dependencies {id="add_dependencies"}

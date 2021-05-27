@@ -1,6 +1,6 @@
 [//]: # (title: Compression)
 
-Ktor provides the capability to compress outgoing content by using the [Compression](https://api.ktor.io/%ktor_version%/io.ktor.features/-compression/index.html) feature. You can use different compression algorithms, including `gzip` and `deflate`, 
+Ktor provides the capability to compress outgoing content by using the [Compression](https://api.ktor.io/%ktor_version%/io.ktor.features/-compression/index.html) plugin. You can use different compression algorithms, including `gzip` and `deflate`, 
 specify the required conditions for compressing data (such as a content type or response size), or even compress data based on specific request parameters.
 
 > To learn how to serve pre-compressed static files in Ktor, see [](Serving_Static_Content.md#precompressed).
@@ -52,7 +52,7 @@ install(Compression) {
 ```
 
 ### Configure response size {id="configure_response_size"}
-The `Compression` feature allows you to disable compression for responses whose size doesn't exceed the specified value. To do this, pass the desired value (in bytes) to the [minimumSize](https://api.ktor.io/%ktor_version%/io.ktor.features/minimum-size.html) function:
+The `Compression` plugin allows you to disable compression for responses whose size doesn't exceed the specified value. To do this, pass the desired value (in bytes) to the [minimumSize](https://api.ktor.io/%ktor_version%/io.ktor.features/minimum-size.html) function:
 ```kotlin
     install(Compression) {
         deflate {

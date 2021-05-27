@@ -2,7 +2,7 @@
 
 <include src="lib.md" include-id="outdated_warning"/>
 
-Ktor client supports authentication out of the box as a standard pluggable feature.
+Ktor client supports authentication out of the box as a plugin.
 
 ## Add dependencies {id="add_dependencies"}
 
@@ -39,7 +39,7 @@ val client = HttpClient() {
 }
 ```
 
-This feature implements the IETF's [RFC 7617](https://tools.ietf.org/html/rfc7617).
+This plugin implements the IETF's [RFC 7617](https://tools.ietf.org/html/rfc7617).
 
 ### Digest
 
@@ -59,7 +59,7 @@ val client = HttpClient() {
 }
 ```
 
-This feature implements the IETF's [RFC 2617](https://tools.ietf.org/html/rfc2617).
+This plugin implements the IETF's [RFC 2617](https://tools.ietf.org/html/rfc2617).
 
 ### Bearer
 

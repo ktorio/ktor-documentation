@@ -1,6 +1,6 @@
 [//]: # (title: Caching headers)
 
-The [CachingHeaders](https://api.ktor.io/%ktor_version%/io.ktor.features/-caching-headers/index.html) feature adds the capability to configure the `Cache-Control` and `Expires` headers used for HTTP caching. You can introduce different [caching strategies](#configure) for specific content types, such as images, CSS and JavaScript files, and so on.
+The [CachingHeaders](https://api.ktor.io/%ktor_version%/io.ktor.features/-caching-headers/index.html) plugin adds the capability to configure the `Cache-Control` and `Expires` headers used for HTTP caching. You can introduce different [caching strategies](#configure) for specific content types, such as images, CSS and JavaScript files, and so on.
 
 ## Install CachingHeaders {id="install_feature"}
 
@@ -10,7 +10,7 @@ The [CachingHeaders](https://api.ktor.io/%ktor_version%/io.ktor.features/-cachin
 After installing `CachingHeaders`, you can [configure](#configure) caching settings for various content types.
 
 ## Configure caching {id="configure"}
-To configure the `CachingHeaders` feature, you need to define the [options](https://api.ktor.io/%ktor_version%/io.ktor.features/-caching-headers/-configuration/options.html) function to provide specified caching options for a given content type. The code snippet below shows how to add the `Cache-Control` header with the `max-age` option for CSS:
+To configure the `CachingHeaders` plugin, you need to define the [options](https://api.ktor.io/%ktor_version%/io.ktor.features/-caching-headers/-configuration/options.html) function to provide specified caching options for a given content type. The code snippet below shows how to add the `Cache-Control` header with the `max-age` option for CSS:
 
 ```kotlin
 install(CachingHeaders) {

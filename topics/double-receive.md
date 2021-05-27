@@ -2,16 +2,16 @@
 
 <include src="lib.md" include-id="outdated_warning"/>
 
-`DoubleReceive` feature provides the ability to invoke `ApplicationCall.receive` several times with no `RequestAlreadyConsumedException` exception. This usually makes sense when a feature is consuming a request body
+`DoubleReceive` plugin provides the ability to invoke `ApplicationCall.receive` several times with no `RequestAlreadyConsumedException` exception. This usually makes sense when a plugin is consuming a request body
 so a handler is unable to receive it again.
 
->This feature is experimental including all options and behaviour. It is not guaranteed to work the same way in future releases.
+>This plugin is experimental including all options and behaviour. It is not guaranteed to work the same way in future releases.
 >
 {type="note"}
 
 ## Usage
 
-Install `DoubleReceive` feature into the ApplicationCall
+Install `DoubleReceive` plugin into the ApplicationCall
 
 ```kotlin
 install(DoubleReceive)
@@ -28,7 +28,7 @@ val theSame = call.receiveText()
 >
 {type="note"}
 
-Types that could be always received twice with this feature are: `ByteArray`, `String` and `Parameters` and all types provided by [ContentNegotiation](serialization.md) feature (for example, objects deserialized from JSON payloads).
+Types that could be always received twice with this plugin are: `ByteArray`, `String` and `Parameters` and all types provided by [ContentNegotiation](serialization.md) plugin (for example, objects deserialized from JSON payloads).
 
 Receiving different types from the same call is not guaranteed to work without `receiveEntireContent` but may work in some specific cases. For example, receiving a text after receiving a byte array always works.
 

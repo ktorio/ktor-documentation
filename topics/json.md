@@ -7,7 +7,7 @@
 
 [JsonFeature](https://api.ktor.io/%ktor_version%/io.ktor.client.features.json/-json-feature/index.html) can be used to serialize/deserialize JSON data when sending [requests](request.md) and receiving [responses](response.md). This functionality is provided for JVM by using the `Gson`/`Jackson` libraries and for [Kotlin Multiplatform](http-client_multiplatform.md) by using `kotlinx.serialization`.
 
-> On the server, Ktor provides the [ContentNegotiation](serialization.md) feature for serializing/deserializing content.
+> On the server, Ktor provides the [ContentNegotiation](serialization.md) plugin for serializing/deserializing content.
 
 
 ## Add dependencies {id="add_dependencies"}

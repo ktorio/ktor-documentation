@@ -1,7 +1,7 @@
 [//]: # (title: Micrometer metrics)
 [micrometer_jvm_metrics]: https://micrometer.io/docs/ref/jvm
 
-The [MicrometerMetrics](https://api.ktor.io/%ktor_version%/io.ktor.metrics.micrometer/-micrometer-metrics/index.html) feature enables [Micrometer](https://micrometer.io/docs) metrics in your Ktor server application and allows you to choose the required monitoring system, such as Prometheus, JMX, Elastic, and so on. By default, Ktor exposes metrics for monitoring HTTP requests and a set of low-level metrics for [monitoring the JVM][micrometer_jvm_metrics]. You can customize these metrics or create new ones.
+The [MicrometerMetrics](https://api.ktor.io/%ktor_version%/io.ktor.metrics.micrometer/-micrometer-metrics/index.html) plugin enables [Micrometer](https://micrometer.io/docs) metrics in your Ktor server application and allows you to choose the required monitoring system, such as Prometheus, JMX, Elastic, and so on. By default, Ktor exposes metrics for monitoring HTTP requests and a set of low-level metrics for [monitoring the JVM][micrometer_jvm_metrics]. You can customize these metrics or create new ones.
 
 ## Add dependencies {id="add_dependencies"}
 To enable `MicrometerMetrics`, you need to include the following artifacts in the build script:
@@ -48,7 +48,7 @@ fun Application.module() {
 
 ## Configure metrics {id="configure_metrics"}
 
-The `MicrometerMetrics` feature provides various configuration options that can be accessed using [MicrometerMetrics.Configuration](https://api.ktor.io/%ktor_version%/io.ktor.metrics.micrometer/-micrometer-metrics/-configuration/index.html).
+The `MicrometerMetrics` plugin provides various configuration options that can be accessed using [MicrometerMetrics.Configuration](https://api.ktor.io/%ktor_version%/io.ktor.metrics.micrometer/-micrometer-metrics/-configuration/index.html).
 
 ### Timers {id="timers"}
 To customize tags for each timer, you can use the `timers` function that is called for each request:

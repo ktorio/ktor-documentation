@@ -7,7 +7,7 @@
 <include src="lib.md" include-id="download_example"/>
 </microformat>
 
-Ktor allows you to use [Velocity templates](https://velocity.apache.org/engine/) as views within your application by installing the [Velocity](https://api.ktor.io/%ktor_version%/io.ktor.velocity/-velocity/index.html) feature.
+Ktor allows you to use [Velocity templates](https://velocity.apache.org/engine/) as views within your application by installing the [Velocity](https://api.ktor.io/%ktor_version%/io.ktor.velocity/-velocity/index.html) plugin.
 
 
 ## Add dependencies {id="add_dependencies"}

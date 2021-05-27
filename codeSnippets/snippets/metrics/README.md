@@ -1,6 +1,6 @@
 # Metrics
 
-A sample Ktor project demonstrating the [Metrics](https://ktor.io/docs/dropwizard-metrics.html) feature.
+A sample Ktor project demonstrating the [Metrics](https://ktor.io/docs/dropwizard-metrics.html) plugin.
 
 ## Running
 

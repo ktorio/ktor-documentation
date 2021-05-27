@@ -6,10 +6,10 @@
 </microformat>
 
 
-The `AutoHeadResponse` feature provides us with the ability to automatically respond to `HEAD` request for every route that has a `GET` defined.
+The `AutoHeadResponse` plugin provides us with the ability to automatically respond to `HEAD` request for every route that has a `GET` defined.
 
 ## Usage
-In order to take advantage of this functionality, we need to install the `AutoHeadResponse` feature in our application
+In order to take advantage of this functionality, we need to install the `AutoHeadResponse` plugin in our application
 
 
 ```kotlin
@@ -18,7 +18,7 @@ In order to take advantage of this functionality, we need to install the `AutoHe
 
 In our case the `/home` route will now respond to `HEAD` request even though there is no explicit definition for this verb.
 
-It's important to note that if we're using this feature, custom `HEAD` definitions for the same `GET` route will be ignored.
+It's important to note that if we're using this plugin, custom `HEAD` definitions for the same `GET` route will be ignored.
 
 
 ## Options

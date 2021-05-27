@@ -5,7 +5,7 @@
 <include src="lib.md" include-id="download_example"/>
 </microformat>
 
-Ktor client provides the capability to log HTTP calls using the `Logging` feature. This feature uses the [SLF4J](http://www.slf4j.org/) library for logging.
+Ktor client provides the capability to log HTTP calls using the `Logging` plugin. This plugin uses the [SLF4J](http://www.slf4j.org/) library for logging.
 
 
 ## Add dependencies {id="add_dependencies"}
@@ -30,7 +30,7 @@ val client = HttpClient(CIO) {
 ```
 
 ## Configure Logging {id="configure_feature"}
-The `Logging` feature allows you to configure the desired logger using the `logger` property and the level of logging using the `level` property:
+The `Logging` plugin allows you to configure the desired logger using the `logger` property and the level of logging using the `level` property:
 ```kotlin
 ```
 {src="/snippets/client-logging/src/main/kotlin/com/example/Application.kt"}

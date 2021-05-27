@@ -1,6 +1,6 @@
 [//]: # (title: Routing)
 
-Routing is the core Ktor [plugin](Plugins.md) for handling incoming requests in a server application. When the client makes a request to a specific URL (for example, `/hello`), the routing mechanism allows us to define how we want this request to be served. 
+Routing is the core Ktor [plugin](Plugins.md) (formerly known as feature) for handling incoming requests in a server application. When the client makes a request to a specific URL (for example, `/hello`), the routing mechanism allows us to define how we want this request to be served. 
 
 ## Install Routing {id="install_feature"}
 
@@ -72,7 +72,7 @@ In summary, you need to specify the following settings to define a route:
 
 A path pattern passed to the [routing](#define_route) functions (`route`, `get`, `post`, etc.) is used to match a _path_ component of the URL. A path can contain a sequence of path segments separated by a slash `/` character.
 
-> Note that Ktor distinguishes paths with and without a trailing slash. You can change this behaviour by [installing](Features.md#install) the `IgnoreTrailingSlash` feature.
+> Note that Ktor distinguishes paths with and without a trailing slash. You can change this behaviour by [installing](Plugins.md#install) the `IgnoreTrailingSlash` plugin.
 
 Below are several path examples:
 * `/hello`  

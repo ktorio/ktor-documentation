@@ -7,7 +7,7 @@
        id="getting_started_ktor_client">
 
     <p>
-        Ktor includes a multiplatform asynchronous HTTP client, which allows you to make requests and handle responses, extend its functionality with <a href="http-client_features.md">features</a>, such as authentication, JSON serialization, and so on.
+        Ktor includes a multiplatform asynchronous HTTP client, which allows you to make requests and handle responses, extend its functionality with <a href="http-client_plugins.md">plugins (formerly known as features)</a>, such as authentication, JSON serialization, and so on.
         In this tutorial, we'll create a simple client application for sending a request and receiving a response.
         We'll use IntelliJ IDEA to create the application.
     </p>

@@ -73,7 +73,7 @@ data class Listing(val name: String, val page: Int, val count: Int)
 {id="route-handlers"}
 
 Once you have [defined the classes](#route-classes) annotated with `@Location`,
-this feature artifact exposes new typed methods for defining route handlers:
+this plugin artifact exposes new typed methods for defining route handlers:
 `get`, `options`, `header`, `post`, `put`, `delete` and `patch`.
 
 ```kotlin

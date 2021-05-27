@@ -37,8 +37,8 @@ a generic servlet. It also contains a TestEngine for setting up application test
   * `ktor-client-cio`  adds support for a pure Kotlin Corutine based I/O asynchronous HttpClient
   * `ktor-client-jetty` adds support for [Jetty HTTP client](https://www.eclipse.org/jetty/javadoc/current/org/eclipse/jetty/http2/client/HTTP2Client.html)
   * `ktor-client-okhttp` adds support for [OkHttp](https://square.github.io/okhttp/) client backend.
-  * `ktor-client-auth-basic` adds support for [authentication](features_auth.md)
-  * `ktor-client-json` adds support for [json content negotiation](json-feature.md)
+  * `ktor-client-auth-basic` adds support for [authentication](auth.md)
+  * `ktor-client-json` adds support for [json content negotiation](json.md)
 * `ktor-network` includes [raw sockets](servers_raw-sockets.md) for client/server, and TCP/UDP
   * `ktor-network-tls` contains TLS support for raw sockets
  
