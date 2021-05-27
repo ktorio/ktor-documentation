@@ -1,6 +1,6 @@
 [//]: # (title: Proxy)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 Ktor HTTP client allows using proxy in multiplatform code. The following document describes how to configure a proxy in ktor.
 

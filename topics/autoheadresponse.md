@@ -2,7 +2,7 @@
 
 <microformat>
 <var name="example_name" value="autohead"/>
-<include src="lib.md" include-id="download_example"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
 

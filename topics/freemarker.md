@@ -3,7 +3,7 @@
 
 <microformat>
 <var name="example_name" value="freemarker"/>
-<include src="lib.md" include-id="download_example"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
 Ktor allows you to use [FreeMarker templates](https://freemarker.apache.org/) as views within your application by installing the [Freemarker](https://api.ktor.io/%ktor_version%/io.ktor.freemarker/-free-marker/index.html) feature.
@@ -12,13 +12,13 @@ Ktor allows you to use [FreeMarker templates](https://freemarker.apache.org/) as
 ## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="FreeMarker"/>
 <var name="artifact_name" value="ktor-freemarker"/>
-<include src="lib.md" include-id="add_ktor_artifact_intro"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Install FreeMarker {id="install_feature"}
 
 <var name="feature_name" value="FreeMarker"/>
-<include src="lib.md" include-id="install_feature"/>
+<include src="lib.xml" include-id="install_feature"/>
 
 Inside the `install` block, you can [configure](#configure) the desired [TemplateLoader][freemarker_template_loading] for loading FreeMarker templates.
 

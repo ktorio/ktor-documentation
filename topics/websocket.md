@@ -1,6 +1,6 @@
 [//]: # (title: Server WebSockets)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 This feature adds WebSockets support to Ktor.
 WebSockets are a mechanism to keep a bi-directional real-time ordered connection between
@@ -12,8 +12,8 @@ or a close or ping/pong message. Frames can be marked as incomplete or final.
 ## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="WebSockets"/>
 <var name="artifact_name" value="ktor-websockets"/>
-<include src="lib.md" include-id="add_ktor_artifact_intro"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 
 ## Install WebSockets {id="install_feature"}

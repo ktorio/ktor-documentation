@@ -1,6 +1,6 @@
 [//]: # (title: Application monitoring)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 On the server-side, in addition to handling requests, Ktor exposes a mechanism to produce and consume global events.
 

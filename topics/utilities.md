@@ -1,6 +1,6 @@
 [//]: # (title: Utilities)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 ## Handling URL-encoded properties {id="url-encoded"}
 

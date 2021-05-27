@@ -2,11 +2,11 @@
 
 <microformat>
 <var name="example_name" value="locations"/>
-<include src="lib.md" include-id="download_example"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 
 
@@ -21,14 +21,14 @@ constructing URLs and reading the parameters.
 ## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="Locations"/>
 <var name="artifact_name" value="ktor-locations"/>
-<include src="lib.md" include-id="add_ktor_artifact_intro"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 
 ## Install Locations {id="install_feature"}
 
 <var name="feature_name" value="Locations"/>
-<include src="lib.md" include-id="install_feature"/>
+<include src="lib.xml" include-id="install_feature"/>
 
 
 ## Define route classes

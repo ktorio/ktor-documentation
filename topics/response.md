@@ -1,6 +1,6 @@
 [//]: # (title: Receiving responses)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 ## Receiving the body of a response {id="receive"}
 

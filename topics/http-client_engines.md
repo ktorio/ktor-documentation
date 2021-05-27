@@ -42,7 +42,7 @@ In this section, we'll take a look on engines available for JVM/Android and thei
 The `Apache` engine supports HTTP/1.1 and provides multiple configuration options. To use it, follow the steps below:
 1. Add the `ktor-client-apache` dependency:
    <var name="artifact_name" value="ktor-client-apache"/>
-   <include src="lib.md" include-id="add_ktor_artifact"/>
+   <include src="lib.xml" include-id="add_ktor_artifact"/>
 1. Pass the [Apache](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.apache/-apache/index.html) class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
@@ -57,7 +57,7 @@ The `Apache` engine supports HTTP/1.1 and provides multiple configuration option
 The `Java` engine uses the [Java HTTP Client](https://openjdk.java.net/groups/net/httpclient/intro.html) introduced in Java 11. To use it, follow the steps below:
 1. Add the `ktor-client-java` dependency:
    <var name="artifact_name" value="ktor-client-java"/>
-   <include src="lib.md" include-id="add_ktor_artifact"/>
+   <include src="lib.xml" include-id="add_ktor_artifact"/>
 1. Pass the [Java](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.java/-java/index.html) class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
@@ -71,7 +71,7 @@ The `Java` engine uses the [Java HTTP Client](https://openjdk.java.net/groups/ne
 The `Jetty` engine supports only HTTP/2 and can be configured in the following way:
 1. Add the `ktor-client-jetty` dependency:
    <var name="artifact_name" value="ktor-client-jetty"/>
-   <include src="lib.md" include-id="add_ktor_artifact"/>
+   <include src="lib.xml" include-id="add_ktor_artifact"/>
 1. Pass the [Jetty](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.jetty/-jetty/index.html) class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
@@ -85,7 +85,7 @@ The `Jetty` engine supports only HTTP/2 and can be configured in the following w
 CIO is a fully asynchronous coroutine-based engine that can be used for both JVM and Android platforms. It supports only HTTP/1.x for now. To use it, follow the steps below:
 1. Add the `ktor-client-cio` dependency:
    <var name="artifact_name" value="ktor-client-cio"/>
-   <include src="lib.md" include-id="add_ktor_artifact"/>
+   <include src="lib.xml" include-id="add_ktor_artifact"/>
 1. Pass the [CIO](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.cio/-c-i-o/index.html) class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
@@ -100,7 +100,7 @@ CIO is a fully asynchronous coroutine-based engine that can be used for both JVM
 The `Android` engine targets Android and can be configured in the following way:
 1. Add the `ktor-client-android` dependency:
    <var name="artifact_name" value="ktor-client-android"/>
-   <include src="lib.md" include-id="add_ktor_artifact"/>
+   <include src="lib.xml" include-id="add_ktor_artifact"/>
 1. Pass the [Android](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.android/-android/index.html) class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
@@ -114,7 +114,7 @@ The `Android` engine targets Android and can be configured in the following way:
 The `OkHttp` engine is based on OkHttp can be configured in the following way:
 1. Add the `ktor-client-okhttp` dependency:
    <var name="artifact_name" value="ktor-client-okhttp"/>
-   <include src="lib.md" include-id="add_ktor_artifact"/>
+   <include src="lib.xml" include-id="add_ktor_artifact"/>
 1. Pass the [OkHttp](https://api.ktor.io/%ktor_version%/io.ktor.client.engine.okhttp/-ok-http/index.html) class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
@@ -131,7 +131,7 @@ The `Js` engine can be used for [JavaScript projects](https://kotlinlang.org/doc
 
 1. Add the `ktor-client-js` dependency:
    <var name="artifact_name" value="ktor-client-js"/>
-   <include src="lib.md" include-id="add_ktor_artifact"/>
+   <include src="lib.xml" include-id="add_ktor_artifact"/>
 1. Pass the `Js` class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
@@ -153,7 +153,7 @@ The `iOS` engine targets iOS and uses [NSURLSession](https://developer.apple.com
 
 1. Add the `ktor-client-ios` dependency:
    <var name="artifact_name" value="ktor-client-ios"/>
-   <include src="lib.md" include-id="add_ktor_artifact"/>
+   <include src="lib.xml" include-id="add_ktor_artifact"/>
 1. Pass the `Ios` class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
@@ -171,7 +171,7 @@ For desktop platforms, Ktor provides the `Curl` engine. This engine is supported
 1. Install the [curl library](https://curl.se/download.html).
 1. Add the `ktor-client-curl` dependency:
    <var name="artifact_name" value="ktor-client-curl"/>
-   <include src="lib.md" include-id="add_ktor_artifact"/>
+   <include src="lib.xml" include-id="add_ktor_artifact"/>
 1. Pass the `Curl` class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```

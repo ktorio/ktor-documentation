@@ -1,6 +1,6 @@
 [//]: # (title: Maven)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 In this guide, we will show you how to create a Maven `pom.xml` file
 and how to configure it to support Ktor.

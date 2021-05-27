@@ -1,6 +1,6 @@
 [//]: # (title: First App)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 In this tutorial you will learn how to create a simple self-hosted Ktor server application that responds to HTTP requests with `Hello, World!`.
 Ktor applications can be built using common build systems such as [Maven](Maven.md) or [Gradle](Gradle.md).

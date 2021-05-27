@@ -8,7 +8,7 @@ specify the required conditions for compressing data (such as a content type or 
 ## Install Compression {id="install_feature"}
 
 <var name="feature_name" value="Compression"/>
-<include src="lib.md" include-id="install_feature"/>
+<include src="lib.xml" include-id="install_feature"/>
 
 This enables the `gzip`, `deflate`, and `identity` encoders on a server. In the next chapter, we'll see how to enable only specific encoders and configure conditions for compressing data.
 

@@ -1,6 +1,6 @@
 [//]: # (title: Client)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 In addition to HTTP serving, Ktor also includes a flexible asynchronous HTTP client.
 This client supports several [configurable engines](http-client_engines.md), and has its own set of [features](http-client_features.md).

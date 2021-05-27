@@ -1,10 +1,10 @@
 [//]: # (title: Google App Engine)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 <microformat>
 <var name="example_name" value="google-appengine-standard"/>
-<include src="lib.md" include-id="download_example"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
 

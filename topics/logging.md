@@ -8,7 +8,7 @@ To enable logging, you need to include [Logback](https://logback.qos.ch/) artifa
 <var name="group_id" value="ch.qos.logback"/>
 <var name="artifact_name" value="logback-classic"/>
 <var name="version" value="logback_version"/>
-<include src="lib.md" include-id="add_artifact"/>
+<include src="lib.xml" include-id="add_artifact"/>
 
 
 ## Access the logger {id="access_logger"}
@@ -29,7 +29,7 @@ You can also get access to the Logger using [Application.log](https://api.ktor.i
 <var name="feature_name" value="CallLogging"/>
 
 The `%feature_name%` feature allows you to log incoming client requests.
-<include src="lib.md" include-id="install_feature"/>
+<include src="lib.xml" include-id="install_feature"/>
 
 You can configure `%feature_name%` in multiple ways: specify a logging level, filter requests based on a specified condition, customize log messages, and so on. You can see the available configuration settings at [CallLogging.Configuration](https://api.ktor.io/%ktor_version%/io.ktor.features/-call-logging/-configuration/index.html).
 

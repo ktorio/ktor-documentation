@@ -1,6 +1,6 @@
 [//]: # (title: Basic and form)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 <microformat>
 <p>Code examples:</p>
@@ -12,7 +12,7 @@
 ## Add dependencies {id="add_dependencies"}
 To enable `basic` and `form` authentication, you need to include the `ktor-auth` artifact in the build script:
 <var name="artifact_name" value="ktor-auth"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Usage {id="usage"}
 

@@ -6,7 +6,7 @@ Code examples: <a href="samples.md" anchor="authentication">Authentication</a>
 </p>
 </microformat>
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 
 Ktor supports authentication out of the box as a standard pluggable feature.
@@ -19,7 +19,7 @@ to keep the login information between requests.
 To enable authentication, you need to include the `ktor-auth` artifact in the build script:
 
 <var name="artifact_name" value="ktor-auth"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 Note that some authentication features (for example [JWT/JWK](jwt.md) and [LDAP](ldap.md)) might require additional artifacts.
 

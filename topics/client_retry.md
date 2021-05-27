@@ -8,7 +8,7 @@ Ktor provides the `Retry` feature that performs retry action on I/O errors and u
 ## Add dependencies {id="add_dependencies"}
 To use the `Retry` feature, you need to include the `ktor-client-retry` artifact in the build script:
 <var name="artifact_name" value="ktor-client-retry"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 
 ## Install and Configure Retry {id="configure_retry"}

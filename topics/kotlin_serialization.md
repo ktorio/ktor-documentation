@@ -9,7 +9,7 @@ Before registering a required converter, perform the following steps:
 1. Add the Kotlin serialization plugin, as described in the [Setup](https://github.com/Kotlin/kotlinx.serialization#setup) section.
 1. Include the following artifacts in the build script: 
     <var name="artifact_name" value="ktor-serialization"/>
-    <include src="lib.md" include-id="add_ktor_artifact"/>
+    <include src="lib.xml" include-id="add_ktor_artifact"/>
    
     This will be enough for converting JSON. 
 1. (Optional) To convert other formats (for example, CBOR or ProtoBuf), you need to include a corresponding artifact. Learn more from the [Formats](https://kotlinlang.org/docs/serialization.html#formats) section.

@@ -1,6 +1,6 @@
 [//]: # (title: Building Ktor)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 Ktor is an OpenSource project hosted at GitHub:
 <https://github.com/ktorio/ktor>
