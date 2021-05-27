@@ -1,6 +1,6 @@
 [//]: # (title: Environments)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 You might want to do different things depending on whether your server is running locally or on your
 production machine.

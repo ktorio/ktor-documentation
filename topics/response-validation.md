@@ -1,6 +1,6 @@
 [//]: # (title: Response validation)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 This feature allows validating HTTP response and handle transformation exceptions from engine and pipelines.
 

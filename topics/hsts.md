@@ -1,6 +1,6 @@
 [//]: # (title: HSTS)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 This feature will add the required _HTTP Strict Transport Security_ headers to the request according to the [RFC 6797](https://tools.ietf.org/html/rfc6797).
 

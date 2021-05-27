@@ -1,6 +1,6 @@
 [//]: # (title: CallId)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 The CallId feature allows to identify a request/call and can work along the [CallLogging](logging.md#call_logging) feature.
 

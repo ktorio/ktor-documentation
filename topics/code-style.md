@@ -1,6 +1,6 @@
 [//]: # (title: Code style)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 ## Official code convention
 

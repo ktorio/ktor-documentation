@@ -1,6 +1,6 @@
 [//]: # (title: HttpsRedirect)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 This feature will make all the affected HTTP calls perform a redirect to its
 HTTPS counterpart before processing the call.

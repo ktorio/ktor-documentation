@@ -1,6 +1,6 @@
 [//]: # (title: Modules)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 A Ktor Application consists of a series of one or more modules, each of which can house any kind of functionality. 
 

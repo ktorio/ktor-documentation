@@ -1,6 +1,6 @@
 [//]: # (title: Website)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 In this guide you will learn how to create an HTML Website using Ktor.
 We are going to create a simple website with HTML rendered at the back-end with users, a login form,

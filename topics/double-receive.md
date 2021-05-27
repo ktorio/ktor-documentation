@@ -1,6 +1,6 @@
 [//]: # (title: DoubleReceive)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 `DoubleReceive` feature provides the ability to invoke `ApplicationCall.receive` several times with no `RequestAlreadyConsumedException` exception. This usually makes sense when a feature is consuming a request body
 so a handler is unable to receive it again.

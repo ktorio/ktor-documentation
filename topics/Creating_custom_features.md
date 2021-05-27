@@ -2,10 +2,10 @@
 
 <microformat>
 <var name="example_name" value="custom-feature"/>
-<include src="lib.md" include-id="download_example"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 You can develop your own features and reuse them across all your Ktor applications, or you can share them with the community.
 A typical feature has the following structure:

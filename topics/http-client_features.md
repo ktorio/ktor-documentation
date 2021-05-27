@@ -1,6 +1,6 @@
 [//]: # (title: Features)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 Similar to the server, Ktor supports features on the client. And it has the same design:
 there is a pipeline for client HTTP requests, and there are interceptors and installable features.

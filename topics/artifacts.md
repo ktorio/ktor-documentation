@@ -1,6 +1,6 @@
 [//]: # (title: Artifacts)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 Ktor is divided into modules to allow fine-grained inclusion of dependencies based on the functionality required. 
 The typical Ktor application would require `ktor-server-core` and a corresponding engine depending on whether it's self-hosted

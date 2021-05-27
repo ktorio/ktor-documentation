@@ -1,6 +1,6 @@
 [//]: # (title: ForwardedHeaderSupport)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 This feature allows you to handle reverse proxy headers to get information about the original
 request when it's behind a proxy.
