@@ -52,8 +52,8 @@ function which takes a Plugin as a parameter. Depending on the way you used to [
 import io.ktor.features.*
 // ...
 fun Application.main() {
-    install(Routing)
-    install(Encoding)
+    install(CORS)
+    install(Compression)
     // ...
 }
 ```
@@ -64,8 +64,8 @@ fun Application.main() {
 import io.ktor.features.*
 // ...
 fun Application.module() {
-    install(Routing)
-    install(Encoding)
+    install(CORS)
+    install(Compression)
     // ...
 }
 ```
