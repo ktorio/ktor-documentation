@@ -13,38 +13,6 @@ HTML DSL doesn't need [installation](Features.md#install) but requires the `ktor
 
 <var name="artifact_name" value="ktor-html-builder"/>
 <include src="lib.md" include-id="add_ktor_artifact"/>
-
-Note that this artifact depends on `kotlinx-html-jvm`, which is placed on a [Space Packages](https://www.jetbrains.com/help/space/packages.html) repository:
-
-<tabs>
-<tab title="Gradle (Groovy)">
-<code style="block" lang="Groovy" title="Sample">
-repositories {
-    maven { url "https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven" }
-}
-</code>
-</tab>
-<tab title="Gradle (Kotlin)">
-<code style="block" lang="Kotlin" title="Sample">
-repositories {
-    maven { url = uri("https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven") }
-}
-</code>
-</tab>
-<tab title="Maven">
-<code style="block" lang="XML" title="Sample" interpolate-variables="true">
-<![CDATA[
-    <repositories>
-        <repository>
-            <id>kotlinx-html</id>
-            <url>https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven</url>
-        </repository>
-    </repositories>
-]]>
-</code>
-</tab>
-</tabs>
-
   
 
 ## Send HTML in response {id="html_response"}
