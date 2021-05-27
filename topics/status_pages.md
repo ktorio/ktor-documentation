@@ -2,8 +2,8 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-The `StatusPages` feature allows Ktor applications to respond appropriately to any failure state.
-This feature is installed using the standard application configuration:
+The `StatusPages` plugin (previously known as feature) allows Ktor applications to respond appropriately to any failure state.
+This plugin is installed using the standard application configuration:
 
 ```kotlin
 fun Application.main() {
@@ -134,7 +134,7 @@ routing {
 
 Other frameworks, use exceptions on redirect, so the normal flow is broken and you can execute redirections in guard
 clauses or subfunctions without having to worry about returning in all the subfunction chain. You can use the StatusPages
-feature to simulate this:
+plugin to simulate this:
 
 ```kotlin
 fun Application.module() {

@@ -5,7 +5,7 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-Ktor allows you to use [Thymeleaf templates](https://www.thymeleaf.org/) as views within your application by installing the [Thymeleaf](https://api.ktor.io/%ktor_version%/io.ktor.thymeleaf/-thymeleaf/index.html) feature.
+Ktor allows you to use [Thymeleaf templates](https://www.thymeleaf.org/) as views within your application by installing the [Thymeleaf](https://api.ktor.io/%ktor_version%/io.ktor.thymeleaf/-thymeleaf/index.html) plugin (previously known as feature).
 
 
 ## Add dependencies {id="add_dependencies"}

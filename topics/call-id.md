@@ -2,7 +2,7 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-The CallId feature allows to identify a request/call and can work along the [CallLogging](logging.md#call_logging) feature.
+The CallId plugin (previously known as feature) allows to identify a request/call and can work along the [CallLogging](logging.md#call_logging) plugin.
 
 ## Generating Call IDs 
 
@@ -41,7 +41,7 @@ install(CallId) {
 ## Extending [CallLogging](logging.md#call_logging)
 {id="call-logging-interop"}
 
-The CallId feature includes a `callIdMdc` extension method to be used when configuring the CallLogging.
+The CallId plugin includes a `callIdMdc` extension method to be used when configuring the CallLogging.
 It allows to associate the `callId` to the specified key to be put in the MDC context. 
 
 ```kotlin

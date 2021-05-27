@@ -2,7 +2,7 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-This feature adds WebSockets support to Ktor.
+This plugin adds WebSockets support to Ktor.
 WebSockets are a mechanism to keep a bi-directional real-time ordered connection between
 the server and the client.
 Each message from this channel is called Frame: a frame can be a text or binary message,
@@ -25,7 +25,7 @@ In order to use the WebSockets functionality you first have to install it:
 install(WebSockets)
 ```
 
-If required, you can adjust parameters during the installation of the feature:
+If required, you can adjust parameters during the installation of the plugin:
 
 ```kotlin
 install(WebSockets) {
@@ -43,7 +43,7 @@ install(WebSockets) {
 ## Usage
 {id="usage"}
 
-Once installed, you can define the `webSocket` routes for the [routing](Routing_in_Ktor.md) feature:
+Once installed, you can define the `webSocket` routes for the [routing](Routing_in_Ktor.md) plugin:
 
 Instead of the short-lived normal route handlers, webSocket handlers are meant to be long-lived.
 And all the relevant WebSocket methods are suspended so that the function will be suspended in
@@ -121,7 +121,7 @@ interface WebSocketSession {
     // List of WebSocket extensions negotiated for the current session
     val extensions: List<WebSocketExtension<*>>
 
-    // Modifiable properties for this request. Their initial value comes from the feature configuration.
+    // Modifiable properties for this request. Their initial value comes from the plugin configuration.
     var pingInterval: Duration?
     var timeout: Duration
     var masking: Boolean // Enable or disable masking output messages by a random xor mask.

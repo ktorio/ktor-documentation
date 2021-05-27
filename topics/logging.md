@@ -1,6 +1,6 @@
 [//]: # (title: Logging)
 
-Ktor provides the capability to log application events using the [SLF4J](http://www.slf4j.org/) library. You can also install and configure the `CallLogging` feature to log client requests.
+Ktor provides the capability to log application events using the [SLF4J](http://www.slf4j.org/) library. You can also install and configure the `CallLogging` plugin to log client requests.
 
 ## Add dependencies {id="add_dependencies"}
 To enable logging, you need to include [Logback](https://logback.qos.ch/) artifacts in the build script:
@@ -62,7 +62,7 @@ By using the `format` function, you can put any data related to a request into a
 
 
 ### Put call parameters in MDC {id="mdc"}
-The `%feature_name%` feature supports MDC (Mapped Diagnostic Context). You can put a desired context value with the specified name to MDC using the `mdc` function. For example, in the code snippet below, a `name` query parameter is added to MDC:
+The `%feature_name%` plugin supports MDC (Mapped Diagnostic Context). You can put a desired context value with the specified name to MDC using the `mdc` function. For example, in the code snippet below, a `name` query parameter is added to MDC:
 
 ```kotlin
 install(CallLogging) {

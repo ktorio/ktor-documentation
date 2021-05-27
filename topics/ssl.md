@@ -329,7 +329,7 @@ You can find more information about [how to deploy a docker and the Dockerfile](
 [Let's Encrypt companion] <-> [Nginx]
 ```
 
-### The XForwardedHeaderSupport feature
+### The XForwardedHeaderSupport plugin
 
 In this case you are using nginx acting as reverse-proxy for your requests. If you want to get information about the original requests,
-instead of the proxied nginx request, you will have to use the [XForwardedHeaderSupport](forward-headers.md) feature.
+instead of the proxied nginx request, you will have to use the [XForwardedHeaderSupport](forward-headers.md) plugin.

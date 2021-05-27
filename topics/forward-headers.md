@@ -2,13 +2,12 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-This feature allows you to handle reverse proxy headers to get information about the original
-request when it's behind a proxy.
+The `ForwardedHeaderSupport` plugin (previously known as feature) allows you to handle reverse proxy headers to get information about the original request when it's behind a proxy.
 
 * `ForwardedHeaderSupport` handles the standard `Forwarded` header ([RFC 7239](https://tools.ietf.org/html/rfc7239))
 * `XForwardedHeaderSupport` handles the non-standard (but standard de-facto) `X-Forwarded-Host`/`X-Forwarded-Server`, `X-Forwarded-For`, `X-Forwarded-By`, `X-Forwarded-Proto`/`X-Forwarded-Protocol` and `X-Forwarded-SSL`/`Front-End-Https`
 
->Only install these features if you have a reverse proxy supporting these headers serving your requests.
+>Only install these plugins if you have a reverse proxy supporting these headers serving your requests.
 >In other cases, a client will be able to manipulate these headers.
 >
 {type="note"}
@@ -17,7 +16,7 @@ request when it's behind a proxy.
 
 ## Usage
 
-These features don't require any special configuration.
+These plugins don't require any special configuration.
 You can install any of the two depending on your reverse proxy,
 but since the standard is the `Forwarded` header, you should
 favor it whenever possible.

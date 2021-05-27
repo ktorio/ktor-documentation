@@ -2,13 +2,13 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-This feature allows you to configure some defaults for all the requests for a specific client.
+This plugin (previously known as feature) allows you to configure some defaults for all the requests for a specific client.
 
 
 
 ## Installation
 
-When configuring the client, there is an extension method provided by this feature to set some defaults for this client.
+When configuring the client, there is an extension method provided by this plugin to set some defaults for this client.
 For example, if you want to add a header to all the requests, or configure the host, port, and method or just set the path.
 
 ```kotlin
@@ -56,7 +56,7 @@ fun main(args: Array<String>) = runBlocking {
             }
         }
 
-        // Configure default request feature.
+        // Configure default request plugin.
         defaultRequest {
             method = HttpMethod.Head
             host = "127.0.0.1"

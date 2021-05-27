@@ -80,12 +80,12 @@ the logic implementing an IETF RFC or another protocol without relying on extern
 {id="proxy-ip"}
 
 > The property `call.request.origin` gives connection information about the original caller (the proxy)
-> if the proxy provides proper headers, and the feature `XForwardedHeaderSupport` is installed.
+> if the proxy provides proper headers, and the plugin `XForwardedHeaderSupport` is installed.
 
 ## I get the error 'java.lang.IllegalStateException: No instance for key AttributeKey: Locations'
 {id="no-attribute-key-locations"}
 
-> You get this error if you try to use the [Locations](features_locations.md) feature without actually installing it. 
+> You get this error if you try to use the [Locations](locations.md) plugin without actually installing it. 
 
 ## How can I test the latest commits on main?
 {id="bleeding-edge"}
@@ -98,7 +98,7 @@ or to upload your artifacts to your own artifactory.
 ## How can I be sure of which version of Ktor am I using?
 {id="ktor-version-used"}
 
-You can use the [`DefaultHeaders` feature](default_headers.md) that will send a
+You can use the [`DefaultHeaders` plugin](default_headers.md) that will send a
 Server header with the Ktor version on it.
 Something similar to `Server: ktor-server-core/1.0.0 ktor-server-core/1.0.0` should be sent as part of the response headers.
 
@@ -128,14 +128,14 @@ Something similar to `Server: ktor-server-core/1.0.0 ktor-server-core/1.0.0` sho
 ## My route is not being executed, how can I debug it?
 {id="route-not-executing"}
 
-Ktor provides a tracing mechanism for the routing feature to help troubleshooting
+Ktor provides a tracing mechanism for the routing plugin to help troubleshooting
 routing decisions. Check the [Tracing the routing decisions](tracing_routes.md) section in the Routing page.
 
 ## I get a `io.ktor.pipeline.InvalidPhaseException: Phase Phase('YourPhase') was not registered for this pipeline`.
 {id="invalid-phase"}
 
 This means that you are trying to use a phase that is not registered as a reference for another phase.
-This might happen for example in the Routing feature if you try to register a phase relation inside a node,
+This might happen for example in the Routing plugin if you try to register a phase relation inside a node,
 but the phase referenced is defined in another ancestor Route node. Since route phases and interceptors are later
 merged, it should work, but you need to register it in your Route node:
 
@@ -147,7 +147,7 @@ route.insertPhaseAfter(PhaseDefinedInAncestor, MyNodePhase)
 ## I get a `io.ktor.server.engine.BaseApplicationResponse$ResponseAlreadySentException: Response has already been sent`
 {id="response-already-sent"}
 
-This means that you, or a feature or interceptor, have already called `call.respond*` functions and you are calling it
+This means that you, or a plugin or interceptor, have already called `call.respond*` functions and you are calling it
 again.
 
 ## How can I subscribe to Ktor events?
@@ -204,21 +204,21 @@ routing {
 }
 ```
 
-Ktor can automatically handle `HEAD` requests, but requires you to first install the [`AutoHeadResponse` feature](autoheadresponse.md).
+Ktor can automatically handle `HEAD` requests, but requires you to first install the [`AutoHeadResponse` plugin](autoheadresponse.md).
 
 ```kotlin
 install(AutoHeadResponse) 
 ```
 
-## I get an infinite redirect when using the `HttpsRedirect` feature
+## I get an infinite redirect when using the `HttpsRedirect` plugin
 {id="infinite-redirect"}
 
 The most probable cause is that your backend is behind a reverse-proxy or a load balancer, and that this intermediary
-is making normal HTTP requests to your backend, thus the HttpsRedirect feature inside your Ktor backend believes
+is making normal HTTP requests to your backend, thus the HttpsRedirect plugin inside your Ktor backend believes
 that it is a normal HTTP request and responds with the redirect.
 
 Normally, reverse-proxies send some headers describing the original request (like it was HTTPS, or the original IP address),
-and there is a feature [`XForwardedHeaderSupport`](forward-headers.md)
-to parse those headers so the [`HttpsRedirect`](https-redirect.md) feature knows that the original request was HTTPS.
+and there is a plugin [`XForwardedHeaderSupport`](forward-headers.md)
+to parse those headers so the [`HttpsRedirect`](https-redirect.md) plugin knows that the original request was HTTPS.
 
 

@@ -154,7 +154,7 @@ val Call = PipelinePhase("Call") // Phase for processing a call and sending a re
 val Fallback = PipelinePhase("Fallback") // Phase for handling unprocessed calls
 ```
 
-## [Features](Features.md)
+## [Features](Plugins.md)
 
 Ktor defines application features using the [`ApplicationFeature`](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-core/jvm/src/io/ktor/application/ApplicationFeature.kt) class.
 A feature is something that you can `install` to a specific pipeline.

@@ -105,10 +105,10 @@ withTestApplication({
 })
 ```
 
-## HttpsRedirect feature
+## HttpsRedirect plugin
 
 The HttpsRedirect changes how testing is performed.
-Check the [testing section of the HttpsRedirect feature](https-redirect.md) for more information.
+Check the [testing section of the HttpsRedirect plugin](https-redirect.md) for more information.
 
 ## Testing several requests preserving sessions/cookies
 {id="preserving-cookies"}

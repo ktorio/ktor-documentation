@@ -4,7 +4,7 @@
 
 Requires reading first [Advanced Pipeline](Pipelines.md).
 
-`Authentication` feature creates an `AuthenticationPipeline` which is executed right after the `Features` phase
+`Authentication` plugin creates an `AuthenticationPipeline` which is executed right after the `Features` phase
 in the call pipeline. All authentication protocols such as basic, digest, oauth are implemented as interceptors on `AuthenticationPipeline`.
 
 ## Phases

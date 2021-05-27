@@ -27,7 +27,7 @@ a generic servlet. It also contains a TestEngine for setting up application test
   * `ktor-gson` integrates with [Gson](gson.md) adding JSON content negotiation
   * `ktor-jackson` integrates with [Jackson](jackson.md) adding JSON content negotiation
   * `ktor-html-builder` integrates Ktor with [kotlinx.html builders](kotlin_serialization.md)
-  * `ktor-locations` contains experimental support for [typed locations](features_locations.md)
+  * `ktor-locations` contains experimental support for [typed locations](locations.md)
   * `ktor-metrics` adds the ability to add some [metrics](dropwizard_metrics.md) to the server
   * `ktor-server-sessions` adds the ability to use [stateful sessions stored on a server](sessions.md)
   * `ktor-websockets` provides support for [Websockets](websocket.md)
@@ -37,8 +37,8 @@ a generic servlet. It also contains a TestEngine for setting up application test
   * `ktor-client-cio`  adds support for a pure Kotlin Corutine based I/O asynchronous HttpClient
   * `ktor-client-jetty` adds support for [Jetty HTTP client](https://www.eclipse.org/jetty/javadoc/current/org/eclipse/jetty/http2/client/HTTP2Client.html)
   * `ktor-client-okhttp` adds support for [OkHttp](https://square.github.io/okhttp/) client backend.
-  * `ktor-client-auth-basic` adds support for [authentication](features_auth.md)
-  * `ktor-client-json` adds support for [json content negotiation](json-feature.md)
+  * `ktor-client-auth-basic` adds support for [authentication](auth.md)
+  * `ktor-client-json` adds support for [json content negotiation](json.md)
 * `ktor-network` includes [raw sockets](servers_raw-sockets.md) for client/server, and TCP/UDP
   * `ktor-network-tls` contains TLS support for raw sockets
  

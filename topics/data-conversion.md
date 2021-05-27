@@ -2,11 +2,11 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-`DataConversion` is a feature that allows to serialize and deserialize a list of values.
+`DataConversion` is a plugin (previously known as feature) that allows to serialize and deserialize a list of values.
 
 By default, it handles primitive types and enums, but it can also be configured to handle additional types. 
 
-If you are using the [Locations feature](features_locations.md) and want to support
+If you are using the [Locations plugin](locations.md) and want to support
 custom types as part of its parameters, you can add new custom converters with this
 service.
 

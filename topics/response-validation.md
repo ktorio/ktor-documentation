@@ -2,13 +2,13 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-This feature allows validating HTTP response and handle transformation exceptions from engine and pipelines.
+This plugin (previously known as feature) allows validating HTTP response and handle transformation exceptions from engine and pipelines.
 
 
 
 ## Configuration
 
-To configure response validation feature use `validateResponse` and `handleResponseException` methods:
+To configure response validation plugin, use `validateResponse` and `handleResponseException` methods:
 
 ```kotlin
 HttpResponseValidator {
@@ -22,11 +22,11 @@ HttpResponseValidator {
 }
 ```
 
-This feature could be configured multiple times; all validators and handlers are saved and called in order of install.
+This plugin could be configured multiple times; all validators and handlers are saved and called in order of install.
 
 ## Expect success
 
-The `ExpectSuccess` feature implemented using response validation:
+The `ExpectSuccess` plugin implemented using response validation:
 
 ```kotlin
 HttpResponseValidator {
@@ -45,7 +45,7 @@ HttpResponseValidator {
 }
 ```
 
-The feature is installed by default, but could be disabled in the client configuration:
+The plugin is installed by default, but could be disabled in the client configuration:
 
 ```kotlin
 val client = HttpClient() {

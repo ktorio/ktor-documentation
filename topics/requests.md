@@ -26,7 +26,7 @@ The [ApplicationRequest](https://api.ktor.io/%ktor_version%/io.ktor.request/-app
 * Connection details  
   Use the [ApplicationRequest.local](https://api.ktor.io/%ktor_version%/io.ktor.request/-application-request/local.html) property to get access to connection details such as a host name, port, scheme, and so on.
 * `X-Forwarded-` headers  
-  To get information about a request passed through an HTTP proxy or a load balancer, install the [](forward-headers.md) feature and use the [ApplicationRequest.origin](https://api.ktor.io/%ktor_version%/io.ktor.features/origin.html) property.
+  To get information about a request passed through an HTTP proxy or a load balancer, install the [](forward-headers.md) plugin and use the [ApplicationRequest.origin](https://api.ktor.io/%ktor_version%/io.ktor.features/origin.html) property.
 
 
 ## Route parameters {id="route_parameters"}
@@ -51,7 +51,7 @@ You can also obtain the entire query string using the [ApplicationRequest.queryS
 This section shows how to receive body contents sent with `POST`, `PUT`, or `PATCH`:
 
 ### Objects {id="objects"}
-Ktor provides a [ContentNegotiation](serialization.md) feature to negotiate the media type of request and deserialize content to an object of a required type. To receive and convert content for a request, call the [receive](https://api.ktor.io/%ktor_version%/io.ktor.request/receive.html) method that accepts a data class as a parameter: 
+Ktor provides a [ContentNegotiation](serialization.md) plugin to negotiate the media type of request and deserialize content to an object of a required type. To receive and convert content for a request, call the [receive](https://api.ktor.io/%ktor_version%/io.ktor.request/receive.html) method that accepts a data class as a parameter: 
 ```kotlin
 ```
 {src="snippets/_misc/SerializationReceiveObject.kt"}

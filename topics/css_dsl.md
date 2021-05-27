@@ -6,7 +6,7 @@ CSS DSL extends [HTML DSL](html_dsl.md) and allows you to author stylesheets in 
 
 
 ## Add dependencies {id="add_dependencies"}
-CSS DSL doesn't need [installation](Features.md#install), but requires including the following artifacts in the build script:
+CSS DSL doesn't need [installation](Plugins.md#install), but requires including the following artifacts in the build script:
 
 1. The `ktor-html-builder` artifact for HTML DSL:
    <var name="artifact_name" value="ktor-html-builder"/>

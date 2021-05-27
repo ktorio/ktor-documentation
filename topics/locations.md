@@ -13,7 +13,7 @@
 Ktor provides a mechanism to create routes in a typed way, for both:
 constructing URLs and reading the parameters.
 
->Locations are an experimental feature.
+>Locations are an experimental plugin (previously known as feature).
 >
 {type="note"}
 
@@ -37,7 +37,7 @@ constructing URLs and reading the parameters.
 For each typed route you want to handle, you need to create a class (usually a data class)
 containing the parameters that you want to handle.
 
-The parameters must be of any type supported by the [Data Conversion](data-conversion.md) feature.
+The parameters must be of any type supported by the [Data Conversion](data-conversion.md) plugin.
 By default, you can use `Int`, `Long`, `Float`, `Double`, `Boolean`, `String`, enums and `Iterable` as parameters.
 
 ### URL parameters
@@ -73,7 +73,7 @@ data class Listing(val name: String, val page: Int, val count: Int)
 {id="route-handlers"}
 
 Once you have [defined the classes](#route-classes) annotated with `@Location`,
-this feature artifact exposes new typed methods for defining route handlers:
+this plugin artifact exposes new typed methods for defining route handlers:
 `get`, `options`, `header`, `post`, `put`, `delete` and `patch`.
 
 ```kotlin
