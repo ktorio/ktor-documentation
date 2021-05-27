@@ -2,7 +2,7 @@
 
 <include src="lib.md" include-id="outdated_warning"/>
 
-This plugin enables serving static content provided by [webjars](https://www.webjars.org/). It allows you to package your assets such
+This plugin (previously known as feature) enables serving static content provided by [webjars](https://www.webjars.org/). It allows you to package your assets such
 as javascript libraries and css as part of your uber-jar.
 
 ## Add dependencies {id="add_dependencies"}

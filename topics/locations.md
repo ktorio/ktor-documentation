@@ -13,7 +13,7 @@
 Ktor provides a mechanism to create routes in a typed way, for both:
 constructing URLs and reading the parameters.
 
->Locations are an experimental plugin.
+>Locations are an experimental plugin (previously known as feature).
 >
 {type="note"}
 

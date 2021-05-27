@@ -11,7 +11,7 @@ Ktor by default provides an interceptor for implementing proper support for Cros
 
 ## Basic
 
-First of all, install the CORS plugin into your application.
+First of all, install the CORS plugin (previously known as feature) into your application.
 
 ```kotlin
 fun Application.main() {

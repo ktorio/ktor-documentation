@@ -1,6 +1,6 @@
 [//]: # (title: Default headers)
 
-The `DefaultHeaders` [plugin](Plugins.md) adds the standard `Server` and `Date` headers into each response. Moreover, you can provide additional default headers and override the `Server` header.
+The `DefaultHeaders` [plugin](Plugins.md) (previously known as feature) adds the standard `Server` and `Date` headers into each response. Moreover, you can provide additional default headers and override the `Server` header.
 
 ## Install DefaultHeaders {id="install_feature"}
 

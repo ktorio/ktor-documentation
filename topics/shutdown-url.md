@@ -2,7 +2,7 @@
 
 <include src="lib.md" include-id="outdated_warning"/>
 
-This plugin enables a URL that when accessed, shutdowns the server.
+This plugin (previously known as feature) enables a URL that when accessed, shutdowns the server.
 
 There are two ways to use it: [Automatically using HOCON](#hocon) and [Installing the plugin](#install)
 

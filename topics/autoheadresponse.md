@@ -6,7 +6,7 @@
 </microformat>
 
 
-The `AutoHeadResponse` plugin provides us with the ability to automatically respond to `HEAD` request for every route that has a `GET` defined.
+The `AutoHeadResponse` plugin (previously known as feature) provides us with the ability to automatically respond to `HEAD` request for every route that has a `GET` defined.
 
 ## Usage
 In order to take advantage of this functionality, we need to install the `AutoHeadResponse` plugin in our application

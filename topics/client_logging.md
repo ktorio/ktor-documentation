@@ -5,7 +5,7 @@
 <include src="lib.md" include-id="download_example"/>
 </microformat>
 
-Ktor client provides the capability to log HTTP calls using the `Logging` plugin. This plugin uses the [SLF4J](http://www.slf4j.org/) library for logging.
+Ktor client provides the capability to log HTTP calls using the `Logging` plugin (previously known as feature). This plugin uses the [SLF4J](http://www.slf4j.org/) library for logging.
 
 
 ## Add dependencies {id="add_dependencies"}

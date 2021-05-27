@@ -2,7 +2,7 @@
 
 <include src="lib.md" include-id="outdated_warning"/>
 
-This plugin allows validating HTTP response and handle transformation exceptions from engine and pipelines.
+This plugin (previously known as feature) allows validating HTTP response and handle transformation exceptions from engine and pipelines.
 
 
 

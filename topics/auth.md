@@ -2,7 +2,7 @@
 
 <include src="lib.md" include-id="outdated_warning"/>
 
-Ktor client supports authentication out of the box as a plugin.
+Ktor client supports authentication out of the box as a plugin (previously known as feature).
 
 ## Add dependencies {id="add_dependencies"}
 

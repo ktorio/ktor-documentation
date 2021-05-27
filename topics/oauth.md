@@ -9,7 +9,7 @@
 
 OAuth defines a mechanism for authentication using external providers like Google or Facebook safely.
 You can read more about [OAuth](https://oauth.net/).
-Ktor has a plugin to work with OAuth 1a and 2.0. 
+Ktor has a plugin (previously known as feature) to work with OAuth 1a and 2.0. 
 
 ## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="OAuth"/>
