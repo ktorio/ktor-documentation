@@ -24,7 +24,7 @@ Before using the desired engine, you need to add the corresponding dependency to
 
 Below are examples of adding a dependency for Netty:
 <var name="artifact_name" value="ktor-server-netty"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 > For [testing](Testing.md), you need to add the `ktor-server-test-host` dependency. 
 There is also the `ktor-server-servlet` dependency that allows you to run an application in a servlet container like Jetty or Tomcat. Learn more at [](containers.md).

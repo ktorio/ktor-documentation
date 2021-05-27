@@ -5,7 +5,7 @@ The [CachingHeaders](https://api.ktor.io/%ktor_version%/io.ktor.features/-cachin
 ## Install CachingHeaders {id="install_feature"}
 
 <var name="feature_name" value="CachingHeaders"/>
-<include src="lib.md" include-id="install_feature"/>
+<include src="lib.xml" include-id="install_feature"/>
 
 After installing `CachingHeaders`, you can [configure](#configure) caching settings for various content types.
 

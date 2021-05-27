@@ -5,7 +5,7 @@ The `DefaultHeaders` [plugin](Plugins.md) (previously known as feature) adds the
 ## Install DefaultHeaders {id="install_feature"}
 
 <var name="feature_name" value="DefaultHeaders"/>
-<include src="lib.md" include-id="install_feature"/>
+<include src="lib.xml" include-id="install_feature"/>
 
 The `DefaultHeaders` plugin adds the `Server` and `Date` headers into each response. If necessary, you can override the `Server`, as described in [](#override).
 

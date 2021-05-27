@@ -1,6 +1,6 @@
 [//]: # (title: Status pages)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 The `StatusPages` plugin (previously known as feature) allows Ktor applications to respond appropriately to any failure state.
 This plugin is installed using the standard application configuration:

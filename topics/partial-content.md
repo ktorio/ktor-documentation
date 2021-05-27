@@ -1,6 +1,6 @@
 [//]: # (title: Partial content)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 This plugin (previously known as feature) adds support for handling Partial Content requests:
 requests with the `Range` header. It intercepts the generated

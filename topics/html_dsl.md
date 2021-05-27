@@ -2,7 +2,7 @@
 
 <microformat>
 <var name="example_name" value="html-widget"/>
-<include src="lib.md" include-id="download_example"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
 HTML DSL integrates the [kotlinx.html](https://github.com/Kotlin/kotlinx.html) library into Ktor and allows you to respond to a client with HTML blocks. With HTML DSL, you can write pure HTML in Kotlin, interpolate variables into views, and even build complex HTML layouts using templates.
@@ -12,39 +12,7 @@ HTML DSL integrates the [kotlinx.html](https://github.com/Kotlin/kotlinx.html) l
 HTML DSL doesn't need [installation](Plugins.md#install) but requires the `ktor-html-builder` artifact. You can include it in the build script as follows:
 
 <var name="artifact_name" value="ktor-html-builder"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
-
-Note that this artifact depends on `kotlinx-html-jvm`, which is placed on a [Space Packages](https://www.jetbrains.com/help/space/packages.html) repository:
-
-<tabs>
-<tab title="Gradle (Groovy)">
-<code style="block" lang="Groovy" title="Sample">
-repositories {
-    maven { url "https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven" }
-}
-</code>
-</tab>
-<tab title="Gradle (Kotlin)">
-<code style="block" lang="Kotlin" title="Sample">
-repositories {
-    maven { url = uri("https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven") }
-}
-</code>
-</tab>
-<tab title="Maven">
-<code style="block" lang="XML" title="Sample" interpolate-variables="true">
-<![CDATA[
-    <repositories>
-        <repository>
-            <id>kotlinx-html</id>
-            <url>https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven</url>
-        </repository>
-    </repositories>
-]]>
-</code>
-</tab>
-</tabs>
-
+<include src="lib.xml" include-id="add_ktor_artifact"/>
   
 
 ## Send HTML in response {id="html_response"}

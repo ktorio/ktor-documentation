@@ -49,7 +49,7 @@
         </p>
         <procedure hide-from-structure="true">
             <step>
-                <include src="lib.md" include-id="new_project_idea"/>
+                <include src="lib.xml" include-id="new_project_idea"/>
             </step>
             <step>
                 <p>

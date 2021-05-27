@@ -1,6 +1,6 @@
 [//]: # (title: User agent)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 This plugin (previously known as feature) adds a User-Agent header to requests.
 

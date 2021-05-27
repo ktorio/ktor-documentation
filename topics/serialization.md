@@ -8,7 +8,7 @@ The [ContentNegotiation](https://api.ktor.io/%ktor_version%/io.ktor.features/-co
 ## Install ContentNegotiation {id="install_feature"}
 
 <var name="feature_name" value="ContentNegotiation"/>
-<include src="lib.md" include-id="install_feature"/>
+<include src="lib.xml" include-id="install_feature"/>
 
 
 ## Register a converter {id="register_converter"}

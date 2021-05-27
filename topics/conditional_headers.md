@@ -7,7 +7,7 @@ The [ConditionalHeaders](https://api.ktor.io/%ktor_version%/io.ktor.features/-co
 
 ## Install ConditionalHeaders {id="install_feature"}
 <var name="feature_name" value="ConditionalHeaders"/>
-<include src="lib.md" include-id="install_feature"/>
+<include src="lib.xml" include-id="install_feature"/>
 
 
 ## Configure headers {id="configure"}

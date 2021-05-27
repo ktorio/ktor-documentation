@@ -1,6 +1,6 @@
 [//]: # (title: Google OAuth)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 
 In this guide we are going to implement a login using OAuth.

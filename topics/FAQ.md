@@ -1,6 +1,6 @@
 [//]: # (title: FAQ)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 In this section, we provide answers to the questions you frequently ask us.
 

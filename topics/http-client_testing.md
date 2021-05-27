@@ -1,6 +1,6 @@
 [//]: # (title: Testing)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 Ktor exposes a `MockEngine` for the HttpClient. This engine allows simulating HTTP calls without actually connecting to the endpoint. It allows to set a code block, that can handle the request and generates a response.
 
@@ -8,7 +8,7 @@ Ktor exposes a `MockEngine` for the HttpClient. This engine allows simulating HT
 To use `MockEngine`, you need to include the `ktor-client-mock` artifact in the build script:
 
 <var name="artifact_name" value="ktor-client-mock"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 
 ## Usage {id="usage"}

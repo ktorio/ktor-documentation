@@ -9,13 +9,13 @@ To use the Ktor HTTP client in your project, you need to add at least two depend
 ### Client dependency {id="client-dependency"}
 The main client functionality is available in the `ktor-client-core` artifact. Depending on your build system, you can add it in the following way:
 <var name="artifact_name" value="ktor-client-core"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 
 ### Engine dependency {id="engine-dependency"}
 An engine is responsible for processing network requests. There are different client engines available for [various platforms](http-client_multiplatform.md), such as Apache, CIO, Android, iOS, and so on. For example, you can add a `CIO` engine dependency as follows:
 <var name="artifact_name" value="ktor-client-cio"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 For a full list of dependencies required for a specific engine, see [](http-client_engines.md#dependencies).
 

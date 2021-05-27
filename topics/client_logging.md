@@ -2,7 +2,7 @@
 
 <microformat>
 <var name="example_name" value="client-logging"/>
-<include src="lib.md" include-id="download_example"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
 Ktor client provides the capability to log HTTP calls using the `Logging` plugin (previously known as feature). This plugin uses the [SLF4J](http://www.slf4j.org/) library for logging.
@@ -14,11 +14,11 @@ To enable logging, you need to include the following artifacts in the build scri
   <var name="group_id" value="ch.qos.logback"/>
   <var name="artifact_name" value="logback-classic"/>
   <var name="version" value="logback_version"/>
-  <include src="lib.md" include-id="add_artifact"/>
+  <include src="lib.xml" include-id="add_artifact"/>
   
 * The `ktor-client-logging` artifact:
   <var name="artifact_name" value="ktor-client-logging"/>
-  <include src="lib.md" include-id="add_ktor_artifact"/>
+  <include src="lib.xml" include-id="add_ktor_artifact"/>
   
 
 ## Install Logging {id="install_feature"}

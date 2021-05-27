@@ -17,16 +17,16 @@ To use the Ktor HTTP client in your project, you need to add at least two depend
 1. To use the Ktor client in common code, add the dependency to `ktor-client-core` to the `commonMain` source set in the `build.gradle` or `build.gradle.kts` file:
    <var name="platform_name" value="common"/>
    <var name="artifact_name" value="ktor-client-core"/>
-   <include src="lib.md" include-id="add_ktor_artifact_multiplatform"/>
+   <include src="lib.xml" include-id="add_ktor_artifact_multiplatform"/>
 1. Add an [engine dependency](http-client_engines.md#dependencies) for the required platform to the corresponding source set. For Android, you can add the [Android](http-client_engines.md#android) engine dependency to the `androidMain` source set:
    <var name="platform_name" value="android"/>
    <var name="artifact_name" value="ktor-client-android"/>
-   <include src="lib.md" include-id="add_ktor_artifact_multiplatform"/>
+   <include src="lib.xml" include-id="add_ktor_artifact_multiplatform"/>
    
    For iOS, you need to add the [iOS](http-client_engines.md#ios) engine dependency to `iosMain`:
    <var name="platform_name" value="ios"/>
    <var name="artifact_name" value="ktor-client-ios"/>
-   <include src="lib.md" include-id="add_ktor_artifact_multiplatform"/>
+   <include src="lib.xml" include-id="add_ktor_artifact_multiplatform"/>
    
    To learn which engines are supported for each platform, see [](http-client_engines.md#dependencies).
 

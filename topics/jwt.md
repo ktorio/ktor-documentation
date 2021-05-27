@@ -1,6 +1,6 @@
 [//]: # (title: JWT and JWK)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 <microformat>
 <p>Code examples:</p>

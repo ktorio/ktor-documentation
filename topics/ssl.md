@@ -2,10 +2,10 @@
 
 <microformat>
 <var name="example_name" value="ssl"/>
-<include src="lib.md" include-id="download_example"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 You can buy a certificate and configure Ktor to use it,
 **or** you can use Let's Encrypt to automatically get a **free certificate** to serve `https://` and `wss://` requests

@@ -2,10 +2,10 @@
 
 <microformat>
 <var name="example_name" value="metrics"/>
-<include src="lib.md" include-id="download_example"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 The Metrics plugin allows you to configure the [Metrics](http://metrics.dropwizard.io/4.0.0/)
 to get useful information about the server and incoming requests.
@@ -13,8 +13,8 @@ to get useful information about the server and incoming requests.
 ## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="Metrics"/>
 <var name="artifact_name" value="ktor-metrics"/>
-<include src="lib.md" include-id="add_ktor_artifact_intro"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Install Metrics
 

@@ -1,6 +1,6 @@
 [//]: # (title: Configurations)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 Ktor uses [HOCON (Human-Optimized Config Object Notation)](https://github.com/lightbend/config/blob/main/HOCON.md)
 format in the external configuration file. In this file, you can configure things like the port to listen to,

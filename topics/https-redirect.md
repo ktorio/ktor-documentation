@@ -1,6 +1,6 @@
 [//]: # (title: HttpsRedirect)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 The `HttpsRedirect` plugin (previously known as feature) will make all the affected HTTP calls perform a redirect to its
 HTTPS counterpart before processing the call.

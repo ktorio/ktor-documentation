@@ -7,18 +7,18 @@ The [MicrometerMetrics](https://api.ktor.io/%ktor_version%/io.ktor.metrics.micro
 To enable `MicrometerMetrics`, you need to include the following artifacts in the build script:
 * Add the `ktor-metrics-micrometer` dependency:
     <var name="artifact_name" value="ktor-metrics-micrometer"/>
-    <include src="lib.md" include-id="add_ktor_artifact"/>
+    <include src="lib.xml" include-id="add_ktor_artifact"/>
   
 * Add a dependency required for a monitoring system. The example below shows how to add an artifact for Prometheus:
     <var name="group_id" value="io.micrometer"/>
     <var name="artifact_name" value="micrometer-registry-prometheus"/>
     <var name="version" value="prometeus_version"/>
-    <include src="lib.md" include-id="add_artifact"/>
+    <include src="lib.xml" include-id="add_artifact"/>
 
 ## Install MicrometerMetrics {id="install_feature"}
 
 <var name="feature_name" value="MicrometerMetrics"/>
-<include src="lib.md" include-id="install_feature"/>
+<include src="lib.xml" include-id="install_feature"/>
 
 ### Exposed metrics {id="ktor_metrics"}
 Ktor exposes the following metrics for monitoring HTTP requests:

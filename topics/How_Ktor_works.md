@@ -1,6 +1,6 @@
 [//]: # (title: How Ktor works)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 Ktor is designed to be flexible and extensible. It is composed
 of small, simple pieces, but if you don't know what's happening, then it is like a black box.

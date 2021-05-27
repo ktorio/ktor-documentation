@@ -1,6 +1,6 @@
 [//]: # (title: Streaming)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 Most of the response types are complete in memory. But you can also fetch streaming data as well.
 
