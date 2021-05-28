@@ -232,7 +232,7 @@ How do the [standard events from the WebSocket API](https://developer.mozilla.or
 * `onClose` happens when the `incoming` channel is closed. That would complete the suspended iteration, or throw a `ClosedReceiveChannelException` when trying to receive a message`.
 * `onError` is equivalent to other exceptions.
 
-In both `onClose` and `onError`, the [`closeReason` property](https://api.ktor.io/%ktor_version%/io.ktor.http.cio.websocket/-default-web-socket-session/close-reason.html) is set.
+In both `onClose` and `onError`, the [closeReason](https://api.ktor.io/ktor-http/ktor-http-cio/ktor-http-cio/io.ktor.http.cio.websocket/-default-web-socket-session/close-reason.html) property is set.
 
 To illustrate this:
 

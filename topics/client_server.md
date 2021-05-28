@@ -42,7 +42,7 @@ routing {
 
 
 ## Server {id="server"}
-Ktor provides different storage types for storing session data on the server. For example, you can use the [SessionStorageMemory](https://api.ktor.io/%ktor_version%/io.ktor.sessions/-session-storage-memory/index.html) in-memory storage for development purposes:
+Ktor provides different storage types for storing session data on the server. For example, you can use the [SessionStorageMemory](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.sessions/-session-storage-memory/index.html) in-memory storage for development purposes:
 ```kotlin
 install(Sessions) {
     cookie<LoginSession>("LOGIN_SESSION", storage = SessionStorageMemory())

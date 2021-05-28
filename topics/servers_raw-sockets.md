@@ -44,8 +44,8 @@ val input : ByteReadChannel  = socket.openReadChannel()
 val output: ByteWriteChannel = socket.openWriteChannel(autoFlush = true)
 ```
 
->You can read the KDoc for [ByteReadChannel](https://api.ktor.io/%ktor_version%/io.ktor.utils.io/-byte-read-channel/index.html)
->and [ByteWriteChannel](https://api.ktor.io/%ktor_version%/io.ktor.utils.io/-byte-write-channel/index.html)
+>You can read the KDoc for [ByteReadChannel](https://api.ktor.io/ktor-io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html)
+>and [ByteWriteChannel](https://api.ktor.io/ktor-io/ktor-io/io.ktor.utils.io/-byte-write-channel/index.html)
 >for further information on the available methods.
 >
 {type="note"}
