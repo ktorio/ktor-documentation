@@ -1,6 +1,6 @@
 [//]: # (title: Fat JAR)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 A *fat-jar* (or *uber-jar*) archive is a normal jar file single archive packing all the dependencies together, so it can be run a standalone application directly using Java:
 

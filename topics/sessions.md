@@ -2,17 +2,17 @@
 
 <microformat>
 <var name="example_name" value="sessions"/>
-<include src="lib.md" include-id="download_example"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
 Sessions provide a mechanism to persist data between different HTTP requests. Typical use cases include storing a logged-in user's ID, the contents of a shopping basket, or keeping user preferences on the client. In Ktor, you can implement sessions by using cookies or custom headers, choose whether to store session data on the server or pass it to the client, sign and encrypt session data, and more.
 
-In this topic, we'll look at how to configure sessions, install the `Sessions` feature, and set the session's content.
+In this topic, we'll look at how to configure sessions, install the `Sessions` plugin (previously known as feature), and set the session's content.
 
 ## Add dependencies {id="add_dependencies"}
 To enable support for sessions, you need to include the `ktor-server-sessions` artifact in the build script:
 <var name="artifact_name" value="ktor-server-sessions"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 
 ## Session configuration overview {id="configure"}
@@ -31,7 +31,7 @@ data class LoginSession(val username: String, val count: Int)
 ```
 You need to create several data classes if you are going to use several sessions. 
 
-After creating the required data classes, you can install the `Sessions` feature by passing it to the `install` function in the application initialization code. Inside the `install` block, call the `cookie` or `header` function depending on how you want to [pass data between the server and client](cookie_header.md):
+After creating the required data classes, you can install the `Sessions` plugin by passing it to the `install` function in the application initialization code. Inside the `install` block, call the `cookie` or `header` function depending on how you want to [pass data between the server and client](cookie_header.md):
 ```kotlin
 import io.ktor.features.*
 import io.ktor.sessions.*
@@ -61,7 +61,7 @@ Note that session names should be unique.
 
 
 ## Set session content {id="set-content"}
-To set the session content for a specific [route](Routing_in_Ktor.md), use the [call.sessions](https://api.ktor.io/%ktor_version%/io.ktor.sessions/sessions.html) property. The [set](https://api.ktor.io/%ktor_version%/io.ktor.sessions/-current-session/set.html) method allows you to create a new session instance:
+To set the session content for a specific [route](Routing_in_Ktor.md), use the [call.sessions](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.sessions/sessions.html) property. The [set](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.sessions/-current-session/set.html) method allows you to create a new session instance:
 ```kotlin
 routing {
     get("/") {
@@ -69,7 +69,7 @@ routing {
     }
 }
 ```
-To get the session content, you can call [get](https://api.ktor.io/%ktor_version%/io.ktor.sessions/-current-session/get.html) receiving one of the registered session types as type parameter:
+To get the session content, you can call [get](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.sessions/-current-session/get.html) receiving one of the registered session types as type parameter:
 ```kotlin
 routing {
     get("/") {

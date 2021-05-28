@@ -1,6 +1,6 @@
 [//]: # (title: Multipart Support)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 Ktor supports handling HTTP Uploads. As well as [receiving any other kind of content](requests.md).
 

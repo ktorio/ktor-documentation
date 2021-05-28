@@ -1,6 +1,6 @@
 [//]: # (title: Containers)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 ## Docker
 {id="docker"}

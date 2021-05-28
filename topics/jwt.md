@@ -1,6 +1,6 @@
 [//]: # (title: JWT and JWK)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 <microformat>
 <p>Code examples:</p>
@@ -12,7 +12,7 @@ Ktor supports [JWT (JSON Web Tokens)](https://jwt.io/), which is a mechanism for
 It is useful to create stateless authenticated APIs in the standard way, since there are client libraries for it
 in a myriad of languages.
 
-This feature will handle `Authorization: Bearer <JWT-TOKEN>`.
+This plugin (previously known as feature) will handle `Authorization: Bearer <JWT-TOKEN>`.
 
 
 

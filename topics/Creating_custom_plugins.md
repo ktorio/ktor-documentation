@@ -1,14 +1,14 @@
-[//]: # (title: Creating custom features)
+[//]: # (title: Creating custom plugins)
 
 <microformat>
 <var name="example_name" value="custom-feature"/>
-<include src="lib.md" include-id="download_example"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
-You can develop your own features and reuse them across all your Ktor applications, or you can share them with the community.
-A typical feature has the following structure:
+You can develop your own plugins (formerly known as features) and reuse them across all your Ktor applications, or you can share them with the community.
+A typical plugin has the following structure:
 
 ```kotlin
 class CustomFeature(configuration: Configuration) {
@@ -23,13 +23,13 @@ class CustomFeature(configuration: Configuration) {
        // Creates a unique key for the feature.
        override val key = AttributeKey<CustomFeature>("CustomFeature")
        
-       // Code to execute when installing the feature.
+       // Code to execute when installing the plugin.
        override fun install(pipeline: ApplicationCallPipeline, configure: Configuration.() -> Unit): CustomFeature {
            
            // It is responsibility of the install code to call the `configure` method with the mutable configuration.
            val configuration = CustomFeature.Configuration().apply(configure)
            
-           // Create the feature, providing the mutable configuration so the feature reads it keeping an immutable copy of the properties. 
+           // Create the plugin, providing the mutable configuration so the plugin reads it keeping an immutable copy of the properties. 
            val feature = CustomFeature(configuration)
            
            // Intercept a pipeline.
@@ -42,18 +42,18 @@ class CustomFeature(configuration: Configuration) {
 }
 ```
 
-`CustomFeature` is a feature instance class, which should be immutable to avoid unintended side-effects in a highly concurrent environment.
-Feature implementation should be thread-safe as it will be called from multiple threads.
+`CustomFeature` is a plugin instance class, which should be immutable to avoid unintended side-effects in a highly concurrent environment.
+Plugin implementation should be thread-safe as it will be called from multiple threads.
 
-The `Configuration` instance is handed to the user installation script, allowing feature configuration usually containing mutable properties and configuration methods.
+The `Configuration` instance is handed to the user installation script, allowing plugin configuration usually containing mutable properties and configuration methods.
 
 The `Feature` companion object conforms the `ApplicationFeature` interface and acts as a glue to construct the actual `CustomFeature` with the right `Configuration`.
 
-A custom feature can be installed normally with the standard `install` function:
+A custom plugin can be installed normally with the standard `install` function:
 
 ```kotlin
 fun Application.main() {
-    install(CustomFeature) { // Install a custom feature
+    install(CustomFeature) { // Install a custom plugin
         prop = "Hello" // configuration script
     }
 }

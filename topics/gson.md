@@ -2,7 +2,7 @@
 
 <microformat>
 <var name="example_name" value="gson"/>
-<include src="lib.md" include-id="download_example"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
 [ContentNegotiation](serialization.md) provides the built-in [Gson](https://github.com/google/gson) converter for handing JSON data in your application.
@@ -11,11 +11,11 @@
 ## Add dependencies {id="add_dependencies"}
 Before registering the Gson converter, you need to include the following artifacts in the build script:
 <var name="artifact_name" value="ktor-gson"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 
 ## Register the Gson converter {id="register_gson_converter"}
-To register the Gson converter in your application, call the [gson](https://api.ktor.io/%ktor_version%/io.ktor.gson/gson.html) method:
+To register the Gson converter in your application, call the [gson](https://api.ktor.io/ktor-features/ktor-gson/ktor-gson/io.ktor.gson/gson.html) function:
 ```kotlin
 import io.ktor.gson.*
 

@@ -1,6 +1,6 @@
 [//]: # (title: Attributes)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 Ktor offers an `Attributes` class that acts as a small typed instance container/dependency injector.
 

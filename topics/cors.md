@@ -1,6 +1,6 @@
 [//]: # (title: CORS)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 Ktor by default provides an interceptor for implementing proper support for Cross-Origin Resource Sharing (CORS).
 
@@ -11,7 +11,7 @@ Ktor by default provides an interceptor for implementing proper support for Cros
 
 ## Basic
 
-First of all, install the CORS feature into your application.
+First of all, install the CORS plugin (previously known as feature) into your application.
 
 ```kotlin
 fun Application.main() {
@@ -21,7 +21,7 @@ fun Application.main() {
 }
 ```
 
-The default configuration to the CORS feature handles only `GET`, `POST` and `HEAD` HTTP methods and the following headers:
+The default configuration to the CORS plugin handles only `GET`, `POST` and `HEAD` HTTP methods and the following headers:
 
 ```kotlin
   HttpHeaders.Accept

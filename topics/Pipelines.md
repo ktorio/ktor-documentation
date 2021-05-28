@@ -1,6 +1,6 @@
 [//]: # (title: Pipelines)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 ## Description
 

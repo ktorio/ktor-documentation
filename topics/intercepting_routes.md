@@ -1,6 +1,6 @@
 [//]: # (title: Intercepting Routes)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 If you just want to intercept some calls for a specific route, you have to create a `Route` node (usually by calling `createChild`) and intercept that node.
 
@@ -84,6 +84,6 @@ pipeline.environment.monitor.subscribe(Routing.RoutingCallFinished) { call: Rout
 }
 ```
 
-You can see a full example of this in the [Metrics feature](https://github.com/ktorio/ktor/blob/main/ktor-features/ktor-metrics/jvm/src/io/ktor/metrics/dropwizard/DropwizardMetrics.kt).
+You can see a full example of this in the [Metrics plugin](https://github.com/ktorio/ktor/blob/main/ktor-features/ktor-metrics/jvm/src/io/ktor/metrics/dropwizard/DropwizardMetrics.kt).
 
 

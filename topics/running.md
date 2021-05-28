@@ -1,6 +1,6 @@
 [//]: # (title: Running)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 Ktor applications can be self-hosted or hosted on an Application Server. This section shows you how to host Ktor applications externally.
 

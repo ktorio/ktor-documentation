@@ -1,6 +1,6 @@
 [//]: # (title: Sockets)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 In addition to HTTP handling for the [server](A_Ktor_Application.xml) and the [client](client.md), Ktor supports client and server, TCP and UDP raw sockets.
 It exposes a suspending API that uses NIO under the hoods.
@@ -8,8 +8,8 @@ It exposes a suspending API that uses NIO under the hoods.
 ## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="Sockets"/>
 <var name="artifact_name" value="ktor-network"/>
-<include src="lib.md" include-id="add_ktor_artifact_intro"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 
 
@@ -44,8 +44,8 @@ val input : ByteReadChannel  = socket.openReadChannel()
 val output: ByteWriteChannel = socket.openWriteChannel(autoFlush = true)
 ```
 
->You can read the KDoc for [ByteReadChannel](https://api.ktor.io/%ktor_version%/io.ktor.utils.io/-byte-read-channel/index.html)
->and [ByteWriteChannel](https://api.ktor.io/%ktor_version%/io.ktor.utils.io/-byte-write-channel/index.html)
+>You can read the KDoc for [ByteReadChannel](https://api.ktor.io/ktor-io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html)
+>and [ByteWriteChannel](https://api.ktor.io/ktor-io/ktor-io/io.ktor.utils.io/-byte-write-channel/index.html)
 >for further information on the available methods.
 >
 {type="note"}

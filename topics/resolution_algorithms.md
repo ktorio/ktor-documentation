@@ -1,6 +1,6 @@
 [//]: # (title: Resolution Algorithms)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 [Routing](Routing_in_Ktor.md) is organized in a tree with a recursive matching system that is capable of handling quite complex rules
 for request processing. The Tree is built with nodes and selectors. The Node contains handlers and interceptors,

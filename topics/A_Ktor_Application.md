@@ -44,7 +44,7 @@ When a request comes in, it is processed by the routing mechanism, which redirec
 of our application logic which could be anything from responding with a simple text (like the example above), to processing the input, storing
 it in a database, etc. Finally, once everything is done, the handler should respond to the request. 
 
-In the next section we'll look [Features](Features.md) which is core to all Ktor applications, and provides much of the functionality, 
+In the next section we'll look [Plugins](Plugins.md) which is core to all Ktor applications, and provides much of the functionality, 
 including routing! 
 
 

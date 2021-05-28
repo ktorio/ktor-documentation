@@ -2,12 +2,12 @@
 
 <microformat>
 <var name="example_name" value="static-content"/>
-<include src="lib.md" include-id="download_example"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
 Whether we're creating a website or an HTTP endpoint, many applications need to serve files (such as stylesheets, scripts, images, etc.).  
 While it is certainly possible with Ktor to load the contents of a file and send it in response to a request,
-given this is such a common functionality, Ktor simplifies the entire process for us with the `static` Feature.
+given this is such a common functionality, Ktor simplifies the entire process for us with the `static` plugin (previously known as feature).
 
 The first step in defining a static route is to 
 define the path under which the content should be served. For instance, if you want everything under the route `assets` to be treated as static content, you need to add the following

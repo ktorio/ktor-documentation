@@ -1,24 +1,24 @@
 [//]: # (title: Micrometer metrics)
 [micrometer_jvm_metrics]: https://micrometer.io/docs/ref/jvm
 
-The [MicrometerMetrics](https://api.ktor.io/%ktor_version%/io.ktor.metrics.micrometer/-micrometer-metrics/index.html) feature enables [Micrometer](https://micrometer.io/docs) metrics in your Ktor server application and allows you to choose the required monitoring system, such as Prometheus, JMX, Elastic, and so on. By default, Ktor exposes metrics for monitoring HTTP requests and a set of low-level metrics for [monitoring the JVM][micrometer_jvm_metrics]. You can customize these metrics or create new ones.
+The [MicrometerMetrics](https://api.ktor.io/ktor-features/ktor-metrics-micrometer/ktor-metrics-micrometer/io.ktor.metrics.micrometer/-micrometer-metrics/index.html) plugin enables [Micrometer](https://micrometer.io/docs) metrics in your Ktor server application and allows you to choose the required monitoring system, such as Prometheus, JMX, Elastic, and so on. By default, Ktor exposes metrics for monitoring HTTP requests and a set of low-level metrics for [monitoring the JVM][micrometer_jvm_metrics]. You can customize these metrics or create new ones.
 
 ## Add dependencies {id="add_dependencies"}
 To enable `MicrometerMetrics`, you need to include the following artifacts in the build script:
 * Add the `ktor-metrics-micrometer` dependency:
     <var name="artifact_name" value="ktor-metrics-micrometer"/>
-    <include src="lib.md" include-id="add_ktor_artifact"/>
+    <include src="lib.xml" include-id="add_ktor_artifact"/>
   
 * Add a dependency required for a monitoring system. The example below shows how to add an artifact for Prometheus:
     <var name="group_id" value="io.micrometer"/>
     <var name="artifact_name" value="micrometer-registry-prometheus"/>
     <var name="version" value="prometeus_version"/>
-    <include src="lib.md" include-id="add_artifact"/>
+    <include src="lib.xml" include-id="add_artifact"/>
 
 ## Install MicrometerMetrics {id="install_feature"}
 
 <var name="feature_name" value="MicrometerMetrics"/>
-<include src="lib.md" include-id="install_feature"/>
+<include src="lib.xml" include-id="install_feature"/>
 
 ### Exposed metrics {id="ktor_metrics"}
 Ktor exposes the following metrics for monitoring HTTP requests:
@@ -31,7 +31,7 @@ In addition to HTTP metrics, Ktor exposes a set of metrics for [monitoring the J
 
 ## Create a registry {id="create_registry"}
 
-After installing `MicrometerMetrics`, you need to create a [registry for your monitoring system](https://micrometer.io/docs/concepts#_registry) and assign it to the [registry](https://api.ktor.io/%ktor_version%/io.ktor.metrics.micrometer/-micrometer-metrics/-configuration/registry.html) property. In the example below, the `PrometheusMeterRegistry` is created outside the `install` block to have the capability to reuse this registry in different [route handlers](Routing_in_Ktor.md):
+After installing `MicrometerMetrics`, you need to create a [registry for your monitoring system](https://micrometer.io/docs/concepts#_registry) and assign it to the [registry](https://api.ktor.io/ktor-features/ktor-metrics-micrometer/ktor-metrics-micrometer/io.ktor.metrics.micrometer/-micrometer-metrics/-configuration/registry.html) property. In the example below, the `PrometheusMeterRegistry` is created outside the `install` block to have the capability to reuse this registry in different [route handlers](Routing_in_Ktor.md):
 
 ```kotlin
 import io.ktor.features.*
@@ -48,7 +48,7 @@ fun Application.module() {
 
 ## Configure metrics {id="configure_metrics"}
 
-The `MicrometerMetrics` feature provides various configuration options that can be accessed using [MicrometerMetrics.Configuration](https://api.ktor.io/%ktor_version%/io.ktor.metrics.micrometer/-micrometer-metrics/-configuration/index.html).
+The `MicrometerMetrics` plugin provides various configuration options that can be accessed using [MicrometerMetrics.Configuration](https://api.ktor.io/ktor-features/ktor-metrics-micrometer/ktor-metrics-micrometer/io.ktor.metrics.micrometer/-micrometer-metrics/-configuration/index.html).
 
 ### Timers {id="timers"}
 To customize tags for each timer, you can use the `timers` function that is called for each request:

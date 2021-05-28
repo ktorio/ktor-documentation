@@ -2,10 +2,10 @@
 
 <microformat>
 <var name="example_name" value="testable"/>
-<include src="lib.md" include-id="download_example"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 Ktor is designed to allow the creation of applications that are easily testable. And of course,
 Ktor infrastructure itself is well tested with unit, integration, and stress tests.
@@ -105,10 +105,10 @@ withTestApplication({
 })
 ```
 
-## HttpsRedirect feature
+## HttpsRedirect plugin
 
 The HttpsRedirect changes how testing is performed.
-Check the [testing section of the HttpsRedirect feature](https-redirect.md) for more information.
+Check the [testing section of the HttpsRedirect plugin](https-redirect.md) for more information.
 
 ## Testing several requests preserving sessions/cookies
 {id="preserving-cookies"}

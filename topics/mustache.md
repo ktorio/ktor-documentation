@@ -3,22 +3,22 @@
 
 <microformat>
 <var name="example_name" value="mustache"/>
-<include src="lib.md" include-id="download_example"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-Ktor allows you to use [Mustache templates](https://github.com/spullara/mustache.java) as views within your application by installing the [Mustache](https://api.ktor.io/%ktor_version%/io.ktor.mustache/-mustache/index.html) feature.
+Ktor allows you to use [Mustache templates](https://github.com/spullara/mustache.java) as views within your application by installing the [Mustache](https://api.ktor.io/ktor-features/ktor-mustache/ktor-mustache/io.ktor.mustache/-mustache/index.html) plugin (previously known as feature).
 
 
 ## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="Mustache"/>
 <var name="artifact_name" value="ktor-mustache"/>
-<include src="lib.md" include-id="add_ktor_artifact_intro"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Install Mustache {id="install_feature"}
 
 <var name="feature_name" value="Mustache"/>
-<include src="lib.md" include-id="install_feature"/>
+<include src="lib.xml" include-id="install_feature"/>
 
 Inside the `install` block, you can [configure](#template_loading) the [MustacheFactory][mustache_factory] for loading Mustache templates.
 

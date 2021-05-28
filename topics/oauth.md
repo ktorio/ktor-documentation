@@ -1,21 +1,21 @@
 [//]: # (title: OAuth)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 <microformat>
 <var name="example_name" value="auth-oauth-google"/>
-<include src="lib.md" include-id="download_example"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
 OAuth defines a mechanism for authentication using external providers like Google or Facebook safely.
 You can read more about [OAuth](https://oauth.net/).
-Ktor has a feature to work with OAuth 1a and 2.0. 
+Ktor has a plugin (previously known as feature) to work with OAuth 1a and 2.0. 
 
 ## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="OAuth"/>
 <var name="artifact_name" value="ktor-auth"/>
-<include src="lib.md" include-id="add_ktor_artifact_intro"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Usage {id="usage"}
 A simplified OAuth 2.0 workflow:
@@ -23,7 +23,7 @@ A simplified OAuth 2.0 workflow:
   specifying the `clientId` and a valid redirection URL.
 * Once the login is correct, the provider generates an auth token using a `clientSecret` associated with that `clientId`.
 * Then the client is redirected to a valid, previously agreed upon, application URL with an auth token that is signed with the `clientSecret`.
-* Ktor's OAuth feature verifies the token and generates a Principal `OAuthAccessTokenResponse`.
+* Ktor's OAuth plugin verifies the token and generates a Principal `OAuthAccessTokenResponse`.
 * With the auth token, you can request, for example, the user's email or id depending on the provider.
 
 
