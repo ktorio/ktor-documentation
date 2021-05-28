@@ -5,7 +5,7 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-[JsonFeature](https://api.ktor.io/%ktor_version%/io.ktor.client.features.json/-json-feature/index.html) can be used to serialize/deserialize JSON data when sending [requests](request.md) and receiving [responses](response.md). This functionality is provided for JVM by using the `Gson`/`Jackson` libraries and for [Kotlin Multiplatform](http-client_multiplatform.md) by using `kotlinx.serialization`.
+[JsonFeature](https://api.ktor.io/ktor-client/ktor-client-features/ktor-client-json/ktor-client-json/io.ktor.client.features.json/-json-feature/index.html) can be used to serialize/deserialize JSON data when sending [requests](request.md) and receiving [responses](response.md). This functionality is provided for JVM by using the `Gson`/`Jackson` libraries and for [Kotlin Multiplatform](http-client_multiplatform.md) by using `kotlinx.serialization`.
 
 > On the server, Ktor provides the [ContentNegotiation](serialization.md) plugin (previously known as feature) for serializing/deserializing content.
 
@@ -46,7 +46,7 @@ Now you can [configure](#configure_serializer) the required JSON serializer.
 
 ## Configure a serializer {id="configure_serializer"}
 
-Depending on the [included artifacts](#add_dependencies), Ktor chooses a default serializer automatically. You can get this serializer by calling the [io.ktor.client.features.json.defaultSerializer](https://api.ktor.io/%ktor_version%/io.ktor.client.features.json/default-serializer.html) function.
+Depending on the [included artifacts](#add_dependencies), Ktor chooses a default serializer automatically. You can get this serializer by calling the [io.ktor.client.features.json.defaultSerializer](https://api.ktor.io/ktor-client/ktor-client-features/ktor-client-json/ktor-client-json/io.ktor.client.features.json/default-serializer.html) function.
 
 To specify the required serializer explicitly, use the `serializer` property:
 ```kotlin

@@ -61,7 +61,7 @@ Note that session names should be unique.
 
 
 ## Set session content {id="set-content"}
-To set the session content for a specific [route](Routing_in_Ktor.md), use the [call.sessions](https://api.ktor.io/%ktor_version%/io.ktor.sessions/sessions.html) property. The [set](https://api.ktor.io/%ktor_version%/io.ktor.sessions/-current-session/set.html) method allows you to create a new session instance:
+To set the session content for a specific [route](Routing_in_Ktor.md), use the [call.sessions](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.sessions/sessions.html) property. The [set](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.sessions/-current-session/set.html) method allows you to create a new session instance:
 ```kotlin
 routing {
     get("/") {
@@ -69,7 +69,7 @@ routing {
     }
 }
 ```
-To get the session content, you can call [get](https://api.ktor.io/%ktor_version%/io.ktor.sessions/-current-session/get.html) receiving one of the registered session types as type parameter:
+To get the session content, you can call [get](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.sessions/-current-session/get.html) receiving one of the registered session types as type parameter:
 ```kotlin
 routing {
     get("/") {

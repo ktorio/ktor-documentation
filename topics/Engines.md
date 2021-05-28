@@ -35,7 +35,7 @@ A Ktor server application can be [created and run in two ways](create_server.xml
 
 ### embeddedServer {id="embeddedServer"}
 
-The [embeddedServer](https://api.ktor.io/%ktor_version%/io.ktor.server.engine/embedded-server.html) function accepts an engine factory used to create an engine of a specific type. In the example below, we pass the [Netty](https://api.ktor.io/%ktor_version%/io.ktor.server.netty/-netty/index.html) factory to run a server with the Netty engine and listen on the `8000` port:
+The [embeddedServer](https://api.ktor.io/ktor-server/ktor-server-host-common/ktor-server-host-common/io.ktor.server.engine/embedded-server.html) function accepts an engine factory used to create an engine of a specific type. In the example below, we pass the [Netty](https://api.ktor.io/ktor-server/ktor-server-netty/ktor-server-netty/io.ktor.server.netty/-netty/index.html) factory to run a server with the Netty engine and listen on the `8000` port:
 
 ```kotlin
 ```
@@ -103,7 +103,7 @@ In this section, we'll take a look how to specify various engine-specific option
 
 ### embeddedServer {id="embedded-server-configure"}
 
-The `embeddedServer` function allows you to pass engine-specific options using the `configure` optional parameter. This parameter includes options common for all engines and exposed by the [ApplicationEngine.Configuration](https://api.ktor.io/%ktor_version%/io.ktor.server.engine/-application-engine/-configuration/index.html) class.
+The `embeddedServer` function allows you to pass engine-specific options using the `configure` optional parameter. This parameter includes options common for all engines and exposed by the [ApplicationEngine.Configuration](https://api.ktor.io/ktor-server/ktor-server-host-common/ktor-server-host-common/io.ktor.server.engine/-application-engine/-configuration/index.html) class.
 
 ```kotlin
 ```
@@ -114,7 +114,7 @@ In addition to these options, you can configure additional engine-specific prope
 #### Netty
 {.no_toc}
 
-Netty-specific options are exposed by the [NettyApplicationEngine.Configuration](https://api.ktor.io/%ktor_version%/io.ktor.server.netty/-netty-application-engine/-configuration/index.html) class.
+Netty-specific options are exposed by the [NettyApplicationEngine.Configuration](https://api.ktor.io/ktor-server/ktor-server-netty/ktor-server-netty/io.ktor.server.netty/-netty-application-engine/-configuration/index.html) class.
 
 ```kotlin
 embeddedServer(Netty, configure = {
@@ -132,7 +132,7 @@ embeddedServer(Netty, configure = {
 #### Jetty
 {.no_toc}
 
-If you use Jetty as the engine, you can configure the Jetty server inside the [configureServer](https://api.ktor.io/%ktor_version%/io.ktor.server.jetty/-jetty-application-engine-base/-configuration/configure-server.html) block, which provides access to a
+If you use Jetty as the engine, you can configure the Jetty server inside the [configureServer](https://api.ktor.io/ktor-server/ktor-server-jetty/ktor-server-jetty/io.ktor.server.jetty/-jetty-application-engine-base/-configuration/configure-server.html) block, which provides access to a
 [Server](https://www.eclipse.org/jetty/javadoc/jetty-11/org/eclipse/jetty/server/Server.html) instance.
 
 ```kotlin
@@ -148,7 +148,7 @@ embeddedServer(Jetty, configure = {
 #### CIO
 {.no_toc}
 
-CIO-specific options are exposed by the [CIOApplicationEngine.Configuration](https://api.ktor.io/%ktor_version%/io.ktor.server.cio/-c-i-o-application-engine/-configuration/index.html) class.
+CIO-specific options are exposed by the [CIOApplicationEngine.Configuration](https://api.ktor.io/ktor-server/ktor-server-cio/ktor-server-cio/io.ktor.server.cio/-c-i-o-application-engine/-configuration/index.html) class.
 
 ```kotlin
 embeddedServer(CIO, configure = {
@@ -161,7 +161,7 @@ embeddedServer(CIO, configure = {
 #### Tomcat
 {.no_toc}
 
-If you use Tomcat as the engine, you can configure it using the [configureTomcat](https://api.ktor.io/%ktor_version%/io.ktor.server.tomcat/-tomcat-application-engine/-configuration/configure-tomcat.html) property, which provides access to a
+If you use Tomcat as the engine, you can configure it using the [configureTomcat](https://api.ktor.io/ktor-server/ktor-server-tomcat/ktor-server-tomcat/io.ktor.server.tomcat/-tomcat-application-engine/-configuration/configure-tomcat.html) property, which provides access to a
 [Tomcat](https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/startup/Tomcat.html) instance.
 
 ```kotlin

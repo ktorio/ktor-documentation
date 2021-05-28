@@ -41,8 +41,8 @@ To learn how to receive and send data, see [](serialization.md#receive_send_data
 
 ### Register an arbitrary converter {id="register_arbitrary_converter"}
 
-To register an arbitrary converter from the kotlinx.serialization library (such as Protobuf or CBOR), call the [serialization](https://api.ktor.io/%ktor_version%/io.ktor.serialization/serialization.html) method and pass two parameters:
-* The required [ContentType](https://api.ktor.io/%ktor_version%/io.ktor.http/-content-type/index.html) value.
+To register an arbitrary converter from the kotlinx.serialization library (such as Protobuf or CBOR), call the [serialization](https://api.ktor.io/ktor-features/ktor-serialization/ktor-serialization/io.ktor.serialization/serialization.html) method and pass two parameters:
+* The required [ContentType](https://api.ktor.io/ktor-http/ktor-http/io.ktor.http/-content-type/index.html) value.
 * An object of the class implementing the required encoder/decoder. 
   
 For example, you can register the [Cbor](https://kotlin.github.io/kotlinx.serialization/kotlinx-serialization-cbor/kotlinx-serialization-cbor/kotlinx.serialization.cbor/-cbor/index.html) converter in the following way:

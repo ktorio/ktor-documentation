@@ -30,7 +30,7 @@ If you need to react on download progress change, use `onDownload` extension fun
 
 ## API reference {id="HttpResponse"}
 
-`HttpResponse` API reference is listed [here](https://api.ktor.io/%ktor_version%/io.ktor.client.response/-http-response/).
+`HttpResponse` API reference is listed [here](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.response/-http-response/index.html).
 
 From an `HttpResponse`, you can get the response content easily:
 

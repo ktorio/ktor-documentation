@@ -1,6 +1,6 @@
 [//]: # (title: Content negotiation and serialization)
 
-The [ContentNegotiation](https://api.ktor.io/%ktor_version%/io.ktor.features/-content-negotiation/index.html) plugin (previously known as feature) serves two primary purposes:
+The [ContentNegotiation](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-content-negotiation/index.html) plugin (previously known as feature) serves two primary purposes:
 * Negotiating media types between the client and server. For this, it uses the `Accept` and `Content-Type` headers.
 * Serializing/deserializing the content in the specific format, which is provided by either the built-in `kotlinx.serialization` library or external ones, such as `Gson` and `Jackson`, amongst others.
 
@@ -13,7 +13,7 @@ The [ContentNegotiation](https://api.ktor.io/%ktor_version%/io.ktor.features/-co
 
 ## Register a converter {id="register_converter"}
 
-To register a converter for a specified `Content-Type`, you need to call the [register](https://api.ktor.io/%ktor_version%/io.ktor.features/-content-negotiation/-configuration/register.html) method. In the example below, two [custom converters](#implement_custom_converter) are registered to deserialize `application/json` and `application/xml` data:
+To register a converter for a specified `Content-Type`, you need to call the [register](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-content-negotiation/-configuration/register.html) method. In the example below, two [custom converters](#implement_custom_converter) are registered to deserialize `application/json` and `application/xml` data:
 
 ```kotlin
 install(ContentNegotiation) {
@@ -48,7 +48,7 @@ data class Customer(val id: Int, val firstName: String, val lastName: String)
 ```
 
 ### Receive data {id="receive_data"}
-To receive and convert a content for a request, call the [receive](https://api.ktor.io/%ktor_version%/io.ktor.request/receive.html) method that accepts a data class as a parameter:
+To receive and convert a content for a request, call the [receive](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.request/receive.html) method that accepts a data class as a parameter:
 ```kotlin
 ```
 {src="snippets/_misc/SerializationReceiveObject.kt"}
@@ -67,7 +67,7 @@ Content-Type: application/json
 ```
 
 ### Send data {id="send_data"}
-To pass a data object in a response, you can use the [respond](https://api.ktor.io/%ktor_version%/io.ktor.response/respond.html) method:
+To pass a data object in a response, you can use the [respond](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.response/respond.html) method:
 ```kotlin
 post("/customer") {
     call.respond(Customer(1, "Jet", "Brains"))
@@ -79,7 +79,7 @@ In this case, Ktor uses the `Accept` header to choose the required [converter](#
 
 ## Implement a custom converter {id="implement_custom_converter"}
 
-In Ktor, you can write your own [converter](#register_converter) for serializing/deserializing data. To do this, you need to implement the [ContentConverter](https://api.ktor.io/%ktor_version%/io.ktor.features/-content-converter/index.html) interface:
+In Ktor, you can write your own [converter](#register_converter) for serializing/deserializing data. To do this, you need to implement the [ContentConverter](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-content-converter/index.html) interface:
 ```kotlin
 interface ContentConverter {
     suspend fun convertForSend(context: PipelineContext<Any, ApplicationCall>, contentType: ContentType, value: Any): Any?
