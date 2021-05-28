@@ -1,7 +1,5 @@
 [//]: # (title: Form authentication)
 
-<include src="lib.md" include-id="outdated_warning"/>
-
 <microformat>
 <p>
 Required dependencies: <code>io.ktor:ktor-auth</code>
@@ -26,17 +24,31 @@ To enable `form` authentication, you need to include the `ktor-auth` artifact in
 The form-based authentication flow might look as follows:
 
 1. An unauthenticated client makes a request to a specific [route](Routing_in_Ktor.md) in a server application.
-1. A server returns an HTML page that consists at least from an HTML-based web form, which prompts a user for a user name and password. In Ktor, you need to [specify parameter names](#configure-provider) used to fetch a user name and password.
-   > Ktor allows you to build a form using [Kotlin DSL](https://ktor.io/docs/html-dsl.html), or you can choose between JVM template engines, such as Freemarker, Velocity, and so on.
+1. A server returns an HTML page that consists at least from an HTML-based web form, which prompts a user for a user name and password. 
+   > Ktor allows you to build a form using [Kotlin DSL](html_dsl.md), or you can choose between various JVM template engines, such as Freemarker, Velocity, and so on.
 1. When a user submits a name and password, the client makes a request with web form data (which includes the username and password) to a server.
+   
    ```kotlin
    ```
    {src="snippets/auth-form/post.http"}
+   
+   In Ktor, you need to [specify parameter names](#configure-provider) used to fetch a user name and password.
 
 1. A server [validates](#configure-provider) credentials sent by a client and responds with the requested content.
 
 
 ## Install form authentication {id="install"}
+To install the `form` authentication provider, call [form](https://api.ktor.io/%ktor_version%/io.ktor.auth/form.html) function inside the `install` block:
+
+```kotlin
+install(Authentication) {
+    form {
+        // Configure form authentication
+    }
+}
+```
+
+You can optionally specify a [provider name](authentication.md#provider-name) that can be used to [authenticate a specified route](#authenticate-route).
 
 ## Configure form authentication {id="configure"}
 
