@@ -7,7 +7,7 @@
     <var name="ktor_version" value="1.6.0"/>
     <var name="kotlin_version" value="1.5.0"/>
     <var name="coroutines_version" value="1.5.0"/>
-    <var name="kotlin_css_version" value="1.0.0-pre.148-kotlin-1.4.30"/>
+    <var name="kotlin_css_version" value="1.0.0-pre.204-kotlin-1.5.0"/>
     <var name="logback_version" value="1.2.3"/>
 
 </vars>
