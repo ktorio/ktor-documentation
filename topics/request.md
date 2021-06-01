@@ -97,12 +97,13 @@ If you need to send a file with a form, use the [submitFormWithBinaryData](https
 
 ```kotlin
 ```
-{src="snippets/client-upload-file/src/main/kotlin/com/example/Application.kt" include-symbol="main"}
+{src="snippets/client-upload-file/src/main/kotlin/com/example/Application.kt" lines="15-34"}
 
-If you need to react on upload progress change, use `onUpload` extension function in `HttpRequestBuilder`:
+Note that in this example the [onUpload](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.features/on-upload.html) extension function is used to display upload progress:
+
 ```kotlin
 ```
-{src="snippets/_misc_client/UploadProgress.kt"}
+{src="snippets/client-upload-file/src/main/kotlin/com/example/Application.kt" lines="27-31"}
 
 
 ## Parallel requests {id="parallel_requests"}

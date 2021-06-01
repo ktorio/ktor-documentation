@@ -2,11 +2,13 @@ package com.example
 
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
+import io.ktor.client.features.*
 import io.ktor.client.request.forms.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
 import kotlinx.coroutines.runBlocking
 import java.io.File
+import kotlin.concurrent.fixedRateTimer
 
 fun main() {
     runBlocking {
@@ -21,7 +23,13 @@ fun main() {
                     append(HttpHeaders.ContentDisposition, "filename=ktor_logo.png")
                 })
             }
-        )
+        ) {
+            onUpload { bytesSentTotal, contentLength ->
+                fixedRateTimer("timer", true, 0L, 50L) {
+                    println("Sent $bytesSentTotal bytes from $contentLength")
+                }
+            }
+        }
 
         println(response.readText())
     }
