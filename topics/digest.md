@@ -5,7 +5,7 @@
 Required dependencies: <code>io.ktor:ktor-auth</code>
 </p>
 <var name="example_name" value="auth-digest"/>
-<include src="lib.md" include-id="download_example"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
 The digest authentication scheme is a part of [HTTP framework](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) used for access control and authentication. In this scheme, a hash function is applied to a user name and password before sending them over the network.
@@ -15,7 +15,7 @@ Ktor allows you to use digest authentication for logging in users and protecting
 ## Add dependencies {id="add_dependencies"}
 To enable `digest` authentication, you need to include the `ktor-auth` artifact in the build script:
 <var name="artifact_name" value="ktor-auth"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Digest authentication flow {id="flow"}
 
@@ -59,7 +59,7 @@ The digest authentication flow looks as follows:
 
 
 ## Install digest authentication {id="install"}
-To install the `digest` authentication provider, call [digest](https://api.ktor.io/%ktor_version%/io.ktor.auth/digest.html) function inside the `install` block:
+To install the `digest` authentication provider, call [digest](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/digest.html) function inside the `install` block:
 
 ```kotlin
 install(Authentication) {
@@ -85,7 +85,7 @@ The `digest` authentication provider validates user credentials using the `HA1` 
 
 ### Step 2: Configure a digest provider {id="configure-provider"}
 
-The `digest` authentication provider exposes its settings via the [DigestAuthenticationProvider.Configuration](https://api.ktor.io/%ktor_version%/io.ktor.auth/-digest-authentication-provider/-configuration/index.html) class. In the example below, the following settings are specified:
+The `digest` authentication provider exposes its settings via the [DigestAuthenticationProvider.Configuration](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-digest-authentication-provider/-configuration/index.html) class. In the example below, the following settings are specified:
 * The `realm` property sets the realm to be passed in `WWW-Authenticate` header.
 * The `digestProvider` function fetches the `HA1` part of digest for a specified user name.
 
@@ -93,12 +93,12 @@ The `digest` authentication provider exposes its settings via the [DigestAuthent
 ```
 {src="snippets/auth-digest/src/main/kotlin/com/example/Application.kt" lines="18-26,34"}
 
-You can also use the [nonceManager](https://api.ktor.io/%ktor_version%/io.ktor.auth/-digest-authentication-provider/-configuration/nonce-manager.html) property to specify how to generate nonce values.
+You can also use the [nonceManager](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-digest-authentication-provider/-configuration/nonce-manager.html) property to specify how to generate nonce values.
 
 
 ### Step 3: Protect specific routes {id="authenticate-route"}
 
-After configuring the `digest` provider, you can protect specific routes using the `authenticate` function. In a case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/%ktor_version%/io.ktor.auth/-user-id-principal/index.html) inside a route handler using the [call.principal](https://api.ktor.io/%ktor_version%/io.ktor.auth/principal.html) function and get a name of an authenticated user.
+After configuring the `digest` provider, you can protect specific routes using the `authenticate` function. In a case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-user-id-principal/index.html) inside a route handler using the [call.principal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/principal.html) function and get a name of an authenticated user.
 
 ```kotlin
 ```

@@ -17,7 +17,7 @@ Form or form-based authentication uses a [web form](https://developer.mozilla.or
 ## Add dependencies {id="add_dependencies"}
 To enable `form` authentication, you need to include the `ktor-auth` artifact in the build script:
 <var name="artifact_name" value="ktor-auth"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Form-based authentication flow {id="flow"}
 
@@ -26,7 +26,7 @@ The form-based authentication flow might look as follows:
 1. An unauthenticated client makes a request to a specific [route](Routing_in_Ktor.md) in a server application.
 1. A server returns an HTML page that consists at least from an HTML-based web form, which prompts a user for a user name and password. 
    > Ktor allows you to build a form using [Kotlin DSL](html_dsl.md), or you can choose between various JVM template engines, such as Freemarker, Velocity, and so on.
-1. When a user submits a name and password, the client makes a request with web form data (which includes the username and password) to a server.
+1. When a user submits a user name and password, a client makes a request containing web form data (which includes the user name and password) to a server.
    
    ```kotlin
    ```
@@ -38,7 +38,7 @@ The form-based authentication flow might look as follows:
 
 
 ## Install form authentication {id="install"}
-To install the `form` authentication provider, call [form](https://api.ktor.io/%ktor_version%/io.ktor.auth/form.html) function inside the `install` block:
+To install the `form` authentication provider, call [form](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/form.html) function inside the `install` block:
 
 ```kotlin
 install(Authentication) {
@@ -53,17 +53,22 @@ You can optionally specify a [provider name](authentication.md#provider-name) th
 ## Configure form authentication {id="configure"}
 
 ### Step 1: Configure a form provider {id="configure-provider"}
-
-### Step 2: Protect specific routes {id="authenticate-route"}
-
-
-## Usage {id="usage"} 
-
-The `form` authentication uses a username and password as credentials:
+The `form` authentication provider exposes its settings via the [FormAuthenticationProvider/Configuration](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-form-authentication-provider/-configuration/index.html) class. In the example below, the following settings are specified:
+* The `userParamName` and `passwordParamName` properties specify parameter names used to fetch a user name and password.
+* The `validate` function validates a user name and password.
 
 ```kotlin
 ```
 {src="snippets/auth-form/src/main/kotlin/com/example/Application.kt" lines="9-20"}
 
-The `validate` method provides a callback that must generate a Principal from given a `UserPasswordCredential`
-or null for invalid credentials. That callback is marked as *suspending*, so that you can validate credentials in an asynchronous fashion.
+The `validate` function checks `UserPasswordCredential` and returns a `UserIdPrincipal` in a case of successful authentication or `null` if authentication fails.
+
+> As for the `basic` authentication, you can also use [UserHashedTableAuth](basic.md#validate-user-hash) to validate users stored in an in-memory table that keeps user names and password hashes.
+
+### Step 2: Protect specific routes {id="authenticate-route"}
+
+After configuring the `basic` provider, you can protect specific routes using the `authenticate` function. In a case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-user-id-principal/index.html) inside a route handler using the [call.principal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/principal.html) function and get a name of an authenticated user.
+
+```kotlin
+```
+{src="snippets/auth-form/src/main/kotlin/com/example/Application.kt" lines="22-28"}

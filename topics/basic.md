@@ -18,7 +18,7 @@ Ktor allows you to use basic authentication for logging in users and protecting 
 ## Add dependencies {id="add_dependencies"}
 To enable the `basic` authentication, you need to include the `ktor-auth` artifact in the build script:
 <var name="artifact_name" value="ktor-auth"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Basic authentication flow {id="flow"}
 
@@ -45,7 +45,7 @@ The basic authentication flow looks as follows:
 
 
 ## Install basic authentication {id="install"}
-To install the `basic` authentication provider, call [basic](https://api.ktor.io/%ktor_version%/io.ktor.auth/basic.html) function inside the `install` block:
+To install the `basic` authentication provider, call [basic](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/basic.html) function inside the `install` block:
 
 ```kotlin
 install(Authentication) {
@@ -63,7 +63,7 @@ To get a general idea on how to configure different authentication providers in 
 
 ### Step 1: Configure a basic provider {id="configure-provider"}
 
-The `basic` authentication provider exposes its settings via the [BasicAuthenticationProvider.Configuration](https://api.ktor.io/%ktor_version%/io.ktor.auth/-basic-authentication-provider/-configuration/index.html) class. In the example below, the following settings are specified:
+The `basic` authentication provider exposes its settings via the [BasicAuthenticationProvider.Configuration](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-basic-authentication-provider/-configuration/index.html) class. In the example below, the following settings are specified:
 * The `realm` property sets the realm to be passed in `WWW-Authenticate` header.
 * The `validate` function validates a user name and password.
 
@@ -76,7 +76,7 @@ The `validate` function checks `UserPasswordCredential` and returns a `UserIdPri
 
 ### Step 2: Protect specific routes {id="authenticate-route"}
 
-After configuring the `basic` provider, you can protect specific routes using the `authenticate` function. In a case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/%ktor_version%/io.ktor.auth/-user-id-principal/index.html) inside a route handler using the [call.principal](https://api.ktor.io/%ktor_version%/io.ktor.auth/principal.html) function and get a name of an authenticated user.
+After configuring the `basic` provider, you can protect specific routes using the `authenticate` function. In a case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-user-id-principal/index.html) inside a route handler using the [call.principal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/principal.html) function and get a name of an authenticated user.
 
 ```kotlin
 ```
@@ -89,7 +89,7 @@ Ktor allows you to use [UserHashedTableAuth](#validate-user-hash) to [validate](
 
 To use `UserHashedTableAuth` for validating users, follow the steps below:
 
-1. Create a digest function with the specified algorithm and salt provider using the [getDigestFunction](https://api.ktor.io/%ktor_version%/io.ktor.util/get-digest-function.html) function:
+1. Create a digest function with the specified algorithm and salt provider using the [getDigestFunction](https://api.ktor.io/ktor-utils/ktor-utils/io.ktor.util/get-digest-function.html) function:
    
    ```kotlin
    ```
@@ -103,7 +103,7 @@ To use `UserHashedTableAuth` for validating users, follow the steps below:
    ```
    {src="snippets/auth-basic-hash-table/src/main/kotlin/com/example/Application.kt" lines="10-16"}
    
-1. Inside the `validate` function, call the [authenticate](https://api.ktor.io/%ktor_version%/io.ktor.auth/-user-hashed-table-auth/authenticate.html) function exposed by `UserHashedTableAuth` to authenticate a user and return an instance of `UserIdPrincipal` if the credentials are valid:
+1. Inside the `validate` function, call the [UserHashedTableAuth.authenticate](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-user-hashed-table-auth/authenticate.html) function to authenticate a user and return an instance of `UserIdPrincipal` if the credentials are valid:
 
    ```kotlin
    ```
