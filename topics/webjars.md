@@ -1,20 +1,20 @@
 [//]: # (title: Webjars)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
-This feature enables serving static content provided by [webjars](https://www.webjars.org/). It allows you to package your assets such
+This plugin (previously known as feature) enables serving static content provided by [webjars](https://www.webjars.org/). It allows you to package your assets such
 as javascript libraries and css as part of your uber-jar.
 
 ## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="Webjars"/>
 <var name="artifact_name" value="ktor-webjars"/>
-<include src="lib.md" include-id="add_ktor_artifact_intro"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Install Webjars {id="install_feature"}
 
 <var name="feature_name" value="Webjars"/>
-<include src="lib.md" include-id="install_feature"/>
+<include src="lib.xml" include-id="install_feature"/>
 
 
 ## Configure Webjars {id="configure"}
@@ -26,7 +26,7 @@ as javascript libraries and css as part of your uber-jar.
     }
 ```
 
-This configures the feature to serve any webjars assets on the `/assets/` path. The `zone` argument configures the correct time zone to
+This configures the plugin to serve any webjars assets on the `/assets/` path. The `zone` argument configures the correct time zone to
 be used with the `Last-Modified` header to support caching (only if [Conditional Headers](conditional_headers.md) feature is also installed).
 
 

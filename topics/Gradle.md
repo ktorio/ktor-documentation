@@ -1,6 +1,6 @@
 [//]: # (title: Gradle)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 In this guide, we will show you how to create a `build.gradle` file
 and how to configure it to support Ktor.

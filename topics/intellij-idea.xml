@@ -40,7 +40,7 @@
         </p>
         <procedure>
             <step>
-                <include src="lib.md" include-id="new_project_idea"/>
+                <include src="lib.xml" include-id="new_project_idea"/>
             </step>
             <step>
                 <p>
@@ -106,7 +106,7 @@
                     <li>
                         <p>
                             <control>Add sample code</control>:
-                            Leave this option enabled to add sample code for features added on the next page.
+                            Leave this option enabled to add sample code for plugins added on the next page.
                         </p>
                     </li>
                 </list>
@@ -117,18 +117,18 @@
             </step>
             <step>
                 <p>
-                    On the next page, you can choose a set of <a href="Features.md">features</a> -
+                    On the next page, you can choose a set of <a href="Plugins.md">plugins</a> (formerly known as features) -
                     building blocks that provide common functionality of a Ktor application, for example,
                     authentication, serialization and content encoding, compression, cookie support, and so on.
                 </p>
-                <img src="ktor_idea_new_project_features_list.png" alt="Ktor features" width="702"/>
+                <img src="ktor_idea_new_project_features_list.png" alt="Ktor plugins" width="702"/>
                 <p>
-                    For now, let's install only the <a href="Routing_in_Ktor.md">Routing</a> feature to
+                    For now, let's install only the <a href="Routing_in_Ktor.md">Routing</a> plugin to
                     handle incoming requests.
                     Start typing <emphasis>routing</emphasis> at the top left search box,
                     find <control>Routing</control> in the list, and click <control>Add</control>.
                 </p>
-                <img src="ktor_idea_new_project_features.png" alt="Add the Routing feature" width="702" animated="true"/>
+                <img src="ktor_idea_new_project_features.png" alt="Add the Routing plugin" width="702" animated="true"/>
                 <p>
                     Click <control>Finish</control> and wait until IntelliJ IDEA generates a project and
                     installs the dependencies.

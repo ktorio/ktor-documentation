@@ -2,10 +2,10 @@
 
 <microformat>
 <var name="example_name" value="testable"/>
-<include src="lib.md" include-id="download_example"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 Ktor is designed to allow the creation of applications that are easily testable. And of course,
 Ktor infrastructure itself is well tested with unit, integration, and stress tests.
@@ -105,10 +105,10 @@ withTestApplication({
 })
 ```
 
-## HttpsRedirect feature
+## HttpsRedirect plugin
 
 The HttpsRedirect changes how testing is performed.
-Check the [testing section of the HttpsRedirect feature](https-redirect.md) for more information.
+Check the [testing section of the HttpsRedirect plugin](https-redirect.md) for more information.
 
 ## Testing several requests preserving sessions/cookies
 {id="preserving-cookies"}
@@ -183,7 +183,9 @@ In some cases we will need some services and dependencies. Instead of storing th
 to create a separate function receiving the service dependencies. This allows you to pass different
 (potentially mocked) dependencies in your tests:
 
+
 <tabs>
+<tab title="build.gradle">
 
 ```groovy
 // ...
@@ -193,7 +195,9 @@ dependencies {
 }
 ```
 
+</tab>
 
+<tab title="module.kt">
 
 ```kotlin
 fun Application.testableModule() {
@@ -211,7 +215,10 @@ fun Application.testableModuleWithDependencies(random: Random) {
 }
 ```
 
+</tab>
 
+
+<tab title="test.kt">
 
 ```kotlin
 class ApplicationTest {
@@ -234,5 +241,7 @@ class ApplicationTest {
     }
 }
 ```
+
+</tab>
 
 </tabs>

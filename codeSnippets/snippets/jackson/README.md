@@ -1,6 +1,6 @@
 # Jackson
 
-A sample Ktor project demonstrating the [ContentNegotiation](https://ktor.io/docs/serialization.html) feature using Jackson.
+A sample Ktor project demonstrating the [ContentNegotiation](https://ktor.io/docs/serialization.html) plugin using Jackson.
 
 ## Running
 

@@ -9,7 +9,7 @@
 </p>
 </microformat>
 
-In this hands-on, we're going to create an HTTP API using Kotlin and Ktor that can serve as a backend for any application, be it mobile, web, desktop, or even a B2B service. We will see how routes are defined and structured, how serialization features help with simplifying tedious tasks, and how we can test parts of our application both manually and automated.
+In this hands-on, we're going to create an HTTP API using Kotlin and Ktor that can serve as a backend for any application, be it mobile, web, desktop, or even a B2B service. We will see how routes are defined and structured, how serialization plugins (formerly known as features) help with simplifying tedious tasks, and how we can test parts of our application both manually and automated.
 
 ## What we will build
 
@@ -74,7 +74,7 @@ fun Application.module() {
 }
 ```
 
-The entry point of our application is important because we install Ktor's features and define routing for our API here – something we can start with right now! 
+The entry point of our application is important because we install Ktor's plugins (formerly known as features) and define routing for our API here – something we can start with right now! 
 
 
 ## Customer routes
@@ -165,7 +165,7 @@ Accept: application/json
 
 When a client makes such a request, content negotiation allows the server to examine the `Accept` header, see if it can serve this specific type of content, and if so, return the result.
 
-In our case, we're going to install the `ContentNegotiation` feature and enable its support for JSON. Let's add the following code to the `Application.module()` function:
+In our case, we're going to install the `ContentNegotiation` plugin and enable its support for JSON. Let's add the following code to the `Application.module()` function:
 
 ```kotlin
 import io.ktor.application.*
@@ -224,7 +224,7 @@ post {
 }
 ```
 
-`call.receive` integrates with the Content Negotiation feature we configured one of the previous sections. Calling it with the generic parameter `Customer` automatically deserializes the JSON request body into a Kotlin `Customer` object. We can then add the customer to our storage and respond with a status code of 201 "Created".
+`call.receive` integrates with the Content Negotiation plugin we configured one of the previous sections. Calling it with the generic parameter `Customer` automatically deserializes the JSON request body into a Kotlin `Customer` object. We can then add the customer to our storage and respond with a status code of 201 "Created".
 
 At this point, it is worth highlighting again that in this tutorial, we are also intentionally glancing over issues that could arise from e.g. multiple requests accessing the storage at the same time. In production, data structures and code that can be accessed from multiple requests / threads at the same time should account for these cases – something that is out of the scope of this hands-on.
 
@@ -575,7 +575,7 @@ And just like that, we have finished building our small JSON-based HTTP API. Of 
 ## What's next
 
 With this step, we've finalized our HTTP API application. From here on we can add other
-features such as Authentication, etc.
+plugins such as Authentication, etc.
 
 ### Feature requests
 

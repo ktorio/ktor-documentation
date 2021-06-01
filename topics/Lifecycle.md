@@ -1,6 +1,6 @@
 [//]: # (title: Lifecycle)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 Ktor is designed to be flexible and extensible. It is composed
 of small, simple pieces, but if you don't know what's happening, then it is like a black box.
@@ -154,7 +154,7 @@ val Call = PipelinePhase("Call") // Phase for processing a call and sending a re
 val Fallback = PipelinePhase("Fallback") // Phase for handling unprocessed calls
 ```
 
-## [Features](Features.md)
+## [Features](Plugins.md)
 
 Ktor defines application features using the [`ApplicationFeature`](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-core/jvm/src/io/ktor/application/ApplicationFeature.kt) class.
 A feature is something that you can `install` to a specific pipeline.

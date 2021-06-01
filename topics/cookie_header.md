@@ -4,7 +4,7 @@
 
 
 ## Configure Cookie/Header {id="configure"}
-[Sessions.Configuration](https://api.ktor.io/%ktor_version%/io.ktor.sessions/-sessions/-configuration/index.html) provides the `cookie` and `header` methods for selecting how to transfer session data. For both ways, you can choose whether to pass the entire session data between the [client and server](client_server.md) or only the session ID and store data on the server. If you pass data to the client, you need to apply [transforms](transformers.md) to encrypt or authenticate sessions.
+[Sessions.Configuration](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.sessions/-sessions/-configuration/index.html) provides the `cookie` and `header` methods for selecting how to transfer session data. For both ways, you can choose whether to pass the entire session data between the [client and server](client_server.md) or only the session ID and store data on the server. If you pass data to the client, you need to apply [transforms](transformers.md) to encrypt or authenticate sessions.
 
 
 ### Cookie {id="cookie"}
@@ -31,7 +31,7 @@ install(Sessions) {
     }
 }
 ```
-To learn more about available configurations settings, see [CookieConfiguration](https://api.ktor.io/%ktor_version%/io.ktor.sessions/-cookie-configuration/index.html).
+To learn more about available configurations settings, see [CookieConfiguration](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.sessions/-cookie-configuration/index.html).
 
 
 ### Header {id="header"}

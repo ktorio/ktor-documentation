@@ -1,6 +1,6 @@
 [//]: # (title: IntelliJ IDEA Plugin)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 There is a [IntelliJ plugin adding a project wizard for Ktor projects](https://plugins.jetbrains.com/plugin/10823-ktor){target="_blank"}.
 

@@ -64,7 +64,7 @@ dependencies {
 ```
 
 - `ktor-server-netty` adds Ktor together with the Netty engine, allowing us to use server functionality without having to rely on an external application container.
-- `ktor-websockets` allows us to use the [WebSocket Ktor feature](websocket.md), the main communication mechanism for our chat.
+- `ktor-websockets` allows us to use the [WebSocket Ktor plugin](websocket.md), the main communication mechanism for our chat.
 - `logback-classic` provides an implementation of [SLF4J](http://www.slf4j.org/), allowing us to see nicely formatted logs in our console.
 
 #### Configuration for the `server` project
@@ -124,7 +124,7 @@ fun Application.module() {
 }
 ```
 
-We first enable WebSocket-related functionality provided by the Ktor framework by installing the `WebSockets` Ktor feature. This allows us to define endpoints in our routing which respond to the WebSocket protocol (in our case, the route is `/chat`). Within the scope of the `webSocket` route function, we can use various methods for interacting with our clients (via the `DefaultWebSocketServerSession` receiver type). This includes convenience methods to send messages and iterate over received messages.
+We first enable WebSocket-related functionality provided by the Ktor framework by installing the `WebSockets` Ktor plugin. This allows us to define endpoints in our routing which respond to the WebSocket protocol (in our case, the route is `/chat`). Within the scope of the `webSocket` route function, we can use various methods for interacting with our clients (via the `DefaultWebSocketServerSession` receiver type). This includes convenience methods to send messages and iterate over received messages.
 
 Because we are only interested in text content, we skip any non-text `Frame`s we receive when iterating over the incoming channel. We can then read any received text, and send it right back to the user with the prefix `"You said:"`.
 
@@ -248,7 +248,7 @@ fun main() {
 }
 ```
 
-Here, we first create an `HttpClient` and set up Ktor's `WebSocket` feature (the analog of installing the `WebSocket` feature in our server application's module in an earlier chapter). Functions in Ktor responsible for making network calls use the suspension mechanism from Kotlin's coroutines, so we wrap our network-related code in a `runBlocking` block. Inside the WebSocket handler, we once again process incoming messages and send outgoing messages: we ignore frames which do not contain text, read incoming text, and send the user input to the server.
+Here, we first create an `HttpClient` and set up Ktor's `WebSocket` plugin (the analog of installing the `WebSocket` plugin in our server application's module in an earlier chapter). Functions in Ktor responsible for making network calls use the suspension mechanism from Kotlin's coroutines, so we wrap our network-related code in a `runBlocking` block. Inside the WebSocket handler, we once again process incoming messages and send outgoing messages: we ignore frames which do not contain text, read incoming text, and send the user input to the server.
 
 However, this "straightforward" implementation actually contains an issue which prevents it from being used as a proper chat client: when invoking `readLine()`, our program waits until the user enters a message. During this time, we can't see any messages which have been typed out by other users. Likewise, because we invoke `readLine()` after every received message, we would only ever see one new message at a time.
 

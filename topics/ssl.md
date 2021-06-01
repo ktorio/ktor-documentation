@@ -2,10 +2,10 @@
 
 <microformat>
 <var name="example_name" value="ssl"/>
-<include src="lib.md" include-id="download_example"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 You can buy a certificate and configure Ktor to use it,
 **or** you can use Let's Encrypt to automatically get a **free certificate** to serve `https://` and `wss://` requests
@@ -329,7 +329,7 @@ You can find more information about [how to deploy a docker and the Dockerfile](
 [Let's Encrypt companion] <-> [Nginx]
 ```
 
-### The XForwardedHeaderSupport feature
+### The XForwardedHeaderSupport plugin
 
 In this case you are using nginx acting as reverse-proxy for your requests. If you want to get information about the original requests,
-instead of the proxied nginx request, you will have to use the [XForwardedHeaderSupport](forward-headers.md) feature.
+instead of the proxied nginx request, you will have to use the [XForwardedHeaderSupport](forward-headers.md) plugin.

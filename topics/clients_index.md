@@ -1,9 +1,9 @@
 [//]: # (title: Client)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 In addition to HTTP serving, Ktor also includes a flexible asynchronous HTTP client.
-This client supports several [configurable engines](http-client_engines.md), and has its own set of [features](http-client_features.md).
+This client supports several [configurable engines](http-client_engines.md), and has its own set of [features](http-client_plugins.md).
 
 >The main functionality is available through the `io.ktor:ktor-client-core:$ktor_version` artifact.
 >And each engine, is provided in [separate artifacts](http-client_engines.md).
@@ -66,4 +66,4 @@ For more information, check the [examples page](examples.md) with some examples.
 ## Features
 {id="features"}
 
-For more information, check the [features page](http-client_features.md) with all the available features.
+For more information, check the [features page](http-client_plugins.md) with all the available features.

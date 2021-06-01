@@ -4,22 +4,22 @@
 
 <microformat>
 <var name="example_name" value="velocity"/>
-<include src="lib.md" include-id="download_example"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-Ktor allows you to use [Velocity templates](https://velocity.apache.org/engine/) as views within your application by installing the [Velocity](https://api.ktor.io/%ktor_version%/io.ktor.velocity/-velocity/index.html) feature.
+Ktor allows you to use [Velocity templates](https://velocity.apache.org/engine/) as views within your application by installing the [Velocity](https://api.ktor.io/ktor-features/ktor-velocity/ktor-velocity/io.ktor.velocity/-velocity/index.html) plugin (previously known as feature).
 
 
 ## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="Velocity"/>
 <var name="artifact_name" value="ktor-velocity"/>
-<include src="lib.md" include-id="add_ktor_artifact_intro"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Install Velocity {id="install_feature"}
 
 <var name="feature_name" value="Velocity"/>
-<include src="lib.md" include-id="install_feature"/>
+<include src="lib.xml" include-id="install_feature"/>
 
 
 ## Configure Velocity {id="configure"}

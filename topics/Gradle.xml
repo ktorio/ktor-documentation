@@ -43,7 +43,7 @@
         </p>
         <procedure hide-from-structure="true">
             <step>
-                <include src="lib.md" include-id="new_project_idea"/>
+                <include src="lib.xml" include-id="new_project_idea"/>
             </step>
             <step>
                 <p>
@@ -181,7 +181,7 @@
                     </tab>
                 </tabs>
                 <p>
-                    Note that other engines and <a href="Features.md">features</a> that extend Ktor functionality might required additional dependencies.
+                    Note that other engines and <a href="Plugins.md">plugins</a> that extend Ktor functionality might required additional dependencies.
                     You can learn more from corresponding topics.
                 </p>
             </step>

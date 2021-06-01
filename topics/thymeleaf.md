@@ -2,22 +2,22 @@
 
 <microformat>
 <var name="example_name" value="thymeleaf"/>
-<include src="lib.md" include-id="download_example"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-Ktor allows you to use [Thymeleaf templates](https://www.thymeleaf.org/) as views within your application by installing the [Thymeleaf](https://api.ktor.io/%ktor_version%/io.ktor.thymeleaf/-thymeleaf/index.html) feature.
+Ktor allows you to use [Thymeleaf templates](https://www.thymeleaf.org/) as views within your application by installing the [Thymeleaf](https://api.ktor.io/ktor-features/ktor-thymeleaf/ktor-thymeleaf/io.ktor.thymeleaf/-thymeleaf/index.html) plugin (previously known as feature).
 
 
 ## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="Thymeleaf"/>
 <var name="artifact_name" value="ktor-thymeleaf"/>
-<include src="lib.md" include-id="add_ktor_artifact_intro"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Install Thymeleaf {id="install_feature"}
 
 <var name="feature_name" value="Thymeleaf"/>
-<include src="lib.md" include-id="install_feature"/>
+<include src="lib.xml" include-id="install_feature"/>
 
 
 

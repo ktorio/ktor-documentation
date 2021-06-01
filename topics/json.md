@@ -2,12 +2,12 @@
 
 <microformat>
 <var name="example_name" value="json-client"/>
-<include src="lib.md" include-id="download_example"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-[JsonFeature](https://api.ktor.io/%ktor_version%/io.ktor.client.features.json/-json-feature/index.html) can be used to serialize/deserialize JSON data when sending [requests](request.md) and receiving [responses](response.md). This functionality is provided for JVM by using the `Gson`/`Jackson` libraries and for [Kotlin Multiplatform](http-client_multiplatform.md) by using `kotlinx.serialization`.
+[JsonFeature](https://api.ktor.io/ktor-client/ktor-client-features/ktor-client-json/ktor-client-json/io.ktor.client.features.json/-json-feature/index.html) can be used to serialize/deserialize JSON data when sending [requests](request.md) and receiving [responses](response.md). This functionality is provided for JVM by using the `Gson`/`Jackson` libraries and for [Kotlin Multiplatform](http-client_multiplatform.md) by using `kotlinx.serialization`.
 
-> On the server, Ktor provides the [ContentNegotiation](serialization.md) feature for serializing/deserializing content.
+> On the server, Ktor provides the [ContentNegotiation](serialization.md) plugin (previously known as feature) for serializing/deserializing content.
 
 
 ## Add dependencies {id="add_dependencies"}
@@ -17,11 +17,11 @@ Before installing `JsonFeature`, you need to add a dependency for the desired se
 ### JVM: Gson and Jackson  {id="jvm_dependency"}
 To use Gson, add the following artifact to the build script:
 <var name="artifact_name" value="ktor-client-gson"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 For Jackson, add the following dependency:
 <var name="artifact_name" value="ktor-client-jackson"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 
 ### JVM, iOS, JS: kotlinx {id="kotlinx_dependency"}
@@ -31,7 +31,7 @@ For multiplatform projects, you can use the `kotlinx.serialization` library. You
 1. Add the `ktor-client-serialization` dependency:
    
 <var name="artifact_name" value="ktor-client-serialization"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
       
 
 ## Install JsonFeature {id="install_feature"}
@@ -46,7 +46,7 @@ Now you can [configure](#configure_serializer) the required JSON serializer.
 
 ## Configure a serializer {id="configure_serializer"}
 
-Depending on the [included artifacts](#add_dependencies), Ktor chooses a default serializer automatically. You can get this serializer by calling the [io.ktor.client.features.json.defaultSerializer](https://api.ktor.io/%ktor_version%/io.ktor.client.features.json/default-serializer.html) function.
+Depending on the [included artifacts](#add_dependencies), Ktor chooses a default serializer automatically. You can get this serializer by calling the [io.ktor.client.features.json.defaultSerializer](https://api.ktor.io/ktor-client/ktor-client-features/ktor-client-json/ktor-client-json/io.ktor.client.features.json/default-serializer.html) function.
 
 To specify the required serializer explicitly, use the `serializer` property:
 ```kotlin

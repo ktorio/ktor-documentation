@@ -5,7 +5,7 @@ or any custom extensions.
 
 <var name="annotation_name" value="ExperimentalWebSocketExtensionsApi"/>
 <var name="issue_number" value="688"/>
-<include src="lib.md" include-id="experimental"/>
+<include src="lib.xml" include-id="experimental"/>
 
 ## Installing extension
 

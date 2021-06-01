@@ -1,6 +1,6 @@
 [//]: # (title: Heroku)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 >There is a quickstart repository for Heroku: <https://github.com/orangy/ktor-heroku-start>
 >

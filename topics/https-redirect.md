@@ -1,8 +1,8 @@
 [//]: # (title: HttpsRedirect)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
-This feature will make all the affected HTTP calls perform a redirect to its
+The `HttpsRedirect` plugin (previously known as feature) will make all the affected HTTP calls perform a redirect to its
 HTTPS counterpart before processing the call.
 
 By default the redirection is a `301 Moved Permanently`,
@@ -19,10 +19,10 @@ fun Application.main() {
 }
 ```
 
-The code above installs the HttpsRedirect feature with the default configuration.
+The code above installs the HttpsRedirect plugin with the default configuration.
 
 >When behind a reverse-proxy, you will need to install the `ForwardedHeaderSupport` or the `XForwardedHeaderSupport`
->feature, for the `HttpsRedirect` feature to properly detect HTTPS requests.
+>plugin, for the `HttpsRedirect` plugin to properly detect HTTPS requests.
 >
 {type="note"}
 
@@ -42,14 +42,14 @@ fun Application.main() {
 ## Testing
 {id="testing"}
 
-Applying this feature changes how [testing](Testing.md) works.
-After applying this feature, each `handleRequest` you perform, results in a redirection response.
+Applying this plugin changes how [testing](Testing.md) works.
+After applying this plugin, each `handleRequest` you perform, results in a redirection response.
 And probably this is not what you want in most cases, since that behaviour is already tested.
 
 ### XForwardedHeaderSupport trick
 
 As shown [in this test](https://github.com/ktorio/ktor/blob/bb0765ce00e5746c954fea70270cf7d802a40648/ktor-server/ktor-server-tests/test/io/ktor/tests/server/features/HttpsRedirectFeatureTest.kt#L31-L49){ target="_blank"},
-you can install the `XForwardedHeaderSupport` feature and add a `addHeader(HttpHeaders.XForwardedProto, "https")`
+you can install the `XForwardedHeaderSupport` plugin and add a `addHeader(HttpHeaders.XForwardedProto, "https")`
 header to the request.
 
 ```kotlin
@@ -73,7 +73,7 @@ fun testRedirectHttps() {
 }
 ```
 
-### Do not install the feature when testing or uninstall it
+### Do not install the plugin when testing or uninstall it
 
 Uninstalling it:
 
@@ -103,9 +103,9 @@ fun Application.mymoduleConfigured(installHttpsRedirect: Boolean = true) {
 ```
 
 In this case, you can also have a separate test that calls `mymodule` instead of `mymoduleForTesting` to verify
-that the `HttpsRedirect` feature is installed and other things that you are not doing in tests.
+that the `HttpsRedirect` plugin is installed and other things that you are not doing in tests.
 
-### I get an infinite redirect when using this feature
+### I get an infinite redirect when using this plugin
 
-Have you installed the `XForwardedHeaderSupport` or the `ForwardedHeaderSupport` feature?
+Have you installed the `XForwardedHeaderSupport` or the `ForwardedHeaderSupport` plugin?
 Check [this FAQ entry](FAQ.md#infinite-redirect) for more details.

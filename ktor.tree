@@ -71,8 +71,8 @@
 
             <toc-element id="Structuring_Applications.md"
                          accepts-web-file-names="structure.html"/>
-            <toc-element id="Features.md"
-                         accepts-web-file-names="zfeatures.html">
+            <toc-element id="Plugins.md"
+                         accepts-web-file-names="zfeatures.html,features.html">
                 <toc-element id="Serving_Static_Content.md"
                              show-structure-depth="2"
                              accepts-web-file-names="static-content.html"/>
@@ -130,7 +130,8 @@
                 <toc-element id="forward-headers.md"/>
                 <toc-element id="hsts.md"/>
                 <toc-element id="https-redirect.md"/>
-                <toc-element id="features_locations.md"/>
+                <toc-element id="locations.md"
+                             accepts-web-file-names="features-locations.html"/>
 <!--                <toc-element id="redirects.md"/>-->
                 <toc-element id="partial-content.md"/>
                 <toc-element id="shutdown-url.md"/>
@@ -203,21 +204,27 @@
             <toc-element id="streaming.md"/>
         </toc-element>
         <toc-element id="http-client_testing.md"/>
-        <toc-element id="http-client_features.md">
-            <toc-element id="features_auth.md" accepts-web-file-names="auth.html"/>
+        <toc-element id="http-client_plugins.md"
+                     accepts-web-file-names="http-client-features.html">
+            <toc-element id="auth.md"
+                         accepts-web-file-names="features-auth.html"
+                         show-structure-depth="2"/>
             <toc-element id="default-request.md"/>
             <toc-element id="http-cookies.md"/>
             <toc-element id="http-plain-text.md"/>
             <toc-element id="http-redirect.md"/>
-            <toc-element id="json-feature.md"
+            <toc-element id="json.md"
+                         accepts-web-file-names="json-feature.html"
                          show-structure-depth="2"/>
-            <toc-element id="features_logging.md"/>
+            <toc-element id="client_logging.md"
+                         accepts-web-file-names="features-logging.html"/>
             <toc-element id="proxy.md"/>
             <toc-element id="response-validation.md"/>
 <!--            <toc-element id="client_retry.md"/>-->
             <toc-element id="timeout.md"/>
             <toc-element id="user-agent.md"/>
-            <toc-element id="http-client_features_websockets.md"/>
+            <toc-element id="client-websockets.md"
+                         accepts-web-file-names="http-client-features-websockets.html"/>
         </toc-element>
     </toc-element>
 
@@ -246,8 +253,8 @@
             <toc-element id="intercepting_routes.md"
                          accepts-web-file-names="route.html"/>
         </toc-element>
-        <toc-element id="Creating_custom_features.md"
-                     accepts-web-file-names="advanced-index.html,advanced-features.html"/>
+        <toc-element id="Creating_custom_plugins.md"
+                     accepts-web-file-names="advanced-index.html,advanced-features.html,creating-custom-features.html"/>
         <toc-element id="custom_engines.md"/>
         <toc-element id="advanced_authentication.md"/>
         <toc-element id="events.md"/>

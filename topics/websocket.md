@@ -1,8 +1,8 @@
 [//]: # (title: Server WebSockets)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
-This feature adds WebSockets support to Ktor.
+This plugin adds WebSockets support to Ktor.
 WebSockets are a mechanism to keep a bi-directional real-time ordered connection between
 the server and the client.
 Each message from this channel is called Frame: a frame can be a text or binary message,
@@ -12,8 +12,8 @@ or a close or ping/pong message. Frames can be marked as incomplete or final.
 ## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="WebSockets"/>
 <var name="artifact_name" value="ktor-websockets"/>
-<include src="lib.md" include-id="add_ktor_artifact_intro"/>
-<include src="lib.md" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 
 ## Install WebSockets {id="install_feature"}
@@ -25,7 +25,7 @@ In order to use the WebSockets functionality you first have to install it:
 install(WebSockets)
 ```
 
-If required, you can adjust parameters during the installation of the feature:
+If required, you can adjust parameters during the installation of the plugin:
 
 ```kotlin
 install(WebSockets) {
@@ -43,7 +43,7 @@ install(WebSockets) {
 ## Usage
 {id="usage"}
 
-Once installed, you can define the `webSocket` routes for the [routing](Routing_in_Ktor.md) feature:
+Once installed, you can define the `webSocket` routes for the [routing](Routing_in_Ktor.md) plugin:
 
 Instead of the short-lived normal route handlers, webSocket handlers are meant to be long-lived.
 And all the relevant WebSocket methods are suspended so that the function will be suspended in
@@ -121,7 +121,7 @@ interface WebSocketSession {
     // List of WebSocket extensions negotiated for the current session
     val extensions: List<WebSocketExtension<*>>
 
-    // Modifiable properties for this request. Their initial value comes from the feature configuration.
+    // Modifiable properties for this request. Their initial value comes from the plugin configuration.
     var pingInterval: Duration?
     var timeout: Duration
     var masking: Boolean // Enable or disable masking output messages by a random xor mask.
@@ -232,7 +232,7 @@ How do the [standard events from the WebSocket API](https://developer.mozilla.or
 * `onClose` happens when the `incoming` channel is closed. That would complete the suspended iteration, or throw a `ClosedReceiveChannelException` when trying to receive a message`.
 * `onError` is equivalent to other exceptions.
 
-In both `onClose` and `onError`, the [`closeReason` property](https://api.ktor.io/%ktor_version%/io.ktor.http.cio.websocket/-default-web-socket-session/close-reason.html) is set.
+In both `onClose` and `onError`, the [closeReason](https://api.ktor.io/ktor-http/ktor-http-cio/ktor-http-cio/io.ktor.http.cio.websocket/-default-web-socket-session/close-reason.html) property is set.
 
 To illustrate this:
 

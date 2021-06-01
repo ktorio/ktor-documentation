@@ -1,10 +1,10 @@
 [//]: # (title: LDAP authentication)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 <microformat>
 <var name="example_name" value="auth-ldap"/>
-<include src="lib.md" include-id="download_example"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
 ## Add dependencies {id="add_dependencies"}

@@ -6,7 +6,7 @@ It's useful to enable this extension if you're sending large amounts of text dat
 
 <var name="annotation_name" value="ExperimentalWebSocketExtensionsApi"/>
 <var name="issue_number" value="688"/>
-<include src="lib.md" include-id="experimental"/>
+<include src="lib.xml" include-id="experimental"/>
 
 ## Installation
 

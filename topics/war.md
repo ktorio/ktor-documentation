@@ -1,6 +1,6 @@
 [//]: # (title: WAR)
 
-<include src="lib.md" include-id="outdated_warning"/>
+<include src="lib.xml" include-id="outdated_warning"/>
 
 A WAR archive allows you to easily deploy your application inside your web container / servlet container,
 by just copying it to its `webapps` folder. Ktor supports two popular servlet containers: Jetty and Tomcat.

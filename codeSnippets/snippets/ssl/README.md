@@ -19,7 +19,7 @@ A security dialog is shown because this sample uses a [self-signed temporary cer
   
 ## HTTPS Redirect
 
-This sample also installs the [HTTPS redirect](https://ktor.io/docs/https-redirect.html) feature to automatically redirect to HTTPS port:
+This sample also installs the [HTTPS redirect](https://ktor.io/docs/https-redirect.html) plugin to automatically redirect to HTTPS port:
 
 ```kotlin
 install(HttpsRedirect) {

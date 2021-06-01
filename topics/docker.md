@@ -2,7 +2,7 @@
 
 <microformat>
 <var name="example_name" value="docker"/>
-<include src="lib.md" include-id="download_example"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
 In this section we'll see how to deploy a Ktor application to a [Docker](https://www.docker.com) container which can then be run either locally or on
