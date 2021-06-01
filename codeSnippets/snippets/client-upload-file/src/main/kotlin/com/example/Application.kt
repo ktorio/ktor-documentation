@@ -8,7 +8,6 @@ import io.ktor.client.statement.*
 import io.ktor.http.*
 import kotlinx.coroutines.runBlocking
 import java.io.File
-import kotlin.concurrent.fixedRateTimer
 
 fun main() {
     runBlocking {
@@ -25,9 +24,7 @@ fun main() {
             }
         ) {
             onUpload { bytesSentTotal, contentLength ->
-                fixedRateTimer("timer", true, 0L, 50L) {
-                    println("Sent $bytesSentTotal bytes from $contentLength")
-                }
+                println("Sent $bytesSentTotal bytes from $contentLength")
             }
         }
 

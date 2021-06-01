@@ -7,7 +7,6 @@ import io.ktor.utils.io.*
 import io.ktor.utils.io.jvm.javaio.*
 import kotlinx.coroutines.runBlocking
 import java.io.File
-import kotlin.concurrent.fixedRateTimer
 
 fun main() {
     val client = HttpClient()
@@ -21,9 +20,7 @@ fun main() {
 suspend fun HttpClient.downloadMainPage(file: File) {
     val channel = get<ByteReadChannel>("https://ktor.io/index.html") {
         onDownload { bytesSentTotal, contentLength ->
-            fixedRateTimer("timer", true, 0L, 200L) {
-                println("Received $bytesSentTotal bytes from $contentLength")
-            }
+            println("Received $bytesSentTotal bytes from $contentLength")
         }
     }
 
