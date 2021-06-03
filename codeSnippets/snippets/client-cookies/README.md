@@ -4,7 +4,7 @@ A sample project demonstrating how to store cookies on a client using the [HttpC
 
 ## Running
 
-Before running this sample, start a server from the [session-cookie](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/simulate-slow-server) example:
+Before running this sample, start a server from the [session-cookie](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie) example:
 ```bash
 # macOS/Linux
 ./gradlew :session-cookie:run
