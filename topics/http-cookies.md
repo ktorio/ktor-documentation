@@ -2,6 +2,11 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
+<microformat>
+<var name="example_name" value="client-cookies"/>
+<include src="lib.xml" include-id="download_example"/>
+</microformat>
+
 This plugin (previously known as feature) keeps cookies between calls or forces specific cookies.
 
 

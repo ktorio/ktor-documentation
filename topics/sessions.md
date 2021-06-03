@@ -1,8 +1,10 @@
 [//]: # (title: Sessions)
 
 <microformat>
-<var name="example_name" value="sessions"/>
-<include src="lib.xml" include-id="download_example"/>
+<p>Required dependencies: <code>io.ktor:ktor-server-sessions</code></p>
+<p>Code examples:
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie">session-cookie</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/sessions">sessions</a></p>
 </microformat>
 
 Sessions provide a mechanism to persist data between different HTTP requests. Typical use cases include storing a logged-in user's ID, the contents of a shopping basket, or keeping user preferences on the client. In Ktor, you can implement sessions by using cookies or custom headers, choose whether to store session data on the server or pass it to the client, sign and encrypt session data, and more.
@@ -26,35 +28,37 @@ You can configure sessions in the following ways:
 
 ## Install Sessions {id="install"}
 Before installing a session, you need to create a [data class](https://kotlinlang.org/docs/data-classes.html) for storing session data, for example:
+
 ```kotlin
-data class LoginSession(val username: String, val count: Int)
 ```
-You need to create several data classes if you are going to use several sessions. 
+{src="snippets/session-cookie/src/main/kotlin/com/example/Application.kt" lines="8"}
+
+You need to create several data classes if you are going to use [several sessions](#multiple). 
 
 After creating the required data classes, you can install the `Sessions` plugin by passing it to the `install` function in the application initialization code. Inside the `install` block, call the `cookie` or `header` function depending on how you want to [pass data between the server and client](cookie_header.md):
+
 ```kotlin
-import io.ktor.features.*
 import io.ktor.sessions.*
 // ...
 fun Application.module() {
     install(Sessions) {
-        cookie<LoginSession>("LOGIN_SESSION")
+        cookie<UserSession>("user_session")
     }
 }
 ```
 You can now [set the session content](#set-content), modify the session, or clear it.
 
 ### Multiple sessions {id="multiple"}
-If you need several sessions in your application, you need to create a separate data class for each session. For example, you can create separate data classes for storing a user login and settings:
+If you need several sessions in your application, you need to create a separate data class for each session. For example, you can create separate data classes for storing a user data and settings:
 ```kotlin
-data class LoginSession(val username: String, val count: Int)
-data class SettingsSession(val username: String, val settings: Settings)
+data class UserSession(val id: String, val count: Int)
+data class SettingsSession(val id: String, val settings: Settings)
 ```
-You can store a username on the server in a [directory storage](storages.md) and pass user preferences to the client.
+You can store a user identifier on the server in a [directory storage](storages.md) and pass user preferences to the client.
 ```kotlin
 install(Sessions) {
-    cookie<LoginSession>("LOGIN_SESSION", directorySessionStorage(File(".sessions"), cached = true))
-    cookie<SettingsSession>("SETTINGS_SESSION")
+    cookie<UserSession>("user_session", directorySessionStorage(File(".sessions"), cached = true))
+    cookie<SettingsSession>("settings_session")
 }
 ```
 Note that session names should be unique.
@@ -62,30 +66,28 @@ Note that session names should be unique.
 
 ## Set session content {id="set-content"}
 To set the session content for a specific [route](Routing_in_Ktor.md), use the [call.sessions](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.sessions/sessions.html) property. The [set](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.sessions/-current-session/set.html) method allows you to create a new session instance:
+
 ```kotlin
-routing {
-    get("/") {
-        call.sessions.set(LoginSession(username = "John", count = 1))
-    }
-}
 ```
+{src="snippets/session-cookie/src/main/kotlin/com/example/Application.kt" lines="17-21,37"}
+
 To get the session content, you can call [get](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.sessions/-current-session/get.html) receiving one of the registered session types as type parameter:
+
 ```kotlin
-routing {
-    get("/") {
-        val loginSession: LoginSession? = call.sessions.get<LoginSession>()
-    }
-}
 ```
+{src="snippets/session-cookie/src/main/kotlin/com/example/Application.kt" lines="17,23-24,31,37"}
+
 To modify a session, for example, to increment a counter, you need to call the `copy` method of the data class:
+
 ```kotlin
-val loginSession = call.sessions.get<LoginSession>() ?: LoginSession(username = "Initial", count = 0)
-call.sessions.set(session.copy(value = loginSession.count + 1))
 ```
+{src="snippets/session-cookie/src/main/kotlin/com/example/Application.kt" lines="26"}
+
 When you need to clear a session for any reason (for example, when a user logs out), call the `clear` function:
+
 ```kotlin
-call.sessions.clear<LoginSession>()
 ```
+{src="snippets/session-cookie/src/main/kotlin/com/example/Application.kt" lines="17,33-37"}
 
 
 
