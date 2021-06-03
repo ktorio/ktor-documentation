@@ -48,6 +48,7 @@ A [Ktor documentation repository](https://github.com/ktorio/ktor-documentation) 
 * [Locations](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/locations)
 * [Metrics](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/metrics)
 * [POST](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/post)
+* [Session in cookies](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie)
 * [Sessions](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/sessions)
 * [SSL](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/ssl)
 * [Static](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/static-content)
@@ -55,6 +56,7 @@ A [Ktor documentation repository](https://github.com/ktorio/ktor-documentation) 
 
 
 ## Client {id="client"}
+* [Cookies](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-cookies)
 * [Download file](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-download-file)
 * [Upload file](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-upload-file)
 * [Json client](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/json-client)
