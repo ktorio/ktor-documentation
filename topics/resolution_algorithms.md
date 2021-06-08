@@ -73,8 +73,8 @@ For the second example tree, routing resolution for request `GET /a/b` will look
     * Check second child `route("/")` -> success, q=-1, traverse children
         * Check first child `route("*")` -> success, q=0.5. Route has handler, add it to successful matches
     * Check third child `route("{...}")` -> success, q=0.1. Quality is less than the best child quality, ignore subtree
-* Success matches are `/ a,q=1.0 / b,q=1.0 / <get>,q=1.0` and `a,q=1.0 / </>,q=-1.0 / <*>,q=0.5`
-* Ignoring transparent qualities, matches are `/ a,q=1.0 / b,q=1.0 / :get,q=1.0` and `a,q=1.0 / *,q=0.5`
+* Success matches are `/ a,q=1.0 / b,q=1.0 / :get,q=1.0` and `a,q=1.0 / </>,q=-1.0 / <*>,q=0.5`
+* Ignoring transparent qualities, matches are `/ a,q=1.0 / b,q=1.0 / :get,q=1.0` and `a,q=1.0 / <*>,q=0.5`
 * First result has higher quality for the second node, choose it.
    
 
