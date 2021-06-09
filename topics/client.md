@@ -102,22 +102,12 @@ To learn how to add headers, cookies, and specify a request body, see the [](req
 
 
 
-### Receive a Response {id="response"}
-All request functions (`request`, `get`, `post`, etc.) allow you to receive a response in several ways:
-* As an [HttpResponse](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.statement/-http-response/index.html) object:
-   ```kotlin
-   ```
-  {src="snippets/_misc_client/ResponseTypes.kt" include-symbol="httpResponse"}
-  
-* As a string:
-   ```kotlin
-   ```
-  {src="snippets/_misc_client/ResponseTypes.kt" include-symbol="stringResponse"}
-  
-* As a byte array:
-   ```kotlin
-   ```
-  {src="snippets/_misc_client/ResponseTypes.kt" include-symbol="byteArrayResponse"}
+### Receive a response {id="response"}
+All functions used to [make an HTTP request](request.md) (`request`, `get`, `post`, etc.) allow you to receive a response as an [HttpResponse](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.statement/-http-response/index.html) object. `HttpResponse` exposes API required to get a response body in various ways (raw bytes, JSON objects, etc.) and obtain response parameters, such as a status code, content type, headers, and so on. For example, you can receive a body as [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/) as follows:
+
+```kotlin
+```
+{src="snippets/_misc_client/ResponseTypes.kt" lines="11,13"}
 
 You can learn more from the [](response.md) topic.
 
