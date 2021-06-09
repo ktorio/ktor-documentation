@@ -198,9 +198,9 @@
                          show-structure-depth="2"/>
         </toc-element>
         <toc-element id="request.md" show-structure-depth="2"/>
-        <toc-element id="response.md">
-            <toc-element id="streaming.md"/>
-        </toc-element>
+        <toc-element id="response.md"
+                     show-structure-depth="2"
+                     accepts-web-file-names="streaming.html"/>
         <toc-element id="http-client_testing.md"/>
         <toc-element id="http-client_plugins.md"
                      accepts-web-file-names="http-client-features.html">

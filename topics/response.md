@@ -1,68 +1,76 @@
 [//]: # (title: Receiving responses)
 
-<include src="lib.xml" include-id="outdated_warning"/>
-
-## Receiving the body of a response {id="receive"}
-
-By default you can use `HttpResponse` or `String` as possible types for typed
-HttpClient requests. So for example:
+All functions used to [make an HTTP request](request.md) (`request`, `get`, `post`, etc.) allow you to receive a response as an [HttpResponse](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.statement/-http-response/index.html) object. `HttpResponse` exposes API required to get a [response body](#body) in various ways (raw bytes, JSON objects, etc.) and obtain [response parameters](#parameters), such as a status code, content type, headers, and so on. For example, you can receive `HttpResponse` for a `GET` request without parameters as follows:
 
 ```kotlin
-val htmlContent = client.get<String>("https://en.wikipedia.org/wiki/Main_Page")
-val response = client.get<HttpResponse>("https://en.wikipedia.org/wiki/Main_Page")
 ```
+{src="snippets/_misc_client/GetMethodWithoutParams.kt"}
 
-If *JsonFeature* is configured, and the server returns the header `Content-Type: application/json`,
-you can also specify a class for deserializing it.
+
+## Receive response body {id="body"}
+
+### Raw body {id="raw"}
+
+To receive a raw body as [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/), call the [HttpResponse.receive](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.call/receive.html) function in the following way:
 
 ```kotlin
-val helloWorld = client.get<HelloWorld>("http://127.0.0.1:8080/")
 ```
+{src="snippets/_misc_client/ResponseTypes.kt" lines="11,12"}
 
+Similarly, you can get a body as [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/):
 
-### Download progress {id="download-progress"}
-
-If you need to react on download progress change, use the [onDownload](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.features/on-download.html) extension function in `HttpRequestBuilder`:
 ```kotlin
 ```
-{src="snippets/client-download-file/src/Downloader.kt" lines="21-25"}
+{src="snippets/_misc_client/ResponseTypes.kt" lines="11,13"}
+
+A [runnable example](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-download-file) below shows how to get a response as a byte array and save it to a file:
+```kotlin
+```
+{src="snippets/client-download-file/src/Downloader.kt" lines="12-24"}
+
+> The [onDownload](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.features/on-download.html) extension function in the example above is used to display download progress.
+
+### JSON object {id="json"}
+
+With the [JSON plugin](json.md) installed, you can deserialize JSON data into a data class when receiving responses, for example:
+
+```kotlin
+val customer: Customer = client.get("http://127.0.0.1:8080/customer")
+```
+
+To learn more, see [JSON plugin](json.md#receive_send_data).
 
 
-## API reference {id="HttpResponse"}
+### Streaming data {id="streaming"}
 
-`HttpResponse` API reference is listed [here](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.response/-http-response/index.html).
+When you call the `HttpResponse.receive` function to get a body, Ktor processes a response in memory and returns a full response body. If you need to get chunks of a response sequentially instead of waiting for the entire response, use `HttpStatement` with scoped [execute](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.statement/-http-statement/execute.html) block. A [runnable example](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-download-streaming) below shows how to receive a response content in chunks (byte packets) and save them in a file:
 
-From an `HttpResponse`, you can get the response content easily:
+```kotlin
+```
+{src="snippets/client-download-streaming/src/main/kotlin/com/example/Application.kt" lines="15-31"}
 
-* `val bytes: ByteArray = response.readBytes()`
-* `val text: String = response.readText()`
-* `val readChannel = response.receive<ByteReadChannel>()`
-* `val multiPart = response.receive<MultiPartData>()`
-* `val inputStream = response.receive<InputStream>()` *Remember that InputStream API is synchronous!*
-* `response.discardRemaining()`
+In this example, [ByteReadChannel](https://api.ktor.io/ktor-io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) is used to read data asynchronously using byte packets ([ByteReadPacket](https://api.ktor.io/ktor-io/ktor-io/io.ktor.utils.io.core/-byte-read-packet/index.html)) and append the content of these packets to the content of a file.
 
-You can also get the additional response information such as its status, headers, internal state, etc.:
 
-### *Basic*
+## Receive response parameters {id="parameters"}
 
-* `val status: HttpStatusCode = response.status`
-* `val headers: Headers = response.headers`
+The [HttpResponse](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.statement/-http-response/index.html) class allows you to get various response parameters, such as a status code, headers, HTTP version, and so on.
 
-### *Advanced*
+### Status code {id="status"}
 
-* `val call: HttpClientCall = response.call`
-* `val version: HttpProtocolVersion = response.version`
-* `val requestTime: Date = response.requestTime`
-* `val responseTime: Date = response.responseTime`
-* `val executionContext: Job = response.executionContext`
+To get a status code of a response, use the [HttpResponse.status](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.statement/-http-response/status.html) property, for example:
 
-### *Extensions for headers*
+```kotlin
+```
+{src="snippets/_misc_client/ResponseTypes.kt" lines="1-4,9,11,15-17"}
 
-* `val contentType: ContentType? = response.contentType()`
-* `val charset: Charset? = response.charset()`
-* `val lastModified: Date? = response.lastModified()`
-* `val etag: String? = response.etag()`
-* `val expires: Date? = response.expires()`
-* `val vary: List<String>? = response.vary()`
-* `val contentLength: Int? = response.contentLength()`
-* `val setCookie: List<Cookie> = response.setCookie()`
+
+### Headers {id="headers"}
+The [HttpResponse.headers](https://api.ktor.io/ktor-http/ktor-http/io.ktor.http/-http-message/headers.html) property allows you to get a [Headers](https://api.ktor.io/ktor-http/ktor-http/io.ktor.http/-headers/index.html) map containing all response headers. `HttpResponse` also exposes a bunch of specific functions for receiving specific header values, for example:
+* [contentType](https://api.ktor.io/ktor-http/ktor-http/io.ktor.http/content-type.html) for the `Content-Type` header value
+* [charset](https://api.ktor.io/ktor-http/ktor-http/io.ktor.http/charset.html) for a charset from the `Content-Type` header value.
+* [etag](https://api.ktor.io/ktor-http/ktor-http/io.ktor.http/etag.html) for the `E-Tag` header value.
+* [setCookie](https://api.ktor.io/ktor-http/ktor-http/io.ktor.http/set-cookie.html) for the `Set-Cookie` header value.
+
+
+

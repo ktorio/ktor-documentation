@@ -58,6 +58,7 @@ A [Ktor documentation repository](https://github.com/ktorio/ktor-documentation) 
 ## Client {id="client"}
 * [Cookies](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-cookies)
 * [Download file](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-download-file)
+* [Streaming download](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-download-streaming)
 * [Upload file](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-upload-file)
 * [Json client](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/json-client)
 * [Parallel requests](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-parallel-requests)
