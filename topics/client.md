@@ -104,7 +104,7 @@ To learn how to add headers, cookies, and specify a request body, see the [](req
 
 ### Receive a Response {id="response"}
 All request functions (`request`, `get`, `post`, etc.) allow you to receive a response in several ways:
-* As an [HttpResponse](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.response/-http-response/index.html) object:
+* As an [HttpResponse](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.statement/-http-response/index.html) object:
    ```kotlin
    ```
   {src="snippets/_misc_client/ResponseTypes.kt" include-symbol="httpResponse"}

@@ -142,5 +142,5 @@ To send a [class instance](#create_data_class) within a [request](request.md) bo
 
 When a server sends a [response](response.md) with the `application/json` content, you can deserialize it by specifying a [data class](#create_data_class) as a parameter of the required request method, for example:
 ```kotlin
-val customer = client.get<Customer>("http://127.0.0.1:8080/customer")
+val customer: Customer = client.get("http://127.0.0.1:8080/customer")
 ```
