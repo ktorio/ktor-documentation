@@ -1,10 +1,10 @@
 package io.ktor.samples.filedownload
 
 import io.ktor.client.*
+import io.ktor.client.call.*
 import io.ktor.client.features.*
 import io.ktor.client.request.*
-import io.ktor.utils.io.*
-import io.ktor.utils.io.jvm.javaio.*
+import io.ktor.client.statement.*
 import kotlinx.coroutines.runBlocking
 import java.io.File
 
@@ -13,18 +13,13 @@ fun main() {
     val file = File.createTempFile("files", "index")
 
     runBlocking {
-        client.downloadMainPage(file)
-    }
-}
-
-suspend fun HttpClient.downloadMainPage(file: File) {
-    val channel = get<ByteReadChannel>("https://ktor.io/index.html") {
-        onDownload { bytesSentTotal, contentLength ->
-            println("Received $bytesSentTotal bytes from $contentLength")
+        val httpResponse: HttpResponse = client.get("https://ktor.io/") {
+            onDownload { bytesSentTotal, contentLength ->
+                println("Received $bytesSentTotal bytes from $contentLength")
+            }
         }
-    }
-
-    file.outputStream().use { fileStream ->
-        channel.copyTo(fileStream)
+        val responseBody: ByteArray = httpResponse.receive()
+        file.writeBytes(responseBody)
+        println("A file saved to ${file.path}")
     }
 }
