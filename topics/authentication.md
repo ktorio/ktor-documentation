@@ -6,20 +6,20 @@ Code examples: <a href="samples.md" anchor="authentication">Authentication</a>
 </p>
 </microformat>
 
-Ktor provides the `Authentication` feature to handle authentication and access control. Typical usage scenarios include logging in users, granting access to specific resources, and secure transmitting information between parties. You can also use `Authentication` with [Sessions](sessions.md) to keep a user's information between requests.
+Ktor provides the `Authentication` feature to handle authentication and authorization. Typical usage scenarios include logging in users, granting access to specific resources, and securely transmitting information between parties. You can also use `Authentication` with [Sessions](sessions.md) to keep a user's information between requests.
 
 ## Supported authentication types {id="supported"}
-Ktor supports different authentication schemes: from general HTTP authentication schemes such as Basic and Digest to OAuth 2.0 for accessing external resources.
+Ktor supports the following authentications and authorization schemes:
 
 ### HTTP authentication {id="http-auth"}
 HTTP provides a [general framework](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) for access control and authentication. In Ktor, you can use the following HTTP authentication schemes:
-* [Basic](basic.md) - an authentication method to provide a user name and password encoded using `Base64`.
+* [Basic](basic.md) - uses `Base64` encoding to provide a username and password. Generally is not recommended if not used in combination with HTTPS.
 * [Digest](digest.md) - an authentication method that communicates user credentials in an encrypted form by applying a hash function to the username and password.
-* `Bearer` - an authentication scheme that involves security tokens called bearer tokens. You can use [JSON Web Tokens](#jwt) as bearer tokens and use the `jwt` authentication in Ktor to verify a token and validate the claims contained within it.
+* `Bearer` - an authentication scheme that involves security tokens called bearer tokens. You can use [JSON Web Tokens](#jwt) as bearer tokens and use the `jwt` authentication in Ktor to validate and authorize a request.
 
 
-### Form authentication {id="form-auth"}
-[Form](form.md) or form-based authentication uses a [web form](https://developer.mozilla.org/en-US/docs/Learn/Forms) to collect credential information and authenticate a user.
+### Form-based authentication {id="form-auth"}
+[Form-based](form.md) authentication uses a [web form](https://developer.mozilla.org/en-US/docs/Learn/Forms) to collect credential information and authenticate a user.
 
 
 ### JSON Web Tokens (JWT) {id="jwt"}
@@ -92,7 +92,7 @@ These names can be used later to [authenticate different routes](#authenticate-r
 
 ### Step 3: Configure a provider {id="configure-provider"}
 
-Each [provider type](#choose-provider) has its own configuration. For instance, the [BasicAuthenticationProvider.Configuration](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-basic-authentication-provider/-configuration/index.html) class contains options passed to the [basic](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/basic.html) function. The most important function exposed by this class is [validate](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-basic-authentication-provider/-configuration/validate.html) that validates a user name and password. A code sample below shows how it can look:
+Each [provider type](#choose-provider) has its own configuration. For instance, the [BasicAuthenticationProvider.Configuration](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-basic-authentication-provider/-configuration/index.html) class contains options passed to the [basic](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/basic.html) function. The most important function exposed by this class is [validate](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-basic-authentication-provider/-configuration/validate.html) that validates a username and password. A code sample below shows how it can look:
 
 ```kotlin
 ```
@@ -101,7 +101,7 @@ Each [provider type](#choose-provider) has its own configuration. For instance, 
 To understand how the `validate` function works, we need to introduce two terms:
 * A _principal_ is an entity that can be authenticated: a user, a computer, a service, etc. In Ktor, various authentication providers might use different principals. For example, the `basic` and `form` providers authenticate [UserIdPrincipal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-user-id-principal/index.html) while the `jwt` provider verifies [JWTPrincipal](https://api.ktor.io/ktor-features/ktor-auth-jwt/ktor-auth-jwt/io.ktor.auth.jwt/-j-w-t-principal/index.html).
   > If you use [session authentication](session-auth.md), a principal might be a data class that stores session data.
-* A _credential_ is a set of properties for a server to authenticate a principal: a user/password pair, an API key, and so on. For instance, the `basic` and `form` providers use [UserPasswordCredential](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-user-password-credential/index.html) to validate a user name and password while `jwt` validates [JWTCredential](https://api.ktor.io/ktor-features/ktor-auth-jwt/ktor-auth-jwt/io.ktor.auth.jwt/-j-w-t-credential/index.html).
+* A _credential_ is a set of properties for a server to authenticate a principal: a user/password pair, an API key, and so on. For instance, the `basic` and `form` providers use [UserPasswordCredential](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-user-password-credential/index.html) to validate a username and password while `jwt` validates [JWTCredential](https://api.ktor.io/ktor-features/ktor-auth-jwt/ktor-auth-jwt/io.ktor.auth.jwt/-j-w-t-credential/index.html).
 
 So, the `validate` function checks a specified [Credential](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-credential/index.html) and returns a [Principal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-principal/index.html) in a case of successful authentication or `null` if authentication fails.
 

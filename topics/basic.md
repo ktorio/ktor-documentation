@@ -9,14 +9,14 @@ Code examples: <a href="https://github.com/ktorio/ktor-documentation/tree/main/c
 </p>
 </microformat>
 
-The basic authentication scheme is a part of [HTTP framework](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) used for access control and authentication. In this scheme, user credentials are transmitted as user name/password pairs encoded using Base64. 
+The Basic authentication scheme is a part of [HTTP framework](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) used for access control and authentication. In this scheme, user credentials are transmitted as username/password pairs encoded using Base64.
 
-Ktor allows you to use basic authentication for logging in users and protecting specific [routes](Routing_in_Ktor.md). You can get general information about authentication in Ktor from the [](authentication.md) section.
+Ktor allows you to use basic authentication for logging in users and protecting specific [routes](Routing_in_Ktor.md). You can get general information about authentication in Ktor in the [](authentication.md) section.
 
-> Given that basic authentication passes user name and password as clear text, you need to use [HTTPS/TLS](ssl.md) to protect sensitive information.
+> Given that basic authentication passes username and password as clear text, you need to use [HTTPS/TLS](ssl.md) to protect sensitive information.
 
 ## Add dependencies {id="add_dependencies"}
-To enable the `basic` authentication, you need to include the `ktor-auth` artifact in the build script:
+To enable `basic` authentication, you need to include the `ktor-auth` artifact in the build script:
 <var name="artifact_name" value="ktor-auth"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
@@ -34,7 +34,7 @@ The basic authentication flow looks as follows:
    
    In Ktor, you can specify the realm and charset using corresponding properties when [configuring](#configure-provider) the `basic` authentication provider.
 
-1. Usually a client displays a login dialog where a user can enter credentials. Then, a client makes a request with the `Authorization` header containing a user name and password pair encoded using Base64, for example:
+1. Usually a client displays a login dialog where a user can enter credentials. Then, a client makes a request with the `Authorization` header containing a username and password pair encoded using Base64, for example:
    
    ```
    Authorization: Basic amV0YnJhaW5zOmZvb2Jhcg
@@ -65,14 +65,14 @@ To get a general idea on how to configure different authentication providers in 
 
 The `basic` authentication provider exposes its settings via the [BasicAuthenticationProvider.Configuration](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-basic-authentication-provider/-configuration/index.html) class. In the example below, the following settings are specified:
 * The `realm` property sets the realm to be passed in `WWW-Authenticate` header.
-* The `validate` function validates a user name and password.
+* The `validate` function validates a username and password.
 
 ```kotlin
 ```
 {src="snippets/auth-basic/src/main/kotlin/com/example/Application.kt" lines="9-20"}
    
 The `validate` function checks `UserPasswordCredential` and returns a `UserIdPrincipal` in a case of successful authentication or `null` if authentication fails. 
-> You can also use [UserHashedTableAuth](#validate-user-hash) to validate users stored in an in-memory table that keeps user names and password hashes.
+> You can also use [UserHashedTableAuth](#validate-user-hash) to validate users stored in an in-memory table that keeps usernames and password hashes.
 
 ### Step 2: Protect specific routes {id="authenticate-route"}
 
@@ -85,7 +85,7 @@ After configuring the `basic` provider, you can protect specific routes using th
 
 ## Validate with UserHashedTableAuth {id="validate-user-hash"}
 
-Ktor allows you to use [UserHashedTableAuth](#validate-user-hash) to [validate](#configure-provider) users stored in an in-memory table that keeps user names and password hashes. This allows you not to compromise user passwords if your data source is leaked.
+Ktor allows you to use [UserHashedTableAuth](#validate-user-hash) to [validate](#configure-provider) users stored in an in-memory table that keeps usernames and password hashes. This allows you not to compromise user passwords if your data source is leaked.
 
 To use `UserHashedTableAuth` for validating users, follow the steps below:
 
@@ -96,7 +96,7 @@ To use `UserHashedTableAuth` for validating users, follow the steps below:
    {src="snippets/auth-basic-hash-table/src/main/kotlin/com/example/Application.kt" lines="9"}
 
 1. Initialize a new instance of `UserHashedTableAuth` and specify the following properties:
-   * Provide a table of user names and hashed passwords using the `table` property.
+   * Provide a table of usernames and hashed passwords using the `table` property.
    * Assign a digest function to the `digester` property.
    
    ```kotlin

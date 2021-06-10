@@ -1,4 +1,4 @@
-[//]: # (title: Form authentication)
+[//]: # (title: Form-based authentication)
 
 <microformat>
 <p>
@@ -9,9 +9,9 @@ Code examples: <a href="https://github.com/ktorio/ktor-documentation/tree/main/c
 </p>
 </microformat>
 
-Form or form-based authentication uses a [web form](https://developer.mozilla.org/en-US/docs/Learn/Forms) to collect credential information and authenticate a user.
+Form-based authentication uses a [web form](https://developer.mozilla.org/en-US/docs/Learn/Forms) to collect credential information and authenticate a user.
 
-> Given that user name and password are passed as clear text when using form-based authentication, you need to use [HTTPS/TLS](ssl.md) to protect sensitive information.
+> Given that username and password are passed as clear text when using form-based authentication, you need to use [HTTPS/TLS](ssl.md) to protect sensitive information.
 
 
 ## Add dependencies {id="add_dependencies"}
@@ -24,15 +24,15 @@ To enable `form` authentication, you need to include the `ktor-auth` artifact in
 The form-based authentication flow might look as follows:
 
 1. An unauthenticated client makes a request to a specific [route](Routing_in_Ktor.md) in a server application.
-1. A server returns an HTML page that consists at least from an HTML-based web form, which prompts a user for a user name and password. 
+1. A server returns an HTML page that consists at least from an HTML-based web form, which prompts a user for a username and password. 
    > Ktor allows you to build a form using [Kotlin DSL](html_dsl.md), or you can choose between various JVM template engines, such as Freemarker, Velocity, and so on.
-1. When a user submits a user name and password, a client makes a request containing web form data (which includes the user name and password) to a server.
+1. When a user submits a username and password, a client makes a request containing web form data (which includes the username and password) to a server.
    
    ```kotlin
    ```
    {src="snippets/auth-form/post.http"}
    
-   In Ktor, you need to [specify parameter names](#configure-provider) used to fetch a user name and password.
+   In Ktor, you need to [specify parameter names](#configure-provider) used to fetch a username and password.
 
 1. A server [validates](#configure-provider) credentials sent by a client and responds with the requested content.
 
@@ -54,8 +54,8 @@ You can optionally specify a [provider name](authentication.md#provider-name) th
 
 ### Step 1: Configure a form provider {id="configure-provider"}
 The `form` authentication provider exposes its settings via the [FormAuthenticationProvider/Configuration](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-form-authentication-provider/-configuration/index.html) class. In the example below, the following settings are specified:
-* The `userParamName` and `passwordParamName` properties specify parameter names used to fetch a user name and password.
-* The `validate` function validates a user name and password.
+* The `userParamName` and `passwordParamName` properties specify parameter names used to fetch a username and password.
+* The `validate` function validates a username and password.
 
 ```kotlin
 ```
@@ -63,11 +63,11 @@ The `form` authentication provider exposes its settings via the [FormAuthenticat
 
 The `validate` function checks `UserPasswordCredential` and returns a `UserIdPrincipal` in a case of successful authentication or `null` if authentication fails.
 
-> As for the `basic` authentication, you can also use [UserHashedTableAuth](basic.md#validate-user-hash) to validate users stored in an in-memory table that keeps user names and password hashes.
+> As for the `basic` authentication, you can also use [UserHashedTableAuth](basic.md#validate-user-hash) to validate users stored in an in-memory table that keeps usernames and password hashes.
 
 ### Step 2: Protect specific routes {id="authenticate-route"}
 
-After configuring the `basic` provider, you can protect specific routes using the `authenticate` function. In a case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-user-id-principal/index.html) inside a route handler using the [call.principal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/principal.html) function and get a name of an authenticated user.
+After configuring the `form` provider, you can protect specific routes using the `authenticate` function. In a case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-user-id-principal/index.html) inside a route handler using the [call.principal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/principal.html) function and get a name of an authenticated user.
 
 ```kotlin
 ```
