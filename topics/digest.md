@@ -96,9 +96,9 @@ The `digest` authentication provider exposes its settings via the [DigestAuthent
 You can also use the [nonceManager](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-digest-authentication-provider/-configuration/nonce-manager.html) property to specify how to generate nonce values.
 
 
-### Step 3: Protect specific routes {id="authenticate-route"}
+### Step 3: Define authorization scope {id="authenticate-route"}
 
-After configuring the `digest` provider, you can protect specific routes using the `authenticate` function. In a case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-user-id-principal/index.html) inside a route handler using the [call.principal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/principal.html) function and get a name of an authenticated user.
+After configuring the `digest` provider, you can define the authorization for the different resources in our application using the `authenticate` function. In a case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-user-id-principal/index.html) inside a route handler using the [call.principal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/principal.html) function and get a name of an authenticated user.
 
 ```kotlin
 ```

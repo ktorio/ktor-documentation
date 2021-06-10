@@ -7,7 +7,7 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-OAuth defines a mechanism for authentication using external providers like Google or Facebook safely.
+OAuth defines a mechanism for authentication using external providers such as Google or Facebook safely.
 You can read more about [OAuth](https://oauth.net/).
 Ktor has a plugin (previously known as feature) to work with OAuth 1a and 2.0. 
 

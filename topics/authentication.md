@@ -30,7 +30,7 @@ HTTP provides a [general framework](https://developer.mozilla.org/en-US/docs/Web
 [LDAP](ldap.md) is an open and cross-platform protocol used for directory services authentication. Ktor provides the [ldapAuthenticate](https://api.ktor.io/ktor-features/ktor-auth-ldap/ktor-auth-ldap/io.ktor.auth.ldap/ldap-authenticate.html) function to authenticate user credentials against a specified LDAP server.
 
 ### OAuth {id="oauth"}
-[OAuth](oauth.md) is an open standard for securing access to APIs. The `oauth` provider in Ktor allows you to implement authentication using external providers like Google, Facebook, Twitter, and so on.
+[OAuth](oauth.md) is an open standard for securing access to APIs. The `oauth` provider in Ktor allows you to implement authentication using external providers such as Google, Facebook, Twitter, and so on.
 
 ### Session {id="sessions"}
 [Sessions](sessions.md) provide a mechanism to persist data between different HTTP requests. Typical use cases include storing a logged-in user's ID, the contents of a shopping basket, or keeping user preferences on the client. In Ktor, a user that already has an associated session can be authenticated using the `session` provider. Learn how to do this from [](session-auth.md).
@@ -57,7 +57,7 @@ After [installing Authentication](#install), you can configure and use `Authenti
 
 ### Step 1: Choose an authentication provider {id="choose-provider"}
 
-To use a specific authentication provider ([basic](basic.md), [digest](digest.md), [form](form.md), and so on), you need to call a corresponding function inside the `install` block. For example, to use the `basic` authentication, call the [basic](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/basic.html) function:
+To use a specific authentication provider ([basic](basic.md), [digest](digest.md), [form](form.md), and so on), you need to call the corresponding function inside the `install` block. For example, to use the `basic` authentication, call the [basic](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/basic.html) function:
 
 ```kotlin
 install(Authentication) {
@@ -112,9 +112,9 @@ So, the `validate` function checks a specified [Credential](https://api.ktor.io/
 > }
 
 
-### Step 4: Protect specific routes {id="authenticate-route"}
+### Step 4: Define authorization scope {id="authenticate-route"}
 
-After defining and configuring an authentication provider, you can protect specific [routes](Routing_in_Ktor.md) using the
+The final step is to define the authorization for the different resources in our application. You can do this by using the
 [authenticate](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/authenticate.html) function. This function can accept [a name of a provider](#provider-name) used to authenticate nested routes. The code snippet below uses a provider with the _auth-basic_ name to protect the `/login` and `/orders` routes:
 
 ```kotlin
