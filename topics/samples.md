@@ -28,7 +28,7 @@ A [Ktor documentation repository](https://github.com/ktorio/ktor-documentation) 
 * [GSON](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/gson)
 * [Jackson](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/jackson)
 
-### Authentication {id="authentication"}
+### Authentication and authorization {id="authentication"}
 * [Basic](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-basic)
 * [Basic with UserHashedTableAuth](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-basic-hash-table)
 * [Form](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-form)

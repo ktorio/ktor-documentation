@@ -3,9 +3,12 @@
 <include src="lib.xml" include-id="outdated_warning"/>
 
 <microformat>
-<p>Code examples:</p>
-<p><a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-jwt">auth-jwt</a></p>
-<p><a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-jwk">auth-jwk</a></p>
+<p>
+Required dependencies: <code>io.ktor:ktor-auth</code>, <code>io.ktor:ktor-auth-jwt</code>
+</p>
+<p>
+Code examples: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-jwt">auth-jwt</a>, <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-jwk">auth-jwk</a>
+</p>
 </microformat>
 
 Ktor supports [JWT (JSON Web Tokens)](https://jwt.io/), which is a mechanism for authenticating JSON-encoded payloads.

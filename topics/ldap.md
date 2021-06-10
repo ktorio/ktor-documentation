@@ -3,6 +3,9 @@
 <include src="lib.xml" include-id="outdated_warning"/>
 
 <microformat>
+<p>
+Required dependencies: <code>io.ktor:ktor-auth</code>, <code>io.ktor:ktor-auth-ldap</code>
+</p>
 <var name="example_name" value="auth-ldap"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
