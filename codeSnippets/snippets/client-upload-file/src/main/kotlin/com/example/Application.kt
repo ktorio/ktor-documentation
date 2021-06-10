@@ -2,6 +2,7 @@ package com.example
 
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
+import io.ktor.client.features.*
 import io.ktor.client.request.forms.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
@@ -21,7 +22,11 @@ fun main() {
                     append(HttpHeaders.ContentDisposition, "filename=ktor_logo.png")
                 })
             }
-        )
+        ) {
+            onUpload { bytesSentTotal, contentLength ->
+                println("Sent $bytesSentTotal bytes from $contentLength")
+            }
+        }
 
         println(response.readText())
     }

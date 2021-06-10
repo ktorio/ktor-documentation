@@ -11,22 +11,19 @@
 To pass session data using cookies, call the `cookie` method with the specified name and data class inside the `install(Sessions)` block:
 ```kotlin
 install(Sessions) {
-    cookie<SampleSession>("SAMPLE_SESSION")
+    cookie<UserSession>("user_session")
 }
 ```
-In the example above, session data will be passed to the client using the `SAMPLE_SESSION` attribute added to the `Set-Cookie` header. You can configure other cookie attributes by passing them inside the `cookie` block. For example, the code snippet below shows how to specify a cookie's path and expiration time:
+In the example above, session data will be passed to the client using the `user_session` attribute added to the `Set-Cookie` header. You can configure other cookie attributes by passing them inside the `cookie` block. For example, the code snippet below shows how to specify a cookie's path and expiration time:
+
 ```kotlin
-install(Sessions) {
-    cookie<SampleSession>("SAMPLE_SESSION") {
-        cookie.path = "/orders"
-        cookie.maxAgeInSeconds = 1000
-    }
-}
 ```
+{src="snippets/session-cookie/src/main/kotlin/com/example/Application.kt" lines="11-16"}
+
 If the required attribute is not exposed explicitly, use the `extensions` property. For example, you can pass the `SameSite`attribute in the following way:
 ```kotlin
 install(Sessions) {
-    cookie<SampleSession>("SAMPLE_SESSION") {
+    cookie<UserSession>("user_session") {
         cookie.extensions["SameSite"] = "lax"
     }
 }
@@ -38,7 +35,7 @@ To learn more about available configurations settings, see [CookieConfiguration]
 To pass session data using a custom header, call the `header` method with the specified name and data class inside the `install(Sessions)` block:
 ```kotlin
 install(Sessions) {
-    header<SampleSession>("SAMPLE_SESSION")
+    header<UserSession>("user_session")
 }
 ```
-In the example above, session data will be passed to the client using the `SAMPLE_SESSION` header. 
+In the example above, session data will be passed to the client using the `user_session` header. 
