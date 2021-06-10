@@ -76,14 +76,16 @@
                 <toc-element id="Serving_Static_Content.md"
                              show-structure-depth="2"
                              accepts-web-file-names="static-content.html"/>
-                <toc-element id="authentication.md"
+                <toc-element id="authentication.md" show-structure-depth="2"
                              accepts-web-file-names="features-authentication.html">
                     <toc-element id="basic.md" show-structure-depth="2"/>
-                    <toc-element id="digest.md"/>
+                    <toc-element id="digest.md" show-structure-depth="2"/>
+                    <toc-element id="form.md" show-structure-depth="2"/>
                     <toc-element id="jwt.md"/>
                     <toc-element id="ldap.md"/>
                     <toc-element id="oauth.md"
                                  accepts-web-file-names="authentication-oauth.html"/>
+                    <toc-element id="session-auth.md"/>
                 </toc-element>
                 <toc-element id="serialization.md"
                              show-structure-depth="2"
