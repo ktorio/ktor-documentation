@@ -39,7 +39,7 @@ A [Ktor documentation repository](https://github.com/ktorio/ktor-documentation) 
 * [LDAP](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-ldap)
 * [OAuth Google](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-oauth-google)
 
-### Features {id="features"}
+### Miscellaneous {id="misc"}
 * [Asynchronous](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/async)
 * [AutoHeadResponse](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/autohead)
 * [Autoreload](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/autoreload)
