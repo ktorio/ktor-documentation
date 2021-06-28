@@ -28,7 +28,7 @@ You can also get access to the Logger using [Application.log](https://api.ktor.i
 ## Call logging {id="call_logging"}
 <var name="feature_name" value="CallLogging"/>
 
-The `%feature_name%` feature allows you to log incoming client requests.
+The `%feature_name%` plugin (previously known as feature) allows you to log incoming client requests.
 <include src="lib.xml" include-id="install_feature"/>
 
 You can configure `%feature_name%` in multiple ways: specify a logging level, filter requests based on a specified condition, customize log messages, and so on. You can see the available configuration settings at [CallLogging.Configuration](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-call-logging/-configuration/index.html).
