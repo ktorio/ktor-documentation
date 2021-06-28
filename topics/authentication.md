@@ -2,7 +2,7 @@
 
 <microformat>
 <p>
-Code examples: <a href="samples.md" anchor="authentication">Authentication</a>
+Code examples: <a href="examples.md" anchor="authentication">Authentication</a>
 </p>
 </microformat>
 
