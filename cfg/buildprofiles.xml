@@ -25,6 +25,7 @@
         <noindex-content-in-eap>true</noindex-content-in-eap>
         <noindex-content-in-release>false</noindex-content-in-release>
         <generate-sitemap-url-prefix>https://ktor.io/docs/</generate-sitemap-url-prefix>
+        <product-web-url>https://ktor.io/</product-web-url>
 
     </variables>
     
