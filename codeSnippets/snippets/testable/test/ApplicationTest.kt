@@ -13,7 +13,7 @@ class ApplicationTest {
             assertEquals("Hello from Ktor Testable sample application", response.content)
         }
         with(handleRequest(HttpMethod.Get, "/index.html")) {
-            assertFalse(requestHandled)
+            assertEquals(HttpStatusCode.NotFound, response.status())
         }
     }
 }
