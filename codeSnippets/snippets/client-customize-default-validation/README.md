@@ -1,8 +1,6 @@
-# Client handle response exceptions
+# Client handle non-2xx exceptions
 
-A sample Ktor project showing how to handle client exceptions using [HttpResponseValidator](https://ktor.io/docs/response-validation.html).
-
-you want different handling of non 200 responses - you can use handleResponseException  with minor code change
+A sample Ktor project showing how to customize default validation and handle exceptions for non-2xx responses in a specific way using [HttpCallValidator](https://ktor.io/docs/response-validation.html).
 
 ## Running
 
