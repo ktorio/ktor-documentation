@@ -52,4 +52,4 @@ If you need to customize [default validation](#default) and handle exceptions fo
 
 ```kotlin
 ```
-{src="snippets/client-customize-default-validation/src/main/kotlin/com/example/Application.kt" lines="18-32"}
+{src="snippets/client-customize-default-validation/src/main/kotlin/com/example/Application.kt" lines="18-29"}
