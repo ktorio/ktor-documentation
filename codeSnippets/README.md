@@ -1,4 +1,4 @@
-# Ktor Code Samples
+# Ktor code examples
 
 This repository contains runnable code examples that show how to work with various Ktor plugins. All examples are stored in the [snippets](snippets) folder and can be run using a **run** Gradle task that depends on an example location. For example, to run an example demonstrating basic HTTP authentication (the [snippets/auth-basic](snippets/auth-basic) folder), execute the following command in a repository's root directory (`codeSnippets`): 
 ```bash
@@ -8,9 +8,9 @@ This repository contains runnable code examples that show how to work with vario
 # Windows
 gradlew.bat :auth-basic:run
 ```
-Each sample has its own `README` file with instructions on how to run it. You can find links to all samples in the [Samples](https://ktor.io/docs/samples.html) documentation page.
+Each example has its own `README` file with instructions on how to run it. You can find links to all examples in the [Code examples](https://ktor.io/docs/samples.html) documentation page.
 
-## Referencing Code Snippets
+## Referencing code snippets
 To display a specific source file in a Markdown topic, use the `src` attribute as follows:
 ````
 ```kotlin

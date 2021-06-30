@@ -2,17 +2,39 @@
 
 <microformat>
 <p>
-Code examples: <a href="samples.md" anchor="authentication">Authentication</a>
+Code examples: <a href="examples.md" anchor="authentication">Authentication</a>
 </p>
 </microformat>
 
-<include src="lib.xml" include-id="outdated_warning"/>
+Ktor provides the `Authentication` feature to handle authentication and authorization. Typical usage scenarios include logging in users, granting access to specific resources, and securely transmitting information between parties. You can also use `Authentication` with [Sessions](sessions.md) to keep a user's information between requests.
+
+## Supported authentication types {id="supported"}
+Ktor supports the following authentications and authorization schemes:
+
+### HTTP authentication {id="http-auth"}
+HTTP provides a [general framework](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) for access control and authentication. In Ktor, you can use the following HTTP authentication schemes:
+* [Basic](basic.md) - uses `Base64` encoding to provide a username and password. Generally is not recommended if not used in combination with HTTPS.
+* [Digest](digest.md) - an authentication method that communicates user credentials in an encrypted form by applying a hash function to the username and password.
+* `Bearer` - an authentication scheme that involves security tokens called bearer tokens. You can use [JSON Web Tokens](#jwt) as bearer tokens and use the `jwt` authentication in Ktor to validate and authorize a request.
 
 
-Ktor supports authentication out of the box. It supports mechanisms to read *credentials*, and to authenticate *principals*.
+### Form-based authentication {id="form-auth"}
+[Form-based](form.md) authentication uses a [web form](https://developer.mozilla.org/en-US/docs/Learn/Forms) to collect credential information and authenticate a user.
 
-It can be used in some cases along with the [sessions plugin](sessions.md)
-to keep the login information between requests.
+
+### JSON Web Tokens (JWT) {id="jwt"}
+[JSON Web Token](jwt.md) is an open standard for securely transmitting information between parties as a JSON object. You can JSON Web Tokens for authorization: when the user is logged in, each request will include a token, allowing the user to access resources that are permitted with that token. In Ktor, you can verify a token and validate the claims contained within it using the `jwt` authentication.
+
+
+### LDAP {id="ldap"}
+[LDAP](ldap.md) is an open and cross-platform protocol used for directory services authentication. Ktor provides the [ldapAuthenticate](https://api.ktor.io/ktor-features/ktor-auth-ldap/ktor-auth-ldap/io.ktor.auth.ldap/ldap-authenticate.html) function to authenticate user credentials against a specified LDAP server.
+
+### OAuth {id="oauth"}
+[OAuth](oauth.md) is an open standard for securing access to APIs. The `oauth` provider in Ktor allows you to implement authentication using external providers such as Google, Facebook, Twitter, and so on.
+
+### Session {id="sessions"}
+[Sessions](sessions.md) provide a mechanism to persist data between different HTTP requests. Typical use cases include storing a logged-in user's ID, the contents of a shopping basket, or keeping user preferences on the client. In Ktor, a user that already has an associated session can be authenticated using the `session` provider. Learn how to do this from [](session-auth.md).
+
 
 ## Add dependencies {id="add_dependencies"}
 To enable authentication, you need to include the `ktor-auth` artifact in the build script:
@@ -20,42 +42,88 @@ To enable authentication, you need to include the `ktor-auth` artifact in the bu
 <var name="artifact_name" value="ktor-auth"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
-Note that some authentication plugins (for example [JWT/JWK](jwt.md) and [LDAP](ldap.md)) might require additional artifacts.
+Note that some authentication providers, such as [JWT](jwt.md) and [LDAP](ldap.md), require additional artifacts.
 
 
-## Basic usage
 
-Ktor defines two concepts: credentials and principals.
+## Install Authentication {id="install"}
+<var name="feature_name" value="Authentication"/>
+<include src="lib.xml" include-id="install_feature"/>
 
-* A principal is something that can be authenticated: a user, a computer, a group, etc.
-* A credential is an object that represents a set of properties for the server to authenticate a principal:
-  a user/password, an API key or an authenticated payload signature, etc.
 
-To install it, you have to call to `application.install(Authentication)`. You have to install this plugin
-directly to the application and it *won't* work in another `ApplicationCallPipeline` like `Route`.
+## Configure Authentication {id="configure"}
+After [installing Authentication](#install), you can configure and use `Authentication` as follows:
 
->You might still be able to call the install code inside a Route if you have the Application injected in a nested DSL,
->but it will be applied to the application itself.
->
-{type="note"}
 
-Using its DSL, it allows you to configure the authentication providers available:
+### Step 1: Choose an authentication provider {id="choose-provider"}
+
+To use a specific authentication provider ([basic](basic.md), [digest](digest.md), [form](form.md), and so on), you need to call the corresponding function inside the `install` block. For example, to use the `basic` authentication, call the [basic](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/basic.html) function:
+
+```kotlin
+install(Authentication) {
+    basic {
+        // [[[Configure basic authentication|basic.md]]]
+    }
+}
+```
+Inside this function, you can [configure](#configure-provider) settings specific to this provider.
+
+
+### Step 2: Specify a provider name {id="provider-name"}
+
+A function for [using a specific provider](#choose-provider) optionally allows you to specify a provider name. A code sample below installs the [basic](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/basic.html) and [form](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/form.html) providers with the _auth-basic_ and _auth-form_ names, respectively:
+
+```kotlin
+install(Authentication) {
+    basic("auth-basic") {
+        // [[[Configure basic authentication|basic.md]]]
+    }
+    form("auth-form") {
+        // [[[Configure form authentication|form.md]]]
+    }
+    // ...
+}
+```
+{disable-links="false"}
+
+These names can be used later to [authenticate different routes](#authenticate-route) using different providers.
+> Note that a provider name should be unique, and you can define only one provider without a name.
+
+
+### Step 3: Configure a provider {id="configure-provider"}
+
+Each [provider type](#choose-provider) has its own configuration. For instance, the [BasicAuthenticationProvider.Configuration](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-basic-authentication-provider/-configuration/index.html) class contains options passed to the [basic](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/basic.html) function. The most important function exposed by this class is [validate](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-basic-authentication-provider/-configuration/validate.html) that validates a username and password. A code sample below shows how it can look:
 
 ```kotlin
 ```
-{src="snippets/auth-basic/src/main/kotlin/com/example/Application.kt" lines="9-18"}
+{src="snippets/auth-basic/src/main/kotlin/com/example/Application.kt" lines="9-20"}
+
+To understand how the `validate` function works, we need to introduce two terms:
+* A _principal_ is an entity that can be authenticated: a user, a computer, a service, etc. In Ktor, various authentication providers might use different principals. For example, the `basic` and `form` providers authenticate [UserIdPrincipal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-user-id-principal/index.html) while the `jwt` provider verifies [JWTPrincipal](https://api.ktor.io/ktor-features/ktor-auth-jwt/ktor-auth-jwt/io.ktor.auth.jwt/-j-w-t-principal/index.html).
+  > If you use [session authentication](session-auth.md), a principal might be a data class that stores session data.
+* A _credential_ is a set of properties for a server to authenticate a principal: a user/password pair, an API key, and so on. For instance, the `basic` and `form` providers use [UserPasswordCredential](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-user-password-credential/index.html) to validate a username and password while `jwt` validates [JWTCredential](https://api.ktor.io/ktor-features/ktor-auth-jwt/ktor-auth-jwt/io.ktor.auth.jwt/-j-w-t-credential/index.html).
+
+So, the `validate` function checks a specified [Credential](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-credential/index.html) and returns a [Principal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-principal/index.html) in a case of successful authentication or `null` if authentication fails.
+
+> To skip authentication based on a specific criteria, use [skipWhen](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-authentication-provider/skip-when.html). For example, you can skip `basic` authentication if a [session](sessions.md) already exists:
+> ```kotlin
+> basic {
+>     skipWhen { call -> call.sessions.get<UserSession>() != null }
+> }
 
 
-After defining one or more authentication providers (named or unnamed), with the [routing plugin](Routing_in_Ktor.md)
-you can create a route group, that will apply that authentication to all the routes defined in that group:
+### Step 4: Define authorization scope {id="authenticate-route"}
+
+The final step is to define the authorization for the different resources in our application. You can do this by using the
+[authenticate](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/authenticate.html) function. This function can accept [a name of a provider](#provider-name) used to authenticate nested routes. The code snippet below uses a provider with the _auth-basic_ name to protect the `/login` and `/orders` routes:
 
 ```kotlin
 routing {
-    authenticate("myauth1") {
-        get("/authenticated/route1") {
+    authenticate("auth-basic") {
+        get("/login") {
             // ...
         }    
-        get("/other/route2") {
+        get("/orders") {
             // ...
         }    
     }
@@ -65,81 +133,24 @@ routing {
 }
 ```
 
-You can specify several names to apply several authentication providers, or none or null to use the unnamed one.
+Note that you can omit a provider name to use an unnamed provider.
 
-You can get the generated `Principal` instance inside your handler with:
 
-```kotlin
-val principal: UserIdPrincipal? = call.authentication.principal<UserIdPrincipal>()
-```
+### Step 5: Get a principal inside a route handler {id="get-principal"}
 
->In the generic, you have to put a specific type that *must* match the generated Principal.
->It will return null in the case you provide another type.
->
-{type="note"}
-
->The handler won't be executed if the configured authentication fails (when returning `null` in the authentication mechanism)
->
-{type="note"}
-
-## Naming the authentication provider
-
-It is possible to give arbitrary names to the authentication providers you specify,
-or to not provide a name at all (unnamed provider) by not setting the name argument or passing a null.
-
-You cannot repeat authentication provider names, and you can define just one provider without a name.
-
-In the case you repeat a name for the provider or try to define two unnamed providers, an exception will be thrown:
-
-```text
-java.lang.IllegalArgumentException: Provider with the name `authName` is already registered
-```
-
-Summarizing:
+In a case of successful authentication, you can retrieve an authenticated [Principal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-principal/index.html) inside a route handler using the [call.principal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/principal.html) function. This function accepts a specific principal type returned by the [configured authentication provider](#configure-provider). In a code sample below, `call.principal` is used to obtain `UserIdPrincipal` and get a name of an authenticated user.
 
 ```kotlin
-install(Authentication) {
-    basic { // Unnamed `basic` provider
-        // ...
-    }
-    form { // Unnamed `form` provider (exception, already defined a provider with name = null) 
-        // ...
-    }
-    basic("name1") { // "name1" provider
-        // ...
-    }
-    basic("name1") { // "name1" provider (exception, already defined a provider with name = "name1")
-        // ...
-    }
-}
 ```
+{src="snippets/auth-basic/src/main/kotlin/com/example/Application.kt" lines="21-27"}
 
-## Skipping/omitting authentication providers
 
-You can also skip an authentication based on a criteria.
+If you use [session authentication](session-auth.md), a principal might be a data class that stores session data. So, you need to pass this data class to `call.principal`:
 
 ```kotlin
-/**
- * Authentication filters specifying if authentication is required for particular [ApplicationCall]
- * If there is no filters, authentication is required. If any filter returns true, authentication is not required.
- */
-fun AuthenticationProvider.skipWhen(predicate: (ApplicationCall) -> Boolean)
 ```
+{src="snippets/auth-session/src/main/kotlin/com/example/Application.kt" lines="47-53,57-59,64"}
 
-For example, to skip a basic authentication if there is already a session, you could write:
 
-```kotlin
-authentication {
-    basic {
-        skipWhen { call -> call.sessions.get<UserSession>() != null }
-    }
-}
-```
 
-## Advanced
 
->If you want to create custom authentication strategies,
->you can check the [Authentication plugin](https://github.com/ktorio/ktor/tree/main/ktor-features/ktor-auth/jvm/src/io/ktor/auth) as a reference.
->The authentication plugin defines two stages as part of its [Pipeline](https://github.com/ktorio/ktor/blob/main/ktor-features/ktor-auth/jvm/src/io/ktor/auth/AuthenticationPipeline.kt): `RequestAuthentication` and `CheckAuthentication`.
->
-{type="note"}

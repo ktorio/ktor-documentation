@@ -1,6 +1,6 @@
 # Form authentication
 
-A sample project demonstrating how to use [form HTTP authentication](https://ktor.io/docs/basic.html) in Ktor.
+A sample project demonstrating how to use [form HTTP authentication](https://ktor.io/docs/form.html) in Ktor.
 
 ## Running
 To run this sample, execute the following command in a repository's root directory:
