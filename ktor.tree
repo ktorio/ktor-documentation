@@ -219,7 +219,8 @@
             <toc-element id="client_logging.md"
                          accepts-web-file-names="features-logging.html"/>
             <toc-element id="proxy.md"/>
-            <toc-element id="response-validation.md"/>
+            <toc-element id="response-validation.md"
+                         show-structure-depth="2"/>
 <!--            <toc-element id="client_retry.md"/>-->
             <toc-element id="timeout.md"/>
             <toc-element id="user-agent.md"/>
