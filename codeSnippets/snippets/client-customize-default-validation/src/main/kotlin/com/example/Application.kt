@@ -18,14 +18,11 @@ fun main() {
     val client = HttpClient(CIO) {
         HttpResponseValidator {
             handleResponseException { exception ->
-                if (exception !is ClientRequestException) {
-                    return@handleResponseException
-                } else {
-                    val exceptionResponse = exception.response
-                    if (exceptionResponse.status == HttpStatusCode.NotFound) {
-                        val exceptionResponseText = exceptionResponse.readText()
-                        throw MissingPageException(exceptionResponse, exceptionResponseText)
-                    }
+                val clientException = exception as? ClientRequestException ?: return@handleResponseException
+                val exceptionResponse = exception.response
+                if (exceptionResponse.status == HttpStatusCode.NotFound) {
+                    val exceptionResponseText = exceptionResponse.readText()
+                    throw MissingPageException(exceptionResponse, exceptionResponseText)
                 }
             }
         }
