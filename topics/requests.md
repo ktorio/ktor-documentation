@@ -59,17 +59,18 @@ Ktor provides a [ContentNegotiation](serialization.md) plugin to negotiate the m
 You can learn more from [](serialization.md).
 
 ### Form parameters {id="form_parameters"}
-Ktor allows you to receive form parameters sent with both `x-www-form-urlencoded` and `multipart/form-data` types using the [receiveParameters](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.request/receive-parameters.html) function. The example below shows an [HTTP client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html) `POST` request with parameters passed in a body:
+Ktor allows you to receive form parameters sent with both `x-www-form-urlencoded` and `multipart/form-data` types using the [receiveParameters](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.request/receive-parameters.html) function. The example below shows an [HTTP client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html) `POST` request with form parameters passed in a body:
 ```HTTP
-POST http://localhost:8080/post
-Content-Type: application/x-www-form-urlencoded
-
-first_name=Jet&last_name=Brains
 ```
-You can obtain the `first_name` and `last_name` parameter values in code as follows:
+{src="snippets/post-form-parameters/post.http"}
+
+You can obtain parameter values in code as follows:
 ```kotlin
 ```
-{src="snippets/_misc/FormParameter.kt"}
+{src="snippets/post-form-parameters/src/main/kotlin/com/example/Application.kt" lines="12-16"}
+
+You can find the full example here: [post-form-parameters](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/post-form-parameters).
+
 
 ### Multipart form data {id="form_data"}
 If you need to receive a file sent as a part of a multipart request, call the [receiveMultipart](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.request/receive-multipart.html) function and then loop over each part as required. In the example below, `PartData.FileItem` is used to receive a file as a byte stream.
