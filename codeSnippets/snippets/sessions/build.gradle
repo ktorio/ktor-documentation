@@ -23,10 +23,10 @@ repositories {
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    compile "io.ktor:ktor-server-netty:$ktor_version"
-    compile "io.ktor:ktor-server-sessions:$ktor_version" // Required for directorySessionStorage
-    compile "io.ktor:ktor-html-builder:$ktor_version"
-    compile "ch.qos.logback:logback-classic:$logback_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "io.ktor:ktor-server-netty:$ktor_version"
+    implementation "io.ktor:ktor-server-sessions:$ktor_version" // Required for directorySessionStorage
+    implementation "io.ktor:ktor-html-builder:$ktor_version"
+    implementation "ch.qos.logback:logback-classic:$logback_version"
 }
 

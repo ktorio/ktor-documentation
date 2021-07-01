@@ -28,13 +28,13 @@ repositories {
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    compile "io.ktor:ktor-server-servlet:$ktor_version"
-    compile "io.ktor:ktor-html-builder:$ktor_version"
-    compile "com.google.cloud:google-cloud-logging-logback:$gce_logback_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "io.ktor:ktor-server-servlet:$ktor_version"
+    implementation "io.ktor:ktor-html-builder:$ktor_version"
+    implementation "com.google.cloud:google-cloud-logging-logback:$gce_logback_version"
 
     providedCompile "com.google.appengine:appengine:$appengine_version"
-    testCompile "io.ktor:ktor-server-tests:$ktor_version"
+    testImplementation "io.ktor:ktor-server-tests:$ktor_version"
 }
 
 task run(dependsOn: appengineRun)

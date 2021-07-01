@@ -37,10 +37,10 @@ dependencies {
     tomcat "org.apache.tomcat.embed:tomcat-embed-core:$tomcat_version",
             "org.apache.tomcat.embed:tomcat-embed-jasper:$tomcat_version"
     
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    compile "io.ktor:ktor-server-servlet:$ktor_version"
-    compile "io.ktor:ktor-html-builder:$ktor_version"
-    compile "org.slf4j:slf4j-jdk14:$slf4j_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "io.ktor:ktor-server-servlet:$ktor_version"
+    implementation "io.ktor:ktor-html-builder:$ktor_version"
+    implementation "org.slf4j:slf4j-jdk14:$slf4j_version"
 }
 
 task run(dependsOn: tomcatRun)
