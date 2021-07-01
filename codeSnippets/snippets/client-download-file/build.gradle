@@ -27,7 +27,7 @@ dependencies {
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     api "io.ktor:ktor-client-apache:$ktor_version"
 
-    testCompile "io.ktor:ktor-client-mock:$ktor_version"
-    testCompile 'junit:junit:4.13'
+    testImplementation "io.ktor:ktor-client-mock:$ktor_version"
+    testImplementation 'junit:junit:4.13'
 }
 

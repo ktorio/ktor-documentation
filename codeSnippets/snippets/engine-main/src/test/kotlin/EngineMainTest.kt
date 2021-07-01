@@ -1,16 +1,19 @@
-import e2e.TestServer
-import io.ktor.client.*
-import io.ktor.client.call.*
-import io.ktor.client.request.*
-import io.ktor.client.statement.*
-import kotlinx.coroutines.runBlocking
-import org.junit.Assert.assertEquals
-import org.junit.Test
+package com.example
 
-class EngineMainTest: TestServer() {
+import io.ktor.application.*
+import io.ktor.http.*
+import io.ktor.server.testing.*
+import kotlin.test.Test
+import kotlin.test.assertEquals
+
+class ApplicationTest {
     @Test
-    fun rootRouteRespondsWithHelloWorldString(): Unit = runBlocking {
-        val response: String = HttpClient().get<HttpResponse>("http://localhost:8080/").receive()
-        assertEquals("Hello, world!", response)
+    fun testRoot() {
+        withTestApplication(Application::module) {
+            handleRequest(HttpMethod.Get, "/").apply {
+                assertEquals(HttpStatusCode.OK, response.status())
+                assertEquals("Hello, world!", response.content)
+            }
+        }
     }
 }

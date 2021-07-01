@@ -1,5 +1,3 @@
-package io.ktor.snippets.hello
-
 import io.ktor.application.*
 import io.ktor.html.*
 import io.ktor.routing.*
