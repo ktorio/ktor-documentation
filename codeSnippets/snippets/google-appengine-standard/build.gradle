@@ -35,6 +35,7 @@ dependencies {
 
     providedCompile "com.google.appengine:appengine:$appengine_version"
     testImplementation "io.ktor:ktor-server-tests:$ktor_version"
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
 }
 
 task run(dependsOn: appengineRun)
