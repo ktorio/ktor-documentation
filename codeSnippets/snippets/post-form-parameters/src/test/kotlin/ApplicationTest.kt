@@ -2,11 +2,9 @@ package com.example
 
 import io.ktor.application.*
 import io.ktor.http.*
-import io.ktor.http.content.*
 import io.ktor.server.testing.*
-import io.ktor.utils.io.streams.*
-import java.io.File
-import kotlin.test.*
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class ApplicationTest {
     @Test
