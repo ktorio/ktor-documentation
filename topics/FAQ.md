@@ -102,28 +102,6 @@ You can use the [`DefaultHeaders` plugin](default_headers.md) that will send a
 Server header with the Ktor version on it.
 Something similar to `Server: ktor-server-core/1.0.0 ktor-server-core/1.0.0` should be sent as part of the response headers.
 
-## Website accessibility tips and tricks
-{id="website-tricks"}
-
-> You can use the keys <kbd>s</kbd> (search), <kbd>t</kbd> (github file finder flavor) or <kbd>#</kbd> to access the search in any page
-> of the documentation website.
-> The <kbd>#</kbd> version will limit the search to the heading sections in the current page.
-
-> In the search you can either select the options with the mouse (or fingers on touch devices), or using the keyboard arrows <kbd>↑</kbd> <kbd>↓</kbd>
-> and the return key <kbd>⏎</kbd> to go to the currently selected page.
-
-> This search only uses page titles, and keywords for the search. It is also possible to do a Google search
-> in the `ktor.io` domain to do a full text search on all its contents.
-
-> Long code fragments that are folded, can be expanded by either clicking on
-> the `'+'`/`'-'` symbol that always appears in the top left corner of mobile devices
-> or on hover on devices with mouse.
-> You can also double click the fragment to expand it.
-> In addition to expanding it, this action selects the text so you can copy the fragments easily
-> with <kbd>cmd</kbd> + <kbd>c</kbd> on mac, or <kbd>ctrl</kbd> + <kbd>c</kbd> in other operating systems.
-
-> You can click on the headings and some notes, to get an anchored link to the sections.
-> After clicking, you can copy the new url in your browser including the `#` to link to a specific section in that page.
 
 ## My route is not being executed, how can I debug it?
 {id="route-not-executing"}
