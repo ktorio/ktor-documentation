@@ -30,7 +30,7 @@ keytool -keystore test.jks -genkeypair -alias testkey -keyalg RSA -keysize 4096 
 
 ... or by using the [generateCertificate](self-signed-certificate.md) function.
 
-The next step is configuring Ktor to use your keystore. See the example application.conf:
+The next step is configuring Ktor to use your keystore. See the example `application.conf`:
 
 
 ```kotlin
