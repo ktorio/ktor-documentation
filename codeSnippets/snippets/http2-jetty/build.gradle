@@ -1,0 +1,18 @@
+plugins {
+    id 'application'
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+mainClassName = "io.ktor.server.jetty.EngineMain"
+
+repositories {
+    mavenCentral()
+    maven { url "https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven" }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "io.ktor:ktor-server-jetty:$ktor_version"
+    implementation "io.ktor:ktor-html-builder:$ktor_version"
+    implementation "ch.qos.logback:logback-classic:$logback_version"
+}

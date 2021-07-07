@@ -2,6 +2,12 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
+<microformat>
+<p>
+Code examples: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/http2-netty">http2-netty</a>, <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/http2-jetty">http2-jetty</a>
+</p>
+</microformat>
+
 [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2) is a modern binary duplex multiplexing protocol designed as a replacement for HTTP/1.x.
 
 Jetty, Netty, and Tomcat engines provide HTTP/2 implementations that Ktor can use. However, there are significant differences,
@@ -11,135 +17,56 @@ Key requirements:
 
 * SSL certificate (can be self-signed)
 * ALPN implementation suitable for a particular engine (see corresponding sections for Netty, Jetty, and Tomcat)
-* HTTP/2 compliant browsers (all major browsers have supported it since the end of 2015 according to [caniuse.com](http://caniuse.com/#search=http2))
 
-## SSL certificate
+## SSL certificate {id="ssl_certificate"}
 
 As per the specification, HTTP/2 does not require encryption, but all browsers will require encrypted connections to be used with HTTP/2.
 That's why a working TLS environment is a prerequisite for enabling HTTP/2. Therefore, a certificate is required to enable encryption.
-For testing purposes, it can be generated with `keytool` from the JDK:
+For testing purposes, it can be generated with `keytool` from the JDK ...
 
 ```bash
 keytool -keystore test.jks -genkeypair -alias testkey -keyalg RSA -keysize 4096 -validity 5000 -dname 'CN=localhost, OU=ktor, O=ktor, L=Unspecified, ST=Unspecified, C=US'
 ```
 
+... or by using the [generateCertificate](self-signed-certificate.md) function.
+
 The next step is configuring Ktor to use your keystore. See the example application.conf:
 
 
 ```kotlin
-ktor {
-    deployment {
-        port = 8080
-        sslPort = 8443
-        watch = [ ]
-    }
-
-    application {
-        modules = [ com.example.ModuleKt.main ]
-    }
-
-    security {
-        ssl {
-            keyStore = /path/to/test.jks
-            keyAlias = testkey
-            keyStorePassword = changeit
-            privateKeyPassword = changeit
-        }
-    }
-}
 ```
+{src="snippets/http2-netty/src/main/resources/application.conf"}
 
 ## ALPN implementation
 
-HTTP/2 requires ALPN ([Application-Layer Protocol Negotiation](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation)) to be enabled.
-Unfortunately, the JDK's TLS implementation doesn't have support for ALPN, so your application engine must be configured properly. 
-The first option is to use an external ALPN implementation that needs to be added to the boot classpath.
-Another option is to use OpenSSL native bindings and precompiled native binaries. Both approaches are error-prone and require extra attention when being configured.
-Also, each particular engine can support only one of these methods.
+HTTP/2 requires ALPN ([Application-Layer Protocol Negotiation](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation)) to be enabled. The first option is to use an external ALPN implementation that needs to be added to the boot classpath.
+Another option is to use OpenSSL native bindings and precompiled native binaries. Also, each particular engine can support only one of these methods.
 
 ### Jetty
 
-Jetty supports the JDK ALPN extension, and to get it working you have to add an extra-dependency to the java *boot classpath*.
-It is very important to add it to the *boot* classpath, as adding it to a regular classpath doesn't work.
+Since ALPN APIs are supported starting with Java 8, the Jetty engine doesn't require any specific configurations for using HTTP/2. So, you only need to:
+1. [Create a server](Engines.md#choose-create-server) with the Jetty engine.
+2. Add an SSL configuration as described in [](#ssl_certificate).
+3. Configure `sslPort`.
 
-The other issue is that the exact dependency version depends on the JDK version. For example, for JDK 8u144, alpn boot 8.1.11.v20170118
-should be used (see <https://www.eclipse.org/jetty/documentation/9.4.x/alpn-chapter.html#alpn-versions> for the full compatibility list).
-
-The following JVM options should be applied (the path can be relative):
-
-```text
--Xbootclasspath/p:/path/to/alpn-boot-8.1.11.v20170118.jar
-```
-
-Depending on your build system you will probably need to copy the dependency to some specific directory. 
-In Maven you could use `maven-dependency-plugin` (goal `copy-dependencies`) or `Copy` task in Gradle.
-
-```xml
-<build>
-    <plugins>
-        <plugin>
-            <artifactId>maven-dependency-plugin</artifactId>
-            <executions>
-                <execution>
-                    <id>unpack-jetty-alpn</id>
-                    <goals>
-                        <goal>copy-dependencies</goal>
-                    </goals>
-                    <phase>compile</phase>
-                    <configuration>
-                        <includeArtifactIds>alpn-boot</includeArtifactIds>
-                        <stripVersion>true</stripVersion>
-                    </configuration>
-                </execution>
-            </executions>
-        </plugin>
-    </plugins>
-</build>
-```
-
-If all of the above is done properly, Jetty will log that ssl, alpn, and h2 are enabled:
-
-```text
-INFO  org.eclipse.jetty.server.Server - jetty-9.4.6.v20170531
-INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@337762cd{HTTP/1.1,[http/1.1, h2c]}{0.0.0.0:8080}
-INFO  o.e.jetty.util.ssl.SslContextFactory - x509=X509@433defed(testkey,h=[],w=[]) for SslContextFactory@2a693f59(null,null)
-INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@49c90a9c{SSL,[ssl, alpn, h2, http/1.1]}{0.0.0.0:8443}
-INFO  org.eclipse.jetty.server.Server - Started @1619ms
-```
+The [http2-jetty](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/http2-jetty) runnable example demonstrates HTTP/2 support for Jetty.
 
 ### Netty
 
 The easiest way to enable HTTP/2 in Netty is to use OpenSSL bindings ([tcnative netty port](https://netty.io/wiki/forked-tomcat-native.html)). 
 Add an API jar to dependencies:
 
-```xml
-<dependency>
-    <groupId>io.netty</groupId>
-    <artifactId>netty-tcnative</artifactId>
-    <version>${tcnative.version}</version>
-</dependency>
+```groovy
 ```
+{src="snippets/http2-netty/build.gradle" lines="39"}
 
 and then  native implementation (statically linked BoringSSL library, a fork of OpenSSL):
 
-```xml
-    <dependency>
-        <groupId>io.netty</groupId>
-        <artifactId>netty-tcnative-boringssl-static</artifactId>
-        <version>${tcnative.version}</version>
-    </dependency>
-
-    <dependency>
-        <groupId>io.netty</groupId>
-        <artifactId>netty-tcnative-boringssl-static</artifactId>
-        <version>${tcnative.version}</version>
-        <classifier>${tc.native.classifier}</classifier>
-    </dependency>
+```groovy
 ```
+{src="snippets/http2-netty/build.gradle" lines="40-41"}
 
-where `tc.native.classifier` should be one of the following: `linux-x86_64`, `osx-x86_64` or `windows-x86_64`.
-
-Once all dependencies have been provided, Ktor will enable HTTP/2 support on the SSL port.
+where `tc.native.classifier` should be one of the following: `linux-x86_64`, `osx-x86_64` or `windows-x86_64`. The [http2-netty](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/http2-netty) runnable example demonstrates how to enable HTTP/2 support for Netty.
 
 ### Tomcat and other servlet containers
 
