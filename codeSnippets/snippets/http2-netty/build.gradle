@@ -1,0 +1,42 @@
+buildscript {
+    ext.tcnative_version = '2.0.40.Final'
+    def osName = System.getProperty('os.name').toLowerCase()
+    if (osName.contains('win')) {
+        ext.tcnative_classifier = 'windows-x86_64'
+    } else if (osName.contains('linux')) {
+        ext.tcnative_classifier = 'linux-x86_64'
+    } else if (osName.contains('mac')) {
+        ext.tcnative_classifier = 'osx-x86_64'
+    } else {
+        ext.tcnative_classifier = ''
+    }
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+plugins {
+    id 'application'
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+mainClassName = "io.ktor.server.netty.EngineMain"
+
+repositories {
+    mavenCentral()
+    maven { url "https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven" }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "io.ktor:ktor-server-netty:$ktor_version"
+    implementation "io.ktor:ktor-html-builder:$ktor_version"
+    implementation "ch.qos.logback:logback-classic:$logback_version"
+    implementation "io.netty:netty-tcnative:$tcnative_version"
+    implementation "io.netty:netty-tcnative-boringssl-static:$tcnative_version"
+    implementation "io.netty:netty-tcnative-boringssl-static:$tcnative_version:$tcnative_classifier"
+}

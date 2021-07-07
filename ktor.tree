@@ -25,8 +25,6 @@
 
 
     <toc-element toc-title="Tutorials">
-<!--        <toc-element id="getting_started_ktor.md"
-                     accepts-web-file-names-ref="tutorials"/>-->
         <toc-element id="creating_http_apis.md"
                      show-structure-depth="2"
                      accepts-web-file-names-ref="tutorials"/>
@@ -48,7 +46,8 @@
             <toc-element id="create_server.xml" show-structure-depth="2"/>
             <toc-element id="Engines.md"
                          show-structure-depth="2">
-                <toc-element id="advanced_http2.md"/>
+                <toc-element id="advanced_http2.md"
+                             show-structure-depth="2"/>
             </toc-element>
             <toc-element id="Configurations.xml"
                          show-structure-depth="2"
@@ -158,7 +157,7 @@
                 <toc-element id="gradle-application-plugin.md"
                              accepts-web-file-names="fatjar.html,packing.html"/>
                 <toc-element id="maven-assembly-plugin.md"/>
-                <toc-element id="war.md" toc-title="WAR"/>
+                <toc-element id="war.md"/>
                 <toc-element id="Graalvm.md"/>
             </toc-element>
             <toc-element id="containers.md">
@@ -186,7 +185,6 @@
             <toc-element id="proguard.md"
                          accepts-web-file-names="deploy-proguard.html"/>
         </toc-element>
-        <toc-element toc-title="Recipes"/>
     </toc-element>
 
 
