@@ -59,48 +59,50 @@ the logic implementing an IETF RFC or another protocol without relying on extern
 ## Ktor imports are not being resolved. Imports are in red.
 {id="ktor-artifact"}
 
-> Ensure that you are including the ktor artifact. For example, for gradle and Netty engine it would be:
-> ```kotlin
-> dependencies {
->     compile("io.ktor:ktor-server-netty:$ktor_version")
-> }
-> ```
-> * For Gradle, check [](Gradle.xml)
-> * For Maven, check [](Maven.xml)
+Ensure that you are including the Ktor artifacts. For example, for Gradle and the Netty engine it would be:
+```groovy
+dependencies {
+    implementation "io.ktor:ktor-server-core:%ktor_version%"
+    implementation "io.ktor:ktor-server-netty:%ktor_version%"
+}
+```
+{interpolate-variables="true"}
+
+
+* For Gradle, check [](Gradle.xml)
+* For Maven, check [](Maven.xml)
 
 ## Does ktor provide a way to catch IPC signals (e.g. SIGTERM or SIGINT) so the server shutdown can be handled gracefully?
 {id="sigterm"}
 
-> If you are running a `EngineMain`, it will be handled automatically.
->
-> Otherwise you will have to [handle it manually](https://github.com/ktorio/ktor/blob/6c724f804bd6f25158d284d05c49235c67573019/ktor-server/ktor-server-cio/src/io/ktor/server/cio/EngineMain.kt#L18).
-> You can use `Runtime.getRuntime().addShutdownHook` JVM's facility.
+If you are running an [EngineMain](create_server.xml#engine-main), it will be handled automatically.
+Otherwise, you need to [handle it manually](https://github.com/ktorio/ktor/blob/6c724f804bd6f25158d284d05c49235c67573019/ktor-server/ktor-server-cio/src/io/ktor/server/cio/EngineMain.kt#L18).
+You can use `Runtime.getRuntime().addShutdownHook` JVM's facility.
 
 ## How do I get the client IP behind a proxy?
 {id="proxy-ip"}
 
-> The property `call.request.origin` gives connection information about the original caller (the proxy)
-> if the proxy provides proper headers, and the plugin `XForwardedHeaderSupport` is installed.
+The property `call.request.origin` gives connection information about the original caller (the proxy) if the proxy provides proper headers, and the plugin `XForwardedHeaderSupport` is installed.
 
 ## I get the error 'java.lang.IllegalStateException: No instance for key AttributeKey: Locations'
 {id="no-attribute-key-locations"}
 
-> You get this error if you try to use the [Locations](locations.md) plugin without actually installing it. 
+You get this error if you try to use the [Locations](locations.md) plugin without actually installing it. 
 
 ## How can I test the latest commits on main?
 {id="bleeding-edge"}
 
 You can use jitpack to get builds from main that are not yet released:
 <https://jitpack.io/#ktorio/ktor>
-Also you can [build Ktor from source](build-from-source.md), and use your `mavenLocal` repository for the artifact
+Also, you can [build Ktor from source](build-from-source.md), and use your `mavenLocal` repository for the artifact
 or to upload your artifacts to your own artifactory.
 
 ## How can I be sure of which version of Ktor am I using?
 {id="ktor-version-used"}
 
-You can use the [`DefaultHeaders` plugin](default_headers.md) that will send a
+You can use the [DefaultHeaders](default_headers.md) plugin that will send a
 Server header with the Ktor version on it.
-Something similar to `Server: ktor-server-core/1.0.0 ktor-server-core/1.0.0` should be sent as part of the response headers.
+Something similar to `Server: ktor-server-core/%ktor_version%` should be sent as part of the response headers.
 
 
 ## My route is not being executed, how can I debug it?
@@ -166,7 +168,7 @@ question](https://stackoverflow.com/questions/49945584/attempting-to-run-an-embe
 {id="curl-head-not-found"}
 
 `CURL -I` that is an alias of `CURL --head` that performs a `HEAD` request.
-By default Ktor doesn't handle `HEAD` requests for `GET` handlers, so you might get something like:
+By default, Ktor doesn't handle `HEAD` requests for `GET` handlers, so you might get something like:
 
 ```HTTP
 curl -I http://localhost:8080
@@ -182,7 +184,7 @@ routing {
 }
 ```
 
-Ktor can automatically handle `HEAD` requests, but requires you to first install the [`AutoHeadResponse` plugin](autoheadresponse.md).
+Ktor can automatically handle `HEAD` requests, but requires you to first install the [AutoHeadResponse](autoheadresponse.md) plugin.
 
 ```kotlin
 install(AutoHeadResponse) 
@@ -198,5 +200,3 @@ that it is a normal HTTP request and responds with the redirect.
 Normally, reverse-proxies send some headers describing the original request (like it was HTTPS, or the original IP address),
 and there is a plugin [`XForwardedHeaderSupport`](forward-headers.md)
 to parse those headers so the [`HttpsRedirect`](https-redirect.md) plugin knows that the original request was HTTPS.
-
-
