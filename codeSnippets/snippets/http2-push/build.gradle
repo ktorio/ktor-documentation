@@ -1,5 +1,5 @@
 buildscript {
-    ext.tcnative_version = '2.0.27.Final'
+    ext.tcnative_version = '2.0.40.Final'
 
     // Determine native library that we need for Netty SSL / HTTP2 support
 
