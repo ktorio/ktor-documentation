@@ -226,7 +226,6 @@ import io.ktor.http.cio.websocket.*
 import io.ktor.util.*
 import kotlinx.coroutines.*
 
-@KtorExperimentalAPI
 fun main() {
     val client = HttpClient {
         install(WebSockets)
@@ -305,7 +304,6 @@ Where we previously had one loop which had to take care of reading input and pri
 Let's make use of our two new functions! We can call them inside the body of our WebSocket handler by changing the code of our `main()` method in `ChatClient.kt` to the following:
 
 ```kotlin
-@KtorExperimentalAPI
 fun main() {
     val client = HttpClient {
         install(WebSockets)
