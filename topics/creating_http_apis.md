@@ -46,6 +46,7 @@ dependencies {
     implementation "io.ktor:ktor-serialization:$ktor_version"
 
     testImplementation "io.ktor:ktor-server-tests:$ktor_version"
+    testImplementation "org.jetbrains.kotlin:kotlin-test"
 }
 ```
 Let's briefly go through these dependencies one-by-one:
