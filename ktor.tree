@@ -150,6 +150,7 @@
 
         </toc-element>
         <toc-element id="Testing.md"
+                     show-structure-depth="2"
                      accepts-web-file-names="servers-testing.html"/>
         <toc-element toc-title="Deployments"
                      id="deploy.md">
