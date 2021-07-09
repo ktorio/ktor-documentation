@@ -1,7 +1,7 @@
 [//]: # (title: Json)
 
 <microformat>
-<var name="example_name" value="json-client"/>
+<var name="example_name" value="client-json"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
