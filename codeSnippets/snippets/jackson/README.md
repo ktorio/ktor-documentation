@@ -52,4 +52,4 @@ Response:
 ## Using HTTP client
 
 You can make requests to this sample server using Ktor HTTP client. 
-See [json-client](../json-client/README.md) sample.
+See [client-json](../client-json/README.md) sample.

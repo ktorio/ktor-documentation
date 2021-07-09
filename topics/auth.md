@@ -2,6 +2,17 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
+<microformat>
+<p>
+Required dependencies: <code>io.ktor:ktor-client-auth</code>
+</p>
+<p>
+Code examples: 
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-auth-basic">client-auth-basic</a>, 
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-auth-digest">client-auth-digest</a>
+</p>
+</microformat>
+
 Ktor client supports authentication out of the box as a plugin (previously known as feature).
 
 ## Add dependencies {id="add_dependencies"}
@@ -13,11 +24,10 @@ To enable authentication, you need to include the `ktor-client-auth` artifact in
 
 ## Installation
 
-``` kotlin
+```kotlin
 val client = HttpClient() {
     install(Auth) {
-        // providers config
-        ...
+        // Provider config
     }
 }
 ```
@@ -29,17 +39,12 @@ val client = HttpClient() {
 This provider sends an `Authorization: Basic` with the specified credentials:
 
 ```kotlin
-val client = HttpClient() {
-    install(Auth) {
-        basic {
-            username = "username"
-            password = "password"
-        }
-    }
-}
 ```
+{src="snippets/client-auth-basic/src/main/kotlin/com/example/Application.kt" lines="13-21"}
 
-This plugin implements the IETF's [RFC 7617](https://tools.ietf.org/html/rfc7617).
+You can find the full example here: [client-auth-basic](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-auth-basic).
+
+> This provider implements the IETF's [RFC 7617](https://tools.ietf.org/html/rfc7617).
 
 ### Digest
 
@@ -58,8 +63,11 @@ val client = HttpClient() {
     }
 }
 ```
+{src="snippets/client-auth-digest/src/main/kotlin/com/example/Application.kt" lines="13-22"}
 
-This plugin implements the IETF's [RFC 2617](https://tools.ietf.org/html/rfc2617).
+You can find the full example here: [client-auth-digest](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-auth-digest).
+
+> This provider implements the IETF's [RFC 2617](https://tools.ietf.org/html/rfc2617).
 
 ### Bearer
 

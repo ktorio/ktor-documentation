@@ -11,7 +11,7 @@ First off, run one of the server-side samples:
 Then, run this project with by executing the following command in a repository's root directory:
 
 ```
-./gradlew :json-client:run
+./gradlew :client-json:run
 ```
 
 The resulting output should be:
