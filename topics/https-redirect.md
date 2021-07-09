@@ -75,12 +75,6 @@ fun testRedirectHttps() {
 
 ### Do not install the plugin when testing or uninstall it
 
-Uninstalling it:
-
-```kotlin
-application.uninstall(HttpsRedirect)
-```
-
 Prevent installation in the first place:
 
 ```kotlin
