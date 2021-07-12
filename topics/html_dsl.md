@@ -1,7 +1,7 @@
 [//]: # (title: HTML DSL)
 
 <microformat>
-<var name="example_name" value="html-widget"/>
+<var name="example_name" value="html"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
