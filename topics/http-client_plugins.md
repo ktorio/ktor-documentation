@@ -1,4 +1,4 @@
-[//]: # (title: Plugins \(formerly known as Features\))
+[//]: # (title: Plugins)
 
 <include src="lib.xml" include-id="outdated_warning"/>
 

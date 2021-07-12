@@ -1,4 +1,4 @@
-[//]: # (title: Responses)
+[//]: # (title: Sending responses)
 
 Ktor allows you to handle incoming [requests](requests.md) and send responses inside [route handlers](Routing_in_Ktor.md#define_route). You can send different types of responses: plain text, HTML documents and templates, serialized data objects, and so on. For each response, you can also configure various [response parameters](#parameters), such as a content type, headers, and cookies.
 

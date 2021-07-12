@@ -1,4 +1,4 @@
-[//]: # (title: HTTP/2)
+[//]: # (title: Configuring HTTP/2)
 
 <include src="lib.xml" include-id="outdated_warning"/>
 

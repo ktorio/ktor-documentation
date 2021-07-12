@@ -3,7 +3,7 @@
 
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       title="Gradle"
+       title="Adding Ktor to an existing Gradle project"
        id="Gradle">
 
     <microformat>

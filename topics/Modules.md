@@ -1,4 +1,4 @@
-[//]: # (title: Modules)
+[//]: # (title: Structuring with modules)
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
