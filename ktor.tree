@@ -33,10 +33,10 @@
         </toc-element>
 
         <toc-element toc-title="Developing applications">
+            <toc-element id="A_Ktor_Application.xml"
+                         show-structure-depth="2"
+                         accepts-web-file-names="intro.html,servers-application.html,how-ktor-works.html,lifecycle.html"/>
             <toc-element toc-title="Creating and configuring a server">
-                <toc-element id="A_Ktor_Application.xml"
-                             show-structure-depth="2"
-                             accepts-web-file-names="intro.html,servers-application.html,how-ktor-works.html,lifecycle.html"/>
                 <toc-element id="create_server.xml"
                              show-structure-depth="2"/>
                 <toc-element id="Engines.md"
@@ -65,10 +65,9 @@
                 <toc-element id="Serving_Static_Content.md"
                              show-structure-depth="2"
                              accepts-web-file-names="static-content.html"/>
+                <toc-element id="webjars.md"/>
                 <toc-element id="autoheadresponse.md"/>
                 <toc-element id="status_pages.md"/>
-                <toc-element id="webjars.md"/>
-                <toc-element id="double-receive.md"/>
             </toc-element>
 
             <toc-element toc-title="Handling requests and responses">
@@ -77,6 +76,8 @@
                              accepts-web-file-names="multipart-support.html,uploads.html,calls.html"/>
                 <toc-element id="responses.md"
                              show-structure-depth="2"/>
+                <toc-element id="call-id.md"/>
+                <toc-element id="double-receive.md"/>
             </toc-element>
 
             <toc-element id="Working_with_views.md"
@@ -92,13 +93,13 @@
             <toc-element id="serialization.md"
                          show-structure-depth="2"
                          accepts-web-file-names="content-negotiation.html">
+                <toc-element id="kotlin_serialization.md"
+                             show-structure-depth="2"
+                             accepts-web-file-names="serialization-converter.html"/>
                 <toc-element id="gson.md"
                              accepts-web-file-names="content-negotiation-gson.html"/>
                 <toc-element id="jackson.md"
                              accepts-web-file-names="content-negotiation-jackson.html"/>
-                <toc-element id="kotlin_serialization.md"
-                             show-structure-depth="2"
-                             accepts-web-file-names="serialization-converter.html"/>
             </toc-element>
 
             <toc-element id="authentication.md" show-structure-depth="2"
@@ -121,16 +122,6 @@
                 <toc-element id="transformers.md"/>
             </toc-element>
 
-            <toc-element toc-title="Sockets">
-                <toc-element id="websocket.md"
-                             accepts-web-file-names="servers-features-websockets.html"/>
-                <toc-element toc-title="WebSocket extensions">
-                    <toc-element id="websocket_deflate_extension.md"/>
-                    <toc-element id="websocket_extensions_api.md"/>
-                </toc-element>
-                <toc-element id="servers_raw-sockets.md"/>
-            </toc-element>
-
             <toc-element toc-title="Monitoring">
                 <toc-element id="logging.md"
                              show-structure-depth="2"
@@ -142,8 +133,7 @@
                              accepts-web-file-names="features-metrics.html"/>
             </toc-element>
 
-            <toc-element toc-title="More plugins">
-                <toc-element id="call-id.md"/>
+            <toc-element toc-title="HTTP">
                 <toc-element id="data-conversion.md"/>
 
                 <toc-element id="default_headers.md"/>
@@ -158,6 +148,19 @@
                 <toc-element id="hsts.md"/>
                 <toc-element id="https-redirect.md"/>
                 <toc-element id="partial-content.md"/>
+            </toc-element>
+
+            <toc-element toc-title="Sockets">
+                <toc-element id="websocket.md"
+                             accepts-web-file-names="servers-features-websockets.html"/>
+                <toc-element toc-title="WebSocket extensions">
+                    <toc-element id="websocket_deflate_extension.md"/>
+                    <toc-element id="websocket_extensions_api.md"/>
+                </toc-element>
+                <toc-element id="servers_raw-sockets.md"/>
+            </toc-element>
+
+            <toc-element toc-title="Administration">
                 <toc-element id="shutdown-url.md"/>
             </toc-element>
         </toc-element>
