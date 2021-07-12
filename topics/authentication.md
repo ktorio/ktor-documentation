@@ -1,11 +1,5 @@
 [//]: # (title: Authentication and authorization)
 
-<microformat>
-<p>
-Code examples: <a href="examples.md" anchor="authentication">Authentication</a>
-</p>
-</microformat>
-
 Ktor provides the `Authentication` feature to handle authentication and authorization. Typical usage scenarios include logging in users, granting access to specific resources, and securely transmitting information between parties. You can also use `Authentication` with [Sessions](sessions.md) to keep a user's information between requests.
 
 ## Supported authentication types {id="supported"}
