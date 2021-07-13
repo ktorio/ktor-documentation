@@ -11,7 +11,7 @@
 
     <toc-element toc-title="Ktor Server">
         <toc-element toc-title="Getting started with a Ktor Server">
-            <toc-element id="intellij-idea.xml"/>
+            <toc-element id="intellij-idea.xml" accepts-web-file-names="getting-started.html"/>
             <toc-element hidden="true" accepts-web-file-names="generator.html"
                          target-for-accept-web-file-names="https://start.ktor.io/"/>
             <toc-element id="Gradle.xml"
@@ -205,7 +205,7 @@
         </toc-element>
 
         <toc-element toc-title="Extending Ktor">
-            <toc-element id="Pipelines.md">
+            <toc-element id="Pipelines.md" accepts-web-file-names="pipeline.html">
                 <toc-element id="attributes.md"/>
             </toc-element>
             <toc-element toc-title="Routing under the covers">
