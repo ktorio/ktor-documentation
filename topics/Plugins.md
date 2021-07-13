@@ -1,4 +1,4 @@
-[//]: # (title: Plugins \(formerly known as Features\))
+[//]: # (title: Plugins)
 
 
 A typical request/response pipeline in Ktor looks like the following:

@@ -1,4 +1,4 @@
-[//]: # (title: Sockets)
+[//]: # (title: Raw sockets)
 
 <include src="lib.xml" include-id="outdated_warning"/>
 

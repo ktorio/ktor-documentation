@@ -1,4 +1,4 @@
-[//]: # (title: Requests)
+[//]: # (title: Handling requests)
 
 Ktor allows you to handle incoming requests and send [responses](responses.md) inside [route handlers](Routing_in_Ktor.md#define_route). You can perform various actions when handling requests:
 * Get [request information](#request_information), such as headers, cookies, and so on.

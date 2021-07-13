@@ -25,9 +25,9 @@ install(ContentNegotiation) {
 ### Built-in converters {id="built_in_converters"}
 Ktor provides the set of built-in converters for handing various content types without writing your own logic:
 
+* [kotlinx.serialization](kotlin_serialization.md) for JSON, Protobuf, CBOR, and so on
 * [Gson](gson.md) for JSON
 * [Jackson](jackson.md) for JSON
-* [kotlinx.serialization](kotlin_serialization.md) for JSON, Protobuf, CBOR, and so on
 
 See a corresponding topic to learn how to install the required dependencies, register, and configure a converter.
 
