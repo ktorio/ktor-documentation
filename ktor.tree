@@ -88,6 +88,7 @@
                 <toc-element id="velocity.md" show-structure-depth="2"/>
                 <toc-element id="mustache.md" show-structure-depth="2"/>
                 <toc-element id="thymeleaf.md" show-structure-depth="2"/>
+                <toc-element id="pebble.md" show-structure-depth="2"/>
             </toc-element>
 
             <toc-element id="serialization.md"
