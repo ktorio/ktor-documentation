@@ -30,7 +30,7 @@ install(Sessions) {
 ```
 To learn more about available configurations settings, see [CookieConfiguration](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.sessions/-cookie-configuration/index.html).
 
-> Before [deploying](deploy.md) your application to production, make sure the `secure` property is set to `true`. This enables transferring cookies via a [secure connection](ssl.md) only and protects session data from various attacks, including HTTPS downgrade and XSS attacks.
+> Before [deploying](deploy.md) your application to production, make sure the `secure` property is set to `true`. This enables transferring cookies via a [secure connection](ssl.md) only and protects session data from HTTPS downgrade attacks.
 >
 {type="warning"}
 
