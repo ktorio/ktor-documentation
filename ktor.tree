@@ -271,7 +271,9 @@
 
 
     <toc-element toc-title="Contributing to Ktor">
-        <toc-element id="bug_report.md"/>
+        <toc-element hidden="true"
+                     accepts-web-file-names="bug-report.html"
+                     target-for-accept-web-file-names="https://ktor.io/support/"/>
         <toc-element id="code-style.md"/>
         <toc-element id="build-from-source.md"/>
     </toc-element>
