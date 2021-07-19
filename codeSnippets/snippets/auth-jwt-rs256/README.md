@@ -5,10 +5,10 @@ A sample project demonstrating how to authenticate a client using a [JSON Web To
 To run this sample, execute the following command in a repository's root directory:
 ```bash
 # macOS/Linux
-./gradlew :auth-jwk:run
+./gradlew :auth-jwt-rs256:run
 
 # Windows
-gradlew.bat :auth-jwk:run
+gradlew.bat :auth-jwt-rs256:run
 ```
 
 Then, open the [requests.http](requests.http) file and do the following:
