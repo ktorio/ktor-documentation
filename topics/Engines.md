@@ -87,11 +87,9 @@ If you need to start a server using a build system task, you need to configure t
         </tab>
         <tab title="Maven">
             <code style="block" lang="XML" title="Sample">
-            <![CDATA[
-        <properties>
-            <main.class>io.ktor.server.netty.EngineMain</main.class>
-        </properties>
-            ]]>
+        &lt;properties&gt;
+            &lt;main.class&gt;io.ktor.server.netty.EngineMain&lt;/main.class&gt;
+        &lt;/properties&gt;
             </code>
        </tab>
 </tabs>

@@ -36,7 +36,7 @@ fun Application.main() {
         .rateLimited(10, 1, TimeUnit.MINUTES)
         .build()
     install(Authentication) {
-        jwt("auth-jwk") {
+        jwt("auth-jwt") {
             realm = myRealm
             verifier(jwkProvider, issuer) {
                 acceptLeeway(3)
@@ -67,9 +67,9 @@ fun Application.main() {
             call.respond(hashMapOf("token" to token))
         }
 
-        authenticate("auth-jwk") {
+        authenticate("auth-jwt") {
             get("/hello") {
-                val principal = call.authentication.principal<JWTPrincipal>()
+                val principal = call.principal<JWTPrincipal>()
                 val username = principal!!.payload.getClaim("username").asString()
                 val expiresAt = principal.expiresAt?.time?.minus(System.currentTimeMillis())
                 call.respondText("Hello, $username! Token is expired at $expiresAt ms.")

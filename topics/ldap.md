@@ -28,18 +28,16 @@ To enable `LDAP` authentication, you need to include the `ktor-auth` and `ktor-a
     </tab>
     <tab title="Maven">
         <code style="block" lang="XML" title="Sample">
-        <![CDATA[
-        <dependency>
-            <groupId>io.ktor</groupId>
-            <artifactId>ktor-auth</artifactId>
-            <version>${ktor_version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.ktor</groupId>
-            <artifactId>ktor-auth-ldap</artifactId>
-            <version>${ktor_version}</version>
-        </dependency>
-        ]]>
+&lt;dependency&gt;
+&lt;groupId&gt;io.ktor&lt;/groupId&gt;
+&lt;artifactId&gt;ktor-auth&lt;/artifactId&gt;
+&lt;version&gt;${ktor_version}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;io.ktor&lt;/groupId&gt;
+&lt;artifactId&gt;ktor-auth-ldap&lt;/artifactId&gt;
+&lt;version&gt;${ktor_version}&lt;/version&gt;
+&lt;/dependency&gt;
         </code>
    </tab>
 </tabs>
