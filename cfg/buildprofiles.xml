@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <buildprofiles>
     <variables>
-        <web-root>http://www.jetbrains.com/idea/</web-root>
+        <web-root>https://ktor.io</web-root>
         <web-community-path>Developer Community:http://www.jetbrains.net/devnet/community/idea/kb</web-community-path>
         <download-page>https://ktor.io/download/</download-page>
         <config-showDownloadButton>true</config-showDownloadButton>
