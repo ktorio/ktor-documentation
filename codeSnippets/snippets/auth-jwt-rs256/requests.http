@@ -1,0 +1,14 @@
+### Step 1. Retrieve and save a JWT token.
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+  "username": "jetbrains",
+  "password": "foobar"
+}
+
+> {% client.global.set("auth_token", response.body.token); %}
+
+### Step 2. Use a JWT token to authorize.
+GET http://localhost:8080/hello
+Authorization: Bearer {{auth_token}}
