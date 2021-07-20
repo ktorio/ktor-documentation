@@ -108,7 +108,7 @@
                 <toc-element id="basic.md" show-structure-depth="2"/>
                 <toc-element id="digest.md" show-structure-depth="2"/>
                 <toc-element id="form.md" show-structure-depth="2"/>
-                <toc-element id="jwt.md"/>
+                <toc-element id="jwt.md" show-structure-depth="2"/>
                 <toc-element id="ldap.md"/>
                 <toc-element id="oauth.md"
                              accepts-web-file-names="authentication-oauth.html"/>
