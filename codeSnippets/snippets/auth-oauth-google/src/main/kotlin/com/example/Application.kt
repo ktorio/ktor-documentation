@@ -43,8 +43,8 @@ fun Application.main() {
     }
     routing {
         authenticate("auth-oauth-google") {
-            get("login") {
-                call.respondRedirect("/callback")
+            get("/login") {
+                // Redirects to 'authorizeUrl' automatically
             }
 
             get("/callback") {
