@@ -20,13 +20,13 @@ Ktor provides a special testing engine that doesn't create a web server, doesn't
 To test a server Ktor application, you need to include the following artifacts in the build script:
 * Add the `ktor-server-test-host` dependency:
    <var name="artifact_name" value="ktor-server-test-host"/>
-   <include src="lib.xml" include-id="add_ktor_artifact"/>
+   <include src="lib.xml" include-id="add_ktor_artifact_testing"/>
 
 * Add the `kotlin-test` dependency providing a set of utility functions for performing assertions in tests:
   <var name="group_id" value="org.jetbrains.kotlin"/>
   <var name="artifact_name" value="kotlin-test"/>
   <var name="version" value="kotlin_version"/>
-  <include src="lib.xml" include-id="add_artifact"/>
+  <include src="lib.xml" include-id="add_artifact_testing"/>
 
   
 

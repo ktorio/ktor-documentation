@@ -65,6 +65,32 @@
         </tabs>
     </chunk>
 
+    <chunk id="add_ktor_artifact_testing">
+        <tabs>
+            <tab title="Gradle (Groovy)">
+                <code style="block" lang="Groovy" interpolate-variables="true">
+                    testImplementation "io.ktor:%artifact_name%:$ktor_version"
+                </code>
+            </tab>
+            <tab title="Gradle (Kotlin)">
+                <code style="block" lang="Kotlin" interpolate-variables="true">
+                    testImplementation("io.ktor:%artifact_name%:$ktor_version")
+                </code>
+            </tab>
+            <tab title="Maven">
+                <code style="block" lang="XML" interpolate-variables="true">
+        <![CDATA[
+                    <dependency>
+                        <groupId>io.ktor</groupId>
+                        <artifactId>%artifact_name%</artifactId>
+                        <version>${ktor_version}</version>
+                    </dependency>
+                    ]]>
+        </code>
+            </tab>
+        </tabs>
+    </chunk>
+
 
     <chunk id="add_artifact">
         <tabs>
@@ -76,6 +102,33 @@
             <tab title="Gradle (Kotlin)">
                 <code style="block" lang="Kotlin" interpolate-variables="true">
                     implementation("%group_id%:%artifact_name%:$%version%")
+                </code>
+            </tab>
+            <tab title="Maven">
+                <code style="block" lang="XML" interpolate-variables="true">
+        <![CDATA[
+                    <dependency>
+                        <groupId>%group_id%</groupId>
+                        <artifactId>%artifact_name%</artifactId>
+                        <version>${%version%}</version>
+                    </dependency>
+                    ]]>
+        </code>
+            </tab>
+        </tabs>
+    </chunk>
+
+
+    <chunk id="add_artifact_testing">
+        <tabs>
+            <tab title="Gradle (Groovy)">
+                <code style="block" lang="Groovy" interpolate-variables="true">
+                    testImplementation "%group_id%:%artifact_name%:$%version%"
+                </code>
+            </tab>
+            <tab title="Gradle (Kotlin)">
+                <code style="block" lang="Kotlin" interpolate-variables="true">
+                    testImplementation("%group_id%:%artifact_name%:$%version%")
                 </code>
             </tab>
             <tab title="Maven">
