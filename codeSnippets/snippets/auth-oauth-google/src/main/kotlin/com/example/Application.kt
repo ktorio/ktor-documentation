@@ -43,12 +43,12 @@ fun Application.main() {
     }
     routing {
         authenticate("auth-oauth-google") {
-            get("login") {
-                call.respondRedirect("/callback")
+            get("/login") {
+                // Redirects to 'authorizeUrl' automatically
             }
 
             get("/callback") {
-                val principal: OAuthAccessTokenResponse.OAuth2? = call.authentication.principal()
+                val principal: OAuthAccessTokenResponse.OAuth2? = call.principal()
                 call.sessions.set(UserSession(principal?.accessToken.toString()))
                 call.respondRedirect("/hello")
             }
