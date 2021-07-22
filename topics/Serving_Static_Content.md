@@ -68,6 +68,17 @@ routing {
 }
 ```
 
+### Serving all files including in subfolders
+The `file` function can also take the string `"."` which will serve up any file as long as the request path and physical filename match. Ktor will use the filename extension to determine the `Content-Type` of the file requested.
+
+```kotlin
+routing {
+    static("static") {
+        file(".")
+    }
+}
+```
+
 ### Defining a default file
 
 For a specific path, we can also define the default file to be loaded:
