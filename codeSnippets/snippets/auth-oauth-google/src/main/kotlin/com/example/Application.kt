@@ -48,7 +48,7 @@ fun Application.main() {
             }
 
             get("/callback") {
-                val principal: OAuthAccessTokenResponse.OAuth2? = call.authentication.principal()
+                val principal: OAuthAccessTokenResponse.OAuth2? = call.principal()
                 call.sessions.set(UserSession(principal?.accessToken.toString()))
                 call.respondRedirect("/hello")
             }
