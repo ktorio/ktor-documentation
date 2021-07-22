@@ -17,6 +17,8 @@ Ktor handles JWTs passed in the `Authorization` header using the `Bearer` schema
 * verify the signature of a JSON web token;
 * perform additional validations on the JWT payload.
 
+> You can get general information about authentication and authorization in Ktor in the [](authentication.md) section.
+
 
 ## Add dependencies {id="add_dependencies"}
 To enable `JWT`authentication, you need to include the `ktor-auth` and `ktor-auth-jwt` artifacts in the build script:
