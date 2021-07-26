@@ -8,15 +8,8 @@ Ktor exposes a few extension methods for parsing and generating url-encoded stri
 
 URL-encoded strings look like: `param=value&other=hi`.
 
-### Parsing: {id="url-encoded-parse"}
 
-There is an extension method for `String` that allows you to get a parsed `Parameters` object from it. You can limit the maximum number of parsed parameters with the optional `limit` parameter.
-
-```kotlin
-fun String.parseUrlEncodedParameters(defaultEncoding: Charset = Charsets.UTF_8, limit: Int = 1000): Parameters
-```
-
-### Encoding: {id="url-encoded-encode"}
+### Encoding {id="url-encoded-encode"}
 
 You can generate a URL-encoded string either from a List of Pairs of Strings or a `Parameters` instance: 
 
