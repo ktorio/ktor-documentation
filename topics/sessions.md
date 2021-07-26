@@ -33,7 +33,9 @@ Before installing a session, you need to create a [data class](https://kotlinlan
 ```
 {src="snippets/session-cookie/src/main/kotlin/com/example/Application.kt" lines="8"}
 
-You need to create several data classes if you are going to use [several sessions](#multiple). 
+Note that you can optionally inherit this class from [Principal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-principal/index.html) to use a session for [authentication](session-auth.md).
+
+> You need to create several data classes if you are going to use [several sessions](#multiple). 
 
 After creating the required data classes, you can install the `Sessions` plugin by passing it to the `install` function in the application initialization code. Inside the `install` block, call the `cookie` or `header` function depending on how you want to [pass data between the server and client](cookie_header.md):
 
@@ -64,7 +66,7 @@ install(Sessions) {
 Note that session names should be unique.
 
 
-## Set session content {id="set-content"}
+## Get and set session content {id="set-content"}
 To set the session content for a specific [route](Routing_in_Ktor.md), use the [call.sessions](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.sessions/sessions.html) property. The [set](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.sessions/-current-session/set.html) method allows you to create a new session instance:
 
 ```kotlin
