@@ -143,7 +143,7 @@ If you use [session authentication](session-auth.md), a principal might be a dat
 
 ```kotlin
 ```
-{src="snippets/auth-session/src/main/kotlin/com/example/Application.kt" lines="47-53,57-59,64"}
+{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" lines="75-77,80-81"}
 
 
 
