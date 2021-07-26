@@ -112,7 +112,7 @@
                 <toc-element id="ldap.md"/>
                 <toc-element id="oauth.md" show-structure-depth="2"
                              accepts-web-file-names="authentication-oauth.html"/>
-                <toc-element id="session-auth.md"/>
+                <toc-element id="session-auth.md" show-structure-depth="2"/>
             </toc-element>
 
             <toc-element id="sessions.md" show-structure-depth="2">
