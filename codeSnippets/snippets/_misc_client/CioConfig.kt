@@ -4,7 +4,7 @@ import io.ktor.network.tls.*
 
 val client = HttpClient(CIO) {
     engine {
-        // this: [[[https://api.ktor.io/ktor-client/ktor-client-cio/ktor-client-cio/io.ktor.client.engine.cio/-c-i-o-engine-config/index.html]]]
+        // this: [[[CIOEngineConfig|https://api.ktor.io/ktor-client/ktor-client-cio/ktor-client-cio/io.ktor.client.engine.cio/-c-i-o-engine-config/index.html]]]
         maxConnectionsCount = 1000
         endpoint {
             // this: [[[EndpointConfig|https://api.ktor.io/ktor-client/ktor-client-cio/ktor-client-cio/io.ktor.client.engine.cio/-endpoint-config/index.html]]]
