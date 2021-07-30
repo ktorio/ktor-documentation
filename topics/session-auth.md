@@ -13,6 +13,8 @@ Required dependencies: <code>io.ktor:ktor-auth</code>, <code>io.ktor:ktor-server
 
 In Ktor, a user that already has an associated session can be authenticated using the `session` provider. For example, when a user logs in using a [web form](form.md) for the first time, you can save a username to a cookie session and authorize this user on subsequent requests using the `session` provider.
 
+> You can get general information about authentication and authorization in Ktor in the [](authentication.md) section.
+
 ## Add dependencies {id="add_dependencies"}
 To enable `session` authentication, you need to include the following artifacts in the build script:
 
