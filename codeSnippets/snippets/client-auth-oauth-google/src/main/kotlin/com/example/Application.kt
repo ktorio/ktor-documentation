@@ -14,9 +14,9 @@ import kotlinx.coroutines.*
 import kotlinx.serialization.*
 import java.util.*
 
-val clientId = System.getenv("GOOGLE_CLIENT_ID")
 val scope = "https://www.googleapis.com/auth/userinfo.profile"
 val redirectUri = "urn:ietf:wg:oauth:2.0:oob"
+val clientId = System.getenv("GOOGLE_CLIENT_ID")
 
 fun main() {
     runBlocking {
@@ -28,61 +28,61 @@ fun main() {
             append("access_type", "offline")
         }.formUrlEncode()
         println("https://accounts.google.com/o/oauth2/auth?$authorizationUrlQuery")
-        println("Open a link above, get an authorization code, insert it below, and press Enter.")
+        println("Open a link above, get the authorization code, insert it below, and press Enter.")
         val input = Scanner(System.`in`)
         val authorizationCode = input.next()
 
-        val getTokenClient = HttpClient(CIO) {
+        val tokenClient = HttpClient(CIO) {
             install(JsonFeature) {
                 serializer = KotlinxSerializer()
             }
         }
 
-        val requestApiClient = HttpClient(CIO) {
+        val apiClient = HttpClient(CIO) {
             expectSuccess = false
             install(JsonFeature) {
                 serializer = KotlinxSerializer()
             }
             install(Auth) {
-                lateinit var accessTokenInfo: TokenInfo
+                lateinit var tokenInfo: TokenInfo
                 var refreshTokenInfo: TokenInfo
 
                 bearer {
                     loadTokens {
-                        accessTokenInfo = getTokenClient.submitForm(
+                        tokenInfo = tokenClient.submitForm(
                             url = "https://accounts.google.com/o/oauth2/token",
                             formParameters = Parameters.build {
-                                append("client_id", clientId)
-                                append("code", authorizationCode)
                                 append("grant_type", "authorization_code")
+                                append("code", authorizationCode)
+                                append("client_id", clientId)
                                 append("redirect_uri", redirectUri)
                             }
                         )
                         BearerTokens(
-                            accessToken = accessTokenInfo.accessToken,
-                            refreshToken = accessTokenInfo.refreshToken!!
+                            accessToken = tokenInfo.accessToken,
+                            refreshToken = tokenInfo.refreshToken!!
                         )
                     }
 
                     refreshTokens { unauthorizedResponse: HttpResponse ->
-                        refreshTokenInfo = getTokenClient.submitForm(
+                        refreshTokenInfo = tokenClient.submitForm(
                             url = "https://accounts.google.com/o/oauth2/token",
                             formParameters = Parameters.build {
-                                append("client_id", clientId)
                                 append("grant_type", "refresh_token")
-                                append("refresh_token", accessTokenInfo.refreshToken!!)
+                                append("client_id", clientId)
+                                append("refresh_token", tokenInfo.refreshToken!!)
                             }
                         )
                         BearerTokens(
                             accessToken = refreshTokenInfo.accessToken,
-                            refreshToken = accessTokenInfo.refreshToken!!
+                            refreshToken = tokenInfo.refreshToken!!
                         )
                     }
                 }
             }
         }
 
-        val userInfo: UserInfo = requestApiClient.get("https://www.googleapis.com/oauth2/v2/userinfo")
+        val userInfo: UserInfo = apiClient.get("https://www.googleapis.com/oauth2/v2/userinfo")
         println("Hello, ${userInfo.name}!")
     }
 }
