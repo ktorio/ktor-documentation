@@ -16,7 +16,7 @@ service.
 ## Basic installation
 {id="basic-installation"}
 
-Installing the DataConversion is pretty easy, and it should be cover primitive types:
+Installing the DataConversion is pretty easy, and it should cover primitive types:
 
 ```kotlin
 install(DataConversion)
