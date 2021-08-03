@@ -156,7 +156,7 @@ Let’s turn our echo server into a real chat server! To do this, we need to mak
 
 Both of these features need us to be able to keep track of the connections our server is holding – to know which user is sending the messages, and to know who to broadcast them to.
 
-Ktor manages a WebSocket connection with an object of the type `DefaultWebSocketSession`, which contains everything required for communicating via WebSockets, including the `incoming` and `outgoing` channels, convenience methods for communication, and more. For now, we can simplify the problem of assigning user names, and just give each participant an auto-generated user name based on a counter. Add the following implementation to a new file in `server/src/main/kotlin/com/jetbrains/handson/chat/server/` called `Connection.kt`:
+Ktor manages a WebSocket connection with an object of the type `DefaultWebSocketSession`, which contains everything required for communicating via WebSockets, including the `incoming` and `outgoing` channels, convenience methods for communication, and more. For now, we can simplify the problem of assigning usernames, and just give each participant an auto-generated user name based on a counter. Add the following implementation to a new file in `server/src/main/kotlin/com/jetbrains/handson/chat/server/` called `Connection.kt`:
 
 ```kotlin
 import io.ktor.http.cio.websocket.*
@@ -174,7 +174,7 @@ Note that we are using `AtomicInteger` as a thread-safe data structure for the c
 
 ### Implementing connection handling and message propagation
 
-We can now adjust our server's program to keep track of our Connection objects, and send messages to all connected clients, prefixed with the correct user name. Adjust the implementation of the `routing` block in `server/src/main/kotlin/com/jetbrains/handson/chat/server/Application.kt` to the following code:
+We can now adjust our server's program to keep track of our Connection objects, and send messages to all connected clients, prefixed with the correct username. Adjust the implementation of the `routing` block in `server/src/main/kotlin/com/jetbrains/handson/chat/server/Application.kt` to the following code:
 
 ```kotlin
 routing {
@@ -205,7 +205,7 @@ routing {
 
 Our server now stores a (thread-safe) collection of `Connection`s. When a user connects, we create their `Connection` object (which also assigns itself a unique username), and add it to the collection. We then greet our user and let them know how many users are currently connecting. When we receive a message from the user, we prefix it with the unique name associated with their `Connection` object, and send it to all currently active connections. Finally, we remove the client's `Connection` object from our collection when the connection is terminated – either gracefully, when the incoming channel gets closed, or with an `Exception` when the network connection between client and server gets interrupted unexpectedly.
 
-To see that our server is now behaving correctly – assigning user names and broadcasting them to everybody connected – we can once again run our application using the play button in the gutter and use the browser-based WebSocket client on [www.websocket.org/echo.html](https://www.websocket.org/echo.html) to connect to `ws://localhost:8080/chat`. This time, we can use two separate browser tabs to validate that messages are exchanged properly.
+To see that our server is now behaving correctly – assigning usernames and broadcasting them to everybody connected – we can once again run our application using the play button in the gutter and use the browser-based WebSocket client on [www.websocket.org/echo.html](https://www.websocket.org/echo.html) to connect to `ws://localhost:8080/chat`. This time, we can use two separate browser tabs to validate that messages are exchanged properly.
 
 ![Echo Test](image-20201111155400473.png){width="1476"}
 
@@ -348,7 +348,7 @@ Congratulations on finishing this tutorial on creating a chat application using 
 
 At this point, we have implemented the absolute basics for a chat service, both on client and server side. If you want to, you can keep expanding on this project. To get you started, here are a few ideas of how to improve the application, in no particular order:
 
-- **Custom usernames!** Instead of automatically assigning numbers to your users, you can ask users on application startup to enter a user name, and persist this name alongside the Connection information on the server.
+- **Custom usernames!** Instead of automatically assigning numbers to your users, you can ask users on application startup to enter a username, and persist this name alongside the Connection information on the server.
 - **Private messages!** If your users have something to say, but don't want to share it with the whole group, you could implement a `/whisper` command, which only relays the message to a certain person or select group of participants. You could even expand this functionality to handle more generic **chat commands!**
 - **Nicer UI!** So far, the client's user interface is very rudimentary, with only text input and output. If you're feeling adventurous, you can pick up a framework like [TornadoFX](https://tornadofx.io/), [Compose for Desktop](https://www.jetbrains.com/lp/compose/), or other, and try implementing a fancy user interface for the chat.
 - **Mobile app!** The Ktor client libraries are also available for mobile applications. Feel free to try integrating what you have learned in this tutorial in the context of an Android application, and build the next big mobile chat product!

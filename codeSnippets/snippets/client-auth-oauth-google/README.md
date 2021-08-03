@@ -9,13 +9,13 @@ To obtain client credentials required for accessing Google APIs, follow the step
 
 ## Running
 Before running this sample, assign a client ID to the `GOOGLE_CLIENT_ID` environment variable:
-   ```shell
-   # macOS/Linux
-   export GOOGLE_CLIENT_ID=yourClientId
-   
-   # Windows
-   setx GOOGLE_CLIENT_ID yourClientId
-   ```
+```shell
+# macOS/Linux
+export GOOGLE_CLIENT_ID=yourClientId
+
+# Windows
+setx GOOGLE_CLIENT_ID yourClientId
+```
 
 To run this sample, execute the following command in a repository's root directory:
 
@@ -35,5 +35,5 @@ Then, perform the following steps:
    https://accounts.google.com/o/oauth2/auth?client_id=21966501804...
    ```
 2. Log in to your Google account in a browser.
-3. Copy the authorization code, return to the terminal, and paste it below the output.
+3. Copy the authorization code, return to the terminal, and paste the code below.
 4. Press Enter to get a personal greeting.
