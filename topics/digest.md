@@ -8,7 +8,7 @@ Required dependencies: <code>io.ktor:ktor-auth</code>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-The Digest authentication scheme is a part of [HTTP framework](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) used for access control and authentication. In this scheme, a hash function is applied to a user name and password before sending them over the network.
+The Digest authentication scheme is a part of [HTTP framework](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) used for access control and authentication. In this scheme, a hash function is applied to a username and password before sending them over the network.
 
 Ktor allows you to use digest authentication for logging in users and protecting specific [routes](Routing_in_Ktor.md). You can get general information about authentication in Ktor in the [](authentication.md) section.
 
@@ -59,7 +59,7 @@ The digest authentication flow looks as follows:
 
 
 ## Install digest authentication {id="install"}
-To install the `digest` authentication provider, call [digest](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/digest.html) function inside the `install` block:
+To install the `digest` authentication provider, call the [digest](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/digest.html) function inside the `install` block:
 
 ```kotlin
 install(Authentication) {
@@ -76,7 +76,7 @@ To get a general idea on how to configure different authentication providers in 
 
 ### Step 1: Provide a user table with digests {id="digest-table"}
 
-The `digest` authentication provider validates user credentials using the `HA1` part of a digest message. So, you can provide a user table that contains user names and corresponding `HA1` hashes. In the example below, the `getMd5Digest` function is used to generate `HA1` hashes:
+The `digest` authentication provider validates user credentials using the `HA1` part of a digest message. So, you can provide a user table that contains usernames and corresponding `HA1` hashes. In the example below, the `getMd5Digest` function is used to generate `HA1` hashes:
 
 ```kotlin
 ```
@@ -87,7 +87,7 @@ The `digest` authentication provider validates user credentials using the `HA1` 
 
 The `digest` authentication provider exposes its settings via the [DigestAuthenticationProvider.Configuration](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-digest-authentication-provider/-configuration/index.html) class. In the example below, the following settings are specified:
 * The `realm` property sets the realm to be passed in `WWW-Authenticate` header.
-* The `digestProvider` function fetches the `HA1` part of digest for a specified user name.
+* The `digestProvider` function fetches the `HA1` part of digest for a specified username.
 
 ```kotlin
 ```

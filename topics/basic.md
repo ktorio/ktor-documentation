@@ -45,7 +45,7 @@ The basic authentication flow looks as follows:
 
 
 ## Install basic authentication {id="install"}
-To install the `basic` authentication provider, call [basic](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/basic.html) function inside the `install` block:
+To install the `basic` authentication provider, call the [basic](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/basic.html) function inside the `install` block:
 
 ```kotlin
 install(Authentication) {

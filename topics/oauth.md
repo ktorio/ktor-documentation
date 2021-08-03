@@ -41,7 +41,7 @@ The OAuth authorization flow in a Ktor application might look as follows:
 
 
 ## Install OAuth {id="install"}
-To install the `oauth` authentication provider, call [oauth](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/oauth.html) function inside the `install` block:
+To install the `oauth` authentication provider, call the [oauth](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/oauth.html) function inside the `install` block:
 
 ```kotlin
 install(Authentication) {

@@ -41,7 +41,7 @@ The form-based authentication flow might look as follows:
 
 
 ## Install form authentication {id="install"}
-To install the `form` authentication provider, call [form](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/form.html) function inside the `install` block:
+To install the `form` authentication provider, call the [form](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/form.html) function inside the `install` block:
 
 ```kotlin
 install(Authentication) {

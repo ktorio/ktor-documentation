@@ -278,7 +278,7 @@ Instead of using a fixed authentication, we are going to use JWT tokens.
 
 We are going to add a login-register route. That route will register a user if it doesn't exist,
 and for a valid login or register it will return a JWT token.
-The JWT token will hold the user name, and posting will link a snippet to the user.
+The JWT token will hold the username, and posting will link a snippet to the user.
 
 We will need to install and configure JWT (replacing the basic auth):
 

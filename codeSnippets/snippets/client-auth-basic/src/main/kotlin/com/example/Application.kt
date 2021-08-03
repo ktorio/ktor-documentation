@@ -16,6 +16,7 @@ fun main() {
                     credentials {
                         BasicAuthCredentials(username = "jetbrains", password = "foobar")
                     }
+                    realm = "Access to the '/' path"
                 }
             }
         }

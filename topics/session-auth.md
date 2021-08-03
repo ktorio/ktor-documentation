@@ -37,7 +37,7 @@ The authentication flow with sessions might vary and depends on how users are au
 
 
 ## Install session authentication {id="install"}
-To install the `session` authentication provider, call [session](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/session.html) function with the required session type inside the `install` block:
+To install the `session` authentication provider, call the [session](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/session.html) function with the required session type inside the `install` block:
 
 ```kotlin
 install(Authentication) {
