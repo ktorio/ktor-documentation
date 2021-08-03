@@ -1,4 +1,4 @@
-[//]: # (title: Auth)
+[//]: # (title: Authentication and authorization)
 
 <microformat>
 <p>
@@ -21,7 +21,7 @@ HTTP provides a [general framework](https://developer.mozilla.org/en-US/docs/Web
 
 * [Basic](#basic) - uses `Base64` encoding to provide a username and password. Generally is not recommended if not used in combination with HTTPS.
 * [Digest](#digest) - an authentication method that communicates user credentials in an encrypted form by applying a hash function to the username and password.
-* [Bearer](#bearer) - an authentication scheme that involves security tokens called bearer tokens. For example, you can use this scheme to authorize users of your application by using external providers, such as Google, Facebook, Twitter, and so on.
+* [Bearer](#bearer) - an authentication scheme that involves security tokens called bearer tokens. For example, you can use this scheme as a part of OAuth flow to authorize users of your application by using external providers, such as Google, Facebook, Twitter, and so on.
 
 ## Add dependencies {id="add_dependencies"}
 
@@ -112,7 +112,7 @@ install(Auth) {
 
 Bearer authentication involves security tokens called bearer tokens. As an example, these tokens can be used as a part of OAuth flow to authorize users of your application by using external providers, such as Google, Facebook, Twitter, and so on.
 
-A Ktor client allows you to configure a token to be sent in the `Authorization` header using the `Bearer` scheme. You can also specify logic for refreshing a token if the old one is invalid. To configure the `bearer` provider, follow the steps below.
+A Ktor client allows you to configure a token to be sent in the `Authorization` header using the `Bearer` scheme. You can also specify logic for refreshing a token if the old one is invalid. To configure the `bearer` provider, follow the steps below:
 
 1. Call the [bearer](https://api.ktor.io/ktor-client/ktor-client-features/ktor-client-auth/ktor-client-auth/io.ktor.client.features.auth.providers/bearer.html) function inside the `install` block.
 2. Specify how to get an initial token using `loadTokens`. A code snippet below shows how to [make a POST request](request.md#form_parameters) to get the access and refresh tokens for accessing Google APIs.
