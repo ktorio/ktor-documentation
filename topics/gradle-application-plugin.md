@@ -21,6 +21,7 @@ To package an application, you need to apply the Application plugin first:
    {src="https://raw.githubusercontent.com/ktorio/ktor-gradle-sample/main/build.gradle" lines="1,3-4,8,9-11"}
     * The `id 'application'` line applies the Application plugin. 
     * The `mainClass` property is used to configure the main class of the application.
+      > If you use [EngineMain](create_server.xml#engine-main) without the explicit `main` function, your `mainClass` depends on the used engine and might look as follows: `io.ktor.server.netty.EngineMain`.
 
 
 ## Package the application {id="package"}

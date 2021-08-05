@@ -18,12 +18,13 @@ Before starting this tutorial, clone the [ktor-maven-sample](https://github.com/
 ## Configure the Assembly plugin {id="configure-plugin"}
 To build an assembly, you need to configure the Assembly plugin first:
 1. Open the [ktor-maven-sample](https://github.com/ktorio/ktor-maven-sample) project.
-1. Go to the `pom.xml` file and add `maven-assembly-plugin` to the `plugins` block as follows:
+2. Go to the `pom.xml` file and add `maven-assembly-plugin` to the `plugins` block as follows:
    ```xml
    ```
    {src="https://raw.githubusercontent.com/ktorio/ktor-maven-sample/maven-assembly/pom.xml" lines="55-76"}
    
    Among other settings, this configuration contains the `Main-Class` attribute of the JAR manifest for building an executable JAR.
+   > If you use [EngineMain](create_server.xml#engine-main) without the explicit `main` function, your `Main-Class` depends on the used engine and might look as follows: `io.ktor.server.netty.EngineMain`.
 
 ## Build an assembly {id="build"}
 To build an assembly for the application, open the terminal and execute the following command:

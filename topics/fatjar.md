@@ -1,103 +1,62 @@
-[//]: # (title: Fat JAR)
+[//]: # (title: Gradle Shadow plugin)
 
-<include src="lib.xml" include-id="outdated_warning"/>
+<microformat>
+<p>
+<control>Initial project</control>: <a href="https://github.com/ktorio/ktor-gradle-sample/tree/main">ktor-gradle-sample</a>
+</p>
+</microformat>
 
-A *fat-jar* (or *uber-jar*) archive is a normal jar file single archive packing all the dependencies together, so it can be run a standalone application directly using Java:
+The Gradle [Shadow](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow) plugin allows you to create an executable JAR that includes all code dependencies (fat JAR). In this topic, we'll show you how to generate and run a fat JAR for a Ktor application created in the [](Gradle.xml) topic.
 
-`java -jar yourapplication.jar`
-
-This is the preferred way for running it in a container like [docker](containers.md#docker), when deploying to [heroku](heroku.md)
-or when being reverse-proxied with [nginx](containers.md#nginx). 
-
-## Gradle
-{id="fat-jar-gradle"}
-
-When using Gradle, you can use the [`shadow`](https://imperceptiblethoughts.com/shadow/) gradle plugin to generate it. For example,
-to generate a fat JAR using netty as an engine:
+## Prerequisites {id="prerequisites"}
+Before starting this tutorial, clone the [ktor-gradle-sample](https://github.com/ktorio/ktor-gradle-sample) repository.
 
 
-```groovy
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.github.jengelman.gradle.plugins:shadow:6.1.0'
-    }
-}
+## Configure the Shadow plugin {id="configure-plugin"}
+To build a Fat JAR, you need to configure the Shadow plugin first:
+1. Open the `build.gradle` file and add the plugin to the `plugins` block:
+   ```groovy
+   plugins {
+       id 'com.github.johnrengelman.shadow' version '%shadow_version%'
+   }
+   ```
+   {interpolate-variables="true"}
+2. Add the `shadowJar` task:
+   ```groovy
+   shadowJar {
+       manifest {
+           attributes 'Main-Class': 'com.example.ApplicationKt'
+       }
+   }
+   ```
+   > If you use [EngineMain](create_server.xml#engine-main) without the explicit `main` function, your `Main-Class` depends on the used engine and might look as follows: `io.ktor.server.netty.EngineMain`.
 
-apply plugin: 'com.github.johnrengelman.shadow'
-apply plugin: 'kotlin'
-apply plugin: 'application'
 
-mainClassName = 'io.ktor.server.netty.EngineMain'
-
-// This task will generate your fat JAR and put it in the ./build/libs/ directory
-shadowJar {
-    manifest {
-        attributes 'Main-Class': mainClassName
-    }
-}
-```
+## Build a Fat JAR {id="build"}
+To build a Fat JAR, open the terminal and execute the `shadowJar` task created in the [previous step](#configure-plugin):
 
 <tabs>
-
-```kotlin
-plugins {
-    application
-    kotlin("jvm") version "1.3.21"
-    // Shadow 5.0.0 requires Gradle 5+. Check the shadow plugin manual if you're using an older version of Gradle.
-    id("com.github.johnrengelman.shadow") version "5.0.0"
-}
-
-application {
-    mainClass.set("io.ktor.server.netty.EngineMain")
-}
-
-tasks.withType<Jar> {
-    manifest {
-        attributes(
-            mapOf(
-                "Main-Class" to application.mainClassName
-            )
-        )
-    }
-}
-```
-
+<tab title="Linux/MacOS">
+<code style="block" lang="Bash">./gradlew shadowJar</code>
+</tab>
+<tab title="Windows">
+<code style="block" lang="CMD">gradlew.bat shadowJar</code>
+</tab>
 </tabs>
 
-## Maven
-{id="fat-jar-maven"}
-
-When using Maven, you can generate a fat JAR archive with the `maven-assembly-plugin`. For example, to generate
-a fat JAR using netty as an engine:
+When this build completes, you should see the `ktor-gradle-sample-1.0-SNAPSHOT-all.jar` file in the `build/libs` directory.
 
 
-```xml
-<plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-assembly-plugin</artifactId>
-    <version>3.1.0</version>
-    <configuration>
-        <descriptorRefs>
-            <descriptorRef>jar-with-dependencies</descriptorRef>
-        </descriptorRefs>
-        <archive>
-            <manifest>
-                <addClasspath>true</addClasspath>
-                <mainClass>io.ktor.server.netty.EngineMain</mainClass>
-            </manifest>
-        </archive>
-    </configuration>
-    <executions>
-        <execution>
-            <id>assemble-all</id>
-            <phase>package</phase>
-            <goals>
-                <goal>single</goal>
-            </goals>
-        </execution>
-    </executions>
-</plugin>
-```
+## Run the application {id="run"}
+To run the [built application](#build):
+1. Go to the `build/libs` folder in a terminal.
+1. Execute the following command to run the application:
+   ```Bash
+   java -jar ktor-gradle-sample-1.0-SNAPSHOT-all.jar
+   ```
+1. Wait until the following message is shown:
+   ```
+   [main] INFO  Application - Responding at http://0.0.0.0:8080
+   ```
+   You can click the link to open the application in a default browser:
+   <img src="ktor_idea_new_project_browser.png" alt="Ktor app in a browser" width="430"/>

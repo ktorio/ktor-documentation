@@ -10,5 +10,6 @@
     <var name="kotlin_css_version" value="1.0.0-pre.222-kotlin-1.5.21"/>
     <var name="logback_version" value="1.2.5"/>
     <var name="prometeus_version" value="1.7.1"/>
+    <var name="shadow_version" value="7.0.0"/>
 
 </vars>
