@@ -29,7 +29,7 @@ To load templates, you need to configure how to load templates using [PebbleEngi
 
 ```kotlin
 ```
-{src="snippets/pebble/src/main/kotlin/com/example/Application.kt" lines="12-18"}
+{src="snippets/pebble/src/main/kotlin/com/example/Application.kt" lines="12-16"}
 
 ### Send a template in response {id="use_template"}
 Imagine you have the `index.html` template in `resources/templates`:
@@ -42,10 +42,10 @@ A data model for a user looks as follows:
 
 ```kotlin
 ```
-{src="snippets/pebble/src/main/kotlin/com/example/Application.kt" lines="27"}
+{src="snippets/pebble/src/main/kotlin/com/example/Application.kt" lines="25"}
 
 To use the template for the specified [route](Routing_in_Ktor.md), pass `PebbleContent` to the `call.respond` method in the following way:
 
 ```kotlin
 ```
-{src="snippets/pebble/src/main/kotlin/com/example/Application.kt" lines="20-23"}
+{src="snippets/pebble/src/main/kotlin/com/example/Application.kt" lines="18-21"}

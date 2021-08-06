@@ -10,11 +10,9 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
 fun Application.module(testing: Boolean = false) {
     install(Pebble) {
-        install(Pebble) {
-            loader(ClasspathLoader().apply {
-                prefix = "templates"
-            })
-        }
+        loader(ClasspathLoader().apply {
+            prefix = "templates"
+        })
     }
     routing {
         get("/index") {
