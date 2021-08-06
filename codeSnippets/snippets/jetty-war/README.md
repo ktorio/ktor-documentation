@@ -10,4 +10,17 @@ To run this sample, execute the following command in a repository's root directo
 ./gradlew :jetty-war:run
 ```
  
-Then, navigate to [http://localhost:8080/](http://localhost:8080/) to see the sample home page.  
+Then, navigate to [http://localhost:8080/](http://localhost:8080/) to see the sample home page.
+
+
+## Deploying and running
+
+To build and run this application with Docker, execute the following commands:
+
+```bash
+./gradlew :jetty-war:war
+docker build -t my-application snippets/jetty-war
+docker run -p 8080:8080 my-application
+```
+
+Then, navigate to [http://localhost:8080/jetty-war](http://localhost:8080/jetty-war) to see the sample home page.

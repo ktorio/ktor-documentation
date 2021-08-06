@@ -11,3 +11,15 @@ To run this sample, execute the following command in a repository's root directo
 ```
  
 Then, navigate to [http://localhost:8080/](http://localhost:8080/) to see the sample home page. 
+
+## Deploying and running
+
+To build and run this application with Docker, execute the following commands:
+
+```bash
+./gradlew :tomcat-war:war
+docker build -t my-application snippets/tomcat-war
+docker run -p 8080:8080 my-application
+```
+
+Then, navigate to [http://0.0.0.0:8080/tomcat-war/](http://0.0.0.0:8080/tomcat-war/) to see the sample home page.
