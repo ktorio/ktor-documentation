@@ -4,8 +4,6 @@ plugins {
     id 'war'
 }
 
-webAppDirName = 'src/main/webapp'
-
 gretty {
     contextPath = '/'
     logbackConfigFile = 'src/main/resources/logback.xml'

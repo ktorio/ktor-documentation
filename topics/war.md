@@ -1,109 +1,140 @@
 [//]: # (title: WAR)
 
-<include src="lib.xml" include-id="outdated_warning"/>
+<microformat>
+<p>
+Code examples: 
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/jetty-war">jetty-war</a>, 
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/tomcat-war">tomcat-war</a>
+</p>
+</microformat>
 
-A WAR archive allows you to easily deploy your application inside your web container / servlet container,
-by just copying it to its `webapps` folder. Ktor supports two popular servlet containers: Jetty and Tomcat.
-It also serves when deploying to [google app engine](https://cloud.google.com/appengine/).
+A Ktor application can be run and deployed inside servlet containers that include Tomcat and Jetty. To deploy inside a servlet container, you need to generate a WAR archive and then deploy it to a server or a cloud service that supports WARs.
 
-To generate a war file, you can use the gretty gradle plugin. You also need a `WEB-INF/web.xml` which looks like this:
+> Ktor supports Jetty up to the 9.4.x version and Tomcat up to 9.0.x.
 
-<tabs>
+In this topic, we'll show you how to:
+* configure Ktor to use it in a servlet application;
+* apply Gretty and War plugins for running and packaging WAR applications;
+* run a Ktor servlet application;
+* generate and deploy a WAR archive.
+
+
+
+## Configure Ktor in a servlet application {id="configure-ktor"}
+
+Ktor allows you to [create and start a server](create_server.xml) with the desired engine (such as Netty, Jetty, or Tomcat) right in the application. In this case, your application has control over engine settings, connection, and SSL options.
+
+In contrast to the approach above, a servlet container should control the application lifecycle and connection settings. Ktor provides a special [ServletApplicationEngine](https://api.ktor.io/ktor-server/ktor-server-servlet/ktor-server-servlet/io.ktor.server.servlet/-servlet-application-engine/index.html) engine that delegates control over your application to a servlet container.
+
+> Note that [connection and SSL settings](Configurations.xml#hocon-file) are not in effect when a Ktor application is deployed inside a servlet container.
+
+
+
+### Add dependencies {id="add-dependencies"}
+
+To use Ktor in a servlet application, you need to include the `ktor-server-servlet` artifact in the build script:
+<var name="artifact_name" value="ktor-server-servlet"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
+
+Note that you don't need the separate [Jetty or Tomcat artifacts](Engines.md#dependencies) when a Ktor application is deployed inside a servlet container.
+
+### Configure a servlet {id="configure-servlet"}
+
+To register a Ktor servlet in your application, open the `WEB-INF/web.xml` file and assign [ServletApplicationEngine](https://api.ktor.io/ktor-server/ktor-server-servlet/ktor-server-servlet/io.ktor.server.servlet/-servlet-application-engine/index.html) to the `servlet-class` attribute:
 
 ```xml
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-
-<web-app xmlns="http://java.sun.com/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-         version="3.0">
-    <!-- path to application.conf file, required -->
-    <!-- note that this file is always loaded as an absolute path from the classpath -->
-    <context-param>
-        <param-name>io.ktor.ktor.config</param-name>
-        <param-value>application.conf</param-value>
-    </context-param>
-	
-    <servlet>
-        <display-name>KtorServlet</display-name>
-        <servlet-name>KtorServlet</servlet-name>
-        <servlet-class>io.ktor.server.servlet.ServletApplicationEngine</servlet-class>
-
-        <!-- required! -->
-        <async-supported>true</async-supported>
-
-        <!-- 100mb max file upload, optional -->
-        <multipart-config>
-            <max-file-size>304857600</max-file-size>
-            <max-request-size>304857600</max-request-size>
-            <file-size-threshold>0</file-size-threshold>
-        </multipart-config>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>KtorServlet</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
-
-</web-app>
 ```
+{src="snippets/jetty-war/src/main/webapp/WEB-INF/web.xml" lines="7-16"}
+
+Then, configure the URL pattern for this servlet:
+
+```xml
+```
+{src="snippets/jetty-war/src/main/webapp/WEB-INF/web.xml" lines="18-21"}
+
+
+
+## Configure Gretty {id="configure-gretty"}
+
+The [Gretty](https://plugins.gradle.org/plugin/org.gretty) plugin allows you to [run](#run) a servlet application on Jetty and Tomcat. To install this plugin, open the `build.gradle` file and add the following code to the `plugins` block:
 
 ```groovy
-buildscript {
-    ext.gretty_version = '2.0.0'
-
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "org.akhikhl.gretty:gretty:$gretty_version"
-    }
-}
-
-apply plugin: 'kotlin'
-apply plugin: 'war'
-apply plugin: 'org.akhikhl.gretty'
-
-webAppDirName = 'webapp'
-
-gretty {
-    contextPath = '/'
-    logbackConfigFile = 'resources/logback.xml'
-}
-
-sourceSets {
-    main.kotlin.srcDirs = [ 'src' ]
-    main.resources.srcDirs = [ 'resources' ]
-}
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    compile "io.ktor:ktor-server-servlet:$ktor_version"
-    compile "io.ktor:ktor-html-builder:$ktor_version"
-    compile "ch.qos.logback:logback-classic:$logback_version"
-}
-
-kotlin.experimental.coroutines = 'enable'
-
-task run
-
-afterEvaluate {
-    run.dependsOn(tasks.findByName("appRun"))
-}
 ```
+{src="snippets/jetty-war/build.gradle" lines="1-2,5"}
 
+Then, you can configure it in a `gretty` block as follows:
+
+<tabs>
+<tab title="Jetty">
+
+```groovy
+```
+{src="snippets/jetty-war/build.gradle" lines="7-10"}
+
+</tab>
+<tab title="Tomcat">
+
+```groovy
+```
+{src="snippets/tomcat-war/build.gradle" lines="7-11"}
+
+</tab>
 </tabs>
 
-This gradle buildscript defines [several tasks](http://akhikhl.github.io/gretty-doc/Gretty-tasks) that
-you can use to run your application.
+Note that if you want to use Tomcat, you need to specify `servletContainer` explicitly.
 
->In the case where you only need to generate a war file, there is a `war` task defined in the war plugin.<br />
->Just run `./gradlew war` and it will generate a `/build/libs/projectname.war` file.
->For a full example: <https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/jetty-war>
->
-{type="note" id="generate-war-file"}
+Finally, configure the `run` task:
+
+```groovy
+```
+{src="snippets/jetty-war/build.gradle" lines="23-27"}
+
+
+
+## Configure War {id="configure-war"}
+
+The War plugin allows you to [generate](#generate-war) WAR archives. You can install it by adding the following line to the `plugins` block in your `build.gradle` file:
+
+```groovy
+```
+{src="snippets/jetty-war/build.gradle" lines="1,4-5"}
+
+
+
+
+## Run an application {id="run"}
+
+You can run a servlet application with the [configured Gretty plugin](#configure-gretty) by using the `run` task. For example, the following command runs the [jetty-war](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/jetty-war) example:
+
+```Bash
+./gradlew :jetty-war:run
+```
+
+## Generate and deploy a WAR archive {id="generate-war"}
+
+To generate a WAR file with your application using the [War](#configure-war) plugin, execute the `war` task. For the [jetty-war](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/jetty-war) example, a command looks as follows:
+
+```Bash
+./gradlew :jetty-war:war
+```
+
+The `jetty-war.war` is created in the `build/libs` directory. You can deploy the generated archive inside a servlet container by copying it to the `jetty/webapps` or `tomcat/webapps` directory. For instance, a `Dockerfile` below shows how to run the created WAR inside a Jetty or Tomcat servlet container:
+
+<tabs>
+<tab title="Jetty">
+
+```dockerfile
+```
+{src="snippets/jetty-war/Dockerfile"}
+
+</tab>
+<tab title="Tomcat">
+
+```dockerfile
+```
+{src="snippets/tomcat-war/Dockerfile"}
+
+</tab>
+</tabs>
+
+You can find the complete examples here: [jetty-war](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/jetty-war) and [tomcat-war](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/tomcat-war).
