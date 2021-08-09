@@ -1,31 +1,13 @@
-buildscript {
-    ext.tomcat_plugin_version = '2.5'
-    ext.tomcat_version = '9.0.43'
-
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "com.bmuschko:gradle-tomcat-plugin:$tomcat_plugin_version"
-    }
+plugins {
+    id 'org.gretty' version '3.0.6'
+    id 'org.jetbrains.kotlin.jvm'
+    id 'war'
 }
 
-apply plugin: 'kotlin'
-apply plugin: 'war'
-apply plugin: 'com.bmuschko.tomcat'
-
-webAppDirName = 'webapp'
-
-tomcat {
+gretty {
+    servletContainer = 'tomcat9'
     contextPath = '/'
-    httpProtocol = 'org.apache.coyote.http11.Http11Nio2Protocol'
-    ajpProtocol  = 'org.apache.coyote.ajp.AjpNio2Protocol'
-}
-
-sourceSets {
-    main.kotlin.srcDirs = [ 'src' ]
-    main.resources.srcDirs = [ 'resources' ]
+    logbackConfigFile = 'src/main/resources/logback.xml'
 }
 
 repositories {
@@ -34,14 +16,13 @@ repositories {
 }
 
 dependencies {
-    tomcat "org.apache.tomcat.embed:tomcat-embed-core:$tomcat_version",
-            "org.apache.tomcat.embed:tomcat-embed-jasper:$tomcat_version"
-    
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation "io.ktor:ktor-server-servlet:$ktor_version"
-    implementation "io.ktor:ktor-html-builder:$ktor_version"
     implementation "org.slf4j:slf4j-jdk14:$slf4j_version"
 }
 
-task run(dependsOn: tomcatRun)
+task run
 
+afterEvaluate {
+    run.dependsOn(tasks.findByName("appRun"))
+}

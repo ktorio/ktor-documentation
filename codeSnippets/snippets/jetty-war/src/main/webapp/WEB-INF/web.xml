@@ -8,27 +8,15 @@
         <display-name>KtorServlet</display-name>
         <servlet-name>KtorServlet</servlet-name>
         <servlet-class>io.ktor.server.servlet.ServletApplicationEngine</servlet-class>
-
-        <!-- path to application.conf file, required -->
         <init-param>
-            <param-name>io.ktor.ktor.config</param-name>
+            <param-name>io.ktor.config</param-name>
             <param-value>application.conf</param-value>
         </init-param>
-
-        <!-- required! -->
         <async-supported>true</async-supported>
-
-        <!-- 100mb max file upload, optional -->
-        <multipart-config>
-            <max-file-size>304857600</max-file-size>
-            <max-request-size>304857600</max-request-size>
-            <file-size-threshold>0</file-size-threshold>
-        </multipart-config>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>KtorServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-
 </web-app>
