@@ -5,7 +5,7 @@
     <settings/>
 
     <module name="ktor"/>
-
+    <snippets src="codeSnippets"/>
     <vars src="v.list"/>
     <topics dir="topics"/>
     <images dir="images" web-path="images/"/>
