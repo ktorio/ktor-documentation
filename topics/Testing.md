@@ -175,7 +175,7 @@ private val testEnv = createTestEnvironment {
 }
 
 @Test
-fun testRequests3() = withApplication(testEnv) {
+fun testRequests() = withApplication(testEnv) {
     with(handleRequest(HttpMethod.Post, "/upload") {
         // Add headers/body
     }) {

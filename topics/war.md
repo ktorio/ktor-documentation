@@ -118,7 +118,7 @@ To generate a WAR file with your application using the [War](#configure-war) plu
 ./gradlew :jetty-war:war
 ```
 
-The `jetty-war.war` is created in the `build/libs` directory. You can deploy the generated archive inside a servlet container by copying it to the `jetty/webapps` or `tomcat/webapps` directory. For instance, a `Dockerfile` below shows how to run the created WAR inside a Jetty or Tomcat servlet container:
+The `jetty-war.war` is created in the `build/libs` directory. You can deploy the generated archive inside a servlet container by copying it to the `jetty/webapps` directory. For instance, a `Dockerfile` below shows how to run the created WAR inside a Jetty or Tomcat servlet container:
 
 <tabs>
 <tab title="Jetty">
