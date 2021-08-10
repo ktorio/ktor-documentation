@@ -30,7 +30,7 @@ To test a server Ktor application, you need to include the following artifacts i
 
   
 
-## Using a test engine {id="using-test-engine"}
+## Testing overview {id="overview"}
 
 To use a testing engine, follow the steps below:
 1. Create a JUnit test class and a test function.
@@ -60,7 +60,7 @@ The code below demonstrates how to test the most simple Ktor application that ac
 The runnable code example is available here: [engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main).
 
 
-## Sending form data {id="form-data"}
+## Send form data {id="form-data"}
 
 To send form data in a test POST/PUT request, you need to set the `Content-Type` header and specify the request body. To do this, you can use 
  the [addHeader](https://api.ktor.io/ktor-server/ktor-server-test-host/ktor-server-test-host/io.ktor.server.testing/-test-application-request/add-header.html) and [setBody](https://api.ktor.io/ktor-server/ktor-server-test-host/ktor-server-test-host/io.ktor.server.testing/set-body.html) functions, respectively. The examples below show how to send form data using both `x-www-form-urlencoded` and `multipart/form-data` types.
@@ -113,7 +113,7 @@ The code below demonstrates how to build `multipart/form-data` and test file upl
 
 
 
-## Preserving cookies during testing {id="preserving-cookies"}
+## Preserve cookies during testing {id="preserving-cookies"}
 
 If you need to preserve cookies between requests when testing, you can call `handleRequest` inside
  the [cookiesSession](https://api.ktor.io/ktor-server/ktor-server-test-host/ktor-server-test-host/io.ktor.server.testing/cookies-session.html) function. In a test below from the [session-cookie](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie) example, reload count is increased after each request since cookies are preserved.
@@ -138,7 +138,7 @@ If you need to preserve cookies between requests when testing, you can call `han
 </tabs>
 
 
-## Defining configuration properties in tests {id="configuration-properties"}
+## Define configuration properties in tests {id="configuration-properties"}
 
 If your application uses custom properties from the [application.conf](Configurations.xml#hocon-file) file, you also need to specify these properties for testing. This can be done in two ways:
 * Specify properties explicitly using [MapApplicationConfig](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.config/-map-application-config/index.html).
@@ -192,7 +192,7 @@ You can find the full example for this approach here: [UploadFileAppConfigTest.k
 The `HttpsRedirect` plugin changes how testing is performed. Check the [](https-redirect.md#testing) section for more information.
 
 
-## Testing with dependencies {id="testing-dependencies"}
+## Test with dependencies {id="testing-dependencies"}
 In some cases, we will need some services and dependencies. Instead of storing them globally, we suggest you create a separate function receiving the service dependencies. This allows you to pass different
 (potentially mocked) dependencies in your tests.
 
