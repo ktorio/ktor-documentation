@@ -5,7 +5,7 @@
 The `DoubleReceive` plugin (previously known as feature) provides the ability to invoke `ApplicationCall.receive` several times with no `RequestAlreadyConsumedException` exception. This usually makes sense when a plugin is consuming a request body
 so a handler is unable to receive it again.
 
->This plugin is experimental including all options and behaviour. It is not guaranteed to work the same way in future releases.
+> The `DoubleReceive` plugin use an experimental API that is expected to evolve in the upcoming updates with potentially breaking changes.
 >
 {type="note"}
 

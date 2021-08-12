@@ -170,9 +170,9 @@
 
 
     <chunk id="outdated_warning">
-        <note>
+        <tip>
             This help topic is in development and will be updated in the future.
-        </note>
+        </tip>
     </chunk>
 
     <chunk id="experimental">
