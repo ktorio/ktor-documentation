@@ -9,7 +9,7 @@
         <servlet-name>KtorServlet</servlet-name>
         <servlet-class>io.ktor.server.servlet.ServletApplicationEngine</servlet-class>
         <init-param>
-            <param-name>io.ktor.config</param-name>
+            <param-name>io.ktor.ktor.config</param-name>
             <param-value>application.conf</param-value>
         </init-param>
         <async-supported>true</async-supported>
