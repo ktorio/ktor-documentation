@@ -1,5 +1,11 @@
 [//]: # (title: Heroku)
 
+<microformat>
+<p>
+<control>Initial project</control>: <a href="https://github.com/ktorio/ktor-gradle-sample/">ktor-gradle-sample</a>
+</p>
+</microformat>
+
 In this tutorial, we'll show you how to prepare and deploy a Ktor application to Heroku. This tutorial uses a Ktor application created in the [](Gradle.xml) topic.
 
 
@@ -20,7 +26,7 @@ To open a sample application, follow the steps below:
    git checkout engine-main # a server is configured in 'application.conf'
    ```
    {style="block"}
-   These branches demonstrate different ways of [creating and configuring a Ktor server](create_server.xml): in code or by using the `application.conf` configuration file. The only difference in deploying these projects is how to [specify a port](#port) used to listen for incoming requests.
+   These branches demonstrate different approaches to [creating and configuring a Ktor server](create_server.xml): in code or by using the `application.conf` configuration file. The only difference in deploying these projects is how to [specify a port](#port) used to listen for incoming requests.
 
 ## Prepare an application {id="prepare-app"}
 

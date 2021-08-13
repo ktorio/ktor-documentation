@@ -200,6 +200,7 @@
             </toc-element>
             <toc-element toc-title="Publishing">
                 <toc-element id="google-app-engine.md"
+                             show-structure-depth="2"
                              accepts-web-file-names="hosting.html"/>
                 <toc-element id="heroku.md" show-structure-depth="2"/>
             </toc-element>
