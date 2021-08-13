@@ -1,41 +1,34 @@
-buildscript {
-    ext.appengine_version = '1.9.60'
-    ext.appengine_plugin_version = '1.3.4'
-
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "com.google.cloud.tools:appengine-gradle-plugin:$appengine_plugin_version"
-    }
+plugins {
+    id 'com.google.cloud.tools.appengine' version '2.4.2'
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
+    id 'org.jetbrains.kotlin.jvm'
+    id 'application'
 }
 
-apply plugin: 'kotlin'
-apply plugin: 'war'
-apply plugin: 'com.google.cloud.tools.appengine'
-
-// appengine does not honor this property, so we are forced to use deep Maven tree layout
-// webAppDirName = file('webapp')
-
-sourceSets {
-    main.kotlin.srcDirs = [ 'src/main/kotlin' ]
-}
+mainClassName = "io.ktor.server.netty.EngineMain"
+version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
     maven { url "https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven" }
 }
 
+appengine {
+    stage {
+        artifact = "build/libs/$project.name-$project.version-all.jar"
+    }
+    deploy {
+        version = "GCLOUD_CONFIG"
+        projectId = "GCLOUD_CONFIG"
+    }
+}
+
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    implementation "io.ktor:ktor-server-servlet:$ktor_version"
-    implementation "io.ktor:ktor-html-builder:$ktor_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation "io.ktor:ktor-server-core:$ktor_version"
+    implementation "io.ktor:ktor-server-netty:$ktor_version"
     implementation "com.google.cloud:google-cloud-logging-logback:$gce_logback_version"
 
-    providedCompile "com.google.appengine:appengine:$appengine_version"
     testImplementation "io.ktor:ktor-server-test-host:$ktor_version"
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
 }
-
-task run(dependsOn: appengineRun)
