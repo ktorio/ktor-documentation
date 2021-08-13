@@ -36,7 +36,7 @@ To open a sample application, follow the steps below:
 
 ## Prepare an application {id="prepare-app"}
 ### Apply the Shadow plugin {id="configure-shadow-plugin"}
-This tutorial shows how to deploy the application to Google App Engine using a [fat JAR](fatjar.md). To generate fat JARs, you need to apply the Shadow plugin by. Open the `build.gradle` file and add the plugin to the `plugins` block:
+This tutorial shows how to deploy the application to Google App Engine using a [fat JAR](fatjar.md). To generate fat JARs, you need to apply the Shadow plugin. Open the `build.gradle` file and add the plugin to the `plugins` block:
 ```groovy
 ```
 {src="snippets/google-appengine-standard/build.gradle" lines="1,3,6"}
@@ -45,7 +45,7 @@ This tutorial shows how to deploy the application to Google App Engine using a [
 ### Configure the App Engine plugin {id="configure-app-engine-plugin"}
 The [Google App Engine Gradle plugin](https://github.com/GoogleCloudPlatform/app-gradle-plugin) provides tasks to build and deploy Google App Engine applications. To use this plugin, follow the steps below:
 
-1. Open the `settings.gradle` and insert the following code to reference a plugin from the Central Maven repository:
+1. Open the `settings.gradle` file and insert the following code to reference a plugin from the Central Maven repository:
    ```groovy
    ```
    {src="settings.gradle" lines="1-13"}
@@ -62,7 +62,7 @@ The [Google App Engine Gradle plugin](https://github.com/GoogleCloudPlatform/app
 
 
 ### Configure App Engine settings {id="configure-app-engine-settings"}
-You configure App Engine settings for your application in the [app.yaml](https://cloud.google.com/appengine/docs/standard/python/config/appref):
+You configure App Engine settings for your application in the [app.yaml](https://cloud.google.com/appengine/docs/standard/python/config/appref) file:
 1. Create the `appengine` directory inside `src/main/appengine`.
 2. Inside this directory, create the `app.yaml` file and add the following content:
    ```yaml
@@ -81,7 +81,7 @@ To deploy the application, open the terminal and follow the steps below:
    gcloud projects create ktor-sample-app-engine --set-as-default
    ```
    
-2. Create an App Engine application for the created Cloud project:
+2. Create an App Engine application for the Cloud project:
    ```Bash
    gcloud app create
    ```
