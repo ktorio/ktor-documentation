@@ -9,11 +9,13 @@
 </p>
 </microformat>
 
-In this tutorial, we'll show you how to prepare and deploy a Ktor application to AWS Elastic Beanstalk. This tutorial uses a Ktor application created in the [](Gradle.xml) topic. Learn more at [Creating and deploying Java applications on Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Java.html).
+In this tutorial, we'll show you how to prepare and deploy a Ktor application to AWS Elastic Beanstalk. This tutorial uses a Ktor application created in the [](Gradle.xml) topic. 
+
+> Learn more about deploying Java applications from [Elastic Beanstalk docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Java.html).
 
 
 ## Prerequisites {id="prerequisites"}
-Before starting this tutorial, make sure that you have an AWS account.
+Before starting this tutorial, you need to create an AWS account.
 
 
 ## Clone a sample application {id="clone"}
@@ -34,7 +36,7 @@ To open a sample application, follow the steps below:
 ### Step 1: Configure a port {id="port"}
 
 First, you need to specify a port used to listen for incoming requests. Elastic Beanstalk forwards requests to your application on port 5000. Optionally, you can override the default port by setting the `PORT` environment variable. Depending on the way used to [configure a Ktor server](create_server.xml), you can configure a port in one of the following ways:
-* If you've chosen the `embedded-server` branch with server configuration specified in code, you can obtain the environment variable value using `System.getenv` or use the default _5000_ value. Open the `Application.kt` file placed in the `src/main/kotlin/com/example` folder and change the `port` parameter value of the `embeddedServer` function as shown below:
+* If you've chosen the `embedded-server` branch with server configuration specified in code, you can obtain the environment variable value using `System.getenv` or use the default _5000_ value in a case an environment variable is not specified. Open the `Application.kt` file placed in the `src/main/kotlin/com/example` folder and change the `port` parameter value of the `embeddedServer` function as shown below:
    ```kotlin
    fun main() {
       embeddedServer(Netty, port = (System.getenv("PORT")?:"5000").toInt()) {
@@ -43,7 +45,7 @@ First, you need to specify a port used to listen for incoming requests. Elastic 
    }
     ```
 
-* If you've chosen the `engine-main` branch with server configuration specified in the `application.conf` file, you can assign the environment variable to the `port` parameter by using the `${ENV}` syntax or use the default _5000_ value in a case an environment variable is not specified. Open the `application.conf` file placed in `src/main/resources` and update it as shown below:
+* If you've chosen the `engine-main` branch with server configuration specified in the `application.conf` file, you can assign the environment variable to the `port` parameter by using the `${ENV}` syntax. Open the `application.conf` file placed in `src/main/resources` and update it as shown below:
    ```
    ```
   {src="snippets/aws-elastic-beanstalk/src/main/resources/application.conf" lines="1-5,9" style="block"}
