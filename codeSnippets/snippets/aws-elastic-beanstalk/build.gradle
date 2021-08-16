@@ -1,0 +1,29 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
+    id 'org.jetbrains.kotlin.jvm'
+    id 'application'
+}
+
+mainClassName = "io.ktor.server.netty.EngineMain"
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url "https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven" }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation "io.ktor:ktor-server-core:$ktor_version"
+    implementation "io.ktor:ktor-server-netty:$ktor_version"
+    implementation "com.google.cloud:google-cloud-logging-logback:$gce_logback_version"
+
+    testImplementation "io.ktor:ktor-server-test-host:$ktor_version"
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+}
+
+shadowJar {
+    manifest {
+        attributes 'Main-Class': 'com.example.ApplicationKt'
+    }
+}

@@ -35,14 +35,14 @@ To open a sample application, follow the steps below:
    These branches demonstrate different approaches to [creating and configuring a Ktor server](create_server.xml): in code or by using the `application.conf` configuration file. In this tutorial, deploying process is the same for both approaches.
 
 ## Prepare an application {id="prepare-app"}
-### Apply the Shadow plugin {id="configure-shadow-plugin"}
+### Step 1: Apply the Shadow plugin {id="configure-shadow-plugin"}
 This tutorial shows how to deploy the application to Google App Engine using a [fat JAR](fatjar.md). To generate fat JARs, you need to apply the Shadow plugin. Open the `build.gradle` file and add the plugin to the `plugins` block:
 ```groovy
 ```
 {src="snippets/google-appengine-standard/build.gradle" lines="1,3,6"}
 
 
-### Configure the App Engine plugin {id="configure-app-engine-plugin"}
+### Step 2: Configure the App Engine plugin {id="configure-app-engine-plugin"}
 The [Google App Engine Gradle plugin](https://github.com/GoogleCloudPlatform/app-gradle-plugin) provides tasks to build and deploy Google App Engine applications. To use this plugin, follow the steps below:
 
 1. Open the `settings.gradle` file and insert the following code to reference a plugin from the Central Maven repository:
@@ -61,7 +61,7 @@ The [Google App Engine Gradle plugin](https://github.com/GoogleCloudPlatform/app
    {src="snippets/google-appengine-standard/build.gradle" lines="16-24"}
 
 
-### Configure App Engine settings {id="configure-app-engine-settings"}
+### Step 3: Configure App Engine settings {id="configure-app-engine-settings"}
 You configure App Engine settings for your application in the [app.yaml](https://cloud.google.com/appengine/docs/standard/python/config/appref) file:
 1. Create the `appengine` directory inside `src/main/appengine`.
 2. Inside this directory, create the `app.yaml` file and add the following content:
