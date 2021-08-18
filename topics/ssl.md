@@ -1,11 +1,19 @@
-[//]: # (title: SSL)
+[//]: # (title: SSL and certificates)
 
 <microformat>
-<var name="example_name" value="ssl"/>
-<include src="lib.xml" include-id="download_example"/>
+<p>
+Required dependencies: <code>io.ktor:ktor-network-tls-certificates</code>
+</p>
+<p>
+Code examples: 
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/ssl-engine-main">ssl-engine-main</a>, 
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/ssl-embedded-server">ssl-embedded-server</a>
+</p>
 </microformat>
 
-<include src="lib.xml" include-id="outdated_warning"/>
+Normally, your Ktor services will sit safely behind a reverse proxy, that will handle all the basic security concerns, including SSL, for you.
+- Serve SSL directly
+- Reverse proxy
 
 You can buy a certificate and configure Ktor to use it,
 **or** you can use Let's Encrypt to automatically get a **free certificate** to serve `https://` and `wss://` requests
