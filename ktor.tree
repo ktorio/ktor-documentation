@@ -205,7 +205,9 @@
                 <toc-element id="heroku.md" show-structure-depth="2"/>
                 <toc-element id="elastic-beanstalk.md" show-structure-depth="2"/>
             </toc-element>
-            <toc-element id="ssl.md" accepts-web-file-names="certificates.html,self-signed-certificate.html"/>
+            <toc-element id="ssl.md"
+                         show-structure-depth="2"
+                         accepts-web-file-names="certificates.html,self-signed-certificate.html"/>
         </toc-element>
 
         <toc-element toc-title="Extending Ktor">

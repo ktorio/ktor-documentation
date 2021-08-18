@@ -11,14 +11,23 @@ import java.io.*
 
 fun main() {
     val keyStoreFile = File("build/temporary.jks")
-    val keystore = generateCertificate(file = keyStoreFile, keyAlias = "sampleAlias", keyPassword = "foobar", jksPassword = "foobar")
+    val keystore = generateCertificate(
+        file = keyStoreFile,
+        keyAlias = "sampleAlias",
+        keyPassword = "foobar",
+        jksPassword = "foobar"
+    )
 
     val environment = applicationEngineEnvironment {
         log = LoggerFactory.getLogger("ktor.application")
         connector {
             port = 8080
         }
-        sslConnector(keyStore = keystore, keyAlias = "sampleAlias", keyStorePassword = { "foobar".toCharArray() }, privateKeyPassword = { "foobar".toCharArray() }) {
+        sslConnector(
+            keyStore = keystore,
+            keyAlias = "sampleAlias",
+            keyStorePassword = { "foobar".toCharArray() },
+            privateKeyPassword = { "foobar".toCharArray() }) {
             port = 8443
             keyStorePath = keyStoreFile
         }

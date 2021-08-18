@@ -31,35 +31,40 @@
             In this section, we'll take a look at several examples of running <code>embeddedServer</code> with different setting.
         </p>
 
-        <list>
-            <li>
-                <p>
-                    The code snippet below shows the basic server setup with the Netty engine and <code>8000</code> port.
-                </p>
-                <code style="block"
-                      lang="kotlin"
-                      src="snippets/_misc/EmbeddedServerConfigure.kt">
-                </code>
-            </li>
-            <li>
-                <p>
-                    In the example below, we've added the <code>configure</code> parameter for configuring setting specific for a selected engine. You can learn more about configuring engines from <a href="Engines.md" anchor="configure-engine"/>.
-                </p>
-                <code style="block"
-                      lang="kotlin"
-                      src="snippets/_misc/EmbeddedServerConfigureEngine.kt">
-                </code>
-            </li>
-            <li>
-                <p>
-                    The example below shows how to run a server with a custom environment represented by the <a href="https://api.ktor.io/ktor-server/ktor-server-host-common/ktor-server-host-common/io.ktor.server.engine/-application-engine-environment/index.html">ApplicationEngineEnvironment</a> interface.
-                </p>
-                <code style="block"
-                      lang="kotlin"
-                      src="snippets/_misc/EmbeddedServerConfigureCustomEnv.kt">
-                </code>
-            </li>
-        </list>
+
+        <chapter title="Basic configuration" id="embedded-basic">
+            <p>
+                The code snippet below shows the basic server setup with the Netty engine and <code>8000</code> port.
+            </p>
+            <code style="block"
+                  lang="kotlin"
+                  src="snippets/_misc/EmbeddedServerConfigure.kt">
+            </code>
+        </chapter>
+
+        <chapter title="Engine configuration" id="embedded-engine">
+            <p>
+                In the example below, we've added the <code>configure</code> parameter for configuring setting specific for a selected engine. You can learn more about configuring engines from <a href="Engines.md" anchor="configure-engine"/>.
+            </p>
+            <code style="block"
+                  lang="kotlin"
+                  src="snippets/_misc/EmbeddedServerConfigureEngine.kt">
+            </code>
+        </chapter>
+
+        <chapter title="Custom environment" id="embedded-custom">
+            <p>
+                The example below shows how to run a server with a custom environment represented by the <a href="https://api.ktor.io/ktor-server/ktor-server-host-common/ktor-server-host-common/io.ktor.server.engine/-application-engine-environment/index.html">ApplicationEngineEnvironment</a> interface.
+            </p>
+            <code style="block"
+                  lang="kotlin"
+                  src="snippets/_misc/EmbeddedServerConfigureCustomEnv.kt">
+            </code>
+
+            <p>
+                You can also use a custom environment to serve HTTPS. The <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/ssl-embedded-server">ssl-embedded-server</a> example shows how to do this.
+            </p>
+        </chapter>
     </chapter>
 
 
@@ -105,19 +110,15 @@
                 </li>
                 <li>
                     <p>
-                        The example below enables Ktor to listen on the <code>8443</code> SSL port and specifies the required <a href="self-signed-certificate.md">SSL settings</a> in a separate <code>security</code> block.
+                        The example below enables Ktor to listen on the <code>8443</code> SSL port and specifies the required <a href="ssl.md">SSL settings</a> in a separate <code>security</code> block.
                     </p>
-                    <code style="block"
-                          src="snippets/_misc/SslExample.conf">
-                    </code>
+                    <code style="block" src="snippets/ssl-engine-main/src/main/resources/application.conf"/>
                 </li>
                 <li>
                     <p>
                         The <path>application.conf</path> file below contains a custom <code>jwt</code> group to store <a href="jwt.md" anchor="jwt-settings">JWT</a> settings.
                     </p>
-                    <code style="block"
-                          src="snippets/auth-jwt-hs256/src/main/resources/application.conf" lines="11-16">
-                    </code>
+                    <code style="block" src="snippets/auth-jwt-hs256/src/main/resources/application.conf" lines="11-16"/>
                     <p>
                         You can <a anchor="read-configuration-in-code">read and handle such settings</a> in code.
                     </p>
@@ -175,7 +176,7 @@
                 </li>
             </list>
             <p id="ssl">
-                If you've set <code>ktor.deployment.sslPort</code>, you need to specify the following <a href="self-signed-certificate.md">SSL-specific</a> properties:
+                If you've set <code>ktor.deployment.sslPort</code>, you need to specify the following <a href="ssl.md">SSL-specific</a> properties:
             </p>
             <list>
                 <li>
