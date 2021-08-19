@@ -10,7 +10,7 @@ import org.slf4j.*
 import java.io.*
 
 fun main() {
-    val keyStoreFile = File("build/temporary.jks")
+    val keyStoreFile = File("build/keystore.jks")
     val keystore = generateCertificate(
         file = keyStoreFile,
         keyAlias = "sampleAlias",
