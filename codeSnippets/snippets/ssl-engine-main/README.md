@@ -1,6 +1,6 @@
 # SSL - EngineMain
 
-A sample Ktor project showing how to configure [SSL](https://ktor.io/docs/ssl.html) if a server is configured in `application.conf`
+A sample Ktor project showing how to enable [SSL](https://ktor.io/docs/ssl.html) if a server is configured in `application.conf`.
 
 ## Running
 
