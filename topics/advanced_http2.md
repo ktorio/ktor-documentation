@@ -28,7 +28,7 @@ For testing purposes, it can be generated with `keytool` from the JDK ...
 keytool -keystore test.jks -genkeypair -alias testkey -keyalg RSA -keysize 4096 -validity 5000 -dname 'CN=localhost, OU=ktor, O=ktor, L=Unspecified, ST=Unspecified, C=US'
 ```
 
-... or by using the [generateCertificate](self-signed-certificate.md) function.
+... or by using the [generateCertificate](ssl.md) function.
 
 The next step is configuring Ktor to use your keystore. See the example `application.conf`:
 
