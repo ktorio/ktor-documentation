@@ -76,14 +76,14 @@ Specifying SSL settings in Ktor depends on the way used to [configure a Ktor ser
 If your server is configured in `application.conf`, you can enable SSL using the following [properties](Configurations.xml#predefined-properties):
 
 1. Specify the SSL port using the `ktor.deployment.sslPort` property:
-```
-```
-{style="block" src="snippets/ssl-engine-main/src/main/resources/application.conf" lines="1-2,4-5,18"}
+   ```
+   ```
+   {style="block" src="snippets/ssl-engine-main/src/main/resources/application.conf" lines="1-2,4-5,18"}
 
 2. Provide keystore settings in a separate `security` group:
-```
-```
-{style="block" src="snippets/ssl-engine-main/src/main/resources/application.conf" lines="1,10-18"}
+   ```
+   ```
+   {style="block" src="snippets/ssl-engine-main/src/main/resources/application.conf" lines="1,10-18"}
 
 You can find the full example here: [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/ssl-engine-main).
 
