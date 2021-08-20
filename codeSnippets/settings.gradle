@@ -21,10 +21,6 @@ def module(group, name) {
 
 // ---------------------------
 
-module('snippets', 'netty')
-module('snippets', 'netty-embedded')
-module('snippets', 'jetty')
-module('snippets', 'jetty-embedded')
 module('snippets', 'jetty-war')
 module('snippets', 'tomcat-war')
 module('snippets', 'docker')

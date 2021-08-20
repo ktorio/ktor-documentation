@@ -178,8 +178,7 @@
                      show-structure-depth="2"
                      accepts-web-file-names="servers-testing.html"/>
 
-        <toc-element toc-title="Deployments"
-                     id="deploy.md">
+        <toc-element id="deploy.md">
             <toc-element toc-title="Packaging">
                 <toc-element id="gradle-application-plugin.md"
                              accepts-web-file-names="packing.html"/>
