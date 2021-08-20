@@ -7,7 +7,6 @@ Server configuration can include different settings: a server engine, various en
 - Tomcat
 - CIO (Coroutine-based I/O)
 
-[//]: # (TODO: update a testing link)
 In addition to the engines mentioned above, Ktor provides a special engine type `TestEngine` for testing application logic. You can learn more about it from [](Testing.md).
 
 >Those are the official engines developed for Ktor, but it is also possible to [create
@@ -35,7 +34,7 @@ A Ktor server application can be [created and run in two ways](create_server.xml
 
 ### embeddedServer {id="embeddedServer"}
 
-The [embeddedServer](https://api.ktor.io/ktor-server/ktor-server-host-common/ktor-server-host-common/io.ktor.server.engine/embedded-server.html) function accepts an engine factory used to create an engine of a specific type. In the example below, we pass the [Netty](https://api.ktor.io/ktor-server/ktor-server-netty/ktor-server-netty/io.ktor.server.netty/-netty/index.html) factory to run a server with the Netty engine and listen on the `8000` port:
+The [embeddedServer](https://api.ktor.io/ktor-server/ktor-server-host-common/ktor-server-host-common/io.ktor.server.engine/embedded-server.html) function accepts an engine factory used to create an engine of a specific type. In the example below, we pass the [Netty](https://api.ktor.io/ktor-server/ktor-server-netty/ktor-server-netty/io.ktor.server.netty/-netty/index.html) factory to run a server with the Netty engine and listen on the `8080` port:
 
 ```kotlin
 ```

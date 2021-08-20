@@ -178,16 +178,14 @@
                      show-structure-depth="2"
                      accepts-web-file-names="servers-testing.html"/>
 
-        <toc-element toc-title="Deployments"
-                     id="deploy.md">
+        <toc-element id="deploy.md" show-structure-depth="2">
             <toc-element toc-title="Packaging">
-                <toc-element id="gradle-application-plugin.md"
-                             accepts-web-file-names="packing.html"/>
                 <toc-element toc-title="Creating Fat JARs">
                     <toc-element id="fatjar.md"/>
                     <toc-element id="maven-assembly-plugin.md"/>
                 </toc-element>
-
+                <toc-element id="gradle-application-plugin.md"
+                             accepts-web-file-names="packing.html"/>
                 <toc-element id="war.md"
                              show-structure-depth="2"/>
                 <toc-element id="Graalvm.md"/>

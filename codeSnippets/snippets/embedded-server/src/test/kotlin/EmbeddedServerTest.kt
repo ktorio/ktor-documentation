@@ -10,7 +10,7 @@ import org.junit.Test
 class EmbeddedServerTest: TestServer() {
     @Test
     fun rootRouteRespondsWithHelloWorldString(): Unit = runBlocking {
-        val response: String = HttpClient().get<HttpResponse>("http://localhost:8000/").receive()
+        val response: String = HttpClient().get<HttpResponse>("http://localhost:8080/").receive()
         assertEquals("Hello, world!", response)
     }
 }
