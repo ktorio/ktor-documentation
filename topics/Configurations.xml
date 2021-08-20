@@ -34,7 +34,7 @@
 
         <chapter title="Basic configuration" id="embedded-basic">
             <p>
-                The code snippet below shows the basic server setup with the Netty engine and <code>8000</code> port.
+                The code snippet below shows the basic server setup with the Netty engine and the <code>8080</code> port.
             </p>
             <code style="block"
                   lang="kotlin"
@@ -95,18 +95,9 @@
             <list>
                 <li>
                     <p>
-                        In the example below, a server listening port is set to <code>8000</code> using the <code>ktor.deployment.port</code> property.
+                        In the example below, a server listening port is set to <code>8080</code> using the <code>ktor.deployment.port</code> property.
                     </p>
-                    <code style="block">
-                        ktor {
-                            deployment {
-                                port = 8080
-                            }
-                            application {
-                                modules = [ com.example.ApplicationKt.module ]
-                            }
-                        }
-                    </code>
+                    <code style="block" src="snippets/engine-main/src/main/resources/application.conf"/>
                 </li>
                 <li>
                     <p>
@@ -311,7 +302,7 @@
             <code style="block">
                 ktor {
                     deployment {
-                        port = 8000
+                        port = 8080
                     }
                 }
             </code>

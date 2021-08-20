@@ -6,6 +6,14 @@
        title="Creating a server"
        id="create_server" auxiliary-id="start_server">
 
+    <microformat>
+        <p>
+            Code examples:
+            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server">embedded-server</a>,
+            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main">engine-main</a>
+        </p>
+    </microformat>
+
     <p>
         To run a Ktor server application, you need to create a server first.
         Server configuration can include different settings:
@@ -32,12 +40,15 @@
         <p>
             The <code>embeddedServer</code> function is a simple way to configure server parameters in code and quickly run an application.
             In the code snippet below, it accepts an <a href="Engines.md">engine</a> and port as parameters to start a server.
-            In the example below, we run a server with the <code>Netty</code> engine and listen on the <code>8000</code> port:
+            In the example below, we run a server with the <code>Netty</code> engine and listen on the <code>8080</code> port:
         </p>
         <code style="block"
               lang="kotlin"
               src="snippets/embedded-server/src/main/kotlin/com/example/Application.kt">
         </code>
+        <p>
+            You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server">embedded-server</a>.
+        </p>
     </chapter>
 
     <chapter title="EngineMain" id="engine-main">
@@ -58,6 +69,9 @@
                 </code>
             </tab>
         </tabs>
+        <p>
+            You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main">engine-main</a>.
+        </p>
     </chapter>
 
 
