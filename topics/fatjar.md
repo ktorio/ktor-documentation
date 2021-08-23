@@ -10,8 +10,8 @@ The Gradle [Shadow](https://plugins.gradle.org/plugin/com.github.johnrengelman.s
 
 ## Prerequisites {id="prerequisites"}
 Before starting this tutorial, clone the [ktor-gradle-sample](https://github.com/ktorio/ktor-gradle-sample) repository.
-
-
+<tabs>
+<tab title="Gradle (Groovy)">
 ## Configure the Shadow plugin {id="configure-plugin"}
 To build a Fat JAR, you need to configure the Shadow plugin first:
 1. Open the `build.gradle` file and add the plugin to the `plugins` block:
@@ -30,7 +30,27 @@ To build a Fat JAR, you need to configure the Shadow plugin first:
    }
    ```
    > If you use [EngineMain](create_server.xml#engine-main) without the explicit `main` function, your `Main-Class` depends on the used engine and might look as follows: `io.ktor.server.netty.EngineMain`.
-
+</tab>
+<tab title="Gradle (Kotlin)">
+   1. Open the `build.gradle.kts` file and add the plugin to the `plugins` block:
+   ```kotlin
+   plugins {
+       id("com.github.johnrengelman.shadow") version "%shadow_version%"
+   }
+   ```
+   {interpolate-variables="true"}
+2. Add the `shadowJar` task in tasks block:
+   ```kotlin
+   tasks{
+      shadowJar {
+          manifest {
+              attributes(Pair("Main-Class", mainClasses.name))
+          }
+      }
+   }
+   ```
+</tab>   
+</tabs>
 
 ## Build a Fat JAR {id="build"}
 To build a Fat JAR, open the terminal and execute the `shadowJar` task created in the [previous step](#configure-plugin):
