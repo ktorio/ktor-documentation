@@ -32,7 +32,7 @@ fun Application.module(testing: Boolean = false) {
                         if (receivedText.equals("bye", ignoreCase = true)) {
                             close(CloseReason(CloseReason.Codes.NORMAL, "Client said BYE"))
                         } else {
-                            outgoing.send(Frame.Text("Hi, $receivedText!"))
+                            send(Frame.Text("Hi, $receivedText!"))
                         }
                     }
                 }
@@ -41,9 +41,9 @@ fun Application.module(testing: Boolean = false) {
 
         val connections = Collections.synchronizedSet<Connection?>(LinkedHashSet())
         webSocket("/chat") {
-            println("Adding user!")
             val thisConnection = Connection(this)
             connections += thisConnection
+            send("You've logged in as [${thisConnection.name}]")
 
             for (frame in incoming) {
                 when (frame) {
