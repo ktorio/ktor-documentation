@@ -195,7 +195,7 @@ We can do this by setting the value of the `staticBasePackage` property. This sn
 
 ```kotlin
 static("docs") {
-    staticBasePackage = resourcespath"
+    staticBasePackage = "resourcespath"
     resources(".")
 }
 ```
