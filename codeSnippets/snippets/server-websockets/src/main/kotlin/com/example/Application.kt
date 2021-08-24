@@ -24,13 +24,15 @@ fun Application.module(testing: Boolean = false) {
         }
 
         webSocket("/echo") {
+            send("Please enter your name")
             for (frame in incoming) {
                 when (frame) {
                     is Frame.Text -> {
                         val receivedText = frame.readText()
-                        outgoing.send(Frame.Text("Hi, $receivedText!"))
                         if (receivedText.equals("bye", ignoreCase = true)) {
                             close(CloseReason(CloseReason.Codes.NORMAL, "Client said BYE"))
+                        } else {
+                            outgoing.send(Frame.Text("Hi, $receivedText!"))
                         }
                     }
                 }
