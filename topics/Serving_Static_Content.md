@@ -191,12 +191,12 @@ routing {
 
 Ktor also provides us the ability to specify a different base resource package from where contents is served.
 
-We can do this by setting the value of the `staticBasePackage` property: 
+We can do this by setting the value of the `staticBasePackage` property. This snippet will serve up all files under the `resourcespath` directory: 
 
 ```kotlin
 static("docs") {
-    staticBasePackage = File("/system/folder/docs")
-    files("public")
+    staticBasePackage = resourcespath"
+    resources(".")
 }
 ```
 
