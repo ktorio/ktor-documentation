@@ -1,13 +1,17 @@
 # Client WebSockets
 
-A sample project demonstrating how to 
+A sample Ktor project showing how to use [WebSockets](https://ktor.io/docs/websocket-client.html) in a Ktor client.
 
 ## Running
 
-```bash
-# macOS/Linux
-./gradlew :client-websockets:run
+Before running this sample, start a [Ktor server](../server-websockets) first:
 
-# Windows
-gradlew.bat :client-websockets:run
+```bash
+./gradlew :server-websockets:run
+```
+
+Then, execute the following command to run a client sample:
+
+```bash
+./gradlew :client-websockets:run -q --console=plain
 ```
