@@ -127,7 +127,9 @@
                 <li>
                     <p>
                         <code>ktor.deployment.host</code>:
-                         A host address.<br/>
+                         A host address.
+                    </p>
+                    <p>
                         <emphasis>Example</emphasis>: <code>0.0.0.0</code>
                     </p>
                 </li>
@@ -135,7 +137,9 @@
                     <p>
                         <code>ktor.deployment.port</code> / <code>ktor.deployment.sslPort</code>:
                          A listening port/SSL port.
-                        Note that SSL requires additional options <a anchor="ssl">listed below</a>.<br/>
+                        Note that SSL requires additional options <a anchor="ssl">listed below</a>.
+                    </p>
+                    <p>
                         <emphasis>Example</emphasis>: <code>80</code> / <code>443</code>
                     </p>
                 </li>
@@ -148,7 +152,9 @@
                 <li>
                     <p>
                         <code>ktor.deployment.rootPath</code>:
-                        A <a href="war.md">servlet</a> context path.<br/>
+                        A <a href="war.md">servlet</a> context path.
+                    </p>
+                    <p>
                         <emphasis>Example</emphasis>: <code>/</code>
                     </p>
                 </li>

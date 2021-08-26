@@ -35,43 +35,57 @@
         <list>
             <li>
                 <p>
-                    <a href="create_server.xml">Choose a way to create a server</a><br/>
+                    <a href="create_server.xml">Choose a way to create a server</a>
+                </p>
+                <p>
                     You can quickly configure a server using the <code>embeddedServer</code> function, or you can use <code>EngineMain</code> to have additional configuration possibilities.
                 </p>
             </li>
             <li>
                 <p>
-                    <a href="Engines.md">Choose an engine</a><br/>
+                    <a href="Engines.md">Choose an engine</a>
+                </p>
+                <p>
                     Configuring a server requires choosing an engine, such as Netty, Jetty, Tomcat, and so on.
                 </p>
             </li>
             <li>
                 <p>
-                    <a href="Configurations.xml">Configure a server</a><br/>
+                    <a href="Configurations.xml">Configure a server</a>
+                </p>
+                <p>
                     Learn how to configure various server parameters (such as a host address and port, modules to load, etc.), read the configuration in code, and use environment variables.
                 </p>
             </li>
             <li>
                 <p>
-                    <a href="Plugins.md">Add functionality with Plugins (formerly known as Features)</a><br/>
+                    <a href="Plugins.md">Add functionality with Plugins (formerly known as Features)</a>
+                </p>
+                <p>
                     Get acquainted with plugins that provide common functionality, for example, serialization and content encoding, compression, headers, cookie support, etc.
                 </p>
             </li>
             <li>
                 <p>
-                    <a href="Routing_in_Ktor.md">Handle requests with Routing</a><br/>
+                    <a href="Routing_in_Ktor.md">Handle requests with Routing</a>
+                </p>
+                <p>
                     Learn how to handle incoming requests made to different URLs using routing.
                 </p>
             </li>
             <li>
                 <p>
-                    <a href="Modules.md">Divide your application into Modules</a><br/>
+                    <a href="Modules.md">Divide your application into Modules</a>
+                </p>
+                <p>
                      Use modules to divide your application into logical parts, each of which can house any functionality.
                 </p>
             </li>
             <li>
                 <p>
-                    <a href="Structuring_Applications.md">Structure your application</a><br/>
+                    <a href="Structuring_Applications.md">Structure your application</a>
+                </p>
+                <p>
                     Learn how to structure your application to keep it maintainable as the application grows.
                 </p>
             </li>
