@@ -2,6 +2,14 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
+<microformat>
+<p>
+Required dependencies: <code>io.ktor:ktor-websockets</code>
+</p>
+<var name="example_name" value="server-websockets"/>
+<include src="lib.xml" include-id="download_example"/>
+</microformat>
+
 This plugin adds WebSockets support to Ktor.
 WebSockets are a mechanism to keep a bi-directional real-time ordered connection between
 the server and the client.
@@ -28,17 +36,8 @@ install(WebSockets)
 If required, you can adjust parameters during the installation of the plugin:
 
 ```kotlin
-install(WebSockets) {
-    pingPeriod = Duration.ofSeconds(60) // Disabled (null) by default
-    timeout = Duration.ofSeconds(15)
-    maxFrameSize = Long.MAX_VALUE // Disabled (max value). The connection will be closed if surpassed this length. 
-    masking = false
-    
-    extensions { 
-        // install(...)
-    }
-}
 ```
+{src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" lines="15-20"}
 
 ## Usage
 {id="usage"}
@@ -56,22 +55,8 @@ property, as well as a `close` method. Check the full [WebSocketSession](#WebSoc
 ### Usage as an suspend actor {id="actor"}
 
 ```kotlin
-routing {
-    webSocket("/") { // websocketSession
-        for (frame in incoming) {
-            when (frame) {
-                is Frame.Text -> {
-                    val text = frame.readText()
-                    outgoing.send(Frame.Text("YOU SAID: $text"))
-                    if (text.equals("bye", ignoreCase = true)) {
-                        close(CloseReason(CloseReason.Codes.NORMAL, "Client said BYE"))
-                    }
-                }
-            }
-        }
-    }
-}
 ```
+{src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" lines="21,26-40,60-61"}
 
 >An exception will be thrown while receiving a Frame if the client closes the connection
 >explicitly or the TCP socket is closed. So even with a `while (true)` loop, this shouldn't be
@@ -184,41 +169,8 @@ method inside a `withTestApplication` block.
 
 
 ```kotlin
-class MyAppTest {
-    @Test
-    fun testConversation() {
-        withTestApplication {
-            application.install(WebSockets)
-    
-            val received = arrayListOf<String>()
-            application.routing {
-                webSocket("/echo") {
-                    try {
-                        while (true) {
-                            val text = (incoming.receive() as Frame.Text).readText()
-                            received += text
-                            outgoing.send(Frame.Text(text))
-                        }
-                    } catch (e: ClosedReceiveChannelException) {
-                        // Do nothing!
-                    } catch (e: Throwable) {
-                        e.printStackTrace()
-                    }
-                }
-            }
-    
-            handleWebSocketConversation("/echo") { incoming, outgoing ->
-                val textMessages = listOf("HELLO", "WORLD")
-                for (msg in textMessages) {
-                    outgoing.send(Frame.Text(msg))
-                    assertEquals(msg, (incoming.receive() as Frame.Text).readText())
-                }
-                assertEquals(textMessages, received)
-            }
-        }
-    }
-}
 ```
+{src="snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt" include-symbol="ModuleTest"}
 
 ## FAQ
 

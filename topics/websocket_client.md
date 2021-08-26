@@ -1,6 +1,14 @@
-[//]: # (title: Client WebSockets)
+[//]: # (title: WebSockets)
 
 <include src="lib.xml" include-id="outdated_warning"/>
+
+<microformat>
+<p>
+Required dependencies: <code>io.ktor:ktor-client-websockets</code>
+</p>
+<var name="example_name" value="client-websockets"/>
+<include src="lib.xml" include-id="download_example"/>
+</microformat>
 
 Ktor provides Websocket client support for the following engines: CIO, OkHttp, Js. To get more information about 
 the server side, follow this [section](websocket.md).
@@ -29,28 +37,7 @@ val client = HttpClient {
 Once created we can perform a request, starting a `WebSocketSession`:
 
 ```kotlin
-client.ws(
-    method = HttpMethod.Get,
-    host = "127.0.0.1",
-    port = 8080, path = "/route/path/to/ws"
-) { // this: DefaultClientWebSocketSession
-
-    // Send text frame.
-    send("Hello, Text frame")
-
-    // Send text frame.
-    send(Frame.Text("Hello World"))
-
-    // Send binary frame.
-    send(Frame.Binary(...))
-
-    // Receive frame.
-    val frame = incoming.receive()
-    when (frame) {
-        is Frame.Text -> println(frame.readText())
-        is Frame.Binary -> println(frame.readBytes())
-    }
-}
 ```
+{src="snippets/client-websockets/src/main/kotlin/com/example/Application.kt" include-symbol="main"}
 
 For more information about the WebSocketSession, check the [WebSocketSession page](websocket.md#WebSocketSession) and the [API reference](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.features.websocket/index.html).
