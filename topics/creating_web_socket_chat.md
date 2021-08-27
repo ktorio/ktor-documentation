@@ -138,11 +138,11 @@ Let's start the server by pressing the play button in the gutter next to the def
 
 `Application - Responding at http://0.0.0.0:8080`. 
 
-To try out the service, we can open the WebSocket client provided at [www.websocket.org/echo.html](https://www.websocket.org/echo.html) and use it to connect to `ws://localhost:8080/chat`.
+To try out the service, we can use [Postman](https://learning.postman.com/docs/sending-requests/supported-api-frameworks/websocket/) to connect to `ws://localhost:8080/chat` and make a WebSocket request.
 
-![Echo Test](image-20201022122125926.png){width="951"}
+![Echo Test](ktor_websocket_chat_postman.png){width="706"}
 
-Then, we can enter any kind of message in the "Message" window, and send it to our local server. If everything has gone according to plan, we should see the `SENT` and `RECEIVED` messages and in the logs, indicating that our echo-server is functioning just as intended.
+Then, we can enter any kind of message in the editor pane, and send it to our local server. If everything has gone according to plan, we should see sent and received messages and in the **Messages** pane, indicating that our echo-server is functioning just as intended.
 
 With this, we now have a solid foundation for bidirectional communication through WebSockets. Next, let's expand our program more closely resemble a chat server, allowing multiple participants to share messages with others.
 
