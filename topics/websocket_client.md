@@ -13,7 +13,7 @@ Required dependencies: <code>io.ktor:ktor-client-websockets</code>
 Ktor provides Websocket client support for the following engines: CIO, OkHttp, Js. To get more information about 
 the server side, follow this [section](websocket.md).
 
-Once connected, client and server WebSockets share the same [WebSocketSession](websocket.md#WebSocketSession)
+Once connected, client and server WebSockets share the same [WebSocketSession](websocket.md#handle-sessions)
 interface for communication.
 
 
@@ -40,4 +40,4 @@ Once created we can perform a request, starting a `WebSocketSession`:
 ```
 {src="snippets/client-websockets/src/main/kotlin/com/example/Application.kt" include-symbol="main"}
 
-For more information about the WebSocketSession, check the [WebSocketSession page](websocket.md#WebSocketSession) and the [API reference](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.features.websocket/index.html).
+For more information about the WebSocketSession, check the [WebSocketSession page](websocket.md#handle-sessions) and the [API reference](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.features.websocket/index.html).
