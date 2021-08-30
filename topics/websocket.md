@@ -1,6 +1,4 @@
-[//]: # (title: Server WebSockets)
-
-<include src="lib.xml" include-id="outdated_warning"/>
+[//]: # (title: WebSockets)
 
 <microformat>
 <p>
@@ -10,11 +8,12 @@ Required dependencies: <code>io.ktor:ktor-websockets</code>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-This plugin adds WebSockets support to Ktor.
-WebSockets are a mechanism to keep a bi-directional real-time ordered connection between
-the server and the client.
-Each message from this channel is called Frame: a frame can be a text or binary message,
-or a close or ping/pong message. Frames can be marked as incomplete or final.
+Ktor supports the WebSocket protocol and allows you to create applications that require real-time data transfer from and to the server. For example, you can create a [chat application](creating_web_socket_chat.md), which uses WebSockets.
+
+Ktor allows you to:
+* Configure basic WebSocket settings, such as frame size, a ping period, and so on.
+* Configure a WebSocket endpoint and specify logic for exchanging frames.
+* Add WebSocket extensions. For example, you can use the [Deflate](websocket_deflate_extension.md) extension or implement a [custom extension](websocket_extensions_api.md).
 
 
 ## Add dependencies {id="add_dependencies"}
@@ -25,186 +24,79 @@ or a close or ping/pong message. Frames can be marked as incomplete or final.
 
 
 ## Install WebSockets {id="install_feature"}
-{id="installing"}
 
-In order to use the WebSockets functionality you first have to install it: 
+<var name="feature_name" value="WebSockets"/>
+<include src="lib.xml" include-id="install_feature"/>
 
-```kotlin
-install(WebSockets)
-```
 
-If required, you can adjust parameters during the installation of the plugin:
+## Configure WebSockets settings {id="configure"}
+
+Optionally, you can configure the plugin by passing [WebSocketOptions](https://api.ktor.io/ktor-features/ktor-websockets/ktor-websockets/io.ktor.websocket/-web-sockets/-web-socket-options/index.html) to the `install` function:
 
 ```kotlin
 ```
 {src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" lines="15-20"}
 
-## Usage
-{id="usage"}
+## Handle WebSockets sessions {id="handle-sessions"}
 
-Once installed, you can define the `webSocket` routes for the [routing](Routing_in_Ktor.md) plugin:
+After you installed and configured the `WebSockets` plugin, you are ready to handle a WebSocket session. First, you need to define a WebSocket endpoint on a server by calling the [webSocket](https://api.ktor.io/ktor-features/ktor-websockets/ktor-websockets/io.ktor.websocket/web-socket.html) function inside the [routing](Routing_in_Ktor.md#define_route) block:
+```kotlin
+routing { 
+    webSocket("/echo") {
+       // Handle a WebSocket session
+    }
+}
+```
+For such an endpoint, a server accepts WebSocket requests to `ws://localhost:8080/echo` in a [default configuration](Configurations.xml).
 
-Instead of the short-lived normal route handlers, webSocket handlers are meant to be long-lived.
-And all the relevant WebSocket methods are suspended so that the function will be suspended in
-a non-blocking way while receiving or sending messages.
+Inside the `webSocket` block, you need to handle a WebSocket session, which is represented by the [DefaultWebSocketServerSession](https://api.ktor.io/ktor-features/ktor-websockets/ktor-websockets/io.ktor.websocket/-default-web-socket-server-session/index.html) class. Session configuration might look as follows:
 
-`webSocket` methods receive a callback with a [WebSocketSession](#WebSocketSession)
-instance as the receiver. That interface defines an `incoming` (ReceiveChannel) property and an `outgoing` (SendChannel)
-property, as well as a `close` method. Check the full [WebSocketSession](#WebSocketSession) for more information.
+1. Use the `send` function to send text content to the client. 
+2. Use the `incoming` and `outgoing` properties to access the channels for receiving and sending WebSocket frames ([Frame](https://api.ktor.io/ktor-http/ktor-http-cio/ktor-http-cio/io.ktor.http.cio.websocket/-frame/index.html)). 
+3. When handing a session, you can check a frame type, for example:
+   * `Frame.Text` is a text frame. For this frame type, you can read its content using `Frame.Text.readText()`.
+   * `Frame.Binary` is a binary frame. For this type, you can read its content using `Frame.Binary.readBytes()`.
+   * `Frame.Close` is a closing frame. You can call `Frame.Close.readReason()` to get a close reason for the current session.
+4. Use the `close` function to send a close frame with the specified reason.
 
-### Usage as an suspend actor {id="actor"}
+> If you need to get information about the client (for example, the client IP address), use the [call](https://api.ktor.io/ktor-features/ktor-websockets/ktor-websockets/io.ktor.websocket/-web-socket-server-session/call.html) property. You can learn more from [](requests.md#request_information).
+
+Below we'll take a look at the examples of using this API.
+
+
+### Handle a single session {id="handle-single-session"}
+
+The example below shows how to create the `echo` WebSocket endpoint to handle a session with one client:
 
 ```kotlin
 ```
 {src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" lines="21,26-40,60-61"}
 
->An exception will be thrown while receiving a Frame if the client closes the connection
->explicitly or the TCP socket is closed. So even with a `while (true)` loop, this shouldn't be
->a leak.
->
-{type="note"}
+You can find the full example here: [server-websockets](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/server-websockets)
 
-### Usage as a Channel {id="channel"}
+### Handle multiple sessions {id="handle-multiple-session"}
 
-Since the `incoming` property is a ReceiveChannel, you can use it with its stream-like interface:
+To handle multiple WebSocket sessions (for example, for a chat application), you need to store each session on a server. For example, you can define a connection with a unique name and associate it with a specified session. A sample `Connection` class below shows how to do this:
 
 ```kotlin
-routing {
-    webSocket("/") { // websocketSession
-        for (frame in incoming.mapNotNull { it as? Frame.Text }) {
-            val text = frame.readText()
-            outgoing.send(Frame.Text("YOU SAID $text"))
-            if (text.equals("bye", ignoreCase = true)) {
-                close(CloseReason(CloseReason.Codes.NORMAL, "Client said BYE"))
-            }
-        }
-    }
-}
-``` 
-
-## Interface {id="interface"}
-
-### The WebSocketSession interface {id="WebSocketSession"}
-
-You receive a WebSocketSession as the receiver (this), giving you direct access
-to these members inside your webSocket handler.
-
-```kotlin
-interface WebSocketSession {
-    // Basic interface
-    val incoming: ReceiveChannel<Frame> // Incoming frames channel
-    val outgoing: SendChannel<Frame> // Outgoing frames channel
-    fun close(reason: CloseReason)
-
-    // Convenience method equivalent to `outgoing.send(frame)`
-    suspend fun send(frame: Frame) // Enqueue frame, may suspend if the outgoing queue is full. May throw an exception if the outgoing channel is already closed, so it is impossible to transfer any message.
-
-    // The call and the context
-    val call: ApplicationCall
-    val application: Application
-    
-    // List of WebSocket extensions negotiated for the current session
-    val extensions: List<WebSocketExtension<*>>
-
-    // Modifiable properties for this request. Their initial value comes from the plugin configuration.
-    var pingInterval: Duration?
-    var timeout: Duration
-    var masking: Boolean // Enable or disable masking output messages by a random xor mask.
-    var maxFrameSize: Long // Specifies frame size limit. The connection will be closed if violated
-    
-    // Advanced
-    val closeReason: Deferred<CloseReason?>
-    suspend fun flush() // Flush all outstanding messages and suspend until all earlier sent messages will be written. Could be called at any time even after close. May return immediately if connection is already terminated.
-    fun terminate() // Initiate connection termination immediately. Termination may complete asynchronously.
-}
 ```
+{src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" lines="63-69"}
 
->If you need information about the connection. For example the client ip, you have access
->to the call property. So you can do things like `call.request.origin.host` inside
->your websocket block.
->
-{type="note"}
-
-### The Frame interface
-{id="Frame"}
-
-A frame is each packet sent and received at the WebSocket protocol level.
-There are two message types: TEXT and BINARY. And three control packets: CLOSE, PING, and PONG.
-Each packet has a payload `buffer`. And for Text or Close messages, you can
-call the `readText` or `readReason` to interpret that buffer.
+Then, you can create a new connection inside the `webSocket` handler when a new client connects to the WebSocket endpoint:
 
 ```kotlin
-enum class FrameType { TEXT, BINARY, CLOSE, PING, PONG }
 ```
+{src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" lines="21,42-61"}
 
-```kotlin
-sealed class Frame {
-    val fin: Boolean // Is this frame a final frame?
-    val frameType: FrameType // The Type of the frame
-    val buffer: ByteBuffer // Payload
-    val disposableHandle: DisposableHandle
-    
-    // Extension bits
-    val rsv1: Boolean
-    val rsv2: Boolean
-    val rsv3: Boolean
+You can find the full example here: [server-websockets](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/server-websockets)
 
-    class Binary : Frame
-    class Text : Frame {
-        fun readText(): String
-    }
-    class Close : Frame {
-        fun readReason(): CloseReason?
-    }
-    class Ping : Frame
-    class Pong : Frame
-}
-```
 
-## Testing
-{id="testing"}
 
-You can test WebSocket conversations by using the `handleWebSocketConversation`
-method inside a `withTestApplication` block.
 
+## Testing {id="testing"}
+
+You can [test](Testing.md) WebSocket conversations by using the `handleWebSocketConversation` function inside the `withTestApplication` block:
 
 ```kotlin
 ```
 {src="snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt" include-symbol="ModuleTest"}
-
-## FAQ
-
-### Standard Events: `onConnect`, `onMessage`, `onClose` and `onError`
-{id="standard-events"}
-
-How do the [standard events from the WebSocket API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) maps to Ktor?
-
-* `onConnect` happens at the start of the block.
-* `onMessage` happens after successfully reading a message (for example with `incoming.receive()`) or using suspended iteration with `for(frame in incoming)`.
-* `onClose` happens when the `incoming` channel is closed. That would complete the suspended iteration, or throw a `ClosedReceiveChannelException` when trying to receive a message`.
-* `onError` is equivalent to other exceptions.
-
-In both `onClose` and `onError`, the [closeReason](https://api.ktor.io/ktor-http/ktor-http-cio/ktor-http-cio/io.ktor.http.cio.websocket/-default-web-socket-session/close-reason.html) property is set.
-
-To illustrate this:
-
-```kotlin
-webSocket("/echo") {
-    println("onConnect")
-    try {
-        for (frame in incoming){
-            val text = (frame as Frame.Text).readText()
-            println("onMessage")
-            received += text
-            outgoing.send(Frame.Text(text))
-        }
-    } catch (e: ClosedReceiveChannelException) {
-        println("onClose ${closeReason.await()}")
-    } catch (e: Throwable) {
-        println("onError ${closeReason.await()}")
-        e.printStackTrace()
-    }
-}
-```
-
-In this sample, the infinite loop is only exited with an exception is risen: either a `ClosedReceiveChannelException` or another exception.
