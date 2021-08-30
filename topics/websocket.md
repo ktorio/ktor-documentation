@@ -8,11 +8,11 @@ Required dependencies: <code>io.ktor:ktor-websockets</code>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-Ktor supports the WebSocket protocol and allows you to create applications that require real-time data transfer from and to the server. For example, you can create a [chat application](creating_web_socket_chat.md), which uses WebSockets.
+Ktor supports the WebSocket protocol and allows you to create applications that require real-time data transfer from and to the server. For example, WebSockets can be used to create a [chat application](creating_web_socket_chat.md).
 
 Ktor allows you to:
 * Configure basic WebSocket settings, such as frame size, a ping period, and so on.
-* Configure a WebSocket endpoint and specify logic for exchanging frames.
+* Handle a WebSocket session for exchanging messages between the server and client.
 * Add WebSocket extensions. For example, you can use the [Deflate](websocket_deflate_extension.md) extension or implement a [custom extension](websocket_extensions_api.md).
 
 
@@ -47,12 +47,12 @@ routing {
     }
 }
 ```
-For such an endpoint, a server accepts WebSocket requests to `ws://localhost:8080/echo` in a [default configuration](Configurations.xml).
+For such an endpoint, a server accepts WebSocket requests to `ws://localhost:8080/echo` when a [default configuration](Configurations.xml) is used.
 
 Inside the `webSocket` block, you need to handle a WebSocket session, which is represented by the [DefaultWebSocketServerSession](https://api.ktor.io/ktor-features/ktor-websockets/ktor-websockets/io.ktor.websocket/-default-web-socket-server-session/index.html) class. Session configuration might look as follows:
 
 1. Use the `send` function to send text content to the client. 
-2. Use the `incoming` and `outgoing` properties to access the channels for receiving and sending WebSocket frames ([Frame](https://api.ktor.io/ktor-http/ktor-http-cio/ktor-http-cio/io.ktor.http.cio.websocket/-frame/index.html)). 
+2. Use the `incoming` and `outgoing` properties to access the channels for receiving and sending WebSocket frames. A frame is represented by the [Frame](https://api.ktor.io/ktor-http/ktor-http-cio/ktor-http-cio/io.ktor.http.cio.websocket/-frame/index.html) class.
 3. When handing a session, you can check a frame type, for example:
    * `Frame.Text` is a text frame. For this frame type, you can read its content using `Frame.Text.readText()`.
    * `Frame.Binary` is a binary frame. For this type, you can read its content using `Frame.Binary.readBytes()`.
