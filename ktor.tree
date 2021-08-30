@@ -142,6 +142,7 @@
 
             <toc-element toc-title="Sockets">
                 <toc-element id="websocket.md"
+                             show-structure-depth="2"
                              accepts-web-file-names="servers-features-websockets.html"/>
                 <toc-element toc-title="WebSocket extensions">
                     <toc-element id="websocket_deflate_extension.md"/>
