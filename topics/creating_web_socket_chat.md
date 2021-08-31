@@ -205,9 +205,19 @@ routing {
 
 Our server now stores a (thread-safe) collection of `Connection`s. When a user connects, we create their `Connection` object (which also assigns itself a unique username), and add it to the collection. We then greet our user and let them know how many users are currently connecting. When we receive a message from the user, we prefix it with the unique name associated with their `Connection` object, and send it to all currently active connections. Finally, we remove the client's `Connection` object from our collection when the connection is terminated – either gracefully, when the incoming channel gets closed, or with an `Exception` when the network connection between client and server gets interrupted unexpectedly.
 
-To see that our server is now behaving correctly – assigning usernames and broadcasting them to everybody connected – we can once again run our application using the play button in the gutter and use the browser-based WebSocket client on [www.websocket.org/echo.html](https://www.websocket.org/echo.html) to connect to `ws://localhost:8080/chat`. This time, we can use two separate browser tabs to validate that messages are exchanged properly.
+To see that our server is now behaving correctly – assigning usernames and broadcasting them to everybody connected – we can once again run our application using the play button in the gutter and use [Postman](https://learning.postman.com/docs/sending-requests/supported-api-frameworks/websocket/) to connect to `ws://localhost:8080/chat`. This time, we can use two separate tabs to validate that messages are exchanged properly.
 
-![Echo Test](image-20201111155400473.png){width="1476"}
+<tabs>
+<tab title="Client 1">
+
+![Echo Test](ktor_websocket_chat_postman_client_1.png){width="706"}
+</tab>
+<tab title="Client 2">
+
+![Echo Test](ktor_websocket_chat_postman_client_2.png){width="706"}
+</tab>
+</tabs>
+
 
 As we can see, our finished chat server can now receive and send messages with multiple participants. Feel free to open a few more browser windows and play around with what we have built here!
 
