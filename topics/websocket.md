@@ -1,4 +1,4 @@
-[//]: # (title: WebSockets)
+[//]: # (title: Server WebSockets)
 
 <microformat>
 <p>
@@ -14,6 +14,8 @@ Ktor allows you to:
 * Configure basic WebSocket settings, such as frame size, a ping period, and so on.
 * Handle a WebSocket session for exchanging messages between the server and client.
 * Add WebSocket extensions. For example, you can use the [Deflate](websocket_deflate_extension.md) extension or implement a [custom extension](websocket_extensions_api.md).
+
+> To learn about WebSocket support in a Ktor client, see [](websocket_client.md).
 
 
 ## Add dependencies {id="add_dependencies"}
@@ -38,6 +40,8 @@ Optionally, you can configure the plugin by passing [WebSocketOptions](https://a
 {src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" lines="15-20"}
 
 ## Handle WebSockets sessions {id="handle-sessions"}
+
+### API overview {id="api-overview"}
 
 After you installed and configured the `WebSockets` plugin, you are ready to handle a WebSocket session. First, you need to define a WebSocket endpoint on a server by calling the [webSocket](https://api.ktor.io/ktor-features/ktor-websockets/ktor-websockets/io.ktor.websocket/web-socket.html) function inside the [routing](Routing_in_Ktor.md#define_route) block:
 ```kotlin
@@ -64,7 +68,7 @@ Inside the `webSocket` block, you need to handle a WebSocket session, which is r
 Below we'll take a look at the examples of using this API.
 
 
-### Handle a single session {id="handle-single-session"}
+### Example: Handle a single session {id="handle-single-session"}
 
 The example below shows how to create the `echo` WebSocket endpoint to handle a session with one client:
 
@@ -72,9 +76,9 @@ The example below shows how to create the `echo` WebSocket endpoint to handle a 
 ```
 {src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" lines="21,26-40,60-61"}
 
-You can find the full example here: [server-websockets](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/server-websockets)
+You can find the full example here: [server-websockets](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/server-websockets).
 
-### Handle multiple sessions {id="handle-multiple-session"}
+### Example: Handle multiple sessions {id="handle-multiple-session"}
 
 To handle multiple WebSocket sessions (for example, for a chat application), you need to store each session on a server. For example, you can define a connection with a unique name and associate it with a specified session. A sample `Connection` class below shows how to do this:
 
@@ -88,7 +92,7 @@ Then, you can create a new connection inside the `webSocket` handler when a new 
 ```
 {src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" lines="21,42-61"}
 
-You can find the full example here: [server-websockets](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/server-websockets)
+You can find the full example here: [server-websockets](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/server-websockets).
 
 
 
