@@ -219,7 +219,7 @@ To see that our server is now behaving correctly – assigning usernames and bro
 </tabs>
 
 
-As we can see, our finished chat server can now receive and send messages with multiple participants. Feel free to open a few more browser windows and play around with what we have built here!
+As we can see, our finished chat server can now receive and send messages with multiple participants. Feel free to open a few more tabs and play around with what we have built here!
 
 In the next chapter, we will write a Kotlin chat client for our server, which will allow us to send and receive messages directly from the command line. Because our clients will also be implemented using Ktor, we will get to reuse much of what we learned about managing WebSockets in Kotlin.
 
