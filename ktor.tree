@@ -266,7 +266,7 @@
                 <!--            <toc-element id="client_retry.md"/>-->
                 <toc-element id="timeout.md"/>
                 <toc-element id="user-agent.md"/>
-                <toc-element id="websocket_client.md"
+                <toc-element id="websocket_client.md" show-structure-depth="2"
                              accepts-web-file-names="client-websockets.html,http-client-features-websockets.html,clients-websockets.html"/>
             </toc-element>
         </toc-element>
