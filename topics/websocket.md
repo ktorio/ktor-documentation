@@ -104,3 +104,35 @@ You can [test](Testing.md) WebSocket conversations by using the `handleWebSocket
 ```kotlin
 ```
 {src="snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt" include-symbol="ModuleTest"}
+
+## The WebSocket API and Ktor {id="websocket-api"}
+
+The [standard events from the WebSocket API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) map to Ktor in the following way:
+
+* `onConnect` happens at the start of the block.
+* `onMessage` happens after successfully reading a message (for example, with `incoming.receive()`) or using suspended iteration with `for(frame in incoming)`.
+* `onClose` happens when the `incoming` channel is closed. That would complete the suspended iteration, or throw a `ClosedReceiveChannelException` when trying to receive a message`.
+* `onError` is equivalent to other exceptions.
+
+In both `onClose` and `onError`, the [closeReason](https://api.ktor.io/ktor-http/ktor-http-cio/ktor-http-cio/io.ktor.http.cio.websocket/-default-web-socket-session/close-reason.html) property is set.
+
+```kotlin
+webSocket("/echo") {
+    println("onConnect")
+    try {
+        for (frame in incoming){
+            val text = (frame as Frame.Text).readText()
+            println("onMessage")
+            received += text
+            outgoing.send(Frame.Text(text))
+        }
+    } catch (e: ClosedReceiveChannelException) {
+        println("onClose ${closeReason.await()}")
+    } catch (e: Throwable) {
+        println("onError ${closeReason.await()}")
+        e.printStackTrace()
+    }
+}
+```
+
+In this sample, the infinite loop is only exited with an exception is risen: either a `ClosedReceiveChannelException` or another exception.
