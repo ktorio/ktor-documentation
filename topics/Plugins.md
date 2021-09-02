@@ -46,15 +46,17 @@ In fact, what we've been calling `routing` until now, is nothing more than a Plu
 ## Installing Plugins {id="install"}
 
 Plugins are generally configured during the initialization phase of the server using the `install`
-function which takes a Plugin as a parameter. Depending on the way you used to [create a server](create_server.xml), you can install a plugin inside the `main` function ...
+function which takes a Plugin as a parameter. Depending on the way you used to [create a server](create_server.xml), you can install a plugin inside the `embeddedServer` call ...
 
 ```kotlin
 import io.ktor.features.*
 // ...
-fun Application.main() {
-    install(CORS)
-    install(Compression)
-    // ...
+fun main() {
+    embeddedServer(Netty, port = 8080) {
+        install(CORS)
+        install(Compression)
+        // ...
+    }.start(wait = true)
 }
 ```
 

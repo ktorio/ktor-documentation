@@ -44,7 +44,7 @@
                 <toc-element id="Configurations.xml"
                              show-structure-depth="2"
                              accepts-web-file-names="configuration.html,environments.html"/>
-                <toc-element id="Modules.md"/>
+                <toc-element id="Modules.md" show-structure-depth="2"/>
                 <toc-element id="Plugins.md"
                              accepts-web-file-names="zfeatures.html,features.html"/>
                 <toc-element id="advanced_http2.md"

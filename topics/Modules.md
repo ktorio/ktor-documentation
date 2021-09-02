@@ -1,52 +1,85 @@
-[//]: # (title: Structuring with modules)
+[//]: # (title: Modules)
 
-<include src="lib.xml" include-id="outdated_warning"/>
+<microformat>
+<p>
+Code examples: 
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server-modules">embedded-server-modules</a>, 
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main-modules">engine-main-modules</a>
+</p>
+</microformat>
 
-A Ktor Application consists of a series of one or more modules, each of which can house any kind of functionality. 
+Ktor allows you to use modules to structure your application. Different modules can keep certain application functionalities and have a specific set of [installed plugins](Plugins.md#install) and configured [routes](Routing_in_Ktor.md).
 
-![App Diagram](app-diagram.svg)
- 
- 
-[comment]: <> (Each module consists of....)
-
-![Module Diagram](module-diagram.svg)
-
-A Ktor module is just a user-defined function receiving the `Application` class that is in charge of configuring
-the server pipeline, install plugins, registering routes, handling requests, etc.
-
-You have to specify the modules to load when the server starts in [the `application.conf` file](Configurations.xml#hocon-file).
-
-A simple module function would look like this:
-
+A module is an _[extension function](https://kotlinlang.org/docs/extensions.html)_ of the [Application](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.application/-application/index.html) class. In the example below, the `module1` extension function defines a module that accepts GET requests made to the `/module1` URL path.
 
 ```kotlin
-package com.example.myapp
+```
+{src="snippets/engine-main-modules/src/main/kotlin/com/example/Application.kt" lines="9-15"}
 
-fun Application.mymodule() {
-    routing {
-        get("/") {
-            call.respondText("Hello World!")
+Loading modules in your application depends on the way used to [create a server](create_server.xml): in code using the `embeddedServer` function or by using the `application.conf` configuration file.
+
+## embeddedServer {id="embedded-server"}
+
+Typically, the `embeddedServer` function accepts a module implicitly as a lambda argument. You can see the example in the [](create_server.xml#embedded-server) section.
+
+If you want to load a module defined as an extension function, use one of the ways described below.
+
+### Load a single module {id="single-module"}
+To load a single module, pass its name in the `module` parameter.
+
+```kotlin
+```
+{src="snippets/embedded-server-modules/src/main/kotlin/com/example/Application.kt"}
+
+You can find the full example here: [embedded-server-modules](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server-modules).
+
+
+### Load multiple modules {id="multiple-modules"}
+
+To use multiple modules with `embeddedServer`, you need to create a [custom environment](Configurations.xml#embedded-custom) and pass it to `embeddedServer` as a parameter. For a custom environment, you can define modules to load using the [ApplicationEngineEnvironmentBuilder.modules](https://api.ktor.io/ktor-server/ktor-server-host-common/ktor-server-host-common/io.ktor.server.engine/-application-engine-environment-builder/modules.html) property.
+
+```kotlin
+fun main() {
+    val environment = applicationEngineEnvironment {
+        log = LoggerFactory.getLogger("ktor.application")
+        connector {
+            port = 8080
         }
+        modules.addAll(arrayOf(Application::module1, Application::module2))
     }
+    embeddedServer(Netty, environment).start(wait = true)
 }
 ```
 
-Of course, you can split the module function in several smaller functions or classes.
 
-Modules are referenced by their fully qualified name: the fully qualified name of the class and the method name,
-separated by a dot (`.`).
+## HOCON file {id="hocon"}
 
-So for the example, the module's fully qualified name would be:
+If you use the `application.conf` file to configure a server, you need to specify modules to load using the `ktor.application.modules` property. 
+
+Suppose you have three modules defined in two packages: two modules in the `com.example` package and one in the `org.sample` package.
+
+<tabs>
+<tab title="Application.kt">
 
 ```kotlin
-com.example.myapp.MainKt.mymodule
 ```
+{src="snippets/engine-main-modules/src/main/kotlin/com/example/Application.kt"}
 
->`mymodule` is an extension method of the class `Application` (where `Application` is the *receiver*).
->Since it is defined as a top-level function, Kotlin creates a JVM class with a `Kt` suffix (`FileNameKt`),
->and adds the extension method as a static method with the receiver as its first parameter.
->In this case, the class name is `MainKt` in the `com.example.myapp` package, and the Java method signature would be
->`static public void mymodule(Application app)`.
->
-{type="note"}
+</tab>
+<tab title="Sample.kt">
 
+```kotlin
+```
+{src="snippets/engine-main-modules/src/main/kotlin/org/sample/Sample.kt"}
+
+</tab>
+</tabs>
+
+To reference these modules in a configuration file, you need to provide their fully qualified names, separated by a comma.
+A fully qualified module name includes a fully qualified name of the class and an extension function name.
+
+```kotlin
+```
+{src="snippets/engine-main-modules/src/main/resources/application.conf" lines="1,5-10"}
+
+You can find the full example here: [engine-main-modules](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main-modules).

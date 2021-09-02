@@ -1,32 +1,31 @@
 [//]: # (title: Application structure)
 
-One of Ktor’s strong points is in the flexibility it offers in terms of structuring our application. Different to many other server-side frameworks, it doesn’t force us into a specific pattern such as having to place all cohesive routes in a single class name `CustomerController` for instance. While it is certainly possible, it's not required.
+One of Ktor’s strong points is in the flexibility it offers in terms of structuring our application. Different to many other server-side frameworks, it doesn't force us into a specific pattern such as having to place all cohesive routes in a single class name `CustomerController` for instance. While it is certainly possible, it's not required.
 
 In this section we're going to examine the different options we have to structure our applications.
 
 ## Grouping by file
 
-One approach is to group routes that are related in a single file. If our application is dealing with Customers and Orders for instance,
-this would mean having a `CustomerRoutes.kt` and an `OrderRoutes.kt` file:
+One approach is to group routes that are related in a single file. If our application is dealing with Customers and Orders for instance, this would mean having a `CustomerRoutes.kt` and an `OrderRoutes.kt` file:
 
-
-
-CustomerRoutes.kt
+<tabs>
+<tab title="CustomerRoutes.kt">
 
 ```kotlin
-fun Route.customerById() {
+fun Route.customerByIdRoute() {
     get("/customer/{id}") {
 
     }
 }
 
-fun Route.createCustomer() {
+fun Route.createCustomerRoute() {
     post("/customer") {
 
     }
 }
 ```
-OrderRoutes.kt
+</tab>
+<tab title="OrderRoutes.kt">
 
 ```kotlin
 fun Route.orderByIdRoute() {
@@ -41,6 +40,9 @@ fun Route.createOrderRoute() {
     }
 }
 ```
+</tab>
+</tabs>
+
 
 What would happen with sub-routes? Such as order/shipment for instance? It somewhat depends on what we understand by this URL. 
 If we’re talking about these as resources (which they are), shipment itself could therefore be a resource, and could easily map 
@@ -62,9 +64,11 @@ routing {
 ```
 
 If we have tons of routes in our app, this could quickly become long and cumbersome. Since we have however routes grouped by file, 
-we can take advantage of this and define the routing in each file also. For this we could create an extension for Application and define the routes:
+we can take advantage of this and define the routing in each file also. For this we could create an extension for [Application](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.application/-application/index.html) and define the routes:
 
-CustomerRoutes.kt
+<tabs>
+<tab title="CustomerRoutes.kt">
+
 ```kotlin
 fun Application.customerRoutes() {
     routing {
@@ -73,8 +77,8 @@ fun Application.customerRoutes() {
     }    
 }
 ```
-
-OrderRoutes.kt
+</tab>
+<tab title="OrderRoutes.kt">
 
 ```kotlin
 fun Application.orderRoutes() {
@@ -84,8 +88,12 @@ fun Application.orderRoutes() {
     }
 }
 ```
+</tab>
+</tabs>
 
-Now in our actual Application.module startup, we’d simply call these functions, without the need for routing block:
+
+
+Now in our actual `Application.module` startup, we’d simply call these functions, without the need for the `routing` block:
 
 ```kotlin
 fun Application.module() {
@@ -97,7 +105,7 @@ fun Application.module() {
 
 We can even take this one step further - install plugins per application, as needed, especially for instance when we’re using 
 the Authentication plugin which depends on specific routes. One important note however is that Ktor will detect if a 
-plugin has been installed twice by throwing an DuplicateApplicationFeatureException exception.
+plugin has been installed twice by throwing an [DuplicateApplicationFeatureException](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.application/-duplicate-application-feature-exception/index.html) exception.
 
 ### A note on using objects
 
@@ -110,7 +118,7 @@ necessary to use objects in case we’re worried about any kind of overhead.
 Having everything in a single file can become a bit cumbersome as the file grows. 
 What we could do instead is use folders (i.e. packages) to define different areas and then have each route in its own file.
 
-![Grouping by folders](ktor-routing-1.png)
+![Grouping by folders](ktor-routing-1.png){width="316"}
 
 While this does provide the advantage of a nice layout when it comes to routes and the individual actions, it could certainly 
 lead to “package overload”, and potentially having tons of filenames named the same, making navigation somewhat more difficult.
@@ -118,20 +126,19 @@ lead to “package overload”, and potentially having tons of filenames named t
 
 ## Grouping by features
 
-Frameworks such as ASP.NET MVC (or Ruby on Rails), have the concept of structuring applications using three folders - Model, View, and Controllers (Routes).
+Frameworks such as ASP.NET MVC or Ruby on Rails, have the concept of structuring applications using three folders - Model, View, and Controllers (Routes).
 
-![Model View Controller](ktor-routing-2.png)
+![Model View Controller](ktor-routing-2.png){width="382"}
 
 
-This isn’t far-fetched with the schema we have above which is grouping routes in their own packages/files, our views in the resources folder in the case of Ktor, and 
-of course, nothings prevents us from having a package model where we place any data we want to display or respond to HTTP endpoints with.
+This isn’t far-fetched with the schema we have above which is grouping routes in their own packages/files, our views in the `resources` folder in the case of Ktor, and of course, nothing prevents us from having a package model where we place any data we want to display or respond to HTTP endpoints with.
 
 While this approach may work and is similar to other frameworks, some would argue that it would make more sense to group things by features, i.e. instead of having the project 
 distributed by routes, models and views, have these groups by specific behaviour/features, i.e. `OrderProcessPayment`, `CustomerAddressChange`, etc.
 
-![Feature grouping](ktor-routing-3.png)
+![Feature grouping](ktor-routing-3.png){width="381"}
 
-With many frameworks, this kind of organization of code isn’t viable without seriously hacking the underlying conventions. However with Ktor, given how flexible it is, 
+With many frameworks, this kind of organization of code isn’t viable without seriously hacking the underlying conventions. However, with Ktor, given how flexible it is, 
 in principle it shouldn’t be a problem. With one caveat - when we’re using a [template engine](Working_with_views.md), resources could be an issue. But let’s see how we could solve this.
 
 How this problem is solved very much depends on what is used for Views. If our application is merely an HTTP backend and we’re using client-side technology, then usually all rendering is 

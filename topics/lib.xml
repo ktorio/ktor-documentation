@@ -8,14 +8,16 @@
 
     <chunk id="install_feature">
         <p>
-            To install the <code>%feature_name%</code> plugin, pass it to the <code>install</code> function in the application initialization code. Depending on the <a href="create_server.xml">way used to create a server</a>, this can be the <code>main</code> function ...
+            To install the <code>%feature_name%</code> plugin, pass it to the <code>install</code> function in the application initialization code. Depending on the <a href="create_server.xml">way used to create a server</a>, this can be the <code>embeddedServer</code> function call ...
         </p>
         <code style="block" lang="kotlin" interpolate-variables="true">
             import io.ktor.features.*
             // ...
-            fun Application.main() {
-                install(%feature_name%)
-                // ...
+            fun main() {
+                embeddedServer(Netty, port = 8080) {
+                    install(%feature_name%)
+                    // ...
+                }.start(wait = true)
             }
         </code>
         <p>
