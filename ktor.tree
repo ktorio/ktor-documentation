@@ -275,7 +275,7 @@
                          accepts-web-file-names="client-websockets.html,http-client-features-websockets.html,clients-websockets.html"/>
         </toc-element>
 
-        <toc-element id="http-client_testing.md"/>
+        <toc-element id="http-client_testing.md" show-structure-depth="2"/>
     </toc-element>
 
 
