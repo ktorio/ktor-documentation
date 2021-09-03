@@ -11,7 +11,7 @@ class ApiClientTest {
     @Test
     fun sampleClientTest() {
         runBlocking {
-            val mockEngine = MockEngine {
+            val mockEngine = MockEngine { request ->
                 respond(
                     content = ByteReadChannel("""{"ip":"127.0.0.1"}"""),
                     status = HttpStatusCode.OK,
