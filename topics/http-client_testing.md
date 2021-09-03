@@ -8,7 +8,7 @@ Ktor exposes a `MockEngine` for the HttpClient. This engine allows simulating HT
 To use `MockEngine`, you need to include the `ktor-client-mock` artifact in the build script:
 
 <var name="artifact_name" value="ktor-client-mock"/>
-<include src="lib.xml" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_artifact_testing"/>
 
 
 ## Usage {id="usage"}
