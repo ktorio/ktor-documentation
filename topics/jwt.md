@@ -23,20 +23,20 @@ Ktor handles JWTs passed in the `Authorization` header using the `Bearer` schema
 ## Add dependencies {id="add_dependencies"}
 To enable `JWT`authentication, you need to include the `ktor-auth` and `ktor-auth-jwt` artifacts in the build script:
 
-<tabs>
-    <tab title="Gradle (Groovy)">
+<tabs group="languages">
+    <tab title="Gradle (Groovy)" group-key="groovy">
         <code style="block" lang="Groovy" title="Sample">
             implementation "io.ktor:ktor-auth:$ktor_version"
             implementation "io.ktor:ktor-auth-jwt:$ktor_version"
         </code>
     </tab>
-    <tab title="Gradle (Kotlin)">
+    <tab title="Gradle (Kotlin)" group-key="kotlin">
         <code style="block" lang="Kotlin" title="Sample">
             implementation("io.ktor:ktor-auth:$ktor_version")
             implementation("io.ktor:ktor-auth-jwt:$ktor_version")
         </code>
     </tab>
-    <tab title="Maven">
+    <tab title="Maven" group-key="maven">
         <code style="block" lang="XML" title="Sample">
 &lt;dependency&gt;
 &lt;groupId&gt;io.ktor&lt;/groupId&gt;
@@ -95,15 +95,15 @@ You can find full runnable projects here: [auth-jwt-hs256](https://github.com/kt
 
 To configure JWT-related settings, you can create a custom `jwt` group in the [application.conf](Configurations.xml#hocon-file) configuration file. This file might look as follows:
 
-<tabs>
-<tab title="HS256">
+<tabs group="sign-alg">
+<tab title="HS256" group-key="hs256">
 
 ```
 ```
 {style="block" src="snippets/auth-jwt-hs256/src/main/resources/application.conf" lines="11-16"}
 
 </tab>
-<tab title="RS256">
+<tab title="RS256" group-key="rs256">
 
 ```
 ```
@@ -118,15 +118,15 @@ To configure JWT-related settings, you can create a custom `jwt` group in the [a
 
 You can [access these settings in code](Configurations.xml#read-configuration-in-code) in the following way:
 
-<tabs>
-<tab title="HS256">
+<tabs group="sign-alg">
+<tab title="HS256" group-key="hs256">
 
 ```kotlin
 ```
 {style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" lines="23-26"}
 
 </tab>
-<tab title="RS256">
+<tab title="RS256" group-key="rs256">
 
 ```kotlin
 ```
@@ -141,15 +141,15 @@ You can [access these settings in code](Configurations.xml#read-configuration-in
 
 To generate a JSON web token, you can use [JWTCreator.Builder](https://javadoc.io/doc/com.auth0/java-jwt/latest/com/auth0/jwt/JWTCreator.Builder.html). Code snippets below show how to do this for both `HS256` and `RS256` algorithms:
 
-<tabs>
-<tab title="HS256">
+<tabs group="sign-alg">
+<tab title="HS256" group-key="hs256">
 
 ```kotlin
 ```
 {style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" lines="46-57"}
 
 </tab>
-<tab title="RS256">
+<tab title="RS256" group-key="rs256">
 
 ```kotlin
 ```
@@ -182,15 +182,15 @@ The [verifier](https://api.ktor.io/ktor-features/ktor-auth-jwt/ktor-auth-jwt/io.
 * For `RS256`, you need to pass [JwkProvider](https://www.javadoc.io/doc/com.auth0/jwks-rsa/latest/com/auth0/jwk/JwkProvider.html), which specifies a JWKS endpoint for accessing a public key used to verify a token. In our case, an issuer is `http://0.0.0.0:8080`, so a JWKS endpoint address will be `http://0.0.0.0:8080/.well-known/jwks.json`.
 
 
-<tabs>
-<tab title="HS256">
+<tabs group="sign-alg">
+<tab title="HS256" group-key="hs256">
 
 ```kotlin
 ```
 {style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" lines="23-34,42-43"}
 
 </tab>
-<tab title="RS256">
+<tab title="RS256" group-key="rs256">
 
 ```kotlin
 ```

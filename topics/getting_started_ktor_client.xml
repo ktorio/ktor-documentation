@@ -103,8 +103,8 @@
                 <p>
                     Open the <path>build.gradle</path> or <path>build.gradle.kts</path> file and add the following artifacts to the dependencies block:
                 </p>
-                <tabs>
-                    <tab title="Gradle (Groovy)">
+                <tabs group="languages">
+                    <tab title="Gradle (Groovy)" group-key="groovy">
                         <code style="block" lang="groovy">
                             dependencies {
                                 implementation "io.ktor:ktor-client-core:%ktor_version%"
@@ -112,7 +112,7 @@
                             }
                         </code>
                     </tab>
-                    <tab title="Gradle (Kotlin)">
+                    <tab title="Gradle (Kotlin)" group-key="kotlin">
                         <code style="block" lang="kotlin">
                             dependencies {
                                 implementation("io.ktor:ktor-client-core:%ktor_version%")
