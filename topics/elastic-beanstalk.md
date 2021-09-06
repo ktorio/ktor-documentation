@@ -65,11 +65,11 @@ Then, add the `shadowJar` task:
 ## Build a Fat JAR {id="build"}
 To build a Fat JAR, open the terminal and execute the `shadowJar` task created in [this step](#configure-shadow-plugin):
 
-<tabs>
-<tab title="Linux/MacOS">
+<tabs group="os">
+<tab title="Linux/MacOS" group-key="unix">
 <code style="block" lang="Bash">./gradlew shadowJar</code>
 </tab>
-<tab title="Windows">
+<tab title="Windows" group-key="windows">
 <code style="block" lang="CMD">gradlew.bat shadowJar</code>
 </tab>
 </tabs>
