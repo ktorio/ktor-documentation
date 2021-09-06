@@ -31,11 +31,11 @@ In this topic, we'll use `installDist`:
 1. Open a terminal.
 1. Run the `installDist` task in one of the following ways depending on your operating system:
    
-   <tabs>
-   <tab title="Linux/MacOS">
+   <tabs group="os">
+   <tab title="Linux/MacOS" group-key="unix">
    <code style="block" lang="Bash">./gradlew installDist</code>
    </tab>
-   <tab title="Windows">
+   <tab title="Windows" group-key="windows">
    <code style="block" lang="CMD">gradlew.bat installDist</code>
    </tab>
    </tabs>
@@ -48,12 +48,12 @@ In this topic, we'll use `installDist`:
 To run the [packaged application](#package):
 1. Go to the `build/install/ktor-gradle-sample` folder in a terminal.
 1. Depending on your operating system, run the `ktor-gradle-sample` or `ktor-gradle-sample.bat` executable:
-   
-   <tabs>
-   <tab title="Linux/MacOS">
+
+   <tabs group="os">
+   <tab title="Linux/MacOS" group-key="unix">
    <code style="block" lang="Bash">./ktor-gradle-sample</code>
    </tab>
-   <tab title="Windows">
+   <tab title="Windows" group-key="windows">
    <code style="block" lang="CMD">ktor-gradle-sample.bat</code>
    </tab>
    </tabs>
