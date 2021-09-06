@@ -133,7 +133,7 @@
                     testImplementation("%group_id%:%artifact_name%:$%version%")
                 </code>
             </tab>
-            <tab title="Maven" group-key="xml">
+            <tab title="Maven" group-key="maven">
                 <code style="block" lang="XML" interpolate-variables="true">
         <![CDATA[
                     <dependency>
