@@ -84,7 +84,7 @@ If you need to start a server using a build system task, you need to configure t
     }
             </code>
         </tab>
-        <tab title="Maven" group-key="xml">
+        <tab title="Maven" group-key="maven">
             <code style="block" lang="XML" title="Sample">
         &lt;properties&gt;
             &lt;main.class&gt;io.ktor.server.netty.EngineMain&lt;/main.class&gt;

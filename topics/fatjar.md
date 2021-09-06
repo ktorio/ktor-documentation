@@ -15,8 +15,8 @@ Before starting this tutorial, clone the [ktor-gradle-sample](https://github.com
 To build a Fat JAR, you need to configure the Shadow plugin first:
 1. Open the `build.gradle(.kts)` file and add the plugin to the `plugins` block:
    
-   <tabs>
-   <tab title="Gradle (Groovy)">
+   <tabs group="languages">
+   <tab title="Gradle (Groovy)" group-key="groovy">
    
    ```groovy
    plugins {
@@ -26,7 +26,7 @@ To build a Fat JAR, you need to configure the Shadow plugin first:
    {interpolate-variables="true"}
    
    </tab>
-   <tab title="Gradle (Kotlin)">
+   <tab title="Gradle (Kotlin)" group-key="kotlin">
 
    ```kotlin
    plugins {
@@ -40,8 +40,8 @@ To build a Fat JAR, you need to configure the Shadow plugin first:
 
 2. Add the `shadowJar` task:
 
-   <tabs>
-   <tab title="Gradle (Groovy)">
+   <tabs group="languages">
+   <tab title="Gradle (Groovy)" group-key="groovy">
 
    ```groovy
    shadowJar {
@@ -52,7 +52,7 @@ To build a Fat JAR, you need to configure the Shadow plugin first:
    ```
 
    </tab>
-   <tab title="Gradle (Kotlin)">
+   <tab title="Gradle (Kotlin)" group-key="kotlin">
 
    ```kotlin
    tasks{
@@ -73,11 +73,11 @@ To build a Fat JAR, you need to configure the Shadow plugin first:
 ## Build a Fat JAR {id="build"}
 To build a Fat JAR, open the terminal and execute the `shadowJar` task created in the [previous step](#configure-plugin):
 
-<tabs>
-<tab title="Linux/MacOS">
+<tabs group="os">
+<tab title="Linux/MacOS" group-key="unix">
 <code style="block" lang="Bash">./gradlew shadowJar</code>
 </tab>
-<tab title="Windows">
+<tab title="Windows" group-key="windows">
 <code style="block" lang="CMD">gradlew.bat shadowJar</code>
 </tab>
 </tabs>

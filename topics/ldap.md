@@ -15,20 +15,20 @@ LDAP is a protocol for working with various directory services that can store in
 ## Add dependencies {id="add_dependencies"}
 To enable `LDAP` authentication, you need to include the `ktor-auth` and `ktor-auth-ldap` artifacts in the build script:
 
-<tabs>
-    <tab title="Gradle (Groovy)">
+<tabs group="languages">
+    <tab title="Gradle (Groovy)" group-key="groovy">
         <code style="block" lang="Groovy" title="Sample">
             implementation "io.ktor:ktor-auth:$ktor_version"
             implementation "io.ktor:ktor-auth-ldap:$ktor_version"
         </code>
     </tab>
-    <tab title="Gradle (Kotlin)">
+    <tab title="Gradle (Kotlin)" group-key="kotlin">
         <code style="block" lang="Kotlin" title="Sample">
             implementation("io.ktor:ktor-auth:$ktor_version")
             implementation("io.ktor:ktor-auth-ldap:$ktor_version")
         </code>
     </tab>
-    <tab title="Maven">
+    <tab title="Maven" group-key="maven">
         <code style="block" lang="XML" title="Sample">
 &lt;dependency&gt;
 &lt;groupId&gt;io.ktor&lt;/groupId&gt;

@@ -93,8 +93,8 @@
                 <p>
                     Open the <path>build.gradle</path> or <path>build.gradle.kts</path> file. It should look as follows:
                 </p>
-                <tabs>
-                    <tab title="Gradle (Groovy)">
+                <tabs group="languages">
+                    <tab title="Gradle (Groovy)" group-key="groovy">
                         <code style="block" lang="Groovy" interpolate-variables="true">
                             plugins {
                                 id 'org.jetbrains.kotlin.jvm' version '%kotlin_version%'
@@ -112,7 +112,7 @@
                             }
                         </code>
                     </tab>
-                    <tab title="Gradle (Kotlin)">
+                    <tab title="Gradle (Kotlin)" group-key="kotlin">
                         <code style="block" lang="Kotlin" interpolate-variables="true">
                             plugins {
                                 kotlin("jvm") version "%kotlin_version%"
@@ -160,8 +160,8 @@
                 <p>
                     The <code>dependencies</code> block might look as follows:
                 </p>
-                <tabs>
-                    <tab title="Gradle (Groovy)">
+                <tabs group="languages">
+                    <tab title="Gradle (Groovy)" group-key="groovy">
                         <code style="block" lang="Groovy" interpolate-variables="true">
                             dependencies {
                                 implementation "io.ktor:ktor-server-core:%ktor_version%"
@@ -170,7 +170,7 @@
                             }
                         </code>
                     </tab>
-                    <tab title="Gradle (Kotlin)">
+                    <tab title="Gradle (Kotlin)" group-key="kotlin">
                         <code style="block" lang="Kotlin" interpolate-variables="true">
                             dependencies {
                                 implementation("io.ktor:ktor-server-core:%ktor_version%")
@@ -264,15 +264,15 @@
                 <p>
                     Add the following code in the <code>plugins</code> block to use the Application plugin:
                 </p>
-                <tabs>
-                    <tab title="Gradle (Groovy)">
+                <tabs group="languages">
+                    <tab title="Gradle (Groovy)" group-key="groovy">
                         <code style="block" lang="Groovy">
                             plugins {
                                 id 'application'
                             }
                         </code>
                     </tab>
-                    <tab title="Gradle (Kotlin)">
+                    <tab title="Gradle (Kotlin)" group-key="kotlin">
                         <code style="block" lang="Kotlin">
                             plugins {
                                 application
@@ -290,15 +290,15 @@
                         <p>
                             If you use <a anchor="create-embedded-server">embeddedServer</a>, specify the main class as follows:
                         </p>
-                        <tabs>
-                            <tab title="Gradle (Groovy)">
+                        <tabs group="languages">
+                            <tab title="Gradle (Groovy)" group-key="groovy">
                                 <code style="block" lang="Groovy">
                                     application {
                                         mainClass = 'com.example.ApplicationKt'
                                     }
                                 </code>
                             </tab>
-                            <tab title="Gradle (Kotlin)">
+                            <tab title="Gradle (Kotlin)" group-key="kotlin">
                                 <code style="block" lang="Kotlin">
                                     application {
                                         mainClass.set("com.example.ApplicationKt")
@@ -312,15 +312,15 @@
                             If you use <a anchor="create-engine-main">EngineMain</a>, you need to configure it as the main class.
                             For Netty, it will look as follows:
                         </p>
-                        <tabs>
-                            <tab title="Gradle (Groovy)">
+                        <tabs group="languages">
+                            <tab title="Gradle (Groovy)" group-key="groovy">
                                 <code style="block" lang="Groovy">
                                     application {
                                         mainClass = 'io.ktor.server.netty.EngineMain'
                                     }
                                 </code>
                             </tab>
-                            <tab title="Gradle (Kotlin)">
+                            <tab title="Gradle (Kotlin)" group-key="kotlin">
                                 <code style="block" lang="Kotlin">
                                     application {
                                         mainClass.set("io.ktor.server.netty.EngineMain")
@@ -335,8 +335,8 @@
                 <p>
                     The resulting <path>build.gradle</path> / <path>build.gradle.kts</path> file should look something like this:
                 </p>
-                <tabs>
-                    <tab title="Gradle (Groovy)">
+                <tabs group="languages">
+                    <tab title="Gradle (Groovy)" group-key="groovy">
                         <code style="block" lang="Groovy" interpolate-variables="true">
                             plugins {
                                 id 'application'
@@ -362,7 +362,7 @@
                             }
                         </code>
                     </tab>
-                    <tab title="Gradle (Kotlin)">
+                    <tab title="Gradle (Kotlin)" group-key="kotlin">
                         <code style="block" lang="Kotlin" interpolate-variables="true">
                             plugins {
                                 application

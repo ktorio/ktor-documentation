@@ -66,15 +66,15 @@
                         <code>io.ktor.development</code> to the
                         <code>applicationDefaultJvmArgs</code> property in a <path>build.gradle</path> file:
                     </p>
-                    <tabs>
-                        <tab title="Gradle (Groovy)">
+                    <tabs group="languages">
+                        <tab title="Gradle (Groovy)" group-key="groovy">
                             <code style="block" lang="Groovy">
                                 application {
                                     applicationDefaultJvmArgs = ["-Dio.ktor.development=true"]
                                 }
                             </code>
                         </tab>
-                        <tab title="Gradle (Kotlin)">
+                        <tab title="Gradle (Kotlin)" group-key="kotlin">
                             <code style="block" lang="Kotlin">
                                 application {
                                     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=true")
