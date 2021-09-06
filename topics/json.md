@@ -14,6 +14,15 @@
 Before installing `JsonFeature`, you need to add a dependency for the desired serializer. If your project targets only JVM, you can add [Gson or Jackson](#jvm_dependency) dependency. For [multiplatform](http-client_multiplatform.md) projects, use the [kotlinx.serialization](#kotlinx_dependency) library. Depending on the included artifacts, Ktor chooses a default serializer automatically. If required, you can [specify the serializer](#configure_serializer) explicitly and configure it.
 
 
+### Multiplatform: kotlinx {id="kotlinx_dependency"}
+
+For multiplatform projects, you can use the `kotlinx.serialization` library. You can add it to the project as follows:
+1. Add the Kotlin serialization plugin, as described in the [Setup](https://github.com/Kotlin/kotlinx.serialization#setup) section.
+2. Add the `ktor-client-serialization` dependency:
+   <var name="artifact_name" value="ktor-client-serialization"/>
+   <include src="lib.xml" include-id="add_ktor_artifact"/>
+
+
 ### JVM: Gson and Jackson  {id="jvm_dependency"}
 To use Gson, add the following artifact to the build script:
 <var name="artifact_name" value="ktor-client-gson"/>
@@ -21,16 +30,6 @@ To use Gson, add the following artifact to the build script:
 
 For Jackson, add the following dependency:
 <var name="artifact_name" value="ktor-client-jackson"/>
-<include src="lib.xml" include-id="add_ktor_artifact"/>
-
-
-### JVM, iOS, JS: kotlinx {id="kotlinx_dependency"}
-
-For multiplatform projects, you can use the `kotlinx.serialization` library. You can add it to the project as follows:
-1. Add the Kotlin serialization plugin, as described in the [Setup](https://github.com/Kotlin/kotlinx.serialization#setup) section.
-1. Add the `ktor-client-serialization` dependency:
-   
-<var name="artifact_name" value="ktor-client-serialization"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
       
 
@@ -55,6 +54,25 @@ install(JsonFeature) {
 }
 ```
 For the selected serializer, you can access its API and adjust a configuration. Let's see how to do this.
+
+
+### kotlinx {id="kotlinx"}
+
+To use Kotlin serialization, assign the `KotlinxSerializer` instance to the `serializer` property:
+```kotlin
+install(JsonFeature) {
+    serializer = KotlinxSerializer()
+}
+```
+Inside the `KotlinxSerializer` constructor, you can access the [JsonBuilder](https://kotlin.github.io/kotlinx.serialization/kotlinx-serialization-json/kotlinx-serialization-json/kotlinx.serialization.json/-json-builder/index.html) API, for example:
+```kotlin
+install(JsonFeature) {
+    serializer = KotlinxSerializer(kotlinx.serialization.json.Json {
+        prettyPrint = true
+        isLenient = true
+    })
+}
+```
 
 
 ### Gson {id="gson"}
@@ -94,23 +112,7 @@ install(JsonFeature) {
 ```
 ... or pass the `ObjectMapper` instance directly to the `JacksonSerializer` constructor.
 
-### kotlinx {id="kotlinx"}
 
-To use Kotlin serialization, assign the `KotlinxSerializer` instance to the `serializer` property:
-```kotlin
-install(JsonFeature) {
-    serializer = KotlinxSerializer()
-}
-```
-Inside the `KotlinxSerializer` constructor, you can access the [JsonBuilder](https://kotlin.github.io/kotlinx.serialization/kotlinx-serialization-json/kotlinx-serialization-json/kotlinx.serialization.json/-json-builder/index.html) API, for example:
-```kotlin
-install(JsonFeature) {
-    serializer = KotlinxSerializer(kotlinx.serialization.json.Json {
-        prettyPrint = true
-        isLenient = true
-    })
-}
-```
 
 
 
