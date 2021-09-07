@@ -1,3 +1,0 @@
-[//]: # (title: SSL and Certificates)
-
-
