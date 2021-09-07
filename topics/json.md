@@ -1,7 +1,7 @@
 [//]: # (title: Json)
 
 <microformat>
-<var name="example_name" value="client-json"/>
+<var name="example_name" value="client-json-kotlinx"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
@@ -66,13 +66,10 @@ install(JsonFeature) {
 ```
 Inside the `KotlinxSerializer` constructor, you can access the [JsonBuilder](https://kotlin.github.io/kotlinx.serialization/kotlinx-serialization-json/kotlinx-serialization-json/kotlinx.serialization.json/-json-builder/index.html) API, for example:
 ```kotlin
-install(JsonFeature) {
-    serializer = KotlinxSerializer(kotlinx.serialization.json.Json {
-        prettyPrint = true
-        isLenient = true
-    })
-}
 ```
+{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="19-24"}
+
+You can find the full example here: [client-json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-json-kotlinx).
 
 
 ### Gson {id="gson"}
@@ -121,16 +118,15 @@ install(JsonFeature) {
 
 To receive and send data, you need to have a data class, for example:
 ```kotlin
-data class Customer(val firstName: String, val lastName: String)
 ```
+{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="14"}
+
 If you use [kotlinx.serialization](#kotlinx), make sure that this class has the `@Serializable` annotation:
 ```kotlin
-import kotlinx.serialization.Serializable
-
-@Serializable
-data class Customer(val firstName: String, val lastName: String)
 ```
-To learn more about kotlinx.serialization, see the [Kotlin Serialization Guide](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serialization-guide.md).
+{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="11-14"}
+
+To learn more about `kotlinx.serialization`, see the [Kotlin Serialization Guide](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serialization-guide.md).
 
 ### Send data {id="send_data"}
 
@@ -138,11 +134,13 @@ To send a [class instance](#create_data_class) within a [request](request.md) bo
 
 ```kotlin
 ```
-{src="snippets/_misc_client/PostMethodWithObject.kt"}
+{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="27-30"}
 
 ### Receive data {id="receive_data"}
 
 When a server sends a [response](response.md) with the `application/json` content, you can deserialize it by specifying a [data class](#create_data_class) as a parameter of the required request method, for example:
 ```kotlin
-val customer: Customer = client.get("http://127.0.0.1:8080/customer")
 ```
+{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="33"}
+
+You can find the full example here: [client-json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-json-kotlinx).

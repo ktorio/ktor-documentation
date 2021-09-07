@@ -76,7 +76,7 @@ With the enabled [Json](json.md) plugin, you can send a class instance within a 
 
 ```kotlin
 ```
-{src="snippets/_misc_client/PostMethodWithObject.kt"}
+{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="27-30"}
 
 You can learn more from the [](json.md) help section.
 
