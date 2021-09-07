@@ -1,3 +1,0 @@
-[//]: # (title: extending_ktor)
-
-

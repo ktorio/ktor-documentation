@@ -1,3 +1,0 @@
-[//]: # (title: getting_started)
-
-

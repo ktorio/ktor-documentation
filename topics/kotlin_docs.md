@@ -1,2 +1,0 @@
-[//]: # (title: Kotlin docs)
-
