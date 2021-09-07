@@ -47,10 +47,10 @@ You can learn more from the [](Working_with_views.md) help section.
 To enable serialization of data objects in Ktor, you need to install the [ContentNegotiation](serialization.md) plugin and register a required converter (for example, JSON). Then, you can use the [call.respond](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.response/respond.html) function to pass a data object in a response:
 
 ```kotlin
-post("/customer") {
-    call.respond(Customer(1, "Jet", "Brains"))
-}
 ```
+{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="32-36"}
+
+You can find the full example here: [json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/json-kotlinx).
 
 
 ### File {id="file"}

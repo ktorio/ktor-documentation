@@ -35,8 +35,8 @@ A [runnable example](https://github.com/ktorio/ktor-documentation/tree/main/code
 With the [JSON plugin](json.md) installed, you can deserialize JSON data into a data class when receiving responses, for example:
 
 ```kotlin
-val customer: Customer = client.get("http://127.0.0.1:8080/customer")
 ```
+{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="33"}
 
 To learn more, see [JSON plugin](json.md#receive_send_data).
 
