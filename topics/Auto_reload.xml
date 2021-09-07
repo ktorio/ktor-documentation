@@ -19,6 +19,7 @@
         <p>
             To use the Auto-reload feature, you need to enable the
             <a href="development_mode.xml" anchor="enable">development mode</a> first.
+            This depends on the way you used to <a href="create_server.xml">create and run a server</a>:
         </p>
         <list>
             <li>
@@ -69,13 +70,7 @@
                 <p>
                     In the <path>application.conf</path>, specify the <code>watch</code> option:
                 </p>
-                <code style="block">
-                    ktor {
-                        deployment {
-                            watch = [ classes ]
-                        }
-                    }
-                </code>
+                <code style="block" src="snippets/autoreload/src/main/resources/application.conf" lines="1-3,5-6,11"/>
                 <p>
                     You can specify several watch paths separated by a comma, for example:
                 </p>
@@ -120,10 +115,16 @@
                 <code style="block">
                     ./gradlew -t build
                 </code>
-                <p>
-                    In IntelliJ IDEA, you can create a dedicated
-                    <a href="https://www.jetbrains.com/help/idea/work-with-gradle-tasks.html#gradle_run_config">run configuration</a> for monitoring changes and pass <code>-t</code> to <control>Arguments</control>.
-                </p>
+                <tip>
+                    <p>
+                        To skip running tests when reloading a project, you can pass the <code>-x</code> option to the <code>build</code> task:
+                    </p>
+                    <p>
+                        <code style="block">
+                            ./gradlew -t build -x test -i
+                        </code>
+                    </p>
+                </tip>
             </li>
         </list>
     </chapter>
