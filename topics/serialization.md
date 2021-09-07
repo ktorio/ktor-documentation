@@ -37,43 +37,35 @@ See a corresponding topic to learn how to install the required dependencies, reg
 ### Create a data class {id="create_data_class"}
 To deserialize received data into an object, you need to create a data class, for example:
 ```kotlin
-data class Customer(val id: Int, val firstName: String, val lastName: String)
 ```
+{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="14"}
+
 If you use [kotlinx.serialization](kotlin_serialization.md), make sure that this class has the `@Serializable` annotation:
 ```kotlin
-import kotlinx.serialization.Serializable
-
-@Serializable
-data class Customer(val id: Int, val firstName: String, val lastName: String)
 ```
+{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="10,12-14"}
 
 ### Receive data {id="receive_data"}
 To receive and convert a content for a request, call the [receive](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.request/receive.html) method that accepts a data class as a parameter:
 ```kotlin
 ```
-{src="snippets/_misc/SerializationReceiveObject.kt"}
+{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="38-42"}
 
 The `Content-Type` of the request will be used to choose a [converter](#register_converter) for processing the request. The example below shows a sample [HTTP client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html) request containing JSON data that will be converted to a `Customer` object on the server side:
 
 ```HTTP
-POST http://0.0.0.0:8080/customer
-Content-Type: application/json
-
-{
-  "id": 1,
-  "firstName" : "Jet",
-  "lastName": "Brains"
-}
 ```
+{src="snippets/json-kotlinx/post.http"}
+
+You can find the full example here: [json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/json-kotlinx).
 
 ### Send data {id="send_data"}
 To pass a data object in a response, you can use the [respond](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.response/respond.html) method:
 ```kotlin
-post("/customer") {
-    call.respond(Customer(1, "Jet", "Brains"))
-}
 ```
-In this case, Ktor uses the `Accept` header to choose the required [converter](#register_converter).
+{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="32-36"}
+
+In this case, Ktor uses the `Accept` header to choose the required [converter](#register_converter). You can find the full example here: [json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/json-kotlinx).
 
 
 

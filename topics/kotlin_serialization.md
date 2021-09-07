@@ -1,5 +1,10 @@
 [//]: # (title: kotlinx.serialization)
 
+<microformat>
+<var name="example_name" value="json-kotlinx"/>
+<include src="lib.xml" include-id="download_example"/>
+</microformat>
+
 [ContentNegotiation](serialization.md) allows you to use content converters provided by the [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization) library. This library supports JSON, CBOR, ProtoBuf, and other formats.
 
 
@@ -28,14 +33,9 @@ install(ContentNegotiation) {
 ```
 Inside the `json` method, you can access the [JsonBuilder](https://kotlin.github.io/kotlinx.serialization/kotlinx-serialization-json/kotlinx-serialization-json/kotlinx.serialization.json/-json-builder/index.html) API, for example:
 ```kotlin
-install(ContentNegotiation) {
-    json(Json {
-        prettyPrint = true
-        isLenient = true
-        // ...
-    })
-}
 ```
+{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="25-30"}
+
 To learn how to receive and send data, see [](serialization.md#receive_send_data).
 
 

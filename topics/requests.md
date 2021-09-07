@@ -51,10 +51,10 @@ You can also obtain the entire query string using the [ApplicationRequest.queryS
 This section shows how to receive body contents sent with `POST`, `PUT`, or `PATCH`:
 
 ### Objects {id="objects"}
-Ktor provides a [ContentNegotiation](serialization.md) plugin to negotiate the media type of request and deserialize content to an object of a required type. To receive and convert content for a request, call the [receive](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.request/receive.html) method that accepts a data class as a parameter: 
+Ktor provides a [ContentNegotiation](serialization.md) plugin to negotiate the media type of request and deserialize content to an object of a required type. To receive and convert content for a request, call the [receive](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.request/receive.html) method that accepts a data class as a parameter:
 ```kotlin
 ```
-{src="snippets/_misc/SerializationReceiveObject.kt"}
+{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="38-42"}
 
 You can learn more from [](serialization.md).
 
