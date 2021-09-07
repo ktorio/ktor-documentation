@@ -36,18 +36,14 @@ You can find the full example here: [embedded-server-modules](https://github.com
 
 ### Load multiple modules {id="multiple-modules"}
 
-To use multiple modules with `embeddedServer`, you need to create a [custom environment](Configurations.xml#embedded-custom) and pass it to `embeddedServer` as a parameter. For a custom environment, you can define modules to load using the [ApplicationEngineEnvironmentBuilder.modules](https://api.ktor.io/ktor-server/ktor-server-host-common/ktor-server-host-common/io.ktor.server.engine/-application-engine-environment-builder/modules.html) property.
+To use multiple modules with `embeddedServer`, call the required extension functions inside the block.
 
 ```kotlin
 fun main() {
-    val environment = applicationEngineEnvironment {
-        log = LoggerFactory.getLogger("ktor.application")
-        connector {
-            port = 8080
-        }
-        modules.addAll(arrayOf(Application::module1, Application::module2))
-    }
-    embeddedServer(Netty, environment).start(wait = true)
+    embeddedServer(Netty, port = 8080) {
+        module1()
+        module2()
+    }.start(wait = true)
 }
 ```
 
