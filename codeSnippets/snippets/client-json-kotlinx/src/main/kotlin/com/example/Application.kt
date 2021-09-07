@@ -26,7 +26,7 @@ fun main() {
 
         val response: HttpResponse = client.post("http://localhost:8080/customer") {
             contentType(ContentType.Application.Json)
-            body = Customer(3,"Jet", "Brains")
+            body = Customer(3, "Jet", "Brains")
         }
         println(response.readText())
 
