@@ -1,4 +1,4 @@
-# kotlinx.serialization
+# JSON - kotlinx.serialization
 A sample project demonstrating how to use the `kotlinx.serialization` library to [serialize and deserialize JSON](https://ktor.io/docs/serialization.html) in Ktor.
 
 ## Running
