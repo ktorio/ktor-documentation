@@ -59,14 +59,14 @@ fun Application.main() {
 
 ## Configuration
 
-- `method("HTTP_METHOD")` : Includes this method to the white list of Http methods to use CORS.
-- `header("header-name")` : Includes this header to the white list of headers to use CORS.
+- `method("HTTP_METHOD")` : Includes this method to the allow list of Http methods to use CORS.
+- `header("header-name")` : Includes this header to the allow list of headers to use CORS.
 - `exposeHeader("header-name")` : Exposes this header in the response.
 - `exposeXHttpMethodOverride()` : Exposes `X-Http-Method-Override` header in the response
 - `anyHost()` : Allows any host to access the resources
 - `host("hostname")` : Allows only the specified host to use CORS, it can have the port number, a list of subDomains or the supported schemes.
 - `allowCredentials` : Includes `Access-Control-Allow-Credentials` header in the response
-- `allowNonSimpleContentTypes`: Inclues `Content-Type` request header to the white list for values other than [simple content types](https://www.w3.org/TR/cors/#simple-header).
+- `allowNonSimpleContentTypes`: Inclues `Content-Type` request header to the allow list for values other than [simple content types](https://www.w3.org/TR/cors/#simple-header).
 - `maxAge`: Includes `Access-Control-Max-Age` header in the response with the given max age
 
 
