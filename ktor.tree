@@ -44,6 +44,8 @@
                 <toc-element id="Configurations.xml"
                              show-structure-depth="2"
                              accepts-web-file-names="configuration.html,environments.html"/>
+                <toc-element id="logging.md"
+                             accepts-web-file-names="servers-logging.html"/>
                 <toc-element id="Modules.md" show-structure-depth="2"/>
                 <toc-element id="Plugins.md"
                              accepts-web-file-names="zfeatures.html,features.html"/>
@@ -152,9 +154,7 @@
             </toc-element>
 
             <toc-element toc-title="Monitoring">
-                <toc-element id="logging.md"
-                             show-structure-depth="2"
-                             accepts-web-file-names="servers-logging.html,call-logging.html"/>
+                <toc-element id="call-logging.md" show-structure-depth="2"/>
                 <toc-element id="micrometer_metrics.md"
                              show-structure-depth="2"
                              accepts-web-file-names="metrics-micrometer.html"/>
