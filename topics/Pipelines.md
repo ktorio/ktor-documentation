@@ -1,4 +1,4 @@
-[//]: # (title: Pipelines)
+§[//]: # (title: Pipelines)
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
@@ -173,7 +173,7 @@ The purpose for intercepting each phase:
 * `Fallback`: features that process unhandled calls in a normal way and resolve them somehow, like the [StatusPages] feature
 
 [CallId]: call-id.md
-[CallLogging]: logging.md#call_logging
+[CallLogging]: call-logging.md
 [Authentication]: authentication.md
 [Routing]: Routing_in_Ktor.md
 [StatusPages]: status_pages.md
