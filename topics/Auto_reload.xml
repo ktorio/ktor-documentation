@@ -7,8 +7,11 @@
        id="Auto_reload">
 
     <microformat>
-        <var name="example_name" value="autoreload"/>
-        <include src="lib.xml" include-id="download_example"/>
+        <p>
+            Code examples:
+            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/autoreload-engine-main">autoreload-engine-main</a>,
+            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/autoreload-embedded-server">autoreload-embedded-server</a>
+        </p>
     </microformat>
 
     <p>
@@ -70,25 +73,25 @@
                 <p>
                     In the <path>application.conf</path>, specify the <code>watch</code> option:
                 </p>
-                <code style="block" src="snippets/autoreload/src/main/resources/application.conf" lines="1-3,5-6,11"/>
+                <code style="block" src="snippets/autoreload-engine-main/src/main/resources/application.conf" lines="1-3,5-6,11"/>
                 <p>
                     You can specify several watch paths separated by a comma, for example:
                 </p>
                 <code style="block">
                     watch = [ classes, resources ]
                 </code>
+                <p>
+                    You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/autoreload-engine-main">autoreload-engine-main</a>.
+                </p>
             </li>
             <li>
                 <p>
-                    If you are using <code>embeddedServer</code>, use the <code>watchPaths</code> parameter:
+                    If you are using <code>embeddedServer</code>, pass a watch path as the <code>watchPaths</code> parameter:
                 </p>
-                <code style="block" lang="Kotlin">
-                    embeddedServer(
-                        Netty,
-                        // ...
-                        watchPaths = listOf("classes")
-                    ).start(wait = true)
-                </code>
+                <code style="block" lang="Kotlin" src="snippets/autoreload-embedded-server/src/main/kotlin/com/example/Application.kt" lines="10-16"/>
+                <p>
+                    You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/autoreload-embedded-server">autoreload-embedded-server</a>.
+                </p>
             </li>
         </list>
     </chapter>
