@@ -30,7 +30,7 @@ type conversions. Inside, you have to provide a decoder and an encoder
 with the `decode` and `encode` methods accepting callbacks.
 
 * decode callback: `converter: (values: List<String>, type: Type) -> Any?`
-  Accepts `values`, a list of strings) representing repeated values in the URL, for example, `a=1&a=2`,
+  Accepts `values`, a list of strings representing repeated values in the URL, for example, `a=1&a=2`,
   and accepts the `type` to convert to. It should return the decoded value.
 * encode callback: `converter: (value: Any?) -> List<String>` 
   Accepts an arbitrary value, and should return a list of strings representing the value.
@@ -59,7 +59,7 @@ install(DataConversion) {
 }
 ```
 
-Another potential use is to customize how a specific enum is serialized. By default enums are serialized and de-serialized
+Another potential use is to customize how a specific enum is serialized. By default, enums are serialized and de-serialized
 using its `.name` in a case-sensitive fashion. But you can for example serialize them as lower case and deserialize
 them in a case-insensitive fashion: 
 

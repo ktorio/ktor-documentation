@@ -32,7 +32,7 @@ Unlike regular HTTP requests, WebSocket connections can be kept open for a long 
 
 WebSockets are also a widely supported technology. All modern browsers can work with WebSockets out of the box, and frameworks to work with WebSockets exist in many programming languages and on many platforms.
 
-Now that we have confidence in the technology we want to use for the implementation of our project, let’s start with the set up!
+Now that we have confidence in the technology we want to use for the implementation of our project, let’s start with the set-up!
 
 
 ## Project setup
@@ -156,7 +156,7 @@ Let’s turn our echo server into a real chat server! To do this, we need to mak
 
 Both of these features need us to be able to keep track of the connections our server is holding – to know which user is sending the messages, and to know who to broadcast them to.
 
-Ktor manages a WebSocket connection with an object of the type `DefaultWebSocketSession`, which contains everything required for communicating via WebSockets, including the `incoming` and `outgoing` channels, convenience methods for communication, and more. For now, we can simplify the problem of assigning usernames, and just give each participant an auto-generated user name based on a counter. Add the following implementation to a new file in `server/src/main/kotlin/com/jetbrains/handson/chat/server/` called `Connection.kt`:
+Ktor manages a WebSocket connection with an object of the type `DefaultWebSocketSession`, which contains everything required for communicating via WebSockets, including the `incoming` and `outgoing` channels, convenience methods for communication, and more. For now, we can simplify the problem of assigning usernames, and just give each participant an auto-generated username based on a counter. Add the following implementation to a new file in `server/src/main/kotlin/com/jetbrains/handson/chat/server/` called `Connection.kt`:
 
 ```kotlin
 import io.ktor.http.cio.websocket.*
@@ -307,7 +307,7 @@ suspend fun DefaultClientWebSocketSession.inputMessages() {
 
 Once again defined as a suspending extension function on `DefaultClientWebSocketSession`, this function's only job is to read text from the command line and send it to the server, or to return when the user types `exit`.
 
-Where we previously had one loop which had to take care of reading input and printing output, we now have separated these tasks into their own functions, which can operate independently from each other.
+Where we previously had one loop which had to take care of reading input and printing output, we now have separated these tasks into their own functions, which can operate independently of each other.
 
 #### Wiring it together
 

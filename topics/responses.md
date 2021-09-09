@@ -19,7 +19,7 @@ get("/") {
 ```
 
 ### HTML {id="html"}
-Ktor provides two main ways to send HTML responses a to client:
+Ktor provides two main ways to send HTML responses to a client:
 * By building HTML using Kotlin HTML DSL.
 * By using JVM template engines, such as Freemarker, Velocity, and so on.
 

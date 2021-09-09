@@ -18,6 +18,6 @@ val client = HttpClient(HttpClientEngine) {
 }
 ```
 
->This plugin is included in the core of the HttpClient so it is available always along the client.
+>This plugin is included in the core of the HttpClient, so it is available always along the client.
 >
 {type="note"}

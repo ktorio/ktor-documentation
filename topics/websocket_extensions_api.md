@@ -52,7 +52,7 @@ class FrameLoggerExtension(val logger: Logger) : WebSocketExtension<FrameLogger.
 The feature has two groups of fields and methods. The first group is for extension negotiation:
 
 ```kotlin
-    /** List of protocols will be send in client request for negotiation **/
+    /** List of protocols will be sent in client request for negotiation **/
     override val protocols: List<WebSocketExtensionHeader> = emptyList()
    
     /** 
@@ -65,7 +65,7 @@ The feature has two groups of fields and methods. The first group is for extensi
     }
 
     /**
-      * This method will be called on the client with list of protocols, produced by `serverNegotiation`. It will decide if this extensions should be used. 
+      * This method will be called on the client with list of protocols, produced by `serverNegotiation`. It will decide if these extensions should be used. 
       */ 
     override fun clientNegotiation(negotiatedProtocols: List<WebSocketExtensionHeader>): Boolean {
         logger.log("Client negotiation")
@@ -109,7 +109,7 @@ The factory is usually implemented in a companion object (similar to regular fea
         override val key: AttributeKey<FrameLogger> = AttributeKey("frame-logger")
 
         /** List of occupied rsv bits.
-         * If the extension occupy a bit, it can't be used in other installed extensions. We use that bits to prevent feature conflicts(prevent to install multiple compression features). If you implementing feature using some RFC, rsv occupied bits should be referenced there.
+         * If the extension occupy a bit, it can't be used in other installed extensions. We use that bits to prevent feature conflicts(prevent to install multiple compression features). If you're implementing feature using some RFC, rsv occupied bits should be referenced there.
          */
         override val rsv1: Boolean = false
         override val rsv2: Boolean = false

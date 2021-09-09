@@ -32,7 +32,7 @@ fun Application.main() {
 
 ```kotlin
 install(PartialContent) {
-    // Maximum number of ranges that will be accepted from a HTTP request.
+    // Maximum number of ranges that will be accepted from an HTTP request.
     // If the HTTP request specifies more ranges, they will all be merged into a single range.
     maxRangeCount = 10
 }

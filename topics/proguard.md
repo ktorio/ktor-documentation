@@ -2,7 +2,7 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-If you have some restrictions on your JAR size (for example when deploying a free application to [heroku](heroku.md),
+If you have some restrictions on your JAR size, for example, when deploying a free application to [heroku](heroku.md),
 you can use proguard to shrink it. If you are using gradle, it is pretty straightforward to use the
 `proguard-gradle` plugin. You only have to remember to keep: your main module method, the EngineMain
 class, and the Kotlin reflect classes. You can then fine-tune it as required:

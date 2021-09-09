@@ -36,8 +36,8 @@ troubleshooting usually requires several questions and answers, that could be a 
 spread in the time, and maybe the people subscribed want to be informed about bugs, fixes, new things introduced
 or proposed, but maybe they are not interested in other things.
 
-If you have enough time or you prefer not to join Slack, you can also ask questions at StackOverflow.
-With slack being an hybrid between chat and forum, we can contact each other faster and troubleshoot things in less time.
+If you have enough time, or you prefer not to join Slack, you can also ask questions at StackOverflow.
+With Slack being a hybrid between chat and forum, we can contact each other faster and troubleshoot things in less time.
 
 When troubleshooting, if we determine that there is a bug, or something to improve, you can report it a GitHub.
 Of course, it is not a good idea either to keep a bug report (once confirmed) just in Slack since it could be forgotten,
@@ -127,7 +127,7 @@ route.insertPhaseAfter(PhaseDefinedInAncestor, MyNodePhase)
 ## I get a `io.ktor.server.engine.BaseApplicationResponse$ResponseAlreadySentException: Response has already been sent`
 {id="response-already-sent"}
 
-This means that you, or a plugin or interceptor, have already called `call.respond*` functions and you are calling it
+This means that you, or a plugin or interceptor, have already called `call.respond*` functions, and you are calling it
 again.
 
 ## How can I subscribe to Ktor events?

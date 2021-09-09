@@ -5,7 +5,7 @@
 The `HttpsRedirect` plugin (previously known as feature) will make all the affected HTTP calls perform a redirect to its
 HTTPS counterpart before processing the call.
 
-By default the redirection is a `301 Moved Permanently`,
+By default, the redirection is a `301 Moved Permanently`,
 but it can be configured to be a `302 Found` redirect.
 
 
