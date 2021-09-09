@@ -46,4 +46,4 @@ You can also access the Logger from [ApplicationCall](https://api.ktor.io/ktor-s
 ```
 {src="snippets/logging/src/main/kotlin/com/example/Application.kt" lines="26-28,30,34"}
 
-Ktor also provides the [CallLogging](call-logging.md) plugin for logging client requests.
+To enable logging of client requests, you can use the [CallLogging](call-logging.md) plugin.
