@@ -42,7 +42,7 @@ class CustomFeature(configuration: Configuration) {
 }
 ```
 
-`CustomFeature` is a plugin instance class, which should be immutable to avoid unintended side-effects in a highly concurrent environment.
+`CustomFeature` is a plugin instance class, which should be immutable to avoid unintended side effects in a highly concurrent environment.
 Plugin implementation should be thread-safe as it will be called from multiple threads.
 
 The `Configuration` instance is handed to the user installation script, allowing plugin configuration usually containing mutable properties and configuration methods.

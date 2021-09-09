@@ -45,7 +45,7 @@ Comparison:
 
 ## Custom types
 
-If a custom content transformation is installed (for example, by intercepting receive pipeline), then a transformed value couldn't be re-received without `receiveEntireContent` option by default. However it is possible to mark a transformed value object as reusable by specifying `reusableValue` option:
+If a custom content transformation is installed (for example, by intercepting receive pipeline), then a transformed value couldn't be re-received without `receiveEntireContent` option by default. However, it is possible to mark a transformed value object as reusable by specifying `reusableValue` option:
 
 ```kotlin
 val converted = .... // convert somehow from a request payload

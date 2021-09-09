@@ -221,7 +221,7 @@ val blogEntries = mutableListOf(BlogEntry(
 ))
 ```
 
-At this point, we have defined a template and the model that is will be used for rendering it. Now, Ktor just needs to pass our stored journal entries and serve the resulting page.
+At this point, we have defined a template and the model that will be used for rendering it. Now, Ktor just needs to pass our stored journal entries and serve the resulting page.
 
 ### Serving the templated content
 

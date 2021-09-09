@@ -158,7 +158,7 @@ install(FreeMarker) {
 ```
 
 Obviously this code isn’t ideal as it uses relative paths amongst other things, but it’s not hard to see how we could actually have 
-this loop through folders and load templates, or even have a custom build action that copies views to our resources folder prior to execution. 
+this loop through folders and load templates, or even have a custom build action that copies views to our `resources` folder prior to execution. 
 There are quite a number of ways to solve the issue.
 
 The benefit of this approach is that we can group everything related to the same functionality in a single location, by feature, as opposed to 

@@ -7,7 +7,7 @@ Before running this sample, start a server from the [simulate-slow-server](https
 ```bash
 ./gradlew :simulate-slow-server:run
 ```
-In this example, a server adds a two second delay to each response.
+In this example, a server adds a two-second delay to each response.
 
 Then, run this sample by executing the following command in a repository's root directory:
 ```bash

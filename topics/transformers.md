@@ -81,7 +81,7 @@ cookie<TestUserSession>(cookieName) {
 {id="SessionTransportTransformerEncrypt"}
 
 The `SessionTransportTransformerEncrypt` provides a session transport transformer that encrypts the payload
-and authenticates it. By default it uses `AES` and `HmacSHA256`, but you can configure it. It requires
+and authenticates it. By default, it uses `AES` and `HmacSHA256`, but you can configure it. It requires
 an encryption key and an authentication key compatible in size with the algorithms:
 
 ```kotlin
@@ -115,7 +115,7 @@ cookie<MySession>("NAME") {
 ```
 
 `SessionTransportTransformer` allows to transform the value that is transferred along the request. Since it is
-composable, it can has as input either the transported value or a transformation of it. It is composed by two methods:
+composable, it can have as input either the transported value or a transformation of it. It is composed by two methods:
 One that applies the transformation (`transformWrite`) and other that will unapply it (`transformRead`).
 The input and the output are Strings in both cases.
 Normally `transformWrite` should always work, while `transformRead` might fail if the input is malformed or invalid in

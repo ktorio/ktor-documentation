@@ -2,7 +2,7 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-Ktor's HTTP client and server provide a common interface while allowing to use of several different engines to perform and handle HTTP requests.
+Ktor's HTTP client and server provide a common interface while allowing to use of different engines to perform and handle HTTP requests.
 
 Ktor includes several artifacts and engines:
 * For the server: `Netty`, `Jetty`, `Tomcat`, `CIO`, `TestEngine`

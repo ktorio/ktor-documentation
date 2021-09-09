@@ -12,10 +12,10 @@ If no configuration specified in configuration or HTTP call properties, `Charset
 ```kotlin
 val client = HttpClient(HttpClientEngine) {
     Charsets {
-        // Allow to use `UTF_8`.
+        // Allow using `UTF_8`.
         register(Charsets.UTF_8)
 
-        // Allow to use `ISO_8859_1` with quality 0.1.
+        // Allow using `ISO_8859_1` with quality 0.1.
         register(Charsets.ISO_8859_1, quality=0.1f)
         
         // Specify Charset to send request(if no charset in request headers).

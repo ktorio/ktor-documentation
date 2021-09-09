@@ -15,7 +15,7 @@ to tell Ktor how to start your application.
 
 ### Defining the configuration
 
-In the resources folder, create a file named `application.conf` with the following contents
+In the `resources` folder, create a file named `application.conf` with the following contents
 
 ```kotlin
 ktor {
