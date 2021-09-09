@@ -3,11 +3,10 @@ plugins {
     id 'org.jetbrains.kotlin.jvm'
 }
 
-mainClassName = "io.ktor.server.netty.EngineMain"
+mainClassName = "com.example.ApplicationKt"
 
 application {
-    // As an alternative way, uncomment this line to enable the development mode using the 'io.ktor.development' system property
-    // applicationDefaultJvmArgs = ["-Dio.ktor.development=true"]
+     applicationDefaultJvmArgs = ["-Dio.ktor.development=true"]
 }
 
 repositories {
