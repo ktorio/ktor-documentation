@@ -1,5 +1,6 @@
 # CORS - backend
-A sample project demonstrating how to use the `kotlinx.serialization` library to [serialize and deserialize JSON](https://ktor.io/docs/serialization.html) in Ktor.
+
+A sample project demonstrating how to configure [CORS](https://ktor.io/docs/cors.html) on a Ktor server. You can test this sample using the [cors-frontend](../cors-frontend) application, which allows you to make a `fetch` cross-origin request.
 
 ## Running
 To run this sample, execute the following command in a repository's root directory:
@@ -11,3 +12,14 @@ To run this sample, execute the following command in a repository's root directo
 gradlew.bat :cors-backend:run
 ```
 
+To run the [cors-frontend](../cors-frontend) sample, execute the following command:
+
+```bash
+# macOS/Linux
+./gradlew :cors-frontend:run
+
+# Windows
+gradlew.bat :cors-frontend:run
+```
+
+Then, open the [http://localhost:8080/](http://localhost:8080/) page and click the button to make a cross-origin request.
