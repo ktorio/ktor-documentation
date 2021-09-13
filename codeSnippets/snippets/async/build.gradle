@@ -12,7 +12,7 @@ sourceSets {
 
 repositories {
     mavenCentral()
-    maven { url "" }
+    maven { url "https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven" }
 }
 
 dependencies {
