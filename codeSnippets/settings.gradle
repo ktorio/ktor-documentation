@@ -24,7 +24,6 @@ def module(group, name) {
 module('snippets', 'jetty-war')
 module('snippets', 'tomcat-war')
 module('snippets', 'docker')
-module('snippets', 'async')
 module('snippets', 'auth')
 module('snippets', 'auth-basic')
 module('snippets', 'auth-basic-hash-table')
