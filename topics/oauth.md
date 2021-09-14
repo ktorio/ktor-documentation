@@ -2,7 +2,7 @@
 
 <microformat>
 <p>
-Required dependencies: <code>io.ktor:ktor-auth</code>
+Required dependencies: <code>io.ktor:ktor-server-auth</code>
 </p>
 <var name="example_name" value="auth-oauth-google"/>
 <include src="lib.xml" include-id="download_example"/>
@@ -16,7 +16,7 @@ The `oauth` provider supports the authorization code flow. You can configure OAu
 
 ## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="OAuth"/>
-<var name="artifact_name" value="ktor-auth"/>
+<var name="artifact_name" value="ktor-server-auth"/>
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
@@ -66,7 +66,7 @@ Before configuring the `oauth` provider, you need to initialize the `HttpClient`
 
 ```kotlin
 ```
-{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="22-26"}
+{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="23-27"}
 
 Note that the client also has the [](json.md) plugin installed. This is required to deserialize received JSON data [after a request to API](#request-api).
 
@@ -77,7 +77,7 @@ The code snippet below shows how to create and configure the `oauth` provider wi
 
 ```kotlin
 ```
-{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="27-43"}
+{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="28-44"}
 
 * The `urlProvider` specifies a [redirect route](#redirect-route) that will be opened when authorization is completed. 
 * `providerLookup` allows you to specify OAuth settings for a required provider. These settings allow Ktor to make automatic requests to the OAuth server. 
@@ -89,7 +89,7 @@ After configuring the `oauth` provider, you need to create a protected login rou
 
 ```kotlin
 ```
-{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="44-48,55,78"}
+{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="45-49,56,79"}
 
 A user will see the authorization page with the level of permissions required for a Ktor application. These permissions depend on `defaultScopes` specified in [providerLookup](#configure-oauth-provider).
 
@@ -101,7 +101,7 @@ Inside this route you can retrieve the [OAuthAccessTokenResponse](https://api.kt
 
 ```kotlin
 ```
-{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="44-55,78"}
+{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="45-56,79"}
 
 In this example, the following actions are performed after receiving a token:
 * a token is saved to a cookie [session](sessions.md), whose content can be accessed inside other routes;
@@ -114,6 +114,6 @@ After receiving a token inside the [redirect route](#redirect-route) and saving 
 
 ```kotlin
 ```
-{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="65-77"}
+{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="66-78"}
 
 You can find the complete runnable example here: [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-oauth-google). 

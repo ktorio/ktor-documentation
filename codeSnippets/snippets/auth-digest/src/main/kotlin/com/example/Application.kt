@@ -1,10 +1,10 @@
 package com.example
 
-import io.ktor.application.*
-import io.ktor.auth.*
-import io.ktor.response.*
-import io.ktor.routing.*
-import java.security.MessageDigest
+import io.ktor.server.application.*
+import io.ktor.server.auth.*
+import io.ktor.server.response.*
+import io.ktor.server.routing.*
+import java.security.*
 import kotlin.text.Charsets.UTF_8
 
 fun getMd5Digest(str: String): ByteArray = MessageDigest.getInstance("MD5").digest(str.toByteArray(UTF_8))

@@ -1,17 +1,18 @@
 package com.example
 
-import io.ktor.application.*
-import io.ktor.auth.*
 import io.ktor.client.*
+import io.ktor.client.call.*
 import io.ktor.client.engine.cio.*
-import io.ktor.client.features.json.*
-import io.ktor.client.features.json.serializer.*
+import io.ktor.client.plugins.*
 import io.ktor.client.request.*
-import io.ktor.html.*
 import io.ktor.http.*
-import io.ktor.response.*
-import io.ktor.routing.*
-import io.ktor.sessions.*
+import io.ktor.server.application.*
+import io.ktor.server.auth.*
+import io.ktor.server.html.*
+import io.ktor.server.response.*
+import io.ktor.server.routing.*
+import io.ktor.server.sessions.*
+import io.ktor.shared.serialization.kotlinx.*
 import kotlinx.html.*
 import kotlinx.serialization.*
 
@@ -20,8 +21,8 @@ fun Application.main() {
         cookie<UserSession>("user_session")
     }
     val httpClient = HttpClient(CIO) {
-        install(JsonFeature) {
-            serializer = KotlinxSerializer()
+        install(ContentNegotiation) {
+            json()
         }
     }
     install(Authentication) {
@@ -69,7 +70,7 @@ fun Application.main() {
                     headers {
                         append(HttpHeaders.Authorization, "Bearer ${userSession.token}")
                     }
-                }
+                }.body()
                 call.respondText("Hello, ${userInfo.name}!")
             } else {
                 call.respondRedirect("/")

@@ -2,7 +2,7 @@
 
 <microformat>
 <p>
-Required dependencies: <code>io.ktor:ktor-auth</code>
+Required dependencies: <code>io.ktor:ktor-server-auth</code>
 </p>
 <p>
 Code examples: 
@@ -18,8 +18,8 @@ Form-based authentication uses a [web form](https://developer.mozilla.org/en-US/
 
 
 ## Add dependencies {id="add_dependencies"}
-To enable `form` authentication, you need to include the `ktor-auth` artifact in the build script:
-<var name="artifact_name" value="ktor-auth"/>
+To enable `form` authentication, you need to include the `ktor-server-auth` artifact in the build script:
+<var name="artifact_name" value="ktor-server-auth"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Form-based authentication flow {id="flow"}

@@ -2,7 +2,7 @@
 
 <microformat>
 <p>
-Required dependencies: <code>io.ktor:ktor-auth</code>, <code>io.ktor:ktor-auth-jwt</code>
+Required dependencies: <code>io.ktor:ktor-server-auth</code>, <code>io.ktor:ktor-server-auth-jwt</code>
 </p>
 <p>
 Code examples: 
@@ -21,31 +21,31 @@ Ktor handles JWTs passed in the `Authorization` header using the `Bearer` schema
 
 
 ## Add dependencies {id="add_dependencies"}
-To enable `JWT`authentication, you need to include the `ktor-auth` and `ktor-auth-jwt` artifacts in the build script:
+To enable `JWT`authentication, you need to include the `ktor-server-auth` and `ktor-server-auth-jwt` artifacts in the build script:
 
 <tabs group="languages">
     <tab title="Gradle (Groovy)" group-key="groovy">
         <code style="block" lang="Groovy" title="Sample">
-            implementation "io.ktor:ktor-auth:$ktor_version"
-            implementation "io.ktor:ktor-auth-jwt:$ktor_version"
+            implementation "io.ktor:ktor-server-auth:$ktor_version"
+            implementation "io.ktor:ktor-server-auth-jwt:$ktor_version"
         </code>
     </tab>
     <tab title="Gradle (Kotlin)" group-key="kotlin">
         <code style="block" lang="Kotlin" title="Sample">
-            implementation("io.ktor:ktor-auth:$ktor_version")
-            implementation("io.ktor:ktor-auth-jwt:$ktor_version")
+            implementation("io.ktor:ktor-server-auth:$ktor_version")
+            implementation("io.ktor:ktor-server-auth-jwt:$ktor_version")
         </code>
     </tab>
     <tab title="Maven" group-key="maven">
         <code style="block" lang="XML" title="Sample">
 &lt;dependency&gt;
 &lt;groupId&gt;io.ktor&lt;/groupId&gt;
-&lt;artifactId&gt;ktor-auth&lt;/artifactId&gt;
+&lt;artifactId&gt;ktor-server-auth&lt;/artifactId&gt;
 &lt;version&gt;${ktor_version}&lt;/version&gt;
 &lt;/dependency&gt;
 &lt;dependency&gt;
 &lt;groupId&gt;io.ktor&lt;/groupId&gt;
-&lt;artifactId&gt;ktor-auth-jwt&lt;/artifactId&gt;
+&lt;artifactId&gt;ktor-server-auth-jwt&lt;/artifactId&gt;
 &lt;version&gt;${ktor_version}&lt;/version&gt;
 &lt;/dependency&gt;
         </code>

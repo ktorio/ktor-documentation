@@ -2,7 +2,7 @@
 
 <microformat>
 <p>
-Required dependencies: <code>io.ktor:ktor-auth</code>, <code>io.ktor:ktor-auth-ldap</code>
+Required dependencies: <code>io.ktor:ktor-server-auth</code>, <code>io.ktor:ktor-server-auth-ldap</code>
 </p>
 <var name="example_name" value="auth-ldap"/>
 <include src="lib.xml" include-id="download_example"/>
@@ -18,26 +18,26 @@ To enable `LDAP` authentication, you need to include the `ktor-auth` and `ktor-a
 <tabs group="languages">
     <tab title="Gradle (Groovy)" group-key="groovy">
         <code style="block" lang="Groovy" title="Sample">
-            implementation "io.ktor:ktor-auth:$ktor_version"
-            implementation "io.ktor:ktor-auth-ldap:$ktor_version"
+            implementation "io.ktor:ktor-server-auth:$ktor_version"
+            implementation "io.ktor:ktor-server-auth-ldap:$ktor_version"
         </code>
     </tab>
     <tab title="Gradle (Kotlin)" group-key="kotlin">
         <code style="block" lang="Kotlin" title="Sample">
-            implementation("io.ktor:ktor-auth:$ktor_version")
-            implementation("io.ktor:ktor-auth-ldap:$ktor_version")
+            implementation("io.ktor:ktor-server-auth:$ktor_version")
+            implementation("io.ktor:ktor-server-auth-ldap:$ktor_version")
         </code>
     </tab>
     <tab title="Maven" group-key="maven">
         <code style="block" lang="XML" title="Sample">
 &lt;dependency&gt;
 &lt;groupId&gt;io.ktor&lt;/groupId&gt;
-&lt;artifactId&gt;ktor-auth&lt;/artifactId&gt;
+&lt;artifactId&gt;ktor-server-auth&lt;/artifactId&gt;
 &lt;version&gt;${ktor_version}&lt;/version&gt;
 &lt;/dependency&gt;
 &lt;dependency&gt;
 &lt;groupId&gt;io.ktor&lt;/groupId&gt;
-&lt;artifactId&gt;ktor-auth-ldap&lt;/artifactId&gt;
+&lt;artifactId&gt;ktor-server-auth-ldap&lt;/artifactId&gt;
 &lt;version&gt;${ktor_version}&lt;/version&gt;
 &lt;/dependency&gt;
         </code>

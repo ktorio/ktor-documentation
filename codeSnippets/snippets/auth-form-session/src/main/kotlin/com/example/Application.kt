@@ -1,11 +1,11 @@
 package com.example
 
-import io.ktor.application.*
-import io.ktor.auth.*
-import io.ktor.html.*
-import io.ktor.response.*
-import io.ktor.routing.*
-import io.ktor.sessions.*
+import io.ktor.server.application.*
+import io.ktor.server.auth.*
+import io.ktor.server.html.*
+import io.ktor.server.response.*
+import io.ktor.server.routing.*
+import io.ktor.server.sessions.*
 import kotlinx.html.*
 
 data class UserSession(val name: String, val count: Int) : Principal
