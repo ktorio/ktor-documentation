@@ -12,7 +12,7 @@ to get useful information about the server and incoming requests.
 
 ## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="Metrics"/>
-<var name="artifact_name" value="ktor-metrics"/>
+<var name="artifact_name" value="ktor-server-metrics"/>
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 

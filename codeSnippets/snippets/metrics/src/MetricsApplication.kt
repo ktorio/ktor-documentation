@@ -1,11 +1,11 @@
 package io.ktor.snippets.metrics
 
 import com.codahale.metrics.*
-import io.ktor.application.*
-import io.ktor.features.*
-import io.ktor.html.*
-import io.ktor.metrics.dropwizard.*
-import io.ktor.routing.*
+import io.ktor.server.application.*
+import io.ktor.server.plugins.*
+import io.ktor.server.html.*
+import io.ktor.server.metrics.dropwizard.*
+import io.ktor.server.routing.*
 import kotlinx.html.*
 import java.util.concurrent.*
 

@@ -22,13 +22,15 @@ sourceSets {
 
 repositories {
     mavenCentral()
-    maven { url "https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven" }
+    maven { url "https://maven.pkg.jetbrains.space/public/p/ktor/eap" }
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "io.ktor:ktor-server-core:$ktor_version"
     implementation "io.ktor:ktor-server-netty:$ktor_version"
-    implementation "io.ktor:ktor-jackson:$ktor_version"
+    implementation "io.ktor:ktor-server-content-negotiation:$ktor_version"
+    implementation "io.ktor:ktor-shared-serialization-jackson:$ktor_version"
     implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jackson_version"
     implementation "ch.qos.logback:logback-classic:$logback_version"
 

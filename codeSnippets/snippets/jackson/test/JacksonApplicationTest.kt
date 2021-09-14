@@ -1,4 +1,4 @@
-import io.ktor.application.*
+import io.ktor.server.application.*
 import io.ktor.http.*
 import io.ktor.snippets.jackson.*
 import io.ktor.server.testing.*

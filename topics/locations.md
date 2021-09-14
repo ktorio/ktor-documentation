@@ -20,7 +20,7 @@ constructing URLs and reading the parameters.
 
 ## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="Locations"/>
-<var name="artifact_name" value="ktor-locations"/>
+<var name="artifact_name" value="ktor-server-locations"/>
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
