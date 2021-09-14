@@ -2,10 +2,10 @@ package io.ktor.snippets.guice
 
 import com.google.inject.*
 import com.google.inject.name.*
-import io.ktor.application.*
-import io.ktor.html.*
-import io.ktor.request.*
-import io.ktor.routing.*
+import io.ktor.server.application.*
+import io.ktor.server.html.*
+import io.ktor.server.request.*
+import io.ktor.server.routing.*
 import io.ktor.util.*
 import kotlinx.html.*
 
@@ -14,7 +14,7 @@ fun Application.main() {
     val injector = Guice.createInjector(MainModule(this), HelloModule())
 
     // Intercept application call and put child injector into attributes
-    intercept(ApplicationCallPipeline.Features) {
+    intercept(ApplicationCallPipeline.Plugins) {
         call.attributes.put(InjectorKey, injector.createChildInjector(CallModule(call)))
     }
 }

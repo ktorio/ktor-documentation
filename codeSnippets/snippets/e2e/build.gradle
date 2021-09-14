@@ -1,5 +1,10 @@
 apply plugin: "kotlin"
 
+repositories {
+    mavenCentral()
+    maven { url "https://maven.pkg.jetbrains.space/public/p/ktor/eap" }
+}
+
 dependencies {
     implementation "junit:junit:4.13"
 

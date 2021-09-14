@@ -1,9 +1,9 @@
 package com.example
 
-import io.ktor.application.*
-import io.ktor.html.*
-import io.ktor.http.content.*
-import io.ktor.routing.*
+import io.ktor.server.application.*
+import io.ktor.server.html.*
+import io.ktor.server.http.content.*
+import io.ktor.server.routing.*
 import kotlinx.html.*
 import java.io.*
 

@@ -19,7 +19,7 @@ It is especially useful for the [Static Content Plugin](Serving_Static_Content.m
 To install the PartialContent plugin with the default configuration:
 
 ```kotlin
-import io.ktor.features.*
+import io.ktor.server.plugins.*
 
 fun Application.main() {
     // ...

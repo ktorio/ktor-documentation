@@ -49,7 +49,7 @@ Plugins are generally configured during the initialization phase of the server u
 function which takes a Plugin as a parameter. Depending on the way you used to [create a server](create_server.xml), you can install a plugin inside the `embeddedServer` call ...
 
 ```kotlin
-import io.ktor.features.*
+import io.ktor.server.plugins.*
 // ...
 fun main() {
     embeddedServer(Netty, port = 8080) {
@@ -63,7 +63,7 @@ fun main() {
 ... or a specified [module](Modules.md):
 
 ```kotlin
-import io.ktor.features.*
+import io.ktor.server.plugins.*
 // ...
 fun Application.module() {
     install(CORS)

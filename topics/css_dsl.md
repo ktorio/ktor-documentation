@@ -13,8 +13,8 @@ CSS DSL extends [HTML DSL](html_dsl.md) and allows you to author stylesheets in 
 ## Add dependencies {id="add_dependencies"}
 CSS DSL doesn't need [installation](Plugins.md#install), but requires including the following artifacts in the build script:
 
-1. The `ktor-html-builder` artifact for HTML DSL:
-   <var name="artifact_name" value="ktor-html-builder"/>
+1. The `ktor-server-html-builder` artifact for HTML DSL:
+   <var name="artifact_name" value="ktor-server-html-builder"/>
    <include src="lib.xml" include-id="add_ktor_artifact"/>
    
 1. The `kotlin-css-jvm` artifact for building CSS:

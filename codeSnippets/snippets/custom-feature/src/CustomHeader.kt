@@ -1,8 +1,8 @@
 package io.ktor.snippets.feature
 
-import io.ktor.application.*
+import io.ktor.server.application.*
 import io.ktor.util.pipeline.*
-import io.ktor.response.*
+import io.ktor.server.response.*
 import io.ktor.util.*
 
 /**
@@ -29,7 +29,7 @@ class CustomHeader(configuration: Configuration) {
     /**
      * Installable feature for [CustomHeader].
      */
-    companion object Feature : ApplicationFeature<ApplicationCallPipeline, CustomHeader.Configuration, CustomHeader> {
+    companion object Plugin : ApplicationPlugin<ApplicationCallPipeline, CustomHeader.Configuration, CustomHeader> {
         override val key = AttributeKey<CustomHeader>("CustomHeader")
         override fun install(pipeline: ApplicationCallPipeline, configure: Configuration.() -> Unit): CustomHeader {
             // Call user code to configure a feature

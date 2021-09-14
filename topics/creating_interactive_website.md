@@ -44,7 +44,7 @@ For this hands-on, the `dependencies` block in our `build.gradle` file is probab
 dependencies {
     implementation "io.ktor:ktor-server-core:$ktor_version"
     implementation "io.ktor:ktor-server-netty:$ktor_version"
-    implementation "io.ktor:ktor-html-builder:$ktor_version"
+    implementation "io.ktor:ktor-server-html-builder:$ktor_version"
     implementation "io.ktor:ktor-freemarker:$ktor_version"
     implementation "ch.qos.logback:logback-classic:$logback_version"
 }
@@ -54,7 +54,7 @@ Let's briefly go through these dependencies one-by-one:
 - `ktor-server-core` adds Ktor's core components to our project.
 - `ktor-server-netty`  adds the [Netty](https://netty.io/) engine to our project, allowing us to use server functionality without having to rely on an external application container.
 - `ktor-freemarker` allows us to use the [FreeMarker](https://freemarker.apache.org/) template engine, which we'll use to create the main page of our journal.
-- `ktor-html-builder` adds the ability to use [kotlinx.html](https://github.com/Kotlin/kotlinx.html) directly from within the code. We'll use it to create code that can mix Kotlin logic with HTML markup.
+- `ktor-server-html-builder` adds the ability to use [kotlinx.html](https://github.com/Kotlin/kotlinx.html) directly from within the code. We'll use it to create code that can mix Kotlin logic with HTML markup.
 - `logback-classic` provides an implementation of [SLF4J](http://www.slf4j.org/), allowing us to see nicely formatted logs in our console.
 
 ### Configurations: application.conf and logback.xml

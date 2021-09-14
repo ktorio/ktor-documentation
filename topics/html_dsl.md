@@ -9,9 +9,9 @@ HTML DSL integrates the [kotlinx.html](https://github.com/Kotlin/kotlinx.html) l
 
 
 ## Add dependencies {id="add_dependencies"}
-HTML DSL doesn't need [installation](Plugins.md#install) but requires the `ktor-html-builder` artifact. You can include it in the build script as follows:
+HTML DSL doesn't need [installation](Plugins.md#install) but requires the `ktor-server-html-builder` artifact. You can include it in the build script as follows:
 
-<var name="artifact_name" value="ktor-html-builder"/>
+<var name="artifact_name" value="ktor-server-html-builder"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
   
 

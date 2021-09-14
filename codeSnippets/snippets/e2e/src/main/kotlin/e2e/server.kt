@@ -1,6 +1,6 @@
 package e2e
 
-import io.ktor.application.*
+import io.ktor.server.application.*
 import io.ktor.server.cio.*
 import io.ktor.server.engine.*
 import org.slf4j.helpers.NOPLogger

@@ -1,11 +1,11 @@
 package io.ktor.snippets.gson
 
-import io.ktor.application.*
-import io.ktor.features.*
-import io.ktor.gson.*
+import io.ktor.server.application.*
+import io.ktor.server.plugins.*
+import io.ktor.shared.serializaion.gson.*
 import io.ktor.http.*
-import io.ktor.response.*
-import io.ktor.routing.*
+import io.ktor.server.response.*
+import io.ktor.server.routing.*
 import java.text.*
 import java.time.*
 

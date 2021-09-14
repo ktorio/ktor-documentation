@@ -11,7 +11,7 @@
             To install the <code>%feature_name%</code> plugin, pass it to the <code>install</code> function in the application initialization code. Depending on the <a href="create_server.xml">way used to create a server</a>, this can be the <code>embeddedServer</code> function call ...
         </p>
         <code style="block" lang="kotlin" interpolate-variables="true">
-            import io.ktor.features.*
+            import io.ktor.server.plugins.*
             // ...
             fun main() {
                 embeddedServer(Netty, port = 8080) {
@@ -24,7 +24,7 @@
             ... or a specified <a href="Modules.md">module</a>.
         </p>
         <code style="block" lang="kotlin" interpolate-variables="true">
-            import io.ktor.features.*
+            import io.ktor.server.plugins.*
             // ...
             fun Application.module() {
                 install(%feature_name%)

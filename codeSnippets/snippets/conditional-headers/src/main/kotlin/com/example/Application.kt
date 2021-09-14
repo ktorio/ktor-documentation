@@ -1,12 +1,12 @@
 package com.example
 
-import io.ktor.application.*
-import io.ktor.features.*
-import io.ktor.html.*
+import io.ktor.server.application.*
+import io.ktor.server.plugins.*
+import io.ktor.server.html.*
 import io.ktor.http.*
 import io.ktor.http.content.*
-import io.ktor.response.*
-import io.ktor.routing.*
+import io.ktor.server.response.*
+import io.ktor.server.routing.*
 import kotlinx.css.*
 import kotlinx.html.*
 import java.io.*
@@ -52,6 +52,6 @@ fun Application.main() {
     }
 }
 
-suspend inline fun ApplicationCall.respondCss(builder: CSSBuilder.() -> Unit) {
-    this.respondText(CSSBuilder().apply(builder).toString(), ContentType.Text.CSS)
+suspend inline fun ApplicationCall.respondCss(builder: CssBuilder.() -> Unit) {
+    this.respondText(CssBuilder().apply(builder).toString(), ContentType.Text.CSS)
 }

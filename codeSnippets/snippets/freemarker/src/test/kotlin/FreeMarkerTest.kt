@@ -1,16 +1,15 @@
-import e2e.TestServer
+import e2e.*
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.request.*
-import io.ktor.client.statement.*
-import kotlinx.coroutines.runBlocking
-import org.junit.Assert.assertEquals
-import org.junit.Test
+import kotlinx.coroutines.*
+import org.junit.*
+import org.junit.Assert.*
 
 class FreeMarkerTest: TestServer() {
     @Test
     fun test(): Unit = runBlocking {
-        val response: String = HttpClient().get<HttpResponse>("http://localhost:8080/index").receive()
+        val response: String = HttpClient().get("http://localhost:8080/index").body()
         assertEquals("""
             <html>
                 <body>

@@ -169,9 +169,9 @@ When a client makes such a request, content negotiation allows the server to exa
 In our case, we're going to install the `ContentNegotiation` plugin and enable its support for JSON. Let's add the following code to the `Application.module()` function:
 
 ```kotlin
-import io.ktor.application.*
-import io.ktor.features.*
-import io.ktor.serialization.*
+import io.ktor.server.application.*
+import io.ktor.server.plugins.*
+import io.ktor.shared.serialization.kotlinx.*
 
 fun Application.module() {
     install(ContentNegotiation) {
