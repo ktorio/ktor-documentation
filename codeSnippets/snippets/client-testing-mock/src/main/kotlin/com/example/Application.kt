@@ -1,10 +1,11 @@
 package com.example
 
 import io.ktor.client.*
+import io.ktor.client.call.*
 import io.ktor.client.engine.*
 import io.ktor.client.engine.cio.*
-import io.ktor.client.features.json.*
-import io.ktor.client.features.json.serializer.*
+import io.ktor.client.plugins.*
+import io.ktor.shared.serialization.kotlinx.*
 import io.ktor.client.request.*
 import kotlinx.coroutines.*
 import kotlinx.serialization.*
@@ -22,10 +23,10 @@ fun main() {
 
 class ApiClient(engine: HttpClientEngine) {
     private val httpClient = HttpClient(engine) {
-        install(JsonFeature) {
-            serializer = KotlinxSerializer()
+        install(ContentNegotiation) {
+            json()
         }
     }
 
-    suspend fun getIp(): IpResponse = httpClient.get("https://api.ipify.org/?format=json")
+    suspend fun getIp(): IpResponse = httpClient.get("https://api.ipify.org/?format=json").body()
 }

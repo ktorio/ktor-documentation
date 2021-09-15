@@ -1,14 +1,16 @@
 package com.example
 
 import io.ktor.client.*
+import io.ktor.client.call.*
 import io.ktor.client.engine.cio.*
-import io.ktor.client.features.json.*
-import io.ktor.client.features.json.serializer.*
+import io.ktor.client.plugins.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
+import io.ktor.shared.serialization.kotlinx.*
 import kotlinx.coroutines.*
 import kotlinx.serialization.*
+import kotlinx.serialization.json.*
 
 @Serializable
 data class Customer(val id: Int, val firstName: String, val lastName: String)
@@ -16,8 +18,8 @@ data class Customer(val id: Int, val firstName: String, val lastName: String)
 fun main() {
     runBlocking {
         val client = HttpClient(CIO) {
-            install(JsonFeature) {
-                serializer = KotlinxSerializer(kotlinx.serialization.json.Json {
+            install(ContentNegotiation) {
+                json(Json {
                     prettyPrint = true
                     isLenient = true
                 })
@@ -26,11 +28,11 @@ fun main() {
 
         val response: HttpResponse = client.post("http://localhost:8080/customer") {
             contentType(ContentType.Application.Json)
-            body = Customer(3, "Jet", "Brains")
+            setBody(Customer(3, "Jet", "Brains"))
         }
-        println(response.readText())
+        println(response.bodyAsText())
 
-        val customer: Customer = client.get("http://localhost:8080/customer/3")
+        val customer: Customer = client.get("http://localhost:8080/customer/3").body()
         println("First name: '${customer.firstName}', last name: '${customer.lastName}'")
     }
 }

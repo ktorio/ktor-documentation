@@ -26,13 +26,13 @@ To test this client, its configuration needs to be shared with a test client, wh
 
 ```kotlin
 ```
-{src="snippets/client-testing-mock/src/main/kotlin/com/example/Application.kt" lines="12-14,23-31"}
+{src="snippets/client-testing-mock/src/main/kotlin/com/example/Application.kt" lines="13-15,24-32"}
 
 Then, you can use the `ApiClient` as follows to create an HTTP client with the `CIO` engine and make a request.
 
 ```kotlin
 ```
-{src="snippets/client-testing-mock/src/main/kotlin/com/example/Application.kt" lines="15-21"}
+{src="snippets/client-testing-mock/src/main/kotlin/com/example/Application.kt" lines="16-22"}
 
 ### Test a client {id="test-client"}
 

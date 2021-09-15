@@ -4,9 +4,10 @@ A sample Ktor project showing how to add custom validation of 2xx responses by u
 
 ## Running a server
 
-Before running this sample, you need to run a server that sends a sample error as a JSON object. You can modify the [gson](../gson/README.md) sample to do this:
+Before running this sample, you need to run a server that sends a sample error as a JSON object. You can modify the [json-kotlinx](../json-kotlinx/README.md) sample to do this:
 1. Declare a `Error` data class:
    ```kotlin
+   @Serializable
    data class Error(val code: Int, val message: String)
    ```
 1. Create a error object:
@@ -15,14 +16,14 @@ Before running this sample, you need to run a server that sends a sample error a
    ```
 1. Send a error in a response:
    ```kotlin
-   get("/v1") {
+   get("/error") {
        call.respond(error)
    }
    ```
    
 Now you can run a server:
 ```
-./gradlew :gson:run
+./gradlew :json-kotlinx:run
 ```
 
 

@@ -2,7 +2,7 @@ package com.example
 
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
-import io.ktor.client.features.*
+import io.ktor.client.plugins.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
@@ -21,7 +21,7 @@ fun main() {
                 val clientException = exception as? ClientRequestException ?: return@handleResponseException
                 val exceptionResponse = exception.response
                 if (exceptionResponse.status == HttpStatusCode.NotFound) {
-                    val exceptionResponseText = exceptionResponse.readText()
+                    val exceptionResponseText = exceptionResponse.bodyAsText()
                     throw MissingPageException(exceptionResponse, exceptionResponseText)
                 }
             }

@@ -3,8 +3,8 @@ package com.example
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.engine.cio.*
-import io.ktor.client.features.*
-import io.ktor.client.features.json.*
+import io.ktor.client.plugins.*
+import io.ktor.shared.serialization.kotlinx.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import kotlinx.coroutines.runBlocking
@@ -20,10 +20,10 @@ class CustomResponseException(response: HttpResponse, cachedResponseText: String
 
 fun main() {
     val client = HttpClient(CIO) {
-        install(JsonFeature)
+        install(ContentNegotiation) { json() }
         HttpResponseValidator {
             validateResponse { response ->
-                val error = response.receive<Error>()
+                val error: Error = response.body()
                 if (error.code != 0) {
                     throw CustomResponseException(response, "Code: ${error.code}, message: ${error.message}")
                 }
@@ -33,7 +33,7 @@ fun main() {
 
     runBlocking {
         val httpResponse: HttpResponse = try {
-            client.get("http://localhost:8080/v1")
+            client.get("http://localhost:8080/error")
         } catch (cause: ResponseException) {
             println(cause)
             cause.response

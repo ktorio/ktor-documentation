@@ -9,7 +9,7 @@ This plugin (previously known as feature) adds a User-Agent header to requests.
 ## Install
 
 ```kotlin
-import io.ktor.client.features.*
+import io.ktor.client.plugins.*
 
 val client = HttpClient() {
 

@@ -8,10 +8,10 @@ To run this sample, execute the following command in a repository's root directo
 
 ```bash
 # macOS/Linux
-./gradlew :client-handle-response-exception:run
+./gradlew :client-customize-default-validation:run
 
 # Windows
-gradlew.bat :client-handle-response-exception:run
+gradlew.bat :client-customize-default-validation:run
 ```
 
 A client should raise a `MissingPageException` for a requested page.

@@ -43,7 +43,7 @@ To learn more, see [JSON plugin](json.md#receive_send_data).
 
 ### Streaming data {id="streaming"}
 
-When you call the `HttpResponse.receive` function to get a body, Ktor processes a response in memory and returns a full response body. If you need to get chunks of a response sequentially instead of waiting for the entire response, use `HttpStatement` with scoped [execute](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.statement/-http-statement/execute.html) block. A [runnable example](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-download-streaming) below shows how to receive a response content in chunks (byte packets) and save them in a file:
+When you call the `HttpResponse.body` function to get a body, Ktor processes a response in memory and returns a full response body. If you need to get chunks of a response sequentially instead of waiting for the entire response, use `HttpStatement` with scoped [execute](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.statement/-http-statement/execute.html) block. A [runnable example](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-download-streaming) below shows how to receive a response content in chunks (byte packets) and save them in a file:
 
 ```kotlin
 ```

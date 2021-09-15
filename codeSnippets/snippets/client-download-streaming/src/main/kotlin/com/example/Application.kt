@@ -16,8 +16,8 @@ fun main() {
     val file = File.createTempFile("files", "index")
 
     runBlocking {
-        client.get<HttpStatement>("https://ktor.io/").execute { httpResponse ->
-            val channel: ByteReadChannel = httpResponse.receive()
+        client.prepareGet("https://ktor.io/").execute { httpResponse ->
+            val channel: ByteReadChannel = httpResponse.body()
             while (!channel.isClosedForRead) {
                 val packet = channel.readRemaining(DEFAULT_BUFFER_SIZE.toLong())
                 while (!packet.isEmpty) {

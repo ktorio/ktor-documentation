@@ -2,7 +2,7 @@ package com.example
 
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
-import io.ktor.client.features.*
+import io.ktor.client.plugins.*
 import io.ktor.client.request.forms.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
@@ -28,6 +28,6 @@ fun main() {
             }
         }
 
-        println(response.readText())
+        println(response.bodyAsText())
     }
 }
