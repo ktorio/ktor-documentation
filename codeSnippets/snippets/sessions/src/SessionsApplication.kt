@@ -1,18 +1,14 @@
 package io.ktor.snippets.sessions
 
-import io.ktor.application.Application
-import io.ktor.application.call
-import io.ktor.application.install
-import io.ktor.features.CallLogging
-import io.ktor.features.DefaultHeaders
-import io.ktor.html.respondHtml
-import io.ktor.response.respondRedirect
-import io.ktor.routing.get
-import io.ktor.routing.routing
-import io.ktor.sessions.*
-import io.ktor.util.hex
+import io.ktor.server.application.*
+import io.ktor.server.html.*
+import io.ktor.server.plugins.*
+import io.ktor.server.response.*
+import io.ktor.server.routing.*
+import io.ktor.server.sessions.*
+import io.ktor.util.*
 import kotlinx.html.*
-import java.io.File
+import java.io.*
 
 data class SampleSession(
     val counter: Int

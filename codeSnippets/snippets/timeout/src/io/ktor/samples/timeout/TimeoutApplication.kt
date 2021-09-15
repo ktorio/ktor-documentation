@@ -1,18 +1,15 @@
-package io.ktor.snippets.timeout
+package io.ktor.samples.timeout
 
-import io.ktor.application.Application
-import io.ktor.application.call
-import io.ktor.client.HttpClient
-import io.ktor.client.features.HttpTimeout
-import io.ktor.client.features.timeout
-import io.ktor.client.request.get
-import io.ktor.client.request.parameter
-import io.ktor.http.HttpStatusCode
-import io.ktor.response.respond
-import io.ktor.response.respondText
-import io.ktor.routing.get
-import io.ktor.routing.routing
-import kotlinx.coroutines.delay
+import io.ktor.client.*
+import io.ktor.client.call.*
+import io.ktor.client.plugins.*
+import io.ktor.client.plugins.get
+import io.ktor.client.request.*
+import io.ktor.http.*
+import io.ktor.server.application.*
+import io.ktor.server.response.*
+import io.ktor.server.routing.*
+import kotlinx.coroutines.*
 
 /**
  * This example demonstrates usage of HttpTimeout feature. It consists of two endpoints. First endpoint "/timeout"
@@ -38,7 +35,7 @@ fun Application.timeoutApplication() {
     routing {
         get("/proxy") {
             try {
-                val response = client.get<String>(port = 8080, path = "/timeout") {
+                val response = client.get("http://localhost:8080") {
                     parameter("delay", call.parameters["delay"])
 
                     timeout {
@@ -46,7 +43,7 @@ fun Application.timeoutApplication() {
                     }
                 }
 
-                call.respondText(response)
+                call.respondText(response.body())
             } catch (cause: Throwable) {
                 call.respond(HttpStatusCode.GatewayTimeout, cause.message!!)
             }

@@ -1,9 +1,9 @@
 package com.example
 
-import io.ktor.application.*
-import io.ktor.velocity.*
-import io.ktor.response.*
-import io.ktor.routing.*
+import io.ktor.server.application.*
+import io.ktor.server.velocity.*
+import io.ktor.server.response.*
+import io.ktor.server.routing.*
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
 import org.apache.velocity.runtime.RuntimeConstants
 

@@ -40,7 +40,7 @@ Note that you can optionally inherit this class from [Principal](https://api.kto
 After creating the required data classes, you can install the `Sessions` plugin by passing it to the `install` function in the application initialization code. Inside the `install` block, call the `cookie` or `header` function depending on how you want to [pass data between the server and client](cookie_header.md):
 
 ```kotlin
-import io.ktor.sessions.*
+import io.ktor.server.sessions.*
 // ...
 fun Application.module() {
     install(Sessions) {

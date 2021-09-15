@@ -1,9 +1,9 @@
 package com.example
 
-import io.ktor.application.*
+import io.ktor.server.application.*
 import io.ktor.http.*
 import io.ktor.server.testing.*
-import io.ktor.sessions.*
+import io.ktor.server.sessions.*
 import kotlin.test.*
 
 class ApplicationTest {

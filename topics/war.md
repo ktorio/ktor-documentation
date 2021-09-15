@@ -87,7 +87,7 @@ Finally, configure the `run` task:
 
 ```groovy
 ```
-{src="snippets/jetty-war/build.gradle" lines="23-27"}
+{src="snippets/jetty-war/build.gradle" lines="24-28"}
 
 
 

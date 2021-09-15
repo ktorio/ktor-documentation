@@ -2,7 +2,7 @@
 
 <microformat>
 <p>
-Required dependencies: <code>io.ktor:ktor-websockets</code>
+Required dependencies: <code>io.ktor:ktor-server-websockets</code>
 </p>
 <var name="example_name" value="server-websockets"/>
 <include src="lib.xml" include-id="download_example"/>
@@ -20,7 +20,7 @@ Ktor allows you to:
 
 ## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="WebSockets"/>
-<var name="artifact_name" value="ktor-websockets"/>
+<var name="artifact_name" value="ktor-server-websockets"/>
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 

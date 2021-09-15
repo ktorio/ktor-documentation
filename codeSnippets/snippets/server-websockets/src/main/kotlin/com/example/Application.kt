@@ -1,10 +1,10 @@
 package com.example
 
-import io.ktor.application.*
+import io.ktor.server.application.*
 import io.ktor.http.cio.websocket.*
-import io.ktor.response.*
-import io.ktor.routing.*
-import io.ktor.websocket.*
+import io.ktor.server.response.*
+import io.ktor.server.routing.*
+import io.ktor.server.websocket.*
 import java.time.*
 import java.util.*
 import java.util.concurrent.atomic.*

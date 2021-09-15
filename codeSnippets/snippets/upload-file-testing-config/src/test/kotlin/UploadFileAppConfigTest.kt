@@ -2,7 +2,7 @@ package com.example
 
 import com.typesafe.config.ConfigFactory
 import io.ktor.application.*
-import io.ktor.config.*
+import io.ktor.server.config.*
 import io.ktor.http.*
 import io.ktor.http.content.*
 import io.ktor.server.testing.*
