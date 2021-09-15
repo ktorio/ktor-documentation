@@ -9,14 +9,17 @@
 
 ## Add dependencies {id="add_dependencies"}
 Before registering the Jackson converter, you need to include the following artifacts in the build script:
-<var name="artifact_name" value="ktor-jackson"/>
-<include src="lib.xml" include-id="add_ktor_artifact"/>
+* Add the `ktor-server-content-negotiation` artifact as described in [](serialization.md#add_dependencies).
+* Add the `ktor-shared-serialization-jackson` artifact:
+  <var name="artifact_name" value="ktor-shared-serialization-jackson"/>
+  <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 
 ## Register the Jackson converter {id="register_jackson_converter"}
 To register the Jackson converter in your application, call the [jackson](https://api.ktor.io/ktor-features/ktor-jackson/ktor-jackson/io.ktor.jackson/jackson.html) method:
 ```kotlin
-import io.ktor.jackson.*
+import io.ktor.server.plugins.*
+import io.ktor.shared.serializaion.jackson.*
 
 install(ContentNegotiation) {
     jackson()

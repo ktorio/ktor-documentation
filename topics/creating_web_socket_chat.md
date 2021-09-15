@@ -58,13 +58,13 @@ The server application specifies three dependencies in its `server/build.gradle.
 ```kotlin
 dependencies {
     implementation("io.ktor:ktor-server-netty:$ktor_version")
-    implementation("io.ktor:ktor-websockets:$ktor_version")
+    implementation("io.ktor:ktor-server-websockets:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
 }
 ```
 
 - `ktor-server-netty` adds Ktor together with the Netty engine, allowing us to use server functionality without having to rely on an external application container.
-- `ktor-websockets` allows us to use the [WebSocket Ktor plugin](websocket.md), the main communication mechanism for our chat.
+- `ktor-server-websockets` allows us to use the [WebSocket Ktor plugin](websocket.md), the main communication mechanism for our chat.
 - `logback-classic` provides an implementation of [SLF4J](http://www.slf4j.org/), allowing us to see nicely formatted logs in our console.
 
 #### Configuration for the `server` project
@@ -96,7 +96,7 @@ dependencies {
 ```
 
 - `ktor-client-cio` provides a [client implementation of Ktor](http-client_engines.md#cio) on top of coroutines ("Coroutine-based I/O").
-- `ktor-client-websockets` is the counterpart to the `ktor-websockets` dependency on the server, and allows us to consume [WebSockets from the client](websocket_client.md) with the same API as the server.
+- `ktor-client-websockets` is the counterpart to the `ktor-server-websockets` dependency on the server, and allows us to consume [WebSockets from the client](websocket_client.md) with the same API as the server.
 
 Now that we have some understanding of the parts that will make our project run, it's time to start building our project! Let's start by implementing a simple WebSocket echo server!
 

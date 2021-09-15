@@ -13,7 +13,7 @@ LDAP is a protocol for working with various directory services that can store in
 > You can get general information about authentication and authorization in Ktor in the [](authentication.md) section.
 
 ## Add dependencies {id="add_dependencies"}
-To enable `LDAP` authentication, you need to include the `ktor-auth` and `ktor-auth-ldap` artifacts in the build script:
+To enable `LDAP` authentication, you need to include the `ktor-server-auth` and `ktor-server-auth-ldap` artifacts in the build script:
 
 <tabs group="languages">
     <tab title="Gradle (Groovy)" group-key="groovy">

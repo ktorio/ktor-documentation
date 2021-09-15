@@ -84,7 +84,7 @@ routing {
 }
 ```
 
->Some of these generic methods with one type parameter, defined in the `io.ktor.locations`, have the same name as other methods defined in the `io.ktor.routing` package. If you import the routing package before the locations one, the IDE might suggest you generalize those methods instead of importing the right package. You can manually add `import io.ktor.locations.*` if that happens to you.
+>Some of these generic methods with one type parameter, defined in the `io.ktor.server.locations`, have the same name as other methods defined in the `io.ktor.routing` package. If you import the routing package before the locations one, the IDE might suggest you generalize those methods instead of importing the right package. You can manually add `import io.ktor.server.locations.*` if that happens to you.
 >Remember this API is experimental. This issue is already [reported at github](https://github.com/ktorio/ktor/issues/368).
 >
 {type="note"}

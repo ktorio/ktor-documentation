@@ -1,6 +1,6 @@
 import com.example.main
 import com.typesafe.config.ConfigFactory
-import io.ktor.application.*
+import io.ktor.server.application.*
 import io.ktor.http.*
 import io.ktor.server.testing.*
 import org.junit.Assert.*

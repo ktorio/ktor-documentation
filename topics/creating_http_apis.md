@@ -114,7 +114,7 @@ Now that we have a well-defined `Customer` class and a storage for our customer 
 We want to respond to `GET`, `POST`, and `DELETE` requests on the `/customer` endpoint. As such, let's define our routes with the corresponding HTTP methods. Create a file called `CustomerRoutes.kt` in a new package called `routes`, and fill it with the following:
 
 ```kotlin
-import io.ktor.routing.*
+import io.ktor.server.routing.*
 
 fun Route.customerRouting() {
     route("/customer") {
@@ -143,10 +143,10 @@ Notice also how we actually have two entries for `get`: one without a route para
 To list all customers, we can simply return the `customerStorage` list by using the `call.respond` function in Ktor. which can take a Kotlin object and return it serialized in a specified format. For the `get` handler, it looks like this:
 
 ```kotlin
-import io.ktor.application.*
+import io.ktor.server.application.*
 import io.ktor.http.*
-import io.ktor.request.*
-import io.ktor.response.*
+import io.ktor.server.request.*
+import io.ktor.server.response.*
 
 get {
     if (customerStorage.isNotEmpty()) {
@@ -344,10 +344,10 @@ For listing all orders, we'll follow the same pattern as with customers – the 
 being that we're defining it in its own function. Let's create a file called `OrderRoutes.kt` inside the `routes` package, and start with the implementation of the route inside a function called `listOrdersRoute()`.
 
 ```kotlin
-import io.ktor.application.*
+import io.ktor.server.application.*
 import io.ktor.http.*
-import io.ktor.response.*
-import io.ktor.routing.*
+import io.ktor.server.response.*
+import io.ktor.server.routing.*
 
 fun Route.listOrdersRoute() {
     get("/order") {

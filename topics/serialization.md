@@ -5,6 +5,15 @@ The [ContentNegotiation](https://api.ktor.io/ktor-server/ktor-server-core/ktor-s
 * Serializing/deserializing the content in the specific format, which is provided by either the built-in `kotlinx.serialization` library or external ones, such as `Gson` and `Jackson`, amongst others.
 
 
+## Add dependencies {id="add_dependencies"}
+To use `ContentNegotiation`, you need to include the `ktor-server-content-negotiation` artifact in the build script:
+
+<var name="artifact_name" value="ktor-server-content-negotiation"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
+
+Note that content converters require additional artifacts. For example, [kotlinx.serialization](kotlin_serialization.md#add_dependencies) requires the `ktor-shared-serialization-kotlinx` dependency.
+
+
 ## Install ContentNegotiation {id="install_feature"}
 
 <var name="feature_name" value="ContentNegotiation"/>

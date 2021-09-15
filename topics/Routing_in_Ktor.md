@@ -7,7 +7,7 @@ Routing is the core Ktor [plugin](Plugins.md) (formerly known as feature) for ha
 The Routing plugin can be installed in the following way:
 
 ```Kotlin
-import io.ktor.routing.*
+import io.ktor.server.routing.*
 
 install(Routing) {
     // ...
@@ -17,7 +17,7 @@ install(Routing) {
 Given the `Routing` plugin is so common in any application, there is a convenient `routing` function that makes it simpler to install routing. In the code snippet below, `install(Routing)` is replaced with the `routing` function:
 
 ```kotlin
-import io.ktor.routing.*
+import io.ktor.server.routing.*
 
 routing {
     // ...
@@ -28,9 +28,9 @@ routing {
 
 After [installing](#install_feature) the Routing plugin, you can call the [route](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.routing/route.html) function inside `routing` to define a route:
 ```kotlin
-import io.ktor.routing.*
+import io.ktor.server.routing.*
 import io.ktor.http.*
-import io.ktor.response.*
+import io.ktor.server.response.*
 
 routing {
     route("/hello", HttpMethod.Get) {
@@ -44,8 +44,8 @@ routing {
 Ktor also provides a series of functions that make defining route handlers much easier and more concise. For example, you can replace the previous code with a [get](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.routing/get.html) function that now only needs to take the URL and the code to handle the request:
 
 ```kotlin
-import io.ktor.routing.*
-import io.ktor.response.*
+import io.ktor.server.routing.*
+import io.ktor.server.response.*
 
 routing {
     get("/hello") {

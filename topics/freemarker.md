@@ -11,7 +11,7 @@ Ktor allows you to use [FreeMarker templates](https://freemarker.apache.org/) as
 
 ## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="FreeMarker"/>
-<var name="artifact_name" value="ktor-freemarker"/>
+<var name="artifact_name" value="ktor-server-freemarker"/>
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 

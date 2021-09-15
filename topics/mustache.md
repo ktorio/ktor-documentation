@@ -11,7 +11,7 @@ Ktor allows you to use [Mustache templates](https://github.com/spullara/mustache
 
 ## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="Mustache"/>
-<var name="artifact_name" value="ktor-mustache"/>
+<var name="artifact_name" value="ktor-server-mustache"/>
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 

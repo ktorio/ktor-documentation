@@ -11,7 +11,7 @@ Ktor allows you to use [Pebble templates](https://pebbletemplates.io/) as views 
 
 ## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="Pebble"/>
-<var name="artifact_name" value="ktor-pebble"/>
+<var name="artifact_name" value="ktor-server-pebble"/>
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 

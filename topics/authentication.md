@@ -31,9 +31,9 @@ HTTP provides a [general framework](https://developer.mozilla.org/en-US/docs/Web
 
 
 ## Add dependencies {id="add_dependencies"}
-To enable authentication, you need to include the `ktor-auth` artifact in the build script:
+To enable authentication, you need to include the `ktor-server-auth` artifact in the build script:
 
-<var name="artifact_name" value="ktor-auth"/>
+<var name="artifact_name" value="ktor-server-auth"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 Note that some authentication providers, such as [JWT](jwt.md) and [LDAP](ldap.md), require additional artifacts.

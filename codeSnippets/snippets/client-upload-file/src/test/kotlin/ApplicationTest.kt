@@ -2,11 +2,11 @@ import e2e.WithTestServer
 import e2e.defaultServer
 import e2e.readString
 import e2e.runGradleAppWaiting
-import io.ktor.application.*
+import io.ktor.server.application.*
 import io.ktor.http.content.*
-import io.ktor.request.*
-import io.ktor.response.*
-import io.ktor.routing.*
+import io.ktor.server.request.*
+import io.ktor.server.response.*
+import io.ktor.server.routing.*
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

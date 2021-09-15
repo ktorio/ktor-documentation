@@ -12,7 +12,7 @@ Ktor allows you to use [Velocity templates](https://velocity.apache.org/engine/)
 
 ## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="Velocity"/>
-<var name="artifact_name" value="ktor-velocity"/>
+<var name="artifact_name" value="ktor-server-velocity"/>
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 

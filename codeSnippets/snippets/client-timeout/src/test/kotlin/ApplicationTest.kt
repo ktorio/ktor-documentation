@@ -2,9 +2,9 @@ import e2e.WithTestServer
 import e2e.defaultServer
 import e2e.readString
 import e2e.runGradleAppWaiting
-import io.ktor.application.*
-import io.ktor.response.*
-import io.ktor.routing.*
+import io.ktor.server.application.*
+import io.ktor.server.response.*
+import io.ktor.server.routing.*
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.matchesPattern
 import org.junit.Test

@@ -2,7 +2,7 @@
 
 <microformat>
 <p>
-Required dependencies: <code>io.ktor:ktor-auth</code>, <code>io.ktor:ktor-server-sessions</code>
+Required dependencies: <code>io.ktor:ktor-server-auth</code>, <code>io.ktor:ktor-server-sessions</code>
 </p>
 <var name="example_name" value="auth-form-session"/>
 <include src="lib.xml" include-id="download_example"/>
@@ -22,8 +22,8 @@ To enable `session` authentication, you need to include the following artifacts 
   <var name="artifact_name" value="ktor-server-sessions"/>
   <include src="lib.xml" include-id="add_ktor_artifact"/>
 
-* Add the `ktor-auth` dependency for authentication:
-  <var name="artifact_name" value="ktor-auth"/>
+* Add the `ktor-server-auth` dependency for authentication:
+  <var name="artifact_name" value="ktor-server-auth"/>
   <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Session authentication flow {id="flow"}

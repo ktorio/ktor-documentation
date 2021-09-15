@@ -12,12 +12,13 @@
 Before registering a required converter, perform the following steps:
 
 1. Add the Kotlin serialization plugin, as described in the [Setup](https://github.com/Kotlin/kotlinx.serialization#setup) section.
-1. Include the following artifacts in the build script: 
-    <var name="artifact_name" value="ktor-serialization"/>
+2. Add the `ktor-server-content-negotiation` artifact as described in [](serialization.md#add_dependencies).
+3. Add the `ktor-shared-serialization-kotlinx` artifact in the build script: 
+    <var name="artifact_name" value="ktor-shared-serialization-kotlinx"/>
     <include src="lib.xml" include-id="add_ktor_artifact"/>
    
     This will be enough for converting JSON. 
-1. (Optional) To convert other formats (for example, CBOR or ProtoBuf), you need to include a corresponding artifact. Learn more from the [Formats](https://kotlinlang.org/docs/serialization.html#formats) section.
+4. (Optional) To convert other formats (for example, CBOR or ProtoBuf), you need to include a corresponding artifact. Learn more from the [Formats](https://kotlinlang.org/docs/serialization.html#formats) section.
 
 
 ## Register a converter {id="register_converter"}
@@ -25,7 +26,8 @@ Before registering a required converter, perform the following steps:
 ### Register the JSON converter {id="register_json_converter"}
 To register the JSON converter in your application, call the `json` method:
 ```kotlin
-import io.ktor.serialization.*
+import io.ktor.server.plugins.*
+import io.ktor.shared.serialization.kotlinx.*
 
 install(ContentNegotiation) {
     json()

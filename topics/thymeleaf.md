@@ -10,7 +10,7 @@ Ktor allows you to use [Thymeleaf templates](https://www.thymeleaf.org/) as view
 
 ## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="Thymeleaf"/>
-<var name="artifact_name" value="ktor-thymeleaf"/>
+<var name="artifact_name" value="ktor-server-thymeleaf"/>
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
