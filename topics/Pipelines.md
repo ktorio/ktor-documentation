@@ -1,4 +1,4 @@
-§[//]: # (title: Pipelines)
+[//]: # (title: Pipelines)
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
