@@ -1,6 +1,6 @@
 [//]: # (title: Routing)
 
-Routing is the core Ktor [plugin](Plugins.md) (formerly known as feature) for handling incoming requests in a server application. When the client makes a request to a specific URL (for example, `/hello`), the routing mechanism allows us to define how we want this request to be served. 
+Routing is the core Ktor [plugin](Plugins.md) for handling incoming requests in a server application. When the client makes a request to a specific URL (for example, `/hello`), the routing mechanism allows us to define how we want this request to be served. 
 
 ## Install Routing {id="install_feature"}
 

@@ -15,7 +15,7 @@ It starts with a request, which is routed to a specific handler, processed by ou
 
 Many applications require common functionality that is out of scope of the application logic. This could be things like 
 serialization and content encoding, compression, headers, cookie support, etc. All of these are provided in Ktor by means of 
-what we call **Plugins** (formerly known as **Features**). 
+what we call **Plugins**. 
 
 If we look at the previous pipeline diagram, Plugins sit between the request/response and the application logic:
 

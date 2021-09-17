@@ -117,7 +117,7 @@
             </step>
             <step>
                 <p>
-                    On the next page, you can choose a set of <a href="Plugins.md">plugins</a> (formerly known as features) -
+                    On the next page, you can choose a set of <a href="Plugins.md">plugins</a> -
                     building blocks that provide common functionality of a Ktor application, for example,
                     authentication, serialization and content encoding, compression, cookie support, and so on.
                 </p>

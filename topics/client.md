@@ -1,6 +1,6 @@
 [//]: # (title: Client overview)
 
-Ktor includes a multiplatform asynchronous HTTP client, which allows you to make requests and handle responses, extend its functionality with plugins (formerly known as features), such as authentication, JSON serialization, and so on.
+Ktor includes a multiplatform asynchronous HTTP client, which allows you to make requests and handle responses, extend its functionality with plugins, such as authentication, JSON serialization, and so on.
 In this topic, we'll take an overview of the client - from setting it up to making requests and installing plugins. 
 
 ## Add dependencies {id="add-dependencies"}
@@ -64,7 +64,7 @@ See the [Engines](http-client_engines.md) section for additional details.
 
 ### Plugins {id="features"}
 
-Ktor lets you use additional client functionality (plugins, formerly known as features) that is not available by default, for example, logging, authorization, or serialization. Most of them are provided in separate artifacts. For example, you can log HTTP calls by installing the [Logging](client_logging.md) plugin:
+Ktor lets you use additional client functionality (plugins) that is not available by default, for example, logging, authorization, or serialization. Most of them are provided in separate artifacts. For example, you can log HTTP calls by installing the [Logging](client_logging.md) plugin:
 
 ```kotlin
 ```

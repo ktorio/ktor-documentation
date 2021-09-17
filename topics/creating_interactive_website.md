@@ -11,7 +11,7 @@
 
 In this hands-on tutorial we're going to create an interactive website using Kotlin and [Ktor](https://ktor.io), a framework for building connected applications.
 
-Using the different plugins (formerly known as features) and integrations provided by Ktor, we will see how to host static content like images and HTML pages. We will see how supported HTML templating engines like [Freemarker](http://freemarker.org/) make it easy to control how data from our application is rendered in the browser. By using [kotlinx.html](https://github.com/Kotlin/kotlinx.html), we'll learn about a domain-specific language that allows us to mix Kotlin code and markup directly, allowing us to write our site's display logic in pure Kotlin.
+Using the different plugins and integrations provided by Ktor, we will see how to host static content like images and HTML pages. We will see how supported HTML templating engines like [Freemarker](http://freemarker.org/) make it easy to control how data from our application is rendered in the browser. By using [kotlinx.html](https://github.com/Kotlin/kotlinx.html), we'll learn about a domain-specific language that allows us to mix Kotlin code and markup directly, allowing us to write our site's display logic in pure Kotlin.
 
 ## What we will build
 

@@ -9,7 +9,7 @@
 </p>
 </microformat>
 
-In this hands-on, we're going to create an HTTP API using Kotlin and Ktor that can serve as a backend for any application, be it mobile, web, desktop, or even a B2B service. We will see how routes are defined and structured, how serialization plugins (formerly known as features) help with simplifying tedious tasks, and how we can test parts of our application both manually and automated.
+In this hands-on, we're going to create an HTTP API using Kotlin and Ktor that can serve as a backend for any application, be it mobile, web, desktop, or even a B2B service. We will see how routes are defined and structured, how serialization plugins help with simplifying tedious tasks, and how we can test parts of our application both manually and automated.
 
 ## What we will build
 
@@ -76,7 +76,7 @@ fun Application.module() {
 }
 ```
 
-The entry point of our application is important because we install Ktor's plugins (formerly known as features) and define routing for our API here – something we can start with right now! 
+The entry point of our application is important because we install Ktor's plugins and define routing for our API here – something we can start with right now! 
 
 
 ## Customer routes

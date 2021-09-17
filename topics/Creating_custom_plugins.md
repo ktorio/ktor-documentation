@@ -7,7 +7,7 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-You can develop your own plugins (formerly known as features) and reuse them across all your Ktor applications, or you can share them with the community.
+You can develop your own plugins and reuse them across all your Ktor applications, or you can share them with the community.
 A typical plugin has the following structure:
 
 ```kotlin
