@@ -1,13 +1,15 @@
-[//]: # (title: Json)
+[//]: # (title: Content negotiation and serialization)
 
 <microformat>
 <var name="example_name" value="client-json-kotlinx"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-The `ContentNegotiation` plugin can be used to serialize/deserialize JSON data when sending [requests](request.md) and receiving [responses](response.md). This functionality is provided for [Kotlin Multiplatform](http-client_multiplatform.md) by using `kotlinx.serialization` and for JVM by using the `Gson`/`Jackson` libraries.
+The `ContentNegotiation` plugin serves two primary purposes:
+* Negotiating media types between the client and server. For this, it uses the `Accept` and `Content-Type` headers.
+* Serializing/deserializing JSON data when sending [requests](request.md) and receiving [responses](response.md). This functionality is provided for [Kotlin Multiplatform](http-client_multiplatform.md) by using `kotlinx.serialization` and for JVM by using the `Gson`/`Jackson` libraries.
 
-> On the server, Ktor provides the [ContentNegotiation](serialization.md) plugin (previously known as feature) for serializing/deserializing content.
+> On the server, Ktor provides the [ContentNegotiation](serialization.md) plugin for serializing/deserializing content.
 
 
 ## Add dependencies {id="add_dependencies"}

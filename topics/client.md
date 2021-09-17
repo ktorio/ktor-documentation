@@ -103,13 +103,12 @@ To learn how to add headers, cookies, and specify a request body, see the [](req
 
 
 ### Receive a response {id="response"}
-All functions used to [make an HTTP request](request.md) (`request`, `get`, `post`, etc.) allow you to receive a response as an [HttpResponse](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.statement/-http-response/index.html) object. `HttpResponse` exposes API required to get a response body in various ways (raw bytes, JSON objects, etc.) and obtain response parameters, such as a status code, content type, headers, and so on. For example, you can receive a body as [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/) as follows:
-
+All functions used to [make an HTTP request](request.md) (`request`, `get`, `post`, etc.) allow you to receive a response as an [HttpResponse](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.statement/-http-response/index.html) object.
 ```kotlin
 ```
-{src="snippets/_misc_client/ResponseTypes.kt" lines="11,13"}
+{src="snippets/_misc_client/GetMethodWithoutParams.kt"}
 
-You can learn more from the [](response.md) topic.
+`HttpResponse` exposes API required to get a response body in various ways (a string, a JSON object, etc.) and obtain response parameters, such as a status code, content type, headers, and so on. You can learn more from the [](response.md) topic.
 
 > With the [JSON plugin](json.md#receive_data) installed, you can deserialize JSON content into a custom data object.
 

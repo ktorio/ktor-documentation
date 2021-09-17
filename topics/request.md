@@ -11,7 +11,7 @@ These parameters are exposed by the [HttpRequestBuilder](https://api.ktor.io/kto
 ```
 {src="snippets/_misc_client/RequestMethodWithoutParams.kt" interpolate-variables="true" disable-links="false"}
 
-Note that this function allows you to [receive a response](response.md) in various ways. In this example, we receive a response as an `HttpResponse` object.
+Note that this function allows you to receive a response as an `HttpResponse` object. `HttpResponse` exposes API required to get a response body in various ways (a string, a JSON object, etc.) and obtain response parameters, such as a status code, content type, headers, and so on. You can learn more from the [](response.md) topic.
 
 > `request` is a suspending function, so requests should be executed only from a coroutine or another suspend function. You can learn more about calling suspending functions from [Coroutines basics](https://kotlinlang.org/docs/coroutines-basics.html).
 
@@ -62,7 +62,7 @@ To add <emphasis tooltip="query_string">query string</emphasis> parameters, call
 
 
 ## Set request body {id="body"}
-To set the body of a request, you need to specify the [body](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.request/-http-request-builder/body.html) property via `HttpRequestBuilder`. This property accepts different types of payloads, including plain text, arbitrary class instances, form data, byte arrays, and so on. Below we'll take a look at several examples.
+To set the body of a request, you need to call the `setBody` function exposed by [HttpRequestBuilder](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.request/-http-request-builder/index.html). This function accepts different types of payloads, including plain text, arbitrary class instances, form data, byte arrays, and so on. Below we'll take a look at several examples.
 
 ### Text {id="text"}
 Sending plain text as body can be implemented in the following way:
@@ -72,11 +72,11 @@ Sending plain text as body can be implemented in the following way:
 
 
 ### Objects {id="objects"}
-With the enabled [Json](json.md) plugin, you can send a class instance within a request body as JSON. To do this, assign a class instance to the `body` property and set the content type to `application/json` using the [contentType](https://api.ktor.io/ktor-http/ktor-http/io.ktor.http/content-type.html) function:
+With the enabled [ContentNegotiation](json.md) plugin, you can send a class instance within a request body as JSON. To do this, pass a class instance to the `setBody` function and set the content type to `application/json` using the [contentType](https://api.ktor.io/ktor-http/ktor-http/io.ktor.http/content-type.html) function:
 
 ```kotlin
 ```
-{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="27-30"}
+{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="29-32"}
 
 You can learn more from the [](json.md) help section.
 

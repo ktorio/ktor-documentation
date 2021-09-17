@@ -65,11 +65,11 @@ fun main(args: Array<String>) = runBlocking {
         }
     }
 
-    val result = client.get<String> {
+    val result: String = client.get {
         url {
             encodedPath = "/demo"
         }
-    }
+    }.bodyAsText()
 
     println(result)
     // Prints: method=HttpMethod(value=HEAD), host=127.0.0.1, port=8080, path=/demo, headers=Headers [X-My-Header=[MyValue], Accept=[*/*]]

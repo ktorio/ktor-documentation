@@ -11,7 +11,7 @@ All functions used to [make an HTTP request](request.md) (`request`, `get`, `pos
 
 ### Raw body {id="raw"}
 
-To receive a raw body as [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/), call the [HttpResponse.receive](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.call/receive.html) function in the following way:
+To receive a raw body of a response, call the `body` function and pass the required type as a parameter. The code snippet below shows how to receive a raw body as [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/):
 
 ```kotlin
 ```
@@ -32,13 +32,13 @@ A [runnable example](https://github.com/ktorio/ktor-documentation/tree/main/code
 
 ### JSON object {id="json"}
 
-With the [JSON plugin](json.md) installed, you can deserialize JSON data into a data class when receiving responses, for example:
+With the [ContentNegotiation](json.md) plugin installed, you can deserialize JSON data into a data class when receiving responses, for example:
 
 ```kotlin
 ```
-{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="33"}
+{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="35"}
 
-To learn more, see [JSON plugin](json.md#receive_send_data).
+To learn more, see [](json.md#receive_send_data).
 
 
 ### Streaming data {id="streaming"}

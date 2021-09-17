@@ -1,8 +1,8 @@
 [//]: # (title: Content negotiation and serialization)
 
-The [ContentNegotiation](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-content-negotiation/index.html) plugin (previously known as feature) serves two primary purposes:
+The [ContentNegotiation](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-content-negotiation/index.html) plugin serves two primary purposes:
 * Negotiating media types between the client and server. For this, it uses the `Accept` and `Content-Type` headers.
-* Serializing/deserializing the content in the specific format, which is provided by either the built-in `kotlinx.serialization` library or external ones, such as `Gson` and `Jackson`, amongst others.
+* Serializing/deserializing the content in the specific format.
 
 
 ## Add dependencies {id="add_dependencies"}
