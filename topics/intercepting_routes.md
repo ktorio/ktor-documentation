@@ -84,6 +84,7 @@ pipeline.environment.monitor.subscribe(Routing.RoutingCallFinished) { call: Rout
 }
 ```
 
-You can see a full example of this in the [Metrics plugin](https://github.com/ktorio/ktor/blob/main/ktor-features/ktor-metrics/jvm/src/io/ktor/metrics/dropwizard/DropwizardMetrics.kt).
+You can see a full example of this in the [Metrics plugin](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-plugins/ktor-server-metrics/jvm/src/io/ktor/server/metrics/dropwizard/DropwizardMetrics.kt).
+
 
 

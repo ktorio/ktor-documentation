@@ -220,4 +220,4 @@ Ktor also defines other pipelines in some other features.
 
 ## Samples
 
-See [`PipelineTest`](https://github.com/ktorio/ktor/blob/5f40b062457817870b3ecfa62b539782db2e65db/ktor-utils/ktor-utils-jvm/test/io/ktor/tests/utils/PipelineTest.kt) for examples.
+See [`PipelineTest`](https://github.com/ktorio/ktor/blob/main/ktor-utils/jvm/test/io/ktor/tests/utils/PipelineTest.kt) for examples.

@@ -76,7 +76,7 @@ dependencies {
 {id="sigterm"}
 
 If you are running an [EngineMain](create_server.xml#engine-main), it will be handled automatically.
-Otherwise, you need to [handle it manually](https://github.com/ktorio/ktor/blob/6c724f804bd6f25158d284d05c49235c67573019/ktor-server/ktor-server-cio/src/io/ktor/server/cio/EngineMain.kt#L18).
+Otherwise, you need to [handle it manually](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-cio/jvm/src/io/ktor/server/cio/EngineMain.kt#L21).
 You can use `Runtime.getRuntime().addShutdownHook` JVM's facility.
 
 ## How do I get the client IP behind a proxy?

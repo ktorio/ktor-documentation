@@ -48,7 +48,7 @@ And probably this is not what you want in most cases, since that behaviour is al
 
 ### XForwardedHeaderSupport trick
 
-As shown [in this test](https://github.com/ktorio/ktor/blob/bb0765ce00e5746c954fea70270cf7d802a40648/ktor-server/ktor-server-tests/test/io/ktor/tests/server/features/HttpsRedirectFeatureTest.kt#L31-L49){ target="_blank"},
+As shown [in this test](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-tests/jvm/test/io/ktor/tests/server/plugins/HttpsRedirectPluginTest.kt#L33-L50){ target="_blank"},
 you can install the `XForwardedHeaderSupport` plugin and add a `addHeader(HttpHeaders.XForwardedProto, "https")`
 header to the request.
 
