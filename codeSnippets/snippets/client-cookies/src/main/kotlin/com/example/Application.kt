@@ -10,9 +10,7 @@ import kotlinx.coroutines.runBlocking
 fun main() {
     runBlocking {
         val client = HttpClient(CIO) {
-            install(HttpCookies) {
-                storage
-            }
+            install(HttpCookies)
         }
         val loginResponse: HttpResponse = client.get("http://0.0.0.0:8080/login")
         repeat(3) {
