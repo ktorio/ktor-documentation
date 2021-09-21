@@ -3,9 +3,11 @@
 This guide provides the instructions how to migrate your Ktor application from the 1.6.x version to 2.0.0.
 
 ## Ktor Server {id="server"}
-### Move server code to io.ktor.server.* package {id="server-package"}
+### Server code is moved to the 'io.ktor.server.*' package {id="server-package"}
+To unify and better distinguish the server and client APIs, server code is moved to the `io.ktor.server.*` package ([KTOR-2865](https://youtrack.jetbrains.com/issue/KTOR-2865)).
+This means that you need to update [dependencies](#server-package-dependencies) for and [imports](#server-package-imports) in your application as shown below.
 
-#### Dependencies {id="dependencies"}
+#### Dependencies {id="server-package-dependencies"}
 | Subsystem | 1.6.x | 2.0.0 |
 | :---        |    :----:   |          ---: |
 | [Locations](locations.md) | `io.ktor:ktor-locations` | `io.ktor:ktor-server-locations` |
@@ -27,7 +29,7 @@ This guide provides the instructions how to migrate your Ktor application from t
 | [Dropwizard metrics](dropwizard_metrics.md) | `io.ktor:ktor-metrics` | `io.ktor:ktor-server-metrics` |
 
 
-#### Imports {id="imports"}
+#### Imports {id="server-package-imports"}
 | Subsystem | 1.6.x | 2.0.0 |
 | :---        |    :----:   |          ---: |
 | [Application](create_server.xml) | `import io.ktor.application.*` | `import io.ktor.server.application.*` |
@@ -56,32 +58,38 @@ This guide provides the instructions how to migrate your Ktor application from t
 | [Dropwizard metrics](dropwizard_metrics.md) | `import io.ktor.metrics.dropwizard.*` | `import io.ktor.server.metrics.dropwizard.*` |
 
 
+### Feature is renamed to Plugin {id="feature-plugin"}
 
+In Ktor 2.0.0, _Feature_ is renamed to _[Plugin](Plugins.md)_ to better describe functionality that intercepts the request/response pipeline ([KTOR-2326](https://youtrack.jetbrains.com/issue/KTOR-2326)).
+This affects the entire Ktor API and requires updating your application as describe below.
 
+#### Imports {id="feature-plugin-imports"}
+[Installing any plugin](Plugins.md#install) requires updating imports and also depends on [moving server code](#server-package-imports) to the `io.ktor.server.*` package:
 
+| 1.6.x | 2.0.0 |
+| :--- | ---: |
+| `import io.ktor.features.*` | `import io.ktor.server.plugins.*` |
 
-### Renaming feature to plugin {id="feature-plugin"}
+#### Custom plugins {id="feature-plugin-custom"}
 
-* Update imports for [installing plugins](Plugins.md#install):   
-   `import io.ktor.features.*` -> `import io.ktor.server.plugins.*`
-* Get a plugin instance:   
-   `Application.feature` -> `Application.plugin`
-* Exceptions:
-   `MissingApplicationFeatureException` -> `MissingApplicationPluginException`
-   
-   `DuplicateApplicationFeatureException` -> `DuplicateApplicationPluginException`
-* [Custom plugin](Creating_custom_plugins.md) interface:
-  `ApplicationFeature` -> `ApplicationPlugin`
-   > See new plugins API [link]().
-* Pipeline phase:   
-  `Features` -> `Plugins`
+Renaming Feature to Plugin introduces the following changes for API related to [custom plugins](Creating_custom_plugins.md):
+* The `ApplicationFeature` interface is renamed to `ApplicationPlugin`.
+* The `Features` [pipeline phase](Pipelines.md) is renamed to `Plugins`
+
+> See [new plugins API]().
 
 
 ### Content negotiation and serialization {id="serialization"}
-#### Dependencies {id="dependencies-serialization"}
 
-1. `ContentNegotiation` moved from `ktor-server-core` to `ktor-server-content-negotiation`.
-2. Serialization moved from `ktor-*` to `ktor-shared-serialization` (link to client serialization).
+[Content negotiation and serialization](serialization.md) server API was refactored to reuse serialization libraries between the server and client.
+The main changes are:
+* `ContentNegotiation` is moved from `ktor-server-core` to a separate `ktor-server-content-negotiation` artifact.
+* Serialization libraries is moved from `ktor-*` to the `ktor-shared-serialization-*` artifacts also used by the client.
+
+You need to update [dependencies](#dependencies-serialization) for and [imports](#imports-serialization) in your application as shown below.
+
+
+#### Dependencies {id="dependencies-serialization"}
 
 | Subsystem | 1.6.x | 2.0.0 |
 | :---        |    :----:   |          ---: |
@@ -97,8 +105,13 @@ This guide provides the instructions how to migrate your Ktor application from t
 | [Gson](gson.md) | `import io.ktor.gson.*` | `import io.ktor.shared.serializaion.gson.*` |
 | [Jackson](jackson.md) | `import io.ktor.jackson.*` | `import io.ktor.shared.serializaion.jackson.*` |
 
-#### Custom converter {id="custom-converter"}
-1.6.x:
+#### Custom converters {id="serialization-custom-converter"}
+
+Signatures of functions exposed by the [ContentConverter](serialization.md#implement_custom_converter) interface are changed in the following way:
+
+<tabs group="ktor_versions">
+<tab title="1.6.x" group-key="1_6">
+
 ```kotlin
 interface ContentConverter {
     suspend fun convertForSend(context: PipelineContext<Any, ApplicationCall>, contentType: ContentType, value: Any): Any?
@@ -106,25 +119,30 @@ interface ContentConverter {
 }
 ```
 
-2.0.0: 
+</tab>
+<tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 interface ContentConverter {
-    suspend fun serialize(contentType: ContentType, charset: Charset, typeInfo: TypeInfo, value: Any): OutgoingContent?  
+    suspend fun serialize(contentType: ContentType, charset: Charset, typeInfo: TypeInfo, value: Any): OutgoingContent?
     suspend fun deserialize(charset: Charset, typeInfo: TypeInfo, content: ByteReadChannel): Any?
 }
 ```
+
+</tab>
+</tabs>
 
 
 
 
 ## Ktor Client {id="client"}
+### Requests and responses {id="request-response"}
 
-### Making requests {id="make-request"}
+In v2.0.0, API used to make requests and receive responses is updated to make it more consistent and discoverable ([KTOR-29](https://youtrack.jetbrains.com/issue/KTOR-29)).
 
-#### Request methods overloads {id="request-overloads"}
+#### Request functions {id="request-overloads"}
 
-Deprecate builder methods with multiple parameters. Example:
+[Request functions](request.md) with multiple parameters are deprecated. For example, the `port` and `path` parameters need to be replaced with a single `url` parameter:
 
 <tabs group="ktor_versions">
 <tab title="1.6.x" group-key="1_6">
@@ -143,11 +161,12 @@ client.get("http://0.0.0.0:8080/customer/3")
 </tab>
 </tabs>
 
+You can specify additional [request parameters](request.md#parameters) inside the request function lambda using API exposed by [HttpRequestBuilder](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.request/-http-request-builder/index.html).
+
 
 #### Request body {id="request-body"}
-[Specify request body](request.md#body):
 
-The `HttpRequestBuilder.body` property is replaced with the `HttpRequestBuilder.setBody` function. Example:
+The `HttpRequestBuilder.body` property used to set the [request body](request.md#body) is replaced with the `HttpRequestBuilder.setBody` function:
 
 <tabs group="ktor_versions">
 <tab title="1.6.x" group-key="1_6">
@@ -173,9 +192,10 @@ client.post("http://localhost:8080/post") {
 
 
 
-### Receiving responses {id="receive-response"}
-Remove generic argument from the methods that we keep.
-Request functions now return a [response](response.md) only as a `HttpResponse` object. You can use `body`, `bodyAsText`, `bodyAsChannel`. Examples:
+#### Responses {id="responses"}
+With v2.0.0, request functions (such as `get`, `post`, `put`, [submitForm](request.md#form_parameters), and so on) don't accept generic arguments for receiving an object of a specific type.
+Now all request functions return a `HttpResponse` object, which exposes the `body` function with a generic argument for receiving a specific type instance.
+You can also use `bodyAsText` or `bodyAsChannel` to receive content as string or channel.
 
 <tabs group="ktor_versions">
 <tab title="1.6.x" group-key="1_6">
@@ -198,7 +218,7 @@ val byteArrayBody: ByteArray = httpResponse.body()
 </tab>
 </tabs>
 
-With the ContentNegotiation/serialization installed:
+With the [ContentNegotiation](json.md) plugin installed, you can receive an arbitrary object as follows:
 
 <tabs group="ktor_versions">
 <tab title="1.6.x" group-key="1_6">
@@ -217,17 +237,17 @@ val customer: Customer = client.get("http://localhost:8080/customer/3").body()
 </tab>
 </tabs>
 
-The same is for other request methods: `post`, `put`, [submitForm](request.md#form_parameters)
 
 #### Streaming responses {id="streaming-response"}
-Due to removing generic arguments, we need to provide methods that return `HttpStatement` for streaming responses:
+Due to [removing generic arguments](#responses) from request functions, receiving a streaming response requires separate functions.
+To achieve this, functions with the `prepare` prefix are added, such as `prepareGet` or `preparePost`:
 
 ```kotlin
 public suspend fun HttpClient.prepareGet(builder: HttpRequestBuilder): HttpStatement
 public suspend fun HttpClient.preparePost(builder: HttpRequestBuilder): HttpStatement
 ```
 
-Example:
+The example below shows how to change your code in this case:
 
 <tabs group="ktor_versions">
 <tab title="1.6.x" group-key="1_6">
@@ -256,18 +276,20 @@ client.prepareGet("https://ktor.io/").execute { httpResponse ->
 </tab>
 </tabs>
 
-[Full example](response.md#streaming)
+You can find the full example here: [](response.md#streaming).
 
 
 
 ### Content negotiation and serialization {id="serialization-client"}
 
-[](json.md) changes:
+The Ktor client now supports content negotiation and shares serialization libraries with the Ktor server.
+The main changes are:
+* `JsonFeature` is deprecated in favour of `ContentNegotiation`, which can be found in the `ktor-client-content-negotiation` artifact.
+* Serialization libraries is moved from `ktor-client-*` to the `ktor-shared-serialization-*` artifacts.
 
-Link to server:
+You need to update [dependencies](#imports-dependencies-client) for and [imports](#imports-serialization-client) in your client code as shown below.
 
-1. `JsonFeature` is deprecated, use `ContentNegotiation` for client `io.ktor:ktor-client-content-negotiation`.
-2. Serialization moved from `ktor-client-*` to `ktor-shared-serialization` (link to server serialization).
+#### Dependencies {id="imports-dependencies-client"}
 
 | Subsystem | 1.6.x | 2.0.0 |
 | :---        |    :----:   |          ---: |
@@ -285,9 +307,7 @@ Link to server:
 
 ### Bearer authentication
 
-[Bearer authentication](auth.md#bearer):
-
-`refreshTokens` lambda now accepts the `RefreshTokenParams` instead of a `HttpResponse`. 
+The [refreshTokens](auth.md#bearer) function now uses the `RefreshTokenParams` instance as [lambda receiver](https://kotlinlang.org/docs/scope-functions.html#context-object-this-or-it) (`this`) instead of the `HttpResponse` lambda argument (`it`):
 
 <tabs group="ktor_versions">
 <tab title="1.6.x" group-key="1_6">
@@ -314,17 +334,22 @@ bearer {
 </tab>
 </tabs>
 
-You can use `RefreshTokenParams` to access a response (`RefreshTokenParams.response`), the HTTP client (`RefreshTokenParams.client`) to make a request to refresh tokens, and old tokens (`RefreshTokenParams.oldTokens`).
+`RefreshTokenParams` exposes the following properties:
+* `response` to access response parameters;
+* `client` to make a request to refresh tokens;
+* `oldTokens` to access tokens obtained using `loadTokens`.
 
 
+### Feature is renamed to Plugin {id="feature-plugin-client"}
 
-### Renaming feature to plugin {id="feature-plugin-client"}
+#### Imports {id="feature-plugin-imports-client"}
+Update imports for [installing plugins](http-client_plugins.md), for example:
 
-* Update imports for [installing plugins](http-client_plugins.md), for example:
-   
-   ```kotlin
-   import io.ktor.client.features.* -> import io.ktor.client.plugins.*
-   import io.ktor.client.features.auth.* -> import io.ktor.client.plugins.auth.*
-   ```
-* Get a plugin instance: HttpClient.feature -> HttpClient.plugin
-* Custom feature: `HttpClientFeature` -> `HttpClientPlugin`
+```kotlin
+import io.ktor.client.features.* -> import io.ktor.client.plugins.* 
+import io.ktor.client.features.auth.* -> import io.ktor.client.plugins.auth.*
+```
+
+
+#### Custom plugins {id="feature-plugin-custom-client"}
+Custom feature: `HttpClientFeature` -> `HttpClientPlugin`
