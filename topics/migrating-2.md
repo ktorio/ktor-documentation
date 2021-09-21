@@ -77,7 +77,7 @@ This guide provides the instructions how to migrate your Ktor application from t
   `Features` -> `Plugins`
 
 
-### Content negotiation and serialization
+### Content negotiation and serialization {id="serialization"}
 #### Dependencies {id="dependencies-serialization"}
 
 1. `ContentNegotiation` moved from `ktor-server-core` to `ktor-server-content-negotiation`.
@@ -85,9 +85,10 @@ This guide provides the instructions how to migrate your Ktor application from t
 
 | Subsystem | 1.6.x | 2.0.0 |
 | :---        |    :----:   |          ---: |
-| [kotlinx.serialization](kotlin_serialization.md) | `io.ktor:ktor-serialization` | `io.ktor:ktor-server-content-negotiation`, `io.ktor:ktor-shared-serialization-kotlinx` |
-| [Gson](gson.md) | `io.ktor:ktor-gson` | `io.ktor:ktor-server-content-negotiation`, `io.ktor:ktor-shared-serialization-gson` |
-| [Jackson](jackson.md) | `io.ktor:ktor-jackson` | `io.ktor:ktor-server-content-negotiation`, `io.ktor:ktor-shared-serialization-jackson` |
+| [ContentNegotiation](serialization.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-content-negotiation` |
+| [kotlinx.serialization](kotlin_serialization.md) | `io.ktor:ktor-serialization` | `io.ktor:ktor-shared-serialization-kotlinx` |
+| [Gson](gson.md) | `io.ktor:ktor-gson` | `io.ktor:ktor-shared-serialization-gson` |
+| [Jackson](jackson.md) | `io.ktor:ktor-jackson` | `io.ktor:ktor-shared-serialization-jackson` |
 
 #### Imports {id="imports-serialization"}
 | Subsystem | 1.6.x | 2.0.0 |
@@ -120,12 +121,210 @@ interface ContentConverter {
 ## Ktor Client {id="client"}
 
 ### Making requests {id="make-request"}
-Deprecate builder methods with multiple parameters  
-`client.get(port = 8080, path = "/v1/item/$key")`
 
-`client.get("http://0.0.0.0:8080/v1/item/$key")`
+#### Request methods overloads {id="request-overloads"}
+
+Deprecate builder methods with multiple parameters. Example:
+
+<tabs group="ktor_versions">
+<tab title="1.6.x" group-key="1_6">
+
+```kotlin
+client.get(port = 8080, path = "/customer/3")
+```
+
+</tab>
+<tab title="2.0.0" group-key="2_0">
+
+```kotlin
+client.get("http://0.0.0.0:8080/customer/3")
+```
+
+</tab>
+</tabs>
+
+
+#### Request body {id="request-body"}
+[Specify request body](request.md#body):
+
+The `HttpRequestBuilder.body` property is replaced with the `HttpRequestBuilder.setBody` function. Example:
+
+<tabs group="ktor_versions">
+<tab title="1.6.x" group-key="1_6">
+
+```kotlin
+client.post("http://localhost:8080/post") {
+    body = "Body content"
+}
+```
+
+</tab>
+<tab title="2.0.0" group-key="2_0">
+
+```kotlin
+client.post("http://localhost:8080/post") {
+    setBody("Body content")
+}
+```
+
+</tab>
+</tabs>
 
 
 
 
 ### Receiving responses {id="receive-response"}
+Remove generic argument from the methods that we keep.
+Request functions now return a [response](response.md) only as a `HttpResponse` object. You can use `body`, `bodyAsText`, `bodyAsChannel`. Examples:
+
+<tabs group="ktor_versions">
+<tab title="1.6.x" group-key="1_6">
+
+```kotlin
+val httpResponse: HttpResponse = client.get("https://ktor.io/")
+val stringBody: String = httpResponse.receive()
+val byteArrayBody: ByteArray = httpResponse.receive()
+```
+
+</tab>
+<tab title="2.0.0" group-key="2_0">
+
+```kotlin
+val httpResponse: HttpResponse = client.get("https://ktor.io/")
+val stringBody: String = httpResponse.body()
+val byteArrayBody: ByteArray = httpResponse.body()
+```
+
+</tab>
+</tabs>
+
+With the ContentNegotiation/serialization installed:
+
+<tabs group="ktor_versions">
+<tab title="1.6.x" group-key="1_6">
+
+```kotlin
+val customer: Customer = client.get("http://localhost:8080/customer/3")
+```
+
+</tab>
+<tab title="2.0.0" group-key="2_0">
+
+```kotlin
+val customer: Customer = client.get("http://localhost:8080/customer/3").body()
+```
+
+</tab>
+</tabs>
+
+The same is for other request methods: `post`, `put`, [submitForm](request.md#form_parameters)
+
+#### Streaming responses {id="streaming-response"}
+Due to removing generic arguments, we need to provide methods that return `HttpStatement` for streaming responses:
+
+```kotlin
+public suspend fun HttpClient.prepareGet(builder: HttpRequestBuilder): HttpStatement
+public suspend fun HttpClient.preparePost(builder: HttpRequestBuilder): HttpStatement
+```
+
+Example:
+
+<tabs group="ktor_versions">
+<tab title="1.6.x" group-key="1_6">
+
+```kotlin
+client.get<HttpStatement>("https://ktor.io/").execute { httpResponse ->
+    val channel: ByteReadChannel = httpResponse.receive()
+    while (!channel.isClosedForRead) {
+        // Read data
+    }
+}
+```
+
+</tab>
+<tab title="2.0.0" group-key="2_0">
+
+```kotlin
+client.prepareGet("https://ktor.io/").execute { httpResponse ->
+    val channel: ByteReadChannel = httpResponse.body()
+    while (!channel.isClosedForRead) {
+        // Read data
+    }
+}
+```
+
+</tab>
+</tabs>
+
+[Full example](response.md#streaming)
+
+
+
+### Content negotiation and serialization {id="serialization-client"}
+
+[](json.md) changes:
+
+Link to server:
+
+1. `JsonFeature` is deprecated, use `ContentNegotiation` for client `io.ktor:ktor-client-content-negotiation`.
+2. Serialization moved from `ktor-client-*` to `ktor-shared-serialization` (link to server serialization).
+
+| Subsystem | 1.6.x | 2.0.0 |
+| :---        |    :----:   |          ---: |
+| `ContentNegotiation` | n/a | `io.ktor:ktor-client-content-negotiation` |
+| kotlinx.serialization | `io.ktor:ktor-client-serialization` | `io.ktor:ktor-shared-serialization-kotlinx` |
+| Gson | `io.ktor:ktor-client-gson` | `io.ktor:ktor-shared-serialization-gson` |
+| Jackson | `io.ktor:ktor-client-jackson` | `io.ktor:ktor-shared-serialization-jackson` |
+
+#### Imports {id="imports-serialization-client"}
+| Subsystem | 1.6.x | 2.0.0 |
+| :---        |    :----:   |          ---: |
+| kotlinx.serialization | `import io.ktor.client.features.json.*` | `import io.ktor.shared.serialization.kotlinx.*` |
+| Gson | `import io.ktor.client.features.json.*` | `import io.ktor.shared.serializaion.gson.*` |
+| Jackson | `import io.ktor.client.features.json.*` | `import io.ktor.shared.serializaion.jackson.*` |
+
+### Bearer authentication
+
+[Bearer authentication](auth.md#bearer):
+
+`refreshTokens` lambda now accepts the `RefreshTokenParams` instead of a `HttpResponse`. 
+
+<tabs group="ktor_versions">
+<tab title="1.6.x" group-key="1_6">
+
+```kotlin
+bearer {
+    refreshTokens {  // it: HttpResponse
+        // ...
+    }
+}
+```
+
+</tab>
+<tab title="2.0.0" group-key="2_0">
+
+```kotlin
+bearer {
+    refreshTokens { // this: RefreshTokenParams
+        // ...
+    }
+}
+```
+
+</tab>
+</tabs>
+
+You can use `RefreshTokenParams` to access a response (`RefreshTokenParams.response`), the HTTP client (`RefreshTokenParams.client`) to make a request to refresh tokens, and old tokens (`RefreshTokenParams.oldTokens`).
+
+
+
+### Renaming feature to plugin {id="feature-plugin-client"}
+
+* Update imports for [installing plugins](http-client_plugins.md), for example:
+   
+   ```kotlin
+   import io.ktor.client.features.* -> import io.ktor.client.plugins.*
+   import io.ktor.client.features.auth.* -> import io.ktor.client.plugins.auth.*
+   ```
+* Get a plugin instance: HttpClient.feature -> HttpClient.plugin
+* Custom feature: `HttpClientFeature` -> `HttpClientPlugin`

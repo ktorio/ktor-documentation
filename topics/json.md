@@ -23,7 +23,7 @@ Then, you need to add a dependency for the desired serializer. For [multiplatfor
 
 ### Multiplatform: kotlinx {id="kotlinx_dependency"}
 
-For multiplatform projects, you can use the `kotlinx.serialization` library. You can add it to the project as follows:
+For [multiplatform](http-client_multiplatform.md) projects, you can use the `kotlinx.serialization` library. You can add it to the project as follows:
 1. Add the Kotlin serialization plugin, as described in the [Setup](https://github.com/Kotlin/kotlinx.serialization#setup) section.
 2. Add the `ktor-shared-serialization-kotlinx` artifact:
    <var name="artifact_name" value="ktor-shared-serialization-kotlinx"/>
@@ -53,7 +53,7 @@ Now you can [configure](#configure_serializer) the required JSON serializer.
 ## Configure a serializer {id="configure_serializer"}
 ### kotlinx {id="kotlinx"}
 
-To use Kotlin serialization, call the `json` function:
+To use the `kotlinx.serialization` library to serialize/deserialize JSON data, call the `json` function:
 ```kotlin
 install(ContentNegotiation) {
    json()
@@ -90,9 +90,7 @@ install(ContentNegotiation) {
 To use Gson, call the `jackson` function:
 ```kotlin
 install(ContentNegotiation) {
-   jackson() {
-
-   }
+   jackson()
 }
 ```
 Inside the `jackson` block parameter, you can access the [ObjectMapper](https://fasterxml.github.io/jackson-databind/javadoc/2.9/com/fasterxml/jackson/databind/ObjectMapper.html) API:
