@@ -10,7 +10,7 @@ All the functions are suspending blocks/lambdas, thus the whole pipeline is asyn
 
 Since pipelines contain blocks of code, they can be nested, effectively creating sub-pipelines.
 
-Pipelines are used in Ktor as an extension mechanism to plug functionality in at the right place. For example, a Ktor application defines five main phases: Setup, Monitoring, Features, Call and Fallback. The routing feature defines its own nested pipeline inside the application's call phase.
+Pipelines are used in Ktor as an extension mechanism to plug functionality in at the right place. For example, a Ktor application defines five main phases: Setup, Monitoring, Plugins, Call and Fallback. The routing feature defines its own nested pipeline inside the application's call phase.
 
 ## API
 
@@ -181,14 +181,14 @@ The purpose for intercepting each phase:
 The code looks like this:
 
 ```kotlin
-open class ApplicationCallPipeline : Pipeline<Unit, ApplicationCall>(Setup, Monitoring, Features, Call, Fallback) {
+open class ApplicationCallPipeline : Pipeline<Unit, ApplicationCall>(Setup, Monitoring, Plugins, Call, Fallback) {
     val receivePipeline = ApplicationReceivePipeline()
     val sendPipeline = ApplicationSendPipeline()
 
     companion object {
         val Setup = PipelinePhase("Setup")
         val Monitoring = PipelinePhase("Monitoring")
-        val Features = PipelinePhase("Features")
+        val Features = PipelinePhase("Plugins")
         val Call = PipelinePhase("Call")
         val Fallback = PipelinePhase("Fallback")
     }

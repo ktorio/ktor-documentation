@@ -1,4 +1,4 @@
-package io.ktor.snippets.feature
+package io.ktor.snippets.plugin
 
 import io.ktor.server.application.*
 import io.ktor.server.plugins.*
@@ -9,7 +9,7 @@ import kotlinx.html.*
 fun Application.main() {
     install(DefaultHeaders)
     install(CallLogging)
-    install(CustomHeader) { // Install a custom feature
+    install(CustomHeader) { // Install a custom plugin
         headerName = "Hello" // configuration
         headerValue = "World"
     }
@@ -17,11 +17,11 @@ fun Application.main() {
         get("/") {
             call.respondHtml {
                 head {
-                    title { +"Ktor: custom-feature" }
+                    title { +"Ktor: custom-plugin" }
                 }
                 body {
                     p {
-                        +"Hello from Ktor custom feature sample application"
+                        +"Hello from Ktor custom plugin sample application"
                     }
                 }
             }
