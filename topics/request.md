@@ -72,13 +72,13 @@ Sending plain text as body can be implemented in the following way:
 
 
 ### Objects {id="objects"}
-With the enabled [ContentNegotiation](json.md) plugin, you can send a class instance within a request body as JSON. To do this, pass a class instance to the `setBody` function and set the content type to `application/json` using the [contentType](https://api.ktor.io/ktor-http/ktor-http/io.ktor.http/content-type.html) function:
+With the enabled [ContentNegotiation](serialization-client.md) plugin, you can send a class instance within a request body as JSON. To do this, pass a class instance to the `setBody` function and set the content type to `application/json` using the [contentType](https://api.ktor.io/ktor-http/ktor-http/io.ktor.http/content-type.html) function:
 
 ```kotlin
 ```
 {src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="29-32"}
 
-You can learn more from the [](json.md) help section.
+You can learn more from the [](serialization-client.md) help section.
 
 ### Form parameters {id="form_parameters"}
 The Ktor client provides the [submitForm](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.request.forms/submit-form.html) function for sending form parameters using both `x-www-form-urlencoded` and `multipart/form-data` types. In a code snippet below, this function accepts the following parameters:

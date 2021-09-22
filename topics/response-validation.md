@@ -40,7 +40,7 @@ val client = HttpClient(CIO) {
 
 As mentioned above, [default validation](#default) throws exceptions for non-2xx error responses. If you need to add stricter validation and check 2xx responses, use the [validateResponse](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.features/-http-call-validator/-config/validate-response.html) function available in `HttpCallValidator`. 
 
-In the [example](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-validate-response) below, a client receives a 2xx response with error details in a [JSON](json.md) format. The `validateResponse` is used to raise a `CustomResponseException`:
+In the [example](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-validate-response) below, a client receives a 2xx response with error details in a [JSON](serialization-client.md) format. The `validateResponse` is used to raise a `CustomResponseException`:
 
 ```kotlin
 ```

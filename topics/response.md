@@ -32,13 +32,13 @@ A [runnable example](https://github.com/ktorio/ktor-documentation/tree/main/code
 
 ### JSON object {id="json"}
 
-With the [ContentNegotiation](json.md) plugin installed, you can deserialize JSON data into a data class when receiving responses, for example:
+With the [ContentNegotiation](serialization-client.md) plugin installed, you can deserialize JSON data into a data class when receiving responses, for example:
 
 ```kotlin
 ```
 {src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="35"}
 
-To learn more, see [](json.md#receive_send_data).
+To learn more, see [](serialization-client.md#receive_send_data).
 
 
 ### Streaming data {id="streaming"}

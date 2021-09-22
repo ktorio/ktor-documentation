@@ -110,7 +110,7 @@ All functions used to [make an HTTP request](request.md) (`request`, `get`, `pos
 
 `HttpResponse` exposes API required to get a response body in various ways (a string, a JSON object, etc.) and obtain response parameters, such as a status code, content type, headers, and so on. You can learn more from the [](response.md) topic.
 
-> With the [JSON plugin](json.md#receive_data) installed, you can deserialize JSON content into a custom data object.
+> With the [JSON plugin](serialization-client.md#receive_data) installed, you can deserialize JSON content into a custom data object.
 
 
 ## Close the HTTP client {id="close-client"}

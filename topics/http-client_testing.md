@@ -20,7 +20,7 @@ Before using `MockEngine`, you need to include the `ktor-client-mock` artifact i
 
 Let's see how to use `MockEngine` to test a client. Suppose the client has the following configuration:
 * The `CIO` [engine](http-client_engines.md) is used to make requests.
-* The [Json](json.md) plugin is installed to deserialize incoming JSON data.
+* The [Json](serialization-client.md) plugin is installed to deserialize incoming JSON data.
 
 To test this client, its configuration needs to be shared with a test client, which uses `MockEngine`. To share a configuration, you can create a client wrapper class that takes an engine as a constructor parameter and contains a client configuration.
 

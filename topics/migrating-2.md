@@ -218,7 +218,7 @@ val byteArrayBody: ByteArray = httpResponse.body()
 </tab>
 </tabs>
 
-With the [ContentNegotiation](json.md) plugin installed, you can receive an arbitrary object as follows:
+With the [ContentNegotiation](serialization-client.md) plugin installed, you can receive an arbitrary object as follows:
 
 <tabs group="ktor_versions">
 <tab title="1.6.x" group-key="1_6">

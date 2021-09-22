@@ -68,7 +68,7 @@ Before configuring the `oauth` provider, you need to initialize the `HttpClient`
 ```
 {src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="23-27"}
 
-Note that the client also has the [](json.md) plugin installed. This is required to deserialize received JSON data [after a request to API](#request-api).
+Note that the client also has the [](serialization-client.md) plugin installed. This is required to deserialize received JSON data [after a request to API](#request-api).
 
 
 ### Step 2: Configure the OAuth provider {id="configure-oauth-provider"}
