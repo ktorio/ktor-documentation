@@ -4,10 +4,6 @@ Ktor implements `Deflate` WebSocket extensions [RFC-7692](https://tools.ietf.org
 for the client and server. The extension can transparently compress frame before sending, and decompress after receiving.
 It's useful to enable this extension if you're sending large amounts of text data.
 
-<var name="annotation_name" value="ExperimentalWebSocketExtensionsApi"/>
-<var name="issue_number" value="688"/>
-<include src="lib.xml" include-id="experimental"/>
-
 ## Installation
 
 To use the extension it should be installed first. To do that we can use `install` method in `extensions` block:

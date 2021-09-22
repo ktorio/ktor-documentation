@@ -3,10 +3,6 @@
 Ktor WebSocket API supports writing your own extensions(such as [RFC-7692](https://tools.ietf.org/html/rfc7692))
 or any custom extensions.
 
-<var name="annotation_name" value="ExperimentalWebSocketExtensionsApi"/>
-<var name="issue_number" value="688"/>
-<include src="lib.xml" include-id="experimental"/>
-
 ## Installing extension
 
 To install and configure the extensions we provide two methods: `extensions` and `install` which can be used in the following way:
