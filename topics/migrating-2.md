@@ -347,16 +347,88 @@ As for the Ktor server, _Feature_ is renamed to _Plugin_ in the client API.
 This might affect your application, as described below.
 
 #### Imports {id="feature-plugin-imports-client"}
-Update imports for [installing plugins](http-client_plugins.md), for example:
+Update imports for [installing plugins](client.md#features):
 
-| Subsystem | 1.6.x | 2.0.0 |
-| :---        |    :----:   |          ---: |
-| [Default request](default-request.md), [User agent](user-agent.md), [Charsets](http-plain-text.md), [Response validation](response-validation.md), [Timeout](timeout.md), HttpCache, HttpSend | `import io.ktor.client.features.*` | `import io.ktor.client.plugins.*` |
-| [Authentication](auth.md) | `import io.ktor.client.features.auth.*`, `import io.ktor.client.features.auth.providers.*` | `import io.ktor.client.plugins.auth.*`, `import io.ktor.client.plugins.auth.providers.*` |
-| [Cookies](http-cookies.md) | `import io.ktor.client.features.cookies.*` | `import io.ktor.client.plugins.cookies.*` |
-| [Logging](client_logging.md) | `import io.ktor.client.features.logging.*` | `import io.ktor.client.plugins.logging.*` |
-| [WebSockets](websocket_client.md) | `import io.ktor.client.features.websocket.*` | `import io.ktor.client.plugins.websocket.*` |
-| Content encoding | `import io.ktor.client.features.compression.*` | `import io.ktor.client.plugins.compression.*` |
+<table>
+<tr>
+<td>Subsystem</td>
+<td>1.6.x</td>
+<td>2.0.0</td>
+</tr>
+<tr>
+<td>
+<list>
+<li>
+<a href="default-request.md">Default request</a>
+</li>
+<li>
+<a href="user-agent.md">User agent</a>
+</li>
+<li>
+<a href="http-plain-text.md">Charsets</a>
+</li>
+<li>
+<a href="response-validation.md">Response validation</a>
+</li>
+<li>
+<a href="timeout.md">Timeout</a>
+</li>
+<li>
+HttpCache
+</li>
+<li>
+HttpSend
+</li>
+</list>
+</td>
+<td><code>import io.ktor.client.features.*</code></td>
+<td><code>import io.ktor.client.plugins.*</code></td>
+</tr>
+
+<tr>
+<td><a href="auth.md">Authentication</a></td>
+<td>
+<code>
+import io.ktor.client.features.auth.*
+</code>
+<code>
+import io.ktor.client.features.auth.providers.*
+</code>
+</td>
+<td>
+<code>
+import io.ktor.client.plugins.auth.*
+</code>
+<code>
+import io.ktor.client.plugins.auth.providers.*
+</code>
+</td>
+</tr>
+
+<tr>
+<td><a href="http-cookies.md">Cookies</a></td>
+<td><code>import io.ktor.client.features.cookies.*</code></td>
+<td><code>import io.ktor.client.plugins.cookies.*</code></td>
+</tr>
+
+<tr>
+<td><a href="client_logging.md">Logging</a></td>
+<td><code>import io.ktor.client.features.logging.*</code></td>
+<td><code>import io.ktor.client.plugins.logging.*</code></td>
+</tr>
+
+<tr>
+<td><a href="websocket_client.md">WebSockets</a></td>
+<td><code>import io.ktor.client.features.websocket.*</code></td>
+<td><code>import io.ktor.client.plugins.websocket.*</code></td>
+</tr>
+
+<tr>
+<td>Content encoding</td>
+<td><code>import io.ktor.client.features.compression.*</code></td>
+<td><code>import io.ktor.client.plugins.compression.*</code></td>
+</tr>
+</table>
 
 
 #### Custom plugins {id="feature-plugin-custom-client"}
