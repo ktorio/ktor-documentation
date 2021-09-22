@@ -2,7 +2,7 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-`DataConversion` is a plugin (previously known as feature) that allows to serialize and deserialize a list of values.
+`DataConversion` is a plugin that allows to serialize and deserialize a list of values.
 
 By default, it handles primitive types and enums, but it can also be configured to handle additional types. 
 

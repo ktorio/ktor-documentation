@@ -1,6 +1,6 @@
 # Client Logging
 
-A sample Ktor project showing how to log HTTP calls using the [Logging](https://ktor.io/docs/features-logging.html) feature.
+A sample Ktor project showing how to log HTTP calls using the [Logging](https://ktor.io/docs/features-logging.html) plugin.
 
 ## Running
 

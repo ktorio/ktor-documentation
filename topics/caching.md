@@ -5,7 +5,7 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-The [CachingHeaders](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-caching-headers/index.html) plugin (previously known as feature) adds the capability to configure the `Cache-Control` and `Expires` headers used for HTTP caching. You can introduce different [caching strategies](#configure) for specific content types, such as images, CSS and JavaScript files, and so on.
+The [CachingHeaders](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-caching-headers/index.html) plugin adds the capability to configure the `Cache-Control` and `Expires` headers used for HTTP caching. You can introduce different [caching strategies](#configure) for specific content types, such as images, CSS and JavaScript files, and so on.
 
 ## Install CachingHeaders {id="install_feature"}
 

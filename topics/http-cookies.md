@@ -7,7 +7,7 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-This plugin (previously known as feature) keeps cookies between calls or forces specific cookies.
+This plugin keeps cookies between calls or forces specific cookies.
 
 
 

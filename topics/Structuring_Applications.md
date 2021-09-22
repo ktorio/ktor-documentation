@@ -105,7 +105,7 @@ fun Application.module() {
 
 We can even take this one step further - install plugins per application, as needed, especially for instance when we’re using 
 the Authentication plugin which depends on specific routes. One important note however is that Ktor will detect if a 
-plugin has been installed twice by throwing an [DuplicateApplicationFeatureException](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.application/-duplicate-application-feature-exception/index.html) exception.
+plugin has been installed twice by throwing an `DuplicateApplicationPluginException` exception.
 
 ### A note on using objects
 

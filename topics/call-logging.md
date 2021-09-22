@@ -9,7 +9,7 @@
 
 Ktor provides the capability to log application events using the [SLF4J](http://www.slf4j.org/) library. You can learn about general logging configuration from the [](logging.md) topic.
 
-The `%feature_name%` plugin (previously known as feature) allows you to log incoming client requests.
+The `%feature_name%` plugin allows you to log incoming client requests.
 
 
 ## Install %feature_name% {id="install_feature"}

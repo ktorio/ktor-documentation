@@ -2,7 +2,7 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-The `StatusPages` plugin (previously known as feature) allows Ktor applications to respond appropriately to any failure state.
+The `StatusPages` plugin allows Ktor applications to respond appropriately to any failure state.
 This plugin is installed using the standard application configuration:
 
 ```kotlin

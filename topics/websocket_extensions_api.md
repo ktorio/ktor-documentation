@@ -45,7 +45,7 @@ Below is an example of how a simple frame logging extension can be implemented:
 class FrameLoggerExtension(val logger: Logger) : WebSocketExtension<FrameLogger.Config> {
 ```
 
-The feature has two groups of fields and methods. The first group is for extension negotiation:
+The plugin has two groups of fields and methods. The first group is for extension negotiation:
 
 ```kotlin
     /** List of protocols will be sent in client request for negotiation **/
@@ -84,7 +84,7 @@ The second group is the place for actual frame processing. Methods will take a f
     }
 ```
 
-There are also some implementation details: the feature has `Config` and reference to the origin `factory`.
+There are also some implementation details: the plugin has `Config` and reference to the origin `factory`.
 
 ```kotlin
     class Config {
@@ -97,7 +97,7 @@ There are also some implementation details: the feature has `Config` and referen
     override val factory: WebSocketExtensionFactory<Config, FrameLogger> = FrameLoggerExtension
 ```
 
-The factory is usually implemented in a companion object (similar to regular features):
+The factory is usually implemented in a companion object (similar to regular plugins):
 
 ```kotlin
     companion object : WebSocketExtensionFactory<Config, FrameLogger> {
@@ -105,13 +105,13 @@ The factory is usually implemented in a companion object (similar to regular fea
         override val key: AttributeKey<FrameLogger> = AttributeKey("frame-logger")
 
         /** List of occupied rsv bits.
-         * If the extension occupy a bit, it can't be used in other installed extensions. We use that bits to prevent feature conflicts(prevent to install multiple compression features). If you're implementing feature using some RFC, rsv occupied bits should be referenced there.
+         * If the extension occupy a bit, it can't be used in other installed extensions. We use that bits to prevent plugin conflicts(prevent to install multiple compression plugins). If you're implementing a plugin using some RFC, rsv occupied bits should be referenced there.
          */
         override val rsv1: Boolean = false
         override val rsv2: Boolean = false
         override val rsv3: Boolean = false
 
-       /** Create feature instance. Will be called for each WebSocket session **/
+       /** Create plugin instance. Will be called for each WebSocket session **/
         override fun install(config: Config.() -> Unit): FrameLogger {
             return FrameLogger(Config().apply(config).logger)
         }

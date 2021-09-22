@@ -1,4 +1,4 @@
-# Feature
+# Custom plugin
 
 A sample Ktor project with an implementation of a [custom plugin](https://ktor.io/docs/creating-custom-plugins.html).
 

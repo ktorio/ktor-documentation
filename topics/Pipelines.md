@@ -10,7 +10,7 @@ All the functions are suspending blocks/lambdas, thus the whole pipeline is asyn
 
 Since pipelines contain blocks of code, they can be nested, effectively creating sub-pipelines.
 
-Pipelines are used in Ktor as an extension mechanism to plug functionality in at the right place. For example, a Ktor application defines five main phases: Setup, Monitoring, Plugins, Call and Fallback. The routing feature defines its own nested pipeline inside the application's call phase.
+Pipelines are used in Ktor as an extension mechanism to plug functionality in at the right place. For example, a Ktor application defines five main phases: Setup, Monitoring, Plugins, Call and Fallback. The Routing plugin defines its own nested pipeline inside the application's call phase.
 
 ## API
 
@@ -55,7 +55,7 @@ For example, if you define two phases and want them to be executed in order, you
 ```kotlin
 val phase1 = PipelinePhase("MyPhase1")
 val phase2 = PipelinePhase("MyPhase2")
-pipeline.insertPhaseAfter(ApplicationCallPipeline.Features, phase1)
+pipeline.insertPhaseAfter(ApplicationCallPipeline.Plugins, phase1)
 pipeline.insertPhaseAfter(phase1, phase2)
 ```
 
@@ -84,7 +84,7 @@ pipeline.execute(context, subject)
 
 You can omit calling the `addPhase` method when using the `insertPhase*` methods unless you need to register a Phase that would otherwise be included by calling `Pipeline.merge` later.
 
->For example if you define a Phase inside a node in the routing feature, and then, in an inner node, try to insert a phase using that one as reference, you would get an exception similar to `io.ktor.pipeline.InvalidPhaseException: Phase Phase('YourPhase') was not registered for this pipeline`.
+>For example if you define a Phase inside a node in the Routing plugin, and then, in an inner node, try to insert a phase using that one as reference, you would get an exception similar to `io.ktor.pipeline.InvalidPhaseException: Phase Phase('YourPhase') was not registered for this pipeline`.
 >In this case you can just call `addPhase`, so the phase is referenced before merging.
 >
 {type="note"}
@@ -150,7 +150,7 @@ Pipelines are merged when there are different points where interceptors can be i
 {id="ApplicationCallPipeline"}
 
 Ktor defines a pipeline without a subject, and the `ApplicationCall` as a context
-defining five phases (`Setup`, `Monitoring`, `Features`, `Call` and `Fallback`) to be executed in this order:
+defining five phases (`Setup`, `Monitoring`, `Plugins`, `Call` and `Fallback`) to be executed in this order:
 
 ```nomnoml
 #direction: right
@@ -160,17 +160,17 @@ defining five phases (`Setup`, `Monitoring`, `Features`, `Call` and `Fallback`) 
 [<fallback>Fallback]
 
 [Setup] then -> [Monitoring]
-[Monitoring] then -> [Features]
-[Features] then -> [Call]
+[Monitoring] then -> [Plugins]
+[Plugins] then -> [Call]
 [Call] then -> [Fallback]
 ```
 
 The purpose for intercepting each phase:
-* `Setup`: phase used for preparing the call and its attributes for processing (like the [CallId] feature)
-* `Monitoring`: phase used for tracing calls: useful for logging, metrics, error handling and so on (like the [CallLogging] feature)
-* `Features`: most features should intercept this phase (like the [Authentication] feature).
-* `Call`: features and interceptors used to complete the call, like the [Routing] feature
-* `Fallback`: features that process unhandled calls in a normal way and resolve them somehow, like the [StatusPages] feature
+* `Setup`: phase used for preparing the call and its attributes for processing (like the [CallId] plugin).
+* `Monitoring`: phase used for tracing calls: useful for logging, metrics, error handling and so on (like the [CallLogging] plugin).
+* `Plugins`: most plugins should intercept this phase (like the [Authentication] plugin).
+* `Call`: plugins and interceptors used to complete the call, like the [Routing] plugin.
+* `Fallback`: plugins that process unhandled calls in a normal way and resolve them somehow, like the [StatusPages] plugin.
 
 [CallId]: call-id.md
 [CallLogging]: call-logging.md
@@ -188,14 +188,14 @@ open class ApplicationCallPipeline : Pipeline<Unit, ApplicationCall>(Setup, Moni
     companion object {
         val Setup = PipelinePhase("Setup")
         val Monitoring = PipelinePhase("Monitoring")
-        val Features = PipelinePhase("Plugins")
+        val Plugins = PipelinePhase("Plugins")
         val Call = PipelinePhase("Call")
         val Fallback = PipelinePhase("Fallback")
     }
 }
 ```
 
-This base pipeline is used by the `Application` and the `Routing` features.
+This base pipeline is used by the `Application` and the `Routing` plugins.
 
 ### Application
 
@@ -204,7 +204,7 @@ applications handling http requests.
 
 ### Routing
 
-The [routing feature](Routing_in_Ktor.md) defines a nested pipeline attached to the Call phase in the Application pipeline.
+The [Routing plugin](Routing_in_Ktor.md) defines a nested pipeline attached to the Call phase in the Application pipeline.
 You can get the routing root node pipeline by calling `val routing = application.routing {}`.
 Each node in the `Route` tree defines its own pipeline that is later merged per each route.
 
@@ -216,7 +216,7 @@ By merging the tree pipelines, you can define phases and interceptions at some p
 
 ### Other
 
-Ktor also defines other pipelines in some other features.
+Ktor also defines other pipelines in some other plugins.
 
 ## Samples
 

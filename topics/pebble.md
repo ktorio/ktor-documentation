@@ -6,7 +6,7 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-Ktor allows you to use [Pebble templates](https://pebbletemplates.io/) as views within your application by installing the [Pebble](https://api.ktor.io/ktor-features/ktor-pebble/ktor-pebble/io.ktor.pebble/-pebble/index.html) plugin (previously known as feature).
+Ktor allows you to use [Pebble templates](https://pebbletemplates.io/) as views within your application by installing the [Pebble](https://api.ktor.io/ktor-features/ktor-pebble/ktor-pebble/io.ktor.pebble/-pebble/index.html) plugin.
 
 
 ## Add dependencies {id="add_dependencies"}

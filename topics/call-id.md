@@ -2,7 +2,7 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-The CallId plugin (previously known as feature) allows to identify a request/call and can work along the [CallLogging](call-logging.md) plugin.
+The `CallId` plugin allows to identify a request/call and can work along the [CallLogging](call-logging.md) plugin.
 
 ## Generating Call IDs 
 

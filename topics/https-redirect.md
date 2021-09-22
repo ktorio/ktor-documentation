@@ -2,7 +2,7 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-The `HttpsRedirect` plugin (previously known as feature) will make all the affected HTTP calls perform a redirect to its
+The `HttpsRedirect` plugin makes all the affected HTTP calls perform a redirect to its
 HTTPS counterpart before processing the call.
 
 By default, the redirection is a `301 Moved Permanently`,

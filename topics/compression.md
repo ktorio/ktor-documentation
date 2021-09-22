@@ -1,6 +1,6 @@
 [//]: # (title: Compression)
 
-Ktor provides the capability to compress outgoing content by using the [Compression](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-compression/index.html) plugin (previously known as feature). You can use different compression algorithms, including `gzip` and `deflate`, 
+Ktor provides the capability to compress outgoing content by using the [Compression](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-compression/index.html) plugin. You can use different compression algorithms, including `gzip` and `deflate`, 
 specify the required conditions for compressing data (such as a content type or response size), or even compress data based on specific request parameters.
 
 > To learn how to serve pre-compressed static files in Ktor, see [](Serving_Static_Content.md#precompressed).

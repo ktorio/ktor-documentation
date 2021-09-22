@@ -2,7 +2,7 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-This plugin (previously known as feature) adds support for handling Partial Content requests:
+This plugin adds support for handling Partial Content requests:
 requests with the `Range` header. It intercepts the generated
 response adding the `Accept-Ranges` and the `Content-Range` header and slicing
 the served content when required.

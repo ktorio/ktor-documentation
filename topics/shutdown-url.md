@@ -2,7 +2,7 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-This plugin (previously known as feature) enables a URL that when accessed, shutdowns the server.
+This plugin enables a URL that when accessed, shutdowns the server.
 
 There are two ways to use it: [Automatically using HOCON](#hocon) and [Installing the plugin](#install)
 
@@ -25,10 +25,10 @@ ktor {
 ## Installing the plugin
 {id="install"}
 
-You can manually install the plugin, with `ShutDownUrl.ApplicationCallFeature` and set the `shutDownUrl` and an `exitCodeSupplier`:
+You can manually install the plugin, with `ShutDownUrl.ApplicationCallPlugin` and set the `shutDownUrl` and an `exitCodeSupplier`:
 
 ```kotlin
-install(ShutDownUrl.ApplicationCallFeature) {
+install(ShutDownUrl.ApplicationCallPlugin) {
     // The URL that will be intercepted
     shutDownUrl = "/ktor/application/shutdown"
     // A function that will be executed to get the exit code of the process

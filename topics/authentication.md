@@ -1,6 +1,6 @@
 [//]: # (title: Authentication and authorization)
 
-Ktor provides the `Authentication` feature to handle authentication and authorization. Typical usage scenarios include logging in users, granting access to specific resources, and securely transmitting information between parties. You can also use `Authentication` with [Sessions](sessions.md) to keep a user's information between requests.
+Ktor provides the `Authentication` plugin to handle authentication and authorization. Typical usage scenarios include logging in users, granting access to specific resources, and securely transmitting information between parties. You can also use `Authentication` with [Sessions](sessions.md) to keep a user's information between requests.
 
 ## Supported authentication types {id="supported"}
 Ktor supports the following authentications and authorization schemes:

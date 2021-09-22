@@ -2,7 +2,7 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-The `DoubleReceive` plugin (previously known as feature) provides the ability to invoke `ApplicationCall.receive` several times with no `RequestAlreadyConsumedException` exception. This usually makes sense when a plugin is consuming a request body
+The `DoubleReceive` plugin provides the ability to invoke `ApplicationCall.receive` several times with no `RequestAlreadyConsumedException` exception. This usually makes sense when a plugin is consuming a request body
 so a handler is unable to receive it again.
 
 > The `DoubleReceive` plugin use an experimental API that is expected to evolve in the upcoming updates with potentially breaking changes.

@@ -1,5 +1,5 @@
 # JWT authentication with RS256 and a JWK provider
-A sample project demonstrating how to authenticate a client using a [JSON Web Token](https://ktor.io/docs/jwt.html) signed with RS256. In this example, the [Static](https://ktor.io/docs/serving-static-content.html) feature is used to expose a JWKS endpoint.
+A sample project demonstrating how to authenticate a client using a [JSON Web Token](https://ktor.io/docs/jwt.html) signed with RS256. In this example, the [Static](https://ktor.io/docs/serving-static-content.html) plugin is used to expose a JWKS endpoint.
 
 ## Running
 To run this sample, execute the following command in a repository's root directory:

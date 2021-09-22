@@ -6,7 +6,7 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-Ktor allows you to use [FreeMarker templates](https://freemarker.apache.org/) as views within your application by installing the [Freemarker](https://api.ktor.io/ktor-features/ktor-freemarker/ktor-freemarker/io.ktor.freemarker/-free-marker/index.html) plugin (previously known as feature).
+Ktor allows you to use [FreeMarker templates](https://freemarker.apache.org/) as views within your application by installing the [Freemarker](https://api.ktor.io/ktor-features/ktor-freemarker/ktor-freemarker/io.ktor.freemarker/-free-marker/index.html) plugin.
 
 
 ## Add dependencies {id="add_dependencies"}

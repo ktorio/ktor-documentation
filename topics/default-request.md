@@ -2,7 +2,7 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-This plugin (previously known as feature) allows you to configure some defaults for all the requests for a specific client.
+This plugin allows you to configure some defaults for all the requests for a specific client.
 
 
 

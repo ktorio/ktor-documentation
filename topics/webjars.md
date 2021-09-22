@@ -2,8 +2,7 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-This plugin (previously known as feature) enables serving static content provided by [webjars](https://www.webjars.org/). It allows you to package your assets such
-as javascript libraries and css as part of your uber-jar.
+The `Webjars` plugin enables serving static content provided by [webjars](https://www.webjars.org/). It allows you to package your assets such as javascript libraries and css as part of your uber-jar.
 
 ## Add dependencies {id="add_dependencies"}
 <var name="feature_name" value="Webjars"/>
@@ -27,7 +26,7 @@ as javascript libraries and css as part of your uber-jar.
 ```
 
 This configures the plugin to serve any webjars assets on the `/assets/` path. The `zone` argument configures the correct time zone to
-be used with the `Last-Modified` header to support caching (only if [Conditional Headers](conditional_headers.md) feature is also installed).
+be used with the `Last-Modified` header to support caching (only if [Conditional Headers](conditional_headers.md) plugin is also installed).
 
 
 

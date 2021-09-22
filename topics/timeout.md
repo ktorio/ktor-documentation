@@ -5,7 +5,7 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-The `HttpTimeout` plugin (previously known as feature) allows you to configure the following timeouts:
+The `HttpTimeout` plugin allows you to configure the following timeouts:
 * __request timeout__ — a time period required to process an HTTP call: from sending a request to receiving a response.
 * __connection timeout__ — a time period in which a client should establish a connection with a server.
 * __socket timeout__ — a maximum time of inactivity between two data packets when exchanging data with a server.

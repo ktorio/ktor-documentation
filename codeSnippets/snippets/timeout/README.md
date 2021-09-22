@@ -14,4 +14,4 @@ This example consists of two endpoints:
 * `/timeout` emulates some long-running process that might hang up.
 * `/proxy` represents a proxy to `/timeout` that protects a user against such hang-ups. 
   
-If a user connects to `/proxy` and request hangs, proxy automatically aborts a request using `HttpTimeout` feature.
+If a user connects to `/proxy` and request hangs, proxy automatically aborts a request using `HttpTimeout` plugin.
