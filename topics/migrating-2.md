@@ -1,11 +1,11 @@
 [//]: # (title: Migrating from 1.6.x to 2.0.0)
 
-This guide provides the instructions how to migrate your Ktor application from the 1.6.x version to 2.0.0.
+This guide provides instructions on how to migrate your Ktor application from the 1.6.x version to 2.0.0.
 
 ## Ktor Server {id="server"}
 ### Server code is moved to the 'io.ktor.server.*' package {id="server-package"}
 To unify and better distinguish the server and client APIs, server code is moved to the `io.ktor.server.*` package ([KTOR-2865](https://youtrack.jetbrains.com/issue/KTOR-2865)).
-This means that you need to update [dependencies](#server-package-dependencies) for and [imports](#server-package-imports) in your application as shown below.
+This means that you need to update [dependencies](#server-package-dependencies) for and [imports](#server-package-imports) in your application, as shown below.
 
 #### Dependencies {id="server-package-dependencies"}
 | Subsystem | 1.6.x | 2.0.0 |
@@ -61,7 +61,7 @@ This means that you need to update [dependencies](#server-package-dependencies) 
 ### Feature is renamed to Plugin {id="feature-plugin"}
 
 In Ktor 2.0.0, _Feature_ is renamed to _[Plugin](Plugins.md)_ to better describe functionality that intercepts the request/response pipeline ([KTOR-2326](https://youtrack.jetbrains.com/issue/KTOR-2326)).
-This affects the entire Ktor API and requires updating your application as describe below.
+This affects the entire Ktor API and requires updating your application as described below.
 
 #### Imports {id="feature-plugin-imports"}
 [Installing any plugin](Plugins.md#install) requires updating imports and also depends on [moving server code](#server-package-imports) to the `io.ktor.server.*` package:
@@ -84,9 +84,9 @@ Renaming Feature to Plugin introduces the following changes for API related to [
 [Content negotiation and serialization](serialization.md) server API was refactored to reuse serialization libraries between the server and client.
 The main changes are:
 * `ContentNegotiation` is moved from `ktor-server-core` to a separate `ktor-server-content-negotiation` artifact.
-* Serialization libraries is moved from `ktor-*` to the `ktor-shared-serialization-*` artifacts also used by the client.
+* Serialization libraries are moved from `ktor-*` to the `ktor-shared-serialization-*` artifacts also used by the client.
 
-You need to update [dependencies](#dependencies-serialization) for and [imports](#imports-serialization) in your application as shown below.
+You need to update [dependencies](#dependencies-serialization) for and [imports](#imports-serialization) in your application, as shown below.
 
 
 #### Dependencies {id="dependencies-serialization"}
@@ -195,7 +195,7 @@ client.post("http://localhost:8080/post") {
 #### Responses {id="responses"}
 With v2.0.0, request functions (such as `get`, `post`, `put`, [submitForm](request.md#form_parameters), and so on) don't accept generic arguments for receiving an object of a specific type.
 Now all request functions return a `HttpResponse` object, which exposes the `body` function with a generic argument for receiving a specific type instance.
-You can also use `bodyAsText` or `bodyAsChannel` to receive content as string or channel.
+You can also use `bodyAsText` or `bodyAsChannel` to receive content as a string or channel.
 
 <tabs group="ktor_versions">
 <tab title="1.6.x" group-key="1_6">
@@ -284,10 +284,10 @@ You can find the full example here: [](response.md#streaming).
 
 The Ktor client now supports content negotiation and shares serialization libraries with the Ktor server.
 The main changes are:
-* `JsonFeature` is deprecated in favour of `ContentNegotiation`, which can be found in the `ktor-client-content-negotiation` artifact.
-* Serialization libraries is moved from `ktor-client-*` to the `ktor-shared-serialization-*` artifacts.
+* `JsonFeature` is deprecated in favor of `ContentNegotiation`, which can be found in the `ktor-client-content-negotiation` artifact.
+* Serialization libraries are moved from `ktor-client-*` to the `ktor-shared-serialization-*` artifacts.
 
-You need to update [dependencies](#imports-dependencies-client) for and [imports](#imports-serialization-client) in your client code as shown below.
+You need to update [dependencies](#imports-dependencies-client) for and [imports](#imports-serialization-client) in your client code, as shown below.
 
 #### Dependencies {id="imports-dependencies-client"}
 
@@ -301,6 +301,7 @@ You need to update [dependencies](#imports-dependencies-client) for and [imports
 #### Imports {id="imports-serialization-client"}
 | Subsystem | 1.6.x | 2.0.0 |
 | :---        |    :----:   |          ---: |
+| `ContentNegotiation` | n/a | `import io.ktor.client.plugins.*` |
 | kotlinx.serialization | `import io.ktor.client.features.json.*` | `import io.ktor.shared.serialization.kotlinx.*` |
 | Gson | `import io.ktor.client.features.json.*` | `import io.ktor.shared.serializaion.gson.*` |
 | Jackson | `import io.ktor.client.features.json.*` | `import io.ktor.shared.serializaion.jackson.*` |
@@ -342,14 +343,21 @@ bearer {
 
 ### Feature is renamed to Plugin {id="feature-plugin-client"}
 
+As for the Ktor server, _Feature_ is renamed to _Plugin_ in the client API.
+This might affect your application, as described below.
+
 #### Imports {id="feature-plugin-imports-client"}
 Update imports for [installing plugins](http-client_plugins.md), for example:
 
-```kotlin
-import io.ktor.client.features.* -> import io.ktor.client.plugins.* 
-import io.ktor.client.features.auth.* -> import io.ktor.client.plugins.auth.*
-```
+| Subsystem | 1.6.x | 2.0.0 |
+| :---        |    :----:   |          ---: |
+| [Default request](default-request.md), [User agent](user-agent.md), [Charsets](http-plain-text.md), [Response validation](response-validation.md), [Timeout](timeout.md), HttpCache, HttpSend | `import io.ktor.client.features.*` | `import io.ktor.client.plugins.*` |
+| [Authentication](auth.md) | `import io.ktor.client.features.auth.*`, `import io.ktor.client.features.auth.providers.*` | `import io.ktor.client.plugins.auth.*`, `import io.ktor.client.plugins.auth.providers.*` |
+| [Cookies](http-cookies.md) | `import io.ktor.client.features.cookies.*` | `import io.ktor.client.plugins.cookies.*` |
+| [Logging](client_logging.md) | `import io.ktor.client.features.logging.*` | `import io.ktor.client.plugins.logging.*` |
+| [WebSockets](websocket_client.md) | `import io.ktor.client.features.websocket.*` | `import io.ktor.client.plugins.websocket.*` |
+| Content encoding | `import io.ktor.client.features.compression.*` | `import io.ktor.client.plugins.compression.*` |
 
 
 #### Custom plugins {id="feature-plugin-custom-client"}
-Custom feature: `HttpClientFeature` -> `HttpClientPlugin`
+The `HttpClientFeature` interface is renamed to `HttpClientPlugin`.
