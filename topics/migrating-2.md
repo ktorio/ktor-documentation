@@ -347,7 +347,7 @@ As for the Ktor server, _Feature_ is renamed to _Plugin_ in the client API.
 This might affect your application, as described below.
 
 #### Imports {id="feature-plugin-imports-client"}
-Update imports for [installing plugins](client.md#features):
+Update imports for [installing plugins](client.md#plugins):
 
 <table>
 <tr>

@@ -68,7 +68,7 @@ Ktor lets you use additional client functionality (plugins) that is not availabl
 
 ```kotlin
 ```
-{src="snippets/_misc_client/InstallLoggingFeature.kt"}
+{src="snippets/_misc_client/InstallLoggingPlugin.kt"}
 
 You can also configure a plugin inside the `install` block. For example, for the [Logging](client_logging.md) plugin, you can specify the logger and logging level:
 ```kotlin
