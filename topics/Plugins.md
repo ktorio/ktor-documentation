@@ -21,7 +21,7 @@ If we look at the previous pipeline diagram, Plugins sit between the request/res
 
 
 
-![Plugin pipeline](feature-pipeline.png){width="600"}
+![Plugin pipeline](plugin-pipeline.png){width="600"}
 
 
 
@@ -39,7 +39,7 @@ In fact, what we've been calling `routing` until now, is nothing more than a Plu
 
 
 
-![Routing as a Plugin](feature-pipeline-routing.png){width="600"}
+![Routing as a Plugin](plugin-pipeline-routing.png){width="600"}
 
 
 
