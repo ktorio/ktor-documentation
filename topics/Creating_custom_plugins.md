@@ -1,7 +1,7 @@
-[//]: # (title: Creating custom plugins)
+[//]: # (title: Custom plugins - Legacy API)
 
 <microformat>
-<var name="example_name" value="custom-plugin"/>
+<var name="example_name" value="custom-plugin-legacy-api"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
