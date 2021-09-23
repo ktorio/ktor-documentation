@@ -10,15 +10,15 @@ Ktor allows you to use [FreeMarker templates](https://freemarker.apache.org/) as
 
 
 ## Add dependencies {id="add_dependencies"}
-<var name="feature_name" value="FreeMarker"/>
+<var name="plugin_name" value="FreeMarker"/>
 <var name="artifact_name" value="ktor-server-freemarker"/>
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
-## Install FreeMarker {id="install_feature"}
+## Install FreeMarker {id="install_plugin"}
 
-<var name="feature_name" value="FreeMarker"/>
-<include src="lib.xml" include-id="install_feature"/>
+<var name="plugin_name" value="FreeMarker"/>
+<include src="lib.xml" include-id="install_plugin"/>
 
 Inside the `install` block, you can [configure](#configure) the desired [TemplateLoader][freemarker_template_loading] for loading FreeMarker templates.
 

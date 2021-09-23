@@ -6,16 +6,16 @@
        title="Library of Includes">
 
 
-    <chunk id="install_feature">
+    <chunk id="install_plugin">
         <p>
-            To <a href="Plugins.md" anchor="install">install</a> the <code>%feature_name%</code> plugin, pass it to the <code>install</code> function in the application initialization code. Depending on the <a href="create_server.xml">way used to create a server</a>, this can be the <code>embeddedServer</code> function call ...
+            To <a href="Plugins.md" anchor="install">install</a> the <code>%plugin_name%</code> plugin, pass it to the <code>install</code> function in the application initialization code. Depending on the <a href="create_server.xml">way used to create a server</a>, this can be the <code>embeddedServer</code> function call ...
         </p>
         <code style="block" lang="kotlin" interpolate-variables="true">
             import io.ktor.server.plugins.*
             // ...
             fun main() {
                 embeddedServer(Netty, port = 8080) {
-                    install(%feature_name%)
+                    install(%plugin_name%)
                     // ...
                 }.start(wait = true)
             }
@@ -27,21 +27,16 @@
             import io.ktor.server.plugins.*
             // ...
             fun Application.module() {
-                install(%feature_name%)
+                install(%plugin_name%)
                 // ...
             }
         </code>
-        <tip>
-            <p>
-                You can also install a plugin to a <a href="Plugins.md" anchor="install-route">specific route</a> to have different plugin configurations for different application resources.
-            </p>
-        </tip>
     </chunk>
 
 
     <chunk id="add_ktor_artifact_intro">
         <p>
-            To enable <code>%feature_name%</code> support, you need to include the <code>%artifact_name%</code> artifact in the build script:
+            To enable <code>%plugin_name%</code> support, you need to include the <code>%artifact_name%</code> artifact in the build script:
         </p>
     </chunk>
 

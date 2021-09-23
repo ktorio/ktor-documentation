@@ -5,15 +5,15 @@
 The `Webjars` plugin enables serving static content provided by [webjars](https://www.webjars.org/). It allows you to package your assets such as javascript libraries and css as part of your uber-jar.
 
 ## Add dependencies {id="add_dependencies"}
-<var name="feature_name" value="Webjars"/>
+<var name="plugin_name" value="Webjars"/>
 <var name="artifact_name" value="ktor-webjars"/>
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
-## Install Webjars {id="install_feature"}
+## Install Webjars {id="install_plugin"}
 
-<var name="feature_name" value="Webjars"/>
-<include src="lib.xml" include-id="install_feature"/>
+<var name="plugin_name" value="Webjars"/>
+<include src="lib.xml" include-id="install_plugin"/>
 
 
 ## Configure Webjars {id="configure"}

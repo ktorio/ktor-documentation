@@ -1,6 +1,6 @@
 # Locations
 
-A sample Ktor project demonstrating an _experimental_ [Locations](https://ktor.io/docs/features-locations.html) plugin.
+A sample Ktor project demonstrating an _experimental_ [Locations](https://ktor.io/docs/locations.html) plugin.
 
 ## Running
 

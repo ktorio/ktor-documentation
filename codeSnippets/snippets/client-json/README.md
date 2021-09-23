@@ -1,6 +1,6 @@
 # JSON Client - Gson
 
-A sample Ktor project demonstrating the HTTP client with [JsonFeature](https://ktor.io/docs/json-feature.html). 
+A sample Ktor project demonstrating the HTTP client with [ContentNegotiation](https://ktor.io/docs/serialization-client.html). 
 
 ## Running
 

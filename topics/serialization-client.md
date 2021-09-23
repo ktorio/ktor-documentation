@@ -40,7 +40,7 @@ For Jackson, add the following dependency:
 <include src="lib.xml" include-id="add_ktor_artifact"/>
       
 
-## Install ContentNegotiation {id="install_feature"}
+## Install ContentNegotiation {id="install_plugin"}
 To install `ContentNegotiation`, pass it to the `install` function inside a [client configuration block](client.md#configure-client):
 ```kotlin
 val client = HttpClient(CIO) {

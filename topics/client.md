@@ -19,7 +19,7 @@ An engine is responsible for processing network requests. There are different cl
 
 For a full list of dependencies required for a specific engine, see [](http-client_engines.md#dependencies).
 
-### Plugin dependency {id="feature-dependency"}
+### Plugin dependency {id="plugin-dependency"}
 If you want to use additional client plugins, you need to add a corresponding dependency. You can learn which dependencies you need from a topic for a required plugin.
 
 
@@ -62,7 +62,7 @@ You can configure an engine using the `engine` function:
 
 See the [Engines](http-client_engines.md) section for additional details.
 
-### Plugins {id="features"}
+### Plugins {id="plugins"}
 
 Ktor lets you use additional client functionality (plugins) that is not available by default, for example, logging, authorization, or serialization. Most of them are provided in separate artifacts. For example, you can log HTTP calls by installing the [Logging](client_logging.md) plugin:
 

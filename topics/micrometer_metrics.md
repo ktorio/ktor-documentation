@@ -21,10 +21,10 @@ To enable `MicrometerMetrics`, you need to include the following artifacts in th
     <include src="lib.xml" include-id="add_artifact"/>
     You can replace `$prometeus_version` with the required version of the `micrometer-registry-prometheus` artifact, for example, `%prometeus_version%`.
 
-## Install MicrometerMetrics {id="install_feature"}
+## Install MicrometerMetrics {id="install_plugin"}
 
-<var name="feature_name" value="MicrometerMetrics"/>
-<include src="lib.xml" include-id="install_feature"/>
+<var name="plugin_name" value="MicrometerMetrics"/>
+<include src="lib.xml" include-id="install_plugin"/>
 
 ### Exposed metrics {id="ktor_metrics"}
 Ktor exposes the following metrics for monitoring HTTP requests:

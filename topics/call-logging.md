@@ -5,19 +5,19 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-<var name="feature_name" value="CallLogging"/>
+<var name="plugin_name" value="CallLogging"/>
 
 Ktor provides the capability to log application events using the [SLF4J](http://www.slf4j.org/) library. You can learn about general logging configuration from the [](logging.md) topic.
 
-The `%feature_name%` plugin allows you to log incoming client requests.
+The `%plugin_name%` plugin allows you to log incoming client requests.
 
 
-## Install %feature_name% {id="install_feature"}
-<include src="lib.xml" include-id="install_feature"/>
+## Install %plugin_name% {id="install_plugin"}
+<include src="lib.xml" include-id="install_plugin"/>
 
 
 ## Configure logging settings {id="configure"}
-You can configure `%feature_name%` in multiple ways: specify a logging level, filter requests based on a specified condition, customize log messages, and so on. You can see the available configuration settings at [CallLogging.Configuration](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-call-logging/-configuration/index.html).
+You can configure `%plugin_name%` in multiple ways: specify a logging level, filter requests based on a specified condition, customize log messages, and so on. You can see the available configuration settings at [CallLogging.Configuration](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-call-logging/-configuration/index.html).
 ### Set the logging level {id="logging_level"}
 By default, Ktor uses the `Level.TRACE` logging level. To change it, use the `level` property:
 ```kotlin
@@ -41,7 +41,7 @@ You can find the full example here: [logging](https://github.com/ktorio/ktor-doc
 
 
 ### Put call parameters in MDC {id="mdc"}
-The `%feature_name%` plugin supports MDC (Mapped Diagnostic Context). You can put a desired context value with the specified name to MDC using the `mdc` function. For example, in the code snippet below, a `name` query parameter is added to MDC:
+The `%plugin_name%` plugin supports MDC (Mapped Diagnostic Context). You can put a desired context value with the specified name to MDC using the `mdc` function. For example, in the code snippet below, a `name` query parameter is added to MDC:
 
 ```kotlin
 install(CallLogging) {

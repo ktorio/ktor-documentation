@@ -10,7 +10,7 @@ It exposes a suspending API that uses NIO under the hoods.
 {type="note"}
 
 ## Add dependencies {id="add_dependencies"}
-<var name="feature_name" value="Sockets"/>
+<var name="plugin_name" value="Sockets"/>
 <var name="artifact_name" value="ktor-network"/>
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>

@@ -2,10 +2,10 @@
 
 The `DefaultHeaders` [plugin](Plugins.md) adds the standard `Server` and `Date` headers into each response. Moreover, you can provide additional default headers and override the `Server` header.
 
-## Install DefaultHeaders {id="install_feature"}
+## Install DefaultHeaders {id="install_plugin"}
 
-<var name="feature_name" value="DefaultHeaders"/>
-<include src="lib.xml" include-id="install_feature"/>
+<var name="plugin_name" value="DefaultHeaders"/>
+<include src="lib.xml" include-id="install_plugin"/>
 
 The `DefaultHeaders` plugin adds the `Server` and `Date` headers into each response. If necessary, you can override the `Server`, as described in [](#override).
 

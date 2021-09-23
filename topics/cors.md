@@ -10,9 +10,9 @@ Code examples:
 
 If your server supposes to handle [cross-origin requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS), you need to install and configure the [CORS](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-c-o-r-s/index.html) Ktor plugin. This plugin allows you to configure allowed hosts, HTTP methods, headers set by the client, and so on.
 
-## Install CORS {id="install_feature"}
-<var name="feature_name" value="CORS"/>
-<include src="lib.xml" include-id="install_feature"/>
+## Install CORS {id="install_plugin"}
+<var name="plugin_name" value="CORS"/>
+<include src="lib.xml" include-id="install_plugin"/>
 
 
 ## Configure CORS {id="configure"}

@@ -15,7 +15,7 @@ The `oauth` provider supports the authorization code flow. You can configure OAu
 > You can get general information about authentication and authorization in Ktor in the [](authentication.md) section.
 
 ## Add dependencies {id="add_dependencies"}
-<var name="feature_name" value="OAuth"/>
+<var name="plugin_name" value="OAuth"/>
 <var name="artifact_name" value="ktor-server-auth"/>
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>

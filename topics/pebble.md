@@ -10,15 +10,15 @@ Ktor allows you to use [Pebble templates](https://pebbletemplates.io/) as views 
 
 
 ## Add dependencies {id="add_dependencies"}
-<var name="feature_name" value="Pebble"/>
+<var name="plugin_name" value="Pebble"/>
 <var name="artifact_name" value="ktor-server-pebble"/>
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
-## Install Pebble {id="install_feature"}
+## Install Pebble {id="install_plugin"}
 
-<var name="feature_name" value="Pebble"/>
-<include src="lib.xml" include-id="install_feature"/>
+<var name="plugin_name" value="Pebble"/>
+<include src="lib.xml" include-id="install_plugin"/>
 
 Inside the `install` block, you can [configure](#configure) the [PebbleEngine.Builder][pebble_engine_builder] for loading Pebble templates.
 

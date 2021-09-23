@@ -19,16 +19,16 @@ constructing URLs and reading the parameters.
 
 
 ## Add dependencies {id="add_dependencies"}
-<var name="feature_name" value="Locations"/>
+<var name="plugin_name" value="Locations"/>
 <var name="artifact_name" value="ktor-server-locations"/>
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 
-## Install Locations {id="install_feature"}
+## Install Locations {id="install_plugin"}
 
-<var name="feature_name" value="Locations"/>
-<include src="lib.xml" include-id="install_feature"/>
+<var name="plugin_name" value="Locations"/>
+<include src="lib.xml" include-id="install_plugin"/>
 
 
 ## Define route classes

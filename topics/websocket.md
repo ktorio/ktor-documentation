@@ -19,16 +19,16 @@ Ktor allows you to:
 
 
 ## Add dependencies {id="add_dependencies"}
-<var name="feature_name" value="WebSockets"/>
+<var name="plugin_name" value="WebSockets"/>
 <var name="artifact_name" value="ktor-server-websockets"/>
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 
-## Install WebSockets {id="install_feature"}
+## Install WebSockets {id="install_plugin"}
 
-<var name="feature_name" value="WebSockets"/>
-<include src="lib.xml" include-id="install_feature"/>
+<var name="plugin_name" value="WebSockets"/>
+<include src="lib.xml" include-id="install_plugin"/>
 
 
 ## Configure WebSockets settings {id="configure"}

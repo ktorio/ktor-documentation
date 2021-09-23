@@ -16,7 +16,7 @@ You can specify these timeouts for all requests or only specific ones.
 `HttpTimeout` only requires the [ktor-client-core](client.md#client-dependency) artifact and doesn't need any specific dependencies.
 
 
-## Install HttpTimeout {id="install_feature"}
+## Install HttpTimeout {id="install_plugin"}
 
 To install `HttpTimeout`, pass it to the `install` function inside a [client configuration block](client.md#configure-client):
 ```kotlin
@@ -26,7 +26,7 @@ val client = HttpClient(CIO) {
 ```
 
 
-## Configure timeouts {id="configure_feature"}
+## Configure timeouts {id="configure_plugin"}
 
 To configure timeouts, you can use corresponding properties:
 * [requestTimeoutMillis](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.features/-http-timeout/-http-timeout-capability-configuration/request-timeout-millis.html) for a request timeout.

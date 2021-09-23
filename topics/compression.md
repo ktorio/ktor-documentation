@@ -5,10 +5,10 @@ specify the required conditions for compressing data (such as a content type or 
 
 > To learn how to serve pre-compressed static files in Ktor, see [](Serving_Static_Content.md#precompressed).
 
-## Install Compression {id="install_feature"}
+## Install Compression {id="install_plugin"}
 
-<var name="feature_name" value="Compression"/>
-<include src="lib.xml" include-id="install_feature"/>
+<var name="plugin_name" value="Compression"/>
+<include src="lib.xml" include-id="install_plugin"/>
 
 This enables the `gzip`, `deflate`, and `identity` encoders on a server. In the next chapter, we'll see how to enable only specific encoders and configure conditions for compressing data.
 

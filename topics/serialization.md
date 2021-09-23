@@ -14,10 +14,10 @@ To use `ContentNegotiation`, you need to include the `ktor-server-content-negoti
 Note that content converters require additional artifacts. For example, [kotlinx.serialization](kotlin_serialization.md#add_dependencies) requires the `ktor-shared-serialization-kotlinx` dependency.
 
 
-## Install ContentNegotiation {id="install_feature"}
+## Install ContentNegotiation {id="install_plugin"}
 
-<var name="feature_name" value="ContentNegotiation"/>
-<include src="lib.xml" include-id="install_feature"/>
+<var name="plugin_name" value="ContentNegotiation"/>
+<include src="lib.xml" include-id="install_plugin"/>
 
 
 ## Register a converter {id="register_converter"}

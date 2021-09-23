@@ -41,8 +41,8 @@ Note that some authentication providers, such as [JWT](jwt.md) and [LDAP](ldap.m
 
 
 ## Install Authentication {id="install"}
-<var name="feature_name" value="Authentication"/>
-<include src="lib.xml" include-id="install_feature"/>
+<var name="plugin_name" value="Authentication"/>
+<include src="lib.xml" include-id="install_plugin"/>
 
 
 ## Configure Authentication {id="configure"}
