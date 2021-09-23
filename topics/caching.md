@@ -25,18 +25,3 @@ The [CachingOptions](https://api.ktor.io/ktor-http/ktor-http/io.ktor.http.conten
 
 * The `cacheControl` parameter accepts a [CacheControl](https://api.ktor.io/ktor-http/ktor-http/io.ktor.http/-cache-control/index.html) value. You can use [CacheControl.MaxAge](https://api.ktor.io/ktor-http/ktor-http/io.ktor.http/-cache-control/-max-age/index.html) to specify the `max-age` parameter and related settings, such as visibility, revalidation options, and so on. You can disable caching by using `CacheControl.NoCache`/`CacheControl.NoStore`.
 * The `expires` parameter allows you to specify the `Expires` header as a `GMTDate` or `ZonedDateTime` value.
-
-
-
-## Customize headers for specific routes {id="route_headers"}
-
-If you need to add caching headers for a specific route only, you can append the desired headers into a response. In this case, you don't need to [install](#install_feature) `CachingHeaders`. The code snippet below shows how to disable caching for the `/profile` route:
-
-```kotlin
-get("/profile") {
-    call.response.headers.append(HttpHeaders.CacheControl, "no-cache, no-store")
-    // ... 
-}
-```
-
-You can learn more about routing in %product% from [](Routing_in_Ktor.md).

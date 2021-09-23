@@ -11,7 +11,7 @@ A typical request/response pipeline in Ktor looks like the following:
 
 It starts with a request, which is routed to a specific handler, processed by our application logic, and finally responded to. 
 
-## Adding functionality with Plugins {id="add_functionality"}
+## Add functionality with Plugins {id="add_functionality"}
 
 Many applications require common functionality that is out of scope of the application logic. This could be things like 
 serialization and content encoding, compression, headers, cookie support, etc. All of these are provided in Ktor by means of 
@@ -43,10 +43,9 @@ In fact, what we've been calling `routing` until now, is nothing more than a Plu
 
 
 
-## Installing Plugins {id="install"}
+## Install Plugins {id="install"}
 
-Plugins are generally configured during the initialization phase of the server using the `install`
-function which takes a Plugin as a parameter. Depending on the way you used to [create a server](create_server.xml), you can install a plugin inside the `embeddedServer` call ...
+Plugins are generally configured during the initialization phase of the server using the `install` function which takes a Plugin as a parameter. Depending on the way you used to [create a server](create_server.xml), you can install a plugin inside the `embeddedServer` call ...
 
 ```kotlin
 import io.ktor.server.plugins.*
@@ -81,6 +80,49 @@ install(Sessions) {
     cookie<MyCookie>("MY_COOKIE")
 } 
 ```
+
+### Install Plugins for specific routes {id="install-route"}
+
+In Ktor, you can install plugins not only globally but also to a specific [routes](Routing_in_Ktor.md). This might be useful if you need different plugin configurations for different application resources. For example, the code snippet below shows how to add specific [caching headers](caching.md) configurations for specific routes (`/index` and `/profile`):
+
+```kotlin
+routing {
+    route("/index") {
+        install(CachingHeaders) {
+            options { CachingOptions(CacheControl.MaxAge(maxAgeSeconds = 3600)) }
+        }
+    }
+    route("/profile") {
+        install(CachingHeaders) {
+            options { CachingOptions(CacheControl.NoStore(visibility = CacheControl.Visibility.Private)) }
+        }
+    }
+}
+```
+
+Note that the following rules are applied to several installations of the same plugin:
+* Configuration of a plugin installed to a specific route overrides its [global configuration](#install).
+* Routing merges installations for the same route, and the last installation wins. For example, for such an application ... 
+   
+   ```kotlin
+   routing {
+       route("index") {
+           install(CachingHeaders) { // First configuration }
+           get("a") {
+               // ...
+           }
+       }
+       route("index") {
+           install(CachingHeaders) { // Second configuration }
+           get("b") {
+               // ...
+           }
+       }
+   }
+   ```
+   {initial-collapse-state="collapsed" collapsed-title="install(CachingHeaders) { // First configuration }"}
+   
+   ... both calls to `/index/a` and `/index/b` are handled by only second installation of the plugin.
 
 ## Default, available, and custom Plugins {id="default_available_custom"}
 

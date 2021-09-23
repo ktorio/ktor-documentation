@@ -33,16 +33,3 @@ To override the `Server` header, use a corresponding `HttpHeaders` value:
     }
 ```
 Note that the `Date` header is cached due to performance reasons and cannot be overridden by using `DefaultHeaders`. If you need to override it, do not install the `DefaultHeaders` plugin and use [route interception](intercepting_routes.md) instead.
-
-
-
-
-## Customize headers for specific routes {id="route_headers"}
-
-If you need to add headers for a specific route only, you can append desired headers into a response. The code snippet below shows how to do this for the `/order` request:
-```kotlin
-get("/order") {
-    call.response.headers.append(HttpHeaders.ETag, "7c876b7e")
-}
-```
-You can learn more about routing in %product% from [](Routing_in_Ktor.md).
