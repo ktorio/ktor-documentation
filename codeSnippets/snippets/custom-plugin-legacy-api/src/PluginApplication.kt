@@ -1,14 +1,11 @@
 package io.ktor.snippets.plugin
 
 import io.ktor.server.application.*
-import io.ktor.server.plugins.*
 import io.ktor.server.html.*
 import io.ktor.server.routing.*
 import kotlinx.html.*
 
 fun Application.main() {
-    install(DefaultHeaders)
-    install(CallLogging)
     install(CustomHeader) { // Install a custom plugin
         headerName = "Hello" // configuration
         headerValue = "World"
