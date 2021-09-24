@@ -1,11 +1,15 @@
 [//]: # (title: Call logging)
 
+<var name="plugin_name" value="CallLogging"/>
+<var name="artifact_name" value="ktor-server-call-logging"/>
+
 <microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
 <var name="example_name" value="logging"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
-
-<var name="plugin_name" value="CallLogging"/>
 
 Ktor provides the capability to log application events using the [SLF4J](http://www.slf4j.org/) library. You can learn about general logging configuration from the [](logging.md) topic.
 
@@ -13,12 +17,13 @@ The `%plugin_name%` plugin allows you to log incoming client requests.
 
 
 ## Add dependencies {id="add_dependencies"}
-To use `%plugin_name%`, you need to include the `ktor-server-call-logging` artifact in the build script:
-<var name="artifact_name" value="ktor-server-call-logging"/>
+
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 
 ## Install %plugin_name% {id="install_plugin"}
+
 <include src="lib.xml" include-id="install_plugin"/>
 
 

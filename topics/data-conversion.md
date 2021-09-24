@@ -2,27 +2,31 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-`DataConversion` is a plugin that allows to serialize and deserialize a list of values. By default, it handles primitive types and enums, but it can also be configured to handle additional types. 
+<var name="artifact_name" value="ktor-server-data-conversion"/>
+<var name="plugin_name" value="DataConversion"/>
 
-> If you are using the [Locations plugin](locations.md) and want to support custom types as part of its parameters, you can add new custom converters with this service.
+<microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
+</microformat>
+
+`%plugin_name%` is a plugin that allows to serialize and deserialize a list of values. By default, it handles primitive types and enums, but it can also be configured to handle additional types. If you are using the [Locations plugin](locations.md) and want to support custom types as part of its parameters, you can add new custom converters with this service.
 
 
 ## Add dependencies {id="add_dependencies"}
-To enable `DataConversion`, you need to include the `ktor-server-data-conversion` artifact in the build script:
-<var name="artifact_name" value="ktor-server-data-conversion"/>
+
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 
-## Install DataConversion {id="install_plugin"}
+## Install %plugin_name% {id="install_plugin"}
 
-<var name="plugin_name" value="DataConversion"/>
 <include src="lib.xml" include-id="install_plugin"/>
 
 ## Add converters {id="add-converters"}
 
-The DataConversion configuration, provide a `convert<T>` method to define
-type conversions. Inside, you have to provide a decoder and an encoder
-with the `decode` and `encode` methods accepting callbacks.
+To configure `%plugin_name%`, provide a `convert<T>` method to define type conversions. Inside, you have to provide a decoder and an encoder with the `decode` and `encode` methods accepting callbacks.
 
 * decode callback: `converter: (values: List<String>, type: Type) -> Any?`
   Accepts `values`, a list of strings representing repeated values in the URL, for example, `a=1&a=2`,
@@ -86,7 +90,7 @@ enum class LocationEnum {
 ## Accessing the service
 {id="service"}
 
-You can access the `DataConversion` service from any call:
+You can access the `%plugin_name%` service from any call:
 
 ```kotlin
 val dataConversion = call.conversionService

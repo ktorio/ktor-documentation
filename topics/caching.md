@@ -1,6 +1,12 @@
 [//]: # (title: Caching headers)
 
+<var name="plugin_name" value="CachingHeaders"/>
+<var name="artifact_name" value="ktor-server-caching-headers"/>
+
 <microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
 <var name="example_name" value="caching-headers"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
@@ -8,19 +14,18 @@
 The [CachingHeaders](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-caching-headers/index.html) plugin adds the capability to configure the `Cache-Control` and `Expires` headers used for HTTP caching. You can introduce different [caching strategies](#configure) for specific content types, such as images, CSS and JavaScript files, and so on.
 
 ## Add dependencies {id="add_dependencies"}
-To use `CachingHeaders`, you need to include the `ktor-server-caching-headers` artifact in the build script:
-<var name="artifact_name" value="ktor-server-caching-headers"/>
+
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Install CachingHeaders {id="install_plugin"}
 
-<var name="plugin_name" value="CachingHeaders"/>
 <include src="lib.xml" include-id="install_plugin"/>
 
-After installing `CachingHeaders`, you can [configure](#configure) caching settings for various content types.
+After installing `%plugin_name%`, you can [configure](#configure) caching settings for various content types.
 
 ## Configure caching {id="configure"}
-To configure the `CachingHeaders` plugin, you need to define the [options](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-caching-headers/-configuration/options.html) function to provide specified caching options for a given content type. The code snippet from the [caching-headers](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/caching-headers) example shows how to add the `Cache-Control` header with the `max-age` option for CSS:
+To configure the `%plugin_name%` plugin, you need to define the [options](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-caching-headers/-configuration/options.html) function to provide specified caching options for a given content type. The code snippet from the [caching-headers](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/caching-headers) example shows how to add the `Cache-Control` header with the `max-age` option for CSS:
 
 ```kotlin
 ```

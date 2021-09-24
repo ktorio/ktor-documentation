@@ -1,7 +1,13 @@
 [//]: # (title: Mustache)
 [mustache_factory]: http://spullara.github.io/mustache/apidocs/com/github/mustachejava/MustacheFactory.html
 
+<var name="plugin_name" value="Mustache"/>
+<var name="artifact_name" value="ktor-server-mustache"/>
+
 <microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
 <var name="example_name" value="mustache"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
@@ -10,14 +16,12 @@ Ktor allows you to use [Mustache templates](https://github.com/spullara/mustache
 
 
 ## Add dependencies {id="add_dependencies"}
-<var name="plugin_name" value="Mustache"/>
-<var name="artifact_name" value="ktor-server-mustache"/>
+
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Install Mustache {id="install_plugin"}
 
-<var name="plugin_name" value="Mustache"/>
 <include src="lib.xml" include-id="install_plugin"/>
 
 Inside the `install` block, you can [configure](#template_loading) the [MustacheFactory][mustache_factory] for loading Mustache templates.

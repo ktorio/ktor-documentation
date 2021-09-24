@@ -1,14 +1,22 @@
 [//]: # (title: Content negotiation and serialization)
 
+<var name="plugin_name" value="ContentNegotiation"/>
+<var name="artifact_name" value="ktor-server-content-negotiation"/>
+
+<microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
+</microformat>
+
 The [ContentNegotiation](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-content-negotiation/index.html) plugin serves two primary purposes:
 * Negotiating media types between the client and server. For this, it uses the `Accept` and `Content-Type` headers.
 * Serializing/deserializing the content in the specific format.
 
 
 ## Add dependencies {id="add_dependencies"}
-To use `ContentNegotiation`, you need to include the `ktor-server-content-negotiation` artifact in the build script:
 
-<var name="artifact_name" value="ktor-server-content-negotiation"/>
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 Note that content converters require additional artifacts. For example, [kotlinx.serialization](kotlin_serialization.md#add_dependencies) requires the `ktor-shared-serialization-kotlinx` dependency.
@@ -16,7 +24,6 @@ Note that content converters require additional artifacts. For example, [kotlinx
 
 ## Install ContentNegotiation {id="install_plugin"}
 
-<var name="plugin_name" value="ContentNegotiation"/>
 <include src="lib.xml" include-id="install_plugin"/>
 
 

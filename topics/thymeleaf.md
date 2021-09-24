@@ -1,6 +1,12 @@
 [//]: # (title: Thymeleaf)
 
+<var name="plugin_name" value="Thymeleaf"/>
+<var name="artifact_name" value="ktor-server-thymeleaf"/>
+
 <microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
 <var name="example_name" value="thymeleaf"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
@@ -9,14 +15,12 @@ Ktor allows you to use [Thymeleaf templates](https://www.thymeleaf.org/) as view
 
 
 ## Add dependencies {id="add_dependencies"}
-<var name="plugin_name" value="Thymeleaf"/>
-<var name="artifact_name" value="ktor-server-thymeleaf"/>
+
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Install Thymeleaf {id="install_plugin"}
 
-<var name="plugin_name" value="Thymeleaf"/>
 <include src="lib.xml" include-id="install_plugin"/>
 
 

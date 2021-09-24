@@ -36,7 +36,7 @@
 
     <chunk id="add_ktor_artifact_intro">
         <p>
-            To enable <code>%plugin_name%</code> support, you need to include the <code>%artifact_name%</code> artifact in the build script:
+            To use <code>%plugin_name%</code>, you need to include the <code>%artifact_name%</code> artifact in the build script:
         </p>
     </chunk>
 

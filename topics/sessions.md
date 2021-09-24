@@ -1,7 +1,11 @@
 [//]: # (title: Sessions)
 
+<var name="artifact_name" value="ktor-server-sessions"/>
+
 <microformat>
-<p>Required dependencies: <code>io.ktor:ktor-server-sessions</code></p>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
 <p>Code examples:
 <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie">session-cookie</a>,
 <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/sessions">sessions</a></p>
@@ -12,8 +16,8 @@ Sessions provide a mechanism to persist data between different HTTP requests. Ty
 In this topic, we'll look at how to configure sessions, install the `Sessions` plugin, and set the session's content.
 
 ## Add dependencies {id="add_dependencies"}
-To enable support for sessions, you need to include the `ktor-server-sessions` artifact in the build script:
-<var name="artifact_name" value="ktor-server-sessions"/>
+To enable support for sessions, you need to include the `%artifact_name%` artifact in the build script:
+
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 

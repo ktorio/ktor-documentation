@@ -2,7 +2,13 @@
 
 [velocity_engine]: https://velocity.apache.org/engine/devel/apidocs/org/apache/velocity/app/VelocityEngine.html
 
+<var name="plugin_name" value="Velocity"/>
+<var name="artifact_name" value="ktor-server-velocity"/>
+
 <microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
 <var name="example_name" value="velocity"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
@@ -11,14 +17,12 @@ Ktor allows you to use [Velocity templates](https://velocity.apache.org/engine/)
 
 
 ## Add dependencies {id="add_dependencies"}
-<var name="plugin_name" value="Velocity"/>
-<var name="artifact_name" value="ktor-server-velocity"/>
+
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Install Velocity {id="install_plugin"}
 
-<var name="plugin_name" value="Velocity"/>
 <include src="lib.xml" include-id="install_plugin"/>
 
 

@@ -2,27 +2,35 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-The `HttpsRedirect` plugin makes all the affected HTTP calls perform a redirect to its
+<var name="plugin_name" value="HttpsRedirect"/>
+<var name="artifact_name" value="ktor-server-http-redirect"/>
+
+<microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
+</microformat>
+
+The `%plugin_name%` plugin makes all the affected HTTP calls perform a redirect to its
 HTTPS counterpart before processing the call.
 
 By default, the redirection is a `301 Moved Permanently`,
 but it can be configured to be a `302 Found` redirect.
 
 ## Add dependencies {id="add_dependencies"}
-To use `HttpsRedirect`, you need to include the `ktor-server-http-redirect` artifact in the build script:
-<var name="artifact_name" value="ktor-server-http-redirect"/>
+
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 
-## Install HttpsRedirect {id="install_plugin"}
+## Install %plugin_name% {id="install_plugin"}
 
-<var name="plugin_name" value="HttpsRedirect"/>
 <include src="lib.xml" include-id="install_plugin"/>
 
-The code above installs the `HttpsRedirect` plugin with the default configuration.
+The code above installs the `%plugin_name%` plugin with the default configuration.
 
 >When behind a reverse-proxy, you will need to install the `ForwardedHeaderSupport` or the `XForwardedHeaderSupport`
->plugin, for the `HttpsRedirect` plugin to properly detect HTTPS requests.
+>plugin, for the `%plugin_name%` plugin to properly detect HTTPS requests.
 >
 {type="note"}
 
@@ -97,7 +105,7 @@ fun Application.mymoduleConfigured(installHttpsRedirect: Boolean = true) {
 ```
 
 In this case, you can also have a separate test that calls `mymodule` instead of `mymoduleForTesting` to verify
-that the `HttpsRedirect` plugin is installed and other things that you are not doing in tests.
+that the `%plugin_name%` plugin is installed and other things that you are not doing in tests.
 
 ### I get an infinite redirect when using this plugin
 

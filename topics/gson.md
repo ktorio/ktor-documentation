@@ -1,6 +1,11 @@
 [//]: # (title: Gson)
 
+<var name="artifact_name" value="ktor-shared-serialization-gson"/>
+
 <microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
 <var name="example_name" value="gson"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
@@ -11,7 +16,7 @@
 ## Add dependencies {id="add_dependencies"}
 Before registering the Gson converter, you need to include the following artifacts in the build script:
 * Add the `ktor-server-content-negotiation` artifact as described in [](serialization.md#add_dependencies).
-* Add the `ktor-shared-serialization-gson` artifact:
+* Add the `%artifact_name%` artifact:
    <var name="artifact_name" value="ktor-shared-serialization-gson"/>
    <include src="lib.xml" include-id="add_ktor_artifact"/>
 

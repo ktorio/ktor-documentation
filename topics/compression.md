@@ -1,5 +1,14 @@
 [//]: # (title: Compression)
 
+<var name="artifact_name" value="ktor-server-compression"/>
+<var name="plugin_name" value="Compression"/>
+
+<microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
+</microformat>
+
 Ktor provides the capability to compress outgoing content by using the [Compression](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-compression/index.html) plugin. You can use different compression algorithms, including `gzip` and `deflate`, 
 specify the required conditions for compressing data (such as a content type or response size), or even compress data based on specific request parameters.
 
@@ -7,13 +16,12 @@ specify the required conditions for compressing data (such as a content type or 
 
 
 ## Add dependencies {id="add_dependencies"}
-To use `Compression`, you need to include the `ktor-server-compression` artifact in the build script:
-<var name="artifact_name" value="ktor-server-compression"/>
+
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
-## Install Compression {id="install_plugin"}
+## Install %plugin_name% {id="install_plugin"}
 
-<var name="plugin_name" value="Compression"/>
 <include src="lib.xml" include-id="install_plugin"/>
 
 This enables the `gzip`, `deflate`, and `identity` encoders on a server. In the next chapter, we'll see how to enable only specific encoders and configure conditions for compressing data.
@@ -58,7 +66,7 @@ install(Compression) {
 ```
 
 ### Configure response size {id="configure_response_size"}
-The `Compression` plugin allows you to disable compression for responses whose size doesn't exceed the specified value. To do this, pass the desired value (in bytes) to the [minimumSize](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/minimum-size.html) function:
+The `%plugin_name%` plugin allows you to disable compression for responses whose size doesn't exceed the specified value. To do this, pass the desired value (in bytes) to the [minimumSize](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/minimum-size.html) function:
 ```kotlin
     install(Compression) {
         deflate {

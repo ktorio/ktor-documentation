@@ -1,6 +1,12 @@
 [//]: # (title: CORS)
 
+<var name="artifact_name" value="ktor-server-cors"/>
+<var name="plugin_name" value="CORS"/>
+
 <microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
 <p>
 Code examples: 
 <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/cors-backend">cors-backend</a>, 
@@ -11,12 +17,12 @@ Code examples:
 If your server supposes to handle [cross-origin requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS), you need to install and configure the [CORS](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-c-o-r-s/index.html) Ktor plugin. This plugin allows you to configure allowed hosts, HTTP methods, headers set by the client, and so on.
 
 ## Add dependencies {id="add_dependencies"}
-To use `CORS`, you need to include the `ktor-server-cors` artifact in the build script:
-<var name="artifact_name" value="ktor-server-cors"/>
+
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
-## Install CORS {id="install_plugin"}
-<var name="plugin_name" value="CORS"/>
+## Install %plugin_name% {id="install_plugin"}
+
 <include src="lib.xml" include-id="install_plugin"/>
 
 
@@ -64,7 +70,7 @@ install(CORS) {
 
 ### HTTP methods {id="methods"}
 
-By default, the `CORS` plugin allows the `GET`, `POST` and `HEAD` HTTP methods. To add additional methods, use the `method` function.
+By default, the `%plugin_name%` plugin allows the `GET`, `POST` and `HEAD` HTTP methods. To add additional methods, use the `method` function.
 
 ```kotlin
 install(CORS) {
@@ -78,7 +84,7 @@ install(CORS) {
 
 ### HTTP headers {id="headers"}
 
-The `CORS` plugin allows the following client headers by default:
+The `%plugin_name%` plugin allows the following client headers by default:
 * `Accept`
 * `Accept-Language`
 * `Content-Language`
@@ -114,7 +120,7 @@ By default, browsers don't send credential information (such as cookies or authe
 
 ### Miscellaneous {id="misc"}
 
-The `CORS` plugin also allows you to specify other CORS-related settings. For example, you can use `maxAgeInSeconds` to specify how long the response to the preflight request can be cached without sending another preflight request.
+The `%plugin_name%` plugin also allows you to specify other CORS-related settings. For example, you can use `maxAgeInSeconds` to specify how long the response to the preflight request can be cached without sending another preflight request.
 
 ```kotlin
     install(CORS) {

@@ -2,7 +2,16 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-The `HSTS` plugin adds the required _HTTP Strict Transport Security_ headers to the request according to the [RFC 6797](https://tools.ietf.org/html/rfc6797).
+<var name="plugin_name" value="HSTS"/>
+<var name="artifact_name" value="ktor-server-hsts"/>
+
+<microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
+</microformat>
+
+The `%plugin_name%` plugin adds the required _HTTP Strict Transport Security_ headers to the request according to the [RFC 6797](https://tools.ietf.org/html/rfc6797).
 
 >HSTS policy headers are ignored over an insecure HTTP connection. For HSTS to take effect, it should be
 >served over a secure (https) connection.
@@ -13,17 +22,15 @@ When the browser receives HSTS policy headers, it will no longer attempt to conn
 for the given period of time. 
 
 ## Add dependencies {id="add_dependencies"}
-To use `HSTS`, you need to include the `ktor-server-hsts` artifact in the build script:
-<var name="artifact_name" value="ktor-server-hsts"/>
+
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
+## Install %plugin_name% {id="install_plugin"}
 
-## Install HSTS {id="install_plugin"}
-
-<var name="plugin_name" value="HSTS"/>
 <include src="lib.xml" include-id="install_plugin"/>
 
-The code above installs HSTS with the default configuration.  
+The code above installs `%plugin_name%` with the default configuration.  
 
 ## Configuration
 

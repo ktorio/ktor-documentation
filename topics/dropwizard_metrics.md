@@ -1,24 +1,29 @@
 [//]: # (title: Dropwizard metrics)
 
+<var name="plugin_name" value="Metrics"/>
+<var name="artifact_name" value="ktor-server-metrics"/>
+
 <microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
 <var name="example_name" value="metrics"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-The Metrics plugin allows you to configure the [Metrics](http://metrics.dropwizard.io/4.0.0/)
+The `%plugin_name%` plugin allows you to configure the [Metrics](http://metrics.dropwizard.io/4.2.0/)
 to get useful information about the server and incoming requests.
 
 ## Add dependencies {id="add_dependencies"}
-<var name="plugin_name" value="Metrics"/>
-<var name="artifact_name" value="ktor-server-metrics"/>
+
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Install Metrics
 
-The Metrics plugin exposes a `registry` property, that can be used to build and start
+The `%plugin_name%` plugin exposes a `registry` property, that can be used to build and start
 metric reporters.
 
 ### JMX Reporter
@@ -58,7 +63,7 @@ install(DropwizardMetrics) {
 
 ### Other reporters
 
-You can use any of the available [Metric reporters](http://metrics.dropwizard.io/4.0.0/).
+You can use any of the available [Metric reporters](http://metrics.dropwizard.io/4.2.0/).
 
 ## Exposed reports
 

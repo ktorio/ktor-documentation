@@ -1,8 +1,11 @@
 [//]: # (title: OAuth)
 
+<var name="plugin_name" value="OAuth"/>
+<var name="artifact_name" value="ktor-server-auth"/>
+
 <microformat>
 <p>
-Required dependencies: <code>io.ktor:ktor-server-auth</code>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="auth-oauth-google"/>
 <include src="lib.xml" include-id="download_example"/>
@@ -15,8 +18,7 @@ The `oauth` provider supports the authorization code flow. You can configure OAu
 > You can get general information about authentication and authorization in Ktor in the [](authentication.md) section.
 
 ## Add dependencies {id="add_dependencies"}
-<var name="plugin_name" value="OAuth"/>
-<var name="artifact_name" value="ktor-server-auth"/>
+
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 

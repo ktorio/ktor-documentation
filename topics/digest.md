@@ -1,8 +1,10 @@
 [//]: # (title: Digest authentication)
 
+<var name="artifact_name" value="ktor-server-auth"/>
+
 <microformat>
 <p>
-Required dependencies: <code>io.ktor:ktor-server-auth</code>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="auth-digest"/>
 <include src="lib.xml" include-id="download_example"/>
@@ -13,8 +15,8 @@ The Digest authentication scheme is a part of [HTTP framework](https://developer
 Ktor allows you to use digest authentication for logging in users and protecting specific [routes](Routing_in_Ktor.md). You can get general information about authentication in Ktor in the [](authentication.md) section.
 
 ## Add dependencies {id="add_dependencies"}
-To enable `digest` authentication, you need to include the `ktor-server-auth` artifact in the build script:
-<var name="artifact_name" value="ktor-server-auth"/>
+To enable `digest` authentication, you need to include the `%artifact_name%` artifact in the build script:
+
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Digest authentication flow {id="flow"}

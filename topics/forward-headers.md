@@ -2,9 +2,18 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-The `ForwardedHeaderSupport` plugin allows you to handle reverse proxy headers to get information about the original request when it's behind a proxy.
+<var name="artifact_name" value="ktor-server-forwarded-header"/>
+<var name="plugin_name" value="ForwardedHeaderSupport"/>
 
-* `ForwardedHeaderSupport` handles the standard `Forwarded` header ([RFC 7239](https://tools.ietf.org/html/rfc7239))
+<microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
+</microformat>
+
+The `%plugin_name%` plugin allows you to handle reverse proxy headers to get information about the original request when it's behind a proxy.
+
+* `%plugin_name%` handles the standard `Forwarded` header ([RFC 7239](https://tools.ietf.org/html/rfc7239))
 * `XForwardedHeaderSupport` handles the non-standard (but standard de-facto) `X-Forwarded-Host`/`X-Forwarded-Server`, `X-Forwarded-For`, `X-Forwarded-By`, `X-Forwarded-Proto`/`X-Forwarded-Protocol` and `X-Forwarded-SSL`/`Front-End-Https`
 
 >Only install these plugins if you have a reverse proxy supporting these headers serving your requests.
@@ -14,17 +23,16 @@ The `ForwardedHeaderSupport` plugin allows you to handle reverse proxy headers t
 
 
 ## Add dependencies {id="add_dependencies"}
-To use the plugins, you need to include the `ktor-server-forwarded-header` artifact in the build script:
-<var name="artifact_name" value="ktor-server-forwarded-header"/>
+To use the plugins, you need to include the `%artifact_name%` artifact in the build script:
+
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 
 ## Install {id="install_plugin"}
 
-<var name="plugin_name" value="ForwardedHeaderSupport"/>
 <include src="lib.xml" include-id="install_plugin"/>
 
-`ForwardedHeaderSupport` and `XForwardedHeaderSupport`  don't require any special configuration.
+`%plugin_name%` and `XForwardedHeaderSupport`  don't require any special configuration.
 You can install any of the two depending on your reverse proxy, but since the standard is the `Forwarded` header, you should favor it whenever possible.
 
 

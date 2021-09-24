@@ -1,6 +1,11 @@
 [//]: # (title: kotlinx.serialization)
 
+<var name="artifact_name" value="ktor-shared-serialization-kotlinx"/>
+
 <microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
 <var name="example_name" value="json-kotlinx"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
@@ -13,7 +18,7 @@ Before registering a required converter, perform the following steps:
 
 1. Add the Kotlin serialization plugin, as described in the [Setup](https://github.com/Kotlin/kotlinx.serialization#setup) section.
 2. Add the `ktor-server-content-negotiation` artifact as described in [](serialization.md#add_dependencies).
-3. Add the `ktor-shared-serialization-kotlinx` artifact in the build script: 
+3. Add the `%artifact_name%` artifact in the build script: 
     <var name="artifact_name" value="ktor-shared-serialization-kotlinx"/>
     <include src="lib.xml" include-id="add_ktor_artifact"/>
    

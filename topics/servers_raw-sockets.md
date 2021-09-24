@@ -2,6 +2,15 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
+<var name="plugin_name" value="Sockets"/>
+<var name="artifact_name" value="ktor-network"/>
+
+<microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
+</microformat>
+
 In addition to HTTP handling for the [server](A_Ktor_Application.xml) and the [client](client.md), Ktor supports client and server, TCP and UDP raw sockets.
 It exposes a suspending API that uses NIO under the hoods.
 
@@ -10,13 +19,9 @@ It exposes a suspending API that uses NIO under the hoods.
 {type="note"}
 
 ## Add dependencies {id="add_dependencies"}
-<var name="plugin_name" value="Sockets"/>
-<var name="artifact_name" value="ktor-network"/>
+
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
-
-
-
 
 
 ## Usage

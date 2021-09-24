@@ -2,10 +2,17 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-This plugin adds support for handling Partial Content requests:
-requests with the `Range` header. It intercepts the generated
-response adding the `Accept-Ranges` and the `Content-Range` header and slicing
-the served content when required.
+<var name="artifact_name" value="ktor-server-partial-content"/>
+<var name="plugin_name" value="PartialContent"/>
+
+<microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
+</microformat>
+
+The `%plugin_name%` plugin adds support for handling Partial Content requests - requests with the `Range` header. 
+It intercepts the generated response adding the `Accept-Ranges` and the `Content-Range` header and slicing the served content when required.
 
 Partial Content is well-suited for streaming content or resume partial downloads with
 download managers, or in unreliable networks.
@@ -14,13 +21,12 @@ It is especially useful for the [Static Content Plugin](Serving_Static_Content.m
 
 
 ## Add dependencies {id="add_dependencies"}
-To use `PartialContent`, you need to include the `ktor-server-partial-content` artifact in the build script:
-<var name="artifact_name" value="ktor-server-partial-content"/>
+
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
-## Install DefaultHeaders {id="install_plugin"}
+## Install %plugin_name% {id="install_plugin"}
 
-<var name="plugin_name" value="PartialContent"/>
 <include src="lib.xml" include-id="install_plugin"/>
 
 ## Configuration

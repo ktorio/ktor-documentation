@@ -1,7 +1,13 @@
 [//]: # (title: Pebble)
 [pebble_engine_builder]: https://pebbletemplates.io/com/mitchellbosecke/pebble/PebbleEngine/Builder/
 
+<var name="plugin_name" value="Pebble"/>
+<var name="artifact_name" value="ktor-server-pebble"/>
+
 <microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
 <var name="example_name" value="pebble"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
@@ -10,14 +16,12 @@ Ktor allows you to use [Pebble templates](https://pebbletemplates.io/) as views 
 
 
 ## Add dependencies {id="add_dependencies"}
-<var name="plugin_name" value="Pebble"/>
-<var name="artifact_name" value="ktor-server-pebble"/>
+
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Install Pebble {id="install_plugin"}
 
-<var name="plugin_name" value="Pebble"/>
 <include src="lib.xml" include-id="install_plugin"/>
 
 Inside the `install` block, you can [configure](#configure) the [PebbleEngine.Builder][pebble_engine_builder] for loading Pebble templates.

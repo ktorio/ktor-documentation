@@ -1,6 +1,11 @@
 [//]: # (title: Jackson)
 
+<var name="artifact_name" value="ktor-shared-serialization-jackson"/>
+
 <microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
 <var name="example_name" value="jackson"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
@@ -10,7 +15,7 @@
 ## Add dependencies {id="add_dependencies"}
 Before registering the Jackson converter, you need to include the following artifacts in the build script:
 * Add the `ktor-server-content-negotiation` artifact as described in [](serialization.md#add_dependencies).
-* Add the `ktor-shared-serialization-jackson` artifact:
+* Add the `%artifact_name%` artifact:
   <var name="artifact_name" value="ktor-shared-serialization-jackson"/>
   <include src="lib.xml" include-id="add_ktor_artifact"/>
 

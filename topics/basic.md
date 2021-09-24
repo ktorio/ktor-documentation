@@ -1,8 +1,10 @@
 [//]: # (title: Basic authentication)
 
+<var name="artifact_name" value="ktor-server-auth"/>
+
 <microformat>
 <p>
-Required dependencies: <code>io.ktor:ktor-server-auth</code>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
 </p>
 <p>
 Code examples: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-basic">auth-basic</a>, <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-basic-hash-table">auth-basic-hash-table</a>
@@ -16,8 +18,8 @@ Ktor allows you to use basic authentication for logging in users and protecting 
 > Given that basic authentication passes username and password as clear text, you need to use [HTTPS/TLS](ssl.md) to protect sensitive information.
 
 ## Add dependencies {id="add_dependencies"}
-To enable `basic` authentication, you need to include the `ktor-server-auth` artifact in the build script:
-<var name="artifact_name" value="ktor-server-auth"/>
+To enable `basic` authentication, you need to include the `%artifact_name%` artifact in the build script:
+
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Basic authentication flow {id="flow"}
