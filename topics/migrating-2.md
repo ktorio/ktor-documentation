@@ -12,6 +12,10 @@ This means that you need to update [dependencies](#server-package-dependencies) 
 | :---        |    :----:   |          ---: |
 | [Locations](locations.md) | `io.ktor:ktor-locations` | `io.ktor:ktor-server-locations` |
 | [Webjars](webjars.md) | `io.ktor:ktor-webjars` | `io.ktor:ktor-server-webjars` |
+| [AutoHeadResponse](autoheadresponse.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-auto-head-response` |
+| [StatusPages](status_pages.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-status-pages` |
+| [CallId](call-id.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-call-id` |
+| [DoubleReceive](double-receive.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-double-receive` |
 | [HTML DSL](html_dsl.md) | `io.ktor:ktor-html-builder` | `io.ktor:ktor-server-html-builder` |
 | [FreeMarker](freemarker.md) | `io.ktor:ktor-freemarker` | `io.ktor:ktor-server-freemarker` |
 | [Velocity](velocity.md) | `io.ktor:ktor-velocity` | `io.ktor:ktor-server-velocity` |
@@ -24,9 +28,22 @@ This means that you need to update [dependencies](#server-package-dependencies) 
 | [Authentication](authentication.md) | `io.ktor:ktor-auth` | `io.ktor:ktor-server-auth` |
 | [JWT authentication](jwt.md) | `io.ktor:ktor-auth-jwt` | `io.ktor:ktor-server-auth-jwt` |
 | [LDAP authentication](ldap.md) | `io.ktor:ktor-auth-ldap` | `io.ktor:ktor-server-auth-ldap` |
+| [DataConversion](data-conversion.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-data-conversion` |
+| [DefaultHeaders](default_headers.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-default-headers` |
+| [Compression](compression.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-compression` |
+| [CachingHeaders](caching.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-caching-headers` |
+| [ConditionalHeaders](conditional_headers.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-conditional-headers` |
+| [CORS](cors.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-cors` |
+| [ForwardedHeaderSupport](forward-headers.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-forwarded-header` |
+| [HSTS](hsts.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-hsts` |
+| [HttpsRedirect](https-redirect.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-http-redirect` |
+| [PartialContent](partial-content.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-partial-content` |
 | [WebSockets](websocket.md) | `io.ktor:ktor-websockets` | `io.ktor:ktor-server-websockets` |
+| [CallLogging](call-logging.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-call-logging` |
 | [Micrometer metric](micrometer_metrics.md) | `io.ktor:ktor-metrics-micrometer` | `io.ktor:ktor-server-metrics-micrometer` |
 | [Dropwizard metrics](dropwizard_metrics.md) | `io.ktor:ktor-metrics` | `io.ktor:ktor-server-metrics` |
+
+> To add all plugins at once, you can use the `io.ktor:ktor-server` artifact.
 
 
 #### Imports {id="server-package-imports"}
@@ -76,7 +93,7 @@ Renaming Feature to Plugin introduces the following changes for API related to [
 * The `ApplicationFeature` interface is renamed to `ApplicationPlugin`.
 * The `Features` [pipeline phase](Pipelines.md) is renamed to `Plugins`
 
-> See [new plugins API]().
+> Note that starting with v2.0.0, Ktor provides the new API for [creating custom plugins](custom_plugins.md).
 
 
 ### Content negotiation and serialization {id="serialization"}
