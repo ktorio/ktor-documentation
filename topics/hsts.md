@@ -12,16 +12,16 @@ The `HSTS` plugin adds the required _HTTP Strict Transport Security_ headers to 
 When the browser receives HSTS policy headers, it will no longer attempt to connect to the server with insecure connections 
 for the given period of time. 
 
+## Add dependencies {id="add_dependencies"}
+To use `HSTS`, you need to include the `ktor-server-hsts` artifact in the build script:
+<var name="artifact_name" value="ktor-server-hsts"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
-## Usage
 
-```kotlin
-fun Application.main() {
-  // ...
-  install(HSTS) 
-  // ...
-}
-```
+## Install HSTS {id="install_plugin"}
+
+<var name="plugin_name" value="HSTS"/>
+<include src="lib.xml" include-id="install_plugin"/>
 
 The code above installs HSTS with the default configuration.  
 

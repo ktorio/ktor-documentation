@@ -12,6 +12,12 @@ Ktor provides the capability to log application events using the [SLF4J](http://
 The `%plugin_name%` plugin allows you to log incoming client requests.
 
 
+## Add dependencies {id="add_dependencies"}
+To use `%plugin_name%`, you need to include the `ktor-server-call-logging` artifact in the build script:
+<var name="artifact_name" value="ktor-server-call-logging"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
+
+
 ## Install %plugin_name% {id="install_plugin"}
 <include src="lib.xml" include-id="install_plugin"/>
 

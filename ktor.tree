@@ -47,7 +47,7 @@
                 <toc-element id="logging.md"
                              accepts-web-file-names="servers-logging.html"/>
                 <toc-element id="Modules.md" show-structure-depth="2"/>
-                <toc-element id="Plugins.md"
+                <toc-element id="Plugins.md" show-structure-depth="2"
                              accepts-web-file-names="zfeatures.html,features.html"/>
                 <toc-element id="advanced_http2.md"
                              show-structure-depth="2"/>
@@ -69,7 +69,7 @@
                              accepts-web-file-names="static-content.html"/>
                 <toc-element id="webjars.md"/>
                 <toc-element id="autoheadresponse.md"/>
-                <toc-element id="status_pages.md"/>
+                <toc-element id="status_pages.md" show-structure-depth="2"/>
             </toc-element>
 
             <toc-element toc-title="Handling requests and responses">

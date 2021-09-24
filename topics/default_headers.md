@@ -2,6 +2,11 @@
 
 The `DefaultHeaders` [plugin](Plugins.md) adds the standard `Server` and `Date` headers into each response. Moreover, you can provide additional default headers and override the `Server` header.
 
+## Add dependencies {id="add_dependencies"}
+To use `DefaultHeaders`, you need to include the `ktor-server-default-headers` artifact in the build script:
+<var name="artifact_name" value="ktor-server-default-headers"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
+
 ## Install DefaultHeaders {id="install_plugin"}
 
 <var name="plugin_name" value="DefaultHeaders"/>

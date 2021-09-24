@@ -13,20 +13,15 @@ download managers, or in unreliable networks.
 It is especially useful for the [Static Content Plugin](Serving_Static_Content.md).
 
 
+## Add dependencies {id="add_dependencies"}
+To use `PartialContent`, you need to include the `ktor-server-partial-content` artifact in the build script:
+<var name="artifact_name" value="ktor-server-partial-content"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
-## Usage
+## Install DefaultHeaders {id="install_plugin"}
 
-To install the PartialContent plugin with the default configuration:
-
-```kotlin
-import io.ktor.server.plugins.*
-
-fun Application.main() {
-    // ...
-    install(PartialContent)
-    // ...
-}
-```
+<var name="plugin_name" value="PartialContent"/>
+<include src="lib.xml" include-id="install_plugin"/>
 
 ## Configuration
 

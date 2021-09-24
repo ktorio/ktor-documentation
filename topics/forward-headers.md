@@ -13,23 +13,20 @@ The `ForwardedHeaderSupport` plugin allows you to handle reverse proxy headers t
 {type="note"}
 
 
+## Add dependencies {id="add_dependencies"}
+To use the plugins, you need to include the `ktor-server-forwarded-header` artifact in the build script:
+<var name="artifact_name" value="ktor-server-forwarded-header"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
-## Usage
 
-These plugins don't require any special configuration.
-You can install any of the two depending on your reverse proxy,
-but since the standard is the `Forwarded` header, you should
-favor it whenever possible.
+## Install {id="install_plugin"}
 
-```kotlin
-install(ForwardedHeaderSupport)
-```
+<var name="plugin_name" value="ForwardedHeaderSupport"/>
+<include src="lib.xml" include-id="install_plugin"/>
 
-or 
+`ForwardedHeaderSupport` and `XForwardedHeaderSupport`  don't require any special configuration.
+You can install any of the two depending on your reverse proxy, but since the standard is the `Forwarded` header, you should favor it whenever possible.
 
-```kotlin
-install(XForwardedHeaderSupport)
-```
 
 ## Request information
 

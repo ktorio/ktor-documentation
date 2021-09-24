@@ -9,13 +9,15 @@ so a handler is unable to receive it again.
 >
 {type="note"}
 
+## Add dependencies {id="add_dependencies"}
+To use `DoubleReceive`, you need to include the `ktor-server-double-receive` artifact in the build script:
+<var name="artifact_name" value="ktor-server-double-receive"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
+
 ## Usage
 
-Install `DoubleReceive` plugin into the ApplicationCall
-
-```kotlin
-install(DoubleReceive)
-```
+<var name="plugin_name" value="DoubleReceive"/>
+<include src="lib.xml" include-id="install_plugin"/>
 
 After that you can receive from a call multiple times and every invocation may return the same instance.
 

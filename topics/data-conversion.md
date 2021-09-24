@@ -2,28 +2,23 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-`DataConversion` is a plugin that allows to serialize and deserialize a list of values.
+`DataConversion` is a plugin that allows to serialize and deserialize a list of values. By default, it handles primitive types and enums, but it can also be configured to handle additional types. 
 
-By default, it handles primitive types and enums, but it can also be configured to handle additional types. 
-
-If you are using the [Locations plugin](locations.md) and want to support
-custom types as part of its parameters, you can add new custom converters with this
-service.
+> If you are using the [Locations plugin](locations.md) and want to support custom types as part of its parameters, you can add new custom converters with this service.
 
 
+## Add dependencies {id="add_dependencies"}
+To enable `DataConversion`, you need to include the `ktor-server-data-conversion` artifact in the build script:
+<var name="artifact_name" value="ktor-server-data-conversion"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 
-## Basic installation
-{id="basic-installation"}
+## Install DataConversion {id="install_plugin"}
 
-Installing the DataConversion is pretty easy, and it should cover primitive types:
+<var name="plugin_name" value="DataConversion"/>
+<include src="lib.xml" include-id="install_plugin"/>
 
-```kotlin
-install(DataConversion)
-```
-
-## Adding converters
-{id="adding-converters"}
+## Add converters {id="add-converters"}
 
 The DataConversion configuration, provide a `convert<T>` method to define
 type conversions. Inside, you have to provide a decoder and an encoder
@@ -91,7 +86,7 @@ enum class LocationEnum {
 ## Accessing the service
 {id="service"}
 
-You can easily access the DataConversion service, from any call with:
+You can access the `DataConversion` service from any call:
 
 ```kotlin
 val dataConversion = call.conversionService

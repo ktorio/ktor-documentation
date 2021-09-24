@@ -5,6 +5,12 @@ specify the required conditions for compressing data (such as a content type or 
 
 > To learn how to serve pre-compressed static files in Ktor, see [](Serving_Static_Content.md#precompressed).
 
+
+## Add dependencies {id="add_dependencies"}
+To use `Compression`, you need to include the `ktor-server-compression` artifact in the build script:
+<var name="artifact_name" value="ktor-server-compression"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
+
 ## Install Compression {id="install_plugin"}
 
 <var name="plugin_name" value="Compression"/>

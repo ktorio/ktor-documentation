@@ -8,8 +8,13 @@
 
 The `AutoHeadResponse` plugin provides us with the ability to automatically respond to `HEAD` request for every route that has a `GET` defined.
 
+## Add dependencies {id="add_dependencies"}
+To use `AutoHeadResponse`, you need to include the `ktor-server-auto-head-response` artifact in the build script:
+<var name="artifact_name" value="ktor-server-auto-head-response"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
+
 ## Usage
-In order to take advantage of this functionality, we need to install the `AutoHeadResponse` plugin in our application
+In order to take advantage of this functionality, we need to install the `AutoHeadResponse` plugin in our application.
 
 
 ```kotlin

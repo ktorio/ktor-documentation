@@ -194,7 +194,7 @@ install(AutoHeadResponse)
 {id="infinite-redirect"}
 
 The most probable cause is that your backend is behind a reverse-proxy or a load balancer, and that this intermediary
-is making normal HTTP requests to your backend, thus the HttpsRedirect plugin inside your Ktor backend believes
+is making normal HTTP requests to your backend, thus the `HttpsRedirect` plugin inside your Ktor backend believes
 that it is a normal HTTP request and responds with the redirect.
 
 Normally, reverse-proxies send some headers describing the original request (like it was HTTPS, or the original IP address),

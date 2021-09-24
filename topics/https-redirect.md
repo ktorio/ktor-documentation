@@ -8,18 +8,18 @@ HTTPS counterpart before processing the call.
 By default, the redirection is a `301 Moved Permanently`,
 but it can be configured to be a `302 Found` redirect.
 
+## Add dependencies {id="add_dependencies"}
+To use `HttpsRedirect`, you need to include the `ktor-server-http-redirect` artifact in the build script:
+<var name="artifact_name" value="ktor-server-http-redirect"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
 
-## Usage
+## Install HttpsRedirect {id="install_plugin"}
 
-```kotlin
-fun Application.main() {
-    install(HttpsRedirect)
-    // install(XForwardedHeaderSupport) // Required when behind a reverse-proxy
-}
-```
+<var name="plugin_name" value="HttpsRedirect"/>
+<include src="lib.xml" include-id="install_plugin"/>
 
-The code above installs the HttpsRedirect plugin with the default configuration.
+The code above installs the `HttpsRedirect` plugin with the default configuration.
 
 >When behind a reverse-proxy, you will need to install the `ForwardedHeaderSupport` or the `XForwardedHeaderSupport`
 >plugin, for the `HttpsRedirect` plugin to properly detect HTTPS requests.
