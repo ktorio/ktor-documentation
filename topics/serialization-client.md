@@ -1,6 +1,11 @@
 [//]: # (title: Content negotiation and serialization)
 
+<var name="artifact_name" value="ktor-client-content-negotiation"/>
+
 <microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>, <code>ktor-shared-serialization-kotlinx</code>
+</p>
 <var name="example_name" value="client-json-kotlinx"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
@@ -14,8 +19,8 @@ The `ContentNegotiation` plugin serves two primary purposes:
 
 ## Add dependencies {id="add_dependencies"}
 ### Add ContentNegotiation dependency {id="add_content_negotiation_dependency"}
-Before installing `ContentNegotiation`, you need to add the `ktor-client-content-negotiation` artifact in the build script:
-<var name="artifact_name" value="ktor-client-content-negotiation"/>
+Before installing `ContentNegotiation`, you need to add the `%artifact_name%` artifact in the build script:
+
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 Then, you need to add a dependency for the desired serializer. For [multiplatform](http-client_multiplatform.md) projects, use the [kotlinx.serialization](#kotlinx_dependency) library. If your project targets only JVM, you can add [Gson or Jackson](#jvm_dependency) dependency. Depending on the included artifacts, Ktor chooses a default serializer automatically. If required, you can [specify the serializer](#configure_serializer) explicitly and configure it.

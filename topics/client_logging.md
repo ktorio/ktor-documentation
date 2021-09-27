@@ -1,6 +1,9 @@
 [//]: # (title: Logging)
 
 <microformat>
+<p>
+Required dependencies: <code>io.ktor:ktor-client-logging</code>
+</p>
 <var name="example_name" value="client-logging"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>

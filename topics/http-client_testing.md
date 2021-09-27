@@ -1,6 +1,11 @@
 [//]: # (title: Testing)
 
+<var name="artifact_name" value="ktor-client-mock"/>
+
 <microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
 <var name="example_name" value="client-testing-mock"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
@@ -8,9 +13,8 @@
 Ktor provides a [MockEngine](https://api.ktor.io/ktor-client/ktor-client-mock/ktor-client-mock/io.ktor.client.engine.mock/-mock-engine/index.html) that simulates HTTP calls without connecting to the endpoint.
 
 ## Add dependencies {id="add_dependencies"}
-Before using `MockEngine`, you need to include the `ktor-client-mock` artifact in the build script.
+Before using `MockEngine`, you need to include the `%artifact_name%` artifact in the build script.
 
-<var name="artifact_name" value="ktor-client-mock"/>
 <include src="lib.xml" include-id="add_ktor_artifact_testing"/>
 
 
