@@ -23,7 +23,7 @@ HttpClient {
 ```
 When all attempts have been exceeded, a `RequestRetriesExceededException` is thrown, having a list of all errors in the suppressed list and a cause.
 
-> Note that HTTP status codes are checked by the [Response Validation](response-validation.md) plugin. Once you disable it, the `Retry` feature will not retry such responses anymore.
+> Note that HTTP status codes are checked by the [Response Validation](response-validation.md) plugin. Once you disable it, the `Retry` plugin will not retry such responses anymore.
 
 You may optionally handle a retry error like this:
 ```kotlin

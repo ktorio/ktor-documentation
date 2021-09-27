@@ -219,7 +219,7 @@ val Plugin = createApplicationPlugin("Plugin") {
 ```
 
 ## How can I transform the data (message) that is being responded to a client?
-Let's try to implement a very simple Serialization feature that would allow to define how to serialize particular data types into ByteArray.
+Let's try to implement a very simple Serialization plugin that would allow to define how to serialize particular data types into ByteArray.
 This can be done using `transformRespondBody { ... }` method inside `onCallRespond` and `transformReceiveBody { ... }`  method inside `onCallReceive` :
 ```kotlin
 public val Incrementor = createApplicationPlugin("Incrementor") {
@@ -305,7 +305,7 @@ Some other
 text
 here
 ```
-And now you can install the feature:
+And now you can install the plugin:
 ```kotlin
 embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
     install(FileReaderPlugin)
@@ -395,7 +395,7 @@ val MyPlugin = createApplicationPlugin("Plugin") {
 ## Advanced use cases
 ### What if I need to execute some code before all other plugins?
 Short answer: Use `onCall.setup { ... }`.
-Imagine you need to implement a simple Benchmark feature that would compute the time that was spent on processing some particular call with all features. This would require you to calculate the difference between the start time when a call has just been received and the end time after the call handling pipeline has finished it's work.
+Imagine you need to implement a simple Benchmark plugin that would compute the time that was spent on processing some particular call with all plugins. This would require you to calculate the difference between the start time when a call has just been received and the end time after the call handling pipeline has finished it's work.
 You can use the following code snippet to do that:
 
 ```kotlin
@@ -415,7 +415,7 @@ private val Benchmark = createApplicationPlugin("Benchmark") {
 }
 ```
 
-If you install this feature in your app, it would print request time for each request:
+If you install this plugin in your app, it would print request time for each request:
 ```text
 Request /path took: 112 (ms)
 Request /other/path took: 99 (ms)
@@ -449,10 +449,10 @@ embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
 After requesting `0.0.0.0:8080/give/me/404` in your browser you'll see the request "Sorry, 404 happened".
 ### Ok, but is there a way to execute my custom code before response data transformations? (TODO)
 Use `onCallRespond.beforeTransform { ... }` for that.
-Open design question: it is now used only in `Sessions` feature and nowhere else. Should we still provide this handler for users?
+Open design question: it is now used only in `Sessions` plugin and nowhere else. Should we still provide this handler for users?
 ### And how can I add my code before any transformations of received data have been made? (TODO)
 Use `onCallReceive.beforeTransform { ... }` for that.
-Open design question: it is now used only in `DoubleReceive` feature and nowhere else. Should we still provide this handler for users?
+Open design question: it is now used only in `DoubleReceive` plugin and nowhere else. Should we still provide this handler for users?
 It is useful for caching of received data.
 ## How to execute before/after other plugin?
 You can tell that you need to execute some specific handlers of your plugin strictly before/after same handlers of some other plugin have already been executed. There are methods:

@@ -7,7 +7,7 @@
         Ktor provides a special mode targeted for development. This mode enables the following capabilities:
     </p>
     <list>
-        <li>The <a href="Auto_reload.xml">auto-reload</a> feature for reloading application classes
+        <li><a href="Auto_reload.xml">Auto-reload</a> for reloading application classes
             without restarting the server.
         </li>
         <li>Extended information for debugging <a href="Pipelines.md">pipelines</a> (with stack

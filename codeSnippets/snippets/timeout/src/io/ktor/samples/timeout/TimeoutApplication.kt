@@ -12,10 +12,10 @@ import io.ktor.server.routing.*
 import kotlinx.coroutines.*
 
 /**
- * This example demonstrates usage of HttpTimeout feature. It consists of two endpoints. First endpoint "/timeout"
+ * This example demonstrates usage of HttpTimeout plugin. It consists of two endpoints. First endpoint "/timeout"
  * emulates some long-running process that might hangup. Second endpoint "/proxy" represents a proxy to "/timeout" that
  * protects a user against such hang-ups. If user connects to "/proxy" and request hanged proxy will automatically abort
- * request using HttpTimeout feature.
+ * request using HttpTimeout plugin.
  */
 fun Application.timeoutApplication() {
     /* Client to perform proxy requests. */

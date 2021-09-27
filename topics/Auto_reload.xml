@@ -15,12 +15,12 @@
     </microformat>
 
     <p>
-        <a href="running.md">Restarting</a> a server during development might take some time. Ktor allows you to overcome this limitation by using the <emphasis>Auto-reload</emphasis> feature, which reloads application classes on code changes and provides a fast feedback loop.
+        <a href="running.md">Restarting</a> a server during development might take some time. Ktor allows you to overcome this limitation by using <emphasis>Auto-reload</emphasis>, which reloads application classes on code changes and provides a fast feedback loop.
     </p>
 
     <chapter title="Enable Auto-reload" id="enable">
         <p>
-            To use the Auto-reload feature, you need to enable the
+            To use Auto-reload, you need to enable the
             <a href="development_mode.xml" anchor="enable">development mode</a> first.
             This depends on the way you used to <a href="create_server.xml">create and run a server</a>:
         </p>
@@ -98,7 +98,7 @@
 
     <chapter title="Recompile on changes" id="recompile">
         <p>
-            Since the Auto-reload feature detects changes in output files,
+            Since Auto-reload detects changes in output files,
             you need to rebuild a project.
             You can do this manually in IntelliJ IDEA or
             enable continuous build execution in Gradle using the <code>-t</code> command-line option.

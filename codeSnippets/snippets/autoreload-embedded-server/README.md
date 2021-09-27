@@ -1,15 +1,15 @@
 # Auto-reload - embeddedServer
 
-A sample Ktor project showing [Auto-reload](https://ktor.io/docs/auto-reload.html) functionality. This feature works only in a development mode, which is enabled in [build.gradle](build.gradle) using the `io.ktor.development` system property.
+A sample Ktor project showing [Auto-reload](https://ktor.io/docs/auto-reload.html) functionality. Auto-reload works only in a development mode, which is enabled in [build.gradle](build.gradle) using the `io.ktor.development` system property.
 
 ## Running
 
-Since the Auto-reload feature detects changes in output files, we need to enable automatic project rebuilding. To do this, execute the following command in a repository's root directory:
+Since Auto-reload detects changes in output files, we need to enable automatic project rebuilding. To do this, execute the following command in a repository's root directory:
 ```bash
 ./gradlew -t :autoreload-embedded-server:build
 ```
 
-Follow the steps below to see the Auto-reload feature in action:
+Follow the steps below to see Auto-reload in action:
 1. Open another terminal tab and run a sample:
    ```bash
    ./gradlew :autoreload-embedded-server:run

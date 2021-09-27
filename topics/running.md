@@ -32,10 +32,6 @@ ktor {
 Replace `my.company.MyApplication` with your application's package, and `ApplicationKt` with the name of the
 file your `Application.main` function is contained in.
 
-### Deploying the hosted application
-
-// TODO
-
 ## Running the application from inside the IDE
 
 Running applications in a development environment such as IntelliJ IDEA, is supported by using development engines.
@@ -57,7 +53,7 @@ See also: [Configuration](Configurations.xml)
 ## Use automatic reloading
 
 Ktor can automatically reload the application when changes to the class files are detected, i.e. when you build the Application.
-Enable this feature by adding `watch` configuration to `application.conf`:
+Enable this functionality by adding `watch` configuration to `application.conf`:
 
 ```groovy
 ktor {
