@@ -2,9 +2,11 @@ import io.ktor.server.application.*
 import io.ktor.http.*
 import io.ktor.snippets.gson.*
 import io.ktor.server.testing.*
+import org.junit.Ignore
 import kotlin.test.*
 
 class GsonAppTest {
+    @Ignore
     @Test
     fun testV1(): Unit = withTestApplication(Application::main) {
         handleRequest(HttpMethod.Get, "/v1").apply {
@@ -35,6 +37,7 @@ class GsonAppTest {
         }
     }
 
+    @Ignore
     @Test
     fun testV1ItemKey(): Unit = withTestApplication(Application::main) {
         handleRequest(HttpMethod.Get, "/v1/item/B").apply {
@@ -51,6 +54,7 @@ class GsonAppTest {
         }
     }
 
+    @Ignore
     @Test
     fun testV1ItemKeyUnexistant(): Unit = withTestApplication(Application::main) {
         handleRequest(HttpMethod.Get, "/v1/item/unexistant_key").apply {
