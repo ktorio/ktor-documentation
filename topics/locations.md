@@ -1,14 +1,18 @@
 [//]: # (title: Locations)
 
+<var name="plugin_name" value="Locations"/>
+<var name="artifact_name" value="ktor-server-locations"/>
+
 <microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
 <var name="example_name" value="locations"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
 
 <include src="lib.xml" include-id="outdated_warning"/>
-
-
 
 Ktor provides a mechanism to create routes in a typed way, for both:
 constructing URLs and reading the parameters.
@@ -19,15 +23,13 @@ constructing URLs and reading the parameters.
 
 
 ## Add dependencies {id="add_dependencies"}
-<var name="plugin_name" value="Locations"/>
-<var name="artifact_name" value="ktor-server-locations"/>
+
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 
 ## Install Locations {id="install_plugin"}
 
-<var name="plugin_name" value="Locations"/>
 <include src="lib.xml" include-id="install_plugin"/>
 
 

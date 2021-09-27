@@ -1,16 +1,22 @@
 [//]: # (title: AutoHeadResponse)
 
+<var name="plugin_name" value="AutoHeadResponse"/>
+<var name="artifact_name" value="ktor-server-auto-head-response"/>
+
 <microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
 <var name="example_name" value="autohead"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
 
-The `AutoHeadResponse` plugin provides us with the ability to automatically respond to `HEAD` request for every route that has a `GET` defined.
+The `%plugin_name%` plugin provides us with the ability to automatically respond to `HEAD` request for every route that has a `GET` defined.
 
 ## Add dependencies {id="add_dependencies"}
-To use `AutoHeadResponse`, you need to include the `ktor-server-auto-head-response` artifact in the build script:
-<var name="artifact_name" value="ktor-server-auto-head-response"/>
+
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Usage
@@ -27,4 +33,4 @@ It's important to note that if we're using this plugin, custom `HEAD` definition
 
 
 ## Options
-`AutoHeadResponse` does not provide any additional configuration options.
+`%plugin_name%` does not provide any additional configuration options.

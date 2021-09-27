@@ -1,22 +1,30 @@
 [//]: # (title: DoubleReceive)
 
+<var name="plugin_name" value="DoubleReceive"/>
+<var name="artifact_name" value="ktor-server-double-receive"/>
+
+<microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
+</microformat>
+
 <include src="lib.xml" include-id="outdated_warning"/>
 
-The `DoubleReceive` plugin provides the ability to invoke `ApplicationCall.receive` several times with no `RequestAlreadyConsumedException` exception. This usually makes sense when a plugin is consuming a request body
+The `%plugin_name%` plugin provides the ability to invoke `ApplicationCall.receive` several times with no `RequestAlreadyConsumedException` exception. This usually makes sense when a plugin is consuming a request body
 so a handler is unable to receive it again.
 
-> The `DoubleReceive` plugin use an experimental API that is expected to evolve in the upcoming updates with potentially breaking changes.
+> The `%plugin_name%` plugin use an experimental API that is expected to evolve in the upcoming updates with potentially breaking changes.
 >
 {type="note"}
 
 ## Add dependencies {id="add_dependencies"}
-To use `DoubleReceive`, you need to include the `ktor-server-double-receive` artifact in the build script:
-<var name="artifact_name" value="ktor-server-double-receive"/>
+
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Usage
 
-<var name="plugin_name" value="DoubleReceive"/>
 <include src="lib.xml" include-id="install_plugin"/>
 
 After that you can receive from a call multiple times and every invocation may return the same instance.

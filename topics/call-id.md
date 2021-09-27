@@ -1,17 +1,25 @@
 [//]: # (title: CallId)
 
+<var name="artifact_name" value="ktor-server-call-id"/>
+<var name="plugin_name" value="CallId"/>
+
+<microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
+</microformat>
+
 <include src="lib.xml" include-id="outdated_warning"/>
 
-The `CallId` plugin allows to identify a request/call and can work along the [CallLogging](call-logging.md) plugin.
+The `%plugin_name%` plugin allows to identify a request/call and can work along the [CallLogging](call-logging.md) plugin.
 
 ## Add dependencies {id="add_dependencies"}
-To use `CallId`, you need to include the `ktor-server-call-id` artifact in the build script:
-<var name="artifact_name" value="ktor-server-call-id"/>
+
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
-## Install CallId {id="install_plugin"}
+## Install %plugin_name% {id="install_plugin"}
 
-<var name="plugin_name" value="CallId"/>
 <include src="lib.xml" include-id="install_plugin"/>
 
 ## Generating Call IDs 

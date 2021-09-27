@@ -1,22 +1,29 @@
 [//]: # (title: Webjars)
 
+<var name="plugin_name" value="Webjars"/>
+<var name="artifact_name" value="ktor-server-webjars"/>
+
+<microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
+</microformat>
+
 <include src="lib.xml" include-id="outdated_warning"/>
 
-The `Webjars` plugin enables serving static content provided by [webjars](https://www.webjars.org/). It allows you to package your assets such as javascript libraries and css as part of your uber-jar.
+The `%plugin_name%` plugin enables serving static content provided by [webjars](https://www.webjars.org/). It allows you to package your assets such as javascript libraries and css as part of your uber-jar.
 
 ## Add dependencies {id="add_dependencies"}
-<var name="plugin_name" value="Webjars"/>
-<var name="artifact_name" value="ktor-webjars"/>
+
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
-## Install Webjars {id="install_plugin"}
+## Install %plugin_name% {id="install_plugin"}
 
-<var name="plugin_name" value="Webjars"/>
 <include src="lib.xml" include-id="install_plugin"/>
 
 
-## Configure Webjars {id="configure"}
+## Configure %plugin_name% {id="configure"}
 
 ```kotlin
     install(Webjars) {

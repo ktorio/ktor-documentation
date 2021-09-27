@@ -1,22 +1,30 @@
 [//]: # (title: Status pages)
 
+<var name="plugin_name" value="StatusPages"/>
+<var name="artifact_name" value="ktor-server-status-pages"/>
+
+<microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
+</microformat>
+
 <include src="lib.xml" include-id="outdated_warning"/>
 
-The `StatusPages` plugin allows Ktor applications to respond appropriately to any failure state.
+The `%plugin_name%` plugin allows Ktor applications to respond appropriately to any failure state.
 
 ## Add dependencies {id="add_dependencies"}
-To use `StatusPages`, you need to include the `ktor-server-status-pages` artifact in the build script:
-<var name="artifact_name" value="ktor-server-status-pages"/>
+
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
-## Install StatusPages {id="install_plugin"}
+## Install %plugin_name% {id="install_plugin"}
 
-<var name="plugin_name" value="StatusPages"/>
 <include src="lib.xml" include-id="install_plugin"/>
 
-## Configure StatusPages {id="configure"}
+## Configure %plugin_name% {id="configure"}
 
-There are three main configuration options provided to `StatusPages`:
+There are three main configuration options provided to `%plugin_name%`:
 
 1. `exceptions` - Configures response based on mapped exception classes
 2. `status` - Configures response to status code value
@@ -136,7 +144,7 @@ routing {
 ```
 
 Other frameworks, use exceptions on redirect, so the normal flow is broken and you can execute redirections in guard
-clauses or subfunctions without having to worry about returning in all the subfunction chain. You can use the StatusPages
+clauses or sub-functions without having to worry about returning in all the sub-function chain. You can use the StatusPages
 plugin to simulate this:
 
 ```kotlin
