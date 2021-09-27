@@ -27,7 +27,7 @@ private fun Application.installCookieSessionClientSigned() {
     val secretHashKey = hex("6819b57a326945c1968f45236589") // Don't forget to change this value
 
     install(Sessions) {
-        cookie<SampleSession>("SESSION_FEATURE_SESSION") {
+        cookie<SampleSession>("SAMPLE_SESSION") {
             cookie.path = "/" // Specify cookie's path '/' so it can be used in the whole site
             transform(SessionTransportTransformerMessageAuthentication(secretHashKey, "HmacSHA256"))
         }
@@ -43,7 +43,7 @@ private fun Application.installCookieSessionClientSigned() {
  */
 private fun Application.installCookieSessionServerMemory() {
     install(Sessions) {
-        cookie<SampleSession>("SESSION_FEATURE_SESSION_ID", SessionStorageMemory()) {
+        cookie<SampleSession>("SAMPLE_SESSION_ID", SessionStorageMemory()) {
             cookie.path = "/" // Specify cookie's path '/' so it can be used in the whole site
         }
     }
@@ -52,13 +52,13 @@ private fun Application.installCookieSessionServerMemory() {
 /**
  * This will configure a session that stores its ID in a cookie, while the server
  * keeps the contents of the session as a file in the specified directory.
- * If the directory doesn't exists it will be created.
- * cached will allow to keep sessions in-memory 60 seconds to prevent additional reads from the file system.
+ * If the directory doesn't exist it will be created.
+ * cached will allow keeping sessions in-memory 60 seconds to prevent additional reads from the file system.
 */
 private fun Application.installCookieSessionServerDirectory() {
     install(Sessions) {
         cookie<SampleSession>(
-            "SESSION_FEATURE_SESSION_ID",
+            "SAMPLE_SESSION_ID",
             directorySessionStorage(File(".sessions"), cached = true)
         ) {
             cookie.path = "/" // Specify cookie's path '/' so it can be used in the whole site
