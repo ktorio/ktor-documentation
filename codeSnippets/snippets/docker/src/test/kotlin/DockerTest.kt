@@ -38,7 +38,7 @@ class DockerTest {
 
     @Test
     fun responseFromServerMatchesRegex() {
-        val response: String = runBlocking { HttpClient().get<HttpResponse>("http://localhost:$port/").receive() }
+        val response: String = runBlocking { HttpClient().get("http://localhost:$port/").body() }
 
         assertThat(
             response,
