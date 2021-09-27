@@ -39,6 +39,10 @@ To add headers to the request, use the [headers](https://api.ktor.io/ktor-client
 ```
 {src="snippets/_misc_client/GetMethodWithHeaders.kt"}
 
+> Note that the `StringValuesBuilder` class that exposes the `append` function is incorrectly marked with the `InternalAPI` annotation. This issue will be fixed in v2.0.0. As a workaround, you can add the `@OptIn(InternalAPI::class`) annotation to explicitly opt-in to use this API.
+> 
+{type="note"}
+
 
 
 ### Cookies {id="cookies"}
