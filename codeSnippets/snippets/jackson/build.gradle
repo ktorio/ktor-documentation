@@ -31,6 +31,9 @@ dependencies {
     implementation "io.ktor:ktor-server-netty:$ktor_version"
     implementation "io.ktor:ktor-server-content-negotiation:$ktor_version"
     implementation "io.ktor:ktor-shared-serialization-jackson:$ktor_version"
+    implementation "io.ktor:ktor-server-default-headers:$ktor_version"
+    implementation "io.ktor:ktor-server-compression:$ktor_version"
+    implementation "io.ktor:ktor-server-call-logging:$ktor_version"
     implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jackson_version"
     implementation "ch.qos.logback:logback-classic:$logback_version"
 
