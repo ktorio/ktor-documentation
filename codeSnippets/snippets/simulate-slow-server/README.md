@@ -1,6 +1,6 @@
 # Simulate Slow Server
 
-Small application simulating a slow server by creating a custom interceptor for Ktor
+An application simulating a slow server by creating a custom interceptor for Ktor.
 
 ## Running
 

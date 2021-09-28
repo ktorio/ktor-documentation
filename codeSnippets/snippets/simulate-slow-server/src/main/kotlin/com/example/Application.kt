@@ -1,5 +1,6 @@
 package com.example
 
+import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
@@ -16,6 +17,14 @@ fun Application.main() {
         }
         get("/path2") {
             call.respondText("Response time: ${LocalTime.now()}")
+        }
+        var requestCount: Int = 0
+        get("/error") {
+            requestCount += 1
+            when (requestCount) {
+                in 1..2 -> call.respondText("Server is down", status = HttpStatusCode.InternalServerError)
+                in 3..10 -> call.respondText("Server is back online!", status = HttpStatusCode.OK)
+            }
         }
     }
 }
