@@ -267,7 +267,7 @@
             <toc-element id="http-cookies.md"/>
             <toc-element id="http-plain-text.md"/>
             <toc-element id="http-redirect.md"/>
-            <!--            <toc-element id="client_retry.md"/>-->
+            <toc-element id="client_retry.md"/>
             <toc-element id="timeout.md"/>
             <toc-element id="proxy.md"/>
             <toc-element id="client_logging.md"

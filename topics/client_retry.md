@@ -1,39 +1,56 @@
 [//]: # (title: Retrying failed requests)
 
-Every client code making HTTP requests is facing network errors from time to time. Usually these errors could be eliminated by retries of the request. 
+<microformat>
+<var name="example_name" value="client-retry"/>
+<include src="lib.xml" include-id="download_example"/>
+</microformat>
 
-Ktor provides the `Retry` plugin that performs retry action on I/O errors and unsuccessful HTTP status codes. This plugin provides the ability to recover from network errors identified as `IOException`, and `HttpRequestTimeoutException`, and `UnresolvedAddressException`. It also may recover from request validation that usually produces `ResponseException` on a non-successful response status code.
+By default, the Ktor client doesn't retry [requests](request.md) that failed due to network or server errors.
+You can use the `HttpRequestRetry` plugin to configure the retry policy for failed requests in various ways: specify the number of retries, configure conditions for retrying a request, or specify delay logic.
+
+
+
 
 
 ## Add dependencies {id="add_dependencies"}
-To use the `Retry` plugin, you need to include the `ktor-client-retry` artifact in the build script:
-<var name="artifact_name" value="ktor-client-retry"/>
-<include src="lib.xml" include-id="add_ktor_artifact"/>
+`HttpRequestRetry` only requires the [ktor-client-core](client.md#client-dependency) artifact and doesn't need any specific dependencies.
 
+## Install HttpRequestRetry {id="install_plugin"}
 
-## Install and Configure Retry {id="configure_retry"}
-The following snippet installs the plugin and configures it to make at most 3 attempts to recover with the attempt interval of 5 seconds: 
+To install `HttpRequestRetry`, pass it to the `install` function inside a [client configuration block](client.md#configure-client):
 ```kotlin
-HttpClient {
-    retry {
-        retries = 3
-        retryIntervalInSeconds = 5
+val client = HttpClient(CIO) {
+    install(HttpRequestRetry)
+}
+```
+
+
+## Configure HttpRequestRetry {id="configure_retry"}
+
+A sample below shows how to configure the basic retry policy:
+
+```kotlin
+```
+{src="snippets/client-retry/src/main/kotlin/com/example/Application.kt" lines="13-17,19"}
+
+* The `retryOnServerErrors` function enables retrying a request if a `5xx` response is received from a server and specifies the number of retries.
+* `exponentialDelay` specifies an exponential delay between retries, which is calculated using the Exponential backoff algorithm.
+
+You can find the full example here: [client-retry](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-retry).
+
+There are also configuration settings that allow you to configure conditions for retrying a request or specify delay logic:
+
+```kotlin
+install(HttpRequestRetry) {
+    maxRetries = 5
+    retryIf { request, response -> 
+        !response.status().isSuccess() 
     }
+    retryOnExceptionIf { request, cause -> 
+        cause is NetworkError 
+    }
+    delayMillis { retry -> 
+        retry * 3000L 
+    } // retries in 3, 6, 9, etc. seconds
 }
 ```
-When all attempts have been exceeded, a `RequestRetriesExceededException` is thrown, having a list of all errors in the suppressed list and a cause.
-
-> Note that HTTP status codes are checked by the [Response Validation](response-validation.md) plugin. Once you disable it, the `Retry` plugin will not retry such responses anymore.
-
-You may optionally handle a retry error like this:
-```kotlin
-try {
-    client.get<String>(someUrl)
-} catch (cause: Retry.RequestRetriesExceededException) {
-    // handle failure
-}
-```
-
-## Duplicate Requests {id="duplicate_requests"}
-
-It's important to note that there can always be network delays. Often due to the network architecture, there is no way to identify if a request has been delivered to the server or not. Therefore, retrying a failed request may lead to duplicate requests. Duplicate requests are not acceptable in some cases. For example, a request for making payments or changing some state. So a different retry approach should be used, or a duplicate requests prevention mechanism should be applied, like using transaction id and tracking them on the server side.
