@@ -7,6 +7,8 @@
 <p>
 Required dependencies: <code>io.ktor:%artifact_name%</code>
 </p>
+<var name="example_name" value="compression"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
 Ktor provides the capability to compress outgoing content by using the [Compression](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-compression/index.html) plugin. You can use different compression algorithms, including `gzip` and `deflate`, 
@@ -53,17 +55,12 @@ In the example above, `deflate` has a higher priority value and takes precedence
 
 ### Configure content type {id="configure_content_type"}
 By default, Ktor doesn't compress specific content types, such as `audio`, `video`, `image`, and `text/event-stream`. 
-You can choose the content types to compress by calling [matchContentType](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/match-content-type.html) or exclude the desired media types from compression by using [excludeContentType](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/exclude-content-type.html). The code snippet below shows how to compress all text subtypes and JavaScript code using `gzip`:
+You can choose the content types to compress by calling [matchContentType](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/match-content-type.html) or exclude the desired media types from compression by using [excludeContentType](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/exclude-content-type.html). The code snippet below shows how to compress JavaScript code using `gzip` and all text subtypes using `deflate`:
 ```kotlin
-install(Compression) {
-    gzip {
-        matchContentType(
-            ContentType.Text.Any,
-            ContentType.Application.JavaScript
-        )
-    }
-}
 ```
+{src="snippets/compression/src/main/kotlin/com/example/Application.kt" lines="12-13,15-19,21-25"}
+
+You can find the full example here: [compression](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/compression).
 
 ### Configure response size {id="configure_response_size"}
 The `%plugin_name%` plugin allows you to disable compression for responses whose size doesn't exceed the specified value. To do this, pass the desired value (in bytes) to the [minimumSize](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/minimum-size.html) function:

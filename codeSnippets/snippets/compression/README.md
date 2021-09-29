@@ -8,3 +8,5 @@ To run a sample, execute the following command in a repository's root directory:
 ```bash
 ./gradlew :compression:run
 ```
+
+Then, open a browser's network tools for [http://localhost:8080/](http://localhost:8080/) and make sure that the `deflate` encoding is applied to a response.
