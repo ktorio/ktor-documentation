@@ -1,78 +1,47 @@
 [//]: # (title: Default request)
 
-<include src="lib.xml" include-id="outdated_warning"/>
+<microformat>
+<var name="example_name" value="client-default-request"/>
+<include src="lib.xml" include-id="download_example"/>
+</microformat>
 
-This plugin allows you to configure some defaults for all the requests for a specific client.
+The `DefaultRequest` plugin allows you to configure default parameters for all [requests](request.md).
 
 
+## Add dependencies {id="add_dependencies"}
 
-## Installation
+`DefaultRequest` only requires the [ktor-client-core](client.md#client-dependency) artifact and doesn't need any specific dependencies.
 
-When configuring the client, there is an extension method provided by this plugin to set some defaults for this client.
-For example, if you want to add a header to all the requests, or configure the host, port, and method or just set the path.
+
+## Install DefaultRequest {id="install_plugin"}
+
+To install `DefaultRequest`, pass it to the `install` function inside a [client configuration block](client.md#configure-client) ...
+```kotlin
+val client = HttpClient(CIO) {
+    install(DefaultRequest)
+}
+```
+
+... or call the `defaultRequest` function and [configure](#configure) required request parameters:
 
 ```kotlin
-val client = HttpClient() {
-    defaultRequest { // this: HttpRequestBuilder ->
-        method = HttpMethod.Head
-        host = "127.0.0.1"
-        port = 8080
-        header("X-My-Header", "MyValue")
+val client = HttpClient(CIO) {
+    defaultRequest {
+        // this: HttpRequestBuilder
     }
 }
 ```
 
-## Example
+## Configure DefaultRequest {id="configure"}
 
-An example showing how to the client behaves using the [MockEngine](http-client_testing.md):
+The example below uses the following `DefaultRequest` configuration:
+* The `method` property specifies the `GET` as the default HTTP method.
+* The `host` and `port` properties specify the URL's host and port.
+* The `url` function is used to define `HTTPS` as a default scheme.
+* The `header` function adds a custom header to all requests.
 
 ```kotlin
-import io.ktor.client.*
-import io.ktor.client.engine.*
-import io.ktor.client.engine.mock.*
-import io.ktor.client.plugins.*
-import io.ktor.client.request.*
-import io.ktor.http.*
-import kotlinx.coroutines.experimental.*
-import kotlinx.coroutines.experimental.io.*
-
-fun main(args: Array<String>) = runBlocking {
-    val client = HttpClient(MockEngine) {
-        engine {
-            // Register request handler.
-            addHandler { request ->
-                with(request) {
-                    val responseText = buildString{
-                        append("method=$method,")
-                        append("host=${url.host},")
-                        append("port=${url.port},")
-                        append("path=${url.fullPath},")
-                        append("headers=$headers")
-                    }
-                    val responseHeaders = headersOf("Content-Type" to listOf(ContentType.Text.Plain.toString()))
-
-                    respond(responseText, headers = responseHeaders)
-                }
-            }
-        }
-
-        // Configure default request plugin.
-        defaultRequest {
-            method = HttpMethod.Head
-            host = "127.0.0.1"
-            port = 8080
-            header("X-My-Header", "MyValue")
-        }
-    }
-
-    val result: String = client.get {
-        url {
-            encodedPath = "/demo"
-        }
-    }.bodyAsText()
-
-    println(result)
-    // Prints: method=HttpMethod(value=HEAD), host=127.0.0.1, port=8080, path=/demo, headers=Headers [X-My-Header=[MyValue], Accept=[*/*]]
-}
-
 ```
+{src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" lines="15-24,34"}
+
+You can find the full example here: [client-default-request](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-default-request).
