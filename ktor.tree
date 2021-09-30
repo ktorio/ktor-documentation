@@ -266,6 +266,7 @@
                          show-structure-depth="2"/>
             <toc-element id="http-cookies.md"/>
             <toc-element id="content-encoding.md"/>
+            <toc-element id="client-caching.md"/>
             <toc-element id="http-plain-text.md"/>
             <toc-element id="http-redirect.md"/>
             <toc-element id="client_retry.md"/>
