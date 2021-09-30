@@ -4,6 +4,7 @@ import io.ktor.application.*
 import io.ktor.auth.*
 import io.ktor.client.*
 import io.ktor.client.engine.apache.*
+import io.ktor.client.request.*
 import io.ktor.features.*
 import io.ktor.html.*
 import io.ktor.http.*
@@ -13,7 +14,7 @@ import io.ktor.routing.*
 import kotlinx.html.*
 import java.util.concurrent.*
 
-@Location("/") class index()
+@Location("/") class index
 @Location("/login/{type?}") class login(val type: String = "")
 
 /**
@@ -31,58 +32,57 @@ val loginProviders = listOf(
                 requestTokenUrl = "https://api.twitter.com/oauth/request_token",
                 authorizeUrl = "https://api.twitter.com/oauth/authorize",
                 accessTokenUrl = "https://api.twitter.com/oauth/access_token",
-
                 consumerKey = "***",
-                consumerSecret = "***"
+                consumerSecret = "***",
         ),
         OAuthServerSettings.OAuth2ServerSettings(
                 name = "vk",
                 authorizeUrl = "https://oauth.vk.com/authorize",
                 accessTokenUrl = "https://oauth.vk.com/access_token",
                 clientId = "***",
-                clientSecret = "***"
+                clientSecret = "***",
+                authorizeUrlInterceptor = { parameters.urlEncodingOption = UrlEncodingOption.DEFAULT }
         ),
         OAuthServerSettings.OAuth2ServerSettings(
                 name = "github",
                 authorizeUrl = "https://github.com/login/oauth/authorize",
                 accessTokenUrl = "https://github.com/login/oauth/access_token",
                 clientId = "***",
-                clientSecret = "***"
+                clientSecret = "***",
+                authorizeUrlInterceptor = { parameters.urlEncodingOption = UrlEncodingOption.DEFAULT }
         ),
         OAuthServerSettings.OAuth2ServerSettings(
                 name = "google",
                 authorizeUrl = "https://accounts.google.com/o/oauth2/auth",
                 accessTokenUrl = "https://www.googleapis.com/oauth2/v3/token",
                 requestMethod = HttpMethod.Post,
-
                 clientId = "***.apps.googleusercontent.com",
                 clientSecret = "***",
-                defaultScopes = listOf("https://www.googleapis.com/auth/plus.login")
+                defaultScopes = listOf("https://www.googleapis.com/auth/plus.login"),
+                authorizeUrlInterceptor = { parameters.urlEncodingOption = UrlEncodingOption.DEFAULT }
         ),
         OAuthServerSettings.OAuth2ServerSettings(
                 name = "facebook",
                 authorizeUrl = "https://graph.facebook.com/oauth/authorize",
                 accessTokenUrl = "https://graph.facebook.com/oauth/access_token",
                 requestMethod = HttpMethod.Post,
-
                 clientId = "***",
                 clientSecret = "***",
-                defaultScopes = listOf("public_profile")
+                defaultScopes = listOf("public_profile"),
+                authorizeUrlInterceptor = { parameters.urlEncodingOption = UrlEncodingOption.DEFAULT }
         ),
         OAuthServerSettings.OAuth2ServerSettings(
                 name = "hub",
                 authorizeUrl = "http://localhost:9099/api/rest/oauth2/auth",
                 accessTokenUrl = "http://localhost:9099/api/rest/oauth2/token",
                 requestMethod = HttpMethod.Post,
-
                 clientId = "***",
                 clientSecret = "***",
                 defaultScopes = listOf("***"),
-                accessTokenRequiresBasicAuth = true
+                accessTokenRequiresBasicAuth = true,
+                authorizeUrlInterceptor = { parameters.urlEncodingOption = UrlEncodingOption.DEFAULT }
         )
 ).associateBy { it.name }
-
-private val exec = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors() * 4)
 
 fun Application.OAuthLoginApplication() {
     OAuthLoginApplicationWithDeps(
@@ -131,7 +131,7 @@ fun Application.OAuthLoginApplicationWithDeps(oauthHttpClient: HttpClient) {
         }
 
         authenticate(authOauthForLogin) {
-            location<login>() {
+            location<login> {
                 param("error") {
                     handle {
                         call.loginFailedPage(call.parameters.getAll("error").orEmpty())
@@ -152,7 +152,7 @@ fun Application.OAuthLoginApplicationWithDeps(oauthHttpClient: HttpClient) {
 }
 
 private fun <T : Any> ApplicationCall.redirectUrl(t: T, secure: Boolean = true): String {
-    val hostPort = request.host()!! + request.port().let { port -> if (port == 80) "" else ":$port" }
+    val hostPort = request.host() + request.port().let { port -> if (port == 80) "" else ":$port" }
     val protocol = when {
         secure -> "https"
         else -> "http"
