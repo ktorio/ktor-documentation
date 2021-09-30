@@ -7,17 +7,27 @@ import io.ktor.http.*
 import io.ktor.http.content.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import io.ktor.shared.serialization.kotlinx.*
 import kotlinx.css.*
 import kotlinx.html.*
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.*
+
+@Serializable
+data class Customer(val id: Int, val firstName: String, val lastName: String)
 
 fun Application.main() {
     install(CachingHeaders) {
         options { outgoingContent ->
             when (outgoingContent.contentType?.withoutParameters()) {
                 ContentType.Text.CSS -> CachingOptions(CacheControl.MaxAge(maxAgeSeconds = 3600))
+                ContentType.Application.Json -> CachingOptions(CacheControl.MaxAge(maxAgeSeconds = 60))
                 else -> null
             }
         }
+    }
+    install(ContentNegotiation) {
+        json(Json)
     }
     routing {
         get("/html-dsl") {
@@ -42,6 +52,10 @@ fun Application.main() {
                     color = Color.white
                 }
             }
+        }
+
+        get("/customer/1") {
+            call.respond(Customer(1, "Jane", "Smith"))
         }
     }
 }
