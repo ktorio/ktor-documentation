@@ -44,4 +44,10 @@ The example below uses the following `DefaultRequest` configuration:
 ```
 {src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" lines="15-24,34"}
 
+The request below made by this client specifies a request path only and applies parameters configured for `DefaultRequest` automatically:
+
+```kotlin
+```
+{src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" lines="36-38"}
+
 You can find the full example here: [client-default-request](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-default-request).
