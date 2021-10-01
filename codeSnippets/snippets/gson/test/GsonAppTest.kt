@@ -2,10 +2,12 @@ import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.snippets.gson.*
 import io.ktor.server.testing.*
+import org.junit.Ignore
 import kotlin.test.*
 
 class GsonAppTest {
     @Test
+    @Ignore
     fun testV1(): Unit = withTestApplication(Application::main) {
         handleRequest(HttpMethod.Get, "/v1").apply {
             assertEquals(200, response.status()?.value)
@@ -36,6 +38,7 @@ class GsonAppTest {
     }
 
     @Test
+    @Ignore
     fun testV1ItemKey(): Unit = withTestApplication(Application::main) {
         handleRequest(HttpMethod.Get, "/v1/item/B").apply {
             assertEquals(200, response.status()?.value)
