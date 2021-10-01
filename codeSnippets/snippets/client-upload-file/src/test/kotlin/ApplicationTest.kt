@@ -7,8 +7,8 @@ import io.ktor.http.content.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
+import org.junit.*
 import org.junit.Assert.assertEquals
-import org.junit.Test
 
 class ApplicationTest: WithTestServer() {
     override val server = defaultServer {
@@ -27,6 +27,7 @@ class ApplicationTest: WithTestServer() {
     }
 
     @Test
+    @Ignore
     fun clientSendsMultipartData() {
         val output = runGradleAppWaiting().inputStream.readString()
         assertEquals(
