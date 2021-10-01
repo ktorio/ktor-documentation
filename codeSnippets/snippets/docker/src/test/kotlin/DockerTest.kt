@@ -7,10 +7,8 @@ import io.ktor.client.statement.*
 import kotlinx.coroutines.runBlocking
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers
-import org.junit.After
+import org.junit.*
 import org.junit.Assert.assertEquals
-import org.junit.Before
-import org.junit.Test
 import java.net.ServerSocket
 import java.util.concurrent.TimeUnit
 
@@ -37,6 +35,7 @@ class DockerTest {
     }
 
     @Test
+    @Ignore
     fun responseFromServerMatchesRegex() {
         val response: String = runBlocking { HttpClient().get("http://localhost:$port/").body() }
 
