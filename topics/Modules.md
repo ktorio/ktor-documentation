@@ -8,15 +8,15 @@ Code examples:
 </p>
 </microformat>
 
-Ktor allows you to use modules to structure your application. Different modules can keep certain application functionalities and have a specific set of [installed plugins](Plugins.md#install) and configured [routes](Routing_in_Ktor.md).
-
-A module is an _[extension function](https://kotlinlang.org/docs/extensions.html)_ of the [Application](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.application/-application/index.html) class. In the example below, the `module1` extension function defines a module that accepts GET requests made to the `/module1` URL path.
+Ktor allows you to use modules to [structure](Structuring_Applications.md) your application by defining a specific set of [routes](Routing_in_Ktor.md) inside a specific module. A module is an _[extension function](https://kotlinlang.org/docs/extensions.html)_ of the [Application](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.application/-application/index.html) class. In the example below, the `module1` extension function defines a module that accepts GET requests made to the `/module1` URL path.
 
 ```kotlin
 ```
 {src="snippets/engine-main-modules/src/main/kotlin/com/example/Application.kt" lines="9-15"}
 
 Loading modules in your application depends on the way used to [create a server](create_server.xml): in code using the `embeddedServer` function or by using the `application.conf` configuration file.
+
+> Note that [plugins](Plugins.md#install) installed in a specified module are in effect for other loaded modules.
 
 ## embeddedServer {id="embedded-server"}
 
