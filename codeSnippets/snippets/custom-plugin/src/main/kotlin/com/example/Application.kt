@@ -2,7 +2,6 @@ package com.example
 
 import com.example.plugins.*
 import io.ktor.server.application.*
-import io.ktor.server.plugins.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
@@ -16,6 +15,7 @@ fun Application.module(testing: Boolean = false) {
         showGreeting = true
         greeting = "Hello from ConfigurablePlugin!"
     }
+    install(DataTransformationPlugin)
     routing {
         get("/index") {
             call.respondText("Index page")
@@ -26,9 +26,9 @@ fun Application.module(testing: Boolean = false) {
             call.respondText("About page")
         }
 
-        get("/receive") {
-//            val data = call.receive<String>()
-            call.respond("Abcdefgdrggutuighsfg")
+        post("/receive") {
+            val data = call.receive<String>()
+            call.respond(data)
         }
     }
 }

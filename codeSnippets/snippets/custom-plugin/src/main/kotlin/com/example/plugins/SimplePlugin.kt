@@ -1,7 +1,7 @@
 package com.example.plugins
 
-import io.ktor.server.application.plugins.api.ServerPlugin.Companion.createApplicationPlugin
+import io.ktor.server.application.plugins.api.*
 
-val SimplePlugin = createApplicationPlugin(name = "SimplePlugin") {
+val SimplePlugin = ServerPlugin.createApplicationPlugin(name = "SimplePlugin") {
     println("SimplePlugin is installed!")
 }

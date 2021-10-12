@@ -1,6 +1,6 @@
 POST http://localhost:8080/receive
 Content-Type: text/plain
 
-Abcdefg
+Sample string
 
 ###
