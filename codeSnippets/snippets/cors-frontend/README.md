@@ -24,4 +24,4 @@ To run this sample, execute the following command:
 gradlew.bat :cors-frontend:run
 ```
 
-Then, open the [http://localhost:8080/](http://localhost:8080/) page and click the button to make a cross-origin request.
+Then, open the [http://localhost:5000/](http://localhost:5000/) page and click the button to make a cross-origin request.
