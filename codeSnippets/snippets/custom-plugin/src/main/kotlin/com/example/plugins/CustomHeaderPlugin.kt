@@ -1,0 +1,19 @@
+package com.example.plugins
+
+import io.ktor.server.application.plugins.api.*
+
+val CustomHeaderPlugin = ServerPlugin.createApplicationPlugin(
+    name = "CustomHeaderPlugin",
+    createConfiguration = { PluginConfiguration() }
+) {
+    pluginConfig.apply {
+        onCall { call ->
+            call.response.headers.append(headerName, headerValue)
+        }
+    }
+}
+
+public class PluginConfiguration {
+    var headerName: String = "Custom-Header-Name"
+    var headerValue: String = "Default value"
+}

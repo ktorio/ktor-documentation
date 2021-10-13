@@ -8,5 +8,13 @@ val RequestLoggingPlugin = ServerPlugin.createApplicationPlugin(name = "RequestL
         call.request.origin.apply {
             println("Request URL: $scheme://$host:$port$uri")
         }
+        call.afterFinish { throwable ->
+            if(throwable?.cause != null) {
+                println("Exception ${throwable.cause} happened during a call to \"${call.request.origin.uri}\"")
+            }
+        }
+    }
+    applicationShutdownHook {
+        println("Server is stopped")
     }
 }
