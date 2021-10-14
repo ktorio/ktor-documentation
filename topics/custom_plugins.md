@@ -30,7 +30,7 @@ Ktor allows you to create custom [plugins](Plugins.md).
    
    In the next sections, we'll take a look how to handle calls on different stages and provide a plugin configuration.
 
-## Call handling {id="call-handling"}
+## Handle calls {id="call-handling"}
 You can [handle requests](requests.md) and [send responses](responses.md) in your custom plugin.
 In a custom plugin, you have access to different stages of handling calls using the following handlers:
 * [onCall](#on-call) allows you to get request/response information, modify response parameters (append headers), log call information. To get and transform data, use `onCallReceive` / `onCallRespond`.
@@ -91,18 +91,16 @@ Release resources, handle exceptions:
 You can also acceess attributes in a route handler.
 
 
+## Handle calls before/after other plugins
+### Specific plugins
+### All plugins
+
 ## Handle application shutdown {id="handle-shutdown"}
 
 ```kotlin
 ```
 {src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt" lines="17-19"}
 
-## Before/after plugin
-### Before/after specific plugins
-### Before all plugins
-
-
-## Store plugin state {id="plugin-state"}
 
 ## Provide plugin configuration {id="plugin-configuration"}
 You can do it if you define a configuration class. It can be any class with no actual restrictions, let's say you need a couple of params and a method:
@@ -123,10 +121,10 @@ Install and configure the plugin:
 ```
 {src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" lines="15-18"}
 
-
-
 ## Access application settings
 Config and environment
+
+## Store plugin state {id="plugin-state"}
 
 ## Working with databases
 ### Suspendable
