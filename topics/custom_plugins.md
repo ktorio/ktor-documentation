@@ -81,7 +81,7 @@ Release resources, handle exceptions:
 
 ```kotlin
 ```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt" lines="11-13"}
+{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt" lines="11-15"}
 
 ### Share call state {id="call-state"}
 
@@ -95,7 +95,7 @@ You can also acceess attributes in a route handler.
 
 ```kotlin
 ```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt" lines="15-17"}
+{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt" lines="17-19"}
 
 ## Before/after plugin
 ### Before/after specific plugins
@@ -105,6 +105,25 @@ You can also acceess attributes in a route handler.
 ## Store plugin state {id="plugin-state"}
 
 ## Provide plugin configuration {id="plugin-configuration"}
+You can do it if you define a configuration class. It can be any class with no actual restrictions, let's say you need a couple of params and a method:
+
+```kotlin
+```
+{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt" lines="16-19"}
+
+Now, in order to make this config working with your plugin, you should provide a lambda that creates a new instance of `PluginConfiguration`:
+
+```kotlin
+```
+{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt" lines="5-14"}
+
+Install and configure the plugin:
+
+```kotlin
+```
+{src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" lines="15-18"}
+
+
 
 ## Access application settings
 Config and environment

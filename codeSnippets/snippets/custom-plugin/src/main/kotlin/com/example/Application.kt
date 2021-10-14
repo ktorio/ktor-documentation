@@ -11,12 +11,12 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 fun Application.module() {
     install(SimplePlugin)
     install(RequestLoggingPlugin)
-/*    install(DataTransformationPlugin)
+    install(DataTransformationPlugin)
     install(CustomHeaderPlugin) {
         headerName = "X-Custom-Header"
         headerValue = "Hello, world!"
     }
-    install(DataTransformationBenchmarkPlugin)*/
+    install(DataTransformationBenchmarkPlugin)
     routing {
         get("/index") {
             call.respondText("Index page")
