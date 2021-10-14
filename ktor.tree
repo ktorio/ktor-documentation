@@ -219,7 +219,7 @@
                 <toc-element id="intercepting_routes.md"
                              accepts-web-file-names="route.html"/>
             </toc-element>
-            <toc-element id="custom_plugins.md"/>
+            <toc-element id="custom_plugins.md" show-structure-depth="2"/>
             <toc-element id="Creating_custom_plugins.md"
                          accepts-web-file-names="advanced-index.html,advanced-features.html,creating-custom-features.html"/>
             <toc-element id="custom_engines.md"/>
