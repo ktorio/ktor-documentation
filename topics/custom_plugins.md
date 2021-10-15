@@ -6,7 +6,7 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-Ktor allows you to create custom [plugins](Plugins.md).
+Ktor allows you to create custom [plugins](Plugins.md). 
 
 > The API described in this topic is in effect for v2.0.0 and higher. In the old versions, you can use the [legacy API](Creating_custom_plugins.md).
 
@@ -44,7 +44,7 @@ Check request parameters, modify response parameters (append headers), log call 
 
 ```kotlin
 ```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt" lines="6-10,14,18"}
+{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt" lines="6-10,16,20"}
 
 One more example: 
 
@@ -88,12 +88,32 @@ Release resources, handle exceptions:
 * CallID
 * time between `onCall` and `onCallReceive` - time until start reading the body
 
-You can also acceess attributes in a route handler.
+You can also access attributes in a route handler.
 
 
 ## Handle calls before/after other plugins
-### Specific plugins
-### All plugins
+
+You can tell that you need to execute some specific handlers of your plugin strictly before/after same handlers of some other plugin have already been executed. There are methods:
+
+```kotlin
+// Some key for the first plugin:
+val someKey = AttributeKey<String>("SomeKey")
+val pluginFirst = ServerPlugin.createApplicationPlugin("First") {
+   onCall { call ->
+      call.attributes.put(someKey, "value") // passing data to pluginSecond
+      println("first plugin onCall (saved value)")
+   }
+}
+val pluginSecond = ServerPlugin.createApplicationPlugin("Second") {
+   afterPlugins(pluginFirst) { // everything inside this block will be executed as intended but strictly before same handlers of pluginFirst were already executed:
+      onCall { call ->
+         val data = call.attributes[someKey]
+         println("second plugin onCall, data = $data")
+      }
+   }
+}
+```
+
 
 ## Handle application shutdown {id="handle-shutdown"}
 
@@ -122,10 +142,67 @@ Install and configure the plugin:
 {src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" lines="15-18"}
 
 ## Access application settings
-Config and environment
+### Config
 
-## Store plugin state {id="plugin-state"}
+You can access a configuration of your server (`ApplicationConfig`) via a field `configuration` of `ApplicationPlugin`. You can also access  `ApplicationConfig.port` and `ApplicationConfig.host` from there:
+```kotlin
+val MyPlugin = ServerPlugin.createApplicationPlugin(name = "MyPlugin") {
+   val host = configuration.host
+   val port = configuration.port
+   println("Listening on $host:$port")
+}
+```
 
-## Working with databases
-### Suspendable
-### Blocking
+### Environment
+You can also access `ApplicationEnvironment` via `environment` field the same way as you did with `configuration`. For example, it can be useful to get a `log` subfield (the global instance of the logger associated with the current application).
+```kotlin
+val MyPlugin = createPlugin("Plugin") {
+   val isDevMode = environment.developementMode
+   onCall { call ->
+        if (isDevMode) {
+            println("handling request ${call.request.uri}")
+        }
+    }
+}
+```
+
+
+
+
+## Miscellaneous
+
+### Store plugin state {id="plugin-state"}
+This can be done by just capturing any value from handler lambda. But <b>please note that it is recommended to make all state values thread safe</b> by using concurrent data structures and atomic data types
+```kotlin
+val Plugin = createPlugin("Plugin") {
+    val activeRequests: AtomicInt = atomic { 0 }
+    
+    onCall {
+        activeRequests.incrementAndGet()
+    }
+    onCallRespond {
+        activeRequests.decrementAndGet()
+    }
+}
+```
+
+### Databases
+Can I use Ktor Plugin with suspendable databases?
+Yes! All the handlers are `suspend` functions, so there is no problem with calling any suspendable database operations inside your plugin.
+Just call database from any place inside your plugin. But don't forget to deallocate resources (see [](#call-after-finish) and [](#handle-shutdown) sections).
+
+Can I use Ktor Plugin with blocking databases?
+As Ktor uses suspend functions and coroutines everywhere, calling a blocking database directly can be dangerous because a coroutine that performs a blocking call can be blocked and then suspended forever.
+In order to prevent this you need to create a separate [CoroutineContext](https://kotlinlang.org/docs/coroutine-context-and-dispatchers.html):
+```kotlin
+val databaseContext = newSingleThreadContext("DatabaseThread")
+```
+Then, once your context is created you should wrap each call to your database into `withContext` call:
+
+```kotlin
+onCall {
+    withContext(databaseContext) {
+        database.access(...) // some call to your database
+    }
+}
+```
