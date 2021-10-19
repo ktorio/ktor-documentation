@@ -124,7 +124,7 @@ You need to update [dependencies](#dependencies-serialization) for and [imports]
 
 #### Custom converters {id="serialization-custom-converter"}
 
-Signatures of functions exposed by the [ContentConverter](serialization.md#implement_custom_converter) interface are changed in the following way:
+Signatures of functions exposed by the [ContentConverter](serialization.md#implement_custom_serializer) interface are changed in the following way:
 
 <tabs group="ktor_versions">
 <tab title="1.6.x" group-key="1_6">
