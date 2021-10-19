@@ -22,9 +22,9 @@ This means that you need to update [dependencies](#server-package-dependencies) 
 | [Mustache](mustache.md) | `io.ktor:ktor-mustache` | `io.ktor:ktor-server-mustache` |
 | [Thymeleaf](thymeleaf.md) | `io.ktor:ktor-thymeleaf` | `io.ktor:ktor-server-thymeleaf` |
 | [Pebble](pebble.md) | `io.ktor:ktor-pebble` | `io.ktor:ktor-server-pebble` |
-| [kotlinx.serialization](kotlin_serialization.md) | `io.ktor:ktor-serialization` | `io.ktor:ktor-server-content-negotiation`, `io.ktor:ktor-shared-serialization-kotlinx-json` |
-| [Gson](gson.md) | `io.ktor:ktor-gson` | `io.ktor:ktor-server-content-negotiation`, `io.ktor:ktor-shared-serialization-gson` |
-| [Jackson](jackson.md) | `io.ktor:ktor-jackson` | `io.ktor:ktor-server-content-negotiation`, `io.ktor:ktor-shared-serialization-jackson` |
+| [kotlinx.serialization](serialization.md) | `io.ktor:ktor-serialization` | `io.ktor:ktor-server-content-negotiation`, `io.ktor:ktor-shared-serialization-kotlinx-json` |
+| [Gson](serialization.md) | `io.ktor:ktor-gson` | `io.ktor:ktor-server-content-negotiation`, `io.ktor:ktor-shared-serialization-gson` |
+| [Jackson](serialization.md) | `io.ktor:ktor-jackson` | `io.ktor:ktor-server-content-negotiation`, `io.ktor:ktor-shared-serialization-jackson` |
 | [Authentication](authentication.md) | `io.ktor:ktor-auth` | `io.ktor:ktor-server-auth` |
 | [JWT authentication](jwt.md) | `io.ktor:ktor-auth-jwt` | `io.ktor:ktor-server-auth-jwt` |
 | [LDAP authentication](ldap.md) | `io.ktor:ktor-auth-ldap` | `io.ktor:ktor-server-auth-ldap` |
@@ -63,9 +63,9 @@ This means that you need to update [dependencies](#server-package-dependencies) 
 | [Mustache](mustache.md) | `import io.ktor.mustache.*` | `import io.ktor.server.mustache.*` |
 | [Thymeleaf](thymeleaf.md) | `import io.ktor.thymeleaf.*` | `import io.ktor.server.thymeleaf.*` |
 | [Pebble](pebble.md) | `import io.ktor.pebble.*` | `import io.ktor.server.pebble.*` |
-| [kotlinx.serialization](kotlin_serialization.md) | `import io.ktor.serialization.*` | `import io.ktor.shared.serialization.kotlinx.json.*` |
-| [Gson](gson.md) | `import io.ktor.gson.*` | `import io.ktor.shared.serializaion.gson.*` |
-| [Jackson](jackson.md) | `import io.ktor.jackson.*` | `import io.ktor.shared.serializaion.jackson.*` |
+| [kotlinx.serialization](serialization.md) | `import io.ktor.serialization.*` | `import io.ktor.shared.serialization.kotlinx.json.*` |
+| [Gson](serialization.md) | `import io.ktor.gson.*` | `import io.ktor.shared.serializaion.gson.*` |
+| [Jackson](serialization.md) | `import io.ktor.jackson.*` | `import io.ktor.shared.serializaion.jackson.*` |
 | [Authentication](authentication.md) | `import io.ktor.auth.*` | `import io.ktor.server.auth.*` |
 | [JWT authentication](jwt.md) | `import io.ktor.auth.jwt.*` | `import io.ktor.server.auth.jwt.*` |
 | [LDAP authentication](ldap.md) | `import io.ktor.auth.ldap.*` | `import io.ktor.server.auth.ldap.*` |
@@ -111,16 +111,16 @@ You need to update [dependencies](#dependencies-serialization) for and [imports]
 | Subsystem | 1.6.x | 2.0.0 |
 | :---        |    :----:   |          ---: |
 | [ContentNegotiation](serialization.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-content-negotiation` |
-| [kotlinx.serialization](kotlin_serialization.md) | `io.ktor:ktor-serialization` | `io.ktor:ktor-shared-serialization-kotlinx-json` |
-| [Gson](gson.md) | `io.ktor:ktor-gson` | `io.ktor:ktor-shared-serialization-gson` |
-| [Jackson](jackson.md) | `io.ktor:ktor-jackson` | `io.ktor:ktor-shared-serialization-jackson` |
+| [kotlinx.serialization](serialization.md) | `io.ktor:ktor-serialization` | `io.ktor:ktor-shared-serialization-kotlinx-json` |
+| [Gson](serialization.md) | `io.ktor:ktor-gson` | `io.ktor:ktor-shared-serialization-gson` |
+| [Jackson](serialization.md) | `io.ktor:ktor-jackson` | `io.ktor:ktor-shared-serialization-jackson` |
 
 #### Imports {id="imports-serialization"}
 | Subsystem | 1.6.x | 2.0.0 |
 | :---        |    :----:   |          ---: |
-| [kotlinx.serialization](kotlin_serialization.md) | `import io.ktor.serialization.*` | `import io.ktor.shared.serialization.kotlinx.json.*` |
-| [Gson](gson.md) | `import io.ktor.gson.*` | `import io.ktor.shared.serializaion.gson.*` |
-| [Jackson](jackson.md) | `import io.ktor.jackson.*` | `import io.ktor.shared.serializaion.jackson.*` |
+| [kotlinx.serialization](serialization.md) | `import io.ktor.serialization.*` | `import io.ktor.shared.serialization.kotlinx.json.*` |
+| [Gson](serialization.md) | `import io.ktor.gson.*` | `import io.ktor.shared.serializaion.gson.*` |
+| [Jackson](serialization.md) | `import io.ktor.jackson.*` | `import io.ktor.shared.serializaion.jackson.*` |
 
 #### Custom converters {id="serialization-custom-converter"}
 

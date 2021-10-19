@@ -194,7 +194,7 @@ To deserialize received data into an object, you need to create a data class, fo
 ```
 {src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="14"}
 
-If you use [kotlinx.serialization](kotlin_serialization.md), make sure that this class has the `@Serializable` annotation:
+If you use kotlinx.serialization, make sure that this class has the `@Serializable` annotation:
 ```kotlin
 ```
 {src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="10,12-14"}

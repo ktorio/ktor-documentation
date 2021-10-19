@@ -55,7 +55,7 @@ Let's briefly go through these dependencies one-by-one:
 - `ktor-server-core` adds Ktor's core components to our project.
 - `ktor-server-netty` adds the Netty [engine](Engines.md) to our project, allowing us to use server functionality without having to rely on an external application container.
 - `logback-classic` provides an implementation of [SLF4J](http://www.slf4j.org/), allowing us to see nicely formatted logs in our console.
-- `ktor-server-content-negotiation` and `ktor-shared-serialization-kotlinx` provide a convenient mechanism for converting Kotlin objects into a [serialized form](kotlin_serialization.md) like JSON, and vice versa. We will use it to format our APIs output, and to consume user input that is structured in JSON. In order to use `ktor-shared-serialization-kotlinx`, we also have to apply the `org.jetbrains.kotlin.plugin.serialization` plugin.
+- `ktor-server-content-negotiation` and `ktor-shared-serialization-kotlinx` provide a convenient mechanism for converting Kotlin objects into a [serialized form](serialization.md) like JSON, and vice versa. We will use it to format our APIs output, and to consume user input that is structured in JSON. In order to use `ktor-shared-serialization-kotlinx`, we also have to apply the `org.jetbrains.kotlin.plugin.serialization` plugin.
 - `ktor-server-test-host` allows us to [test](Testing.md) parts of our Ktor application without having to use the whole HTTP stack in the process. We will use this to define unit tests for our project.
 
 ### Configurations: application.conf and logback.xml
@@ -181,7 +181,7 @@ fun Application.module() {
 }
 ```
 
-JSON support is powered by [kotlinx.serialization](kotlin_serialization.md). We previously used its annotation `@Serializable` to annotate our `Customer` data class, meaning that Ktor now knows how to serialize `Customer`s (and collections of `Customer`s!)
+JSON support is powered by [kotlinx.serialization](serialization.md). We previously used its annotation `@Serializable` to annotate our `Customer` data class, meaning that Ktor now knows how to serialize `Customer`s (and collections of `Customer`s!)
 
 #### Returning a specific customer
 

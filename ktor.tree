@@ -95,15 +95,7 @@
 
             <toc-element id="serialization.md"
                          show-structure-depth="2"
-                         accepts-web-file-names="content-negotiation.html">
-                <toc-element id="kotlin_serialization.md"
-                             show-structure-depth="2"
-                             accepts-web-file-names="serialization-converter.html"/>
-                <toc-element id="gson.md"
-                             accepts-web-file-names="content-negotiation-gson.html"/>
-                <toc-element id="jackson.md"
-                             accepts-web-file-names="content-negotiation-jackson.html"/>
-            </toc-element>
+                         accepts-web-file-names-ref="serialization_server"/>
 
             <toc-element id="authentication.md" show-structure-depth="2"
                          accepts-web-file-names="features-authentication.html">

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rules SYSTEM "https://resources.jetbrains.com/stardust/redirection-rules.dtd">
 <rules>
+    <rule id="serialization_server">
+        <accepts>content-negotiation.html</accepts>
+        <accepts>kotlin-serialization.html</accepts>
+        <accepts>gson.html</accepts>
+        <accepts>jackson.html</accepts>
+        <accepts>serialization-converter.html</accepts>
+        <accepts>content-negotiation-gson.html</accepts>
+        <accepts>content-negotiation-jackson.html</accepts>
+    </rule>
     <rule id="tutorials">
         <accepts>guides-application.html</accepts>
         <accepts>website.html</accepts>
