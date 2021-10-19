@@ -1,47 +1,62 @@
 [//]: # (title: Content negotiation and serialization)
 
+<var name="plugin_name" value="ContentNegotiation"/>
 <var name="artifact_name" value="ktor-client-content-negotiation"/>
 
 <microformat>
-<p>
-Required dependencies: <code>io.ktor:%artifact_name%</code>, <code>ktor-shared-serialization-kotlinx</code>
-</p>
 <var name="example_name" value="client-json-kotlinx"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
 The `ContentNegotiation` plugin serves two primary purposes:
 * Negotiating media types between the client and server. For this, it uses the `Accept` and `Content-Type` headers.
-* Serializing/deserializing JSON data when sending [requests](request.md) and receiving [responses](response.md). This functionality is provided for [Kotlin Multiplatform](http-client_multiplatform.md) by using `kotlinx.serialization` and for JVM by using the `Gson`/`Jackson` libraries.
+* Serializing/deserializing JSON data when sending [requests](request.md) and receiving [responses](response.md). Ktor supports two formats out-of-the-box: JSON and XML. This functionality is provided for [Kotlin Multiplatform](http-client_multiplatform.md) by using kotlinx.serialization and for JVM by using the `Gson`/`Jackson` libraries.
 
 > On the server, Ktor provides the [ContentNegotiation](serialization.md) plugin for serializing/deserializing content.
 
 
 ## Add dependencies {id="add_dependencies"}
-### Add ContentNegotiation dependency {id="add_content_negotiation_dependency"}
-Before installing `ContentNegotiation`, you need to add the `%artifact_name%` artifact in the build script:
+### ContentNegotiation {id="add_content_negotiation_dependency"}
 
+<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
-Then, you need to add a dependency for the desired serializer. For [multiplatform](http-client_multiplatform.md) projects, use the [kotlinx.serialization](#kotlinx_dependency) library. If your project targets only JVM, you can add [Gson or Jackson](#jvm_dependency) dependency. Depending on the included artifacts, Ktor chooses a default serializer automatically. If required, you can [specify the serializer](#configure_serializer) explicitly and configure it.
+Note that serializers for specific formats require additional artifacts. For example, kotlinx.serialization requires the `ktor-shared-serialization-kotlinx-json` dependency for JSON. Depending on the included artifacts, Ktor chooses a default serializer automatically. If required, you can [specify the serializer](#configure_serializer) explicitly and configure it.
 
+### JSON {id="add_json_dependency"}
 
-### Multiplatform: kotlinx {id="kotlinx_dependency"}
+To serialize/deserialize JSON data, you can choose one of the following libraries: kotlinx.serialization, Gson, or Jackson.
 
-For [multiplatform](http-client_multiplatform.md) projects, you can use the `kotlinx.serialization` library. You can add it to the project as follows:
+<tabs group="json-libraries">
+<tab title="kotlinx.serialization" group-key="kotlinx">
+
 1. Add the Kotlin serialization plugin, as described in the [Setup](https://github.com/Kotlin/kotlinx.serialization#setup) section.
-2. Add the `ktor-shared-serialization-kotlinx` artifact:
-   <var name="artifact_name" value="ktor-shared-serialization-kotlinx"/>
+2. Add the `ktor-shared-serialization-kotlinx-json` artifact in the build script:
+   <var name="artifact_name" value="ktor-shared-serialization-kotlinx-json"/>
    <include src="lib.xml" include-id="add_ktor_artifact"/>
 
+</tab>
+<tab title="Gson" group-key="gson">
 
-### JVM: Gson and Jackson  {id="jvm_dependency"}
-To use Gson, add the following artifact to the build script:
-<var name="artifact_name" value="ktor-shared-serialization-gson"/>
-<include src="lib.xml" include-id="add_ktor_artifact"/>
+* Add the `ktor-shared-serialization-gson` artifact in the build script:
+  <var name="artifact_name" value="ktor-shared-serialization-gson"/>
+  <include src="lib.xml" include-id="add_ktor_artifact"/>
 
-For Jackson, add the following dependency:
-<var name="artifact_name" value="ktor-shared-serialization-jackson"/>
+</tab>
+<tab title="Jackson" group-key="jackson">
+
+* Add the `ktor-shared-serialization-jackson` artifact in the build script:
+  <var name="artifact_name" value="ktor-shared-serialization-jackson"/>
+  <include src="lib.xml" include-id="add_ktor_artifact"/>
+
+</tab>
+</tabs>
+
+
+### XML {id="add_xml_dependency"}
+
+To serialize/deserialize XML, add the `ktor-shared-serialization-kotlinx-xml` in the build script:
+<var name="artifact_name" value="ktor-shared-serialization-kotlinx-xml"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
       
 
@@ -56,55 +71,87 @@ Now you can [configure](#configure_serializer) the required JSON serializer.
 
 
 ## Configure a serializer {id="configure_serializer"}
-### kotlinx {id="kotlinx"}
 
-To use the `kotlinx.serialization` library to serialize/deserialize JSON data, call the `json` function:
+### JSON serializer {id="register_json"}
+
+<tabs group="json-libraries">
+<tab title="kotlinx.serialization" group-key="kotlinx">
+
+To register the JSON converter in your application, call the `json` method:
 ```kotlin
+import io.ktor.client.plugins.*
+import io.ktor.shared.serialization.kotlinx.*
+
 install(ContentNegotiation) {
-   json()
+    json()
 }
 ```
-Inside the `KotlinxSerializer` constructor, you can access the [JsonBuilder](https://kotlin.github.io/kotlinx.serialization/kotlinx-serialization-json/kotlinx-serialization-json/kotlinx.serialization.json/-json-builder/index.html) API, for example:
+
+In the `json` constructor, you can access the [JsonBuilder](https://kotlin.github.io/kotlinx.serialization/kotlinx-serialization-json/kotlinx-serialization-json/kotlinx.serialization.json/-json-builder/index.html) API, for example:
 ```kotlin
 ```
 {src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="21-26"}
 
 You can find the full example here: [client-json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-json-kotlinx).
 
+</tab>
+<tab title="Gson" group-key="gson">
 
-### Gson {id="gson"}
+To register the Gson converter in your application, call the [gson](https://api.ktor.io/ktor-features/ktor-gson/ktor-gson/io.ktor.gson/gson.html) method:
+```kotlin
+import io.ktor.client.plugins.*
+import io.ktor.shared.serializaion.gson.*
 
-To use Gson, call the `gson` function:
-```kotlin
 install(ContentNegotiation) {
-   gson()
-}
-```
-Inside the `gson` block parameter, you can access [GsonBuilder](https://www.javadoc.io/doc/com.google.code.gson/gson/latest/com.google.gson/com/google/gson/GsonBuilder.html) API, for example: 
-```kotlin
-install(ContentNegotiation) {
-    gson() {
-        setPrettyPrinting()
-        disableHtmlEscaping()
-    }
+    gson()
 }
 ```
 
-### Jackson {id="jackson"}
+The `gson` method also allows you to adjust serialization settings provided by [GsonBuilder](https://www.javadoc.io/doc/com.google.code.gson/gson/latest/com.google.gson/com/google/gson/GsonBuilder.html).
 
-To use Gson, call the `jackson` function:
+</tab>
+<tab title="Jackson" group-key="jackson">
+
+To register the Jackson converter in your application, call the [jackson](https://api.ktor.io/ktor-features/ktor-jackson/ktor-jackson/io.ktor.jackson/jackson.html) method:
+
 ```kotlin
+import io.ktor.client.plugins.*
+import io.ktor.shared.serializaion.jackson.*
+
 install(ContentNegotiation) {
-   jackson()
+    jackson()
 }
 ```
-Inside the `jackson` block parameter, you can access the [ObjectMapper](https://fasterxml.github.io/jackson-databind/javadoc/2.9/com/fasterxml/jackson/databind/ObjectMapper.html) API:
+
+The `jackson` method also allows you to adjust serialization settings provided by [ObjectMapper](https://fasterxml.github.io/jackson-databind/javadoc/2.9/com/fasterxml/jackson/databind/ObjectMapper.html).
+
+</tab>
+</tabs>
+
+### XML serializer {id="register_xml"}
+
+To register the XML converter in your application, call the `xml` method:
 ```kotlin
+import io.ktor.client.plugins.*
+import io.ktor.shared.serialization.kotlinx.xml.*
+
 install(ContentNegotiation) {
-   jackson() {
-        enable(SerializationFeature.INDENT_OUTPUT)
-        dateFormat = DateFormat.getDateInstance()
-    }
+    xml()
+}
+```
+
+The `xml` method also allows you to access XML serialization settings, for example:
+
+```kotlin
+import io.ktor.client.plugins.*
+import io.ktor.shared.serialization.kotlinx.xml.*
+import nl.adaptivity.xmlutil.*
+import nl.adaptivity.xmlutil.serialization.*
+
+install(ContentNegotiation) {
+    xml(format = XML {
+        xmlDeclMode = XmlDeclMode.Charset
+    })
 }
 ```
 
@@ -117,7 +164,7 @@ To receive and send data, you need to have a data class, for example:
 ```
 {src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="16"}
 
-If you use [kotlinx.serialization](#kotlinx), make sure that this class has the `@Serializable` annotation:
+If you use kotlinx.serialization, make sure that this class has the `@Serializable` annotation:
 ```kotlin
 ```
 {src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="15-16"}
@@ -132,9 +179,11 @@ To send a [class instance](#create_data_class) within a [request](request.md) bo
 ```
 {src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="29-32"}
 
+To send data as XML, set `contentType` to `ContentType.Application.Xml`.
+
 ### Receive data {id="receive_data"}
 
-When a server sends a [response](response.md) with the `application/json` content, you can deserialize it by specifying a [data class](#create_data_class) as a parameter of a function used to receive a response payload (`body` in the example below):
+When a server sends a [response](response.md) with the `application/json` or `application/xml` content, you can deserialize it by specifying a [data class](#create_data_class) as a parameter of a function used to receive a response payload (`body` in the example below):
 ```kotlin
 ```
 {src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="35"}

@@ -65,7 +65,7 @@ To serialize/deserialize XML, add the `ktor-shared-serialization-kotlinx-xml` in
 <include src="lib.xml" include-id="install_plugin"/>
 
 
-## Register and configure a serializer {id="register_converter"}
+## Configure a serializer {id="configure_serializer"}
 
 Ktor supports two formats out-of-the-box: [JSON](#register_json) and [XML](#register_xml). You can also register any converter supported by kotlinx.serialization or implement a custom converter.
 
@@ -139,7 +139,7 @@ The `jackson` method also allows you to adjust serialization settings provided b
 To register the XML converter in your application, call the `xml` method:
 ```kotlin
 import io.ktor.server.plugins.*
-import io.ktor.shared.serialization.kotlinx.*
+import io.ktor.shared.serialization.kotlinx.xml.*
 
 install(ContentNegotiation) {
     xml()
@@ -150,7 +150,7 @@ The `xml` method also allows you to access XML serialization settings, for examp
 
 ```kotlin
 import io.ktor.server.plugins.*
-import io.ktor.shared.serialization.kotlinx.*
+import io.ktor.shared.serialization.kotlinx.xml.*
 import nl.adaptivity.xmlutil.*
 import nl.adaptivity.xmlutil.serialization.*
 
