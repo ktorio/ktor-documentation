@@ -12,7 +12,7 @@ import io.ktor.server.html.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.sessions.*
-import io.ktor.shared.serialization.kotlinx.*
+import io.ktor.shared.serialization.kotlinx.json.*
 import kotlinx.html.*
 import kotlinx.serialization.*
 

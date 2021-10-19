@@ -6,3 +6,10 @@ Content-Type: application/json
   "firstName" : "Jet",
   "lastName": "Brains"
 }
+
+###
+
+POST http://0.0.0.0:8080/customer
+Content-Type: application/xml
+
+<Customer id="3" firstName="Jet" lastName="Brains"/>

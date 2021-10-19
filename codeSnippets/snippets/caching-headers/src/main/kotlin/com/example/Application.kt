@@ -7,7 +7,7 @@ import io.ktor.http.*
 import io.ktor.http.content.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import io.ktor.shared.serialization.kotlinx.*
+import io.ktor.shared.serialization.kotlinx.json.*
 import kotlinx.css.*
 import kotlinx.html.*
 import kotlinx.serialization.Serializable

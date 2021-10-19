@@ -1,6 +1,6 @@
 [//]: # (title: kotlinx.serialization)
 
-<var name="artifact_name" value="ktor-shared-serialization-kotlinx"/>
+<var name="artifact_name" value="ktor-shared-serialization-kotlinx-json"/>
 
 <microformat>
 <p>
