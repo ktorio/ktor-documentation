@@ -77,7 +77,7 @@ Now you can [configure](#configure_serializer) the required JSON serializer.
 <tabs group="json-libraries">
 <tab title="kotlinx.serialization" group-key="kotlinx">
 
-To register the JSON converter in your application, call the `json` method:
+To register the JSON serializer in your application, call the `json` method:
 ```kotlin
 import io.ktor.client.plugins.*
 import io.ktor.shared.serialization.kotlinx.*
@@ -97,7 +97,7 @@ You can find the full example here: [client-json-kotlinx](https://github.com/kto
 </tab>
 <tab title="Gson" group-key="gson">
 
-To register the Gson converter in your application, call the [gson](https://api.ktor.io/ktor-features/ktor-gson/ktor-gson/io.ktor.gson/gson.html) method:
+To register the Gson serializer in your application, call the [gson](https://api.ktor.io/ktor-features/ktor-gson/ktor-gson/io.ktor.gson/gson.html) method:
 ```kotlin
 import io.ktor.client.plugins.*
 import io.ktor.shared.serializaion.gson.*
@@ -112,7 +112,7 @@ The `gson` method also allows you to adjust serialization settings provided by [
 </tab>
 <tab title="Jackson" group-key="jackson">
 
-To register the Jackson converter in your application, call the [jackson](https://api.ktor.io/ktor-features/ktor-jackson/ktor-jackson/io.ktor.jackson/jackson.html) method:
+To register the Jackson serializer in your application, call the [jackson](https://api.ktor.io/ktor-features/ktor-jackson/ktor-jackson/io.ktor.jackson/jackson.html) method:
 
 ```kotlin
 import io.ktor.client.plugins.*
@@ -130,7 +130,7 @@ The `jackson` method also allows you to adjust serialization settings provided b
 
 ### XML serializer {id="register_xml"}
 
-To register the XML converter in your application, call the `xml` method:
+To register the XML serializer in your application, call the `xml` method:
 ```kotlin
 import io.ktor.client.plugins.*
 import io.ktor.shared.serialization.kotlinx.xml.*
