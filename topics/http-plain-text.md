@@ -1,4 +1,4 @@
-[//]: # (title: Text &amp; charsets)
+[//]: # (title: Text and charsets)
 
 <include src="lib.xml" include-id="outdated_warning"/>
 

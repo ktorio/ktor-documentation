@@ -1,18 +1,31 @@
 [//]: # (title: Plugins)
 
-<include src="lib.xml" include-id="outdated_warning"/>
-
-Similar to the server, Ktor supports plugins on the client. And it has the same design:
-there is a pipeline for client HTTP requests, and there are interceptors and installable plugins.
+Many applications require common functionality that is out of scope of the application logic. This could be things like [logging](client_logging.md),  [serialization](serialization-client.md), or [authorization](auth.md). All of these are provided in Ktor by means of what we call **Plugins**. 
 
 
+## Add plugin dependency {id="plugin-dependency"}
+A plugin might require a separate dependency. For example, the [Logging](client_logging.md) plugin requires adding the `ktor-client-logging` artifact in the build script:
 
-## Creating custom plugins
+<var name="artifact_name" value="ktor-client-logging"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
+You can learn which dependencies you need from a topic for a required plugin.
+
+
+## Install a plugin {id="install"}
+To install a plugin, you need pass it to the `install` function inside a [client configuration block](client.md#configure-client). For example, installing the `Logging` plugin looks as follows:
+
+```kotlin
+```
+{src="snippets/_misc_client/InstallLoggingPlugin.kt"}
+
+
+## Configure a plugin {id="configure_plugin"}
+You can configure a plugin inside the `install` block.For example, for the [Logging](client_logging.md) plugin, you can specify the logger and logging level:
+```kotlin
+```
+{src="snippets/client-logging/src/main/kotlin/com/example/Application.kt" lines="12-17"}
+
+
+## Create a custom plugin {id="custom"}
 If you want to create plugins, you can use the [standard plugins](https://github.com/ktorio/ktor/blob/main/ktor-client/ktor-client-core/common/src/io/ktor/client/plugins/) as a reference.
-
->You can also check the [HttpRequestPipeline.Phases](https://github.com/ktorio/ktor/blob/main/ktor-client/ktor-client-core/common/src/io/ktor/client/request/HttpRequestPipeline.kt)
->and [HttpResponsePipeline.Phases](https://github.com/ktorio/ktor/blob/main/ktor-client/ktor-client-core/common/src/io/ktor/client/statement/HttpResponsePipeline.kt)
->to understand the interception points available.
->
-{type="note"}
