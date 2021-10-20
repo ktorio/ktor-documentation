@@ -159,7 +159,7 @@ In v2.0.0, API used to make requests and receive responses is updated to make it
 
 #### Request functions {id="request-overloads"}
 
-[Request functions](request.md) with multiple parameters are deprecated. For example, the `port` and `path` parameters need to be replaced with a single `url` parameter:
+[Request functions](request.md) with multiple parameters are deprecated. For example, the `port` and `path` parameters need to be replaced with a the `url` parameter exposed by [HttpRequestBuilder](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.request/-http-request-builder/index.html):
 
 <tabs group="ktor_versions">
 <tab title="1.6.x" group-key="1_6">
@@ -172,13 +172,13 @@ client.get(port = 8080, path = "/customer/3")
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
-client.get("http://0.0.0.0:8080/customer/3")
+client.get { url(port = 8080, path = "/customer/3") }
 ```
 
 </tab>
 </tabs>
 
-You can specify additional [request parameters](request.md#parameters) inside the request function lambda using API exposed by [HttpRequestBuilder](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.request/-http-request-builder/index.html).
+The `HttpRequestBuilder` also allows you to specify additional [request parameters](request.md#parameters) inside the request function lambda.
 
 
 #### Request body {id="request-body"}
@@ -356,6 +356,40 @@ bearer {
 * `response` to access response parameters;
 * `client` to make a request to refresh tokens;
 * `oldTokens` to access tokens obtained using `loadTokens`.
+
+
+
+### HttpSend {id="http-send"}
+
+The API of the `HttpSend` plugin is changed as follows:
+
+<tabs group="ktor_versions">
+<tab title="1.6.x" group-key="1_6">
+
+```kotlin
+client[HttpSend].intercept { originalCall, request ->
+    if (originalCall.something()) {
+        val newCall = execute(request)
+        // ...
+    }
+}
+```
+
+</tab>
+<tab title="2.0.0" group-key="2_0">
+
+```kotlin
+client[HttpSend].intercept { request ->
+    val originalCall = execute(request)
+    if (originalCall.something()) {
+        val newCall = execute(request)
+        // ...
+    }
+}
+```
+
+</tab>
+</tabs>
 
 
 ### Feature is renamed to Plugin {id="feature-plugin-client"}
