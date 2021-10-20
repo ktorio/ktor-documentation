@@ -4,6 +4,9 @@
 <var name="artifact_name" value="ktor-server-content-negotiation"/>
 
 <microformat>
+<p>
+Required dependencies: <code>io.ktor:%artifact_name%</code>
+</p>
 <var name="example_name" value="json-kotlinx"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
