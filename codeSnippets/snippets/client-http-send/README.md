@@ -1,6 +1,6 @@
 # Client HttpSend
 
-A sample Ktor project showing how to use the `HttpSend` plugin.
+A sample Ktor project showing how to use the [HttpSend](https://ktor.io/docs/http-send.html) plugin to retry a request.
 
 ## Running
 

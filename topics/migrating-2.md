@@ -361,7 +361,7 @@ bearer {
 
 ### HttpSend {id="http-send"}
 
-The API of the `HttpSend` plugin is changed as follows:
+The API of the [HttpSend](http-send.md) plugin is changed as follows:
 
 <tabs group="ktor_versions">
 <tab title="1.6.x" group-key="1_6">

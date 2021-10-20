@@ -266,6 +266,7 @@
             <toc-element id="proxy.md"/>
             <toc-element id="client_logging.md"
                          accepts-web-file-names="features-logging.html"/>
+            <toc-element id="http-send.md"/>
             <toc-element id="websocket_client.md" show-structure-depth="2"
                          accepts-web-file-names="client-websockets.html,http-client-features-websockets.html,clients-websockets.html"/>
         </toc-element>
