@@ -43,8 +43,8 @@ There are also configuration settings that allow you to configure conditions for
 ```kotlin
 install(HttpRequestRetry) {
     maxRetries = 5
-    retryIf { request, response -> 
-        !response.status().isSuccess() 
+    retryIf { request, response ->
+        !response.status.isSuccess()
     }
     retryOnExceptionIf { request, cause -> 
         cause is NetworkError 
