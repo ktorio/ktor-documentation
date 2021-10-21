@@ -13,7 +13,7 @@ Required dependencies: <code>io.ktor:%artifact_name%</code>
 
 The `ContentNegotiation` plugin serves two primary purposes:
 * Negotiating media types between the client and server. For this, it uses the `Accept` and `Content-Type` headers.
-* Serializing/deserializing JSON data when sending [requests](request.md) and receiving [responses](response.md). Ktor supports two formats out-of-the-box: JSON and XML. This functionality is provided for [Kotlin Multiplatform](http-client_multiplatform.md) by using kotlinx.serialization and for JVM by using the `Gson`/`Jackson` libraries.
+* Serializing/deserializing JSON data when sending [requests](request.md) and receiving [responses](response.md). Ktor supports the following formats out-of-the-box: JSON, XML, and CBOR.
 
 > On the server, Ktor provides the [ContentNegotiation](serialization.md) plugin for serializing/deserializing content.
 
@@ -60,6 +60,12 @@ To serialize/deserialize JSON data, you can choose one of the following librarie
 
 To serialize/deserialize XML, add the `ktor-shared-serialization-kotlinx-xml` in the build script:
 <var name="artifact_name" value="ktor-shared-serialization-kotlinx-xml"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
+
+### CBOR {id="add_cbor_dependency"}
+
+To serialize/deserialize XML, add the `ktor-shared-serialization-kotlinx-cbor` in the build script:
+<var name="artifact_name" value="ktor-shared-serialization-kotlinx-cbor"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
       
 
@@ -158,6 +164,31 @@ install(ContentNegotiation) {
 }
 ```
 
+### CBOR serializer {id="register_cbor"}
+To register the CBOR serializer in your application, call the `cbor` method:
+```kotlin
+import io.ktor.client.plugins.*
+import io.ktor.shared.serialization.kotlinx.cbor.*
+
+install(ContentNegotiation) {
+    cbor()
+}
+```
+
+The `cbor` method also allows you to access CBOR serialization settings provided by [CborBuilder](https://kotlin.github.io/kotlinx.serialization/kotlinx-serialization-cbor/kotlinx-serialization-cbor/kotlinx.serialization.cbor/-cbor-builder/index.html), for example:
+
+```kotlin
+import io.ktor.client.plugins.*
+import io.ktor.shared.serialization.kotlinx.cbor.*
+import kotlinx.serialization.cbor.*
+
+install(ContentNegotiation) {
+    cbor(Cbor {
+        ignoreUnknownKeys = true
+    })
+}
+```
+
 
 ## Receive and send data {id="receive_send_data"}
 ### Create a data class {id="create_data_class"}
@@ -182,11 +213,11 @@ To send a [class instance](#create_data_class) within a [request](request.md) bo
 ```
 {src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="29-32"}
 
-To send data as XML, set `contentType` to `ContentType.Application.Xml`.
+To send data as XML or CBOR, set `contentType` to `ContentType.Application.Xml` or `ContentType.Application.Cbor`, respectively.
 
 ### Receive data {id="receive_data"}
 
-When a server sends a [response](response.md) with the `application/json` or `application/xml` content, you can deserialize it by specifying a [data class](#create_data_class) as a parameter of a function used to receive a response payload (`body` in the example below):
+When a server sends a [response](response.md) with the `application/json`, `application/xml`, or `application/cbor` content, you can deserialize it by specifying a [data class](#create_data_class) as a parameter of a function used to receive a response payload (`body` in the example below):
 ```kotlin
 ```
 {src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="35"}

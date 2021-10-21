@@ -14,7 +14,7 @@ Required dependencies: <code>io.ktor:%artifact_name%</code>
 
 The [ContentNegotiation](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-content-negotiation/index.html) plugin serves two primary purposes:
 * Negotiating media types between the client and server. For this, it uses the `Accept` and `Content-Type` headers.
-* Serializing/deserializing the content in the specific format. Ktor supports two formats out-of-the-box: JSON and XML.
+* Serializing/deserializing the content in the specific format. Ktor supports the following formats out-of-the-box: JSON, XML, and CBOR.
 
 
 ## Add dependencies {id="add_dependencies"}
@@ -62,6 +62,12 @@ To serialize/deserialize XML, add the `ktor-shared-serialization-kotlinx-xml` in
 <var name="artifact_name" value="ktor-shared-serialization-kotlinx-xml"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
+### CBOR {id="add_cbor_dependency"}
+
+To serialize/deserialize XML, add the `ktor-shared-serialization-kotlinx-cbor` in the build script:
+<var name="artifact_name" value="ktor-shared-serialization-kotlinx-cbor"/>
+<include src="lib.xml" include-id="add_ktor_artifact"/>
+
 
 ## Install ContentNegotiation {id="install_plugin"}
 
@@ -70,7 +76,7 @@ To serialize/deserialize XML, add the `ktor-shared-serialization-kotlinx-xml` in
 
 ## Configure a serializer {id="configure_serializer"}
 
-Ktor supports two formats out-of-the-box: [JSON](#register_json) and [XML](#register_xml). You can also register any serializer supported by kotlinx.serialization or implement a custom serializer.
+Ktor supports the following formats out-of-the-box: [JSON](#register_json), [XML](#register_xml), [CBOR](#register_cbor). You can also implement your own custom serializer.
 
 ### JSON serializer {id="register_json"}
 
@@ -164,18 +170,32 @@ install(ContentNegotiation) {
 }
 ```
 
-### Arbitrary kotlinx.serialization serializer {id="register_arbitrary_serializer"}
 
-To register an arbitrary serializer from the kotlinx.serialization library (such as Protobuf or CBOR), call the [serialization](https://api.ktor.io/ktor-features/ktor-serialization/ktor-serialization/io.ktor.serialization/serialization.html) method and pass two parameters:
-* The required [ContentType](https://api.ktor.io/ktor-http/ktor-http/io.ktor.http/-content-type/index.html) value.
-* An object of the class implementing the required encoder/decoder.
-
-For example, you can register the [Cbor](https://kotlin.github.io/kotlinx.serialization/kotlinx-serialization-cbor/kotlinx-serialization-cbor/kotlinx.serialization.cbor/-cbor/index.html) serializer in the following way:
+### CBOR serializer {id="register_cbor"}
+To register the CBOR serializer in your application, call the `cbor` method:
 ```kotlin
+import io.ktor.server.plugins.*
+import io.ktor.shared.serialization.kotlinx.cbor.*
+
 install(ContentNegotiation) {
-    serialization(ContentType.Application.Cbor, Cbor.Default)
+    cbor()
 }
 ```
+
+The `cbor` method also allows you to access CBOR serialization settings provided by [CborBuilder](https://kotlin.github.io/kotlinx.serialization/kotlinx-serialization-cbor/kotlinx-serialization-cbor/kotlinx.serialization.cbor/-cbor-builder/index.html), for example:
+
+```kotlin
+import io.ktor.server.plugins.*
+import io.ktor.shared.serialization.kotlinx.cbor.*
+import kotlinx.serialization.cbor.*
+
+install(ContentNegotiation) {
+    cbor(Cbor {
+        ignoreUnknownKeys = true
+    })
+}
+```
+
 
 ### Custom serializer {id="register_custom"}
 
