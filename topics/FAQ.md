@@ -13,7 +13,7 @@ In this section, we provide answers to the questions you frequently ask us.
 
 
 
-## What is the proper way to pronounce ktor?
+## What is the proper way to pronounce Ktor?
 {id="pronounce"}
 
 *kay-tor*
@@ -72,7 +72,7 @@ dependencies {
 * For Gradle, check [](Gradle.xml)
 * For Maven, check [](Maven.xml)
 
-## Does ktor provide a way to catch IPC signals (e.g. SIGTERM or SIGINT) so the server shutdown can be handled gracefully?
+## Does Ktor provide a way to catch IPC signals (e.g. SIGTERM or SIGINT) so the server shutdown can be handled gracefully?
 {id="sigterm"}
 
 If you are running an [EngineMain](create_server.xml#engine-main), it will be handled automatically.
@@ -143,7 +143,7 @@ and that the `resources` folder is marked as such.
 You can consider to set up a project using the [project generator](https://start.ktor.io/) or the [IntelliJ plugin](intellij-idea.xml)
 to have a working project as base.
 
-## Can I use ktor on Android?
+## Can I use Ktor on Android?
 {id="android-support"}
 
 Ktor is known to work on Android 7 or greater (API 24). It will fail in lower versions like Android 5.

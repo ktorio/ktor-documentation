@@ -2,7 +2,7 @@
 
 <include src="lib.xml" include-id="outdated_warning"/>
 
-Ktor HTTP client allows using proxy in multiplatform code. The following document describes how to configure a proxy in ktor.
+Ktor HTTP client allows using proxy in [multiplatform](http-client_multiplatform.md) code. The following document describes how to configure a proxy in Ktor.
 
 ## Multiplatform configuration
 
@@ -34,14 +34,14 @@ val client = HttpClient() {
 
 ## Platform-specific configuration
 
-### Jvm
+### JVM
 
 The _ProxyConfig_ class maps to [Proxy](https://docs.oracle.com/javase/7/docs/api/java/net/Proxy.html) class on the jvm:
 ```kotlin
 val httpProxy = Proxy(Proxy.Type.HTTP, InetSocketAddress(4040))
 ```
 
-Most Jvm client engines support it out of the box.
+Most JVM client engines support it out of the box.
 
 Note: Apache and CIO engines support HTTP proxy only. Jetty client engine doesn't support any proxy.
 
