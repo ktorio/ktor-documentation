@@ -48,7 +48,7 @@ To send cookies, use the [cookie](https://api.ktor.io/ktor-client/ktor-client-co
 ```
 {src="snippets/_misc_client/GetMethodWithCookies.kt"}
 
-Ktor also provides the [](http-cookies.md) plugin that allows you to keep cookies between calls. If this plugin is installed, cookies added using the `cookie` function are ignored.
+Ktor also provides the [HttpCookies](http-cookies.md) plugin that allows you to keep cookies between calls. If this plugin is installed, cookies added using the `cookie` function are ignored.
 
 
 ### Query parameters {id="query_parameters"}

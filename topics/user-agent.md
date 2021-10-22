@@ -1,27 +1,33 @@
 [//]: # (title: User agent)
 
-<include src="lib.xml" include-id="outdated_warning"/>
+The `UserAgent` plugin adds a `User-Agent` header to all [requests](request.md).
 
-The `UserAgent` plugin adds a User-Agent header to requests.
+## Add dependencies {id="add_dependencies"}
+
+`UserAgent` only requires the [ktor-client-core](client.md#client-dependency) artifact and doesn't need any specific dependencies.
 
 
 
-## Install
+## Install and configure UserAgent {id="install_plugin"}
+
+To install `UserAgent`, pass it to the `install` function inside a [client configuration block](client.md#configure-client). Then, use the `agent` property to specify the `User-Agent` value:
 
 ```kotlin
 import io.ktor.client.plugins.*
 
-val client = HttpClient() {
-
-    // Full configuration.
+val client = HttpClient(CIO) {
     install(UserAgent) {
-        agent = "ktor"
+        agent = "Ktor client"
     }
+}
+```
 
-    // Shortcut for the browser-like user agent.
+Ktor also allows you to add a browser- or curl-like `User-Agent` value using corresponding functions:
+
+```kotlin
+val client = HttpClient(CIO) {
     BrowserUserAgent()
-
-    // Shortcut for the curl-like user agent.
+    // ... or
     CurlUserAgent()
 }
 
