@@ -110,4 +110,4 @@ that the `%plugin_name%` plugin is installed and other things that you are not d
 ### I get an infinite redirect when using this plugin
 
 Have you installed the `XForwardedHeaderSupport` or the `ForwardedHeaderSupport` plugin?
-Check [this FAQ entry](FAQ.md#infinite-redirect) for more details.
+Check [this FAQ entry](FAQ.xml#infinite-redirect) for more details.

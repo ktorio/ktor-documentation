@@ -290,7 +290,7 @@
     <toc-element href="https://api.ktor.io"
                  toc-title="API Docs"/>
 
-    <toc-element id="FAQ.md"
+    <toc-element id="FAQ.xml"
                  accepts-web-file-names="zfaq.html"/>
 
     <toc-element hidden="true" accepts-web-file-names-ref="samples"
