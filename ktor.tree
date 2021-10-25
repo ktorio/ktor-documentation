@@ -274,25 +274,25 @@
         <toc-element id="http-client_testing.md" show-structure-depth="2"/>
     </toc-element>
 
-
-    <toc-element toc-title="Contributing to Ktor">
-        <toc-element hidden="true"
-                     accepts-web-file-names="bug-report.html"
-                     target-for-accept-web-file-names="https://ktor.io/support/"/>
-        <toc-element id="code-style.md"/>
-        <toc-element id="build-from-source.md"/>
-    </toc-element>
-
     <toc-element toc-title="Migrating Ktor applications">
         <toc-element id="migrating-2.md" show-structure-depth="3"/>
     </toc-element>
 
-    <toc-element href="https://api.ktor.io"
-                 toc-title="API Docs"/>
-
     <toc-element id="FAQ.xml"
                  accepts-web-file-names="zfaq.html"/>
 
+    <toc-element href="https://api.ktor.io"
+                 toc-title="API Docs"/>
+
     <toc-element hidden="true" accepts-web-file-names-ref="samples"
                  target-for-accept-web-file-names="https://ktor.io/learn/"/>
+    <toc-element hidden="true"
+                 accepts-web-file-names="bug-report.html"
+                 target-for-accept-web-file-names="https://ktor.io/support/"/>
+    <toc-element hidden="true"
+                 accepts-web-file-names="code-style.html"
+                 target-for-accept-web-file-names="https://github.com/ktorio/ktor/blob/main/CONTRIBUTING.md#style-guides"/>
+    <toc-element hidden="true"
+                 accepts-web-file-names="build-from-source.html"
+                 target-for-accept-web-file-names="https://github.com/ktorio/ktor/blob/main/CONTRIBUTING.md#building-the-project"/>
 </product-profile>
