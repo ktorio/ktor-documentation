@@ -585,7 +585,7 @@ plugins such as Authentication, etc.
 
 - **Learn more about route organization!** If you'd like to learn about different ways to organize your routes with Ktor, check out the [](Routing_in_Ktor.md) topic.
 
-- **Persistence!** Currently, all our journal entries vanish when we stop our application, as we are only storing them in a variable. You could try integrating your application with a database like PostgreSQL or MongoDB, using one of the plenty projects that allow database access from Kotlin, like [Exposed](https://github.com/JetBrains/Exposed) or [KMongo](https://litote.org/kmongo/).
+- **Persistence!** Currently, all customers and orders vanish when we stop our application, as we are only storing them in an in-memory storage. You could try integrating your application with a database like PostgreSQL or MongoDB, using one of the plenty projects that allow database access from Kotlin, like [Exposed](https://github.com/JetBrains/Exposed) or [KMongo](https://litote.org/kmongo/).
 
 - **Integrate with a client!** Now that we are exposing data, it would make sense to explore how this data can be consumed again! Try writing an API client using the [Ktor HTTP client](client.md), for example, or try accessing it from a website using JavaScript or Kotlin/JS!
 
