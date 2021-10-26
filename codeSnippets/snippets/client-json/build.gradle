@@ -26,7 +26,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation "io.ktor:ktor-client-apache:$ktor_version"
     implementation "io.ktor:ktor-client-content-negotiation:$ktor_version"
-    implementation "io.ktor:ktor-shared-serialization-gson:$ktor_version"
+    implementation "io.ktor:ktor-serialization-gson:$ktor_version"
     implementation "ch.qos.logback:logback-classic:$logback_version"
 }
 

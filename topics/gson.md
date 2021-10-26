@@ -1,6 +1,6 @@
 [//]: # (title: Gson)
 
-<var name="artifact_name" value="ktor-shared-serialization-gson"/>
+<var name="artifact_name" value="ktor-serialization-gson"/>
 
 <microformat>
 <p>
@@ -17,7 +17,7 @@ Required dependencies: <code>io.ktor:%artifact_name%</code>
 Before registering the Gson converter, you need to include the following artifacts in the build script:
 * Add the `ktor-server-content-negotiation` artifact as described in [](serialization.md#add_dependencies).
 * Add the `%artifact_name%` artifact:
-   <var name="artifact_name" value="ktor-shared-serialization-gson"/>
+   <var name="artifact_name" value="ktor-serialization-gson"/>
    <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 
@@ -25,7 +25,7 @@ Before registering the Gson converter, you need to include the following artifac
 To register the Gson converter in your application, call the [gson](https://api.ktor.io/ktor-features/ktor-gson/ktor-gson/io.ktor.gson/gson.html) function:
 ```kotlin
 import io.ktor.server.plugins.*
-import io.ktor.shared.serializaion.gson.*
+import io.ktor.serializaion.gson.*
 
 install(ContentNegotiation) {
     gson()

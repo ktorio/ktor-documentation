@@ -1,6 +1,6 @@
 [//]: # (title: kotlinx.serialization)
 
-<var name="artifact_name" value="ktor-shared-serialization-kotlinx-json"/>
+<var name="artifact_name" value="ktor-serialization-kotlinx-json"/>
 
 <microformat>
 <p>
@@ -19,7 +19,7 @@ Before registering a required converter, perform the following steps:
 1. Add the Kotlin serialization plugin, as described in the [Setup](https://github.com/Kotlin/kotlinx.serialization#setup) section.
 2. Add the `ktor-server-content-negotiation` artifact as described in [](serialization.md#add_dependencies).
 3. Add the `%artifact_name%` artifact in the build script: 
-    <var name="artifact_name" value="ktor-shared-serialization-kotlinx"/>
+    <var name="artifact_name" value="ktor-serialization-kotlinx"/>
     <include src="lib.xml" include-id="add_ktor_artifact"/>
    
     This will be enough for converting JSON. 
@@ -32,7 +32,7 @@ Before registering a required converter, perform the following steps:
 To register the JSON converter in your application, call the `json` method:
 ```kotlin
 import io.ktor.server.plugins.*
-import io.ktor.shared.serialization.kotlinx.*
+import io.ktor.serialization.kotlinx.*
 
 install(ContentNegotiation) {
     json()

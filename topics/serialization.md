@@ -24,7 +24,7 @@ The [ContentNegotiation](https://api.ktor.io/ktor-server/ktor-server-core/ktor-s
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
-Note that serializers for specific formats require additional artifacts. For example, kotlinx.serialization requires the `ktor-shared-serialization-kotlinx-json` dependency for JSON.
+Note that serializers for specific formats require additional artifacts. For example, kotlinx.serialization requires the `ktor-serialization-kotlinx-json` dependency for JSON.
 
 ### JSON {id="add_json_dependency"}
 
@@ -34,22 +34,22 @@ To serialize/deserialize JSON data, you can choose one of the following librarie
 <tab title="kotlinx.serialization" group-key="kotlinx">
 
 1. Add the Kotlin serialization plugin, as described in the [Setup](https://github.com/Kotlin/kotlinx.serialization#setup) section.
-2. Add the `ktor-shared-serialization-kotlinx-json` artifact in the build script:
-   <var name="artifact_name" value="ktor-shared-serialization-kotlinx-json"/>
+2. Add the `ktor-serialization-kotlinx-json` artifact in the build script:
+   <var name="artifact_name" value="ktor-serialization-kotlinx-json"/>
    <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 </tab>
 <tab title="Gson" group-key="gson">
 
-* Add the `ktor-shared-serialization-gson` artifact in the build script:
-   <var name="artifact_name" value="ktor-shared-serialization-gson"/>
+* Add the `ktor-serialization-gson` artifact in the build script:
+   <var name="artifact_name" value="ktor-serialization-gson"/>
    <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 </tab>
 <tab title="Jackson" group-key="jackson">
 
-* Add the `ktor-shared-serialization-jackson` artifact in the build script:
-   <var name="artifact_name" value="ktor-shared-serialization-jackson"/>
+* Add the `ktor-serialization-jackson` artifact in the build script:
+   <var name="artifact_name" value="ktor-serialization-jackson"/>
    <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 </tab>
@@ -58,14 +58,14 @@ To serialize/deserialize JSON data, you can choose one of the following librarie
 
 ### XML {id="add_xml_dependency"}
 
-To serialize/deserialize XML, add the `ktor-shared-serialization-kotlinx-xml` in the build script:
-<var name="artifact_name" value="ktor-shared-serialization-kotlinx-xml"/>
+To serialize/deserialize XML, add the `ktor-serialization-kotlinx-xml` in the build script:
+<var name="artifact_name" value="ktor-serialization-kotlinx-xml"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ### CBOR {id="add_cbor_dependency"}
 
-To serialize/deserialize XML, add the `ktor-shared-serialization-kotlinx-cbor` in the build script:
-<var name="artifact_name" value="ktor-shared-serialization-kotlinx-cbor"/>
+To serialize/deserialize XML, add the `ktor-serialization-kotlinx-cbor` in the build script:
+<var name="artifact_name" value="ktor-serialization-kotlinx-cbor"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 
@@ -86,7 +86,7 @@ Ktor supports the following formats out-of-the-box: [JSON](#register_json), [XML
 To register the JSON serializer in your application, call the `json` method:
 ```kotlin
 import io.ktor.server.plugins.*
-import io.ktor.shared.serialization.kotlinx.*
+import io.ktor.serialization.kotlinx.*
 
 install(ContentNegotiation) {
     json()
@@ -105,7 +105,7 @@ The `json` method also allows you to adjust serialization settings provided by [
 To register the Gson serializer in your application, call the [gson](https://api.ktor.io/ktor-features/ktor-gson/ktor-gson/io.ktor.gson/gson.html) method:
 ```kotlin
 import io.ktor.server.plugins.*
-import io.ktor.shared.serializaion.gson.*
+import io.ktor.serializaion.gson.*
 
 install(ContentNegotiation) {
     gson()
@@ -125,7 +125,7 @@ To register the Jackson serializer in your application, call the [jackson](https
 
 ```kotlin
 import io.ktor.server.plugins.*
-import io.ktor.shared.serializaion.jackson.*
+import io.ktor.serializaion.jackson.*
 
 install(ContentNegotiation) {
     jackson()
@@ -148,7 +148,7 @@ The `jackson` method also allows you to adjust serialization settings provided b
 To register the XML serializer in your application, call the `xml` method:
 ```kotlin
 import io.ktor.server.plugins.*
-import io.ktor.shared.serialization.kotlinx.xml.*
+import io.ktor.serialization.kotlinx.xml.*
 
 install(ContentNegotiation) {
     xml()
@@ -159,7 +159,7 @@ The `xml` method also allows you to access XML serialization settings, for examp
 
 ```kotlin
 import io.ktor.server.plugins.*
-import io.ktor.shared.serialization.kotlinx.xml.*
+import io.ktor.serialization.kotlinx.xml.*
 import nl.adaptivity.xmlutil.*
 import nl.adaptivity.xmlutil.serialization.*
 
@@ -175,7 +175,7 @@ install(ContentNegotiation) {
 To register the CBOR serializer in your application, call the `cbor` method:
 ```kotlin
 import io.ktor.server.plugins.*
-import io.ktor.shared.serialization.kotlinx.cbor.*
+import io.ktor.serialization.kotlinx.cbor.*
 
 install(ContentNegotiation) {
     cbor()
@@ -186,7 +186,7 @@ The `cbor` method also allows you to access CBOR serialization settings provided
 
 ```kotlin
 import io.ktor.server.plugins.*
-import io.ktor.shared.serialization.kotlinx.cbor.*
+import io.ktor.serialization.kotlinx.cbor.*
 import kotlinx.serialization.cbor.*
 
 install(ContentNegotiation) {
@@ -270,6 +270,6 @@ interface ContentConverter {
     suspend fun deserialize(charset: Charset, typeInfo: TypeInfo, content: ByteReadChannel): Any?
 }
 ```
-Take a look at the [GsonConverter](https://github.com/ktorio/ktor/blob/main/ktor-shared/ktor-shared-serialization-gson/jvm/src/GsonConverter.kt) class as an implementation example.  
+Take a look at the [GsonConverter](https://github.com/ktorio/ktor/blob/main/ktor-shared/ktor-serialization-gson/jvm/src/GsonConverter.kt) class as an implementation example.  
 
 

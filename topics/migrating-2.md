@@ -22,9 +22,9 @@ This means that you need to update [dependencies](#server-package-dependencies) 
 | [Mustache](mustache.md) | `io.ktor:ktor-mustache` | `io.ktor:ktor-server-mustache` |
 | [Thymeleaf](thymeleaf.md) | `io.ktor:ktor-thymeleaf` | `io.ktor:ktor-server-thymeleaf` |
 | [Pebble](pebble.md) | `io.ktor:ktor-pebble` | `io.ktor:ktor-server-pebble` |
-| [kotlinx.serialization](serialization.md) | `io.ktor:ktor-serialization` | `io.ktor:ktor-server-content-negotiation`, `io.ktor:ktor-shared-serialization-kotlinx-json` |
-| [Gson](serialization.md) | `io.ktor:ktor-gson` | `io.ktor:ktor-server-content-negotiation`, `io.ktor:ktor-shared-serialization-gson` |
-| [Jackson](serialization.md) | `io.ktor:ktor-jackson` | `io.ktor:ktor-server-content-negotiation`, `io.ktor:ktor-shared-serialization-jackson` |
+| [kotlinx.serialization](serialization.md) | `io.ktor:ktor-serialization` | `io.ktor:ktor-server-content-negotiation`, `io.ktor:ktor-serialization-kotlinx-json` |
+| [Gson](serialization.md) | `io.ktor:ktor-gson` | `io.ktor:ktor-server-content-negotiation`, `io.ktor:ktor-serialization-gson` |
+| [Jackson](serialization.md) | `io.ktor:ktor-jackson` | `io.ktor:ktor-server-content-negotiation`, `io.ktor:ktor-serialization-jackson` |
 | [Authentication](authentication.md) | `io.ktor:ktor-auth` | `io.ktor:ktor-server-auth` |
 | [JWT authentication](jwt.md) | `io.ktor:ktor-auth-jwt` | `io.ktor:ktor-server-auth-jwt` |
 | [LDAP authentication](ldap.md) | `io.ktor:ktor-auth-ldap` | `io.ktor:ktor-server-auth-ldap` |
@@ -63,9 +63,9 @@ This means that you need to update [dependencies](#server-package-dependencies) 
 | [Mustache](mustache.md) | `import io.ktor.mustache.*` | `import io.ktor.server.mustache.*` |
 | [Thymeleaf](thymeleaf.md) | `import io.ktor.thymeleaf.*` | `import io.ktor.server.thymeleaf.*` |
 | [Pebble](pebble.md) | `import io.ktor.pebble.*` | `import io.ktor.server.pebble.*` |
-| [kotlinx.serialization](serialization.md) | `import io.ktor.serialization.*` | `import io.ktor.shared.serialization.kotlinx.json.*` |
-| [Gson](serialization.md) | `import io.ktor.gson.*` | `import io.ktor.shared.serializaion.gson.*` |
-| [Jackson](serialization.md) | `import io.ktor.jackson.*` | `import io.ktor.shared.serializaion.jackson.*` |
+| [kotlinx.serialization](serialization.md) | `import io.ktor.serialization.*` | `import io.ktor.serialization.kotlinx.json.*` |
+| [Gson](serialization.md) | `import io.ktor.gson.*` | `import io.ktor.serializaion.gson.*` |
+| [Jackson](serialization.md) | `import io.ktor.jackson.*` | `import io.ktor.serializaion.jackson.*` |
 | [Authentication](authentication.md) | `import io.ktor.auth.*` | `import io.ktor.server.auth.*` |
 | [JWT authentication](jwt.md) | `import io.ktor.auth.jwt.*` | `import io.ktor.server.auth.jwt.*` |
 | [LDAP authentication](ldap.md) | `import io.ktor.auth.ldap.*` | `import io.ktor.server.auth.ldap.*` |
@@ -101,7 +101,7 @@ Renaming Feature to Plugin introduces the following changes for API related to [
 [Content negotiation and serialization](serialization.md) server API was refactored to reuse serialization libraries between the server and client.
 The main changes are:
 * `ContentNegotiation` is moved from `ktor-server-core` to a separate `ktor-server-content-negotiation` artifact.
-* Serialization libraries are moved from `ktor-*` to the `ktor-shared-serialization-*` artifacts also used by the client.
+* Serialization libraries are moved from `ktor-*` to the `ktor-serialization-*` artifacts also used by the client.
 
 You need to update [dependencies](#dependencies-serialization) for and [imports](#imports-serialization) in your application, as shown below.
 
@@ -111,16 +111,16 @@ You need to update [dependencies](#dependencies-serialization) for and [imports]
 | Subsystem | 1.6.x | 2.0.0 |
 | :---        |    :----:   |          ---: |
 | [ContentNegotiation](serialization.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-content-negotiation` |
-| [kotlinx.serialization](serialization.md) | `io.ktor:ktor-serialization` | `io.ktor:ktor-shared-serialization-kotlinx-json` |
-| [Gson](serialization.md) | `io.ktor:ktor-gson` | `io.ktor:ktor-shared-serialization-gson` |
-| [Jackson](serialization.md) | `io.ktor:ktor-jackson` | `io.ktor:ktor-shared-serialization-jackson` |
+| [kotlinx.serialization](serialization.md) | `io.ktor:ktor-serialization` | `io.ktor:ktor-serialization-kotlinx-json` |
+| [Gson](serialization.md) | `io.ktor:ktor-gson` | `io.ktor:ktor-serialization-gson` |
+| [Jackson](serialization.md) | `io.ktor:ktor-jackson` | `io.ktor:ktor-serialization-jackson` |
 
 #### Imports {id="imports-serialization"}
 | Subsystem | 1.6.x | 2.0.0 |
 | :---        |    :----:   |          ---: |
-| [kotlinx.serialization](serialization.md) | `import io.ktor.serialization.*` | `import io.ktor.shared.serialization.kotlinx.json.*` |
-| [Gson](serialization.md) | `import io.ktor.gson.*` | `import io.ktor.shared.serializaion.gson.*` |
-| [Jackson](serialization.md) | `import io.ktor.jackson.*` | `import io.ktor.shared.serializaion.jackson.*` |
+| [kotlinx.serialization](serialization.md) | `import io.ktor.serialization.*` | `import io.ktor.serialization.kotlinx.json.*` |
+| [Gson](serialization.md) | `import io.ktor.gson.*` | `import io.ktor.serializaion.gson.*` |
+| [Jackson](serialization.md) | `import io.ktor.jackson.*` | `import io.ktor.serializaion.jackson.*` |
 
 #### Custom converters {id="serialization-custom-converter"}
 
@@ -302,7 +302,7 @@ You can find the full example here: [](response.md#streaming).
 The Ktor client now supports content negotiation and shares serialization libraries with the Ktor server.
 The main changes are:
 * `JsonFeature` is deprecated in favor of `ContentNegotiation`, which can be found in the `ktor-client-content-negotiation` artifact.
-* Serialization libraries are moved from `ktor-client-*` to the `ktor-shared-serialization-*` artifacts.
+* Serialization libraries are moved from `ktor-client-*` to the `ktor-serialization-*` artifacts.
 
 You need to update [dependencies](#imports-dependencies-client) for and [imports](#imports-serialization-client) in your client code, as shown below.
 
@@ -311,17 +311,17 @@ You need to update [dependencies](#imports-dependencies-client) for and [imports
 | Subsystem | 1.6.x | 2.0.0 |
 | :---        |    :----:   |          ---: |
 | `ContentNegotiation` | n/a | `io.ktor:ktor-client-content-negotiation` |
-| kotlinx.serialization | `io.ktor:ktor-client-serialization` | `io.ktor:ktor-shared-serialization-kotlinx-json` |
-| Gson | `io.ktor:ktor-client-gson` | `io.ktor:ktor-shared-serialization-gson` |
-| Jackson | `io.ktor:ktor-client-jackson` | `io.ktor:ktor-shared-serialization-jackson` |
+| kotlinx.serialization | `io.ktor:ktor-client-serialization` | `io.ktor:ktor-serialization-kotlinx-json` |
+| Gson | `io.ktor:ktor-client-gson` | `io.ktor:ktor-serialization-gson` |
+| Jackson | `io.ktor:ktor-client-jackson` | `io.ktor:ktor-serialization-jackson` |
 
 #### Imports {id="imports-serialization-client"}
 | Subsystem | 1.6.x | 2.0.0 |
 | :---        |    :----:   |          ---: |
 | `ContentNegotiation` | n/a | `import io.ktor.client.plugins.*` |
-| kotlinx.serialization | `import io.ktor.client.features.json.*` | `import io.ktor.shared.serialization.kotlinx.json.*` |
-| Gson | `import io.ktor.client.features.json.*` | `import io.ktor.shared.serializaion.gson.*` |
-| Jackson | `import io.ktor.client.features.json.*` | `import io.ktor.shared.serializaion.jackson.*` |
+| kotlinx.serialization | `import io.ktor.client.features.json.*` | `import io.ktor.serialization.kotlinx.json.*` |
+| Gson | `import io.ktor.client.features.json.*` | `import io.ktor.serializaion.gson.*` |
+| Jackson | `import io.ktor.client.features.json.*` | `import io.ktor.serializaion.jackson.*` |
 
 ### Bearer authentication
 

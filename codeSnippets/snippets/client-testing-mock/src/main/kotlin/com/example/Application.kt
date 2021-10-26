@@ -5,7 +5,7 @@ import io.ktor.client.call.*
 import io.ktor.client.engine.*
 import io.ktor.client.engine.cio.*
 import io.ktor.client.plugins.*
-import io.ktor.shared.serialization.kotlinx.json.*
+import io.ktor.serialization.kotlinx.json.*
 import io.ktor.client.request.*
 import kotlinx.coroutines.*
 import kotlinx.serialization.*

@@ -14,7 +14,6 @@ fun main() {
     runBlocking {
         val client = HttpClient(CIO) {
             defaultRequest {
-                method = HttpMethod.Get
                 host = "0.0.0.0"
                 port = 8443
                 url {
