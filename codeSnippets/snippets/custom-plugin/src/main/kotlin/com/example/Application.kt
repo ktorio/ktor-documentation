@@ -2,6 +2,7 @@ package com.example
 
 import com.example.plugins.*
 import io.ktor.server.application.*
+import io.ktor.server.plugins.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
@@ -12,6 +13,7 @@ fun Application.module() {
     install(SimplePlugin)
     install(RequestLoggingPlugin)
     install(DataTransformationPlugin)
+//    install(ContentNegotiation)
     install(CustomHeaderPlugin) {
         headerName = "X-Custom-Header"
         headerValue = "Hello, world!"
@@ -23,13 +25,12 @@ fun Application.module() {
         }
 
         get("/about") {
-            val data = call.receive<String>()
             call.respondText("About page")
         }
 
         post("/receive") {
-            val data = call.receive<String>()
-            call.respond(data)
+            val data = call.receive<Int>()
+//            call.respond(data)
         }
     }
 }

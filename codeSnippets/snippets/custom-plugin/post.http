@@ -1,6 +1,4 @@
 POST http://localhost:8080/receive
 Content-Type: text/plain
 
-Sample string
-
-###
+10

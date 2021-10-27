@@ -3,7 +3,7 @@ package com.example.plugins
 import io.ktor.server.application.plugins.api.*
 import io.ktor.util.*
 
-val DataTransformationBenchmarkPlugin = ServerPlugin.createApplicationPlugin(name = "DataTransformationBenchmarkPlugin") {
+val DataTransformationBenchmarkPlugin = createApplicationPlugin(name = "DataTransformationBenchmarkPlugin") {
     val benchmarkKey = AttributeKey<Long>("BenchmarkKey")
     onCall { call ->
         val startTime = System.currentTimeMillis()

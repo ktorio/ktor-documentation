@@ -2,7 +2,7 @@ package com.example.plugins
 
 import io.ktor.server.application.plugins.api.*
 
-val CustomHeaderPlugin = ServerPlugin.createApplicationPlugin(
+val CustomHeaderPlugin = createApplicationPlugin(
     name = "CustomHeaderPlugin",
     createConfiguration = { PluginConfiguration() }
 ) {
