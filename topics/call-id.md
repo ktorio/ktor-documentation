@@ -7,11 +7,17 @@
 <p>
 Required dependencies: <code>io.ktor:%artifact_name%</code>
 </p>
+<var name="example_name" value="call-id"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-<include src="lib.xml" include-id="outdated_warning"/>
+The `%plugin_name%` plugin allows you to trace client requests end-to-end by using unique request or call IDs. Typically, working with call IDs in Ktor might look as follows:
+1. A reverse proxy (such as Nginx) or cloud provider (such as [Heroku](heroku.md)) might add a call ID in a specific header, for example, `X-Request-Id`. In this case, `%plugin_name%` allows you to [retrieve](#retrieve) a call ID. Otherwise, if a request comes without a call ID, you can [generate](#generate) it.
+2. Next, Ktor [verifies](#verify) a retrieved/generated call ID using a predefined dictionary. You can also provide your own condition to verify a call ID.
+3. Finally, you can [send](#send) a call ID to the client.
 
-The `%plugin_name%` plugin allows to identify a request/call and can work along the [CallLogging](call-logging.md) plugin.
+Using this plugin along with [CallLogging](call-logging.md) helps you troubleshoot calls by [putting](#put-call-id-mdc) in the MDC context and configure a logger to show a call ID for each request.
+
 
 ## Add dependencies {id="add_dependencies"}
 
@@ -22,48 +28,102 @@ The `%plugin_name%` plugin allows to identify a request/call and can work along 
 
 <include src="lib.xml" include-id="install_plugin"/>
 
-## Generating Call IDs 
 
+## Configure %plugin_name% {id="configure"}
+
+### Retrieve a call ID {id="retrieve"}
+
+Several ways:
+* Retrieve from a header name:
+   ```kotlin
+   install(CallId) {
+       retrieveFromHeader(HttpHeaders.XRequestId)
+   }
+   ```
+   You can also use `header` to [retrieve a call ID and send it](#send) in the same header.
+
+* Retrieve a call ID from an `ApplicationCall`:
+   ```kotlin
+   install(CallId) {
+       retrieve { call ->
+           call.request.header(HttpHeaders.XRequestId)
+       }
+   }
+   ```
+
+### Generate a call ID {id="generate"}
+If a call ID is not available [](#retrieve), you can generate by setting length and dictionary:
 ```kotlin
 install(CallId) {
-    // Tries to retrieve a callId from an ApplicationCall. You can add several retrievers and all will be executed coalescing until one of them is not null.  
-    retrieve { // call: ApplicationCall ->
-        call.request.header(HttpHeaders.XRequestId)
-    }
-    
-    // If can't retrieve a callId from the ApplicationCall, it will try the generate blocks coalescing until one of them is not null.
+    generate(10, "abcde12345")
+}
+```
+or:
+```kotlin
+install(CallId) {
     val counter = atomic(0)
-    generate { "generated-call-id-${counter.getAndIncrement()}" }
-    
-    // Once a callId is generated, this optional function is called to verify if the retrieved or generated callId String is valid. 
-    verify { callId: String ->
-        callId.isNotEmpty()
+    generate {
+        "generated-call-id-${counter.getAndIncrement()}"
     }
-    
-    // Allows to process the call to modify headers or generate a request from the callId
-    reply { call: ApplicationCall, callId: String ->
-    
-    }
-
-    // Retrieve the callId from a headerName
-    retrieveFromHeader(headerName: String)
-    
-    // Automatically updates the response with the callId in the specified headerName
-    replyToHeader(headerName: String)
-    
-    // Combines both: retrieveFromHeader and replyToHeader in one single call
-    header(headerName: String)
 }
 ```
 
-## Extending [CallLogging](logging.md#call_logging)
-{id="call-logging-interop"}
+
+### Verify a call ID {id="verify"}
+
+Default:
+```kotlin
+CALL_ID_DEFAULT_DICTIONARY: String = "abcdefghijklmnopqrstuvwxyz0123456789+/=-"
+```
+
+Custom less strict:
+
+```kotlin
+```
+{src="snippets/call-id/src/main/kotlin/com/example/Application.kt" lines="12-15,17"}
+
+Full example: [call-id](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/call-id).
+
+
+
+### Send a call ID to the client {id="send"}
+
+Retrieve from a header name:
+```kotlin
+install(CallId) {
+    replyToHeader(HttpHeaders.XRequestId)
+}
+```
+
+Or reply:
+```kotlin
+reply { call, callId ->
+    call.response.header(HttpHeaders.XRequestId, callId)
+}
+```
+
+Or you can use `header` to [retrieve a call ID and send it](#retrieve) in the same header: 
+
+```kotlin
+```
+{src="snippets/call-id/src/main/kotlin/com/example/Application.kt" lines="12,16-17"}
+
+Full example: [call-id](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/call-id).
+
+
+
+## Put a call ID into MDC {id="put-call-id-mdc"}
 
 The CallId plugin includes a `callIdMdc` extension method to be used when configuring the CallLogging.
 It allows to associate the `callId` to the specified key to be put in the MDC context. 
 
 ```kotlin
-install(CallLogging) {
-    callIdMdc("mdc-call-id")
-}
 ```
+{src="snippets/call-id/src/main/kotlin/com/example/Application.kt" lines="18-20"}
+
+[Configure logback](logging.md#configure-logback):
+```
+```
+{style="block" src="snippets/call-id/src/main/resources/logback.xml" lines="2-6"}
+
+Full example: [call-id](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/call-id).

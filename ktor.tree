@@ -78,7 +78,7 @@
                              accepts-web-file-names="multipart-support.html,uploads.html,calls.html"/>
                 <toc-element id="responses.md"
                              show-structure-depth="2"/>
-                <toc-element id="call-id.md"/>
+                <toc-element id="call-id.md" show-structure-depth="2"/>
                 <toc-element id="double-receive.md"/>
             </toc-element>
 
