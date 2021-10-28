@@ -10,10 +10,10 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
 fun Application.module(testing: Boolean = false) {
     install(CallId) {
+        header(HttpHeaders.XRequestId)
         verify { callId: String ->
             callId.isNotEmpty()
         }
-        header(HttpHeaders.XRequestId)
     }
     install(CallLogging) {
         callIdMdc("call-id")
