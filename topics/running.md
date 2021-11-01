@@ -1,69 +1,97 @@
 [//]: # (title: Running)
 
-<include src="lib.xml" include-id="outdated_warning"/>
+When running a Ktor server application, take into account the following specifics:
+* The way used to [create a server](create_server.xml) affects whether you can override server parameters by passing command-line arguments when running a [packaged Ktor application](#package).
+* Gradle/Maven build scripts should specify the main class name when starting a server using [EngineMain](create_server.xml#engine-main).
+* Running your application inside a [servlet container](war.md) requires a specific servlet configuration.
 
-Ktor applications can be self-hosted or hosted on an Application Server. This section shows you how to host Ktor applications externally.
+In this topic, we'll take a look at these configuration specifics and show you how to run a Ktor application in IntelliJ IDEA and as a packaged application.
 
 
+## Configuration specifics {id="specifics"}
+
+### Configuration in code vs HOCON file {id="code-hocon"}
+
+Running a Ktor application depends on the way you used to [create a server](create_server.xml) - `embeddedServer` or `EngineMain`:
+* For `embeddedServer`, server parameters (such as a host address and port) are configured in code, so you cannot change these parameters when running an application.
+* For `EngineMain`, Ktor loads its configuration from an external file that uses the `HOCON` format. Using this approach, you can run a [packaged application](#package) from a command line and override the required server parameters by passing corresponding [command-line arguments](Configurations.xml#command-line).
 
 
+### Starting EngineMain - Gradle and Maven specifics {id="gradle-maven"}
 
-## Running an application in an external host
-
-When you need to run a Ktor application in an independently maintained host (for instance Tomcat), you will need an `application.conf` file
-to tell Ktor how to start your application.
-
-### Defining the configuration
-
-In the `resources` folder, create a file named `application.conf` with the following contents
+If you use `EngineMain` to create a server, you need to specify the `main` function for starting a server with the desired [engine](Engines.md).
+The [example](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main) below demonstrates the `main` function used to run a server with the Netty engine:
 
 ```kotlin
-ktor {
-    deployment {
-        port = 8080
-    }
-
-    application {
-        modules = [ my.company.MyApplication.ApplicationKt.main ]
-    }
-}
 ```
+{src="snippets/engine-main/src/main/kotlin/com/example/Application.kt" lines="7"}
 
-Replace `my.company.MyApplication` with your application's package, and `ApplicationKt` with the name of the
-file your `Application.main` function is contained in.
+To run a Ktor server using Gradle/Maven without configuring the engine inside the `main` function, you need to specify the main class name in the build script as follows:
 
-## Running the application from inside the IDE
-
-Running applications in a development environment such as IntelliJ IDEA, is supported by using development engines.
-
-#### IntelliJ IDEA
-
-1. Create a new Run Configuration using "Application" as a template
-2. For the main class use one of the following engines
-* Netty: use `io.ktor.server.netty.EngineMain`
-* Jetty: use `io.ktor.server.jetty.EngineMain`
-3. Specify the Module to be used
-4. Save the Configuration by giving it a name
-
-Once the configuration is saved, you can now run your application for development/debug purposes from inside IntelliJ IDEA, without having to deploy to a container or setup
-any application servers.
-
-See also: [Configuration](Configurations.xml)
-
-## Use automatic reloading
-
-Ktor can automatically reload the application when changes to the class files are detected, i.e. when you build the Application.
-Enable this functionality by adding `watch` configuration to `application.conf`:
+<tabs group="languages">
+<tab title="Gradle (Groovy)" group-key="groovy">
 
 ```groovy
-ktor {
-    deployment {
-        port = 8080
-        watch = [ my.company ]
-    }
+mainClassName = "io.ktor.server.netty.EngineMain"
+```
 
-    …
+</tab>
+<tab title="Gradle (Kotlin)" group-key="kotlin">
+
+```kotlin
+application {
+    mainClass.set("io.ktor.server.netty.EngineMain")
 }
 ```
 
-Check [Automatic Reloading](Auto_reload.xml) article for more details.
+</tab>
+<tab title="Maven" group-key="maven">
+
+```xml
+<properties>
+    <main.class>io.ktor.server.netty.EngineMain</main.class>
+</properties>
+```
+
+</tab>
+</tabs>
+
+
+### WAR specifics
+
+Ktor allows you to [create and start a server](create_server.xml) with the desired engine (such as Netty, Jetty, or Tomcat) right in the application. In this case, your application has control over engine settings, connection, and SSL options.
+
+In contrast to this approach, a servlet container should control the application lifecycle and connection settings. Ktor provides a special `ServletApplicationEngine` engine that delegates control over your application to a servlet container. You can learn how to configure your application from [](war.md#configure-war).
+
+
+## Run an application {id="run"}
+> Restarting a server during development might take some time. Ktor allows you to overcome this limitation by using [Auto-reload](Auto_reload.xml), which reloads application classes on code changes and provides a fast feedback loop.
+
+### Run an application in IDEA {id="idea"}
+
+You can run a Ktor application in IntelliJ IDEA in two ways:
+* Click the gutter icon next to the `main` function and choose **Run 'ApplicationKt'**.
+* Run an automatically created **Ktor** run configuration.
+
+You can learn more from the [Run a Ktor application](https://www.jetbrains.com/help/idea/ktor.html#run_ktor_app) section in the IntelliJ IDEA documentation.
+
+
+### Run an application using Gradle/Maven {id="gradle-maven-run"}
+
+To run a Ktor application using Gradle or Maven, use corresponding plugins:
+* [Application](https://docs.gradle.org/current/userguide/application_plugin.html) plugin for Gradle.
+* [Exec](https://www.mojohaus.org/exec-maven-plugin/) plugin for Maven.
+
+
+
+### Run a packaged application {id="package"}
+
+Before deploying your application, you need to package it in one of the ways described in the [](deploy.md#packaging) section. 
+Running a Ktor application from the resulting package depends on the package type and might look as follows:
+* To run a Ktor server packaged in a fat JAR with and override the configured port, execute the following command:
+   ```Bash
+   java -jar sample-app.jar -port=8080
+   ```
+* To run an application packaged using the Gradle [Application](gradle-application-plugin.md) plugin, run a corresponding executable:
+   <include src="gradle-application-plugin.md" include-id="run_executable"/>
+* To run a servlet Ktor application, use the `run` task of the [Gretty](war.md#run) plugin.

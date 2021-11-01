@@ -49,6 +49,7 @@ To run the [packaged application](#package):
 1. Go to the `build/install/ktor-gradle-sample` folder in a terminal.
 1. Depending on your operating system, run the `ktor-gradle-sample` or `ktor-gradle-sample.bat` executable:
 
+   <chunk id="run_executable">
    <tabs group="os">
    <tab title="Linux/MacOS" group-key="unix">
    <code style="block" lang="Bash">./ktor-gradle-sample</code>
@@ -57,6 +58,7 @@ To run the [packaged application](#package):
    <code style="block" lang="CMD">ktor-gradle-sample.bat</code>
    </tab>
    </tabs>
+   </chunk>
    
 1. Wait until the following message is shown:
    ```

@@ -162,7 +162,7 @@
 
 
         <toc-element toc-title="Running and debugging">
-            <toc-element id="running.md"
+            <toc-element id="running.md" show-structure-depth="2"
                          accepts-web-file-names="engine.html"/>
             <toc-element id="Auto_reload.xml" accepts-web-file-names="autoreload.html"/>
         </toc-element>
