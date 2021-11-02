@@ -109,12 +109,18 @@
                     <p>
                         The <path>application.conf</path> file below contains a custom <code>jwt</code> group to store <a href="jwt.md" anchor="jwt-settings">JWT</a> settings.
                     </p>
-                    <code style="block" src="snippets/auth-jwt-hs256/src/main/resources/application.conf" lines="11-16"/>
+                    <code style="block" src="snippets/auth-jwt-hs256/src/main/resources/application.conf" lines="1,6-16"/>
                     <p>
                         You can <a anchor="read-configuration-in-code">read and handle such settings</a> in code.
                     </p>
                 </li>
             </list>
+            <warning>
+                <p>
+                    Note that sensitive data (like secret keys, database connection settings, and so on) should not be stored in the configuration file as plain text.
+                    Consider using <a anchor="environment-variables">environment variables</a> to specify such parameters.
+                </p>
+            </warning>
         </chapter>
 
 
@@ -123,154 +129,86 @@
             <p>
                 Below is a list of predefined settings that you can use inside a <a anchor="hocon-overview">configuration file</a>.
             </p>
-            <list>
-                <li>
+            <deflist style="wide">
+                <def title="ktor.deployment.host">
                     <p>
-                        <code>ktor.deployment.host</code>:
                          A host address.
                     </p>
                     <p>
                         <emphasis>Example</emphasis>: <code>0.0.0.0</code>
                     </p>
-                </li>
-                <li>
+                </def>
+                <def title="ktor.deployment.port">
                     <p>
-                        <code>ktor.deployment.port</code> / <code>ktor.deployment.sslPort</code>:
-                         A listening port/SSL port.
+                        A listening port.
+                    </p>
+                    <p>
+                        <emphasis>Example</emphasis>: <code>80</code>
+                    </p>
+                </def>
+                <def title="ktor.deployment.sslPort">
+                    <p>
+                        A listening SSL port.
                         Note that SSL requires additional options <a anchor="ssl">listed below</a>.
                     </p>
                     <p>
-                        <emphasis>Example</emphasis>: <code>80</code> / <code>443</code>
+                        <emphasis>Example</emphasis>: <code>443</code>
                     </p>
-                </li>
-                <li>
+                </def>
+                <def title="ktor.deployment.watch">
                     <p>
-                        <code>ktor.deployment.watch</code>:
-                         Watch paths used for <a href="Auto_reload.xml" anchor="watch-paths">auto-reloading</a>.
+                        Watch paths used for <a href="Auto_reload.xml" anchor="watch-paths">auto-reloading</a>.
                     </p>
-                </li>
-                <li>
+                </def>
+                <def title="ktor.deployment.rootPath">
                     <p>
-                        <code>ktor.deployment.rootPath</code>:
                         A <a href="war.md">servlet</a> context path.
                     </p>
                     <p>
                         <emphasis>Example</emphasis>: <code>/</code>
                     </p>
-                </li>
-                <li>
+                </def>
+                <def title="ktor.deployment.shutdown.url">
                     <p>
-                        <code>ktor.deployment.shutdown.url</code>:
                         A shutdown URL.
                         Note that this option uses the <a href="shutdown-url.md"/> plugin.
                     </p>
-                </li>
-                <li>
+                </def>
+                <def title="">
                     <p>
                         Properties specific for engines.
                         Learn more from <a href="Engines.md" anchor="engine-main-configure"/>.
                     </p>
-                </li>
-            </list>
+                </def>
+            </deflist>
             <p id="ssl">
                 If you've set <code>ktor.deployment.sslPort</code>, you need to specify the following <a href="ssl.md">SSL-specific</a> properties:
             </p>
-            <list>
-                <li>
+            <deflist style="wide">
+                <def title="ktor.security.ssl.keyStore">
                     <p>
-                        <code>ktor.security.ssl.keyStore</code>:
                          An SSL key store.
                     </p>
-                </li>
-                <li>
+                </def>
+                <def title="ktor.security.ssl.keyAlias">
                     <p>
-                        <code>ktor.security.ssl.keyAlias</code>:
-                         An alias for the SSL key store.
+                        An alias for the SSL key store.
                     </p>
-                </li>
-                <li>
+                </def>
+                <def title="ktor.security.ssl.keyStorePassword">
                     <p>
-                        <code>ktor.security.ssl.keyStorePassword</code>:
                         A password for the SSL key store.
                     </p>
-                </li>
-                <li>
+                </def>
+                <def title="ktor.security.ssl.privateKeyPassword">
                     <p>
-                        <code>ktor.security.ssl.privateKeyPassword</code>:
                         A password for the SSL private key.
                     </p>
-                </li>
-            </list>
+                </def>
+            </deflist>
 
         </chapter>
 
-
-
-
-
-        <chapter title="Command line" id="command-line">
-            <p>
-                If you use <a href="create_server.xml" anchor="engine-main">EngineMain</a> to create a server, you can run your application from a command line and override the required server parameters by passing corresponding command-line arguments. For example, you can override a port specified in the <path>application.conf</path> file in the following way:
-            </p>
-            <code style="block">
-                java -jar sample-app.jar -port=8080
-            </code>
-            <p>
-                The available command-line options are listed below:
-            </p>
-            <list>
-                <li>
-                    <p>
-                        <code>jar</code>: A path to JAR file.
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <code>config</code>: A path to a custom configuration file used instead of <path>application.conf</path> from resources.
-                    </p>
-                    <code style="block">
-                        java -jar sample-app.jar -config=anotherfile.conf
-                    </code>
-                </li>
-                <li>
-                    <p>
-                        <code>host</code>: A host address.
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <code>port</code>: A listening port.
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <code>watch</code>:
-                        Watch paths used for <a href="Auto_reload.xml" anchor="watch-paths">auto-reloading</a>.
-                    </p>
-                </li>
-            </list>
-            <p>
-                <a href="ssl.md">SSL-specific</a> options:
-            </p>
-            <list>
-                <li>
-                    <p>
-                        <code>sslPort</code>: A listening SSL port.
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <code>sslKeyStore</code>: An SSL key store.
-                    </p>
-                </li>
-            </list>
-            <p>
-                If you need to override a <a anchor="predefined-properties">predefined property</a> that doesn't have a corresponding command-line option, use the <code>-P</code> flag, for example:
-            </p>
-            <code style="block">
-                java -jar sample-app.jar -P:ktor.deployment.callGroupSize=7
-            </code>
-        </chapter>
 
 
         <chapter title="Environment variables" id="environment-variables">
@@ -329,6 +267,70 @@
                 This is especially useful when you keep <a anchor="custom-property">custom settings</a> in a configuration file and need to access its values.
             </p>
         </chapter>
+
+        <chapter title="Command line" id="command-line">
+            <p>
+                If you use <a href="create_server.xml" anchor="engine-main">EngineMain</a> to create a server, you can run a <a href="fatjar.md">packaged application</a> from a command line and override the required server parameters by passing corresponding command-line arguments. For example, you can override a port specified in the <path>application.conf</path> file in the following way:
+            </p>
+            <code style="block">
+                java -jar sample-app.jar -port=8080
+            </code>
+            <p>
+                The available command-line options are listed below:
+            </p>
+            <deflist style="narrow">
+                <def title="-jar">
+                    <p>
+                        A path to JAR file.
+                    </p>
+                </def>
+                <def title="-config">
+                    <p>
+                        A path to a custom configuration file used instead of <path>application.conf</path> from resources.
+                    </p>
+                    <code style="block">
+                        java -jar sample-app.jar -config=anotherfile.conf
+                    </code>
+                </def>
+                <def title="-host">
+                    <p>
+                        A host address.
+                    </p>
+                </def>
+                <def title="-port">
+                    <p>
+                        A listening port.
+                    </p>
+                </def>
+                <def title="-watch">
+                    <p>
+                        Watch paths used for <a href="Auto_reload.xml" anchor="watch-paths">auto-reloading</a>.
+                    </p>
+                </def>
+            </deflist>
+            <p>
+                <a href="ssl.md">SSL-specific</a> options:
+            </p>
+            <deflist style="narrow">
+                <def title="-sslPort">
+                    <p>
+                        A listening SSL port.
+                    </p>
+                </def>
+                <def title="-sslKeyStore">
+                    <p>
+                        An SSL key store.
+                    </p>
+                </def>
+            </deflist>
+            <p>
+                If you need to override a <a anchor="predefined-properties">predefined property</a> that doesn't have a corresponding command-line option, use the <code>-P</code> flag, for example:
+            </p>
+            <code style="block">
+                java -jar sample-app.jar -P:ktor.deployment.callGroupSize=7
+            </code>
+        </chapter>
+
     </chapter>
 
 

@@ -112,9 +112,9 @@ To configure JWT-related settings, you can create a custom `jwt` group in the [a
 </tab>
 </tabs>
 
-> Note that secret information should not be stored under version control.
+> Note that secret information should not be stored in the configuration file as plain text. Consider using [environment variables](Configurations.xml#environment-variables) to specify such parameters.
 >
-{type="note"}
+{type="warning"}
 
 You can [access these settings in code](Configurations.xml#read-configuration-in-code) in the following way:
 
