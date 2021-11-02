@@ -63,7 +63,7 @@ Transform received data
 
 ```kotlin
 ```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationPlugin.kt" lines="6-10"}
+{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationPlugin.kt" lines="7-16"}
 
 Mention `onCallReceive.beforeTransform`
 
@@ -72,9 +72,9 @@ Transform sent data
 
 ```kotlin
 ```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationPlugin.kt" lines="12-20"}
+{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationPlugin.kt" lines="18-26"}
 
-Mention `onCallRespond.beforeTransform` and `onCallRespond.afterTransform`
+Mention `onCallRespond.afterTransform`
 
 ### call.afterFinish {id="call-after-finish"}
 Release resources, handle exceptions:
@@ -87,6 +87,12 @@ Release resources, handle exceptions:
 
 * CallID
 * time between `onCall` and `onCallReceive` - time until start reading the body
+
+Benchmark example:
+
+```kotlin
+```
+{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationBenchmarkPlugin.kt" lines="6-19"}
 
 You can also access attributes in a route handler.
 
@@ -115,13 +121,6 @@ val pluginSecond = ServerPlugin.createApplicationPlugin("Second") {
 ```
 
 
-## Handle application shutdown {id="handle-shutdown"}
-
-```kotlin
-```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt" lines="17-19"}
-
-
 ## Provide plugin configuration {id="plugin-configuration"}
 You can do it if you define a configuration class. It can be any class with no actual restrictions, let's say you need a couple of params and a method:
 
@@ -140,6 +139,13 @@ Install and configure the plugin:
 ```kotlin
 ```
 {src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" lines="15-18"}
+
+## Handle application shutdown {id="handle-shutdown"}
+
+```kotlin
+```
+{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt" lines="17-19"}
+
 
 ## Access application settings
 ### Config

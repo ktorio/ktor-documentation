@@ -13,7 +13,6 @@ fun Application.module() {
     install(SimplePlugin)
     install(RequestLoggingPlugin)
     install(DataTransformationPlugin)
-//    install(ContentNegotiation)
     install(CustomHeaderPlugin) {
         headerName = "X-Custom-Header"
         headerValue = "Hello, world!"
@@ -30,7 +29,7 @@ fun Application.module() {
 
         post("/receive") {
             val data = call.receive<Int>()
-//            call.respond(data)
+            call.respond(data)
         }
     }
 }

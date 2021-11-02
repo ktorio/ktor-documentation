@@ -5,7 +5,7 @@ import io.ktor.util.*
 
 val DataTransformationBenchmarkPlugin = createApplicationPlugin(name = "DataTransformationBenchmarkPlugin") {
     val benchmarkKey = AttributeKey<Long>("BenchmarkKey")
-    onCall { call ->
+    onCallReceive { call ->
         val startTime = System.currentTimeMillis()
         call.attributes.put(benchmarkKey, startTime)
     }
@@ -14,6 +14,6 @@ val DataTransformationBenchmarkPlugin = createApplicationPlugin(name = "DataTran
         val startTime = call.attributes[benchmarkKey]
         val endTime = System.currentTimeMillis()
         val diff = endTime - startTime
-        println(diff)
+        println("Transformation time (ms): $diff")
     }
 }
