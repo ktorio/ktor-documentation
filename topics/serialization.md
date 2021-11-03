@@ -14,7 +14,7 @@ Required dependencies: <code>io.ktor:%artifact_name%</code>
 
 The [ContentNegotiation](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-content-negotiation/index.html) plugin serves two primary purposes:
 * Negotiating media types between the client and server. For this, it uses the `Accept` and `Content-Type` headers.
-* Serializing/deserializing the content in the specific format. Ktor supports the following formats out-of-the-box: JSON, XML, and CBOR.
+* Serializing/deserializing the content in a specific format. Ktor supports the following formats out-of-the-box: JSON, XML, and CBOR.
 
 
 ## Add dependencies {id="add_dependencies"}
