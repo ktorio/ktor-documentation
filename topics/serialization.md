@@ -64,7 +64,7 @@ To serialize/deserialize XML, add the `ktor-serialization-kotlinx-xml` in the bu
 
 ### CBOR {id="add_cbor_dependency"}
 
-To serialize/deserialize XML, add the `ktor-serialization-kotlinx-cbor` in the build script:
+To serialize/deserialize CBOR, add the `ktor-serialization-kotlinx-cbor` in the build script:
 <var name="artifact_name" value="ktor-serialization-kotlinx-cbor"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 

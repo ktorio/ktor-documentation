@@ -64,7 +64,7 @@ The `form` authentication provider exposes its settings via the [FormAuthenticat
 
 ```kotlin
 ```
-{src="snippets/auth-form/src/main/kotlin/com/example/Application.kt" lines="9-20"}
+{src="snippets/auth-form/src/main/kotlin/com/example/Application.kt" lines="9-21"}
 
 The `validate` function checks `UserPasswordCredential` and returns a `UserIdPrincipal` in a case of successful authentication or `null` if authentication fails.
 
