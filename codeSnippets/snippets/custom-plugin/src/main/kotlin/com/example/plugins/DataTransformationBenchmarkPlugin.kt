@@ -4,16 +4,15 @@ import io.ktor.server.application.plugins.api.*
 import io.ktor.util.*
 
 val DataTransformationBenchmarkPlugin = createApplicationPlugin(name = "DataTransformationBenchmarkPlugin") {
-    val benchmarkKey = AttributeKey<Long>("BenchmarkKey")
-    onCallReceive { call ->
-        val startTime = System.currentTimeMillis()
-        call.attributes.put(benchmarkKey, startTime)
+    val onCallTimeKey = AttributeKey<Long>("onCallTimeKey")
+    onCall { call ->
+        val onCallTime = System.currentTimeMillis()
+        call.attributes.put(onCallTimeKey, onCallTime)
     }
 
-    onCallRespond { call ->
-        val startTime = call.attributes[benchmarkKey]
-        val endTime = System.currentTimeMillis()
-        val diff = endTime - startTime
-        println("Transformation time (ms): $diff")
+    onCallReceive { call ->
+        val onCallTime = call.attributes[onCallTimeKey]
+        val onCallReceiveTime = System.currentTimeMillis()
+        println("Read body delay (ms): ${onCallReceiveTime - onCallTime}")
     }
 }
