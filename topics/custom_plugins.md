@@ -21,6 +21,7 @@ In this section, we'll demonstrate how to create and install your first plugin. 
    {src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/SimplePlugin.kt" lines="3-7"}
    
    This function returns the `ApplicationPlugin` instance that will be used in the next step to install a plugin.
+   > There is also the `createRouteScopedPlugin` function allowing you to create plugins that can be [installed to a specific route](Plugins.md#install-route).
 2. To [install a plugin](Plugins.md#install), pass the created `ApplicationPlugin` instance to the `install` function in the application's initialization code:
    ```kotlin
    ```
