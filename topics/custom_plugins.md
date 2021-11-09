@@ -25,7 +25,7 @@ In this section, we'll demonstrate how to create and install your first plugin. 
    ```kotlin
    ```
    {src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" lines="11-12,32"}
-3. Finally, [run](running.md) you application to see the plugin's greeting in the console output:
+3. Finally, [run](running.md) your application to see the plugin's greeting in the console output:
    ```Bash
    2021-10-14 14:54:08.269 [main] INFO  Application - Autoreload is disabled because the development mode is off.
    SimplePlugin is installed!
@@ -47,7 +47,7 @@ In your custom plugin, you can [handle requests](requests.md) and [responses](re
 
 ### onCall {id="on-call"}
 
-The `onCall` handler accepts the `ApplicationCall` as a lambda argument. This allows you to access to request/response information and modify response parameters (for instance, [append custom headers](#custom-header)). If you need to transform a request/response body, use [onCallReceive](#on-call-receive)/[onCallRespond](#on-call-respond).
+The `onCall` handler accepts the `ApplicationCall` as a lambda argument. This allows you to access request/response information and modify response parameters (for instance, [append custom headers](#custom-header)). If you need to transform a request/response body, use [onCallReceive](#on-call-receive)/[onCallRespond](#on-call-respond).
 
 #### Example 1: Request logging {id="request-logging"}
 
@@ -140,138 +140,149 @@ You can find the full example here: [RequestLoggingPlugin.kt](https://github.com
 
 ### Share call state {id="call-state"}
 
-* CallID
-* time between `onCall` and `onCallReceive` - time until start reading the body
-
-Benchmark example:
+Custom plugins allow you to share any value related to a call, so you can access this value inside any handler processing this call. This value is stored as an attribute with a unique key in the `call.attributes` collection. The example below demonstrates how use attributes to calculate a time between a receiving a requests and starting reading a body:
 
 ```kotlin
 ```
 {src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationBenchmarkPlugin.kt" lines="6-18"}
 
-
-Result:
+If you make a `POST` request, the plugin prints a delay in a console:
 
 ```Bash
 Request URL: http://localhost:8080/transform-data
 Read body delay (ms): 52
 ```
 
-You can also access attributes in a route handler.
+You can find the full example here: [DataTransformationBenchmarkPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/main/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationBenchmarkPlugin.kt).
+
+> You can also access call attributes in a [route handler](requests.md#request_information).
 
 
 ## Handle calls before/after other plugins
 
-You can tell that you need to execute some specific handlers of your plugin strictly before/after same handlers of some other plugin have already been executed. There are methods:
+If you need to execute some specific handlers of 
+
+You can tell that you need to execute some specific handlers of your plugin strictly before/after the same handlers of other plugin, use the `beforePlugins`/`afterPlugins` functions, respectively. The example below shows how to execute the `onCall` handler of `SecondPlugin` after the same handler of `FirstPlugin`:
 
 ```kotlin
-// Some key for the first plugin:
 val someKey = AttributeKey<String>("SomeKey")
-val pluginFirst = ServerPlugin.createApplicationPlugin("First") {
-   onCall { call ->
-      call.attributes.put(someKey, "value") // passing data to pluginSecond
-      println("first plugin onCall (saved value)")
-   }
+val FirstPlugin = createApplicationPlugin("firstPlugin") {
+    onCall { call ->
+        call.attributes.put(someKey, "value")
+        println("secondPlugin onCall, data = value")
+    }
 }
-val pluginSecond = ServerPlugin.createApplicationPlugin("Second") {
-   afterPlugins(pluginFirst) { // everything inside this block will be executed as intended but strictly before same handlers of pluginFirst were already executed:
-      onCall { call ->
-         val data = call.attributes[someKey]
-         println("second plugin onCall, data = $data")
-      }
-   }
-}
-```
-
-
-## Provide plugin configuration {id="plugin-configuration"}
-You can do it if you define a configuration class. It can be any class with no actual restrictions, let's say you need a couple of params and a method:
-
-```kotlin
-```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt" lines="16-19"}
-
-Now, in order to make this config working with your plugin, you should provide a lambda that creates a new instance of `PluginConfiguration`:
-
-```kotlin
-```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt" lines="5-14"}
-
-Install and configure the plugin:
-
-```kotlin
-```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" lines="15-18"}
-
-## Handle application shutdown {id="handle-shutdown"}
-
-```kotlin
-```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt" lines="17-19"}
-
-
-## Access application settings
-### Config
-
-You can access a configuration of your server (`ApplicationConfig`) via a field `configuration` of `ApplicationPlugin`. You can also access  `ApplicationConfig.port` and `ApplicationConfig.host` from there:
-```kotlin
-val MyPlugin = ServerPlugin.createApplicationPlugin(name = "MyPlugin") {
-   val host = configuration.host
-   val port = configuration.port
-   println("Listening on $host:$port")
-}
-```
-
-### Environment
-You can also access `ApplicationEnvironment` via `environment` field the same way as you did with `configuration`. For example, it can be useful to get a `log` subfield (the global instance of the logger associated with the current application).
-```kotlin
-val MyPlugin = createPlugin("Plugin") {
-   val isDevMode = environment.developementMode
-   onCall { call ->
-        if (isDevMode) {
-            println("handling request ${call.request.uri}")
+val SecondPlugin = createApplicationPlugin("secondPlugin") {
+    afterPlugins(FirstPlugin) {
+        onCall { call ->
+            val data = call.attributes[someKey]
+            println("secondPlugin onCall, data = $data")
         }
     }
 }
 ```
 
 
+## Provide plugin configuration {id="plugin-configuration"}
+
+The [Custom header](#custom-header) example demonstrates how to create a plugin that appends a predefined custom header to each response. Let's make this plugin more useful and provide a configuration for passing the required custom header name/value. First, you need to define a configuration class:
+
+```kotlin
+```
+{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt" lines="16-19"}
+
+To use this configuration in a plugin, pass the class instance to `createApplicationPlugin` as the `createConfiguration` lambda parameter:
+
+```kotlin
+```
+{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt" lines="5-14"}
+
+Finally, you can install and configure a plugin as follows:
+
+```kotlin
+```
+{src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" lines="15-18"}
+
+You can find the full example here: [CustomHeaderPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/main/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt).
+
+## Handle application shutdown {id="handle-shutdown"}
+
+To release resources and handle application shutdown, use the `applicationShutdownHook` handler. The code snippet below prints a message when a server is stopped:
+
+```kotlin
+```
+{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt" lines="17-19"}
+
+You can find the full example here: [RequestLoggingPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/main/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt).
 
 
-## Miscellaneous
+## Access application settings {id="app-settings"}
+### Configuration {id="config"}
+
+You can access your server configuration using the `applicationConfig` property, which returns the [ApplicationConfig](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.config/-application-config/index.html) instance. The example below shows how to get a host and port used by the server:
+
+```kotlin
+val SimplePlugin = createApplicationPlugin(name = "SimplePlugin") {
+   val host = applicationConfig?.host
+   val port = applicationConfig?.port
+   println("Listening on $host:$port")
+}
+```
+
+### Environment {id="environment"}
+
+To access the application's environment, use the `environment` property. For example, this property allows you to determine whether the [development mode](development_mode.xml) is enabled:
+
+```kotlin
+val SimplePlugin = createApplicationPlugin(name = "SimplePlugin") {
+   val isDevMode = environment?.developmentMode
+   onCall { call ->
+      if (isDevMode == true) {
+         println("handling request ${call.request.uri}")
+      }
+   }
+}
+```
+
+
+
+
+## Miscellaneous {id="misc"}
 
 ### Store plugin state {id="plugin-state"}
-This can be done by just capturing any value from handler lambda. But <b>please note that it is recommended to make all state values thread safe</b> by using concurrent data structures and atomic data types
+
+To store a plugin's state, you can capture any value from handler lambda. Note that it is recommended to make all state values thread safe by using concurrent data structures and atomic data types:
+
 ```kotlin
-val Plugin = createPlugin("Plugin") {
-    val activeRequests: AtomicInt = atomic { 0 }
-    
-    onCall {
-        activeRequests.incrementAndGet()
-    }
-    onCallRespond {
-        activeRequests.decrementAndGet()
-    }
+val SimplePlugin = createApplicationPlugin(name = "SimplePlugin") {
+   val activeRequests = AtomicInteger(0)
+   onCall {
+      activeRequests.incrementAndGet()
+   }
+   onCallRespond {
+      activeRequests.decrementAndGet()
+   }
 }
 ```
 
-### Databases
-Can I use Ktor Plugin with suspendable databases?
-Yes! All the handlers are `suspend` functions, so there is no problem with calling any suspendable database operations inside your plugin.
-Just call database from any place inside your plugin. But don't forget to deallocate resources (see [](#call-after-finish) and [](#handle-shutdown) sections).
+### Databases {id="databases"}
 
-Can I use Ktor Plugin with blocking databases?
-As Ktor uses suspend functions and coroutines everywhere, calling a blocking database directly can be dangerous because a coroutine that performs a blocking call can be blocked and then suspended forever.
-In order to prevent this you need to create a separate [CoroutineContext](https://kotlinlang.org/docs/coroutine-context-and-dispatchers.html):
-```kotlin
-val databaseContext = newSingleThreadContext("DatabaseThread")
-```
-Then, once your context is created you should wrap each call to your database into `withContext` call:
 
-```kotlin
-onCall {
-    withContext(databaseContext) {
-        database.access(...) // some call to your database
-    }
-}
-```
+* Can I use a custom plugin with suspendable databases?
+   
+   Yes. All the handlers are suspending functions, so you can perform any suspendable database operations inside your plugin. But don't forget to deallocate resources for specific calls ([](#call-after-finish)) or handle a server shutdown ([](#handle-shutdown)).
+
+* How to use a custom plugin with blocking databases?
+   
+   As Ktor uses coroutines and suspending functions, making a request to a blocking database can be dangerous because a coroutine that performs a blocking call can be blocked and then suspended forever. To prevent this, you need to create a separate [CoroutineContext](https://kotlinlang.org/docs/coroutine-context-and-dispatchers.html):
+   ```kotlin
+   val databaseContext = newSingleThreadContext("DatabaseThread")
+   ```
+   Then, once your context is created, wrap each call to your database into `withContext` call:
+   ```kotlin
+   onCall {
+       withContext(databaseContext) {
+           database.access(...) // some call to your database
+       }
+   }
+   ```
