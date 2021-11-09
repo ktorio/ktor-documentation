@@ -41,8 +41,8 @@ You can find the full example here: [SimplePlugin.kt](https://github.com/ktorio/
 In your custom plugin, you can [handle requests](requests.md) and [responses](responses.md) by using a set of handlers that provide access to different stages of a call:
 
 * [onCall](#on-call) allows you to get request/response information, modify response parameters (for instance, append custom headers), and so on.
-* [onCallReceive](#on-call-receive) allows you to obtain and transform data received from a client.
-* [onCallRespond](#on-call-respond) allows you to transform data before sending it to a client.
+* [onCallReceive](#on-call-receive) allows you to obtain and transform data received from the client.
+* [onCallRespond](#on-call-respond) allows you to transform data before sending it to the client.
 * Each of the handlers above provides the ability to use [call.afterFinish](#call-after-finish).
 * If required, you can share a [call state](#call-state) between different handlers using `call.attributes`.
 
@@ -84,7 +84,7 @@ Note that a custom header name and value in this plugin are hardcoded. You can m
 
 ### onCallReceive {id="on-call-receive"}
 
-The `onCallReceive` handler provides the `transformBody` function and allows you to transform data received from a client. Suppose a client makes a sample `POST` request that contains `10` as `text/plain` in its body:
+The `onCallReceive` handler provides the `transformBody` function and allows you to transform data received from the client. Suppose the client makes a sample `POST` request that contains `10` as `text/plain` in its body:
 
 ```HTTP
 ```
@@ -113,13 +113,13 @@ You can find the full example here: [DataTransformationPlugin.kt](https://github
 
 ### onCallRespond {id="on-call-respond"}
 
-`onCallRespond` also provides the `transformBody` handler and allows you to transform data to be sent to a client. This handler is executed when the `call.respond` function is invoked in a route handler. Let's continue with the example from [onCallReceive](#on-call-receive) where an integer value is received in a `POST` request handler:
+`onCallRespond` also provides the `transformBody` handler and allows you to transform data to be sent to the client. This handler is executed when the `call.respond` function is invoked in a route handler. Let's continue with the example from [onCallReceive](#on-call-receive) where an integer value is received in a `POST` request handler:
 
 ```kotlin
 ```
 {src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" lines="27-30"}
 
-Calling `call.respond` invokes the `onCallRespond`, which is in turn allows you to transform data to be sent to a client. For example, the code snippet below shows how to add `1` to the initial value:
+Calling `call.respond` invokes the `onCallRespond`, which is in turn allows you to transform data to be sent to the client. For example, the code snippet below shows how to add `1` to the initial value:
 
 ```kotlin
 ```
@@ -141,7 +141,7 @@ You can find the full example here: [RequestLoggingPlugin.kt](https://github.com
 
 ### Share call state {id="call-state"}
 
-Custom plugins allow you to share any value related to a call, so you can access this value inside any handler processing this call. This value is stored as an attribute with a unique key in the `call.attributes` collection. The example below demonstrates how use attributes to calculate a time between a receiving a requests and starting reading a body:
+Custom plugins allow you to share any value related to a call, so you can access this value inside any handler processing this call. This value is stored as an attribute with a unique key in the `call.attributes` collection. The example below demonstrates how use attributes to calculate a time between receiving a request and reading a body:
 
 ```kotlin
 ```
