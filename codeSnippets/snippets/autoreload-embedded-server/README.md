@@ -1,6 +1,6 @@
 # Auto-reload - embeddedServer
 
-A sample Ktor project showing [Auto-reload](https://ktor.io/docs/auto-reload.html) functionality. Auto-reload works only in a development mode, which is enabled in [build.gradle](build.gradle) using the `io.ktor.development` system property.
+A sample Ktor project showing [Auto-reload](https://ktor.io/docs/auto-reload.html) functionality. Auto-reload works only in a development mode, which is enabled in [build.gradle](build.gradle.kts) using the `io.ktor.development` system property.
 
 ## Running
 

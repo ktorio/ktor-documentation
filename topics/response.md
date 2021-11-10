@@ -26,7 +26,7 @@ Similarly, you can get a body as [ByteArray](https://kotlinlang.org/api/latest/j
 A [runnable example](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-download-file) below shows how to get a response as a byte array and save it to a file:
 ```kotlin
 ```
-{src="snippets/client-download-file/src/Downloader.kt" lines="12-24"}
+{src="snippets/client-download-file/src/main/kotlin/com/example/Downloader.kt" lines="12-24"}
 
 > The [onDownload](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.features/on-download.html) extension function in the example above is used to display download progress.
 

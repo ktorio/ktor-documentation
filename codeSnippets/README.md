@@ -30,11 +30,11 @@ To display a specific source file in a Markdown topic, use the `src` attribute a
 ````
 ```kotlin
 ```
-{src="/snippets/autohead/src/AutoHead.kt"}
+{src="snippets/autohead/src/main/kotlin/com/example/Application.kt"}
 ````
 If you want to display only a specific function from this source file, use the `include-symbol` attribute:
 ````
 ```kotlin
 ```
-{src="/snippets/autohead/src/AutoHead.kt" include-symbol="main"}
+{src="snippets/autohead/src/main/kotlin/com/example/Application.kt" include-symbol="main"}
 ````

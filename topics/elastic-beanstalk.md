@@ -54,12 +54,12 @@ First, you need to specify a port used to listen for incoming requests. Elastic 
 This tutorial shows how to deploy the application to Elastic Beanstalk using a [fat JAR](fatjar.md). To generate fat JARs, you need to apply the Shadow plugin. Open the `build.gradle` file and add the plugin to the `plugins` block:
 ```groovy
 ```
-{src="snippets/aws-elastic-beanstalk/build.gradle" lines="1,2,5"}
+{src="snippets/aws-elastic-beanstalk/build.gradle.kts" lines="5,8-9"}
 
 Then, add the `shadowJar` task:
 ```groovy
 ```
-{src="snippets/aws-elastic-beanstalk/build.gradle" lines="25-29"}
+{src="snippets/aws-elastic-beanstalk/build.gradle.kts" lines="31-37"}
 
 
 ## Build a Fat JAR {id="build"}
