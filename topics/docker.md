@@ -31,7 +31,7 @@ can be accomplished using the [assembly](http://maven.apache.org/guides/mini/gui
 
 ```groovy
 ```
-{src="snippets/docker/build.gradle"}
+{src="snippets/docker/build.gradle.kts"}
 
 </tab>
 

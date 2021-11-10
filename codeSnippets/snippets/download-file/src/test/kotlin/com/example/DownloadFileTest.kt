@@ -1,8 +1,8 @@
 package com.example
 
-import org.junit.Test
-import io.ktor.server.testing.*
 import io.ktor.http.*
+import io.ktor.server.testing.*
+import org.junit.*
 import org.junit.Assert.*
 
 class DownloadFileTest {
@@ -16,8 +16,8 @@ class DownloadFileTest {
 
             assertPNG(content)
             assertEquals(
-                    "attachment; filename=ktor_logo.png",
-                    response.headers[HttpHeaders.ContentDisposition]
+                "attachment; filename=ktor_logo.png",
+                response.headers[HttpHeaders.ContentDisposition]
             )
         }
     }
@@ -28,6 +28,4 @@ class DownloadFileTest {
         assertEquals((0x4E).toByte(), array[2])
         assertEquals((0x47).toByte(), array[3])
     }
-
-
 }
