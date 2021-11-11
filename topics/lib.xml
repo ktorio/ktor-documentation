@@ -43,14 +43,14 @@
 
     <chunk id="add_ktor_artifact">
         <tabs group="languages">
-            <tab title="Gradle (Groovy)" group-key="groovy">
-                <code style="block" lang="Groovy" interpolate-variables="true">
-                    implementation "io.ktor:%artifact_name%:$ktor_version"
-                </code>
-            </tab>
             <tab title="Gradle (Kotlin)" group-key="kotlin">
                 <code style="block" lang="Kotlin" interpolate-variables="true">
                     implementation("io.ktor:%artifact_name%:$ktor_version")
+                </code>
+            </tab>
+            <tab title="Gradle (Groovy)" group-key="groovy">
+                <code style="block" lang="Groovy" interpolate-variables="true">
+                    implementation "io.ktor:%artifact_name%:$ktor_version"
                 </code>
             </tab>
             <tab title="Maven" group-key="maven">
@@ -69,14 +69,14 @@
 
     <chunk id="add_ktor_artifact_testing">
         <tabs group="languages">
-            <tab title="Gradle (Groovy)" group-key="groovy">
-                <code style="block" lang="Groovy" interpolate-variables="true">
-                    testImplementation "io.ktor:%artifact_name%:$ktor_version"
-                </code>
-            </tab>
             <tab title="Gradle (Kotlin)" group-key="kotlin">
                 <code style="block" lang="Kotlin" interpolate-variables="true">
                     testImplementation("io.ktor:%artifact_name%:$ktor_version")
+                </code>
+            </tab>
+            <tab title="Gradle (Groovy)" group-key="groovy">
+                <code style="block" lang="Groovy" interpolate-variables="true">
+                    testImplementation "io.ktor:%artifact_name%:$ktor_version"
                 </code>
             </tab>
             <tab title="Maven" group-key="maven">
@@ -96,14 +96,14 @@
 
     <chunk id="add_artifact">
         <tabs group="languages">
-            <tab title="Gradle (Groovy)" group-key="groovy">
-                <code style="block" lang="Groovy" interpolate-variables="true">
-                    implementation "%group_id%:%artifact_name%:$%version%"
-                </code>
-            </tab>
             <tab title="Gradle (Kotlin)" group-key="kotlin">
                 <code style="block" lang="Kotlin" interpolate-variables="true">
                     implementation("%group_id%:%artifact_name%:$%version%")
+                </code>
+            </tab>
+            <tab title="Gradle (Groovy)" group-key="groovy">
+                <code style="block" lang="Groovy" interpolate-variables="true">
+                    implementation "%group_id%:%artifact_name%:$%version%"
                 </code>
             </tab>
             <tab title="Maven" group-key="maven">
@@ -123,14 +123,14 @@
 
     <chunk id="add_artifact_testing">
         <tabs group="languages">
-            <tab title="Gradle (Groovy)" group-key="groovy">
-                <code style="block" lang="Groovy" interpolate-variables="true">
-                    testImplementation "%group_id%:%artifact_name%:$%version%"
-                </code>
-            </tab>
             <tab title="Gradle (Kotlin)" group-key="kotlin">
                 <code style="block" lang="Kotlin" interpolate-variables="true">
                     testImplementation("%group_id%:%artifact_name%:$%version%")
+                </code>
+            </tab>
+            <tab title="Gradle (Groovy)" group-key="groovy">
+                <code style="block" lang="Groovy" interpolate-variables="true">
+                    testImplementation "%group_id%:%artifact_name%:$%version%"
                 </code>
             </tab>
             <tab title="Maven" group-key="maven">
@@ -149,20 +149,20 @@
 
     <chunk id="add_ktor_artifact_multiplatform">
         <tabs group="languages">
-            <tab title="Gradle (Groovy)" group-key="groovy">
-                <code style="block" lang="Groovy" interpolate-variables="true">
-                    %platform_name%Main {
-                        dependencies {
-                            implementation "io.ktor:%artifact_name%:$ktor_version"
-                        }
-                    }
-                </code>
-            </tab>
             <tab title="Gradle (Kotlin)" group-key="kotlin">
                 <code style="block" lang="Kotlin" interpolate-variables="true">
                     val %platform_name%Main by getting {
                         dependencies {
                             implementation("io.ktor:%artifact_name%:$ktor_version")
+                        }
+                    }
+                </code>
+            </tab>
+            <tab title="Gradle (Groovy)" group-key="groovy">
+                <code style="block" lang="Groovy" interpolate-variables="true">
+                    %platform_name%Main {
+                        dependencies {
+                            implementation "io.ktor:%artifact_name%:$ktor_version"
                         }
                     }
                 </code>

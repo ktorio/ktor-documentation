@@ -72,25 +72,31 @@ The `EngineMain.main` function is used to start a server with the selected engin
 If you need to start a server using a build system task, you need to configure the required `EngineMain` as the main class:
 
 <tabs group="languages">
-        <tab title="Gradle (Groovy)" group-key="groovy">
-            <code style="block" lang="Groovy" title="Sample">
-                mainClassName = "io.ktor.server.netty.EngineMain"
-            </code>
-        </tab>
-        <tab title="Gradle (Kotlin)" group-key="kotlin">
-            <code style="block" lang="Kotlin" title="Sample">
+<tab title="Gradle (Kotlin)" group-key="kotlin">
+
+```kotlin
     application {
         mainClassName = "io.ktor.server.netty.EngineMain"
     }
-            </code>
-        </tab>
-        <tab title="Maven" group-key="maven">
-            <code style="block" lang="XML" title="Sample">
-        &lt;properties&gt;
-            &lt;main.class&gt;io.ktor.server.netty.EngineMain&lt;/main.class&gt;
-        &lt;/properties&gt;
-            </code>
-       </tab>
+```
+
+</tab>
+<tab title="Gradle (Groovy)" group-key="groovy">
+
+```groovy
+mainClassName = "io.ktor.server.netty.EngineMain"
+```
+
+</tab>
+<tab title="Maven" group-key="maven">
+
+```xml
+<properties>
+    <main.class>io.ktor.server.netty.EngineMain</main.class>
+</properties>
+```
+
+</tab>
 </tabs>
 
 

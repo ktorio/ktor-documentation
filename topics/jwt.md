@@ -24,16 +24,16 @@ Ktor handles JWTs passed in the `Authorization` header using the `Bearer` schema
 To enable `JWT`authentication, you need to include the `ktor-server-auth` and `ktor-server-auth-jwt` artifacts in the build script:
 
 <tabs group="languages">
-    <tab title="Gradle (Groovy)" group-key="groovy">
-        <code style="block" lang="Groovy" title="Sample">
-            implementation "io.ktor:ktor-server-auth:$ktor_version"
-            implementation "io.ktor:ktor-server-auth-jwt:$ktor_version"
-        </code>
-    </tab>
     <tab title="Gradle (Kotlin)" group-key="kotlin">
         <code style="block" lang="Kotlin" title="Sample">
             implementation("io.ktor:ktor-server-auth:$ktor_version")
             implementation("io.ktor:ktor-server-auth-jwt:$ktor_version")
+        </code>
+    </tab>
+    <tab title="Gradle (Groovy)" group-key="groovy">
+        <code style="block" lang="Groovy" title="Sample">
+            implementation "io.ktor:ktor-server-auth:$ktor_version"
+            implementation "io.ktor:ktor-server-auth-jwt:$ktor_version"
         </code>
     </tab>
     <tab title="Maven" group-key="maven">

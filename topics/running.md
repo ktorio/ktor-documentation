@@ -29,19 +29,19 @@ The [example](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippet
 To run a Ktor server using Gradle/Maven without configuring the engine inside the `main` function, you need to specify the main class name in the build script as follows:
 
 <tabs group="languages">
-<tab title="Gradle (Groovy)" group-key="groovy">
-
-```groovy
-mainClassName = "io.ktor.server.netty.EngineMain"
-```
-
-</tab>
 <tab title="Gradle (Kotlin)" group-key="kotlin">
 
 ```kotlin
 application {
     mainClass.set("io.ktor.server.netty.EngineMain")
 }
+```
+
+</tab>
+<tab title="Gradle (Groovy)" group-key="groovy">
+
+```groovy
+mainClassName = "io.ktor.server.netty.EngineMain"
 ```
 
 </tab>

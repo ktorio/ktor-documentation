@@ -16,6 +16,16 @@ To build a Fat JAR, you need to configure the Shadow plugin first:
 1. Open the `build.gradle(.kts)` file and add the plugin to the `plugins` block:
    
    <tabs group="languages">
+   <tab title="Gradle (Kotlin)" group-key="kotlin">
+
+   ```kotlin
+   plugins {
+       id("com.github.johnrengelman.shadow") version "%shadow_version%"
+   }
+   ```
+   {interpolate-variables="true"}
+
+   </tab>
    <tab title="Gradle (Groovy)" group-key="groovy">
    
    ```groovy
@@ -26,40 +36,30 @@ To build a Fat JAR, you need to configure the Shadow plugin first:
    {interpolate-variables="true"}
    
    </tab>
-   <tab title="Gradle (Kotlin)" group-key="kotlin">
-
-   ```kotlin
-   plugins {
-       id("com.github.johnrengelman.shadow") version "%shadow_version%"
-   }
-   ```
-   {interpolate-variables="true"}
-   
-   </tab>
    </tabs>
 
 2. Add the `shadowJar` task:
 
    <tabs group="languages">
+   <tab title="Gradle (Kotlin)" group-key="kotlin">
+
+   ```kotlin
+   tasks {
+       shadowJar {
+           manifest {
+               attributes(Pair("Main-Class", "com.example.ApplicationKt"))
+           }
+       }
+   }
+   ```
+
+   </tab>
    <tab title="Gradle (Groovy)" group-key="groovy">
 
    ```groovy
    shadowJar {
        manifest {
            attributes 'Main-Class': 'com.example.ApplicationKt'
-       }
-   }
-   ```
-
-   </tab>
-   <tab title="Gradle (Kotlin)" group-key="kotlin">
-
-   ```kotlin
-   tasks{
-       shadowJar {
-           manifest {
-               attributes(Pair("Main-Class", "com.example.ApplicationKt"))
-           }
        }
    }
    ```
