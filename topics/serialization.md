@@ -116,7 +116,7 @@ The `gson` method also allows you to adjust serialization settings provided by [
 
 ```kotlin
 ```
-{src="snippets/gson/src/GsonApplication.kt" lines="21-26"}
+{src="snippets/gson/src/main/kotlin/com/example/GsonApplication.kt" lines="21-26"}
 
 </tab>
 <tab title="Jackson" group-key="jackson">
@@ -136,7 +136,7 @@ The `jackson` method also allows you to adjust serialization settings provided b
 
 ```kotlin
 ```
-{src="snippets/jackson/src/JacksonApplication.kt" lines="23-32"}
+{src="snippets/jackson/src/main/kotlin/com/example/JacksonApplication.kt" lines="23-32"}
 
 </tab>
 </tabs>

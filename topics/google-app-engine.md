@@ -55,7 +55,7 @@ The [Google App Engine Gradle plugin](https://github.com/GoogleCloudPlatform/app
    ```
    {src="snippets/google-appengine-standard/build.gradle.kts" lines="7,10,12"}
 
-3. Add the `appengine` block with the following settings in the `build.gradle` file:
+3. Add the `appengine` block with the following settings in the `build.gradle.kts` file:
    ```kotlin
    ```
    {src="snippets/google-appengine-standard/build.gradle.kts" lines="1,22-31"}

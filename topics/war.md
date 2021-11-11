@@ -56,11 +56,11 @@ Then, configure the URL pattern for this servlet:
 
 ## Configure Gretty {id="configure-gretty"}
 
-The [Gretty](https://plugins.gradle.org/plugin/org.gretty) plugin allows you to [run](#run) a servlet application on Jetty and Tomcat. To install this plugin, open the `build.gradle` file and add the following code to the `plugins` block:
+The [Gretty](https://plugins.gradle.org/plugin/org.gretty) plugin allows you to [run](#run) a servlet application on Jetty and Tomcat. To install this plugin, open the `build.gradle.kts` file and add the following code to the `plugins` block:
 
 ```groovy
 ```
-{src="snippets/jetty-war/build.gradle" lines="1-2,5"}
+{src="snippets/jetty-war/build.gradle.kts" lines="5,8,10"}
 
 Then, you can configure it in a `gretty` block as follows:
 
@@ -69,14 +69,14 @@ Then, you can configure it in a `gretty` block as follows:
 
 ```groovy
 ```
-{src="snippets/jetty-war/build.gradle" lines="7-10"}
+{src="snippets/jetty-war/build.gradle.kts" lines="11-14"}
 
 </tab>
 <tab title="Tomcat">
 
 ```groovy
 ```
-{src="snippets/tomcat-war/build.gradle" lines="7-11"}
+{src="snippets/tomcat-war/build.gradle.kts" lines="12-16"}
 
 </tab>
 </tabs>
@@ -87,17 +87,17 @@ Finally, configure the `run` task:
 
 ```groovy
 ```
-{src="snippets/jetty-war/build.gradle" lines="24-28"}
+{src="snippets/jetty-war/build.gradle.kts" lines="29-33"}
 
 
 
 ## Configure War {id="configure-war"}
 
-The War plugin allows you to [generate](#generate-war) WAR archives. You can install it by adding the following line to the `plugins` block in your `build.gradle` file:
+The War plugin allows you to [generate](#generate-war) WAR archives. You can install it by adding the following line to the `plugins` block in your `build.gradle.kts` file:
 
 ```groovy
 ```
-{src="snippets/jetty-war/build.gradle" lines="1,4-5"}
+{src="snippets/jetty-war/build.gradle.kts" lines="5,9-10"}
 
 
 
