@@ -36,10 +36,10 @@ To open a sample application, follow the steps below:
 
 ## Prepare an application {id="prepare-app"}
 ### Step 1: Apply the Shadow plugin {id="configure-shadow-plugin"}
-This tutorial shows how to deploy the application to Google App Engine using a [fat JAR](fatjar.md). To generate fat JARs, you need to apply the Shadow plugin. Open the `build.gradle` file and add the plugin to the `plugins` block:
-```groovy
+This tutorial shows how to deploy the application to Google App Engine using a [fat JAR](fatjar.md). To generate fat JARs, you need to apply the Shadow plugin. Open the `build.gradle.kts` file and add the plugin to the `plugins` block:
+```kotlin
 ```
-{src="snippets/google-appengine-standard/build.gradle" lines="1,3,6"}
+{src="snippets/google-appengine-standard/build.gradle.kts" lines="7,11-12"}
 
 
 ### Step 2: Configure the App Engine plugin {id="configure-app-engine-plugin"}
@@ -48,17 +48,17 @@ The [Google App Engine Gradle plugin](https://github.com/GoogleCloudPlatform/app
 1. Open the `settings.gradle` file and insert the following code to reference a plugin from the Central Maven repository:
    ```groovy
    ```
-   {src="settings.gradle" lines="1-13"}
+   {src="settings.gradle.kts" lines="1-13"}
 
-3. Open `build.gradle` and apply the plugin in the `plugins` block:
-   ```groovy
+2. Open `build.gradle.kts` and apply the plugin in the `plugins` block:
+   ```kotlin
    ```
-   {src="snippets/google-appengine-standard/build.gradle" lines="1-2,6"}
+   {src="snippets/google-appengine-standard/build.gradle.kts" lines="7,10,12"}
 
-4. Add the `appengine` block with the following settings in the `build.gradle` file:
-   ```groovy
+3. Add the `appengine` block with the following settings in the `build.gradle` file:
+   ```kotlin
    ```
-   {src="snippets/google-appengine-standard/build.gradle" lines="16-24"}
+   {src="snippets/google-appengine-standard/build.gradle.kts" lines="1,22-31"}
 
 
 ### Step 3: Configure App Engine settings {id="configure-app-engine-settings"}

@@ -29,7 +29,7 @@ can be accomplished using the [assembly](http://maven.apache.org/guides/mini/gui
 
 <tab title="Gradle">
 
-```groovy
+```kotlin
 ```
 {src="snippets/docker/build.gradle.kts"}
 

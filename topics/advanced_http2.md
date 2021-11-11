@@ -56,15 +56,15 @@ The [http2-jetty](https://github.com/ktorio/ktor-documentation/tree/main/codeSni
 The easiest way to enable HTTP/2 in Netty is to use OpenSSL bindings ([tcnative netty port](https://netty.io/wiki/forked-tomcat-native.html)). 
 Add an API jar to dependencies:
 
-```groovy
+```kotlin
 ```
-{src="snippets/http2-netty/build.gradle" lines="39"}
+{src="snippets/http2-netty/build.gradle.kts" lines="34"}
 
 and then  native implementation (statically linked BoringSSL library, a fork of OpenSSL):
 
-```groovy
+```kotlin
 ```
-{src="snippets/http2-netty/build.gradle" lines="40-41"}
+{src="snippets/http2-netty/build.gradle.kts" lines="35-36"}
 
 where `tc.native.classifier` should be one of the following: `linux-x86_64`, `osx-x86_64` or `windows-x86_64`. The [http2-netty](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/http2-netty) runnable example demonstrates how to enable HTTP/2 support for Netty.
 

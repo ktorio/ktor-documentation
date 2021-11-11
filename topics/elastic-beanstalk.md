@@ -57,7 +57,7 @@ This tutorial shows how to deploy the application to Elastic Beanstalk using a [
 {src="snippets/aws-elastic-beanstalk/build.gradle.kts" lines="5,8-9"}
 
 Then, add the `shadowJar` task:
-```groovy
+```kotlin
 ```
 {src="snippets/aws-elastic-beanstalk/build.gradle.kts" lines="31-37"}
 
