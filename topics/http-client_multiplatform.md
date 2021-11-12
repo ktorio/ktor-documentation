@@ -10,7 +10,7 @@ The [Ktor HTTP client](client.md) can be used in [multiplatform projects](https:
 * JVM
 * [Android](https://kotlinlang.org/docs/android-overview.html)
 * [JavaScript](https://kotlinlang.org/docs/js-overview.html)
-* [Native](https://kotlinlang.org/docs/native-overview.html) (`iOS` and desktop, including `linuxX64`, `macosX64`, `mingwX64`)
+* [Native](https://kotlinlang.org/docs/native-overview.html)
 
 ## Add dependencies {id="add-dependencies"}
 To use the Ktor HTTP client in your project, you need to add at least two dependencies: a client dependency and an [engine](http-client_engines.md) dependency. For a multiplatform project, you need to add these dependencies as follows:
