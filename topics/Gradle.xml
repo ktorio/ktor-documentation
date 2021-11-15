@@ -3,425 +3,251 @@
 
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       title="Adding Ktor to an existing Gradle project"
+       title="Adding Ktor to a Gradle/Maven project"
        id="Gradle">
 
-    <microformat>
-        <p>
-            <control>Final project</control>: <a href="https://github.com/ktorio/ktor-gradle-sample/tree/main">ktor-gradle-sample</a>
-        </p>
-    </microformat>
-
     <p>
-        In this tutorial, we'll show you how to integrate Ktor into the existing Gradle project.
+        In this topic, we'll show you how to integrate Ktor into the existing Gradle/Maven project.
     </p>
 
-    <chapter title="Prerequisites" id="prerequisites">
+    <chapter title="Configure the repositories" id="repositories">
         <p>
-            Before starting this tutorial, do the following:
+            Before adding Ktor dependencies, you need to configure the repositories for this project:
         </p>
         <list>
             <li>
                 <p>
-                    <a href="https://www.jetbrains.com/help/idea/installation-guide.html">Install IntelliJ IDEA</a>.
+                    <control>Production</control>
                 </p>
-            </li>
-            <li>
                 <p>
-                    Make sure the <control>Gradle</control> and <control>Gradle Extension</control> plugins are <a href="https://www.jetbrains.com/help/idea/managing-plugins.html#open-plugin-settings">installed and enabled</a>.
-                </p>
-            </li>
-        </list>
-    </chapter>
-
-
-    <chapter title="Create a new Gradle project" id="create-new-gradle-project">
-        <p>
-            To create a new Gradle project,
-            <a href="https://www.jetbrains.com/help/idea/run-for-the-first-time.html">open IntelliJ IDEA</a>, and follow
-            the steps below:
-        </p>
-        <procedure hide-from-structure="true">
-            <step>
-                <include src="lib.xml" include-id="new_project_idea"/>
-            </step>
-            <step>
-                <p>
-                    In the <control>New Project</control> wizard, choose <control>Gradle</control> from the list on the left and specify the following settings:
-                </p>
-                <img src="ktor_idea_new_gradle_project_settings.png" alt="Gradle Project Settings" width="628"/>
-                <list>
-                    <li>
-                        <p>
-                            Choose the <control>Project SDK</control> from the list.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            (Optional) Enable the <control>Kotlin DSL build script</control> option to use Kotlin instead of Groovy DSL.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Select <control>Kotlin/JVM</control> in the <control>Additional Libraries and Frameworks</control> area.
-                        </p>
-                    </li>
-                </list>
-                <p>
-                    Click <control>Next</control>.
-                </p>
-            </step>
-            <step>
-                <p>
-                    On the next wizard page, specify a project's name and location.
-                </p>
-                <img src="ktor_idea_new_gradle_project_name.png" alt="Gradle Project Name" width="628"/>
-                <p>
-                    Click <control>Finish</control> and wait until IntelliJ IDEA creates and builds a project.
-                </p>
-            </step>
-        </procedure>
-    </chapter>
-
-
-    <chapter title="Add Ktor dependencies" id="add-ktor-dependencies">
-        <p>
-            After <a anchor="create-new-gradle-project">creating an empty project</a>, we are ready to examine a Gradle build script and add Ktor dependencies to it:
-        </p>
-        <procedure hide-from-structure="true">
-            <step>
-                <p>
-                    Open the <path>build.gradle</path> or <path>build.gradle.kts</path> file. It should look as follows:
+                    Production releases of Ktor are available in the Maven central repository.
+                    You can declare this repository in <path>build.gradle(.kts)</path> as follows:
                 </p>
                 <tabs group="languages">
                     <tab title="Gradle (Kotlin)" group-key="kotlin">
                         <code style="block" lang="Kotlin" interpolate-variables="true">
-                            plugins {
-                                kotlin("jvm") version "%kotlin_version%"
-                            }
-
-                            group = "org.example"
-                            version = "1.0-SNAPSHOT"
-
                             repositories {
                                 mavenCentral()
-                            }
-
-                            dependencies {
-                                implementation(kotlin("stdlib"))
                             }
                         </code>
                     </tab>
                     <tab title="Gradle (Groovy)" group-key="groovy">
                         <code style="block" lang="Groovy" interpolate-variables="true">
-                            plugins {
-                                id 'org.jetbrains.kotlin.jvm' version '%kotlin_version%'
-                            }
-
-                            group 'org.example'
-                            version '1.0-SNAPSHOT'
-
                             repositories {
                                 mavenCentral()
                             }
-
-                            dependencies {
-                                implementation "org.jetbrains.kotlin:kotlin-stdlib"
-                            }
                         </code>
                     </tab>
                 </tabs>
-                <p>
-                    Besides other settings, this build script declares the Maven Central repository.
-                    Since Ktor dependencies are stored in Maven Central, we don't need to change anything here.
-                </p>
-            </step>
-            <step>
-                <p>
-                    To create a simple Ktor application, we need to add at least the following dependencies:
-                </p>
-                <list>
-                    <li>
-                        <p>
-                            <code>ktor-server-core</code>: contains core Ktor functionality.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            A dependency for an <a href="Engines.md">engine</a> (for example, <code>ktor-server-netty</code>).
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Logback artifacts for <a href="logging.md">logging</a>.
-                        </p>
-                    </li>
-                </list>
-                <p>
-                    The <code>dependencies</code> block might look as follows:
-                </p>
-                <tabs group="languages">
-                    <tab title="Gradle (Kotlin)" group-key="kotlin">
-                        <code style="block" lang="Kotlin" interpolate-variables="true">
-                            dependencies {
-                                implementation("io.ktor:ktor-server-core:%ktor_version%")
-                                implementation("io.ktor:ktor-server-netty:%ktor_version%")
-                                implementation("ch.qos.logback:logback-classic:%logback_version%")
-                            }
-                        </code>
-                    </tab>
-                    <tab title="Gradle (Groovy)" group-key="groovy">
-                        <code style="block" lang="Groovy" interpolate-variables="true">
-                            dependencies {
-                                implementation "io.ktor:ktor-server-core:%ktor_version%"
-                                implementation "io.ktor:ktor-server-netty:%ktor_version%"
-                                implementation "ch.qos.logback:logback-classic:%logback_version%"
-                            }
-                        </code>
-                    </tab>
-                </tabs>
-                <p>
-                    Note that other engines and <a href="Plugins.md">plugins</a> that extend Ktor functionality might required additional dependencies.
-                    You can learn more from corresponding topics.
-                </p>
-            </step>
-        </procedure>
-    </chapter>
-
-
-
-    <chapter title="Create a server" id="create-server">
-        <p>
-            Now we a ready to add some code for creating a Ktor server and running our application:
-        </p>
-        <list type="decimal">
-            <li>
-                <p>
-                    Create a <path>com.example</path> package within the <path>src/main/kotlin</path> folder.
-                </p>
+                <note>
+                    <p>
+                        You don't need to add the Maven central repository in the <path>pom.xml</path> file since your project inherits the central repository from
+                        <a href="https://maven.apache.org/guides/introduction/introduction-to-the-pom.html#super-pom">Super POM</a>.
+                    </p>
+                </note>
             </li>
             <li>
                 <p>
-                    In the <path>com.example</path> package, add an empty <path>Application.kt</path> file.
+                    <control>Early Access Program (EAP)</control>
                 </p>
-            </li>
-        </list>
-        <p>
-            Since Ktor supports <a href="create_server.xml">two approaches for creating a server</a>, you can choose one of the following:
-        </p>
-
-
-        <procedure title="Create a server using embeddedServer" id="create-embedded-server">
-            <step>
                 <p>
-                    Add the following code to <path>Application.kt</path> to use the <code>embeddedServer</code> function for starting a Ktor server:
-                </p>
-                <code style="block"
-                      lang="kotlin"
-                      src="snippets/embedded-server/src/main/kotlin/com/example/Application.kt">
-                </code>
-            </step>
-        </procedure>
-
-        <procedure title="Create a server using EngineMain" id="create-engine-main">
-            <step>
-                <p>
-                    Add the following code to <path>Application.kt</path> to use <code>EngineMain</code> for starting a Ktor server:
-                </p>
-                <code style="block"
-                      lang="kotlin"
-                      src="snippets/engine-main/src/main/kotlin/com/example/Application.kt">
-                </code>
-                <p>
-                    The <code>Application.module</code> function is a <a href="Modules.md">module</a> loaded by the server.
-                    Modules to load should be specified in the <path>application.conf</path> file, which will be created in the next step.
-                </p>
-            </step>
-            <step>
-                <p>
-                    Create the <path>application.conf</path> file in the <path>src/main/resources</path> folder and copy the following configuration:
-                </p>
-                <code style="block"
-                      src="snippets/engine-main/src/main/resources/application.conf">
-                </code>
-                <p>
-                    This file specifies a fully qualified name of the <code>Application.module</code> module to load and sets a listening port to <code>8080</code>.
-                </p>
-            </step>
-        </procedure>
-
-    </chapter>
-
-
-
-    <chapter title="Create an entry point for running an application" id="create-entry-point">
-        <p>
-            In this section, we'll prepare our Ktor application for running it using the Gradle's <a href="https://docs.gradle.org/current/userguide/application_plugin.html">Application plugin</a>.
-            Go back to the <path>build.gradle</path> or <path>build.gradle.kts</path> file and perform the steps below:
-        </p>
-        <procedure hide-from-structure="true">
-            <step>
-                <p>
-                    Add the following code in the <code>plugins</code> block to use the Application plugin:
+                    To get access to the <a href="https://ktor.io/eap/">EAP</a> versions of Ktor, you need to reference the <a href="https://maven.pkg.jetbrains.space/public/p/ktor/eap/io/ktor/">Space repository</a>:
                 </p>
                 <tabs group="languages">
                     <tab title="Gradle (Kotlin)" group-key="kotlin">
                         <code style="block" lang="Kotlin">
-                            plugins {
-                                application
+                            repositories {
+                                maven {
+                                    url = uri("https://maven.pkg.jetbrains.space/public/p/ktor/eap")
+                                }
                             }
                         </code>
                     </tab>
                     <tab title="Gradle (Groovy)" group-key="groovy">
                         <code style="block" lang="Groovy">
-                            plugins {
-                                id 'application'
+                            maven {
+                                url "https://maven.pkg.jetbrains.space/public/p/ktor/eap"
                             }
                         </code>
                     </tab>
+                    <tab title="Maven" group-key="maven">
+                        <code style="block" lang="XML">
+                            <![CDATA[
+                            <repositories>
+                                <repository>
+                                    <id>ktor-eap</id>
+                                    <url>https://maven.pkg.jetbrains.space/public/p/ktor/eap</url>
+                                </repository>
+                            </repositories>
+                            ]]>
+                        </code>
+                    </tab>
                 </tabs>
-            </step>
-            <step>
+            </li>
+        </list>
+    </chapter>
+
+
+
+    <chapter title="Add Ktor dependencies" id="add-ktor-dependencies">
+        <p>
+            Every Ktor application requires at least the following dependencies:
+        </p>
+        <list>
+            <li>
                 <p>
-                    Depending on the way you used to <a anchor="create-server">create a server</a>, specify the application main class in one of the following ways:
+                    <code>ktor-server-core</code>: contains core Ktor functionality.
                 </p>
-                <list>
-                    <li>
-                        <p>
-                            If you use <a anchor="create-embedded-server">embeddedServer</a>, specify the main class as follows:
-                        </p>
-                        <tabs group="languages">
-                            <tab title="Gradle (Kotlin)" group-key="kotlin">
-                                <code style="block" lang="Kotlin">
-                                    application {
-                                        mainClass.set("com.example.ApplicationKt")
-                                    }
-                                </code>
-                            </tab>
-                            <tab title="Gradle (Groovy)" group-key="groovy">
-                                <code style="block" lang="Groovy">
-                                    application {
-                                        mainClass = 'com.example.ApplicationKt'
-                                    }
-                                </code>
-                            </tab>
-                        </tabs>
-                    </li>
-                    <li>
-                        <p>
-                            If you use <a anchor="create-engine-main">EngineMain</a>, you need to configure it as the main class.
-                            For Netty, it will look as follows:
-                        </p>
-                        <tabs group="languages">
-                            <tab title="Gradle (Kotlin)" group-key="kotlin">
-                                <code style="block" lang="Kotlin">
-                                    application {
-                                        mainClass.set("io.ktor.server.netty.EngineMain")
-                                    }
-                                </code>
-                            </tab>
-                            <tab title="Gradle (Groovy)" group-key="groovy">
-                                <code style="block" lang="Groovy">
-                                    application {
-                                        mainClass = 'io.ktor.server.netty.EngineMain'
-                                    }
-                                </code>
-                            </tab>
-                        </tabs>
-                    </li>
-                </list>
-            </step>
-            <step>
+            </li>
+            <li>
                 <p>
-                    The resulting <path>build.gradle</path> / <path>build.gradle.kts</path> file should look something like this:
+                    A dependency for an <a href="Engines.md">engine</a> (for example, <code>ktor-server-netty</code>).
+                </p>
+            </li>
+            <li>
+                <p>
+                    Logback artifacts for <a href="logging.md">logging</a>.
+                </p>
+            </li>
+        </list>
+        <p>
+            The <code>dependencies</code> block for a basic Ktor application might look as follows:
+        </p>
+        <tabs group="languages">
+            <tab title="Gradle (Kotlin)" group-key="kotlin">
+                <code style="block" lang="Kotlin" interpolate-variables="true">
+                    dependencies {
+                        implementation("io.ktor:ktor-server-core:%ktor_version%")
+                        implementation("io.ktor:ktor-server-netty:%ktor_version%")
+                        implementation("ch.qos.logback:logback-classic:%logback_version%")
+                    }
+                </code>
+            </tab>
+            <tab title="Gradle (Groovy)" group-key="groovy">
+                <code style="block" lang="Groovy" interpolate-variables="true">
+                    dependencies {
+                        implementation "io.ktor:ktor-server-core:%ktor_version%"
+                        implementation "io.ktor:ktor-server-netty:%ktor_version%"
+                        implementation "ch.qos.logback:logback-classic:%logback_version%"
+                    }
+                </code>
+            </tab>
+            <tab title="Maven" group-key="maven">
+            <code style="block" lang="XML" interpolate-variables="true">
+                <![CDATA[
+    <dependencies>
+        <dependency>
+            <groupId>io.ktor</groupId>
+            <artifactId>ktor-server-core</artifactId>
+            <version>%ktor_version%</version>
+        </dependency>
+        <dependency>
+            <groupId>io.ktor</groupId>
+            <artifactId>ktor-server-netty</artifactId>
+            <version>%ktor_version%</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>%logback_version%"</version>
+        </dependency>
+    </dependencies>
+                ]]>
+                </code>
+            </tab>
+        </tabs>
+        <p>
+            Note that other engines and <a href="Plugins.md">plugins</a> that extend Ktor functionality might require additional dependencies.
+            You can learn more from corresponding topics.
+        </p>
+    </chapter>
+
+
+    <chapter title="Create an entry point for running an application" id="create-entry-point">
+        <p>
+            Running a Ktor server using Gradle/Maven depends on the way used to <a href="create_server.xml">create a server</a>.
+            You can specify the application main class in one of the following ways:
+        </p>
+        <list>
+            <li>
+                <p>
+                    If you use <a href="create_server.xml" anchor="embedded-server">embeddedServer</a>, specify the main class as follows:
                 </p>
                 <tabs group="languages">
                     <tab title="Gradle (Kotlin)" group-key="kotlin">
-                        <code style="block" lang="Kotlin" interpolate-variables="true">
-                            plugins {
-                                application
-                                kotlin("jvm") version "%kotlin_version%"
-                            }
-
-                            group = "org.example"
-                            version = "1.0-SNAPSHOT"
-
+                        <code style="block" lang="Kotlin">
                             application {
-                                mainClass.set("io.ktor.server.netty.EngineMain")
-                            }
-
-                            repositories {
-                                mavenCentral()
-                            }
-
-                            dependencies {
-                                implementation(kotlin("stdlib"))
-                                implementation("io.ktor:ktor-server-core:%ktor_version%")
-                                implementation("io.ktor:ktor-server-netty:%ktor_version%")
-                                implementation("ch.qos.logback:logback-classic:%logback_version%")
+                                mainClass.set("com.example.ApplicationKt")
                             }
                         </code>
                     </tab>
                     <tab title="Gradle (Groovy)" group-key="groovy">
-                        <code style="block" lang="Groovy" interpolate-variables="true">
-                            plugins {
-                                id 'application'
-                                id 'org.jetbrains.kotlin.jvm' version '%kotlin_version%'
-                            }
-
-                            group 'org.example'
-                            version '1.0-SNAPSHOT'
-
+                        <code style="block" lang="Groovy">
                             application {
-                                mainClass = 'io.ktor.server.netty.EngineMain'
-                            }
-
-                            repositories {
-                                mavenCentral()
-                            }
-
-                            dependencies {
-                                implementation "org.jetbrains.kotlin:kotlin-stdlib"
-                                implementation "io.ktor:ktor-server-core:%ktor_version%"
-                                implementation "io.ktor:ktor-server-netty:%ktor_version%"
-                                implementation "ch.qos.logback:logback-classic:%logback_version%"
+                                mainClass = "com.example.ApplicationKt"
                             }
                         </code>
                     </tab>
-                </tabs>
-            </step>
-        </procedure>
-    </chapter>
-
-
-
-    <chapter title="Run an application" id="run-app">
-        <p>
-            Now we can run our Ktor application using the <code>run</code> Gradle task:
-        </p>
-        <procedure>
-            <step>
-                <p>
-                    Open the <a href="https://www.jetbrains.com/help/idea/terminal-emulator.html">terminal</a>.
-                </p>
-            </step>
-            <step>
-                <p>
-                    Execute the <code>./gradlew run</code> command.
-                    The following message should be shown:
-                </p>
-                <code style="block">
-                    [main] INFO  Application - Responding at http://0.0.0.0:8080
+                    <tab title="Maven" group-key="maven">
+                        <code style="block" lang="XML" interpolate-variables="true">
+                <![CDATA[
+                            <properties>
+                                <main.class>com.example.ApplicationKt</main.class>
+                            </properties>
+                            ]]>
                 </code>
+                    </tab>
+                </tabs>
+            </li>
+            <li>
                 <p>
-                    This means that the server is ready to accept requests at the <path>http://0.0.0.0:8080</path> address.
-                    You can click this link to open the application in a default browser:
+                    If you use <a href="create_server.xml" anchor="engine-main">EngineMain</a>, you need to configure it as the main class.
+                    For Netty, it will look as follows:
                 </p>
-                <img src="ktor_idea_new_project_browser.png" alt="Ktor app in a browser" width="430"/>
-            </step>
-        </procedure>
+                <tabs group="languages">
+                    <tab title="Gradle (Kotlin)" group-key="kotlin">
+                        <code style="block" lang="Kotlin">
+                            application {
+                                mainClass.set("io.ktor.server.netty.EngineMain")
+                            }
+                        </code>
+                    </tab>
+                    <tab title="Gradle (Groovy)" group-key="groovy">
+                        <code style="block" lang="Groovy">
+                            application {
+                                mainClass = "io.ktor.server.netty.EngineMain"
+                            }
+                        </code>
+                    </tab>
+                    <tab title="Maven" group-key="maven">
+                        <code style="block" lang="XML" interpolate-variables="true">
+                <![CDATA[
+                            <properties>
+                                <main.class>io.ktor.server.netty.EngineMain</main.class>
+                            </properties>
+                            ]]>
+                </code>
+                    </tab>
+                </tabs>
+            </li>
+        </list>
+        <note>
+            <p>
+                If you are going to package your application as a Fat JAR, you also need to take into account the way used to create a server when configuring corresponding plugins.
+                Learn more from the following topics:
+            </p>
+            <list>
+                <li>
+                    <p>
+                        <a href="fatjar.md"/>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <a href="maven-assembly-plugin.md"/>
+                    </p>
+                </li>
+            </list>
+        </note>
     </chapter>
-
-
-
 </topic>

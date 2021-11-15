@@ -12,15 +12,6 @@
     <toc-element toc-title="Ktor Server">
         <toc-element toc-title="Getting started with a Ktor Server">
             <toc-element id="intellij-idea.xml" accepts-web-file-names="getting-started.html"/>
-            <toc-element hidden="true" accepts-web-file-names="generator.html"
-                         target-for-accept-web-file-names="https://start.ktor.io/"/>
-            <toc-element id="Gradle.xml"
-                         show-structure-depth="2"
-                         show-structure-for="chapter,procedure"
-                         accepts-web-file-names="artifacts.html"/>
-            <toc-element id="Maven.xml"
-                         show-structure-depth="2"
-                         show-structure-for="chapter,procedure"/>
             <toc-element toc-title="Tutorials">
                 <toc-element id="creating_http_apis.md"
                              show-structure-depth="2"
@@ -36,6 +27,8 @@
             <toc-element id="A_Ktor_Application.xml"
                          show-structure-depth="2"
                          accepts-web-file-names="intro.html,servers-application.html,how-ktor-works.html,lifecycle.html"/>
+            <toc-element id="Gradle.xml"
+                         accepts-web-file-names="artifacts.html,maven.html"/>
             <toc-element toc-title="Creating and configuring a server">
                 <toc-element id="create_server.xml"
                              show-structure-depth="2"/>
@@ -286,6 +279,8 @@
     <toc-element href="https://api.ktor.io"
                  toc-title="API Docs"/>
 
+    <toc-element hidden="true" accepts-web-file-names="generator.html"
+                 target-for-accept-web-file-names="https://start.ktor.io/"/>
     <toc-element hidden="true" accepts-web-file-names-ref="samples"
                  target-for-accept-web-file-names="https://ktor.io/learn/"/>
     <toc-element hidden="true"
