@@ -1,0 +1,6 @@
+GET http://127.0.0.1:8080/order/2020-04-06-01
+Content-Type: application/json
+
+###
+GET http://127.0.0.1:8080/order/2020-04-06-01/total
+Content-Type: application/json
