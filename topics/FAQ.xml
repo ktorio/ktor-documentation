@@ -43,7 +43,7 @@
         <def title="Does Ktor provide a way to catch IPC signals (e.g. SIGTERM or SIGINT) so the server shutdown can be handled gracefully?" id="sigterm">
             <p>
                 If you are running an <a href="create_server.xml" anchor="engine-main">EngineMain</a>, it will be handled automatically.
-                Otherwise, you need to <a href="https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-cio/jvm/src/io/ktor/server/cio/EngineMain.kt#L21">handle it manually</a>.
+                Otherwise, you need to <a href="https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-cio/jvmAndNix/src/io/ktor/server/cio/EngineMain.kt#L21">handle it manually</a>.
                 You can use the <code>Runtime.getRuntime().addShutdownHook</code> JVM's facility.
             </p>
         </def>

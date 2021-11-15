@@ -270,6 +270,6 @@ interface ContentConverter {
     suspend fun deserialize(charset: Charset, typeInfo: TypeInfo, content: ByteReadChannel): Any?
 }
 ```
-Take a look at the [GsonConverter](https://github.com/ktorio/ktor/blob/main/ktor-shared/ktor-serialization-gson/jvm/src/GsonConverter.kt) class as an implementation example.  
+Take a look at the [GsonConverter](https://github.com/ktorio/ktor/blob/main/ktor-shared/ktor-serialization/ktor-serialization-gson/jvm/src/GsonConverter.kt) class as an implementation example.  
 
 
