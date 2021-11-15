@@ -425,10 +425,10 @@ Update imports for [installing plugins](client.md#plugins):
 <a href="timeout.md">Timeout</a>
 </li>
 <li>
-HttpCache
+<a href="client-caching.md">HttpCache</a>
 </li>
 <li>
-HttpSend
+<a href="http-send.md">HttpSend</a>
 </li>
 </list>
 </td>
@@ -475,7 +475,7 @@ import io.ktor.client.plugins.auth.providers.*
 </tr>
 
 <tr>
-<td>Content encoding</td>
+<td><a href="content-encoding.md">Content encoding</a></td>
 <td><code>import io.ktor.client.features.compression.*</code></td>
 <td><code>import io.ktor.client.plugins.compression.*</code></td>
 </tr>
