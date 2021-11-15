@@ -2,14 +2,14 @@
 
 <microformat>
 <p>
-<control>Initial project</control>: <a href="https://github.com/ktorio/ktor-gradle-sample/">ktor-gradle-sample</a>
+<control>Initial project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main">engine-main</a>
 </p>
 <p>
 <control>Final project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/google-appengine-standard">google-appengine-standard</a>
 </p>
 </microformat>
 
-In this tutorial, we'll show you how to prepare and deploy a Ktor project to a Google App Engine standard environment. This tutorial uses a Ktor application created in the [](Gradle.xml) topic.
+In this tutorial, we'll show you how to prepare and deploy a Ktor project to a Google App Engine standard environment. This tutorial uses a [engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main) sample project as a starting project.
 
 
 
@@ -24,15 +24,9 @@ Before starting this tutorial, you need to perform the steps below:
 
 ## Clone a sample application {id="clone"}
 To open a sample application, follow the steps below:
-1. Clone the [ktor-gradle-sample](https://github.com/ktorio/ktor-gradle-sample) project.
-2. Switch a branch from `main` to one of the following:
-   ```Bash
-   git checkout embedded-server # a server is configured in code
-   # or
-   git checkout engine-main # a server is configured in 'application.conf'
-   ```
-   {style="block"}
-   These branches demonstrate different approaches to [creating and configuring a Ktor server](create_server.xml): in code or by using the `application.conf` configuration file. In this tutorial, deploying process is the same for both approaches.
+1. Clone a Ktor documentation repository and open the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets) project.
+2. Open the [engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main) module.
+   > Note that Ktor provides two approaches to [create and configure a server](create_server.xml): in code or by using the `application.conf` configuration file. In this tutorial, deploying process is the same for both approaches.
 
 ## Prepare an application {id="prepare-app"}
 ### Step 1: Apply the Shadow plugin {id="configure-shadow-plugin"}
@@ -45,7 +39,7 @@ This tutorial shows how to deploy the application to Google App Engine using a [
 ### Step 2: Configure the App Engine plugin {id="configure-app-engine-plugin"}
 The [Google App Engine Gradle plugin](https://github.com/GoogleCloudPlatform/app-gradle-plugin) provides tasks to build and deploy Google App Engine applications. To use this plugin, follow the steps below:
 
-1. Open the `settings.gradle` file and insert the following code to reference a plugin from the Central Maven repository:
+1. Open the `settings.gradle.kts` file and insert the following code to reference a plugin from the Central Maven repository:
    ```groovy
    ```
    {src="settings.gradle.kts" lines="1-13"}

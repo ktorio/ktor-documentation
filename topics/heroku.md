@@ -2,11 +2,11 @@
 
 <microformat>
 <p>
-<control>Initial project</control>: <a href="https://github.com/ktorio/ktor-gradle-sample/">ktor-gradle-sample</a>
+<control>Initial project</control>: <a href="https://github.com/ktorio/ktor-get-started-sample">ktor-get-started-sample</a>
 </p>
 </microformat>
 
-In this tutorial, we'll show you how to prepare and deploy a Ktor application to Heroku. This tutorial uses a Ktor application created in the [](Gradle.xml) topic.
+In this tutorial, we'll show you how to prepare and deploy a Ktor application to Heroku. This tutorial uses a Ktor application from the [](intellij-idea.xml) topic.
 
 
 ## Prerequisites {id="prerequisites"}
@@ -16,24 +16,16 @@ Before starting this tutorial, make sure that the following prerequisites are me
 
 
 ## Clone a sample application {id="clone"}
-To open a sample application, follow the steps below:
+Clone the [ktor-get-started-sample](https://github.com/ktorio/ktor-get-started-sample) project.
+> Note that Ktor provides two approaches to [create and configure a server](create_server.xml): in code or by using the `application.conf` configuration file. The only difference in deploying is how to [specify a port](#port) used to listen for incoming requests.
 
-1. Clone the [ktor-gradle-sample](https://github.com/ktorio/ktor-gradle-sample) project.
-2. Switch a branch from `main` to one of the following:
-   ```Bash
-   git checkout embedded-server # a server is configured in code
-   # or
-   git checkout engine-main # a server is configured in 'application.conf'
-   ```
-   {style="block"}
-   These branches demonstrate different approaches to [creating and configuring a Ktor server](create_server.xml): in code or by using the `application.conf` configuration file. The only difference in deploying these projects is how to [specify a port](#port) used to listen for incoming requests.
 
 ## Prepare an application {id="prepare-app"}
 
 ### Step 1: Configure a port {id="port"}
 
 First, you need to specify a port used to listen for incoming requests. Since Heroku uses the `PORT` environment variable, you need to configure the application to use a value of this variable. Depending on the way used to [configure a Ktor server](create_server.xml), do one of the following:
-* If you've chosen the `embedded-server` branch with server configuration specified in code, you can obtain the environment variable value using `System.getenv`. Open the `Application.kt` file placed in the `src/main/kotlin/com/example` folder and change the `port` parameter value of the `embeddedServer` function as shown below:
+* For the [ktor-get-started-sample](https://github.com/ktorio/ktor-get-started-sample) project with server configuration specified in code, you can obtain the environment variable value using `System.getenv`. Open the `Application.kt` file placed in the `src/main/kotlin/com/example` folder and change the `port` parameter value of the `embeddedServer` function as shown below:
    ```kotlin
    fun main() {
       embeddedServer(Netty, port = System.getenv("PORT").toInt()) {
@@ -42,7 +34,7 @@ First, you need to specify a port used to listen for incoming requests. Since He
    }
     ```
 
-* If you've chosen the `engine-main` branch with server configuration specified in the `application.conf` file, you can assign the environment variable to the `port` parameter by using the `${ENV}` syntax. Open the `application.conf` file placed in `src/main/resources` and update it as shown below:
+* If your server configuration is specified in the `application.conf` file, you can assign the environment variable to the `port` parameter by using the `${ENV}` syntax. Open the `application.conf` file placed in `src/main/resources` and update it as shown below:
    ```
    ktor {
        deployment {
@@ -55,9 +47,9 @@ First, you need to specify a port used to listen for incoming requests. Since He
 
 ### Step 2: Add a stage task {id="stage"}
 Open the `build.gradle` file and add a custom `stage` task used by Heroku to make an executable that gets run on Heroku’s platform:
-```groovy
-tasks.create("stage") {
-   dependsOn("installDist")
+```kotlin
+tasks {
+    create("stage").dependsOn("installDist")
 }
 ``` 
 Note that the `installDist` task comes with the Gradle [application plugin](https://docs.gradle.org/current/userguide/application_plugin.html), which is already added to the sample project.
@@ -65,7 +57,7 @@ Note that the `installDist` task comes with the Gradle [application plugin](http
 ### Step 3: Create a Procfile {id="procfile"}
 Create a `Procfile` in a project root and add the following content:
 ```
-web: ./build/install/ktor-gradle-sample/bin/ktor-gradle-sample
+web: ./build/install/ktor-get-started-sample/bin/ktor-get-started-sample
 ```
 {style="block"}
 
@@ -95,9 +87,7 @@ To deploy the application to Heroku using Git, open the terminal and follow the 
 
 4. To deploy the application, push changes to `heroku main`...
    ```Bash
-   git push heroku embedded-server:main
-   # or
-   git push heroku engine-main:main
+   git push heroku main
    ```
    ... and wait until Heroku builds and publishes the application:
    ```

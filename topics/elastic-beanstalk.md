@@ -2,14 +2,17 @@
 
 <microformat>
 <p>
-<control>Initial project</control>: <a href="https://github.com/ktorio/ktor-gradle-sample/">ktor-gradle-sample</a>
+<control>Initial project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server">embedded-server</a> or 
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main">engine-main</a>
 </p>
 <p>
 <control>Final project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/aws-elastic-beanstalk">aws-elastic-beanstalk</a>
 </p>
 </microformat>
 
-In this tutorial, we'll show you how to prepare and deploy a Ktor application to AWS Elastic Beanstalk. This tutorial uses a Ktor application created in the [](Gradle.xml) topic. 
+In this tutorial, we'll show you how to prepare and deploy a Ktor application to AWS Elastic Beanstalk. You can use one of the following initial projects depending on the way used to [create a Ktor server](create_server.xml):
+* [embedded-server](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server)
+* [engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main)
 
 > Learn more about deploying Java applications from [Elastic Beanstalk docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Java.html).
 
@@ -21,15 +24,8 @@ Before starting this tutorial, you need to create an AWS account.
 ## Clone a sample application {id="clone"}
 To open a sample application, follow the steps below:
 
-1. Clone the [ktor-gradle-sample](https://github.com/ktorio/ktor-gradle-sample) project.
-2. Switch a branch from `main` to one of the following:
-   ```Bash
-   git checkout embedded-server # a server is configured in code
-   # or
-   git checkout engine-main # a server is configured in 'application.conf'
-   ```
-   {style="block"}
-   These branches demonstrate different approaches to [creating and configuring a Ktor server](create_server.xml): in code or by using the `application.conf` configuration file. The only difference in deploying these projects is how to [specify a port](#port) used to listen for incoming requests.
+1. Clone a Ktor documentation repository and open the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets) project.
+2. Open the [embedded-server](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server) or [engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main) sample. These samples demonstrate different approaches to [creating and configuring a Ktor server](create_server.xml): in code or by using the `application.conf` configuration file. The only difference in deploying these projects is how to [specify a port](#port) used to listen for incoming requests.
 
 ## Prepare an application {id="prepare-app"}
 
@@ -67,14 +63,14 @@ To build a Fat JAR, open the terminal and execute the `shadowJar` task created i
 
 <tabs group="os">
 <tab title="Linux/MacOS" group-key="unix">
-<code style="block" lang="Bash">./gradlew shadowJar</code>
+<code style="block" lang="Bash">./gradlew :aws-elastic-beanstalk:shadowJar</code>
 </tab>
 <tab title="Windows" group-key="windows">
-<code style="block" lang="CMD">gradlew.bat shadowJar</code>
+<code style="block" lang="CMD">gradlew.bat :aws-elastic-beanstalk:shadowJar</code>
 </tab>
 </tabs>
 
-When this build completes, you should see the `ktor-gradle-sample-1.0-SNAPSHOT-all.jar` file in the `build/libs` directory.
+When this build completes, you should see the `aws-elastic-beanstalk-all.jar` file in the `build/libs` directory.
 
 
 ## Deploy an application {id="deploy-app"}

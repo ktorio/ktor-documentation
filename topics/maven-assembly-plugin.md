@@ -9,7 +9,7 @@
 </p>
 </microformat>
 
-The Maven [Assembly plugin](http://maven.apache.org/plugins/maven-assembly-plugin/) provides the ability to combine project output into a single distributable archive that contains dependencies, modules, site documentation, and other files. In this topic, we'll show you how to build an assembly and run it for a Ktor application created in the [](Maven.xml) topic.
+The Maven [Assembly plugin](http://maven.apache.org/plugins/maven-assembly-plugin/) provides the ability to combine project output into a single distributable archive that contains dependencies, modules, site documentation, and other files. In this topic, we'll show you how to build an assembly and run it for the [ktor-maven-sample](https://github.com/ktorio/ktor-maven-sample/tree/main) application.
 
 ## Prerequisites {id="prerequisites"}
 Before starting this tutorial, clone the [ktor-maven-sample](https://github.com/ktorio/ktor-maven-sample) repository.
@@ -42,7 +42,7 @@ To run the [built application](#build):
    java -jar mainModule-1.0-SNAPSHOT-jar-with-dependencies.jar
    ```
 1. Wait until the following message is shown:
-   ```
+   ```Bash
    [main] INFO  Application - Responding at http://0.0.0.0:8080
    ```
    You can click the link to open the application in a default browser:

@@ -68,9 +68,8 @@
                     <li>
                         <p>
                             <control>Build System</control>:
-                            Choose the desired build system.
-                            This can be <a href="Gradle.xml">Gradle</a> with Kotlin or Groovy DSL,
-                            or <a href="Maven.xml">Maven</a>.
+                            Choose the desired [build system](Gradle.xml).
+                            This can be <emphasis>Gradle</emphasis> with Kotlin or Groovy DSL, or <emphasis>Maven</emphasis>.
                         </p>
                     </li>
                     <li>

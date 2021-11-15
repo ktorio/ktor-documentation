@@ -2,26 +2,44 @@
 
 <microformat>
 <p>
-<control>Sample project</control>: <a href="https://github.com/ktorio/ktor-gradle-sample/tree/main">ktor-gradle-sample</a>
+<control>Sample project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main">engine-main</a>
 </p>
 </microformat>
 
-The Gradle [Application plugin](https://docs.gradle.org/current/userguide/application_plugin.html) provides the ability to package applications, including code dependencies and generated start scripts. In this topic, we'll show you how to package and run a Ktor application created in the [](Gradle.xml) topic.
-
-## Prerequisites {id="prerequisites"}
-Before starting this tutorial, clone the [ktor-gradle-sample](https://github.com/ktorio/ktor-gradle-sample) repository.
+The Gradle [Application plugin](https://docs.gradle.org/current/userguide/application_plugin.html) provides the ability to package applications, including code dependencies and generated start scripts. In this topic, we'll show you how to package and run a Ktor application.
 
 
 ## Apply the Application plugin and configure the main class {id="apply-plugin"}
 To package an application, you need to apply the Application plugin first:
-1. Open the [ktor-gradle-sample](https://github.com/ktorio/ktor-gradle-sample) project.
-1. Make sure that the `build.gradle` file contains the following code:
-   ```groovy
+1. Open the `build.gradle(.kts)` file of your project.
+2. Make sure that the file contains the following code:
+
+   <tabs group="languages">
+   <tab title="Gradle (Kotlin)" group-key="kotlin">
+
+   ```kotlin
    ```
-   {src="https://raw.githubusercontent.com/ktorio/ktor-gradle-sample/main/build.gradle" lines="1,3-4,8,9-11"}
-    * The `id 'application'` line applies the Application plugin. 
-    * The `mainClass` property is used to configure the main class of the application.
-      > If you use [EngineMain](create_server.xml#engine-main) without the explicit `main` function, your `mainClass` depends on the used engine and might look as follows: `io.ktor.server.netty.EngineMain`.
+   {src="snippets/engine-main/build.gradle.kts" lines="5-6,8-12"}
+
+   </tab>
+   <tab title="Gradle (Groovy)" group-key="groovy">
+
+   ```groovy
+   plugins {
+       id 'application'
+   }
+   
+   application {
+       mainClass = 'io.ktor.server.netty.EngineMain'
+   }
+   ```
+
+   </tab>
+   </tabs>
+   
+   * The Application plugin is applied inside the `plugins` block.
+   * The `mainClass` property is used to configure the main class of the application. Note that the application main class depends on the way used to [create a server](create_server.xml).
+     In the example above, the main class depends on the used engine and looks as follows: `io.ktor.server.netty.EngineMain`.
 
 
 ## Package the application {id="package"}
@@ -33,36 +51,36 @@ In this topic, we'll use `installDist`:
    
    <tabs group="os">
    <tab title="Linux/MacOS" group-key="unix">
-   <code style="block" lang="Bash">./gradlew installDist</code>
+   <code style="block" lang="Bash">./gradlew :engine-main:installDist</code>
    </tab>
    <tab title="Windows" group-key="windows">
-   <code style="block" lang="CMD">gradlew.bat installDist</code>
+   <code style="block" lang="CMD">gradlew.bat :engine-main:installDist</code>
    </tab>
    </tabs>
    
-   Gradle will create an image of the application in the `build/install/ktor-gradle-sample` folder. 
+   Gradle will create an image of the application in the `build/install/engine-main` folder. 
 
 > To learn how to use the resulting package to deploy your application using Docker, see the [](docker.md) help topic.
 
 ## Run the application {id="run"}
 To run the [packaged application](#package):
-1. Go to the `build/install/ktor-gradle-sample` folder in a terminal.
+1. Go to the `build/install/engine-main/bin` folder in a terminal.
 1. Depending on your operating system, run the `ktor-gradle-sample` or `ktor-gradle-sample.bat` executable:
 
    <chunk id="run_executable">
    <tabs group="os">
    <tab title="Linux/MacOS" group-key="unix">
-   <code style="block" lang="Bash">./ktor-gradle-sample</code>
+   <code style="block" lang="Bash">./engine-main</code>
    </tab>
    <tab title="Windows" group-key="windows">
-   <code style="block" lang="CMD">ktor-gradle-sample.bat</code>
+   <code style="block" lang="CMD">engine-main.bat</code>
    </tab>
    </tabs>
    </chunk>
    
 1. Wait until the following message is shown:
-   ```
+   ```Bash
    [main] INFO  Application - Responding at http://0.0.0.0:8080
    ```
-   You can click the link to open the application in a default browser:
+   Open the link in a browser to see a running application:
    <img src="ktor_idea_new_project_browser.png" alt="Ktor app in a browser" width="430"/>

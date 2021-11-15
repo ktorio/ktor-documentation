@@ -35,6 +35,14 @@
         <list>
             <li>
                 <p>
+                    <a href="Gradle.xml">Add Ktor dependencies</a>
+                </p>
+                <p>
+                    Learn how to add dependencies required for a Ktor server to a Gradle or Maven project.
+                </p>
+            </li>
+            <li>
+                <p>
                     <a href="create_server.xml">Choose a way to create a server</a>
                 </p>
                 <p>

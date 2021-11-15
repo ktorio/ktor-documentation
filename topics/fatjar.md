@@ -2,14 +2,14 @@
 
 <microformat>
 <p>
-<control>Initial project</control>: <a href="https://github.com/ktorio/ktor-gradle-sample/tree/main">ktor-gradle-sample</a>
+<control>Initial project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main">engine-main</a>
+</p>
+<p>
+<control>Final project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/fatjar">fatjar</a>
 </p>
 </microformat>
 
-The Gradle [Shadow](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow) plugin allows you to create an executable JAR that includes all code dependencies (fat JAR). In this topic, we'll show you how to generate and run a fat JAR for a Ktor application created in the [](Gradle.xml) topic.
-
-## Prerequisites {id="prerequisites"}
-Before starting this tutorial, clone the [ktor-gradle-sample](https://github.com/ktorio/ktor-gradle-sample) repository.
+The Gradle [Shadow](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow) plugin allows you to create an executable JAR that includes all code dependencies (fat JAR). In this topic, we'll show you how to generate and run a fat JAR for a [engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main) sample project.
 
 ## Configure the Shadow plugin {id="configure-plugin"}
 To build a Fat JAR, you need to configure the Shadow plugin first:
@@ -19,11 +19,8 @@ To build a Fat JAR, you need to configure the Shadow plugin first:
    <tab title="Gradle (Kotlin)" group-key="kotlin">
 
    ```kotlin
-   plugins {
-       id("com.github.johnrengelman.shadow") version "%shadow_version%"
-   }
    ```
-   {interpolate-variables="true"}
+   {src="snippets/fatjar/build.gradle.kts" lines="5,8-9"}
 
    </tab>
    <tab title="Gradle (Groovy)" group-key="groovy">
@@ -38,20 +35,15 @@ To build a Fat JAR, you need to configure the Shadow plugin first:
    </tab>
    </tabs>
 
-2. Add the `shadowJar` task:
+2. Add the `shadowJar` task. Note that the application main class specified for this task depends on the way used to [create a server](create_server.xml). 
+   In the example below, `Main-Class` depends on the used engine and looks as follows: `io.ktor.server.netty.EngineMain`.
 
    <tabs group="languages">
    <tab title="Gradle (Kotlin)" group-key="kotlin">
 
    ```kotlin
-   tasks {
-       shadowJar {
-           manifest {
-               attributes(Pair("Main-Class", "com.example.ApplicationKt"))
-           }
-       }
-   }
    ```
+   {src="snippets/fatjar/build.gradle.kts" lines="29-35"}
 
    </tab>
    <tab title="Gradle (Groovy)" group-key="groovy">
@@ -59,7 +51,7 @@ To build a Fat JAR, you need to configure the Shadow plugin first:
    ```groovy
    shadowJar {
        manifest {
-           attributes 'Main-Class': 'com.example.ApplicationKt'
+           attributes 'Main-Class': 'io.ktor.server.netty.EngineMain'
        }
    }
    ```
@@ -67,22 +59,20 @@ To build a Fat JAR, you need to configure the Shadow plugin first:
    </tab>
    </tabs>
 
-   If you use [EngineMain](create_server.xml#engine-main) without the explicit `main` function, your `Main-Class` depends on the used engine and might look as follows: `io.ktor.server.netty.EngineMain`.
-
 
 ## Build a Fat JAR {id="build"}
 To build a Fat JAR, open the terminal and execute the `shadowJar` task created in the [previous step](#configure-plugin):
 
 <tabs group="os">
 <tab title="Linux/MacOS" group-key="unix">
-<code style="block" lang="Bash">./gradlew shadowJar</code>
+<code style="block" lang="Bash">./gradlew :fatjar:shadowJar</code>
 </tab>
 <tab title="Windows" group-key="windows">
-<code style="block" lang="CMD">gradlew.bat shadowJar</code>
+<code style="block" lang="CMD">gradlew.bat :fatjar:shadowJar</code>
 </tab>
 </tabs>
 
-When this build completes, you should see the `ktor-gradle-sample-1.0-SNAPSHOT-all.jar` file in the `build/libs` directory.
+When this build completes, you should see the `fatjar-all.jar` file in the `build/libs` directory.
 
 
 ## Run the application {id="run"}
@@ -90,11 +80,11 @@ To run the [built application](#build):
 1. Go to the `build/libs` folder in a terminal.
 1. Execute the following command to run the application:
    ```Bash
-   java -jar ktor-gradle-sample-1.0-SNAPSHOT-all.jar
+   java -jar fatjar-all.jar
    ```
 1. Wait until the following message is shown:
-   ```
+   ```Bash
    [main] INFO  Application - Responding at http://0.0.0.0:8080
    ```
-   You can click the link to open the application in a default browser:
+   Open the link in a browser to see a running application:
    <img src="ktor_idea_new_project_browser.png" alt="Ktor app in a browser" width="430"/>

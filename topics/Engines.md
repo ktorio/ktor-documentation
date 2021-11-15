@@ -15,7 +15,7 @@ In addition to the engines mentioned above, Ktor provides a special engine type 
 {type="note"}
 
 ## Add dependencies {id="dependencies"}
-Before using the desired engine, you need to add the corresponding dependency to your [build.gradle](Gradle.xml) or [pom.xml](Maven.xml) file:
+Before using the desired engine, you need to add the corresponding dependency to your [build script](Gradle.xml):
 * `ktor-server-netty`
 * `ktor-server-jetty`
 * `ktor-server-tomcat`
