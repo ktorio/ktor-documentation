@@ -19,12 +19,8 @@
     </p>
 
 
-    <chapter title="Install the Ktor plugin" id="install_plugin">
-        <p>
-            Before starting this tutorial, install the <a href="https://plugins.jetbrains.com/plugin/16008-ktor">Ktor plugin</a> if you are using IntelliJ IDEA Ultimate.
-            Learn how to do this from the
-            <a href="https://www.jetbrains.com/help/idea/managing-plugins.html#open-plugin-settings">Manage plugins</a> topic.
-        </p>
+    <chapter title="Prerequisites" id="prerequisites">
+        <include src="lib.xml" include-id="plugin_prerequisites"/>
     </chapter>
 
 
@@ -68,7 +64,7 @@
                     <li>
                         <p>
                             <control>Build System</control>:
-                            Choose the desired [build system](Gradle.xml).
+                            Choose the desired <a href="Gradle.xml">build system</a>.
                             This can be <emphasis>Gradle</emphasis> with Kotlin or Groovy DSL, or <emphasis>Maven</emphasis>.
                         </p>
                     </li>

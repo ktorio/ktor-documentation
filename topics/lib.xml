@@ -209,6 +209,29 @@
             </a>
         </p>
     </chunk>
+
+    <chunk id="plugin_prerequisites">
+        <p>
+            Before starting this tutorial:
+        </p>
+        <list>
+            <li>
+                <p>
+                    <a href="https://www.jetbrains.com/help/idea/installation-guide.html">Install IntelliJ IDEA Ultimate</a>.
+                </p>
+                <note>
+                    <p>
+                        If you use IntelliJ IDEA Community or other IDE, you can generate a Ktor project using a <a href="https://start.ktor.io/">web-based project generator</a>.
+                    </p>
+                </note>
+            </li>
+            <li>
+                <p>
+                    Make sure the <a href="https://www.jetbrains.com/help/idea/ktor.html">Ktor plugin</a> is installed and enabled.
+                </p>
+            </li>
+        </list>
+    </chunk>
 </topic>
 
 

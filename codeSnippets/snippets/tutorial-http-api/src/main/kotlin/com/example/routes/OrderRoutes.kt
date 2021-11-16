@@ -32,7 +32,7 @@ fun Route.totalizeOrderRoute() {
             "Not Found",
             status = HttpStatusCode.NotFound
         )
-        val total = order.contents.map { it.price * it.amount }.sum()
+        val total = order.contents.sumOf { it.price * it.amount }
         call.respond(total)
     }
 }
