@@ -13,6 +13,7 @@
     <product src="ktor.tree"
              web-path="/docs/"
              version="2.0.0"
+             id="docs/eap"
              keymaps-mode="none"/>
 
 </ihp>
