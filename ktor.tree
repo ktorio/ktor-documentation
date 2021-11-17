@@ -12,15 +12,13 @@
     <toc-element toc-title="Ktor Server">
         <toc-element toc-title="Getting started with a Ktor Server">
             <toc-element id="intellij-idea.xml" accepts-web-file-names="getting-started.html"/>
-            <toc-element toc-title="Tutorials">
-                <toc-element id="creating_http_apis.md"
-                             show-structure-depth="2"
-                             accepts-web-file-names-ref="tutorials"/>
-                <toc-element id="creating_web_socket_chat.md"
-                             show-structure-depth="2"/>
-                <toc-element id="creating_interactive_website.md"
-                             show-structure-depth="2"/>
-            </toc-element>
+            <toc-element id="creating_http_apis.md"
+                         show-structure-depth="2"
+                         accepts-web-file-names-ref="tutorials"/>
+            <toc-element id="creating_interactive_website.md"
+                         show-structure-depth="2"/>
+            <toc-element id="creating_web_socket_chat.md"
+                         show-structure-depth="2"/>
         </toc-element>
 
         <toc-element toc-title="Developing applications">
@@ -220,7 +218,10 @@
 
 
     <toc-element toc-title="Ktor Client">
-        <toc-element id="getting_started_ktor_client.xml"/>
+        <toc-element toc-title="Getting started with a Ktor Client">
+            <toc-element id="getting_started_ktor_client.xml"/>
+            <toc-element id="getting_started_ktor_client_chat.md"/>
+        </toc-element>
         <toc-element toc-title="Developing applications">
             <toc-element toc-title="Setting up a Client">
                 <toc-element id="client.md"
