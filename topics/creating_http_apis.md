@@ -89,7 +89,7 @@ The [application.conf](#configurations) configures the entry point of our applic
 ```
 {src="snippets/tutorial-http-api/src/main/kotlin/com/example/Application.kt" lines="6-11"}
 
-This module in turn calls the following extension functions:
+This module, in turn, calls the following extension functions:
 
 * `configureRouting` is a function defined in `plugins/Routing.kt`, which is currently doesn't do anything:
    ```kotlin
