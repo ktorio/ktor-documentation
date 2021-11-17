@@ -9,7 +9,7 @@
 </p>
 </microformat>
 
-In this hands-on, we will learn how to create a simple chat application which uses WebSockets. We will develop both the client and server application using [Ktor](https://ktor.io/) – an asynchronous Kotlin framework for creating web applications.
+In this tutorial, we will learn how to create a simple chat application which uses WebSockets. We will develop both the client and server application using [Ktor](https://ktor.io/) – an asynchronous Kotlin framework for creating web applications.
 
 ## What we will build
 
@@ -22,7 +22,7 @@ Throughout this tutorial, we will implement a simple chat service, which will co
 
 For both parts of the application, we will make use of Ktor's support for [WebSockets](websocket.md). Because Ktor is both a server-side and client-side framework, we will be able to reuse the knowledge we acquire building the chat server when it comes to building the client.
 
-After completing this hands-on, you should have a basic understanding of how to work with WebSockets using Ktor and Kotlin, how to exchange information between the client and server, and get a basic idea of how to manage multiple connections at the same time.
+After completing this tutorial, you should have a basic understanding of how to work with WebSockets using Ktor and Kotlin, how to exchange information between the client and server, and get a basic idea of how to manage multiple connections at the same time.
 
 ## Why WebSockets?
 
@@ -43,7 +43,7 @@ To skip over these configuration steps, a starter template is available for this
 
 [Please clone the repository from GitHub, and open it in IntelliJ IDEA.](https://github.com/ktorio/ktor-websockets-chat-sample)
 
-The template repository contains two barebones Gradle projects for us to build our project: the `client` and `server` projects. Both of them are already preconfigured with the dependencies that we will need throughout the hands-on, so you **don't need to make any changes to the Gradle configuration.**
+The template repository contains two barebones Gradle projects for us to build our project: the `client` and `server` projects. Both of them are already preconfigured with the dependencies that we will need throughout the tutorial, so you **don't need to make any changes to the Gradle configuration.**
 
 It might still be beneficial to understand what artifacts are being used for the application, so let's have a closer look at the two projects and the dependencies they rely on.
 
@@ -346,7 +346,7 @@ You might still notice some smaller usability issues caused by the limitations o
 
 ![App in action](app_in_action.png){animated="true" width="674"}
 
-That's it for this hands-on tutorial on WebSockets with Ktor – time to congratulate yourself for building a whole application! If you're looking for some inspiration of where to take this project next, as well as related materials, continue to the next section.
+That's it for this tutorial on WebSockets with Ktor – time to congratulate yourself for building a whole application! If you're looking for some inspiration of where to take this project next, as well as related materials, continue to the next section.
 
 
 
@@ -365,7 +365,7 @@ At this point, we have implemented the absolute basics for a chat service, both 
 
 ### Learning more about Ktor
 
-You can find more hands-on tutorials on Ktor and its features on this site. For in-depth information about the framework, including further demo projects, check out [ktor.io](https://ktor.io/).
+You can find more tutorials on Ktor and its features on this site. For in-depth information about the framework, including further demo projects, check out [ktor.io](https://ktor.io/).
 
 ### Community, help and troubleshooting
 

@@ -1,69 +1,107 @@
 [//]: # (title: Creating an interactive website)
 
 <microformat>
+<var name="example_name" value="tutorial-website"/>
+<include src="lib.xml" include-id="download_example"/>
 <p>
-<a href="https://github.com/ktorio/ktor-website-sample">Template project</a>
-</p>
-<p>
-<a href="https://github.com/ktorio/ktor-website-sample/tree/final">Final project</a>
+Used plugins: Routing, Freemarker, HTML DSL
 </p>
 </microformat>
 
-In this hands-on tutorial we're going to create an interactive website using Kotlin and [Ktor](https://ktor.io), a framework for building connected applications.
+In this tutorial we're going to create an interactive website. Using the different plugins and integrations provided by Ktor, we will see how to host static content like images and HTML pages. We will see how supported HTML templating engines like [Freemarker](freemarker.md) make it easy to control how data from our application is rendered in the browser. By using [kotlinx.html](html_dsl.md), we'll learn about a domain-specific language that allows us to mix Kotlin code and markup directly, allowing us to write our site's display logic in pure Kotlin.
 
-Using the different plugins and integrations provided by Ktor, we will see how to host static content like images and HTML pages. We will see how supported HTML templating engines like [Freemarker](http://freemarker.org/) make it easy to control how data from our application is rendered in the browser. By using [kotlinx.html](https://github.com/Kotlin/kotlinx.html), we'll learn about a domain-specific language that allows us to mix Kotlin code and markup directly, allowing us to write our site's display logic in pure Kotlin.
-
-## What we will build
-
-The goal of this hands-on is to write a minimal journal app. We'll start by seeing how Ktor can serve static files and pages, and then move on to dynamically rendering Kotlin objects representing blog entries in a nicely formatted fashion, making use of our template engine. To make things interactive, we will add the ability to submit new entries to our journal directly from the browser – leaving us with a nice way to temporarily store and view our thoughts, for example our opinion on working through this hands-on tutorial:
+The goal of this tutorial is to write a minimal journal app. We'll start by seeing how Ktor can serve static files and pages, and then move on to dynamically rendering Kotlin objects representing blog entries in a nicely formatted fashion, making use of our template engine. To make things interactive, we will add the ability to submit new entries to our journal directly from the browser – leaving us with a nice way to temporarily store and view our thoughts, for example our opinion on working through this tutorial:
 
 ![](ktor_journal.png){animated="true" width="434"}
 
-You can find the [template project](https://github.com/ktorio/ktor-website-sample) as well as the source code of the [final](https://github.com/ktorio/ktor-website-sample/tree/final) application on the corresponding GitHub repository.
+## Prerequisites {id="prerequisites"}
+<include src="lib.xml" include-id="plugin_prerequisites"/>
 
-Let's dive right in and start setting up our project for development!
+## Create a new Ktor project {id="create_ktor_project"}
+
+To create a base project for our application using the Ktor plugin, [open IntelliJ IDEA](https://www.jetbrains.com/help/idea/run-for-the-first-time.html) and follow the steps below:
+
+1. <include src="lib.xml" include-id="new_project_idea"/>
+2. In the **New Project** wizard, choose **Ktor** from the list on the left. On the right pane, specify the following settings:
+   ![New Ktor project](tutorial_website_new_project.png){width="729"}
+  * **Name**: Specify a project name.
+  * **Location**: Specify a directory for your project.
+  * **Build System**: Make sure that _Gradle Kotlin_ is selected as a [build system](Gradle.xml).
+  * **Website**: Leave the default `com.example` value as a domain used to generate a package name.
+  * **Artifact**: This field shows a generated artifact name.
+  * **Ktor Version**: Choose the latest Ktor version.
+  * **Engine**: Leave the default _Netty_ [engine](Engines.md).
+  * **Configuration in**: Choose _HOCON file_ to specify server parameters in a [dedicated configuration file](create_server.xml).
+  * **Add sample code**: Disable this option to skip adding sample code for plugins.
+
+   Click **Next**.
+   
+3. On the next page, add the **Routing**, **Freemarker**, and **HTML DSL** plugins:
+   ![Ktor plugins](tutorial_website_new_project_plugins.png){width="729"}
+
+   Click **Finish** and wait until IntelliJ IDEA generates a project and installs the dependencies.
 
 
-## Project Setup
+## Examine the project {id="project_setup"}
 
-If we were to start a fresh idea from zero, Ktor would have a few ways of setting up a preconfigured Gradle project: [start.ktor.io](https://start.ktor.io/) and the [Ktor IntelliJ IDEA plugin](intellij-idea.xml) make it easy to create a starting-off point for projects using a variety of plugins from the framework.
+To look at the structure of the [generated project](#create_ktor_project), let's invoke the [Project view](https://www.jetbrains.com/help/idea/project-tool-window.html):
+![Initial project structure](tutorial_website_project_structure.png){width="481"}
 
-For this tutorial, however, we have made a starter template available that includes all configuration and required dependencies for the project.
+* The `build.gradle.kts` file contains [dependencies](#dependencies) required for a Ktor server and plugins.
+* The `main/resources` folder includes [configuration files](#configurations).
+* The `main/kotlin` folder contains the generated [source code](#source_code).
 
-[Please clone the project repository from GitHub, and open it in IntelliJ IDEA.](https://github.com/ktorio/ktor-website-sample/)
+### Dependencies {id="dependencies"}
 
-The template repository contains a basic Gradle projects for us to build our project. Because it already contains all dependencies that we will need throughout the hands-on, **you don't need to make any changes to the Gradle configuration.**
-
-It is still beneficial to understand what artifacts are being used for the application, so let's have a closer look at our project template and the dependencies and configuration it relies on.
-
-### Dependencies
-
-For this hands-on, the `dependencies` block in our `build.gradle` file is probably the most interesting part:
-
-```groovy
-dependencies {
-    implementation "io.ktor:ktor-server-core:$ktor_version"
-    implementation "io.ktor:ktor-server-netty:$ktor_version"
-    implementation "io.ktor:ktor-server-html-builder:$ktor_version"
-    implementation "io.ktor:ktor-server-freemarker:$ktor_version"
-    implementation "ch.qos.logback:logback-classic:$logback_version"
-}
+First, let's open the `build.gradle.kts` file and examine added dependencies:
+```kotlin
 ```
-Let's briefly go through these dependencies one-by-one:
+{src="snippets/tutorial-website/build.gradle.kts" lines="19-27"}
+
+Let's briefly go through these dependencies one by one:
 
 - `ktor-server-core` adds Ktor's core components to our project.
-- `ktor-server-netty`  adds the [Netty](https://netty.io/) engine to our project, allowing us to use server functionality without having to rely on an external application container.
-- `ktor-server-freemarker` allows us to use the [FreeMarker](https://freemarker.apache.org/) template engine, which we'll use to create the main page of our journal.
-- `ktor-server-html-builder` adds the ability to use [kotlinx.html](https://github.com/Kotlin/kotlinx.html) directly from within the code. We'll use it to create code that can mix Kotlin logic with HTML markup.
-- `logback-classic` provides an implementation of [SLF4J](http://www.slf4j.org/), allowing us to see nicely formatted logs in our console.
+- `ktor-server-netty` adds the Netty [engine](Engines.md) to our project, allowing us to use server functionality without having to rely on an external application container.
+- `ktor-server-freemarker` allows us to use the [Freemarker](freemarker.md) template engine, which we'll use to create the main page of our journal.
+- `ktor-server-html-builder` adds the ability to use [kotlinx.html](html_dsl.md) directly from within the code. We'll use it to create code that can mix Kotlin logic with HTML markup.
+- `logback-classic` provides an implementation of SLF4J, allowing us to see nicely formatted [logs](logging.md) in a console.
+- `ktor-server-tests` and `kotlin-test-junit` allow us to [test](Testing.md) parts of our Ktor application without having to use the whole HTTP stack in the process. We will use this to define unit tests for our project.
 
-### Configurations: application.conf and logback.xml
+### Configurations: application.conf and logback.xml {id="configurations"}
 
-The repository also includes a basic `application.conf` in HOCON format. Ktor uses this file to determine the port on which it should run, and it also defines the entry point of our application to be `com.jetbrains.handson.website.ApplicationKt.module`. This corresponds to the `Application.module()` function in `Application.kt`, which we'll start modifying in the next section. If you'd like to learn more about how a Ktor server is configured, check out the [](Configurations.xml) topic.
+The generated project also includes the `application.conf` and `logback.xml` configuration files located in the `resources` folder:
+* `application.conf` is a configuration file in [HOCON](https://en.wikipedia.org/wiki/HOCON) format. Ktor uses this file to determine the port on which it should run, and it also defines the entry point of our application.
+   ```
+   ```
+  {src="snippets/tutorial-website/src/main/resources/application.conf" style="block"}
 
-Also included is a `logback.xml` in the `resources` folder, which sets up the basic logging structure for our server. If you'd like to learn more about logging in Ktor, check out the [](logging.md) topic.
+  If you'd like to learn more about how a Ktor server is configured, check out the [](Configurations.xml) help topic.
+* `logback.xml` sets up the basic logging structure for our server. If you'd like to learn more about logging in Ktor, check out the [](logging.md) topic.
 
-Now that we are equipped with some knowledge around all the artifacts we have at our fingertips, we can start by actually writing the first part of our journal app!
+### Source code {id="source_code"}
+
+The [application.conf](#configurations) configures the entry point of our application to be `com.example.ApplicationKt.module`. This corresponds to the `Application.module()` function in `Application.kt`, which is an application [module](Modules.md):
+
+```kotlin
+```
+{src="snippets/tutorial-website/src/main/kotlin/com/example/Application.kt" lines="6-11"}
+
+This module in turn calls the following extension functions:
+
+* `configureRouting` is a function defined in `plugins/Routing.kt`, which is currently doesn't do anything:
+   ```kotlin
+   fun Application.configureRouting() {
+       routing {
+       }
+   }
+   ```
+  We'll define the routes for our journal in the next chapters.
+
+* `configureTemplating` is a function defined in `plugins/Templating.kt`, which installs and configures the `FreeMarker` plugin:
+   ```kotlin
+   ```
+  {src="snippets/tutorial-website/src/main/kotlin/com/example/plugins/Templating.kt" lines="8-10,12-13"}
+
 
 
 ## Static files and pages
@@ -74,7 +112,7 @@ In the context of our journal, there are a number of things that we probably wan
 
 ![](ktor_image_location.png){width="561"}
 
-For serving static content, we can use a specific [routing](Routing_in_Ktor.md) function already built in to Ktor named [static](Serving_Static_Content.md). The function takes two parameters: the route under which the static content should be made available, and a lambda where we can define the location from where the content should be served. In the file called `Application.kt`, let's change the implementation for `Application.module()` to look like this:
+For serving static content, we can use a specific routing function already built in to Ktor named [static](Serving_Static_Content.md). The function takes two parameters: the route under which the static content should be made available, and a lambda where we can define the location from where the content should be served. In the file called `Application.kt`, let's change the implementation for `Application.module()` to look like this:
 
 ```kotlin
 fun Application.module() {
@@ -138,7 +176,7 @@ It's time to build the main page of our journal which is in charge of displaying
 
 ### Adding FreeMarker as a Ktor plugin
 
-[Plugins](Plugins.md) are a mechanism that Ktor provides to enable support for certain functionality, such as encoding, compression, logging, authentication, among others. While the implementation details of Ktor plugins (acting as interceptors / middleware providing extra functionality) aren't relevant for this hands-on tutorial, we will use this mechanism to `install` the `FreeMarker` plugin, by adding the following lines to the top of our `Application.module()` definition in the `Application.kt` file:
+[Plugins](Plugins.md) are a mechanism that Ktor provides to enable support for certain functionality, such as encoding, compression, logging, authentication, among others. While the implementation details of Ktor plugins (acting as interceptors / middleware providing extra functionality) aren't relevant for this tutorial, we will use this mechanism to `install` the `FreeMarker` plugin, by adding the following lines to the top of our `Application.module()` definition in the `Application.kt` file:
 
 ```kotlin
 fun Application.module() {
@@ -302,7 +340,7 @@ It's time to pat ourselves on the back – we've put together a nice little jour
 
 ![](ktor_journal.png){animated="true" width="434"}
 
-This concludes the guided part of this hands-on. We have included the final state of the journal application in the GitHub repository on the [`final` branch](https://github.com/ktorio/ktor-website-sample/tree/final). But of course, your journey doesn't have to stop here. Check out the _What's next_ section to get an idea of how you could expand the application, and where to go if you need help in your endeavors!
+This concludes the guided part of this tutorial. We have included the final state of the journal application in the GitHub repository on the [`final` branch](https://github.com/ktorio/ktor-website-sample/tree/final). But of course, your journey doesn't have to stop here. Check out the _What's next_ section to get an idea of how you could expand the application, and where to go if you need help in your endeavors!
 
 
 ## What's next
@@ -321,7 +359,7 @@ At this point, our journal application is still rather barebones, so of course i
 
 ### Learning more about Ktor
 
-On this page, you will find a set of hands-on tutorials that also focus more on specific parts of Ktor. For in-depth information about the framework, including further demo projects, check out [ktor.io](https://ktor.io/).
+On this page, you will find a set of tutorials that also focus more on specific parts of Ktor. For in-depth information about the framework, including further demo projects, check out [ktor.io](https://ktor.io/).
 
 ### Community, help and troubleshooting
 
