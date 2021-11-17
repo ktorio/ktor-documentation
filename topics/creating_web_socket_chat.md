@@ -1,22 +1,19 @@
 [//]: # (title: Creating a WebSocket chat)
 
 <microformat>
+<var name="example_name" value="tutorial-websockets-server"/>
+<include src="lib.xml" include-id="download_example"/>
 <p>
-<a href="https://github.com/ktorio/ktor-websockets-chat-sample">Template project</a>
-</p>
-<p>
-<a href="https://github.com/ktorio/ktor-websockets-chat-sample/tree/final">Final project</a>
+Used plugins: Routing, WebSockets
 </p>
 </microformat>
 
-In this tutorial, we will learn how to create a simple chat application which uses WebSockets. We will develop both the client and server application using [Ktor](https://ktor.io/) – an asynchronous Kotlin framework for creating web applications.
-
-## What we will build
+In this tutorial, we will learn how to create a simple chat application which uses WebSockets.
 
 Throughout this tutorial, we will implement a simple chat service, which will consist of two applications:
 
 - The **chat server application** will accept and manage connections from our chat users, receive messages, and distribute them to all connected clients.
-- The **chat client application** will allow users to join a common chat server, send messages to other users, and see messages from other users in the terminal.
+- The **chat client application** will be implemented in this tutorial: [](getting_started_ktor_client_chat.md). The client application will allow users to join a common chat server, send messages to other users, and see messages from other users in the terminal.
 
 ![App in action](app_in_action.png){animated="true" width="674"}
 
@@ -24,7 +21,7 @@ For both parts of the application, we will make use of Ktor's support for [WebSo
 
 After completing this tutorial, you should have a basic understanding of how to work with WebSockets using Ktor and Kotlin, how to exchange information between the client and server, and get a basic idea of how to manage multiple connections at the same time.
 
-## Why WebSockets?
+## Why WebSockets? {id="why"}
 
 WebSockets are a great fit for applications like chats or simple games. Chat sessions are usually long-lived, with the client receiving messages from other participants over a long period of time. Chat sessions are also bidirectional – clients want to send chat messages, and see chat messages from others.
 
@@ -33,6 +30,98 @@ Unlike regular HTTP requests, WebSocket connections can be kept open for a long 
 WebSockets are also a widely supported technology. All modern browsers can work with WebSockets out of the box, and frameworks to work with WebSockets exist in many programming languages and on many platforms.
 
 Now that we have confidence in the technology we want to use for the implementation of our project, let’s start with the set-up!
+
+
+## Prerequisites {id="prerequisites"}
+<include src="lib.xml" include-id="plugin_prerequisites"/>
+
+
+## Create a new Ktor project {id="create_ktor_project"}
+
+To create a base project for our application using the Ktor plugin, [open IntelliJ IDEA](https://www.jetbrains.com/help/idea/run-for-the-first-time.html) and follow the steps below:
+
+1. <include src="lib.xml" include-id="new_project_idea"/>
+2. In the **New Project** wizard, choose **Ktor** from the list on the left. On the right pane, specify the following settings:
+   ![New Ktor project](tutorial_websockets_server_new_project.png){width="744"}
+* **Name**: Specify a project name.
+* **Location**: Specify a directory for your project.
+* **Build System**: Make sure that _Gradle Kotlin_ is selected as a [build system](Gradle.xml).
+* **Website**: Leave the default `com.example` value as a domain used to generate a package name.
+* **Artifact**: This field shows a generated artifact name.
+* **Ktor Version**: Choose the latest Ktor version.
+* **Engine**: Leave the default _Netty_ [engine](Engines.md).
+* **Configuration in**: Choose _HOCON file_ to specify server parameters in a [dedicated configuration file](create_server.xml).
+* **Add sample code**: Disable this option to skip adding sample code for plugins.
+
+Click **Next**.
+
+3. On the next page, add the **Routing** and **WebSockets** plugins:
+   ![Ktor plugins](tutorial_websockets_server_new_project_plugins.png){width="744"}
+
+   Click **Finish** and wait until IntelliJ IDEA generates a project and installs the dependencies.
+
+
+## Examine the project {id="project_setup"}
+
+To look at the structure of the [generated project](#create_ktor_project), let's invoke the [Project view](https://www.jetbrains.com/help/idea/project-tool-window.html):
+![Initial project structure](tutorial_websockets_server_project_structure.png){width="515"}
+
+* The `build.gradle.kts` file contains [dependencies](#dependencies) required for a Ktor server and plugins.
+* The `main/resources` folder includes [configuration files](#configurations).
+* The `main/kotlin` folder contains the generated [source code](#source_code).
+
+
+### Dependencies {id="dependencies"}
+
+First, let's open the `build.gradle.kts` file and examine added dependencies:
+```kotlin
+```
+{src="snippets/tutorial-websockets-server/build.gradle.kts" lines="19-26"}
+
+Let's briefly go through these dependencies one by one:
+
+- `ktor-server-core` adds Ktor's core components to our project.
+- `ktor-server-netty` adds the Netty [engine](Engines.md) to our project, allowing us to use server functionality without having to rely on an external application container.
+- `ktor-server-websockets` allows us to use the [WebSocket plugin](websocket.md), the main communication mechanism for our chat.
+- `logback-classic` provides an implementation of SLF4J, allowing us to see nicely formatted [logs](logging.md) in a console.
+- `ktor-server-tests` and `kotlin-test-junit` allow us to [test](Testing.md) parts of our Ktor application without having to use the whole HTTP stack in the process. We will use this to define unit tests for our project.
+
+### Configurations: application.conf and logback.xml {id="configurations"}
+
+The generated project also includes the `application.conf` and `logback.xml` configuration files located in the `resources` folder:
+* `application.conf` is a configuration file in [HOCON](https://en.wikipedia.org/wiki/HOCON) format. Ktor uses this file to determine the port on which it should run, and it also defines the entry point of our application.
+   ```
+   ```
+  {src="snippets/tutorial-websockets-server/src/main/resources/application.conf" style="block"}
+
+  If you'd like to learn more about how a Ktor server is configured, check out the [](Configurations.xml) help topic.
+* `logback.xml` sets up the basic logging structure for our server. If you'd like to learn more about logging in Ktor, check out the [](logging.md) topic.
+
+### Source code {id="source_code"}
+
+The [application.conf](#configurations) configures the entry point of our application to be `com.example.ApplicationKt.module`. This corresponds to the `Application.module()` function in `Application.kt`, which is an application [module](Modules.md):
+
+```kotlin
+```
+{src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/Application.kt" lines="6-11"}
+
+This module, in turn, calls the following extension functions:
+
+* `configureRouting` is a function defined in `plugins/Routing.kt`, which is currently doesn't do anything:
+   ```kotlin
+   fun Application.configureRouting() {
+       routing {
+       }
+   }
+   ```
+  We'll define the routes for our journal in the next chapters.
+
+* `configureSockets` is a function defined in `plugins/Sockets.kt`, which installs and configures the `WebSockets` plugin:
+   ```kotlin
+   ```
+  {src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/plugins/Sockets.kt" lines="12-18,43"}
+
+
 
 
 ## Project setup
