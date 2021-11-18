@@ -259,7 +259,7 @@ It's time to pat ourselves on the back – we've put together a nice little jour
 
 ![](ktor_journal.png){animated="true" width="706"}
 
-This concludes the guided part of this tutorial. We have included the final state of the journal application in the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets) project: [tutorial-websi](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/tutorial-website). But of course, your journey doesn't have to stop here. Check out the _What's next_ section to get an idea of how you could expand the application, and where to go if you need help in your endeavors!
+This concludes the guided part of this tutorial. We have included the final state of the journal application in the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets) project: [tutorial-website](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/tutorial-website). But of course, your journey doesn't have to stop here. Check out the _What's next_ section to get an idea of how you could expand the application, and where to go if you need help in your endeavors!
 
 
 ## What's next {id="whats_next"}

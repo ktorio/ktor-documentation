@@ -13,22 +13,7 @@
     </p>
 
     <chapter title="Prerequisites" id="prerequisites">
-        <p>
-            Before starting this tutorial:
-        </p>
-        <list>
-            <li>
-                <p>
-                    <a href="https://www.jetbrains.com/help/idea/installation-guide.html">Install IntelliJ IDEA</a>.
-                </p>
-            </li>
-            <li>
-                <p>
-                    Make sure the <a href="https://plugins.jetbrains.com/plugin/6954-kotlin">Kotlin</a> plugin is installed and enabled. Learn how to do this from the
-                    <a href="https://www.jetbrains.com/help/idea/managing-plugins.html#open-plugin-settings">Manage plugins</a> topic.
-                </p>
-            </li>
-        </list>
+        <include src="lib.xml" include-id="client_prerequisites"/>
     </chapter>
 
     <chapter title="Create a new Gradle project" id="new-project">
@@ -39,12 +24,7 @@
         </p>
         <procedure>
             <step>
-                <p>
-                    If the Welcome screen opens, click <control>New Project</control>.
-                </p>
-                <p>
-                    Otherwise, from the main menu, select <menupath>File | New | Project</menupath>.
-                </p>
+                <include src="lib.xml" include-id="new_project_idea"/>
             </step>
             <step>
                 <p>

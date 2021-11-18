@@ -232,6 +232,25 @@
             </li>
         </list>
     </chunk>
+
+    <chunk id="client_prerequisites">
+        <p>
+            Before starting this tutorial:
+        </p>
+        <list>
+            <li>
+                <p>
+                    <a href="https://www.jetbrains.com/help/idea/installation-guide.html">Install IntelliJ IDEA Community</a>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Make sure the <a href="https://plugins.jetbrains.com/plugin/6954-kotlin">Kotlin</a> plugin is installed and enabled. Learn how to do this from the
+                    <a href="https://www.jetbrains.com/help/idea/managing-plugins.html#open-plugin-settings">Manage plugins</a> topic.
+                </p>
+            </li>
+        </list>
+    </chunk>
 </topic>
 
 
