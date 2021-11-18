@@ -186,5 +186,3 @@ At this point, we have implemented the absolute basics for a chat service, both 
 
 - **Nicer UI!** So far, the client's user interface is very rudimentary, with only text input and output. If you're feeling adventurous, you can pick up a framework like [TornadoFX](https://tornadofx.io/), [Compose for Desktop](https://www.jetbrains.com/lp/compose/), or other, and try implementing a fancy user interface for the chat.
 - **Mobile app!** The Ktor client libraries are also available for mobile applications. Feel free to try integrating what you have learned in this tutorial in the context of an Android application, and build the next big mobile chat product!
-
-

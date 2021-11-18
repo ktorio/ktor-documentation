@@ -228,4 +228,3 @@ At this point, we have implemented the absolute basics for a chat service, both 
 
 - **Custom usernames!** Instead of automatically assigning numbers to your users, you can ask users on application startup to enter a username, and persist this name alongside the Connection information on the server.
 - **Private messages!** If your users have something to say, but don't want to share it with the whole group, you could implement a `/whisper` command, which only relays the message to a certain person or select group of participants. You could even expand this functionality to handle more generic **chat commands!**
-- 
