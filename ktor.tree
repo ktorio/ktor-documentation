@@ -219,7 +219,7 @@
 
     <toc-element toc-title="Ktor Client">
         <toc-element toc-title="Getting started with a Ktor Client">
-            <toc-element id="getting_started_ktor_client.xml"/>
+            <toc-element id="getting_started_ktor_client.xml" show-structure-depth="2" show-structure-for="chapter,procedure"/>
             <toc-element id="getting_started_ktor_client_chat.md" show-structure-depth="2"/>
         </toc-element>
         <toc-element toc-title="Developing applications">

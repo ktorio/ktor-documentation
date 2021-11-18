@@ -19,11 +19,9 @@ the steps below:
 
 1. <include src="lib.xml" include-id="new_project_idea"/>
 2. In the **New Project** wizard, choose **kotlin** from the list on the left. On the right pane, specify the following settings:
-   ![New Ktor project](tutorial_websockets_client_new_project.png){width="706"}
-    * **Name**: Specify a project name.
-    * **Location**: Specify a directory for your project.
-    * **Project Template**: Choose _Application_ in the _JVM_ group.
-    * **Build System**: Make sure that _Gradle Kotlin_ is selected.
+   ![Kotlin Project Settings](tutorial_websockets_client_new_project.png){width="706"}
+   
+   <include src="getting_started_ktor_client.xml" include-id="kotlin_app_settings"/>
 
    Click **Next**.
 
@@ -78,7 +76,7 @@ In the `build.gradle.kts` file, add the `JavaExec` task and specify `standardInp
 ## Create the Application.kt file {id="create-kotlin-file"}
 Now we are ready to create a client.
 
-1. Invoke the [Project view<](https://www.jetbrains.com/help/idea/project-tool-window.html)and expand the `src/main` folder.
+1. Invoke the [Project view](https://www.jetbrains.com/help/idea/project-tool-window.html)and expand the `src/main` folder.
 2. Right-click the `kotlin` folder and choose **New | Kotlin Class/File**.
 3. Specify a file name in the invoked popup and press **Enter** to create a Kotlin file.
    ![Application.kt](client_get_started_new_kotlin_file.png){width="362"}
