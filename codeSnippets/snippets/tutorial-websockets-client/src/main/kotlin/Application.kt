@@ -1,5 +1,3 @@
-package com.example
-
 import io.ktor.client.*
 import io.ktor.client.plugins.websocket.*
 import io.ktor.http.*
@@ -36,7 +34,7 @@ suspend fun DefaultClientWebSocketSession.outputMessages() {
 
 suspend fun DefaultClientWebSocketSession.inputMessages() {
     while (true) {
-        val message = readLine() ?: ""
+        val message = readln()
         if (message.equals("exit", true)) return
         try {
             send(message)
