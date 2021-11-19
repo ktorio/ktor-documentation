@@ -66,11 +66,13 @@ In the `build.gradle.kts` file, add the `JavaExec` task and specify `standardInp
    ```
    {interpolate-variables="true"}
 
-2. Open the `build.gradle.kts` file and add the following artifacts to the `dependencies` block:
+   <include src="getting_started_ktor_client.xml" include-id="eap-note"/>
+
+3. Open the `build.gradle.kts` file and add the following artifacts to the `dependencies` block:
    ```kotlin
    ```
    {src="snippets/tutorial-websockets-client/build.gradle.kts" lines="1-2,21-25"}
-3. Click the **Load Gradle Changes** icon in the top right corner of the `build.gradle.kts` file to install the dependencies.
+4. Click the **Load Gradle Changes** icon in the top right corner of the `build.gradle.kts` file to install the dependencies.
 
 
 ## Create the Application.kt file {id="create-kotlin-file"}
