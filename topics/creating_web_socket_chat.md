@@ -19,7 +19,7 @@ Throughout this tutorial, we will implement a simple chat service, which will co
 
 For both parts of the application, we will make use of Ktor's support for [WebSockets](websocket.md). Because Ktor is both a server-side and client-side framework, we will be able to reuse the knowledge we acquire building the chat server when it comes to building the client.
 
-After completing this tutorial, you should have a basic understanding of how to work with WebSockets using Ktor and Kotlin, how to exchange information between the client and server, and get a basic idea of how to manage multiple connections at the same time.
+After completing this tutorial, you should have a basic understanding of how to work with WebSockets using Ktor, how to exchange information between the client and server, and get a basic idea of how to manage multiple connections at the same time.
 
 ## Why WebSockets? {id="why"}
 
@@ -84,7 +84,7 @@ Let's briefly go through these dependencies one by one:
 - `ktor-server-netty` adds the Netty [engine](Engines.md) to our project, allowing us to use server functionality without having to rely on an external application container.
 - `ktor-server-websockets` allows us to use the [WebSocket plugin](websocket.md), the main communication mechanism for our chat.
 - `logback-classic` provides an implementation of SLF4J, allowing us to see nicely formatted [logs](logging.md) in a console.
-- `ktor-server-tests` and `kotlin-test-junit` allow us to [test](Testing.md) parts of our Ktor application without having to use the whole HTTP stack in the process. We will use this to define unit tests for our project.
+- `ktor-server-tests` and `kotlin-test-junit` allow us to [test](Testing.md) parts of our Ktor application without having to use the whole HTTP stack in the process.
 
 ### Configurations: application.conf and logback.xml {id="configurations"}
 
@@ -114,7 +114,6 @@ This module, in turn, calls the following extension functions:
        }
    }
    ```
-  We'll define the routes for our journal in the next chapters.
 
 * `configureSockets` is a function defined in `plugins/Sockets.kt`, which installs and configures the `WebSockets` plugin:
    ```kotlin
@@ -128,9 +127,14 @@ This module, in turn, calls the following extension functions:
 
 ### Implement an echo server {id="implement_echo_server"}
 
-Let’s start our server development journey by building a small “echo” service which accepts WebSocket connections, receives text content, and sends it back to the client. We can implement this service with Kotlin and Ktor by adding the following implementation for `Application.configureSockets()` to `plugins/Sockets.kt`:
+Let’s start our server development journey by building a small “echo” service which accepts WebSocket connections, receives text content, and sends it back to the client. We can implement this service with Ktor by adding the following implementation for `Application.configureSockets()` to `plugins/Sockets.kt`:
 
 ```kotlin
+import io.ktor.http.cio.websocket.*
+import io.ktor.server.application.*
+import io.ktor.server.routing.*
+import io.ktor.server.websocket.*
+
 fun Application.configureSockets() {
     install(WebSockets) {
         // ...
@@ -158,9 +162,11 @@ At this point, we have already built a fully-functioning echo server – a littl
 
 For now, we can use a web-based WebSocket client to connect to our echo service, send a message, and receive the echoed reply. Once we have finished implementing the server-side functionality, we will also build our own chat client in Kotlin.
 
-Let's start the server by pressing the play button in the gutter next to the definition of `fun main` in our server's Application.kt. After our project has finished compiling, we should see a confirmation that the server is running in IntelliJ IDEAs Run tool window: 
+Let's start the server by pressing the Play button in the gutter next to the definition of `fun main` in our server's `Application.kt`. After our project has finished compiling, we should see a confirmation that the server is running in IntelliJ IDEAs Run tool window: 
 
-`Application - Responding at http://0.0.0.0:8080`. 
+```Bash
+Application - Responding at http://0.0.0.0:8080
+```
 
 To try out the service, we can use [Postman](https://learning.postman.com/docs/sending-requests/supported-api-frameworks/websocket/) to connect to `ws://localhost:8080/chat` and make a WebSocket request.
 
@@ -180,7 +186,9 @@ Let’s turn our echo server into a real chat server! To do this, we need to mak
 
 Both of these features need us to be able to keep track of the connections our server is holding – to know which user is sending the messages, and to know who to broadcast them to.
 
-Ktor manages a WebSocket connection with an object of the type `DefaultWebSocketSession`, which contains everything required for communicating via WebSockets, including the `incoming` and `outgoing` channels, convenience methods for communication, and more. For now, we can simplify the problem of assigning usernames, and just give each participant an auto-generated username based on a counter. Add the following implementation to a new file in the `com.example` package called `Connection.kt`:
+Ktor manages a WebSocket connection with an object of the type `DefaultWebSocketSession`, which contains everything required for communicating via WebSockets, including the `incoming` and `outgoing` channels, convenience methods for communication, and more. For now, we can simplify the problem of assigning usernames, and just give each participant an auto-generated username based on a counter. 
+
+Add the following implementation to a new file in the `com.example` package called `Connection.kt`:
 
 ```kotlin
 ```
@@ -194,7 +202,7 @@ We can now adjust our server's program to keep track of our Connection objects, 
 
 ```kotlin
 ```
-{src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/plugins/Sockets.kt" lines="19-42"}
+{src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/plugins/Sockets.kt" lines="3-12,19-43"}
 
 Our server now stores a (thread-safe) collection of `Connection`s. When a user connects, we create their `Connection` object (which also assigns itself a unique username), and add it to the collection. We then greet our user and let them know how many users are currently connecting. When we receive a message from the user, we prefix it with the unique name associated with their `Connection` object, and send it to all currently active connections. Finally, we remove the client's `Connection` object from our collection when the connection is terminated – either gracefully, when the incoming channel gets closed, or with an `Exception` when the network connection between client and server gets interrupted unexpectedly.
 
@@ -212,7 +220,7 @@ To see that our server is now behaving correctly – assigning usernames and bro
 </tabs>
 
 
-As we can see, our finished chat server can now receive and send messages with multiple participants. Feel free to open a few more tabs and play around with what we have built here!
+As we can see, our finished chat server can now receive and send messages with multiple participants. Feel free to open a few more tabs and play around with what we have built here! We have included the final state of the chat server in the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets) project: [tutorial-websockets-server](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/tutorial-websockets-server).
 
 In the [next tutorial](getting_started_ktor_client_chat.md), we will write a chat client for our server, which will allow us to send and receive messages directly from the command line. Because our clients will also be implemented using Ktor, we will get to reuse much of what we learned about managing WebSockets in Kotlin.
 
