@@ -30,7 +30,7 @@ The form-based authentication flow might look as follows:
 
 1. An unauthenticated client makes a request to a specific [route](Routing_in_Ktor.md) in a server application.
 1. A server returns an HTML page that consists at least from an HTML-based web form, which prompts a user for a username and password. 
-   > Ktor allows you to build a form using [Kotlin DSL](html_dsl.md), or you can choose between various JVM template engines, such as Freemarker, Velocity, and so on.
+   > Ktor allows you to build a form using [Kotlin DSL](html_dsl.md), or you can choose between various JVM template engines, such as FreeMarker, Velocity, and so on.
 1. When a user submits a username and password, a client makes a request containing web form data (which includes the username and password) to a server.
    
    ```kotlin

@@ -112,15 +112,16 @@ First, let's tackle the `Customer` side of our application. We need to create a 
 
 ### Create the Customer model {id="customer_model"}
 
-For our case, a customer should store some basic information in the form of text: A customer should have an `id` by which we can identify them, a first and last name, and an email address. An easy way to model this in Kotlin is by using a data class.
+For our case, a customer should store some basic information in the form of text: a customer should have an `id` by which we can identify them, a first and last name, and an email address. An easy way to model this in Kotlin is by using a data class:
 
-Create a file name `Customer.kt` in a [new package](https://www.jetbrains.com/help/idea/add-items-to-project.html#new-package) named `models` and add the following:
+1. Create a [new package](https://www.jetbrains.com/help/idea/add-items-to-project.html#new-package) named `models` inside `com.example`.
+2. Create a `Customer.kt` file in the `models` package and add the following:
 
-```kotlin
-```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/models/Customer.kt" lines="3-6"}
+   ```kotlin
+   ```
+   {src="snippets/tutorial-http-api/src/main/kotlin/com/example/models/Customer.kt" lines="3-6"}
 
-Note that we are using the `@Serializable` annotation from [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization). Together with its Ktor integration, this will allow us to generate the JSON representation we need for our API responses automatically – as we will see in just a bit.
+   Note that we are using the `@Serializable` annotation from [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization). Together with its Ktor integration, this will allow us to generate the JSON representation we need for our API responses automatically – as we will see in just a bit.
 
 ### Create the Customer storage {id="customer_storage"}
 
@@ -134,32 +135,35 @@ Now that we have a well-defined `Customer` class and a storage for our customer 
 
 ### Define the routing for customers {id="customer_routing"}
 
-We want to respond to `GET`, `POST`, and `DELETE` requests on the `/customer` endpoint. As such, let's define our routes with the corresponding HTTP methods. Create a file called `CustomerRoutes.kt` in a new package called `routes`, and fill it with the following:
+We want to respond to `GET`, `POST`, and `DELETE` requests on the `/customer` endpoint. As such, let's define our routes with the corresponding HTTP methods. 
 
-```kotlin
-import io.ktor.server.routing.*
+1. Create a new package named `routes` inside `com.example`.
+2. Create a `CustomerRoutes.kt` file called in the `routes` package, and fill it with the following:
 
-fun Route.customerRouting() {
-    route("/customer") {
-        get {
+   ```kotlin
+   import io.ktor.server.routing.*
+   
+   fun Route.customerRouting() {
+       route("/customer") {
+           get {
+   
+           }
+           get("{id}") {
+   
+           }
+           post {
+   
+           }
+           delete("{id}") {
+   
+           }
+       }
+   }
+   ```
 
-        }
-        get("{id}") {
+   In this case, we're using the `route` function to group everything that falls under the `/customer` endpoint. We then create a block for each HTTP method. This is just one approach how we can structure our routes – when we tackle the `Order` routes in the next chapter, we will see another approach.
 
-        }
-        post {
-
-        }
-        delete("{id}") {
-
-        }
-    }
-}
-```
-
-In this case, we're using the `route` function to group everything that falls under the `/customer` endpoint. We then create a block for each HTTP method. This is just one approach how we can structure our routes – when we tackle the `Order` routes in the next chapter, we will see another approach.
-
-Notice also how we actually have two entries for `get`: one without a route parameter, and the other with `{id}`. We'll use the first entry to list all customers, and the second to display a specific one.
+   Notice also how we actually have two entries for `get`: one without a route parameter, and the other with `{id}`. We'll use the first entry to list all customers, and the second to display a specific one.
 
 #### List all customers {id="list_customers"}
 
@@ -194,9 +198,9 @@ In Ktor, paths can also contain [parameters](Routing_in_Ktor.md#match_url) that 
 ```
 {src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" lines="19-30"}
 
-First, we check whether the parameter `id` exists in the request. If it does not exist, we respond with a 400 "Bad Request" status code and an error message, and are done. If the parameter exists, we try to `find` the corresponding record in our `customerStorage`. If we find it, we'll respond with the object. Otherwise, we'll return a 404 "Not Found" status code with an error message.
+First, we check whether the parameter `id` exists in the request. If it does not exist, we respond with a `400 Bad Request` status code and an error message, and are done. If the parameter exists, we try to `find` the corresponding record in our `customerStorage`. If we find it, we'll respond with the object. Otherwise, we'll return a 404 "Not Found" status code with an error message.
 
-Note that while we return a 400 "Bad request" when the `id` is null, this case should actually never be encountered. Why? Because this would only happen if no parameter `{id}` was passed in – but in this case, the route we defined previously would already handle the request.
+Note that while we return a `400 Bad request` when the `id` is null, this case should actually never be encountered. Why? Because this would only happen if no parameter `{id}` was passed in – but in this case, the route we defined previously would already handle the request.
 
 #### Create a customer {id="create_customer"}
 
@@ -206,7 +210,7 @@ Next, we implement the option for a client to `POST` a JSON representation of a 
 ```
 {src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" lines="31-35"}
 
-`call.receive` integrates with the Content Negotiation plugin we configured in one of the previous sections. Calling it with the generic parameter `Customer` automatically deserializes the JSON request body into a Kotlin `Customer` object. We can then add the customer to our storage and respond with a status code of 201 "Created".
+`call.receive` integrates with the [configured Content Negotiation](#source_code) plugin. Calling it with the generic parameter `Customer` automatically deserializes the JSON request body into a Kotlin `Customer` object. We can then add the customer to our storage and respond with a status code of `201 Created`.
 
 At this point, it is worth highlighting again that in this tutorial, we are also intentionally glancing over issues that could arise from, for example, multiple requests accessing the storage simultaneously. In production, data structures and code that can be accessed from multiple requests/threads at the same time should account for these cases – something that is out of the scope of this tutorial.
 
@@ -218,7 +222,7 @@ The implementation for deleting a customer follows a similar procedure as we hav
 ```
 {src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" lines="36-43"}
 
-Similar to the definition of our `get` request, we make sure that the `id` is not null. If the `id` is absent, we respond with a 400 "Bad Request" error.
+Similar to the definition of our `get` request, we make sure that the `id` is not null. If the `id` is absent, we respond with a `400 Bad Request` error.
 
 ### Register the routes {id="register_customer_routes"}
 
@@ -228,9 +232,9 @@ Up until now, we have only defined our routes inside an extension function on `R
 ```
 {src="snippets/tutorial-http-api/src/main/kotlin/com/example/plugins/Routing.kt" lines="3-9,13-14"}
 
-As you might remember, the `configureRouting` function is already invoked in our `Application.module()` function in `Application.kt`.
+As you might remember, the `configureRouting` function is already [invoked](#source_code) in our `Application.module()` function in `Application.kt`.
 
-We've now completed the implementation for the customer-related routes in our API. If you would like to validate that everything works right away, you can skip ahead to the chapter about [](#manual_test). If you can still bear the suspense, we can move on to the implementation of order-related routes.
+We've now completed the implementation for the customer-related routes in our API. If you would like to validate that everything works right away, you can skip ahead to the chapter [](#manual_test). If you can still bear the suspense, we can move on to the implementation of order-related routes.
 
 
 ## Order routes {id="order_routes"}
@@ -242,7 +246,7 @@ Now that we have API endpoints for `Customer`s done, let's move on to `Orders`. 
 
 The orders we want to store in our system should be identifiable by an order number (which might contain dashes), and should contain a list of order items. These order items should have a textual description, the number of how often this item appears in the order, as well as the price for the individual item (so that we can compute the total price of an order on demand).
 
-We create a new file called `Order.kt` and fill it with the definition of the two data classes:
+Inside the `models` package, create a new file called `Order.kt` and fill it with the definition of the two data classes:
 
 ```kotlin
 ```
@@ -307,7 +311,7 @@ Now that we have everything wired up, we can finally start testing our applicati
 ## Test HTTP endpoints manually {id="manual_test"}
 
 Now that we have all the endpoints ready, it's time to test our application. While
-we can use any browser to test `GET` requests, we'll need a separate tool to test the other HTTP methods. Some options are `curl` or Postman – but if you're using [IntelliJ IDEA Ultimate Edition](https://www.jetbrains.com/idea/), you actually already have a client that supports `.http` files, allowing you to specify and execute requests – without even having to leave the IDE.
+we can use any browser to test `GET` requests, we'll need a separate tool to test the other HTTP methods. Some options are `curl` or Postman – but if you're using IntelliJ IDEA Ultimate Edition, you actually already have a [client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html) that supports `.http` files, allowing you to specify and execute requests – without even having to leave the IDE.
 
 ### Create a customer HTTP test file {id="create_customer_http"}
 
@@ -325,7 +329,7 @@ Before we can run a request, we need to first start our API server. Open the `Ap
 
 ![Run Server](run-app.png){width="706"}
 
-Once the server is up and running, we can execute each request by pressing Alt+Enter or by using the Run icon in the gutter:
+Once the server is up and running, we can execute each request by using the **Run** icon in the gutter:
 
 ![Run POST Request](run-post-request.png){width="706"}
 

@@ -21,7 +21,7 @@ get("/") {
 ### HTML {id="html"}
 Ktor provides two main ways to send HTML responses to a client:
 * By building HTML using Kotlin HTML DSL.
-* By using JVM template engines, such as Freemarker, Velocity, and so on.
+* By using JVM template engines, such as FreeMarker, Velocity, and so on.
 
 To send HTML build using Kotlin DSL, use the [call.respondHtml](https://api.ktor.io/ktor-features/ktor-html-builder/ktor-html-builder/io.ktor.html/respond-html.html) function:
 ```kotlin

@@ -4,11 +4,11 @@
 <var name="example_name" value="tutorial-website"/>
 <include src="lib.xml" include-id="download_example"/>
 <p>
-Used plugins: Routing, Freemarker, HTML DSL
+Used plugins: Routing, FreeMarker, HTML DSL
 </p>
 </microformat>
 
-In this tutorial, we're going to create an interactive website. Using the different plugins and integrations provided by Ktor, we will see how to host static content like images and HTML pages. We will see how supported HTML templating engines like [Freemarker](freemarker.md) make it easy to control how data from our application is rendered in the browser. By using [kotlinx.html](html_dsl.md), we'll learn about a domain-specific language that allows us to mix Kotlin code and markup directly, allowing us to write our site's display logic in pure Kotlin.
+In this tutorial, we're going to create an interactive website. Using the different plugins and integrations provided by Ktor, we will see how to host static content like images and HTML pages. We will see how supported HTML templating engines like [FreeMarker](freemarker.md) make it easy to control how data from our application is rendered in the browser. By using [kotlinx.html](html_dsl.md), we'll learn about a domain-specific language that allows us to mix Kotlin code and markup directly, allowing us to write our site's display logic in pure Kotlin.
 
 The goal of this tutorial is to write a minimal journal app. We'll start by seeing how Ktor can serve static files and pages, and then move on to dynamically rendering Kotlin objects representing blog entries in a nicely formatted fashion, making use of our template engine. To make things interactive, we will add the ability to submit new entries to our journal directly from the browser – leaving us with a nice way to temporarily store and view our thoughts, for example, our opinion on working through this tutorial:
 
@@ -36,7 +36,7 @@ To create a base project for our application using the Ktor plugin, [open Intell
 
    Click **Next**.
    
-3. On the next page, add the **Routing**, **Freemarker**, and **HTML DSL** plugins:
+3. On the next page, add the **Routing**, **FreeMarker**, and **HTML DSL** plugins:
    ![Ktor plugins](tutorial_website_new_project_plugins.png){width="729"}
 
    Click **Finish** and wait until IntelliJ IDEA generates a project and installs the dependencies.
@@ -62,7 +62,7 @@ Let's briefly go through these dependencies one by one:
 
 - `ktor-server-core` adds Ktor's core components to our project.
 - `ktor-server-netty` adds the Netty [engine](Engines.md) to our project, allowing us to use server functionality without having to rely on an external application container.
-- `ktor-server-freemarker` allows us to use the [Freemarker](freemarker.md) template engine, which we'll use to create the main page of our journal.
+- `ktor-server-freemarker` allows us to use the [FreeMarker](freemarker.md) template engine, which we'll use to create the main page of our journal.
 - `ktor-server-html-builder` adds the ability to use [kotlinx.html](html_dsl.md) directly from within the code. We'll use it to create code that can mix Kotlin logic with HTML markup.
 - `logback-classic` provides an implementation of SLF4J, allowing us to see nicely formatted [logs](logging.md) in a console.
 - `ktor-server-tests` and `kotlin-test-junit` allow us to [test](Testing.md) parts of our Ktor application without having to use the whole HTTP stack in the process. We will use this to define unit tests for our project.
@@ -97,7 +97,7 @@ This module, in turn, calls the following extension functions:
    ```
   We'll define the routes for our journal in the next chapters.
 
-* `configureTemplating` is a function defined in `plugins/Templating.kt`, which installs and configures the `Freemarker` plugin:
+* `configureTemplating` is a function defined in `plugins/Templating.kt`, which installs and configures the `FreeMarker` plugin:
    ```kotlin
    ```
   {src="snippets/tutorial-website/src/main/kotlin/com/example/plugins/Templating.kt" lines="8-10,12-13"}
@@ -110,11 +110,13 @@ Before we dive into making a _dynamic_ application, let's start by doing somethi
 
 1. Create the `files` folder inside `src/main/resources`.
 2. Download the [ktor_logo.png](https://github.com/ktorio/ktor-documentation/blob/main/codeSnippets/snippets/tutorial-website/src/main/resources/files/ktor_logo.png) image file and add it to the created `files` folder.
-3. To serve static content, we can use a specific routing function already built into Ktor named [static](Serving_Static_Content.md). The function takes two parameters: the route under which the static content should be made available, and a lambda where we can define the location from where the content should be served. In the `plugins/Routing.kt` file, let's change the implementation for `Application.configureRouting()` to look like this:
+3. To serve static content, we can use a specific routing function already built into Ktor named [static](Serving_Static_Content.md). The function takes two parameters: the route under which the static content should be made available, and a lambda where we can define the location from where the content should be served. 
+   
+   In the `plugins/Routing.kt` file, let's change the implementation for `Application.configureRouting()` to look like this:
 
    ```kotlin
    ```
-   {src="snippets/tutorial-website/src/main/kotlin/com/example/plugins/Routing.kt" lines="14-18,48-49"}
+   {src="snippets/tutorial-website/src/main/kotlin/com/example/plugins/Routing.kt" lines="3-18,48-49"}
    
    This instructs Ktor that everything under the URL `/static` should be served using the `files` directory inside `resources`.
 
@@ -158,28 +160,28 @@ However, a static page that contains a few paragraphs can hardly be called a jou
 
 ## Home page with templates {id="home_page_templates"}
 
-It's time to build the main page of our journal, which is in charge of displaying multiple journal entries. We will create this page with the help of a *template engine*. Template engines are quite common in web development, and Ktor supports a [variety of them](Working_with_views.md). In our case, we're going to choose [Freemarker](https://freemarker.apache.org/).
+It's time to build the main page of our journal, which is in charge of displaying multiple journal entries. We will create this page with the help of a *template engine*. Template engines are quite common in web development, and Ktor supports a [variety of them](Working_with_views.md). In our case, we're going to choose [FreeMarker](https://freemarker.apache.org/).
 
-### Adjust Freemarker configuration {id="freemarker_config"}
+### Adjust FreeMarker configuration {id="freemarker_config"}
 
-The Ktor plugin for IntelliJ IDEA already [generated code](#source_code) for the Freemarker plugin:
+The Ktor plugin for IntelliJ IDEA already [generated code](#source_code) for the FreeMarker plugin in the `plugins/Templating.kt` file:
 
 ```kotlin
 ```
 {src="snippets/tutorial-website/src/main/kotlin/com/example/plugins/Templating.kt" lines="8-10,12-13"}
 
-The `templateLoader` setting tells our application that Freemarker templates will be located in the `templates` directory. Let's also add the `outputFormat` as follows:
+The `templateLoader` setting tells our application that FreeMarker templates will be located in the `templates` directory. Let's also add the `outputFormat` as follows:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website/src/main/kotlin/com/example/plugins/Templating.kt" lines="8-13"}
+{src="snippets/tutorial-website/src/main/kotlin/com/example/plugins/Templating.kt" lines="3-13"}
 
 The `outputFormat` setting helps convert control characters provided by the user to their corresponding HTML entities. This ensures that when one of our journal entries contains a String like `<b>Hello</b>`, it is actually printed as `<b>Hello</b>`, not **Hello**. This so-called [escaping](https://freemarker.apache.org/docs/dgui_misc_autoescaping.html) is an essential step in preventing [XSS attacks](https://owasp.org/www-community/attacks/xss/).
 
 
 ### Write the journal template {id="journal_template"}
 
-Our journal main page should contain everything we need for a basic overview of our journal: a title, header image, a list of journal entries, and a form for adding new journal entries. To define this page layout, we use the Freemarker Template Language (`ftl`), which contains our HTML source as well as Freemarker variable definitions and instructions on how to use the variables in the context of the page.
+Our journal main page should contain everything we need for a basic overview of our journal: a title, header image, a list of journal entries, and a form for adding new journal entries. To define this page layout, we use the FreeMarker Template Language (`ftl`), which contains our HTML source as well as FreeMarker variable definitions and instructions on how to use the variables in the context of the page.
 
 Let's create a new `templates` directory inside `resources`. Inside this directory, we'll create a file called `index.ftl` and fill it with the following content:
 
@@ -189,11 +191,11 @@ Let's create a new `templates` directory inside `resources`. Inside this directo
 
 As you can see, we are using FTL syntax to define, access, and iterate over variables. The variable `entries` which we loop over has the type `kotlin.collections.List<com.example.BlogEntry>`. This is simply the fully-qualified name of a Kotlin `List<BlogEntry>`. However, we haven't created the `BlogEntry` class yet, but now that we are referencing it, it seems like a good time to fix that!
 
-> If you'd like to learn more about Freemarker's syntax, check out [their official documentation](https://freemarker.apache.org/docs/dgui_quickstart.html).
+> If you'd like to learn more about FreeMarker's syntax, check out [their official documentation](https://freemarker.apache.org/docs/dgui_quickstart.html).
 
 ### Define a model for the journal entries {id="define_model"}
 
-As defined by our usage in the Freemarker template, the `BlogEntry` class needs two attributes: a `headline` and a `body`, both of type `String`. Let's create a file named `BlogEntry.kt` next to `Application.kt`, and fill it with the corresponding Kotlin data class, which can then be injected into the template:
+As defined by our usage in the FreeMarker template, the `BlogEntry` class needs two attributes: a `headline` and a `body`, both of type `String`. Let's create a file named `BlogEntry.kt` in the `com.example` package, and fill it with the corresponding Kotlin data class, which can then be injected into the template:
 
 ```kotlin
 ```
@@ -209,7 +211,7 @@ At this point, we have defined a template and the model that will be used for re
 
 ### Serve the templated content {id="serve_template"}
 
-The overview page we just templated is the center point of our application. So, it would make sense to make it available under the `/` route. Let's add a route for it to the `routing` block inside our `Application.configureRouting()` (the `plugins/Routing.kt` file):
+The overview page we just templated is the center point of our application. So, it would make sense to make it available under the `/` route. Let's add a route for it to the `routing` block inside our `Application.configureRouting()`. Open the `plugins/Routing.kt` file and add the code below:
 
 
 ```kotlin
@@ -218,14 +220,14 @@ The overview page we just templated is the center point of our application. So, 
 
 We can now run the application. Opening [`http://localhost:8080/`](http://localhost:8080/) in a browser, we should see our header image, headline and subtitle, and a list of journal entries (well, just one for now) alongside a form for submitting new entries:
 
-![Freemarker Browser Output](main_page.png){width="706"}
+![FreeMarker Browser Output](main_page.png){width="706"}
 
-It looks like our display logic is working just fine! Now, we only need to make the "Submit" button work, and we'll be able to view and add new entries for our journal!
+It looks like our display logic is working just fine! Now, we only need to make the **Submit** button work, and we'll be able to view and add new entries for our journal!
 
 
 ## Submit a form {id="submit_form"}
 
-The `<form>` we defined in the previous chapter sends a `POST` request to `/submit` containing the `headline` and `body` of our new journal entry. Let's make our application correctly consume this information and submission of new journal entries! We define a handler for the `/submit` route inside our `Application.module()`'s `routing` block like this:
+The `<form>` we defined in the previous chapter sends a `POST` request to `/submit` containing the `headline` and `body` of our new journal entry. Let's make our application correctly consume this information and submission of new journal entries! We define a handler for the `/submit` route inside our `Application.configureRouting()`'s `routing` block like this:
 
 ```kotlin
 ```
@@ -235,7 +237,7 @@ The `<form>` we defined in the previous chapter sends a `POST` request to `/subm
 
 For more detailed information on the fancy features that are available in the context of Ktor's request model, check out the [](requests.md) topic.
 
-To show the user that the submission was successful, we still want to send back a bit of HTML. We could re-use our knowledge and create a Freemarker template for this "Success" page as well – but to cover some more Ktor functionality, we will try an alternative approach instead. When we autocomplete on the `call` object, we can see that Ktor allows us to respond to requests using a variety of functions:
+To show the user that the submission was successful, we still want to send back a bit of HTML. We could re-use our knowledge and create a FreeMarker template for this "Success" page as well – but to cover some more Ktor functionality, we will try an alternative approach instead. When we autocomplete on the `call` object, we can see that Ktor allows us to respond to requests using a variety of functions:
 
 ![Respond](respond.png){width="658"}
 
@@ -249,7 +251,7 @@ At the bottom of the `post("/submit")` handler block, let's add the following co
 
 Notice how this code combines Kotlin-specific logic (like `count`ing the entries or using string interpolation) with HTML-like syntax!
 
-To test the route, let's re-run our application, navigate to [`http://localhost:8080/`](http://localhost:8080/), and submit a new entry. If everything has gone according to play, we'll now see the HTML page, courtesy of kotlinx.html!
+To test the route, let's re-run our application, navigate to [`http://localhost:8080/`](http://localhost:8080/), and submit a new entry. If everything has gone according to play, we'll now see the HTML page.
 
 ![Static HTML](submit.png){width="706"}
 
@@ -259,18 +261,18 @@ It's time to pat ourselves on the back – we've put together a nice little jour
 
 ![](ktor_journal.png){animated="true" width="706"}
 
-This concludes the guided part of this tutorial. We have included the final state of the journal application in the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets) project: [tutorial-website](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/tutorial-website). But of course, your journey doesn't have to stop here. Check out the _What's next_ section to get an idea of how you could expand the application, and where to go if you need help in your endeavors!
+This concludes the guided part of this tutorial. We have included the final state of the journal application in the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets) project: [tutorial-website](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/tutorial-website). But of course, your journey doesn't have to stop here. Check out the [What's next](#whats_next) section to get an idea of how you could expand the application, and where to go if you need help in your endeavors!
 
 
 ## What's next {id="whats_next"}
 
-At this point, you should have gotten a basic idea of how to serve static files with Ktor and how the integration of plugins such as Freemarker or kotlinx.html can enable you to write basic applications that can even react to user input.
+At this point, you should have gotten a basic idea of how to serve static files with Ktor and how the integration of plugins such as FreeMarker or kotlinx.html can enable you to write basic applications that can even react to user input.
 
 ### Feature requests {id="feature_requests"}
 
 At this point, our journal application is still rather barebones, so of course, it might be a fun challenge to add more features to the project and learn even more about building interactive sites with Kotlin and Ktor. To get you started, here are a few ideas of how the application could still be improved, in no particular order:
 
-- **Make it consistent!** You would usually not mix Freemarker and kotlinx.html – we've taken some liberty here to explore more than one way of structuring your application. Consider powering your whole journal with kotlinx.html or Freemarker, and make it consistent!
+- **Make it consistent!** You would usually not mix FreeMarker and kotlinx.html – we've taken some liberty here to explore more than one way of structuring your application. Consider powering your whole journal with kotlinx.html or FreeMarker, and make it consistent!
 - **Authentication!** Our current version of the journal allows all visitors to post content to our journal. We could use [Ktor's authentication plugins](authentication.md) to ensure that only select users can post to the journal while keeping read access open to everyone.
 - **Persistence!** Currently, all our journal entries vanish when we stop our application, as we are only storing them in a variable. You could try integrating your application with a database like PostgreSQL or MongoDB, using one of the plenty projects that allow database access from Kotlin, like [Exposed](https://github.com/JetBrains/Exposed) or [KMongo](https://litote.org/kmongo/).
 - **Make it look nicer!** The stylesheets for the journal are currently rudimentary at best. Consider creating your own style sheet and serving it as a static `.css` file from Ktor!
