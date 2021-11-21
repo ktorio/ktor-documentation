@@ -69,7 +69,7 @@ Then, you can configure it in a `gretty` block as follows:
 
 ```groovy
 ```
-{src="snippets/jetty-war/build.gradle.kts" lines="11-14"}
+{src="snippets/jetty-war/build.gradle.kts" lines="12-15"}
 
 </tab>
 <tab title="Tomcat">
