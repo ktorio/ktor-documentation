@@ -1,6 +1,6 @@
 # Server WebSockets - Serialization
 
-A sample Ktor project showing how to use serialization with [WebSockets](https://ktor.io/docs/websocket.html).
+A sample Ktor project showing how to use serialization with [WebSockets](https://ktor.io/docs/websocket-serialization.html).
 
 ## Running
 
