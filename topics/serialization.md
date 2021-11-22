@@ -26,6 +26,8 @@ The [ContentNegotiation](https://api.ktor.io/ktor-server/ktor-server-core/ktor-s
 
 Note that serializers for specific formats require additional artifacts. For example, kotlinx.serialization requires the `ktor-serialization-kotlinx-json` dependency for JSON.
 
+<chunk id="serialization_dependency">
+
 ### JSON {id="add_json_dependency"}
 
 To serialize/deserialize JSON data, you can choose one of the following libraries: kotlinx.serialization, Gson, or Jackson. 
@@ -68,6 +70,7 @@ To serialize/deserialize CBOR, add the `ktor-serialization-kotlinx-cbor` in the 
 <var name="artifact_name" value="ktor-serialization-kotlinx-cbor"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
+</chunk>
 
 ## Install ContentNegotiation {id="install_plugin"}
 
