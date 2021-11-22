@@ -1,21 +1,17 @@
 [//]: # (title: WebSockets serialization)
 
 <microformat>
-<var name="example_name" value="server-websockets-serialization"/>
+<var name="example_name" value="client-websockets-serialization"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-Similarly to the [ContentNegotiation](serialization.md) plugin, WebSockets allow you to serialize/deserialize text frames in a specific format. Ktor supports the following formats out-of-the-box: JSON, XML, and CBOR.
-
+Similarly to the [ContentNegotiation](serialization-client.md) plugin, WebSockets allow you to serialize/deserialize text frames in a specific format. The Ktor client supports the following formats out-of-the-box: JSON, XML, and CBOR.
 
 ## Add dependencies {id="add_dependencies"}
 
 <include src="serialization.md" include-id="serialization_dependency"/>
 
-
 ## Configure a serializer {id="configure_serializer"}
-
-Ktor supports the following formats out-of-the-box: [JSON](#register_json), [XML](#register_xml), [CBOR](#register_cbor).
 
 ### JSON serializer {id="register_json"}
 
@@ -25,12 +21,14 @@ Ktor supports the following formats out-of-the-box: [JSON](#register_json), [XML
 To register the JSON serializer in your application, create a `KotlinxWebsocketSerializationConverter` instance with the `Json` parameter and assign this instance to the `contentConverter` property:
 
 ```kotlin
-import io.ktor.server.plugins.*
+import io.ktor.client.plugins.*
 import io.ktor.serialization.kotlinx.*
 import kotlinx.serialization.json.*
 
-install(WebSockets) {
-    contentConverter = KotlinxWebsocketSerializationConverter(Json)
+val client = HttpClient(CIO) {
+    install(WebSockets) {
+        contentConverter = KotlinxWebsocketSerializationConverter(Json)
+    }
 }
 ```
 
@@ -38,8 +36,9 @@ install(WebSockets) {
 <tab title="Gson" group-key="gson">
 
 To register the Gson serializer in your application, assign `GsonWebsocketContentConverter` to the `contentConverter` property:
+
 ```kotlin
-import io.ktor.server.plugins.*
+import io.ktor.client.plugins.*
 import io.ktor.serializaion.gson.*
 
 install(WebSockets) {
@@ -54,7 +53,7 @@ install(WebSockets) {
 To register the Jackson serializer in your application, assign `JacksonWebsocketContentConverter` to the `contentConverter` property:
 
 ```kotlin
-import io.ktor.server.plugins.*
+import io.ktor.client.plugins.*
 import io.ktor.serializaion.jackson.*
 
 install(WebSockets) {
@@ -65,13 +64,12 @@ install(WebSockets) {
 </tab>
 </tabs>
 
-
-
 ### XML serializer {id="register_xml"}
 
 To register the XML serializer in your application, create a `KotlinxWebsocketSerializationConverter` instance with the `XML` parameter and assign this instance to the `contentConverter` property:
+
 ```kotlin
-import io.ktor.server.plugins.*
+import io.ktor.client.plugins.*
 import nl.adaptivity.xmlutil.serialization.*
 
 install(WebSockets) {
@@ -79,12 +77,11 @@ install(WebSockets) {
 }
 ```
 
-
 ### CBOR serializer {id="register_cbor"}
 To register the CBOR serializer in your application, create a `KotlinxWebsocketSerializationConverter` instance with the `Cbor` parameter and assign this instance to the `contentConverter` property:
 
 ```kotlin
-import io.ktor.server.plugins.*
+import io.ktor.client.plugins.*
 import io.ktor.serialization.kotlinx.cbor.*
 
 install(WebSockets) {
@@ -94,31 +91,36 @@ install(WebSockets) {
 
 
 ## Receive and send data {id="receive_send_data"}
-
 ### Create a data class {id="create_data_class"}
-To serialize/deserialize frames into/from an object, you need to create a data class, for example:
+
+To serialize/deserialize text frames into/from an object, you need to create a data class, for example:
+
 ```kotlin
 ```
-{src="snippets/server-websockets-serialization/src/main/kotlin/com/example/Application.kt" lines="11"}
+{src="snippets/client-websockets-serialization/src/main/kotlin/com/example/Application.kt" lines="13"}
 
 If you use kotlinx.serialization, make sure that this class has the `@Serializable` annotation:
-```kotlin
-```
-{src="snippets/server-websockets-serialization/src/main/kotlin/com/example/Application.kt" lines="10-11"}
 
-### Receive data {id="receive_data"}
-To receive and convert a content of a text frame, call the `receiveDeserialized` function that accepts a data class as a parameter:
 ```kotlin
 ```
-{src="snippets/server-websockets-serialization/src/main/kotlin/com/example/Application.kt" lines="23-26"}
+{src="snippets/client-websockets-serialization/src/main/kotlin/com/example/Application.kt" lines="12-13"}
+
+To learn more about `kotlinx.serialization`, see the [Kotlin Serialization Guide](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serialization-guide.md).
 
 ### Send data {id="send_data"}
-To pass a data object in a text frame using a [specified format](#configure_serializer), you can use the `sendSerialized` function:
+
+To send a [class instance](#create_data_class) within a text frame in a [specified format](#configure_serializer), use the `sendSerialized` function:
 
 ```kotlin
 ```
-{src="snippets/server-websockets-serialization/src/main/kotlin/com/example/Application.kt" lines="20-22"}
+{src="snippets/client-websockets-serialization/src/main/kotlin/com/example/Application.kt" lines="26-28"}
 
-You can find the full example here: [server-websockets-serialization](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/server-websockets-serialization).
+### Receive data {id="receive_data"}
 
+To receive and convert a content of a text frame, call the `receiveDeserialized` function that accepts a data class as a parameter:
 
+```kotlin
+```
+{src="snippets/client-websockets-serialization/src/main/kotlin/com/example/Application.kt" lines="22-25"}
+
+You can find the full example here: [client-websockets-serialization](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-websockets-serialization).

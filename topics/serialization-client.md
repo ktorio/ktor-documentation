@@ -26,47 +26,7 @@ The `ContentNegotiation` plugin serves two primary purposes:
 
 Note that serializers for specific formats require additional artifacts. For example, kotlinx.serialization requires the `ktor-serialization-kotlinx-json` dependency for JSON. Depending on the included artifacts, Ktor chooses a default serializer automatically. If required, you can [specify the serializer](#configure_serializer) explicitly and configure it.
 
-### JSON {id="add_json_dependency"}
-
-To serialize/deserialize JSON data, you can choose one of the following libraries: kotlinx.serialization, Gson, or Jackson.
-
-<tabs group="json-libraries">
-<tab title="kotlinx.serialization" group-key="kotlinx">
-
-1. Add the Kotlin serialization plugin, as described in the [Setup](https://github.com/Kotlin/kotlinx.serialization#setup) section.
-2. Add the `ktor-serialization-kotlinx-json` artifact in the build script:
-   <var name="artifact_name" value="ktor-serialization-kotlinx-json"/>
-   <include src="lib.xml" include-id="add_ktor_artifact"/>
-
-</tab>
-<tab title="Gson" group-key="gson">
-
-* Add the `ktor-serialization-gson` artifact in the build script:
-  <var name="artifact_name" value="ktor-serialization-gson"/>
-  <include src="lib.xml" include-id="add_ktor_artifact"/>
-
-</tab>
-<tab title="Jackson" group-key="jackson">
-
-* Add the `ktor-serialization-jackson` artifact in the build script:
-  <var name="artifact_name" value="ktor-serialization-jackson"/>
-  <include src="lib.xml" include-id="add_ktor_artifact"/>
-
-</tab>
-</tabs>
-
-
-### XML {id="add_xml_dependency"}
-
-To serialize/deserialize XML, add the `ktor-serialization-kotlinx-xml` in the build script:
-<var name="artifact_name" value="ktor-serialization-kotlinx-xml"/>
-<include src="lib.xml" include-id="add_ktor_artifact"/>
-
-### CBOR {id="add_cbor_dependency"}
-
-To serialize/deserialize CBOR, add the `ktor-serialization-kotlinx-cbor` in the build script:
-<var name="artifact_name" value="ktor-serialization-kotlinx-cbor"/>
-<include src="lib.xml" include-id="add_ktor_artifact"/>
+<include src="serialization.md" include-id="serialization_dependency"/>
       
 
 ## Install ContentNegotiation {id="install_plugin"}
