@@ -20,7 +20,7 @@ class Articles(val sort: String? = "new") {
 
     @Serializable
     @Resource("{id}")
-    class Id(val parent: Articles = Articles("new"), val id: Long) {
+    class Id(val parent: Articles = Articles(), val id: Long) {
         @Serializable
         @Resource("edit")
         class Edit(val parent: Id)
