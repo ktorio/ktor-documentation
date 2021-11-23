@@ -5,7 +5,7 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-Similarly to the [ContentNegotiation](serialization.md) plugin, WebSockets allow you to serialize/deserialize text frames in a specific format. Ktor supports the following formats out-of-the-box: JSON, XML, and CBOR.
+Similar to the [ContentNegotiation](serialization.md) plugin, WebSockets allow you to serialize/deserialize text frames in a specific format. Ktor supports the following formats out-of-the-box: JSON, XML, and CBOR.
 
 
 ## Add dependencies {id="add_dependencies"}
@@ -22,7 +22,7 @@ Ktor supports the following formats out-of-the-box: [JSON](#register_json), [XML
 <tabs group="json-libraries">
 <tab title="kotlinx.serialization" group-key="kotlinx">
 
-To register the JSON serializer in your application, create a `KotlinxWebsocketSerializationConverter` instance with the `Json` parameter and assign this instance to the `contentConverter` property:
+To register the JSON serializer in the WebSockets [configuration](websocket.md#configure), create a `KotlinxWebsocketSerializationConverter` instance with the `Json` parameter and assign this instance to the `contentConverter` property:
 
 ```kotlin
 import io.ktor.server.plugins.*
@@ -37,7 +37,7 @@ install(WebSockets) {
 </tab>
 <tab title="Gson" group-key="gson">
 
-To register the Gson serializer in your application, assign `GsonWebsocketContentConverter` to the `contentConverter` property:
+To register the Gson serializer, assign `GsonWebsocketContentConverter` to the `contentConverter` property:
 ```kotlin
 import io.ktor.server.plugins.*
 import io.ktor.serializaion.gson.*
@@ -51,7 +51,7 @@ install(WebSockets) {
 </tab>
 <tab title="Jackson" group-key="jackson">
 
-To register the Jackson serializer in your application, assign `JacksonWebsocketContentConverter` to the `contentConverter` property:
+To register the Jackson serializer, assign `JacksonWebsocketContentConverter` to the `contentConverter` property:
 
 ```kotlin
 import io.ktor.server.plugins.*
@@ -69,7 +69,7 @@ install(WebSockets) {
 
 ### XML serializer {id="register_xml"}
 
-To register the XML serializer in your application, create a `KotlinxWebsocketSerializationConverter` instance with the `XML` parameter and assign this instance to the `contentConverter` property:
+To register the XML serializer in the WebSockets [configuration](websocket.md#configure), create a `KotlinxWebsocketSerializationConverter` instance with the `XML` parameter and assign this instance to the `contentConverter` property:
 ```kotlin
 import io.ktor.server.plugins.*
 import nl.adaptivity.xmlutil.serialization.*
@@ -81,7 +81,7 @@ install(WebSockets) {
 
 
 ### CBOR serializer {id="register_cbor"}
-To register the CBOR serializer in your application, create a `KotlinxWebsocketSerializationConverter` instance with the `Cbor` parameter and assign this instance to the `contentConverter` property:
+To register the CBOR serializer in the WebSockets [configuration](websocket.md#configure), create a `KotlinxWebsocketSerializationConverter` instance with the `Cbor` parameter and assign this instance to the `contentConverter` property:
 
 ```kotlin
 import io.ktor.server.plugins.*
