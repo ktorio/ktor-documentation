@@ -5,7 +5,7 @@ import io.ktor.resources.*
 import io.ktor.server.application.*
 import io.ktor.server.resources.*
 import io.ktor.server.resources.Resources
-import io.ktor.server.resources.patch
+import io.ktor.server.resources.put
 import io.ktor.server.resources.post
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
@@ -48,17 +48,17 @@ fun Application.module() {
             // Show an article with id ${article.id} ...
             call.respondText("An article with id ${article.id}", status = HttpStatusCode.OK)
         }
-        patch<Articles.Id> { article ->
-            // Update an article ...
-            call.respondText("An article with ${article.id} updated", status = HttpStatusCode.OK)
-        }
-        delete<Articles.Id> { article ->
-            // Delete an article ...
-            call.respondText("An article with ${article.id} deleted", status = HttpStatusCode.OK)
-        }
         get<Articles.Id.Edit> { article ->
             // Show a page with fields for editing an article ...
             call.respondText("Edit an article with id ${article.parent.id}", status = HttpStatusCode.OK)
+        }
+        put<Articles.Id> { article ->
+            // Update an article ...
+            call.respondText("An article with id ${article.id} updated", status = HttpStatusCode.OK)
+        }
+        delete<Articles.Id> { article ->
+            // Delete an article ...
+            call.respondText("An article with id ${article.id} deleted", status = HttpStatusCode.OK)
         }
     }
 }
