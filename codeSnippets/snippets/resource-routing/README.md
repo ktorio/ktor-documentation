@@ -1,6 +1,6 @@
 # Resource routing
 
-An example that demonstrates how to implement type-safe [routing](https://ktor.io/docs/routing-in-ktor.html) using the `Resources` plugin.
+An example that demonstrates how to implement [type-safe routing](https://ktor.io/docs/type-safe-routing.html) using the `Resources` plugin.
 
 ## Running
 
