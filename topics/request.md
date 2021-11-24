@@ -1,6 +1,7 @@
 [//]: # (title: Making requests)
 
-After [setting up the client](client.md), you can make HTTP requests. The main way for making HTTP requests is the [request](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.request/request.html) function that takes a URL as a parameter. Inside this function, you can configure various request parameters: 
+After [setting up the client](client.md), you can make HTTP requests. The main way for making HTTP requests is the [request](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.request/request.html) function that can take a URL as a parameter. Inside this function, you can configure various request parameters: 
+* Specify a request URL.
 * Specify an HTTP method, such as `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, or `PATCH`.
 * Add headers and cookies.
 * Set the body of a request, for example, a plain text, a data object, or form parameters.
@@ -18,6 +19,26 @@ Note that this function allows you to receive a response as an `HttpResponse` ob
 
 ## Set request parameters {id="parameters"}
 In this section, we'll see on how to specify various request parameters, including an HTTP method, headers, and cookies. If you need to configure some default parameters for all requests of a specific client, use the [](default-request.md) plugin.
+
+
+### URL {id="url"}
+
+The `request` function can take a URL as a parameter: 
+
+```kotlin
+```
+{src="snippets/_misc_client/RequestMethodWithoutParams.kt" lines="4-6" interpolate-variables="true" disable-links="false"}
+
+Another way to specify the URL is the `url` parameter exposed by `HttpRequestBuilder`. This parameter accepts [URLBuilder](https://api.ktor.io/ktor-http/ktor-http/io.ktor.http/-u-r-l-builder/index.html) and allows you to specify various URL components separately:
+
+```kotlin
+client.request {
+    url {
+        protocol = URLProtocol.HTTPS
+        host = "ktor.io"
+    }
+}
+```
 
 
 ### HTTP method {id="http-method"}
