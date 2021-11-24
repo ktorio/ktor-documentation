@@ -54,6 +54,7 @@
                              accepts-web-file-names="routing.html"/>
                 <toc-element id="Structuring_Applications.md"
                              accepts-web-file-names="structure.html"/>
+                <toc-element id="type-safe-routing.md" show-structure-depth="2"/>
                 <toc-element id="locations.md"
                              accepts-web-file-names="features-locations.html"/>
                 <toc-element id="Serving_Static_Content.md"
