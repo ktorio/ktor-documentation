@@ -34,8 +34,8 @@ To test a server Ktor application, you need to include the following artifacts i
 
 To use a testing engine, follow the steps below:
 1. Create a JUnit test class and a test function.
-2. Use [withTestApplication](https://api.ktor.io/ktor-server/ktor-server-test-host/ktor-server-test-host/io.ktor.server.testing/with-test-application.html) function to set up a test environment for your application.
-3. Use the [handleRequest](https://api.ktor.io/ktor-server/ktor-server-test-host/ktor-server-test-host/io.ktor.server.testing/handle-request.html) function to send requests to your application and verify the results.
+2. Use `testApplication` function to set up a configured instance of a test application running locally.
+3. Use the [Ktor HTTP client](client.md) instance inside a test application to make requests to your server and verify the results.
 
 The code below demonstrates how to test the most simple Ktor application that accepts GET requests made to the `/` path and responds with a plain text response.
 
@@ -44,7 +44,7 @@ The code below demonstrates how to test the most simple Ktor application that ac
 
 ```kotlin
 ```
-{src="snippets/engine-main/src/test/kotlin/EngineMainTest.kt" lines="3-18"}
+{src="snippets/engine-main/src/test/kotlin/EngineMainTest.kt" lines="3-16"}
 
 </tab>
 
@@ -97,7 +97,7 @@ The code below demonstrates how to build `multipart/form-data` and test file upl
 
 ```kotlin
 ```
-{src="snippets/upload-file/src/test/kotlin/UploadFileTest.kt" lines="3-38"}
+{src="snippets/upload-file/src/test/kotlin/UploadFileTest.kt" lines="3-40,61"}
 
 </tab>
 

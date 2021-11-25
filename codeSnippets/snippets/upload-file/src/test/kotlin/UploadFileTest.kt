@@ -1,11 +1,14 @@
 package com.example
 
-import io.ktor.server.application.*
+import io.ktor.client.request.*
+import io.ktor.client.request.forms.*
+import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.http.content.*
+import io.ktor.server.application.*
 import io.ktor.server.testing.*
 import io.ktor.utils.io.streams.*
-import java.io.File
+import java.io.*
 import kotlin.test.*
 
 class ApplicationTest {
@@ -34,5 +37,25 @@ class ApplicationTest {
         }) {
             assertEquals("Ktor logo is uploaded to 'uploads/ktor_logo.png'", response.content)
         }
+    }
+
+    @Test
+    fun testUpload() = testApplication {
+        val boundary = "WebAppBoundary"
+
+        val response = client.preparePost("/upload") {
+            setBody(
+                MultiPartFormDataContent(
+                    formData {
+                        append("description", "Ktor logo")
+                        append("image", File("ktor_logo.png").readBytes(), Headers.build {
+                            append(HttpHeaders.ContentType, "image/png")
+                            append(HttpHeaders.ContentDisposition, "filename=ktor_logo.png")
+                        })
+                    }
+                )
+            )
+        }.execute()
+        assertEquals("Ktor logo is uploaded to 'uploads/ktor_logo.png'", response.bodyAsText())
     }
 }
