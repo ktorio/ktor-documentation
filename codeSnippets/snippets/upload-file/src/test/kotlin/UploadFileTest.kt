@@ -13,7 +13,28 @@ import kotlin.test.*
 
 class ApplicationTest {
     @Test
-    fun testRequests() = withTestApplication(Application::main) {
+    fun testUpload() = testApplication {
+        val boundary = "WebAppBoundary"
+        val response = client.post("/upload") {
+            setBody(
+                MultiPartFormDataContent(
+                    formData {
+                        append("description", "Ktor logo")
+                        append("image", File("ktor_logo.png").readBytes(), Headers.build {
+                            append(HttpHeaders.ContentType, "image/png")
+                            append(HttpHeaders.ContentDisposition, "filename=ktor_logo.png")
+                        })
+                    },
+                    boundary,
+                    ContentType.MultiPart.FormData.withParameter("boundary", boundary)
+                )
+            )
+        }
+        assertEquals("Ktor logo is uploaded to 'uploads'", response.bodyAsText())
+    }
+
+    @Test
+    fun testUploadLegacyApi() = withTestApplication(Application::main) {
         with(handleRequest(HttpMethod.Post, "/upload"){
             val boundary = "WebAppBoundary"
             val fileBytes = File("ktor_logo.png").readBytes()
@@ -37,26 +58,5 @@ class ApplicationTest {
         }) {
             assertEquals("Ktor logo is uploaded to 'uploads/ktor_logo.png'", response.content)
         }
-    }
-
-    @Test
-    fun testUpload() = testApplication {
-        val boundary = "WebAppBoundary"
-        val response = client.post("/upload") {
-            setBody(
-                MultiPartFormDataContent(
-                    formData {
-                        append("description", "Ktor logo")
-                        append("image", File("ktor_logo.png").readBytes(), Headers.build {
-                            append(HttpHeaders.ContentType, "image/png")
-                            append(HttpHeaders.ContentDisposition, "filename=ktor_logo.png")
-                        })
-                    },
-                    boundary,
-                    ContentType.MultiPart.FormData.withParameter("boundary", boundary)
-                )
-            )
-        }
-        assertEquals("Ktor logo is uploaded to 'uploads'", response.bodyAsText())
     }
 }

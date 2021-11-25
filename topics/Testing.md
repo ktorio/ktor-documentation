@@ -44,7 +44,7 @@ The code below demonstrates how to test the most simple Ktor application that ac
 
 ```kotlin
 ```
-{src="snippets/engine-main/src/test/kotlin/EngineMainTest.kt" lines="3-16"}
+{src="snippets/engine-main/src/test/kotlin/EngineMainTest.kt" lines="3-16,27"}
 
 </tab>
 
@@ -74,7 +74,7 @@ A test below from the [post-form-parameters](https://github.com/ktorio/ktor-docu
 
 ```kotlin
 ```
-{src="snippets/post-form-parameters/src/test/kotlin/ApplicationTest.kt" lines="3-18"}
+{src="snippets/post-form-parameters/src/test/kotlin/ApplicationTest.kt" lines="3-18,29"}
 
 </tab>
 
@@ -97,7 +97,7 @@ The code below demonstrates how to build `multipart/form-data` and test file upl
 
 ```kotlin
 ```
-{src="snippets/upload-file/src/test/kotlin/UploadFileTest.kt" lines="3-40,62"}
+{src="snippets/upload-file/src/test/kotlin/UploadFileTest.kt" lines="3-34,62"}
 
 </tab>
 
@@ -124,7 +124,7 @@ If you need to preserve cookies between requests when testing, you can call `han
 
 ```kotlin
 ```
-{src="snippets/session-cookie/src/test/kotlin/ApplicationTest.kt" lines="3-27"}
+{src="snippets/session-cookie/src/test/kotlin/ApplicationTest.kt" lines="3-27,47"}
 
 </tab>
 
