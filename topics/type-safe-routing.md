@@ -11,8 +11,9 @@ Required dependencies: <code>io.ktor:%artifact_name%</code>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-Ktor provides the `%plugin_name%` plugin that allows you to implement type-safe [routing](Routing_in_Ktor.md). To accomplish this, you need to create a class that should act as a typed route and then annotate this class using the `@Resource` keyword.
-> Note that such classes should also have the `@Serializable` annotation provided by the kotlinx.serialization library.
+Ktor provides the `%plugin_name%` plugin that allows you to implement type-safe [routing](Routing_in_Ktor.md). To accomplish this, you need to create a class that should act as a typed route and then annotate this class using the `@Resource` keyword. Such classes should also have the `@Serializable` annotation provided by the kotlinx.serialization library.
+
+> The Ktor client provides the capability to make [typed requests](type-safe-request.md) to a server.
 
 
 ## Add dependencies {id="add_dependencies"}
@@ -34,6 +35,8 @@ Given that [resource classes](#resource_classes) should have the `@Serializable`
 
 ## Create resource classes {id="resource_classes"}
 
+<chunk id="resource_classes">
+
 Each resource class should have the following annotations:
 * The `@Serializable` annotation, which is provided by the [kotlinx.serialization library](#add_serialization).
 * The `@Resource` annotation.
@@ -42,7 +45,7 @@ Below we'll take a look at several examples of resource classes - defining a sin
 
 ### Resource URL {id="resource_url"}
 
-The example below shows how to define the `Articles` class that specifies a resource responding on the `/articles` URL. 
+The example below shows how to define the `Articles` class that specifies a resource responding on the `/articles` path. 
 
 ```kotlin
 import io.ktor.resources.*
@@ -54,7 +57,7 @@ class Articles()
 
 ### Resources with a query parameter {id="resource_query_param"}
 
-The `Articles` class below has the `sort` string property that acts as a [query parameter](requests.md#query_parameters) and allows you to define a resource responding on the following URL: `/articles?sort=new`. 
+The `Articles` class below has the `sort` string property that acts as a [query parameter](requests.md#query_parameters) and allows you to define a resource responding on the following path with the `sort` query parameter: `/articles?sort=new`. 
 
 ```kotlin
 @Serializable
@@ -67,7 +70,7 @@ Note that properties can be primitives or types annotated with the `@Serializabl
 ### Resources with nested classes {id="resource_nested"}
 
 You can nest classes to create resources that contains several path segments. Note that in this case nested classes should have a property with an outer class type. 
-The example below shows a resource responding on the `/articles/new` URL.
+The example below shows a resource responding on the `/articles/new` path.
 
 
 ```kotlin
@@ -96,6 +99,8 @@ class Articles() {
 
 As an example, this resource can be used to respond on `/articles/12`.
 
+</chunk>
+
 ### Example: A resource for CRUD operations {id="example_crud"}
 
 Let's summarize the examples above and create the `Articles` resource for CRUD operations.
@@ -113,7 +118,7 @@ This resource can be used to list all articles, post a new article, edit it, and
 ## Define route handlers {id="define_route"}
 
 To [define a route handler](Routing_in_Ktor.md#define_route) for a typed resource, you need to pass a resource class to a verb function (`get`, `post`, `put`, and so on).
-For example, a route handler below responds to the `/articles` URL.
+For example, a route handler below responds on the `/articles` path.
 
 ```kotlin
 @Serializable

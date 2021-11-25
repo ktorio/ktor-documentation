@@ -32,7 +32,7 @@ The `request` function can take a URL as a parameter:
 Another way to specify the URL is the `url` parameter exposed by `HttpRequestBuilder`. This parameter accepts [URLBuilder](https://api.ktor.io/ktor-http/ktor-http/io.ktor.http/-u-r-l-builder/index.html) and allows you to specify various URL components separately:
 
 ```kotlin
-client.request {
+val response: HttpResponse = client.request {
     url {
         protocol = URLProtocol.HTTPS
         host = "ktor.io"
