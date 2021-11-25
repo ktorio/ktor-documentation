@@ -42,8 +42,7 @@ class ApplicationTest {
     @Test
     fun testUpload() = testApplication {
         val boundary = "WebAppBoundary"
-
-        val response = client.preparePost("/upload") {
+        val response = client.post("/upload") {
             setBody(
                 MultiPartFormDataContent(
                     formData {
@@ -52,10 +51,12 @@ class ApplicationTest {
                             append(HttpHeaders.ContentType, "image/png")
                             append(HttpHeaders.ContentDisposition, "filename=ktor_logo.png")
                         })
-                    }
+                    },
+                    boundary,
+                    ContentType.MultiPart.FormData.withParameter("boundary", boundary)
                 )
             )
-        }.execute()
-        assertEquals("Ktor logo is uploaded to 'uploads/ktor_logo.png'", response.bodyAsText())
+        }
+        assertEquals("Ktor logo is uploaded to 'uploads'", response.bodyAsText())
     }
 }
