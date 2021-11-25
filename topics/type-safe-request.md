@@ -40,7 +40,7 @@ val client = HttpClient(CIO) {
 
 ## Create resource classes {id="resource_classes"}
 
-<include src="type-safe-routing.md" include-id="resource_classes"/>
+<include src="type-safe-routing.md" include-id="resource_classes_server"/>
 
 
 ### Example: A resource for CRUD operations {id="example_crud"}
