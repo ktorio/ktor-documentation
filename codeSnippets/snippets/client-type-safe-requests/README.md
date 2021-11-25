@@ -1,6 +1,6 @@
 # Client type-safe requests
 
-An example that demonstrates how to make type-safe [requests](https://ktor.io/docs/request.html) using the `Resources` plugin.
+An example that demonstrates how to make [type-safe requests](https://ktor.io/docs/type-safe-request.html) using the `Resources` plugin.
 
 ## Running
 
