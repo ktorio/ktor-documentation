@@ -30,7 +30,7 @@ class ApplicationTest {
                 )
             )
         }
-        assertEquals("Ktor logo is uploaded to 'uploads'", response.bodyAsText())
+        assertEquals("Ktor logo is uploaded to 'uploads/ktor_logo.png'", response.bodyAsText())
     }
 
     @Test
