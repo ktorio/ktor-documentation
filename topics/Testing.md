@@ -141,18 +141,34 @@ If you need to preserve cookies between requests when testing, you need create a
 
 If you have the [application.conf](Configurations.xml#hocon-file) file in the `resources` folder, `testApplication` loads all modules and properties specified in the configuration file. In a case you need to specify a separate configuration for tests, you can create the `application.conf` file in a test's `resources` folder (for example, `test/resources`).
 
-### MapApplicationConfig {id="map"}
 
-Another way to specify configuration properties is using [MapApplicationConfig](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.config/-map-application-config/index.html). This might be useful if you want to access application configuration before the application starts.
+### Define custom application.conf {id="hocon"}
 
-The example below shows how to pass `MapApplicationConfig` to the `testApplication` function using the `environment` property:
+If you want to use a custom configuration file, you can load it using the `config` property:
 
 ```kotlin
 @Test
-fun testUploadMapApplicationConfig() = testApplication {
+fun testRequest() = testApplication {
+    environment {
+        config = ApplicationConfig("custom-application.conf")
+    }
+    // Request and assertions
+}
+```
+
+### Specify configuration in code {id="map"}
+
+Another way to specify configuration properties is using [MapApplicationConfig](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.config/-map-application-config/index.html). This might be useful if you want to access application configuration before the application starts.
+
+The example below shows how to pass `MapApplicationConfig` to the `testApplication` function using the `config` property:
+
+```kotlin
+@Test
+fun testRequest() = testApplication {
     environment {
         config = MapApplicationConfig("ktor.environment" to "test")
     }
+    // Request and assertions
 }
 ```
 
