@@ -60,6 +60,8 @@ To add headers to the request, use the [headers](https://api.ktor.io/ktor-client
 ```
 {src="snippets/_misc_client/GetMethodWithHeaders.kt"}
 
+There is also the [header](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/header.html) function that allows you to append a single header.
+
 
 
 ### Cookies {id="cookies"}

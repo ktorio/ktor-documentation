@@ -63,11 +63,11 @@ The runnable code example is available here: [engine-main](https://github.com/kt
 ## Send form data {id="form-data"}
 
 To send form data in a test POST/PUT request, you need to set the `Content-Type` header and specify the request body. To do this, you can use 
- the [addHeader](https://api.ktor.io/ktor-server/ktor-server-test-host/ktor-server-test-host/io.ktor.server.testing/-test-application-request/add-header.html) and [setBody](https://api.ktor.io/ktor-server/ktor-server-test-host/ktor-server-test-host/io.ktor.server.testing/set-body.html) functions, respectively. The examples below show how to send form data using both `x-www-form-urlencoded` and `multipart/form-data` types.
+ the [header](request.md#headers) and [setBody](request.md#body) functions, respectively. The examples below show how to send form data using both `x-www-form-urlencoded` and `multipart/form-data` types.
 
 ### x-www-form-urlencoded {id="x-www-form-urlencoded"}
 
-A test below from the [post-form-parameters](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/post-form-parameters) example shows how to make a test request with form parameters sent using the `x-www-form-urlencoded` content type. Note that the [formUrlEncode](https://api.ktor.io/ktor-http/ktor-http/io.ktor.http/form-url-encode.html) function is used to encode form parameters from a list of key/value pairs.
+A test below from the [post-form-parameters](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/post-form-parameters) example shows how to make a test request with form parameters sent using the `x-www-form-urlencoded` content type. Note that the [formUrlEncode](https://api.ktor.io/ktor-http/io.ktor.http/form-url-encode.html) function is used to encode form parameters from a list of key/value pairs.
 
 <tabs>
 <tab title="Test">
@@ -115,8 +115,7 @@ The code below demonstrates how to build `multipart/form-data` and test file upl
 
 ## Preserve cookies during testing {id="preserving-cookies"}
 
-If you need to preserve cookies between requests when testing, you can call `handleRequest` inside
- the [cookiesSession](https://api.ktor.io/ktor-server/ktor-server-test-host/ktor-server-test-host/io.ktor.server.testing/cookies-session.html) function. In a test below from the [session-cookie](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie) example, reload count is increased after each request since cookies are preserved.
+If you need to preserve cookies between requests when testing, you need create a new client and install the [HttpCookies](http-cookies.md) plugin. In a test below from the [session-cookie](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie) example, reload count is increased after each request since cookies are preserved.
 
 
 <tabs>
@@ -140,108 +139,27 @@ If you need to preserve cookies between requests when testing, you can call `han
 
 ## Define configuration properties in tests {id="configuration-properties"}
 
-If your application uses custom properties from the [application.conf](Configurations.xml#hocon-file) file, you also need to specify these properties for testing. This can be done in two ways:
-* Specify properties explicitly using [MapApplicationConfig](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.config/-map-application-config/index.html).
-* Load the existing `application.conf` and use it in a custom test environment.
+If you have the [application.conf](Configurations.xml#hocon-file) file in the `resources` folder, `testApplication` loads all modules and properties specified in the configuration file. In a case you need to specify a separate configuration for tests, you can create the `application.conf` file in a test's `resources` folder (for example, `test/resources`).
 
 ### MapApplicationConfig {id="map"}
 
-The example below shows how to pass `MapApplicationConfig` to the `withTestApplication` function.
+Another way to specify configuration properties is using [MapApplicationConfig](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.config/-map-application-config/index.html). This might be useful if you want to access application configuration before the application starts.
+
+The example below shows how to pass `MapApplicationConfig` to the `testApplication` function using the `environment` property:
 
 ```kotlin
 @Test
-fun testRequests() = withTestApplication() {
-    (environment.config as MapApplicationConfig).apply {
-        put("upload.dir", "uploads")
-    }
-    application.main()
-    with(handleRequest(HttpMethod.Post, "/upload") {
-        // Add headers/body
-    }) {
-        // Add assertions
+fun testUploadMapApplicationConfig() = testApplication {
+    environment {
+        config = MapApplicationConfig("ktor.environment" to "test")
     }
 }
 ```
-You can find the full example for this approach here: [UploadFileMapConfigTest.kt](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/upload-file-testing-config/src/test/kotlin/UploadFileMapConfigTest.kt).
-
-### HoconApplicationConfig {id="hocon"}
-
-The example below shows how to create a custom test environment with the configuration loaded from the existing `application.conf` file. Note that in this case the [withApplication](https://api.ktor.io/ktor-server/ktor-server-test-host/ktor-server-test-host/io.ktor.server.testing/with-application.html) function is used to start a test engine instead of `withTestApplication`.
-
-
-```kotlin
-private val testEnv = createTestEnvironment {
-    config = HoconApplicationConfig(ConfigFactory.load("application.conf"))
-}
-
-@Test
-fun testRequests() = withApplication(testEnv) {
-    with(handleRequest(HttpMethod.Post, "/upload") {
-        // Add headers/body
-    }) {
-        // Add assertions
-    }
-}
-```
-
-You can find the full example for this approach here: [UploadFileAppConfigTest.kt](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/upload-file-testing-config/src/test/kotlin/UploadFileAppConfigTest.kt).
 
 
 ## HttpsRedirect plugin {id="https-redirect"}
 
 The `HttpsRedirect` plugin changes how testing is performed. Check the [](https-redirect.md#testing) section for more information.
-
-
-## Test with dependencies {id="testing-dependencies"}
-In some cases, we will need some services and dependencies. Instead of storing them globally, we suggest you create a separate function receiving the service dependencies. This allows you to pass different
-(potentially mocked) dependencies in your tests.
-
-<tabs>
-<tab title="Test">
-
-```kotlin
-class ApplicationTest {
-    class ConstantRandom(val value: Int) : Random() {
-        override fun next(bits: Int): Int = value
-    }
-
-    @Test fun testRequest() = withTestApplication({
-        testableModuleWithDependencies(
-            random = ConstantRandom(7)
-        )
-    }) {
-        with(handleRequest(HttpMethod.Get, "/")) {
-            assertEquals(HttpStatusCode.OK, response.status())
-            assertEquals("Random: 7", response.content)
-        }
-        with(handleRequest(HttpMethod.Get, "/index.html")) {
-            assertFalse(requestHandled)
-        }
-    }
-}
-```
-
-</tab>
-<tab title="Application">
-
-```kotlin
-fun Application.testableModule() {
-    testableModuleWithDependencies(
-        random = SecureRandom()
-    )
-}
-
-fun Application.testableModuleWithDependencies(random: Random) {
-    routing {
-        get("/") {
-            call.respondText("Random: ${random.nextInt(100)}")
-        }
-    }
-}
-```
-
-</tab>
-</tabs>
 
 
 ## End-to-end testing with HttpClient {id="end-to-end"}
