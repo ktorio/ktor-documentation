@@ -40,6 +40,9 @@
                   lang="kotlin"
                   src="snippets/_misc/EmbeddedServerConfigure.kt">
             </code>
+            <p>
+                Note that you can set the <code>port</code> parameter to <code>0</code> to run the server on a random port.
+            </p>
         </chapter>
 
         <chapter title="Engine configuration" id="embedded-engine">
@@ -140,20 +143,24 @@
                 </def>
                 <def title="ktor.deployment.port">
                     <p>
-                        A listening port.
+                        A listening port. You can set this property to <code>0</code> to run the server on a random port.
                     </p>
                     <p>
-                        <emphasis>Example</emphasis>: <code>80</code>
+                        <emphasis>Example</emphasis>: <code>8080</code>, <code>0</code>
                     </p>
                 </def>
                 <def title="ktor.deployment.sslPort">
                     <p>
-                        A listening SSL port.
-                        Note that SSL requires additional options <a anchor="ssl">listed below</a>.
+                        A listening SSL port. You can set this property to <code>0</code> to run the server on a random port.
                     </p>
                     <p>
-                        <emphasis>Example</emphasis>: <code>443</code>
+                        <emphasis>Example</emphasis>: <code>8443</code>, <code>0</code>
                     </p>
+                    <note>
+                        <p>
+                            Note that SSL requires additional options <a anchor="ssl">listed below</a>.
+                        </p>
+                    </note>
                 </def>
                 <def title="ktor.deployment.watch">
                     <p>
