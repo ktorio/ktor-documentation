@@ -9,7 +9,8 @@ Code examples:
 <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main">engine-main</a>, 
 <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/post-form-parameters">post-form-parameters</a>,
 <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/upload-file">upload-file</a>,
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie">session-cookie</a>
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie">session-cookie</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/server-websockets">server-websockets</a>
 </p>
 </microformat>
 
