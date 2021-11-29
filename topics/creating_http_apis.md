@@ -163,7 +163,7 @@ We want to respond to `GET`, `POST`, and `DELETE` requests on the `/customer` en
 
    In this case, we're using the `route` function to group everything that falls under the `/customer` endpoint. We then create a block for each HTTP method. This is just one approach how we can structure our routes – when we tackle the `Order` routes in the next chapter, we will see another approach.
 
-   Notice also how we actually have two entries for `get`: one without a route parameter, and the other with `{id}`. We'll use the first entry to list all customers, and the second to display a specific one.
+   Notice also how we actually have two entries for `get`: one without a path parameter, and the other with `{id}`. We'll use the first entry to list all customers, and the second to display a specific one.
 
 #### List all customers {id="list_customers"}
 
@@ -295,7 +295,7 @@ totalizing this. Implemented as a `totalizeOrderRoute` function, it looks like t
 ```
 {src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/OrderRoutes.kt" lines="28-38"}
 
-A small thing to note here is that we are not limited to suffixes of routes for parameters – as we can see, it's absolutely possible to have a section in the middle be a route parameter (`/order/{id}/total`).
+A small thing to note here is that we are not limited to suffixes of routes for parameters – as we can see, it's absolutely possible to have a section in the middle be a path parameter (`/order/{id}/total`).
 
 ### Register the routes {id="register-order-routes"}
 

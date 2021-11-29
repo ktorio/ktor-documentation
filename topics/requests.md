@@ -2,7 +2,7 @@
 
 Ktor allows you to handle incoming requests and send [responses](responses.md) inside [route handlers](Routing_in_Ktor.md#define_route). You can perform various actions when handling requests:
 * Get [request information](#request_information), such as headers, cookies, and so on.
-* Get [route parameter](#route_parameters) values.
+* Get [path parameter](#path_parameters) values.
 * Get parameters of a [query string](#query_parameters).
 * Receive [body contents](#body_contents), for example, data objects, form parameters, and files.
 
@@ -29,8 +29,8 @@ The [ApplicationRequest](https://api.ktor.io/ktor-server/ktor-server-core/ktor-s
   To get information about a request passed through an HTTP proxy or a load balancer, install the [](forward-headers.md) plugin and use the [ApplicationRequest.origin](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/origin.html) property.
 
 
-## Route parameters {id="route_parameters"}
-When handling requests, you can get access to [route parameter](Routing_in_Ktor.md#route_parameter) values using the `call.parameters` property. For example, `call.parameters["login"]` in the code snippet below will return _admin_ for the `/user/admin` path:
+## Path parameters {id="path_parameters"}
+When handling requests, you can get access to [path parameter](Routing_in_Ktor.md#path_parameter) values using the `call.parameters` property. For example, `call.parameters["login"]` in the code snippet below will return _admin_ for the `/user/admin` path:
 ```kotlin
 ```
 {src="snippets/_misc/RouteParameter.kt"}

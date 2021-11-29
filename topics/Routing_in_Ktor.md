@@ -80,13 +80,13 @@ Below are several path examples:
 * `/order/shipment`  
   A path containing several path segments. You can pass such a path to the [route/get/etc.](#define_route) function as is or organize sub-routes by [nesting](#multiple_routes) several `route` functions.
 * `/user/{login}`  
-  A path with the `login` [route parameter](#route_parameter), whose value can be accessed inside the route handler.
+  A path with the `login` [path parameter](#path_parameter), whose value can be accessed inside the route handler.
 * `/user/*`  
   A path with a [wildcard character](#wildcard) that matches any path segment.
 * `/user/{...}`  
   A path with a [tailcard](#tailcard) that matches all the rest of the URL path.
 * `/user/{param...}`  
-  A path containing a [route parameter with tailcard](#route_parameter_tailcard).
+  A path containing a [path parameter with tailcard](#path_parameter_tailcard).
 
 
 ### Wildcard {id="wildcard"}
@@ -95,10 +95,13 @@ A _wildcard_ (`*`) matches any path segment and can't be missing. For example, `
 ### Tailcard {id="tailcard"}
 A _tailcard_ (`{...}`) matches all the rest of the URL path, can include several path segments, and can be empty. For example, `/user/{...}` matches `/user/john/settings` as well as `/user`.
 
-### Route parameter {id="route_parameter"}
-A _route parameter_ (`{param}`) matches a path segment and captures it as a parameter named `param`. This path segment is mandatory, but you can make it optional by adding a question mark: `{param?}`. For example:
+### Path parameter {id="path_parameter"}
+A _path parameter_ (`{param}`) matches a path segment and captures it as a parameter named `param`. This path segment is mandatory, but you can make it optional by adding a question mark: `{param?}`. For example:
 * `/user/{login}` matches `/user/john`, but doesn't match `/user`.
 * `/user/{login?}` matches `/user/john` as well as `/user`.
+   > Note that optional path parameters `{param?}` can only be used at the end of the path.
+   >
+   {type="note"}
 
 To access a parameter value inside the route handler, use the `call.parameters` property. For example, `call.parameters["login"]` in the code snippet below will return _admin_ for the `/user/admin` path:
 ```kotlin
@@ -107,9 +110,9 @@ To access a parameter value inside the route handler, use the `call.parameters` 
 
 > To learn how to access URL query parameters inside the handler, see [](requests.md#query_parameters).
 
-### Route parameter with tailcard {id="route_parameter_tailcard"}
+### Path parameter with tailcard {id="path_parameter_tailcard"}
 
-A route parameter with a tailcard (`{param...}`) matches all the rest of the URL path and puts multiple values for each path segment into parameters using `param` as key. For example, `/user/{param...}` matches `/user/john/settings`.  
+A path parameter with a tailcard (`{param...}`) matches all the rest of the URL path and puts multiple values for each path segment into parameters using `param` as key. For example, `/user/{param...}` matches `/user/john/settings`.  
 To access path segments' values inside the route handler, use `call.parameters.getAll("param")`. For the example above, the `getAll` function will return an array containing the _john_ and _settings_ values.
 
 ## Define multiple route handlers {id="multiple_routes"}

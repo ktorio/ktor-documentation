@@ -85,7 +85,7 @@ class Articles() {
 
 ### Resources with a path parameter {id="resource_path_param"}
 
-The example below demonstrates how to add the [nested](#resource_nested) `{id}` integer [path parameter](Routing_in_Ktor.md#route_parameter) that matches a path segment and captures it as a parameter named `id`.
+The example below demonstrates how to add the [nested](#resource_nested) `{id}` integer [path parameter](Routing_in_Ktor.md#path_parameter) that matches a path segment and captures it as a parameter named `id`.
 
 ```kotlin
 @Serializable
