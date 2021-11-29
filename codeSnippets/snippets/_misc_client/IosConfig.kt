@@ -1,6 +1,6 @@
-val client = HttpClient(Ios) {
+val client = HttpClient(Darwin) {
     engine {
-        // this: IosClientEngineConfig
+        // this: DarwinClientEngineConfig
         configureRequest {
             // this: NSMutableURLRequest
         }

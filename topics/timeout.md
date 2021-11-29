@@ -52,6 +52,6 @@ In a case of a timeout, Ktor throws `HttpRequestTimeoutException`, `HttpConnectT
 ## Limitations {id="limitations"}
 
 `HttpTimeout` has some limitations for specific [engines](http-client_engines.md):
-* [iOS](http-client_engines.md#ios) doesn't support a connection timeout.
+* [Darwin](http-client_engines.md#darwin) doesn't support a connection timeout.
 * [JavaScript](http-client_engines.md#js) supports only a request timeout.
 * [Curl](http-client_engines.md#curl) doesn't support a socket timeout.

@@ -1,4 +1,4 @@
 import io.ktor.client.*
-import io.ktor.client.engine.ios.*
+import io.ktor.client.engine.darwin.*
 
-val client = HttpClient(Ios)
+val client = HttpClient(Darwin)

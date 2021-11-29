@@ -22,7 +22,7 @@ If you call the `HttpClient` constructor without an argument, the client will ch
 ```
 {src="snippets/_misc_client/DefaultEngineCreate.kt"}
 
-This can be useful for [multiplatform projects](http-client_multiplatform.md). For example, for a project targeting both [Android and iOS](https://kotlinlang.org/docs/mobile/create-first-app.html), you can add the [Android](#android) dependency to the `androidMain` source set and the [Ios](#ios) dependency to the `iosMain` source set. The necessary dependency will be selected at compile time.
+This can be useful for [multiplatform projects](http-client_multiplatform.md). For example, for a project targeting both [Android and iOS](https://kotlinlang.org/docs/mobile/create-first-app.html), you can add the [Android](#android) dependency to the `androidMain` source set and the [Darwin](#darwin) dependency to the `iosMain` source set. The necessary dependency will be selected at compile time.
 
 
 ## Configure an engine {id="configure"}
@@ -148,17 +148,17 @@ The `Js` engine can be used for [JavaScript projects](https://kotlinlang.org/doc
 In this section, we'll have a look on how to configure engines targeted for [Kotlin/Native](https://kotlinlang.org/docs/native-overview.html).
 > Note that engines targeting Kotlin/Native require a [multithreaded version](https://kotlinlang.org/docs/mobile/concurrency-and-coroutines.html#multithreaded-coroutines) of `kotlinx.coroutines`.
 
-### Ios {id="ios"}
-The `Ios` engine targets [Darwin-based](https://en.wikipedia.org/wiki/Darwin_(operating_system)) operating systems (such as macOS, iOS, tvOS, and so on) and uses [NSURLSession](https://developer.apple.com/documentation/foundation/nsurlsession) internally. To use it, follow the steps below:
+### Darwin {id="darwin"}
+The `Darwin` engine targets [Darwin-based](https://en.wikipedia.org/wiki/Darwin_(operating_system)) operating systems (such as macOS, iOS, tvOS, and so on) and uses [NSURLSession](https://developer.apple.com/documentation/foundation/nsurlsession) internally. To use it, follow the steps below:
 
-1. Add the `ktor-client-ios` dependency:
-   <var name="artifact_name" value="ktor-client-ios"/>
+1. Add the `ktor-client-darwin` dependency:
+   <var name="artifact_name" value="ktor-client-darwin"/>
    <include src="lib.xml" include-id="add_ktor_artifact"/>
-1. Pass the `Ios` class as an argument to the `HttpClient` constructor:
+1. Pass the `darwin` class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
    {src="snippets/_misc_client/IosCreate.kt"}
-1. To configure an engine, pass settings exposed by `IosClientEngineConfig` to the `engine` method:
+1. To configure an engine, pass settings exposed by `DarwinClientEngineConfig` to the `engine` method:
    ```kotlin
    ```
    {src="snippets/_misc_client/IosConfig.kt"}

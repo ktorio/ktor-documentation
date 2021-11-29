@@ -615,6 +615,16 @@ import io.ktor.client.plugins.auth.providers.*
 The `HttpClientFeature` interface is renamed to `HttpClientPlugin`.
 
 
+### The 'Ios' engine is renamed to 'Darwin' {id="darwin"}
+
+Given that the `Ios` [engine](http-client_engines.md) targets not only iOS but other operating systems, including macOS, or tvOS, in v2.0.0, it is renamed to `Darwin`. This causes the following changes:
+* The `io.ktor:ktor-client-ios` artifact is renamed to `io.ktor:ktor-client-darwin`.
+* To create the `HttpClient` instance, you need to pass the `Darwin` class as an argument.
+* The `IosClientEngineConfig` configuration class is renamed to `DarwinClientEngineConfig`.
+
+To learn how to configure the `Darwin` engine, see the [](http-client_engines.md#darwin) section.
+
+
 ### WebSockets code is moved to the 'websockets' package {id="client-ws-package"}
 
 WebSockets code is moved from `http-cio` to the `websockets` package. This requires updating imports as follows:
