@@ -75,6 +75,17 @@ This means that you need to update [dependencies](#server-package-dependencies) 
 | [Dropwizard metrics](dropwizard_metrics.md) | `import io.ktor.metrics.dropwizard.*` | `import io.ktor.server.metrics.dropwizard.*` |
 
 
+### WebSockets code is moved to the 'websockets' package {id="server-ws-package"}
+
+WebSockets code is moved from `http-cio` to the `websockets` package. This requires updating imports as follows:
+
+| 1.6.x | 2.0.0 |
+|    :----  |          ---: |
+| `import io.ktor.http.cio.websocket.*` | `import io.ktor.websocket.*` |
+
+Note that this change also affects the [client](#client-ws-package).
+
+
 ### Feature is renamed to Plugin {id="feature-plugin"}
 
 In Ktor 2.0.0, _Feature_ is renamed to _[Plugin](Plugins.md)_ to better describe functionality that intercepts the request/response pipeline ([KTOR-2326](https://youtrack.jetbrains.com/issue/KTOR-2326)).
@@ -91,7 +102,7 @@ This affects the entire Ktor API and requires updating your application as descr
 
 Renaming Feature to Plugin introduces the following changes for API related to [custom plugins](Creating_custom_plugins.md):
 * The `ApplicationFeature` interface is renamed to `ApplicationPlugin`.
-* The `Features` [pipeline phase](Pipelines.md) is renamed to `Plugins`
+* The `Features` [pipeline phase](Pipelines.md) is renamed to `Plugins`.
 
 > Note that starting with v2.0.0, Ktor provides the new API for [creating custom plugins](custom_plugins.md).
 
@@ -150,6 +161,123 @@ interface ContentConverter {
 </tabs>
 
 
+### Testing API {id="testing-api"}
+
+With v2.0.0, the Ktor server uses a new API for [testing](Testing.md), which solves various issues described in [KTOR-971](https://youtrack.jetbrains.com/issue/KTOR-971). The main changes are:
+* The `withTestApplication`/`withApplication` functions are replaced with a new `testApplication` function.
+* Inside the `testApplication` function, you need to use the existing [Ktor client](client.md) instance to make requests to your server and verify the results.
+* To test specific functionalities (for example, cookies or WebSockets), you need to create a new client instance and install a corresponding [plugin](http-client_plugins.md).
+
+Let's take a look at several examples of migrating 1.6.x tests to 2.0.0:
+
+#### Basic server test {id="basic-test"}
+
+In the test below, the `handleRequest` function is replaced with the `client.get` request:
+
+<tabs group="ktor_versions">
+<tab title="1.6.x" group-key="1_6">
+
+```kotlin
+```
+{src="snippets/engine-main/src/test/kotlin/EngineMainTest.kt" lines="18-26"}
+
+</tab>
+<tab title="2.0.0" group-key="2_0">
+
+```kotlin
+```
+{src="snippets/engine-main/src/test/kotlin/EngineMainTest.kt" lines="11-16"}
+
+</tab>
+</tabs>
+
+
+#### x-www-form-urlencoded {id="x-www-form-urlencoded"}
+
+In the test below, the `handleRequest` function is replaced with the `client.post` request:
+
+<tabs group="ktor_versions">
+<tab title="1.6.x" group-key="1_6">
+
+```kotlin
+```
+{src="snippets/post-form-parameters/src/test/kotlin/ApplicationTest.kt" lines="20-28"}
+
+</tab>
+<tab title="2.0.0" group-key="2_0">
+
+```kotlin
+```
+{src="snippets/post-form-parameters/src/test/kotlin/ApplicationTest.kt" lines="11-18"}
+
+</tab>
+</tabs>
+
+
+#### multipart/form-data {id="multipart-form-data"}
+
+To build `multipart/form-data` in v2.0.0, you need to pass `MultiPartFormDataContent` to the client's `setBody` function:
+
+
+<tabs group="ktor_versions">
+<tab title="1.6.x" group-key="1_6">
+
+```kotlin
+```
+{src="snippets/upload-file/src/test/kotlin/UploadFileTest.kt" lines="36-61"}
+
+</tab>
+<tab title="2.0.0" group-key="2_0">
+
+```kotlin
+```
+{src="snippets/upload-file/src/test/kotlin/UploadFileTest.kt" lines="15-34"}
+
+</tab>
+</tabs>
+
+
+#### Preserve cookies during testing {id="preserving-cookies"}
+
+In v1.6.x, `cookiesSession` is used to preserve cookies between requests when testing. With v2.0.0, you need to create a new client instance and install the [HttpCookies](http-cookies.md) plugin:
+
+<tabs group="ktor_versions">
+<tab title="1.6.x" group-key="1_6">
+
+```kotlin
+```
+{src="snippets/session-cookie/src/test/kotlin/ApplicationTest.kt" lines="29-46"}
+
+</tab>
+<tab title="2.0.0" group-key="2_0">
+
+```kotlin
+```
+{src="snippets/session-cookie/src/test/kotlin/ApplicationTest.kt" lines="12-27"}
+
+</tab>
+</tabs>
+
+#### WebSockets {id="testing-ws"}
+
+In the old API, `handleWebSocketConversation` is used to test [WebSocket conversations](websocket.md). With v2.0.0, you can test WebSocket conversations by using the [WebSockets](websocket_client.md) plugin provided by the client:
+
+<tabs group="ktor_versions">
+<tab title="1.6.x" group-key="1_6">
+
+```kotlin
+```
+{src="snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt" lines="28-40"}
+
+</tab>
+<tab title="2.0.0" group-key="2_0">
+
+```kotlin
+```
+{src="snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt" lines="10-26"}
+
+</tab>
+</tabs>
 
 
 ## Ktor Client {id="client"}
@@ -482,5 +610,15 @@ import io.ktor.client.plugins.auth.providers.*
 </table>
 
 
+
 #### Custom plugins {id="feature-plugin-custom-client"}
 The `HttpClientFeature` interface is renamed to `HttpClientPlugin`.
+
+
+### WebSockets code is moved to the 'websockets' package {id="client-ws-package"}
+
+WebSockets code is moved from `http-cio` to the `websockets` package. This requires updating imports as follows:
+
+| 1.6.x | 2.0.0 |
+|    :----  |          ---: |
+| `import io.ktor.http.cio.websocket.*` | `import io.ktor.websocket.*` |

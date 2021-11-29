@@ -137,6 +137,15 @@ If you need to preserve cookies between requests when testing, you need create a
 </tabs>
 
 
+## Testing WebSockets {id="testing-ws"}
+
+You can test [WebSocket conversations](websocket.md) by using the [WebSockets](websocket_client.md) plugin provided by the client:
+
+```kotlin
+```
+{src="snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt" lines="3-26,41"}
+
+
 ## Define configuration properties in tests {id="configuration-properties"}
 
 If you have the [application.conf](Configurations.xml#hocon-file) file in the `resources` folder, `testApplication` loads all modules and properties specified in the configuration file. In a case you need to specify a separate configuration for tests, you can create the `application.conf` file in a test's `resources` folder (for example, `test/resources`).
