@@ -97,15 +97,6 @@ You can find the full example here: [server-websockets](https://github.com/ktori
 
 
 
-
-## Testing {id="testing"}
-
-You can [test](Testing.md) WebSocket conversations by using the `handleWebSocketConversation` function inside the `withTestApplication` block:
-
-```kotlin
-```
-{src="snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt" include-symbol="ModuleTest"}
-
 ## The WebSocket API and Ktor {id="websocket-api"}
 
 The [standard events from the WebSocket API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) map to Ktor in the following way:

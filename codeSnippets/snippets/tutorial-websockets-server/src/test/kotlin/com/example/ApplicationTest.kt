@@ -1,6 +1,6 @@
 package com.example
 
-import io.ktor.http.cio.websocket.*
+import io.ktor.websocket.*
 import io.ktor.server.application.*
 import io.ktor.server.testing.*
 import kotlin.test.*

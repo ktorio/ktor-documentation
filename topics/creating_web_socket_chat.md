@@ -130,7 +130,7 @@ This module, in turn, calls the following extension functions:
 Let’s start our server development journey by building a small “echo” service which accepts WebSocket connections, receives text content, and sends it back to the client. We can implement this service with Ktor by adding the following implementation for `Application.configureSockets()` to `plugins/Sockets.kt`:
 
 ```kotlin
-import io.ktor.http.cio.websocket.*
+import io.ktor.websocket.*
 import io.ktor.server.application.*
 import io.ktor.server.routing.*
 import io.ktor.server.websocket.*
