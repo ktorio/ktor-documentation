@@ -12,17 +12,24 @@
             These topics will help you get started with Ktor Server.
         </description>
 
-        <highlighted-group>
-            <title>Getting started</title>
+        <tip-group>
+            <a href="Welcome.md"
+               description="Ktor is a framework to easily build connected applications – web applications, HTTP services, mobile and browser applications."
+               type="start"/>
             <a href="intellij-idea.xml"
-               description="Learn how to create, run, and test a simple Ktor application."/>
+               description="Learn how to create, run, and test a simple Ktor application."
+               type="install"/>
+        </tip-group>
+
+        <main-group>
+            <title>Getting started</title>
             <a href="creating_http_apis.md"
                description="Create an HTTP API that can serve as a backend for any application."/>
             <a href="creating_interactive_website.md"
                description="Create an interactive website using templates."/>
             <a href="creating_web_socket_chat.md"
                description="Learn how to create a simple chat application which uses WebSockets."/>
-        </highlighted-group>
+        </main-group>
 
         <custom-groups>
             <group type="links" display="normal">
