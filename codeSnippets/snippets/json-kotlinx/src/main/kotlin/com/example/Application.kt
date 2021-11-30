@@ -32,6 +32,7 @@ fun Application.main() {
         get("/customer/{id}") {
             val id = call.parameters["id"]
             val customer: Customer = customerStorage.find { it.id == id!!.toInt() }!!
+            call.response.status(HttpStatusCode.Unauthorized)
             call.respond(customer)
         }
 
