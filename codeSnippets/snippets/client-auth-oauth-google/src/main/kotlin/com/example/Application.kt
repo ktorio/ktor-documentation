@@ -1,6 +1,5 @@
 package com.example
 
-import com.example.models.*
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.engine.cio.*
@@ -9,7 +8,6 @@ import io.ktor.client.plugins.auth.*
 import io.ktor.client.plugins.auth.providers.*
 import io.ktor.client.request.*
 import io.ktor.client.request.forms.*
-import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 import kotlinx.coroutines.*
@@ -22,100 +20,89 @@ val clientId = System.getenv("GOOGLE_CLIENT_ID")
 
 fun main() {
     runBlocking {
-        // Step 1: Get an authorization code
-        val authorizationCode = getAuthorizationCode()
+        val authorizationUrlQuery = Parameters.build {
+            append("client_id", clientId)
+            append("scope", scope)
+            append("redirect_uri", redirectUri)
+            append("response_type", "code")
+            append("access_type", "offline")
+        }.formUrlEncode()
+        println("https://accounts.google.com/o/oauth2/auth?$authorizationUrlQuery")
+        println("Open a link above, get the authorization code, insert it below, and press Enter.")
+        val input = Scanner(System.`in`)
+        val authorizationCode = input.next()
 
-        // Step 2: Exchange the authorization code for tokens
         val tokenClient = HttpClient(CIO) {
             install(ContentNegotiation) {
                 json()
             }
         }
 
-        val tokenInfo = getTokenInfo(tokenClient, authorizationCode)
-        accessTokenStorage.add(tokenInfo)
-
-        println(tokenInfo.accessToken)
-
-        // Step 3: Configure the client used to access the protected API
         val apiClient = HttpClient(CIO) {
             expectSuccess = false
             install(ContentNegotiation) {
                 json()
             }
             install(Auth) {
+                lateinit var tokenInfo: TokenInfo
+                var refreshTokenInfo: TokenInfo
+
                 bearer {
                     loadTokens {
+                        tokenInfo = tokenClient.submitForm(
+                            url = "https://accounts.google.com/o/oauth2/token",
+                            formParameters = Parameters.build {
+                                append("grant_type", "authorization_code")
+                                append("code", authorizationCode)
+                                append("client_id", clientId)
+                                append("redirect_uri", redirectUri)
+                            }
+                        ).body()
                         BearerTokens(
-                            accessToken = accessTokenStorage.last().accessToken,
-                            refreshToken = accessTokenStorage.last().refreshToken ?: ""
+                            accessToken = tokenInfo.accessToken,
+                            refreshToken = tokenInfo.refreshToken!!
                         )
                     }
 
                     refreshTokens {
-                        val refreshTokenInfo: TokenInfo = client.submitForm(
+                        refreshTokenInfo = tokenClient.submitForm(
                             url = "https://accounts.google.com/o/oauth2/token",
                             formParameters = Parameters.build {
                                 append("grant_type", "refresh_token")
                                 append("client_id", clientId)
-                                append("refresh_token", oldTokens?.refreshToken ?: "")
+                                append("refresh_token", tokenInfo.refreshToken!!)
                             }
                         ).body()
-                        accessTokenStorage.add(refreshTokenInfo)
                         BearerTokens(
-                            accessToken = accessTokenStorage.last().accessToken,
-                            refreshToken = oldTokens?.refreshToken ?: ""
+                            accessToken = refreshTokenInfo.accessToken,
+                            refreshToken = tokenInfo.refreshToken!!
                         )
                     }
                 }
             }
         }
 
-        // Step 4: Make a request to the protected API
-        while(true) {
-            println("Make a request? Type 'yes' to proceed.")
-            val input = Scanner(System.`in`)
-            when(input.next()) {
-                "yes" -> {
-                    val response: HttpResponse = apiClient.get("https://www.googleapis.com/oauth2/v2/userinfo")
-                    println(response.bodyAsText())
-                    println(response.status)
-/*                    val userInfo: UserInfo = apiClient.get("https://www.googleapis.com/oauth2/v2/userinfo").body()
-                    println("Hello, ${userInfo.name}!")*/
-                }
-                "test" -> {
-                    val response: HttpResponse = apiClient.get("http://localhost:8080/customer/1")
-                    println(response.bodyAsText())
-                    println(response.status)
-                }
-                else -> return@runBlocking
-            }
-        }
+        val userInfo: UserInfo = apiClient.get("https://www.googleapis.com/oauth2/v2/userinfo").body()
+        println("Hello, ${userInfo.name}!")
     }
 }
 
-suspend fun getAuthorizationCode(): String {
-    val authorizationUrlQuery = Parameters.build {
-        append("client_id", clientId)
-        append("scope", scope)
-        append("redirect_uri", redirectUri)
-        append("response_type", "code")
-        append("access_type", "offline")
-    }.formUrlEncode()
-    println("https://accounts.google.com/o/oauth2/auth?$authorizationUrlQuery")
-    println("Open a link above, get the authorization code, insert it below, and press Enter.")
-    val input = Scanner(System.`in`)
-    return input.next()
-}
+@Serializable
+data class TokenInfo(
+    @SerialName("access_token") val accessToken: String,
+    @SerialName("expires_in") val expiresIn: Int,
+    @SerialName("refresh_token") val refreshToken: String? = null,
+    val scope: String,
+    @SerialName("token_type") val tokenType: String,
+    @SerialName("id_token") val idToken: String,
+)
 
-suspend fun getTokenInfo(tokenClient: HttpClient, authorizationCode: String): TokenInfo {
-    return tokenClient.submitForm(
-        url = "https://accounts.google.com/o/oauth2/token",
-        formParameters = Parameters.build {
-            append("grant_type", "authorization_code")
-            append("code", authorizationCode)
-            append("client_id", clientId)
-            append("redirect_uri", redirectUri)
-        }
-    ).body()
-}
+@Serializable
+data class UserInfo(
+    val id: String,
+    val name: String,
+    @SerialName("given_name") val givenName: String,
+    @SerialName("family_name") val familyName: String,
+    val picture: String,
+    val locale: String
+)
