@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Ktor Server"
+       id="ktor-server">
+    
+    <section-starting-page>
+        <title>Ktor Server</title>
+        <description>
+            These topics will help you get started with Ktor Server.
+        </description>
+
+        <highlighted-group>
+            <title>Getting started</title>
+            <a href="intellij-idea.xml"
+               description="Learn how to create, run, and test a simple Ktor application."/>
+            <a href="creating_http_apis.md"
+               description="Create an HTTP API that can serve as a backend for any application."/>
+            <a href="creating_interactive_website.md"
+               description="Create an interactive website using templates."/>
+            <a href="creating_web_socket_chat.md"
+               description="Learn how to create a simple chat application which uses WebSockets."/>
+        </highlighted-group>
+
+        <custom-groups>
+            <group type="links" display="normal">
+                <link-collection>
+                    <title>Configuring a server</title>
+                    <a href="Gradle.xml"
+                       description="Adding Ktor dependencies"/>
+                    <a href="create_server.xml"
+                       description="Creating a Ktor server"/>
+                    <a href="Configurations.xml"
+                       description="Configuring server parameters"/>
+                    <a href="Plugins.md"
+                       description="Plugins - main building blocks"/>
+                </link-collection>
+                <link-collection>
+                    <title>Routing</title>
+                    <a href="Routing_in_Ktor.md"
+                       description="Routing overview"/>
+                    <a href="Structuring_Applications.md"
+                       description="Application structure"/>
+                    <a href="type-safe-routing.md"
+                       description="Type-safe routing"/>
+                    <a href="Serving_Static_Content.md"
+                       description="Serving static content"/>
+                </link-collection>
+                <link-collection>
+                    <title>Handling requests and responses</title>
+                    <a href="requests.md"
+                       description="Handling requests"/>
+                    <a href="responses.md"
+                       description="Sending responses"/>
+                </link-collection>
+                <link-collection>
+                    <title>Plugins</title>
+                    <a href="Working_with_views.md"
+                       description="Templating"/>
+                    <a href="serialization.md"
+                       description="Content negotiation and serialization"/>
+                    <a href="authentication.md"
+                       description="Authentication and authorization"/>
+                    <a href="sessions.md"
+                       description="Sessions"/>
+                    <a href="websocket.md"
+                       description="WebSockets"/>
+                    <a href="micrometer_metrics.md"
+                       description="Micrometer metrics"/>
+                </link-collection>
+                <link-collection>
+                    <title>Running, debugging, and testing</title>
+                    <a href="running.md"
+                       description="Running a Ktor server"/>
+                    <a href="Auto_reload.xml"
+                       description="Auto-reload"/>
+                    <a href="Testing.md"
+                       description="Testing"/>
+                </link-collection>
+                <link-collection>
+                    <title>Deployment</title>
+                    <a href="fatjar.md"
+                       description="Creating Fat JARs"/>
+                    <a href="war.md"
+                       description="WAR"/>
+                    <a href="Graalvm.md"
+                       description="GraalVM"/>
+                    <a href="docker.md"
+                       description="Docker"/>
+                    <a href="google-app-engine.md"
+                       description="Google App Engine"/>
+                    <a href="heroku.md"
+                       description="Heroku"/>
+                </link-collection>
+            </group>
+        </custom-groups>
+        
+        
+    </section-starting-page>
+
+</topic>

@@ -9,7 +9,7 @@
     <toc-element id="Welcome.md"
                  accepts-web-file-names-ref="kotlin_docs"/>
 
-    <toc-element toc-title="Ktor Server">
+    <toc-element id="ktor-server.xml">
         <toc-element toc-title="Getting started with a Ktor Server">
             <toc-element id="intellij-idea.xml" accepts-web-file-names="getting-started.html"/>
             <toc-element id="creating_http_apis.md"
