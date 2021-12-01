@@ -8,6 +8,10 @@ Code examples:
 </p>
 </microformat>
 
+<excerpt>
+Learn how to run and deploy a Ktor application inside a servlet container using a WAR archive.
+</excerpt>
+
 A Ktor application can be run and deployed inside servlet containers that include Tomcat and Jetty. To deploy inside a servlet container, you need to generate a WAR archive and then deploy it to a server or a cloud service that supports WARs.
 
 > Ktor supports Jetty up to the 9.4.x version and Tomcat up to 9.0.x.

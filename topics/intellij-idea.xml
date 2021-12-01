@@ -12,6 +12,8 @@
         </p>
     </microformat>
 
+    <excerpt>This guide shows how to create, run, and test a simple Ktor application.</excerpt>
+
     <p>
         Ktor is an asynchronous framework for creating microservices, web applications, and more.
         You can create and configure a new Ktor project using a dedicated plugin for IntelliJ IDEA Ultimate, or using a web-based project generator.

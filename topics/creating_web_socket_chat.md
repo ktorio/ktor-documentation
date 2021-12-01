@@ -8,7 +8,9 @@ Used plugins: Routing, WebSockets
 </p>
 </microformat>
 
-In this tutorial, we will learn how to create a simple chat application which uses WebSockets.
+<excerpt>In this tutorial, you will learn how to create a simple chat application that uses WebSockets.</excerpt>
+
+In this tutorial, you will learn how to create a simple chat application that uses WebSockets.
 
 Throughout this tutorial, we will implement a simple chat service, which will consist of two applications:
 

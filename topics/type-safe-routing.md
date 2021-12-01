@@ -11,6 +11,8 @@ Required dependencies: <code>io.ktor:%artifact_name%</code>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
+<excerpt>Ktor provides the Resources plugin that allows you to implement type-safe routing.</excerpt>
+
 Ktor provides the `%plugin_name%` plugin that allows you to implement type-safe [routing](Routing_in_Ktor.md). To accomplish this, you need to create a class that should act as a typed route and then annotate this class using the `@Resource` keyword. Such classes should also have the `@Serializable` annotation provided by the kotlinx.serialization library.
 
 > The Ktor client provides the capability to make [typed requests](type-safe-request.md) to a server.

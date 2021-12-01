@@ -5,15 +5,18 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-In this section we'll see how to deploy a Ktor application to a [Docker](https://www.docker.com) container which can then be run either locally or on
-your cloud provider of choice.
+<excerpt>
+Learn how to deploy a Ktor application to a Docker container, which can then be run either locally or on your cloud provider of choice.
+</excerpt>
+
+In this section we'll see how to deploy a Ktor application to a [Docker](https://www.docker.com) container, which can then be run either locally or on your cloud provider of choice.
 
 Docker is a container system that allows for packaging software in a format that can then be run on any
 platform that supports Docker, such as Linux, macOS, and Windows. Conceptually Docker is an operating system with
 layers providing multiple services. While the basics of Docker will be covered, if you're not familiar with it, check out some of the 
 [Getting Started](https://docs.docker.com/get-started/) documentation. 
 
-## Getting the application ready
+## Get the application ready
 
 In order to run on Docker, the application needs to have all the required files deployed to the container. As a first step,
 you need to create a zip file containing the application and its dependencies. Depending on the build system you're using,
@@ -72,7 +75,7 @@ The Dockerfile indicates a few things:
 The other steps merely create a folder, copy the contents from the build output to the folder and change to it in preparation
 to run the image.
 
-## Building and running the Docker image
+## Build and run the Docker image
 
 First step is to create the distribution of the application (in this case using Gradle):
 

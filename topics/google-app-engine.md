@@ -9,6 +9,10 @@
 </p>
 </microformat>
 
+<excerpt>
+This tutorial shows how to prepare and deploy a Ktor project to a Google App Engine standard environment.
+</excerpt>
+
 In this tutorial, we'll show you how to prepare and deploy a Ktor project to a Google App Engine standard environment. This tutorial uses a [engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main) sample project as a starting project.
 
 

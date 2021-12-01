@@ -14,6 +14,10 @@
         </p>
     </microformat>
 
+    <excerpt>
+        Ktor allows you to use Auto-reload to reload application classes on code changes.
+    </excerpt>
+
     <p>
         <a href="running.md">Restarting</a> a server during development might take some time. Ktor allows you to overcome this limitation by using <emphasis>Auto-reload</emphasis>, which reloads application classes on code changes and provides a fast feedback loop.
     </p>

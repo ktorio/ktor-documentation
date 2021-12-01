@@ -14,6 +14,10 @@
         </p>
     </microformat>
 
+    <excerpt>
+        Choose how to create a Ktor server - using the 'embeddedServer' function to configure parameters in code or using 'EngineMain' to load server configuration from an external file that uses the HOCON format.
+    </excerpt>
+
     <p>
         To run a Ktor server application, you need to create a server first.
         Server configuration can include different settings:

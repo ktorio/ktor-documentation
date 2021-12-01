@@ -6,6 +6,8 @@
 </p>
 </microformat>
 
+<excerpt>Learn how to prepare and deploy a Ktor application to Heroku.</excerpt>
+
 In this tutorial, we'll show you how to prepare and deploy a Ktor application to Heroku. This tutorial uses a Ktor application from the [](intellij-idea.xml) topic.
 
 

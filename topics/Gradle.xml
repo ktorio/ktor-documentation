@@ -6,6 +6,8 @@
        title="Adding Ktor dependencies"
        id="Gradle">
 
+    <excerpt>Learn how to add Ktor dependencies to the existing Gradle/Maven project.</excerpt>
+
     <p>
         In this topic, we'll show you how to add dependencies required for Ktor to the existing Gradle/Maven project.
     </p>

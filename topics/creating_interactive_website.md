@@ -8,6 +8,8 @@ Used plugins: Routing, FreeMarker, HTML DSL
 </p>
 </microformat>
 
+<excerpt>Learn how to create an interactive website using HTML templating engines like FreeMarker.</excerpt>
+
 In this tutorial, we're going to create an interactive website. Using the different plugins and integrations provided by Ktor, we will see how to host static content like images and HTML pages. We will see how supported HTML templating engines like [FreeMarker](freemarker.md) make it easy to control how data from our application is rendered in the browser. By using [kotlinx.html](html_dsl.md), we'll learn about a domain-specific language that allows us to mix Kotlin code and markup directly, allowing us to write our site's display logic in pure Kotlin.
 
 The goal of this tutorial is to write a minimal journal app. We'll start by seeing how Ktor can serve static files and pages, and then move on to dynamically rendering Kotlin objects representing blog entries in a nicely formatted fashion, making use of our template engine. To make things interactive, we will add the ability to submit new entries to our journal directly from the browser – leaving us with a nice way to temporarily store and view our thoughts, for example, our opinion on working through this tutorial:

@@ -85,6 +85,12 @@
                     <a href="Serving_Static_Content.md"/>
                 </li>
                 <li>
+                    <a href="requests.md"/>
+                </li>
+                <li>
+                    <a href="responses.md"/>
+                </li>
+                <li>
 
                 </li>
             </list>

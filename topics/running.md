@@ -1,5 +1,9 @@
 [//]: # (title: Running)
 
+<excerpt>
+Learn how to run a server Ktor application.
+</excerpt>
+
 When running a Ktor server application, take into account the following specifics:
 * The way used to [create a server](create_server.xml) affects whether you can override server parameters by passing command-line arguments when running a [packaged Ktor application](#package).
 * Gradle/Maven build scripts should specify the main class name when starting a server using [EngineMain](create_server.xml#engine-main).

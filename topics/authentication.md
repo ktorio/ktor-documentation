@@ -9,6 +9,10 @@ Required dependencies: <code>io.ktor:%artifact_name%</code>
 </p>
 </microformat>
 
+<excerpt>
+The Authentication plugin handles authentication and authorization in Ktor: logging in users, granting access to specific resources, etc.
+</excerpt>
+
 Ktor provides the `Authentication` plugin to handle authentication and authorization. Typical usage scenarios include logging in users, granting access to specific resources, and securely transmitting information between parties. You can also use `Authentication` with [Sessions](sessions.md) to keep a user's information between requests.
 
 ## Supported authentication types {id="supported"}

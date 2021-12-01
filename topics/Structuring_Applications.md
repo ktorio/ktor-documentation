@@ -1,5 +1,7 @@
 [//]: # (title: Application structure)
 
+<excerpt>Learn how to structure your application to keep it maintainable as the application grows.</excerpt>
+
 One of Ktor’s strong points is in the flexibility it offers in terms of structuring our application. Different to many other server-side frameworks, it doesn't force us into a specific pattern such as having to place all cohesive routes in a single class name `CustomerController` for instance. While it is certainly possible, it's not required.
 
 In this section we're going to examine the different options we have to structure our applications.
