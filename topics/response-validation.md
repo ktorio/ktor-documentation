@@ -7,6 +7,10 @@
 </p>
 </microformat>
 
+<excerpt>
+Ktor allows you to add validation for 2xx responses or customize default validation of non-2xx responses.
+</excerpt>
+
 The Ktor client includes validation of non-2xx responses by default. For example, the client throws [ClientRequestException](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.features/-client-request-exception/index.html) for 4xx error responses. If required, you can add additional validation for 2xx responses or customize default validation by using [HttpCallValidator](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.features/-http-call-validator/index.html).
 
 ## Default validation {id="default"}

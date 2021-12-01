@@ -11,6 +11,10 @@ Required dependencies: <code>io.ktor:%artifact_name%</code>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
+<excerpt>
+The ContentNegotiation plugin serves two primary purposes: negotiating media types between the client and server and serializing/deserializing the content in a specific format when sending requests and receiving responses.
+</excerpt>
+
 The `ContentNegotiation` plugin serves two primary purposes:
 * Negotiating media types between the client and server. For this, it uses the `Accept` and `Content-Type` headers.
 * Serializing/deserializing the content in a specific format when sending [requests](request.md) and receiving [responses](response.md). Ktor supports the following formats out-of-the-box: JSON, XML, and CBOR.

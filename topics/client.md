@@ -1,5 +1,9 @@
 [//]: # (title: Client overview)
 
+<excerpt>
+This topic describes main capabilities of the client - from setting it up to making requests and installing plugins. 
+</excerpt>
+
 Ktor includes a multiplatform asynchronous HTTP client, which allows you to make requests and handle responses, extend its functionality with plugins, such as authentication, JSON serialization, and so on.
 In this topic, we'll take an overview of the client - from setting it up to making requests and installing plugins. 
 

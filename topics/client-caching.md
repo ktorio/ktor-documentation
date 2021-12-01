@@ -5,6 +5,10 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
+<excerpt>
+The HttpCache allows you to save previously fetched resources in an in-memory cache.
+</excerpt>
+
 The Ktor client provides the `HttpCache` plugin that allows you to save previously fetched resources in an in-memory cache.
 
 

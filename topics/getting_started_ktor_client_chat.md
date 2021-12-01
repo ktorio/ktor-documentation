@@ -5,7 +5,11 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-In this tutorial, we will learn how to create a client chat application which uses WebSockets. The client application will allow users to join a common chat server, send messages to other users, and see messages from other users in the terminal.
+<excerpt>
+Learn how to create a client chat application that uses WebSockets.
+</excerpt>
+
+In this tutorial, we will learn how to create a client chat application that uses WebSockets. The client application will allow users to join a common chat server, send messages to other users, and see messages from other users in the terminal.
 
 To learn how to create a chat server, see the [](creating_web_socket_chat.md) tutorial.
 

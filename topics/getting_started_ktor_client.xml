@@ -11,6 +11,10 @@
         <include src="lib.xml" include-id="download_example"/>
     </microformat>
 
+    <excerpt>
+        Create your first client application for sending a request and receiving a response.
+    </excerpt>
+
     <p>
         Ktor includes a multiplatform asynchronous HTTP client, which allows you to make requests and handle responses, extend its functionality with <a href="http-client_plugins.md">plugins</a>, such as authentication, JSON serialization, and so on.
         In this tutorial, we'll create a simple client application for sending a request and receiving a response.

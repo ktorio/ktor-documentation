@@ -6,6 +6,10 @@ Code example: <a href="https://github.com/ktorio/ktor-samples/tree/main/client-m
 </p>
 </microformat>
 
+<excerpt>
+The Ktor client can be used in multiplatform projects and supports Android, JavaScript, and Native platforms.
+</excerpt>
+
 The [Ktor HTTP client](client.md) can be used in [multiplatform projects](https://kotlinlang.org/docs/multiplatform.html) and supports the following platforms:
 * JVM
 * [Android](https://kotlinlang.org/docs/android-overview.html)

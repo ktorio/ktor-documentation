@@ -10,6 +10,10 @@ Required dependencies: <code>io.ktor:%artifact_name%</code>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
+<excerpt>
+Ktor provides a MockEngine that simulates HTTP calls without connecting to the endpoint.
+</excerpt>
+
 Ktor provides a [MockEngine](https://api.ktor.io/ktor-client/ktor-client-mock/ktor-client-mock/io.ktor.client.engine.mock/-mock-engine/index.html) that simulates HTTP calls without connecting to the endpoint.
 
 ## Add dependencies {id="add_dependencies"}

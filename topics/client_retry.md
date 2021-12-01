@@ -5,6 +5,10 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
+<excerpt>
+The `HttpRequestRetry` plugin allows you to configure the retry policy for failed requests in various ways: specify the number of retries, configure conditions for retrying a request, or specify delay logic.
+</excerpt>
+
 By default, the Ktor client doesn't retry [requests](request.md) that failed due to network or server errors.
 You can use the `HttpRequestRetry` plugin to configure the retry policy for failed requests in various ways: specify the number of retries, configure conditions for retrying a request, or specify delay logic.
 

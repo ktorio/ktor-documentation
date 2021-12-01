@@ -5,6 +5,10 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
+<excerpt>
+The HttpCookies plugin handles cookies automatically and keep them between calls in an in-memory storage.
+</excerpt>
+
 The Ktor client allows you to handle cookies manually in the following ways:
 * The `cookie` function allows you to append a cookie to a [specific request](request.md#cookies).
 * The `setCookie` function enables you to parse the `Set-Cookie` header value received in a [response](response.md#headers).

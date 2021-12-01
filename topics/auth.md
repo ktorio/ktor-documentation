@@ -12,7 +12,11 @@ Code examples:
 </p>
 </microformat>
 
-Ktor provides the `Auth` plugin to handle authentication and authorization in your client application.  Typical usage scenarios include logging in users and gaining access to specific resources. 
+<excerpt>
+The Auth plugin handles authentication and authorization in your client application.
+</excerpt>
+
+Ktor provides the `Auth` plugin to handle authentication and authorization in your client application. Typical usage scenarios include logging in users and gaining access to specific resources. 
 
 
 ## Supported authentication types {id="supported"}

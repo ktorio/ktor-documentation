@@ -5,6 +5,10 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
+<excerpt>
+The DefaultRequest plugin allows you to configure default parameters for all requests.
+</excerpt>
+
 The `DefaultRequest` plugin allows you to configure default parameters for all [requests](request.md).
 
 
