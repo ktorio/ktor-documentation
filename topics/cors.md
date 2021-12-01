@@ -43,7 +43,7 @@ To specify the allowed host that can make cross-origin requests, use the `host` 
 install(CORS) {
      host("client-host")
      host("client-host:5000")
-     host("client-host", subDomains = listOf("en,de,es"))
+     host("client-host", subDomains = listOf("en", "de", "es"))
      host("client-host", schemes = listOf("http", "https"))
 }
 ```
