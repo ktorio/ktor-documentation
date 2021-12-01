@@ -3,8 +3,8 @@
 
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       title="Ktor Server"
-       id="ktor-server">
+       title="Ktor Client"
+       id="ktor-client">
 
     <list type="horizontal" columns="2">
         <li>
@@ -16,22 +16,12 @@
             <list type="none">
                 <li>
                     <p>
-                        <a href="intellij-idea.xml"/>
+                        <a href="getting_started_ktor_client.xml"/>
                     </p>
                 </li>
                 <li>
                     <p>
-                        <a href="creating_http_apis.md"/>
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <a href="creating_interactive_website.md"/>
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <a href="creating_web_socket_chat.md"/>
+                        <a href="getting_started_ktor_client_chat.md"/>
                     </p>
                 </li>
                 <li>
@@ -43,21 +33,21 @@
         <li>
             <p>
                 <b>
-                    Configuring a server
+                    Setting up the client
                 </b>
             </p>
             <list type="none">
                 <li>
-                    <a href="Gradle.xml"/>
+                    <a href="client.md"/>
                 </li>
                 <li>
-                    <a href="create_server.xml"/>
+                    <a href="http-client_multiplatform.md"/>
                 </li>
                 <li>
-                    <a href="Configurations.xml"/>
+                    <a href="http-client_engines.md"/>
                 </li>
                 <li>
-                    <a href="Plugins.md"/>
+                    <a href="http-client_plugins.md"/>
                 </li>
                 <li>
 
@@ -68,21 +58,40 @@
         <li>
             <p>
                 <b>
-                    Routing
+                    Requests
                 </b>
             </p>
             <list type="none">
                 <li>
-                    <a href="Routing_in_Ktor.md"/>
+                    <a href="request.md"/>
                 </li>
                 <li>
-                    <a href="Structuring_Applications.md"/>
+                    <a href="type-safe-request.md"/>
                 </li>
                 <li>
-                    <a href="type-safe-routing.md"/>
+                    <a href="default-request.md"/>
                 </li>
                 <li>
-                    <a href="Serving_Static_Content.md"/>
+                    <a href="client_retry.md"/>
+                </li>
+                <li>
+
+                </li>
+            </list>
+        </li>
+
+        <li>
+            <p>
+                <b>
+                    Responses
+                </b>
+            </p>
+            <list type="none">
+                <li>
+                    <a href="response.md"/>
+                </li>
+                <li>
+                    <a href="response-validation.md"/>
                 </li>
                 <li>
 
@@ -98,44 +107,22 @@
             </p>
             <list type="none">
                 <li>
-                    <a href="Working_with_views.md"/>
+                    <a href="serialization-client.md"/>
                 </li>
                 <li>
-                    <a href="serialization.md"/>
+                    <a href="auth.md"/>
                 </li>
                 <li>
-                    <a href="authentication.md"/>
+                    <a href="http-cookies.md"/>
                 </li>
                 <li>
-                    <a href="sessions.md"/>
+                    <a href="content-encoding.md"/>
                 </li>
                 <li>
-                    <a href="websocket.md"/>
+                    <a href="client-caching.md"/>
                 </li>
                 <li>
-                    <a href="micrometer_metrics.md"/>
-                </li>
-                <li>
-
-                </li>
-            </list>
-        </li>
-
-        <li>
-            <p>
-                <b>
-                    Running, debugging, and testing
-                </b>
-            </p>
-            <list type="none">
-                <li>
-                    <a href="running.md"/>
-                </li>
-                <li>
-                    <a href="Auto_reload.xml"/>
-                </li>
-                <li>
-                    <a href="Testing.md"/>
+                    <a href="websocket_client.md"/>
                 </li>
                 <li>
 
@@ -146,27 +133,12 @@
         <li>
             <p>
                 <b>
-                    Deployment
+                    Testing
                 </b>
             </p>
             <list type="none">
                 <li>
-                    <a href="fatjar.md">Creating Fat JARs</a>
-                </li>
-                <li>
-                    <a href="war.md"/>
-                </li>
-                <li>
-                    <a href="Graalvm.md"/>
-                </li>
-                <li>
-                    <a href="docker.md"/>
-                </li>
-                <li>
-                    <a href="google-app-engine.md"/>
-                </li>
-                <li>
-                    <a href="heroku.md"/>
+                    <a href="http-client_testing.md"/>
                 </li>
                 <li>
 
