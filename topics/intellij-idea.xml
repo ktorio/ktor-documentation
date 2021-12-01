@@ -258,15 +258,23 @@
     </chapter>
 
     <chapter title="Next steps" id="next-steps">
+        <p>
+            Create real-world Ktor applications with the help of tutorials:
+        </p>
         <list>
             <li>
                 <p>
-                    Create real-world Ktor applications with the help of tutorials: <a href="creating_http_apis.md"/>, <a href="creating_web_socket_chat.md"/>, <a href="creating_interactive_website.md"/>.
+                    <a href="creating_http_apis.md"/>
                 </p>
             </li>
             <li>
                 <p>
-                    Learn more about Ktor concepts from <a href="A_Ktor_Application.xml"/>.
+                    <a href="creating_interactive_website.md"/>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <a href="creating_web_socket_chat.md"/>
                 </p>
             </li>
         </list>

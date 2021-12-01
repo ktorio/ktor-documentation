@@ -9,7 +9,7 @@
     <toc-element id="Welcome.md"
                  accepts-web-file-names-ref="kotlin_docs"/>
 
-    <toc-element id="ktor-server.xml">
+    <toc-element id="ktor-server.xml" accepts-web-file-names="a-ktor-application.html,intro.html,servers-application.html,how-ktor-works.html,lifecycle.html">
         <toc-element toc-title="Getting started with a Ktor Server">
             <toc-element id="intellij-idea.xml" accepts-web-file-names="getting-started.html"/>
             <toc-element id="creating_http_apis.md"
@@ -22,9 +22,6 @@
         </toc-element>
 
         <toc-element toc-title="Developing applications">
-            <toc-element id="A_Ktor_Application.xml"
-                         show-structure-depth="2"
-                         accepts-web-file-names="intro.html,servers-application.html,how-ktor-works.html,lifecycle.html"/>
             <toc-element id="Gradle.xml"
                          accepts-web-file-names="artifacts.html,maven.html"/>
             <toc-element toc-title="Creating and configuring a server">

@@ -11,7 +11,7 @@ Required dependencies: <code>io.ktor:%artifact_name%</code>
 </p>
 </microformat>
 
-In addition to HTTP handling for the [server](A_Ktor_Application.xml) and the [client](client.md), Ktor supports client and server, TCP and UDP raw sockets.
+In addition to HTTP handling for the [server](ktor-server.xml) and the [client](ktor-client.xml), Ktor supports client and server, TCP and UDP raw sockets.
 It exposes a suspending API that uses NIO under the hoods.
 
 > Raw sockets use an experimental API that is expected to evolve in the upcoming updates with potentially breaking changes.
