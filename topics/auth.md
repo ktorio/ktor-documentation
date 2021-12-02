@@ -94,19 +94,6 @@ To send user credentials in the `Authorization` header using the `Digest` scheme
 
 You can find the full example here: [client-auth-digest](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-auth-digest).
 
-As for the [basic](#basic) provider, you can send credentials in the initial request without waiting for a `401` (Unauthorized) response using the `sendWithoutRequest` function.
-
-```kotlin
-install(Auth) {
-    digest {
-        // ...
-        sendWithoutRequest { request ->
-            request.url.host == "0.0.0.0"
-        }
-    }
-}
-```
-
 
 ### Bearer {id="bearer"}
 
