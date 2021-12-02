@@ -13,14 +13,10 @@ import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 import kotlinx.coroutines.*
-import java.util.*
 
 fun main() {
     runBlocking {
-        // Step 1: Create a storage for tokens
-        val bearerTokenStorage = mutableListOf<BearerTokens>()
-
-        // Step 2: Get an authorization code
+        // Step 1: Get an authorization code
         val authorizationUrlQuery = Parameters.build {
             append("client_id", System.getenv("GOOGLE_CLIENT_ID"))
             append("scope", "https://www.googleapis.com/auth/userinfo.profile")
@@ -30,10 +26,9 @@ fun main() {
         }.formUrlEncode()
         println("https://accounts.google.com/o/oauth2/auth?$authorizationUrlQuery")
         println("Open a link above, get the authorization code, insert it below, and press Enter.")
-        val input = Scanner(System.`in`)
-        val authorizationCode = input.next()
+        val authorizationCode = readln()
 
-        // Step 3: Exchange the authorization code for tokens and save tokens in the storage
+        // Step 2: Exchange the authorization code for tokens and save tokens in the storage
         val tokenClient = HttpClient(CIO) {
             install(ContentNegotiation) {
                 json()
@@ -48,9 +43,10 @@ fun main() {
                 append("redirect_uri", "urn:ietf:wg:oauth:2.0:oob")
             }
         ).body()
+        val bearerTokenStorage = mutableListOf<BearerTokens>()
         bearerTokenStorage.add(BearerTokens(tokenInfo.accessToken, tokenInfo.refreshToken!!))
 
-        // Step 4: Configure the client for accessing the protected API
+        // Step 3: Configure the client for accessing the protected API
         val apiClient = HttpClient(CIO) {
             expectSuccess = false
             install(ContentNegotiation) {
@@ -77,11 +73,10 @@ fun main() {
             }
         }
 
-        // Step 5: Make a request to the protected API
+        // Step 4: Make a request to the protected API
         while (true) {
             println("Make a request? Type 'yes' and press Enter to proceed.")
-            val input = Scanner(System.`in`)
-            when (input.next()) {
+            when (readln()) {
                 "yes" -> {
                     val response: HttpResponse = apiClient.get("https://www.googleapis.com/oauth2/v2/userinfo")
                     try {

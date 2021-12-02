@@ -251,8 +251,11 @@
                          accepts-web-file-names="json-feature.html,json.html"
                          show-structure-depth="2"/>
             <toc-element id="auth.md"
-                         accepts-web-file-names="features-auth.html"
-                         show-structure-depth="2"/>
+                         accepts-web-file-names="features-auth.html">
+                <toc-element id="basic-client.md"/>
+                <toc-element id="digest-client.md"/>
+                <toc-element id="bearer-client.md" show-structure-depth="2"/>
+            </toc-element>
             <toc-element id="http-cookies.md"/>
             <toc-element id="content-encoding.md"/>
             <toc-element id="client-caching.md"/>
