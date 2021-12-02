@@ -453,7 +453,7 @@ You need to update [dependencies](#imports-dependencies-client) for and [imports
 
 ### Bearer authentication
 
-The [refreshTokens](auth.md#bearer) function now uses the `RefreshTokenParams` instance as [lambda receiver](https://kotlinlang.org/docs/scope-functions.html#context-object-this-or-it) (`this`) instead of the `HttpResponse` lambda argument (`it`):
+The [refreshTokens](bearer-client.md) function now uses the `RefreshTokenParams` instance as [lambda receiver](https://kotlinlang.org/docs/scope-functions.html#context-object-this-or-it) (`this`) instead of the `HttpResponse` lambda argument (`it`):
 
 <tabs group="ktor_versions">
 <tab title="1.6.x" group-key="1_6">
