@@ -132,7 +132,7 @@
 
         <def title="How to resolve an infinite redirect when using the 'HttpsRedirect' plugin" id="infinite-redirect">
             <p>
-                The most probable cause is that your backend is behind a reverse-proxy or a load balancer, and that this intermediary
+                The most probable cause is that your backend is behind a reverse proxy or a load balancer, and that this intermediary
                 is making normal HTTP requests to your backend, thus the <code>HttpsRedirect</code> plugin inside your Ktor backend believes that it is a normal HTTP request and responds with the redirect.
             </p>
             <p>

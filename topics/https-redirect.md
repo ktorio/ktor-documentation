@@ -1,7 +1,5 @@
 [//]: # (title: HttpsRedirect)
 
-<include src="lib.xml" include-id="outdated_warning"/>
-
 <var name="plugin_name" value="HttpsRedirect"/>
 <var name="artifact_name" value="ktor-server-http-redirect"/>
 
@@ -9,13 +7,11 @@
 <p>
 Required dependencies: <code>io.ktor:%artifact_name%</code>
 </p>
+<var name="example_name" value="ssl-engine-main"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-The `%plugin_name%` plugin makes all the affected HTTP calls perform a redirect to its
-HTTPS counterpart before processing the call.
-
-By default, the redirection is a `301 Moved Permanently`,
-but it can be configured to be a `302 Found` redirect.
+The `%plugin_name%` plugin redirects all HTTP requests to the [HTTPS counterpart](ssl.md) before processing the call. By default, a resource returns `301 Moved Permanently`, but it can be configured to be `302 Found`.
 
 ## Add dependencies {id="add_dependencies"}
 
@@ -29,85 +25,44 @@ but it can be configured to be a `302 Found` redirect.
 
 The code above installs the `%plugin_name%` plugin with the default configuration.
 
->When behind a reverse-proxy, you will need to install the `ForwardedHeaderSupport` or the `XForwardedHeaderSupport`
->plugin, for the `%plugin_name%` plugin to properly detect HTTPS requests.
+>When behind a reverse proxy, you need to install the `ForwardedHeaderSupport` or the `XForwardedHeaderSupport` plugin to detect HTTPS requests properly. If you get infinite redirect after installing one of these plugins, check out [this FAQ entry](FAQ.xml#infinite-redirect) for more details.
 >
 {type="note"}
 
-## Configuration
+## Configure %plugin_name% {id="configure"}
+
+The code snippet below shows how to configure the desired HTTPS port and return `301 Moved Permanently` for the requested resource:
 
 ```kotlin
-fun Application.main() {
-    install(HttpsRedirect) {
-        // The port to redirect to. By default 443, the default HTTPS port. 
-        sslPort = 443
-        // 301 Moved Permanently, or 302 Found redirect.
-        permanentRedirect = true
-    }
-}
 ```
+{src="snippets/ssl-engine-main/src/main/kotlin/com/example/Application.kt" lines="10-14,21"}
 
-## Testing
-{id="testing"}
+You can find the full example here: [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/ssl-engine-main).
 
-Applying this plugin changes how [testing](Testing.md) works.
-After applying this plugin, each `handleRequest` you perform, results in a redirection response.
-And probably this is not what you want in most cases, since that behaviour is already tested.
+## Testing {id="testing"}
 
-### XForwardedHeaderSupport trick
+Note that applying %plugin_name% changes how [testing](Testing.md) works. After applying this plugin, each request you perform results in a redirection response. Probably this is not what you want in most cases since that behavior is already tested.
 
-As shown [in this test](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-tests/jvm/test/io/ktor/tests/server/plugins/HttpsRedirectPluginTest.kt#L33-L50){ target="_blank"},
-you can install the `XForwardedHeaderSupport` plugin and add a `addHeader(HttpHeaders.XForwardedProto, "https")`
-header to the request.
+### XForwardedHeaderSupport trick {id="x-forwarded-header"}
+
+You can install the [XForwardedHeaderSupport](forward-headers.md) plugin in your application and add a `header(HttpHeaders.XForwardedProto, "https")` header to the request.
+
+<tabs>
+<tab title="Test">
 
 ```kotlin
-@Test
-fun testRedirectHttps() {
-    withTestApplication {
-        application.install(XForwardedHeaderSupport)
-        application.install(HttpsRedirect)
-        application.routing {
-            get("/") {
-                call.respond("ok")
-            }
-        }
-
-        handleRequest(HttpMethod.Get, "/", {
-            addHeader(HttpHeaders.XForwardedProto, "https")
-        }).let { call ->
-            assertEquals(HttpStatusCode.OK, call.response.status())
-        }
-    }
-}
 ```
+{src="snippets/ssl-engine-main/src/test/kotlin/ApplicationTest.kt" lines="11-18"}
 
-### Do not install the plugin when testing or uninstall it
+</tab>
 
-Prevent installation in the first place:
+<tab title="Application">
 
 ```kotlin
-// The function referenced in the application.conf
-fun Application.mymodule() {
-    mymoduleConfigured()
-}
-
-// The function referenced in the tests
-fun Application.mymoduleForTesting() {
-    mymoduleConfigured(installHttpsRedirect = false)
-}
-
-fun Application.mymoduleConfigured(installHttpsRedirect: Boolean = true) {
-    if (installHttpsRedirect) {
-        install(HttpsRedirect)
-    }
-    // ...
-}
 ```
+{src="snippets/ssl-engine-main/src/main/kotlin/com/example/Application.kt"}
 
-In this case, you can also have a separate test that calls `mymodule` instead of `mymoduleForTesting` to verify
-that the `%plugin_name%` plugin is installed and other things that you are not doing in tests.
+</tab>
+</tabs>
 
-### I get an infinite redirect when using this plugin
-
-Have you installed the `XForwardedHeaderSupport` or the `ForwardedHeaderSupport` plugin?
-Check [this FAQ entry](FAQ.xml#infinite-redirect) for more details.
+You can find the full example here: [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/ssl-engine-main).
