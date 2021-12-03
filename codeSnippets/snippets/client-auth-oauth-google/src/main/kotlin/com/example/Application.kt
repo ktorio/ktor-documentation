@@ -20,8 +20,8 @@ fun main() {
         val authorizationUrlQuery = Parameters.build {
             append("client_id", System.getenv("GOOGLE_CLIENT_ID"))
             append("scope", "https://www.googleapis.com/auth/userinfo.profile")
-            append("redirect_uri", "urn:ietf:wg:oauth:2.0:oob")
             append("response_type", "code")
+            append("redirect_uri", "urn:ietf:wg:oauth:2.0:oob")
             append("access_type", "offline")
         }.formUrlEncode()
         println("https://accounts.google.com/o/oauth2/auth?$authorizationUrlQuery")
