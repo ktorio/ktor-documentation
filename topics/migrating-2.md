@@ -281,7 +281,7 @@ In the old API, `handleWebSocketConversation` is used to test [WebSocket convers
 
 #### Testing with HttpsRedirect {id="testing-https-redirect"}
 
-The example below shows how to update your tests if the [HttpsRedirect](https-redirect.md#testing) plugins is installed:
+The example below shows how to update your tests if the [HttpsRedirect](https-redirect.md#testing) plugin is installed:
 
 <tabs group="ktor_versions">
 <tab title="1.6.x" group-key="1_6">
