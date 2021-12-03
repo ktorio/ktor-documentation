@@ -279,6 +279,28 @@ In the old API, `handleWebSocketConversation` is used to test [WebSocket convers
 </tab>
 </tabs>
 
+#### Testing with HttpsRedirect {id="testing-https-redirect"}
+
+The example below shows how to update your tests if the [HttpsRedirect](https-redirect.md#testing) plugins is installed:
+
+<tabs group="ktor_versions">
+<tab title="1.6.x" group-key="1_6">
+
+```kotlin
+```
+{src="snippets/ssl-engine-main/src/test/kotlin/ApplicationTest.kt" lines="20-30"}
+
+</tab>
+<tab title="2.0.0" group-key="2_0">
+
+```kotlin
+```
+{src="snippets/ssl-engine-main/src/test/kotlin/ApplicationTest.kt" lines="11-18"}
+
+</tab>
+</tabs>
+
+
 
 ## Ktor Client {id="client"}
 ### Requests and responses {id="request-response"}
