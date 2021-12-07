@@ -28,30 +28,15 @@ fun main() {
         println("Open a link above, get the authorization code, insert it below, and press Enter.")
         val authorizationCode = readln()
 
-        // Step 2: Exchange the authorization code for tokens and save tokens in the storage
-        val tokenClient = HttpClient(CIO) {
-            install(ContentNegotiation) {
-                json()
-            }
-        }
-        val tokenInfo: TokenInfo = tokenClient.submitForm(
-            url = "https://accounts.google.com/o/oauth2/token",
-            formParameters = Parameters.build {
-                append("grant_type", "authorization_code")
-                append("code", authorizationCode)
-                append("client_id", System.getenv("GOOGLE_CLIENT_ID"))
-                append("redirect_uri", "urn:ietf:wg:oauth:2.0:oob")
-            }
-        ).body()
+        // Step 2: Create a storage for tokens
         val bearerTokenStorage = mutableListOf<BearerTokens>()
-        bearerTokenStorage.add(BearerTokens(tokenInfo.accessToken, tokenInfo.refreshToken!!))
 
-        // Step 3: Configure the client for accessing the protected API
-        val apiClient = HttpClient(CIO) {
-            expectSuccess = false
+        // Step 3: Configure the client for receiving tokens and accessing the protected API
+        val client = HttpClient(CIO) {
             install(ContentNegotiation) {
                 json()
             }
+            expectSuccess = false
             install(Auth) {
                 bearer {
                     loadTokens {
@@ -69,16 +54,31 @@ fun main() {
                         bearerTokenStorage.add(BearerTokens(refreshTokenInfo.accessToken, oldTokens?.refreshToken!!))
                         bearerTokenStorage.last()
                     }
+                    sendWithoutRequest { request ->
+                        request.url.host == "www.googleapis.com"
+                    }
                 }
             }
         }
 
-        // Step 4: Make a request to the protected API
+        // Step 4: Exchange the authorization code for tokens and save tokens in the storage
+        val tokenInfo: TokenInfo = client.submitForm(
+            url = "https://accounts.google.com/o/oauth2/token",
+            formParameters = Parameters.build {
+                append("grant_type", "authorization_code")
+                append("code", authorizationCode)
+                append("client_id", System.getenv("GOOGLE_CLIENT_ID"))
+                append("redirect_uri", "urn:ietf:wg:oauth:2.0:oob")
+            }
+        ).body()
+        bearerTokenStorage.add(BearerTokens(tokenInfo.accessToken, tokenInfo.refreshToken!!))
+
+        // Step 5: Make a request to the protected API
         while (true) {
             println("Make a request? Type 'yes' and press Enter to proceed.")
             when (readln()) {
                 "yes" -> {
-                    val response: HttpResponse = apiClient.get("https://www.googleapis.com/oauth2/v2/userinfo")
+                    val response: HttpResponse = client.get("https://www.googleapis.com/oauth2/v2/userinfo")
                     try {
                         val userInfo: UserInfo = response.body()
                         println("Hello, ${userInfo.name}!")

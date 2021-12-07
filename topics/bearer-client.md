@@ -127,13 +127,13 @@ Now we are ready to exchange the authorization code for tokens. To do this, we n
 
 ```kotlin
 ```
-{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="32-36"}
+{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="35-38,62"}
 
 Using the created client, we can securely pass the authorization code and other necessary options to the token endpoint as [form parameters](request.md#form_parameters):
 
 ```kotlin
 ```
-{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="37-45"}
+{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="65-73"}
 
 As a result, the token endpoint sends tokens in a JSON object, which is deserialized to a `TokenInfo` class instance using the installed `json` serializer. The `TokenInfo` class looks as follows:
 
@@ -147,21 +147,24 @@ When tokens are received, we can save them in a storage. In our example, a stora
 
 ```kotlin
 ```
-{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="46-47"}
+{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="32-33,74"}
+
+> Note that `bearerTokenStorage` should be created before [initializing the client](#step3) since it will be used inside the client configuration.
 
 
 ### (5)  -> Request with valid token {id="step5"}
 
-Now we have valid tokens, so we can make a request to the protected Google API and get information about a user. First, we need to create a client:
+Now we have valid tokens, so we can make a request to the protected Google API and get information about a user. First, we need to adjust the client [configuration](#step3):
 
 ```kotlin
 ```
-{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="50-59,72-74"}
+{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="35-44,57-62"}
 
-This client has the following configuration:
+The following settings are specified: 
+- The already installed [ContentNegotiation](serialization-client.md) plugin with the `json` serializer is required to deserialize user information received from a resource server in a JSON format.
 - The `expectSuccess` property disables exceptions when receiving [non-2xx responses](response-validation.md). This is required to correctly handle `401` unauthorized responses received when an access token is expired.
-- The [ContentNegotiation](serialization-client.md) plugin with the `json` serializer is required to deserialize user information received from a resource server in a JSON format.
 - The [Auth](auth.md) plugin with the `bearer` provider is configured to load tokens from a [storage](#step4).
+   > The `sendWithoutRequest` callback is configured to send credentials to the specified host without waiting for the `401` (Unauthorized) response.
 
 This client can be used to make a request to the protected resource:
 
@@ -201,7 +204,7 @@ To obtain a new access token, we need to configure `refreshTokens` and make anot
 
 ```kotlin
 ```
-{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="55-56,60-68,71-73"}
+{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="40-41,45-53,56,60-61"}
 
 Note that the `refreshTokens` callback uses `RefreshTokensParams` as a receiver and allows you to access the following settings:
 - The `client` instance. In the code snippet above, we use it to submit form parameters.
@@ -213,7 +216,7 @@ After receiving new tokens, we can save them in the [storage](#step4), so `refre
 
 ```kotlin
 ```
-{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="60-71"}
+{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="45-56"}
 
 
 ### (11) -> Request with new token {id="step11"}
