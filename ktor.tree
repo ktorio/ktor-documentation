@@ -15,8 +15,12 @@
             <toc-element id="creating_http_apis.md"
                          show-structure-depth="2"
                          accepts-web-file-names-ref="tutorials"/>
-            <toc-element id="creating_interactive_website.md"
-                         show-structure-depth="2"/>
+            <toc-element toc-title="Creating a website">
+                <toc-element id="creating_static_website.md"
+                             show-structure-depth="2"/>
+                <toc-element id="creating_interactive_website.md"
+                             show-structure-depth="2"/>
+            </toc-element>
             <toc-element id="creating_web_socket_chat.md"
                          show-structure-depth="2"/>
         </toc-element>
