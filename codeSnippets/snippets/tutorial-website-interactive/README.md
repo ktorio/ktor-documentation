@@ -6,5 +6,5 @@ A sample Ktor project showing how to create [an interactive website](https://kto
 
 To run a sample, execute the following command in a repository's root directory:
 ```bash
-./gradlew :tutorial-website:run
+./gradlew :tutorial-website-interactive:run
 ```

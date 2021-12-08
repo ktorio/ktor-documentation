@@ -1,10 +1,10 @@
 [//]: # (title: Creating a static website)
 
 <microformat>
-<var name="example_name" value="tutorial-website"/>
+<var name="example_name" value="tutorial-website-static"/>
 <include src="lib.xml" include-id="download_example"/>
 <p>
-Used plugins: Routing, FreeMarker, HTML DSL
+Used plugins: Routing, Static Content
 </p>
 </microformat>
 

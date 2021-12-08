@@ -1,5 +1,13 @@
 [//]: # (title: Adding interactivity using templates)
 
+<microformat>
+<var name="example_name" value="tutorial-website-interactive"/>
+<include src="lib.xml" include-id="download_example"/>
+<p>
+Used plugins: Routing, FreeMarker
+</p>
+</microformat>
+
 
 <excerpt>Learn how to create an interactive website using HTML templating engines like FreeMarker.</excerpt>
 
