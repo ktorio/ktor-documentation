@@ -47,6 +47,7 @@ A Ktor client allows you to configure a token to be sent in the `Authorization` 
    ```kotlin
    install(Auth) {
        bearer {
+           // Load tokens ...
            refreshTokens { // this: RefreshTokensParams
                // Refresh tokens and return them as the 'BearerTokens' instance
                BearerTokens("def456", "xyz111")
@@ -64,6 +65,18 @@ A Ktor client allows you to configure a token to be sent in the `Authorization` 
 
    c. The client makes one more request to a protected resource automatically using a new token this time.
 
+4. Optionally, specify a condition for sending credentials without waiting for the `401` (Unauthorized) response. For example, you can check whether a request is made to a specified host.
+
+   ```kotlin
+   install(Auth) {
+       bearer {
+           // Load and refresh tokens ...
+           sendWithoutRequest { request ->
+               request.url.host == "www.googleapis.com"
+           }
+       }
+   }
+   ```
 
 
 ## Example: Using Bearer authentication to access Google API {id="example-oauth-google"}
@@ -161,10 +174,14 @@ Now we have valid tokens, so we can make a request to the protected Google API a
 {src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="35-44,57-62"}
 
 The following settings are specified: 
+
 - The already installed [ContentNegotiation](serialization-client.md) plugin with the `json` serializer is required to deserialize user information received from a resource server in a JSON format.
+
 - The `expectSuccess` property disables exceptions when receiving [non-2xx responses](response-validation.md). This is required to correctly handle `401` unauthorized responses received when an access token is expired.
-- The [Auth](auth.md) plugin with the `bearer` provider is configured to load tokens from a [storage](#step4).
-   > The `sendWithoutRequest` callback is configured to send credentials to the specified host without waiting for the `401` (Unauthorized) response.
+
+- The [Auth](auth.md) plugin with the `bearer` provider is configured as follows:
+   * The `loadTokens` callback loads tokens from the [storage](#step4).
+   * The `sendWithoutRequest` callback is configured to send credentials without waiting for the `401` (Unauthorized) response only to a host providing access to protected resources.
 
 This client can be used to make a request to the protected resource:
 
