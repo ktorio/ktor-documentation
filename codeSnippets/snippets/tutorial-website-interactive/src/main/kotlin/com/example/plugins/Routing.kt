@@ -44,7 +44,7 @@ fun Application.configureRouting() {
             post("{id}") {
                 val id = call.parameters.getOrFail<Int>("id").toInt()
                 val formParameters = call.receiveParameters()
-                when(formParameters.getOrFail("_action")) {
+                when (formParameters.getOrFail("_action")) {
                     "edit" -> {
                         val title = formParameters.getOrFail("title")
                         val body = formParameters.getOrFail("body")
