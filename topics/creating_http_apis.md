@@ -70,7 +70,7 @@ Let's briefly go through these dependencies one by one:
    {src="snippets/tutorial-http-api/build.gradle.kts" lines="5,8-9"}
 
 - `logback-classic` provides an implementation of SLF4J, allowing us to see nicely formatted [logs](logging.md) in a console.
-- `ktor-server-tests` and `kotlin-test-junit` allow us to [test](Testing.md) parts of our Ktor application without having to use the whole HTTP stack in the process. We will use this to define unit tests for our project.
+- `ktor-server-test-host` and `kotlin-test-junit` allow us to [test](Testing.md) parts of our Ktor application without having to use the whole HTTP stack in the process. We will use this to define unit tests for our project.
 
 ### Configurations: application.conf and logback.xml {id="configurations"}
 
@@ -352,15 +352,13 @@ Running these requests just as the ones before, we should see the expected outpu
 
 ## Automated testing {id="automated_testing"}
 
-While manual testing is great and necessary, it also makes sense to have automated testing of endpoints. Ktor allows us to test endpoints without having to start up the entire underlying engine (such as Netty). The framework ships with a few helper methods for running tests requests, one significant one being `withTestApplication`.
+While manual testing is great and necessary, it also makes sense to have [automated testing](Testing.md) of endpoints. Ktor allows us to test endpoints without having to start up the entire underlying engine (such as Netty) using the `testApplication` function. Inside this function, you need to use the existing Ktor client instance to make requests to your server and verify the results.
 
-Let's write a unit test to ensure that our order route returns properly formatted JSON content. Open the `src/test/kotlin/com/example/ApplicationTest.kt` file and replace the `ApplicationTest` class with `OrderRouteTests`:
+Let's write a unit test to ensure that our order route returns properly formatted JSON content. Open the `src/test/kotlin/com/example/ApplicationTest.kt` file and replace the existing test class with `OrderRouteTests`:
 
 ```kotlin
 ```
 {src="snippets/tutorial-http-api/src/test/kotlin/com/example/ApplicationTest.kt"}
-
-By using `withTestApplication`, we're indicating to our application that we want to run it as a test. Using the `handleRequest` helper method (also shipped as part of Ktor), we define request to a specific endpoint, in this case `/order/{id}`.
 
 Note that since our string contains a lot of quotation marks around keys and values (like `"number"`), this is a great place to use [raw strings](https://kotlinlang.org/docs/basic-types.html#string-literals) using triple-quotes (`"""`), saving us the hassle of individually escaping every special character inside the string.
 

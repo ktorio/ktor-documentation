@@ -67,7 +67,7 @@ Let's briefly go through these dependencies one by one:
 - `ktor-server-freemarker` allows us to use the [FreeMarker](freemarker.md) template engine, which we'll use to create the main page of our journal.
 - `ktor-server-html-builder` adds the ability to use [kotlinx.html](html_dsl.md) directly from within the code. We'll use it to create code that can mix Kotlin logic with HTML markup.
 - `logback-classic` provides an implementation of SLF4J, allowing us to see nicely formatted [logs](logging.md) in a console.
-- `ktor-server-tests` and `kotlin-test-junit` allow us to [test](Testing.md) parts of our Ktor application without having to use the whole HTTP stack in the process.
+- `ktor-server-test-host` and `kotlin-test-junit` allow us to [test](Testing.md) parts of our Ktor application without having to use the whole HTTP stack in the process.
 
 ### Configurations: application.conf and logback.xml {id="configurations"}
 

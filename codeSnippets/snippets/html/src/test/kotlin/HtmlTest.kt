@@ -1,18 +1,17 @@
 package com.example
 
-import io.ktor.http.*
+import io.ktor.client.request.*
+import io.ktor.client.statement.*
 import io.ktor.server.testing.*
 import org.junit.Test
-import kotlin.test.assertEquals
+import kotlin.test.*
 
 class HtmlTest {
     @Test
-    fun test() {
-        withTestApplication {
-            application.module()
-
-            assertEquals(
-                """
+    fun testRoot() = testApplication {
+        val response = client.get("/")
+        assertEquals(
+            """
                     <!DOCTYPE html>
                     <html>
                       <head>
@@ -23,9 +22,6 @@ class HtmlTest {
                       </body>
                     </html>
                     
-                """.trimIndent(),
-                handleRequest(HttpMethod.Get, "/").response.content
-            )
-        }
+            """.trimIndent(), response.bodyAsText())
     }
 }
