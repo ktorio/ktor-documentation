@@ -1,19 +1,14 @@
 package com.example
 
+import io.ktor.client.request.*
 import io.ktor.http.*
 import io.ktor.server.testing.*
 import kotlin.test.*
 
 class AuthHeadTest {
     @Test
-    fun respondsSuccessfullyForHeadRequest() {
-        withTestApplication {
-            application.main()
-            assertEquals(HttpStatusCode.OK, handleRequest(HttpMethod.Head, "/home").response.status())
-            assertEquals(
-                "This is a response to a GET, but HEAD also works",
-                handleRequest(HttpMethod.Get, "/home").response.content
-            )
-        }
+    fun respondsSuccessfullyForHeadRequest() = testApplication {
+        val headResponse = client.head("/home")
+        assertEquals(HttpStatusCode.OK, headResponse.status)
     }
 }

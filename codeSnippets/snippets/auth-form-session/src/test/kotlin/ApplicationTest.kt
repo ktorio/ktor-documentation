@@ -1,31 +1,23 @@
 package com.example
 
-import io.ktor.server.application.*
+import io.ktor.client.plugins.cookies.*
+import io.ktor.client.request.*
 import io.ktor.http.*
 import io.ktor.server.testing.*
-import io.ktor.server.sessions.*
 import kotlin.test.*
 
 class ApplicationTest {
     @Test
-    fun testRequests() = withTestApplication(Application::main) {
-        fun doRequestAndCheckResponse(path: String, expectedContent: String) {
-            handleRequest(HttpMethod.Get, path).apply {
-                assertEquals(expectedContent, response.content)
-            }
+    fun testRequests() = testApplication {
+        val client = createClient {
+            install(HttpCookies)
+            expectSuccess = false
         }
 
-        cookiesSession {
-            with(handleRequest(HttpMethod.Post, "/login"){
-                addHeader(HttpHeaders.ContentType, ContentType.Application.FormUrlEncoded.toString())
-                setBody(listOf("username" to "jetbrains", "password" to "foobar").formUrlEncode())
-            }) {
-                assertEquals("jetbrains", sessions.get<UserSession>()!!.name)
-            }
-
-            doRequestAndCheckResponse("/hello", "Hello, jetbrains! Visit count is 1.")
-            doRequestAndCheckResponse("/hello", "Hello, jetbrains! Visit count is 2.")
-            doRequestAndCheckResponse("/hello", "Hello, jetbrains! Visit count is 3.")
+        val loginResponse = client.post("/login") {
+            header(HttpHeaders.ContentType, ContentType.Application.FormUrlEncoded.toString())
+            setBody(listOf("username" to "jetbrains", "password" to "foobar").formUrlEncode())
         }
+        assertEquals("user_session", loginResponse.setCookie()[0].name)
     }
 }

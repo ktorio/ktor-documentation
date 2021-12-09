@@ -1,17 +1,18 @@
-import com.example.*
-import io.ktor.server.application.*
+package com.example
+
+import io.ktor.client.request.*
+import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.server.testing.*
 import kotlin.test.*
 
 class JacksonApplicationTest {
     @Test
-    fun testRoutes() {
-        withTestApplication(Application::main) {
-            handleRequest(HttpMethod.Get, "/v1").apply {
-                assertEquals(200, response.status()?.value)
-                assertEquals(
-                    """
+    fun testV1() = testApplication {
+        val response = client.get("/v1")
+        assertEquals(HttpStatusCode.OK, response.status)
+        assertEquals(
+            """
                         |{
                         |  "name" : "root",
                         |  "items" : [ {
@@ -24,26 +25,22 @@ class JacksonApplicationTest {
                         |  "date" : [ 2018, 4, 13 ]
                         |}
                     """.trimMargin(),
-                    response.content
-                )
-            }
+            response.bodyAsText()
+        )
+    }
 
-            handleRequest(HttpMethod.Get, "/v1/item/B").apply {
-                assertEquals(200, response.status()?.value)
-                assertEquals(
-                    """
+    @Test
+    fun testV1ItemKey() = testApplication {
+        val response = client.get("/v1/item/B")
+        assertEquals(HttpStatusCode.OK, response.status)
+        assertEquals(
+            """
                         |{
                         |  "key" : "B",
                         |  "value" : "Bing"
                         |}
                     """.trimMargin(),
-                    response.content
-                )
-            }
-
-            handleRequest(HttpMethod.Get, "/v1/item/unexistant_key").apply {
-                assertEquals(404, response.status()?.value)
-            }
-        }
+            response.bodyAsText()
+        )
     }
 }

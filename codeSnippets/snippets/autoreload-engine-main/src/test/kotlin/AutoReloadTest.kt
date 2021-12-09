@@ -1,29 +1,17 @@
-import com.example.main
-import com.typesafe.config.ConfigFactory
-import io.ktor.server.application.*
+package com.example
+
+import io.ktor.client.request.*
+import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.server.testing.*
+import org.junit.*
 import org.junit.Assert.*
-import org.junit.Test
-import java.io.File
 
 class AutoReloadTest {
     @Test
-    fun developmentModeEnabledInHoconFile() {
-        val configURL = Application::class.java.classLoader.getResource("application.conf")
-        assertNotNull(configURL)
-        val configFile = File(configURL!!.toURI())
-
-        val config = ConfigFactory.parseFile(configFile)
-        assertTrue(config.getBoolean("ktor.development"))
-    }
-
-    @Test
-    fun serverRespondsByGetRequest() {
-        withTestApplication {
-            application.main()
-
-            assertEquals("Hello, world!", handleRequest(HttpMethod.Get, "/").response.content)
-        }
+    fun testRoot() = testApplication {
+        val response = client.get("/")
+        assertEquals(HttpStatusCode.OK, response.status)
+        assertEquals("Hello, world!", response.bodyAsText())
     }
 }

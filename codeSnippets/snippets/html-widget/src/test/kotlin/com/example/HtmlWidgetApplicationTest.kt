@@ -1,6 +1,7 @@
 package com.example
 
-import io.ktor.server.application.*
+import io.ktor.client.request.*
+import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.server.testing.*
 import org.junit.Test
@@ -8,11 +9,11 @@ import kotlin.test.*
 
 class HtmlWidgetApplicationTest {
     @Test
-    fun testRoot(): Unit = withTestApplication(Application::main) {
-        handleRequest(HttpMethod.Get, "/").apply {
-            assertEquals(200, response.status()?.value)
-            assertEquals(
-                """
+    fun testRoot() = testApplication {
+        val response = client.get("/")
+        assertEquals(HttpStatusCode.OK, response.status)
+        assertEquals(
+            """
                     |<!DOCTYPE html>
                     |<html>
                     |  <head>
@@ -25,8 +26,7 @@ class HtmlWidgetApplicationTest {
                     |</html>
                     |
                 """.trimMargin(),
-                response.content
-            )
-        }
+            response.bodyAsText()
+        )
     }
 }

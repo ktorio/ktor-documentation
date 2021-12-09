@@ -9,7 +9,7 @@ import org.apache.velocity.runtime.RuntimeConstants
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
-fun Application.module(testing: Boolean = false) {
+fun Application.module() {
     install(Velocity) {
         setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath")
         setProperty("classpath.resource.loader.class", ClasspathResourceLoader::class.java.name)

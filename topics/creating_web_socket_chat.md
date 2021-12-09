@@ -86,7 +86,7 @@ Let's briefly go through these dependencies one by one:
 - `ktor-server-netty` adds the Netty [engine](Engines.md) to our project, allowing us to use server functionality without having to rely on an external application container.
 - `ktor-server-websockets` allows us to use the [WebSocket plugin](websocket.md), the main communication mechanism for our chat.
 - `logback-classic` provides an implementation of SLF4J, allowing us to see nicely formatted [logs](logging.md) in a console.
-- `ktor-server-tests` and `kotlin-test-junit` allow us to [test](Testing.md) parts of our Ktor application without having to use the whole HTTP stack in the process.
+- `ktor-server-test-host` and `kotlin-test-junit` allow us to [test](Testing.md) parts of our Ktor application without having to use the whole HTTP stack in the process.
 
 ### Configurations: application.conf and logback.xml {id="configurations"}
 

@@ -1,5 +1,7 @@
 package com.example
 
+import io.ktor.client.request.*
+import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.server.testing.*
 import org.junit.*
@@ -7,19 +9,14 @@ import org.junit.Assert.*
 
 class DownloadFileTest {
     @Test
-    fun respondWithPNGFileAndContentDispositionHeader() {
-        withTestApplication {
-            application.main()
-
-            val response = handleRequest(HttpMethod.Get, "/download").response
-            val content = response.byteContent ?: ByteArray(4)
-
-            assertPNG(content)
-            assertEquals(
-                "attachment; filename=ktor_logo.png",
-                response.headers[HttpHeaders.ContentDisposition]
-            )
-        }
+    fun respondWithPNGFileAndContentDispositionHeader() = testApplication {
+        val response = client.get("/download")
+        val content = response.readBytes(4)
+        assertPNG(content)
+        assertEquals(
+            "attachment; filename=ktor_logo.png",
+            response.headers[HttpHeaders.ContentDisposition]
+        )
     }
 
     private fun assertPNG(array: ByteArray) {
