@@ -1,6 +1,6 @@
 package com.example.plugins
 
-import io.ktor.server.application.plugins.api.*
+import io.ktor.server.application.*
 import io.ktor.util.*
 
 val DataTransformationBenchmarkPlugin = createApplicationPlugin(name = "DataTransformationBenchmarkPlugin") {
