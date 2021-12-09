@@ -11,7 +11,7 @@ abstract class TestServer {
     @Before
     fun runServer() {
         serverProcess = runGradleApp()
-        serverProcess.waitFor(4, TimeUnit.SECONDS)
+        serverProcess.waitFor(10, TimeUnit.SECONDS)
     }
 
     @After
