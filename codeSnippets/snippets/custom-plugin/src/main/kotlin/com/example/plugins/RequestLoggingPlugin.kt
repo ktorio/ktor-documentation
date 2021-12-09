@@ -1,6 +1,6 @@
 package com.example.plugins
 
-import io.ktor.server.application.plugins.api.*
+import io.ktor.server.application.*
 import io.ktor.server.plugins.*
 
 val RequestLoggingPlugin = createApplicationPlugin(name = "RequestLoggingPlugin") {
@@ -14,7 +14,7 @@ val RequestLoggingPlugin = createApplicationPlugin(name = "RequestLoggingPlugin"
             }
         }
     }
-    applicationShutdownHook {
+    on(Shutdown) {
         println("Server is stopped")
     }
 }

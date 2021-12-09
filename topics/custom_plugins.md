@@ -208,7 +208,7 @@ You can find the full example here: [CustomHeaderPlugin.kt](https://github.com/k
 
 ## Handle application shutdown {id="handle-shutdown"}
 
-To release resources and handle application shutdown, use the `applicationShutdownHook` handler. The code snippet below prints a message when a server is stopped:
+To release resources and handle application shutdown, use the `on(Shutdown)` handler. The code snippet below prints a message when a server is stopped:
 
 ```kotlin
 ```
