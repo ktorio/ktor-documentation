@@ -7,6 +7,7 @@ import io.ktor.server.testing.*
 import kotlin.test.*
 
 class GsonAppTest {
+    @Ignore
     @Test
     fun testV1() = testApplication {
         val response = client.get("/v1")
@@ -36,6 +37,7 @@ class GsonAppTest {
         )
     }
 
+    @Ignore
     @Test
     fun testV1ItemKey() = testApplication {
         val response = client.get("/v1/item/B")
