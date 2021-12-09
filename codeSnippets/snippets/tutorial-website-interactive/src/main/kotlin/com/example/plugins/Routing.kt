@@ -15,45 +15,47 @@ fun Application.configureRouting() {
             resources("files")
         }
         get("/") {
-            call.respond(FreeMarkerContent("index.ftl", mapOf("microposts" to microposts)))
+            call.respond(FreeMarkerContent("index.ftl", mapOf("articles" to articles)))
         }
 
-        route("microposts") {
+        route("articles") {
             get {
-                call.respond(FreeMarkerContent("view.ftl", mapOf("microposts" to microposts)))
+                call.respond(FreeMarkerContent("view.ftl", mapOf("articles" to articles)))
             }
             get("new") {
                 call.respond(FreeMarkerContent("new.ftl", model = null))
             }
             get("{id}") {
                 val id = call.parameters.getOrFail<Int>("id").toInt()
-                call.respond(FreeMarkerContent("show.ftl", mapOf("micropost" to microposts.find { it.id == id })))
+                call.respond(FreeMarkerContent("show.ftl", mapOf("article" to articles.find { it.id == id })))
             }
             post {
-                val params = call.receiveParameters()
-                val action = params.getOrFail("action")
-                when (action) {
-                    "delete" -> {
-                        val id = params.getOrFail("id")
-                        microposts.removeIf { it.id.toString() == id }
-                    }
-                    "add" -> {
-                        val headline = params.getOrFail("headline")
-                        val body = params.getOrFail("body")
-                        val newEntry = Micropost.newEntry(headline, body)
-                        microposts.add(0, newEntry)
-                    }
-                }
-                call.respondRedirect("/")
+                val formParameters = call.receiveParameters()
+                val title = formParameters.getOrFail("title")
+                val body = formParameters.getOrFail("body")
+                val newEntry = Article.newEntry(title, body)
+                articles.add(newEntry)
+                call.respondRedirect("/articles")
             }
             get("{id}/edit") {
-
+                val id = call.parameters.getOrFail<Int>("id").toInt()
+                call.respond(FreeMarkerContent("edit.ftl", mapOf("article" to articles.find { it.id == id })))
             }
-            patch("{id}") {
-
-            }
-            delete("{id}") {
-
+            post("{id}") {
+                val id = call.parameters.getOrFail<Int>("id").toInt()
+                val formParameters = call.receiveParameters()
+                when(formParameters.getOrFail("_action")) {
+                    "edit" -> {
+                        val title = formParameters.getOrFail("title")
+                        val body = formParameters.getOrFail("body")
+                        articles[id].title = title
+                        articles[id].body = body
+                    }
+                    "delete" -> {
+                        articles.removeIf { it.id == id }
+                    }
+                }
+                call.respondRedirect("/articles")
             }
         }
     }

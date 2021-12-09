@@ -1,18 +1,15 @@
-<#-- @ftlvariable name="micropost" type="com.example.models.Micropost" -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Kotlin Journal</title>
-</head>
-<body style="text-align: center; font-family: sans-serif">
-<img src="/static/ktor_logo.png">
-<h1>Kotlin Ktor Journal </h1>
-<p><i>Powered by Ktor, kotlinx.html & Freemarker!</i></p>
-<hr>
-<div>
-    <h3>${micropost.headline}</h3>
-    <p>${micropost.body}</p>
-</div>
-<hr>
-</body>
-</html>
+<#-- @ftlvariable name="article" type="com.example.models.Article" -->
+<#import "_layout.ftl" as layout />
+<@layout.header>
+    <div>
+        <h3>
+            ${article.title}
+        </h3>
+        <p>
+            ${article.body}
+        </p>
+        <p>
+            <a href="/articles/${article.id}/edit">Edit article</a>
+        </p>
+    </div>
+</@layout.header>
