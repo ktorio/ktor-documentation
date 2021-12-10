@@ -1,6 +1,6 @@
 package com.example.plugins
 
-import com.example.models.*
+import com.example.dao.*
 import io.ktor.server.application.*
 import io.ktor.server.freemarker.*
 import io.ktor.server.http.content.*
@@ -19,27 +19,28 @@ fun Application.configureRouting() {
         }
 
         route("articles") {
+            val dao = DAOFacade()
+
             get {
-                call.respond(FreeMarkerContent("view.ftl", mapOf("articles" to articles)))
+                call.respond(FreeMarkerContent("view.ftl", mapOf("articles" to dao.allArticles())))
             }
             get("new") {
                 call.respond(FreeMarkerContent("new.ftl", model = null))
             }
             get("{id}") {
                 val id = call.parameters.getOrFail<Int>("id").toInt()
-                call.respond(FreeMarkerContent("show.ftl", mapOf("article" to articles.find { it.id == id })))
+                call.respond(FreeMarkerContent("show.ftl", mapOf("article" to dao.article(id))))
             }
             post {
                 val formParameters = call.receiveParameters()
                 val title = formParameters.getOrFail("title")
                 val body = formParameters.getOrFail("body")
-                val newEntry = Article.newEntry(title, body)
-                articles.add(newEntry)
+                dao.addNewArticle(title, body)
                 call.respondRedirect("/articles")
             }
             get("{id}/edit") {
                 val id = call.parameters.getOrFail<Int>("id").toInt()
-                call.respond(FreeMarkerContent("edit.ftl", mapOf("article" to articles.find { it.id == id })))
+                call.respond(FreeMarkerContent("edit.ftl", mapOf("article" to dao.article(id))))
             }
             post("{id}") {
                 val id = call.parameters.getOrFail<Int>("id").toInt()
@@ -48,11 +49,10 @@ fun Application.configureRouting() {
                     "edit" -> {
                         val title = formParameters.getOrFail("title")
                         val body = formParameters.getOrFail("body")
-                        articles[id].title = title
-                        articles[id].body = body
+                        dao.editArticle(id, title, body)
                     }
                     "delete" -> {
-                        articles.removeIf { it.id == id }
+                        dao.deleteArticle(id)
                     }
                 }
                 call.respondRedirect("/articles")
