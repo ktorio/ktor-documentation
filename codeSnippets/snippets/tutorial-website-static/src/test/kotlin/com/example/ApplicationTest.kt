@@ -8,7 +8,7 @@ import kotlin.test.*
 
 class ApplicationTest {
     @Test
-    fun testRoot() = testApplication {
+    fun testStatic() = testApplication {
         val response = client.get("/static/aboutme.html")
         assertEquals(HttpStatusCode.OK, response.status)
         assertEquals(

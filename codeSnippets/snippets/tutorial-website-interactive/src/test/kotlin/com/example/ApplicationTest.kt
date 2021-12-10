@@ -8,7 +8,7 @@ import kotlin.test.*
 
 class ApplicationTest {
     @Test
-    fun testRoot() = testApplication {
+    fun testStatic() = testApplication {
         val response = client.get("/static/aboutme.html")
         assertEquals(HttpStatusCode.OK, response.status)
         assertEquals(
@@ -29,6 +29,39 @@ class ApplicationTest {
 </body>
 </html>
                     """.trimIndent(),
+            response.bodyAsText()
+        )
+    }
+    @Test
+    fun testRoot() = testApplication {
+        val response = client.get("/")
+        assertEquals(HttpStatusCode.OK, response.status)
+        assertEquals(
+"""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>Kotlin Journal</title>
+    </head>
+    <body style="text-align: center; font-family: sans-serif">
+    <img src="/static/ktor_logo.png">
+    <h1>Kotlin Ktor Journal </h1>
+    <p><i>Powered by Ktor & Freemarker!</i></p>
+    <hr>
+    <div>
+        <p>
+            <a href="/articles/new">Create article</a>
+        </p>
+        <p>
+            <a href="/articles">Show all articles</a>
+        </p>
+    </div>
+    <hr>
+    <a href="/">Back to the main page</a>
+    </body>
+    </html>
+
+""".trimMargin(),
             response.bodyAsText()
         )
     }
