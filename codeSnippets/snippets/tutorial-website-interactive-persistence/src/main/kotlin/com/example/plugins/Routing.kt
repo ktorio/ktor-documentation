@@ -46,7 +46,7 @@ fun Application.configureRouting() {
                 val id = call.parameters.getOrFail<Int>("id").toInt()
                 val formParameters = call.receiveParameters()
                 when (formParameters.getOrFail("_action")) {
-                    "edit" -> {
+                    "update" -> {
                         val title = formParameters.getOrFail("title")
                         val body = formParameters.getOrFail("body")
                         dao.editArticle(id, title, body)

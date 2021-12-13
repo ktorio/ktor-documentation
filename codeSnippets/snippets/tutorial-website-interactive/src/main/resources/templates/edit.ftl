@@ -11,7 +11,7 @@
                 <textarea name="body">${article.body}</textarea>
             </p>
             <p>
-                <input type="submit" name="_action" value="edit">
+                <input type="submit" name="_action" value="update">
             </p>
         </form>
     </div>
