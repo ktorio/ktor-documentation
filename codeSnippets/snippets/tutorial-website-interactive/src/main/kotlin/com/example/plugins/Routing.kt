@@ -35,7 +35,7 @@ fun Application.configureRouting() {
                 val body = formParameters.getOrFail("body")
                 val newEntry = Article.newEntry(title, body)
                 articles.add(newEntry)
-                call.respondRedirect("/articles")
+                call.respondRedirect("/articles/${newEntry.id}")
             }
             get("{id}/edit") {
                 val id = call.parameters.getOrFail<Int>("id").toInt()
