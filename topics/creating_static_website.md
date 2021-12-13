@@ -154,6 +154,6 @@ If we re-run the application and navigate to [`http://localhost:8080/static/abou
 
 Of course, we could also organize our files in subdirectories inside `files`; Ktor will automatically take care of mapping these paths to the correct URLs.
 
-If you'd like to learn more about serving static files with Ktor, check out the [](Serving_Static_Content.md) help topic.
-
 However, a static page that contains a few paragraphs can hardly be called a journal yet. Let's move on and learn about how templates can help us in writing pages that contain dynamic content, and how to control them from within our application: [](creating_interactive_website.md).
+
+> You can the resulting project for this tutorial here: [tutorial-website-static](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/tutorial-website-static).
