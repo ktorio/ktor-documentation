@@ -4,7 +4,7 @@
 <var name="example_name" value="tutorial-website-static"/>
 <include src="lib.xml" include-id="download_example"/>
 <p>
-Used plugins: Routing, Static Content
+Used plugins: <a href="Routing_in_Ktor.md">Routing</a>, <a href="Serving_Static_Content.md">Static Content</a>
 </p>
 </microformat>
 
@@ -39,7 +39,7 @@ To create a base project for our application using the Ktor plugin, [open Intell
 
 Click **Next**.
 
-3. On the next page, add the **Routing** and **FreeMarker** plugins:
+3. On the next page, add the **Routing**, **Static Content**, and **FreeMarker** plugins:
    ![Ktor plugins](tutorial_website_new_project_plugins.png){width="727"}
 
    Click **Finish** and wait until IntelliJ IDEA generates a project and installs the dependencies.

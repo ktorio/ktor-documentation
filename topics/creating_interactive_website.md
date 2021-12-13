@@ -4,12 +4,18 @@
 <var name="example_name" value="tutorial-website-interactive"/>
 <include src="lib.xml" include-id="download_example"/>
 <p>
-Used plugins: Routing, FreeMarker
+Used plugins: <a href="Routing_in_Ktor.md">Routing</a>, <a href="freemarker.md">FreeMarker</a>
 </p>
 </microformat>
 
 
 <excerpt>Learn how to create an interactive website using HTML templating engines like FreeMarker.</excerpt>
+
+In this series of tutorials, we'll show you how to create a website in Ktor:
+- In the first tutorial, we showed how to host [static content](creating_static_website.md) like images and HTML pages.
+- In this tutorial, we'll make our website interactive and create a simple blog application using the FreeMarker template engine.
+- Finally, we'll [add persistence](interactive_website_add_persistence.md) to our website using the Exposed framework.
+
 
 
 ## Home page with templates {id="home_page_templates"}
