@@ -15,12 +15,12 @@ fun Application.configureRouting() {
             resources("files")
         }
         get("/") {
-            call.respond(FreeMarkerContent("index.ftl", model = null))
+            call.respondRedirect("articles")
         }
 
         route("articles") {
             get {
-                call.respond(FreeMarkerContent("view.ftl", mapOf("articles" to articles)))
+                call.respond(FreeMarkerContent("index.ftl", mapOf("articles" to articles)))
             }
             get("new") {
                 call.respond(FreeMarkerContent("new.ftl", model = null))
@@ -50,12 +50,13 @@ fun Application.configureRouting() {
                         val body = formParameters.getOrFail("body")
                         articles[id].title = title
                         articles[id].body = body
+                        call.respondRedirect("/articles/$id")
                     }
                     "delete" -> {
                         articles.removeIf { it.id == id }
+                        call.respondRedirect("/articles")
                     }
                 }
-                call.respondRedirect("/articles")
             }
         }
     }

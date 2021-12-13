@@ -8,6 +8,7 @@ import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.util.*
+import kotlinx.coroutines.*
 
 fun Application.configureRouting() {
     routing {
@@ -15,14 +16,19 @@ fun Application.configureRouting() {
             resources("files")
         }
         get("/") {
-            call.respond(FreeMarkerContent("index.ftl", model = null))
+            call.respondRedirect("articles")
         }
 
         route("articles") {
             val dao = DAOFacade()
+            runBlocking {
+                if(dao.allArticles().isEmpty()) {
+                    dao.addNewArticle("The drive to develop!", "...it's what keeps me going.")
+                }
+            }
 
             get {
-                call.respond(FreeMarkerContent("view.ftl", mapOf("articles" to dao.allArticles())))
+                call.respond(FreeMarkerContent("index.ftl", mapOf("articles" to dao.allArticles())))
             }
             get("new") {
                 call.respond(FreeMarkerContent("new.ftl", model = null))
@@ -50,12 +56,13 @@ fun Application.configureRouting() {
                         val title = formParameters.getOrFail("title")
                         val body = formParameters.getOrFail("body")
                         dao.editArticle(id, title, body)
+                        call.respondRedirect("/articles/$id")
                     }
                     "delete" -> {
                         dao.deleteArticle(id)
+                        call.respondRedirect("/articles")
                     }
                 }
-                call.respondRedirect("/articles")
             }
         }
     }

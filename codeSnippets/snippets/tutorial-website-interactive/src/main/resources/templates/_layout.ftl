@@ -10,7 +10,6 @@
     <p><i>Powered by Ktor & Freemarker!</i></p>
     <hr>
     <#nested>
-    <hr>
     <a href="/">Back to the main page</a>
     </body>
     </html>
