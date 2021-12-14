@@ -33,16 +33,16 @@ fun Application.configureRouting() {
             get("new") {
                 call.respond(FreeMarkerContent("new.ftl", model = null))
             }
-            get("{id}") {
-                val id = call.parameters.getOrFail<Int>("id").toInt()
-                call.respond(FreeMarkerContent("show.ftl", mapOf("article" to dao.article(id))))
-            }
             post {
                 val formParameters = call.receiveParameters()
                 val title = formParameters.getOrFail("title")
                 val body = formParameters.getOrFail("body")
                 val article = dao.addNewArticle(title, body)
                 call.respondRedirect("/articles/${article?.id}")
+            }
+            get("{id}") {
+                val id = call.parameters.getOrFail<Int>("id").toInt()
+                call.respond(FreeMarkerContent("show.ftl", mapOf("article" to dao.article(id))))
             }
             get("{id}/edit") {
                 val id = call.parameters.getOrFail<Int>("id").toInt()

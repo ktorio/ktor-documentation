@@ -25,10 +25,6 @@ fun Application.configureRouting() {
             get("new") {
                 call.respond(FreeMarkerContent("new.ftl", model = null))
             }
-            get("{id}") {
-                val id = call.parameters.getOrFail<Int>("id").toInt()
-                call.respond(FreeMarkerContent("show.ftl", mapOf("article" to articles.find { it.id == id })))
-            }
             post {
                 val formParameters = call.receiveParameters()
                 val title = formParameters.getOrFail("title")
@@ -36,6 +32,10 @@ fun Application.configureRouting() {
                 val newEntry = Article.newEntry(title, body)
                 articles.add(newEntry)
                 call.respondRedirect("/articles/${newEntry.id}")
+            }
+            get("{id}") {
+                val id = call.parameters.getOrFail<Int>("id").toInt()
+                call.respond(FreeMarkerContent("show.ftl", mapOf("article" to articles.find { it.id == id })))
             }
             get("{id}/edit") {
                 val id = call.parameters.getOrFail<Int>("id").toInt()
