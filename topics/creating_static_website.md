@@ -156,4 +156,4 @@ Of course, we could also organize our files in subdirectories inside `files`; Kt
 
 However, a static page that contains a few paragraphs can hardly be called a journal yet. Let's move on and learn about how templates can help us in writing pages that contain dynamic content, and how to control them from within our application: [](creating_interactive_website.md).
 
-> You can the resulting project for this tutorial here: [tutorial-website-static](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/tutorial-website-static).
+> You can find the resulting project for this tutorial here: [tutorial-website-static](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/tutorial-website-static).
