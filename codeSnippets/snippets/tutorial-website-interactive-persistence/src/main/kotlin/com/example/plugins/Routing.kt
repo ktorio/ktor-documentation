@@ -20,7 +20,7 @@ fun Application.configureRouting() {
         }
 
         route("articles") {
-            val dao = DAOFacade()
+            val dao: DAOFacade = DAOFacadeImpl()
             runBlocking {
                 if(dao.allArticles().isEmpty()) {
                     dao.addNewArticle("The drive to develop!", "...it's what keeps me going.")
