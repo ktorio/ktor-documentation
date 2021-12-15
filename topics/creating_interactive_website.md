@@ -18,8 +18,6 @@ In this series of tutorials, we'll show you how to create a website in Ktor:
 
 Before starting this tutorial, create a static website as described in [](creating_static_website.md).
 
-> You can find the result of the previous tutorial here: [tutorial-website-static](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/tutorial-website-static).
-
 
 ## Adjust FreeMarker configuration {id="freemarker_config"}
 
