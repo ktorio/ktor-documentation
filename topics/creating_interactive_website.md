@@ -39,11 +39,11 @@ The `outputFormat` setting helps convert control characters provided by the user
 
 ## Create a model {id="model"}
 
-First, we need to create a model describing an article in our journal application. Create a `models` package inside `com.example`, add the `Article.kt` file inside the created package:
+First, we need to create a model describing an article in our journal application. Create a `models` package inside `com.example`, add the `Article.kt` file inside the created package, and insert the following code:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/models/Article.kt" lines="3-12"}
+{src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/models/Article.kt" lines="1-12"}
 
 An article has three attributes: `id`, `title`, and `body`. The `title` and `body` attributes can be specified directly while a unique `id` is generated automatically using `AtomicInteger` - a thread-safe data structure that ensures that two articles will never receive the same ID.
 
@@ -92,7 +92,7 @@ fun Application.configureRouting() {
 
 This code works as follows:
 - The `get("/")` handler redirects all `GET` requests made to the `/` path to `/articles`.
-- The `route("articles")` handler is used to [group routes](Routing_in_Ktor.md#multiple_routes) related to various actions on articles: showing a list of articles, adding a new article, and so on. For example, `get` without a parameter responds to `GET` requests to the `/articles` path, while `get("new")` responds to `GET` requests to `/articles/new`.
+- The `route("articles")` handler is used to [group routes](Routing_in_Ktor.md#multiple_routes) related to various actions: showing a list of articles, adding a new article, and so on. For example, a nested `get` function without a parameter responds to `GET` requests made to the `/articles` path, while `get("new")` responds to `GET` requests to `/articles/new`.
 
 
 
@@ -116,7 +116,7 @@ In our case, the `FreeMarkerContent` constructor accepts two parameters:
 
 ### Create a template {id="create_template"}
 
-The FreeMarker plugin is [configured](#freemarker_config) to load templates located in the `templates` directory. Create the `index.ftl` file inside `resources/templates` and fill it with the following content:
+The FreeMarker plugin is [configured](#freemarker_config) to load templates located in the `templates` directory. First, create the `templates` directory inside `resources`. Then, create the `index.ftl` file inside `resources/templates` and fill it with the following content:
 
 ```html
     <#-- @ftlvariable name="articles" type="kotlin.collections.List<com.example.models.Article>" -->
@@ -151,8 +151,10 @@ The FreeMarker plugin is [configured](#freemarker_config) to load templates loca
 Let's examine the main pieces of this code:
 - A comment with [@ftlvariable](https://www.jetbrains.com/help/idea/template-data-languages.html#special-comments) declares a variable named `articles` with the `List<Article>` type. This comment helps IntelliJ IDEA resolve attributes exposed by the `articles` template variable.
 - The next part contains header elements of our journal - a logo and a heading.
-- Inside the `list` tag, we iterate through all the articles and show their titles and body. Note that the article title is rendered as a link to a specific article (the `/articles/${article.id}` path). A page showing a specific article will be implemented later in [](#show_article).
+- Inside the `list` tag, we iterate through all the articles and show their content. Note that the article title is rendered as a link to a specific article (the `/articles/${article.id}` path). A page showing a specific article will be implemented later in [](#show_article).
 - A link at the bottom leads to `/articles/new` for [creating a new article](#new_article).
+
+At this point, you can already [run](#run_app) the application and see the main page of our journal.
 
 
 
@@ -194,7 +196,7 @@ The `new.ftl` template provides a form for submitting an article content. Given 
 ```
 {src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/plugins/Routing.kt" lines="28-35"}
 
-The `call.receiveParameters` function is used to [receive form parameters](requests.md#form_parameters) and get their values. After saving a new article, `call.respondRedirect` is called to a page showing this article. Note that a URL path for a specific article contains an ID parameter whose value should be obtained at runtime. We'll take a look at how to handle path parameters in the next chapter. 
+The `call.receiveParameters` function is used to [receive form parameters](requests.md#form_parameters) and get their values. After saving a new article, `call.respondRedirect` is called to redirect to a page showing this article. Note that a URL path for a specific article contains an ID parameter whose value should be obtained at runtime. We'll take a look at how to handle path parameters in the next chapter. 
 
 
 ## Show a created article {id="show_article"}
@@ -205,9 +207,9 @@ To show a content of a specific article, we'll use the article ID as a [path par
 ```
 {src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/plugins/Routing.kt" lines="36-39"}
 
-`call.parameters` is used to obtain the article ID passed in a URL path. To show the article with this ID, we need to find this article in a storage and pass it in the `article` variable. 
+`call.parameters` is used to obtain the article ID passed in a URL path. To show the article with this ID, we need to find this article in a storage and pass it in the `article` template variable. 
 
-Then, create the `resources/templates/new.ftl` template and fill it with the following code:
+Then, create the `resources/templates/show.ftl` template and fill it with the following code:
 
 ```html
 ```
@@ -224,7 +226,7 @@ A route for editing an article should look as follows:
 ```
 {src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/plugins/Routing.kt" lines="40-43"}
 
-Similar to a route for showing an article, `call.parameters` is used to obtain the article identifier and find this article in  storage.
+Similar to a route for showing an article, `call.parameters` is used to obtain the article identifier and find this article in a storage.
 
 Now create `resources/templates/edit.ftl` and add the following code:
 

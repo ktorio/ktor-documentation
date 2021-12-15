@@ -108,7 +108,7 @@ This module, in turn, calls the following extension functions:
 
 ## Static files and pages {id="static_files"}
 
-Before we dive into making a _dynamic_ application, let's start by doing something a bit easier, but probably just as important – let's get Ktor to serve some *static* files. In the context of our journal, there are a number of things that we probably want to serve as static files – one example being a header image (a logo that identifies our site).
+Before we dive into making a _[dynamic](creating_interactive_website.md)_ application, let's start by doing something a bit easier, but probably just as important – let's get Ktor to serve some *static* files. In the context of our journal, there are a number of things that we probably want to serve as static files – one example being a header image (a logo that identifies our site).
 
 1. Create the `files` folder inside `src/main/resources`.
 2. Download the [ktor_logo.png](https://github.com/ktorio/ktor-documentation/blob/main/codeSnippets/snippets/tutorial-website-static/src/main/resources/files/ktor_logo.png) image file and add it to the created `files` folder.
