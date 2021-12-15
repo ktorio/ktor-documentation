@@ -18,12 +18,22 @@ In this series of tutorials, we'll show you how to create a website in Ktor:
 
 ## Add dependencies {id="add-dependencies"}
 
+Open `gradle.properties`:
+
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-persistence/build.gradle.kts" lines="21,25-28,32"}
+{src="gradle.properties" lines="17-18"}
+
+Open `build.gradle.kts`:
+
+```kotlin
+```
+{src="snippets/tutorial-website-interactive-persistence/build.gradle.kts" lines="3-4,20-21,25-28,32"}
 
 
 ## Update a model {id="model"}
+
+A database table is represented in the Kotlin code by an object inheriting from the `org.jetbrains.exposed.sql.Table` class. You need to declare its columns and specify the column that is the primary key. Add the following object to `models/Article.kt`:
 
 ```kotlin
 ```
@@ -32,11 +42,58 @@ In this series of tutorials, we'll show you how to create a website in Ktor:
 
 ## Connect to a database {id="connect_db"}
 
+A [data access object](https://en.wikipedia.org/wiki/Data_access_object) (DAO) is a pattern that provides an interface to a database without exposing the details of the specific database. We’ll later define a DAOFacade interface to abstract our specific requests to the database.
+
+Every database access using Exposed is started by obtaining a connection to the database. For that, you pass JDBC URL and the driver class name to the Database.connect() function. Put this code into the init() method of DatabaseFactory.
+
 Create the `dao` package inside `com.example` and add a new `DatabaseFactory.kt` file:
 
 ```kotlin
 ```
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DatabaseFactory.kt" lines="1-13,17,21"}
+
+> Extract to custom configuration [](Configurations.xml#hocon-file).
+
+After obtaining the connection all SQL statements should be placed inside a transaction.
+Every database operation in Exposed needs an active transaction.
+
+```kotlin
+fun init() {
+    // ...
+    val database = Database.connect(jdbcURL, driverClassName)
+    transaction(database) {
+        // Statements here
+    }
+}
+```
+
+> The default database is set explicitly. If you have only one database, you can omit it, Exposed automatically uses “the default one” (the last connected one) for transactions.Note that the Database.connect() function doesn’t establish a real database connection until you call the transaction, it only creates a descriptor for future connections.
+
+
+After we defined the `Articles` table, we return to the `init()` function of our `DatabaseFactory` object. Here, we call `SchemaUtils.create(Articles)` wrapped in transaction call at the bottom of the `init` function to instruct the database to create this table if it doesn’t yet exist:
+
+```kotlin
+fun init() {
+    // ...
+    val database = Database.connect(jdbcURL, driverClassName)
+    transaction(database) {
+        SchemaUtils.create(Articles)
+    }
+}
+```
+
+For our convenience, let’s create a utility function dbQuery inside the DatabaseFactory object, which we’ll be using for all our future requests to the database. Instead of using the transaction to access it in a blocking way, let’s take advantage of coroutines and start each query in its own coroutine:
+
+```kotlin
+```
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DatabaseFactory.kt" lines="19-20"}
+
+Result `DatabaseFactory.kt`:
+
+```kotlin
+```
 {src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DatabaseFactory.kt"}
+
 
 Call the `init` function:
 
@@ -44,11 +101,6 @@ Call the `init` function:
 ```
 {src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/Application.kt" lines="9-13"}
 
-Configuration:
-
-```kotlin
-```
-{src="snippets/tutorial-website-interactive-persistence/src/main/resources/application.conf" lines="11-15"}
 
 ## Create and implement DAOFacade {id="facade"}
 
@@ -66,11 +118,39 @@ Implement `DAOFacadeImpl.kt` (intention in IDEA):
 
 ## Update routes {id="update_routes"}
 
-Open `com/example/plugins/Routing.kt` (initial, create, update, and delete):
+Open `com/example/plugins/Routing.kt` (initial, create, update, and delete).
+
+Add sample article:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/plugins/Routing.kt"}
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/plugins/Routing.kt" lines="22-28,67"}
+
+Get all articles `dao.allArticles`:
+
+```kotlin
+```
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/plugins/Routing.kt" lines="30-32"}
+
+
+Post an article `dao.addNewArticle`:
+
+```kotlin
+```
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/plugins/Routing.kt" lines="36-42"}
+
+Get an article for showing and editing `dao.article`:
+
+```kotlin
+```
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/plugins/Routing.kt" lines="43-50"}
+
+Update (`dao.editArticle`) or delete (`dao.deleteArticle`) article:
+
+```kotlin
+```
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/plugins/Routing.kt" lines="51-66"}
+
 
 
 
