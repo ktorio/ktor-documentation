@@ -5,14 +5,20 @@ import com.example.models.*
 import org.jetbrains.exposed.sql.*
 
 class DAOFacadeImpl : DAOFacade {
+    private fun resultRowToArticle(row: ResultRow) = Article(
+        id = row[Articles.id],
+        title = row[Articles.title],
+        body = row[Articles.body],
+    )
+
     override suspend fun allArticles(): List<Article> = dbQuery {
-        Articles.selectAll().map(::toArticle)
+        Articles.selectAll().map(::resultRowToArticle)
     }
 
     override suspend fun article(id: Int): Article? = dbQuery {
         Articles
             .select { Articles.id eq id }
-            .map(::toArticle)
+            .map(::resultRowToArticle)
             .singleOrNull()
     }
 
@@ -21,7 +27,7 @@ class DAOFacadeImpl : DAOFacade {
             it[Articles.title] = title
             it[Articles.body] = body
         }
-        insertStatement.resultedValues?.singleOrNull()?.let(::toArticle)
+        insertStatement.resultedValues?.singleOrNull()?.let(::resultRowToArticle)
     }
 
     override suspend fun editArticle(id: Int, title: String, body: String): Boolean = dbQuery {
@@ -34,10 +40,4 @@ class DAOFacadeImpl : DAOFacade {
     override suspend fun deleteArticle(id: Int): Boolean = dbQuery {
         Articles.deleteWhere { Articles.id eq id } > 0
     }
-
-    private fun toArticle(row: ResultRow) = Article(
-        id = row[Articles.id],
-        title = row[Articles.title],
-        body = row[Articles.body],
-    )
 }
