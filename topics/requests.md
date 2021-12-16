@@ -82,6 +82,16 @@ If you need to receive a file sent as a part of a multipart request, call the [r
 
 Learn how to run this sample from [upload-file](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/upload-file).
 
+> To determine the uploaded file size, you can get the `Content-Length` [header value](#request_information) inside the `post` handler:
+> ```kotlin
+> post("/upload") {
+>     val contentLength = call.request.header(HttpHeaders.ContentLength)
+>     // ...
+> }
+> ```
+> 
+{type="tip"}
+
 
 ### Raw payload {id="raw"}
 If you need to access the raw body payload and parse it by yourself, you can use the following functions:
