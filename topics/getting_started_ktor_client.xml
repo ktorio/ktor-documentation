@@ -138,7 +138,7 @@
             </step>
             <step>
                 <p>
-                    Click the <control>Load Gradle Changes</control> icon at the top right corner of the <path>build.gradle.kts</path> file to install newly added dependencies.
+                    Click the <control>Load Gradle Changes</control> icon in the top right corner of the <path>build.gradle.kts</path> file to install newly added dependencies.
                 </p>
                 <img src="client_get_started_load_gradle_changes_name.png" alt="Load Gradle Changes" width="706"/>
             </step>

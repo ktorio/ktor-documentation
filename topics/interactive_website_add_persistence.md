@@ -1,4 +1,4 @@
-[//]: # (title: Adding persistence)
+[//]: # (title: Adding persistence to a website)
 
 <microformat>
 <var name="example_name" value="tutorial-website-interactive-persistence"/>
@@ -10,9 +10,9 @@ Used libraries: <a href="https://github.com/JetBrains/Exposed">Exposed</a>, <a h
 
 <excerpt>Learn how to add persistence to a website using the Exposed ORM framework.</excerpt>
 
-In this series of tutorials, we'll show you how to create a website in Ktor:
+In this series of tutorials, we'll show you how to create a simple blog application in Ktor:
 - In the first tutorial, we showed how to host [static content](creating_static_website.md) like images and HTML pages.
-- In the second tutorial, we added interactivity and created a simple [blog application](creating_interactive_website.md) using the FreeMarker template engine.
+- In the second tutorial, we added interactivity to our application using the FreeMarker template engine.
 - In this tutorial, we'll add persistence to our website using the Exposed framework. We'll use the H2 local database to store articles.
 
 
@@ -30,12 +30,12 @@ Then, open `build.gradle.kts` and add the following dependencies:
 ```
 {src="snippets/tutorial-website-interactive-persistence/build.gradle.kts" lines="3-4,20-21,25-28,32"}
 
+Click the **Load Gradle Changes** icon in the top right corner of the `build.gradle.kts` file to install newly added dependencies.
+
 
 ## Update a model {id="model"}
 
-Exposed uses the `org.jetbrains.exposed.sql.Table` class as a database table. You need to declare its columns and specify the primary key column. 
-
-To update the `Article` model, open the `models/Article.kt` file and replace the existing code with the following:
+Exposed uses the `org.jetbrains.exposed.sql.Table` class as a database table. To update the `Article` model, open the `models/Article.kt` file and replace the existing code with the following:
 
 ```kotlin
 ```
@@ -52,7 +52,7 @@ The `id`, `title`, and `body` columns will store information about our articles.
 
 A [data access object](https://en.wikipedia.org/wiki/Data_access_object) (DAO) is a pattern that provides an interface to a database without exposing the details of the specific database. We'll define a `DAOFacade` interface later to abstract our specific requests to the database.
 
-Every database access using Exposed is started by obtaining a connection to the database. For that, you pass JDBC URL and the driver class name to the `Database.connect` function. Create the `dao` package inside `com.example` and add a new `DatabaseFactory.kt` file. Then, put this code into the `init` function of `DatabaseFactory`:
+Every database access using Exposed is started by obtaining a connection to the database. For that, you pass JDBC URL and the driver class name to the `Database.connect` function. Create the `dao` package inside `com.example` and add a new `DatabaseFactory.kt` file. Then, insert this code:
 
 ```kotlin
 ```
@@ -78,8 +78,7 @@ In this code sample, the default database is passed explicitly to the `transacti
 
 > Note that the `Database.connect` function doesn't establish a real database connection until you call the transaction - it only creates a descriptor for future connections.
 
-
-After defining the `Articles` table, we return to the `init` function of the `DatabaseFactory` object. Here, we call `SchemaUtils.create(Articles)` wrapped in transaction call at the bottom of the `init` function to instruct the database to create this table if it doesn't yet exist:
+Given that the `Articles` table is already declared, we can call `SchemaUtils.create(Articles)` wrapped in `transaction` call at the bottom of the `init` function to instruct the database to create this table if it doesn't yet exist:
 
 ```kotlin
 fun init() {
@@ -125,7 +124,13 @@ Now let's create an interface to abstract the necessary operations for updating 
 
 We need to list all articles, view an article by its ID, add a new article, edit, or delete it. Since all these functions perform database queries under the hood, they are defined as suspending functions.
 
-To implement `DAOFacade`, click a yellow bulb icon next to this interface and select **Implement interface**. In the invoked dialog, leave the default settings and click **OK**. In the **Implement members** dialog, choose all the functions and click **OK**. IntelliJ IDEA creates the `DAOFacadeImpl.kt` file inside the `dao` package. Let's implement all functions using Exposed DSL.
+To implement the `DAOFacade` interface, place the caret at its name, click a yellow bulb icon next to this interface and select **Implement interface**. In the invoked dialog, leave the default settings and click **OK**. 
+
+In the **Implement Members** dialog, select all the functions and click **OK**. 
+
+![Implement Members](tutorial_persistence_implement_members.png){width="451"}
+
+IntelliJ IDEA creates the `DAOFacadeImpl.kt` file inside the `dao` package. Let's implement all functions using Exposed DSL.
 
 ### Get all articles {id="get_all"}
 
@@ -232,3 +237,5 @@ IntelliJ IDEA will start the application, and after a few seconds, we should see
 ```
 
 Open [`http://localhost:8080/`](http://localhost:8080/) in a browser and try to create, edit, and delete articles. Articles will be saved in the `build/db.mv.db` file. In IntelliJ IDEA, you can see the content of this file in a [Database tool window](https://www.jetbrains.com/help/idea/database-tool-window.html).
+
+![Database tool window](tutorial_persistence_database_tool_window.png){width="706"}

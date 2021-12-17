@@ -10,9 +10,9 @@ Used plugins: <a href="Routing_in_Ktor.md">Routing</a>, <a href="Serving_Static_
 
 <excerpt>Learn how to create a static website using the Static Content plugin.</excerpt>
 
-In this series of tutorials, we'll show you how to create a website in Ktor:
+In this series of tutorials, we'll show you how to create a simple blog application in Ktor:
 - First, we'll show how to host static content like images and HTML pages.
-- In the next tutorial, we'll make our website [interactive](creating_interactive_website.md) and create a simple blog application using the FreeMarker template engine.
+- In the next tutorial, we'll make our application [interactive](creating_interactive_website.md) using the FreeMarker template engine.
 - Finally, we'll [add persistence](interactive_website_add_persistence.md) to our website using the Exposed framework.
 
 ![](ktor_journal.png){animated="true" width="502"}
@@ -97,12 +97,13 @@ This module, in turn, calls the following extension functions:
        }
    }
    ```
-  We'll define the routes for our journal in [](creating_interactive_website.md).
 
 * `configureTemplating` is a function defined in `plugins/Templating.kt`, which installs and configures the `FreeMarker` plugin:
    ```kotlin
    ```
   {src="snippets/tutorial-website-static/src/main/kotlin/com/example/plugins/Templating.kt" lines="7-11"}
+
+  We'll show how to use FreeMarker templates in the next tutorial: [](creating_interactive_website.md).
 
 
 
@@ -140,7 +141,7 @@ Let's open [`http://localhost:8080/static/ktor_logo.png`](http://localhost:8080/
 
 ### Add HTML page {id="html_page"}
 
-Of course, we are not limited to images – HTML files, or CSS and JavaScript would work just as well. We can take advantage of this fact to add a small "About me" page as the first real part of our journal application – a static page that can contain some information about us, this project, or whatever else we might fancy.
+Of course, we are not limited to images – HTML files, or CSS and JavaScript would work just as well. We can take advantage of this fact to add a small 'About me' page as the first real part of our journal application – a static page that can contain some information about us, this project, or whatever else we might fancy.
 
 To do so, let's create a new file inside `src/main/resources/files/` called `aboutme.html`, and fill it with the following contents:
 

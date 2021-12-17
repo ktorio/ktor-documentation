@@ -122,7 +122,7 @@
                 <p>
                     For now, let's install only the <a href="Routing_in_Ktor.md">Routing</a> plugin to
                     handle incoming requests.
-                    Start typing <emphasis>routing</emphasis> at the top left search box,
+                    Start typing <emphasis>routing</emphasis> in the top left search box,
                     find <control>Routing</control> in the list, and click <control>Add</control>.
                 </p>
                 <img src="ktor_idea_new_project_plugins.png" alt="Add the Routing plugin" width="702" animated="true"/>

@@ -1,4 +1,4 @@
-[//]: # (title: Adding interactivity using templates)
+[//]: # (title: Creating an interactive website)
 
 <microformat>
 <var name="example_name" value="tutorial-website-interactive"/>
@@ -11,12 +11,10 @@ Used plugins: <a href="Routing_in_Ktor.md">Routing</a>, <a href="freemarker.md">
 
 <excerpt>Learn how to create an interactive website using HTML templating engines like FreeMarker.</excerpt>
 
-In this series of tutorials, we'll show you how to create a website in Ktor:
+In this series of tutorials, we'll show you how to create a simple blog application in Ktor:
 - In the first tutorial, we showed how to host [static content](creating_static_website.md) like images and HTML pages.
-- In this tutorial, we'll make our website interactive and create a simple blog application using the [FreeMarker](https://freemarker.apache.org/) template engine.
+- In this tutorial, we'll make our application interactive using the [FreeMarker](https://freemarker.apache.org/) template engine.
 - Finally, we'll [add persistence](interactive_website_add_persistence.md) to our website using the Exposed framework.
-
-Before starting this tutorial, create a static website as described in [](creating_static_website.md).
 
 
 ## Adjust FreeMarker configuration {id="freemarker_config"}
@@ -174,7 +172,7 @@ Then, update the `index.ftl` file to reuse `_layout.ftl`:
 
 ## Create a new article {id="new_article"}
 
-Now let's create handle requests for the `/articles/new` path. Open `Routing.kt` and add the following code inside `get("new")`:
+Now let's handle requests for the `/articles/new` path. Open `Routing.kt` and add the following code inside `get("new")`:
 
 ```kotlin
 ```
@@ -232,7 +230,7 @@ Now create `resources/templates/edit.ftl` and add the following code:
 ```
 {src="snippets/tutorial-website-interactive/src/main/resources/templates/edit.ftl"}
 
-Given that HTML forms don't support `PATCH` and `DELETE` verbs, the page above contains two separate forms for editing and deleting an article. On the server side, we can distinguish `POST` requests sent by these forms by checking the `input` name and value attributes.
+Given that HTML forms don't support `PATCH` and `DELETE` verbs, the page above contains two separate forms for editing and deleting an article. On the server side, we can distinguish `POST` requests sent by these forms by checking the input's `name` and `value` attributes.
 
 Open the `Routing.kt` file and insert the following code inside `post("{id}")`:
 
