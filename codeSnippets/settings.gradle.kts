@@ -23,7 +23,6 @@ fun module(group: String, name: String) {
 
 module("snippets", "jetty-war")
 module("snippets", "tomcat-war")
-module("snippets", "docker")
 module("snippets", "auth-basic")
 module("snippets", "auth-basic-hash-table")
 module("snippets", "auth-digest")
