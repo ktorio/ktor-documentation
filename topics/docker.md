@@ -1,89 +1,89 @@
 [//]: # (title: Docker)
 
 <microformat>
-<var name="example_name" value="docker"/>
-<include src="lib.xml" include-id="download_example"/>
+<p>
+<control>Initial project</control>: <a href="https://github.com/ktorio/ktor-get-started-sample">ktor-get-started-sample</a>
+</p>
 </microformat>
 
 <excerpt>
 Learn how to deploy a Ktor application to a Docker container, which can then be run either locally or on your cloud provider of choice.
 </excerpt>
 
-In this section we'll see how to deploy a Ktor application to a [Docker](https://www.docker.com) container, which can then be run either locally or on your cloud provider of choice.
+In this section, we'll see how to deploy a Ktor application to a [Docker](https://www.docker.com) container, which can then be run either locally or on your cloud provider of choice.
 
 Docker is a container system that allows for packaging software in a format that can then be run on any
 platform that supports Docker, such as Linux, macOS, and Windows. Conceptually Docker is an operating system with
-layers providing multiple services. While the basics of Docker will be covered, if you're not familiar with it, check out some of the 
-[Getting Started](https://docs.docker.com/get-started/) documentation. 
+layers providing multiple services. While the basics of Docker will be covered, if you're not familiar with it, check out the [Getting Started](https://docs.docker.com/get-started/) documentation. 
 
-## Get the application ready
+## Clone a sample application {id="clone"}
+In this tutorial, we'll be using a project created in [](intellij-idea.xml): [ktor-get-started-sample](https://github.com/ktorio/ktor-get-started-sample).
 
+
+## Get the application ready {id="prepare-app"}
 In order to run on Docker, the application needs to have all the required files deployed to the container. As a first step,
-you need to create a zip file containing the application and its dependencies. Depending on the build system you're using,
-there are different ways to accomplish this. 
-
-The example below will be using Gradle and the [application plugin](https://docs.gradle.org/current/userguide/application_plugin.html) to accomplish this. If using Maven, the same thing
-can be accomplished using the [assembly](http://maven.apache.org/guides/mini/guide-assemblies.html) functionality. 
-
-### Configure the Gradle file
+you need to create a fat JAR file containing the application and its dependencies. Depending on the build system you're using,
+there are different ways to accomplish this:
+- To prepare a Gradle project, follow the steps from the [](fatjar.md#configure-plugin) section.
+- To prepare a Maven project, follow the steps from [](maven-assembly-plugin.md#configure-plugin).
 
 
-<tabs>
 
-<tab title="Gradle">
+## Prepare Docker image {id="prepare-docker"}
 
-```kotlin
+To dockerize the application, we'll use [multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/):
+- First, we'll use the `gradle`/`maven` image to generate a distribution of the application.
+- Then, the generated distribution will be run in the environment created based on the `openjdk` image.
+
+In the root folder of the project, create a file named `Dockerfile` with the following contents:
+
+<tabs group="languages">
+<tab title="Gradle" group-key="kotlin">
+
+```dockerfile
+FROM gradle:7-jdk11 AS build
+COPY --chown=gradle:gradle . /home/gradle/src
+WORKDIR /home/gradle/src
+RUN gradle shadowJar --no-daemon
+
+FROM openjdk:11
+EXPOSE 8080:8080
+RUN mkdir /app
+COPY --from=build /home/gradle/src/build/libs/*.jar /app/ktor-docker-sample.jar
+ENTRYPOINT ["java","-jar","/app/ktor-docker-sample.jar"]
 ```
-{src="snippets/docker/build.gradle.kts"}
 
 </tab>
+<tab title="Maven" group-key="maven">
 
-<tab title="application.conf">
+```dockerfile
+FROM maven:3-openjdk-11 AS build
+COPY . /home/maven/src
+WORKDIR /home/maven/src
+RUN mvn package
 
-```groovy
+FROM openjdk:11
+EXPOSE 8080:8080
+RUN mkdir /app
+COPY --from=build /home/maven/src/target/*-with-dependencies.jar /app/ktor-docker-sample.jar
+ENTRYPOINT ["java","-jar","/app/ktor-docker-sample.jar"]
 ```
-{src="snippets/docker/src/main/resources/application.conf"}
 
 </tab>
-
-<tab title="Application.kt">
-
-```kotlin
-```
-{src ="snippets/docker/src/main/kotlin/com/example/Application.kt"}
-
-</tab>
-
 </tabs>
 
 
-## Prepare Docker image
+The second stage of the build works in the following way:
 
-In the root folder of the project create a file named `Dockerfile` with the following contents:
+* Indicates what image is going to be used (`openjdk` in this case).
+* Specifies the exposed port (this does not automatically expose the port, which is done when running the container).
+* Copies the contents from the build output to the folder.
+* Runs the application (`ENTRYPOINT`).
 
-```dockerfile
-```
-{src="snippets/docker/Dockerfile"}
 
+## Build and run the Docker image {id="build-run"}
 
-The Dockerfile indicates a few things:
-
-* What image is going to be used (JDK 8 in this case).
-* The exposed port (this does not automatically expose the port which is done when running the container)
-* How to run the application (`cmd` file)
-
-The other steps merely create a folder, copy the contents from the build output to the folder and change to it in preparation
-to run the image.
-
-## Build and run the Docker image
-
-First step is to create the distribution of the application (in this case using Gradle):
-
-```bash
-./gradlew installDist
-```
-
-Next step is to build and tag the Docker image:
+The next step is to build and tag the Docker image:
 
 ```bash
 docker build -t my-application .
@@ -95,10 +95,8 @@ Finally, start the image:
 docker run -p 8080:8080 my-application
 ```
 
-For more information about running a docker image please consult [docker run](https://docs.docker.com/engine/reference/run) 
-documentation.
-
-If using [IntelliJ IDEA](https://www.jetbrains.com/idea), you can simply click `Run` in the Dockerfile
-to perform these steps.
+If using IntelliJ IDEA, you can click `Run` in the `Dockerfile` to perform these steps:
 
 ![Docker Run](run-docker.png){width="291"}
+
+Learn more from the [Docker](https://www.jetbrains.com/help/idea/docker.html) topic.
