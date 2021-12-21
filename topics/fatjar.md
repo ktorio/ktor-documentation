@@ -76,6 +76,8 @@ To build a Fat JAR, open the terminal and execute the `shadowJar` task created i
 
 When this build completes, you should see the `fatjar-all.jar` file in the `build/libs` directory.
 
+> To learn how to use the resulting package to deploy your application using Docker, see the [](docker.md) help topic.
+
 
 ## Run the application {id="run"}
 To run the [built application](#build):
