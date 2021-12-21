@@ -40,7 +40,7 @@ Note that `jdbcURL` includes the following components:
 - `db:5432` is a host and port on which the PostgreSQL database is running.
 - `ktorjournal` is the name of the database created when running services.
 
-These settings will be configured later in the [docker-compose.yml](#docker-compose) file.
+These settings will be configured later in the [docker-compose.yml](#configure-docker) file.
 
 Open `com/example/dao/DatabaseFactory.kt` and update the `init` function to load storage settings from the configuration file:
 
@@ -70,9 +70,9 @@ For example, to apply the Shadow plugin, open the `build.gradle.kts` file, add t
 {src="snippets/tutorial-website-interactive-docker-compose/build.gradle.kts" lines="7-12,35-41"}
 
 
-## Configure Docker {id="docker"}
+## Configure Docker {id="configure-docker"}
 
-### Prepare Docker image {id="prepare-image"}
+### Prepare Docker image {id="prepare-docker-image"}
 
 To dockerize the application, create the `Dockerfile` in the root of the project and insert the following content:
 
@@ -82,7 +82,7 @@ To dockerize the application, create the `Dockerfile` in the root of the project
 
 Note that this `Dockerfile` requires creating a fat JAR before running `docker compose up`. To learn how to use multi-stage builds to generate an application distribution using Docker, see [](docker.md#prepare-docker).
 
-### Configure Docker Compose {id="docker-compose"}
+### Configure Docker Compose {id="configure-docker-compose"}
 
 Create the `docker-compose.yml` in the root of the project and add the following content:
 
@@ -90,7 +90,7 @@ Create the `docker-compose.yml` in the root of the project and add the following
 ```
 {src="snippets/tutorial-website-interactive-docker-compose/docker-compose.yml"}
 
-- The `web` service is used to run the Ktor application packaged inside the [image](#prepare-image).
+- The `web` service is used to run the Ktor application packaged inside the [image](#prepare-docker-image).
 - The `db` service uses the `postgres` image to create the `ktorjournal` database for storing articles of our journal.
 
 ## Build and run services {id="build-run"}
