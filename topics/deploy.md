@@ -29,7 +29,7 @@ Before deploying your application, you need to package it in one of the followin
 
 * **Executable JVM application**
 
-   An executable JVM application is a packaged application that includes code dependencies and generated start scripts. For Gradle, you can use the [Application](gradle-application-plugin.md) plugin to generate an application. As an example, you can run this application inside a [Docker](docker.md) container.
+   An executable JVM application is a packaged application that includes code dependencies and generated start scripts. For Gradle, you can use the [Application](gradle-application-plugin.md) plugin to generate an application. 
 
 * **WAR**
 
