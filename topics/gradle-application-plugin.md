@@ -60,7 +60,6 @@ In this topic, we'll use `installDist`:
    
    Gradle will create an image of the application in the `build/install/engine-main` folder. 
 
-> To learn how to use the resulting package to deploy your application using Docker, see the [](docker.md) help topic.
 
 ## Run the application {id="run"}
 To run the [packaged application](#package):

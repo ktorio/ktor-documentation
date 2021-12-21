@@ -33,6 +33,8 @@ mvn package
 ```
 When this build completes, you should see the `mainModule-1.0-SNAPSHOT-jar-with-dependencies.jar` file in the `target` directory.
 
+> To learn how to use the resulting package to deploy your application using Docker, see the [](docker.md) help topic.
+
 
 ## Run the application {id="run"}
 To run the [built application](#build):
