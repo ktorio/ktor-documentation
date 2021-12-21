@@ -58,7 +58,7 @@ Every database access using Exposed is started by obtaining a connection to the 
 ```
 {src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DatabaseFactory.kt" lines="1-13,17,21"}
 
-> Note that `driverClassName` and `jdbcURL` are hardcoded here. Ktor allows you to extract such settings to [custom configuration group](Configurations.xml#hocon-file).
+> Note that `driverClassName` and `jdbcURL` are hardcoded here. Ktor allows you to extract such settings to a [custom configuration group](Configurations.xml#hocon-file).
 
 ### Create a table {id="create_table"}
 
