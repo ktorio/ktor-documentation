@@ -146,7 +146,7 @@
                 <toc-element id="micrometer_metrics.md"
                              show-structure-depth="2"
                              accepts-web-file-names="metrics-micrometer.html"/>
-                <toc-element id="dropwizard_metrics.md"
+                <toc-element id="dropwizard_metrics.md" show-structure-depth="2"
                              accepts-web-file-names="features-metrics.html"/>
             </toc-element>
 
