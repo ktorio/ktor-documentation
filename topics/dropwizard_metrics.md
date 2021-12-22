@@ -7,7 +7,7 @@
 <p>
 Required dependencies: <code>io.ktor:%artifact_name%</code>
 </p>
-<var name="example_name" value="metrics"/>
+<var name="example_name" value="dropwizard-metrics"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
