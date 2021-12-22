@@ -17,7 +17,7 @@ HTTP provides a [general framework](https://developer.mozilla.org/en-US/docs/Web
 
 
 ### JSON Web Tokens (JWT) {id="jwt"}
-[JSON Web Token](jwt.md) is an open standard for securely transmitting information between parties as a JSON object. You can JSON Web Tokens for authorization: when the user is logged in, each request will include a token, allowing the user to access resources that are permitted with that token. In Ktor, you can verify a token and validate the claims contained within it using the `jwt` authentication.
+[JSON Web Token](jwt.md) is an open standard for securely transmitting information between parties as a JSON object. You can use JSON Web Tokens for authorization: when the user is logged in, each request will include a token, allowing the user to access resources that are permitted with that token. In Ktor, you can verify a token and validate the claims contained within it using the `jwt` authentication.
 
 
 ### LDAP {id="ldap"}
