@@ -43,7 +43,7 @@ The OAuth authorization flow in a Ktor application might look as follows:
 
 
 ## Install OAuth {id="install"}
-To install the `oauth` authentication provider, call the [oauth](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/oauth.html) function inside the `install` block:
+To install the `oauth` authentication provider, call the [oauth](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/oauth.html) function inside the `install` block:
 
 ```kotlin
 install(Authentication) {
@@ -99,7 +99,7 @@ A user will see the authorization page with the level of permissions required fo
 
 Apart from the login route, you need to create a redirect route that will be invoked after authorization is completed. The address of this route was specified using the [urlProvider](#configure-oauth-provider) property.
 
-Inside this route you can retrieve the [OAuthAccessTokenResponse](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-o-auth-access-token-response/index.html) object using the [call.principal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/principal.html) function. `OAuthAccessTokenResponse` allows you to access a token and other parameters returned by the OAuth server.
+Inside this route you can retrieve the [OAuthAccessTokenResponse](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-o-auth-access-token-response/index.html) object using the `call.principal` function. `OAuthAccessTokenResponse` allows you to access a token and other parameters returned by the OAuth server.
 
 ```kotlin
 ```

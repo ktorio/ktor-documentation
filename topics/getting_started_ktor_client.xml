@@ -196,7 +196,7 @@
                     }
                 </code>
                 <p>
-                    A client is represented by the <a href="https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client/-http-client/index.html">HttpClient</a> class.
+                    A client is represented by the <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client/-http-client/index.html">HttpClient</a> class.
                 </p>
             </step>
             <step>

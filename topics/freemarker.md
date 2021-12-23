@@ -12,7 +12,7 @@ Required dependencies: <code>io.ktor:%artifact_name%</code>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-Ktor allows you to use [FreeMarker templates](https://freemarker.apache.org/) as views within your application by installing the [FreeMarker](https://api.ktor.io/ktor-features/ktor-freemarker/ktor-freemarker/io.ktor.freemarker/-free-marker/index.html) plugin.
+Ktor allows you to use [FreeMarker templates](https://freemarker.apache.org/) as views within your application by installing the [FreeMarker](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-freemarker/io.ktor.server.freemarker/-free-marker/index.html) plugin.
 
 
 ## Add dependencies {id="add_dependencies"}

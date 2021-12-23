@@ -5,8 +5,8 @@ Ktor allows you to store [session](sessions.md) data [on the server](client_serv
 
 ## Built-in storages {id="builtin_storages"}
 The following storage types are available out-of-the-box:
-* [SessionStorageMemory](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.sessions/-session-storage-memory/index.html) enables storing a session's content in memory. This storage keeps data while the server is running and discards information once the server stops. 
-* [directorySessionStorage](https://api.ktor.io/ktor-features/ktor-server-sessions/ktor-server-sessions/io.ktor.sessions/directory-session-storage.html) can be used to store a session's data in a file under the specified directory.
+* [SessionStorageMemory](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-sessions/io.ktor.server.sessions/-session-storage-memory/index.html) enables storing a session's content in memory. This storage keeps data while the server is running and discards information once the server stops. 
+* [directorySessionStorage](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-sessions/io.ktor.server.sessions/directory-session-storage.html) can be used to store a session's data in a file under the specified directory.
 
 To create the required storage type, pass it as a second parameter to the [cookie](cookie_header.md#cookie) or [header](cookie_header.md#header) method. For example, you can store cookies in the server memory as follows:
 

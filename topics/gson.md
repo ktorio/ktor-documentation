@@ -22,7 +22,7 @@ Before registering the Gson converter, you need to include the following artifac
 
 
 ## Register the Gson converter {id="register_gson_converter"}
-To register the Gson converter in your application, call the [gson](https://api.ktor.io/ktor-features/ktor-gson/ktor-gson/io.ktor.gson/gson.html) function:
+To register the Gson converter in your application, call the [gson](https://api.ktor.io/ktor-shared/ktor-serialization/ktor-serialization-gson/io.ktor.serialization.gson/gson.html) function:
 ```kotlin
 import io.ktor.server.plugins.*
 import io.ktor.serialization.gson.*

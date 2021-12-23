@@ -28,7 +28,7 @@ In this topic, we'll show you how to:
 
 Ktor allows you to [create and start a server](create_server.xml) with the desired engine (such as Netty, Jetty, or Tomcat) right in the application. In this case, your application has control over engine settings, connection, and SSL options.
 
-In contrast to the approach above, a servlet container should control the application lifecycle and connection settings. Ktor provides a special [ServletApplicationEngine](https://api.ktor.io/ktor-server/ktor-server-servlet/ktor-server-servlet/io.ktor.server.servlet/-servlet-application-engine/index.html) engine that delegates control over your application to a servlet container.
+In contrast to the approach above, a servlet container should control the application lifecycle and connection settings. Ktor provides a special [ServletApplicationEngine](https://api.ktor.io/ktor-server/ktor-server-servlet/io.ktor.server.servlet/-servlet-application-engine/index.html) engine that delegates control over your application to a servlet container.
 
 > Note that [connection and SSL settings](Configurations.xml#hocon-file) are not in effect when a Ktor application is deployed inside a servlet container.
 
@@ -44,7 +44,7 @@ Note that you don't need the separate [Jetty or Tomcat artifacts](Engines.md#dep
 
 ### Configure a servlet {id="configure-servlet"}
 
-To register a Ktor servlet in your application, open the `WEB-INF/web.xml` file and assign [ServletApplicationEngine](https://api.ktor.io/ktor-server/ktor-server-servlet/ktor-server-servlet/io.ktor.server.servlet/-servlet-application-engine/index.html) to the `servlet-class` attribute:
+To register a Ktor servlet in your application, open the `WEB-INF/web.xml` file and assign [ServletApplicationEngine](https://api.ktor.io/ktor-server/ktor-server-servlet/io.ktor.server.servlet/-servlet-application-engine/index.html) to the `servlet-class` attribute:
 
 ```xml
 ```

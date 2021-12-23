@@ -36,7 +36,7 @@ To use the Ktor HTTP client in your project, you need to add at least two depend
 
 
 ## Create the client {id="create-client"}
-To create the client in a multiplatform project, call the [HttpClient](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client/-http-client/index.html) constructor in a project's [common code](https://kotlinlang.org/docs/mpp-discover-project.html#source-sets):
+To create the client in a multiplatform project, call the [HttpClient](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client/-http-client/index.html) constructor in a project's [common code](https://kotlinlang.org/docs/mpp-discover-project.html#source-sets):
 
 ```kotlin
 ```

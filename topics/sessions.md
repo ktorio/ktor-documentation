@@ -41,7 +41,7 @@ Before installing a session, you need to create a [data class](https://kotlinlan
 ```
 {src="snippets/session-cookie/src/main/kotlin/com/example/Application.kt" lines="8"}
 
-Note that you can optionally inherit this class from [Principal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-principal/index.html) to use a session for [authentication](session-auth.md).
+Note that you can optionally inherit this class from [Principal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-principal/index.html) to use a session for [authentication](session-auth.md).
 
 > You need to create several data classes if you are going to use [several sessions](#multiple). 
 
@@ -75,13 +75,13 @@ Note that session names should be unique.
 
 
 ## Get and set session content {id="set-content"}
-To set the session content for a specific [route](Routing_in_Ktor.md), use the [call.sessions](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.sessions/sessions.html) property. The [set](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.sessions/-current-session/set.html) method allows you to create a new session instance:
+To set the session content for a specific [route](Routing_in_Ktor.md), use the `call.sessions` property. The `set` method allows you to create a new session instance:
 
 ```kotlin
 ```
 {src="snippets/session-cookie/src/main/kotlin/com/example/Application.kt" lines="17-21,37"}
 
-To get the session content, you can call [get](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.sessions/-current-session/get.html) receiving one of the registered session types as type parameter:
+To get the session content, you can call `get` receiving one of the registered session types as type parameter:
 
 ```kotlin
 ```

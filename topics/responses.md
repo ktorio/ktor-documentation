@@ -5,8 +5,8 @@
 Ktor allows you to handle incoming [requests](requests.md) and send responses inside [route handlers](Routing_in_Ktor.md#define_route). You can send different types of responses: plain text, HTML documents and templates, serialized data objects, and so on. For each response, you can also configure various [response parameters](#parameters), such as a content type, headers, and cookies.
 
 Inside a route handler, the following API is available for working with responses:
-* A set of functions targeted for [sending a specific content type](#payload), for example, [call.respondText](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.response/respond-text.html), [call.respondHtml](https://api.ktor.io/ktor-features/ktor-html-builder/ktor-html-builder/io.ktor.html/respond-html.html), and so on. 
-* The [call.respond](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.response/respond.html) function that allows you to [send any data](#payload) inside a response. For example, with the enabled [ContentNegotiation](serialization.md) plugin, you can send a data object serialized in a specific format.
+* A set of functions targeted for [sending a specific content type](#payload), for example, [call.respondText](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.response/respond-text.html), [call.respondHtml](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-html-builder/io.ktor.server.html/respond-html.html), and so on. 
+* The [call.respond](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.response/respond.html) function that allows you to [send any data](#payload) inside a response. For example, with the enabled [ContentNegotiation](serialization.md) plugin, you can send a data object serialized in a specific format.
 * The [call.response](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.application/-application-call/response.html) property that returns the [ApplicationResponse](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.response/-application-response/index.html) object providing access to [response parameters](#parameters) and allowing you to set a status code, add headers, and configure cookies.
 * The [call.respondRedirect](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.response/respond-redirect.html) provides the capability to add redirects.
 
@@ -25,17 +25,17 @@ Ktor provides two main ways to send HTML responses to a client:
 * By building HTML using Kotlin HTML DSL.
 * By using JVM template engines, such as FreeMarker, Velocity, and so on.
 
-To send HTML build using Kotlin DSL, use the [call.respondHtml](https://api.ktor.io/ktor-features/ktor-html-builder/ktor-html-builder/io.ktor.html/respond-html.html) function:
+To send HTML build using Kotlin DSL, use the [call.respondHtml](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-html-builder/io.ktor.server.html/respond-html.html) function:
 ```kotlin
 ```
 {src="snippets/html/src/main/kotlin/com/example/Application.kt" lines="12-26"}
 
-To send a template in a response, call the [call.respond](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.response/respond.html) function with a specific content ...
+To send a template in a response, call the [call.respond](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.response/respond.html) function with a specific content ...
 ```kotlin
 ```
 {src="snippets/freemarker/src/main/kotlin/com/example/Application.kt" lines="16-19"}
 
-... or use an appropriate [call.respondTemplate](https://api.ktor.io/ktor-features/ktor-freemarker/ktor-freemarker/io.ktor.freemarker/respond-template.html) function: 
+... or use an appropriate [call.respondTemplate](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-freemarker/io.ktor.server.freemarker/respond-template.html) function: 
 ```kotlin
 get("/index") {
     val sampleUser = User(1, "John")
@@ -46,7 +46,7 @@ You can learn more from the [](Working_with_views.md) help section.
 
 
 ### Object {id="object"}
-To enable serialization of data objects in Ktor, you need to install the [ContentNegotiation](serialization.md) plugin and register a required converter (for example, JSON). Then, you can use the [call.respond](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.response/respond.html) function to pass a data object in a response:
+To enable serialization of data objects in Ktor, you need to install the [ContentNegotiation](serialization.md) plugin and register a required converter (for example, JSON). Then, you can use the [call.respond](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.response/respond.html) function to pass a data object in a response:
 
 ```kotlin
 ```

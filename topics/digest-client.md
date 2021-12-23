@@ -49,8 +49,8 @@ The digest authentication flow looks as follows:
 
 To send user credentials in the `Authorization` header using the `Digest` scheme, you need to configure the `digest` authentication provider as follows:
 
-1. Call the [digest](https://api.ktor.io/ktor-client/ktor-client-features/ktor-client-auth/ktor-client-auth/io.ktor.client.features.auth.providers/digest.html) function inside the `install` block.
-2. Provide the required credentials using [DigestAuthCredentials](https://api.ktor.io/ktor-client/ktor-client-features/ktor-client-auth/ktor-client-auth/io.ktor.client.features.auth.providers/-digest-auth-credentials/index.html) and pass this object to the [credentials](https://api.ktor.io/ktor-client/ktor-client-features/ktor-client-auth/ktor-client-auth/io.ktor.client.features.auth.providers/-digest-auth-config/credentials.html) function.
+1. Call the [digest](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-auth/io.ktor.client.plugins.auth.providers/digest.html) function inside the `install` block.
+2. Provide the required credentials using [DigestAuthCredentials](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-auth/io.ktor.client.plugins.auth.providers/-digest-auth-credentials/index.html) and pass this object to the [credentials](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-auth/io.ktor.client.plugins.auth.providers/-digest-auth-config/credentials.html) function.
 3. Optionally, configure the realm using the `realm` property.
 
 

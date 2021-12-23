@@ -49,7 +49,7 @@ To enable `LDAP` authentication, you need to include the `ktor-server-auth` and 
 
 ### Step 1: Choose an authentication provider {id="choose-auth"}
 
-To authenticate LDAP users, you first need to choose an authentication provider for username and password validation. In Ktor, the [basic](basic.md), [digest](digest.md), or [form-based](form.md) providers can be used for this. For example, to use the `basic` authentication provider, call the [basic](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/basic.html) function inside the `install` block.
+To authenticate LDAP users, you first need to choose an authentication provider for username and password validation. In Ktor, the [basic](basic.md), [digest](digest.md), or [form-based](form.md) providers can be used for this. For example, to use the `basic` authentication provider, call the [basic](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/basic.html) function inside the `install` block.
 
 ```kotlin
 install(Authentication) {
@@ -61,18 +61,18 @@ install(Authentication) {
 }
 ```
 
-The [validate](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-basic-authentication-provider/-configuration/validate.html) function will be used to check user credentials.
+The `validate` function will be used to check user credentials.
  
 
 ### Step 2: Authenticate an LDAP user {id="authenticate"}
 
-To authenticate an LDAP user, you need to call the [ldapAuthenticate](https://api.ktor.io/ktor-features/ktor-auth-ldap/ktor-auth-ldap/io.ktor.auth.ldap/ldap-authenticate.html) function. This function accepts [UserPasswordCredential](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-user-password-credential/index.html) and validates it against a specified LDAP server.
+To authenticate an LDAP user, you need to call the [ldapAuthenticate](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth-ldap/io.ktor.server.auth.ldap/ldap-authenticate.html) function. This function accepts [UserPasswordCredential](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-user-password-credential/index.html) and validates it against a specified LDAP server.
 
 ```kotlin
 ```
 {src="snippets/auth-ldap/src/main/kotlin/com/example/Application.kt" lines="10-16"}
 
-The `validate` function returns a [UserIdPrincipal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-user-id-principal/index.html) in a case of successful authentication or `null` if authentication fails.
+The `validate` function returns a [UserIdPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html) in a case of successful authentication or `null` if authentication fails.
 
 Optionally, you can add additional validation for an authenticated user.
 
@@ -95,7 +95,7 @@ install(Authentication) {
 
 ### Step 3: Define authorization scope {id="authenticate-route"}
 
-After configuring LDAP, you can define the authorization for the different resources in our application using the `authenticate` function. In a case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-user-id-principal/index.html) inside a route handler using the [call.principal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/principal.html) function and get a name of an authenticated user.
+After configuring LDAP, you can define the authorization for the different resources in our application using the `authenticate` function. In a case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html) inside a route handler using the `call.principal` function and get a name of an authenticated user.
 
 ```kotlin
 ```

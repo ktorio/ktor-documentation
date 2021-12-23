@@ -11,7 +11,7 @@ Required dependencies: <code>io.ktor:%artifact_name%</code>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-Ktor provides the capability to compress outgoing content by using the [Compression](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-compression/index.html) plugin. You can use different compression algorithms, including `gzip` and `deflate`, 
+Ktor provides the capability to compress outgoing content by using the [Compression](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-compression/io.ktor.server.plugins/-compression/index.html) plugin. You can use different compression algorithms, including `gzip` and `deflate`, 
 specify the required conditions for compressing data (such as a content type or response size), or even compress data based on specific request parameters.
 
 > To learn how to serve pre-compressed static files in Ktor, see [](Serving_Static_Content.md#precompressed).
@@ -55,7 +55,7 @@ In the example above, `deflate` has a higher priority value and takes precedence
 
 ### Configure content type {id="configure_content_type"}
 By default, Ktor doesn't compress specific content types, such as `audio`, `video`, `image`, and `text/event-stream`. 
-You can choose the content types to compress by calling [matchContentType](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/match-content-type.html) or exclude the desired media types from compression by using [excludeContentType](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/exclude-content-type.html). The code snippet below shows how to compress JavaScript code using `gzip` and all text subtypes using `deflate`:
+You can choose the content types to compress by calling [matchContentType](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-compression/io.ktor.server.plugins/match-content-type.html) or exclude the desired media types from compression by using [excludeContentType](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-compression/io.ktor.server.plugins/exclude-content-type.html). The code snippet below shows how to compress JavaScript code using `gzip` and all text subtypes using `deflate`:
 ```kotlin
 ```
 {src="snippets/compression/src/main/kotlin/com/example/Application.kt" lines="12-13,15-19,21-25"}
@@ -63,7 +63,7 @@ You can choose the content types to compress by calling [matchContentType](https
 You can find the full example here: [compression](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/compression).
 
 ### Configure response size {id="configure_response_size"}
-The `%plugin_name%` plugin allows you to disable compression for responses whose size doesn't exceed the specified value. To do this, pass the desired value (in bytes) to the [minimumSize](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/minimum-size.html) function:
+The `%plugin_name%` plugin allows you to disable compression for responses whose size doesn't exceed the specified value. To do this, pass the desired value (in bytes) to the `minimumSize` function:
 ```kotlin
     install(Compression) {
         deflate {
@@ -74,7 +74,7 @@ The `%plugin_name%` plugin allows you to disable compression for responses whose
 ```
 
 ### Specify custom conditions {id="specify_custom_conditions"}
-If necessary, you can provide a custom condition using the [condition](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/condition.html) function and compress data depending on the specific request parameters. The code snippet below shows how to compress requests for the specified URI:
+If necessary, you can provide a custom condition using the `condition` function and compress data depending on the specific request parameters. The code snippet below shows how to compress requests for the specified URI:
 ```kotlin
 install(Compression) {
     gzip {
@@ -99,4 +99,4 @@ install(Compression) {
 ```
 
 ## Implement custom encoder {id="custom_encoder"}
-If necessary, you can provide your own encoder by implementing the [CompressionEncoder](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-compression-encoder/index.html) interface. See [GzipEncoder](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-plugins/ktor-server-compression/jvm/src/io/ktor/server/plugins/Compression.kt#L288-L294) as an example implementation.
+If necessary, you can provide your own encoder by implementing the [CompressionEncoder](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-compression/io.ktor.server.plugins/-compression-encoder/index.html) interface. See [GzipEncoder](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-plugins/ktor-server-compression/jvm/src/io/ktor/server/plugins/Compression.kt#L288-L294) as an example implementation.

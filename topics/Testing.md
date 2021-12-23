@@ -172,7 +172,7 @@ fun testRequest() = testApplication {
 
 ### Specify configuration in code {id="map"}
 
-Another way to specify configuration properties is using [MapApplicationConfig](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.config/-map-application-config/index.html). This might be useful if you want to access application configuration before the application starts.
+Another way to specify configuration properties is using [MapApplicationConfig](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.config/-map-application-config/index.html). This might be useful if you want to access application configuration before the application starts.
 
 The example below shows how to pass `MapApplicationConfig` to the `testApplication` function using the `config` property:
 

@@ -28,7 +28,7 @@ The [ApplicationRequest](https://api.ktor.io/ktor-server/ktor-server-core/ktor-s
 * Connection details  
   Use the [ApplicationRequest.local](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.request/-application-request/local.html) property to get access to connection details such as a host name, port, scheme, and so on.
 * `X-Forwarded-` headers  
-  To get information about a request passed through an HTTP proxy or a load balancer, install the [](forward-headers.md) plugin and use the [ApplicationRequest.origin](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/origin.html) property.
+  To get information about a request passed through an HTTP proxy or a load balancer, install the [](forward-headers.md) plugin and use the [ApplicationRequest.origin](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.plugins/origin.html) property.
 
 
 ## Path parameters {id="path_parameters"}

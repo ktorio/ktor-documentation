@@ -38,13 +38,13 @@ val client = HttpClient(CIO) {
 }
 ```
 
-Optionally, you can configure the plugin inside the `install` block by passing the required options using [WebSockets.Config](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.features.websocket/-web-sockets/-config/index.html).
+Optionally, you can configure the plugin inside the `install` block by passing the required options using [WebSockets.Config](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.websocket/-web-sockets/-config/index.html).
 
 
 ## Handle a WebSockets session {id="handle-session"}
 ### API overview {id="api-overview"}
 
-To handle a client WebSocket session, call the [webSocket](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.features.websocket/web-socket.html) function:
+To handle a client WebSocket session, call the `webSocket` function:
 
 ```kotlin
 runBlocking {
@@ -54,10 +54,10 @@ runBlocking {
 }
 ```
 
-Inside the `webSocket` block, you need to handle a WebSocket session, which is represented by the [DefaultClientWebSocketSession](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.features.websocket/-default-client-web-socket-session/index.html) class. Session configuration might look as follows:
+Inside the `webSocket` block, you need to handle a WebSocket session, which is represented by the [DefaultClientWebSocketSession](https://api.ktor.io/ktor-shared/ktor-websockets/io.ktor.websocket/-default-web-socket-session/index.html) class. Session configuration might look as follows:
 
 1. Use the `send` function to send text content to the server.
-2. Use the `incoming` and `outgoing` properties to access the channels for receiving and sending WebSocket frames. A frame is represented by the [Frame](https://api.ktor.io/ktor-http/ktor-http-cio/ktor-http-cio/io.ktor.http.cio.websocket/-frame/index.html) class.
+2. Use the `incoming` and `outgoing` properties to access the channels for receiving and sending WebSocket frames. A frame is represented by the `Frame` class.
 3. When handing a session, you can check a frame type, for example:
     * `Frame.Text` is a text frame. For this frame type, you can read its content using `Frame.Text.readText()`.
     * `Frame.Binary` is a binary frame. For this type, you can read its content using `Frame.Binary.readBytes()`.

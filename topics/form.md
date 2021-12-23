@@ -43,7 +43,7 @@ The form-based authentication flow might look as follows:
 
 
 ## Install form authentication {id="install"}
-To install the `form` authentication provider, call the [form](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/form.html) function inside the `install` block:
+To install the `form` authentication provider, call the [form](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/form.html) function inside the `install` block:
 
 ```kotlin
 install(Authentication) {
@@ -58,7 +58,7 @@ You can optionally specify a [provider name](authentication.md#provider-name) th
 ## Configure form authentication {id="configure"}
 
 ### Step 1: Configure a form provider {id="configure-provider"}
-The `form` authentication provider exposes its settings via the [FormAuthenticationProvider/Configuration](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-form-authentication-provider/-configuration/index.html) class. In the example below, the following settings are specified:
+The `form` authentication provider exposes its settings via the [FormAuthenticationProvider.Configuration](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-form-authentication-provider/-configuration/index.html) class. In the example below, the following settings are specified:
 * The `userParamName` and `passwordParamName` properties specify parameter names used to fetch a username and password.
 * The `validate` function validates a username and password.
 
@@ -72,7 +72,7 @@ The `validate` function checks `UserPasswordCredential` and returns a `UserIdPri
 
 ### Step 2: Define authorization scope {id="authenticate-route"}
 
-After configuring the `form` provider, you can define the authorization for the different resources in our application using the `authenticate` function. In a case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-user-id-principal/index.html) inside a route handler using the [call.principal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/principal.html) function and get a name of an authenticated user.
+After configuring the `form` provider, you can define the authorization for the different resources in our application using the `authenticate` function. In a case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html) inside a route handler using the `call.principal` function and get a name of an authenticated user.
 
 ```kotlin
 ```

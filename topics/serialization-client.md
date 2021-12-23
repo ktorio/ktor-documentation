@@ -70,7 +70,7 @@ You can find the full example here: [client-json-kotlinx](https://github.com/kto
 </tab>
 <tab title="Gson" group-key="gson">
 
-To register the Gson serializer in your application, call the [gson](https://api.ktor.io/ktor-features/ktor-gson/ktor-gson/io.ktor.gson/gson.html) method:
+To register the Gson serializer in your application, call the [gson](https://api.ktor.io/ktor-shared/ktor-serialization/ktor-serialization-gson/io.ktor.serialization.gson/gson.html) method:
 ```kotlin
 import io.ktor.client.plugins.*
 import io.ktor.serialization.gson.*
@@ -85,7 +85,7 @@ The `gson` method also allows you to adjust serialization settings provided by [
 </tab>
 <tab title="Jackson" group-key="jackson">
 
-To register the Jackson serializer in your application, call the [jackson](https://api.ktor.io/ktor-features/ktor-jackson/ktor-jackson/io.ktor.jackson/jackson.html) method:
+To register the Jackson serializer in your application, call the [jackson](https://api.ktor.io/ktor-shared/ktor-serialization/ktor-serialization-jackson/io.ktor.serialization.jackson/jackson.html) method:
 
 ```kotlin
 import io.ktor.client.plugins.*

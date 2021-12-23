@@ -48,7 +48,7 @@ client.cookies("http://0.0.0.0:8080/")
 
 ## Custom cookie storage {id="custom_storage"}
 
-If required, you can create a custom cookie storage by implementing the [CookiesStorage](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.features.cookies/-cookies-storage/index.html) interface:
+If required, you can create a custom cookie storage by implementing the [CookiesStorage](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.cookies/-cookies-storage/index.html) interface:
 
 ```kotlin
 val client = HttpClient(CIO) {

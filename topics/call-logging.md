@@ -28,7 +28,7 @@ The `%plugin_name%` plugin allows you to log incoming client requests.
 
 
 ## Configure logging settings {id="configure"}
-You can configure `%plugin_name%` in multiple ways: specify a logging level, filter requests based on a specified condition, customize log messages, and so on. You can see the available configuration settings at [CallLogging.Configuration](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-call-logging/-configuration/index.html).
+You can configure `%plugin_name%` in multiple ways: specify a logging level, filter requests based on a specified condition, customize log messages, and so on. You can see the available configuration settings at [CallLogging.Configuration](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-call-logging/io.ktor.server.plugins/-call-logging/-configuration/index.html).
 ### Set the logging level {id="logging_level"}
 By default, Ktor uses the `Level.TRACE` logging level. To change it, use the `level` property:
 ```kotlin

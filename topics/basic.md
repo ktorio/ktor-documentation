@@ -47,7 +47,7 @@ The basic authentication flow looks as follows:
 
 
 ## Install basic authentication {id="install"}
-To install the `basic` authentication provider, call the [basic](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/basic.html) function inside the `install` block:
+To install the `basic` authentication provider, call the [basic](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/basic.html) function inside the `install` block:
 
 ```kotlin
 install(Authentication) {
@@ -65,7 +65,7 @@ To get a general idea on how to configure different authentication providers in 
 
 ### Step 1: Configure a basic provider {id="configure-provider"}
 
-The `basic` authentication provider exposes its settings via the [BasicAuthenticationProvider.Configuration](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-basic-authentication-provider/-configuration/index.html) class. In the example below, the following settings are specified:
+The `basic` authentication provider exposes its settings via the [BasicAuthenticationProvider.Configuration](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-basic-authentication-provider/-configuration/index.html) class. In the example below, the following settings are specified:
 * The `realm` property sets the realm to be passed in `WWW-Authenticate` header.
 * The `validate` function validates a username and password.
 
@@ -78,7 +78,7 @@ The `validate` function checks `UserPasswordCredential` and returns a `UserIdPri
 
 ### Step 2: Define authorization scope {id="authenticate-route"}
 
-After configuring the `basic` provider, you can define the authorization for the different resources in our application using the `authenticate` function. In a case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-user-id-principal/index.html) inside a route handler using the [call.principal](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/principal.html) function and get a name of an authenticated user.
+After configuring the `basic` provider, you can define the authorization for the different resources in our application using the `authenticate` function. In a case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html) inside a route handler using the `call.principal` function and get a name of an authenticated user.
 
 ```kotlin
 ```
@@ -105,7 +105,7 @@ To use `UserHashedTableAuth` for validating users, follow the steps below:
    ```
    {src="snippets/auth-basic-hash-table/src/main/kotlin/com/example/Application.kt" lines="10-16"}
    
-1. Inside the `validate` function, call the [UserHashedTableAuth.authenticate](https://api.ktor.io/ktor-features/ktor-auth/ktor-auth/io.ktor.auth/-user-hashed-table-auth/authenticate.html) function to authenticate a user and return an instance of `UserIdPrincipal` if the credentials are valid:
+1. Inside the `validate` function, call the [UserHashedTableAuth.authenticate](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-user-hashed-table-auth/authenticate.html) function to authenticate a user and return an instance of `UserIdPrincipal` if the credentials are valid:
 
    ```kotlin
    ```

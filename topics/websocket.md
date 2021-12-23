@@ -38,7 +38,7 @@ Ktor allows you to:
 
 ## Configure WebSockets settings {id="configure"}
 
-Optionally, you can configure the plugin by passing [WebSocketOptions](https://api.ktor.io/ktor-features/ktor-websockets/ktor-websockets/io.ktor.websocket/-web-sockets/-web-socket-options/index.html) to the `install` function:
+Optionally, you can configure the plugin by passing [WebSocketOptions](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-websockets/io.ktor.server.websocket/-web-sockets/-web-socket-options/index.html) to the `install` function:
 
 ```kotlin
 ```
@@ -48,7 +48,7 @@ Optionally, you can configure the plugin by passing [WebSocketOptions](https://a
 
 ### API overview {id="api-overview"}
 
-After you installed and configured the `WebSockets` plugin, you are ready to handle a WebSocket session. First, you need to define a WebSocket endpoint on a server by calling the [webSocket](https://api.ktor.io/ktor-features/ktor-websockets/ktor-websockets/io.ktor.websocket/web-socket.html) function inside the [routing](Routing_in_Ktor.md#define_route) block:
+After you installed and configured the `WebSockets` plugin, you are ready to handle a WebSocket session. First, you need to define a WebSocket endpoint on a server by calling the `webSocket` function inside the [routing](Routing_in_Ktor.md#define_route) block:
 ```kotlin
 routing { 
     webSocket("/echo") {
@@ -58,17 +58,17 @@ routing {
 ```
 For such an endpoint, a server accepts WebSocket requests to `ws://localhost:8080/echo` when a [default configuration](Configurations.xml) is used.
 
-Inside the `webSocket` block, you need to handle a WebSocket session, which is represented by the [DefaultWebSocketServerSession](https://api.ktor.io/ktor-features/ktor-websockets/ktor-websockets/io.ktor.websocket/-default-web-socket-server-session/index.html) class. Session configuration might look as follows:
+Inside the `webSocket` block, you need to handle a WebSocket session, which is represented by the [DefaultWebSocketServerSession](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-websockets/io.ktor.server.websocket/-default-web-socket-server-session/index.html) class. Session configuration might look as follows:
 
 1. Use the `send` function to send text content to the client. 
-2. Use the `incoming` and `outgoing` properties to access the channels for receiving and sending WebSocket frames. A frame is represented by the [Frame](https://api.ktor.io/ktor-http/ktor-http-cio/ktor-http-cio/io.ktor.http.cio.websocket/-frame/index.html) class.
+2. Use the `incoming` and `outgoing` properties to access the channels for receiving and sending WebSocket frames. A frame is represented by the `Frame` class.
 3. When handing a session, you can check a frame type, for example:
    * `Frame.Text` is a text frame. For this frame type, you can read its content using `Frame.Text.readText()`.
    * `Frame.Binary` is a binary frame. For this type, you can read its content using `Frame.Binary.readBytes()`.
    * `Frame.Close` is a closing frame. You can call `Frame.Close.readReason()` to get a close reason for the current session.
 4. Use the `close` function to send a close frame with the specified reason.
 
-> If you need to get information about the client (for example, the client IP address), use the [call](https://api.ktor.io/ktor-features/ktor-websockets/ktor-websockets/io.ktor.websocket/-web-socket-server-session/call.html) property. You can learn more from [](requests.md#request_information).
+> If you need to get information about the client (for example, the client IP address), use the `call` property. You can learn more from [](requests.md#request_information).
 
 Below we'll take a look at the examples of using this API.
 
@@ -110,7 +110,7 @@ The [standard events from the WebSocket API](https://developer.mozilla.org/en-US
 * `onClose` happens when the `incoming` channel is closed. That would complete the suspended iteration, or throw a `ClosedReceiveChannelException` when trying to receive a message`.
 * `onError` is equivalent to other exceptions.
 
-In both `onClose` and `onError`, the [closeReason](https://api.ktor.io/ktor-http/ktor-http-cio/ktor-http-cio/io.ktor.http.cio.websocket/-default-web-socket-session/close-reason.html) property is set.
+In both `onClose` and `onError`, the `closeReason` property is set.
 
 ```kotlin
 webSocket("/echo") {

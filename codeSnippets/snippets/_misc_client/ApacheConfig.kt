@@ -4,7 +4,7 @@ import org.apache.http.HttpHost
 
 val client = HttpClient(Apache) {
     engine {
-        // this: [[[ApacheEngineConfig|https://api.ktor.io/ktor-client/ktor-client-apache/ktor-client-apache/io.ktor.client.engine.apache/-apache-engine-config/index.html]]]
+        // this: [[[ApacheEngineConfig|https://api.ktor.io/ktor-client/ktor-client-apache/io.ktor.client.engine.apache/-apache-engine-config/index.html]]]
         followRedirects = true
         socketTimeout = 10_000
         connectTimeout = 10_000

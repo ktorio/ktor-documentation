@@ -31,13 +31,13 @@ Ktor lets you use additional client functionality (plugins) that is not availabl
 
 ## Create the client {id="create-client"}
 
-To instantiate the client, create the [HttpClient](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client/-http-client/index.html) class instance and pass an engine as a parameter:
+To instantiate the client, create the [HttpClient](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client/-http-client/index.html) class instance and pass an engine as a parameter:
 
 ```kotlin
 ```
 {src="snippets/_misc_client/CioCreate.kt"}
 
-In this example, we use the [CIO](https://api.ktor.io/ktor-client/ktor-client-cio/ktor-client-cio/io.ktor.client.engine.cio/-c-i-o/index.html) engine. 
+In this example, we use the [CIO](https://api.ktor.io/ktor-client/ktor-client-cio/io.ktor.client.engine.cio/-c-i-o/index.html) engine. 
 
 You can also omit an engine:
 
@@ -51,7 +51,7 @@ In this case, the client will choose an engine automatically depending on the ar
 
 ### Basic configuration {id="basic-config"}
 
-To configure the client, you can pass an additional functional parameter to the client constructor. The [HttpClientEngineConfig](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.engine/-http-client-engine-config/index.html) class is a base class for configuring the client. For instance, we can change the behaviour of exceptions as follows:
+To configure the client, you can pass an additional functional parameter to the client constructor. The [HttpClientEngineConfig](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.engine/-http-client-engine-config/index.html) class is a base class for configuring the client. For instance, we can change the behaviour of exceptions as follows:
 
 ```kotlin
 ```
@@ -80,7 +80,7 @@ You can also configure a plugin inside the `install` block. For example, for the
 
 ## Make a request {id="make-request"}
 
-The main way for making HTTP requests is the [request](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.request/request.html) function that takes a URL as a parameter. Inside this function, you can configure various request parameters: specify an HTTP method, add headers, specify the request body, and so on. These parameters are exposed by the [HttpRequestBuilder](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.request/-http-request-builder/index.html) class.
+The main way for making HTTP requests is the [request](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/request.html) function that takes a URL as a parameter. Inside this function, you can configure various request parameters: specify an HTTP method, add headers, specify the request body, and so on. These parameters are exposed by the [HttpRequestBuilder](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/-http-request-builder/index.html) class.
 
 ```kotlin
 ```
@@ -106,7 +106,7 @@ To learn how to add headers, cookies, and specify a request body, see the [](req
 
 
 ### Receive a response {id="response"}
-All functions used to [make an HTTP request](request.md) (`request`, `get`, `post`, etc.) allow you to receive a response as an [HttpResponse](https://api.ktor.io/ktor-client/ktor-client-core/ktor-client-core/io.ktor.client.statement/-http-response/index.html) object.
+All functions used to [make an HTTP request](request.md) (`request`, `get`, `post`, etc.) allow you to receive a response as an [HttpResponse](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/index.html) object.
 ```kotlin
 ```
 {src="snippets/_misc_client/GetMethodWithoutParams.kt"}

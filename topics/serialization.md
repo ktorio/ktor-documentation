@@ -16,7 +16,7 @@ The ContentNegotiation plugin serves two primary purposes: negotiating media typ
 </excerpt>
 
 
-The [ContentNegotiation](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-content-negotiation/index.html) plugin serves two primary purposes:
+The [ContentNegotiation](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-content-negotiation/io.ktor.server.plugins/-content-negotiation/index.html) plugin serves two primary purposes:
 * Negotiating media types between the client and server. For this, it uses the `Accept` and `Content-Type` headers.
 * Serializing/deserializing the content in a specific format. Ktor supports the following formats out-of-the-box: JSON, XML, and CBOR.
 
@@ -109,7 +109,7 @@ The `json` method also allows you to adjust serialization settings provided by [
 </tab>
 <tab title="Gson" group-key="gson">
 
-To register the Gson serializer in your application, call the [gson](https://api.ktor.io/ktor-features/ktor-gson/ktor-gson/io.ktor.gson/gson.html) method:
+To register the Gson serializer in your application, call the `gson` method:
 ```kotlin
 import io.ktor.server.plugins.*
 import io.ktor.serialization.gson.*
@@ -128,7 +128,7 @@ The `gson` method also allows you to adjust serialization settings provided by [
 </tab>
 <tab title="Jackson" group-key="jackson">
 
-To register the Jackson serializer in your application, call the [jackson](https://api.ktor.io/ktor-features/ktor-jackson/ktor-jackson/io.ktor.jackson/jackson.html) method:
+To register the Jackson serializer in your application, call the `jackson` method:
 
 ```kotlin
 import io.ktor.server.plugins.*
@@ -206,7 +206,7 @@ install(ContentNegotiation) {
 
 ### Custom serializer {id="register_custom"}
 
-To register a custom serializer for a specified `Content-Type`, you need to call the [register](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-content-negotiation/-configuration/register.html) method. In the example below, two [custom serializer](#implement_custom_serializer) are registered to deserialize `application/json` and `application/xml` data:
+To register a custom serializer for a specified `Content-Type`, you need to call the [register](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-content-negotiation/io.ktor.server.plugins/-content-negotiation/-configuration/register.html) method. In the example below, two [custom serializer](#implement_custom_serializer) are registered to deserialize `application/json` and `application/xml` data:
 
 ```kotlin
 install(ContentNegotiation) {
@@ -230,7 +230,7 @@ If you use kotlinx.serialization, make sure that this class has the `@Serializab
 {src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="10,12-14"}
 
 ### Receive data {id="receive_data"}
-To receive and convert a content for a request, call the [receive](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.request/receive.html) method that accepts a data class as a parameter:
+To receive and convert a content for a request, call the `receive` method that accepts a data class as a parameter:
 ```kotlin
 ```
 {src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="38-42"}
@@ -259,7 +259,7 @@ The `Content-Type` of the request will be used to choose a [serializer](#configu
 You can find the full example here: [json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/json-kotlinx).
 
 ### Send data {id="send_data"}
-To pass a data object in a response, you can use the [respond](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.response/respond.html) method:
+To pass a data object in a response, you can use the `respond` method:
 ```kotlin
 ```
 {src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="32-36"}
@@ -270,7 +270,7 @@ In this case, Ktor uses the `Accept` header to choose the required [serializer](
 
 ## Implement a custom serializer {id="implement_custom_serializer"}
 
-In Ktor, you can write your own [serializer](#configure_serializer) for serializing/deserializing data. To do this, you need to implement the [ContentConverter](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.features/-content-converter/index.html) interface:
+In Ktor, you can write your own [serializer](#configure_serializer) for serializing/deserializing data. To do this, you need to implement the [ContentConverter](https://api.ktor.io/ktor-shared/ktor-serialization/io.ktor.serialization/-content-converter/index.html) interface:
 ```kotlin
 interface ContentConverter {
     suspend fun serialize(contentType: ContentType, charset: Charset, typeInfo: TypeInfo, value: Any): OutgoingContent?

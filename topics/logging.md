@@ -34,13 +34,13 @@ Learn more about configuring Logback from [Logback configuration](http://logback
 
 
 ## Access the logger {id="access_logger"}
-The Logger instance is represented by a class that implements the [Logger](http://www.slf4j.org/api/org/slf4j/Logger.html) interface. You can access the Logger instance inside the `Application` using the [Application.log](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.application/log.html) property. For example, the code snippet below shows how to add a message to a log inside the [module](Modules.md).
+The Logger instance is represented by a class that implements the [Logger](http://www.slf4j.org/api/org/slf4j/Logger.html) interface. You can access the Logger instance inside the `Application` using the [Application.log](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/log.html) property. For example, the code snippet below shows how to add a message to a log inside the [module](Modules.md).
 
 ```kotlin
 ```
 {src="snippets/logging/src/main/kotlin/com/example/Application.kt" lines="12-13,35"}
 
-You can also access the Logger from [ApplicationCall](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.application/-application-call/index.html) using the `call.application.environment.log` property.
+You can also access the Logger from [ApplicationCall](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-call/index.html) using the `call.application.environment.log` property.
 
 ```kotlin
 ```
