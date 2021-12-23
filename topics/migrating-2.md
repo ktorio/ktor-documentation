@@ -64,8 +64,8 @@ This means that you need to update [dependencies](#server-package-dependencies) 
 | [Thymeleaf](thymeleaf.md) | `import io.ktor.thymeleaf.*` | `import io.ktor.server.thymeleaf.*` |
 | [Pebble](pebble.md) | `import io.ktor.pebble.*` | `import io.ktor.server.pebble.*` |
 | [kotlinx.serialization](serialization.md) | `import io.ktor.serialization.*` | `import io.ktor.serialization.kotlinx.json.*` |
-| [Gson](serialization.md) | `import io.ktor.gson.*` | `import io.ktor.serializaion.gson.*` |
-| [Jackson](serialization.md) | `import io.ktor.jackson.*` | `import io.ktor.serializaion.jackson.*` |
+| [Gson](serialization.md) | `import io.ktor.gson.*` | `import io.ktor.serialization.gson.*` |
+| [Jackson](serialization.md) | `import io.ktor.jackson.*` | `import io.ktor.serialization.jackson.*` |
 | [Authentication](authentication.md) | `import io.ktor.auth.*` | `import io.ktor.server.auth.*` |
 | [JWT authentication](jwt.md) | `import io.ktor.auth.jwt.*` | `import io.ktor.server.auth.jwt.*` |
 | [LDAP authentication](ldap.md) | `import io.ktor.auth.ldap.*` | `import io.ktor.server.auth.ldap.*` |
@@ -130,8 +130,8 @@ You need to update [dependencies](#dependencies-serialization) for and [imports]
 | Subsystem | 1.6.x | 2.0.0 |
 | :---        |    :----:   |          ---: |
 | [kotlinx.serialization](serialization.md) | `import io.ktor.serialization.*` | `import io.ktor.serialization.kotlinx.json.*` |
-| [Gson](serialization.md) | `import io.ktor.gson.*` | `import io.ktor.serializaion.gson.*` |
-| [Jackson](serialization.md) | `import io.ktor.jackson.*` | `import io.ktor.serializaion.jackson.*` |
+| [Gson](serialization.md) | `import io.ktor.gson.*` | `import io.ktor.serialization.gson.*` |
+| [Jackson](serialization.md) | `import io.ktor.jackson.*` | `import io.ktor.serialization.jackson.*` |
 
 #### Custom converters {id="serialization-custom-converter"}
 
@@ -470,8 +470,8 @@ You need to update [dependencies](#imports-dependencies-client) for and [imports
 | :---        |    :----:   |          ---: |
 | `ContentNegotiation` | n/a | `import io.ktor.client.plugins.*` |
 | kotlinx.serialization | `import io.ktor.client.features.json.*` | `import io.ktor.serialization.kotlinx.json.*` |
-| Gson | `import io.ktor.client.features.json.*` | `import io.ktor.serializaion.gson.*` |
-| Jackson | `import io.ktor.client.features.json.*` | `import io.ktor.serializaion.jackson.*` |
+| Gson | `import io.ktor.client.features.json.*` | `import io.ktor.serialization.gson.*` |
+| Jackson | `import io.ktor.client.features.json.*` | `import io.ktor.serialization.jackson.*` |
 
 ### Bearer authentication
 
@@ -529,13 +529,38 @@ client[HttpSend].intercept { originalCall, request ->
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
-client[HttpSend].intercept { request ->
+client.plugin(HttpSend).intercept { request ->
     val originalCall = execute(request)
     if (originalCall.something()) {
         val newCall = execute(request)
         // ...
     }
 }
+```
+
+</tab>
+</tabs>
+
+Note that with v2.0.0 indexed access is not available for accessing plugins. Use the [HttpClient.plugin](#client-get) function instead.
+
+### The HttpClient.get(plugin: HttpClientPlugin) function is removed {id="client-get"}
+
+With the 2.0.0 version, the `HttpClient.get` function accepting a client plugin is removed. Use the `HttpClient.plugin` function instead.
+
+<tabs group="ktor_versions">
+<tab title="1.6.x" group-key="1_6">
+
+```kotlin
+client.get(HttpSend).intercept { ... }
+// or
+client[HttpSend].intercept { ... }
+```
+
+</tab>
+<tab title="2.0.0" group-key="2_0">
+
+```kotlin
+client.plugin(HttpSend).intercept { ... }
 ```
 
 </tab>

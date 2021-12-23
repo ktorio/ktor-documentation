@@ -8,7 +8,7 @@ import io.ktor.server.application.*
 import io.ktor.server.plugins.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import io.ktor.serializaion.jackson.*
+import io.ktor.serialization.jackson.*
 import java.time.*
 
 data class Model(val name: String, val items: List<Item>, val date: LocalDate = LocalDate.of(2018, 4, 13))

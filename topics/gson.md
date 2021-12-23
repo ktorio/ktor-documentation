@@ -25,7 +25,7 @@ Before registering the Gson converter, you need to include the following artifac
 To register the Gson converter in your application, call the [gson](https://api.ktor.io/ktor-features/ktor-gson/ktor-gson/io.ktor.gson/gson.html) function:
 ```kotlin
 import io.ktor.server.plugins.*
-import io.ktor.serializaion.gson.*
+import io.ktor.serialization.gson.*
 
 install(ContentNegotiation) {
     gson()

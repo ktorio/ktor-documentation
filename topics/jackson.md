@@ -24,7 +24,7 @@ Before registering the Jackson converter, you need to include the following arti
 To register the Jackson converter in your application, call the [jackson](https://api.ktor.io/ktor-features/ktor-jackson/ktor-jackson/io.ktor.jackson/jackson.html) method:
 ```kotlin
 import io.ktor.server.plugins.*
-import io.ktor.serializaion.jackson.*
+import io.ktor.serialization.jackson.*
 
 install(ContentNegotiation) {
     jackson()

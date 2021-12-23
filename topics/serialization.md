@@ -112,7 +112,7 @@ The `json` method also allows you to adjust serialization settings provided by [
 To register the Gson serializer in your application, call the [gson](https://api.ktor.io/ktor-features/ktor-gson/ktor-gson/io.ktor.gson/gson.html) method:
 ```kotlin
 import io.ktor.server.plugins.*
-import io.ktor.serializaion.gson.*
+import io.ktor.serialization.gson.*
 
 install(ContentNegotiation) {
     gson()
@@ -132,7 +132,7 @@ To register the Jackson serializer in your application, call the [jackson](https
 
 ```kotlin
 import io.ktor.server.plugins.*
-import io.ktor.serializaion.jackson.*
+import io.ktor.serialization.jackson.*
 
 install(ContentNegotiation) {
     jackson()

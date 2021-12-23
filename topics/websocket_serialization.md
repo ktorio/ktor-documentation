@@ -40,7 +40,7 @@ install(WebSockets) {
 To register the Gson serializer, assign `GsonWebsocketContentConverter` to the `contentConverter` property:
 ```kotlin
 import io.ktor.server.plugins.*
-import io.ktor.serializaion.gson.*
+import io.ktor.serialization.gson.*
 
 install(WebSockets) {
     contentConverter = GsonWebsocketContentConverter()
@@ -55,7 +55,7 @@ To register the Jackson serializer, assign `JacksonWebsocketContentConverter` to
 
 ```kotlin
 import io.ktor.server.plugins.*
-import io.ktor.serializaion.jackson.*
+import io.ktor.serialization.jackson.*
 
 install(WebSockets) {
     contentConverter = JacksonWebsocketContentConverter()

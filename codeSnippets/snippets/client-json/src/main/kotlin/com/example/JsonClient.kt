@@ -5,7 +5,7 @@ import io.ktor.client.call.*
 import io.ktor.client.engine.apache.*
 import io.ktor.client.plugins.*
 import io.ktor.client.request.*
-import io.ktor.serializaion.gson.*
+import io.ktor.serialization.gson.*
 import kotlinx.coroutines.*
 
 data class Model(val name: String, val items: List<Item>)
