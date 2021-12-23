@@ -19,7 +19,6 @@ class ApplicationTest {
     <meta charset="UTF-8">
     <title>Kotlin Journal</title>
 </head>
-<body>
 <body style="text-align: center; font-family: sans-serif">
 <img src="/static/ktor_logo.png" alt="ktor logo">
 <h1>About me</h1>
