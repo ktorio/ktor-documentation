@@ -24,7 +24,7 @@ cookie<TestUserSession>(cookieName) {
 When using this mode, you can send the actual content of the session to the client as a cookie or a header, and as either
 raw or transformed.
 
-This mode is considered to be "serverless", since you don't need to store anything on the server side and it is only
+This mode is considered to be "serverless", since you don't need to store anything on the server side, and it is only
 the responsibility of the client to store and keep that session. This simplifies the backend, but has security
 implications that you need to know, to work in this mode.
 

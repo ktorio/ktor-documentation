@@ -225,7 +225,7 @@ If the request content is not found, Ktor will automatically respond with a `404
 
 ## Customising Content Type header
 
-Ktor automatically looks up the content type of a file based on its extension and sets the appropriate `Content-Type` header. The list of supported MIME types 
+Ktor automatically looks up the content type of file based on its extension and sets the appropriate `Content-Type` header. The list of supported MIME types 
 is defined in the `mimelist.csv` resource file located in `ktor-server-core` artifact. 
  
 

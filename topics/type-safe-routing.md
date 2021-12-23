@@ -71,7 +71,7 @@ Note that properties can be primitives or types annotated with the `@Serializabl
 
 ### Resources with nested classes {id="resource_nested"}
 
-You can nest classes to create resources that contains several path segments. Note that in this case nested classes should have a property with an outer class type. 
+You can nest classes to create resources that contain several path segments. Note that in this case nested classes should have a property with an outer class type. 
 The example below shows a resource responding on the `/articles/new` path.
 
 

@@ -141,7 +141,7 @@
                       src="snippets/_misc/maven-ktor.pom.xml"
                       interpolate-variables="true"/>
                 <p>
-                    Note that other engines and <a href="Plugins.md">plugins</a> that extend Ktor functionality might required additional dependencies.
+                    Note that other engines and <a href="Plugins.md">plugins</a> that extend Ktor functionality might require additional dependencies.
                     You can learn more from corresponding topics.
                 </p>
             </step>

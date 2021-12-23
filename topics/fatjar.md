@@ -11,7 +11,7 @@
 
 <excerpt>Learn how to create an executable Fat JAR using the Gradle Shadow plugin.</excerpt>
 
-The Gradle [Shadow](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow) plugin allows you to create an executable JAR that includes all code dependencies (fat JAR). In this topic, we'll show you how to generate and run a fat JAR for a [engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main) sample project.
+The Gradle [Shadow](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow) plugin allows you to create an executable JAR that includes all code dependencies (fat JAR). In this topic, we'll show you how to generate and run a fat JAR for the [engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main) sample project.
 
 ## Configure the Shadow plugin {id="configure-plugin"}
 To build a Fat JAR, you need to configure the Shadow plugin first:

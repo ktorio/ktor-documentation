@@ -143,7 +143,7 @@ distributed by routes, models and views, have these groups by specific behaviour
 With many frameworks, this kind of organization of code isn’t viable without seriously hacking the underlying conventions. However, with Ktor, given how flexible it is, 
 in principle it shouldn’t be a problem. With one caveat - when we’re using a [template engine](Working_with_views.md), resources could be an issue. But let’s see how we could solve this.
 
-How this problem is solved very much depends on what is used for Views. If our application is merely an HTTP backend and we’re using client-side technology, then usually all rendering is 
+How this problem is solved very much depends on what is used for Views. If our application is merely an HTTP backend, and we're using client-side technology, then usually all rendering is 
 client-side. If we’re using Kotlinx.HTML, then once again it’s not an issue as the page can be generated from any Kotlin file placed anywhere. 
 
 The issue arises more when we’re using a templating engine such as FreeMarker. These are peculiar in how and where template files should be located. 
