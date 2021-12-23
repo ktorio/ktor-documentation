@@ -10,7 +10,7 @@ import kotlinx.coroutines.*
 fun main() {
     runBlocking {
         val client = HttpClient(Apache)
-        client[HttpSend].intercept { request ->
+        client.plugin(HttpSend).intercept { request ->
             val originalCall = execute(request)
             if (originalCall.response.status.value !in 100..399) {
                 execute(request)
@@ -18,7 +18,6 @@ fun main() {
                 originalCall
             }
         }
-
         val response: HttpResponse = client.get("https://ktor.io")
         println(response.status)
     }
