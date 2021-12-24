@@ -1,7 +1,5 @@
 [//]: # (title: HSTS)
 
-<include src="lib.xml" include-id="outdated_warning"/>
-
 <var name="plugin_name" value="HSTS"/>
 <var name="artifact_name" value="ktor-server-hsts"/>
 
@@ -9,17 +7,14 @@
 <p>
 Required dependencies: <code>io.ktor:%artifact_name%</code>
 </p>
+<var name="example_name" value="ssl-engine-main"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-The `%plugin_name%` plugin adds the required _HTTP Strict Transport Security_ headers to the request according to the [RFC 6797](https://tools.ietf.org/html/rfc6797).
+The `%plugin_name%` plugin adds the required _HTTP Strict Transport Security_ headers to the request according to the [RFC 6797](https://tools.ietf.org/html/rfc6797). When the browser receives HSTS policy headers, it no longer attempts to connect to the server with insecure connections for a given period.
 
->HSTS policy headers are ignored over an insecure HTTP connection. For HSTS to take effect, it should be
->served over a secure (https) connection.
->
-{type="note"} 
+> Note that HSTS policy headers are ignored over an insecure HTTP connection. For HSTS to take effect, it should be served over a [secure](ssl.md) connection.
 
-When the browser receives HSTS policy headers, it will no longer attempt to connect to the server with insecure connections 
-for the given period of time. 
 
 ## Add dependencies {id="add_dependencies"}
 
@@ -32,9 +27,12 @@ for the given period of time.
 
 The code above installs `%plugin_name%` with the default configuration.  
 
-## Configuration
+## Configure %plugin_name% {id="configure"}
 
-* `maxAge` (default is 1 year): duration to tell the client to keep the host in a list of known HSTS hosts
-* `includeSubDomains` (default is true): adds includeSubDomains directive, which applies this policy to this domain and any subdomains
-* `preload` (default is false): consents that the policy allows including the domain into web browser [preloading list](https://https.cio.gov/hsts/#hsts-preloading) 
-* `customDirectives` (default is empty): any custom directives supported by specific user-agent
+`%plugin_name%` exposes its settings via [HSTS.Configuration](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-hsts/io.ktor.server.plugins/-h-s-t-s/-configuration/index.html). The example below shows how to use the `maxAgeInSeconds` property to specify how long the client should keep the host in a list of known HSTS hosts:
+
+```kotlin
+```
+{src="snippets/ssl-engine-main/src/main/kotlin/com/example/Application.kt" lines="16-18"}
+
+You can find the full example here: [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/ssl-engine-main).
