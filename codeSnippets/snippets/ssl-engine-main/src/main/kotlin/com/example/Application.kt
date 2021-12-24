@@ -13,6 +13,9 @@ fun Application.module() {
         permanentRedirect = true
     }
     install(XForwardedHeaderSupport)
+    install(HSTS) {
+        maxAgeInSeconds = 10
+    }
     routing {
         get("/") {
             call.respondText("Hello, world!")
