@@ -7,16 +7,24 @@
 <p>
 Required dependencies: <code>io.ktor:%artifact_name%</code>
 </p>
+<var name="example_name" value="webjars"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-<include src="lib.xml" include-id="outdated_warning"/>
 
-The `%plugin_name%` plugin enables serving static content provided by [webjars](https://www.webjars.org/). It allows you to package your assets such as javascript libraries and css as part of your uber-jar.
+The `%plugin_name%` plugin enables serving the client-side libraries provided by [WebJars](https://www.webjars.org/). It allows you to package your assets such as JavaScript and CSS libraries as part of your [fat JAR](fatjar.md).
 
 ## Add dependencies {id="add_dependencies"}
+To enable `%plugin_name%`, you need to include the following artifacts in the build script:
+* Add the `%artifact_name%` dependency:
+  <include src="lib.xml" include-id="add_ktor_artifact"/>
 
-<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
-<include src="lib.xml" include-id="add_ktor_artifact"/>
+* Add a dependency for a required client-side library. The example below shows how to add a Bootstrap artifact:
+  <var name="group_id" value="org.webjars"/>
+  <var name="artifact_name" value="bootstrap"/>
+  <var name="version" value="bootstrap_version"/>
+  <include src="lib.xml" include-id="add_artifact"/>
+  You can replace `bootstrap_version` with the required version of the `bootstrap` artifact, for example, `%bootstrap_version%`.
 
 ## Install %plugin_name% {id="install_plugin"}
 
@@ -25,28 +33,18 @@ The `%plugin_name%` plugin enables serving static content provided by [webjars](
 
 ## Configure %plugin_name% {id="configure"}
 
+By default, `%plugin_name%` serves WebJars assets on the `/webjars` path. The example below shows how to change this and serve any WebJars assets on the `/assets/` path:
+
 ```kotlin
-    install(Webjars) {
-        path = "assets" //defaults to /webjars
-        zone = ZoneId.of("EST") //defaults to ZoneId.systemDefault()
-    }
 ```
+{src="snippets/webjars/src/main/kotlin/com/example/Application.kt" lines="11-13"}
 
-This configures the plugin to serve any webjars assets on the `/assets/` path. The `zone` argument configures the correct time zone to
-be used with the `Last-Modified` header to support caching (only if [Conditional Headers](conditional_headers.md) plugin is also installed).
-
-
-
-## Versioning support
-
-Webjars allow developers to change the versions of the dependencies without requiring a change on the path used to load them on your templates.
-
-Let's assume you have imported `org.webjars:jquery:3.2.1`, you can use the following html code to import it:
+For instance, if you've installed the `org.webjars:bootstrap` dependency, you can add `bootstrap.css` as follows:
 
 ```html
-<head>
-  <script src="/webjars/jquery/jquery.js"></script>
-</head>  
 ```
+{src="snippets/webjars/src/main/resources/files/index.html" lines="3,8-9"}
 
-You don't need to specify a version, should you choose to update your dependencies you don't need to modify your templates.
+Note that `%plugin_name%` allows you to change the versions of the dependencies without changing the path used to load them.
+
+> You can find the full example here: [webjars](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/webjars).
