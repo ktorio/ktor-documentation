@@ -33,7 +33,7 @@ To enable `%plugin_name%`, you need to include the following artifacts in the bu
 
 ## Configure %plugin_name% {id="configure"}
 
-By default, `%plugin_name%` serves WebJars assets on the `/webjars` path. The example below shows how to change this and serve any WebJars assets on the `/assets/` path:
+By default, `%plugin_name%` serves WebJars assets on the `/webjars` path. The example below shows how to change this and serve any WebJars assets on the `/assets` path:
 
 ```kotlin
 ```
