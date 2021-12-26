@@ -65,7 +65,7 @@ Also included in the same folder is a `logback.xml` file, which sets up the basi
 
 ### Entry point
 
-Our `application.conf` configures the entry point of our application to be `com.jetbrains.handson.website.ApplicationKt.module`. This corresponds to the `Application.module()` function in `Application.kt`, which currently doesn't do anything:
+Our `application.conf` configures the entry point of our application to be `com.jetbrains.handson.httpapi.ApplicationKt.module`. This corresponds to the `Application.module()` function in `Application.kt`, which currently doesn't do anything:
 
 ```kotlin
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
@@ -140,7 +140,7 @@ Notice also how we actually have two entries for `get`: one without a route para
 
 #### Listing all customers
 
-To list all customers, we can simply return the `customerStorage` list by using the `call.respond` function in Ktor. which can take a Kotlin object and return it serialized in a specified format. For the `get` handler, it looks like this:
+To list all customers, we can simply return the `customerStorage` list by using the `call.respond` function in Ktor, which can take a Kotlin object and return it serialized in a specified format. For the `get` handler, it looks like this:
 
 ```kotlin
 import io.ktor.application.*
