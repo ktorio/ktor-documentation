@@ -43,12 +43,15 @@
                 <toc-element id="Modules.md" show-structure-depth="2"/>
                 <toc-element id="Plugins.md" show-structure-depth="2"
                              accepts-web-file-names="zfeatures.html,features.html"/>
-                <toc-element id="advanced_http2.md"
-                             show-structure-depth="2"/>
-                <toc-element id="openapi_swagger.md"/>
                 <toc-element id="development_mode.xml"
                              show-structure-depth="2"/>
+                <toc-element id="ssl.md"
+                             show-structure-depth="2"
+                             accepts-web-file-names="certificates.html,self-signed-certificate.html"/>
+                <toc-element id="advanced_http2.md"
+                             show-structure-depth="2"/>
                 <toc-element id="native_server.md"/>
+                <toc-element id="openapi_swagger.md"/>
             </toc-element>
 
             <toc-element toc-title="Routing">
@@ -193,9 +196,6 @@
                 <toc-element id="heroku.md" show-structure-depth="2"/>
                 <toc-element id="elastic-beanstalk.md" show-structure-depth="2"/>
             </toc-element>
-            <toc-element id="ssl.md"
-                         show-structure-depth="2"
-                         accepts-web-file-names="certificates.html,self-signed-certificate.html"/>
         </toc-element>
 
         <toc-element toc-title="Extending Ktor">
