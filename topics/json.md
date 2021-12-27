@@ -14,7 +14,7 @@
 Before installing `JsonFeature`, you need to add a dependency for the desired serializer. If your project targets only JVM, you can add [Gson or Jackson](#jvm_dependency) dependency. For [multiplatform](http-client_multiplatform.md) projects, use the [kotlinx.serialization](#kotlinx_dependency) library. Depending on the included artifacts, Ktor chooses a default serializer automatically. If required, you can [specify the serializer](#configure_serializer) explicitly and configure it.
 
 
-### kotlinx.serialization (Multiplatform)
+### kotlinx.serialization (Multiplatform) {id="kotlinx_dependency"}
 
 For multiplatform projects, you can use the `kotlinx.serialization` library. You can add it to the project as follows:
 1. Add the Kotlin serialization plugin, as described in the [Setup](https://github.com/Kotlin/kotlinx.serialization#setup) section.
