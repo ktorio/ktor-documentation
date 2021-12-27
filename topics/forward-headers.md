@@ -9,6 +9,8 @@
 <p>
 Required dependencies: <code>io.ktor:%artifact_name%</code>
 </p>
+<var name="example_name" value="forwarded-header"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
 The `%plugin_name%` plugin allows you to handle reverse proxy headers to get information about the original request when it's behind a proxy.

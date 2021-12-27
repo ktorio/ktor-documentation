@@ -1,0 +1,13 @@
+services:
+  reverse-proxy:
+    image: nginx
+    depends_on:
+      - web
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+  web:
+    build: .
+    ports:
+      - "8080:8080"
