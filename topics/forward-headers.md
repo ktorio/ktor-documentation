@@ -1,9 +1,7 @@
-[//]: # (title: ForwardedHeaderSupport)
+[//]: # (title: Forwarded headers)
 
-<include src="lib.xml" include-id="outdated_warning"/>
 
 <var name="artifact_name" value="ktor-server-forwarded-header"/>
-<var name="plugin_name" value="ForwardedHeaderSupport"/>
 
 <microformat>
 <p>
@@ -13,90 +11,68 @@ Required dependencies: <code>io.ktor:%artifact_name%</code>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-The `%plugin_name%` plugin allows you to handle reverse proxy headers to get information about the original request when it's behind a proxy.
+The `ForwardedHeaderSupport` and `XForwardedHeaderSupport` plugins allow you to handle reverse proxy headers to get information about the original [request](requests.md) when a Ktor server is placed behind a reverse proxy. This might be useful for [logging](logging.md) purposes.
 
-* `%plugin_name%` handles the standard `Forwarded` header ([RFC 7239](https://tools.ietf.org/html/rfc7239))
-* `XForwardedHeaderSupport` handles the non-standard (but standard de-facto) `X-Forwarded-Host`/`X-Forwarded-Server`, `X-Forwarded-For`, `X-Forwarded-By`, `X-Forwarded-Proto`/`X-Forwarded-Protocol` and `X-Forwarded-SSL`/`Front-End-Https`
+* `ForwardedHeaderSupport` handles the `Forwarded` header ([RFC 7239](https://tools.ietf.org/html/rfc7239))
+* `XForwardedHeaderSupport` handles the following `X-Forwarded-` headers:
+   - `X-Forwarded-Host`/`X-Forwarded-Server` 
+   - `X-Forwarded-For` 
+   - `X-Forwarded-By`
+   - `X-Forwarded-Proto`/`X-Forwarded-Protocol`
+   - `X-Forwarded-SSL`/`Front-End-Https`
 
->Only install these plugins if you have a reverse proxy supporting these headers serving your requests.
->In other cases, a client will be able to manipulate these headers.
->
+> To prevent manipulating the `Forwarded` headers, install these plugins if your application only accepts the reverse proxy connections.
+> 
 {type="note"}
 
 
 ## Add dependencies {id="add_dependencies"}
-To use the plugins, you need to include the `%artifact_name%` artifact in the build script:
+To use the `ForwardedHeaderSupport`/`XForwardedHeaderSupport` plugins, you need to include the `%artifact_name%` artifact in the build script:
 
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 
-## Install {id="install_plugin"}
+## Install plugins {id="install_plugin"}
 
+<tabs>
+<tab title="ForwardedHeaderSupport">
+
+<var name="plugin_name" value="ForwardedHeaderSupport"/>
 <include src="lib.xml" include-id="install_plugin"/>
 
-`%plugin_name%` and `XForwardedHeaderSupport`  don't require any special configuration.
-You can install any of the two depending on your reverse proxy, but since the standard is the `Forwarded` header, you should favor it whenever possible.
+</tab>
+
+<tab title="XForwardedHeaderSupport">
+
+<var name="plugin_name" value="XForwardedHeaderSupport"/>
+<include src="lib.xml" include-id="install_plugin"/>
+
+</tab>
+</tabs>
 
 
-## Request information
+`ForwardedHeaderSupport` and `XForwardedHeaderSupport` don't require any special configuration.
 
-You can see all the [available request properties](requests.md) on the Requests page.
 
-### The proxy request information
+## Get request information {id="request_info"}
 
-You can read the raw or local request information, read from the received normal
-headers and socket properties, that correspond to the proxy request
-using the `request.local` property:
+### Proxy request information {id="proxy_request_info"}
 
-```kotlin
-val scheme = request.local.scheme
-val version = request.local.version
-val port = request.local.port
-val host = request.local.host
-val uri = request.local.uri
-val method = request.local.method
-val remoteHost = request.local.remoteHost
-```
-
-### The original request information
-
-You can read the original request information, read from the `Forwarded`
-or `X-Forwarded-*` headers with fallback to the raw headers,
-that corresponds to original client request using the `request.origin` property:
+To get information about the proxy request, use the `call.request.local` property inside the [route handler](Routing_in_Ktor.md#define_route).
+The code snippet below shows how to obtain information about the host and port:
 
 ```kotlin
-val scheme = request.origin.scheme // Determined from X-Forwarded-Proto / X-Forwarded-Protocol / X-Forwarded-SSL
-val version = request.origin.version
-val port = request.origin.port // Determined from X-Forwarded-Host / X-Forwarded-Server
-val host = request.origin.host // Determined from X-Forwarded-Host / X-Forwarded-Server
-val uri = request.origin.uri
-val method = request.origin.method
-val remoteHost = request.origin.remoteHost // Determined from X-Forwarded-For
 ```
+{src="snippets/forwarded-header/src/main/kotlin/com/example/Application.kt" lines="14-16,22"}
 
-In the cases where you need the X-Forwarded-By (the interface used for the socket), you can access the raw X-Forwarded properties with:
+
+
+### Original request information
+
+To read information about the original request, use the `call.request.origin` property:
 
 ```kotlin
-val forwardedValues: List<ForwardedHeaderSupport.ForwardedHeaderValue> = call.attributes[ForwardedHeaderSupport.ForwardedParsedKey]
 ```
+{src="snippets/forwarded-header/src/main/kotlin/com/example/Application.kt" lines="14,17-18,22"}
 
-```kotlin
-data class ForwardedHeaderValue(val host: String?, val by: String?, val forParam: String?, val proto: String?, val others: Map<String, String>)
-```
-
-## Header description
-
-The standard `Forwarded` header looks like this: 
-
-```
-Forwarded: by=<identifier>; for=<identifier>; host=<host>; proto=<http|https>
-```
-
-* `by` - The interface where the request came in to the proxy server.
-* `for` - The client that initiated the request and subsequent proxies in a chain of proxies.
-* `host` - The Host request header field as received by the proxy.
-* `proto` - Indicates which protocol was used to make the request (typically "http" or "https").
-
->You can read more about [Forwarded](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded) in the MDN documentation.
->
-{type="note"}
+You can find the full example here: [forwarded-header](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/forwarded-header).

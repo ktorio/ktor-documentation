@@ -127,7 +127,7 @@
                 <toc-element id="conditional_headers.md"/>
                 <toc-element id="cors.md" show-structure-depth="2"/>
 
-                <toc-element id="forward-headers.md"/>
+                <toc-element id="forward-headers.md" show-structure-depth="2"/>
                 <toc-element id="hsts.md"/>
                 <toc-element id="https-redirect.md"/>
                 <toc-element id="partial-content.md"/>
