@@ -7,8 +7,10 @@
 Required dependencies: <code>io.ktor:%artifact_name%</code>
 </p>
 <p>Code examples:
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie">session-cookie</a>,
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/sessions">sessions</a></p>
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie-client">session-cookie-client</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie-server">session-cookie-server</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-header-server">session-header-server</a>,
+</p>
 </microformat>
 
 <excerpt>
@@ -39,7 +41,7 @@ Before installing a session, you need to create a [data class](https://kotlinlan
 
 ```kotlin
 ```
-{src="snippets/session-cookie/src/main/kotlin/com/example/Application.kt" lines="8"}
+{src="snippets/session-cookie-client/src/main/kotlin/com/example/Application.kt" lines="8"}
 
 Note that you can optionally inherit this class from [Principal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-principal/index.html) to use a session for [authentication](session-auth.md).
 
@@ -79,25 +81,25 @@ To set the session content for a specific [route](Routing_in_Ktor.md), use the `
 
 ```kotlin
 ```
-{src="snippets/session-cookie/src/main/kotlin/com/example/Application.kt" lines="17-21,37"}
+{src="snippets/session-cookie-client/src/main/kotlin/com/example/Application.kt" lines="17-21,37"}
 
 To get the session content, you can call `get` receiving one of the registered session types as type parameter:
 
 ```kotlin
 ```
-{src="snippets/session-cookie/src/main/kotlin/com/example/Application.kt" lines="17,23-24,31,37"}
+{src="snippets/session-cookie-client/src/main/kotlin/com/example/Application.kt" lines="17,23-24,31,37"}
 
 To modify a session, for example, to increment a counter, you need to call the `copy` method of the data class:
 
 ```kotlin
 ```
-{src="snippets/session-cookie/src/main/kotlin/com/example/Application.kt" lines="26"}
+{src="snippets/session-cookie-client/src/main/kotlin/com/example/Application.kt" lines="26"}
 
 When you need to clear a session for any reason (for example, when a user logs out), call the `clear` function:
 
 ```kotlin
 ```
-{src="snippets/session-cookie/src/main/kotlin/com/example/Application.kt" lines="17,33-37"}
+{src="snippets/session-cookie-client/src/main/kotlin/com/example/Application.kt" lines="17,33-37"}
 
 
 

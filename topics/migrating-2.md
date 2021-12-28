@@ -246,14 +246,14 @@ In v1.6.x, `cookiesSession` is used to preserve cookies between requests when te
 
 ```kotlin
 ```
-{src="snippets/session-cookie/src/test/kotlin/ApplicationTest.kt" lines="29-46"}
+{src="snippets/session-cookie-client/src/test/kotlin/ApplicationTest.kt" lines="29-46"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/session-cookie/src/test/kotlin/ApplicationTest.kt" lines="12-27"}
+{src="snippets/session-cookie-client/src/test/kotlin/ApplicationTest.kt" lines="12-27"}
 
 </tab>
 </tabs>

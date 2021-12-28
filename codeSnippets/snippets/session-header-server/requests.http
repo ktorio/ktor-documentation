@@ -1,0 +1,16 @@
+### Step 1. Retrieve a session header value.
+GET http://localhost:8080/login
+
+> {% client.global.set("cart_session_header", response.headers.valuesOf("cart_session")[0]) %}
+
+### Step 2. Use the received header to get session data.
+GET http://localhost:8080/cart
+cart_session: {{cart_session_header}}
+
+### Step 3. Clear session data.
+GET http://localhost:8080/logout
+cart_session: {{cart_session_header}}
+
+### Step 4. Try to to get session data one more time.
+GET http://localhost:8080/cart
+cart_session: {{cart_session_header}}
