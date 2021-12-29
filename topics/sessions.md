@@ -38,7 +38,7 @@ To configure the `%plugin_name%` plugin, you need to perform the following steps
 2. *[Choose how to pass data between the server and client](#cookie_header)*: using cookies or a custom header. Cookies suit better for plain HTML applications, while custom headers are intended for APIs.
 3. *[Choose where to store the session payload](#client_server)*: on the client or server. You can pass the serialized session's data to the client using a cookie/header value or store the payload on the server and pass only a session identifier.
 
-   If you want to store the session payload on the server, you can *[choose how to store the payload on the server](#storages)*: in the server memory or in a folder. You can also implement a custom storage for keeping session data.
+   If you want to store the session payload on the server, you can *[choose how to store it](#storages)*: in the server memory or in a folder. You can also implement a custom storage for keeping session data.
 4. *[Protect session data](#protect_session)*: to protect sensitive session data passed to the client, you need to sign and encrypt the session's payload.
 
 
