@@ -133,7 +133,7 @@ Ktor allows you to store session data [on the server](#client_server) and pass o
 
 ### Custom storage {id="custom_storage"}
 
-Ktor provides the [SessionStorage](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.sessions/-session-storage/index.html) interface that allows you to implement a custom storage.
+Ktor provides the [SessionStorage](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-sessions/io.ktor.server.sessions/-session-storage/index.html) interface that allows you to implement a custom storage.
 ```kotlin
 interface SessionStorage {
     suspend fun write(id: String, provider: suspend (ByteWriteChannel) -> Unit)
