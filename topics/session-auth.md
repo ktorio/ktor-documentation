@@ -64,7 +64,7 @@ After creating a data class, you need to install and configure the `Sessions` pl
 ```
 {src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" lines="14-19"}
 
-You can learn more about configuring sessions from [](sessions.md#configure).
+You can learn more about configuring sessions from [](sessions.md#configuration_overview).
 
 
 ### Step 3: Configure session authentication {id="configure-session-auth"}
@@ -80,7 +80,7 @@ The `session` authentication provider exposes its settings via the [SessionAuthe
 
 ### Step 4: Save user data in a session {id="save-session"}
 
-To save information about a logged-in user to a session, use the [call.sessions.set](sessions.md#set-content) function.
+To save information about a logged-in user to a session, use the [call.sessions.set](sessions.md#use_sessions) function.
 
 ```kotlin
 ```
