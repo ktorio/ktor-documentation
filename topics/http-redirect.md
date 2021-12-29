@@ -1,23 +1,26 @@
 [//]: # (title: Redirect)
 
-<include src="lib.xml" include-id="outdated_warning"/>
+By default, the Ktor client redirects to URLs provided in the `Location` header. If required, you can disable redirections.
 
-By default, Ktor HTTP client does follow redirections. This plugin allows you to follow `Location` redirects in a way that works with any HTTP engine. Its usage is pretty straightforward, and the only configurable property is the `maxJumps` (20 by default) that limits how many redirects are tried before giving up (to prevent infinite redirects).
+## Add dependencies {id="add_dependencies"}
+`HttpRedirect` only requires the [ktor-client-core](client.md#client-dependency) artifact and doesn't need any specific dependencies.
 
+## Disable redirects {id="disable"}
 
-
-## Install
-
-This plugin is installed by default.
-
-## Prevent installing
+To disable redirections, set the `followRedirects` property to `false` in a [client configuration block](client.md#configure-client):
 
 ```kotlin
-val client = HttpClient(HttpClientEngine) {
+val client = HttpClient(CIO) {
     followRedirects = false
 }
 ```
 
->This plugin is included in the core of the HttpClient, so it is available always along the client.
->
-{type="note"}
+Note that by default Ktor [validates non-2xx responses](response-validation.md#default) and throws `RedirectResponseException` for the `3xx` redirect responses. 
+To disable default validation, set `expectSuccess` property to `false`:
+
+```kotlin
+val client = HttpClient(CIO) {
+    followRedirects = false
+    expectSuccess = false
+}
+```
