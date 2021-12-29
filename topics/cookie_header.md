@@ -4,7 +4,7 @@
 
 
 ## Configure Cookie/Header {id="configure"}
-[Sessions.Configuration](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.sessions/-sessions/-configuration/index.html) provides the `cookie` and `header` methods for selecting how to transfer session data. For both ways, you can choose whether to pass the entire session data between the [client and server](client_server.md) or only the session ID and store data on the server. If you pass data to the client, you need to apply [transforms](transformers.md) to encrypt or authenticate sessions.
+[Sessions.Configuration](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-sessions/io.ktor.server.sessions/-sessions/-configuration/index.html) provides the `cookie` and `header` methods for selecting how to transfer session data. For both ways, you can choose whether to pass the entire session data between the [client and server](client_server.md) or only the session ID and store data on the server. If you pass data to the client, you need to apply [transforms](transformers.md) to encrypt or authenticate sessions.
 
 
 ### Cookie {id="cookie"}
@@ -18,7 +18,7 @@ In the example above, session data will be passed to the client using the `user_
 
 ```kotlin
 ```
-{src="snippets/session-cookie/src/main/kotlin/com/example/Application.kt" lines="11-16"}
+{src="snippets/session-cookie-client/src/main/kotlin/com/example/Application.kt" lines="11-16"}
 
 If the required attribute is not exposed explicitly, use the `extensions` property. For example, you can pass the `SameSite`attribute in the following way:
 ```kotlin
@@ -28,7 +28,7 @@ install(Sessions) {
     }
 }
 ```
-To learn more about available configurations settings, see [CookieConfiguration](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.sessions/-cookie-configuration/index.html).
+To learn more about available configurations settings, see [CookieConfiguration](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-sessions/io.ktor.server.sessions/-cookie-configuration/index.html).
 
 > Before [deploying](deploy.md) your application to production, make sure the `secure` property is set to `true`. This enables transferring cookies via a [secure connection](ssl.md) only and protects session data from HTTPS downgrade attacks.
 >

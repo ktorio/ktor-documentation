@@ -83,7 +83,7 @@ fun Application.module() {
 
 In addition to intercepting requests and responses, Plugins can have an option configuration section which is configured during this step.
 
-For instance, when installing [Cookies](cookie_header.md) we can set certain parameters such as where we want Cookies to be stored, or their name:
+For instance, when installing [Cookies](sessions.md#cookie) we can set certain parameters such as where we want Cookies to be stored, or their name:
 
 ```kotlin
 install(Sessions) {
