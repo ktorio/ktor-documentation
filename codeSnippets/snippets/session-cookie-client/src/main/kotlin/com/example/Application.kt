@@ -10,8 +10,8 @@ data class UserSession(val id: String, val count: Int)
 
 fun Application.main() {
     install(Sessions) {
-        val secretSignKey = hex("6819b57a326945c1968f45236589")
         val secretEncryptKey = hex("00112233445566778899aabbccddeeff")
+        val secretSignKey = hex("6819b57a326945c1968f45236589")
         cookie<UserSession>("user_session") {
             cookie.path = "/"
             cookie.maxAgeInSeconds = 10

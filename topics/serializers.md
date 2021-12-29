@@ -5,7 +5,7 @@
 ## Default serializer
 {id="default-session-serializer"}
 
-The default session serializer is used when no serializer is specified explicitly and constructed with [`defaultSessionSerializer`](https://api.ktor.io/latest/io.ktor.sessions/default-session-serializer.html) function. It has no configuration and uses the [text format](#text-format). Unlike general purpose serializers, it is optimized for size to produce short one-line serialized strings.
+The default session serializer is used when no serializer is specified explicitly and constructed with [defaultSessionSerializer](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-sessions/io.ktor.server.sessions/default-session-serializer.html) function. It has no configuration and uses the [text format](#text-format). Unlike general purpose serializers, it is optimized for size to produce short one-line serialized strings.
 
 ### Limitations
 {id="limitations"}

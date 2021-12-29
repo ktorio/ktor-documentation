@@ -12,20 +12,13 @@ class ApplicationTest {
         val client = createClient {
             install(HttpCookies)
         }
-
         val loginResponse = client.get("/login")
         val cartSessionHeader =  loginResponse.headers["cart_session"]
-        val userResponse = client.get("/cart") {
-            header("cart_session", cartSessionHeader)
-        }
+        val userResponse = client.get("/cart") { header("cart_session", cartSessionHeader) }
         assertEquals("Product IDs: [1, 3, 7]", userResponse.bodyAsText())
-        val logoutResponse = client.get("/logout") {
-            header("cart_session", cartSessionHeader)
-        }
+        val logoutResponse = client.get("/logout") { header("cart_session", cartSessionHeader) }
         assertEquals("Successful logout", logoutResponse.bodyAsText())
-        val userResponse2 = client.get("/cart") {
-            header("cart_session", cartSessionHeader)
-        }
+        val userResponse2 = client.get("/cart") { header("cart_session", cartSessionHeader) }
         assertEquals("Your basket is empty.", userResponse2.bodyAsText())
     }
 }

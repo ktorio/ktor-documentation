@@ -12,9 +12,9 @@ class ApplicationTest {
         val client = createClient {
             install(HttpCookies)
         }
-
         val loginResponse = client.get("/login")
-        val userResponse = client.get("/cart")
-        assertEquals("Product IDs: [1, 3, 7]", userResponse.bodyAsText())
+        assertEquals("Product IDs: [1, 3, 7]", loginResponse.bodyAsText())
+        val logoutResponse = client.get("/logout")
+        assertEquals("Your basket is empty.", logoutResponse.bodyAsText())
     }
 }

@@ -4,13 +4,17 @@ import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.sessions.*
+import io.ktor.util.*
 import java.io.*
 
 data class CartSession(val userID: String, val productIDs: MutableList<Int>)
 
 fun Application.main() {
     install(Sessions) {
-        header<CartSession>("cart_session", directorySessionStorage(File("build/.sessions")))
+        val secretSignKey = hex("6819b57a326945c1968f45236589")
+        header<CartSession>("cart_session", directorySessionStorage(File("build/.sessions"))) {
+            transform(SessionTransportTransformerMessageAuthentication(secretSignKey))
+        }
     }
     routing {
         get("/login") {
