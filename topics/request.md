@@ -108,14 +108,17 @@ With the enabled [ContentNegotiation](serialization-client.md) plugin, you can s
 You can learn more from the [](serialization-client.md) help section.
 
 ### Form parameters {id="form_parameters"}
-The Ktor client provides the [submitForm](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/submit-form.html) function for sending form parameters using both `x-www-form-urlencoded` and `multipart/form-data` types. In a code snippet below, this function accepts the following parameters:
+The Ktor client provides the [submitForm](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/submit-form.html) function for sending form parameters using both `x-www-form-urlencoded` and `multipart/form-data` types. The example below shows how to send form parameters encoded as `multipart/form-data`:
 * `url` specifies a URL for making a request.
 * `formParameters` a set of form parameters built using `Parameters.build`.
-* `encodeInQuery` is used to send form data in URL parameters by using the `GET` request.
 
 ```kotlin
 ```
-{src="snippets/_misc_client/SubmitForm.kt"}
+{src="snippets/client-submit-form/src/main/kotlin/com/example/Application.kt" lines="12-22"}
+
+You can find the full example here: [client-submit-form](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-submit-form).
+
+> To send form parameters encoded in URL, set `encodeInQuery` to `true`.
 
 
 ### Upload a file {id="upload_file"}
