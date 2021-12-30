@@ -25,7 +25,7 @@ To enable logging, you need to include the following artifacts in the build scri
   
 
 ## Install Logging {id="install_plugin"}
-To install `Logging`, pass it to the `install` function inside a [client configuration block](client.md#configure-client):
+To install `Logging`, pass it to the `install` function inside a [client configuration block](create-client.md#configure-client):
 ```kotlin
 val client = HttpClient(CIO) {
     install(Logging)

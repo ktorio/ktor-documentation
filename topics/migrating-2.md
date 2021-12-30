@@ -165,7 +165,7 @@ interface ContentConverter {
 
 With v2.0.0, the Ktor server uses a new API for [testing](Testing.md), which solves various issues described in [KTOR-971](https://youtrack.jetbrains.com/issue/KTOR-971). The main changes are:
 * The `withTestApplication`/`withApplication` functions are replaced with a new `testApplication` function.
-* Inside the `testApplication` function, you need to use the existing [Ktor client](client.md) instance to make requests to your server and verify the results.
+* Inside the `testApplication` function, you need to use the existing [Ktor client](create-client.md) instance to make requests to your server and verify the results.
 * To test specific functionalities (for example, cookies or WebSockets), you need to create a new client instance and install a corresponding [plugin](http-client_plugins.md).
 
 Let's take a look at several examples of migrating 1.6.x tests to 2.0.0:
@@ -573,7 +573,7 @@ As for the Ktor server, _Feature_ is renamed to _Plugin_ in the client API.
 This might affect your application, as described below.
 
 #### Imports {id="feature-plugin-imports-client"}
-Update imports for [installing plugins](client.md#plugins):
+Update imports for [installing plugins](http-client_plugins.md#install):
 
 <table>
 <tr>

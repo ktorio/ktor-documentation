@@ -28,7 +28,7 @@ To use WebSockets, you need to include the `ktor-client-websockets` artifact in 
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Install WebSockets {id="install_plugin"}
-To install the `WebSockets` plugin, pass it to the `install` function inside a [client configuration block](client.md#configure-client):
+To install the `WebSockets` plugin, pass it to the `install` function inside a [client configuration block](create-client.md#configure-client):
 
 ```kotlin
 val client = HttpClient(CIO) {

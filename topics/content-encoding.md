@@ -25,7 +25,7 @@ To use `ContentEncoding`, you need to include the `%artifact_name%` artifact in 
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 ## Install ContentEncoding {id="install_plugin"}
-To install `ContentEncoding`, pass it to the `install` function inside a [client configuration block](client.md#configure-client):
+To install `ContentEncoding`, pass it to the `install` function inside a [client configuration block](create-client.md#configure-client):
 ```kotlin
 val client = HttpClient(CIO) {
     install(ContentEncoding)

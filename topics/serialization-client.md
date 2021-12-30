@@ -34,7 +34,7 @@ Note that serializers for specific formats require additional artifacts. For exa
       
 
 ## Install ContentNegotiation {id="install_plugin"}
-To install `ContentNegotiation`, pass it to the `install` function inside a [client configuration block](client.md#configure-client):
+To install `ContentNegotiation`, pass it to the `install` function inside a [client configuration block](create-client.md#configure-client):
 ```kotlin
 val client = HttpClient(CIO) {
     install(ContentNegotiation)

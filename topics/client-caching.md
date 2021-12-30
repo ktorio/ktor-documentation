@@ -13,10 +13,10 @@ The Ktor client provides the `HttpCache` plugin that allows you to save previous
 
 
 ## Add dependencies {id="add_dependencies"}
-`HttpCache` only requires the [ktor-client-core](client.md#client-dependency) artifact and doesn't need any specific dependencies.
+`HttpCache` only requires the [ktor-client-core](client-dependencies.md) artifact and doesn't need any specific dependencies.
 
 ## Install HttpCache {id="install_plugin"}
-To install `HttpCache`, pass it to the `install` function inside a [client configuration block](client.md#configure-client):
+To install `HttpCache`, pass it to the `install` function inside a [client configuration block](create-client.md#configure-client):
 ```kotlin
 val client = HttpClient(CIO) {
     install(HttpCache)

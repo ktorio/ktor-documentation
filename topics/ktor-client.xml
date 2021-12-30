@@ -38,16 +38,16 @@
             </p>
             <list type="none">
                 <li>
-                    <a href="client.md"/>
-                </li>
-                <li>
-                    <a href="http-client_multiplatform.md"/>
+                    <a href="create-client.md"/>
                 </li>
                 <li>
                     <a href="http-client_engines.md"/>
                 </li>
                 <li>
                     <a href="http-client_plugins.md"/>
+                </li>
+                <li>
+                    <a href="http-client_multiplatform.md"/>
                 </li>
                 <li>
 

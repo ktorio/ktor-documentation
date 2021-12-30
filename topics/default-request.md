@@ -14,12 +14,12 @@ The `DefaultRequest` plugin allows you to configure default parameters for all [
 
 ## Add dependencies {id="add_dependencies"}
 
-`DefaultRequest` only requires the [ktor-client-core](client.md#client-dependency) artifact and doesn't need any specific dependencies.
+`DefaultRequest` only requires the [ktor-client-core](client-dependencies.md) artifact and doesn't need any specific dependencies.
 
 
 ## Install DefaultRequest {id="install_plugin"}
 
-To install `DefaultRequest`, pass it to the `install` function inside a [client configuration block](client.md#configure-client) ...
+To install `DefaultRequest`, pass it to the `install` function inside a [client configuration block](create-client.md#configure-client) ...
 ```kotlin
 val client = HttpClient(CIO) {
     install(DefaultRequest)

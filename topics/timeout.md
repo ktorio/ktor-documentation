@@ -13,12 +13,12 @@ The `HttpTimeout` plugin allows you to configure the following timeouts:
 You can specify these timeouts for all requests or only specific ones.
 
 ## Add dependencies {id="add_dependencies"}
-`HttpTimeout` only requires the [ktor-client-core](client.md#client-dependency) artifact and doesn't need any specific dependencies.
+`HttpTimeout` only requires the [ktor-client-core](client-dependencies.md) artifact and doesn't need any specific dependencies.
 
 
 ## Install HttpTimeout {id="install_plugin"}
 
-To install `HttpTimeout`, pass it to the `install` function inside a [client configuration block](client.md#configure-client):
+To install `HttpTimeout`, pass it to the `install` function inside a [client configuration block](create-client.md#configure-client):
 ```kotlin
 val client = HttpClient(CIO) {
     install(HttpTimeout)

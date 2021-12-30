@@ -223,15 +223,15 @@
             <toc-element id="getting_started_ktor_client_chat.md" show-structure-depth="2"/>
         </toc-element>
         <toc-element toc-title="Developing applications">
-            <toc-element toc-title="Setting up a Client">
-                <toc-element id="client.md"
-                             show-structure-depth="2"
-                             accepts-web-file-names="clients-index.html,quick-start.html"/>
-                <toc-element id="http-client_multiplatform.md"/>
+            <toc-element toc-title="Setting up a client">
+                <toc-element id="client-dependencies.md"/>
+                <toc-element id="create-client.md"
+                             show-structure-depth="2" accepts-web-file-names="client.html,clients-index.html,quick-start.html"/>
                 <toc-element id="http-client_engines.md"
                              show-structure-depth="2"/>
                 <toc-element id="http-client_plugins.md"
                              accepts-web-file-names="http-client-features.html"/>
+                <toc-element id="http-client_multiplatform.md"/>
             </toc-element>
 
             <toc-element toc-title="Requests">

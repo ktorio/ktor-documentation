@@ -10,7 +10,7 @@ Code example: <a href="https://github.com/ktorio/ktor-samples/tree/main/client-m
 The Ktor client can be used in multiplatform projects and supports Android, JavaScript, and Native platforms.
 </excerpt>
 
-The [Ktor HTTP client](client.md) can be used in [multiplatform projects](https://kotlinlang.org/docs/multiplatform.html) and supports the following platforms:
+The [Ktor HTTP client](create-client.md) can be used in [multiplatform projects](https://kotlinlang.org/docs/multiplatform.html) and supports the following platforms:
 * JVM
 * [Android](https://kotlinlang.org/docs/android-overview.html)
 * [JavaScript](https://kotlinlang.org/docs/js-overview.html)
@@ -51,9 +51,6 @@ If you need to adjust an engine configuration for specific platforms, pass a cor
 
 You can learn how to configure all engine types from [](http-client_engines.md).
 
-
-## Use the client {id="use-client"}
-After you've [added](#add-dependencies) all the required dependencies and [created](#create-client) the client, you can use it to make requests and receive responses. Learn more from [](client.md#make-request). 
 
 
 ## Code example {id="code-example"}

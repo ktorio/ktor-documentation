@@ -17,11 +17,11 @@ You can use the `HttpRequestRetry` plugin to configure the retry policy for fail
 
 
 ## Add dependencies {id="add_dependencies"}
-`HttpRequestRetry` only requires the [ktor-client-core](client.md#client-dependency) artifact and doesn't need any specific dependencies.
+`HttpRequestRetry` only requires the [ktor-client-core](client-dependencies.md) artifact and doesn't need any specific dependencies.
 
 ## Install HttpRequestRetry {id="install_plugin"}
 
-To install `HttpRequestRetry`, pass it to the `install` function inside a [client configuration block](client.md#configure-client):
+To install `HttpRequestRetry`, pass it to the `install` function inside a [client configuration block](create-client.md#configure-client):
 ```kotlin
 val client = HttpClient(CIO) {
     install(HttpRequestRetry)

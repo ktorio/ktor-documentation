@@ -4,7 +4,7 @@
 Learn how to make requests and specify various request parameters: a request URL, an HTTP method, headers, and the body of a request.
 </excerpt>
 
-After [setting up the client](client.md), you can make HTTP requests. The main way for making HTTP requests is the [request](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/request.html) function that can take a URL as a parameter. Inside this function, you can configure various request parameters: 
+After [setting up the client](create-client.md), you can make HTTP requests. The main way for making HTTP requests is the [request](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/request.html) function that can take a URL as a parameter. Inside this function, you can configure various request parameters: 
 * Specify a request URL.
 * Specify an HTTP method, such as `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, or `PATCH`.
 * Add headers and cookies.

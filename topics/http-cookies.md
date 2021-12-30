@@ -16,11 +16,11 @@ The Ktor client allows you to handle cookies manually in the following ways:
 The `HttpCookies` plugin handles cookies automatically and keep them between calls in an in-memory storage.
 
 ## Add dependencies {id="add_dependencies"}
-`HttpCookies` only requires the [ktor-client-core](client.md#client-dependency) artifact and doesn't need any specific dependencies.
+`HttpCookies` only requires the [ktor-client-core](client-dependencies.md) artifact and doesn't need any specific dependencies.
 
 ## Install and configure HttpCookies {id="install_plugin"}
 
-To install `HttpCookies`, pass it to the `install` function inside a [client configuration block](client.md#configure-client):
+To install `HttpCookies`, pass it to the `install` function inside a [client configuration block](create-client.md#configure-client):
 ```kotlin
 ```
 {src="snippets/client-cookies/src/main/kotlin/com/example/Application.kt" lines="12-14"}

@@ -21,7 +21,7 @@ By default, the Ktor client throws exceptions for non-2xx error responses:
 
 You can add additional validation for 2xx responses by using the [validateResponse](#2xx) function available in `HttpCallValidator`. If you need to customize handling of non-2xx exceptions, you can use [handleResponseException](#non-2xx).
 
-Default validation is controlled by the `expectSuccess` property. If necessary, you can disable it on a [client configuration](client.md#configure-client) level using the `expectSuccess` property ...
+Default validation is controlled by the `expectSuccess` property. If necessary, you can disable it on a [client configuration](create-client.md#configure-client) level using the `expectSuccess` property ...
 ```kotlin
 ```
 {src="snippets/_misc_client/BasicClientConfig.kt"}
@@ -29,7 +29,7 @@ Default validation is controlled by the `expectSuccess` property. If necessary, 
 ... or by using the same property on a [request](request.md#parameters) level.
 
 ## Custom validation {id="custom"}
-You can add additional validation for 2xx responses or customize default validation by using the [HttpCallValidator](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-call-validator/index.html) plugin. To install `HttpCallValidator`, call the [HttpResponseValidator](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-response-validator.html) function inside a [client configuration block](client.md#configure-client):
+You can add additional validation for 2xx responses or customize default validation by using the [HttpCallValidator](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-call-validator/index.html) plugin. To install `HttpCallValidator`, call the [HttpResponseValidator](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-response-validator.html) function inside a [client configuration block](create-client.md#configure-client):
 
 ```kotlin
 val client = HttpClient(CIO) {

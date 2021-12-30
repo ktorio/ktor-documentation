@@ -64,7 +64,7 @@ This section demonstrates how to configure the `oauth` provider for authorizing 
 
 ### Step 1: Create the HTTP client {id="create-http-client"}
 
-Before configuring the `oauth` provider, you need to initialize the `HttpClient` that will be used by the server to make requests to the OAuth server. You can learn how to add the `HttpClient` dependencies and configure it from [](client.md).
+Before configuring the `oauth` provider, you need to initialize the `HttpClient` that will be used by the server to make requests to the OAuth server. You can learn how to add the `HttpClient` dependencies and configure it from [](create-client.md).
 
 ```kotlin
 ```

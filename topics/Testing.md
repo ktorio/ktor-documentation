@@ -18,7 +18,7 @@ Code examples:
 Learn how to test server Ktor applications using a special testing engine.
 </excerpt>
 
-Ktor provides a special testing engine that doesn't create a web server, doesn't bind to sockets, and doesn't make any real HTTP requests. Instead, it hooks directly into internal mechanisms and processes an application call directly. This results in quicker tests execution compared to running a complete web server for testing. In addition, you can set up [end-to-end tests](#end-to-end) for testing server endpoints using the [Ktor HTTP client](client.md).
+Ktor provides a special testing engine that doesn't create a web server, doesn't bind to sockets, and doesn't make any real HTTP requests. Instead, it hooks directly into internal mechanisms and processes an application call directly. This results in quicker tests execution compared to running a complete web server for testing. In addition, you can set up [end-to-end tests](#end-to-end) for testing server endpoints using the [Ktor HTTP client](create-client.md).
 
 
 ## Add dependencies {id="add-dependencies"}
@@ -40,7 +40,7 @@ To test a server Ktor application, you need to include the following artifacts i
 To use a testing engine, follow the steps below:
 1. Create a JUnit test class and a test function.
 2. Use `testApplication` function to set up a configured instance of a test application running locally.
-3. Use the [Ktor HTTP client](client.md) instance inside a test application to make requests to your server and verify the results.
+3. Use the [Ktor HTTP client](create-client.md) instance inside a test application to make requests to your server and verify the results.
 
 The code below demonstrates how to test the most simple Ktor application that accepts GET requests made to the `/` path and responds with a plain text response.
 
@@ -193,7 +193,7 @@ The `HttpsRedirect` plugin changes how testing is performed. Check the [](https-
 
 
 ## End-to-end testing with HttpClient {id="end-to-end"}
-Apart from a testing engine, you can use the [Ktor HTTP Client](client.md) for end-to-end testing of your server application.
+Apart from a testing engine, you can use the [Ktor HTTP Client](create-client.md) for end-to-end testing of your server application.
 
 ```kotlin
 ```
