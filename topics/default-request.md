@@ -53,4 +53,4 @@ The request below made by this client specifies a request path only and applies 
 ```
 {src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" lines="35-37"}
 
-You can find the full example here: [client-default-request](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-default-request).
+You can find the full example here: [client-default-request](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-default-request).

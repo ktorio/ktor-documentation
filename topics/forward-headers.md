@@ -75,4 +75,4 @@ To read information about the original request, use the `call.request.origin` pr
 ```
 {src="snippets/forwarded-header/src/main/kotlin/com/example/Application.kt" lines="14,17-18,22"}
 
-You can find the full example here: [forwarded-header](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/forwarded-header).
+You can find the full example here: [forwarded-header](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/forwarded-header).

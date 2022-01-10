@@ -27,7 +27,7 @@ Similarly, you can get a body as [ByteArray](https://kotlinlang.org/api/latest/j
 ```
 {src="snippets/_misc_client/ResponseTypes.kt" lines="11,13"}
 
-A [runnable example](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-download-file) below shows how to get a response as a byte array and save it to a file:
+A [runnable example](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-download-file) below shows how to get a response as a byte array and save it to a file:
 ```kotlin
 ```
 {src="snippets/client-download-file/src/main/kotlin/com/example/Downloader.kt" lines="12-24"}
@@ -47,7 +47,7 @@ To learn more, see [](serialization-client.md#receive_send_data).
 
 ### Streaming data {id="streaming"}
 
-When you call the `HttpResponse.body` function to get a body, Ktor processes a response in memory and returns a full response body. If you need to get chunks of a response sequentially instead of waiting for the entire response, use `HttpStatement` with scoped [execute](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-statement/execute.html) block. A [runnable example](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-download-streaming) below shows how to receive a response content in chunks (byte packets) and save them in a file:
+When you call the `HttpResponse.body` function to get a body, Ktor processes a response in memory and returns a full response body. If you need to get chunks of a response sequentially instead of waiting for the entire response, use `HttpStatement` with scoped [execute](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-statement/execute.html) block. A [runnable example](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-download-streaming) below shows how to receive a response content in chunks (byte packets) and save them in a file:
 
 ```kotlin
 ```

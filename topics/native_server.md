@@ -32,7 +32,7 @@ To [declare a native binary](https://kotlinlang.org/docs/mpp-build-native-binari
 ```
 {src="snippets/embedded-server-native/build.gradle.kts" lines="20-35"}
 
-You can find the full example here: [embedded-server-native](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server-native).
+You can find the full example here: [embedded-server-native](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server-native).
 
 ## Create a server {id="create-server"}
 

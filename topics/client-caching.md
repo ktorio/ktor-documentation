@@ -29,4 +29,4 @@ This is enough to enable the client to save previously fetched resources in a ca
 ```
 {src="snippets/client-caching/src/main/kotlin/com/example/Application.kt" lines="12-19"}
 
-You can find a runnable example here: [client-caching](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-caching).
+You can find a runnable example here: [client-caching](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-caching).

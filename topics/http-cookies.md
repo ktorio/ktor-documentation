@@ -25,7 +25,7 @@ To install `HttpCookies`, pass it to the `install` function inside a [client con
 ```
 {src="snippets/client-cookies/src/main/kotlin/com/example/Application.kt" lines="12-14"}
 
-This is enough to enable the Ktor client to keep cookies between requests. You can find the full example here: [client-cookies](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-cookies).
+This is enough to enable the Ktor client to keep cookies between requests. You can find the full example here: [client-cookies](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-cookies).
 
 
 The `HttpCookies` plugin also allows you to add a specific set of cookies to each request by using `ConstantCookiesStorage`. This might be useful in a test case that verifies a server response. The example below shows how to add a specified cookie to all requests for a specific domain:

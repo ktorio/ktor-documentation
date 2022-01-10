@@ -52,7 +52,7 @@ To enable serialization of data objects in Ktor, you need to install the [Conten
 ```
 {src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="32-36"}
 
-You can find the full example here: [json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/json-kotlinx).
+You can find the full example here: [json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/json-kotlinx).
 
 
 ### File {id="file"}
@@ -61,7 +61,7 @@ To respond to a client with a contents of a file, use the [call.respondFile](htt
 ```
 {src="/snippets/download-file/src/main/kotlin/com/example/DownloadFile.kt" include-symbol="main"}
 
-To learn how to run this sample, see [download-file](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/download-file).
+To learn how to run this sample, see [download-file](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/download-file).
 
 
 ### Raw payload {id="raw"}

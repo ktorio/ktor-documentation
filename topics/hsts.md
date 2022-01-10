@@ -35,4 +35,4 @@ The code above installs `%plugin_name%` with the default configuration.
 ```
 {src="snippets/ssl-engine-main/src/main/kotlin/com/example/Application.kt" lines="16-18"}
 
-You can find the full example here: [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/ssl-engine-main).
+You can find the full example here: [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-engine-main).

@@ -8,9 +8,9 @@ Required dependencies: <code>io.ktor:%artifact_name%</code>
 </p>
 <p>
 Code examples: 
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-form">auth-form</a>, 
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-form-html-dsl">auth-form-html-dsl</a>,
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-form-session">auth-form-session</a>
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-form">auth-form</a>, 
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-form-html-dsl">auth-form-html-dsl</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-form-session">auth-form-session</a>
 </p>
 </microformat>
 

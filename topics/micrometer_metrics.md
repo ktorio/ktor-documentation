@@ -92,4 +92,4 @@ If you use Prometheus as a monitoring system, you need to expose an HTTP endpoin
    ```
    {src="snippets/micrometer-metrics/src/main/kotlin/com/example/Application.kt" lines="15-18,32-33,38-42"}
 
-   You can find the full example here: [micrometer-metrics](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/micrometer-metrics).
+   You can find the full example here: [micrometer-metrics](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/micrometer-metrics).

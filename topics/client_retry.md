@@ -40,7 +40,7 @@ A sample below shows how to configure the basic retry policy:
 * The `retryOnServerErrors` function enables retrying a request if a `5xx` response is received from a server and specifies the number of retries.
 * `exponentialDelay` specifies an exponential delay between retries, which is calculated using the Exponential backoff algorithm.
 
-You can find the full example here: [client-retry](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-retry).
+You can find the full example here: [client-retry](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-retry).
 
 There are also configuration settings that allow you to configure conditions for retrying a request or specify delay logic:
 

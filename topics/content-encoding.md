@@ -33,7 +33,7 @@ val client = HttpClient(CIO) {
 ```
 
 ## Configure ContentEncoding {id="configure_plugin"}
-The [example](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-content-encoding) below shows how to enable the `deflate` and `gzip` encoders on the client with the specified quality values:
+The [example](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-content-encoding) below shows how to enable the `deflate` and `gzip` encoders on the client with the specified quality values:
 
 ```kotlin
 ```

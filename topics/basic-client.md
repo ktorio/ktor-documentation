@@ -57,6 +57,6 @@ To send user credentials in the `Authorization` header using the `Basic` scheme,
    }
    ```
 
-> You can find the full example here: [client-auth-basic](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-auth-basic).
+> You can find the full example here: [client-auth-basic](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-auth-basic).
 
 

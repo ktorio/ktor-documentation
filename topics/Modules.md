@@ -3,8 +3,8 @@
 <microformat>
 <p>
 Code examples: 
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server-modules">embedded-server-modules</a>, 
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main-modules">engine-main-modules</a>
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server-modules">embedded-server-modules</a>, 
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main-modules">engine-main-modules</a>
 </p>
 </microformat>
 
@@ -31,7 +31,7 @@ To load a single module, pass its name in the `module` parameter.
 ```
 {src="snippets/embedded-server-modules/src/main/kotlin/com/example/Application.kt"}
 
-You can find the full example here: [embedded-server-modules](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server-modules).
+You can find the full example here: [embedded-server-modules](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server-modules).
 
 
 ### Load multiple modules {id="multiple-modules"}
@@ -78,4 +78,4 @@ A fully qualified module name includes a fully qualified name of the class and a
 ```
 {src="snippets/engine-main-modules/src/main/resources/application.conf" lines="1,5-10"}
 
-You can find the full example here: [engine-main-modules](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main-modules).
+You can find the full example here: [engine-main-modules](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main-modules).

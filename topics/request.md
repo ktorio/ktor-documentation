@@ -116,14 +116,14 @@ The Ktor client provides the [submitForm](https://api.ktor.io/ktor-client/ktor-c
 ```
 {src="snippets/client-submit-form/src/main/kotlin/com/example/Application.kt" lines="12-22"}
 
-You can find the full example here: [client-submit-form](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-submit-form).
+You can find the full example here: [client-submit-form](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-submit-form).
 
 > To send form parameters encoded in URL, set `encodeInQuery` to `true`.
 
 
 ### Upload a file {id="upload_file"}
 
-If you need to send a file with a form, use the [submitFormWithBinaryData](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/submit-form-with-binary-data.html) function. When calling this function, you need to specify the `formData` parameter, which can be initialized using the [formData](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/form-data.html) function. A [runnable code example](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-upload-file) below shows how to do this:
+If you need to send a file with a form, use the [submitFormWithBinaryData](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/submit-form-with-binary-data.html) function. When calling this function, you need to specify the `formData` parameter, which can be initialized using the [formData](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/form-data.html) function. A [runnable code example](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-upload-file) below shows how to do this:
 
 ```kotlin
 ```
@@ -143,7 +143,7 @@ When sending two requests at once, the client suspends the second request execut
 ```
 {src="snippets/client-parallel-requests/src/main/kotlin/com/example/Application.kt" lines="12,19-22"}
 
-To see a full example, go to [client-parallel-requests](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-parallel-requests).
+To see a full example, go to [client-parallel-requests](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-parallel-requests).
 
 
 ## Cancel a request {id="cancel-request"}

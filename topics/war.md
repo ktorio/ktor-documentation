@@ -3,8 +3,8 @@
 <microformat>
 <p>
 Code examples: 
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/jetty-war">jetty-war</a>, 
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/tomcat-war">tomcat-war</a>
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/jetty-war">jetty-war</a>, 
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/tomcat-war">tomcat-war</a>
 </p>
 </microformat>
 
@@ -108,7 +108,7 @@ The War plugin allows you to [generate](#generate-war) WAR archives. You can ins
 
 ## Run an application {id="run"}
 
-You can run a servlet application with the [configured Gretty plugin](#configure-gretty) by using the `run` task. For example, the following command runs the [jetty-war](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/jetty-war) example:
+You can run a servlet application with the [configured Gretty plugin](#configure-gretty) by using the `run` task. For example, the following command runs the [jetty-war](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/jetty-war) example:
 
 ```Bash
 ./gradlew :jetty-war:run
@@ -116,7 +116,7 @@ You can run a servlet application with the [configured Gretty plugin](#configure
 
 ## Generate and deploy a WAR archive {id="generate-war"}
 
-To generate a WAR file with your application using the [War](#configure-war) plugin, execute the `war` task. For the [jetty-war](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/jetty-war) example, a command looks as follows:
+To generate a WAR file with your application using the [War](#configure-war) plugin, execute the `war` task. For the [jetty-war](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/jetty-war) example, a command looks as follows:
 
 ```Bash
 ./gradlew :jetty-war:war
@@ -141,4 +141,4 @@ The `jetty-war.war` is created in the `build/libs` directory. You can deploy the
 </tab>
 </tabs>
 
-You can find the complete examples here: [jetty-war](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/jetty-war) and [tomcat-war](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/tomcat-war).
+You can find the complete examples here: [jetty-war](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/jetty-war) and [tomcat-war](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/tomcat-war).
