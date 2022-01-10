@@ -124,7 +124,9 @@ Ktor allows you to store session data [on the server](#client_server) and pass o
 ```
 {src="snippets/session-cookie-server/src/main/kotlin/com/example/Application.kt" lines="14,17"}
 
-Note that `SessionStorageMemory` is intended for development only.
+You can find the full example here: [session-cookie-server](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie-server).
+
+> Note that `SessionStorageMemory` is intended for development only.
 
 ### Directory storage {id="directory_storage"}
 
@@ -132,6 +134,8 @@ Note that `SessionStorageMemory` is intended for development only.
 ```kotlin
 ```
 {src="snippets/session-header-server/src/main/kotlin/com/example/Application.kt" lines="15,17"}
+
+You can find the full example here: [session-header-server](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-header-server).
 
 ### Custom storage {id="custom_storage"}
 
@@ -157,7 +161,7 @@ To sign a session, pass a sign key to the `SessionTransportTransformerMessageAut
 ```
 {src="snippets/session-cookie-server/src/main/kotlin/com/example/Application.kt" lines="12-18"}
 
-`SessionTransportTransformerMessageAuthentication` uses `HmacSHA265` as the default authentication algorithm, which can be changed.
+`SessionTransportTransformerMessageAuthentication` uses `HmacSHA265` as the default authentication algorithm, which can be changed. 
 
 ### Sign and encrypt session data {id="sign_encrypt_session"}
 
@@ -168,7 +172,7 @@ To sign and encrypt a session, pass a sign/encrypt keys to the `SessionTransport
 ```
 {src="snippets/session-cookie-client/src/main/kotlin/com/example/Application.kt" lines="12-20"}
 
-By default, `SessionTransportTransformerEncrypt` uses the `AES` and `HmacSHA256` algorithms, which can be changed.
+By default, `SessionTransportTransformerEncrypt` uses the `AES` and `HmacSHA256` algorithms, which can be changed. 
 
 > Note that signing/encryption keys shouldn't be specified in code. You can use a custom group in the [configuration file](Configurations.xml#hocon-overview) to store signing/encryption keys and initialize them using [environment variables](Configurations.xml#environment-variables).
 >
@@ -200,6 +204,8 @@ When you need to clear a session for any reason (for example, when a user logs o
 ```kotlin
 ```
 {src="snippets/session-cookie-client/src/main/kotlin/com/example/Application.kt" lines="37-40"}
+
+You can find the full example here: [session-cookie-client](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie-client).
 
 
 ## Examples {id="examples"}
