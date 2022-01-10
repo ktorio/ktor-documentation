@@ -82,9 +82,9 @@ install(CORS) {
 ```
 
 
-### HTTP headers {id="headers"}
+### Allow headers {id="headers"}
 
-The `%plugin_name%` plugin allows the following client headers by default:
+By default, the `%plugin_name%` plugin allows the following client headers managed by `Access-Control-Allow-Headers`:
 * `Accept`
 * `Accept-Language`
 * `Content-Language`
@@ -103,6 +103,18 @@ To allow custom headers, use the `allowHeaders` or `allowHeadersPrefixed` functi
 ```kotlin
 install(CORS) {
     allowHeadersPrefixed("custom-")
+}
+```
+
+### Expose headers {id="expose-headers"}
+The `Access-Control-Expose-Headers` header adds the specified headers to the allowlist that JavaScript in browsers can access.
+To configure such headers, use the `exposeHeader` function.
+
+```kotlin
+install(CORS) {
+    // ...
+    exposeHeader("X-My-Custom-Header")
+    exposeHeader("X-Another-Custom-Header")
 }
 ```
 
