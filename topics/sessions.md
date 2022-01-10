@@ -96,9 +96,16 @@ install(Sessions) {
 }
 ```
 
-
 In the example above, session data will be passed to the client using the `cart_session` custom header. 
 On the client side, you need to append this header to each request to get session data.
+
+> If you use the [CORS](cors.md) plugin to handle cross-origin requests, add your custom header to the `CORS` configuration as follows:
+> ```kotlin
+> install(CORS) {
+>     header("cart_session")
+>     exposeHeader("cart_session")
+> }
+> ```
 
 
 ## Store session payload: Client vs Server {id="client_server"}
