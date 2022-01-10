@@ -124,6 +124,8 @@ Ktor allows you to store session data [on the server](#client_server) and pass o
 ```
 {src="snippets/session-cookie-server/src/main/kotlin/com/example/Application.kt" lines="14,17"}
 
+Note that `SessionStorageMemory` is intended for development only.
+
 ### Directory storage {id="directory_storage"}
 
 [directorySessionStorage](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-sessions/io.ktor.server.sessions/directory-session-storage.html) can be used to store a session's data in a file under the specified directory. For example, to store session data in a file under the `build/.sessions` directory, create the `directorySessionStorage` in this way:
@@ -136,17 +138,12 @@ Ktor allows you to store session data [on the server](#client_server) and pass o
 Ktor provides the [SessionStorage](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-sessions/io.ktor.server.sessions/-session-storage/index.html) interface that allows you to implement a custom storage.
 ```kotlin
 interface SessionStorage {
-    suspend fun write(id: String, provider: suspend (ByteWriteChannel) -> Unit)
     suspend fun invalidate(id: String)
+    suspend fun write(id: String, provider: suspend (ByteWriteChannel) -> Unit)
     suspend fun <R> read(id: String, consumer: suspend (ByteReadChannel) -> R): R
 }
 ```
-All three functions are [suspending](https://kotlinlang.org/docs/composing-suspending-functions.html) and use [ByteWriteChannel](https://api.ktor.io/ktor-io/ktor-io/io.ktor.utils.io/-byte-write-channel/index.html) and [ByteReadChannel](https://api.ktor.io/ktor-io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) to read and write data from/to an asynchronous channel.
-The example below shows how to implement the `SessionStorage` interface to store session data in a `ByteArray`:
-
-```kotlin
-```
-{src="simplified-session-storage-sample.kt"}
+All three functions are [suspending](https://kotlinlang.org/docs/composing-suspending-functions.html) and use [ByteReadChannel](https://api.ktor.io/ktor-io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) and [ByteWriteChannel](https://api.ktor.io/ktor-io/ktor-io/io.ktor.utils.io/-byte-write-channel/index.html) to read and write data from/to an asynchronous channel. You can use [SessionStorageMemory](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-plugins/ktor-server-sessions/jvm/src/io/ktor/server/sessions/SessionStorageMemory.kt) as a reference.
 
 
 ## Protect session data {id="protect_session"}
