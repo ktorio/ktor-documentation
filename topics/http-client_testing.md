@@ -56,4 +56,4 @@ Then, you can pass the created `MockEngine` to initialize `ApiClient` and make r
 ```
 {src="snippets/client-testing-mock/src/test/kotlin/ApplicationTest.kt" lines="10-26"}
 
-You can find the full example here: [client-testing-mock](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-testing-mock).
+You can find the full example here: [client-testing-mock](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-testing-mock).

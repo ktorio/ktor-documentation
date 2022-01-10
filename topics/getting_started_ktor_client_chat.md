@@ -172,7 +172,7 @@ We have now finished implementing our WebSocket-based chat client with Kotlin an
 
 You might still notice some smaller usability issues caused by the limitations of terminal input, like incoming messages overwriting messages which are currently being composed. Managing more complex terminal user interfaces is outside the scope of this tutorial, though, and as such, left as an exercise to the reader 😉.
 
-We have included the final state of the client chat application in the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets) project: [tutorial-websockets-client](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/tutorial-websockets-client).
+We have included the final state of the client chat application in the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets) project: [tutorial-websockets-client](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/tutorial-websockets-client).
 
 ![App in action](app_in_action.png){animated="true" width="674"}
 

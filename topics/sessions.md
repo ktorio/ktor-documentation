@@ -8,9 +8,9 @@
 Required dependencies: <code>io.ktor:%artifact_name%</code>
 </p>
 <p>Code examples:
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie-client">session-cookie-client</a>,
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie-server">session-cookie-server</a>,
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-header-server">session-header-server</a>
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/session-cookie-client">session-cookie-client</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/session-cookie-server">session-cookie-server</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/session-header-server">session-header-server</a>
 </p>
 </microformat>
 
@@ -131,7 +131,7 @@ Ktor allows you to store session data [on the server](#client_server) and pass o
 ```
 {src="snippets/session-cookie-server/src/main/kotlin/com/example/Application.kt" lines="14,17"}
 
-You can find the full example here: [session-cookie-server](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie-server).
+You can find the full example here: [session-cookie-server](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/session-cookie-server).
 
 > Note that `SessionStorageMemory` is intended for development only.
 
@@ -142,7 +142,7 @@ You can find the full example here: [session-cookie-server](https://github.com/k
 ```
 {src="snippets/session-header-server/src/main/kotlin/com/example/Application.kt" lines="15,17"}
 
-You can find the full example here: [session-header-server](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-header-server).
+You can find the full example here: [session-header-server](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/session-header-server).
 
 ### Custom storage {id="custom_storage"}
 
@@ -212,16 +212,16 @@ When you need to clear a session for any reason (for example, when a user logs o
 ```
 {src="snippets/session-cookie-client/src/main/kotlin/com/example/Application.kt" lines="37-40"}
 
-You can find the full example here: [session-cookie-client](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie-client).
+You can find the full example here: [session-cookie-client](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/session-cookie-client).
 
 
 ## Examples {id="examples"}
 
 The runnable examples below demonstrate how to use the `%plugin_name%` plugin:
 
-- [session-cookie-client](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie-client) shows how to pass [signed and encrypted](#sign_encrypt_session) session payload to the [client](#client_server) using [cookies](#cookie).
-- [session-cookie-server](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie-server) shows how to keep session payload in a [server memory](#in_memory_storage) and pass a [signed](#sign_session) session ID to the client using [cookies](#cookie).
-- [session-header-server](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-header-server) shows how to keep session payload on a server in a [directory storage](#directory_storage) and pass [signed](#sign_session) session ID to the client using a [custom header](#header).
+- [session-cookie-client](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/session-cookie-client) shows how to pass [signed and encrypted](#sign_encrypt_session) session payload to the [client](#client_server) using [cookies](#cookie).
+- [session-cookie-server](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/session-cookie-server) shows how to keep session payload in a [server memory](#in_memory_storage) and pass a [signed](#sign_session) session ID to the client using [cookies](#cookie).
+- [session-header-server](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/session-header-server) shows how to keep session payload on a server in a [directory storage](#directory_storage) and pass [signed](#sign_session) session ID to the client using a [custom header](#header).
 
 
 

@@ -9,8 +9,8 @@
     <microformat>
         <p>
             Code examples:
-            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server">embedded-server</a>,
-            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main">engine-main</a>
+            <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server">embedded-server</a>,
+            <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main">engine-main</a>
         </p>
     </microformat>
 
@@ -51,7 +51,7 @@
               src="snippets/embedded-server/src/main/kotlin/com/example/Application.kt">
         </code>
         <p>
-            You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server">embedded-server</a>.
+            You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server">embedded-server</a>.
         </p>
     </chapter>
 
@@ -74,7 +74,7 @@
             </tab>
         </tabs>
         <p>
-            You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main">engine-main</a>.
+            You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main">engine-main</a>.
         </p>
     </chapter>
 

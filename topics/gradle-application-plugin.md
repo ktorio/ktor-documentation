@@ -2,7 +2,7 @@
 
 <microformat>
 <p>
-<control>Sample project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main">engine-main</a>
+<control>Sample project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main">engine-main</a>
 </p>
 </microformat>
 

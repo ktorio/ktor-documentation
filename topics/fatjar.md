@@ -2,16 +2,16 @@
 
 <microformat>
 <p>
-<control>Initial project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main">engine-main</a>
+<control>Initial project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main">engine-main</a>
 </p>
 <p>
-<control>Final project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/fatjar">fatjar</a>
+<control>Final project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/fatjar">fatjar</a>
 </p>
 </microformat>
 
 <excerpt>Learn how to create an executable Fat JAR using the Gradle Shadow plugin.</excerpt>
 
-The Gradle [Shadow](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow) plugin allows you to create an executable JAR that includes all code dependencies (fat JAR). In this topic, we'll show you how to generate and run a fat JAR for the [engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main) sample project.
+The Gradle [Shadow](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow) plugin allows you to create an executable JAR that includes all code dependencies (fat JAR). In this topic, we'll show you how to generate and run a fat JAR for the [engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main) sample project.
 
 ## Configure the Shadow plugin {id="configure-plugin"}
 To build a Fat JAR, you need to configure the Shadow plugin first:

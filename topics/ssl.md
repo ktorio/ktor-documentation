@@ -6,8 +6,8 @@ Required dependencies: <code>io.ktor:ktor-network-tls-certificates</code>
 </p>
 <p>
 Code examples: 
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/ssl-engine-main">ssl-engine-main</a>, 
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/ssl-embedded-server">ssl-embedded-server</a>
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-engine-main">ssl-engine-main</a>, 
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-embedded-server">ssl-embedded-server</a>
 </p>
 </microformat>
 
@@ -36,7 +36,7 @@ The code snippet below shows how to generate a certificate and save it to a keys
 {src="snippets/ssl-embedded-server/src/main/kotlin/com/example/Application.kt" lines="12-19,38"}
 
 Since Ktor requires a certificate when it starts, you have to create a certificate before starting the server. 
-You can find the full example here: [ssl-embedded-server](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/ssl-embedded-server).
+You can find the full example here: [ssl-embedded-server](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-embedded-server).
 
 ### Generate a certificate using keytool {id="self-signed-keytool"}
 
@@ -85,7 +85,7 @@ If your server is configured in `application.conf`, you can enable SSL using the
    ```
    {style="block" src="snippets/ssl-engine-main/src/main/resources/application.conf" lines="1,10-18"}
 
-You can find the full example here: [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/ssl-engine-main).
+You can find the full example here: [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-engine-main).
 
 ### embeddedServer {id="embedded-server"}
 
@@ -94,4 +94,4 @@ If you use the `embeddedServer` function to run your server, you need to pass a 
 ```
 {src="snippets/ssl-embedded-server/src/main/kotlin/com/example/Application.kt" lines="21-37"}
 
-You can find the full example here: [ssl-embedded-server](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/ssl-embedded-server).
+You can find the full example here: [ssl-embedded-server](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-embedded-server).

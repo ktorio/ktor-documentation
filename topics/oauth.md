@@ -57,7 +57,7 @@ You can optionally specify a [provider name](authentication.md#provider-name).
 
 ## Configure OAuth {id="configure-oauth"}
 
-This section demonstrates how to configure the `oauth` provider for authorizing users of your application using Google. You can find the complete runnable example here: [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-oauth-google). 
+This section demonstrates how to configure the `oauth` provider for authorizing users of your application using Google. You can find the complete runnable example here: [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-oauth-google). 
 
 > Note that to access Google APIs you need to create authorization credentials in the [Google Cloud Console](https://console.cloud.google.com/apis/credentials). Credentials contain the client ID and client secret that will be used to configure the `oauth` provider.
 
@@ -118,4 +118,4 @@ After receiving a token inside the [redirect route](#redirect-route) and saving 
 ```
 {src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="66-78"}
 
-You can find the complete runnable example here: [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-oauth-google). 
+You can find the complete runnable example here: [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-oauth-google). 

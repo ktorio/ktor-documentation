@@ -48,7 +48,7 @@ install(Authentication) {
 ```
 
 ## Configure session authentication {id="configure"}
-This section demonstrates how to authenticate a user with a [form-based authentication](form.md), save information about this user to a cookie session, and then authorize this user on subsequent requests using the `session` provider. You can find the complete example here: [auth-form-session](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-form-session).
+This section demonstrates how to authenticate a user with a [form-based authentication](form.md), save information about this user to a cookie session, and then authorize this user on subsequent requests using the `session` provider. You can find the complete example here: [auth-form-session](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-form-session).
 
 ### Step 1: Create a data class {id="data-class"}
 First, you need to create a data class for storing session data. Note that this class should inherit [Principal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-principal/index.html) since the [validate](#configure-session-auth) function should return a `Principal` in a case of successful authentication.
@@ -94,4 +94,4 @@ After configuring the `session` provider, you can define the authorization for t
 ```
 {src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" lines="75-81"}
 
-You can find the full example here: [auth-form-session](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-form-session).
+You can find the full example here: [auth-form-session](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-form-session).
