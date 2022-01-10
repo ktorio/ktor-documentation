@@ -4,13 +4,13 @@ A sample project demonstrating how to store cookies on a client using the [HttpC
 
 ## Running
 
-Before running this sample, start a server from the [session-cookie](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie) example:
+Before running this sample, start a server from the [session-cookie](../session-cookie-client) example:
 ```bash
 # macOS/Linux
-./gradlew :session-cookie:run
+./gradlew :session-cookie-client:run
 
 # Windows
-gradlew.bat :session-cookie:run
+gradlew.bat :session-cookie-client:run
 ```
 This server sends session data in the `Set-Cookie` response header after visiting the [http://0.0.0.0:8080/login](http://0.0.0.0:8080/login) page.
 

@@ -3,7 +3,7 @@
 A sample Ktor project showing how to send several [requests](https://ktor.io/docs/request.html) asynchronously.
 
 ## Running
-Before running this sample, start a server from the [simulate-slow-server](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/simulate-slow-server) example:
+Before running this sample, start a server from the [simulate-slow-server](../simulate-slow-server) example:
 ```bash
 ./gradlew :simulate-slow-server:run
 ```

@@ -4,7 +4,7 @@ A sample Ktor project showing how to use the [HttpTimeout](https://ktor.io/docs/
 
 ## Running
 
-Before running this sample, start a server from the [simulate-slow-server](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/simulate-slow-server) example:
+Before running this sample, start a server from the [simulate-slow-server](../simulate-slow-server) example:
 ```bash
 ./gradlew :simulate-slow-server:run
 ```

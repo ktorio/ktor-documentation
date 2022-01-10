@@ -4,7 +4,7 @@ A sample Ktor project showing how to use the [ContentEncoding](https://ktor.io/d
 
 ## Running
 
-Before running this sample, start a server from the [compression](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/compression) example:
+Before running this sample, start a server from the [compression](../compression) example:
 ```bash
 ./gradlew :compression:run
 ```
