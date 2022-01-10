@@ -6,11 +6,11 @@ Required dependencies: <code>io.ktor:ktor-server-test-host</code>, <code>org.jet
 </p>
 <p>
 Code examples: 
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main">engine-main</a>, 
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/post-form-parameters">post-form-parameters</a>,
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/upload-file">upload-file</a>,
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie-client">session-cookie-client</a>,
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/server-websockets">server-websockets</a>
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main">engine-main</a>, 
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/post-form-parameters">post-form-parameters</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/upload-file">upload-file</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/session-cookie-client">session-cookie-client</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/server-websockets">server-websockets</a>
 </p>
 </microformat>
 
@@ -62,7 +62,7 @@ The code below demonstrates how to test the most simple Ktor application that ac
 </tab>
 </tabs>
 
-The runnable code example is available here: [engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main).
+The runnable code example is available here: [engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main).
 
 
 ## Send form data {id="form-data"}
@@ -72,7 +72,7 @@ To send form data in a test POST/PUT request, you need to set the `Content-Type`
 
 ### x-www-form-urlencoded {id="x-www-form-urlencoded"}
 
-A test below from the [post-form-parameters](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/post-form-parameters) example shows how to make a test request with form parameters sent using the `x-www-form-urlencoded` content type. Note that the [formUrlEncode](https://api.ktor.io/ktor-http/io.ktor.http/form-url-encode.html) function is used to encode form parameters from a list of key/value pairs.
+A test below from the [post-form-parameters](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/post-form-parameters) example shows how to make a test request with form parameters sent using the `x-www-form-urlencoded` content type. Note that the [formUrlEncode](https://api.ktor.io/ktor-http/io.ktor.http/form-url-encode.html) function is used to encode form parameters from a list of key/value pairs.
 
 <tabs>
 <tab title="Test">
@@ -95,7 +95,7 @@ A test below from the [post-form-parameters](https://github.com/ktorio/ktor-docu
 
 ### multipart/form-data {id="multipart-form-data"}
 
-The code below demonstrates how to build `multipart/form-data` and test file uploading. You can find the full example here: [upload-file](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/upload-file).
+The code below demonstrates how to build `multipart/form-data` and test file uploading. You can find the full example here: [upload-file](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/upload-file).
 
 <tabs>
 <tab title="Test">
@@ -120,7 +120,7 @@ The code below demonstrates how to build `multipart/form-data` and test file upl
 
 ## Preserve cookies during testing {id="preserving-cookies"}
 
-If you need to preserve cookies between requests when testing, you need create a new client and install the [HttpCookies](http-cookies.md) plugin. In a test below from the [session-cookie-client](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie-client) example, reload count is increased after each request since cookies are preserved.
+If you need to preserve cookies between requests when testing, you need create a new client and install the [HttpCookies](http-cookies.md) plugin. In a test below from the [session-cookie-client](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/session-cookie-client) example, reload count is increased after each request since cookies are preserved.
 
 
 <tabs>
@@ -199,4 +199,4 @@ Apart from a testing engine, you can use the [Ktor HTTP Client](create-client.md
 ```
 {src="snippets/embedded-server/src/test/kotlin/EmbeddedServerTest.kt"}
 
-For a full example, refer to a test of the [embedded-server](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server) example.
+For a full example, refer to a test of the [embedded-server](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server) example.
