@@ -162,7 +162,7 @@
     </chapter>
 
 
-    <include src="Gradle.xml" include-id="create-server"/>
+    <include src="server-dependencies.xml" include-id="create-server"/>
 
 
     <chapter title="Run an application" id="run-app">

@@ -4,7 +4,7 @@
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        title="Adding Ktor dependencies"
-       id="Gradle">
+       id="server-dependencies" auxiliary-id="Gradle">
 
     <excerpt>Learn how to add Ktor dependencies to the existing Gradle/Maven project.</excerpt>
 
@@ -23,7 +23,7 @@
                 </p>
                 <p>
                     Production releases of Ktor are available in the Maven central repository.
-                    You can declare this repository in <path>build.gradle(.kts)</path> as follows:
+                    You can declare this repository in your build script as follows:
                 </p>
                 <tabs group="languages">
                     <tab title="Gradle (Kotlin)" group-key="kotlin">
@@ -40,13 +40,15 @@
                             }
                         </code>
                     </tab>
+                    <tab title="Maven" group-key="maven">
+                        <note>
+                            <p>
+                                You don't need to add the Maven central repository in the <path>pom.xml</path> file since your project inherits the central repository from
+                                <a href="https://maven.apache.org/guides/introduction/introduction-to-the-pom.html#super-pom">Super POM</a>.
+                            </p>
+                        </note>
+                    </tab>
                 </tabs>
-                <note>
-                    <p>
-                        You don't need to add the Maven central repository in the <path>pom.xml</path> file since your project inherits the central repository from
-                        <a href="https://maven.apache.org/guides/introduction/introduction-to-the-pom.html#super-pom">Super POM</a>.
-                    </p>
-                </note>
             </li>
             <li>
                 <p>
@@ -67,8 +69,10 @@
                     </tab>
                     <tab title="Gradle (Groovy)" group-key="groovy">
                         <code style="block" lang="Groovy">
-                            maven {
-                                url "https://maven.pkg.jetbrains.space/public/p/ktor/eap"
+                            repositories {
+                                maven {
+                                    url "https://maven.pkg.jetbrains.space/public/p/ktor/eap"
+                                }
                             }
                         </code>
                     </tab>
@@ -167,7 +171,7 @@
 
     <chapter title="Create an entry point for running an application" id="create-entry-point">
         <p>
-            Running a Ktor server using Gradle/Maven depends on the way used to <a href="create_server.xml">create a server</a>.
+            <a href="running.md">Running</a> a Ktor server using Gradle/Maven depends on the way used to <a href="create_server.xml">create a server</a>.
             You can specify the application main class in one of the following ways:
         </p>
         <list>

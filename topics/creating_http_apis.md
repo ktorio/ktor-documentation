@@ -27,7 +27,7 @@ To create a base project for our application using the Ktor plugin, [open Intell
    ![New Ktor project](tutorial_http_api_new_project.png){width="743"}
    * **Name**: Specify a project name.
    * **Location**: Specify a directory for your project.
-   * **Build System**: Make sure that _Gradle Kotlin_ is selected as a [build system](Gradle.xml).
+   * **Build System**: Make sure that _Gradle Kotlin_ is selected as a [build system](server-dependencies.xml).
    * **Website**: Leave the default `com.example` value as a domain used to generate a package name.
    * **Artifact**: This field shows a generated artifact name.
    * **Ktor Version**: Choose the latest Ktor version.

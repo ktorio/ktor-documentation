@@ -48,7 +48,7 @@
             </p>
             <list type="none">
                 <li>
-                    <a href="Gradle.xml"/>
+                    <a href="server-dependencies.xml"/>
                 </li>
                 <li>
                     <a href="create_server.xml"/>

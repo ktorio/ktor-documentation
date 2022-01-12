@@ -28,8 +28,8 @@
         </toc-element>
 
         <toc-element toc-title="Developing applications">
-            <toc-element id="Gradle.xml"
-                         accepts-web-file-names="artifacts.html,maven.html"/>
+            <toc-element id="server-dependencies.xml"
+                         accepts-web-file-names="artifacts.html,maven.html,gradle.html"/>
             <toc-element toc-title="Creating and configuring a server">
                 <toc-element id="create_server.xml"
                              show-structure-depth="2"/>

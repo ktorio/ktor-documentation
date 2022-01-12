@@ -62,7 +62,7 @@
                 </li>
                 <li>
                     <p>
-                        If you run your application using a <a href="Gradle.xml">Gradle</a> task, you can pass
+                        If you run your application using a <a href="server-dependencies.xml">Gradle</a> task, you can pass
                         <code>io.ktor.development</code> to the
                         <code>applicationDefaultJvmArgs</code> property in a <path>build.gradle(.kts)</path> file:
                     </p>

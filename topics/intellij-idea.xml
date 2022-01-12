@@ -66,7 +66,7 @@
                     <li>
                         <p>
                             <control>Build System</control>:
-                            Choose the desired <a href="Gradle.xml">build system</a>.
+                            Choose the desired <a href="server-dependencies.xml">build system</a>.
                             This can be <emphasis>Gradle</emphasis> with Kotlin or Groovy DSL, or <emphasis>Maven</emphasis>.
                         </p>
                     </li>
