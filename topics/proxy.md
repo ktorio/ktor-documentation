@@ -24,7 +24,7 @@ The table below shows supported proxy types for specific [engines](http-client_e
 
 To configure the proxy in the client, you don't need to add a specific dependency. The required dependencies are:
 - [ktor-client-core](client-dependencies.md#client-dependency);
-- [an engine dependency](client-dependencies.md#client-dependency).
+- [an engine dependency](client-dependencies.md#engine-dependency).
 
 
 ## Configure proxy {id="configure_proxy"}
