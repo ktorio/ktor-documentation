@@ -1,62 +1,105 @@
 [//]: # (title: Proxy)
 
-<include src="lib.xml" include-id="outdated_warning"/>
+Ktor HTTP client allows you to configure proxy settings in [multiplatform](http-client_multiplatform.md) projects. 
+There are two supported types of proxies: [HTTP](https://en.wikipedia.org/wiki/Proxy_server#Web_proxy_servers) and [SOCKS](https://en.wikipedia.org/wiki/SOCKS).
 
-Ktor HTTP client allows using proxy in [multiplatform](http-client_multiplatform.md) code. The following document describes how to configure a proxy in Ktor.
+### Supported engines {id="supported_engines"}
 
-## Multiplatform configuration
+The table below shows supported proxy types for specific [engines](http-client_engines.md):
 
-### Create proxy
+| Engine     | HTTP proxy | SOCKS proxy |
+|------------|------------|-------------|
+| Apache     | ✅          |   ❌         |
+| Java       | ✅          |   ❌         |
+| Jetty      | ❌          |   ❌         |
+| CIO        | ✅          |   ❌         |
+| Android    | ✅          |   ✅         |
+| OkHttp     | ✅          |   ✅         |
+| JavaScript | ❌          |   ❌         |
+| Darwin     | ✅          |   ✅         |
+| Curl       | ✅          |   ✅         |
 
-You don't need to include additional artifacts to create a proxy. The supported proxy types are specific to a client engine. Two types of proxy can be configured in multiplatform: [HTTP](https://en.wikipedia.org/wiki/Proxy_server#Web_proxy_servers) and [SOCKS](https://en.wikipedia.org/wiki/SOCKS).
 
-To create a proxy configuration use builders in the _ProxyBuilder_ factory:
-```kotlin
-// Create http proxy
-val httpProxy = ProxyBuilder.http("http://my-proxy-server-url.com/")
+## Add dependencies {id="add_dependencies"}
 
-// Create socks proxy
-val socksProxy = ProxyBuilder.socks(host = "127.0.0.1", port = 4001)
-```
+To configure the proxy in the client, you don't need to add a specific dependency. The required dependencies are:
+- [ktor-client-core](client-dependencies.md#client-dependency);
+- [an engine dependency](client-dependencies.md#client-dependency).
 
-Proxy authentication and authorization are engine specific and should be handled by the user manually.
 
-### Set proxy
+## Configure proxy {id="configure_proxy"}
 
-Proxy can be configured in multiplatform code using _ProxyConfig_ builder in _HttpClientEngineConfig_ block:
+To configure proxy settings, call the `engine` function inside a [client configuration block](create-client.md#configure-client) and then use the `proxy` property.
+This property accepts the `ProxyConfig` instance that can be created using the [ProxyBuilder](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.engine/-proxy-builder/index.html) factory.
+
 ```kotlin
 val client = HttpClient() {
     engine {
-        proxy = httpProxy
+        proxy = // Create proxy configuration
     }
 }
 ```
 
-## Platform-specific configuration
+### HTTP proxy {id="http_proxy"}
 
-### JVM
+The example below shows how to configure HTTP proxy using `ProxyBuilder`:
 
-The _ProxyConfig_ class maps to [Proxy](https://docs.oracle.com/javase/7/docs/api/java/net/Proxy.html) class on the jvm:
 ```kotlin
-val httpProxy = Proxy(Proxy.Type.HTTP, InetSocketAddress(4040))
+val client = HttpClient() {
+    engine {
+        proxy = ProxyBuilder.http("http://sample-proxy-server:3128/")
+    }
+}
 ```
 
-Most JVM client engines support it out of the box.
+On JVM, `ProxyConfig` is mapped to the [Proxy](https://docs.oracle.com/javase/7/docs/api/java/lang/reflect/Proxy.html) class, so you can configure the proxy as follows:
 
-Note: Apache and CIO engines support HTTP proxy only. Jetty client engine doesn't support any proxy.
-
-### Native
-
-The native _ProxyConfig_ class can use url to determine proxy address:
 ```kotlin
-val socksProxy = ProxyConfig(url = "socks://my-socks-proxy.com/")
+val client = HttpClient() {
+    engine {
+        proxy = Proxy(Proxy.Type.HTTP, InetSocketAddress("sample-proxy-server", 3128))
+    }
+}
 ```
 
-Supported proxy types are engine specific. To see supported URLs consult with engine provider documentation:
 
-- Curl: [https://curl.haxx.se/libcurl/c/CURLOPT_PROXY.html](https://curl.haxx.se/libcurl/c/CURLOPT_PROXY.html)
-- iOS: [https://developer.apple.com/documentation/foundation/nsurlsessionconfiguration/1411499-connectionproxydictionary](https://developer.apple.com/documentation/foundation/nsurlsessionconfiguration/1411499-connectionproxydictionary)
 
-### Js
 
-The proxy configuration is unsupported by platform restrictions.
+### SOCKS proxy {id="socks_proxy"}
+
+The example below shows how to configure SOCKS proxy using `ProxyBuilder`:
+
+```kotlin
+val client = HttpClient() {
+    engine {
+        proxy = ProxyBuilder.socks(host = "sample-proxy-server", port = 1080)
+    }
+}
+```
+
+As for the HTTP proxy, on JVM you can use `Proxy` to configure proxy settings:
+
+```kotlin
+val client = HttpClient() {
+    engine {
+        proxy = Proxy(Proxy.Type.SOCKS, InetSocketAddress("sample-proxy-server", 1080))
+    }
+}
+```
+
+
+## Proxy authentication and authorization {id="proxy_auth"}
+
+Proxy authentication and authorization are engine specific and should be handled manually.
+For example, to authenticate a Ktor client to an HTTP proxy server using basic authentication, append the `Proxy-Authorization` header to [each request](default-request.md) as follows:
+
+```kotlin
+val client = HttpClient() {
+    defaultRequest {
+        val credentials = Base64.getEncoder().encodeToString("jetbrains:foobar".toByteArray())
+        header(HttpHeaders.ProxyAuthorization, "Basic $credentials")
+    }
+}
+```
+
+To authenticate a Ktor client to a SOCKS proxy on JVM, you can use the `java.net.socks.username` and `java.net.socks.password` [system properties](https://docs.oracle.com/javase/7/docs/api/java/net/doc-files/net-properties.html).
