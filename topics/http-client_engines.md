@@ -39,10 +39,10 @@ You can configure an engine using the `engine` method. All engines share several
 To learn how to configure a specific engine, see a corresponding section below.
 
 
-## JVM and Android {id="jvm-android"}
+## JVM {id="jvm"}
 In this section, we'll take a look on engines available for JVM/Android and their configurations.
 
-### Apache (JVM) {id="apache"}
+### Apache {id="apache"}
 The `Apache` engine supports HTTP/1.1 and provides multiple configuration options. To use it, follow the steps below:
 1. Add the `ktor-client-apache` dependency:
    <var name="artifact_name" value="ktor-client-apache"/>
@@ -57,7 +57,7 @@ The `Apache` engine supports HTTP/1.1 and provides multiple configuration option
    {src="snippets/_misc_client/ApacheConfig.kt" interpolate-variables="true" disable-links="false"}
 
 
-### Java (JVM) {id="java"}
+### Java {id="java"}
 The `Java` engine uses the [Java HTTP Client](https://openjdk.java.net/groups/net/httpclient/intro.html) introduced in Java 11. To use it, follow the steps below:
 1. Add the `ktor-client-java` dependency:
    <var name="artifact_name" value="ktor-client-java"/>
@@ -71,7 +71,7 @@ The `Java` engine uses the [Java HTTP Client](https://openjdk.java.net/groups/ne
    ```
    {src="snippets/_misc_client/JavaConfig.kt" interpolate-variables="true" disable-links="false"}
 
-### Jetty (JVM) {id="jetty"}
+### Jetty {id="jetty"}
 The `Jetty` engine supports only HTTP/2 and can be configured in the following way:
 1. Add the `ktor-client-jetty` dependency:
    <var name="artifact_name" value="ktor-client-jetty"/>
@@ -85,7 +85,11 @@ The `Jetty` engine supports only HTTP/2 and can be configured in the following w
    ```
    {src="snippets/_misc_client/JettyConfig.kt" interpolate-variables="true" disable-links="false"}
 
-### CIO (JVM and Android) {id="cio"}
+
+
+## JVM and Android {id="jvm-android"}
+
+### CIO {id="cio"}
 CIO is a fully asynchronous coroutine-based engine that can be used for both JVM and Android platforms. It supports only HTTP/1.x for now. To use it, follow the steps below:
 1. Add the `ktor-client-cio` dependency:
    <var name="artifact_name" value="ktor-client-cio"/>
@@ -100,7 +104,7 @@ CIO is a fully asynchronous coroutine-based engine that can be used for both JVM
    ```
    {src="snippets/_misc_client/CioConfig.kt" interpolate-variables="true" disable-links="false"}
 
-### Android (Android) {id="android"}
+### Android {id="android"}
 The `Android` engine targets Android and can be configured in the following way:
 1. Add the `ktor-client-android` dependency:
    <var name="artifact_name" value="ktor-client-android"/>
@@ -114,7 +118,7 @@ The `Android` engine targets Android and can be configured in the following way:
    ```
    {src="snippets/_misc_client/AndroidConfig.kt" interpolate-variables="true" disable-links="false"}
 
-### OkHttp (Android) {id="okhttp"}
+### OkHttp {id="okhttp"}
 The `OkHttp` engine is based on OkHttp can be configured in the following way:
 1. Add the `ktor-client-okhttp` dependency:
    <var name="artifact_name" value="ktor-client-okhttp"/>
