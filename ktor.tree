@@ -239,7 +239,7 @@
                 <toc-element id="type-safe-request.md" show-structure-depth="2"/>
                 <toc-element id="default-request.md"/>
                 <toc-element id="user-agent.md"/>
-                <toc-element id="client_retry.md"/>
+                <toc-element id="client_retry.md" show-structure-depth="2"/>
                 <toc-element id="http-send.md"/>
             </toc-element>
             <toc-element toc-title="Responses">
