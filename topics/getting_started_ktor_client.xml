@@ -201,8 +201,8 @@
             </step>
             <step>
                 <p>
-                    To make a request to a specific URL, we need to call a client's method corresponding to an HTTP verb, for example, <code>HttpClient.get</code>.
-                    A response will be received as a <code>HttpResponse</code> class object.
+                    To <a href="request.md">make a request</a> to a specific URL, we need to call a client's method corresponding to an HTTP verb, for example, <code>HttpClient.get</code>.
+                    A <a href="response.md">response</a> will be received as a <code>HttpResponse</code> class object.
                 </p>
                 <code style="block" lang="kotlin">
                     import io.ktor.client.*
@@ -233,7 +233,7 @@
             </step>
             <step>
                 <p>
-                    Finally, add <code>println</code> to print a status code returned by a server.
+                    Finally, add <code>println</code> to print a <a href="response.md" anchor="status">status code</a> returned by a server.
                     Note that you also need to release resources holding by a client using the <code>close</code> method.
                     Our <path>Application.kt</path> file should look in the following way:
                 </p>
