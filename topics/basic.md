@@ -4,10 +4,10 @@
 
 <microformat>
 <p>
-Required dependencies: <code>io.ktor:%artifact_name%</code>
+<b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <p>
-Code examples: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-basic">auth-basic</a>, <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-basic-hash-table">auth-basic-hash-table</a>
+<b>Code examples</b>: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-basic">auth-basic</a>, <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-basic-hash-table">auth-basic-hash-table</a>
 </p>
 </microformat>
 

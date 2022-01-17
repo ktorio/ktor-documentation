@@ -2,10 +2,10 @@
 
 <microformat>
 <p>
-Required dependencies: <code>io.ktor:ktor-network-tls-certificates</code>
+<b>Required dependencies</b>: <code>io.ktor:ktor-network-tls-certificates</code>
 </p>
 <p>
-Code examples: 
+<b>Code examples</b>: 
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-engine-main">ssl-engine-main</a>, 
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-embedded-server">ssl-embedded-server</a>
 </p>

@@ -2,10 +2,10 @@
 
 <microformat>
 <p>
-Required dependencies: <code>io.ktor:ktor-server-auth</code>, <code>io.ktor:ktor-server-auth-jwt</code>
+<b>Required dependencies</b>: <code>io.ktor:ktor-server-auth</code>, <code>io.ktor:ktor-server-auth-jwt</code>
 </p>
 <p>
-Code examples: 
+<b>Code examples</b>: 
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-jwt-hs256">auth-jwt-hs256</a>, 
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-jwt-rs256">auth-jwt-rs256</a>
 </p>

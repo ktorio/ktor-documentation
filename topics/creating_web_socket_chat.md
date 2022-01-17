@@ -4,7 +4,7 @@
 <var name="example_name" value="tutorial-websockets-server"/>
 <include src="lib.xml" include-id="download_example"/>
 <p>
-Used plugins: <a href="Routing_in_Ktor.md">Routing</a>, <a href="websocket.md">WebSockets</a>
+<b>Used plugins</b>: <a href="Routing_in_Ktor.md">Routing</a>, <a href="websocket.md">WebSockets</a>
 </p>
 </microformat>
 

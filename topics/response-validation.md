@@ -1,7 +1,7 @@
 [//]: # (title: Response validation)
 
 <microformat>
-<p>Code examples:
+<p><b>Code examples</b>:
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-validate-response">client-validate-response</a>,
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-customize-default-validation">client-customize-default-validation</a>
 </p>

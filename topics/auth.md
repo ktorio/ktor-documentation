@@ -2,7 +2,7 @@
 
 <microformat>
 <p>
-Required dependencies: <code>io.ktor:ktor-client-auth</code>
+<b>Required dependencies</b>: <code>io.ktor:ktor-client-auth</code>
 </p>
 </microformat>
 

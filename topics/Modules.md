@@ -2,7 +2,7 @@
 
 <microformat>
 <p>
-Code examples: 
+<b>Code examples</b>: 
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server-modules">embedded-server-modules</a>, 
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main-modules">engine-main-modules</a>
 </p>

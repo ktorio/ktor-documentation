@@ -2,7 +2,7 @@
 
 <microformat>
 <p>
-Required dependencies: <code>io.ktor:ktor-client-websockets</code>
+<b>Required dependencies</b>: <code>io.ktor:ktor-client-websockets</code>
 </p>
 <var name="example_name" value="client-websockets"/>
 <include src="lib.xml" include-id="download_example"/>

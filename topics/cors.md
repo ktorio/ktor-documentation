@@ -5,10 +5,10 @@
 
 <microformat>
 <p>
-Required dependencies: <code>io.ktor:%artifact_name%</code>
+<b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <p>
-Code examples: 
+<b>Code examples</b>: 
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/cors-backend">cors-backend</a>, 
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/cors-frontend">cors-frontend</a>
 </p>

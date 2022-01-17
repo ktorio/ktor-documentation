@@ -3,7 +3,7 @@
 
 <microformat>
 <p>
-Required dependencies: <code>io.ktor:ktor-server-metrics-micrometer</code>
+<b>Required dependencies</b>: <code>io.ktor:ktor-server-metrics-micrometer</code>
 </p>
 <var name="example_name" value="micrometer-metrics"/>
 <include src="lib.xml" include-id="download_example"/>

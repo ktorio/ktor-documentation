@@ -5,7 +5,7 @@
 
 <microformat>
 <p>
-Required dependencies: <code>io.ktor:%artifact_name%</code>
+<b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="ssl-engine-main"/>
 <include src="lib.xml" include-id="download_example"/>

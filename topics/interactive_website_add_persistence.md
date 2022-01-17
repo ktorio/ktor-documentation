@@ -4,7 +4,7 @@
 <var name="example_name" value="tutorial-website-interactive-persistence"/>
 <include src="lib.xml" include-id="download_example"/>
 <p>
-Used libraries: <a href="https://github.com/JetBrains/Exposed">Exposed</a>, <a href="https://github.com/h2database/h2database">h2database</a>
+<b>Used libraries</b>: <a href="https://github.com/JetBrains/Exposed">Exposed</a>, <a href="https://github.com/h2database/h2database">h2database</a>
 </p>
 </microformat>
 

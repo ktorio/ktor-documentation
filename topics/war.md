@@ -2,7 +2,7 @@
 
 <microformat>
 <p>
-Code examples: 
+<b>Code examples</b>: 
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/jetty-war">jetty-war</a>, 
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/tomcat-war">tomcat-war</a>
 </p>

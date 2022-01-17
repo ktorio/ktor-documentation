@@ -2,7 +2,7 @@
 
 <microformat>
 <p>
-Required dependencies: <code>io.ktor:ktor-server-auth</code>, <code>io.ktor:ktor-server-sessions</code>
+<b>Required dependencies</b>: <code>io.ktor:ktor-server-auth</code>, <code>io.ktor:ktor-server-sessions</code>
 </p>
 <var name="example_name" value="auth-form-session"/>
 <include src="lib.xml" include-id="download_example"/>
