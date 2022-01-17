@@ -61,7 +61,11 @@ To respond to a client with a contents of a file, use the [call.respondFile](htt
 ```
 {src="/snippets/download-file/src/main/kotlin/com/example/DownloadFile.kt" include-symbol="main"}
 
-To learn how to run this sample, see [download-file](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/download-file).
+Note that this sample has two plugins installed:
+- [PartialContent](partial-content.md) enables the server to respond to requests with the `Range` header and send only a portion of content.
+- [AutoHeadResponse](autoheadresponse.md) provides the ability to automatically respond to `HEAD` request for every route that has a `GET` defined. This allows the client application to determine the file size by reading the `Content-Length` header value.
+
+To learn how to run the sample, see [download-file](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/download-file).
 
 
 ### Raw payload {id="raw"}
