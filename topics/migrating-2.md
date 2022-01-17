@@ -237,6 +237,30 @@ To build `multipart/form-data` in v2.0.0, you need to pass `MultiPartFormDataCon
 </tabs>
 
 
+#### JSON data {id="json-data"}
+
+In v.1.6.x, you can serialize JSON data using the `Json.encodeToString` function provided by the `kotlinx.serialization` library.
+With v2.0.0, you need to create a new client instance and install the [ContentNegotiation](serialization-client.md) plugin that allows serializing/deserializing the content in a specific format:
+
+
+<tabs group="ktor_versions">
+<tab title="1.6.x" group-key="1_6">
+
+```kotlin
+```
+{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" lines="46-55"}
+
+</tab>
+<tab title="2.0.0" group-key="2_0">
+
+```kotlin
+```
+{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" lines="31-44"}
+
+</tab>
+</tabs>
+
+
 #### Preserve cookies during testing {id="preserving-cookies"}
 
 In v1.6.x, `cookiesSession` is used to preserve cookies between requests when testing. With v2.0.0, you need to create a new client instance and install the [HttpCookies](http-cookies.md) plugin:

@@ -9,6 +9,7 @@ Code examples:
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main">engine-main</a>, 
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/post-form-parameters">post-form-parameters</a>,
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/upload-file">upload-file</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/json-kotlinx">json-kotlinx</a>,
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/session-cookie-client">session-cookie-client</a>,
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/server-websockets">server-websockets</a>
 </p>
@@ -64,13 +65,14 @@ The code below demonstrates how to test the most simple Ktor application that ac
 
 The runnable code example is available here: [engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main).
 
+## Test POST/PUT requests {id="test-post-put"}
 
-## Send form data {id="form-data"}
+### Send form data {id="form-data"}
 
 To send form data in a test POST/PUT request, you need to set the `Content-Type` header and specify the request body. To do this, you can use 
  the [header](request.md#headers) and [setBody](request.md#body) functions, respectively. The examples below show how to send form data using both `x-www-form-urlencoded` and `multipart/form-data` types.
 
-### x-www-form-urlencoded {id="x-www-form-urlencoded"}
+#### x-www-form-urlencoded {id="x-www-form-urlencoded"}
 
 A test below from the [post-form-parameters](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/post-form-parameters) example shows how to make a test request with form parameters sent using the `x-www-form-urlencoded` content type. Note that the [formUrlEncode](https://api.ktor.io/ktor-http/io.ktor.http/form-url-encode.html) function is used to encode form parameters from a list of key/value pairs.
 
@@ -93,7 +95,7 @@ A test below from the [post-form-parameters](https://github.com/ktorio/ktor-docu
 </tabs>
 
 
-### multipart/form-data {id="multipart-form-data"}
+#### multipart/form-data {id="multipart-form-data"}
 
 The code below demonstrates how to build `multipart/form-data` and test file uploading. You can find the full example here: [upload-file](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/upload-file).
 
@@ -115,6 +117,28 @@ The code below demonstrates how to build `multipart/form-data` and test file upl
 </tab>
 </tabs>
 
+
+### Send JSON data {id="json-data"}
+
+To send JSON data in a test POST/PUT request, you need create a new client and install the [ContentNegotiation](serialization-client.md) plugin that allows serializing/deserializing the content in a specific format. Inside a request, you can specify the `Content-Type` header using the `contentType` function and the request body using [setBody](request.md#body). The [example below](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/json-kotlinx) shows how to test the `/customer` endpoint that handles `POST` requests.
+
+<tabs>
+<tab title="Test">
+
+```kotlin
+```
+{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" lines="3-14,31-44,56"}
+
+</tab>
+
+<tab title="Application">
+
+```kotlin
+```
+{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="3-16,25-31,38-44"}
+
+</tab>
+</tabs>
 
 
 
@@ -142,7 +166,7 @@ If you need to preserve cookies between requests when testing, you need create a
 </tabs>
 
 
-## Testing WebSockets {id="testing-ws"}
+## Test WebSockets {id="testing-ws"}
 
 You can test [WebSocket conversations](websocket.md) by using the [WebSockets](websocket_client.md) plugin provided by the client:
 
