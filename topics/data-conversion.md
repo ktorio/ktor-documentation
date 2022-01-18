@@ -102,16 +102,18 @@ val dataConversion = call.conversionService
 
 ```kotlin
 interface ConversionService {
-    fun fromValues(values: List<String>, type: Type): Any?
-    fun toValues(value: Any?): List<String>
+
+  fun fromValues(values: List<String>, type: TypeInfo): Any?
+  fun toValues(value: Any?): List<String>
 }
 ```
 {id="ConversionService"}
 
 ```kotlin
-class DelegatingConversionService(private val klass: KClass<*>) : ConversionService {
-    fun decode(converter: (values: List<String>, type: Type) -> Any?)
-    fun encode(converter: (value: Any?) -> List<String>)
+class DelegatingConversionService(private val klass: KClass<*>, private val decoder: ((values: List<String>) -> Any?)?, private val encoder: ((value: Any?) -> List<String>)?) : ConversionService {
+
+  fun fromValues(values: List<String>, type: TypeInfo): Any?
+  fun toValues(value: Any?): List<String>
 }
 ```
 {id="DelegatingConversionService"}
