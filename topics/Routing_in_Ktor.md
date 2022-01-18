@@ -63,7 +63,7 @@ In summary, you need to specify the following settings to define a route:
   Choose the HTTP verb, such as `GET`, `POST`, `PUT`, and so on. The most convenient way is to use a dedicated verb function, such as `get`, `post`, `put`, and so on.
 
 * **Path pattern**  
-  Specify a path pattern used to [match a URL path](#match_url), for example, `/hello`, `/customer/{id}`. You can pass a path pattern right to the `get`/`post`/etc. function, or you can use the `route` function to group [route handlers](#multiple_routes) and define nested routes.
+  Specify a path pattern used to [match a URL path](#match_url), for example, `/hello`, `/customer/{id}`. You can pass a path pattern right to the `get`/`post`/etc. function, or you can use the `route` function to group [route handlers](#multiple_routes) and define [nested routes](#nested_routes).
   
 * **Handler**  
   Specify how to handle [requests](requests.md) and [responses](responses.md). Inside the handler, you can get access to `ApplicationCall`, handle client requests, and send responses.
@@ -119,6 +119,8 @@ To access path segments' values inside the route handler, use `call.parameters.g
 
 ## Define multiple route handlers {id="multiple_routes"}
 
+### Group routes by verb functions {id="group_by_verb"}
+
 If you want to define multiple route handlers, which of course is the case for any application, you can just add them to the `routing` function:
 
 ```kotlin
@@ -137,6 +139,8 @@ routing {
 
 In this case, each route has its own function and responds to the specific endpoint and HTTP verb.
 
+### Group routes by paths {id="group_by_path"}
+
 An alternative way is to group these by paths, whereby you define the path and then place the verbs for that path as nested functions, using the `route` function:
 
 ```kotlin
@@ -153,7 +157,11 @@ routing {
 }
 ```
 
-Independently of how you do the grouping, Ktor also allows you to have sub-routes as parameters to `route` functions. The following example shows us how to respond to incoming requests to `/order/shipment`:
+### Nested routes {id="nested_routes"}
+
+Independently of how you do the grouping, Ktor also allows you to have sub-routes as parameters to `route` functions. 
+This can be useful to define resources that are logically children of other resources.
+The following example shows us how to respond to `GET` and `POST` requests to `/order/shipment`:
 
 ```kotlin
 routing {
@@ -170,8 +178,10 @@ routing {
 }
 ```
 
+So, each `route` call generates a separate path segment.
 
 
+A path pattern passed to the [routing](#define_route) functions (`route`, `get`, `post`, etc.) is used to match a _path_ component of the URL. A path can contain a sequence of path segments separated by a slash `/` character.
 
 ## Route extension functions {id="route_extension_function"}
 
