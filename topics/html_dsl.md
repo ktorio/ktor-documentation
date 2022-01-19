@@ -48,7 +48,7 @@ In addition to generating plain HTML, Ktor provides a template engine that can b
     
 
 ### Example {id="example"}
-Let's see the example of how to create a hierarchical layout using templates. Imagine we have the following HTML:
+Let's see on the [example](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/html-templates) of how to create a hierarchical layout using templates. Imagine we have the following HTML:
 ```html
 <body>
 <h1>Ktor</h1>
@@ -65,68 +65,34 @@ We can split the layout of this page into two parts:
 Let's implement these layouts step-by-step:
   
 1. Call the `respondHtmlTemplate` method and pass a template class as a parameter. In our case, this is the `LayoutTemplate` class that should implement the `Template` interface:
-```kotlin
-get("/") {
-    call.respondHtmlTemplate(LayoutTemplate()) {
-        // ...
-    }
-}
-```
-Inside the block, we will be able to access a template and specify its property values. These values will substitute placeholders specified in a template class. We'll create `LayoutTemplate` and define its properties in the next step.
+   ```kotlin
+   get("/") {
+       call.respondHtmlTemplate(LayoutTemplate()) {
+           // ...
+       }
+   }
+   ```
+   Inside the block, we will be able to access a template and specify its property values. These values will substitute placeholders specified in a template class. We'll create `LayoutTemplate` and define its properties in the next step.
   
 2. A root layout template will look in the following way:
-```kotlin
-class LayoutTemplate: Template<HTML> {
-    val header = Placeholder<FlowContent>()
-    val content = TemplatePlaceholder<ContentTemplate>()
-    override fun HTML.apply() {
-        body {
-            h1 {
-                insert(header)
-            }
-            insert(ContentTemplate(), content)
-        }
-    }
-}
-```
-The class exposes two properties:
-* The `header` property specifies a content inserted within the `h1` tag.
-* The `content` property specifies a child template for article content.
+   ```kotlin
+   ```
+   {src="snippets/html-templates/src/main/kotlin/com/example/Application.kt" lines="30-41"}
+
+   The class exposes two properties:
+   * The `header` property specifies a content inserted within the `h1` tag.
+   * The `content` property specifies a child template for article content.
 
 3. A child template will look as follows:
-```kotlin
-class ContentTemplate: Template<FlowContent> {
-    val articleTitle = Placeholder<FlowContent>()
-    val articleText = Placeholder<FlowContent>()
-    override fun FlowContent.apply() {
-        article {
-            h2 {
-                insert(articleTitle)
-            }
-            p {
-                insert(articleText)
-            }
-        }
-    }
-}
-```
-This template exposes the `articleTitle` and `articleText` properties, whose values will be inserted inside the `article`.
+   ```kotlin
+   ```
+   {src="snippets/html-templates/src/main/kotlin/com/example/Application.kt" lines="43-56"}
+
+   This template exposes the `articleTitle` and `articleText` properties, whose values will be inserted inside the `article`.
 
 4. Now we are ready to send HTML built using the specified property values:
-```kotlin
-get("/") {
-    call.respondHtmlTemplate(LayoutTemplate()) {
-        header {
-            +"Ktor"
-        }
-        content {
-            articleTitle {
-                +"Hello from Ktor!"
-            }
-            articleText {
-                +"Kotlin Framework for creating connected systems."
-            }
-        }
-    }
-}
-```
+   ```kotlin
+   ```
+   {src="snippets/html-templates/src/main/kotlin/com/example/Application.kt" lines="12-26"}
+
+You can find the full example here: [html-templates](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/html-templates).
