@@ -127,7 +127,7 @@ For our case, a customer should store some basic information in the form of text
 
 ### Create the Customer storage {id="customer_storage"}
 
-To not complicate the code, for this tutorial, we'll be using an in-memory storage (i.e. a mutable list of `Customer`s) – in a real application, we would be storing this information in a database so that it doesn't get lost after restarting our application. We can simply add this line to the top level of the `Customer.kt` file:
+To not complicate the code, for this tutorial, we'll be using an in-memory storage (i.e. a mutable list of `Customer`s) – in a real application, we would be storing this information in a database so that it doesn't get lost after restarting our application. We can add this line right after the data class declaration in `Customer.kt` file:
 
 ```kotlin
 ```
