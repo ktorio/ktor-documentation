@@ -64,7 +64,7 @@ and then  native implementation (statically linked BoringSSL library, a fork of 
 
 ```kotlin
 ```
-{src="snippets/http2-netty/build.gradle.kts" lines="35-36"}
+{src="snippets/http2-netty/build.gradle.kts" lines="35-39"}
 
 where `tc.native.classifier` should be one of the following: `linux-x86_64`, `osx-x86_64` or `windows-x86_64`. The [http2-netty](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/http2-netty) runnable example demonstrates how to enable HTTP/2 support for Netty.
 
