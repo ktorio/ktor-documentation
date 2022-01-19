@@ -9,14 +9,15 @@ fun Application.module() {
     routing {
         static("/") {
             staticRootFolder = File("files")
+            file("index.html")
             default("index.html")
-            static("assets") {
-                files("css")
-                files("js")
-            }
             static("images") {
                 file("ktor_logo.png")
                 file("image.png", "ktor_logo.png")
+            }
+            static("assets") {
+                files("css")
+                files("js")
             }
         }
     }
