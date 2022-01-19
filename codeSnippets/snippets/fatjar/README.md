@@ -1,6 +1,6 @@
 # Fat JAR
 
-A sample Ktor project configured for generating a fat JAR using the [Gradle Shadow plugin](https://ktor.io/docs/eap/fatjar.html).
+A sample Ktor project configured for generating a fat JAR using the [Gradle Shadow plugin](https://ktor.io/docs/fatjar.html).
 
 ## Build a Fat JAR
 

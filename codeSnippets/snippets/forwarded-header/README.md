@@ -1,6 +1,6 @@
 # XForwardedHeaderSupport
 
-A sample Ktor project showing how to use the [XForwardedHeaderSupport](https://ktor.io/docs/eap/forward-headers.html) plugin to get information about the original request.
+A sample Ktor project showing how to use the [XForwardedHeaderSupport](https://ktor.io/docs/forward-headers.html) plugin to get information about the original request.
 
 ## Running
 

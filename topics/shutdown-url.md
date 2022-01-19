@@ -1,37 +1,32 @@
 [//]: # (title: Shutdown URL)
 
-<include src="lib.xml" include-id="outdated_warning"/>
+<microformat>
+<var name="example_name" value="shutdown-url"/>
+<include src="lib.xml" include-id="download_example"/>
+</microformat>
 
-This plugin enables a URL that when accessed, shutdowns the server.
+The `ShutDownUrl` plugin allows you to configure a URL used to shut down the server. 
+There are two ways to enable this plugin: 
+- In a [HOCON](#hocon) configuration file.
+- By [installing the plugin](#install).
 
-There are two ways to use it: [Automatically using HOCON](#hocon) and [Installing the plugin](#install)
 
 
+## Configure shutdown URL in HOCON {id="hocon"}
 
-## Automatically using HOCON
-{id="hocon"}
-
-You can configure a shutdown URL using HOCON with the 
-[ktor.deployment.shutdown.url](Configurations.xml#predefined-properties) property.
-
-```kotlin
-ktor {
-    deployment {
-        shutdown.url = "/my/shutdown/path"
-    }
-}
-```
-
-## Installing the plugin
-{id="install"}
-
-You can manually install the plugin, with `ShutDownUrl.ApplicationCallPlugin` and set the `shutDownUrl` and an `exitCodeSupplier`:
+You can configure a shutdown URL in a [HOCON](Configurations.xml#hocon-file) configuration file using the [ktor.deployment.shutdown.url](Configurations.xml#predefined-properties) property.
 
 ```kotlin
-install(ShutDownUrl.ApplicationCallPlugin) {
-    // The URL that will be intercepted
-    shutDownUrl = "/ktor/application/shutdown"
-    // A function that will be executed to get the exit code of the process
-    exitCodeSupplier = { 0 } // ApplicationCall.() -> Int
-}
 ```
+{src="snippets/shutdown-url/src/main/resources/application.conf" lines="1-2,4-5,9"}
+
+## Configure shutdown URL by installing the plugin {id="install"}
+
+To [install](Plugins.md#install) and configure shutdown URL in code, pass `ShutDownUrl.ApplicationCallPlugin` to the `install` function and use the `shutDownUrl` property:
+
+```kotlin
+```
+{src="snippets/shutdown-url/src/main/kotlin/com/example/Application.kt" lines="11-14"}
+
+
+You can find the full example here: [shutdown-url](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/shutdown-url).
