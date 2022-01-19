@@ -1,8 +1,10 @@
 [//]: # (title: Serving static content)
 
 <microformat>
-<var name="example_name" value="static-content"/>
-<include src="lib.xml" include-id="download_example"/>
+<p><b>Code examples</b>:
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/static-files">static-files</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/static-resources">static-resources</a>
+</p>
 </microformat>
 
 <excerpt>
@@ -27,85 +29,56 @@ routing {
 
 The next step is to define where we want the content to be served from, which can be either
 
-* [A folder](Serving_Static_Content.md#folders) 
-* [Embedded application resources](Serving_Static_Content.md#embedded-application-resources)
+* [A folder](#folders) 
+* [Embedded application resources](#resources)
 
-## Folders
+## Folders {id="folders"}
 
-In order to serve the contents from a folder, we need to specify the folder name using the `files` function. The path is **always relative to the application path**:
+### Serve content from a folder {id="serve-folder"}
 
-```kotlin
-routing {
-    static("assets") {
-        files("css")
-    }
-}
-```
-
-`files("css")` would then allow for any file located in the folder `css` to be served as static content under the given
-URL pattern, which in this case is `assets`. This means that a request to
-
-`/assets/stylesheet.css` would serve the file `/css/stylesheet.css` 
-
-We can have as many folders as we like under a single path. For instance the following would also be valid:
+In order to serve the contents from a folder, you need to specify the folder name using the `files` function. The path is always relative to the application path:
 
 ```kotlin
-routing {
-    static("assets") {
-        files("css")
-        files("js")
-    }
-}
 ```
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" lines="13-16"}
 
-### Serving individual files
+`files("css")` would then allow for any file located in the `css` folder to be served as static content under the given URL pattern, which in this case is `assets`. 
+This means that a request to `/assets/stylesheet.css` would serve the file `/css/stylesheet.css` 
+
+
+### Serve individual files {id="serve-individual-files"}
 
 In addition to serving files from folders, we can also specify individuals files we would like to make available by 
 using the `file` function. Optionally this takes a second argument which allows us to map a physical filename to a virtual one:
 
 ```kotlin
-routing {
-    static("static") {
-        file("image.png")
-        file("random.txt", "image.png")
-    }
-}
 ```
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" lines="17-20"}
 
-### Serving all files including in subfolders
-The `file` function can also take the string `"."`, which will serve up any file as long as the request path and physical filename match.
+In the example above, the `ktor_logo.png` image is served for requests to the following paths:
+- `/images/ktor_logo.png`
+- `/images/image.png`
 
-```kotlin
-routing {
-    static("static") {
-        file(".")
-    }
-}
-```
 
-### Defining a default file
+### Define a default file {id="define-default-file"}
 
 For a specific path, we can also define the default file to be loaded:
 
 ```kotlin
-routing {
-    static("assets") {
-        files("css")
-        default("index.html")
-    }
-}
 ```
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" lines="10,12,21"}
  
-which would cause a request to `/assets` to serve `index.html`. 
+which would cause a request to `/` to serve `index.html`. 
 
-### Serving pre-compressed files {id="precompressed"}
+### Serve pre-compressed files {id="precompressed"}
 
 Ktor provides the ability to serve pre-compressed files and avoid using [dynamic compression](compression.md). 
-For example, to serve pre-compressed files from the `assets/html` folder, call `files` inside the `preCompressed` function in the following way:
+For example, to serve pre-compressed files from the `css` and `js` folders, call `files` inside the `preCompressed` function in the following way:
 ```kotlin
-static("static") {
+static("assets") {
     preCompressed {
-        files("assets/html")
+        files("css")
+        files("js")
     }
 }
 ```
@@ -113,17 +86,18 @@ You can also raise the priority of one compression type over another.
 In the example below, Ktor tries to serve `*.br` files over `*.gz`:
 
 ```kotlin
-static("static") {
+static("assets") {
     preCompressed(CompressedFileType.BROTLI, CompressedFileType.GZIP) {
-        files("assets/html")
+        files("css")
+        files("js")
     }
 }
 ```
-For example, for a request made to `/static/index.html` Ktor tries to serve `assets/html/index.html.br` first.
+For example, for a request made to `/assets/script.js` Ktor tries to serve `js/script.js.br` first.
 
 
 
-### Changing the default root folder
+### Change the default root folder {id="default-folder"}
 
 Ktor also provides us the ability to specify a different root folder from where contents is served. This is useful for instance
 if we want to dynamically define where contents should be served from, or even use absolute paths.
@@ -131,15 +105,14 @@ if we want to dynamically define where contents should be served from, or even u
 We can do this by setting the value of the `staticRootFolder` property: 
 
 ```kotlin
-static("docs") {
-    staticRootFolder = File("/system/folder/docs")
-    files("public")
-}
 ```
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" lines="10-11,21"}
 
-which would then map any request to `/docs` to the physical folder `/system/folder/docs/public`.
+which would then map any request to `/` to the `/files` physical folder.
 
-## Embedded Application Resources
+## Embedded application resources {id="resources"}
+
+### Serve content from a resource folder {id="serve-resources"}
 
 We can embed content as resources in our applications and serve these using the `resource` and `resources` functions:
 
@@ -231,11 +204,11 @@ is defined in the `mimelist.csv` resource file located in `ktor-server-core` art
 
 ## Example 
 
-An example application that serves static files using both folders and resources can be found below:
+Example applications that serve static files using both folders and resources can be found below:
 
 ```kotlin
 ```
-{src="snippets/static-content/src/main/kotlin/com/example/StaticContentApplication.kt"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt"}
 
 
 
