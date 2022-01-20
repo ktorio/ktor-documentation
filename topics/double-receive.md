@@ -7,12 +7,13 @@
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
+<var name="example_name" value="double-receive"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-<include src="lib.xml" include-id="outdated_warning"/>
-
-The `%plugin_name%` plugin provides the ability to invoke `ApplicationCall.receive` several times with no `RequestAlreadyConsumedException` exception. This usually makes sense when a plugin is consuming a request body
-so a handler is unable to receive it again.
+The `%plugin_name%` plugin provides the ability to [receive a request body](requests.md#body_contents) several times with no `RequestAlreadyConsumedException` exception.
+This might be useful if a [plugin](Plugins.md) is already consumed a request body, so you cannot receive it inside a route handler.
+For example, you can use `%plugin_name%` to log a request body using the [CallLogging](call-logging.md) plugin and then receive a body one more time inside the `post` [route handler](Routing_in_Ktor.md#define_route).
 
 > The `%plugin_name%` plugin use an experimental API that is expected to evolve in the upcoming updates with potentially breaking changes.
 >
@@ -23,22 +24,35 @@ so a handler is unable to receive it again.
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
-## Usage
+## Install %plugin_name% {id="install_plugin"}
 
 <include src="lib.xml" include-id="install_plugin"/>
 
-After that you can receive from a call multiple times and every invocation may return the same instance.
+After that, you can [receive a request body](requests.md#body_contents) several times and every invocation returns the same instance.
+For example, call logging:
 
 ```kotlin
-val first = call.receiveText()
-val theSame = call.receiveText()
 ```
+{src="snippets/double-receive/src/main/kotlin/com/example/Application.kt" lines="17-24"}
 
->Not every content could be received twice. For example, a stream or a channel can't be received twice unless `receiveEntireContent` option is enabled.
->
-{type="note"}
+Route handler:
 
-Types that could be always received twice with this plugin are: `ByteArray`, `String` and `Parameters` and all types provided by [ContentNegotiation](serialization.md) plugin (for example, objects deserialized from JSON payloads).
+```kotlin
+```
+{src="snippets/double-receive/src/main/kotlin/com/example/Application.kt" lines="26-29"}
+
+## Supported content types {id="content_types"}
+
+Types that could be always received twice with this plugin are: 
+- `ByteArray` 
+- `String`
+- `Parameters` 
+- [types](serialization.md#create_data_class) provided by the `ContentNegotiation` plugin
+
+Not every content could be received twice.
+For example, a [stream or channel](requests.md#raw) can't be received twice unless `receiveEntireContent` option is enabled.
+
+`receiveEntireContent` When enabled, for every request the whole content will be received and stored as a byte array. This is useful when completely different types need to be received. You also can receive streams and channels. Note that enabling this causes the whole receive pipeline to be executed for every further receive pipeline.
 
 Receiving different types from the same call is not guaranteed to work without `receiveEntireContent` but may work in some specific cases. For example, receiving a text after receiving a byte array always works.
 
@@ -47,21 +61,8 @@ When `receiveEntireContent` is enabled, then receiving different types should al
 
 Comparison:
 
-| receiveEntireContent |same type|different type|channel|
-|---------:|:-------:|:------------:|:------|
-| enabled  |re-run   |yes, re-run    | yes   |
-| disabled |cached same instance|generally no|no|
-{ .styled-table}
+| receiveEntireContent |      same type       | different type | channel |
+|---------------------:|:--------------------:|:--------------:|:--------|
+|              enabled |        re-run        |  yes, re-run   | yes     |
+|             disabled | cached same instance |  generally no  | no      |
 
-## Custom types
-
-If a custom content transformation is installed (for example, by intercepting receive pipeline), then a transformed value couldn't be re-received without `receiveEntireContent` option by default. However, it is possible to mark a transformed value object as reusable by specifying `reusableValue` option:
-
-```kotlin
-val converted = .... // convert somehow from a request payload
-proceedWith(ApplicationReceiveRequest(receive.typeInfo, converted, reusableValue = true))
-```
-
-## Options
-
-- `receiveEntireContent` When enabled, for every request the whole content will be received and stored as a byte array. This is useful when completely different types need to be received. You also can receive streams and channels. Note that enabling this causes the whole receive pipeline to be executed for every further receive pipeline.
