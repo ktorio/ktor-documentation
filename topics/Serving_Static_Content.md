@@ -25,10 +25,10 @@ routing {
 }
 ```
 
-The next step is to define where we want the content to be served from, which can be either
+The next step is to define where we want the content to be served from:
 
-* [A folder](#folders) 
-* [Embedded application resources](#resources)
+* [Folders](#folders) - describes how to serve static files from a local filesystem. In this case, relative paths are resolved using the current working directory.
+* [Embedded application resources](#resources) - describes how to serve static files from the classpath.
 
 ## Folders {id="folders"}
 
