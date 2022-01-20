@@ -15,7 +15,7 @@
 Ktor provides a mechanism to create routes in a typed way, for both:
 constructing URLs and reading the parameters.
 
-> The `Locations` plugin use an experimental API that is expected to evolve in the upcoming updates with potentially breaking changes.
+> The `Locations` plugin uses an experimental API that is expected to evolve in the upcoming updates with potentially breaking changes.
 > Note starting with v2.0.0, the recommended way to implement type-safe routing is the [Resources](type-safe-routing.md) plugin.
 >
 {type="note"}

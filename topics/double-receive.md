@@ -15,7 +15,7 @@ The `%plugin_name%` plugin provides the ability to [receive a request body](requ
 This might be useful if a [plugin](Plugins.md) is already consumed a request body, so you cannot receive it inside a route handler.
 For example, you can use `%plugin_name%` to log a request body using the [CallLogging](call-logging.md) plugin and then receive a body one more time inside the `post` [route handler](Routing_in_Ktor.md#define_route).
 
-> The `%plugin_name%` plugin use an experimental API that is expected to evolve in the upcoming updates with potentially breaking changes.
+> The `%plugin_name%` plugin uses an experimental API that is expected to evolve in the upcoming updates with potentially breaking changes.
 >
 {type="note"}
 
@@ -29,40 +29,36 @@ For example, you can use `%plugin_name%` to log a request body using the [CallLo
 <include src="lib.xml" include-id="install_plugin"/>
 
 After that, you can [receive a request body](requests.md#body_contents) several times and every invocation returns the same instance.
-For example, call logging:
+For example, you can enable logging of a request body using the [CallLogging](call-logging.md) plugin...
 
 ```kotlin
 ```
 {src="snippets/double-receive/src/main/kotlin/com/example/Application.kt" lines="17-24"}
 
-Route handler:
+... and then get a request body one more time inside a route handler.
 
 ```kotlin
 ```
 {src="snippets/double-receive/src/main/kotlin/com/example/Application.kt" lines="26-29"}
 
-## Supported content types {id="content_types"}
+You can find the full example here: [double-receive](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/double-receive).
 
-Types that could be always received twice with this plugin are: 
+
+## Configure %plugin_name% {id="configure"}
+With the default configuration, `%plugin_name%` provides the ability to [receive a request body](requests.md#body_contents) as the following types:
+
 - `ByteArray` 
 - `String`
 - `Parameters` 
-- [types](serialization.md#create_data_class) provided by the `ContentNegotiation` plugin
+- [data classes](serialization.md#create_data_class) used by the `ContentNegotiation` plugin
 
-Not every content could be received twice.
-For example, a [stream or channel](requests.md#raw) can't be received twice unless `receiveEntireContent` option is enabled.
+By default, `%plugin_name%` doesn't support:
 
-`receiveEntireContent` When enabled, for every request the whole content will be received and stored as a byte array. This is useful when completely different types need to be received. You also can receive streams and channels. Note that enabling this causes the whole receive pipeline to be executed for every further receive pipeline.
+- receiving different types from the same request
+- receiving a [stream or channel](requests.md#raw)
 
-Receiving different types from the same call is not guaranteed to work without `receiveEntireContent` but may work in some specific cases. For example, receiving a text after receiving a byte array always works.
+To overcome these limitations, set the `receiveEntireContent` property to `true`:
 
-When `receiveEntireContent` is enabled, then receiving different types should always work. Also double receive of a channel or stream works as well. However,
-`receive` executes the whole receive pipeline from the beginning so all content transformations and converters are executed every time that may be slower than with the option disabled.
-
-Comparison:
-
-| receiveEntireContent |      same type       | different type | channel |
-|---------------------:|:--------------------:|:--------------:|:--------|
-|              enabled |        re-run        |  yes, re-run   | yes     |
-|             disabled | cached same instance |  generally no  | no      |
-
+```kotlin
+```
+{src="snippets/double-receive/src/main/kotlin/com/example/Application.kt" lines="14-16"}
