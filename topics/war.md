@@ -4,7 +4,8 @@
 <p>
 <b>Code examples</b>: 
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/jetty-war">jetty-war</a>, 
-<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/tomcat-war">tomcat-war</a>
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/tomcat-war">tomcat-war</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/tomcat-war">tomcat-war-ssl</a>
 </p>
 </microformat>
 
@@ -30,7 +31,8 @@ Ktor allows you to [create and start a server](create_server.xml) with the desir
 
 In contrast to the approach above, a servlet container should control the application lifecycle and connection settings. Ktor provides a special [ServletApplicationEngine](https://api.ktor.io/ktor-server/ktor-server-servlet/io.ktor.server.servlet/-servlet-application-engine/index.html) engine that delegates control over your application to a servlet container.
 
-> Note that [connection and SSL settings](Configurations.xml#hocon-file) are not in effect when a Ktor application is deployed inside a servlet container.
+> Note that [connection and SSL settings](Configurations.xml#hocon-file) are not in effect when a Ktor application is deployed inside a servlet container. 
+> The [tomcat-war-ssl](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/tomcat-war-ssl) sample demonstrates how to configure SSL in Tomcat.
 
 
 

@@ -1,6 +1,6 @@
 # Tomcat WAR
 
-A sample Ktor project running as a [WAR](https://ktor.io/docs/war.html) application under [Tomcat](https://tomcat.apache.org) application server.
+A sample Ktor project running as a [WAR](https://ktor.io/docs/war.html) application under the [Tomcat](https://tomcat.apache.org) application server.
 
 ## Running
 
