@@ -31,7 +31,7 @@ Unlike regular HTTP requests, WebSocket connections can be kept open for a long 
 
 WebSockets are also a widely supported technology. All modern browsers can work with WebSockets out of the box, and frameworks to work with WebSockets exist in many programming languages and on many platforms.
 
-Now that we have confidence in the technology we want to use for the implementation of our project, let’s start with the set-up!
+Now that we have confidence in the technology we want to use for the implementation of our project, let's start with the set-up!
 
 
 ## Prerequisites {id="prerequisites"}
@@ -129,7 +129,7 @@ This module, in turn, calls the following extension functions:
 
 ### Implement an echo server {id="implement_echo_server"}
 
-Let’s start our server development journey by building a small “echo” service which accepts WebSocket connections, receives text content, and sends it back to the client. We can implement this service with Ktor by adding the following implementation for `Application.configureSockets()` to `plugins/Sockets.kt`:
+Let's start our server development journey by building a small “echo” service which accepts WebSocket connections, receives text content, and sends it back to the client. We can implement this service with Ktor by adding the following implementation for `Application.configureSockets()` to `plugins/Sockets.kt`:
 
 ```kotlin
 import io.ktor.websocket.*
@@ -182,7 +182,7 @@ With this, we now have a solid foundation for bidirectional communication throug
 
 ## Exchange messages {id="messages"}
 
-Let’s turn our echo server into a real chat server! To do this, we need to make sure messages from the same user are all tagged with the same username. Also, we want to make sure that messages are actually broadcast – sent to all other connected users.
+Let's turn our echo server into a real chat server! To do this, we need to make sure messages from the same user are all tagged with the same username. Also, we want to make sure that messages are actually broadcast – sent to all other connected users.
 
 ### Model connections {id="connections"}
 

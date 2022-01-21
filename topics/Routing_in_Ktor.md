@@ -131,6 +131,9 @@ routing {
     post("/customer") {
 
     }
+    get("/order") {
+
+    }
     get("/order/{id}") {
     
     }
@@ -149,8 +152,15 @@ routing {
         get {
 
         }
-
         post {
+
+        }
+    }
+    route("/order") {
+        get {
+
+        }
+        get("/{id}") {
 
         }
     }
@@ -189,39 +199,30 @@ A common pattern is to use extension functions on the `Route` type to define the
 
 ```kotlin
 routing {
-    customerByIdRoute()
-    createCustomerRoute()
-    orderByIdRoute()
-    createOrder()
+    listOrdersRoute()
+    getOrderRoute()
+    totalizeOrderRoute()
 }
 
-fun Route.customerByIdRoute() {
-    get("/customer/{id}") {
+fun Route.listOrdersRoute() {
+    get("/order") {
 
     }
 }
 
-fun Route.createCustomerRoute() {
-    post("/customer") {
-
-    }
-}
-
-fun Route.orderByIdRoute() {
+fun Route.getOrderRoute() {
     get("/order/{id}") {
-    
+        
     }
 }
 
-fun Route.createOrder() {
-    post("/order") {
-
+fun Route.totalizeOrderRoute() {
+    get("/order/{id}/total") {
+        
     }
 }
 ```
 
-For our application to scale when it comes to maintainability, it is recommended to follow certain [Structuring patterns](Structuring_Applications.md).
+You can find the full example demonstrating this approach here: [tutorial-website-interactive](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/tutorial-website-interactive).
 
-
-
-
+> For our application to scale when it comes to maintainability, it is recommended to follow certain [Structuring patterns](Structuring_Applications.md).

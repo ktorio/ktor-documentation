@@ -48,7 +48,7 @@ First, you need to specify a port used to listen for incoming requests. Since He
    {style="block"}
 
 ### Step 2: Add a stage task {id="stage"}
-Open the `build.gradle.kts` file and add a custom `stage` task used by Heroku to make an executable that gets run on Heroku’s platform:
+Open the `build.gradle.kts` file and add a custom `stage` task used by Heroku to make an executable that gets run on Heroku's platform:
 ```kotlin
 tasks {
     create("stage").dependsOn("installDist")
