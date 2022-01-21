@@ -58,16 +58,16 @@ In this section, we'll show how to map these physical paths to URL paths listed 
 
 ### Change the default root folder {id="default-folder"}
 
-Ktor provides us the ability to specify a root folder from where the content is served using the `staticRootFolder` property.
-This is useful, for instance, if we want to dynamically define where contents should be served from or even use absolute paths.
-
-For the `files` folder, the configuration looks as follows:
+By default, Ktor calculates a path for serving static files using a current working directory.
+If static files of your application is stored inside a specific folder, you can set it as a default root folder from where the content is served using the `staticRootFolder` property.
+For the `files` folder in the project root, the configuration looks as follows:
 
 ```kotlin
 ```
 {src="snippets/static-files/src/main/kotlin/com/example/Application.kt" lines="10-11,22"}
 
 This maps any request to `/` to the `files` physical folder. 
+As the next step, you need to specify how to serve static files using the `file` or `files` functions.
 
 
 ### Serve individual files {id="serve-individual-files"}
@@ -176,14 +176,16 @@ In this section, we'll show how to map these physical paths to URL paths listed 
 
 ### Change the default resource package {id="default-resource-package"}
 
-To specify the default resource package from where the content is served, use the `staticBasePackage` property. 
-For the `static` package, the configuration looks as follows:
+By default, Ktor calculates a path for serving static resources using a classpath of your application.
+If static files of your application is stored inside a specific resource package, you can set it as a default package from where the content is served using the `staticBasePackage` property.
+For the `static` package inside `resources`, the configuration looks as follows:
 
 ```kotlin
 ```
 {src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" lines="10-11,22"}
 
 This maps any request to `/` to the `static` package.
+As the next step, you need to specify how to serve static resources using the `resource` or `resources` functions.
 
 
 ### Serve individual resources {id="serve-individual-resources"}
