@@ -1,0 +1,9 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+    volumes:
+      - ./server.xml:/usr/local/tomcat/conf/server.xml
+      - ./test.jks:/usr/local/tomcat/conf/test.jks

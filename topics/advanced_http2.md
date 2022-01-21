@@ -1,7 +1,5 @@
 [//]: # (title: HTTP/2)
 
-<include src="lib.xml" include-id="outdated_warning"/>
-
 <microformat>
 <p>
 <b>Code examples</b>: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/http2-netty">http2-netty</a>, <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/http2-jetty">http2-jetty</a>
@@ -10,13 +8,13 @@
 
 [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2) is a modern binary duplex multiplexing protocol designed as a replacement for HTTP/1.x.
 
-Jetty, Netty, and Tomcat engines provide HTTP/2 implementations that Ktor can use. However, there are significant differences,
-and each engine requires additional configuration. Once your host is configured properly for Ktor, HTTP/2 support will be activated automatically.
+Jetty and Netty engines provide HTTP/2 implementations that Ktor can use. However, there are significant differences, and each engine requires additional configuration. 
+Once your host is configured properly for Ktor, HTTP/2 support will be activated automatically.
 
 Key requirements:
 
 * SSL certificate (can be self-signed)
-* ALPN implementation suitable for a particular engine (see corresponding sections for Netty, Jetty, and Tomcat)
+* ALPN implementation suitable for a particular engine (see corresponding sections for Netty and Jetty)
 
 ## SSL certificate {id="ssl_certificate"}
 
@@ -37,12 +35,13 @@ The next step is configuring Ktor to use your keystore. See the example `applica
 ```
 {src="snippets/http2-netty/src/main/resources/application.conf"}
 
-## ALPN implementation
+## ALPN implementation {id="apln_implementation"}
 
 HTTP/2 requires ALPN ([Application-Layer Protocol Negotiation](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation)) to be enabled. The first option is to use an external ALPN implementation that needs to be added to the boot classpath.
-Another option is to use OpenSSL native bindings and precompiled native binaries. Also, each particular engine can support only one of these methods.
+Another option is to use OpenSSL native bindings and precompiled native binaries. 
+Also, each particular engine can support only one of these methods.
 
-### Jetty
+### Jetty {id="jetty"}
 
 Since ALPN APIs are supported starting with Java 8, the Jetty engine doesn't require any specific configurations for using HTTP/2. So, you only need to:
 1. [Create a server](Engines.md#choose-create-server) with the Jetty engine.
@@ -51,32 +50,20 @@ Since ALPN APIs are supported starting with Java 8, the Jetty engine doesn't req
 
 The [http2-jetty](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/http2-jetty) runnable example demonstrates HTTP/2 support for Jetty.
 
-### Netty
+### Netty {id="netty"}
 
 The easiest way to enable HTTP/2 in Netty is to use OpenSSL bindings ([tcnative netty port](https://netty.io/wiki/forked-tomcat-native.html)). 
-Add an API jar to dependencies:
+Add an API jar to dependencies ...
 
 ```kotlin
 ```
 {src="snippets/http2-netty/build.gradle.kts" lines="34"}
 
-and then  native implementation (statically linked BoringSSL library, a fork of OpenSSL):
+... and then add a native implementation (statically linked BoringSSL library, a fork of OpenSSL):
 
 ```kotlin
 ```
 {src="snippets/http2-netty/build.gradle.kts" lines="35-39"}
 
-where `tc.native.classifier` should be one of the following: `linux-x86_64`, `osx-x86_64` or `windows-x86_64`. The [http2-netty](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/http2-netty) runnable example demonstrates how to enable HTTP/2 support for Netty.
-
-### Tomcat and other servlet containers
-
-Similar to Netty, to get HTTP/2 working in Tomcat you need native OpenSSL bindings. Unfortunately, Tomcat's tcnative is not completely compatible with the Netty one.
-This is why you need a slightly different binary. You can get it here (<https://tomcat.apache.org/native-doc/>), or you can try Netty's tcnative. However,
-you'll have to guess which exact version is compatible with your specific Tomcat version.
-
-If you are deploying your Ktor application as a war package into the server (servlet container), then you will have to configure your Tomcat server properly:
-
-* <https://tomcat.apache.org/tomcat-8.5-doc/config/http.html#HTTP/2_Support>
-* <https://tomcat.apache.org/tomcat-8.5-doc/config/http2.html>
-* <https://tomcat.apache.org/tomcat-8.5-doc/ssl-howto.html>
-* <https://tomcat.apache.org/native-doc/>
+`tc.native.classifier` should be one of the following: `linux-x86_64`, `osx-x86_64` or `windows-x86_64`. 
+The [http2-netty](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/http2-netty) runnable example demonstrates how to enable HTTP/2 support for Netty.
