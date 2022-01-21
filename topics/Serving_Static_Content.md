@@ -56,7 +56,7 @@ In this section, we'll show how to map these physical paths to URL paths listed 
 | `files/js/script.js(.gz)` | `/assets/script.js`      |
 
 
-### Change the default root folder (optional) {id="default-folder"}
+### Change the default root folder {id="default-folder"}
 
 By default, Ktor calculates a path for serving static files from a current working directory.
 If static files of your application is stored inside a specific folder, you can set it as a default root folder from where the content is served using the `staticRootFolder` property.
