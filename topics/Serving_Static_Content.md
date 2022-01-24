@@ -30,6 +30,7 @@ The next step is to define where we want the content to be served from:
 * [Folders](#folders) - describes how to serve static files from a local filesystem. In this case, relative paths are resolved using the current working directory.
 * [Embedded application resources](#resources) - describes how to serve static files from the classpath.
 
+
 ## Folders {id="folders"}
 
 To demonstrate how to serve static files from a folder, let's suppose our sample project has the `files` directory in its root.
@@ -46,14 +47,18 @@ files
     └── script.js.gz
 ```
 
-In this section, we'll show how to map these physical paths to URL paths listed below.
+In this section, we'll consider two cases of serving these files:
+- Serving all files recursively with a URL path matching a physical path.
+- Serving files/folders using customized URL paths.
 
-| Physical path             | URL path                 |
-|---------------------------|--------------------------|
-| `files/index.html`        | `/index.html` or `/`     |
-| `files/ktor_logo.png`     | `/images/ktor_logo.png`  |
-| `files/css/styles.css`    | `/assets/styles.css`     |
-| `files/js/script.js(.gz)` | `/assets/script.js`      |
+| Physical path             | URL path matches physical path | URL path is customized  |
+|---------------------------|--------------------------------|-------------------------|
+| `files/index.html`        | `/index.html`                  | `/index.html` or `/`    |
+| `files/ktor_logo.png`     | `/ktor_logo.png`               | `/images/ktor_logo.png` |
+| `files/css/styles.css`    | `/css/styles.css`              | `/assets/styles.css`    |
+| `files/js/script.js(.gz)` | `/js/script.js`                | `/assets/script.js`     |
+
+> Ktor automatically looks up the content type of file based on its extension and sets the appropriate `Content-Type` header.
 
 
 ### Change the default root folder {id="default-folder"}
@@ -68,6 +73,23 @@ For the `files` folder in the project root, the configuration looks as follows:
 
 This maps any request to `/` to the `files` physical folder. 
 As the next step, you need to specify how to serve static files using the `file` or `files` functions.
+
+
+### Serve all files including in subfolders {id="serve-all-files"}
+
+To serve all files from the `files` folder recursively, you can pass the `"."` string to the `files` function:
+
+```kotlin
+static("/") {
+    staticRootFolder = File("files")
+    files(".")
+}
+```
+
+In this case, Ktor serves up any file from `files` as long as the request path and physical filename match.
+In the next chapters, we'll take a look at how to customize request paths.
+
+
 
 
 ### Serve individual files {id="serve-individual-files"}
@@ -91,7 +113,6 @@ So for the example above, the `ktor_logo.png` image is served for requests to th
 - `/images/ktor_logo.png`
 - `/images/image.png`
 
-> Ktor automatically looks up the content type of file based on its extension and sets the appropriate `Content-Type` header.
 
 ### Define a default file {id="define-default-file"}
 
@@ -147,8 +168,6 @@ For example, for a request made to `/assets/script.js`, Ktor tries to serve `js/
 
 
 
-
-
 ## Embedded application resources {id="resources"}
 
 To demonstrate how to serve static files from application resources, let's suppose our sample project has the `static` package in the `resources` directory.
@@ -164,15 +183,18 @@ static
     └── script.js
 ```
 
-In this section, we'll show how to map these physical paths to URL paths listed below.
+In this section, we'll consider two cases of serving these files:
+- Serving all resources recursively with a URL path matching a physical path.
+- Serving resources/resource folders using customized URL paths.
 
-| Physical path           | URL path                 |
-|-------------------------|--------------------------|
-| `static/index.html`     | `/index.html` or `/`     |
-| `static/ktor_logo.png`  | `/images/ktor_logo.png`  |
-| `static/css/styles.css` | `/assets/styles.css`     |
-| `static/js/script.js`   | `/assets/script.js`      |
+| Physical path              | URL path matches physical path | URL path is customized   |
+|----------------------------|--------------------------------|--------------------------|
+| `static/index.html`        | `/index.html`                  | `/index.html` or `/`     |
+| `static/ktor_logo.png`     | `/ktor_logo.png`               | `/images/ktor_logo.png`  |
+| `static/css/styles.css`    | `/css/styles.css`              | `/assets/styles.css`     |
+| `static/js/script.js(.gz)` | `/js/script.js`                | `/assets/script.js`      |
 
+> Ktor automatically looks up the content type of file based on its extension and sets the appropriate `Content-Type` header.
 
 ### Change the default resource package {id="default-resource-package"}
 
@@ -186,6 +208,21 @@ For example, for the `static` package inside the `resources` folder, the configu
 
 This maps any request to `/` to the `static` package.
 As the next step, you need to specify how to serve static resources using the `resource` or `resources` functions.
+
+
+### Serve all resources including in subfolders {id="serve-all-resources"}
+
+To serve all files from the `static` folder recursively, you can pass the `"."` string to the `resources` function:
+
+```kotlin
+static("/") {
+    staticBasePackage = "static"
+    resources(".")
+}
+```
+
+In this case, Ktor serves up any file from `static` as long as the request path and physical filename match.
+In the next chapters, we'll take a look at how to customize request paths.
 
 
 ### Serve individual resources {id="serve-individual-resources"}
