@@ -86,8 +86,8 @@ static("/") {
 }
 ```
 
-In this case, Ktor serves up any file from `files` as long as the request path and physical filename match.
-In the next chapters, we'll take a look at how to customize request paths.
+In this case, Ktor serves up any file from `files` as long as a URL path and physical filename match.
+In the next chapters, we'll take a look at how to customize URL paths.
 
 
 
@@ -221,8 +221,8 @@ static("/") {
 }
 ```
 
-In this case, Ktor serves up any file from `static` as long as the request path and physical filename match.
-In the next chapters, we'll take a look at how to customize request paths.
+In this case, Ktor serves up any file from `static` as long as a URL path and physical filename match.
+In the next chapters, we'll take a look at how to customize URL paths.
 
 
 ### Serve individual resources {id="serve-individual-resources"}
