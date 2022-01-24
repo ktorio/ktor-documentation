@@ -13,6 +13,7 @@ gretty {
     servletContainer = "tomcat9"
     contextPath = "/"
     logbackConfigFile = "src/main/resources/logback.xml"
+    httpsEnabled = true
 }
 
 repositories {
