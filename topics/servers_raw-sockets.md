@@ -1,196 +1,159 @@
-[//]: # (title: Raw sockets)
-
-<include src="lib.xml" include-id="outdated_warning"/>
+[//]: # (title: Sockets)
 
 <var name="plugin_name" value="Sockets"/>
-<var name="artifact_name" value="ktor-network"/>
 
 <microformat>
 <p>
-<b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
+<b>Required dependencies</b>: <code>io.ktor:ktor-network</code>, <code>io.ktor:ktor-network-tls</code>
 </p>
 </microformat>
 
 In addition to HTTP handling for the [server](ktor-server.xml) and the [client](ktor-client.xml), Ktor supports client and server, TCP and UDP raw sockets.
-It exposes a suspending API that uses NIO under the hoods.
+It exposes a suspending API that uses [NIO](https://docs.oracle.com/javase/8/docs/api/java/nio/package-summary.html) under the hoods.
 
-> Raw sockets use an experimental API that is expected to evolve in the upcoming updates with potentially breaking changes.
+> Sockets use an experimental API that is expected to evolve in the upcoming updates with potentially breaking changes.
 >
 {type="note"}
 
 ## Add dependencies {id="add_dependencies"}
 
+<var name="artifact_name" value="ktor-network"/>
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
 
-## Usage
+<var name="artifact_name" value="ktor-network-tls"/>
 
-In order to create either server or client sockets, you have to use the `aSocket` builder,
-with a mandatory `ActorSelectorManager`: `aSocket(selector)`. For example: `aSocket(ActorSelectorManager(Dispatchers.IO))`.
+To use [secure sockets](#secure), you also need to add `%artifact_name%`:
 
-Then use:
+<include src="lib.xml" include-id="add_ktor_artifact"/>
 
-* `val socketBuilder = aSocket(selector).tcp()` for a builder using TCP sockets
-* `val socketBuilder = aSocket(selector).udp()` for a builder using UDP sockets
 
-This returns a `SocketBuilder` that can be used to:
- 
-* `val serverSocket = aSocket(selector).tcp().bind(address)` to listen to an address (for servers)
-* `val clientSocket = aSocket(selector).tcp().connect(address)` to connect to an address (for clients)
- 
-If you need to control the dispatcher used by the sockets, you can instantiate a selector,
-that uses, for example, a cached thread pool:
-```kotlin
-val exec = Executors.newCachedThreadPool()
-val selector = ActorSelectorManager(exec.asCoroutineDispatcher())
-val tcpSocketBuilder = aSocket(selector).tcp()
-```
 
-Once you have a `socket` open by either [binding](#server) or [connecting](#client) the builder,
-you can read from or write to the socket, by opening read/write channels:
+## Server {id="server"}
+
+### Build a socket {id="server_build_socket"}
+
+To create a server socket, create the `ActorSelectorManager` instance, call the `TcpSocketBuilder.tcp()` function on it, 
+and then use `bind` to bind a server socket to specific port:
 
 ```kotlin
-val input : ByteReadChannel  = socket.openReadChannel()
-val output: ByteWriteChannel = socket.openWriteChannel(autoFlush = true)
 ```
+{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" lines="10-11"}
 
->You can read the KDoc for [ByteReadChannel](https://api.ktor.io/ktor-io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html)
->and [ByteWriteChannel](https://api.ktor.io/ktor-io/ktor-io/io.ktor.utils.io/-byte-write-channel/index.html)
->for further information on the available methods.
->
-{type="note"}
-
-## Server
-
-When creating a server socket, you have to `bind` to a specific `SocketAddress` to get
-a `ServerSocket`:
+The above snippet create a TCP socket.
+To create a UDP socket, use `TcpSocketBuilder.udp()`:
 
 ```kotlin
-val server = aSocket(selector).tcp().bind(InetSocketAddress("127.0.0.1", 2323))
+        val selectorManager = ActorSelectorManager(Dispatchers.IO)
+        val serverSocket = aSocket(selectorManager).udp().bind("127.0.0.1", 9002)
 ```
 
-The server socket has an `accept` method that returns, one at a time, 
-a connected socket for each incoming connection pending in the *backlog*:
+
+### Get a connected socket {id="server_get_socket"}
+
+The server socket has an `accept` function that returns, one at a time, a connected socket for each incoming connection pending in the *backlog*:
 
 ```kotlin
-val socket = server.accept()
 ```
+{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" lines="14"}
 
 >If you want to support multiple clients at once, remember to call `launch { }` to prevent
 >the function that is accepting the sockets from suspending.
 >
 {type="note"}
 
-### Simple Echo Server:
+Once you have a `socket` open by either [binding](#server) or [connecting](#client) the builder,
+you can read from or write to the socket, by opening read/write channels:
 
+### Receive/send data {id="server_receive_send"}
+
+Receive:
 
 ```kotlin
-fun main(args: Array<String>) {
-    runBlocking {
-        val server = aSocket(ActorSelectorManager(Dispatchers.IO)).tcp().bind(InetSocketAddress("127.0.0.1", 2323))
-        println("Started echo telnet server at ${server.localAddress}")
-        
-        while (true) {
-            val socket = server.accept()
-            
-            launch {
-                println("Socket accepted: ${socket.remoteAddress}")
-                
-                val input = socket.openReadChannel()
-                val output = socket.openWriteChannel(autoFlush = true)
-                
-                try {
-                    while (true) {
-                        val line = input.readUTF8Line()
-                        
-                        println("${socket.remoteAddress}: $line")
-                        output.write("$line\r\n")
-                    }
-                } catch (e: Throwable) {
-                    e.printStackTrace()
-                    socket.close()
-                }
-            }
-        }
-    }
-}
 ```
+{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" lines="17"}
 
-Then you can connect to it using *telnet* and start typing:
+Send data: 
 
-```text
-telnet 127.0.0.1 2323
+```kotlin
 ```
+{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" lines="22-23"}
 
-For each line that you type (you have to press the return key), the server will reply
-with the same line:
+You can read the KDoc for [ByteReadChannel](https://api.ktor.io/ktor-io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) and 
+[ByteWriteChannel](https://api.ktor.io/ktor-io/ktor-io/io.ktor.utils.io/-byte-write-channel/index.html) for more information on the available API.
 
-```text
-Trying 127.0.0.1...
-Connected to 127.0.0.1
-Escape character is '^]'.
+### Close socket {id="server_close"}
 
-Hello
-Hello
-World
-World
-|
-``` 
+[get socket](#server_get_socket):
 
-## Client
+```kotlin
+```
+{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" lines="26"}
+
+### Example {id="server-example"}
+
+```kotlin
+```
+{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt"}
+
+
+## Client {id="client"}
+
+### Build a socket {id="client_build_socket"}
 
 When creating a socket client, you have to `connect` to a specific `SocketAddress` to get
 a `Socket`:
 
 ```kotlin
-val socket = aSocket(selector).tcp().connect(InetSocketAddress("127.0.0.1", 2323))
 ```
+{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt" lines="11-12"}
 
-### Simple Client Connecting to an Echo Server:
+### Secure sockets (SSL/TLS) {id="secure"}
 
+Link to [ktor-network-tls](#add_dependencies).
+
+Connect to a secure socket:
 
 ```kotlin
-fun main(args: Array<String>) {
-    runBlocking {
-        val socket = aSocket(ActorSelectorManager(Dispatchers.IO)).tcp().connect(InetSocketAddress("127.0.0.1", 2323))
-        val input = socket.openReadChannel()
-        val output = socket.openWriteChannel(autoFlush = true)
-
-        output.write("hello\r\n")
-        val response = input.readUTF8Line()
-        println("Server said: '$response'")
-    }
-}
+val selectorManager = ActorSelectorManager(Dispatchers.IO)
+val socket = aSocket(selectorManager).tcp().connect("127.0.0.1", 8443).tls()
 ```
 
-## Secure sockets (SSL/TLS)
-{id="secure"}
+### Receive/send data {id="client_receive_send"}
 
-Ktor supports secure sockets. To enable them you will need to include the
-`io.ktor:ktor-network-tls:$ktor_version` artifact, and call the `.tls()` to a connected socket.
-
-*Connect to a secure socket:*
-```kotlin
-runBlocking {
-    val socket = aSocket(ActorSelectorManager(Dispatchers.IO)).tcp().connect(InetSocketAddress("google.com", 443)).tls()
-    val w = socket.openWriteChannel(autoFlush = false)
-    w.write("GET / HTTP/1.1\r\n")
-    w.write("Host: google.com\r\n")
-    w.write("\r\n")
-    w.flush()
-    val r = socket.openReadChannel()
-    println(r.readUTF8Line())
-}
-```
-
-You can adjust a few optional parameters for the TLS connection:
+Receive:
 
 ```kotlin
-suspend fun Socket.tls(
-        trustManager: X509TrustManager? = null,
-        randomAlgorithm: String = "NativePRNGNonBlocking",
-        serverName: String? = null,
-        coroutineContext: CoroutineContext = Dispatchers.IO
-): Socket
 ```
+{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt" lines="14"}
+
+```kotlin
+```
+{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt" lines="19"}
+
+Send data:
+
+```kotlin
+```
+{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt" lines="15"}
+
+```kotlin
+```
+{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt" lines="32-33"}
+
+### Close connection {id="client_close"}
+
+```kotlin
+```
+{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt" lines="24-25"}
+
+
+### Example {id="client-example"}
+
+```kotlin
+```
+{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt"}
+
+
+

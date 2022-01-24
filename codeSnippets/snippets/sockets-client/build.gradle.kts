@@ -23,5 +23,6 @@ tasks.named<JavaExec>("run") {
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
     implementation("io.ktor:ktor-network:$ktor_version")
+    implementation("io.ktor:ktor-network-tls:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
 }

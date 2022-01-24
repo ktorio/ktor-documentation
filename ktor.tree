@@ -128,16 +128,15 @@
                 <toc-element id="partial-content.md"/>
             </toc-element>
 
-            <toc-element toc-title="Sockets">
-                <toc-element id="websocket.md"
-                             show-structure-depth="2"
-                             accepts-web-file-names="servers-features-websockets.html">
-                    <toc-element id="websocket_serialization.md" show-structure-depth="2"/>
-                    <toc-element id="websocket_deflate_extension.md"/>
-                    <toc-element id="websocket_extensions_api.md"/>
-                </toc-element>
-                <toc-element id="servers_raw-sockets.md"/>
+            <toc-element id="websocket.md"
+                         show-structure-depth="2"
+                         accepts-web-file-names="servers-features-websockets.html">
+                <toc-element id="websocket_serialization.md" show-structure-depth="2"/>
+                <toc-element id="websocket_deflate_extension.md"/>
+                <toc-element id="websocket_extensions_api.md"/>
             </toc-element>
+
+            <toc-element id="servers_raw-sockets.md" show-structure-depth="2"/>
 
             <toc-element toc-title="Monitoring">
                 <toc-element id="call-logging.md" show-structure-depth="2"/>
