@@ -33,7 +33,7 @@ To use [secure sockets](#secure) in the client, you also need to add `io.ktor:kt
 
 ### Create a server socket {id="server_create_socket"}
 
-To build a server socket, create the `ActorSelectorManager` instance, call the `TcpSocketBuilder.tcp()` function on it, 
+To build a server socket, create the `ActorSelectorManager` instance, call the `SocketBuilder.tcp()` function on it, 
 and then use `bind` to bind a server socket to specific port:
 
 ```kotlin
@@ -41,7 +41,7 @@ and then use `bind` to bind a server socket to specific port:
 {src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" lines="10-11"}
 
 The snippet above creates a TCP socket, which is the [ServerSocket](https://api.ktor.io/ktor-network/io.ktor.network.sockets/-server-socket/index.html) instance.
-To create a UDP socket, use `TcpSocketBuilder.udp()`.
+To create a UDP socket, use `SocketBuilder.udp()`.
 
 
 ### Accept incoming connections {id="accepts_connection"}
@@ -112,7 +112,7 @@ You can find the full example here: [sockets-server](https://github.com/ktorio/k
 
 ### Create a socket {id="client_create_socket"}
 
-To build a client socket, create the `ActorSelectorManager` instance, call the `TcpSocketBuilder.tcp()` function on it,
+To build a client socket, create the `ActorSelectorManager` instance, call the `SocketBuilder.tcp()` function on it,
 and then use `connect` to establish a connection and get a connected socket (a [Socket](https://api.ktor.io/ktor-network/io.ktor.network.sockets/-socket/index.html) instance):
 
 ```kotlin
