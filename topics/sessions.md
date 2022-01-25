@@ -154,7 +154,7 @@ interface SessionStorage {
     suspend fun <R> read(id: String, consumer: suspend (ByteReadChannel) -> R): R
 }
 ```
-All three functions are [suspending](https://kotlinlang.org/docs/composing-suspending-functions.html) and use [ByteReadChannel](https://api.ktor.io/ktor-io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) and [ByteWriteChannel](https://api.ktor.io/ktor-io/ktor-io/io.ktor.utils.io/-byte-write-channel/index.html) to read and write data from/to an asynchronous channel. You can use [SessionStorageMemory](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-plugins/ktor-server-sessions/jvm/src/io/ktor/server/sessions/SessionStorageMemory.kt) as a reference.
+All three functions are [suspending](https://kotlinlang.org/docs/composing-suspending-functions.html) and use [ByteReadChannel](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) and [ByteWriteChannel](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-write-channel/index.html) to read and write data from/to an asynchronous channel. You can use [SessionStorageMemory](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-plugins/ktor-server-sessions/jvm/src/io/ktor/server/sessions/SessionStorageMemory.kt) as a reference.
 
 
 ## Protect session data {id="protect_session"}

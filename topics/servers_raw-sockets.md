@@ -1,196 +1,192 @@
-[//]: # (title: Raw sockets)
-
-<include src="lib.xml" include-id="outdated_warning"/>
+[//]: # (title: Sockets)
 
 <var name="plugin_name" value="Sockets"/>
-<var name="artifact_name" value="ktor-network"/>
 
 <microformat>
 <p>
-<b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
+<b>Required dependencies</b>: <code>io.ktor:ktor-network</code>, <code>io.ktor:ktor-network-tls</code>
+</p>
+<p><b>Code examples</b>:
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/sockets-server">sockets-server</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/sockets-client">sockets-client</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/sockets-client-tls">sockets-client-tls</a>
 </p>
 </microformat>
 
-In addition to HTTP handling for the [server](ktor-server.xml) and the [client](ktor-client.xml), Ktor supports client and server, TCP and UDP raw sockets.
-It exposes a suspending API that uses NIO under the hoods.
+In addition to HTTP/WebSocket handling for the [server](ktor-server.xml) and [client](ktor-client.xml), Ktor supports TCP and UDP raw sockets.
+It exposes a suspending API that uses [java.nio](https://docs.oracle.com/javase/8/docs/api/java/nio/package-summary.html) under the hoods.
 
-> Raw sockets use an experimental API that is expected to evolve in the upcoming updates with potentially breaking changes.
+> Sockets use an experimental API that is expected to evolve in the upcoming updates with potentially breaking changes.
 >
 {type="note"}
 
 ## Add dependencies {id="add_dependencies"}
 
+<var name="artifact_name" value="ktor-network"/>
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
+To use [secure sockets](#secure) in the client, you also need to add `io.ktor:ktor-network-tls`.
 
-## Usage
 
-In order to create either server or client sockets, you have to use the `aSocket` builder,
-with a mandatory `ActorSelectorManager`: `aSocket(selector)`. For example: `aSocket(ActorSelectorManager(Dispatchers.IO))`.
+## Server {id="server"}
 
-Then use:
+### Create a server socket {id="server_create_socket"}
 
-* `val socketBuilder = aSocket(selector).tcp()` for a builder using TCP sockets
-* `val socketBuilder = aSocket(selector).udp()` for a builder using UDP sockets
-
-This returns a `SocketBuilder` that can be used to:
- 
-* `val serverSocket = aSocket(selector).tcp().bind(address)` to listen to an address (for servers)
-* `val clientSocket = aSocket(selector).tcp().connect(address)` to connect to an address (for clients)
- 
-If you need to control the dispatcher used by the sockets, you can instantiate a selector,
-that uses, for example, a cached thread pool:
-```kotlin
-val exec = Executors.newCachedThreadPool()
-val selector = ActorSelectorManager(exec.asCoroutineDispatcher())
-val tcpSocketBuilder = aSocket(selector).tcp()
-```
-
-Once you have a `socket` open by either [binding](#server) or [connecting](#client) the builder,
-you can read from or write to the socket, by opening read/write channels:
+To build a server socket, create the `ActorSelectorManager` instance, call the `TcpSocketBuilder.tcp()` function on it, 
+and then use `bind` to bind a server socket to specific port:
 
 ```kotlin
-val input : ByteReadChannel  = socket.openReadChannel()
-val output: ByteWriteChannel = socket.openWriteChannel(autoFlush = true)
 ```
+{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" lines="10-11"}
 
->You can read the KDoc for [ByteReadChannel](https://api.ktor.io/ktor-io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html)
->and [ByteWriteChannel](https://api.ktor.io/ktor-io/ktor-io/io.ktor.utils.io/-byte-write-channel/index.html)
->for further information on the available methods.
->
-{type="note"}
+The snippet above creates a TCP socket, which is the [ServerSocket](https://api.ktor.io/ktor-network/io.ktor.network.sockets/-server-socket/index.html) instance.
+To create a UDP socket, use `TcpSocketBuilder.udp()`.
 
-## Server
 
-When creating a server socket, you have to `bind` to a specific `SocketAddress` to get
-a `ServerSocket`:
+### Accept incoming connections {id="accepts_connection"}
+
+After creating a server socket, you need to call the `ServerSocket.accept` function that accepts a socket connection and 
+returns a connected socket (a [Socket](https://api.ktor.io/ktor-network/io.ktor.network.sockets/-socket/index.html) instance):
 
 ```kotlin
-val server = aSocket(selector).tcp().bind(InetSocketAddress("127.0.0.1", 2323))
 ```
+{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" lines="14"}
 
-The server socket has an `accept` method that returns, one at a time, 
-a connected socket for each incoming connection pending in the *backlog*:
+Once you have a connected socket, you can receive/send data by reading from or writing to the socket.
+
+
+### Receive data {id="server_receive"}
+
+To receive data from the client, you need to call the `Socket.openReadChannel` function, which returns [ByteReadChannel](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html):
 
 ```kotlin
-val socket = server.accept()
 ```
+{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" lines="17"}
 
->If you want to support multiple clients at once, remember to call `launch { }` to prevent
->the function that is accepting the sockets from suspending.
->
-{type="note"}
-
-### Simple Echo Server:
-
+`ByteReadChannel` provides API for asynchronous reading of data.
+For example, you can read a line of UTF-8 characters using `ByteReadChannel.readUTF8Line`:
 
 ```kotlin
-fun main(args: Array<String>) {
-    runBlocking {
-        val server = aSocket(ActorSelectorManager(Dispatchers.IO)).tcp().bind(InetSocketAddress("127.0.0.1", 2323))
-        println("Started echo telnet server at ${server.localAddress}")
-        
-        while (true) {
-            val socket = server.accept()
-            
-            launch {
-                println("Socket accepted: ${socket.remoteAddress}")
-                
-                val input = socket.openReadChannel()
-                val output = socket.openWriteChannel(autoFlush = true)
-                
-                try {
-                    while (true) {
-                        val line = input.readUTF8Line()
-                        
-                        println("${socket.remoteAddress}: $line")
-                        output.write("$line\r\n")
-                    }
-                } catch (e: Throwable) {
-                    e.printStackTrace()
-                    socket.close()
-                }
-            }
-        }
-    }
-}
 ```
+{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" lines="22"}
 
-Then you can connect to it using *telnet* and start typing:
 
-```text
-telnet 127.0.0.1 2323
-```
 
-For each line that you type (you have to press the return key), the server will reply
-with the same line:
+### Send data {id="server_send"}
 
-```text
-Trying 127.0.0.1...
-Connected to 127.0.0.1
-Escape character is '^]'.
-
-Hello
-Hello
-World
-World
-|
-``` 
-
-## Client
-
-When creating a socket client, you have to `connect` to a specific `SocketAddress` to get
-a `Socket`:
+To send data to the client, call the `Socket.openWriteChannel` function, which returns [ByteWriteChannel](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-write-channel/index.html):
 
 ```kotlin
-val socket = aSocket(selector).tcp().connect(InetSocketAddress("127.0.0.1", 2323))
 ```
+{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" lines="18"}
 
-### Simple Client Connecting to an Echo Server:
-
+`ByteWriteChannel` provides API for asynchronous writing of sequences of bytes.
+For example, you can write a line of UTF-8 characters using `ByteWriteChannel.writeStringUtf8`:
 
 ```kotlin
-fun main(args: Array<String>) {
-    runBlocking {
-        val socket = aSocket(ActorSelectorManager(Dispatchers.IO)).tcp().connect(InetSocketAddress("127.0.0.1", 2323))
-        val input = socket.openReadChannel()
-        val output = socket.openWriteChannel(autoFlush = true)
-
-        output.write("hello\r\n")
-        val response = input.readUTF8Line()
-        println("Server said: '$response'")
-    }
-}
 ```
+{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" lines="22-23"}
 
-## Secure sockets (SSL/TLS)
-{id="secure"}
 
-Ktor supports secure sockets. To enable them you will need to include the
-`io.ktor:ktor-network-tls:$ktor_version` artifact, and call the `.tls()` to a connected socket.
+### Close socket {id="server_close"}
 
-*Connect to a secure socket:*
-```kotlin
-runBlocking {
-    val socket = aSocket(ActorSelectorManager(Dispatchers.IO)).tcp().connect(InetSocketAddress("google.com", 443)).tls()
-    val w = socket.openWriteChannel(autoFlush = false)
-    w.write("GET / HTTP/1.1\r\n")
-    w.write("Host: google.com\r\n")
-    w.write("\r\n")
-    w.flush()
-    val r = socket.openReadChannel()
-    println(r.readUTF8Line())
-}
-```
-
-You can adjust a few optional parameters for the TLS connection:
+To release resources associated with the [connected socket](#accepts_connection), call `Socket.close`:
 
 ```kotlin
-suspend fun Socket.tls(
-        trustManager: X509TrustManager? = null,
-        randomAlgorithm: String = "NativePRNGNonBlocking",
-        serverName: String? = null,
-        coroutineContext: CoroutineContext = Dispatchers.IO
-): Socket
 ```
+{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" lines="26"}
+
+### Example {id="server-example"}
+
+A code sample below demonstrates how to use sockets on the server side:
+
+```kotlin
+```
+{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt"}
+
+You can find the full example here: [sockets-server](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/sockets-server).
+
+
+## Client {id="client"}
+
+### Create a socket {id="client_create_socket"}
+
+To build a client socket, create the `ActorSelectorManager` instance, call the `TcpSocketBuilder.tcp()` function on it,
+and then use `connect` to establish a connection and get a connected socket (a [Socket](https://api.ktor.io/ktor-network/io.ktor.network.sockets/-socket/index.html) instance):
+
+```kotlin
+```
+{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt" lines="11-12"}
+
+Once you have a connected socket, you can receive/send data by reading from or writing to the socket.
+
+### Create a secure socket (SSL/TLS) {id="secure"}
+
+Secure sockets allows you to establish TLS connections. 
+To use secure sockets, you need to add the [ktor-network-tls](#add_dependencies) dependency.
+Then, call the `Socket.tls` function on a connected socket:
+
+```kotlin
+val selectorManager = ActorSelectorManager(Dispatchers.IO)
+val socket = aSocket(selectorManager).tcp().connect("127.0.0.1", 8443).tls()
+```
+
+The `tls` function allows you to adjust TLS parameters provided by [TLSConfigBuilder](https://api.ktor.io/ktor-network/ktor-network-tls/io.ktor.network.tls/-t-l-s-config-builder/index.html):
+
+```kotlin
+```
+{src="snippets/sockets-client-tls/src/main/kotlin/com/example/Application.kt" lines="14-21"}
+
+You can find the full example here: [sockets-client-tls](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/sockets-client-tls).
+
+
+### Receive data {id="client_receive"}
+
+To receive data from the server, you need to call the `Socket.openReadChannel` function, which returns [ByteReadChannel](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html):
+
+```kotlin
+```
+{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt" lines="14"}
+
+`ByteReadChannel` provides API for asynchronous reading of data.
+For example, you can read a line of UTF-8 characters using `ByteReadChannel.readUTF8Line`:
+
+```kotlin
+```
+{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt" lines="19"}
+
+
+### Send data {id="client_send"}
+
+To send data to the server, call the `Socket.openWriteChannel` function, which returns [ByteWriteChannel](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-write-channel/index.html):
+
+```kotlin
+```
+{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt" lines="15"}
+
+`ByteWriteChannel` provides API for asynchronous writing of sequences of bytes.
+For example, you can write a line of UTF-8 characters using `ByteWriteChannel.writeStringUtf8`:
+
+```kotlin
+```
+{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt" lines="32-33"}
+
+### Close connection {id="client_close"}
+
+To release resources associated with the [connected socket](#client_create_socket), call `Socket.close` and `ActorSelectorManager.close`:
+
+```kotlin
+```
+{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt" lines="24-25"}
+
+
+### Example {id="client-example"}
+
+A code sample below demonstrates how to use sockets on the client side:
+
+```kotlin
+```
+{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt"}
+
+You can find the full example here: [sockets-client](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/sockets-client).
