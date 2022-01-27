@@ -88,7 +88,6 @@ By default, the `%plugin_name%` plugin allows the following client headers manag
 * `Accept`
 * `Accept-Language`
 * `Content-Language`
-* `Content-Type`
 
 To allow additional headers, use the `header` function.
 ```kotlin
