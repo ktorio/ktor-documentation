@@ -10,3 +10,5 @@ To run a sample, execute the following command in a repository's root directory:
 ./gradlew :sockets-client-tls:run
 ```
 
+> Note that this example is configured to accept all certificates. This approach should be used for development purposes only.
+
