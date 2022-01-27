@@ -22,7 +22,6 @@ fun main() {
                 sslContext = SslSettings.getSslContext()
             }
         }
-
         val javaClient = HttpClient(Java) {
             engine {
                 config {
@@ -30,7 +29,6 @@ fun main() {
                 }
             }
         }
-
         val jettyClient = HttpClient(Jetty) {
             engine {
                 sslContextFactory = SslContextFactory.Client().apply {
@@ -38,8 +36,6 @@ fun main() {
                 }
             }
         }
-
-
         val cioClient = HttpClient(CIO) {
             engine {
                 https {
@@ -47,7 +43,6 @@ fun main() {
                 }
             }
         }
-
         val androidClient = HttpClient(Android) {
             engine {
                 sslManager = { httpsURLConnection ->
@@ -55,7 +50,6 @@ fun main() {
                 }
             }
         }
-
         val okHttpClient = HttpClient(OkHttp) {
             engine {
                 config {
@@ -63,17 +57,15 @@ fun main() {
                 }
             }
         }
-
-        val response: HttpResponse = apacheClient.get("https://0.0.0.0:8443/")
+        val response: HttpResponse = apacheClient.get("https://localhost:8443/")
         println(response.bodyAsText())
     }
 }
 
 object SslSettings {
-    private val keyStoreFile = FileInputStream("keystore.jks")
-    private val keyStorePassword = "foobar".toCharArray()
-
     fun getKeyStore(): KeyStore {
+        val keyStoreFile = FileInputStream("keystore.jks")
+        val keyStorePassword = "foobar".toCharArray()
         val keyStore: KeyStore = KeyStore.getInstance(KeyStore.getDefaultType())
         keyStore.load(keyStoreFile, keyStorePassword)
         return keyStore
