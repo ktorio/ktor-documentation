@@ -63,7 +63,8 @@ To build a Fat JAR, you need to configure the Shadow plugin first:
 
 
 ## Build a Fat JAR {id="build"}
-To build a Fat JAR, open the terminal and execute the `shadowJar` task created in the [previous step](#configure-plugin):
+To build a Fat JAR, open the terminal and execute the `shadowJar` task created in the [previous step](#configure-plugin).
+For the [fatjar](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/fatjar) sample project, the command looks as follows:
 
 <tabs group="os">
 <tab title="Linux/MacOS" group-key="unix">
