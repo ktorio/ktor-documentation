@@ -53,7 +53,11 @@ First, you need to specify a port used to listen for incoming requests. Since He
    ```
    {style="block"}
 
-### Step 2: Add a stage task {id="stage"}
+### Step 2 (Optional): Force https on Heroku
+
+To avoid loading unsecure pages and redirecting to https only when your app is deployed, [install ForwardedHeaderSupport](https://ktor.io/docs/forward-headers.html#usage)
+
+### Step 3: Add a stage task {id="stage"}
 Open the `build.gradle` file and add a custom `stage` task used by Heroku to make an executable that gets run on Heroku’s platform:
 ```groovy
 tasks.create("stage") {
@@ -62,7 +66,7 @@ tasks.create("stage") {
 ``` 
 Note that the `installDist` task comes with the Gradle [application plugin](https://docs.gradle.org/current/userguide/application_plugin.html), which is already added to the sample project.
 
-### Step 3: Create a Procfile {id="procfile"}
+### Step 4: Create a Procfile {id="procfile"}
 Create a `Procfile` in a project root and add the following content:
 ```
 web: ./build/install/ktor-gradle-sample/bin/ktor-gradle-sample
