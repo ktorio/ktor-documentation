@@ -8,12 +8,15 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-Ktor client provides the capability to log HTTP calls using the `Logging` plugin. This plugin uses the [SLF4J](http://www.slf4j.org/) library for logging.
+Ktor client provides the capability to log HTTP calls using the `Logging` plugin.
+This plugin provides different logger types for [different platforms](http-client_multiplatform.md):
+- On JVM, Ktor uses [SLF4J API](http://www.slf4j.org/) as a facade for various logging frameworks (for example, [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j)).
+- For Native targets, the `Logging` plugin provides a logger that prints everything to `STDOUT`.
 
 
 ## Add dependencies {id="add_dependencies"}
 To enable logging, you need to include the following artifacts in the build script:
-* An artifact with the required SLF4J implementation, for example, [Logback](https://logback.qos.ch/):
+* (Optional) An artifact with the required SLF4J implementation, for example, [Logback](https://logback.qos.ch/):
   <var name="group_id" value="ch.qos.logback"/>
   <var name="artifact_name" value="logback-classic"/>
   <var name="version" value="logback_version"/>
@@ -33,7 +36,11 @@ val client = HttpClient(CIO) {
 ```
 
 ## Configure Logging {id="configure_plugin"}
-The `Logging` plugin allows you to configure the desired logger using the `logger` property and the level of logging using the `level` property:
+
+The example below shows how to configure the `Logging` plugin:
+- The `logger` property is set to `Logger.DEFAULT`, which uses an SLF4J logging framework. For Native targets, set this property to `Logger.SIMPLE`.
+- The `level` property specifies the logging level.
+
 ```kotlin
 ```
 {src="/snippets/client-logging/src/main/kotlin/com/example/Application.kt"}

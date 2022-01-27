@@ -60,6 +60,8 @@ After you finish working with the HTTP client, you need to free up the resources
 client.close()
 ```
 
+Note that the `close` function prohibits creating new requests but doesn't terminate currently active ones. Resources will only be released after all client requests are completed.
+
 If you need to use `HttpClient` for a single request, call the `use` function, which automatically calls `close` after executing the code block:
 
 ```kotlin
@@ -68,4 +70,4 @@ val status = HttpClient().use { client ->
 }
 ```
 
-Note that the `close` function prohibits creating new requests but doesn't terminate currently active ones. Resources will only be released after all client requests are completed.
+> Note that creating `HttpClient` is not a cheap operation, and it's better to reuse its instance in the case of multiple requests.

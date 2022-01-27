@@ -127,7 +127,7 @@ Using `%plugin_name%` along with [CallLogging](call-logging.md) helps you troubl
 ```
 {src="snippets/call-id/src/main/kotlin/com/example/Application.kt" lines="18-20"}
 
-This key can be passed to a [logger configuration](logging.md#configure-logback) to show call IDs in the log. For instance, the `logback.xml` file might look as follows:
+This key can be passed to a [logger configuration](logging.md#configure-logger) to show call IDs in the log. For instance, the `logback.xml` file might look as follows:
 ```
 ```
 {style="block" src="snippets/call-id/src/main/resources/logback.xml" lines="2-6"}
