@@ -53,7 +53,7 @@ First, you need to specify a port used to listen for incoming requests. Since He
    ```
    {style="block"}
 
-### Step 2 (Optional): Force https on Heroku
+### Step 2 (Optional): Force https on Heroku {id="https"}
 
 To avoid loading unsecure pages and redirecting to https only when your app is deployed, [install ForwardedHeaderSupport](https://ktor.io/docs/forward-headers.html#usage)
 
