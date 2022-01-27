@@ -77,7 +77,6 @@ The `CORS` plugin allows the following client headers by default:
 * `Accept`
 * `Accept-Language`
 * `Content-Language`
-* `Content-Type`
 
 To allow additional headers, use the `header` function.
 ```kotlin
