@@ -59,6 +59,7 @@ fun main() {
         }
         val response: HttpResponse = apacheClient.get("https://localhost:8443/")
         println(response.bodyAsText())
+        apacheClient.close()
     }
 }
 

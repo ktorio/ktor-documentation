@@ -18,7 +18,7 @@ Given that different engines use different [JSSE API](https://docs.oracle.com/en
 
 ```kotlin
 ```
-{src="snippets/client-ssl-config/src/main/kotlin/com/example/Application.kt" lines="65-89"}
+{src="snippets/client-ssl-config/src/main/kotlin/com/example/Application.kt" lines="66-90"}
 
 ## Configure SSL in Ktor {id="configure-ssl"}
 
