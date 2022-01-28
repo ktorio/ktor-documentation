@@ -4,7 +4,7 @@ A sample Ktor project showing how to configure SSL settings for different [engin
 
 ## Running
 
-Before running a server, you need to create a certificate and run the [ssl-engine-main](../ssl-engine-main) example:
+Before running this client sample, you need to create a certificate and run the [ssl-engine-main](../ssl-engine-main) example:
 
 1. Create a keystore by executing the following command in a repository's root directory:
 
