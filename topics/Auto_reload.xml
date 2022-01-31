@@ -19,10 +19,29 @@
     </excerpt>
 
     <p>
-        <a href="running.md">Restarting</a> a server during development might take some time. Ktor allows you to overcome this limitation by using <emphasis>Auto-reload</emphasis>, which reloads application classes on code changes and provides a fast feedback loop.
+        <a href="running.md">Restarting</a> a server during development might take some time.
+        Ktor allows you to overcome this limitation by using <emphasis>Auto-reload</emphasis>, which reloads application classes on code changes and provides a fast feedback loop.
+        To use Auto-reload, follow the steps below:
     </p>
+    <list type="decimal">
+        <li>
+            <p>
+                <a anchor="enable">Enable the development mode</a>
+            </p>
+        </li>
+        <li>
+            <p>
+                (Optional) <a anchor="watch-paths">Configure watch paths</a>
+            </p>
+        </li>
+        <li>
+            <p>
+                <a anchor="recompile">Enable recompiling on changes</a>
+            </p>
+        </li>
+    </list>
 
-    <chapter title="Enable Auto-reload" id="enable">
+    <chapter title="Enable the development mode" id="enable">
         <p>
             To use Auto-reload, you need to enable the
             <a href="development_mode.xml" anchor="enable">development mode</a> first.
@@ -51,7 +70,7 @@
     </chapter>
 
 
-    <chapter title="Watch specific paths" id="watch-paths">
+    <chapter title="Configure watch paths" id="watch-paths">
         <p>
             When you <a anchor="enable">enable</a> development mode,
             Ktor starts watching output files from the working directory.
