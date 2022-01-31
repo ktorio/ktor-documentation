@@ -2,6 +2,7 @@ package com.example
 
 import io.ktor.server.application.*
 import io.ktor.server.plugins.*
+import io.ktor.server.plugins.forwardedsupport.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 

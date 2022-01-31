@@ -35,7 +35,7 @@ The code snippet below shows how to configure the desired HTTPS port and return 
 
 ```kotlin
 ```
-{src="snippets/ssl-engine-main/src/main/kotlin/com/example/Application.kt" lines="10-14,24"}
+{src="snippets/ssl-engine-main/src/main/kotlin/com/example/Application.kt" lines="13-16"}
 
 You can find the full example here: [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-engine-main).
 

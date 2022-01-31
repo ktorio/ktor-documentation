@@ -29,7 +29,7 @@ To configure the `%plugin_name%` plugin, you need to define the [options](https:
 
 ```kotlin
 ```
-{src="snippets/caching-headers/src/main/kotlin/com/example/Application.kt" lines="20-28"}
+{src="snippets/caching-headers/src/main/kotlin/com/example/Application.kt" lines="21-29"}
 
 The [CachingOptions](https://api.ktor.io/ktor-http/io.ktor.http.content/-caching-options/index.html) object accepts `Cache-Control` and `Expires` header values as parameters:
 

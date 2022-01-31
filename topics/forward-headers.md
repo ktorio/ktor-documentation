@@ -63,7 +63,7 @@ The code snippet below shows how to obtain information about the host and port:
 
 ```kotlin
 ```
-{src="snippets/forwarded-header/src/main/kotlin/com/example/Application.kt" lines="14-16,22"}
+{src="snippets/forwarded-header/src/main/kotlin/com/example/Application.kt" lines="15-17,23"}
 
 
 
@@ -73,6 +73,6 @@ To read information about the original request, use the `call.request.origin` pr
 
 ```kotlin
 ```
-{src="snippets/forwarded-header/src/main/kotlin/com/example/Application.kt" lines="14,17-18,22"}
+{src="snippets/forwarded-header/src/main/kotlin/com/example/Application.kt" lines="15,18-19,23"}
 
 You can find the full example here: [forwarded-header](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/forwarded-header).

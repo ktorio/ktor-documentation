@@ -275,7 +275,7 @@
     </toc-element>
 
     <toc-element toc-title="Migrating Ktor applications">
-        <toc-element id="migrating-2.md" show-structure-depth="3"/>
+        <toc-element id="migrating-2.md" show-structure-depth="2"/>
     </toc-element>
 
     <toc-element id="FAQ.xml"

@@ -8,71 +8,86 @@ To unify and better distinguish the server and client APIs, server code is moved
 This means that you need to update [dependencies](#server-package-dependencies) for and [imports](#server-package-imports) in your application, as shown below.
 
 #### Dependencies {id="server-package-dependencies"}
-| Subsystem | 1.6.x | 2.0.0 |
-| :---        |    :----:   |          ---: |
-| [Locations](locations.md) | `io.ktor:ktor-locations` | `io.ktor:ktor-server-locations` |
-| [Webjars](webjars.md) | `io.ktor:ktor-webjars` | `io.ktor:ktor-server-webjars` |
-| [AutoHeadResponse](autoheadresponse.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-auto-head-response` |
-| [StatusPages](status_pages.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-status-pages` |
-| [CallId](call-id.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-call-id` |
-| [DoubleReceive](double-receive.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-double-receive` |
-| [HTML DSL](html_dsl.md) | `io.ktor:ktor-html-builder` | `io.ktor:ktor-server-html-builder` |
-| [FreeMarker](freemarker.md) | `io.ktor:ktor-freemarker` | `io.ktor:ktor-server-freemarker` |
-| [Velocity](velocity.md) | `io.ktor:ktor-velocity` | `io.ktor:ktor-server-velocity` |
-| [Mustache](mustache.md) | `io.ktor:ktor-mustache` | `io.ktor:ktor-server-mustache` |
-| [Thymeleaf](thymeleaf.md) | `io.ktor:ktor-thymeleaf` | `io.ktor:ktor-server-thymeleaf` |
-| [Pebble](pebble.md) | `io.ktor:ktor-pebble` | `io.ktor:ktor-server-pebble` |
-| [kotlinx.serialization](serialization.md) | `io.ktor:ktor-serialization` | `io.ktor:ktor-server-content-negotiation`, `io.ktor:ktor-serialization-kotlinx-json` |
-| [Gson](serialization.md) | `io.ktor:ktor-gson` | `io.ktor:ktor-server-content-negotiation`, `io.ktor:ktor-serialization-gson` |
-| [Jackson](serialization.md) | `io.ktor:ktor-jackson` | `io.ktor:ktor-server-content-negotiation`, `io.ktor:ktor-serialization-jackson` |
-| [Authentication](authentication.md) | `io.ktor:ktor-auth` | `io.ktor:ktor-server-auth` |
-| [JWT authentication](jwt.md) | `io.ktor:ktor-auth-jwt` | `io.ktor:ktor-server-auth-jwt` |
-| [LDAP authentication](ldap.md) | `io.ktor:ktor-auth-ldap` | `io.ktor:ktor-server-auth-ldap` |
-| [DataConversion](data-conversion.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-data-conversion` |
-| [DefaultHeaders](default_headers.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-default-headers` |
-| [Compression](compression.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-compression` |
-| [CachingHeaders](caching.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-caching-headers` |
-| [ConditionalHeaders](conditional_headers.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-conditional-headers` |
-| [CORS](cors.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-cors` |
-| [ForwardedHeaderSupport](forward-headers.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-forwarded-header` |
-| [HSTS](hsts.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-hsts` |
-| [HttpsRedirect](https-redirect.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-http-redirect` |
-| [PartialContent](partial-content.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-partial-content` |
-| [WebSockets](websocket.md) | `io.ktor:ktor-websockets` | `io.ktor:ktor-server-websockets` |
-| [CallLogging](call-logging.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-call-logging` |
-| [Micrometer metric](micrometer_metrics.md) | `io.ktor:ktor-metrics-micrometer` | `io.ktor:ktor-server-metrics-micrometer` |
-| [Dropwizard metrics](dropwizard_metrics.md) | `io.ktor:ktor-metrics` | `io.ktor:ktor-server-metrics` |
+| Subsystem                                    |               1.6.x               |                                                                                2.0.0 |
+|:---------------------------------------------|:---------------------------------:|-------------------------------------------------------------------------------------:|
+| [Locations](locations.md)                    |     `io.ktor:ktor-locations`      |                                                      `io.ktor:ktor-server-locations` |
+| [Webjars](webjars.md)                        |      `io.ktor:ktor-webjars`       |                                                        `io.ktor:ktor-server-webjars` |
+| [AutoHeadResponse](autoheadresponse.md)      |    `io.ktor:ktor-server-core`     |                                             `io.ktor:ktor-server-auto-head-response` |
+| [StatusPages](status_pages.md)               |    `io.ktor:ktor-server-core`     |                                                   `io.ktor:ktor-server-status-pages` |
+| [CallId](call-id.md)                         |    `io.ktor:ktor-server-core`     |                                                        `io.ktor:ktor-server-call-id` |
+| [DoubleReceive](double-receive.md)           |    `io.ktor:ktor-server-core`     |                                                 `io.ktor:ktor-server-double-receive` |
+| [HTML DSL](html_dsl.md)                      |    `io.ktor:ktor-html-builder`    |                                                   `io.ktor:ktor-server-html-builder` |
+| [FreeMarker](freemarker.md)                  |     `io.ktor:ktor-freemarker`     |                                                     `io.ktor:ktor-server-freemarker` |
+| [Velocity](velocity.md)                      |      `io.ktor:ktor-velocity`      |                                                       `io.ktor:ktor-server-velocity` |
+| [Mustache](mustache.md)                      |      `io.ktor:ktor-mustache`      |                                                       `io.ktor:ktor-server-mustache` |
+| [Thymeleaf](thymeleaf.md)                    |     `io.ktor:ktor-thymeleaf`      |                                                      `io.ktor:ktor-server-thymeleaf` |
+| [Pebble](pebble.md)                          |       `io.ktor:ktor-pebble`       |                                                         `io.ktor:ktor-server-pebble` |
+| [kotlinx.serialization](serialization.md)    |   `io.ktor:ktor-serialization`    | `io.ktor:ktor-server-content-negotiation`, `io.ktor:ktor-serialization-kotlinx-json` |
+| [Gson](serialization.md)                     |        `io.ktor:ktor-gson`        |         `io.ktor:ktor-server-content-negotiation`, `io.ktor:ktor-serialization-gson` |
+| [Jackson](serialization.md)                  |      `io.ktor:ktor-jackson`       |      `io.ktor:ktor-server-content-negotiation`, `io.ktor:ktor-serialization-jackson` |
+| [Authentication](authentication.md)          |        `io.ktor:ktor-auth`        |                                                           `io.ktor:ktor-server-auth` |
+| [JWT authentication](jwt.md)                 |      `io.ktor:ktor-auth-jwt`      |                                                       `io.ktor:ktor-server-auth-jwt` |
+| [LDAP authentication](ldap.md)               |     `io.ktor:ktor-auth-ldap`      |                                                      `io.ktor:ktor-server-auth-ldap` |
+| [DataConversion](data-conversion.md)         |    `io.ktor:ktor-server-core`     |                                                `io.ktor:ktor-server-data-conversion` |
+| [DefaultHeaders](default_headers.md)         |    `io.ktor:ktor-server-core`     |                                                `io.ktor:ktor-server-default-headers` |
+| [Compression](compression.md)                |    `io.ktor:ktor-server-core`     |                                                    `io.ktor:ktor-server-compression` |
+| [CachingHeaders](caching.md)                 |    `io.ktor:ktor-server-core`     |                                                `io.ktor:ktor-server-caching-headers` |
+| [ConditionalHeaders](conditional_headers.md) |    `io.ktor:ktor-server-core`     |                                            `io.ktor:ktor-server-conditional-headers` |
+| [CORS](cors.md)                              |    `io.ktor:ktor-server-core`     |                                                           `io.ktor:ktor-server-cors` |
+| [ForwardedHeaderSupport](forward-headers.md) |    `io.ktor:ktor-server-core`     |                                               `io.ktor:ktor-server-forwarded-header` |
+| [HSTS](hsts.md)                              |    `io.ktor:ktor-server-core`     |                                                           `io.ktor:ktor-server-hsts` |
+| [HttpsRedirect](https-redirect.md)           |    `io.ktor:ktor-server-core`     |                                                  `io.ktor:ktor-server-http-redirect` |
+| [PartialContent](partial-content.md)         |    `io.ktor:ktor-server-core`     |                                                `io.ktor:ktor-server-partial-content` |
+| [WebSockets](websocket.md)                   |     `io.ktor:ktor-websockets`     |                                                     `io.ktor:ktor-server-websockets` |
+| [CallLogging](call-logging.md)               |    `io.ktor:ktor-server-core`     |                                                   `io.ktor:ktor-server-call-logging` |
+| [Micrometer metric](micrometer_metrics.md)   | `io.ktor:ktor-metrics-micrometer` |                                             `io.ktor:ktor-server-metrics-micrometer` |
+| [Dropwizard metrics](dropwizard_metrics.md)  |      `io.ktor:ktor-metrics`       |                                                        `io.ktor:ktor-server-metrics` |
 
 > To add all plugins at once, you can use the `io.ktor:ktor-server` artifact.
 
 
 #### Imports {id="server-package-imports"}
-| Subsystem | 1.6.x | 2.0.0 |
-| :---        |    :----:   |          ---: |
-| [Application](create_server.xml) | `import io.ktor.application.*` | `import io.ktor.server.application.*` |
-| [Configuration](Configurations.xml) | `import io.ktor.config.*` | `import io.ktor.server.config.*` |
-| [Routing](Routing_in_Ktor.md) | `import io.ktor.routing.*` | `import io.ktor.server.routing.*` |
-| [Requests](requests.md) | `import io.ktor.request.*` | `import io.ktor.server.request.*` |
-| [Responses](responses.md) | `import io.ktor.response.*` | `import io.ktor.server.response.*` |
-| [Plugins](#feature-plugin) | `import io.ktor.features.*` | `import io.ktor.server.plugins.*` |
-| [Locations](locations.md) | `import io.ktor.locations.*` | `import io.ktor.server.locations.*` |
-| [Static content](Serving_Static_Content.md) | `import io.ktor.http.content.*` | `import io.ktor.server.http.content.*` |
-| [HTML DSL](html_dsl.md) | `import io.ktor.html.*` | `import io.ktor.server.html.*` |
-| [FreeMarker](freemarker.md) | `import io.ktor.freemarker.*` | `import io.ktor.server.freemarker.*` |
-| [Velocity](velocity.md) | `import io.ktor.velocity.*` | `import io.ktor.server.velocity.*` |
-| [Mustache](mustache.md) | `import io.ktor.mustache.*` | `import io.ktor.server.mustache.*` |
-| [Thymeleaf](thymeleaf.md) | `import io.ktor.thymeleaf.*` | `import io.ktor.server.thymeleaf.*` |
-| [Pebble](pebble.md) | `import io.ktor.pebble.*` | `import io.ktor.server.pebble.*` |
-| [kotlinx.serialization](serialization.md) | `import io.ktor.serialization.*` | `import io.ktor.serialization.kotlinx.json.*` |
-| [Gson](serialization.md) | `import io.ktor.gson.*` | `import io.ktor.serialization.gson.*` |
-| [Jackson](serialization.md) | `import io.ktor.jackson.*` | `import io.ktor.serialization.jackson.*` |
-| [Authentication](authentication.md) | `import io.ktor.auth.*` | `import io.ktor.server.auth.*` |
-| [JWT authentication](jwt.md) | `import io.ktor.auth.jwt.*` | `import io.ktor.server.auth.jwt.*` |
-| [LDAP authentication](ldap.md) | `import io.ktor.auth.ldap.*` | `import io.ktor.server.auth.ldap.*` |
-| [Sessions](sessions.md) | `import io.ktor.sessions.*` | `import io.ktor.server.sessions.*` |
-| [WebSockets](websocket.md) | `import io.ktor.websocket.*` | `import io.ktor.server.websocket.*` |
-| [Micrometer metric](micrometer_metrics.md) | `import io.ktor.metrics.micrometer.*` | `import io.ktor.server.metrics.micrometer.*` |
-| [Dropwizard metrics](dropwizard_metrics.md) | `import io.ktor.metrics.dropwizard.*` | `import io.ktor.server.metrics.dropwizard.*` |
+| Subsystem                                    |                 1.6.x                 |                                                2.0.0 |
+|:---------------------------------------------|:-------------------------------------:|-----------------------------------------------------:|
+| [Application](create_server.xml)             |    `import io.ktor.application.*`     |                `import io.ktor.server.application.*` |
+| [Configuration](Configurations.xml)          |       `import io.ktor.config.*`       |                     `import io.ktor.server.config.*` |
+| [Routing](Routing_in_Ktor.md)                |      `import io.ktor.routing.*`       |                    `import io.ktor.server.routing.*` |
+| [AutoHeadResponse](autoheadresponse.md)      |      `import io.ktor.features.*`      |           `import io.ktor.server.plugins.autohead.*` |
+| [StatusPages](status_pages.md)               |      `import io.ktor.features.*`      |        `import io.ktor.server.plugins.statuspages.*` |
+| [CallId](call-id.md)                         |      `import io.ktor.features.*`      |             `import io.ktor.server.plugins.callid.*` |
+| [DoubleReceive](double-receive.md)           |      `import io.ktor.features.*`      |      `import io.ktor.server.plugins.doublereceive.*` |
+| [Requests](requests.md)                      |      `import io.ktor.request.*`       |                    `import io.ktor.server.request.*` |
+| [Responses](responses.md)                    |      `import io.ktor.response.*`      |                   `import io.ktor.server.response.*` |
+| [Plugins](#feature-plugin)                   |      `import io.ktor.features.*`      |                    `import io.ktor.server.plugins.*` |
+| [Locations](locations.md)                    |     `import io.ktor.locations.*`      |                  `import io.ktor.server.locations.*` |
+| [Static content](Serving_Static_Content.md)  |    `import io.ktor.http.content.*`    |               `import io.ktor.server.http.content.*` |
+| [HTML DSL](html_dsl.md)                      |        `import io.ktor.html.*`        |                       `import io.ktor.server.html.*` |
+| [FreeMarker](freemarker.md)                  |     `import io.ktor.freemarker.*`     |                 `import io.ktor.server.freemarker.*` |
+| [Velocity](velocity.md)                      |      `import io.ktor.velocity.*`      |                   `import io.ktor.server.velocity.*` |
+| [Mustache](mustache.md)                      |      `import io.ktor.mustache.*`      |                   `import io.ktor.server.mustache.*` |
+| [Thymeleaf](thymeleaf.md)                    |     `import io.ktor.thymeleaf.*`      |                  `import io.ktor.server.thymeleaf.*` |
+| [Pebble](pebble.md)                          |       `import io.ktor.pebble.*`       |                     `import io.ktor.server.pebble.*` |
+| [ContentNegotiation](serialization.md)       |      `import io.ktor.features.*`      | `import io.ktor.server.plugins.contentnegotiation.*` |
+| [kotlinx.serialization](serialization.md)    |   `import io.ktor.serialization.*`    |        `import io.ktor.serialization.kotlinx.json.*` |
+| [Gson](serialization.md)                     |        `import io.ktor.gson.*`        |                `import io.ktor.serialization.gson.*` |
+| [Jackson](serialization.md)                  |      `import io.ktor.jackson.*`       |             `import io.ktor.serialization.jackson.*` |
+| [Authentication](authentication.md)          |        `import io.ktor.auth.*`        |                       `import io.ktor.server.auth.*` |
+| [JWT authentication](jwt.md)                 |      `import io.ktor.auth.jwt.*`      |                   `import io.ktor.server.auth.jwt.*` |
+| [LDAP authentication](ldap.md)               |     `import io.ktor.auth.ldap.*`      |                  `import io.ktor.server.auth.ldap.*` |
+| [Sessions](sessions.md)                      |      `import io.ktor.sessions.*`      |                   `import io.ktor.server.sessions.*` |
+| [DefaultHeaders](default_headers.md)         |      `import io.ktor.features.*`      |     `import io.ktor.server.plugins.defaultheaders.*` |
+| [Compression](compression.md)                |      `import io.ktor.features.*`      |        `import io.ktor.server.plugins.compression.*` |
+| [CachingHeaders](caching.md)                 |      `import io.ktor.features.*`      |     `import io.ktor.server.plugins.cachingheaders.*` |
+| [ConditionalHeaders](conditional_headers.md) |      `import io.ktor.features.*`      | `import io.ktor.server.plugins.conditionalheaders.*` |
+| [CORS](cors.md)                              |      `import io.ktor.features.*`      |               `import io.ktor.server.plugins.cors.*` |
+| [ForwardedHeaderSupport](forward-headers.md) |      `import io.ktor.features.*`      |   `import io.ktor.server.plugins.forwardedsupport.*` |
+| [HSTS](hsts.md)                              |      `import io.ktor.features.*`      |               `import io.ktor.server.plugins.hsts.*` |
+| [HttpsRedirect](https-redirect.md)           |      `import io.ktor.features.*`      |      `import io.ktor.server.plugins.httpsredirect.*` |
+| [PartialContent](partial-content.md)         |      `import io.ktor.features.*`      |     `import io.ktor.server.plugins.partialcontent.*` |
+| [WebSockets](websocket.md)                   |     `import io.ktor.websocket.*`      |                  `import io.ktor.server.websocket.*` |
+| [CallLogging](call-logging.md)               |      `import io.ktor.features.*`      |         `import io.ktor.server.plugins.callloging.*` |
+| [Micrometer metric](micrometer_metrics.md)   | `import io.ktor.metrics.micrometer.*` |         `import io.ktor.server.metrics.micrometer.*` |
+| [Dropwizard metrics](dropwizard_metrics.md)  | `import io.ktor.metrics.dropwizard.*` |         `import io.ktor.server.metrics.dropwizard.*` |
 
 
 ### WebSockets code is moved to the 'websockets' package {id="server-ws-package"}
@@ -325,6 +340,11 @@ The example below shows how to update your tests if the [HttpsRedirect](https-re
 </tabs>
 
 
+### DoubleReceive {id="double-receive"}
+
+The `receiveEntireContent` property provided by [DoubleReceive](double-receive.md) is renamed to `cacheRawRequest`.
+
+
 
 ## Ktor Client {id="client"}
 ### Requests and responses {id="request-response"}
@@ -482,20 +502,20 @@ You need to update [dependencies](#imports-dependencies-client) for and [imports
 
 #### Dependencies {id="imports-dependencies-client"}
 
-| Subsystem | 1.6.x | 2.0.0 |
-| :---        |    :----:   |          ---: |
-| `ContentNegotiation` | n/a | `io.ktor:ktor-client-content-negotiation` |
+| Subsystem             |                1.6.x                |                                     2.0.0 |
+|:----------------------|:-----------------------------------:|------------------------------------------:|
+| `ContentNegotiation`  |                 n/a                 | `io.ktor:ktor-client-content-negotiation` |
 | kotlinx.serialization | `io.ktor:ktor-client-serialization` | `io.ktor:ktor-serialization-kotlinx-json` |
-| Gson | `io.ktor:ktor-client-gson` | `io.ktor:ktor-serialization-gson` |
-| Jackson | `io.ktor:ktor-client-jackson` | `io.ktor:ktor-serialization-jackson` |
+| Gson                  |     `io.ktor:ktor-client-gson`      |         `io.ktor:ktor-serialization-gson` |
+| Jackson               |    `io.ktor:ktor-client-jackson`    |      `io.ktor:ktor-serialization-jackson` |
 
 #### Imports {id="imports-serialization-client"}
-| Subsystem | 1.6.x | 2.0.0 |
-| :---        |    :----:   |          ---: |
-| `ContentNegotiation` | n/a | `import io.ktor.client.plugins.*` |
-| kotlinx.serialization | `import io.ktor.client.features.json.*` | `import io.ktor.serialization.kotlinx.json.*` |
-| Gson | `import io.ktor.client.features.json.*` | `import io.ktor.serialization.gson.*` |
-| Jackson | `import io.ktor.client.features.json.*` | `import io.ktor.serialization.jackson.*` |
+| Subsystem             |                  1.6.x                  |                                                2.0.0 |
+|:----------------------|:---------------------------------------:|-----------------------------------------------------:|
+| `ContentNegotiation`  |                   n/a                   | `import io.ktor.client.plugins.contentnegotiation.*` |
+| kotlinx.serialization | `import io.ktor.client.features.json.*` |        `import io.ktor.serialization.kotlinx.json.*` |
+| Gson                  | `import io.ktor.client.features.json.*` |                `import io.ktor.serialization.gson.*` |
+| Jackson               | `import io.ktor.client.features.json.*` |             `import io.ktor.serialization.jackson.*` |
 
 ### Bearer authentication
 
