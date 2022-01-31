@@ -94,8 +94,8 @@ This means that you need to update [dependencies](#server-package-dependencies) 
 
 WebSockets code is moved from `http-cio` to the `websockets` package. This requires updating imports as follows:
 
-| 1.6.x | 2.0.0 |
-|    :----  |          ---: |
+| 1.6.x                                 |                        2.0.0 |
+|:--------------------------------------|-----------------------------:|
 | `import io.ktor.http.cio.websocket.*` | `import io.ktor.websocket.*` |
 
 Note that this change also affects the [client](#client-ws-package).
@@ -109,8 +109,8 @@ This affects the entire Ktor API and requires updating your application as descr
 #### Imports {id="feature-plugin-imports"}
 [Installing any plugin](Plugins.md#install) requires updating imports and also depends on [moving server code](#server-package-imports) to the `io.ktor.server.*` package:
 
-| 1.6.x | 2.0.0 |
-| :--- | ---: |
+| 1.6.x                       |                             2.0.0 |
+|:----------------------------|----------------------------------:|
 | `import io.ktor.features.*` | `import io.ktor.server.plugins.*` |
 
 #### Custom plugins {id="feature-plugin-custom"}
@@ -134,19 +134,19 @@ You need to update [dependencies](#dependencies-serialization) for and [imports]
 
 #### Dependencies {id="dependencies-serialization"}
 
-| Subsystem | 1.6.x | 2.0.0 |
-| :---        |    :----:   |          ---: |
-| [ContentNegotiation](serialization.md) | `io.ktor:ktor-server-core` | `io.ktor:ktor-server-content-negotiation` |
+| Subsystem                                 |            1.6.x             |                                     2.0.0 |
+|:------------------------------------------|:----------------------------:|------------------------------------------:|
+| [ContentNegotiation](serialization.md)    |  `io.ktor:ktor-server-core`  | `io.ktor:ktor-server-content-negotiation` |
 | [kotlinx.serialization](serialization.md) | `io.ktor:ktor-serialization` | `io.ktor:ktor-serialization-kotlinx-json` |
-| [Gson](serialization.md) | `io.ktor:ktor-gson` | `io.ktor:ktor-serialization-gson` |
-| [Jackson](serialization.md) | `io.ktor:ktor-jackson` | `io.ktor:ktor-serialization-jackson` |
+| [Gson](serialization.md)                  |     `io.ktor:ktor-gson`      |         `io.ktor:ktor-serialization-gson` |
+| [Jackson](serialization.md)               |    `io.ktor:ktor-jackson`    |      `io.ktor:ktor-serialization-jackson` |
 
 #### Imports {id="imports-serialization"}
-| Subsystem | 1.6.x | 2.0.0 |
-| :---        |    :----:   |          ---: |
+| Subsystem                                 |              1.6.x               |                                         2.0.0 |
+|:------------------------------------------|:--------------------------------:|----------------------------------------------:|
 | [kotlinx.serialization](serialization.md) | `import io.ktor.serialization.*` | `import io.ktor.serialization.kotlinx.json.*` |
-| [Gson](serialization.md) | `import io.ktor.gson.*` | `import io.ktor.serialization.gson.*` |
-| [Jackson](serialization.md) | `import io.ktor.jackson.*` | `import io.ktor.serialization.jackson.*` |
+| [Gson](serialization.md)                  |     `import io.ktor.gson.*`      |         `import io.ktor.serialization.gson.*` |
+| [Jackson](serialization.md)               |    `import io.ktor.jackson.*`    |      `import io.ktor.serialization.jackson.*` |
 
 #### Custom converters {id="serialization-custom-converter"}
 
@@ -720,6 +720,6 @@ To learn how to configure the `Darwin` engine, see the [](http-client_engines.md
 
 WebSockets code is moved from `http-cio` to the `websockets` package. This requires updating imports as follows:
 
-| 1.6.x | 2.0.0 |
-|    :----  |          ---: |
+| 1.6.x                                 |                        2.0.0 |
+|:--------------------------------------|-----------------------------:|
 | `import io.ktor.http.cio.websocket.*` | `import io.ktor.websocket.*` |
