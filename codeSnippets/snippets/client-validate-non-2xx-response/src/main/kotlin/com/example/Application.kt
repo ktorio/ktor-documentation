@@ -16,6 +16,7 @@ class MissingPageException(response: HttpResponse, cachedResponseText: String) :
 
 fun main() {
     val client = HttpClient(CIO) {
+        expectSuccess = true
         HttpResponseValidator {
             handleResponseException { exception ->
                 val clientException = exception as? ClientRequestException ?: return@handleResponseException
