@@ -58,7 +58,8 @@ As an alternative, you can use the `ktor-server` artifact containing all Ktor se
 Plugins are generally configured during the initialization phase of the server using the `install` function which takes a Plugin as a parameter. Depending on the way you used to [create a server](create_server.xml), you can install a plugin inside the `embeddedServer` call ...
 
 ```kotlin
-import io.ktor.server.plugins.*
+import io.ktor.server.plugins.cors.*
+import io.ktor.server.plugins.compression.*
 // ...
 fun main() {
     embeddedServer(Netty, port = 8080) {
@@ -72,7 +73,8 @@ fun main() {
 ... or a specified [module](Modules.md):
 
 ```kotlin
-import io.ktor.server.plugins.*
+import io.ktor.server.plugins.cors.*
+import io.ktor.server.plugins.compression.*
 // ...
 fun Application.module() {
     install(CORS)
@@ -141,16 +143,3 @@ By default, Ktor does not activate any Plugin, and it's up to us as developers t
 Ktor does however provide a variety of Plugins that ship out of the box. We can see a complete list of these 
 either on the [Project Generator Site](https://start.ktor.io) or in the [IntelliJ IDEA Wizard](intellij-idea.xml). In addition,
 we can also create our own [custom Plugins](custom_plugins.md).
-
-For more information about sequencing of Plugins and how they intercept the request/response pipeline, see [Pipeline](Pipelines.md) in the Advanced section of the documentation. 
-
-
-
-
-
-
-
- 
-
-
-
