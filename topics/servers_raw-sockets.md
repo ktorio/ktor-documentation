@@ -89,7 +89,7 @@ For example, you can write a line of UTF-8 characters using `ByteWriteChannel.wr
 {src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" lines="22-23"}
 
 
-### Close socket {id="server_close"}
+### Close a socket {id="server_close"}
 
 To release resources associated with the [connected socket](#accepts_connection), call `Socket.close`:
 
