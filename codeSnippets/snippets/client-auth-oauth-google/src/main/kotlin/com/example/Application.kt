@@ -36,7 +36,7 @@ fun main() {
             install(ContentNegotiation) {
                 json()
             }
-            expectSuccess = false
+
             install(Auth) {
                 bearer {
                     loadTokens {

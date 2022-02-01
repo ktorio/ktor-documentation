@@ -14,13 +14,3 @@ val client = HttpClient(CIO) {
     followRedirects = false
 }
 ```
-
-Note that by default Ktor [validates non-2xx responses](response-validation.md#default) and throws `RedirectResponseException` for the `3xx` redirect responses. 
-To disable default validation, set `expectSuccess` property to `false`:
-
-```kotlin
-val client = HttpClient(CIO) {
-    followRedirects = false
-    expectSuccess = false
-}
-```

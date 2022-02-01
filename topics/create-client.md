@@ -21,7 +21,9 @@ In this case, the client will choose an engine automatically depending on the ar
 
 ### Basic configuration {id="basic-config"}
 
-To configure the client, you can pass an additional functional parameter to the client constructor. The [HttpClientEngineConfig](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.engine/-http-client-engine-config/index.html) class is a base class for configuring the client. For instance, we can change the behaviour of exceptions as follows:
+To configure the client, you can pass an additional functional parameter to the client constructor. 
+The [HttpClientEngineConfig](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.engine/-http-client-engine-config/index.html) class is a base class for configuring the client. 
+For instance, you can enable [response validation](response-validation.md) using the `expectSuccess` property:
 
 ```kotlin
 ```
