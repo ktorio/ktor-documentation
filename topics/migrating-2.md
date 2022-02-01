@@ -492,6 +492,15 @@ You can find the full example here: [](response.md#streaming).
 
 
 
+### Response validation {id="response-validation"}
+
+With v2.0.0, the `expectSuccess` property used for [response validation](response-validation.md) is set to `false` by default.
+This causes the following changes:
+- To [enable default validation](response-validation.md#default) and throw exceptions for non-2xx responses, set the `expectSuccess` property to `true`.
+- If you [handle non-2xx exceptions](response-validation.md#non-2xx) using `handleResponseException`, you also need to enable `expectSuccess` explicitly.
+
+
+
 ### Content negotiation and serialization {id="serialization-client"}
 
 The Ktor client now supports content negotiation and shares serialization libraries with the Ktor server.
