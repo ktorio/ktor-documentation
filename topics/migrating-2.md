@@ -341,8 +341,9 @@ The example below shows how to update your tests if the [HttpsRedirect](https-re
 
 
 ### DoubleReceive {id="double-receive"}
-
-The `receiveEntireContent` property provided by [DoubleReceive](double-receive.md) is renamed to `cacheRawRequest`.
+With v2.0.0, the [DoubleReceive](double-receive.md) plugin configuration introduces the `cacheRawRequest` property, which is opposite to `receiveEntireContent`:
+- In v1.6.x, the `receiveEntireContent` property is set to `false` by default.
+- In v2.0.0, `cacheRawRequest` is set to `true` by default. The `receiveEntireContent` property is removed.
 
 
 

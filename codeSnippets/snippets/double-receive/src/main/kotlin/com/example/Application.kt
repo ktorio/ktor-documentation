@@ -13,7 +13,7 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
 fun Application.module() {
     install(DoubleReceive) {
-        cacheRawRequest = true
+        cacheRawRequest = false
     }
     install(CallLogging) {
         level = Level.TRACE

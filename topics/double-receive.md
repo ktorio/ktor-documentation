@@ -57,7 +57,7 @@ By default, `%plugin_name%` doesn't support:
 - receiving different types from the same request
 - receiving a [stream or channel](requests.md#raw)
 
-To overcome these limitations, set the `cacheRawRequest` property to `true`:
+To overcome these limitations, set the `cacheRawRequest` property to `false`:
 
 ```kotlin
 ```
