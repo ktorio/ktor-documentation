@@ -167,15 +167,19 @@ The `Darwin` engine targets [Darwin-based](https://en.wikipedia.org/wiki/Darwin_
 1. Add the `ktor-client-darwin` dependency:
    <var name="artifact_name" value="ktor-client-darwin"/>
    <include src="lib.xml" include-id="add_ktor_artifact"/>
-1. Pass the `darwin` class as an argument to the `HttpClient` constructor:
+2. Pass the `darwin` class as an argument to the `HttpClient` constructor:
+   ```kotlin
+   import io.ktor.client.*
+   import io.ktor.client.engine.darwin.*
+   
+   val client = HttpClient(Darwin)
+   ```
+3. To configure an engine, pass settings exposed by [DarwinClientEngineConfig](https://api.ktor.io/ktor-client/ktor-client-darwin/io.ktor.client.engine.darwin/-darwin-client-engine-config/index.html) to the `engine` method:
    ```kotlin
    ```
-   {src="snippets/_misc_client/IosCreate.kt"}
-1. To configure an engine, pass settings exposed by `DarwinClientEngineConfig` to the `engine` method:
-   ```kotlin
-   ```
-   {src="snippets/_misc_client/IosConfig.kt"}
+   {src="snippets/client-engine-darwin/src/nativeMain/kotlin/Main.kt" lines="8-14"}
 
+   You can find the full example here: [client-engine-darwin](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-engine-darwin).
 
 ### Curl {id="curl"}
 
