@@ -151,6 +151,8 @@ The `Js` engine can be used for [JavaScript projects](https://kotlinlang.org/doc
 
    val client = JsClient()
    ```
+   
+You can find the full example here: [client-engine-js](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-engine-js).
 
 ## Native {id="native"}
 In this section, we'll have a look on how to configure engines targeted for [Kotlin/Native](https://kotlinlang.org/docs/native-overview.html).
