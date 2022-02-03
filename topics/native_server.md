@@ -22,7 +22,7 @@ To use Ktor server in a Kotlin/Native project, you need to add at least two depe
 
 ```kotlin
 ```
-{src="snippets/embedded-server-native/build.gradle.kts" lines="36-42,48"}
+{src="snippets/embedded-server-native/build.gradle.kts" lines="32-38,44"}
 
 ## Declare native binaries {id="binaries"}
 
@@ -30,7 +30,7 @@ To [declare a native binary](https://kotlinlang.org/docs/mpp-build-native-binari
 
 ```kotlin
 ```
-{src="snippets/embedded-server-native/build.gradle.kts" lines="20-35"}
+{src="snippets/embedded-server-native/build.gradle.kts" lines="16-31"}
 
 You can find the full example here: [embedded-server-native](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server-native).
 

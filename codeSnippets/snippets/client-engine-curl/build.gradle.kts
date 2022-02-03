@@ -32,8 +32,8 @@ kotlin {
     sourceSets {
         val nativeMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-server-core:$ktor_version")
-                implementation("io.ktor:ktor-server-cio:$ktor_version")
+                implementation("io.ktor:ktor-client-core:$ktor_version")
+                implementation("io.ktor:ktor-client-curl:$ktor_version")
             }
         }
         val nativeTest by getting {

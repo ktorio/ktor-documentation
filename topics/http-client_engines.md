@@ -140,10 +140,13 @@ The `Js` engine can be used for [JavaScript projects](https://kotlinlang.org/doc
 1. Add the `ktor-client-js` dependency:
    <var name="artifact_name" value="ktor-client-js"/>
    <include src="lib.xml" include-id="add_ktor_artifact"/>
-1. Pass the `Js` class as an argument to the `HttpClient` constructor:
+2. Pass the `Js` class as an argument to the `HttpClient` constructor:
    ```kotlin
+   import io.ktor.client.*
+   import io.ktor.client.engine.js.*
+   
+   val client = HttpClient(Js)
    ```
-   {src="snippets/_misc_client/JsCreate.kt"}
    
    You can also call the `JsClient` function to get the `Js` engine singleton:
    ```kotlin
@@ -179,17 +182,24 @@ The `Darwin` engine targets [Darwin-based](https://en.wikipedia.org/wiki/Darwin_
 For desktop platforms, Ktor also provides the `Curl` engine. This engine is supported for the following platforms: `linuxX64`, `macosX64`, `mingwX64`. To use the `Curl` engine, follow the steps below:
 
 1. Install the [curl library](https://curl.se/download.html).
-1. Add the `ktor-client-curl` dependency:
+2. Add the `ktor-client-curl` dependency:
    <var name="artifact_name" value="ktor-client-curl"/>
    <include src="lib.xml" include-id="add_ktor_artifact"/>
-1. Pass the `Curl` class as an argument to the `HttpClient` constructor:
+3. Pass the `Curl` class as an argument to the `HttpClient` constructor:
+   ```kotlin
+   import io.ktor.client.*
+   import io.ktor.client.engine.curl.*
+   
+   val client = HttpClient(Curl)
+   ```
+
+4. To configure an engine, pass settings exposed by `CurlClientEngineConfig` to the `engine` method.
+   The code snippet below shows how to disable SSL verification for testing purposes:
    ```kotlin
    ```
-   {src="snippets/_misc_client/CurlCreate.kt"}
-1. To configure an engine, pass settings exposed by `CurlClientEngineConfig` to the `engine` method:
-   ```kotlin
-   ```
-   {src="snippets/_misc_client/CurlConfig.kt"}
+   {src="snippets/client-engine-curl/src/nativeMain/kotlin/Main.kt" lines="8-12"}
+
+   You can find the full example here: [client-engine-curl](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-engine-curl).
 
 
 ## Testing {id="test"}
