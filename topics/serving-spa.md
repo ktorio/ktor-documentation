@@ -30,12 +30,13 @@ Ktor provides the ability to serve single-page applications, including React, An
 
 ## Configure %plugin_name% {id="configure"}
 
-`%plugin_name%` allows you to define where we want the content to be served from: a local filesystem or the classpath.
-In the next chapters, we'll take a look at both approaches.
+`%plugin_name%` allows you to define where you want the content to be served from: a local filesystem or the classpath.
+You need at least to specify a folder/resource package containing a single-page application.
 
 ### Serve framework-specific applications {id="serve-framework"}
 
-%plugin_name% allows you to serve a build of your single-page application created using a specific framework, such as React, Angular, Vue, and so on. Suppose we have the `react-app` folder in a project root containing a React application.
+`%plugin_name%` allows you to serve a build of your single-page application created using a specific framework, such as React, Angular, Vue, and so on. 
+Suppose we have the `react-app` folder in a project root containing a React application.
 The application has the following structure and the `index.html` file as the main page:
 
 ```text
@@ -46,7 +47,7 @@ react-app
     └── ...
 ```
 
-To serve this application, pass the folder name to the `react` function inside the plugin configuration block.
+To serve this application, pass the folder name to the `react` function inside the plugin configuration block:
 
 ```kotlin
 install(SinglePageApplication) {
@@ -54,11 +55,14 @@ install(SinglePageApplication) {
 }
 ```
 
-For other frameworks, use corresponding functions, such as `angular`, `vue`, `ember`, and so on.
+`%plugin_name%` looks up `index.html` automatically. 
+To learn how to customize a default page, see [](#serve-customize).
+
+> For other frameworks, use corresponding functions, such as `angular`, `vue`, `ember`, and so on.
 
 
 
-### Serve arbitrary applications {id="serve-arbitrary"}
+### Customize serving settings {id="serve-customize"}
 
 To demonstrate how to serve a single-page application from resources, let's suppose our application is placed inside the `sample-web-app` resource package, which has the following structure:
 
