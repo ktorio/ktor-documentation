@@ -5,10 +5,10 @@ import io.ktor.server.application.*
 
 fun Application.module() {
     install(SinglePageApplication) {
+        useResources = true
         filesPath = "sample-web-app"
         defaultPage = "main.html"
         ignoreFiles { it.endsWith(".txt") }
-/*        useResources = true
-        react("react-app")*/
+//        react("react-app")
     }
 }
