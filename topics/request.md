@@ -20,18 +20,17 @@ Note that this function allows you to receive a response as an `HttpResponse` ob
 
 > `request` is a suspending function, so requests should be executed only from a coroutine or another suspend function. You can learn more about calling suspending functions from [Coroutines basics](https://kotlinlang.org/docs/coroutines-basics.html).
 
+## Specify a request URL {id="url"}
 
-## Set request parameters {id="parameters"}
-In this section, we'll see on how to specify various request parameters, including an HTTP method, headers, and cookies. If you need to configure some default parameters for all requests of a specific client, use the [](default-request.md) plugin.
+### Specify URL string {id="url-string"}
 
-
-### URL {id="url"}
-
-The `request` function can take a URL as a parameter: 
+The `request` function can take a URL as a parameter:
 
 ```kotlin
 ```
 {src="snippets/_misc_client/RequestMethodWithoutParams.kt" lines="4-6" interpolate-variables="true" disable-links="false"}
+
+### Configure URL components separately {id="url-components"}
 
 Another way to specify the URL is the `url` parameter exposed by `HttpRequestBuilder`. This parameter accepts [URLBuilder](https://api.ktor.io/ktor-http/io.ktor.http/-u-r-l-builder/index.html) and allows you to specify various URL components separately:
 
@@ -43,6 +42,12 @@ val response: HttpResponse = client.request {
     }
 }
 ```
+
+> To configure a base URL for all requests, you can use the [DefaultRequest](default-request.md#url) plugin. 
+
+
+## Set request parameters {id="parameters"}
+In this section, we'll see on how to specify various request parameters, including an HTTP method, headers, and cookies. If you need to configure some default parameters for all requests of a specific client, use the [DefaultRequest](default-request.md) plugin.
 
 
 ### HTTP method {id="http-method"}

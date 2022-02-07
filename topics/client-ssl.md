@@ -62,7 +62,7 @@ In our example, a `TrustManager` instance is used to configure a certificate:
 ```
 {src="snippets/client-ssl-config/src/main/kotlin/com/example/Application.kt" lines="39-45"}
 
-> The [client-default-request](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-default-request) example shows how to trust all certificates.
+> The [sockets-client-tls](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/sockets-client-tls) example shows how to trust all certificates.
 > This approach should be used for development purposes only.
 
 
