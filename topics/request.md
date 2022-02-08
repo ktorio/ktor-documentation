@@ -128,17 +128,34 @@ You can find the full example here: [client-submit-form](https://github.com/ktor
 
 ### Upload a file {id="upload_file"}
 
-If you need to send a file with a form, use the [submitFormWithBinaryData](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/submit-form-with-binary-data.html) function. When calling this function, you need to specify the `formData` parameter, which can be initialized using the [formData](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/form-data.html) function. A [runnable code example](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-upload-file) below shows how to do this:
+If you need to send a file with a form, you can configure the `POST` request or you can use the dedicated `submitFormWithBinaryData` function:
+- call the `post` function and pass the [MultiPartFormDataContent](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/-multi-part-form-data-content/index.html) instance to the `setBody` function.
+- use the [submitFormWithBinaryData](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/submit-form-with-binary-data.html) function. 
+
+For both approaches, you can build form data using the [formData](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/form-data.html) function.
+
+<tabs>
+<tab title="post">
 
 ```kotlin
 ```
-{src="snippets/client-upload-file/src/main/kotlin/com/example/Application.kt" lines="15-29"}
+{src="snippets/client-upload/src/main/kotlin/com/example/Application.kt" lines="16-27"}
 
-Note that in this example the [onUpload](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/on-upload.html) extension function is used to display upload progress:
+</tab>
+<tab title="submitFormWithBinaryData">
 
 ```kotlin
 ```
-{src="snippets/client-upload-file/src/main/kotlin/com/example/Application.kt" lines="26-28"}
+{src="snippets/client-upload-progress/src/main/kotlin/com/example/Application.kt" lines="16-29"}
+
+</tab>
+</tabs>
+
+You can find the full examples here:
+- [client-upload](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-upload)
+- [client-upload-progress](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-upload-progress)
+
+The second example also demonstrates how to use the [onUpload](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/on-upload.html) extension function to display upload progress.
 
 
 ## Parallel requests {id="parallel_requests"}
@@ -146,7 +163,7 @@ Note that in this example the [onUpload](https://api.ktor.io/ktor-client/ktor-cl
 When sending two requests at once, the client suspends the second request execution until the first one is finished. If you need to perform several requests at once, you can use [launch](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/launch.html) or [async](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html) functions. The code snippet below shows how to perform two requests asynchronously:
 ```kotlin
 ```
-{src="snippets/client-parallel-requests/src/main/kotlin/com/example/Application.kt" lines="12,19-22"}
+{src="snippets/client-parallel-requests/src/main/kotlin/com/example/Application.kt" lines="12,19-23,28"}
 
 To see a full example, go to [client-parallel-requests](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-parallel-requests).
 

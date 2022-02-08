@@ -13,5 +13,5 @@ First, you need to run a [server sample](../upload-file). Execute the following 
 Then, execute the following command to upload a file to a server:
 
 ```bash
-./gradlew :client-upload-file:run
+./gradlew :client-upload:run
 ```
