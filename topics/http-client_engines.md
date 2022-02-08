@@ -4,11 +4,13 @@
 Learn about engines that process network requests.
 </excerpt>
 
-The [Ktor HTTP client](create-client.md) can be used on different platforms, including JVM, [Android](https://kotlinlang.org/docs/android-overview.html), [JavaScript](https://kotlinlang.org/docs/js-overview.html), and [Native](https://kotlinlang.org/docs/native-overview.html). A specific platform may require a specific engine that processes network requests. For example, you can use `Apache`, `Jetty`, or `CIO` for JVM, `OkHttp` for Android, and so on. Different engines may have specific features and provide different configuration options.
+The [Ktor HTTP client](create-client.md) can be used on different platforms, including JVM, [Android](https://kotlinlang.org/docs/android-overview.html), [JavaScript](https://kotlinlang.org/docs/js-overview.html), and [Native](https://kotlinlang.org/docs/native-overview.html). A specific platform may require a specific engine that processes network requests. 
+For example, you can use `Apache` or `Jetty`for JVM applications, `OkHttp` or `Android` for Android, `Curl` for desktop applications targeting Kotlin/Native, and so on. Different engines may have specific features and provide different configuration options.
 
 ## Add an engine dependency {id="dependencies"}
 
 Apart from the [ktor-client-core](client-dependencies.md) artifact, the Ktor client requires adding a specific dependency for each engine. For each of the supported platform, you can see the available engines and required dependencies in a corresponding section:
+* [JVM](#jvm)
 * [JVM and Android](#jvm-android)
 * [JavaScript](#js)
 * [Native](#native)
@@ -40,7 +42,7 @@ To learn how to configure a specific engine, see a corresponding section below.
 
 
 ## JVM {id="jvm"}
-In this section, we'll take a look on engines available for JVM/Android and their configurations.
+In this section, we'll take a look on engines available for JVM.
 
 ### Apache {id="apache"}
 The `Apache` engine supports HTTP/1.1 and provides multiple configuration options. To use it, follow the steps below:
@@ -88,6 +90,8 @@ The `Jetty` engine supports only HTTP/2 and can be configured in the following w
 
 
 ## JVM and Android {id="jvm-android"}
+
+In this section, we'll take a look on engines available for JVM/Android and their configurations.
 
 ### CIO {id="cio"}
 CIO is a fully asynchronous coroutine-based engine that can be used for both JVM and Android platforms. It supports only HTTP/1.x for now. To use it, follow the steps below:
