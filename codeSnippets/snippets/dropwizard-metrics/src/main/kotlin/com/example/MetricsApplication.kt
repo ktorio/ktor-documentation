@@ -11,7 +11,7 @@ import java.util.concurrent.*
 fun Application.module() {
     install(DropwizardMetrics) {
         Slf4jReporter.forRegistry(registry)
-            .outputTo(log)
+            .outputTo(this@module.log)
             .convertRatesTo(TimeUnit.SECONDS)
             .convertDurationsTo(TimeUnit.MILLISECONDS)
             .build()

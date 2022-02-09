@@ -4,8 +4,8 @@
 
 <vars>
 
-    <var name="ktor_version" value="2.0.0-eap-322"/>
-    <var name="kotlin_version" value="1.6.10"/>
+    <var name="ktor_version" value="2.0.0-eap-327"/>
+    <var name="kotlin_version" value="1.6.20-M1"/>
     <var name="coroutines_version" value="1.6.0"/>
     <var name="kotlin_css_version" value="1.0.0-pre.293-kotlin-1.6.10"/>
     <var name="logback_version" value="1.2.7"/>
