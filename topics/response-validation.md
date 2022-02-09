@@ -2,31 +2,38 @@
 
 <microformat>
 <p><b>Code examples</b>:
-<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-validate-response">client-validate-response</a>,
-<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-customize-default-validation">client-customize-default-validation</a>
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-validate-2xx-response">client-validate-2xx-response</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-validate-non-2xx-response">client-validate-non-2xx-response</a>
 </p>
 </microformat>
 
 <excerpt>
-Ktor allows you to add validation for 2xx responses or customize default validation of non-2xx responses.
+Ktor allows you to validate a response depending on its status code.
 </excerpt>
 
-The Ktor client includes validation of non-2xx responses by default. For example, the client throws [ClientRequestException](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-client-request-exception/index.html) for 4xx error responses. If required, you can add additional validation for 2xx responses or customize default validation by using [HttpCallValidator](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-call-validator/index.html).
+By default, Ktor doesn't validate a [response](response.md) depending on its status code.
+If required, you can use the following validation strategies:
+- Use the `expectSuccess` property to throw exceptions for non-2xx responses.
+- Add stricter validation of 2xx responses.
+- Customize validation of non-2xx responses.
 
-## Default validation {id="default"}
-By default, the Ktor client throws exceptions for non-2xx error responses:
-* [RedirectResponseException](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-redirect-response-exception/index.html) for 3xx responses.
-* [ClientRequestException](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-client-request-exception/index.html) for 4xx responses.
-* [ServerResponseException](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-server-response-exception/index.html) for 5xx responses.
 
-You can add additional validation for 2xx responses by using the [validateResponse](#2xx) function available in `HttpCallValidator`. If you need to customize handling of non-2xx exceptions, you can use [handleResponseException](#non-2xx).
+## Enable default validation {id="default"}
 
-Default validation is controlled by the `expectSuccess` property. If necessary, you can disable it on a [client configuration](create-client.md#configure-client) level using the `expectSuccess` property ...
+Ktor allows you to enable default validation by setting the `expectSuccess` property to `true`.
+This can be done on a [client configuration](create-client.md#configure-client) level ... 
+
 ```kotlin
 ```
 {src="snippets/_misc_client/BasicClientConfig.kt"}
 
-... or by using the same property on a [request](request.md#parameters) level.
+... or by using the same property on a [request](request.md#parameters) level. 
+In this case, the following exceptions will be thrown for non-2xx error responses:
+
+* [RedirectResponseException](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-redirect-response-exception/index.html) for 3xx responses.
+* [ClientRequestException](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-client-request-exception/index.html) for 4xx responses.
+* [ServerResponseException](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-server-response-exception/index.html) for 5xx responses.
+
 
 ## Custom validation {id="custom"}
 You can add additional validation for 2xx responses or customize default validation by using the [HttpCallValidator](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-call-validator/index.html) plugin. To install `HttpCallValidator`, call the [HttpResponseValidator](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-response-validator.html) function inside a [client configuration block](create-client.md#configure-client):
@@ -44,16 +51,16 @@ val client = HttpClient(CIO) {
 
 As mentioned above, [default validation](#default) throws exceptions for non-2xx error responses. If you need to add stricter validation and check 2xx responses, use the [validateResponse](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-call-validator/-config/validate-response.html) function available in `HttpCallValidator`. 
 
-In the [example](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-validate-response) below, a client receives a 2xx response with error details in a [JSON](serialization-client.md) format. The `validateResponse` is used to raise a `CustomResponseException`:
+In the [example](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-validate-2xx-response) below, a client receives a 2xx response with error details in a [JSON](serialization-client.md) format. The `validateResponse` is used to raise a `CustomResponseException`:
 
 ```kotlin
 ```
-{src="snippets/client-validate-response/src/main/kotlin/com/example/Application.kt" lines="22-32"}
+{src="snippets/client-validate-2xx-response/src/main/kotlin/com/example/Application.kt" lines="23-33"}
 
 ### Handle non-2xx exceptions {id="non-2xx"}
 
-If you need to customize [default validation](#default) and handle exceptions for non-2xx responses in a specific way, use [handleResponseException](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-call-validator/-config/handle-response-exception.html). In the [example](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-customize-default-validation) below, a client raises a custom `MissingPageException` for 404 responses instead of the default `ClientRequestException`:
+If you need to customize [default validation](#default) and handle exceptions for non-2xx responses in a specific way, use [handleResponseException](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-call-validator/-config/handle-response-exception.html). In the [example](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-validate-non-2xx-response) below, a client raises a custom `MissingPageException` for 404 responses instead of the default `ClientRequestException`:
 
 ```kotlin
 ```
-{src="snippets/client-customize-default-validation/src/main/kotlin/com/example/Application.kt" lines="18-29"}
+{src="snippets/client-validate-non-2xx-response/src/main/kotlin/com/example/Application.kt" lines="18-30"}

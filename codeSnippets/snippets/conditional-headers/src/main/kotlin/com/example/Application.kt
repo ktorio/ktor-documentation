@@ -1,7 +1,7 @@
 package com.example
 
 import io.ktor.server.application.*
-import io.ktor.server.plugins.*
+import io.ktor.server.plugins.conditionalheaders.*
 import io.ktor.server.html.*
 import io.ktor.http.*
 import io.ktor.http.content.*

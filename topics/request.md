@@ -20,18 +20,17 @@ Note that this function allows you to receive a response as an `HttpResponse` ob
 
 > `request` is a suspending function, so requests should be executed only from a coroutine or another suspend function. You can learn more about calling suspending functions from [Coroutines basics](https://kotlinlang.org/docs/coroutines-basics.html).
 
+## Specify a request URL {id="url"}
 
-## Set request parameters {id="parameters"}
-In this section, we'll see on how to specify various request parameters, including an HTTP method, headers, and cookies. If you need to configure some default parameters for all requests of a specific client, use the [](default-request.md) plugin.
+### Specify URL string {id="url-string"}
 
-
-### URL {id="url"}
-
-The `request` function can take a URL as a parameter: 
+The `request` function can take a URL as a parameter:
 
 ```kotlin
 ```
 {src="snippets/_misc_client/RequestMethodWithoutParams.kt" lines="4-6" interpolate-variables="true" disable-links="false"}
+
+### Configure URL components separately {id="url-components"}
 
 Another way to specify the URL is the `url` parameter exposed by `HttpRequestBuilder`. This parameter accepts [URLBuilder](https://api.ktor.io/ktor-http/io.ktor.http/-u-r-l-builder/index.html) and allows you to specify various URL components separately:
 
@@ -43,6 +42,12 @@ val response: HttpResponse = client.request {
     }
 }
 ```
+
+> To configure a base URL for all requests, you can use the [DefaultRequest](default-request.md#url) plugin. 
+
+
+## Set request parameters {id="parameters"}
+In this section, we'll see on how to specify various request parameters, including an HTTP method, headers, and cookies. If you need to configure some default parameters for all requests of a specific client, use the [DefaultRequest](default-request.md) plugin.
 
 
 ### HTTP method {id="http-method"}
@@ -123,17 +128,42 @@ You can find the full example here: [client-submit-form](https://github.com/ktor
 
 ### Upload a file {id="upload_file"}
 
-If you need to send a file with a form, use the [submitFormWithBinaryData](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/submit-form-with-binary-data.html) function. When calling this function, you need to specify the `formData` parameter, which can be initialized using the [formData](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/form-data.html) function. A [runnable code example](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-upload-file) below shows how to do this:
+If you need to send a file with a form, you can use the following approaches:
+
+- Use the [submitFormWithBinaryData](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/submit-form-with-binary-data.html) function. In this case, a boundary will be generated automatically.
+- Call the `post` function and pass the [MultiPartFormDataContent](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/-multi-part-form-data-content/index.html) instance to the `setBody` function. Note that the `MultiPartFormDataContent` constructor also allows you to pass a boundary value.
+
+For both approaches, you need to build form data using the [formData](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/form-data.html) function.
+
+<tabs>
+
+<tab title="submitFormWithBinaryData">
 
 ```kotlin
 ```
-{src="snippets/client-upload-file/src/main/kotlin/com/example/Application.kt" lines="15-29"}
+{src="snippets/client-upload/src/main/kotlin/com/example/Application.kt" lines="13-24"}
 
-Note that in this example the [onUpload](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/on-upload.html) extension function is used to display upload progress:
+</tab>
+
+<tab title="MultiPartFormDataContent">
 
 ```kotlin
 ```
-{src="snippets/client-upload-file/src/main/kotlin/com/example/Application.kt" lines="26-28"}
+{src="snippets/client-upload-progress/src/main/kotlin/com/example/Application.kt" lines="16-33"}
+
+</tab>
+
+</tabs>
+
+`MultiPartFormDataContent` also allows you to override a boundary and content type as follows:
+
+```kotlin
+```
+{src="snippets/client-upload-progress/src/main/kotlin/com/example/Application.kt" lines="39-43"}
+
+You can find the full examples here:
+- [client-upload](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-upload)
+- [client-upload-progress](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-upload-progress)
 
 
 ## Parallel requests {id="parallel_requests"}
@@ -141,7 +171,7 @@ Note that in this example the [onUpload](https://api.ktor.io/ktor-client/ktor-cl
 When sending two requests at once, the client suspends the second request execution until the first one is finished. If you need to perform several requests at once, you can use [launch](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/launch.html) or [async](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html) functions. The code snippet below shows how to perform two requests asynchronously:
 ```kotlin
 ```
-{src="snippets/client-parallel-requests/src/main/kotlin/com/example/Application.kt" lines="12,19-22"}
+{src="snippets/client-parallel-requests/src/main/kotlin/com/example/Application.kt" lines="12,19-23,28"}
 
 To see a full example, go to [client-parallel-requests](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-parallel-requests).
 

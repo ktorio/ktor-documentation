@@ -1,7 +1,7 @@
 val ktor_version: String by project
 val kotlin_version: String by project
 val logback_version: String by project
-val prometeus_version: String by project
+val prometheus_version: String by project
 
 plugins {
     application
@@ -23,5 +23,5 @@ dependencies {
     implementation("io.ktor:ktor-server-netty:$ktor_version")
     implementation("io.ktor:ktor-server-metrics-micrometer:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
-    implementation("io.micrometer:micrometer-registry-prometheus:$prometeus_version")
+    implementation("io.micrometer:micrometer-registry-prometheus:$prometheus_version")
 }

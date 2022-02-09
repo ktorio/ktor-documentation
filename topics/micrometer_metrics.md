@@ -22,9 +22,9 @@ To enable `MicrometerMetrics`, you need to include the following artifacts in th
 * Add a dependency required for a monitoring system. The example below shows how to add an artifact for Prometheus:
     <var name="group_id" value="io.micrometer"/>
     <var name="artifact_name" value="micrometer-registry-prometheus"/>
-    <var name="version" value="prometeus_version"/>
+    <var name="version" value="prometheus_version"/>
     <include src="lib.xml" include-id="add_artifact"/>
-    You can replace `$prometeus_version` with the required version of the `micrometer-registry-prometheus` artifact, for example, `%prometeus_version%`.
+    You can replace `$prometheus_version` with the required version of the `micrometer-registry-prometheus` artifact, for example, `%prometheus_version%`.
 
 ## Install MicrometerMetrics {id="install_plugin"}
 

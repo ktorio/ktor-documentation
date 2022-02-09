@@ -21,7 +21,6 @@ Similar to the [ContentNegotiation](serialization-client.md) plugin, WebSockets 
 To register the JSON serializer in the WebSockets [configuration](websocket_client.md#install_plugin), create a `KotlinxWebsocketSerializationConverter` instance with the `Json` parameter and assign this instance to the `contentConverter` property:
 
 ```kotlin
-import io.ktor.client.plugins.*
 import io.ktor.serialization.kotlinx.*
 import kotlinx.serialization.json.*
 
@@ -38,7 +37,6 @@ val client = HttpClient(CIO) {
 To register the Gson serializer, assign `GsonWebsocketContentConverter` to the `contentConverter` property:
 
 ```kotlin
-import io.ktor.client.plugins.*
 import io.ktor.serialization.gson.*
 
 install(WebSockets) {
@@ -53,7 +51,6 @@ install(WebSockets) {
 To register the Jackson serializer, assign `JacksonWebsocketContentConverter` to the `contentConverter` property:
 
 ```kotlin
-import io.ktor.client.plugins.*
 import io.ktor.serialization.jackson.*
 
 install(WebSockets) {
@@ -69,7 +66,6 @@ install(WebSockets) {
 To register the XML serializer in the WebSockets [configuration](websocket_client.md#install_plugin), create a `KotlinxWebsocketSerializationConverter` instance with the `XML` parameter and assign this instance to the `contentConverter` property:
 
 ```kotlin
-import io.ktor.client.plugins.*
 import nl.adaptivity.xmlutil.serialization.*
 
 install(WebSockets) {
@@ -81,7 +77,6 @@ install(WebSockets) {
 To register the CBOR serializer in the WebSockets [configuration](websocket_client.md#install_plugin), create a `KotlinxWebsocketSerializationConverter` instance with the `Cbor` parameter and assign this instance to the `contentConverter` property:
 
 ```kotlin
-import io.ktor.client.plugins.*
 import io.ktor.serialization.kotlinx.cbor.*
 
 install(WebSockets) {

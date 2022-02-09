@@ -1,0 +1,21 @@
+# Client - JavaScript engine
+
+A sample Ktor project showing how to use the [JavaScript](https://ktor.io/docs/http-client-engines.html#js) client engine.
+
+## Running
+
+Before running this sample, update the [cors-backend](../cors-backend) server example to allow cross-origin requests from any host.
+In the `Application.kt` file, add the `anyHost()` function call inside the `install(CORS)` block.
+Then, run [cors-backend](../cors-backend):
+
+```bash
+./gradlew :cors-backend:run
+```
+
+Open another terminal tab and run this sample by executing the following command:
+
+```bash
+./gradlew :client-engine-js:browserProductionRun --continuous
+```
+
+On the opened page, click the button to make a request.

@@ -11,7 +11,6 @@ class ApplicationTest {
     fun testRequests() = testApplication {
         val client = createClient {
             install(HttpCookies)
-            expectSuccess = false
         }
 
         val loginResponse = client.post("/login") {

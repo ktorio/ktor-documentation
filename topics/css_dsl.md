@@ -34,18 +34,18 @@ To send a CSS response, you need to extend `ApplicationCall` by adding the `resp
 
 ```kotlin
 ```
-{src="snippets/caching-headers/src/main/kotlin/com/example/Application.kt" lines="63-65"}
+{src="snippets/caching-headers/src/main/kotlin/com/example/Application.kt" lines="64-66"}
 
 Then, you can provide CSS inside the required [route](Routing_in_Ktor.md):
 
 ```kotlin
 ```
-{src="snippets/caching-headers/src/main/kotlin/com/example/Application.kt" lines="45-55"}
+{src="snippets/caching-headers/src/main/kotlin/com/example/Application.kt" lines="46-56"}
 
 Finally, you can use the specified CSS for an HTML document created with [HTML DSL](html_dsl.md):
 
 ```kotlin
 ```
-{src="snippets/caching-headers/src/main/kotlin/com/example/Application.kt" lines="33-44"}
+{src="snippets/caching-headers/src/main/kotlin/com/example/Application.kt" lines="34-45"}
 
 You can find the full example here: [caching-headers](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/caching-headers).

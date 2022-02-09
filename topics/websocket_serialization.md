@@ -25,7 +25,6 @@ Ktor supports the following formats out-of-the-box: [JSON](#register_json), [XML
 To register the JSON serializer in the WebSockets [configuration](websocket.md#configure), create a `KotlinxWebsocketSerializationConverter` instance with the `Json` parameter and assign this instance to the `contentConverter` property:
 
 ```kotlin
-import io.ktor.server.plugins.*
 import io.ktor.serialization.kotlinx.*
 import kotlinx.serialization.json.*
 
@@ -39,7 +38,6 @@ install(WebSockets) {
 
 To register the Gson serializer, assign `GsonWebsocketContentConverter` to the `contentConverter` property:
 ```kotlin
-import io.ktor.server.plugins.*
 import io.ktor.serialization.gson.*
 
 install(WebSockets) {
@@ -54,7 +52,6 @@ install(WebSockets) {
 To register the Jackson serializer, assign `JacksonWebsocketContentConverter` to the `contentConverter` property:
 
 ```kotlin
-import io.ktor.server.plugins.*
 import io.ktor.serialization.jackson.*
 
 install(WebSockets) {
@@ -71,7 +68,6 @@ install(WebSockets) {
 
 To register the XML serializer in the WebSockets [configuration](websocket.md#configure), create a `KotlinxWebsocketSerializationConverter` instance with the `XML` parameter and assign this instance to the `contentConverter` property:
 ```kotlin
-import io.ktor.server.plugins.*
 import nl.adaptivity.xmlutil.serialization.*
 
 install(WebSockets) {
@@ -84,7 +80,6 @@ install(WebSockets) {
 To register the CBOR serializer in the WebSockets [configuration](websocket.md#configure), create a `KotlinxWebsocketSerializationConverter` instance with the `Cbor` parameter and assign this instance to the `contentConverter` property:
 
 ```kotlin
-import io.ktor.server.plugins.*
 import io.ktor.serialization.kotlinx.cbor.*
 
 install(WebSockets) {
@@ -120,5 +115,3 @@ To pass a data object in a text frame using a [specified format](#configure_seri
 {src="snippets/server-websockets-serialization/src/main/kotlin/com/example/Application.kt" lines="20-22"}
 
 You can find the full example here: [server-websockets-serialization](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/server-websockets-serialization).
-
-

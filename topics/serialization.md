@@ -92,8 +92,8 @@ Ktor supports the following formats out-of-the-box: [JSON](#register_json), [XML
 
 To register the JSON serializer in your application, call the `json` method:
 ```kotlin
-import io.ktor.server.plugins.*
-import io.ktor.serialization.kotlinx.*
+import io.ktor.server.plugins.contentnegotiation.*
+import io.ktor.serialization.kotlinx.json.*
 
 install(ContentNegotiation) {
     json()
@@ -111,7 +111,7 @@ The `json` method also allows you to adjust serialization settings provided by [
 
 To register the Gson serializer in your application, call the `gson` method:
 ```kotlin
-import io.ktor.server.plugins.*
+import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.serialization.gson.*
 
 install(ContentNegotiation) {
@@ -123,7 +123,7 @@ The `gson` method also allows you to adjust serialization settings provided by [
 
 ```kotlin
 ```
-{src="snippets/gson/src/main/kotlin/com/example/GsonApplication.kt" lines="21-26"}
+{src="snippets/gson/src/main/kotlin/com/example/GsonApplication.kt" lines="24-29"}
 
 </tab>
 <tab title="Jackson" group-key="jackson">
@@ -131,7 +131,7 @@ The `gson` method also allows you to adjust serialization settings provided by [
 To register the Jackson serializer in your application, call the `jackson` method:
 
 ```kotlin
-import io.ktor.server.plugins.*
+import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.serialization.jackson.*
 
 install(ContentNegotiation) {
@@ -143,7 +143,7 @@ The `jackson` method also allows you to adjust serialization settings provided b
 
 ```kotlin
 ```
-{src="snippets/jackson/src/main/kotlin/com/example/JacksonApplication.kt" lines="23-32"}
+{src="snippets/jackson/src/main/kotlin/com/example/JacksonApplication.kt" lines="26-35"}
 
 </tab>
 </tabs>
@@ -154,7 +154,7 @@ The `jackson` method also allows you to adjust serialization settings provided b
 
 To register the XML serializer in your application, call the `xml` method:
 ```kotlin
-import io.ktor.server.plugins.*
+import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.serialization.kotlinx.xml.*
 
 install(ContentNegotiation) {
@@ -165,7 +165,7 @@ install(ContentNegotiation) {
 The `xml` method also allows you to access XML serialization settings, for example:
 
 ```kotlin
-import io.ktor.server.plugins.*
+import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.serialization.kotlinx.xml.*
 import nl.adaptivity.xmlutil.*
 import nl.adaptivity.xmlutil.serialization.*
@@ -181,7 +181,7 @@ install(ContentNegotiation) {
 ### CBOR serializer {id="register_cbor"}
 To register the CBOR serializer in your application, call the `cbor` method:
 ```kotlin
-import io.ktor.server.plugins.*
+import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.serialization.kotlinx.cbor.*
 
 install(ContentNegotiation) {
@@ -192,7 +192,7 @@ install(ContentNegotiation) {
 The `cbor` method also allows you to access CBOR serialization settings provided by [CborBuilder](https://kotlin.github.io/kotlinx.serialization/kotlinx-serialization-cbor/kotlinx-serialization-cbor/kotlinx.serialization.cbor/-cbor-builder/index.html), for example:
 
 ```kotlin
-import io.ktor.server.plugins.*
+import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.serialization.kotlinx.cbor.*
 import kotlinx.serialization.cbor.*
 

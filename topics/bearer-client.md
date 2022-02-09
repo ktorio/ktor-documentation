@@ -177,8 +177,6 @@ The following settings are specified:
 
 - The already installed [ContentNegotiation](serialization-client.md) plugin with the `json` serializer is required to deserialize user information received from a resource server in a JSON format.
 
-- The `expectSuccess` property disables exceptions when receiving [non-2xx responses](response-validation.md). This is required to correctly handle `401` unauthorized responses received when an access token is expired.
-
 - The [Auth](auth.md) plugin with the `bearer` provider is configured as follows:
    * The `loadTokens` callback loads tokens from the [storage](#step4).
    * The `sendWithoutRequest` callback is configured to send credentials without waiting for the `401` (Unauthorized) response only to a host providing access to protected resources.

@@ -4,11 +4,13 @@
 Learn about engines that process network requests.
 </excerpt>
 
-The [Ktor HTTP client](create-client.md) can be used on different platforms, including JVM, [Android](https://kotlinlang.org/docs/android-overview.html), [JavaScript](https://kotlinlang.org/docs/js-overview.html), and [Native](https://kotlinlang.org/docs/native-overview.html). A specific platform may require a specific engine that processes network requests. For example, you can use `Apache`, `Jetty`, or `CIO` for JVM, `OkHttp` for Android, and so on. Different engines may have specific features and provide different configuration options.
+The [Ktor HTTP client](create-client.md) can be used on different platforms, including JVM, [Android](https://kotlinlang.org/docs/android-overview.html), [JavaScript](https://kotlinlang.org/docs/js-overview.html), and [Native](https://kotlinlang.org/docs/native-overview.html). A specific platform may require a specific engine that processes network requests. 
+For example, you can use `Apache` or `Jetty`for JVM applications, `OkHttp` or `Android` for Android, `Curl` for desktop applications targeting Kotlin/Native, and so on. Different engines may have specific features and provide different configuration options.
 
 ## Add an engine dependency {id="dependencies"}
 
 Apart from the [ktor-client-core](client-dependencies.md) artifact, the Ktor client requires adding a specific dependency for each engine. For each of the supported platform, you can see the available engines and required dependencies in a corresponding section:
+* [JVM](#jvm)
 * [JVM and Android](#jvm-android)
 * [JavaScript](#js)
 * [Native](#native)
@@ -40,7 +42,7 @@ To learn how to configure a specific engine, see a corresponding section below.
 
 
 ## JVM {id="jvm"}
-In this section, we'll take a look on engines available for JVM/Android and their configurations.
+In this section, we'll take a look on engines available for JVM.
 
 ### Apache {id="apache"}
 The `Apache` engine supports HTTP/1.1 and provides multiple configuration options. To use it, follow the steps below:
@@ -88,6 +90,8 @@ The `Jetty` engine supports only HTTP/2 and can be configured in the following w
 
 
 ## JVM and Android {id="jvm-android"}
+
+In this section, we'll take a look on engines available for JVM/Android and their configurations.
 
 ### CIO {id="cio"}
 CIO is a fully asynchronous coroutine-based engine that can be used for both JVM and Android platforms. It supports only HTTP/1.x for now. To use it, follow the steps below:
@@ -140,10 +144,13 @@ The `Js` engine can be used for [JavaScript projects](https://kotlinlang.org/doc
 1. Add the `ktor-client-js` dependency:
    <var name="artifact_name" value="ktor-client-js"/>
    <include src="lib.xml" include-id="add_ktor_artifact"/>
-1. Pass the `Js` class as an argument to the `HttpClient` constructor:
+2. Pass the `Js` class as an argument to the `HttpClient` constructor:
    ```kotlin
+   import io.ktor.client.*
+   import io.ktor.client.engine.js.*
+   
+   val client = HttpClient(Js)
    ```
-   {src="snippets/_misc_client/JsCreate.kt"}
    
    You can also call the `JsClient` function to get the `Js` engine singleton:
    ```kotlin
@@ -151,6 +158,8 @@ The `Js` engine can be used for [JavaScript projects](https://kotlinlang.org/doc
 
    val client = JsClient()
    ```
+   
+You can find the full example here: [client-engine-js](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-engine-js).
 
 ## Native {id="native"}
 In this section, we'll have a look on how to configure engines targeted for [Kotlin/Native](https://kotlinlang.org/docs/native-overview.html).
@@ -162,32 +171,43 @@ The `Darwin` engine targets [Darwin-based](https://en.wikipedia.org/wiki/Darwin_
 1. Add the `ktor-client-darwin` dependency:
    <var name="artifact_name" value="ktor-client-darwin"/>
    <include src="lib.xml" include-id="add_ktor_artifact"/>
-1. Pass the `darwin` class as an argument to the `HttpClient` constructor:
+2. Pass the `darwin` class as an argument to the `HttpClient` constructor:
+   ```kotlin
+   import io.ktor.client.*
+   import io.ktor.client.engine.darwin.*
+   
+   val client = HttpClient(Darwin)
+   ```
+3. To configure an engine, pass settings exposed by [DarwinClientEngineConfig](https://api.ktor.io/ktor-client/ktor-client-darwin/io.ktor.client.engine.darwin/-darwin-client-engine-config/index.html) to the `engine` method:
    ```kotlin
    ```
-   {src="snippets/_misc_client/IosCreate.kt"}
-1. To configure an engine, pass settings exposed by `DarwinClientEngineConfig` to the `engine` method:
-   ```kotlin
-   ```
-   {src="snippets/_misc_client/IosConfig.kt"}
+   {src="snippets/client-engine-darwin/src/nativeMain/kotlin/Main.kt" lines="8-14"}
 
+   You can find the full example here: [client-engine-darwin](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-engine-darwin).
 
 ### Curl {id="curl"}
 
 For desktop platforms, Ktor also provides the `Curl` engine. This engine is supported for the following platforms: `linuxX64`, `macosX64`, `mingwX64`. To use the `Curl` engine, follow the steps below:
 
 1. Install the [curl library](https://curl.se/download.html).
-1. Add the `ktor-client-curl` dependency:
+2. Add the `ktor-client-curl` dependency:
    <var name="artifact_name" value="ktor-client-curl"/>
    <include src="lib.xml" include-id="add_ktor_artifact"/>
-1. Pass the `Curl` class as an argument to the `HttpClient` constructor:
+3. Pass the `Curl` class as an argument to the `HttpClient` constructor:
+   ```kotlin
+   import io.ktor.client.*
+   import io.ktor.client.engine.curl.*
+   
+   val client = HttpClient(Curl)
+   ```
+
+4. To configure an engine, pass settings exposed by `CurlClientEngineConfig` to the `engine` method.
+   The code snippet below shows how to disable SSL verification for testing purposes:
    ```kotlin
    ```
-   {src="snippets/_misc_client/CurlCreate.kt"}
-1. To configure an engine, pass settings exposed by `CurlClientEngineConfig` to the `engine` method:
-   ```kotlin
-   ```
-   {src="snippets/_misc_client/CurlConfig.kt"}
+   {src="snippets/client-engine-curl/src/nativeMain/kotlin/Main.kt" lines="8-12"}
+
+   You can find the full example here: [client-engine-curl](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-engine-curl).
 
 
 ## Testing {id="test"}
