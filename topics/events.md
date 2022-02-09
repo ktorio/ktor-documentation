@@ -87,4 +87,4 @@ monitor.raise(MyEventDefinition, MySubject())
 
 ## Examples
 
-You can check the [`CallLogging` plugin source code](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-plugins/ktor-server-call-logging/jvm/src/io/ktor/server/plugins/CallLogging.kt) that includes code subscribing to events from the application.
+You can check the [CallLogging](https://github.com/ktorio/ktor/blob/33519fd01e6a57467e1b12b1297af84d25ace814/ktor-server/ktor-server-plugins/ktor-server-call-logging/jvm/src/io/ktor/server/plugins/callloging/CallLogging.kt) plugin source code that includes code subscribing to events from the application.
