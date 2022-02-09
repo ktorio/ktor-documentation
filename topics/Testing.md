@@ -166,6 +166,21 @@ If you need to preserve cookies between requests when testing, you need create a
 </tabs>
 
 
+## Test HTTPS {id="https"}
+
+If you need to test an [HTTPS endpoint](ssl.md), change the protocol used to make a request using the [URLBuilder.protocol](request.md#url-components) property:
+
+```kotlin
+```
+{src="snippets/ssl-engine-main/src/test/kotlin/ApplicationTest.kt" lines="10-18"}
+
+You can find the full example here: [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-engine-main).
+
+### HttpsRedirect plugin {id="https-redirect"}
+
+The `HttpsRedirect` plugin changes how testing is performed. Check the [](https-redirect.md#testing) section for more information.
+
+
 ## Test WebSockets {id="testing-ws"}
 
 You can test [WebSocket conversations](websocket.md) by using the [WebSockets](websocket_client.md) plugin provided by the client:
@@ -210,10 +225,6 @@ fun testRequest() = testApplication {
 }
 ```
 
-
-## HttpsRedirect plugin {id="https-redirect"}
-
-The `HttpsRedirect` plugin changes how testing is performed. Check the [](https-redirect.md#testing) section for more information.
 
 
 ## End-to-end testing with HttpClient {id="end-to-end"}

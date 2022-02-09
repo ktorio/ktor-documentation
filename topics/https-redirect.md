@@ -7,7 +7,7 @@
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
-<var name="example_name" value="ssl-engine-main"/>
+<var name="example_name" value="ssl-engine-main-redirect"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
@@ -35,9 +35,9 @@ The code snippet below shows how to configure the desired HTTPS port and return 
 
 ```kotlin
 ```
-{src="snippets/ssl-engine-main/src/main/kotlin/com/example/Application.kt" lines="13-16"}
+{src="snippets/ssl-engine-main-redirect/src/main/kotlin/com/example/Application.kt" lines="12-15"}
 
-You can find the full example here: [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-engine-main).
+You can find the full example here: [ssl-engine-main-redirect](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-engine-main-redirect).
 
 ## Testing {id="testing"}
 
@@ -52,7 +52,7 @@ You can install the [XForwardedHeaderSupport](forward-headers.md) plugin in your
 
 ```kotlin
 ```
-{src="snippets/ssl-engine-main/src/test/kotlin/ApplicationTest.kt" lines="11-18"}
+{src="snippets/ssl-engine-main-redirect/src/test/kotlin/ApplicationTest.kt" lines="11-18"}
 
 </tab>
 
@@ -60,9 +60,9 @@ You can install the [XForwardedHeaderSupport](forward-headers.md) plugin in your
 
 ```kotlin
 ```
-{src="snippets/ssl-engine-main/src/main/kotlin/com/example/Application.kt"}
+{src="snippets/ssl-engine-main-redirect/src/main/kotlin/com/example/Application.kt"}
 
 </tab>
 </tabs>
 
-You can find the full example here: [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-engine-main).
+You can find the full example here: [ssl-engine-main-redirect](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-engine-main-redirect).

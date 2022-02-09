@@ -7,7 +7,7 @@
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
-<var name="example_name" value="ssl-engine-main"/>
+<var name="example_name" value="ssl-engine-main-hsts"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
@@ -33,6 +33,6 @@ The code above installs `%plugin_name%` with the default configuration.
 
 ```kotlin
 ```
-{src="snippets/ssl-engine-main/src/main/kotlin/com/example/Application.kt" lines="18-20"}
+{src="snippets/ssl-engine-main-hsts/src/main/kotlin/com/example/Application.kt" lines="11-13"}
 
-You can find the full example here: [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-engine-main).
+You can find the full example here: [ssl-engine-main-hsts](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-engine-main-hsts).
