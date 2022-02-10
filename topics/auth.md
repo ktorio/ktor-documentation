@@ -10,7 +10,8 @@
 The Auth plugin handles authentication and authorization in your client application.
 </excerpt>
 
-Ktor provides the `Auth` plugin to handle authentication and authorization in your client application. Typical usage scenarios include logging in users and gaining access to specific resources. 
+Ktor provides the `Auth` plugin to handle authentication and authorization in your client application. 
+Typical usage scenarios include logging in users and gaining access to specific resources. 
 
 
 ## Supported authentication types {id="supported"}
@@ -45,7 +46,54 @@ Now you can [configure](#configure_authentication) the required authentication p
 
 ## Configure authentication {id="configure_authentication"}
 
-To learn how to configure the desired [authentication provider](#supported), see a corresponding topic:
+### Step 1: Choose an authentication provider {id="choose-provider"}
+
+To use a specific authentication provider ([basic](basic-client.md), [digest](digest-client.md), or [bearer](bearer-client.md)), you need to call the corresponding function inside the `install` block. For example, to use the `basic` authentication, call the [basic](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-auth/io.ktor.client.plugins.auth.providers/basic.html) function:
+
+```kotlin
+install(Auth) {
+    basic {
+        // Configure basic authentication
+    }
+}
+```
+Inside the block, you can configure settings specific to this provider.
+
+
+### Step 2: (Optional) Configure the realm {id="realm"}
+
+Optionally, you can configure the realm using the `realm` property:
+
+```kotlin
+install(Auth) {
+    basic {
+        realm = "Access to the '/' path"
+        // ...
+    }
+}
+```
+
+You can create several providers with different realms to access different resources:
+
+```kotlin
+install(Auth) {
+    basic {
+        realm = "Access to the '/' path"
+        // ...
+    }
+    basic {
+        realm = "Access to the '/admin' path"
+        // ...
+    }
+}
+```
+
+In this case, the client chooses the necessary provider based on the `WWW-Authenticate` response header, which contains the realm.
+
+
+### Step 3: Configure a provider {id="configure-provider"}
+
+To learn how to configure settings for a specific [provider](#supported), see a corresponding topic:
 * [](basic-client.md)
 * [](digest-client.md)
 * [](bearer-client.md)

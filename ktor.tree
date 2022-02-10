@@ -255,7 +255,7 @@
             <toc-element id="serialization-client.md"
                          accepts-web-file-names="json-feature.html,json.html"
                          show-structure-depth="2"/>
-            <toc-element id="auth.md"
+            <toc-element id="auth.md" show-structure-depth="2"
                          accepts-web-file-names="features-auth.html">
                 <toc-element id="basic-client.md"/>
                 <toc-element id="digest-client.md"/>

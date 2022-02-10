@@ -42,7 +42,7 @@ A Ktor client allows you to configure a token to be sent in the `Authorization` 
    Authorization: Bearer abc123
    ```
    
-3. Specify how to obtain a new token if the old one is invalid using `refreshTokens`. This block is called after receiving a `401` (Unauthorized) response with the `WWW-Authenticate` header.
+3. Specify how to obtain a new token if the old one is invalid using `refreshTokens`.
 
    ```kotlin
    install(Auth) {
@@ -58,14 +58,14 @@ A Ktor client allows you to configure a token to be sent in the `Authorization` 
    
    This callback works as follows:
    
-   a. The client makes a request to a protected resource using an invalid access token and gets the `401` (Unauthorized) response.
-   > Take into account that by default the Ktor client throws an exception when receiving [non-2xx responses](response-validation.md).
+   a. The client makes a request to a protected resource using an invalid access token and gets a `401` (Unauthorized) response.
+     > If [several providers](auth.md#realm) are installed, a response should have the `WWW-Authenticate` header.
    
    b. The client calls `refreshTokens` automatically to obtain new tokens.
 
    c. The client makes one more request to a protected resource automatically using a new token this time.
 
-4. Optionally, specify a condition for sending credentials without waiting for the `401` (Unauthorized) response. For example, you can check whether a request is made to a specified host.
+5. Optionally, specify a condition for sending credentials without waiting for the `401` (Unauthorized) response. For example, you can check whether a request is made to a specified host.
 
    ```kotlin
    install(Auth) {
