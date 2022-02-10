@@ -64,6 +64,7 @@
                 <toc-element id="locations.md"
                              accepts-web-file-names="features-locations.html"/>
                 <toc-element id="autoheadresponse.md"/>
+                <toc-element id="x-http-method-override.md"/>
             </toc-element>
 
             <toc-element toc-title="Handling requests and responses">

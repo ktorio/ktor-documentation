@@ -1,5 +1,5 @@
 # XHttpMethodOverride
-A sample project demonstrating how to use the `XHttpMethodOverride` plugin to tunnel HTTP methods inside another HTTP Header.
+A sample project demonstrating how to use the `XHttpMethodOverride` plugin to tunnel HTTP methods inside the `X-Http-Method-Override` header.
 
 ## Running
 To run this sample, execute the following command in a repository's root directory:
