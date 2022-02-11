@@ -64,12 +64,15 @@ In addition to the `request` function, `HttpClient` provides specific functions 
 {src="snippets/_misc_client/GetMethodWithoutParams.kt"}
 
 ### Headers {id="headers"}
-To add headers to the request, use the [headers](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/headers.html) function:
-```kotlin
-```
-{src="snippets/_misc_client/GetMethodWithHeaders.kt"}
 
-There is also the [header](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/header.html) function that allows you to append a single header.
+To add headers to the request, you can use the following ways:
+- The [headers](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/headers.html) function allows you to add several headers at once:
+   ```kotlin
+   ```
+   {src="snippets/_misc_client/GetMethodWithHeaders.kt"}
+- The [header](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/header.html) function allows you to append a single header.
+- The `basicAuth` and `bearerAuth` functions add the `Authorization` header with a corresponding HTTP scheme.
+   > For advanced authentication configuration, refer to [](auth.md).
 
 
 
