@@ -33,7 +33,13 @@ You can customize a header name using the `headerName` property.
 
 ## Example {id="example"}
 
-A sample below shows how to use `%plugin_name%` to handle requests with the `X-Http-Method-Override` header set to `DELETE` using the `delete` route handler:
+The HTTP request below uses the `POST` verb with the `X-Http-Method-Override` header set to `DELETE`:
+
+```http request
+```
+{src="snippets/json-kotlinx-method-override/post.http"}
+
+To handle such requests using the `delete` [route handler](Routing_in_Ktor.md#define_route), you need to install `%plugin_name%`:
 
 ```kotlin
 ```
