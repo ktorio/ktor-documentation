@@ -4,7 +4,7 @@
 complex rules for request processing. The Tree is built with nodes that contain selector and optional handler. Selectors
 are used to pick a route based on request. Every selector has quality, usually from 0.0 to 1.0, with one special case
 of "transparent quality" (-1.0). This quality is useful when you need to wrap your subtree in a routing block, but this 
-block should not change routes priority. Example of it can be `route("/")` block in the middle of a routing tree.
+block should not change routes priority. An example of it can be a `route("/")` block in the middle of a routing tree.
 
 Example tree 1:
 ```kotlin
@@ -17,8 +17,8 @@ routing {
     }
 }
 ```
-Here, the first subtree will match only `/a` and the second will match any URL with one path segment, such as `/a`, 
-`/b`, `/any_other_path`. But for request `GET /a` the first route will win, because it has a better quality.
+Here, the first subtree will match only `/a`, and the second will match any URL with one path segment, such as `/a`, 
+`/b`, `/any_other_path`. But for request `GET /a` the first route will win because it has a better quality.
 You can see more details about the routing resolution algorithm below.
 
 Example tree 2:
@@ -41,24 +41,23 @@ route("a") { // matches first segment with the value "a" and quality 1.0
 }
 ```
 
-Two show how resolution will work in this more complex scenario, we need to specify the routing resolution algorithm.
-It consists of two parts.   
+To show how resolution works in this more complex scenario, we need to specify the routing resolution algorithm, which consists of two parts.   
 Traversing the tree to find matched routes:
 
-1. Select root route's node as current entry
-2. If the node has handlers and all path segments are used, add current node to successful matches
+1. Select root route's node as the current entry.
+2. If the node has handlers and all path segments are used, add the current node to successfully matched.
 3. For every child:
-    1. If child's selector does not match or selector quality is not transparent and is less than the best child match
-       quality, skip current child
-    2. Go to step 2 with child as node
-    3. If current child's quality is better than the best child's, update the best matched child
+    1. If a child's selector does not match or selector quality is not transparent and is less than the best child match
+       quality, skip the current child.
+    2. Go to step 2 with the child as node.
+    3. If the current child's quality is better than the best child's, update the best-matched child.
 
 Picking the best match:
 
-1. Collect all paths from the root of the tree to the successful matched nodes
-2. From all paths, remove nodes with "transparent" quality 
-3. Choose paths with the highest qualities 
-4. If there are multiple path with the same quality, chose the first one
+1. Collect all paths from the root of the tree to the successfully matched nodes.
+2. From all paths, remove nodes with "transparent" quality. 
+3. Choose paths with the highest qualities.
+4. If there are multiple paths with the same quality, choose the first one.
 
 [Actual implementation](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-core/jvmAndNix/src/io/ktor/server/routing/RoutingResolve.kt#L120) 
 may differ in details for optimization reasons, but its result must be the same, as algorithm described here.
