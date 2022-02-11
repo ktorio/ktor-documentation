@@ -5,6 +5,10 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
+<excerpt>
+Ktor uses SLF4J API as a facade for various logging frameworks (for example, Logback or Log4j) and allows you to log application events.
+</excerpt>
+
 Ktor uses [SLF4J API](http://www.slf4j.org/) as a facade for various logging frameworks (for example, [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j)) and allows you to log application events. 
 To enable logging, you need to add [dependencies](#add_dependencies) for the desired framework and provide [configuration](#configure-logger) specific for this framework.
 

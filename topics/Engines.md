@@ -1,5 +1,9 @@
 [//]: # (title: Engines)
 
+<excerpt>
+Learn about engines that process network requests.
+</excerpt>
+
 To run a Ktor server application, you need to create and configure a server first.
 Server configuration can include different settings: a server engine, various engine-specific options, host and port values, and so on. The following engines are supported:
 - Netty

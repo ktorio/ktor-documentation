@@ -11,8 +11,11 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
+<excerpt>
+%plugin_name% provides the ability to automatically respond to HEAD requests for every route that has a GET defined.
+</excerpt>
 
-The `%plugin_name%` plugin provides us with the ability to automatically respond to `HEAD` request for every route that has a `GET` defined. You can use `%plugin_name%` to avoid creating a separate [head](Routing_in_Ktor.md#define_route) handler if you need to somehow process a response on the client before getting the actual content. For example, calling the [respondFile](responses.md#file) function adds the `Content-Length` and `Content-Type` headers to a response automatically, and you can get this information on the client before downloading the file.
+The `%plugin_name%` plugin provides us with the ability to automatically respond to a `HEAD` request for every route that has a `GET` defined. You can use `%plugin_name%` to avoid creating a separate [head](Routing_in_Ktor.md#define_route) handler if you need to somehow process a response on the client before getting the actual content. For example, calling the [respondFile](responses.md#file) function adds the `Content-Length` and `Content-Type` headers to a response automatically, and you can get this information on the client before downloading the file.
 
 ## Add dependencies {id="add_dependencies"}
 

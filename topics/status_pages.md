@@ -11,6 +11,10 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
+<excerpt>
+%plugin_name% allows Ktor applications to respond appropriately to any failure state based on a thrown exception or status code.
+</excerpt>
+
 The `%plugin_name%` plugin allows Ktor applications to [respond](responses.md) appropriately to any failure state based on a thrown exception or status code.
 
 ## Add dependencies {id="add_dependencies"}

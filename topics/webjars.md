@@ -11,6 +11,10 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
+<excerpt>
+The %plugin_name% plugin enables serving the client-side libraries provided by WebJars.
+</excerpt>
+
 
 The `%plugin_name%` plugin enables serving the client-side libraries provided by [WebJars](https://www.webjars.org/). It allows you to package your assets such as JavaScript and CSS libraries as part of your [fat JAR](fatjar.md).
 
