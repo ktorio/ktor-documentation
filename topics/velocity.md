@@ -25,6 +25,7 @@ Ktor allows you to use [Velocity templates](https://velocity.apache.org/engine/)
 
 <include src="lib.xml" include-id="install_plugin"/>
 
+Optionally, you can install the `VelocityTools` plugin to have the capability to add standard and custom [Velocity tools](#velocity_tools).
 
 ## Configure Velocity {id="configure"}
 ### Configure template loading {id="template_loading"}
@@ -49,5 +50,24 @@ To use the template for the specified [route](Routing_in_Ktor.md), pass `Velocit
 get("/index") {
     val sampleUser = User(1, "John")
     call.respond(VelocityContent("templates/index.vl", mapOf("user" to sampleUser)))
+}
+```
+
+
+### Add Velocity tools {id="velocity_tools"}
+
+If you've [installed](#install_plugin) the `VelocityTools` plugin, you can access the `EasyFactoryConfiguration` instance inside the `install` block to add standard and custom Velocity tools, for example:
+
+```kotlin
+install(VelocityTools) {
+    engine {
+        // Engine configuration
+        setProperty("resource.loader", "string")
+        addProperty("resource.loader.string.name", "myRepo")
+        addProperty("resource.loader.string.class", StringResourceLoader::class.java.name)
+        addProperty("resource.loader.string.repository.name", "myRepo")
+    }
+    addDefaultTools() // Add a default tool
+    tool("foo", MyCustomTool::class.java) // Add a custom tool
 }
 ```
