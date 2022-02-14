@@ -265,7 +265,7 @@
                 ... you can access the application's configuration using <a href="https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.application/-application-environment/config.html">ApplicationEnvironment.config</a> and get the required property value in the following way:
             </p>
             <code style="block" lang="kotlin">
-                fun Application.module(testing: Boolean = false) {
+                fun Application.module() {
                     val port = environment.config.propertyOrNull("ktor.deployment.port")?.getString() ?: "8080"
                     routing {
                         get {
@@ -365,7 +365,7 @@
             You can access the <code>ktor.environment</code> value at runtime by <a anchor="read-configuration-in-code">reading configuration in code</a> and perform the required actions:
         </p>
         <code style="block" lang="kotlin">
-            fun Application.module(testing: Boolean = false) {
+            fun Application.module() {
                 val env = environment.config.propertyOrNull("ktor.environment")?.getString()
                 routing {
                     get {
