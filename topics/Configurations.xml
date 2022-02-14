@@ -31,7 +31,7 @@
 
     <chapter title="embeddedServer" id="embedded-server">
         <p>
-            The <a href="https://api.ktor.io/ktor-server/ktor-server-host-common/ktor-server-host-common/io.ktor.server.engine/embedded-server.html">embeddedServer</a> function accepts different parameters for configuring a server, including a <a href="Engines.md">server engine</a>, a host and port to listen, and so on.
+            The <a href="https://api.ktor.io/ktor-server/ktor-server-host-common/io.ktor.server.engine/embedded-server.html">embeddedServer</a> function accepts different parameters for configuring a server, including a <a href="Engines.md">server engine</a>, a host and port to listen, and so on.
             In this section, we'll take a look at several examples of running <code>embeddedServer</code> with different setting.
         </p>
 
@@ -46,6 +46,7 @@
             </code>
             <p>
                 Note that you can set the <code>port</code> parameter to <code>0</code> to run the server on a random port.
+                The <code>embeddedServer</code> function returns an engine instance, so you can get a port value in code using the <a href="https://api.ktor.io/ktor-server/ktor-server-host-common/io.ktor.server.engine/-application-engine/resolved-connectors.html">ApplicationEngine.resolvedConnectors</a> function.
             </p>
         </chapter>
 
