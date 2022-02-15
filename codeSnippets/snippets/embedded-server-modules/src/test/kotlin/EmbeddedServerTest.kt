@@ -1,15 +1,20 @@
-import e2e.*
-import io.ktor.client.*
-import io.ktor.client.call.*
+package com.example
+
 import io.ktor.client.request.*
-import kotlinx.coroutines.*
+import io.ktor.client.statement.*
+import io.ktor.http.*
+import io.ktor.server.testing.*
 import org.junit.*
 import org.junit.Assert.*
 
-class EmbeddedServerTest: TestServer() {
+class ApplicationTest {
     @Test
-    fun rootRouteRespondsWithHelloString(): Unit = runBlocking {
-        val response: String = HttpClient().get("http://localhost:8080/module").body()
-        assertEquals("Hello from 'module'!", response)
+    fun testRoot() = testApplication {
+        application {
+            module()
+        }
+        val response = client.get("/module")
+        assertEquals(HttpStatusCode.OK, response.status)
+        assertEquals("Hello from 'module'!", response.bodyAsText())
     }
 }
