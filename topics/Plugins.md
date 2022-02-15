@@ -95,22 +95,11 @@ install(Sessions) {
 
 ### Install Plugins for specific routes {id="install-route"}
 
-In Ktor, you can install plugins not only globally but also to a specific [routes](Routing_in_Ktor.md). This might be useful if you need different plugin configurations for different application resources. For example, the code snippet below shows how to add specific [caching headers](caching.md) configurations for specific routes (`/index` and `/profile`):
+In Ktor, you can install plugins not only globally but also to a specific [routes](Routing_in_Ktor.md). This might be useful if you need different plugin configurations for different application resources. For instance, the [example](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/caching-headers-routes) below shows how to add specific [caching headers](caching.md) configurations for specific routes (`/index` and `/profile`):
 
 ```kotlin
-routing {
-    route("/index") {
-        install(CachingHeaders) {
-            options { CachingOptions(CacheControl.MaxAge(maxAgeSeconds = 3600)) }
-        }
-    }
-    route("/profile") {
-        install(CachingHeaders) {
-            options { CachingOptions(CacheControl.NoStore(visibility = CacheControl.Visibility.Private)) }
-        }
-    }
-}
 ```
+{src="snippets/caching-headers-routes/src/main/kotlin/com/example/Application.kt" lines="13-17,21-25,29-30"}
 
 Note that the following rules are applied to several installations of the same plugin:
 * Configuration of a plugin installed to a specific route overrides its [global configuration](#install).
