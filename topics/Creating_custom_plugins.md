@@ -1,7 +1,7 @@
-[//]: # (title: Custom plugins - Legacy API)
+[//]: # (title: Custom plugins - Base API)
 
 <microformat>
-<var name="example_name" value="custom-plugin-legacy-api"/>
+<var name="example_name" value="custom-plugin-base-api"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
@@ -11,36 +11,8 @@ You can develop your own plugins and reuse them across all your Ktor application
 A typical plugin has the following structure:
 
 ```kotlin
-class CustomPlugin(configuration: Configuration) {
-    val prop = configuration.prop // Copies a snapshot of the mutable config into an immutable property.
-    
-    class Configuration {
-       var prop = "value" // Mutable property.
-    }
-
-    // Implements ApplicationPlugin as a companion object.
-    companion object Plugin : ApplicationPlugin<ApplicationCallPipeline, CustomPlugin.Configuration, CustomPlugin> {
-       // Creates a unique key for the plugin.
-       override val key = AttributeKey<CustomPlugin>("CustomPlugin")
-       
-       // Code to execute when installing the plugin.
-       override fun install(pipeline: ApplicationCallPipeline, configure: Configuration.() -> Unit): CustomPlugin {
-           
-           // It is responsibility of the install code to call the `configure` method with the mutable configuration.
-           val configuration = CustomPlugin.Configuration().apply(configure)
-           
-           // Create the plugin, providing the mutable configuration so the plugin reads it keeping an immutable copy of the properties. 
-           val plugin = CustomPlugin(configuration)
-           
-           // Intercept a pipeline.
-           pipeline.intercept(…) { 
-                // Perform things in that interception point.
-           }
-           return plugin
-       }
-    }
-}
 ```
+{src="snippets/custom-plugin-base-api/src/main/kotlin/com/example/CustomHeader.kt"}
 
 `CustomPlugin` is a plugin instance class, which should be immutable to avoid unintended side effects in a highly concurrent environment.
 Plugin implementation should be thread-safe as it will be called from multiple threads.
@@ -52,9 +24,5 @@ The `Plugin` companion object conforms the `ApplicationPlugin` interface and act
 A custom plugin can be installed normally with the standard `install` function:
 
 ```kotlin
-fun Application.main() {
-    install(CustomPlugin) { // Install a custom plugin
-        prop = "Hello" // configuration script
-    }
-}
 ```
+{src="snippets/custom-plugin-base-api/src/main/kotlin/com/example/PluginApplication.kt" lines="9-12"}
