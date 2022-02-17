@@ -10,10 +10,10 @@ Ktor supports [Kotlin/Native](https://kotlinlang.org/docs/native-overview.html) 
 ## Limitations {id="limitations"}
 
 Currently, running a Ktor server under Kotlin/Native has the following limitations:
-* Only the [CIO engine](Engines.md) is supported.
-* [WebSockets](websocket.md) are not supported.
-* [HTTPS](ssl.md) is not supported.
-* Windows is not supported.
+* only the [CIO engine](Engines.md) is supported
+* [WebSockets](websocket.md) are not supported
+* [HTTPS](ssl.md) without a reverse proxy is not supported
+* Windows target is not supported
 
 
 ## Add dependencies {id="add-dependencies"}
