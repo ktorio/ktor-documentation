@@ -3,9 +3,12 @@
 <microformat>
 <var name="example_name" value="tutorial-client-kmm"/>
 <include src="lib.xml" include-id="download_example"/>
+<p>
+<control>Video: <a href="https://youtu.be/_Q62iJoNOfg">Ktor for Networking in Kotlin Multiplatform Mobile projects</a> </control>
+</p>
 </microformat>
 
-The Ktor HTTP client can be used in multiplatform projects. In this tutorial, we'll create a simple Kotlin Multiplatform Mobile application for sending a request and receiving a response.
+The Ktor HTTP client can be used in multiplatform projects. In this tutorial, we'll create a simple Kotlin Multiplatform Mobile application, which sends a request and receives a response body as plain HTML text.
 
 > To learn how to create your first Kotlin Multiplatform Mobile application, see [Create your first cross-platform mobile app](https://kotlinlang.org/docs/multiplatform-mobile-create-first-app.html).
 
@@ -22,7 +25,7 @@ First, you need to set up an environment for cross-platform mobile development b
 
 1. In Android Studio, select **File | New | New Project**.
 2. Select **Kotlin Multiplatform App** in the list of project templates, and click **Next**.
-3. Specify a name for your application, and click **Next**.
+3. Specify a name for your application, and click **Next**. In our tutorial, the application name is `KmmKtor`.
 4. On the next page, leave the default settings and click **Finish** to create a new project.
    Now, wait while your project is set up. It may take some time to download and set up the required components when you do this for the first time.
    > To view the complete structure of the generated multiplatform project, switch from **Android** to **Project** in a [Project view](https://developer.android.com/studio/projects#ProjectView).
@@ -83,7 +86,7 @@ To update code shared between Android and iOS, open the `shared/src/commonMain/k
 ### Android code {id="android-activity"}
 
 To call the suspending `getHtml` function from the Android code, we need to create a coroutine scope.
-We'll be using [MainScope](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-main-scope.html), which can be used as the main coroutine scope` for UI components.
+We'll be using [MainScope](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-main-scope.html), which can be used as the main coroutine scope for UI components.
 
 Open the `androidApp/src/main/java/com/example/kmmktor/android/MainActivity.kt` file and update `MainActivity` code as follows:
 
@@ -96,7 +99,7 @@ Inside the created `MainScope`, the [runCatching](https://kotlinlang.org/api/lat
 
 ### iOS code {id="ios-view"}
 
-Open the `iosApp/iosApp/ContentView.swift` and update `ContentView` code in the following way:
+Open the `iosApp/iosApp/ContentView.swift` file and update `ContentView` code in the following way:
 
 ```Swift
 ```
@@ -118,10 +121,10 @@ Open the `androidApp/src/main/AndroidManifest.xml` file and enable the required 
 </manifest> 
 ```
 
-## Run you application {id="run"}
+## Run your application {id="run"}
 
 To run the created multiplatform application on the Android or iOS simulator, select **androidApp** or **iosApp** and click **Run**.
-The simulator should display the received HTML document as text.
+The simulator should display the received HTML document as plain text.
 
 <tabs>
 <tab title="Android">
