@@ -70,7 +70,7 @@ Before configuring the `oauth` provider, you need to create the [HttpClient](cre
 ```
 {src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="19-23"}
 
-The client instance is passed to the `main` [module](Modules.md) function to improve [testability](Testing.md) of the application.
+The client instance is passed to the `main` [module function](Modules.md) to have the capability to create a separate client instance in a server [test](Testing.md).
 
 ```kotlin
 ```
