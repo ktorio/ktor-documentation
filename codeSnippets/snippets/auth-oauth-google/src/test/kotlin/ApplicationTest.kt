@@ -8,6 +8,7 @@ import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
+import io.ktor.server.config.*
 import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
@@ -19,7 +20,10 @@ import kotlin.test.*
 class ApplicationTest {
     @Test
     fun testHello() = testApplication {
-        val client = createClient {
+        environment {
+            config = ApplicationConfig("application-custom.conf")
+        }
+        val testHttpClient = createClient {
             install(HttpCookies)
             install(ContentNegotiation) {
                 json()
@@ -27,6 +31,9 @@ class ApplicationTest {
         }
         externalServices {
             hosts("https://www.googleapis.com") {
+                install(io.ktor.server.plugins.contentnegotiation.ContentNegotiation) {
+                    json()
+                }
                 routing {
                     get("oauth2/v2/userinfo") {
                         call.respond(UserInfo("1", "JetBrains", "", "", "", ""))
@@ -35,14 +42,15 @@ class ApplicationTest {
             }
         }
         application {
+            main(testHttpClient)
             routing {
                 get("/login-test") {
                     call.sessions.set(UserSession("abc123"))
                 }
             }
         }
-        val loginResponse = client.get("/login-test")
-        val helloResponse = client.get("/hello")
+        val loginResponse = testHttpClient.get("/login-test")
+        val helloResponse = testHttpClient.get("/hello")
         assertEquals("Hello, JetBrains!", helloResponse.bodyAsText())
     }
 }

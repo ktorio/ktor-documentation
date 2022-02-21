@@ -16,14 +16,14 @@ import io.ktor.serialization.kotlinx.json.*
 import kotlinx.html.*
 import kotlinx.serialization.*
 
-fun Application.main() {
+val applicationHttpClient = HttpClient(CIO) {
+    install(ContentNegotiation) {
+        json()
+    }
+}
+fun Application.main(httpClient: HttpClient = applicationHttpClient) {
     install(Sessions) {
         cookie<UserSession>("user_session")
-    }
-    val httpClient = HttpClient(CIO) {
-        install(ContentNegotiation) {
-            json()
-        }
     }
     install(Authentication) {
         oauth("auth-oauth-google") {
@@ -64,7 +64,7 @@ fun Application.main() {
             }
         }
         get("/hello") {
-            val userSession: UserSession? = call.sessions.get<UserSession>()
+            val userSession: UserSession? = call.sessions.get()
             if (userSession != null) {
                 val userInfo: UserInfo = httpClient.get("https://www.googleapis.com/oauth2/v2/userinfo") {
                     headers {
