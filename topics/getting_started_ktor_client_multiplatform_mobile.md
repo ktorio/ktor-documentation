@@ -4,7 +4,7 @@
 <var name="example_name" value="tutorial-client-kmm"/>
 <include src="lib.xml" include-id="download_example"/>
 <p>
-<control>Video: <a href="https://youtu.be/_Q62iJoNOfg">Ktor for Networking in Kotlin Multiplatform Mobile projects</a> </control>
+<b>Video</b>: <a href="https://youtu.be/_Q62iJoNOfg">Ktor for Networking in Kotlin Multiplatform Mobile projects</a> 
 </p>
 </microformat>
 
