@@ -64,13 +64,17 @@ This section demonstrates how to configure the `oauth` provider for authorizing 
 
 ### Step 1: Create the HTTP client {id="create-http-client"}
 
-Before configuring the `oauth` provider, you need to initialize the `HttpClient` that will be used by the server to make requests to the OAuth server. You can learn how to add the `HttpClient` dependencies and configure it from [](create-client.md).
+Before configuring the `oauth` provider, you need to create the [HttpClient](create-client.md) that will be used by the server to make requests to the OAuth server. The [ContentNegotiation](serialization-client.md) client plugin with the JSON serializer is required to deserialize received JSON data [after a request to the API](#request-api).
 
 ```kotlin
 ```
-{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="23-27"}
+{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="19-23"}
 
-Note that the client also has the [](serialization-client.md) plugin installed. This is required to deserialize received JSON data [after a request to API](#request-api).
+The client instance is passed to the `main` [module](Modules.md) function to improve [testability](Testing.md) of the application.
+
+```kotlin
+```
+{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="24"}
 
 
 ### Step 2: Configure the OAuth provider {id="configure-oauth-provider"}
