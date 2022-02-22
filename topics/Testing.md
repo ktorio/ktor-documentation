@@ -32,8 +32,7 @@ To test a server Ktor application, you need to include the following artifacts i
 To use a testing engine, follow the steps below:
 1. Create a JUnit test class and a test function.
 2. Use `testApplication` function to set up a configured instance of a test application running locally.
-3. Use the [Ktor HTTP client](create-client.md) instance inside a test application to make a request to your server and receive a response.
-4. Verify the results by making assertions provided by the [kotlin.test](https://kotlinlang.org/api/latest/kotlin.test/) library.
+3. Use the [Ktor HTTP client](create-client.md) instance inside a test application to make a request to your server, receive a response, and make assertions.
 
 The code below demonstrates how to test the most simple Ktor application that accepts GET requests made to the `/` path and responds with a plain text response.
 
@@ -58,17 +57,18 @@ The code below demonstrates how to test the most simple Ktor application that ac
 The runnable code example is available here: [engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main).
 
 ## Configure a test application {id="configure-test-app"}
-### Step 1: Load application modules {id="load-modules"}
+
+### Step 1: Add application modules {id="add-modules"}
 To test an application, its [modules](Modules.md) should be loaded to `testApplication`.
 Loading modules to `testApplication` depends on the way used to [create a server](create_server.xml): by using the `application.conf` configuration file or in code using the `embeddedServer` function.
 
-#### Automatic loading {id="auto-load"}
+#### Add modules automatically {id="auto"}
 
-If you have the `application.conf` file in the `resources` folder, `testApplication` loads all modules specified in the configuration file automatically.
+If you have the `application.conf` file in the `resources` folder, `testApplication` loads all modules  and properties specified in the configuration file automatically.
 
-> You can disable loading modules by using a [custom configuration file](#configuration-properties) for tests.
+> You can disable loading modules by customizing an [environment](#environment) for tests.
 
-#### Manual loading {id="manual-load"}
+#### Add modules manually {id="manual"}
 If you use `embeddedServer`, you can add modules to a test application manually using the `application` function:
 ```kotlin
 ```
@@ -76,24 +76,20 @@ If you use `embeddedServer`, you can add modules to a test application manually 
 
 ### Step 2: (Optional) Add routing {id="add-routing"}
 
-[](#load-modules)
-
-```kotlin
-```
-{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" lines="18,31-35,51"}
+You can add routes to your test application using the `routing` function.
+This might be convenient for the following use-cases:
+- Instead of [adding modules](#manual) to a test application, you can add [specific routes](Routing_in_Ktor.md#route_extension_function) that should be tested. 
+- You can add routes required only in a test application. The example below shows how to add the `/login-test` endpoint used to initialize a user [session](sessions.md) in tests:
+   ```kotlin
+   ```
+   {src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" lines="18,31-35,51"}
+   
+   You can find the full example with a test here: [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-oauth-google).
 
 ### Step 3: (Optional) Customize environment {id="environment"}
 
 To build a custom environment for a test application, use the `environment` function.
-For example, to use a custom configuration for tests, you can create a custom configuration file in a test's `test/resources` folder and load it using the `config` property:
-
-```kotlin
-```
-{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" lines="17-21,51"}
-
-#### Define configuration properties {id="configuration-properties"}
-
-If you have the [application.conf](Configurations.xml#hocon-file) file in the `resources` folder, `testApplication` loads all modules and properties specified in the configuration file automatically. In a case you need to specify a separate configuration for tests, you can create a custom configuration file in a test's `test/resources` folder and load it using the `config` property:
+For example, to use a custom configuration for tests, you can create a custom configuration file in the `test/resources` folder and load it using the `config` property:
 
 ```kotlin
 ```
@@ -113,6 +109,14 @@ fun testRequest() = testApplication {
 
 ### Step 4: (Optional) Mock external services {id="external-services"}
 
+Ktor allows you to mock external services using the `externalServices` function.
+Inside this function, you need to call the `hosts` function that accepts two parameters:
+- The `hosts` parameter accepts URLs of external services.
+- The `block` parameter allows you to configure the `Application` that acts as a mock for an external service.
+   You can configure routing and install plugins for this `Application`.
+
+The sample below shows how to use `externalServices` to simulate a JSON response returned by Google API:
+
 ```kotlin
 ```
 {src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" lines="18,36-47,51"}
@@ -129,14 +133,25 @@ If you need to customize the client and install additional plugins, you can use 
 
 
 
-### Step 6: Make a request and assert results {id="assert"}
+### Step 6: Make a request {id="make-request"}
 
-Make a [request](request.md), receive a [response](response.md), and make assertions provided by the [kotlin.test](https://kotlinlang.org/api/latest/kotlin.test/) library:
-
+To test your application, you can use a [configured client](#configure-client) to make a [request](request.md) and receive a [response](response.md). The [example below](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/json-kotlinx) shows how to test the `/customer` endpoint that handles `POST` requests:
 
 ```kotlin
 ```
-{src="snippets/engine-main/src/test/kotlin/EngineMainTest.kt" lines="11-16"}
+{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" lines="32-41,44"}
+
+
+
+### Step 7: Assert results {id="assert"}
+
+After receiving a [response](#make-request), you can verify the results by making assertions provided by the [kotlin.test](https://kotlinlang.org/api/latest/kotlin.test/) library:
+
+```kotlin
+```
+{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" lines="32-44"}
+
+
 
 
 
