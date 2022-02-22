@@ -10,7 +10,7 @@
 
 <excerpt>Modules allow you to structure your application by grouping routes.</excerpt>
 
-Ktor allows you to use modules to [structure](Structuring_Applications.md) your application by defining a specific set of [routes](Routing_in_Ktor.md) inside a specific module. A module is an _[extension function](https://kotlinlang.org/docs/extensions.html)_ of the [Application](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.application/-application/index.html) class. In the example below, the `module1` extension function defines a module that accepts GET requests made to the `/module1` URL path.
+Ktor allows you to use modules to [structure](Structuring_Applications.md) your application by defining a specific set of [routes](Routing_in_Ktor.md) inside a specific module. A module is an _[extension function](https://kotlinlang.org/docs/extensions.html)_ of the [Application](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application/index.html) class. In the example below, the `module1` extension function defines a module that accepts GET requests made to the `/module1` URL path.
 
 ```kotlin
 ```
@@ -23,11 +23,7 @@ Loading modules in your application depends on the way used to [create a server]
 ## embeddedServer {id="embedded-server"}
 
 Typically, the `embeddedServer` function accepts a module implicitly as a lambda argument. You can see the example in the [](create_server.xml#embedded-server) section.
-
-If you want to load a module defined as an extension function, use one of the ways described below.
-
-### Load a single module {id="single-module"}
-To load a single module, pass its name in the `module` parameter.
+You can also extract application logic into separate modules and call these module functions inside the `embeddedServer` block:
 
 ```kotlin
 ```
@@ -35,19 +31,6 @@ To load a single module, pass its name in the `module` parameter.
 
 You can find the full example here: [embedded-server-modules](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server-modules).
 
-
-### Load multiple modules {id="multiple-modules"}
-
-To use multiple modules with `embeddedServer`, call the required extension functions inside the block.
-
-```kotlin
-fun main() {
-    embeddedServer(Netty, port = 8080) {
-        module1()
-        module2()
-    }.start(wait = true)
-}
-```
 
 
 ## HOCON file {id="hocon"}
