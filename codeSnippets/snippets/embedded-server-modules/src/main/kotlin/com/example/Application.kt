@@ -7,13 +7,24 @@ import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 
 fun main() {
-    embeddedServer(Netty, port = 8080, module = Application::module).start(wait = true)
+    embeddedServer(Netty, port = 8080) {
+        module1()
+        module2()
+    }.start(wait = true)
 }
 
-fun Application.module() {
+fun Application.module1() {
     routing {
-        get("/module") {
-            call.respondText("Hello from 'module'!")
+        get("/module1") {
+            call.respondText("Hello from 'module1'!")
+        }
+    }
+}
+
+fun Application.module2() {
+    routing {
+        get("/module2") {
+            call.respondText("Hello from 'module2'!")
         }
     }
 }

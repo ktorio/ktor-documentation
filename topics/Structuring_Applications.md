@@ -67,7 +67,7 @@ routing {
 
 If we have tons of routes in our app, this could quickly become long and cumbersome. 
 Since we have however routes grouped by file, we can take advantage of this and define the routing in each file also. 
-For this we could create an extension for [Application](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.application/-application/index.html) and define the routes:
+For this we could create an extension for [Application](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application/index.html) and define the routes:
 
 <tabs>
 <tab title="CustomerRoutes.kt">

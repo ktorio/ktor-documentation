@@ -40,7 +40,7 @@
                              accepts-web-file-names="configuration.html,environments.html"/>
                 <toc-element id="logging.md"
                              accepts-web-file-names="servers-logging.html"/>
-                <toc-element id="Modules.md" show-structure-depth="2"/>
+                <toc-element id="Modules.md"/>
                 <toc-element id="Plugins.md" show-structure-depth="2"
                              accepts-web-file-names="zfeatures.html,features.html"/>
                 <toc-element id="development_mode.xml"

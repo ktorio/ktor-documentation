@@ -4,22 +4,13 @@
 <p>
 <b>Required dependencies</b>: <code>io.ktor:ktor-server-test-host</code>, <code>org.jetbrains.kotlin:kotlin-test</code>
 </p>
-<p>
-<b>Code examples</b>: 
-<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main">engine-main</a>, 
-<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/post-form-parameters">post-form-parameters</a>,
-<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/upload-file">upload-file</a>,
-<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/json-kotlinx">json-kotlinx</a>,
-<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/session-cookie-client">session-cookie-client</a>,
-<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/server-websockets">server-websockets</a>
-</p>
 </microformat>
 
 <excerpt>
 Learn how to test server Ktor applications using a special testing engine.
 </excerpt>
 
-Ktor provides a special testing engine that doesn't create a web server, doesn't bind to sockets, and doesn't make any real HTTP requests. Instead, it hooks directly into internal mechanisms and processes an application call directly. This results in quicker tests execution compared to running a complete web server for testing. In addition, you can set up [end-to-end tests](#end-to-end) for testing server endpoints using the [Ktor HTTP client](create-client.md).
+Ktor provides a special testing engine that doesn't create a web server, doesn't bind to sockets, and doesn't make any real HTTP requests. Instead, it hooks directly into internal mechanisms and processes an application call directly. This results in quicker tests execution compared to running a complete web server for testing. 
 
 
 ## Add dependencies {id="add-dependencies"}
@@ -41,7 +32,8 @@ To test a server Ktor application, you need to include the following artifacts i
 To use a testing engine, follow the steps below:
 1. Create a JUnit test class and a test function.
 2. Use `testApplication` function to set up a configured instance of a test application running locally.
-3. Use the [Ktor HTTP client](create-client.md) instance inside a test application to make requests to your server and verify the results.
+3. Use the [Ktor HTTP client](create-client.md) instance inside a test application to make a request to your server and receive a response.
+4. Verify the results by making assertions provided by the [kotlin.test](https://kotlinlang.org/api/latest/kotlin.test/) library.
 
 The code below demonstrates how to test the most simple Ktor application that accepts GET requests made to the `/` path and responds with a plain text response.
 
@@ -64,6 +56,89 @@ The code below demonstrates how to test the most simple Ktor application that ac
 </tabs>
 
 The runnable code example is available here: [engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main).
+
+## Configure a test application {id="configure-test-app"}
+### Step 1: Load application modules {id="load-modules"}
+To test an application, its [modules](Modules.md) should be loaded to `testApplication`.
+Loading modules to `testApplication` depends on the way used to [create a server](create_server.xml): by using the `application.conf` configuration file or in code using the `embeddedServer` function.
+
+#### Automatic loading {id="auto-load"}
+
+If you have the `application.conf` file in the `resources` folder, `testApplication` loads all modules specified in the configuration file automatically.
+
+> You can disable loading modules by using a [custom configuration file](#configuration-properties) for tests.
+
+#### Manual loading {id="manual-load"}
+If you use `embeddedServer`, you can add modules to a test application manually using the `application` function:
+```kotlin
+```
+{src="snippets/embedded-server-modules/src/test/kotlin/EmbeddedServerTest.kt" lines="11-15,19"}
+
+### Step 2: (Optional) Add routing {id="add-routing"}
+
+[](#load-modules)
+
+```kotlin
+```
+{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" lines="18,31-35,51"}
+
+### Step 3: (Optional) Customize environment {id="environment"}
+
+To build a custom environment for a test application, use the `environment` function.
+For example, to use a custom configuration for tests, you can create a custom configuration file in a test's `test/resources` folder and load it using the `config` property:
+
+```kotlin
+```
+{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" lines="17-21,51"}
+
+#### Define configuration properties {id="configuration-properties"}
+
+If you have the [application.conf](Configurations.xml#hocon-file) file in the `resources` folder, `testApplication` loads all modules and properties specified in the configuration file automatically. In a case you need to specify a separate configuration for tests, you can create a custom configuration file in a test's `test/resources` folder and load it using the `config` property:
+
+```kotlin
+```
+{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" lines="17-21,51"}
+
+Another way to specify configuration properties is using [MapApplicationConfig](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.config/-map-application-config/index.html). This might be useful if you want to access application configuration before the application starts. The example below shows how to pass `MapApplicationConfig` to the `testApplication` function using the `config` property:
+
+```kotlin
+@Test
+fun testRequest() = testApplication {
+    environment {
+        config = MapApplicationConfig("ktor.environment" to "test")
+    }
+    // Request and assertions
+}
+```
+
+### Step 4: (Optional) Mock external services {id="external-services"}
+
+```kotlin
+```
+{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" lines="18,36-47,51"}
+
+You can find the full example with a test here: [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-oauth-google).
+
+### Step 5: (Optional) Configure a client {id="configure-client"}
+
+The `testApplication` provides access to an HTTP client with default configuration using the `client` property. 
+If you need to customize the client and install additional plugins, you can use the `createClient` function. For example, to [send JSON data](#json-data) in a test POST/PUT request, you can install the [ContentNegotiation](serialization-client.md) plugin:
+```kotlin
+```
+{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" lines="32-37,44"}
+
+
+
+### Step 6: Make a request and assert results {id="assert"}
+
+Make a [request](request.md), receive a [response](response.md), and make assertions provided by the [kotlin.test](https://kotlinlang.org/api/latest/kotlin.test/) library:
+
+
+```kotlin
+```
+{src="snippets/engine-main/src/test/kotlin/EngineMainTest.kt" lines="11-16"}
+
+
 
 ## Test POST/PUT requests {id="test-post-put"}
 
@@ -190,40 +265,7 @@ You can test [WebSocket conversations](websocket.md) by using the [WebSockets](w
 {src="snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt" lines="3-26,41"}
 
 
-## Define configuration properties in tests {id="configuration-properties"}
 
-If you have the [application.conf](Configurations.xml#hocon-file) file in the `resources` folder, `testApplication` loads all modules and properties specified in the configuration file. In a case you need to specify a separate configuration for tests, you can create the `application.conf` file in a test's `resources` folder (for example, `test/resources`).
-
-
-### Define custom application.conf {id="hocon"}
-
-If you want to use a custom configuration file, you can load it using the `config` property:
-
-```kotlin
-@Test
-fun testRequest() = testApplication {
-    environment {
-        config = ApplicationConfig("custom-application.conf")
-    }
-    // Request and assertions
-}
-```
-
-### Specify configuration in code {id="map"}
-
-Another way to specify configuration properties is using [MapApplicationConfig](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.config/-map-application-config/index.html). This might be useful if you want to access application configuration before the application starts.
-
-The example below shows how to pass `MapApplicationConfig` to the `testApplication` function using the `config` property:
-
-```kotlin
-@Test
-fun testRequest() = testApplication {
-    environment {
-        config = MapApplicationConfig("ktor.environment" to "test")
-    }
-    // Request and assertions
-}
-```
 
 
 
