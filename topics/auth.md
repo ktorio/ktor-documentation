@@ -105,12 +105,12 @@ A Ktor client allows you to configure a token to be sent in the `Authorization` 
 2. Specify how to get an initial token using `loadTokens`. A code snippet below shows how to [make a POST request](request.md#form_parameters) to get the access and refresh tokens for accessing Google APIs.
    ```kotlin
    ```
-   {src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="46-65,81-83"}
+   {src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="46-65,81-82"}
 
 3. Specify how to obtain a new token if the old one is invalid using `refreshTokens`. Note that this block will be called after receiving a `401` (Unauthorized) response with the `WWW-Authenticate` header. The example below shows how to get a new access token using a refresh token.
    ```kotlin
    ```
-   {src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="46-50,67-83"}
+   {src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="46-50,67-82"}
 
 After configuring the `bearer` provider, you can make requests to the protected API.
 
