@@ -29,7 +29,7 @@ class CustomHeader(configuration: Configuration) {
     /**
      * Installable plugin for [CustomHeader].
      */
-    companion object Plugin : ApplicationPlugin<ApplicationCallPipeline, CustomHeader.Configuration, CustomHeader> {
+    companion object Plugin : BaseApplicationPlugin<ApplicationCallPipeline, CustomHeader.Configuration, CustomHeader> {
         override val key = AttributeKey<CustomHeader>("CustomHeader")
         override fun install(pipeline: ApplicationCallPipeline, configure: Configuration.() -> Unit): CustomHeader {
             // Call user code to configure a plugin

@@ -19,7 +19,7 @@ Plugin implementation should be thread-safe as it will be called from multiple t
 
 The `Configuration` instance is handed to the user installation script, allowing plugin configuration usually containing mutable properties and configuration methods.
 
-The `Plugin` companion object conforms the `ApplicationPlugin` interface and acts as a glue to construct the actual `CustomPlugin` with the right `Configuration`.
+The `Plugin` companion object conforms the `BaseApplicationPlugin` interface and acts as a glue to construct the actual `CustomPlugin` with the right `Configuration`.
 
 A custom plugin can be installed normally with the standard `install` function:
 
