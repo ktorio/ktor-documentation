@@ -50,7 +50,7 @@ fun main() {
                                 append("client_id", System.getenv("GOOGLE_CLIENT_ID"))
                                 append("refresh_token", oldTokens?.refreshToken ?: "")
                             }
-                        ).body()
+                        ) { markAsRefreshTokenRequest() }.body()
                         bearerTokenStorage.add(BearerTokens(refreshTokenInfo.accessToken, oldTokens?.refreshToken!!))
                         bearerTokenStorage.last()
                     }

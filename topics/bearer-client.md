@@ -225,6 +225,8 @@ Note that the `refreshTokens` callback uses `RefreshTokensParams` as a receiver 
 - The `client` instance. In the code snippet above, we use it to submit form parameters.
 - The `oldTokens` property is used to access the refresh token and send it to the token endpoint.
 
+> The `markAsRefreshTokenRequest` function exposed by `HttpRequestBuilder` enables special handling of requests used to obtain a refresh token.
+
 ### (10) <- Access and refresh tokens {id="step10"}
 
 After receiving new tokens, we can save them in the [storage](#step4), so `refreshTokens` looks as follows:
