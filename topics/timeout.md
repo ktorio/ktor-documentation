@@ -46,7 +46,7 @@ If you need to set a timeout only for a specific request, use the [HttpRequestBu
 
 Note that timeouts specified for a specific request override global timeouts from the `install` block.
 
-In a case of a timeout, Ktor throws `HttpRequestTimeoutException`, `HttpConnectTimeoutException`, or `HttpSocketTimeoutException`.
+In a case of a timeout, Ktor throws `HttpRequestTimeoutException`, `ConnectTimeoutException`, or `SocketTimeoutException`.
 
 
 ## Limitations {id="limitations"}
