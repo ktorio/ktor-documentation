@@ -230,11 +230,11 @@
                 <toc-element id="client-dependencies.md"/>
                 <toc-element id="create-client.md"
                              show-structure-depth="2" accepts-web-file-names="client.html,clients-index.html,quick-start.html"/>
-                <toc-element id="http-client_engines.md"
+                <toc-element id="http-client_engines.md" accepts-web-file-names="http-client-multiplatform.html"
                              show-structure-depth="2"/>
                 <toc-element id="http-client_plugins.md"
                              accepts-web-file-names="http-client-features.html"/>
-                <toc-element id="http-client_multiplatform.md"/>
+<!--                <toc-element id="http-client_multiplatform.md"/>-->
                 <toc-element id="client-ssl.md" show-structure-depth="2"/>
             </toc-element>
 

@@ -1,6 +1,6 @@
 [//]: # (title: Proxy)
 
-Ktor HTTP client allows you to configure proxy settings in [multiplatform](http-client_multiplatform.md) projects. 
+Ktor HTTP client allows you to configure proxy settings in multiplatform projects. 
 There are two supported types of proxies: [HTTP](https://en.wikipedia.org/wiki/Proxy_server#Web_proxy_servers) and [SOCKS](https://en.wikipedia.org/wiki/SOCKS).
 
 ### Supported engines {id="supported_engines"}

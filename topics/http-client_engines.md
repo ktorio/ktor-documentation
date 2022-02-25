@@ -14,7 +14,6 @@ Apart from the [ktor-client-core](client-dependencies.md) artifact, the Ktor cli
 * [JVM and Android](#jvm-android)
 * [JavaScript](#js)
 * [Native](#native)
-* [Testing](#test)
 
 ## Create a client with a specified engine {id="create"}
 To create the HTTP client with a specific engine, pass an engine class as an argument to the [HttpClient](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client/-http-client/index.html) constructor. For example, you can create a client with the `CIO` engine as follows:
@@ -28,7 +27,7 @@ If you call the `HttpClient` constructor without an argument, the client will ch
 ```
 {src="snippets/_misc_client/DefaultEngineCreate.kt"}
 
-This can be useful for [multiplatform projects](http-client_multiplatform.md). For example, for a project targeting both [Android and iOS](https://kotlinlang.org/docs/mobile/create-first-app.html), you can add the [Android](#android) dependency to the `androidMain` source set and the [Darwin](#darwin) dependency to the `iosMain` source set. The necessary dependency will be selected at compile time.
+This can be useful for multiplatform projects. For example, for a project targeting both [Android and iOS](getting_started_ktor_client_multiplatform_mobile.md), you can add the [Android](#jvm-android) dependency to the `androidMain` source set and the [Darwin](#darwin) dependency to the `iosMain` source set. The necessary dependency will be selected at compile time.
 
 
 ## Configure an engine {id="configure"}
@@ -209,5 +208,52 @@ For desktop platforms, Ktor also provides the `Curl` engine. This engine is supp
    You can find the full example here: [client-engine-curl](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-engine-curl).
 
 
-## Testing {id="test"}
-Ktor provides the `MockEngine` for testing the HttpClient. To learn how to use it, see [MockEngine for testing](http-client_testing.md).
+## Example: How to configure an engine in a multiplatform mobile project {id="mpp-config"}
+
+To configure engine-specific options in a multiplatform mobile project, you can use [expect/actual declarations](https://kotlinlang.org/docs/multiplatform-mobile-connect-to-platform-specific-apis.html).
+Let's demonstrate how to achieve this using a project created in the [](getting_started_ktor_client_multiplatform_mobile.md) tutorial:
+
+1. Open the `shared/src/commonMain/kotlin/com/example/kmmktor/Platform.kt` file and add a top-level `httpClient` function, which accepts a client configuration and returns `HttpClient`:
+   ```kotlin
+   expect fun httpClient(config: HttpClientConfig<*>.() -> Unit = {}): HttpClient
+   ```
+   
+2. Open `shared/src/androidMain/kotlin/com/example/kmmktor/Platform.kt` and add an actual declaration of the `httpClient` function for the Android module:
+   ```kotlin
+   import io.ktor.client.*
+   import io.ktor.client.engine.okhttp.*
+   import java.util.concurrent.TimeUnit
+   
+   actual fun httpClient(config: HttpClientConfig<*>.() -> Unit) = HttpClient(OkHttp) {
+      config(this)
+   
+      engine {
+         config {
+            retryOnConnectionFailure(true)
+            connectTimeout(0, TimeUnit.SECONDS)
+         }
+      }
+   }
+   ```
+   This example shows how to configure the [OkHttp](#okhttp) engine but you can also use other engines [supported for Android](#jvm-android).
+
+3. Open `shared/src/iosMain/kotlin/com/example/kmmktor/Platform.kt` and add an actual declaration of the `httpClient` function for the iOS module:
+   ```kotlin
+   import io.ktor.client.*
+   import io.ktor.client.engine.darwin.*
+   
+   actual fun httpClient(config: HttpClientConfig<*>.() -> Unit) = HttpClient(Darwin) {
+      config(this)
+      engine {
+         configureRequest {
+            setAllowsCellularAccess(true)
+         }
+      }
+   }
+   ```
+
+4. Finally, open `shared/src/commonMain/kotlin/com/example/kmmktor/Greeting.kt` and replace the `HttpClient()` constructor with the `httpClient` function call:
+   ```kotlin
+   private val client = httpClient()
+   ```
+

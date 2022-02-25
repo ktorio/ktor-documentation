@@ -96,7 +96,7 @@
 
         <chapter title="The 'io.ktor.development' environment variable" id="environment-variable">
             <p>
-                To enable development mode for a <a href="http-client_multiplatform.md">Native client</a>,
+                To enable development mode for a <a href="http-client_engines.md" anchor="native">Native client</a>,
                 use the <code>io.ktor.development</code> environment variable.
             </p>
         </chapter>

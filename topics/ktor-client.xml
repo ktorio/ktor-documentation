@@ -38,6 +38,9 @@
             </p>
             <list type="none">
                 <li>
+                    <a href="client-dependencies.md"/>
+                </li>
+                <li>
                     <a href="create-client.md"/>
                 </li>
                 <li>
@@ -45,9 +48,6 @@
                 </li>
                 <li>
                     <a href="http-client_plugins.md"/>
-                </li>
-                <li>
-                    <a href="http-client_multiplatform.md"/>
                 </li>
                 <li>
 
