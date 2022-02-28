@@ -7,7 +7,7 @@ The [Ktor HTTP client](client.md) can be used on different platforms, including 
 Besides the [ktor-client-core](client.md#client-dependency) artifact, the Ktor client requires adding a specific dependency for each engine. For each of the supported platform, you can see the available engines and required dependencies in a corresponding section:
 * [JVM and Android](#jvm-android)
 * [JavaScript](#js)
-* [Native](#desktop)
+* [Native](#native)
 * [Testing](#test)
 
 ## Create a client with a specified engine {id="create"}
@@ -164,9 +164,9 @@ The `iOS` engine targets iOS and uses [NSURLSession](https://developer.apple.com
    {src="snippets/_misc_client/IosConfig.kt"}
 
 
-### Desktop {id="desktop"}
+### Curl {id="curl"}
 
-For desktop platforms, Ktor provides the `Curl` engine. This engine is supported for the following platforms: `linuxX64`, `macosX64`, `mingwX64`. To use the `Curl` engine, follow the steps below:
+For desktop platforms, Ktor also provides the `Curl` engine. This engine is supported for the following platforms: `linuxX64`, `macosX64`, `mingwX64`. To use the `Curl` engine, follow the steps below:
 
 1. Install the [curl library](https://curl.se/download.html).
 1. Add the `ktor-client-curl` dependency:
