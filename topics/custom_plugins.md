@@ -67,7 +67,7 @@ Request URL: http://0.0.0.0:8080/index
 #### Example 2: Custom header {id="custom-header"}
 This example demonstrates how to create a plugin that appends a custom header to each response:
 ```kotlin
-val CustomHeaderPlugin = ServerPlugin.createApplicationPlugin(name = "CustomHeaderPlugin") {
+val CustomHeaderPlugin = createApplicationPlugin(name = "CustomHeaderPlugin") {
     onCall { call ->
         call.response.headers.append("X-Custom-Header", "Hello, world!")
     }
