@@ -1,6 +1,6 @@
 [//]: # (title: Engines)
 
-The [Ktor HTTP client](client.md) can be used on different platforms, including JVM, [Android](https://kotlinlang.org/docs/android-overview.html), [JavaScript](https://kotlinlang.org/docs/js-overview.html), and [Native](https://kotlinlang.org/docs/native-overview.html) (iOS and desktop). A specific platform may require a specific engine that processes network requests. For example, you can use `Apache`, `Jetty`, or `CIO` for JVM, `OkHttp` for Android, and so on. Different engines may have specific features and provide different configuration options.
+The [Ktor HTTP client](client.md) can be used on different platforms, including JVM, [Android](https://kotlinlang.org/docs/android-overview.html), [JavaScript](https://kotlinlang.org/docs/js-overview.html), and [Native](https://kotlinlang.org/docs/native-overview.html). A specific platform may require a specific engine that processes network requests. For example, you can use `Apache`, `Jetty`, or `CIO` for JVM, `OkHttp` for Android, and so on. Different engines may have specific features and provide different configuration options.
 
 ## Add an engine dependency {id="dependencies"}
 
@@ -149,7 +149,7 @@ In this section, we'll have a look on how to configure engines targeted for [Kot
 > Note that engines targeting Kotlin/Native require a [multithreaded version](https://kotlinlang.org/docs/mobile/concurrency-and-coroutines.html#multithreaded-coroutines) of `kotlinx.coroutines`.
 
 ### iOS {id="ios"}
-The `iOS` engine targets iOS and uses [NSURLSession](https://developer.apple.com/documentation/foundation/nsurlsession) internally. To use it, follow the steps below:
+The `Ios` engine targets Darwin-based operating systems (such as macOS, iOS, tvOS, and so on) and uses [NSURLSession](https://developer.apple.com/documentation/foundation/nsurlsession) internally. To use it, follow the steps below:
 
 1. Add the `ktor-client-ios` dependency:
    <var name="artifact_name" value="ktor-client-ios"/>
