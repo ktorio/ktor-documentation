@@ -159,30 +159,6 @@ You can find the full example here: [DataTransformationBenchmarkPlugin.kt](https
 > You can also access call attributes in a [route handler](requests.md#request_information).
 
 
-## Handle calls before/after other plugins
-
-If you need to execute some specific handlers of 
-
-You can tell that you need to execute some specific handlers of your plugin strictly before/after the same handlers of other plugin, use the `beforePlugins`/`afterPlugins` functions, respectively. The example below shows how to execute the `onCall` handler of `SecondPlugin` after the same handler of `FirstPlugin`:
-
-```kotlin
-val someKey = AttributeKey<String>("SomeKey")
-val FirstPlugin = createApplicationPlugin("firstPlugin") {
-    onCall { call ->
-        call.attributes.put(someKey, "value")
-        println("secondPlugin onCall, data = value")
-    }
-}
-val SecondPlugin = createApplicationPlugin("secondPlugin") {
-    afterPlugins(FirstPlugin) {
-        onCall { call ->
-            val data = call.attributes[someKey]
-            println("secondPlugin onCall, data = $data")
-        }
-    }
-}
-```
-
 
 ## Provide plugin configuration {id="plugin-configuration"}
 
