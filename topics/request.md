@@ -94,6 +94,8 @@ To add <emphasis tooltip="query_string">query string</emphasis> parameters, call
 ```
 {src="snippets/_misc_client/GetMethodWithQueryParam.kt"}
 
+Note that the `value` parameter accepts an `Any` instance. 
+So, if you need to specify several values for a single key, you can pass these values as a `List` object.
 
 
 ## Set request body {id="body"}
