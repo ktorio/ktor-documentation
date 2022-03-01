@@ -24,7 +24,7 @@ This might be useful if you need to convert a PEM certificate issued by a certif
 ## Generate a self-signed certificate {id="self-signed"}
 ### Generate a certificate in code {id="self-signed-code"}
 
-Ktor provides the ability to generate self-signed certificates for testing purposes by calling the [generateCertificate](https://api.ktor.io/ktor-network/ktor-network-tls/ktor-network-tls-certificates/ktor-network-tls-certificates/io.ktor.network.tls.certificates/generate-certificate.html) function, which returns a [KeyStore](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html) instance. To use this function, you need to add the `ktor-network-tls-certificates` artifact in the build script:
+Ktor provides the ability to generate self-signed certificates for testing purposes by calling the [generateCertificate](https://api.ktor.io/ktor-network/ktor-network-tls/ktor-network-tls-certificates/io.ktor.network.tls.certificates/generate-certificate.html) function, which returns a [KeyStore](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/security/KeyStore.html) instance. To use this function, you need to add the `ktor-network-tls-certificates` artifact in the build script:
 
 <var name="artifact_name" value="ktor-network-tls-certificates"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
@@ -89,7 +89,7 @@ You can find the full example here: [ssl-engine-main](https://github.com/ktorio/
 
 ### embeddedServer {id="embedded-server"}
 
-If you use the `embeddedServer` function to run your server, you need to pass a [custom environment](Configurations.xml#embedded-custom) and provide SSL settings there using [sslConnector](https://api.ktor.io/ktor-server/ktor-server-host-common/ktor-server-host-common/io.ktor.server.engine/ssl-connector.html):
+If you use the `embeddedServer` function to run your server, you need to pass a [custom environment](Configurations.xml#embedded-custom) and provide SSL settings there using [sslConnector](https://api.ktor.io/ktor-server/ktor-server-host-common/io.ktor.server.engine/ssl-connector.html):
 ```kotlin
 ```
 {src="snippets/ssl-embedded-server/src/main/kotlin/com/example/Application.kt" lines="21-37"}
