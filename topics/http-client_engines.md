@@ -48,7 +48,7 @@ The `Apache` engine supports HTTP/1.1 and provides multiple configuration option
 1. Add the `ktor-client-apache` dependency:
    <var name="artifact_name" value="ktor-client-apache"/>
    <include src="lib.xml" include-id="add_ktor_artifact"/>
-1. Pass the [Apache](https://api.ktor.io/ktor-client/ktor-client-apache/ktor-client-apache/io.ktor.client.engine.apache/-apache/index.html) class as an argument to the `HttpClient` constructor:
+1. Pass the [Apache](https://api.ktor.io/ktor-client/ktor-client-apache/io.ktor.client.engine.apache/-apache/index.html) class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
    {src="snippets/_misc_client/ApacheCreate.kt"}

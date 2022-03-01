@@ -91,7 +91,7 @@ Ktor allows you to use [UserHashedTableAuth](#validate-user-hash) to [validate](
 
 To use `UserHashedTableAuth` for validating users, follow the steps below:
 
-1. Create a digest function with the specified algorithm and salt provider using the [getDigestFunction](https://api.ktor.io/ktor-utils/ktor-utils/io.ktor.util/get-digest-function.html) function:
+1. Create a digest function with the specified algorithm and salt provider using the [getDigestFunction](https://api.ktor.io/ktor-utils/io.ktor.util/get-digest-function.html) function:
    
    ```kotlin
    ```

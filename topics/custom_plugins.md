@@ -34,7 +34,7 @@ In this section, we'll demonstrate how to create and install your first plugin. 
    ```
    
    
-You can find the full example here: [SimplePlugin.kt](https://github.com/ktorio/ktor-documentation/blob/main/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/SimplePlugin.kt). In the following sections, we'll look at how to handle calls on different stages and provide a plugin configuration.
+You can find the full example here: [SimplePlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%current-branch%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/SimplePlugin.kt). In the following sections, we'll look at how to handle calls on different stages and provide a plugin configuration.
 
 ## Handle calls {id="call-handling"}
 
@@ -108,7 +108,7 @@ Now let's create a plugin that receives a body as an integer value and adds `1` 
 2. `data` is a lambda argument that allows you to receive a request body as [ByteReadChannel](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) and convert it to the required type. In the example above, `ByteReadChannel.readUTF8Line` is used to read a request body. 
 3. Finally, you need to transform and return data. In our example, `1` is added to the received integer value.
 
-You can find the full example here: [DataTransformationPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/main/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationPlugin.kt).
+You can find the full example here: [DataTransformationPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%current-branch%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationPlugin.kt).
 
 
 ### onCallRespond {id="on-call-respond"}
@@ -125,7 +125,7 @@ Calling `call.respond` invokes the `onCallRespond`, which is in turn allows you 
 ```
 {src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationPlugin.kt" lines="18-26"}
 
-You can find the full example here: [DataTransformationPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/main/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationPlugin.kt).
+You can find the full example here: [DataTransformationPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%current-branch%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationPlugin.kt).
 
 > There is also the `onCallRespond.afterTransform` handler that is invoked after data transformation is performed.
 
@@ -137,7 +137,7 @@ The next handler is `call.afterFinish` that allows you to release resources rela
 ```
 {src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt" lines="11-15"}
 
-You can find the full example here: [RequestLoggingPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/main/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt).
+You can find the full example here: [RequestLoggingPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%current-branch%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt).
 
 ### Share call state {id="call-state"}
 
@@ -154,7 +154,7 @@ Request URL: http://localhost:8080/transform-data
 Read body delay (ms): 52
 ```
 
-You can find the full example here: [DataTransformationBenchmarkPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/main/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationBenchmarkPlugin.kt).
+You can find the full example here: [DataTransformationBenchmarkPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%current-branch%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationBenchmarkPlugin.kt).
 
 > You can also access call attributes in a [route handler](requests.md#request_information).
 
@@ -180,7 +180,7 @@ Finally, you can install and configure a plugin as follows:
 ```
 {src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" lines="15-18"}
 
-You can find the full example here: [CustomHeaderPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/main/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt).
+You can find the full example here: [CustomHeaderPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%current-branch%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt).
 
 ## Handle application shutdown {id="handle-shutdown"}
 
@@ -190,13 +190,13 @@ To release resources and handle application shutdown, use the `on(Shutdown)` han
 ```
 {src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt" lines="17-19"}
 
-You can find the full example here: [RequestLoggingPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/main/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt).
+You can find the full example here: [RequestLoggingPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%current-branch%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt).
 
 
 ## Access application settings {id="app-settings"}
 ### Configuration {id="config"}
 
-You can access your server configuration using the `applicationConfig` property, which returns the [ApplicationConfig](https://api.ktor.io/ktor-server/ktor-server-core/ktor-server-core/io.ktor.config/-application-config/index.html) instance. The example below shows how to get a host and port used by the server:
+You can access your server configuration using the `applicationConfig` property, which returns the [ApplicationConfig](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.config/-application-config/index.html) instance. The example below shows how to get a host and port used by the server:
 
 ```kotlin
 val SimplePlugin = createApplicationPlugin(name = "SimplePlugin") {

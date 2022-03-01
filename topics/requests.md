@@ -26,7 +26,7 @@ The [ApplicationRequest](https://api.ktor.io/ktor-server/ktor-server-core/io.kto
 * Cookies  
   The [ApplicationRequest.cookies](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/-application-request/cookies.html) property provides access to cookies related to a request. To learn how to handle sessions using cookies, see the [Sessions](sessions.md) section.
 * Connection details  
-  Use the [ApplicationRequest.local](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/-application-request/local.htmll) property to get access to connection details such as a host name, port, scheme, and so on.
+  Use the [ApplicationRequest.local](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/-application-request/local.html) property to get access to connection details such as a host name, port, scheme, and so on.
 * `X-Forwarded-` headers  
   To get information about a request passed through an HTTP proxy or a load balancer, install the [](forward-headers.md) plugin and use the [ApplicationRequest.origin](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.plugins/origin.html) property.
 
