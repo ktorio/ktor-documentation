@@ -27,7 +27,7 @@ The [ConditionalHeaders](https://api.ktor.io/ktor-server/ktor-server-plugins/kto
 
 ## Configure headers {id="configure"}
 
-To configure `%plugin_name%`, you need to call the [version](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-conditional-headers/io.ktor.server.plugins/-conditional-headers/-configuration/version.html) function inside the `install` block. This function provides access to a list of resource versions for a given [OutgoingContent](https://api.ktor.io/ktor-http/io.ktor.http.content/-outgoing-content/index.html). You can specify the required versions by using the [EntityTagVersion](https://api.ktor.io/ktor-http/io.ktor.http.content/-entity-tag-version/index.html) and [LastModifiedVersion](https://api.ktor.io/ktor-http/io.ktor.http.content/-last-modified-version/index.html) class objects.
+To configure `%plugin_name%`, you need to call the [version](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-conditional-headers/io.ktor.server.plugins/-conditional-headers/-configuration/version.html) function inside the `install` block. This function provides access to a list of resource versions for a given `ApplicationCall` and `OutgoingContent`. You can specify the required versions by using the [EntityTagVersion](https://api.ktor.io/ktor-http/io.ktor.http.content/-entity-tag-version/index.html) and [LastModifiedVersion](https://api.ktor.io/ktor-http/io.ktor.http.content/-last-modified-version/index.html) class objects.
 
 The code snippet below shows how to add a `Etag` and `Last-Modified` headers for CSS:
 ```kotlin

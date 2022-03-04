@@ -15,7 +15,7 @@ import java.util.*
 fun Application.main() {
     install(ConditionalHeaders) {
         val file = File("src/main/kotlin/com/example/Application.kt")
-        version { outgoingContent ->
+        version { call, outgoingContent ->
             when (outgoingContent.contentType?.withoutParameters()) {
                 ContentType.Text.CSS -> listOf(
                     EntityTagVersion(file.lastModified().hashCode().toString()),
