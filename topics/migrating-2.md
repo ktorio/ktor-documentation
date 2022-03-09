@@ -325,6 +325,11 @@ With v2.0.0, the [DoubleReceive](double-receive.md) plugin configuration introdu
 - In v2.0.0, `cacheRawRequest` is set to `true` by default. The `receiveEntireContent` property is removed.
 
 
+### Forwarded headers {id="forwarded-headers"}
+
+In v2.0.0, the `ForwardedHeaderSupport` and `XForwardedHeaderSupport` plugins are renamed to [ForwardedHeader](forward-headers.md) and `XForwardedHeader`, respectively.
+
+
 
 ## Ktor Client {id="client"}
 ### Requests and responses {id="request-response"}
@@ -593,7 +598,7 @@ client[HttpSend].intercept { ... }
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
-client.plugin(HttpSend).intercept { ... }
+client.plugin(HttpSend).intercept {     ... }
 ```
 
 </tab>
