@@ -25,7 +25,7 @@ The `%plugin_name%` plugin redirects all HTTP requests to the [HTTPS counterpart
 
 The code above installs the `%plugin_name%` plugin with the default configuration.
 
->When behind a reverse proxy, you need to install the `ForwardedHeaderSupport` or the `XForwardedHeaderSupport` plugin to detect HTTPS requests properly. If you get infinite redirect after installing one of these plugins, check out [this FAQ entry](FAQ.xml#infinite-redirect) for more details.
+>When behind a reverse proxy, you need to install the `ForwardedHeader` or the `XForwardedHeader` plugin to detect HTTPS requests properly. If you get infinite redirect after installing one of these plugins, check out [this FAQ entry](FAQ.xml#infinite-redirect) for more details.
 >
 {type="note"}
 
@@ -35,34 +35,6 @@ The code snippet below shows how to configure the desired HTTPS port and return 
 
 ```kotlin
 ```
-{src="snippets/ssl-engine-main-redirect/src/main/kotlin/com/example/Application.kt" lines="12-15"}
-
-You can find the full example here: [ssl-engine-main-redirect](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-engine-main-redirect).
-
-## Testing {id="testing"}
-
-Note that applying %plugin_name% changes how [testing](Testing.md) works. After applying this plugin, each request you perform results in a redirection response. Probably this is not what you want in most cases since that behavior is already tested.
-
-### XForwardedHeaderSupport trick {id="x-forwarded-header"}
-
-You can install the [XForwardedHeaderSupport](forward-headers.md) plugin in your application and add a `header(HttpHeaders.XForwardedProto, "https")` header to the request.
-
-<tabs>
-<tab title="Test">
-
-```kotlin
-```
-{src="snippets/ssl-engine-main-redirect/src/test/kotlin/ApplicationTest.kt" lines="11-18"}
-
-</tab>
-
-<tab title="Application">
-
-```kotlin
-```
-{src="snippets/ssl-engine-main-redirect/src/main/kotlin/com/example/Application.kt"}
-
-</tab>
-</tabs>
+{src="snippets/ssl-engine-main-redirect/src/main/kotlin/com/example/Application.kt" lines="11-14"}
 
 You can find the full example here: [ssl-engine-main-redirect](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-engine-main-redirect).

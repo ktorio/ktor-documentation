@@ -34,7 +34,7 @@ This means that you need to update [dependencies](#server-package-dependencies) 
 | [CachingHeaders](caching.md)                 |    `io.ktor:ktor-server-core`     |                                                `io.ktor:ktor-server-caching-headers` |
 | [ConditionalHeaders](conditional_headers.md) |    `io.ktor:ktor-server-core`     |                                            `io.ktor:ktor-server-conditional-headers` |
 | [CORS](cors.md)                              |    `io.ktor:ktor-server-core`     |                                                           `io.ktor:ktor-server-cors` |
-| [ForwardedHeaderSupport](forward-headers.md) |    `io.ktor:ktor-server-core`     |                                               `io.ktor:ktor-server-forwarded-header` |
+| [ForwardedHeader](forward-headers.md)        |    `io.ktor:ktor-server-core`     |                                               `io.ktor:ktor-server-forwarded-header` |
 | [HSTS](hsts.md)                              |    `io.ktor:ktor-server-core`     |                                                           `io.ktor:ktor-server-hsts` |
 | [HttpsRedirect](https-redirect.md)           |    `io.ktor:ktor-server-core`     |                                                  `io.ktor:ktor-server-http-redirect` |
 | [PartialContent](partial-content.md)         |    `io.ktor:ktor-server-core`     |                                                `io.ktor:ktor-server-partial-content` |
@@ -80,7 +80,7 @@ This means that you need to update [dependencies](#server-package-dependencies) 
 | [CachingHeaders](caching.md)                 |      `import io.ktor.features.*`      |     `import io.ktor.server.plugins.cachingheaders.*` |
 | [ConditionalHeaders](conditional_headers.md) |      `import io.ktor.features.*`      | `import io.ktor.server.plugins.conditionalheaders.*` |
 | [CORS](cors.md)                              |      `import io.ktor.features.*`      |               `import io.ktor.server.plugins.cors.*` |
-| [ForwardedHeaderSupport](forward-headers.md) |      `import io.ktor.features.*`      |   `import io.ktor.server.plugins.forwardedsupport.*` |
+| [ForwardedHeader](forward-headers.md)        |      `import io.ktor.features.*`      |   `import io.ktor.server.plugins.forwardedheaders.*` |
 | [HSTS](hsts.md)                              |      `import io.ktor.features.*`      |               `import io.ktor.server.plugins.hsts.*` |
 | [HttpsRedirect](https-redirect.md)           |      `import io.ktor.features.*`      |      `import io.ktor.server.plugins.httpsredirect.*` |
 | [PartialContent](partial-content.md)         |      `import io.ktor.features.*`      |     `import io.ktor.server.plugins.partialcontent.*` |
@@ -314,27 +314,6 @@ In the old API, `handleWebSocketConversation` is used to test [WebSocket convers
 ```kotlin
 ```
 {src="snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt" lines="10-26"}
-
-</tab>
-</tabs>
-
-#### Testing with HttpsRedirect {id="testing-https-redirect"}
-
-The example below shows how to update your tests if the [HttpsRedirect](https-redirect.md#testing) plugin is installed:
-
-<tabs group="ktor_versions">
-<tab title="1.6.x" group-key="1_6">
-
-```kotlin
-```
-{src="snippets/ssl-engine-main-redirect/src/test/kotlin/ApplicationTest.kt" lines="20-30"}
-
-</tab>
-<tab title="2.0.0" group-key="2_0">
-
-```kotlin
-```
-{src="snippets/ssl-engine-main-redirect/src/test/kotlin/ApplicationTest.kt" lines="11-18"}
 
 </tab>
 </tabs>

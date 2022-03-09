@@ -11,10 +11,10 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-The `ForwardedHeaderSupport` and `XForwardedHeaderSupport` plugins allow you to handle reverse proxy headers to get information about the original [request](requests.md) when a Ktor server is placed behind a reverse proxy. This might be useful for [logging](logging.md) purposes.
+The `ForwardedHeader` and `XForwardedHeader` plugins allow you to handle reverse proxy headers to get information about the original [request](requests.md) when a Ktor server is placed behind a reverse proxy. This might be useful for [logging](logging.md) purposes.
 
-* `ForwardedHeaderSupport` handles the `Forwarded` header ([RFC 7239](https://tools.ietf.org/html/rfc7239))
-* `XForwardedHeaderSupport` handles the following `X-Forwarded-` headers:
+* `ForwardedHeader` handles the `Forwarded` header ([RFC 7239](https://tools.ietf.org/html/rfc7239))
+* `XForwardedHeader` handles the following `X-Forwarded-` headers:
    - `X-Forwarded-Host`/`X-Forwarded-Server` 
    - `X-Forwarded-For` 
    - `X-Forwarded-By`
@@ -27,7 +27,7 @@ The `ForwardedHeaderSupport` and `XForwardedHeaderSupport` plugins allow you to 
 
 
 ## Add dependencies {id="add_dependencies"}
-To use the `ForwardedHeaderSupport`/`XForwardedHeaderSupport` plugins, you need to include the `%artifact_name%` artifact in the build script:
+To use the `ForwardedHeader`/`XForwardedHeader` plugins, you need to include the `%artifact_name%` artifact in the build script:
 
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
@@ -35,23 +35,23 @@ To use the `ForwardedHeaderSupport`/`XForwardedHeaderSupport` plugins, you need 
 ## Install plugins {id="install_plugin"}
 
 <tabs>
-<tab title="ForwardedHeaderSupport">
+<tab title="ForwardedHeader">
 
-<var name="plugin_name" value="ForwardedHeaderSupport"/>
+<var name="plugin_name" value="ForwardedHeader"/>
 <include src="lib.xml" include-id="install_plugin"/>
 
 </tab>
 
-<tab title="XForwardedHeaderSupport">
+<tab title="XForwardedHeader">
 
-<var name="plugin_name" value="XForwardedHeaderSupport"/>
+<var name="plugin_name" value="XForwardedHeader"/>
 <include src="lib.xml" include-id="install_plugin"/>
 
 </tab>
 </tabs>
 
 
-`ForwardedHeaderSupport` and `XForwardedHeaderSupport` don't require any special configuration.
+`ForwardedHeader` and `XForwardedHeader` don't require any special configuration.
 
 
 ## Get request information {id="request_info"}

@@ -50,7 +50,7 @@
 
         <def title="How do I get the client IP behind a proxy?" id="proxy-ip">
             <p>
-                The <code>call.request.origin</code> property gives <a href="requests.md" anchor="request_information">connection information</a> about the original caller (the proxy) if the proxy provides proper headers, and the <a href="forward-headers.md">ForwardedHeaderSupport</a> plugin is installed.
+                The <code>call.request.origin</code> property gives <a href="requests.md" anchor="request_information">connection information</a> about the original caller (the proxy) if the proxy provides proper headers, and the <a href="forward-headers.md">ForwardedHeader</a> plugin is installed.
             </p>
         </def>
 
@@ -136,7 +136,7 @@
                 is making normal HTTP requests to your backend, thus the <code>HttpsRedirect</code> plugin inside your Ktor backend believes that it is a normal HTTP request and responds with the redirect.
             </p>
             <p>
-                Normally, reverse-proxies send some headers describing the original request (like it was HTTPS, or the original IP address), and there is a plugin <a href="forward-headers.md">ForwardedHeaderSupport</a> to parse those headers so the <a href="https-redirect.md">HttpsRedirect</a> plugin knows that the original request was HTTPS.
+                Normally, reverse-proxies send some headers describing the original request (like it was HTTPS, or the original IP address), and there is a plugin <a href="forward-headers.md">ForwardedHeader</a> to parse those headers so the <a href="https-redirect.md">HttpsRedirect</a> plugin knows that the original request was HTTPS.
             </p>
         </def>
     </deflist>

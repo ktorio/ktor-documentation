@@ -266,10 +266,6 @@ If you need to test an [HTTPS endpoint](ssl.md), change the protocol used to mak
 
 You can find the full example here: [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-engine-main).
 
-### HttpsRedirect plugin {id="https-redirect"}
-
-The `HttpsRedirect` plugin changes how testing is performed. Check the [](https-redirect.md#testing) section for more information.
-
 
 ## Test WebSockets {id="testing-ws"}
 
