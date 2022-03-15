@@ -19,7 +19,7 @@ data class Customer(val id: Int, val firstName: String, val lastName: String)
 
 fun Application.main() {
     install(CachingHeaders) {
-        options { outgoingContent ->
+        options { call, outgoingContent ->
             when (outgoingContent.contentType?.withoutParameters()) {
                 ContentType.Text.CSS -> CachingOptions(CacheControl.MaxAge(maxAgeSeconds = 3600))
                 ContentType.Application.Json -> CachingOptions(CacheControl.MaxAge(maxAgeSeconds = 60))

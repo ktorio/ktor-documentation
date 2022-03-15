@@ -330,6 +330,66 @@ With v2.0.0, the [DoubleReceive](double-receive.md) plugin configuration introdu
 In v2.0.0, the `ForwardedHeaderSupport` and `XForwardedHeaderSupport` plugins are renamed to [ForwardedHeader](forward-headers.md) and `XForwardedHeader`, respectively.
 
 
+### Caching headers {id="caching-headers"}
+
+The [options](caching.md#configure) function used to define caching options now accepts the `ApplicationCall` as a lambda argument in addition to `OutgoingContent`: 
+
+<tabs group="ktor_versions">
+<tab title="1.6.x" group-key="1_6">
+
+```kotlin
+install(CachingHeaders) {
+    options { outgoingContent ->
+        // ...
+    }
+}
+```
+
+</tab>
+<tab title="2.0.0" group-key="2_0">
+
+```kotlin
+install(CachingHeaders) {
+    options { call, outgoingContent ->
+        // ...
+    }
+}
+```
+
+</tab>
+</tabs>
+
+
+### Conditional headers {id="conditional-headers"}
+
+The [version](conditional_headers.md#configure) function used to define a list of resource versions now accepts the `ApplicationCall` as a lambda argument in addition to `OutgoingContent`:
+
+<tabs group="ktor_versions">
+<tab title="1.6.x" group-key="1_6">
+
+```kotlin
+install(ConditionalHeaders) {
+    version { outgoingContent ->
+        // ... 
+    }
+}
+```
+
+</tab>
+<tab title="2.0.0" group-key="2_0">
+
+```kotlin
+install(ConditionalHeaders) {
+    version { call, outgoingContent ->
+        // ... 
+    }
+}
+```
+
+</tab>
+</tabs>
+
+
 
 ## Ktor Client {id="client"}
 ### Requests and responses {id="request-response"}
