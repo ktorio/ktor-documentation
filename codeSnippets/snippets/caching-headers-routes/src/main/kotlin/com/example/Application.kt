@@ -13,7 +13,7 @@ fun Application.module() {
     routing {
         route("/index") {
             install(CachingHeaders) {
-                options { CachingOptions(CacheControl.MaxAge(maxAgeSeconds = 3600)) }
+                options { call -> CachingOptions(CacheControl.MaxAge(maxAgeSeconds = 3600)) }
             }
             get {
                 call.respondText("Index page")
@@ -21,7 +21,7 @@ fun Application.module() {
         }
         route("/profile") {
             install(CachingHeaders) {
-                options { CachingOptions(CacheControl.NoStore(visibility = CacheControl.Visibility.Private)) }
+                options { call -> CachingOptions(CacheControl.NoStore(visibility = CacheControl.Visibility.Private)) }
             }
             get {
                 call.respondText("Profile page")
