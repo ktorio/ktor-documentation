@@ -105,6 +105,9 @@ install(CORS) {
 }
 ```
 
+> Note that `allowHeaders` or `allowHeadersPrefixed` require setting the [allowNonSimpleContentTypes](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.features/-c-o-r-s/-configuration/allow-non-simple-content-types.html) property to `true` for non-simple content types.
+
+
 ### Expose headers {id="expose-headers"}
 The `Access-Control-Expose-Headers` header adds the specified headers to the allowlist that JavaScript in browsers can access.
 To configure such headers, use the `exposeHeader` function.
