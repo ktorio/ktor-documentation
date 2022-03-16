@@ -55,7 +55,7 @@ The `onCall` handler accepts the `ApplicationCall` as a lambda argument. This al
 The example below shows how to use `onCall` to create a custom plugin for logging incoming requests:
 ```kotlin
 ```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt" lines="6-10,16,20"}
+{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt" lines="7-12,16"}
 
 If you install this plugin, the application will show requested URLs in a console, for example:
 ```Bash
@@ -184,11 +184,11 @@ You can find the full example here: [CustomHeaderPlugin.kt](https://github.com/k
 
 ## Handle application shutdown {id="handle-shutdown"}
 
-To release resources and handle application shutdown, use the `on(Shutdown)` handler. The code snippet below prints a message when a server is stopped:
+To release resources and handle application shutdown, use the `on(MonitoringEvent(ApplicationStopped))` handler. The code snippet below prints a message when a server is stopped:
 
 ```kotlin
 ```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt" lines="17-19"}
+{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt" lines="13-15"}
 
 You can find the full example here: [RequestLoggingPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%current-branch%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt).
 

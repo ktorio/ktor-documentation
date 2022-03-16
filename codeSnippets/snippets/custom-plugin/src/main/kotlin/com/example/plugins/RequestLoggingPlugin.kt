@@ -1,6 +1,7 @@
 package com.example.plugins
 
 import io.ktor.server.application.*
+import io.ktor.server.application.hooks.*
 import io.ktor.server.plugins.*
 
 val RequestLoggingPlugin = createApplicationPlugin(name = "RequestLoggingPlugin") {
@@ -8,13 +9,8 @@ val RequestLoggingPlugin = createApplicationPlugin(name = "RequestLoggingPlugin"
         call.request.origin.apply {
             println("Request URL: $scheme://$host:$port$uri")
         }
-        call.afterFinish { throwable ->
-            if(throwable?.cause != null) {
-                println("Exception ${throwable.cause} happened during a call to \"${call.request.origin.uri}\"")
-            }
-        }
     }
-    on(Shutdown) {
+    on(MonitoringEvent(ApplicationStopped)) {
         println("Server is stopped")
     }
 }
