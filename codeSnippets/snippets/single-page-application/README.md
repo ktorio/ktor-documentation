@@ -1,6 +1,6 @@
-# SinglePageApplication
+# Serving single-page applications
 
-A sample Ktor project demonstrating how to serve a single-page application using the `SinglePageApplication` plugin.
+A sample Ktor project demonstrating how to serve a [single-page application](https://ktor.io/docs/serving-spa.html).
 
 ## Running
 
