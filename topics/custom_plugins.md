@@ -127,17 +127,7 @@ Calling `call.respond` invokes the `onCallRespond`, which is in turn allows you 
 
 You can find the full example here: [DataTransformationPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%current-branch%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationPlugin.kt).
 
-> There is also the `onCallRespond.afterTransform` handler that is invoked after data transformation is performed.
 
-### call.afterFinish {id="call-after-finish"}
-
-The next handler is `call.afterFinish` that allows you to release resources related to a current call and handle exceptions:
-
-```kotlin
-```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt" lines="11-15"}
-
-You can find the full example here: [RequestLoggingPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%current-branch%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt).
 
 ### Share call state {id="call-state"}
 
