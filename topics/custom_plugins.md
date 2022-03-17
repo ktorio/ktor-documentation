@@ -43,7 +43,6 @@ In your custom plugin, you can [handle requests](requests.md) and [responses](re
 * [onCall](#on-call) allows you to get request/response information, modify response parameters (for instance, append custom headers), and so on.
 * [onCallReceive](#on-call-receive) allows you to obtain and transform data received from the client.
 * [onCallRespond](#on-call-respond) allows you to transform data before sending it to the client.
-* Each of the handlers above provides the ability to use [call.afterFinish](#call-after-finish).
 * If required, you can share a [call state](#call-state) between different handlers using `call.attributes`.
 
 ### onCall {id="on-call"}
@@ -237,7 +236,7 @@ val SimplePlugin = createApplicationPlugin(name = "SimplePlugin") {
 
 * Can I use a custom plugin with suspendable databases?
    
-   Yes. All the handlers are suspending functions, so you can perform any suspendable database operations inside your plugin. But don't forget to deallocate resources for specific calls ([](#call-after-finish)) or handle a server shutdown ([](#handle-shutdown)).
+   Yes. All the handlers are suspending functions, so you can perform any suspendable database operations inside your plugin. But don't forget to deallocate resources for specific calls.
 
 * How to use a custom plugin with blocking databases?
    
