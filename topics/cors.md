@@ -105,7 +105,7 @@ install(CORS) {
 }
 ```
 
-> Note that `allowHeaders` or `allowHeadersPrefixed` require setting the [allowNonSimpleContentTypes](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.features/-c-o-r-s/-configuration/allow-non-simple-content-types.html) property to `true` for non-simple content types.
+> Note that `allowHeaders` or `allowHeadersPrefixed` require setting the [allowNonSimpleContentTypes](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-cors/io.ktor.server.plugins/-c-o-r-s/-configuration/allow-non-simple-content-types.html) property to `true` for non-simple content types.
 
 
 ### Expose headers {id="expose-headers"}
