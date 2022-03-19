@@ -32,6 +32,18 @@ fun Application.main() {
                 .withAudience(audience)
                 .withIssuer(issuer)
                 .build())
+
+
+            challenge { defaultScheme: String, realm: String ->
+                /**
+                 *  By default, it will respond io.ktor.server.auth.UnauthorizedResponse object when token was wrong
+                 *  NOTICE: If you respond nothing here, every challenge will go on whether it's authenticated or not!
+                 *          So keep it default(not overwrite challenge) or respond something!
+                 */
+                println("token error")
+                call.respondText("You are not authenticated!")
+            }
+
             validate { credential ->
                 if (credential.payload.getClaim("username").asString() != "") {
                     JWTPrincipal(credential.payload)
