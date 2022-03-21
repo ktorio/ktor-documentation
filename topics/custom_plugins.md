@@ -43,6 +43,7 @@ In your custom plugin, you can [handle requests](requests.md) and [responses](re
 * [onCall](#on-call) allows you to get request/response information, modify response parameters (for instance, append custom headers), and so on.
 * [onCallReceive](#on-call-receive) allows you to obtain and transform data received from the client.
 * [onCallRespond](#on-call-respond) allows you to transform data before sending it to the client.
+* [on(...)](#other) allows you to invoke specific hooks that might be useful to handle other stages of a call or exceptions that happened during a call.
 * If required, you can share a [call state](#call-state) between different handlers using `call.attributes`.
 
 ### onCall {id="on-call"}
@@ -54,7 +55,7 @@ The `onCall` handler accepts the `ApplicationCall` as a lambda argument. This al
 The example below shows how to use `onCall` to create a custom plugin for logging incoming requests:
 ```kotlin
 ```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt" lines="7-12,16"}
+{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt" lines="6-12"}
 
 If you install this plugin, the application will show requested URLs in a console, for example:
 ```Bash
@@ -127,6 +128,28 @@ Calling `call.respond` invokes the `onCallRespond`, which is in turn allows you 
 You can find the full example here: [DataTransformationPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%current-branch%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationPlugin.kt).
 
 
+### Other useful handlers {id="other"}
+
+Apart from the `onCall`, `onCallReceive`, and `onCallRespond` handlers, Ktor provides a set of specific hooks that might be useful to handle other stages of a call.
+You can handle these hooks using the `on` handler that accepts a `Hook` as a parameter.
+These hooks include:
+
+- `CallSetup` is invoked as a first step in processing a call.
+- `ResponseBodyReadyForSend` is invoked when a response body comes through all transformations and is ready to be sent. 
+- `ResponseSent` is invoked when a response is successfully sent to a client.
+- `CallFailed` is invoked when a call fails with an exception.
+
+The example below shows how to handle `CallSetup`:
+
+```kotlin
+on(CallSetup) { call->
+    // ...
+}
+```
+
+> There is also the `MonitoringEvent` hook that allows you to [handle application events](#handle-app-events), such as application startup or shutdown.
+
+
 
 ### Share call state {id="call-state"}
 
@@ -147,6 +170,25 @@ You can find the full example here: [DataTransformationBenchmarkPlugin.kt](https
 
 > You can also access call attributes in a [route handler](requests.md#request_information).
 
+
+## Handle application events {id="handle-app-events"}
+
+The [on](#other) handler provides the ability to use the `MonitoringEvent` hook to handle events related to an application's lifecycle.
+This hook accepts the following events as a parameter:
+
+- `ApplicationStarting`
+- `ApplicationStarted`
+- `ApplicationStopPreparing`
+- `ApplicationStopping`
+- `ApplicationStopped`
+
+For example, you can release resources and handle application shutdown using `ApplicationStopped`:
+
+```kotlin
+on(MonitoringEvent(ApplicationStopped)) {
+    println("Server is stopped")
+}
+```
 
 
 ## Provide plugin configuration {id="plugin-configuration"}
@@ -171,15 +213,6 @@ Finally, you can install and configure a plugin as follows:
 
 You can find the full example here: [CustomHeaderPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%current-branch%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt).
 
-## Handle application shutdown {id="handle-shutdown"}
-
-To release resources and handle application shutdown, use the `on(MonitoringEvent(ApplicationStopped))` handler. The code snippet below prints a message when a server is stopped:
-
-```kotlin
-```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt" lines="13-15"}
-
-You can find the full example here: [RequestLoggingPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%current-branch%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt).
 
 
 ## Access application settings {id="app-settings"}
@@ -236,7 +269,7 @@ val SimplePlugin = createApplicationPlugin(name = "SimplePlugin") {
 
 * Can I use a custom plugin with suspendable databases?
    
-   Yes. All the handlers are suspending functions, so you can perform any suspendable database operations inside your plugin. But don't forget to deallocate resources for specific calls.
+   Yes. All the handlers are suspending functions, so you can perform any suspendable database operations inside your plugin. But don't forget to deallocate resources for specific calls (for example, by using [on(ResponseSent)](#other)).
 
 * How to use a custom plugin with blocking databases?
    
