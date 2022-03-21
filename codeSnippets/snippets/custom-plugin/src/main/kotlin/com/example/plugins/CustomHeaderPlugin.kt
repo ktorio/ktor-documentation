@@ -6,6 +6,8 @@ val CustomHeaderPlugin = createApplicationPlugin(
     name = "CustomHeaderPlugin",
     createConfiguration = ::PluginConfiguration
 ) {
+    val headerName = pluginConfig.headerName
+    val headerValue = pluginConfig.headerValue
     pluginConfig.apply {
         onCall { call ->
             call.response.headers.append(headerName, headerValue)

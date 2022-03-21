@@ -199,13 +199,15 @@ The [Custom header](#custom-header) example demonstrates how to create a plugin 
 
 ```kotlin
 ```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt" lines="16-19"}
+{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt" lines="18-21"}
 
 To use this configuration in a plugin, pass a configuration class reference to `createApplicationPlugin`:
 
 ```kotlin
 ```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt" lines="5-14"}
+{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt" lines="5-16"}
+
+> Given that plugin configuration fields are mutable, saving them in local variables is recommended.
 
 Finally, you can install and configure a plugin as follows:
 
