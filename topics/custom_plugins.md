@@ -174,7 +174,7 @@ You can find the full example here: [DataTransformationBenchmarkPlugin.kt](https
 ## Handle application events {id="handle-app-events"}
 
 The [on](#other) handler provides the ability to use the `MonitoringEvent` hook to handle events related to an application's lifecycle.
-This hook accepts the following events as a parameter:
+For example, you can pass the following [predefined events](events.md#predefined-events) to the `on` handler:
 
 - `ApplicationStarting`
 - `ApplicationStarted`
@@ -182,13 +182,15 @@ This hook accepts the following events as a parameter:
 - `ApplicationStopping`
 - `ApplicationStopped`
 
-For example, you can release resources and handle application shutdown using `ApplicationStopped`:
+The code snippet below shows how to handle application shutdown using `ApplicationStopped`:
 
 ```kotlin
 on(MonitoringEvent(ApplicationStopped)) {
     println("Server is stopped")
 }
 ```
+
+This might be useful to release application resources.
 
 
 ## Provide plugin configuration {id="plugin-configuration"}
@@ -199,7 +201,7 @@ The [Custom header](#custom-header) example demonstrates how to create a plugin 
 ```
 {src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt" lines="16-19"}
 
-To use this configuration in a plugin, pass the class instance to `createApplicationPlugin` as the `createConfiguration` lambda parameter:
+To use this configuration in a plugin, pass a configuration class reference to `createApplicationPlugin`:
 
 ```kotlin
 ```

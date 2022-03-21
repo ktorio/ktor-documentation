@@ -4,7 +4,7 @@ import io.ktor.server.application.*
 
 val CustomHeaderPlugin = createApplicationPlugin(
     name = "CustomHeaderPlugin",
-    createConfiguration = { PluginConfiguration() }
+    createConfiguration = ::PluginConfiguration
 ) {
     pluginConfig.apply {
         onCall { call ->

@@ -32,7 +32,7 @@ interface DisposableHandle {
 }
 ```
 
-## Predefined EventDefinitions
+## Predefined EventDefinitions {id="predefined-events"}
 
 Ktor provides some predefined events that are dispatched by the engine:
 
