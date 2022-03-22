@@ -45,8 +45,5 @@ A data model for a user looks as follows:
 
 To use the template for the specified [route](Routing_in_Ktor.md), pass [ThymeleafContent](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-thymeleaf/io.ktor.server.thymeleaf/-thymeleaf-content/index.html) to the `call.respond` method in the following way:
 ```kotlin
-get("/index") {
-    val sampleUser = User(1, "John")
-    call.respond(ThymeleafContent("index", mapOf("user" to sampleUser)))
-}
 ```
+{src="snippets/thymeleaf/src/main/kotlin/com/example/Application.kt" lines="20-23"}

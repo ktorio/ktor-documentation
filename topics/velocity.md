@@ -47,11 +47,8 @@ A data model for a user looks as follows:
 
 To use the template for the specified [route](Routing_in_Ktor.md), pass `VelocityContent` to the `call.respond` method in the following way:
 ```kotlin
-get("/index") {
-    val sampleUser = User(1, "John")
-    call.respond(VelocityContent("templates/index.vl", mapOf("user" to sampleUser)))
-}
 ```
+{src="snippets/velocity/src/main/kotlin/com/example/Application.kt" lines="18-21"}
 
 
 ### Add Velocity tools {id="velocity_tools"}
