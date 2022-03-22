@@ -48,14 +48,14 @@ You can find the full example here: [cors-backend](https://github.com/ktorio/kto
 
 
 ### Hosts {id="hosts"}
-To specify the allowed host that can make cross-origin requests, use the `host` function. Apart from the hostname, you can specify a port number, a list of subdomains, or the supported HTTP schemes.
+To specify the allowed host that can make cross-origin requests, use the `allowHost` function. Apart from the hostname, you can specify a port number, a list of subdomains, or the supported HTTP schemes.
 
 ```kotlin
 install(CORS) {
-     host("client-host")
-     host("client-host:5000")
-     host("client-host", subDomains = listOf("en", "de", "es"))
-     host("client-host", schemes = listOf("http", "https"))
+    allowHost("client-host")
+    allowHost("client-host:5000")
+    allowHost("client-host", subDomains = listOf("en", "de", "es"))
+    allowHost("client-host", schemes = listOf("http", "https"))
 }
 ```
 
@@ -70,14 +70,14 @@ install(CORS) {
 
 ### HTTP methods {id="methods"}
 
-By default, the `%plugin_name%` plugin allows the `GET`, `POST` and `HEAD` HTTP methods. To add additional methods, use the `method` function.
+By default, the `%plugin_name%` plugin allows the `GET`, `POST` and `HEAD` HTTP methods. To add additional methods, use the `allowMethod` function.
 
 ```kotlin
 install(CORS) {
-    method(HttpMethod.Options)
-    method(HttpMethod.Put)
-    method(HttpMethod.Patch)
-    method(HttpMethod.Delete)
+    allowMethod(HttpMethod.Options)
+    allowMethod(HttpMethod.Put)
+    allowMethod(HttpMethod.Patch)
+    allowMethod(HttpMethod.Delete)
 }
 ```
 
@@ -92,8 +92,8 @@ By default, the `%plugin_name%` plugin allows the following client headers manag
 To allow additional headers, use the `header` function.
 ```kotlin
 install(CORS) {
-    header(HttpHeaders.ContentType)
-    header(HttpHeaders.Authorization)
+    allowHeader(HttpHeaders.ContentType)
+    allowHeader(HttpHeaders.Authorization)
 }
 ```
 
@@ -125,9 +125,9 @@ install(CORS) {
 By default, browsers don't send credential information (such as cookies or authentication information) with cross-origin requests. To allow passing this information, set the `Access-Control-Allow-Credentials` response header to `true` using the `allowCredentials` property.
 
 ```kotlin
-    install(CORS) {
-        allowCredentials = true
-    }
+install(CORS) {
+    allowCredentials = true
+}
 ```
 
 
@@ -137,9 +137,9 @@ By default, browsers don't send credential information (such as cookies or authe
 The `%plugin_name%` plugin also allows you to specify other CORS-related settings. For example, you can use `maxAgeInSeconds` to specify how long the response to the preflight request can be cached without sending another preflight request.
 
 ```kotlin
-    install(CORS) {
-        maxAgeInSeconds = 3600
-    }
+install(CORS) {
+    maxAgeInSeconds = 3600
+}
 ```
 
 You can learn about other configuration options from [CORS.Configuration](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-cors/io.ktor.server.plugins/-c-o-r-s/-configuration/index.html).

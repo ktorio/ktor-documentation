@@ -102,7 +102,7 @@ On the client side, you need to append this header to each request to get sessio
 > If you use the [CORS](cors.md) plugin to handle cross-origin requests, add your custom header to the `CORS` configuration as follows:
 > ```kotlin
 > install(CORS) {
->     header("cart_session")
+>     allowHeader("cart_session")
 >     exposeHeader("cart_session")
 > }
 > ```

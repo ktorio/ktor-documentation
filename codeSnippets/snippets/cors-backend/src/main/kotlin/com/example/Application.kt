@@ -16,8 +16,8 @@ data class Customer(val id: Int, val firstName: String, val lastName: String)
 
 fun Application.main() {
     install(CORS) {
-        host("0.0.0.0:5000")
-        header(HttpHeaders.ContentType)
+        allowHost("0.0.0.0:5000")
+        allowHeader(HttpHeaders.ContentType)
     }
 
     val customerStorage = mutableListOf<Customer>()

@@ -390,6 +390,39 @@ install(ConditionalHeaders) {
 </tabs>
 
 
+### CORS {id="cors"}
+
+Several functions used in [CORS](cors.md) configuration are renamed:
+- `host` -> `allowHost`
+- `header` -> `allowHeader`
+- `method` -> `allowMethod`
+
+<tabs group="ktor_versions">
+<tab title="1.6.x" group-key="1_6">
+
+```kotlin
+install(CORS) {
+    host("0.0.0.0:5000")
+    header(HttpHeaders.ContentType)
+    method(HttpMethod.Options)
+}
+```
+
+</tab>
+<tab title="2.0.0" group-key="2_0">
+
+```kotlin
+install(CORS) {
+    allowHost("0.0.0.0:5000")
+    allowHeader(HttpHeaders.ContentType)
+    allowMethod(HttpMethod.Options)
+}
+```
+
+</tab>
+</tabs>
+
+
 
 ## Ktor Client {id="client"}
 ### Requests and responses {id="request-response"}
