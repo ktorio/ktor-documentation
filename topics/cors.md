@@ -89,7 +89,7 @@ By default, the `%plugin_name%` plugin allows the following client headers manag
 * `Accept-Language`
 * `Content-Language`
 
-To allow additional headers, use the `header` function.
+To allow additional headers, use the `allowHeader` function.
 ```kotlin
 install(CORS) {
     allowHeader(HttpHeaders.ContentType)
