@@ -47,8 +47,5 @@ A data model for a user looks as follows:
 
 To use the template for the specified [route](Routing_in_Ktor.md), pass `MustacheContent` to the `call.respond` method in the following way:
 ```kotlin
-get("/index") {
-    val sampleUser = User(1, "John")
-    call.respond(MustacheContent("index.hbs", mapOf("user" to sampleUser)))
-}
 ```
+{src="snippets/mustache/src/main/kotlin/com/example/Application.kt" lines="16-19"}
