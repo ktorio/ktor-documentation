@@ -19,7 +19,7 @@ Ktor allows you to use [JTE templates](https://github.com/casid/jte) as views wi
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
-> To handle .kte files, you need to add `gg.jte:jte-kotlin` to your project.
+> To handle `.kte` files, you need to add the `gg.jte:jte-kotlin` artifact to your project.
 
 ## Install %plugin_name% {id="install_plugin"}
 
@@ -31,7 +31,7 @@ Inside the `install` block, you can [configure](#configure) how to load JTE temp
 ## Configure %plugin_name% {id="configure"}
 ### Configure template loading {id="template_loading"}
 To load JTE templates, you need to:
-1. Create a `CodeResolver` used to resolve template code. For example, you can `DirectoryCodeResolver` to load templates from a given directory or `ResourceCodeResolver` to load templates from application resources.
+1. Create a `CodeResolver` used to resolve template code. For example, you can configure `DirectoryCodeResolver` to load templates from a given directory or `ResourceCodeResolver` to load templates from application resources.
 2. Use the `templateEngine` property to specify a template engine, which uses a created `CodeResolver` to transfer templates into native Java/Kotlin code.
 
 For instance, the code snippet below enables Ktor to look up JTE templates in the `templates` directory:
