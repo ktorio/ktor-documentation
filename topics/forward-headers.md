@@ -11,10 +11,10 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-The `ForwardedHeader` and `XForwardedHeader` plugins allow you to handle reverse proxy headers to get information about the original [request](requests.md) when a Ktor server is placed behind a reverse proxy. This might be useful for [logging](logging.md) purposes.
+The `ForwardedHeaders` and `XForwardedHeaders` plugins allow you to handle reverse proxy headers to get information about the original [request](requests.md) when a Ktor server is placed behind a reverse proxy. This might be useful for [logging](logging.md) purposes.
 
-* `ForwardedHeader` handles the `Forwarded` header ([RFC 7239](https://tools.ietf.org/html/rfc7239))
-* `XForwardedHeader` handles the following `X-Forwarded-` headers:
+* `ForwardedHeaders` handles the `Forwarded` header ([RFC 7239](https://tools.ietf.org/html/rfc7239))
+* `XForwardedHeaders` handles the following `X-Forwarded-` headers:
    - `X-Forwarded-Host`/`X-Forwarded-Server` 
    - `X-Forwarded-For` 
    - `X-Forwarded-By`
@@ -27,7 +27,7 @@ The `ForwardedHeader` and `XForwardedHeader` plugins allow you to handle reverse
 
 
 ## Add dependencies {id="add_dependencies"}
-To use the `ForwardedHeader`/`XForwardedHeader` plugins, you need to include the `%artifact_name%` artifact in the build script:
+To use the `ForwardedHeaders`/`XForwardedHeaders` plugins, you need to include the `%artifact_name%` artifact in the build script:
 
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
@@ -37,21 +37,21 @@ To use the `ForwardedHeader`/`XForwardedHeader` plugins, you need to include the
 <tabs>
 <tab title="ForwardedHeader">
 
-<var name="plugin_name" value="ForwardedHeader"/>
+<var name="plugin_name" value="ForwardedHeaders"/>
 <include src="lib.xml" include-id="install_plugin"/>
 
 </tab>
 
 <tab title="XForwardedHeader">
 
-<var name="plugin_name" value="XForwardedHeader"/>
+<var name="plugin_name" value="XForwardedHeaders"/>
 <include src="lib.xml" include-id="install_plugin"/>
 
 </tab>
 </tabs>
 
 
-`ForwardedHeader` and `XForwardedHeader` don't require any special configuration.
+`ForwardedHeaders` and `XForwardedHeaders` don't require any special configuration.
 
 
 ## Get request information {id="request_info"}
