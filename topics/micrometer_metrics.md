@@ -36,6 +36,8 @@ Ktor exposes the following metrics for monitoring HTTP requests:
 * `ktor.http.server.requests.active`: a [gauge](https://micrometer.io/docs/concepts#_gauges) that counts the amount of concurrent HTTP requests. This metric doesn't provide any tags.
 * `ktor.http.server.requests`: a [timer](https://micrometer.io/docs/concepts#_timers) for measuring the time of each request. This metric provides a set of tags for monitoring request data, including `address` for a requested URL, `method` for an HTTP method, `route` for a Ktor route handling requests, and so on.
 
+You can customize the default `ktor.http.server.requests` prefix using the `metricName` [configuration](#configure_metrics) property.
+
 > The metric names may be [different](https://micrometer.io/docs/concepts#_naming_meters) depending on the configured monitoring system.
 
 In addition to HTTP metrics, Ktor exposes a set of metrics for [monitoring the JVM](#jvm_metrics).
