@@ -423,6 +423,12 @@ install(CORS) {
 </tabs>
 
 
+### MicrometerMetrics {id="micrometer-metrics"}
+In v1.6.x, the `baseName` property is used to specify the base name (prefix) of [Ktor metrics](micrometer_metrics.md) used for monitoring HTTP requests.
+By default, it equals to `ktor.http.server`. 
+With v2.0.0, `baseName` is replaced with `metricName` whose default value is `ktor.http.server.requests`.
+
+
 
 ## Ktor Client {id="client"}
 ### Requests and responses {id="request-response"}
