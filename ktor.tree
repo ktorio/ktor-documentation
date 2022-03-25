@@ -270,7 +270,7 @@
             <toc-element id="http-plain-text.md"/>
             <toc-element id="timeout.md"/>
             <toc-element id="proxy.md" show-structure-depth="2"/>
-            <toc-element id="client_logging.md"
+            <toc-element id="client_logging.md" show-structure-depth="2"
                          accepts-web-file-names="features-logging.html"/>
             <toc-element id="websocket_client.md" show-structure-depth="2"
                          accepts-web-file-names="client-websockets.html,http-client-features-websockets.html,clients-websockets.html">

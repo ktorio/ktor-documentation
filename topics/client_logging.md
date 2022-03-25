@@ -47,7 +47,7 @@ The example below shows how to configure the `Logging` plugin:
 {src="/snippets/client-logging/src/main/kotlin/com/example/Application.kt"}
 
 
-## Provide a custom logger {id="custom_logger"}
+### Provide a custom logger {id="custom_logger"}
 
 To use a custom logger in your client application, you need to create a `Logger` instance and override the `log` function.
 The example below shows how to use the [Napier](https://github.com/AAkira/Napier) library to log HTTP calls:
