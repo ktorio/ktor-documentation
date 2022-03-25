@@ -12,6 +12,7 @@ Ktor client provides the capability to log HTTP calls using the `Logging` plugin
 This plugin provides different logger types for different platforms:
 - On [JVM](http-client_engines.md#jvm), Ktor uses [SLF4J API](http://www.slf4j.org/) as a facade for various logging frameworks (for example, [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j)).
 - For [Native targets](http-client_engines.md#native), the `Logging` plugin provides a logger that prints everything to `STDOUT`.
+- For [multiplatform projects](getting_started_ktor_client_multiplatform_mobile.md), you can specify a [custom logger](#custom_logger) (for example, [Napier](https://github.com/AAkira/Napier)).
 
 
 ## Add dependencies {id="add_dependencies"}
@@ -44,3 +45,15 @@ The example below shows how to configure the `Logging` plugin:
 ```kotlin
 ```
 {src="/snippets/client-logging/src/main/kotlin/com/example/Application.kt"}
+
+
+## Provide a custom logger {id="custom_logger"}
+
+To use a custom logger in your client application, you need to create a `Logger` instance and override the `log` function.
+The example below shows how to use the [Napier](https://github.com/AAkira/Napier) library to log HTTP calls:
+
+```kotlin
+```
+{src="/snippets/client-logging-napier/src/main/kotlin/com/example/Application.kt" include-symbol="main"}
+
+You can find the full example here: [client-logging-napier](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-logging-napier).
