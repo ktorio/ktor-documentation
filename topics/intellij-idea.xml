@@ -49,7 +49,7 @@
                 <p>
                     On the right pane, you can specify the following settings:
                 </p>
-                <img src="ktor_idea_new_project_settings.png" alt="Ktor Project Settings" width="702"/>
+                <img src="ktor_idea_new_project_settings.png" alt="Ktor Project Settings" width="706"/>
                 <list>
                     <li>
                         <p>
@@ -84,7 +84,7 @@
                     </li>
                     <li>
                         <p>
-                            <control>Ktor Version</control>:
+                            <control>Ktor version</control>:
                             Choose the required Ktor version.
                         </p>
                     </li>
@@ -118,16 +118,16 @@
                     building blocks that provide common functionality of a Ktor application, for example,
                     authentication, serialization and content encoding, compression, cookie support, and so on.
                 </p>
-                <img src="ktor_idea_new_project_plugins_list.png" alt="Ktor plugins" width="702"/>
+                <img src="ktor_idea_new_project_plugins_list.png" alt="Ktor plugins" width="706"/>
                 <p>
                     For now, let's install only the <a href="Routing_in_Ktor.md">Routing</a> plugin to
                     handle incoming requests.
                     Start typing <emphasis>routing</emphasis> in the top left search box,
                     find <control>Routing</control> in the list, and click <control>Add</control>.
                 </p>
-                <img src="ktor_idea_new_project_plugins.png" alt="Add the Routing plugin" width="702" animated="true"/>
+                <img src="ktor_idea_new_project_plugins.png" alt="Add the Routing plugin" width="706" border-effect="rounded" animated="true"/>
                 <p>
-                    Click <control>Finish</control> and wait until IntelliJ IDEA generates a project and
+                    Click <control>Create</control> and wait until IntelliJ IDEA generates a project and
                     installs the dependencies.
                 </p>
             </step>
@@ -154,21 +154,6 @@
                 <p>
                     The <path>Application.kt</path> file has the following code added automatically:
                 </p>
-<!--                <code style="block" lang="kotlin" initial-collapse-state="expanded" collapsed-title="fun main">
-<![CDATA[
-                    package com.example
-
-                    import io.ktor.server.engine.*
-                    import io.ktor.server.netty.*
-                    import com.example.plugins.*
-
-                    fun main() {
-                        embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
-                            configureRouting()
-                        }.start(wait = true)
-                    }
-                    ]]>
-                </code>-->
                 <code style="block" lang="kotlin" initial-collapse-state="expanded" collapsed-title="fun main" src="https://raw.githubusercontent.com/ktorio/ktor-get-started/main/src/main/kotlin/com/example/Application.kt"/>
 
                 <p>
@@ -185,20 +170,6 @@
                             <code>configureRouting</code> is an extension function that defines <a href="Routing_in_Ktor.md">routing</a>. This function is declared in a separate <code>plugins</code> package (the <path>Routing.kt</path> file).
                         </p>
                         <code style="block" lang="kotlin" initial-collapse-state="expanded" collapsed-title="fun Application.configureRouting" src="https://raw.githubusercontent.com/ktorio/ktor-get-started/main/src/main/kotlin/com/example/plugins/Routing.kt"/>
-<!--                        <code style="block" lang="kotlin" initial-collapse-state="expanded" collapsed-title="fun Application.configureRouting">
-<![CDATA[
-                            package com.example.plugins
-                            // ...
-
-                            fun Application.configureRouting() {
-                                routing {
-                                    get("/") {
-                                        call.respondText("Hello World!")
-                                    }
-                                }
-                            }
-                            ]]>
-                </code>-->
                         <p>
                             The <code>get</code> function within the <code>routing</code> block receives GET requests made to the <path>/</path> path and responds with a plain text response.
                         </p>
@@ -240,8 +211,8 @@
                 <p>
                     Open the <path>ApplicationTest.kt</path> file placed by the following path:
                     <path>src/test/kotlin/com/example/ApplicationTest.kt</path>.
-                    In this file, the <code>handleRequest</code> function makes the GET request to <path>/</path>
-                    and checks a response status and content.
+                    In this file, the <control><a href="Testing.md">testApplication</a></control> function is used to make the GET request to <path>/</path>
+                    and check a response status and content.
                 </p>
             </step>
             <step>
@@ -254,7 +225,7 @@
                 <p>
                     Wait until IntelliJ IDEA performs a test and displays results in the Run tool window.
                 </p>
-                <img src="ktor_idea_new_project_run_test_output.png" alt="Run test outpup" width="706"/>
+                <img src="ktor_idea_new_project_run_test_output.png" alt="Run test output" width="706"/>
             </step>
         </procedure>
     </chapter>
