@@ -44,13 +44,13 @@ To create a base project for our application using the Ktor plugin, [open Intell
 
 1. <include src="lib.xml" include-id="new_project_idea"/>
 2. In the **New Project** wizard, choose **Ktor** from the list on the left. On the right pane, specify the following settings:
-   ![New Ktor project](tutorial_websockets_server_new_project.png){width="744"}
+   ![New Ktor project](tutorial_websockets_server_new_project.png){width="706" border-effect="rounded"}
    * **Name**: Specify a project name.
    * **Location**: Specify a directory for your project.
    * **Build System**: Make sure that _Gradle Kotlin_ is selected as a [build system](server-dependencies.xml).
    * **Website**: Leave the default `com.example` value as a domain used to generate a package name.
    * **Artifact**: This field shows a generated artifact name.
-   * **Ktor Version**: Choose the latest Ktor version.
+   * **Ktor version**: Choose the latest Ktor version.
    * **Engine**: Leave the default _Netty_ [engine](Engines.md).
    * **Configuration in**: Choose _HOCON file_ to specify server parameters in a [dedicated configuration file](create_server.xml).
    * **Add sample code**: Disable this option to skip adding sample code for plugins.
@@ -58,9 +58,9 @@ To create a base project for our application using the Ktor plugin, [open Intell
    Click **Next**.
 
 3. On the next page, add the **Routing** and **WebSockets** plugins:
-   ![Ktor plugins](tutorial_websockets_server_new_project_plugins.png){width="744"}
+   ![Ktor plugins](tutorial_websockets_server_new_project_plugins.png){width="706" border-effect="rounded"}
 
-   Click **Finish** and wait until IntelliJ IDEA generates a project and installs the dependencies.
+   Click **Create** and wait until IntelliJ IDEA generates a project and installs the dependencies.
 
 
 ## Examine the project {id="project_setup"}
