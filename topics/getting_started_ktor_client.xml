@@ -36,14 +36,14 @@
             </step>
             <step>
                 <p>
-                    In the <control>New Project</control> wizard, choose <control>Kotlin</control> from the list on the left.
+                    In the <control>New Project</control> wizard, choose <control>Kotlin Multiplatform</control> from the list on the left.
                 </p>
             </step>
             <step>
                 <p>
                     On the right pane, specify the following settings:
                 </p>
-                <img src="ktor_idea_new_gradle_project_settings.png" alt="Kotlin Project Settings" width="706"/>
+                <img src="ktor_idea_new_gradle_project_settings.png" alt="Kotlin Multiplatform" border-effect="rounded" width="706"/>
                 <list id="kotlin_app_settings">
                     <li>
                         <p>
@@ -57,7 +57,7 @@
                     </li>
                     <li>
                         <p>
-                            <control>Project Template</control>: Choose <emphasis>Application</emphasis> in the <emphasis>JVM</emphasis> group.
+                            <control>Project Template</control>: Choose <emphasis>Console Application</emphasis> in the <emphasis>JVM</emphasis> group.
                         </p>
                     </li>
                     <li>
@@ -98,18 +98,15 @@
         <procedure title="Apply the Application plugin" id="apply-plugin">
             <step>
                 <p>
-                    Open the <path>build.gradle.kts</path> file and apply the <code>application</code> plugin in the <code>plugins</code> block:
+                    Open the <path>build.gradle.kts</path> file and make sure the <code>application</code> plugin is applied in the <code>plugins</code> block:
                 </p>
                 <code style="block" lang="kotlin" src="snippets/tutorial-client-get-started/build.gradle.kts" lines="3-4,6"/>
             </step>
             <step>
                 <p>
-                    Specify the application's main class:
+                    Make sure the application's main class is set:
                 </p>
                 <code style="block" lang="kotlin" src="snippets/tutorial-client-get-started/build.gradle.kts" lines="8-10"/>
-                <p>
-                    We'll create the <path>Application.kt</path> file <a anchor="create-kotlin-file">later</a>.
-                </p>
             </step>
         </procedure>
         <procedure title="Add dependencies" id="add-dependencies">
@@ -147,45 +144,15 @@
 
     </chapter>
 
-    <chapter title="Create the Application.kt file" id="create-kotlin-file">
-        <p>
-            Now we are ready to create a client.
-        </p>
-        <procedure hide-from-structure="true">
-            <step>
-                <p>
-                    Invoke the <a href="https://www.jetbrains.com/help/idea/project-tool-window.html">Project view</a> and expand the <path>src/main</path> folder.
-                </p>
-
-            </step>
-            <step>
-                <p>
-                    Right-click the <path>kotlin</path> folder and choose <menupath>New | Kotlin Class/File</menupath>.
-                </p>
-                <img src="client_get_started_project_view_kotlin.png" alt="Project view" width="499"/>
-            </step>
-            <step>
-                <p>
-                    Specify a file name in the invoked popup and press <control>Enter</control> to create a Kotlin file.
-                </p>
-                <img src="client_get_started_new_kotlin_file.png" alt="Application.kt" width="362"/>
-                <p>
-                    This will be <path>Application.kt</path> file in our case.
-                </p>
-            </step>
-        </procedure>
-
-    </chapter>
-
 
     <chapter title="Create a client" id="create-client">
         <p>
-            Now we can add a client's code to the <a anchor="create-kotlin-file">created Kotlin file</a>.
+            Now we can add a client's code to the <path>src/main/kotlin/Main.kt</path> file:
         </p>
         <procedure hide-from-structure="true">
             <step>
                 <p>
-                    Add the following code to the <path>Application.kt</path> file:
+                    Replace the existing code in <path>Main.kt</path> with the following:
                 </p>
                 <code style="block" lang="kotlin">
                     import io.ktor.client.*
@@ -235,11 +202,11 @@
                 <p>
                     Finally, add <code>println</code> to print a <a href="response.md" anchor="status">status code</a> returned by a server.
                     Note that you also need to release resources holding by a client using the <code>close</code> method.
-                    Our <path>Application.kt</path> file should look in the following way:
+                    Our <path>Main.kt</path> file should look in the following way:
                 </p>
                 <code style="block"
                       lang="kotlin"
-                      src="snippets/tutorial-client-get-started/src/main/kotlin/Application.kt"/>
+                      src="snippets/tutorial-client-get-started/src/main/kotlin/Main.kt"/>
                 <p>
                     In the next section, we'll run our program and make a request.
                 </p>
@@ -255,7 +222,7 @@
         <procedure hide-from-structure="true">
             <step>
                 <p>
-                    Click the gutter icon next to the <code>main</code> function and choose <control>Run 'ApplicationKt'</control>.
+                    Click the gutter icon next to the <code>main</code> function and choose <control>Run 'MainKt'</control>.
                 </p>
                 <img src="client_get_started_run_main.png" alt="Run app" width="706"/>
             </step>
@@ -264,7 +231,7 @@
                     Wait until Intellij IDEA runs the application.
                     A server should respond with the <code>200 OK</code> (hopefully!) message.
                 </p>
-                <img src="client_get_started_run_output.png" alt="Server response" width="485"/>
+                <img src="client_get_started_run_output.png" alt="Server response" width="706"/>
             </step>
         </procedure>
     </chapter>
