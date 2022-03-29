@@ -79,37 +79,11 @@
     </chapter>
 
 
-    <chapter title="Configure the build script" id="build-script">
+    <chapter title="Add dependencies" id="add-dependencies">
         <p>
-            The next thing we need is to configure the build script:
+            Let's add dependencies required for a Ktor client.
         </p>
-        <list>
-            <li>
-                <p>
-                    Apply the <code>application</code> plugin to be able to start our application using Gradle.
-                </p>
-            </li>
-            <li>
-                <p>
-                    Add dependencies required for a Ktor client.
-                </p>
-            </li>
-        </list>
-        <procedure title="Apply the Application plugin" id="apply-plugin">
-            <step>
-                <p>
-                    Open the <path>build.gradle.kts</path> file and make sure the <code>application</code> plugin is applied in the <code>plugins</code> block:
-                </p>
-                <code style="block" lang="kotlin" src="snippets/tutorial-client-get-started/build.gradle.kts" lines="3-4,6"/>
-            </step>
-            <step>
-                <p>
-                    Make sure the application's main class is set:
-                </p>
-                <code style="block" lang="kotlin" src="snippets/tutorial-client-get-started/build.gradle.kts" lines="8-10"/>
-            </step>
-        </procedure>
-        <procedure title="Add dependencies" id="add-dependencies">
+        <procedure hide-from-structure="true">
             <step>
                 <p>
                     Open the <path>gradle.properties</path> file and add the following line to specify the Ktor version:
@@ -202,7 +176,7 @@
                 <p>
                     Finally, add <code>println</code> to print a <a href="response.md" anchor="status">status code</a> returned by a server.
                     Note that you also need to release resources holding by a client using the <code>close</code> method.
-                    Our <path>Main.kt</path> file should look in the following way:
+                    The <path>Main.kt</path> file should look in the following way:
                 </p>
                 <code style="block"
                       lang="kotlin"

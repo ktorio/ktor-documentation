@@ -9,7 +9,7 @@
 Learn how to create a client chat application that uses WebSockets.
 </excerpt>
 
-In this tutorial, we will learn how to create a client chat application that uses WebSockets. The client application will allow users to join a common chat server, send messages to other users, and see messages from other users in the terminal.
+In this tutorial, you will learn how to create a client chat application that uses WebSockets. The client application will allow users to join a common chat server, send messages to other users, and see messages from other users in the terminal.
 
 To learn how to create a chat server, see the [](creating_web_socket_chat.md) tutorial.
 
@@ -22,8 +22,7 @@ To create a WebSocket chat client, we need to create a new project first. [Open 
 the steps below:
 
 1. <include src="lib.xml" include-id="new_project_idea"/>
-2. In the **New Project** wizard, choose **kotlin** from the list on the left. On the right pane, specify the following settings:
-   ![Kotlin Project Settings](tutorial_websockets_client_new_project.png){width="706"}
+2. In the **New Project** wizard, choose **Kotlin Multiplatform** from the list on the left. On the right pane, specify the following settings:
    
    <include src="getting_started_ktor_client.xml" include-id="kotlin_app_settings"/>
 
@@ -33,34 +32,9 @@ the steps below:
 
 
 ## Configure the build script {id="build-script"}
-The next thing we need is to configure the build script: 
-- Apply the `application` plugin to be able to start our application using Gradle.
-- Add the `JavaExec` task to correctly handle a user's input when the application is running using Gradle.
+The next thing we need is to configure the build script:
 - Add dependencies required for a Ktor client.
-
-### Apply the Application plugin {id="apply-plugin"}
-Open the `build.gradle.kts` file and follow the steps below:
-1. Apply the application plugin in the `plugins` block:
-   ```kotlin
-   plugins {
-       application
-   }
-   ```
-2. Specify the application's main class:
-   ```kotlin
-   ```
-   {src="snippets/tutorial-websockets-client/build.gradle.kts" lines="8-10"}
-   
-   We'll create the `Application.kt` file later.
-
-### Add the JavaExec task {id="java-exec"}
-
-In the `build.gradle.kts` file, add the `JavaExec` task and specify `standardInput` as show below:
-
-```kotlin
-```
-{src="snippets/tutorial-websockets-client/build.gradle.kts" lines="17-19"}
-
+- Add the `JavaExec` task to correctly handle a user's input when the application is running using Gradle.
 
 ### Add client dependencies {id="add-client-dependencies"}
 
@@ -72,26 +46,30 @@ In the `build.gradle.kts` file, add the `JavaExec` task and specify `standardInp
 
    <include src="getting_started_ktor_client.xml" include-id="eap-note"/>
 
-3. Open the `build.gradle.kts` file and add the following artifacts to the `dependencies` block:
+2. Open the `build.gradle.kts` file and add the following artifacts to the `dependencies` block:
    ```kotlin
    ```
    {src="snippets/tutorial-websockets-client/build.gradle.kts" lines="1-2,21-25"}
-4. Click the **Load Gradle Changes** icon in the top right corner of the `build.gradle.kts` file to install the dependencies.
 
 
-## Create the Application.kt file {id="create-kotlin-file"}
-Now we are ready to create a client.
+### Add the JavaExec task {id="java-exec"}
 
-1. Invoke the [Project view](https://www.jetbrains.com/help/idea/project-tool-window.html)and expand the `src/main` folder.
-2. Right-click the `kotlin` folder and choose **New | Kotlin Class/File**.
-3. Specify a file name in the invoked popup and press **Enter** to create a Kotlin file.
-   ![Application.kt](client_get_started_new_kotlin_file.png){width="362"}
+In the `build.gradle.kts` file, add the `JavaExec` task and specify `standardInput` as show below:
+
+```kotlin
+```
+{src="snippets/tutorial-websockets-client/build.gradle.kts" lines="17-19"}
+
+Then, click the **Load Gradle Changes** icon in the top right corner of the `build.gradle.kts` file to install the dependencies.
+
 
 ## Create the chat client {id="create-chat-client"}
 
+Now we can add a client's code to the `src/main/kotlin/Main.kt` file.
+
 ### First implementation {id="first-implementation"}
 
-After [creating a Kotlin file](#create-kotlin-file), we can add an implementation of sending and receiving messages:
+Open the `src/main/kotlin/Main.kt` file and add the following code for sending and receiving messages:
 
 ```kotlin
 import io.ktor.client.*
@@ -124,31 +102,26 @@ fun main() {
 
 Here, we first create an `HttpClient` and set up Ktor's `WebSocket` plugin (the analog of installing the `WebSocket` plugin in our server application's module in an earlier chapter). Functions in Ktor responsible for making network calls use the suspension mechanism from Kotlin's coroutines, so we wrap our network-related code in a `runBlocking` block. Inside the WebSocket handler, we once again process incoming messages and send outgoing messages: we ignore frames which do not contain text, read incoming text, and send the user input to the server.
 
-However, this "straightforward" implementation actually contains an issue that prevents it from being used as a proper chat client: when invoking `readLine()`, our program waits until the user enters a message. During this time, we can't see any messages which have been typed out by other users. Likewise, because we invoke `readLine()` after every received message, we would only ever see one new message at a time.
+However, this "straightforward" implementation actually contains an issue that prevents it from being used as a proper chat client: when invoking `readLine()`, our program waits until the user enters a message. During this time, we can't see any messages which have been typed out by other users. Likewise, because we invoke `readLine()` after every received message, we would only ever see one new message at a time. Let's address this issue, and build a better solution!
 
-You can also validate this for yourself: with the server process running, start two instances of the chat client by clicking play icon in the gutter in `Application.kt`. Use the tabs in the Run tool window to navigate between the two client instances and send some messages back and forth.
-
-![Run tool window](image-20201111191815343.png){width="1207"}
-
-Let's address this issue, and build a better solution!
 
 ### Improved solution {id="improved-solution"}
 
 A better structure for our chat client would be to separate the message output and input mechanisms, allowing them to run concurrently: when new messages arrive, they are printed immediately, but our users can still start composing a new chat message at any point.
 
-We know that to output messages, we need to be able to receive them from the WebSocket's `incoming` channel, and print them to the command line. Let's add a function called `outputMessages()` to the `Application.kt` file with the following implementation for this functionality:
+We know that to output messages, we need to be able to receive them from the WebSocket's `incoming` channel, and print them to the command line. Let's add a function called `outputMessages()` to the `Main.kt` file with the following implementation for this functionality:
 
 ```kotlin
 ```
-{src="snippets/tutorial-websockets-client/src/main/kotlin/Application.kt" lines="24-33"}
+{src="snippets/tutorial-websockets-client/src/main/kotlin/Main.kt" lines="24-33"}
 
 Because the function operates in the context of a `DefaultClientWebSocketSession`, we define `outputMessages()` as an extension function on the type. We also don't forget to add the `suspend` modifier – because iterating over the `incoming` channel suspends the coroutine while no new message is available.
 
-Next, let's define a second function which allows the user to input text. Add a function called `inputMessages()` in `Application.kt` with the following implementation
+Next, let's define a second function which allows the user to input text. Add a function called `inputMessages()` in `Main.kt` with the following implementation
 
 ```kotlin
 ```
-{src="snippets/tutorial-websockets-client/src/main/kotlin/Application.kt" lines="35-46"}
+{src="snippets/tutorial-websockets-client/src/main/kotlin/Main.kt" lines="35-46"}
 
 Once again defined as a suspending extension function on `DefaultClientWebSocketSession`, this function's only job is to read text from the command line and send it to the server or to return when the user types `exit`.
 
@@ -156,11 +129,11 @@ Where we previously had one loop which had to take care of reading input and pri
 
 ### Wire it together
 
-Let's make use of our two new functions! We can call them inside the body of our WebSocket handler by changing the code of our `main()` method in `Application.kt` to the following:
+Let's make use of our two new functions! We can call them inside the body of our WebSocket handler by changing the code of our `main()` method in `Main.kt` to the following:
 
 ```kotlin
 ```
-{src="snippets/tutorial-websockets-client/src/main/kotlin/Application.kt" lines="7-22"}
+{src="snippets/tutorial-websockets-client/src/main/kotlin/Main.kt" lines="7-22"}
 
 This new implementation improves the behavior of our application: Once the connection to our chat server is established, we use the `launch` function from Kotlin's Coroutines library to launch the two long-running functions `outputMessages()` and `inputMessages()` on a new coroutine (without blocking the current thread). The launch function also returns a `Job` object for both of them, which we use to keep the program running until the user types `exit` or encounters a network error when trying to send a message. After `inputMessages()` has returned, we cancel the execution of the `outputMessages()` function, and `close` the client.
 
@@ -168,13 +141,11 @@ Until this happens, both input and output can happily happen concurrently, with 
 
 ### Let's give it a try!
 
-We have now finished implementing our WebSocket-based chat client with Kotlin and Ktor. To celebrate our success, let's give it a try! With the chat server running, start some instances of the chat client using the play button, and talk to yourself! Even if you send multiple messages right after each other, they should be correctly displayed on all connected clients.
+We have now finished implementing our WebSocket-based chat client with Kotlin and Ktor. To celebrate our success, let's give it a try! With the chat server running, start two instances of the chat client. You can do this by creating two identical **MainKt** [run configurations](https://www.jetbrains.com/help/idea/run-debug-configuration.html), which can be run separately. Even if you send multiple messages right after each other, they should be correctly displayed on all connected clients.
 
-You might still notice some smaller usability issues caused by the limitations of terminal input, like incoming messages overwriting messages which are currently being composed. Managing more complex terminal user interfaces is outside the scope of this tutorial, though, and as such, left as an exercise to the reader 😉.
+![App in action](app_in_action.png){animated="true" width="706"}
 
 We have included the final state of the client chat application in the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets) project: [tutorial-websockets-client](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/tutorial-websockets-client).
-
-![App in action](app_in_action.png){animated="true" width="674"}
 
 That's it for this tutorial on WebSockets with Ktor – time to congratulate yourself for building a whole application! If you're looking for some inspiration of where to take this project next, as well as related materials, continue to the next section.
 
