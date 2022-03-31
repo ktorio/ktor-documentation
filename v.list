@@ -7,7 +7,7 @@
     <var name="ktor_version" value="2.0.0-eap-355"/>
     <var name="kotlin_version" value="1.6.20-RC"/>
     <var name="coroutines_version" value="1.6.0"/>
-    <var name="kotlin_css_version" value="1.0.0-pre.293-kotlin-1.6.10"/>
+    <var name="kotlin_css_version" value="1.0.0-pre.324-kotlin-1.6.10"/>
     <var name="logback_version" value="1.2.7"/>
     <var name="prometheus_version" value="1.8.1"/>
     <var name="dropwizard_version" value="4.2.7"/>
