@@ -89,6 +89,41 @@
                         </code>
                     </tab>
                 </tabs>
+                <p>
+                    Note that Ktor EAPs might require the <a href="https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev">Kotlin dev repository</a>:
+                </p>
+                <tabs group="languages">
+                    <tab title="Gradle (Kotlin)" group-key="kotlin">
+                        <code style="block" lang="Kotlin">
+                            repositories {
+                                maven {
+                                    url = uri("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev")
+                                }
+                            }
+                        </code>
+                    </tab>
+                    <tab title="Gradle (Groovy)" group-key="groovy">
+                        <code style="block" lang="Groovy">
+                            repositories {
+                                maven {
+                                    url "https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev"
+                                }
+                            }
+                        </code>
+                    </tab>
+                    <tab title="Maven" group-key="maven">
+                        <code style="block" lang="XML">
+                            <![CDATA[
+                            <repositories>
+                                <repository>
+                                    <id>ktor-eap</id>
+                                    <url>https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev</url>
+                                </repository>
+                            </repositories>
+                            ]]>
+                        </code>
+                    </tab>
+                </tabs>
             </li>
         </list>
     </chapter>
