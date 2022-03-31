@@ -109,7 +109,7 @@ However, this "straightforward" implementation actually contains an issue that p
 
 A better structure for our chat client would be to separate the message output and input mechanisms, allowing them to run concurrently: when new messages arrive, they are printed immediately, but our users can still start composing a new chat message at any point.
 
-We know that to output messages, we need to be able to receive them from the WebSocket's `incoming` channel, and print them to the command line. Let's add a function called `outputMessages()` to the `Main.kt` file with the following implementation for this functionality:
+We know that to output messages, we need to be able to receive them from the WebSocket's `incoming` channel, and print them to the console. Let's add a function called `outputMessages()` to the `Main.kt` file with the following implementation for this functionality:
 
 ```kotlin
 ```
