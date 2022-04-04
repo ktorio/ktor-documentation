@@ -2,6 +2,7 @@ package com.example.dao
 
 import com.example.dao.DatabaseFactory.dbQuery
 import com.example.models.*
+import kotlinx.coroutines.runBlocking
 import org.jetbrains.exposed.sql.*
 
 class DAOFacadeImpl : DAOFacade {
@@ -39,5 +40,13 @@ class DAOFacadeImpl : DAOFacade {
 
     override suspend fun deleteArticle(id: Int): Boolean = dbQuery {
         Articles.deleteWhere { Articles.id eq id } > 0
+    }
+}
+
+val dao: DAOFacade = DAOFacadeImpl().apply {
+    runBlocking {
+        if(allArticles().isEmpty()) {
+            addNewArticle("The drive to develop!", "...it's what keeps me going.")
+        }
     }
 }

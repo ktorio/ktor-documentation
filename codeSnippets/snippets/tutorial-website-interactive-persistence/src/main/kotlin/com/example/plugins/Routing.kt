@@ -1,6 +1,6 @@
 package com.example.plugins
 
-import com.example.dao.*
+import com.example.dao.dao
 import io.ktor.server.application.*
 import io.ktor.server.freemarker.*
 import io.ktor.server.http.content.*
@@ -8,7 +8,6 @@ import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.util.*
-import kotlinx.coroutines.*
 
 fun Application.configureRouting() {
     routing {
@@ -20,13 +19,6 @@ fun Application.configureRouting() {
         }
 
         route("articles") {
-            val dao: DAOFacade = DAOFacadeImpl()
-            runBlocking {
-                if(dao.allArticles().isEmpty()) {
-                    dao.addNewArticle("The drive to develop!", "...it's what keeps me going.")
-                }
-            }
-
             get {
                 call.respond(FreeMarkerContent("index.ftl", mapOf("articles" to dao.allArticles())))
             }

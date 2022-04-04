@@ -138,7 +138,7 @@ Let's start with a function returning all entries. Our request is wrapped into a
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DAOFacadeImpl.kt" lines="1-16,43"}
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DAOFacadeImpl.kt" lines="1-17,44"}
 
 `Table.selectAll` returns an instance of `Query`, so to get the list of `Article` instances, we need to manually extract data for each row and convert it to our data class. We accomplish that using the helper function `resultRowToArticle` that builds an `Article` from the `ResultRow`.
 
@@ -152,7 +152,7 @@ Now let's implement a function returning one article:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DAOFacadeImpl.kt" lines="18-23"}
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DAOFacadeImpl.kt" lines="19-24"}
 
 The `select` function takes an extension lambda as an argument. The implicit receiver inside this lambda is of type `SqlExpressionBuilder`. You don't use this type explicitly, but it defines a bunch of useful operations on columns, which you use to build your queries. You can use comparisons (`eq`, `less`, `greater`), arithmetic operations (`plus`, `times`), check whether value belongs or doesn't belong to a provided list of values (`inList`, `notInList`), check whether the value is null or non-null, and many more.
 
@@ -164,7 +164,7 @@ To insert a new article into the table, use the `Table.insert` function, which t
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DAOFacadeImpl.kt" lines="25-31"}
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DAOFacadeImpl.kt" lines="26-32"}
 
 Inside this lambda, we specify which value is supposed to be set for which column. The `it` argument has a type `InsertStatement` on which we can call the `set` operator taking column and value as arguments.
 
@@ -175,7 +175,7 @@ To update the existing article, the `Table.update` is used:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DAOFacadeImpl.kt" lines="33-38"}
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DAOFacadeImpl.kt" lines="34-39"}
 
 
 ### Delete an article {id="delete_article"}
@@ -184,42 +184,47 @@ Finally, use `Table.deleteWhere` to remove an article from the database:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DAOFacadeImpl.kt" lines="40-42"}
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DAOFacadeImpl.kt" lines="41-43"}
 
+
+### Initialize DAOFacade {id="init-dao-facade"}
+
+Let's create an instance of `DAOFacade` and add a sample article to be inserted to the database before the application is started.
+Add the following code at the bottom of `DAOFacadeImpl.kt`:
+
+```kotlin
+```
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DAOFacadeImpl.kt" lines="46-52"}
 
 
 ## Update routes {id="update_routes"}
 
-Now we are ready to use implemented database operations inside route handlers. First, you need to create an instance of `DAOFacade`. Open the `plugins/Routing.kt` file and initialize `DAOFacade` inside the `routing` block. Let's also add a sample article to be inserted to the database before the application is started:
-
-```kotlin
-```
-{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/plugins/Routing.kt" lines="22-28,67"}
-
+Now we are ready to use implemented database operations inside route handlers.
+Open the `plugins/Routing.kt` file.
 To show all articles, call `dao.allArticles` inside the `get` handler:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/plugins/Routing.kt" lines="30-32"}
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/plugins/Routing.kt" lines="22-24"}
 
 
 To post a new article, call the `dao.addNewArticle` function inside `post`:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/plugins/Routing.kt" lines="36-42"}
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/plugins/Routing.kt" lines="28-34"}
 
 To get an article for showing and editing, use `dao.article` inside `get("{id}")` and `get("{id}/edit")`, respectively:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/plugins/Routing.kt" lines="43-50"}
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/plugins/Routing.kt" lines="35-42"}
 
 Finally, go to the `post("{id}")` handler and use `dao.editArticle` to update an article and `dao.deleteArticle` to delete it:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/plugins/Routing.kt" lines="51-66"}
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/plugins/Routing.kt" lines="43-58"}
 
 > You can find the resulting project for this tutorial here: [tutorial-website-interactive-persistence](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/tutorial-website-interactive-persistence).
 
