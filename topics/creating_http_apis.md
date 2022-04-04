@@ -150,13 +150,13 @@ We want to respond to `GET`, `POST`, and `DELETE` requests on the `/customer` en
            get {
    
            }
-           get("{id}") {
+           get("{id?}") {
    
            }
            post {
    
            }
-           delete("{id}") {
+           delete("{id?}") {
    
            }
        }
@@ -165,7 +165,7 @@ We want to respond to `GET`, `POST`, and `DELETE` requests on the `/customer` en
 
    In this case, we're using the `route` function to group everything that falls under the `/customer` endpoint. We then create a block for each HTTP method. This is just one approach how we can structure our routes – when we tackle the `Order` routes in the next chapter, we will see another approach.
 
-   Notice also how we actually have two entries for `get`: one without a path parameter, and the other with `{id}`. We'll use the first entry to list all customers, and the second to display a specific one.
+   Notice also how we actually have two entries for `get`: one without a path parameter, and the other with `{id?}`. We'll use the first entry to list all customers, and the second to display a specific one.
 
 #### List all customers {id="list_customers"}
 
@@ -193,7 +193,7 @@ Another route we want to support is one that returns a specific customer based o
 ```
 {src="snippets/tutorial-http-api/CustomerTest.http" lines="40-41"}
 
-In Ktor, paths can also contain [parameters](Routing_in_Ktor.md#match_url) that match specific path segments. We can access their value using the indexed access operator (`call.parameters["myParamName"]`). Let's add the following code to the `get("{id}")` entry:
+In Ktor, paths can also contain [parameters](Routing_in_Ktor.md#match_url) that match specific path segments. We can access their value using the indexed access operator (`call.parameters["myParamName"]`). Let's add the following code to the `get("{id?}")` entry:
 
 
 ```kotlin
@@ -201,8 +201,6 @@ In Ktor, paths can also contain [parameters](Routing_in_Ktor.md#match_url) that 
 {src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" lines="19-30"}
 
 First, we check whether the parameter `id` exists in the request. If it does not exist, we respond with a `400 Bad Request` status code and an error message, and are done. If the parameter exists, we try to `find` the corresponding record in our `customerStorage`. If we find it, we'll respond with the object. Otherwise, we'll return a 404 "Not Found" status code with an error message.
-
-Note that while we return a `400 Bad request` when the `id` is null, this case should actually never be encountered. Why? Because this would only happen if no parameter `{id}` was passed in – but in this case, the route we defined previously would already handle the request.
 
 #### Create a customer {id="create_customer"}
 
