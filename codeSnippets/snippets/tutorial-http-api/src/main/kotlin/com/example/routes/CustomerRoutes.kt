@@ -13,7 +13,7 @@ fun Route.customerRouting() {
             if (customerStorage.isNotEmpty()) {
                 call.respond(customerStorage)
             } else {
-                call.respondText("No customers found", status = HttpStatusCode.NotFound)
+                call.respondText("No customers found", status = HttpStatusCode.OK)
             }
         }
         get("{id}") {
