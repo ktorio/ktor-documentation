@@ -7,8 +7,7 @@
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <p>
-<b>Code examples</b>: 
-<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-form">auth-form</a>, 
+<b>Code examples</b>:
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-form-html-dsl">auth-form-html-dsl</a>,
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-form-session">auth-form-session</a>
 </p>
@@ -35,7 +34,7 @@ The form-based authentication flow might look as follows:
    
    ```kotlin
    ```
-   {src="snippets/auth-form/post.http"}
+   {src="snippets/auth-form-html-dsl/post.http"}
    
    In Ktor, you need to [specify parameter names](#configure-provider) used to fetch a username and password.
 
@@ -64,7 +63,7 @@ The `form` authentication provider exposes its settings via the [FormAuthenticat
 
 ```kotlin
 ```
-{src="snippets/auth-form/src/main/kotlin/com/example/Application.kt" lines="9-21"}
+{src="snippets/auth-form-html-dsl/src/main/kotlin/com/example/Application.kt" lines="11-23"}
 
 The `validate` function checks `UserPasswordCredential` and returns a `UserIdPrincipal` in a case of successful authentication or `null` if authentication fails.
 
@@ -76,4 +75,4 @@ After configuring the `form` provider, you can define the authorization for the 
 
 ```kotlin
 ```
-{src="snippets/auth-form/src/main/kotlin/com/example/Application.kt" lines="22-28"}
+{src="snippets/auth-form-html-dsl/src/main/kotlin/com/example/Application.kt" lines="25-30,51"}
