@@ -11,7 +11,7 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-The `ForwardedHeaders` and `XForwardedHeaders` plugins allow you to handle reverse proxy headers to get information about the original [request](requests.md) when a Ktor server is placed behind a reverse proxy. This might be useful for [logging](logging.md) purposes.
+The [ForwardedHeaders](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-forwarded-header/io.ktor.server.plugins.forwardedheaders/-forwarded-headers.html) and [XForwardedHeaders](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-forwarded-header/io.ktor.server.plugins.forwardedheaders/-x-forwarded-headers.html) plugins allow you to handle reverse proxy headers to get information about the original [request](requests.md) when a Ktor server is placed behind a reverse proxy. This might be useful for [logging](logging.md) purposes.
 
 * `ForwardedHeaders` handles the `Forwarded` header ([RFC 7239](https://tools.ietf.org/html/rfc7239))
 * `XForwardedHeaders` handles the following `X-Forwarded-` headers:
