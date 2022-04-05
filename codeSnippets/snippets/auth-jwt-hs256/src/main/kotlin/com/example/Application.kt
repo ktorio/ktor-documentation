@@ -2,6 +2,7 @@ package com.example
 
 import com.auth0.jwt.*
 import com.auth0.jwt.algorithms.*
+import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
 import io.ktor.server.auth.*
@@ -38,6 +39,9 @@ fun Application.main() {
                 } else {
                     null
                 }
+            }
+            challenge { defaultScheme, realm ->
+                call.respond(HttpStatusCode.Unauthorized, "Token is not valid or has expired")
             }
         }
     }
