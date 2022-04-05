@@ -15,7 +15,7 @@
 %plugin_name% allows Ktor applications to respond appropriately to any failure state based on a thrown exception or status code.
 </excerpt>
 
-The `%plugin_name%` plugin allows Ktor applications to [respond](responses.md) appropriately to any failure state based on a thrown exception or status code.
+The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-status-pages/io.ktor.server.plugins.statuspages/-status-pages.html) plugin allows Ktor applications to [respond](responses.md) appropriately to any failure state based on a thrown exception or status code.
 
 ## Add dependencies {id="add_dependencies"}
 

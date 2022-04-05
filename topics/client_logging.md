@@ -8,7 +8,7 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-Ktor client provides the capability to log HTTP calls using the `Logging` plugin.
+Ktor client provides the capability to log HTTP calls using the [Logging](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-logging/io.ktor.client.plugins.logging/-logging/index.html) plugin.
 This plugin provides different logger types for different platforms:
 - On [JVM](http-client_engines.md#jvm), Ktor uses [SLF4J API](http://www.slf4j.org/) as a facade for various logging frameworks (for example, [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j)).
 - For [Native targets](http-client_engines.md#native), the `Logging` plugin provides a logger that prints everything to `STDOUT`.

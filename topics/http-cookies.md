@@ -13,7 +13,7 @@ The Ktor client allows you to handle cookies manually in the following ways:
 * The `cookie` function allows you to append a cookie to a [specific request](request.md#cookies).
 * The `setCookie` function enables you to parse the `Set-Cookie` header value received in a [response](response.md#headers).
 
-The `HttpCookies` plugin handles cookies automatically and keep them between calls in an in-memory storage.
+The [HttpCookies](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.cookies/-http-cookies/index.html) plugin handles cookies automatically and keep them between calls in an in-memory storage.
 
 ## Add dependencies {id="add_dependencies"}
 `HttpCookies` only requires the [ktor-client-core](client-dependencies.md) artifact and doesn't need any specific dependencies.

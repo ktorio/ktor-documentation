@@ -11,7 +11,7 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-Ktor allows you to use [JTE templates](https://github.com/casid/jte) as views within your application by installing the `%plugin_name%` plugin.
+Ktor allows you to use [JTE templates](https://github.com/casid/jte) as views within your application by installing the [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-jte/io.ktor.server.jte/-jte.html) plugin.
 
 
 ## Add dependencies {id="add_dependencies"}

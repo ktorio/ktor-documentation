@@ -11,7 +11,7 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-The `%plugin_name%` plugin redirects all HTTP requests to the [HTTPS counterpart](ssl.md) before processing the call. By default, a resource returns `301 Moved Permanently`, but it can be configured to be `302 Found`.
+The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-http-redirect/io.ktor.server.plugins.httpsredirect/-https-redirect.html) plugin redirects all HTTP requests to the [HTTPS counterpart](ssl.md) before processing the call. By default, a resource returns `301 Moved Permanently`, but it can be configured to be `302 Found`.
 
 ## Add dependencies {id="add_dependencies"}
 

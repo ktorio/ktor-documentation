@@ -11,7 +11,7 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-The `%plugin_name%` plugin adds the required _HTTP Strict Transport Security_ headers to the request according to the [RFC 6797](https://tools.ietf.org/html/rfc6797). When the browser receives HSTS policy headers, it no longer attempts to connect to the server with insecure connections for a given period.
+The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-hsts/io.ktor.server.plugins.hsts/-h-s-t-s.html) plugin adds the required _HTTP Strict Transport Security_ headers to the request according to the [RFC 6797](https://tools.ietf.org/html/rfc6797). When the browser receives HSTS policy headers, it no longer attempts to connect to the server with insecure connections for a given period.
 
 > Note that HSTS policy headers are ignored over an insecure HTTP connection. For HSTS to take effect, it should be served over a [secure](ssl.md) connection.
 

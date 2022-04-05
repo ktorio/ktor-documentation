@@ -37,7 +37,7 @@ react-app
     └── ...
 ```
 
-To serve this application, call `singlePageApplication` inside the [routing](Routing_in_Ktor.md) block 
+To serve this application, call [singlePageApplication](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.http.content/single-page-application.html) inside the [routing](Routing_in_Ktor.md) block 
 and pass the folder name to the `react` function:
 
 ```kotlin

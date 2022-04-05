@@ -5,7 +5,7 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-The `ShutDownUrl` plugin allows you to configure a URL used to shut down the server. 
+The [ShutDownUrl](https://api.ktor.io/ktor-server/ktor-server-host-common/io.ktor.server.engine/-shut-down-url/index.html) plugin allows you to configure a URL used to shut down the server. 
 There are two ways to enable this plugin: 
 - In a [HOCON](#hocon) configuration file.
 - By [installing the plugin](#install).

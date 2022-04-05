@@ -12,7 +12,7 @@ Ktor allows you to serve static files, such as stylesheets, scripts, images, and
 </excerpt>
 
 Whether we're creating a website or an HTTP endpoint, many applications need to serve files (such as stylesheets, scripts, images, etc.). 
-While it is certainly possible with Ktor to load the contents of a file and [send it in response](responses.md) to a request, given this is such a common functionality, Ktor simplifies the entire process for us with the `static` plugin.
+While it is certainly possible with Ktor to load the contents of a file and [send it in response](responses.md) to a request, given this is such a common functionality, Ktor simplifies the entire process for us with the [static](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.http.content/static.html) plugin.
 
 The first step in defining a static route is to define the path under which the content should be served. 
 For instance, if you want everything under the route `assets` to be treated as static content, you need to add the following to your application setup:

@@ -9,7 +9,7 @@
 The DefaultRequest plugin allows you to configure default parameters for all requests.
 </excerpt>
 
-The `DefaultRequest` plugin allows you to configure default parameters for all [requests](request.md): specify a base URL, add headers, and so on.
+The [DefaultRequest](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-default-request/index.html) plugin allows you to configure default parameters for all [requests](request.md): specify a base URL, add headers, and so on.
 
 
 ## Add dependencies {id="add_dependencies"}

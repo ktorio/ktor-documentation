@@ -16,7 +16,7 @@ The %plugin_name% plugin enables serving the client-side libraries provided by W
 </excerpt>
 
 
-The `%plugin_name%` plugin enables serving the client-side libraries provided by [WebJars](https://www.webjars.org/). It allows you to package your assets such as JavaScript and CSS libraries as part of your [fat JAR](fatjar.md).
+The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-webjars/io.ktor.server.webjars/-webjars.html) plugin enables serving the client-side libraries provided by [WebJars](https://www.webjars.org/). It allows you to package your assets such as JavaScript and CSS libraries as part of your [fat JAR](fatjar.md).
 
 ## Add dependencies {id="add_dependencies"}
 To enable `%plugin_name%`, you need to include the following artifacts in the build script:

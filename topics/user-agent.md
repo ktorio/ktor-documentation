@@ -1,6 +1,6 @@
 [//]: # (title: User agent)
 
-The `UserAgent` plugin adds a `User-Agent` header to all [requests](request.md).
+The [UserAgent](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-user-agent/index.html) plugin adds a `User-Agent` header to all [requests](request.md).
 
 ## Add dependencies {id="add_dependencies"}
 

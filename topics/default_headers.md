@@ -9,7 +9,7 @@
 </p>
 </microformat>
 
-The `%plugin_name%` [plugin](Plugins.md) adds the standard `Server` and `Date` headers into each response. Moreover, you can provide additional default headers and override the `Server` header.
+The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-default-headers/io.ktor.server.plugins.defaultheaders/-default-headers.html) plugin adds the standard `Server` and `Date` headers into each response. Moreover, you can provide additional default headers and override the `Server` header.
 
 ## Add dependencies {id="add_dependencies"}
 
