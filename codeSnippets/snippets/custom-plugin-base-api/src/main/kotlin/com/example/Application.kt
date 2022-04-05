@@ -1,14 +1,15 @@
 package com.example
 
+import com.example.plugins.CustomHeader
 import io.ktor.server.application.*
 import io.ktor.server.html.*
 import io.ktor.server.routing.*
 import kotlinx.html.*
 
 fun Application.main() {
-    install(CustomHeader) { // Install a custom plugin
-        headerName = "Hello" // configuration
-        headerValue = "World"
+    install(CustomHeader) {
+        headerName = "X-Custom-Header"
+        headerValue = "Hello, world!"
     }
     routing {
         get("/") {

@@ -2,13 +2,12 @@ package com.example
 
 import io.ktor.client.request.*
 import io.ktor.server.testing.*
-import org.junit.Test
 import kotlin.test.*
 
-class CustomPluginTest {
+class CustomHeaderTest {
     @Test
     fun testCustomHeader() = testApplication {
         val response = client.get("/")
-        assertEquals("World", response.headers["Hello"])
+        assertEquals("Hello, world!", response.headers["X-Custom-Header"])
     }
 }
