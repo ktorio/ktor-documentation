@@ -11,7 +11,7 @@
 
 <excerpt>The MicrometerMetrics plugin enables Micrometer metrics in your Ktor server application and allows you to choose the required monitoring system, such as Prometheus, JMX, Elastic, and so on.</excerpt>
 
-The [MicrometerMetrics](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-metrics-micrometer/io.ktor.server.metrics.micrometer/-micrometer-metrics/index.html) plugin enables [Micrometer](https://micrometer.io/docs) metrics in your Ktor server application and allows you to choose the required monitoring system, such as Prometheus, JMX, Elastic, and so on. By default, Ktor exposes metrics for monitoring HTTP requests and a set of low-level metrics for [monitoring the JVM][micrometer_jvm_metrics]. You can customize these metrics or create new ones.
+The [MicrometerMetrics](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-metrics-micrometer/io.ktor.server.metrics.micrometer/-micrometer-metrics) plugin enables [Micrometer](https://micrometer.io/docs) metrics in your Ktor server application and allows you to choose the required monitoring system, such as Prometheus, JMX, Elastic, and so on. By default, Ktor exposes metrics for monitoring HTTP requests and a set of low-level metrics for [monitoring the JVM][micrometer_jvm_metrics]. You can customize these metrics or create new ones.
 
 ## Add dependencies {id="add_dependencies"}
 To enable `MicrometerMetrics`, you need to include the following artifacts in the build script:
@@ -44,7 +44,7 @@ In addition to HTTP metrics, Ktor exposes a set of metrics for [monitoring the J
 
 ## Create a registry {id="create_registry"}
 
-After installing `MicrometerMetrics`, you need to create a [registry for your monitoring system](https://micrometer.io/docs/concepts#_registry) and assign it to the [registry](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-metrics-micrometer/io.ktor.server.metrics.micrometer/-micrometer-metrics/-configuration/registry.html) property. In the example below, the `PrometheusMeterRegistry` is created outside the `install` block to have the capability to reuse this registry in different [route handlers](Routing_in_Ktor.md):
+After installing `MicrometerMetrics`, you need to create a [registry for your monitoring system](https://micrometer.io/docs/concepts#_registry) and assign it to the `registry` property. In the example below, the `PrometheusMeterRegistry` is created outside the `install` block to have the capability to reuse this registry in different [route handlers](Routing_in_Ktor.md):
 
 ```kotlin
 ```
@@ -54,7 +54,7 @@ After installing `MicrometerMetrics`, you need to create a [registry for your mo
 
 ## Configure metrics {id="configure_metrics"}
 
-The `MicrometerMetrics` plugin provides various configuration options that can be accessed using [MicrometerMetrics.Configuration](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-metrics-micrometer/io.ktor.server.metrics.micrometer/-micrometer-metrics/-configuration/index.html).
+The `MicrometerMetrics` plugin provides various configuration options that can be accessed using [MicrometerMetricsConfig](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-metrics-micrometer/io.ktor.server.metrics.micrometer/-micrometer-metrics-config/index.html).
 
 ### Timers {id="timers"}
 To customize tags for each timer, you can use the `timers` function that is called for each request:

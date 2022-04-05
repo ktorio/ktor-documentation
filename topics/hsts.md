@@ -29,7 +29,7 @@ The code above installs `%plugin_name%` with the default configuration.
 
 ## Configure %plugin_name% {id="configure"}
 
-`%plugin_name%` exposes its settings via [HSTS.Configuration](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-hsts/io.ktor.server.plugins/-h-s-t-s/-configuration/index.html). The example below shows how to use the `maxAgeInSeconds` property to specify how long the client should keep the host in a list of known HSTS hosts:
+`%plugin_name%` exposes its settings via [HSTSConfig](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-hsts/io.ktor.server.plugins.hsts/-h-s-t-s-config/index.html). The example below shows how to use the `maxAgeInSeconds` property to specify how long the client should keep the host in a list of known HSTS hosts:
 
 ```kotlin
 ```

@@ -87,7 +87,7 @@ The `digest` authentication provider validates user credentials using the `HA1` 
 
 ### Step 2: Configure a digest provider {id="configure-provider"}
 
-The `digest` authentication provider exposes its settings via the [DigestAuthenticationProvider.Configuration](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-digest-authentication-provider/-configuration/index.html) class. In the example below, the following settings are specified:
+The `digest` authentication provider exposes its settings via the [DigestAuthenticationProvider.Config](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-digest-authentication-provider/-config/index.html) class. In the example below, the following settings are specified:
 * The `realm` property sets the realm to be passed in `WWW-Authenticate` header.
 * The `digestProvider` function fetches the `HA1` part of digest for a specified username.
 
@@ -95,7 +95,7 @@ The `digest` authentication provider exposes its settings via the [DigestAuthent
 ```
 {src="snippets/auth-digest/src/main/kotlin/com/example/Application.kt" lines="18-26,34"}
 
-You can also use the [nonceManager](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-digest-authentication-provider/-configuration/nonce-manager.html) property to specify how to generate nonce values.
+You can also use the [nonceManager](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-digest-authentication-provider/-config/nonce-manager.html) property to specify how to generate nonce values.
 
 
 ### Step 3: Define authorization scope {id="authenticate-route"}

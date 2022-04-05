@@ -59,9 +59,6 @@ Picking the best match:
 3. Choose paths with the highest qualities.
 4. If there are multiple paths with the same quality, choose the first one.
 
-[Actual implementation](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-core/jvmAndNix/src/io/ktor/server/routing/RoutingResolve.kt#L120) 
-may differ in details for optimization reasons, but its result must be the same, as algorithm described here.
-
 For the second example tree, routing resolution for request `GET /a/b` will look like this:
 
 * Check root route `route("a")` -> success, q=1.0, traverse children

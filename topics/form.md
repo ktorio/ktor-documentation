@@ -57,7 +57,7 @@ You can optionally specify a [provider name](authentication.md#provider-name) th
 ## Configure form authentication {id="configure"}
 
 ### Step 1: Configure a form provider {id="configure-provider"}
-The `form` authentication provider exposes its settings via the [FormAuthenticationProvider.Configuration](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-form-authentication-provider/-configuration/index.html) class. In the example below, the following settings are specified:
+The `form` authentication provider exposes its settings via the [FormAuthenticationProvider.Config](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-form-authentication-provider/-config/index.html) class. In the example below, the following settings are specified:
 * The `userParamName` and `passwordParamName` properties specify parameter names used to fetch a username and password.
 * The `validate` function validates a username and password.
 

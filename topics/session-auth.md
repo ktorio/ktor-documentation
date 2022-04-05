@@ -69,7 +69,7 @@ You can learn more about configuring sessions from [](sessions.md#configuration_
 
 ### Step 3: Configure session authentication {id="configure-session-auth"}
 
-The `session` authentication provider exposes its settings via the [SessionAuthenticationProvider.Configuration](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-session-authentication-provider/-configuration/index.html) class. In the example below, the following settings are specified:
+The `session` authentication provider exposes its settings via the [SessionAuthenticationProvider.Config](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-session-authentication-provider/-config/index.html) class. In the example below, the following settings are specified:
 * The `validate` function checks the [session instance](#data-class) and returns `Principal` in a case of successful authentication.
 * The `challenge` function specifies an action performed if authentication fails. For instance, you can redirect back to a login page or send [UnauthorizedResponse](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-unauthorized-response/index.html).
 

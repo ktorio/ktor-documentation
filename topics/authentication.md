@@ -98,7 +98,7 @@ These names can be used later to [authenticate different routes](#authenticate-r
 
 ### Step 3: Configure a provider {id="configure-provider"}
 
-Each [provider type](#choose-provider) has its own configuration. For instance, the [BasicAuthenticationProvider.Configuration](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-basic-authentication-provider/-configuration/index.html) class contains options passed to the [basic](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/basic.html) function. The most important function exposed by this class is [validate](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-basic-authentication-provider/-configuration/validate.html) that validates a username and password. A code sample below shows how it can look:
+Each [provider type](#choose-provider) has its own configuration. For instance, the [BasicAuthenticationProvider.Config](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-basic-authentication-provider/-config/index.html) class contains options passed to the [basic](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/basic.html) function. The most important function exposed by this class is [validate](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-basic-authentication-provider/-config/validate.html) that validates a username and password. A code sample below shows how it can look:
 
 ```kotlin
 ```
@@ -111,7 +111,7 @@ To understand how the `validate` function works, we need to introduce two terms:
 
 So, the `validate` function checks a specified [Credential](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-credential/index.html) and returns a [Principal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-principal/index.html) in a case of successful authentication or `null` if authentication fails.
 
-> To skip authentication based on a specific criteria, use [skipWhen](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-authentication-provider/-configuration/skip-when.html). For example, you can skip `basic` authentication if a [session](sessions.md) already exists:
+> To skip authentication based on a specific criteria, use [skipWhen](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-authentication-provider/-config/skip-when.html). For example, you can skip `basic` authentication if a [session](sessions.md) already exists:
 > ```kotlin
 > basic {
 >     skipWhen { call -> call.sessions.get<UserSession>() != null }

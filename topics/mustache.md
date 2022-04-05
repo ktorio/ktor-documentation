@@ -12,7 +12,7 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-Ktor allows you to use [Mustache templates](https://github.com/spullara/mustache.java) as views within your application by installing the [Mustache](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-mustache/io.ktor.server.mustache/-mustache/index.html) plugin.
+Ktor allows you to use [Mustache templates](https://github.com/spullara/mustache.java) as views within your application by installing the [Mustache](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-mustache/io.ktor.server.mustache/-mustache) plugin.
 
 
 ## Add dependencies {id="add_dependencies"}

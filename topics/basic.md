@@ -65,7 +65,7 @@ To get a general idea on how to configure different authentication providers in 
 
 ### Step 1: Configure a basic provider {id="configure-provider"}
 
-The `basic` authentication provider exposes its settings via the [BasicAuthenticationProvider.Configuration](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-basic-authentication-provider/-configuration/index.html) class. In the example below, the following settings are specified:
+The `basic` authentication provider exposes its settings via the [BasicAuthenticationProvider.Configuration](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-basic-authentication-provider/-config/index.html) class. In the example below, the following settings are specified:
 * The `realm` property sets the realm to be passed in `WWW-Authenticate` header.
 * The `validate` function validates a username and password.
 
