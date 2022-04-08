@@ -327,7 +327,7 @@ With v2.0.0, the [DoubleReceive](double-receive.md) plugin configuration introdu
 
 ### Forwarded headers {id="forwarded-headers"}
 
-In v2.0.0, the `ForwardedHeaderSupport` and `XForwardedHeaderSupport` plugins are renamed to [ForwardedHeader](forward-headers.md) and `XForwardedHeader`, respectively.
+In v2.0.0, the `ForwardedHeaderSupport` and `XForwardedHeaderSupport` plugins are renamed to [ForwardedHeaders](forward-headers.md) and `XForwardedHeaders`, respectively.
 
 
 ### Caching headers {id="caching-headers"}
