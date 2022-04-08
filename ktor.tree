@@ -3,7 +3,7 @@
         SYSTEM "https://resources.jetbrains.com/stardust/product-profile.dtd">
 <product-profile id="ktor"
                  name="Ktor"
-                 status="eap"
+                 status="release"
                  start-page="Welcome.md">
 
     <toc-element id="Welcome.md"
