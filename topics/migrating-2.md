@@ -34,7 +34,7 @@ This means that you need to update [dependencies](#server-package-dependencies) 
 | [CachingHeaders](caching.md)                 |    `io.ktor:ktor-server-core`     |                                                `io.ktor:ktor-server-caching-headers` |
 | [ConditionalHeaders](conditional_headers.md) |    `io.ktor:ktor-server-core`     |                                            `io.ktor:ktor-server-conditional-headers` |
 | [CORS](cors.md)                              |    `io.ktor:ktor-server-core`     |                                                           `io.ktor:ktor-server-cors` |
-| [ForwardedHeader](forward-headers.md)        |    `io.ktor:ktor-server-core`     |                                               `io.ktor:ktor-server-forwarded-header` |
+| [Forwarded headers](forward-headers.md)      |    `io.ktor:ktor-server-core`     |                                               `io.ktor:ktor-server-forwarded-header` |
 | [HSTS](hsts.md)                              |    `io.ktor:ktor-server-core`     |                                                           `io.ktor:ktor-server-hsts` |
 | [HttpsRedirect](https-redirect.md)           |    `io.ktor:ktor-server-core`     |                                                  `io.ktor:ktor-server-http-redirect` |
 | [PartialContent](partial-content.md)         |    `io.ktor:ktor-server-core`     |                                                `io.ktor:ktor-server-partial-content` |
@@ -80,7 +80,7 @@ This means that you need to update [dependencies](#server-package-dependencies) 
 | [CachingHeaders](caching.md)                 |      `import io.ktor.features.*`      |     `import io.ktor.server.plugins.cachingheaders.*` |
 | [ConditionalHeaders](conditional_headers.md) |      `import io.ktor.features.*`      | `import io.ktor.server.plugins.conditionalheaders.*` |
 | [CORS](cors.md)                              |      `import io.ktor.features.*`      |               `import io.ktor.server.plugins.cors.*` |
-| [ForwardedHeader](forward-headers.md)        |      `import io.ktor.features.*`      |   `import io.ktor.server.plugins.forwardedheaders.*` |
+| [Forwarded headers](forward-headers.md)      |      `import io.ktor.features.*`      |   `import io.ktor.server.plugins.forwardedheaders.*` |
 | [HSTS](hsts.md)                              |      `import io.ktor.features.*`      |               `import io.ktor.server.plugins.hsts.*` |
 | [HttpsRedirect](https-redirect.md)           |      `import io.ktor.features.*`      |      `import io.ktor.server.plugins.httpsredirect.*` |
 | [PartialContent](partial-content.md)         |      `import io.ktor.features.*`      |     `import io.ktor.server.plugins.partialcontent.*` |

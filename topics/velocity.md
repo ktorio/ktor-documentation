@@ -3,6 +3,7 @@
 [velocity_engine]: https://velocity.apache.org/engine/devel/apidocs/org/apache/velocity/app/VelocityEngine.html
 
 <var name="plugin_name" value="Velocity"/>
+<var name="package_name" value="io.ktor.server.velocity"/>
 <var name="artifact_name" value="ktor-server-velocity"/>
 
 <microformat>

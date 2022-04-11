@@ -1,6 +1,7 @@
 [//]: # (title: Thymeleaf)
 
 <var name="plugin_name" value="Thymeleaf"/>
+<var name="package_name" value="io.ktor.server.thymeleaf"/>
 <var name="artifact_name" value="ktor-server-thymeleaf"/>
 
 <microformat>

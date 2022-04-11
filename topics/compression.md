@@ -1,6 +1,7 @@
 [//]: # (title: Compression)
 
 <var name="artifact_name" value="ktor-server-compression"/>
+<var name="package_name" value="io.ktor.server.plugins.compression"/>
 <var name="plugin_name" value="Compression"/>
 
 <microformat>

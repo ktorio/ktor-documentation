@@ -1,6 +1,8 @@
 [//]: # (title: Micrometer metrics)
 [micrometer_jvm_metrics]: https://micrometer.io/docs/ref/jvm
 
+<var name="package_name" value="io.ktor.server.metrics.micrometer"/>
+
 <microformat>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:ktor-server-metrics-micrometer</code>

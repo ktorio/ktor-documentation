@@ -1,6 +1,7 @@
 [//]: # (title: CallId)
 
 <var name="artifact_name" value="ktor-server-call-id"/>
+<var name="package_name" value="io.ktor.server.plugins.callid"/>
 <var name="plugin_name" value="CallId"/>
 
 <microformat>

@@ -2,6 +2,7 @@
 [pebble_engine_builder]: https://pebbletemplates.io/com/mitchellbosecke/pebble/PebbleEngine/Builder/
 
 <var name="plugin_name" value="Pebble"/>
+<var name="package_name" value="io.ktor.server.pebble"/>
 <var name="artifact_name" value="ktor-server-pebble"/>
 
 <microformat>

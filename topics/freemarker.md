@@ -2,6 +2,7 @@
 [freemarker_template_loading]: https://freemarker.apache.org/docs/pgui_config_templateloading.html
 
 <var name="plugin_name" value="FreeMarker"/>
+<var name="package_name" value="io.ktor.server.freemarker"/>
 <var name="artifact_name" value="ktor-server-freemarker"/>
 
 <microformat>

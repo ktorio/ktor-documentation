@@ -1,6 +1,7 @@
 [//]: # (title: Locations)
 
 <var name="plugin_name" value="Locations"/>
+<var name="package_name" value="io.ktor.server.locations"/>
 <var name="artifact_name" value="ktor-server-locations"/>
 
 <microformat>

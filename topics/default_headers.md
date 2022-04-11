@@ -1,6 +1,7 @@
 [//]: # (title: Default headers)
 
 <var name="artifact_name" value="ktor-server-default-headers"/>
+<var name="package_name" value="io.ktor.server.plugins.defaultheaders"/>
 <var name="plugin_name" value="DefaultHeaders"/>
 
 <microformat>

@@ -2,6 +2,7 @@
 [mustache_factory]: http://spullara.github.io/mustache/apidocs/com/github/mustachejava/MustacheFactory.html
 
 <var name="plugin_name" value="Mustache"/>
+<var name="package_name" value="io.ktor.server.mustache"/>
 <var name="artifact_name" value="ktor-server-mustache"/>
 
 <microformat>
