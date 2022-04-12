@@ -15,9 +15,18 @@ Currently, running a Ktor server under Kotlin/Native has the following limitatio
 * Windows target is not supported
 
 
+## Enable the New Kotlin/Native memory model
+To use Ktor server in a Kotlin/Native project, enable the New Kotlin/Native memory model as described here: [Enable the new MM](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/NEW_MM.md#enable-the-new-mm).
+For example, if you use Gradle, you can enable it by using the `kotlin.native.binary.memoryModel` flag in `gradle.properties`:
+
+```Gradle
+kotlin.native.binary.memoryModel=experimental
+```
+
+
 ## Add dependencies {id="add-dependencies"}
 
-To use Ktor server in a Kotlin/Native project, you need to add at least two dependencies: a `ktor-server-core` dependency and an engine dependency (CIO). The code snippet below shows how to add dependencies to the `nativeMain` source set in the `build.gradle.kts` file:
+Ktor server in a Kotlin/Native project requires at least two dependencies: a `ktor-server-core` dependency and an engine dependency (CIO). The code snippet below shows how to add dependencies to the `nativeMain` source set in the `build.gradle.kts` file:
 
 ```kotlin
 ```

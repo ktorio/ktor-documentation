@@ -5,7 +5,9 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-<include src="lib.xml" include-id="outdated_warning"/>
+> Starting with v2.0.0, Ktor provides a new simplified API for [creating custom plugins](custom_plugins.md).
+>
+{type="note"}
 
 You can develop your own plugins and reuse them across all your Ktor applications, or you can share them with the community.
 A typical plugin has the following structure:
