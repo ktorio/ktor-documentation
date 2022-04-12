@@ -358,6 +358,8 @@ Let's write a unit test to ensure that our order route returns properly formatte
 ```
 {src="snippets/tutorial-http-api/src/test/kotlin/com/example/ApplicationTest.kt"}
 
+> If you set the **Configuration in** option to _Code_ when [creating a project](#create_ktor_project), you need to add modules to a test application manually as described in [](Testing.md#manual).
+
 Note that since our string contains a lot of quotation marks around keys and values (like `"number"`), this is a great place to use [raw strings](https://kotlinlang.org/docs/basic-types.html#string-literals) using triple-quotes (`"""`), saving us the hassle of individually escaping every special character inside the string.
 
 We can now [run our unit test from the IDE](https://www.jetbrains.com/help/idea/performing-tests.html) and see the results. Much like we've done for this endpoint, we can add all other endpoints as tests and automate the testing of our HTTP API.

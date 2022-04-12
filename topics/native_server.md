@@ -15,7 +15,7 @@ Currently, running a Ktor server under Kotlin/Native has the following limitatio
 * Windows target is not supported
 
 
-## Enable the New Kotlin/Native memory model
+## Enable the New Kotlin/Native memory model {id="new_memory_model"}
 To use Ktor server in a Kotlin/Native project, enable the New Kotlin/Native memory model as described here: [Enable the new MM](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/NEW_MM.md#enable-the-new-mm).
 For example, if you use Gradle, you can enable it by using the `kotlin.native.binary.memoryModel` flag in `gradle.properties`:
 
