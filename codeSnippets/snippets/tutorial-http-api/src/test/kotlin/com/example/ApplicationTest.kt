@@ -5,8 +5,14 @@ import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.server.testing.*
 import kotlin.test.*
+import com.example.plugins.*
 
 class OrderRouteTests {
+    application{
+        configureRouting()
+        configureSerialization()
+        configureTemplating()
+    }
     @Test
     fun testGetOrder() = testApplication {
         val response = client.get("/order/2020-04-06-01")
