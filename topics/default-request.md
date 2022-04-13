@@ -31,7 +31,7 @@ val client = HttpClient(CIO) {
 ```kotlin
 val client = HttpClient(CIO) {
     defaultRequest {
-        // this: HttpRequestBuilder
+        // this: DefaultRequestBuilder
     }
 }
 ```
