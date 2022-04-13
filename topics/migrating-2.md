@@ -697,7 +697,7 @@ client[HttpSend].intercept { ... }
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
-client.plugin(HttpSend).intercept {     ... }
+client.plugin(HttpSend).intercept { ... }
 ```
 
 </tab>
@@ -816,3 +816,33 @@ WebSockets code is moved from `http-cio` to the `websockets` package. This requi
 | 1.6.x                                 |                        2.0.0 |
 |:--------------------------------------|-----------------------------:|
 | `import io.ktor.http.cio.websocket.*` | `import io.ktor.websocket.*` |
+
+
+### Default request {id="default-request"}
+
+The [DefaultRequest](default-request.md) plugin uses a `DefaultRequestBuilder` configuration class instead of `HttpRequestBuilder`:
+
+<tabs group="ktor_versions">
+<tab title="1.6.x" group-key="1_6">
+
+```kotlin
+val client = HttpClient(CIO) {
+    defaultRequest {
+        // this: HttpRequestBuilder
+    }
+}
+```
+
+</tab>
+<tab title="2.0.0" group-key="2_0">
+
+```kotlin
+val client = HttpClient(CIO) {
+    defaultRequest {
+        // this: DefaultRequestBuilder
+    }
+}
+```
+
+</tab>
+</tabs>
