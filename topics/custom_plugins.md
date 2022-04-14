@@ -104,7 +104,7 @@ Now let's create a plugin that receives a body as an integer value and adds `1` 
 
 `transformBody` in the code snippet above works as follows:
 
-1. `TransformContext` is a [lambda receiver](https://kotlinlang.org/docs/scope-functions.html#context-object-this-or-it) that contains type information about the current request. In the example above, the `TransformContext.requestedType` property is used to check the requested data type.
+1. `TransformBodyContext` is a [lambda receiver](https://kotlinlang.org/docs/scope-functions.html#context-object-this-or-it) that contains type information about the current request. In the example above, the `TransformBodyContext.requestedType` property is used to check the requested data type.
 2. `data` is a lambda argument that allows you to receive a request body as [ByteReadChannel](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) and convert it to the required type. In the example above, `ByteReadChannel.readUTF8Line` is used to read a request body. 
 3. Finally, you need to transform and return data. In our example, `1` is added to the received integer value.
 
