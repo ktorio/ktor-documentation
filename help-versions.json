@@ -1,4 +1,4 @@
 [
-  {"version":"2.0.0","url":"/docs/eap/","isCurrent":false},
-  {"version":"1.6.8","url":"/docs/","isCurrent":true}
+  {"version":"2.0.0","url":"/docs/","isCurrent":true},
+  {"version":"1.6.8","url":"/docs/old/","isCurrent":false}
 ]
