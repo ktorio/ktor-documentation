@@ -27,4 +27,4 @@ A custom plugin can be installed normally with the standard `install` function:
 
 ```kotlin
 ```
-{src="snippets/custom-plugin-base-api/src/main/kotlin/com/example/Application.kt" lines="10-13"}
+{src="snippets/custom-plugin-base-api/src/main/kotlin/com/example/Application.kt" lines="12-15"}
