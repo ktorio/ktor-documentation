@@ -14,7 +14,7 @@ fun Application.main() {
         headerValue = "Hello, world!"
     }
     install(RequestLogging)
-    install(DataTransformation)
+
     routing {
         get("/") {
             call.respondText("Root page")
