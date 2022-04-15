@@ -19,8 +19,10 @@ class DataTransformation {
                 }
             }
             pipeline.sendPipeline.intercept(ApplicationSendPipeline.Transform) { data ->
-                val newValue = data.toString().toInt() + 1
-                proceedWith(newValue.toString())
+                if (subject is Int) {
+                    val newValue = data.toString().toInt() + 1
+                    proceedWith(newValue.toString())
+                }
             }
             return plugin
         }
