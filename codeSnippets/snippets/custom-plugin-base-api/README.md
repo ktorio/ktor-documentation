@@ -1,6 +1,6 @@
 # Custom plugin - Base API
 
-A sample Ktor project with an implementation of a [custom plugin](https://ktor.io/docs/creating-custom-plugins.html).
+A sample Ktor project with an implementation of a [custom plugin](https://ktor.io/docs/custom-plugins-base-api.html).
 
 ## Running
 
