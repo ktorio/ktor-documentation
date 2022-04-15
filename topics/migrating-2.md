@@ -115,7 +115,7 @@ This affects the entire Ktor API and requires updating your application as descr
 
 #### Custom plugins {id="feature-plugin-custom"}
 
-Renaming Feature to Plugin introduces the following changes for API related to [custom plugins](Creating_custom_plugins.md):
+Renaming Feature to Plugin introduces the following changes for API related to [custom plugins](custom_plugins-base-api.md):
 * The `ApplicationFeature` interface is renamed to `BaseApplicationPlugin`.
 * The `Features` [pipeline phase](Pipelines.md) is renamed to `Plugins`.
 
