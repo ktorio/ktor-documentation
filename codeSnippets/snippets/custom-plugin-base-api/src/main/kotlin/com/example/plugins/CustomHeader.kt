@@ -18,7 +18,7 @@ class CustomHeader(configuration: Configuration) {
         override fun install(pipeline: ApplicationCallPipeline, configure: Configuration.() -> Unit): CustomHeader {
             val configuration = Configuration().apply(configure)
             val plugin = CustomHeader(configuration)
-            pipeline.intercept(ApplicationCallPipeline.Call) {
+            pipeline.intercept(ApplicationCallPipeline.Plugins) {
                 call.response.header(plugin.name, plugin.value)
             }
             return plugin

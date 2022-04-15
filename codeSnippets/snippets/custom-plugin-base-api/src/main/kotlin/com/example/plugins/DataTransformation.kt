@@ -12,12 +12,14 @@ class DataTransformation {
         override val key = AttributeKey<DataTransformation>("DataTransformation")
         override fun install(pipeline: ApplicationCallPipeline, configure: Configuration.() -> Unit): DataTransformation {
             val plugin = DataTransformation()
-            pipeline.receivePipeline.intercept(ApplicationReceivePipeline.Transform) { value ->
-                val newValue = (value as ByteReadChannel).readUTF8Line()?.toInt()?.plus(1)
-                proceedWith(newValue!!)
+            pipeline.receivePipeline.intercept(ApplicationReceivePipeline.Transform) { data ->
+                val newValue = (data as ByteReadChannel).readUTF8Line()?.toInt()?.plus(1)
+                if (newValue != null) {
+                    proceedWith(newValue)
+                }
             }
-            pipeline.sendPipeline.intercept(ApplicationSendPipeline.Transform) { value ->
-                val newValue = value.toString().toInt() + 1
+            pipeline.sendPipeline.intercept(ApplicationSendPipeline.Transform) { data ->
+                val newValue = data.toString().toInt() + 1
                 proceedWith(newValue.toString())
             }
             return plugin
