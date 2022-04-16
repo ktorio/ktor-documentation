@@ -16,7 +16,7 @@ import kotlinx.serialization.*
 class Articles(val sort: String? = "new") {
     @Serializable
     @Resource("new")
-    class New(val parent: Articles = Articles("new"))
+    class New(val parent: Articles = Articles())
 
     @Serializable
     @Resource("{id}")
