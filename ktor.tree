@@ -201,6 +201,7 @@
                          show-structure-depth="2"
                          accepts-web-file-names="advanced-index.html,advanced-features.html,creating-custom-features.html"/>
             <toc-element id="custom_plugins-base-api.md"
+                         show-structure-depth="2"
                          accepts-web-file-names="creating-custom-plugins.html"/>
             <toc-element id="Pipelines.md" accepts-web-file-names="pipeline.html">
                 <toc-element id="attributes.md"/>
