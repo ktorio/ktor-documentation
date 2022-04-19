@@ -580,7 +580,36 @@ You can find the full example here: [](response.md#streaming).
 With v2.0.0, the `expectSuccess` property used for [response validation](response-validation.md) is set to `false` by default.
 This requires the following changes in your code:
 - To [enable default validation](response-validation.md#default) and throw exceptions for non-2xx responses, set the `expectSuccess` property to `true`.
-- If you [handle non-2xx exceptions](response-validation.md#non-2xx) using `handleResponseException`, you also need to enable `expectSuccess` explicitly.
+- If you [handle non-2xx exceptions](response-validation.md#non-2xx) using `handleResponseExceptionWithRequest`, you also need to enable `expectSuccess` explicitly.
+
+#### HttpResponseValidator {id="http-response-validator"}
+
+The [handleResponseException](response-validation.md#non-2xx) function is replaced with `handleResponseExceptionWithRequest`, which adds access to `HttpRequest` to provide additional information in exceptions:
+
+<tabs group="ktor_versions">
+<tab title="1.6.x" group-key="1_6">
+
+```kotlin
+HttpResponseValidator {
+    handleResponseException { exception ->
+        // ...
+    }
+}
+```
+
+</tab>
+<tab title="2.0.0" group-key="2_0">
+
+```kotlin
+HttpResponseValidator {
+    handleResponseExceptionWithRequest { exception, request ->
+        // ...
+    }
+}
+```
+
+</tab>
+</tabs>
 
 
 
@@ -848,31 +877,3 @@ val client = HttpClient(CIO) {
 </tabs>
 
 
-### HttpResponseValidator {id="response-validator"}
-
-With v2.0.0, the [handleResponseException](response-validation.md#non-2xx) function is replaced with `handleResponseExceptionWithRequest`, which adds access to `HttpRequest` to provide additional information in exceptions:
-
-<tabs group="ktor_versions">
-<tab title="1.6.x" group-key="1_6">
-
-```kotlin
-HttpResponseValidator {
-    handleResponseException { exception ->
-        // ...
-    }
-}
-```
-
-</tab>
-<tab title="2.0.0" group-key="2_0">
-
-```kotlin
-HttpResponseValidator {
-    handleResponseExceptionWithRequest { exception, request ->
-        // ...
-    }
-}
-```
-
-</tab>
-</tabs>
