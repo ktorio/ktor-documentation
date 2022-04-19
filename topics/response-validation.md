@@ -59,7 +59,7 @@ In the [example](https://github.com/ktorio/ktor-documentation/tree/%current-bran
 
 ### Handle non-2xx exceptions {id="non-2xx"}
 
-If you need to customize [default validation](#default) and handle exceptions for non-2xx responses in a specific way, use [handleResponseException](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-call-validator/-config/handle-response-exception.html). In the [example](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-validate-non-2xx-response) below, a client raises a custom `MissingPageException` for 404 responses instead of the default `ClientRequestException`:
+If you need to customize [default validation](#default) and handle exceptions for non-2xx responses in a specific way, use [handleResponseExceptionWithRequest](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-call-validator/-config/handle-response-exception-with-request.html). In the [example](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-validate-non-2xx-response) below, a client raises a custom `MissingPageException` for 404 responses instead of the default `ClientRequestException`:
 
 ```kotlin
 ```

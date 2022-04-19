@@ -846,3 +846,33 @@ val client = HttpClient(CIO) {
 
 </tab>
 </tabs>
+
+
+### HttpResponseValidator {id="response-validator"}
+
+With v2.0.0, the [handleResponseException](response-validation.md#non-2xx) function is replaced with `handleResponseExceptionWithRequest`, which adds access to `HttpRequest` to provide additional information in exceptions:
+
+<tabs group="ktor_versions">
+<tab title="1.6.x" group-key="1_6">
+
+```kotlin
+HttpResponseValidator {
+    handleResponseException { exception ->
+        // ...
+    }
+}
+```
+
+</tab>
+<tab title="2.0.0" group-key="2_0">
+
+```kotlin
+HttpResponseValidator {
+    handleResponseExceptionWithRequest { exception, request ->
+        // ...
+    }
+}
+```
+
+</tab>
+</tabs>

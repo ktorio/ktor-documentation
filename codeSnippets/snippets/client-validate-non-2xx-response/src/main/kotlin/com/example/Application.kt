@@ -18,8 +18,8 @@ fun main() {
     val client = HttpClient(CIO) {
         expectSuccess = true
         HttpResponseValidator {
-            handleResponseException { exception ->
-                val clientException = exception as? ClientRequestException ?: return@handleResponseException
+            handleResponseExceptionWithRequest { exception, request ->
+                val clientException = exception as? ClientRequestException ?: return@handleResponseExceptionWithRequest
                 val exceptionResponse = exception.response
                 if (exceptionResponse.status == HttpStatusCode.NotFound) {
                     val exceptionResponseText = exceptionResponse.bodyAsText()
