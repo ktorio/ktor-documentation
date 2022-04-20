@@ -18,7 +18,7 @@ To create a custom plugin, follow the steps below:
 
 1. Create a plugin class and [declare a companion object](#create-companion) that implements [BaseApplicationPlugin](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-base-application-plugin/index.html).
 2. [Implement](#implement) the `key` and `install` members of this companion object.
-3. Create a [plugin configuration](#plugin-configuration).
+3. Provide a [plugin configuration](#plugin-configuration).
 4. [Handle calls](#call-handling) by intercepting the required pipeline phases. 
 5. [Install a plugin](#install).
 
@@ -60,7 +60,7 @@ class CustomHeader() {
 
 ### Handle calls {id="call-handling"}
 
-In your custom plugin, you can handle requests and responses by intercepting different pipeline phases that provide access to different stages of a call, for example:
+In your custom plugin, you can handle requests and responses by intercepting [existing pipeline phases](Pipelines.md#ktor-pipelines) or [newly defined ones](Pipelines.md#phases). For example, the [Authentication](authentication.md) plugin adds the `Authenticate` and `Challenge` custom phases to the default pipeline. So, intercepting a specific pipeline allows you to access different stages of a call, for instance:
 
 - `ApplicationCallPipeline.Monitoring`: intercepting this phase can be used for request logging or collecting metrics.
 - `ApplicationCallPipeline.Plugins`: can be used to modify response parameters, for instance, append custom headers.
