@@ -16,7 +16,9 @@ For example, you can intercept the `Monitoring` phase to log incoming requests o
 ## Create a plugin {id="create"}
 To create a custom plugin, follow the steps below:
 
-1. Create a plugin class and [declare a companion object](#create-companion) that implements [BaseApplicationPlugin](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-base-application-plugin/index.html).
+1. Create a plugin class and [declare a companion object](#create-companion) that implements one of the following interfaces:
+   - [BaseApplicationPlugin](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-base-application-plugin/index.html) if a plugin should work on an application level.
+   - [BaseRouteScopedPlugin](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-base-route-scoped-plugin/index.html) if a plugin can be [installed to a specific route](Plugins.md#install-route).
 2. [Implement](#implement) the `key` and `install` members of this companion object.
 3. Provide a [plugin configuration](#plugin-configuration).
 4. [Handle calls](#call-handling) by intercepting the required pipeline phases. 
@@ -25,8 +27,8 @@ To create a custom plugin, follow the steps below:
 
 ### Create a companion object {id="create-companion"}
 
-A custom plugin's class should have a companion object that implements the `BaseApplicationPlugin` interface.
-This interface accepts three type parameters:
+A custom plugin's class should have a companion object that implements the `BaseApplicationPlugin` or `BaseRouteScopedPlugin` interface.
+The `BaseApplicationPlugin` interface accepts three type parameters:
 - A type of pipeline this plugin is compatible with.
 - A [configuration object type](#plugin-configuration) for this plugin.
 - An instance type of the plugin object.
