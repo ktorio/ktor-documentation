@@ -46,10 +46,11 @@ fun Application.configureRouting() {
                 val formParameters = call.receiveParameters()
                 when (formParameters.getOrFail("_action")) {
                     "update" -> {
+                        val index = articles.indexOf(articles.find { it.id == id })
                         val title = formParameters.getOrFail("title")
                         val body = formParameters.getOrFail("body")
-                        articles[id].title = title
-                        articles[id].body = body
+                        articles[index].title = title
+                        articles[index].body = body
                         call.respondRedirect("/articles/$id")
                     }
                     "delete" -> {

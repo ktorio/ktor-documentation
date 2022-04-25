@@ -236,7 +236,7 @@ Open the `Routing.kt` file and insert the following code inside `post("{id}")`:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/plugins/Routing.kt" lines="44-60"}
+{src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/plugins/Routing.kt" lines="44-61"}
 
 This code works as follows:
 - `call.parameters` is used to obtain the ID of the article to be edited.
