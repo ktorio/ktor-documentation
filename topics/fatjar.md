@@ -20,7 +20,7 @@ To build a Fat JAR, you need to configure the Shadow plugin first:
    ```
    {src="snippets/fatjar/build.gradle.kts" lines="5,8-9"}
 
-2. Make sure that the main application class is configured:
+2. Make sure that the [main application class](server-dependencies.xml#create-entry-point) is configured:
    ```kotlin
    ```
    {src="snippets/fatjar/build.gradle.kts" lines="11-13"}

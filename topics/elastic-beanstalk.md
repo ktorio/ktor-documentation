@@ -52,7 +52,7 @@ This tutorial shows how to deploy the application to Elastic Beanstalk using a [
 ```
 {src="snippets/aws-elastic-beanstalk/build.gradle.kts" lines="5,8-9"}
 
-Then, make sure that the main application class is configured:
+Then, make sure that the [main application class](server-dependencies.xml#create-entry-point) is configured:
 ```kotlin
 ```
 {src="snippets/aws-elastic-beanstalk/build.gradle.kts" lines="11-13"}
