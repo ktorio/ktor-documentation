@@ -63,11 +63,11 @@ there are different plugins to accomplish this:
 - [](fatjar.md)
 - [](maven-assembly-plugin.md)
 
-For example, to apply the Shadow plugin, open the `build.gradle.kts` file, add the `shadow` plugin to the `plugins` block, and add the `shadowJar` task:
+For example, to apply the Shadow plugin, open the `build.gradle.kts` file and add the `shadow` plugin to the `plugins` block:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-docker-compose/build.gradle.kts" lines="7-12,35-41"}
+{src="snippets/tutorial-website-interactive-docker-compose/build.gradle.kts" lines="7-11"}
 
 
 ## Configure Docker {id="configure-docker"}

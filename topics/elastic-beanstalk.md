@@ -52,14 +52,14 @@ This tutorial shows how to deploy the application to Elastic Beanstalk using a [
 ```
 {src="snippets/aws-elastic-beanstalk/build.gradle.kts" lines="5,8-9"}
 
-Then, add the `shadowJar` task:
+Then, make sure that the main application class is configured:
 ```kotlin
 ```
-{src="snippets/aws-elastic-beanstalk/build.gradle.kts" lines="31-37"}
+{src="snippets/aws-elastic-beanstalk/build.gradle.kts" lines="11-13"}
 
 
 ## Build a Fat JAR {id="build"}
-To build a Fat JAR, open the terminal and execute the `shadowJar` task created in [this step](#configure-shadow-plugin):
+To build a Fat JAR, open the terminal and execute the `shadowJar` task provided by the [Shadow plugin](#configure-shadow-plugin):
 
 <tabs group="os">
 <tab title="Linux/MacOS" group-key="unix">

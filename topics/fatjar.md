@@ -15,55 +15,19 @@ The Gradle [Shadow](https://plugins.gradle.org/plugin/com.github.johnrengelman.s
 
 ## Configure the Shadow plugin {id="configure-plugin"}
 To build a Fat JAR, you need to configure the Shadow plugin first:
-1. Open the `build.gradle(.kts)` file and add the plugin to the `plugins` block:
-   
-   <tabs group="languages">
-   <tab title="Gradle (Kotlin)" group-key="kotlin">
-
+1. Open the `build.gradle.kts` file and add the plugin to the `plugins` block:
    ```kotlin
    ```
    {src="snippets/fatjar/build.gradle.kts" lines="5,8-9"}
 
-   </tab>
-   <tab title="Gradle (Groovy)" group-key="groovy">
-   
-   ```groovy
-   plugins {
-       id 'com.github.johnrengelman.shadow' version '%shadow_version%'
-   }
-   ```
-   {interpolate-variables="true"}
-   
-   </tab>
-   </tabs>
-
-2. Add the `shadowJar` task. Note that the application main class specified for this task depends on the way used to [create a server](create_server.xml). 
-   In the example below, `Main-Class` depends on the used engine and looks as follows: `io.ktor.server.netty.EngineMain`.
-
-   <tabs group="languages">
-   <tab title="Gradle (Kotlin)" group-key="kotlin">
-
+2. Make sure that the main application class is configured:
    ```kotlin
    ```
-   {src="snippets/fatjar/build.gradle.kts" lines="29-35"}
-
-   </tab>
-   <tab title="Gradle (Groovy)" group-key="groovy">
-
-   ```groovy
-   shadowJar {
-       manifest {
-           attributes 'Main-Class': 'io.ktor.server.netty.EngineMain'
-       }
-   }
-   ```
-
-   </tab>
-   </tabs>
+   {src="snippets/fatjar/build.gradle.kts" lines="11-13"}
 
 
 ## Build a Fat JAR {id="build"}
-To build a Fat JAR, open the terminal and execute the `shadowJar` task created in the [previous step](#configure-plugin).
+To build a Fat JAR, open the terminal and execute the `shadowJar` task provided by the [Shadow plugin](#configure-plugin).
 For the [fatjar](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/fatjar) sample project, the command looks as follows:
 
 <tabs group="os">
