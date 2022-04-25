@@ -44,17 +44,19 @@ Optionally, you can configure the plugin inside the `install` block by passing t
 ## Handle a WebSockets session {id="handle-session"}
 ### API overview {id="api-overview"}
 
-To handle a client WebSocket session, call the `webSocket` function:
+A client's WebSocket session is represented by the [DefaultClientWebSocketSession](https://api.ktor.io/ktor-shared/ktor-websockets/io.ktor.websocket/-default-web-socket-session/index.html) interface. This interface exposes the API that allows you to send/receive WebSocket frames and close a session. `HttpClient` allows you to get access to a WebSocket session in one of the following ways:
 
-```kotlin
-runBlocking {
-    client.webSocket(method = HttpMethod.Get, host = "127.0.0.1", port = 8080, path = "/echo") {
-        // Handle a WebSocket session
-    }
-}
-```
+- The [webSocket](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.websocket/web-socket.html) function accepts `DefaultClientWebSocketSession` as a block argument.
+  ```kotlin
+     runBlocking {
+         client.webSocket(method = HttpMethod.Get, host = "127.0.0.1", port = 8080, path = "/echo") {
+             // this: DefaultClientWebSocketSession
+         }
+     }
+  ```
+- The [webSocketSession](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.websocket/web-socket-session.html) function returns the `DefaultClientWebSocketSession` instance and allows you to access a session outside the `runBlocking` or `launch` scope.
 
-Inside the `webSocket` block, you need to handle a WebSocket session, which is represented by the [DefaultClientWebSocketSession](https://api.ktor.io/ktor-shared/ktor-websockets/io.ktor.websocket/-default-web-socket-session/index.html) class. Session configuration might look as follows:
+Session configuration might look as follows:
 
 1. Use the `send` function to send text content to the server.
 2. Use the `incoming` and `outgoing` properties to access the channels for receiving and sending WebSocket frames. A frame is represented by the `Frame` class.
