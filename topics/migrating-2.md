@@ -42,6 +42,7 @@ This means that you need to update [dependencies](#server-package-dependencies) 
 | [CallLogging](call-logging.md)               |    `io.ktor:ktor-server-core`     |                                                   `io.ktor:ktor-server-call-logging` |
 | [Micrometer metric](micrometer_metrics.md)   | `io.ktor:ktor-metrics-micrometer` |                                             `io.ktor:ktor-server-metrics-micrometer` |
 | [Dropwizard metrics](dropwizard_metrics.md)  |      `io.ktor:ktor-metrics`       |                                                        `io.ktor:ktor-server-metrics` |
+| [Sessions](sessions.md)                      |      `io.ktor:ktor-server-core`   |                                        `io.ktor:ktor-server-sessions` |
 
 > To add all plugins at once, you can use the `io.ktor:ktor-server` artifact.
 
