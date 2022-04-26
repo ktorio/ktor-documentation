@@ -130,77 +130,82 @@
 
 
 
-    <chapter title="Add Ktor dependencies" id="add-ktor-dependencies">
-        <p>
-            Every Ktor application requires at least the following dependencies:
-        </p>
-        <list>
-            <li>
-                <p>
-                    <code>ktor-server-core</code>: contains core Ktor functionality.
-                </p>
-            </li>
-            <li>
-                <p>
-                    A dependency for an <a href="Engines.md">engine</a> (for example, <code>ktor-server-netty</code>).
-                </p>
-            </li>
-            <li>
-                <p>
-                    Logback artifacts for <a href="logging.md">logging</a>.
-                </p>
-            </li>
-        </list>
-        <p>
-            The <code>dependencies</code> block for a basic Ktor application might look as follows:
-        </p>
-        <tabs group="languages">
-            <tab title="Gradle (Kotlin)" group-key="kotlin">
-                <code style="block" lang="Kotlin" interpolate-variables="true">
-                    dependencies {
-                        implementation("io.ktor:ktor-server-core:%ktor_version%")
-                        implementation("io.ktor:ktor-server-netty:%ktor_version%")
-                        implementation("ch.qos.logback:logback-classic:%logback_version%")
-                    }
-                </code>
-            </tab>
-            <tab title="Gradle (Groovy)" group-key="groovy">
-                <code style="block" lang="Groovy" interpolate-variables="true">
-                    dependencies {
-                        implementation "io.ktor:ktor-server-core:%ktor_version%"
-                        implementation "io.ktor:ktor-server-netty:%ktor_version%"
-                        implementation "ch.qos.logback:logback-classic:%logback_version%"
-                    }
-                </code>
-            </tab>
-            <tab title="Maven" group-key="maven">
-            <code style="block" lang="XML" interpolate-variables="true">
+    <chapter title="Add dependencies" id="add-ktor-dependencies">
+        <chapter title="Core dependencies" id="core-dependencies">
+            <p>
+                Every Ktor application requires at least the following dependencies:
+            </p>
+            <list>
+                <li>
+                    <p>
+                        <code>ktor-server-core</code>: contains core Ktor functionality.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        A dependency for an <a href="Engines.md">engine</a> (for example, <code>ktor-server-netty</code>).
+                    </p>
+                </li>
+            </list>
+            <p>
+                For different platforms, Ktor provides platform-specific artifacts with suffixes such as <code>-jvm</code>, for example, <code>ktor-server-core-jvm</code> or <code>ktor-server-netty-jvm</code>.
+                Note that Gradle resolves artifacts appropriate for a given platform while Maven doesn't support this capability.
+                This means that for Maven you need to add a platform-specific suffix manually.
+                The <code>dependencies</code> block for a basic Ktor application might look as follows:
+            </p>
+            <tabs group="languages">
+                <tab title="Gradle (Kotlin)" group-key="kotlin">
+                    <code style="block" lang="Kotlin" interpolate-variables="true">
+                        dependencies {
+                            implementation("io.ktor:ktor-server-core:%ktor_version%")
+                            implementation("io.ktor:ktor-server-netty:%ktor_version%")
+                        }
+                    </code>
+                </tab>
+                <tab title="Gradle (Groovy)" group-key="groovy">
+                    <code style="block" lang="Groovy" interpolate-variables="true">
+                        dependencies {
+                            implementation "io.ktor:ktor-server-core:%ktor_version%"
+                            implementation "io.ktor:ktor-server-netty:%ktor_version%"
+                        }
+                    </code>
+                </tab>
+                <tab title="Maven" group-key="maven">
+                    <code style="block" lang="XML" interpolate-variables="true">
                 <![CDATA[
-    <dependencies>
-        <dependency>
-            <groupId>io.ktor</groupId>
-            <artifactId>ktor-server-core</artifactId>
-            <version>%ktor_version%</version>
-        </dependency>
-        <dependency>
-            <groupId>io.ktor</groupId>
-            <artifactId>ktor-server-netty</artifactId>
-            <version>%ktor_version%</version>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>%logback_version%"</version>
-        </dependency>
-    </dependencies>
-                ]]>
+                        <dependencies>
+                            <dependency>
+                                <groupId>io.ktor</groupId>
+                                <artifactId>ktor-server-core-jvm</artifactId>
+                                <version>%ktor_version%</version>
+                            </dependency>
+                            <dependency>
+                                <groupId>io.ktor</groupId>
+                                <artifactId>ktor-server-netty-jvm</artifactId>
+                                <version>%ktor_version%</version>
+                            </dependency>
+                        </dependencies>
+                        ]]>
                 </code>
-            </tab>
-        </tabs>
-        <p>
-            Note that other engines and <a href="Plugins.md">plugins</a> that extend Ktor functionality might require additional dependencies.
-            You can learn more from corresponding topics.
-        </p>
+                </tab>
+            </tabs>
+        </chapter>
+
+
+        <chapter title="Logging dependency" id="logging-dependency">
+            <p>
+                Ktor uses SLF4J API as a facade for various logging frameworks (for example, Logback or Log4j) and allows you to log application events.
+                To learn how to add the required artifacts, see <a href="logging.md" anchor="add_dependencies"/>.
+            </p>
+        </chapter>
+
+        <chapter title="Plugin dependencies" id="plugin-dependencies">
+            <p>
+                <a href="Plugins.md">Plugins</a> that extend Ktor functionality might require additional dependencies.
+                You can learn more from corresponding topics.
+            </p>
+        </chapter>
+
     </chapter>
 
 

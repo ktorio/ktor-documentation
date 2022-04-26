@@ -29,6 +29,7 @@
 
         <toc-element toc-title="Developing applications">
             <toc-element id="server-dependencies.xml"
+                         show-structure-depth="2"
                          accepts-web-file-names="artifacts.html,maven.html,gradle.html"/>
             <toc-element toc-title="Creating and configuring a server">
                 <toc-element id="create_server.xml"
@@ -230,7 +231,7 @@
         </toc-element>
         <toc-element toc-title="Developing applications">
             <toc-element toc-title="Setting up a client">
-                <toc-element id="client-dependencies.md"/>
+                <toc-element id="client-dependencies.md" show-structure-depth="2"/>
                 <toc-element id="create-client.md"
                              show-structure-depth="2" accepts-web-file-names="client.html,clients-index.html,quick-start.html"/>
                 <toc-element id="http-client_engines.md" accepts-web-file-names="http-client-multiplatform.html"
