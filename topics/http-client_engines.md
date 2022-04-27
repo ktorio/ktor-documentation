@@ -187,6 +187,8 @@ The `Darwin` engine targets [Darwin-based](https://en.wikipedia.org/wiki/Darwin_
 
    You can find the full example here: [client-engine-darwin](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-engine-darwin).
 
+> To use the Ktor client with the Darwin engine, enable the New Kotlin/Native memory model as described here: [Enable the new MM](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/NEW_MM.md#enable-the-new-mm).
+
 ### Curl {id="curl"}
 
 For desktop platforms, Ktor also provides the `Curl` engine. This engine is supported for the following platforms: `linuxX64`, `macosX64`, `macosArm64`, `mingwX64`. To use the `Curl` engine, follow the steps below:
