@@ -15,6 +15,10 @@ Apart from the [ktor-client-core](client-dependencies.md) artifact, the Ktor cli
 * [JavaScript](#js)
 * [Native](#native)
 
+> For different engines, Ktor provides platform-specific artifacts with suffixes such as `-jvm` or `-js`, for example, `ktor-client-cio-jvm`. Gradle resolves artifacts appropriate for a given platform while Maven doesn't support this capability. This means that for Maven you need to add a platform-specific suffix manually.
+>
+{type="note"}
+
 ## Create a client with a specified engine {id="create"}
 To create the HTTP client with a specific engine, pass an engine class as an argument to the [HttpClient](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client/-http-client/index.html) constructor. For example, you can create a client with the `CIO` engine as follows:
 ```kotlin

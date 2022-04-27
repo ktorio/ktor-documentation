@@ -11,12 +11,10 @@ Server configuration can include different settings: a server engine, various en
 - Tomcat
 - CIO (Coroutine-based I/O)
 
-In addition to the engines mentioned above, Ktor provides a special engine type `TestEngine` for testing application logic. You can learn more about it from [](Testing.md).
+Note that only the CIO engine is supported for a [Native server](native_server.md).
 
->Those are the official engines developed for Ktor, but it is also possible to [create
->your own engines](custom_engines.md) and provide custom configurations for them.
->
-{type="note"}
+> In addition to the engines mentioned above, Ktor provides a special engine type `TestEngine` for testing application logic. You can learn more about it from [](Testing.md).
+
 
 ## Add dependencies {id="dependencies"}
 Before using the desired engine, you need to add the corresponding dependency to your [build script](server-dependencies.xml):
