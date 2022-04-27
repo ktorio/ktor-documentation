@@ -5,14 +5,133 @@
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-Ktor supports [Kotlin/Native](https://kotlinlang.org/docs/native-overview.html) and allows you to run a server without an additional runtime or virtual machine.
-
-## Limitations {id="limitations"}
-
-Currently, running a Ktor server under Kotlin/Native has the following limitations:
+Ktor supports [Kotlin/Native](https://kotlinlang.org/docs/native-overview.html) and allows you to run a server without an additional runtime or virtual machine. Currently, running a Ktor server under Kotlin/Native has the following limitations:
 * only the [CIO engine](Engines.md) is supported
 * [HTTPS](ssl.md) without a reverse proxy is not supported
-* Windows target is not supported
+* Windows [target](#targets) is not supported
+
+## Supported targets {id="targets"}
+
+The following [targets](https://kotlinlang.org/docs/multiplatform-dsl-reference.html#targets) are supported for multiplatform projects:
+
+<table>
+<tr>
+    <td>
+        Target platform
+    </td>
+    <td>
+        Target preset
+    </td>
+</tr>
+<tr>
+    <td>
+        Kotlin/JVM
+    </td>
+    <td>
+        <list>
+            <li>
+                <code>jvm</code>
+            </li>
+        </list>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        iOS
+    </td>
+    <td>
+        <list>
+            <li>
+                <code>iosArm32</code>
+            </li>
+            <li>
+                <code>iosArm64</code>
+            </li>
+            <li>
+                <code>iosX64</code>
+            </li>
+            <li>
+                <code>iosSimulatorArm64</code>
+            </li>
+        </list>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        watchOS
+    </td>
+    <td>
+        <list>
+            <li>
+                <code>watchosArm32</code>
+            </li>
+            <li>
+                <code>watchosArm64</code>
+            </li>
+            <li>
+                <code>watchosX86</code>
+            </li>
+            <li>
+                <code>watchosX64</code>
+            </li>
+            <li>
+                <code>watchosSimulatorArm64</code>
+            </li>
+        </list>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        tvOS
+    </td>
+    <td>
+        <list>
+            <li>
+                <code>tvosArm64</code>
+            </li>
+            <li>
+                <code>tvosX64</code>
+            </li>
+            <li>
+                <code>tvosSimulatorArm64</code>
+            </li>
+        </list>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        macOS
+    </td>
+    <td>
+        <list>
+            <li>
+                <code>macosX64</code>
+            </li>
+            <li>
+                <code>macosArm64</code>
+            </li>
+        </list>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        Linux
+    </td>
+    <td>
+        <list>
+            <li>
+                <code>linuxX64</code>
+            </li>
+        </list>
+    </td>
+</tr>
+</table>
+
 
 
 ## Enable the New Kotlin/Native memory model {id="new_memory_model"}
