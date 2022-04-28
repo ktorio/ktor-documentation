@@ -91,5 +91,13 @@
         <accepts>2-3.html</accepts>
         <accepts>3-0.html</accepts>
         <accepts>4-0.html</accepts>
+
+        <accepts>ktor-server.html</accepts>
+        <accepts>ktor-client.html</accepts>
+        <accepts>a-ktor-application.html</accepts>
+        <accepts>intro.html</accepts>
+        <accepts>servers-application.html</accepts>
+        <accepts>how-ktor-works.html</accepts>
+        <accepts>lifecycle.html</accepts>
     </rule>
 </rules>

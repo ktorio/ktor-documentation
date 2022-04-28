@@ -8,6 +8,10 @@
 </p>
 </microformat>
 
+<excerpt>
+Learn how to create a Kotlin Multiplatform Mobile application.
+</excerpt>
+
 The Ktor HTTP client can be used in multiplatform projects. In this tutorial, we'll create a simple Kotlin Multiplatform Mobile application, which sends a request and receives a response body as plain HTML text.
 
 > To learn how to create your first Kotlin Multiplatform Mobile application, see [Create your first cross-platform mobile app](https://kotlinlang.org/docs/multiplatform-mobile-create-first-app.html).
