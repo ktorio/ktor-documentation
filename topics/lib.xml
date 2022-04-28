@@ -58,7 +58,33 @@
         <![CDATA[
                     <dependency>
                         <groupId>io.ktor</groupId>
-                        <artifactId>%artifact_name%</artifactId>
+                        <artifactId>%artifact_name%-jvm</artifactId>
+                        <version>${ktor_version}</version>
+                    </dependency>
+                    ]]>
+        </code>
+            </tab>
+        </tabs>
+    </chunk>
+
+    <chunk id="add_ktor_artifact_mpp">
+        <tabs group="languages">
+            <tab title="Gradle (Kotlin)" group-key="kotlin">
+                <code style="block" lang="Kotlin" interpolate-variables="true">
+                    implementation("io.ktor:%artifact_name%:$ktor_version")
+                </code>
+            </tab>
+            <tab title="Gradle (Groovy)" group-key="groovy">
+                <code style="block" lang="Groovy" interpolate-variables="true">
+                    implementation "io.ktor:%artifact_name%:$ktor_version"
+                </code>
+            </tab>
+            <tab title="Maven" group-key="maven">
+                <code style="block" lang="XML" interpolate-variables="true">
+        <![CDATA[
+                    <dependency>
+                        <groupId>io.ktor</groupId>
+                        <artifactId>%artifact_name%%target%</artifactId>
                         <version>${ktor_version}</version>
                     </dependency>
                     ]]>
@@ -84,7 +110,7 @@
         <![CDATA[
                     <dependency>
                         <groupId>io.ktor</groupId>
-                        <artifactId>%artifact_name%</artifactId>
+                        <artifactId>%artifact_name%-jvm</artifactId>
                         <version>${ktor_version}</version>
                     </dependency>
                     ]]>

@@ -146,7 +146,8 @@ The `Js` engine can be used for [JavaScript projects](https://kotlinlang.org/doc
 
 1. Add the `ktor-client-js` dependency:
    <var name="artifact_name" value="ktor-client-js"/>
-   <include src="lib.xml" include-id="add_ktor_artifact"/>
+   <var name="target" value=""/>
+   <include src="lib.xml" include-id="add_ktor_artifact_mpp"/>
 2. Pass the `Js` class as an argument to the `HttpClient` constructor:
    ```kotlin
    import io.ktor.client.*
@@ -172,7 +173,8 @@ The `Darwin` engine targets [Darwin-based](https://en.wikipedia.org/wiki/Darwin_
 
 1. Add the `ktor-client-darwin` dependency:
    <var name="artifact_name" value="ktor-client-darwin"/>
-   <include src="lib.xml" include-id="add_ktor_artifact"/>
+   <var name="target" value="-macosx64"/>
+   <include src="lib.xml" include-id="add_ktor_artifact_mpp"/>
 2. Pass the `darwin` class as an argument to the `HttpClient` constructor:
    ```kotlin
    import io.ktor.client.*
@@ -196,7 +198,8 @@ For desktop platforms, Ktor also provides the `Curl` engine. This engine is supp
 1. Install the [curl library](https://curl.se/download.html).
 2. Add the `ktor-client-curl` dependency:
    <var name="artifact_name" value="ktor-client-curl"/>
-   <include src="lib.xml" include-id="add_ktor_artifact"/>
+   <var name="target" value="-macosx64"/>
+   <include src="lib.xml" include-id="add_ktor_artifact_mpp"/>
 3. Pass the `Curl` class as an argument to the `HttpClient` constructor:
    ```kotlin
    import io.ktor.client.*
