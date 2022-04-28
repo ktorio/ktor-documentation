@@ -13,7 +13,7 @@
 </p>
 </microformat>
 
-In addition to HTTP/WebSocket handling for the [server](ktor-server.xml) and [client](ktor-client.xml), Ktor supports TCP and UDP raw sockets.
+In addition to HTTP/WebSocket handling for the server and client, Ktor supports TCP and UDP raw sockets.
 It exposes a suspending API that uses [java.nio](https://docs.oracle.com/javase/8/docs/api/java/nio/package-summary.html) under the hoods.
 
 > Sockets use an experimental API that is expected to evolve in the upcoming updates with potentially breaking changes.

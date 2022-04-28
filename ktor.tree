@@ -4,7 +4,7 @@
 <product-profile id="ktor"
                  name="Ktor"
                  status="release"
-                 start-page="Welcome.md">
+                 start-page="welcome.xml">
 
     <toc-element id="welcome.xml"
                  accepts-web-file-names-ref="kotlin_docs"/>
