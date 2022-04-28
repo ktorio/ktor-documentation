@@ -149,15 +149,15 @@ Ktor server in a Kotlin/Native project requires at least two dependencies: a `kt
 
 ```kotlin
 ```
-{src="snippets/embedded-server-native/build.gradle.kts" lines="32-38,44"}
+{src="snippets/embedded-server-native/build.gradle.kts" lines="31-37,43"}
 
-## Declare native binaries {id="binaries"}
+## Configure native targets {id="native-target"}
 
-To [declare a native binary](https://kotlinlang.org/docs/mpp-build-native-binaries.html), use the `binaries` property of a native target:
+Specify the required native targets and [declare a native binary](https://kotlinlang.org/docs/mpp-build-native-binaries.html) using the `binaries` property:
 
 ```kotlin
 ```
-{src="snippets/embedded-server-native/build.gradle.kts" lines="16-31"}
+{src="snippets/embedded-server-native/build.gradle.kts" lines="16-30"}
 
 You can find the full example here: [embedded-server-native](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server-native).
 
