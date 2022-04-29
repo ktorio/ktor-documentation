@@ -1,6 +1,6 @@
 # CORS - frontend
 
-A sample application used to make a `fetch` [cross-origin request](https://ktor.io/docs/cors.html) to the [cors-backend](../cors-backend) server. To make a request cross-origin, this sample uses the non-default `5000` port as opposed to the `8080` port used by the [cors-backend](../cors-backend) sample.
+A sample application used to make a `fetch` [cross-origin request](https://ktor.io/docs/cors.html) to the [cors-backend](../cors-backend) server. To make a request cross-origin, this sample uses the non-default `8081` port as opposed to the `8080` port used by the [cors-backend](../cors-backend) sample.
 
 ## Running
 
@@ -24,4 +24,4 @@ To run this sample, execute the following command:
 gradlew.bat :cors-frontend:run
 ```
 
-Then, open the [http://localhost:5000/](http://localhost:5000/) page and click the button to make a cross-origin request.
+Then, open the [http://localhost:8081/](http://localhost:8081/) page and click the button to make a cross-origin request.

@@ -4,7 +4,7 @@ import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
 import io.ktor.server.plugins.contentnegotiation.*
-import io.ktor.server.plugins.cors.*
+import io.ktor.server.plugins.cors.routing.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
@@ -16,7 +16,7 @@ data class Customer(val id: Int, val firstName: String, val lastName: String)
 
 fun Application.main() {
     install(CORS) {
-        allowHost("0.0.0.0:5000")
+        allowHost("0.0.0.0:8081")
         allowHeader(HttpHeaders.ContentType)
     }
 

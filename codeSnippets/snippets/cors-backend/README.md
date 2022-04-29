@@ -22,4 +22,4 @@ To run the [cors-frontend](../cors-frontend) sample, execute the following comma
 gradlew.bat :cors-frontend:run
 ```
 
-Then, open the [http://localhost:5000/](http://localhost:5000/) page and click the button to make a cross-origin request.
+Then, open the [http://localhost:8081/](http://localhost:8081/) page and click the button to make a cross-origin request.
