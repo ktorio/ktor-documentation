@@ -72,7 +72,7 @@ The `url` function also allows you to specify URL components separately, for exa
 {src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" lines="15-20"}
 
 
-### Add headers {id="headers"}
+### Headers {id="headers"}
 
 To add a specific header to each request, use the `header` function:
 
