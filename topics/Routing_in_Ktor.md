@@ -110,7 +110,7 @@ To access a parameter value inside the route handler, use the `call.parameters` 
 ```
 {src="snippets/_misc/RouteParameter.kt"}
 
-> To learn how to access URL query parameters inside the handler, see [](requests.md#query_parameters).
+> If a request contains a query string, `call.parameters` also includes parameters of this query string. To learn how to access a query string and its parameters inside the handler, see [](requests.md#query_parameters).
 
 ### Path parameter with tailcard {id="path_parameter_tailcard"}
 
