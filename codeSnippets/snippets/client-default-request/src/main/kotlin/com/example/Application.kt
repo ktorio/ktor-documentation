@@ -16,6 +16,7 @@ fun main() {
                     protocol = URLProtocol.HTTPS
                     host = "ktor.io"
                     path("docs/")
+                    parameters.append("token", "abc123")
                 }
                 header("X-Custom-Header", "Hello")
             }

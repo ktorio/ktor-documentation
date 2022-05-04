@@ -9,7 +9,7 @@
 The DefaultRequest plugin allows you to configure default parameters for all requests.
 </excerpt>
 
-The [DefaultRequest](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-default-request/index.html) plugin allows you to configure default parameters for all [requests](request.md): specify a base URL, add headers, and so on.
+The [DefaultRequest](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-default-request/index.html) plugin allows you to configure default parameters for all [requests](request.md): specify a base URL, add headers, configure query parameters, and so on.
 
 
 ## Add dependencies {id="add_dependencies"}
@@ -53,11 +53,23 @@ If you make the following request using the client with the above configuration,
 
 ```kotlin
 ```
-{src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" lines="24"}
+{src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" lines="25"}
 
 ... the resulting URL will be the following: `https://ktor.io/docs/welcome.html`.
 To learn how base and request URLs are merged, see [DefaultRequest](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-default-request/index.html).
 
+
+### URL parameters {id="url-params"}
+
+The `url` function also allows you to specify URL components separately, for example:
+- an HTTP scheme;
+- a host name;
+- a base URL path;
+- a query parameter.
+
+```kotlin
+```
+{src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" lines="15-20"}
 
 
 ### Add headers {id="headers"}
@@ -66,7 +78,7 @@ To add a specific header to each request, use the `header` function:
 
 ```kotlin
 ```
-{src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" lines="14,20-21"}
+{src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" lines="14,21-22"}
 
 To avoid duplicating headers, you can use the `appendIfNameAbsent`, `appendIfNameAndValueAbsent`, and `contains` functions:
 
@@ -79,18 +91,18 @@ defaultRequest {
 ## Example {id="example"}
 
 The example below uses the following `DefaultRequest` configuration:
-* The `url` function defines an HTTP scheme, a host, and a base URL path.
+* The `url` function defines an HTTP scheme, a host, a base URL path, and a query parameter.
 * The `header` function adds a custom header to all requests.
 
 ```kotlin
 ```
-{src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" lines="13-22"}
+{src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" lines="13-23"}
 
 The request below made by this client specifies a latter path segment only and applies parameters configured for `DefaultRequest` automatically:
 
 ```kotlin
 ```
-{src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" lines="24-25"}
+{src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" lines="25-26"}
 
 You can find the full example here: [client-default-request](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-default-request).
 
