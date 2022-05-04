@@ -152,3 +152,19 @@ The example below shows how to:
 ```kotlin
 ```
 {src="snippets/custom-plugin-base-api/src/main/kotlin/com/example/plugins/DataTransformation.kt"}
+
+
+## Mapping of pipeline phases to new API handlers {id="mapping"}
+
+Starting with v2.0.0, Ktor provides a new simplified API for [creating custom plugins](custom_plugins.md).
+In general, this API doesn't require an understanding of internal Ktor concepts, such as [Pipelines](Pipelines.md), Phases, and so on. Instead, you have access to different stages of [handling requests and responses](#call-handling) using various handlers, such as `onCall`, `onCallReceive`, `onCallRespond`, and so on. 
+The table below shows how pipeline phases map to handlers in a new API.
+
+| Base API                               | New API                                                                              |
+|----------------------------------------|--------------------------------------------------------------------------------------|
+| `ApplicationCallPipeline.Setup`        | [on(CallSetup)](custom_plugins.md#other)                                             |
+| `ApplicationCallPipeline.Plugins`      | [onCall](custom_plugins.md#on-call)                                                  |
+| `ApplicationReceivePipeline.Transform` | [onCallReceive](custom_plugins.md#on-call-receive)                                   |
+| `ApplicationSendPipeline.Transform`    | [onCallRespond](custom_plugins.md#on-call-respond)                                   |
+| `Authentication.ChallengePhase`        | [on(AuthenticationChecked)](custom_plugins.md#other) (called after `ChallengePhase`) |
+
