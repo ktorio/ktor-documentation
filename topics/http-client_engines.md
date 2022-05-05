@@ -168,6 +168,8 @@ You can find the full example here: [client-engine-js](https://github.com/ktorio
 ## Native {id="native"}
 In this section, we'll have a look on how to configure engines targeted for [Kotlin/Native](https://kotlinlang.org/docs/native-overview.html).
 
+> To use the Ktor client on Kotlin/Native, enable the New Kotlin/Native memory model as described here: [Enable the new MM](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/NEW_MM.md#enable-the-new-mm).
+
 ### Darwin {id="darwin"}
 The `Darwin` engine targets [Darwin-based](https://en.wikipedia.org/wiki/Darwin_(operating_system)) operating systems (such as macOS, iOS, tvOS, and so on) and uses [NSURLSession](https://developer.apple.com/documentation/foundation/nsurlsession) internally. To use it, follow the steps below:
 
@@ -188,8 +190,6 @@ The `Darwin` engine targets [Darwin-based](https://en.wikipedia.org/wiki/Darwin_
    {src="snippets/client-engine-darwin/src/nativeMain/kotlin/Main.kt" lines="8-14"}
 
    You can find the full example here: [client-engine-darwin](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-engine-darwin).
-
-> To use the Ktor client with the Darwin engine, enable the New Kotlin/Native memory model as described here: [Enable the new MM](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/NEW_MM.md#enable-the-new-mm).
 
 ### Curl {id="curl"}
 
