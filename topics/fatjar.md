@@ -34,7 +34,8 @@ To build a Fat JAR, open the terminal and execute the `shadowJar` task provided 
 </tab>
 </tabs>
 
-When this build completes, you should see the `fatjar-all.jar` file in the `build/libs` directory.
+When this build completes, you should see the `***-all.jar` file in the `build/libs` directory.
+For example, for the `fatjar` project a file name is `fatjar-all.jar`.
 
 > To learn how to use the resulting package to deploy your application using Docker, see the [](docker.md) help topic.
 
