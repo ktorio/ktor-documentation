@@ -271,7 +271,7 @@ The snippet below shows how to serve stylesheets and scripts for our sample proj
 ```
 {src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" lines="10-11,18-22"}
 
-`files("css")` would then allow for any file located in the `css` resource folder to be served as static content under the given URL pattern, which in this case is `assets`.
+`resources("css")` would then allow for any file located in the `css` resource folder to be served as static content under the given URL pattern, which in this case is `assets`.
 This means that a request to `/assets/styles.css` would serve the `files/css/styles.css` file.
 
 
