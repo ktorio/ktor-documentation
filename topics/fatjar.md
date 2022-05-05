@@ -1,17 +1,13 @@
 [//]: # (title: Gradle Shadow plugin)
 
 <microformat>
-<p>
-<control>Initial project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main">engine-main</a>
-</p>
-<p>
-<control>Final project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/fatjar">fatjar</a>
-</p>
+<var name="example_name" value="fatjar"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
 <excerpt>Learn how to create an executable Fat JAR using the Gradle Shadow plugin.</excerpt>
 
-The Gradle [Shadow](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow) plugin allows you to create an executable JAR that includes all code dependencies (fat JAR). In this topic, we'll show you how to generate and run a fat JAR for the [engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main) sample project.
+The Gradle [Shadow](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow) plugin allows you to create an executable JAR that includes all code dependencies (fat JAR).
 
 ## Configure the Shadow plugin {id="configure-plugin"}
 To build a Fat JAR, you need to configure the Shadow plugin first:
@@ -28,14 +24,13 @@ To build a Fat JAR, you need to configure the Shadow plugin first:
 
 ## Build a Fat JAR {id="build"}
 To build a Fat JAR, open the terminal and execute the `shadowJar` task provided by the [Shadow plugin](#configure-plugin).
-For the [fatjar](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/fatjar) sample project, the command looks as follows:
 
 <tabs group="os">
 <tab title="Linux/MacOS" group-key="unix">
-<code style="block" lang="Bash">./gradlew :fatjar:shadowJar</code>
+<code style="block" lang="Bash">./gradlew shadowJar</code>
 </tab>
 <tab title="Windows" group-key="windows">
-<code style="block" lang="CMD">gradlew.bat :fatjar:shadowJar</code>
+<code style="block" lang="CMD">gradlew.bat shadowJar</code>
 </tab>
 </tabs>
 
