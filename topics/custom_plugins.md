@@ -138,7 +138,7 @@ These hooks include:
 - `ResponseBodyReadyForSend` is invoked when a response body comes through all transformations and is ready to be sent. 
 - `ResponseSent` is invoked when a response is successfully sent to a client.
 - `CallFailed` is invoked when a call fails with an exception.
-- [AuthenticationChecked](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-authentication-checked/index.html) is executed after [authentication](authentication.md) credentials are checked.
+- [AuthenticationChecked](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-authentication-checked/index.html) is executed after [authentication](authentication.md) credentials are checked. The following example shows how to use this hook to implement authorization: [custom-plugin-authorization](https://github.com/ktorio/ktor-documentation/blob/%current-branch%/codeSnippets/snippets/custom-plugin-authorization).
 
 The example below shows how to handle `CallSetup`:
 
