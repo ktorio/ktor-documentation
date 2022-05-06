@@ -18,8 +18,11 @@ class ApplicationTest {
                 header(HttpHeaders.Authorization, "Basic $credentials")
             }
         }
-        val response = client.get("/admin")
-        assertEquals("You are not allowed to visit this page", response.bodyAsText())
-        assertEquals(HttpStatusCode.Unauthorized, response.status)
+        val response1 = client.get("/admin")
+        assertEquals("You are not allowed to visit this page", response1.bodyAsText())
+        assertEquals(HttpStatusCode.Forbidden, response1.status)
+        val response2 = client.get("/profile")
+        assertEquals("Hello, jetbrains!", response2.bodyAsText())
+        assertEquals(HttpStatusCode.OK, response2.status)
     }
 }

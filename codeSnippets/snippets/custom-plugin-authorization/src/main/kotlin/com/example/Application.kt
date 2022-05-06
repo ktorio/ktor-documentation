@@ -20,10 +20,8 @@ fun getUserRole(userName: String?): String {
 fun Application.module() {
     install(Authentication) {
         basic("auth-basic") {
-            realm = "Access to the '/' path"
             validate { credentials ->
-                if (credentials.name == "jetbrains" ||
-                    credentials.name == "admin" &&
+                if ((credentials.name == "jetbrains" || credentials.name == "admin") &&
                     credentials.password.isNotEmpty()
                 ) {
                     UserIdPrincipal(credentials.name)

@@ -16,7 +16,7 @@ val AuthorizationPlugin = createRouteScopedPlugin(
             val userName = call.principal<UserIdPrincipal>()?.name
             val userRole = getRole(userName)
             if (userRole !in roles) {
-                call.respondText("You are not allowed to visit this page", status = HttpStatusCode.Unauthorized)
+                call.respondText("You are not allowed to visit this page", status = HttpStatusCode.Forbidden)
             }
         }
     }
