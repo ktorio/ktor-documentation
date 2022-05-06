@@ -4,6 +4,9 @@
 <p>
 <control>Initial project</control>: <a href="https://github.com/ktorio/ktor-get-started-sample">ktor-get-started-sample</a>
 </p>
+<p>
+<control>Final project</control>: <a href="https://github.com/ktorio/ktor-get-started-sample/tree/docker">ktor-get-started-sample</a>, the <control>docker</control> branch
+</p>
 </microformat>
 
 <excerpt>
