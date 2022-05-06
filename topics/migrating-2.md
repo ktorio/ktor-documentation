@@ -829,6 +829,11 @@ import io.ktor.client.plugins.auth.providers.*
 The `HttpClientFeature` interface is renamed to `HttpClientPlugin`.
 
 
+### New memory model for Native targets {id="new-mm"}
+
+With v2.0.0, using the Ktor client on [Native](http-client_engines.md#native) targets requires enabling the new Kotlin/Native memory model: [Enable the new MM](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/NEW_MM.md#enable-the-new-mm).
+
+
 ### The 'Ios' engine is renamed to 'Darwin' {id="darwin"}
 
 Given that the `Ios` [engine](http-client_engines.md) targets not only iOS but other operating systems, including macOS, or tvOS, in v2.0.0, it is renamed to `Darwin`. This causes the following changes:
