@@ -16,7 +16,7 @@ The ContentEncoding plugin allows you to enable specified compression algorithms
 
 The Ktor client provides the [ContentEncoding](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-encoding/io.ktor.client.plugins.compression/-content-encoding/index.html) plugin that allows you to enable specified compression algorithms (such as `gzip` and `deflate`) and configure their settings. This plugin serves two primary purposes:
 * Sets the `Accept-Encoding` header with the specified quality value.
-* Decodes content received from a server to obtain the original payload.
+* Decodes [content received from a server](response.md#body) to obtain the original payload.
 
 
 ## Add dependencies {id="add_dependencies"}
