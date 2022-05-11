@@ -3,8 +3,8 @@
 <microformat>
 <p>
 Code examples: 
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/cors-backend">cors-backend</a>, 
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/cors-frontend">cors-frontend</a>
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/cors-backend">cors-backend</a>, 
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/cors-frontend">cors-frontend</a>
 </p>
 </microformat>
 
@@ -21,7 +21,7 @@ CORS-specific configuration settings are exposed by the [CORS.Configuration](htt
 
 ### Overview {id="overview"}
 
-Suppose you have a server listening on the `8080` port, with the `/customer` [route](Routing_in_Ktor.md) responding with [JSON](serialization.md#send_data) data. A [code snippet](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/cors-frontend) below shows a sample request made using the Fetch API from the client working on another port to make this request cross-origin.
+Suppose you have a server listening on the `8080` port, with the `/customer` [route](Routing_in_Ktor.md) responding with [JSON](serialization.md#send_data) data. A [code snippet](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/cors-frontend) below shows a sample request made using the Fetch API from the client working on another port to make this request cross-origin.
 
 ```javascript
 ```
@@ -33,7 +33,7 @@ To allow such a request on the backend side, you need to configure the `CORS` pl
 ```
 {src="snippets/cors-backend/src/main/kotlin/com/example/Application.kt" lines="17-20"}
 
-You can find the full example here: [cors-backend](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/cors-backend).
+You can find the full example here: [cors-backend](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/cors-backend).
 
 
 ### Hosts {id="hosts"}

@@ -6,9 +6,9 @@ Required dependencies: <code>io.ktor:ktor-client-auth</code>
 </p>
 <p>
 Code examples: 
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-auth-basic">client-auth-basic</a>, 
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-auth-digest">client-auth-digest</a>,
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-auth-oauth-google">client-auth-oauth-google</a>
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-auth-basic">client-auth-basic</a>, 
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-auth-digest">client-auth-digest</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-auth-oauth-google">client-auth-oauth-google</a>
 </p>
 </microformat>
 
@@ -61,7 +61,7 @@ To send user credentials in the `Authorization` header using the `Basic` scheme,
 ```
 {src="snippets/client-auth-basic/src/main/kotlin/com/example/Application.kt" lines="13-22"}
 
-You can find the full example here: [client-auth-basic](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-auth-basic).
+You can find the full example here: [client-auth-basic](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-auth-basic).
 
 The client also allows you to send credentials in the initial request without waiting for a `401` (Unauthorized) response with the `WWW-Authenticate` header. You need to call the `sendWithoutRequest` function returning boolean and check the request parameters.
 
@@ -92,7 +92,7 @@ To send user credentials in the `Authorization` header using the `Digest` scheme
 ```
 {src="snippets/client-auth-digest/src/main/kotlin/com/example/Application.kt" lines="13-22"}
 
-You can find the full example here: [client-auth-digest](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-auth-digest).
+You can find the full example here: [client-auth-digest](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-auth-digest).
 
 
 ### Bearer {id="bearer"}
@@ -118,4 +118,4 @@ After configuring the `bearer` provider, you can make requests to the protected 
 ```
 {src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="85-86"}
 
-You can find the full example here: [client-auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-auth-oauth-google).
+You can find the full example here: [client-auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-auth-oauth-google).

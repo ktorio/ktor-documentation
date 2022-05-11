@@ -69,7 +69,7 @@ You can obtain parameter values in code as follows:
 ```
 {src="snippets/post-form-parameters/src/main/kotlin/com/example/Application.kt" lines="12-16"}
 
-You can find the full example here: [post-form-parameters](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/post-form-parameters).
+You can find the full example here: [post-form-parameters](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/post-form-parameters).
 
 
 ### Multipart form data {id="form_data"}
@@ -78,7 +78,7 @@ If you need to receive a file sent as a part of a multipart request, call the [r
 ```
 {src="/snippets/upload-file/src/main/kotlin/com/example/UploadFile.kt" include-symbol="main"}
 
-Learn how to run this sample from [upload-file](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/upload-file).
+Learn how to run this sample from [upload-file](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/upload-file).
 
 
 ### Raw payload {id="raw"}

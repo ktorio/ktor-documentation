@@ -69,7 +69,7 @@ Inside the `KotlinxSerializer` constructor, you can access the [JsonBuilder](htt
 ```
 {src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="19-24"}
 
-You can find the full example here: [client-json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-json-kotlinx).
+You can find the full example here: [client-json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-json-kotlinx).
 
 
 ### Gson {id="gson"}
@@ -143,4 +143,4 @@ When a server sends a [response](response.md) with the `application/json` conten
 ```
 {src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="33"}
 
-You can find the full example here: [client-json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-json-kotlinx).
+You can find the full example here: [client-json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-json-kotlinx).

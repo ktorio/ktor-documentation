@@ -5,7 +5,7 @@
 <control>Initial project</control>: <a href="https://github.com/ktorio/ktor-gradle-sample/">ktor-gradle-sample</a>
 </p>
 <p>
-<control>Final project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/google-appengine-standard">google-appengine-standard</a>
+<control>Final project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/google-appengine-standard">google-appengine-standard</a>
 </p>
 </microformat>
 
@@ -100,4 +100,4 @@ To deploy the application, open the terminal and follow the steps below:
    >
    {type="note"}
 
-You can find the completed example here: [google-appengine-standard](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/google-appengine-standard).
+You can find the completed example here: [google-appengine-standard](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/google-appengine-standard).

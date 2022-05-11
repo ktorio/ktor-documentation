@@ -6,10 +6,10 @@ Required dependencies: <code>io.ktor:ktor-server-test-host</code>, <code>org.jet
 </p>
 <p>
 Code examples: 
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main">engine-main</a>, 
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/post-form-parameters">post-form-parameters</a>,
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/upload-file">upload-file</a>,
-<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie">session-cookie</a>
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main">engine-main</a>, 
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/post-form-parameters">post-form-parameters</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/upload-file">upload-file</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/session-cookie">session-cookie</a>
 </p>
 </microformat>
 
@@ -57,7 +57,7 @@ The code below demonstrates how to test the most simple Ktor application that ac
 </tab>
 </tabs>
 
-The runnable code example is available here: [engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main).
+The runnable code example is available here: [engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main).
 
 
 ## Send form data {id="form-data"}
@@ -67,7 +67,7 @@ To send form data in a test POST/PUT request, you need to set the `Content-Type`
 
 ### x-www-form-urlencoded {id="x-www-form-urlencoded"}
 
-A test below from the [post-form-parameters](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/post-form-parameters) example shows how to make a test request with form parameters sent using the `x-www-form-urlencoded` content type. Note that the [formUrlEncode](https://api.ktor.io/ktor-http/ktor-http/io.ktor.http/form-url-encode.html) function is used to encode form parameters from a list of key/value pairs.
+A test below from the [post-form-parameters](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/post-form-parameters) example shows how to make a test request with form parameters sent using the `x-www-form-urlencoded` content type. Note that the [formUrlEncode](https://api.ktor.io/ktor-http/ktor-http/io.ktor.http/form-url-encode.html) function is used to encode form parameters from a list of key/value pairs.
 
 <tabs>
 <tab title="Test">
@@ -90,7 +90,7 @@ A test below from the [post-form-parameters](https://github.com/ktorio/ktor-docu
 
 ### multipart/form-data {id="multipart-form-data"}
 
-The code below demonstrates how to build `multipart/form-data` and test file uploading. You can find the full example here: [upload-file](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/upload-file).
+The code below demonstrates how to build `multipart/form-data` and test file uploading. You can find the full example here: [upload-file](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/upload-file).
 
 <tabs>
 <tab title="Test">
@@ -116,7 +116,7 @@ The code below demonstrates how to build `multipart/form-data` and test file upl
 ## Preserve cookies during testing {id="preserving-cookies"}
 
 If you need to preserve cookies between requests when testing, you can call `handleRequest` inside
- the [cookiesSession](https://api.ktor.io/ktor-server/ktor-server-test-host/ktor-server-test-host/io.ktor.server.testing/cookies-session.html) function. In a test below from the [session-cookie](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie) example, reload count is increased after each request since cookies are preserved.
+ the [cookiesSession](https://api.ktor.io/ktor-server/ktor-server-test-host/ktor-server-test-host/io.ktor.server.testing/cookies-session.html) function. In a test below from the [session-cookie](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/session-cookie) example, reload count is increased after each request since cookies are preserved.
 
 
 <tabs>
@@ -162,7 +162,7 @@ fun testRequests() = withTestApplication() {
     }
 }
 ```
-You can find the full example for this approach here: [UploadFileMapConfigTest.kt](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/upload-file-testing-config/src/test/kotlin/UploadFileMapConfigTest.kt).
+You can find the full example for this approach here: [UploadFileMapConfigTest.kt](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/upload-file-testing-config/src/test/kotlin/UploadFileMapConfigTest.kt).
 
 ### HoconApplicationConfig {id="hocon"}
 
@@ -184,7 +184,7 @@ fun testRequests() = withApplication(testEnv) {
 }
 ```
 
-You can find the full example for this approach here: [UploadFileAppConfigTest.kt](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/upload-file-testing-config/src/test/kotlin/UploadFileAppConfigTest.kt).
+You can find the full example for this approach here: [UploadFileAppConfigTest.kt](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/upload-file-testing-config/src/test/kotlin/UploadFileAppConfigTest.kt).
 
 
 ## HttpsRedirect plugin {id="https-redirect"}
@@ -251,4 +251,4 @@ Apart from a testing engine, you can use the [Ktor HTTP Client](client.md) for e
 ```
 {src="snippets/embedded-server/src/test/kotlin/EmbeddedServerTest.kt"}
 
-For a full example, refer to a test of the [embedded-server](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server) example.
+For a full example, refer to a test of the [embedded-server](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server) example.

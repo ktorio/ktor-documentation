@@ -24,4 +24,4 @@ The code snippet below shows how to add a `Etag` and `Last-Modified` headers for
 ```
 {src="snippets/conditional-headers/src/main/kotlin/com/example/Application.kt" lines="16-27"}
 
-You can find the full example here: [conditional-headers](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/conditional-headers).
+You can find the full example here: [conditional-headers](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/conditional-headers).

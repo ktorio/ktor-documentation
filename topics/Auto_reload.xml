@@ -9,8 +9,8 @@
     <microformat>
         <p>
             Code examples:
-            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/autoreload-engine-main">autoreload-engine-main</a>,
-            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/autoreload-embedded-server">autoreload-embedded-server</a>
+            <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/autoreload-engine-main">autoreload-engine-main</a>,
+            <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/autoreload-embedded-server">autoreload-embedded-server</a>
         </p>
     </microformat>
 
@@ -81,7 +81,7 @@
                     watch = [ classes, resources ]
                 </code>
                 <p>
-                    You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/autoreload-engine-main">autoreload-engine-main</a>.
+                    You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/autoreload-engine-main">autoreload-engine-main</a>.
                 </p>
             </li>
             <li>
@@ -90,7 +90,7 @@
                 </p>
                 <code style="block" lang="Kotlin" src="snippets/autoreload-embedded-server/src/main/kotlin/com/example/Application.kt" lines="10-16"/>
                 <p>
-                    You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/autoreload-embedded-server">autoreload-embedded-server</a>.
+                    You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/autoreload-embedded-server">autoreload-embedded-server</a>.
                 </p>
             </li>
         </list>

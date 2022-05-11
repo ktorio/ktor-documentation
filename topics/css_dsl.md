@@ -45,4 +45,4 @@ Finally, you can use the specified CSS for an HTML document created with [HTML D
 ```
 {src="snippets/caching-headers/src/main/kotlin/com/example/Application.kt" lines="23-34"}
 
-You can find the full example here: [caching-headers](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/caching-headers).
+You can find the full example here: [caching-headers](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/caching-headers).

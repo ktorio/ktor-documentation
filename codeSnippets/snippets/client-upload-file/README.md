@@ -4,7 +4,7 @@ A sample Ktor project showing how to upload a file sent as a part of a multipart
 
 ## Running
 
-First, you need to run a [server sample](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/upload-file). Execute the following command in a repository's root folder:
+First, you need to run a [server sample](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/upload-file). Execute the following command in a repository's root folder:
 
 ```bash
 ./gradlew :upload-file:run

@@ -37,7 +37,7 @@ By using the `format` function, you can put any data related to a request/respon
 ```
 {src="snippets/logging/src/main/kotlin/com/example/Application.kt" lines="14,19-25"}
 
-You can find the full example here: [logging](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/logging).
+You can find the full example here: [logging](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/logging).
 
 
 ### Put call parameters in MDC {id="mdc"}
