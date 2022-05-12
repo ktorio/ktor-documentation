@@ -83,7 +83,7 @@ get("/") {
 ... or specify a custom status code:
 ```kotlin
 get("/") {
-    response.status(HttpStatusCode(418, "I'm a tea pot"))
+    call.response.status(HttpStatusCode(418, "I'm a tea pot"))
 }
 ```
 
