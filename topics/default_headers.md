@@ -46,4 +46,4 @@ To override the `Server` header, use a corresponding `HttpHeaders` value:
         header(HttpHeaders.Server, "Custom")
     }
 ```
-Note that the `Date` header is cached due to performance reasons and cannot be overridden by using `%plugin_name%`. If you need to override it, do not install the `%plugin_name%` plugin and use [route interception](intercepting_routes.md) instead.
+Note that the `Date` header is cached due to performance reasons and cannot be overridden by using `%plugin_name%`.

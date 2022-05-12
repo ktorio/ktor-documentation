@@ -34,7 +34,7 @@
             <toc-element toc-title="Creating and configuring a server">
                 <toc-element id="create_server.xml"
                              show-structure-depth="2"/>
-                <toc-element id="Engines.md"
+                <toc-element id="Engines.md" accepts-web-file-names="custom-engines.html"
                              show-structure-depth="2"/>
                 <toc-element id="Configurations.xml"
                              show-structure-depth="2"
@@ -200,20 +200,15 @@
         <toc-element toc-title="Extending Ktor">
             <toc-element id="custom_plugins.md"
                          show-structure-depth="2"
-                         accepts-web-file-names="advanced-index.html,advanced-features.html,creating-custom-features.html"/>
+                         accepts-web-file-names="advanced-index.html,advanced-features.html,creating-custom-features.html,attributes.html,intercepting-routes.html,route.html"/>
             <toc-element id="custom_plugins-base-api.md"
                          show-structure-depth="2"
                          accepts-web-file-names="creating-custom-plugins.html,advanced-authentication.html"/>
-            <toc-element id="Pipelines.md" accepts-web-file-names="pipeline.html">
-                <toc-element id="attributes.md"/>
-            </toc-element>
+            <toc-element id="Pipelines.md" accepts-web-file-names="pipeline.html"/>
             <toc-element toc-title="Routing under the covers">
                 <toc-element id="resolution_algorithms.md"/>
                 <toc-element id="tracing_routes.md"/>
-                <toc-element id="intercepting_routes.md"
-                             accepts-web-file-names="route.html"/>
             </toc-element>
-            <toc-element id="custom_engines.md"/>
             <toc-element id="events.md"/>
             <toc-element id="utilities.md"/>
         </toc-element>

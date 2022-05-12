@@ -1,4 +1,4 @@
-[//]: # (title: Resolution Algorithms)
+[//]: # (title: Resolution algorithms)
 
 [Routing](Routing_in_Ktor.md) is organized in a tree with a recursive matching system that is capable of handling quite
 complex rules for request processing. The Tree is built with nodes that contain selector and optional handler. Selectors
