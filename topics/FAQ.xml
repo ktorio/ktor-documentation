@@ -6,139 +6,139 @@
        title="FAQ"
        id="FAQ">
 
-    <deflist>
-        <def title="What is the proper way to pronounce Ktor?" id="pronounce">
-            <p>
-                <emphasis>Kay-tor</emphasis>
-            </p>
-        </def>
+    <chapter title="What is the proper way to pronounce Ktor?" id="pronounce" level="3">
+        <p>
+            <emphasis>Kay-tor</emphasis>
+        </p>
+    </chapter>
 
-        <def title="How do I put questions, report bugs, contact you, contribute, give feedback, etc.?" id="feedback">
-            <p>
-                Go to the <a href="https://ktor.io/support/">Support</a> page to learn more about the available support channels.
-                The <a href="https://github.com/ktorio/ktor/blob/main/CONTRIBUTING.md">How to contribute</a> guide describes the ways you can contribute to Ktor.
-            </p>
-        </def>
+    <chapter title="How do I put questions, report bugs, contact you, contribute, give feedback, etc.?" id="feedback" level="3">
+        <p>
+            Go to the <a href="https://ktor.io/support/">Support</a> page to learn more about the available support channels.
+            The <a href="https://github.com/ktorio/ktor/blob/main/CONTRIBUTING.md">How to contribute</a> guide describes the ways you can contribute to Ktor.
+        </p>
+    </chapter>
 
-        <def title="What does CIO mean?" id="cio">
-            <p>
-                CIO stands for <emphasis>Coroutine-based I/O</emphasis>.
-                Usually we call it to an engine that uses Kotlin and Coroutines to implement the logic implementing an IETF RFC or another protocol without relying on external JVM-based libraries.
-            </p>
-        </def>
+    <chapter title="What does CIO mean?" id="cio" level="3">
+        <p>
+            CIO stands for <emphasis>Coroutine-based I/O</emphasis>.
+            Usually we call it to an engine that uses Kotlin and Coroutines to implement the logic implementing an IETF RFC or another protocol without relying on external JVM-based libraries.
+        </p>
+    </chapter>
 
-        <def title="How to fix unresolved (red) Ktor imports?" id="ktor-artifact">
-            <p>
-                Make sure that corresponding Ktor artifacts are added in the build script.
-                For example, Ktor with the Netty engine requires the following artifacts:
-            </p>
-            <code style="block" lang="Groovy" interpolate-variables="true">
-                dependencies {
-                    implementation "io.ktor:ktor-server-core:%ktor_version%"
-                    implementation "io.ktor:ktor-server-netty:%ktor_version%"
-                }
-            </code>
-        </def>
+    <chapter title="How to fix unresolved (red) Ktor imports?" id="ktor-artifact" level="3">
+        <p>
+            Make sure that corresponding <a href="server-dependencies.xml">Ktor artifacts</a> are added in the build script.
+        </p>
+    </chapter>
 
-        <def title="Does Ktor provide a way to catch IPC signals (e.g. SIGTERM or SIGINT) so the server shutdown can be handled gracefully?" id="sigterm">
-            <p>
-                If you are running an <a href="create_server.xml" anchor="engine-main">EngineMain</a>, it will be handled automatically.
-                Otherwise, you need to <a href="https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-cio/jvmAndNix/src/io/ktor/server/cio/EngineMain.kt#L21">handle it manually</a>.
-                You can use the <code>Runtime.getRuntime().addShutdownHook</code> JVM's facility.
-            </p>
-        </def>
 
-        <def title="How do I get the client IP behind a proxy?" id="proxy-ip">
-            <p>
-                The <code>call.request.origin</code> property gives <a href="requests.md" anchor="request_information">connection information</a> about the original caller (the proxy) if the proxy provides proper headers, and the <a href="forward-headers.md">ForwardedHeader</a> plugin is installed.
-            </p>
-        </def>
+    <chapter title="Does Ktor provide a way to catch IPC signals (e.g. SIGTERM or SIGINT) so the server shutdown can be handled gracefully?" id="sigterm" level="3">
+        <p>
+            If you are running an <a href="create_server.xml" anchor="engine-main">EngineMain</a>, it will be handled automatically.
+            Otherwise, you need to <a href="https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-cio/jvmAndNix/src/io/ktor/server/cio/EngineMain.kt#L21">handle it manually</a>.
+            You can use the <code>Runtime.getRuntime().addShutdownHook</code> JVM's facility.
+        </p>
+    </chapter>
 
-        <def title="How to fix 'java.lang.IllegalStateException: No instance for key AttributeKey: Locations'?" id="no-attribute-key-locations">
-            <p>
-                You get this error if you try to use the <a href="locations.md">Locations</a> plugin without actually installing it.
-            </p>
-        </def>
+    <chapter title="How do I get the client IP behind a proxy?" id="proxy-ip" level="3">
+        <p>
+            The <code>call.request.origin</code> property gives <a href="requests.md" anchor="request_information">connection information</a> about the original caller (the proxy) if the proxy provides proper headers, and the <a href="forward-headers.md">ForwardedHeader</a> plugin is installed.
+        </p>
+    </chapter>
 
-        <def title="How can I test the latest commits on main?" id="bleeding-edge">
-            <p>
-                You can get Ktor nightly builds from <code>jetbrains.space</code>.
-                Learn more from <a href="https://ktor.io/eap/">Early Access Program</a>.
-            </p>
-        </def>
+    <chapter title="How can I test the latest commits on main?" id="bleeding-edge" level="3">
+        <p>
+            You can get Ktor nightly builds from <code>jetbrains.space</code>.
+            Learn more from <a href="https://ktor.io/eap/">Early Access Program</a>.
+        </p>
+    </chapter>
 
-        <def title="How can I be sure of which version of Ktor am I using?" id="ktor-version-used">
-            <p>
-                You can use the <a href="default_headers.md">DefaultHeaders</a>plugin that sends a <code>Server</code> response header with the Ktor version on it, for example:
-            </p>
-            <code style="block" interpolate-variables="true">
-                Server: ktor-server-core/%ktor_version%
-            </code>
-        </def>
+    <chapter title="How can I be sure of which version of Ktor am I using?" id="ktor-version-used" level="3">
+        <p>
+            You can use the <a href="default_headers.md">DefaultHeaders</a>plugin that sends a <code>Server</code> response header with the Ktor version on it, for example:
+        </p>
+        <code style="block" interpolate-variables="true">
+            Server: ktor-server-core/%ktor_version%
+        </code>
+    </chapter>
 
-        <def title="My route is not being executed. How can I debug it?" id="route-not-executing">
-            <p>
-                Ktor provides a tracing mechanism to help troubleshooting routing decisions.
-                Check the <a href="tracing_routes.md">Tracing the routing decisions</a> section.
-            </p>
-        </def>
+    <chapter title="My route is not being executed. How can I debug it?" id="route-not-executing" level="3">
+        <p>
+            Ktor provides a tracing mechanism to help troubleshooting routing decisions.
+            Check the <a href="tracing_routes.md">Tracing the routing decisions</a> section.
+        </p>
+    </chapter>
 
-        <def title="How to resolve 'io.ktor.pipeline.InvalidPhaseException: Phase Phase('YourPhase') was not registered for this pipeline'?" id="invalid-phase">
-            <p>
-                This means that you are trying to use a phase that is not registered as a reference for another phase.
-                For example, this might happen in the Routing plugin if you try to register a phase relation inside a node,
-                but the phase referenced is defined in another ancestor Route node. Since route phases and interceptors are later
-                merged, it should work, but you need to register it in your Route node:
-            </p>
-            <code style="block" lang="kotlin">
-                route.addPhase(PhaseDefinedInAncestor)
-                route.insertPhaseAfter(PhaseDefinedInAncestor, MyNodePhase)
-            </code>
-        </def>
+    <chapter title="How to resolve 'Response has already been sent'?" id="response-already-sent" level="3">
+        <p>
+            This means that you, or a plugin or interceptor, have already called <code>call.respond* </code> functions, and you are calling it again.
+        </p>
+    </chapter>
 
-        <def title="How to resolve 'io.ktor.server.engine.BaseApplicationResponse$ResponseAlreadySentException: Response has already been sent'?" id="response-already-sent">
-            <p>
-                This means that you, or a plugin or interceptor, have already called <code>call.respond* </code> functions, and you are calling it again.
-            </p>
-        </def>
+    <chapter title="How can I subscribe to Ktor events?" id="ktor-events" level="3">
+        <p>
+            See the <a href="events.md">Application monitoring</a> page to learn more.
+        </p>
+    </chapter>
 
-        <def title="How can I subscribe to Ktor events?" id="ktor-events">
-            <p>
-                See the <a href="events.md">Application monitoring</a> page to learn more.
-            </p>
-        </def>
+    <chapter title="How to resolve 'No configuration setting found for key ktor'?" id="cannot-find-application-conf" level="3">
+        <p>
+            This means that Ktor was not able to find the <code>application.conf</code> file.
+            Re-check that it is in the <code>resources</code> folder, and that the <code>resources</code> folder is marked as such.
+            You can consider to set up a project using the <a href="https://start.ktor.io/">project generator</a> or the <a href="intellij-idea.xml">IntelliJ plugin</a> to have a working project as the base.
+        </p>
+    </chapter>
 
-        <def title="How to resolve 'Exception in thread main com.typesafe.config.ConfigException$Missing: No configuration setting found for key ktor'?" id="cannot-find-application-conf">
-            <p>
-                This means that Ktor was not able to find the <code>application.conf</code> file.
-                Re-check that it is in the <code>resources</code> folder, and that the <code>resources</code> folder is marked as such.
-                You can consider to set up a project using the <a href="https://start.ktor.io/">project generator</a> or the <a href="intellij-idea.xml">IntelliJ plugin</a> to have a working project as the base.
-            </p>
-        </def>
+    <chapter title="Can I use Ktor on Android?" id="android-support" level="3">
+        <p>
+            Yes, Ktor servers and clients  are known to work on Android 5 (API 21) or greater, at least with the Netty engine.
+        </p>
+    </chapter>
 
-        <def title="Can I use Ktor on Android?" id="android-support">
-            <p>
-                Yes, Ktor servers and clients  are known to work on Android 5 (API 21) or greater, at least with the Netty engine.
-            </p>
-        </def>
+    <chapter title="Why 'CURL -I' returns a '404 Not Found'?" id="curl-head-not-found" level="3">
+        <p>
+            <code>CURL -I</code> is an alias of <code>CURL --head</code> that performs <code>HEAD</code> requests.
+            By default, Ktor doesn't handle <code>HEAD</code> requests for <code>GET</code> handlers.
+            To enable this capability, install the <a href="autoheadresponse.md">AutoHeadResponse</a> plugin.
+        </p>
+    </chapter>
 
-        <def title="Why 'CURL -I' returns a '404 Not Found'?" id="curl-head-not-found">
-            <p>
-                <code>CURL -I</code> is an alias of <code>CURL --head</code> that performs <code>HEAD</code> requests.
-                By default, Ktor doesn't handle <code>HEAD</code> requests for <code>GET</code> handlers.
-                To enable this capability, install the <a href="autoheadresponse.md">AutoHeadResponse</a> plugin.
-            </p>
-        </def>
+    <chapter title="How to resolve an infinite redirect when using the 'HttpsRedirect' plugin?" id="infinite-redirect" level="3">
+        <p>
+            The most probable cause is that your backend is behind a reverse proxy or a load balancer, and that this intermediary
+            is making normal HTTP requests to your backend, thus the <code>HttpsRedirect</code> plugin inside your Ktor backend believes that it is a normal HTTP request and responds with the redirect.
+        </p>
+        <p>
+            Normally, reverse-proxies send some headers describing the original request (like it was HTTPS, or the original IP address), and there is a plugin <a href="forward-headers.md">ForwardedHeader</a> to parse those headers so the <a href="https-redirect.md">HttpsRedirect</a> plugin knows that the original request was HTTPS.
+        </p>
+    </chapter>
 
-        <def title="How to resolve an infinite redirect when using the 'HttpsRedirect' plugin" id="infinite-redirect">
-            <p>
-                The most probable cause is that your backend is behind a reverse proxy or a load balancer, and that this intermediary
-                is making normal HTTP requests to your backend, thus the <code>HttpsRedirect</code> plugin inside your Ktor backend believes that it is a normal HTTP request and responds with the redirect.
-            </p>
-            <p>
-                Normally, reverse-proxies send some headers describing the original request (like it was HTTPS, or the original IP address), and there is a plugin <a href="forward-headers.md">ForwardedHeader</a> to parse those headers so the <a href="https-redirect.md">HttpsRedirect</a> plugin knows that the original request was HTTPS.
-            </p>
-        </def>
-    </deflist>
+    <chapter title="How to install 'curl' on Windows to use a corresponding engine on Kotlin/Native?" id="native-curl" level="3">
+        <p>
+            The <a href="http-client_engines.md" anchor="curl">Curl</a> client engine requires installing the <code>curl</code> library.
+            On Windows, you may want to consider a MinGW/MSYS2 <code>curl</code> binary.
+        </p>
+        <procedure>
+            <step>
+                <p>
+                    Install MinGW/MSYS2 as described in <a href="https://www.msys2.org/">MinGW/MSYS2</a>.
+                </p>
+            </step>
+            <step>
+                <p>
+                    Install <code>libcurl</code> using the following command:
+                </p>
+                <code lang="shell" style="block">
+                    pacman -S mingw-w64-x86_64-curl
+                </code>
+            </step>
+            <step>
+                <p>
+                    If you've installed MinGW/MSYS2 to a default location, add <path>C:\msys64\mingw64\bin\</path> to the <code>PATH</code> environment variable.
+                </p>
+            </step>
+        </procedure>
+    </chapter>
 
 </topic>
