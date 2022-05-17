@@ -7,6 +7,64 @@ Learn about engines that process network requests.
 The [Ktor HTTP client](create-client.md) can be used on different platforms, including JVM, [Android](https://kotlinlang.org/docs/android-overview.html), [JavaScript](https://kotlinlang.org/docs/js-overview.html), and [Native](https://kotlinlang.org/docs/native-overview.html). A specific platform may require a specific engine that processes network requests. 
 For example, you can use `Apache` or `Jetty`for JVM applications, `OkHttp` or `Android` for Android, `Curl` for desktop applications targeting Kotlin/Native, and so on. Different engines may have specific features and provide different configuration options.
 
+
+## Requirements and limitations {id="requirements"}
+
+### Supported platforms {id="platforms"}
+
+The table below lists platforms supported by each engine:
+
+| Engine  | Platforms                                               |
+|---------|---------------------------------------------------------|
+| Apache  | [JVM](#jvm)                                             |
+| Java    | [JVM](#jvm)                                             |
+| Jetty   | [JVM](#jvm)                                             |
+| CIO     | [JVM](#jvm), [Android](#jvm-android), [Native](#native) |
+| Android | [JVM](#jvm), [Android](#jvm-android)                    |
+| OkHttp  | [JVM](#jvm), [Android](#jvm-android)                    |
+| Js      | [JavaScript](#js)                                       |
+| Darwin  | [Native](#native)                                       |
+| Curl    | [Native](#native)                                       |
+
+### Supported Android/Java versions {id="minimal-version"}
+
+Client engines targeting JVM or both JVM and Android support the following Android/Java versions: 
+
+| Engine  | Android version | Java version |
+|---------|-----------------|--------------|
+| Apache  |                 | 8+           |
+| Java    |                 | 11+          |
+| Jetty   |                 | 8+           |
+| CIO     | 8.0+            | 8+           |
+| Android | 1.x+            | 8+           |
+| OkHttp  | 5.0+            | 8+           |
+
+
+
+### Limitations {id="limitations"}
+
+The table below shows whether a specific engine supports HTTP/2 and [WebSockets](websocket_client.md):
+
+| Engine     | HTTP/2 | WebSockets |
+|------------|--------|------------|
+| Apache     | ❌      | ❌          |
+| Java       | ✅      | ❌          |
+| Jetty      | ✅      | ❌          |
+| CIO        | ❌      | ✅          |
+| Android    | ❌      | ❌          |
+| OkHttp     | ✅      | ✅          |
+| JavaScript | ✅      | ✅          |
+| Darwin     | ✅      | ✅          |
+| Curl       | ✅      | ❌          |
+
+You also need to consider the following limitations that affect general client configuration and using of specific plugins:
+- To configure [SSL](client-ssl.md) in the Ktor client, you need to customize the configuration of a selected engine.
+- Some engines don't support [proxy](proxy.md#supported_engines).
+- The [Logging](client_logging.md) plugin provides different logger types for different platforms.
+- The [HttpTimeout](timeout.md#limitations) plugin has some limitations for specific engines.
+- The [XML serializer](serialization-client.md#register_xml) is supported on JVM only.
+
+
 ## Add an engine dependency {id="dependencies"}
 
 Apart from the [ktor-client-core](client-dependencies.md) artifact, the Ktor client requires adding a specific dependency for each engine. For each of the supported platform, you can see the available engines and required dependencies in a corresponding section:
