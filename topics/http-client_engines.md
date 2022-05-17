@@ -35,7 +35,7 @@ Client engines targeting JVM or both JVM and Android support the following Andro
 | Apache  |                 | 8+           |
 | Java    |                 | 11+          |
 | Jetty   |                 | 8+           |
-| CIO     | 8.0+            | 8+           |
+| CIO     | 7.0+            | 8+           |
 | Android | 1.x+            | 8+           |
 | OkHttp  | 5.0+            | 8+           |
 
@@ -45,17 +45,17 @@ Client engines targeting JVM or both JVM and Android support the following Andro
 
 The table below shows whether a specific engine supports HTTP/2 and [WebSockets](websocket_client.md):
 
-| Engine     | HTTP/2 | WebSockets |
-|------------|--------|------------|
-| Apache     | ❌      | ❌          |
-| Java       | ✅      | ❌          |
-| Jetty      | ✅      | ❌          |
-| CIO        | ❌      | ✅          |
-| Android    | ❌      | ❌          |
-| OkHttp     | ✅      | ✅          |
-| JavaScript | ✅      | ✅          |
-| Darwin     | ✅      | ✅          |
-| Curl       | ✅      | ❌          |
+| Engine  | HTTP/2 | WebSockets |
+|---------|--------|------------|
+| Apache  | ❌      | ❌          |
+| Java    | ✅      | ❌          |
+| Jetty   | ✅      | ❌          |
+| CIO     | ❌      | ✅          |
+| Android | ❌      | ❌          |
+| OkHttp  | ✅      | ✅          |
+| Js      | ✅      | ✅          |
+| Darwin  | ✅      | ✅          |
+| Curl    | ✅      | ❌          |
 
 You also need to consider the following limitations that affect general client configuration and using of specific plugins:
 - To configure [SSL](client-ssl.md) in the Ktor client, you need to customize the configuration of a selected engine.
