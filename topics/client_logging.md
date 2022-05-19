@@ -26,6 +26,7 @@ To enable logging, you need to include the following artifacts in the build scri
 * The `ktor-client-logging` artifact:
   <var name="artifact_name" value="ktor-client-logging"/>
   <include src="lib.xml" include-id="add_ktor_artifact"/>
+  <include src="lib.xml" include-id="add_ktor_client_artifact_tip"/>
   
 
 ## Install Logging {id="install_plugin"}

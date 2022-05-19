@@ -8,7 +8,7 @@ Many applications require common functionality that is out of scope of the appli
 
 
 ## Add plugin dependency {id="plugin-dependency"}
-A plugin might require a separate dependency. For example, the [Logging](client_logging.md) plugin requires adding the `ktor-client-logging` artifact in the build script:
+A plugin might require a separate [dependency](client-dependencies.md). For example, the [Logging](client_logging.md) plugin requires adding the `ktor-client-logging` artifact in the build script:
 
 <var name="artifact_name" value="ktor-client-logging"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>

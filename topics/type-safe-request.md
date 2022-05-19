@@ -30,6 +30,7 @@ Given that [resource classes](#resource_classes) should have the `@Serializable`
 
 <include src="lib.xml" include-id="add_ktor_artifact_intro"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_client_artifact_tip"/>
 
 
 ## Install %plugin_name% {id="install_plugin"}

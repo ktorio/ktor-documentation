@@ -23,6 +23,7 @@ The Ktor client provides the [ContentEncoding](https://api.ktor.io/ktor-client/k
 To use `ContentEncoding`, you need to include the `%artifact_name%` artifact in the build script:
 
 <include src="lib.xml" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_client_artifact_tip"/>
 
 ## Install ContentEncoding {id="install_plugin"}
 To install `ContentEncoding`, pass it to the `install` function inside a [client configuration block](create-client.md#configure-client):
