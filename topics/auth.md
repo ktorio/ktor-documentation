@@ -28,6 +28,7 @@ To enable authentication, you need to include the `ktor-client-auth` artifact in
 
 <var name="artifact_name" value="ktor-client-auth"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_client_artifact_tip"/>
 
 
 ## Install Auth {id="install_plugin"}

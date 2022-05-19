@@ -40,6 +40,12 @@
         </p>
     </chunk>
 
+    <chunk id="add_ktor_client_artifact_tip">
+        <p>
+            You can learn more about artifacts required by the Ktor client from <a href="client-dependencies.md"/>.
+        </p>
+    </chunk>
+
 
     <chunk id="add_ktor_artifact">
         <tabs group="languages">

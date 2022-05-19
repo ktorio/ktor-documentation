@@ -30,6 +30,7 @@ To use WebSockets, you need to include the `ktor-client-websockets` artifact in 
 
 <var name="artifact_name" value="ktor-client-websockets"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
+<include src="lib.xml" include-id="add_ktor_client_artifact_tip"/>
 
 ## Install WebSockets {id="install_plugin"}
 To install the `WebSockets` plugin, pass it to the `install` function inside a [client configuration block](create-client.md#configure-client):
