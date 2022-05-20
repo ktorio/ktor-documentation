@@ -1,6 +1,7 @@
 # HTML DSL
 
 A sample Ktor project showing how to respond with a simple HTML page build using [HTML DSL](https://ktor.io/docs/html-dsl.html).
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

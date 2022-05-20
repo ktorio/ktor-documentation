@@ -1,6 +1,7 @@
 # Interactive website
 
 A sample Ktor project showing how to create [an interactive website](https://ktor.io/docs/creating-interactive-website.html) using Ktor.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

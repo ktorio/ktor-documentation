@@ -1,6 +1,7 @@
 # Guice
 
 A sample Ktor project that uses the [Guice](https://github.com/google/guice) dependency injection framework.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

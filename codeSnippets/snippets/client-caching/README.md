@@ -1,6 +1,7 @@
 # Client caching
 
 A sample Ktor project showing how to use the [HttpCache](https://ktor.io/docs/client-caching.html) plugin.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

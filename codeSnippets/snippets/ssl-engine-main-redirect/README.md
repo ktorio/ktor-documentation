@@ -1,6 +1,7 @@
 # HTTPS Redirect
 
 A sample Ktor project showing how to use the [HttpsRedirect](https://ktor.io/docs/https-redirect.html) plugin.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 
@@ -16,4 +17,4 @@ To run a sample, execute the following command:
 ./gradlew :ssl-engine-main-redirect:run
 ```
 
-Then, open the [http://0.0.0.0:8080](http://0.0.0.0:8080) page to make sure `HttpsRedirect` redirects to [https://0.0.0.0:8443](https://0.0.0.0:8443).
+Then, open the [http://localhost:8080](http://localhost:8080) page to make sure `HttpsRedirect` redirects to [https://localhost:8443](https://localhost:8443).

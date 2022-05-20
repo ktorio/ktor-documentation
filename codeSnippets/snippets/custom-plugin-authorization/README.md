@@ -1,6 +1,7 @@
 # Custom plugin - Authorization
 
 A sample Ktor project demonstrating how to create a [custom plugin](https://ktor.io/docs/custom-plugins.html) for authorizing users by handling the [AuthenticationChecked](src/main/kotlin/com/example/plugins/AuthorizationPlugin.kt) hook.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

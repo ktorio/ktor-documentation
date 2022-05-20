@@ -1,6 +1,7 @@
 # CallId
 
 A sample Ktor project showing how to use the [CallId](https://ktor.io/docs/call-id.html) plugin to trace requests.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

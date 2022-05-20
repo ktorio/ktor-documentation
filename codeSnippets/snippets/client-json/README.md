@@ -1,6 +1,7 @@
 # JSON Client - Gson
 
 A sample Ktor project demonstrating the HTTP client with [ContentNegotiation](https://ktor.io/docs/serialization-client.html). 
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

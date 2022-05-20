@@ -1,6 +1,7 @@
 # Docker Compose
 
 A sample Ktor project showing how to run a Ktor application consisting of a web frontend and a database backend under [Docker Compose](https://ktor.io/docs/docker-compose.html).
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

@@ -1,6 +1,7 @@
 # Client Downloader
 
 A sample Ktor project showing how to download and store a file with the [Http client](https://ktor.io/docs/client.html).
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

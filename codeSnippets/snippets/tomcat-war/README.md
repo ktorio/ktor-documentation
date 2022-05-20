@@ -1,6 +1,7 @@
 # Tomcat WAR
 
 A sample Ktor project running as a [WAR](https://ktor.io/docs/war.html) application under the [Tomcat](https://tomcat.apache.org) application server.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 
@@ -22,4 +23,4 @@ docker build -t my-application snippets/tomcat-war
 docker run -p 8080:8080 my-application
 ```
 
-Then, navigate to [http://0.0.0.0:8080/tomcat-war/](http://0.0.0.0:8080/tomcat-war/) to see the sample home page.
+Then, navigate to [http://localhost:8080/tomcat-war/](http://localhost:8080/tomcat-war/) to see the sample home page.

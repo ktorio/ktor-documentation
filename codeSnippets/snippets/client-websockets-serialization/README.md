@@ -1,6 +1,7 @@
 # Client WebSockets - Serialization
 
 A sample Ktor project showing how to use serialization with [WebSockets](https://ktor.io/docs/websocket-client-serialization.html) in a Ktor client.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

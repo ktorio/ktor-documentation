@@ -1,6 +1,7 @@
 # Post
 
 A sample Ktor project with [form post](https://ktor.io/docs/request.html#submit-form) and [multipart file upload](https://ktor.io/docs/multipart-support.html).
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

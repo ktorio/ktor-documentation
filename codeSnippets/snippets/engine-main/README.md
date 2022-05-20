@@ -1,6 +1,7 @@
 # EngineMain
 
 A sample Ktor project showing how to create a server using [EngineMain](https://ktor.io/docs/create-server.html#engine-main).
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

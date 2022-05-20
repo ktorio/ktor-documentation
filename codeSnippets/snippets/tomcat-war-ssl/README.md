@@ -12,4 +12,4 @@ To build and run this application with Docker, execute the following commands:
 docker compose --project-directory snippets/tomcat-war-ssl up
 ```
 
-Then, navigate to [https://0.0.0.0:8443/tomcat-war-ssl/](https://0.0.0.0:8443/tomcat-war-ssl/) to see the sample home page.
+Then, navigate to [https://localhost:8443/tomcat-war-ssl/](https://localhost:8443/tomcat-war-ssl/) to see the sample home page.

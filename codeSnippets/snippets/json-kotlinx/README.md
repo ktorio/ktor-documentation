@@ -1,14 +1,11 @@
 # JSON - kotlinx.serialization
 A sample project demonstrating how to use the `kotlinx.serialization` library to [serialize and deserialize JSON](https://ktor.io/docs/serialization.html) in Ktor.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 To run this sample, execute the following command in a repository's root directory:
 ```bash
-# macOS/Linux
 ./gradlew :json-kotlinx:run
-
-# Windows
-gradlew.bat :json-kotlinx:run
 ```
 
 Then, you can perform one of the following actions:

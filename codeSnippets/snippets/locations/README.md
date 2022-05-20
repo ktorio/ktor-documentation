@@ -1,6 +1,7 @@
 # Locations
 
 A sample Ktor project demonstrating an _experimental_ [Locations](https://ktor.io/docs/locations.html) plugin.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

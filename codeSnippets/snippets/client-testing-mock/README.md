@@ -1,6 +1,7 @@
 # Client testing - MockEngine
 
 A sample Ktor project showing how to [test](https://ktor.io/docs/http-client-testing.html) a Ktor client using `MockEngine`.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

@@ -1,6 +1,7 @@
 # Client - Validate 2xx responses
 
 A sample Ktor project showing how to add custom validation of 2xx responses by using [HttpCallValidator](https://ktor.io/docs/response-validation.html). In this example, a client raises a `CustomResponseException` when error details come in a 2xx response in a JSON format.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running a server
 
@@ -26,6 +27,7 @@ Now you can run a server:
 ./gradlew :json-kotlinx:run
 ```
 
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running a client
 

@@ -1,6 +1,7 @@
 # Auto-reload - EngineMain
 
 A sample Ktor project showing [Auto-reload](https://ktor.io/docs/auto-reload.html) functionality. Auto-reload works only in a development mode, which is enabled in [application.conf](src/main/resources/application.conf).
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

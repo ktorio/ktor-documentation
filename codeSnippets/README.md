@@ -12,11 +12,7 @@ You can run any of these examples in IntelliJ IDEA in the following way:
 3. To run an example, you can use a **run** Gradle task that depends on an example location. For example, to run an example demonstrating basic HTTP authentication (the [snippets/auth-basic](snippets/auth-basic) folder), open the `codeSnippets` folder in a [terminal](https://www.jetbrains.com/help/idea/terminal-emulator.html) and execute the following command:
 
    ```bash
-   # macOS/Linux
    ./gradlew :auth-basic:run
-   
-   # Windows
-   gradlew.bat :auth-basic:run
    ```
 
    Wait until IntelliJ IDEA builds and runs an example.

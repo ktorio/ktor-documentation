@@ -1,6 +1,7 @@
 # AWS Elastic Beanstalk
 
 A sample Ktor project that can be deployed on [AWS Elastic Beanstalk](https://ktor.io/docs/elastic-beanstalk.html).
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

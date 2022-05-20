@@ -1,6 +1,7 @@
 # Client Retry
 
 A sample Ktor project showing how to use the [HttpRequestRetry](https://ktor.io/docs/client-retry.html) plugin.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

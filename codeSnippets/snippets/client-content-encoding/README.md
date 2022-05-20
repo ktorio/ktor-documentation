@@ -1,6 +1,7 @@
 # Client content encoding
 
 A sample Ktor project showing how to use the [ContentEncoding](https://ktor.io/docs/content-encoding.html) plugin.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

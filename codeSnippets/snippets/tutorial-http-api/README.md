@@ -1,6 +1,7 @@
 # HTTP APIs
 
 A sample Ktor project showing how to create [HTTP APIs](https://ktor.io/docs/creating-http-apis.html) using Ktor.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

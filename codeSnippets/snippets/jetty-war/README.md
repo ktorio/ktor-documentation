@@ -1,6 +1,7 @@
 # Jetty WAR
 
 A sample Ktor project running as a [WAR](https://ktor.io/docs/war.html) application under the [Jetty](https://www.eclipse.org/jetty/) application server.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

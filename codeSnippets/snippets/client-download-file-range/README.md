@@ -1,6 +1,7 @@
 # Client Downloader - Range requests
 
 A sample Ktor project showing how to download a file using HTTP range requests.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

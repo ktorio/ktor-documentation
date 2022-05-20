@@ -1,6 +1,7 @@
 # Compression
 
 A sample Ktor project showing how to compress outgoing content by using the [Compression](https://ktor.io/docs/compression.html) plugin.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

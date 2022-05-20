@@ -1,6 +1,7 @@
 # Client SSL config
 
 A sample Ktor project showing how to configure SSL settings for different [engines](https://ktor.io/docs/http-client-engines.html).
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

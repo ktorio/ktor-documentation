@@ -1,6 +1,7 @@
 # SSL - EngineMain
 
 A sample Ktor project showing how to enable [SSL](https://ktor.io/docs/ssl.html) if a server is configured in `application.conf`.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 
@@ -16,4 +17,4 @@ To run a sample, execute the following command:
 ./gradlew :ssl-engine-main:run
 ```
 
-Then, open the [https://0.0.0.0:8443](https://0.0.0.0:8443) page.
+Then, open the [https://localhost:8443](https://localhost:8443) page.

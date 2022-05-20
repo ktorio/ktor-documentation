@@ -1,6 +1,7 @@
 # Custom plugin - Base API
 
 A sample Ktor project with an implementation of a [custom plugin](https://ktor.io/docs/custom-plugins-base-api.html).
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 
