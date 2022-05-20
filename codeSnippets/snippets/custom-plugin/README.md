@@ -23,16 +23,16 @@ SimplePlugin is installed!
 
 ### RequestLoggingPlugin
 
-To see [RequestLoggingPlugin](../custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt) in action, visit several pages, for example, [http://0.0.0.0:8080/](http://0.0.0.0:8080/) and [http://0.0.0.0:8080/index](http://0.0.0.0:8080/index). A console will show the requested URLs:
+To see [RequestLoggingPlugin](../custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt) in action, visit several pages, for example, [http://localhost:8080/](http://localhost:8080/) and [http://localhost:8080/index](http://localhost:8080/index). A console will show the requested URLs:
 
 ```Console
-Request URL: http://0.0.0.0:8080/
-Request URL: http://0.0.0.0:8080/index
+Request URL: http://localhost:8080/
+Request URL: http://localhost:8080/index
 ```
 
 ### CustomHeaderPlugin
 
-[CustomHeaderPlugin](../custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt) adds a custom header to each response. You can open a browser's network tools for [http://0.0.0.0:8080/](http://0.0.0.0:8080/) and make sure that a header is added:
+[CustomHeaderPlugin](../custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt) adds a custom header to each response. You can open a browser's network tools for [http://localhost:8080/](http://localhost:8080/) and make sure that a header is added:
 
 ```HTTP
 HTTP/1.1 200 OK

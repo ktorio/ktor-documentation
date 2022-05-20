@@ -10,4 +10,4 @@ To run a sample, execute the following command in a repository's root directory:
 ./gradlew :embedded-server-modules:run
 ```
 
-Then, open the [http://0.0.0.0:8080/module](http://0.0.0.0:8080/module) page.
+Then, open the [http://localhost:8080/module](http://localhost:8080/module) page.

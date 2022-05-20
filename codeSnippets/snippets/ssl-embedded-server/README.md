@@ -9,4 +9,4 @@ To run a sample, execute the following command in a repository's root directory:
 ./gradlew :ssl-embedded-server:run
 ```
 
-Then, open [https://0.0.0.0:8443](https://0.0.0.0:8443).
+Then, open [https://localhost:8443](https://localhost:8443).

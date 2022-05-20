@@ -17,4 +17,4 @@ To run a sample, execute the following command:
 ./gradlew :ssl-engine-main-hsts:run
 ```
 
-Then, open the [https://0.0.0.0:8443](https://0.0.0.0:8443) page.
+Then, open the [https://localhost:8443](https://localhost:8443) page.

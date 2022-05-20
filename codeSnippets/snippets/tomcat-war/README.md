@@ -23,4 +23,4 @@ docker build -t my-application snippets/tomcat-war
 docker run -p 8080:8080 my-application
 ```
 
-Then, navigate to [http://0.0.0.0:8080/tomcat-war/](http://0.0.0.0:8080/tomcat-war/) to see the sample home page.
+Then, navigate to [http://localhost:8080/tomcat-war/](http://localhost:8080/tomcat-war/) to see the sample home page.

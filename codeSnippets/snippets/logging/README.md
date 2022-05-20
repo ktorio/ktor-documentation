@@ -9,4 +9,4 @@ To run a sample, execute the following command in a repository's root directory:
 ```bash
 ./gradlew :logging:run
 ```
-Then, open the [http://0.0.0.0:8080/api/v1](http://0.0.0.0:8080/api/v1) page and return to the console to see a customized log message.
+Then, open the [http://localhost:8080/api/v1](http://localhost:8080/api/v1) page and return to the console to see a customized log message.
