@@ -11,7 +11,7 @@ Before running this sample, start the [json-kotlinx](../json-kotlinx) server sam
 ./gradlew :json-kotlinx:run
 
 # Windows
-gradlew.bat :json-kotlinx:run
+.\gradlew.bat :json-kotlinx:run
 ```
 
 Then, run this client sample to post and get JSON data:
@@ -21,5 +21,5 @@ Then, run this client sample to post and get JSON data:
 ./gradlew :client-json-kotlinx:run
 
 # Windows
-gradlew.bat :client-json-kotlinx:run
+.\gradlew.bat :client-json-kotlinx:run
 ```

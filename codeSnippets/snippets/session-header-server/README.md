@@ -8,7 +8,7 @@ To run this sample, execute the following command in a repository's root directo
 ./gradlew :session-header-server:run
 
 # Windows
-gradlew.bat :session-header-server:run
+.\gradlew.bat :session-header-server:run
 ```
 
 Then, open the [requests.http](requests.http) file and run requests one-by-one.

@@ -8,7 +8,7 @@ To run this sample, execute the following command in a repository's root directo
 ./gradlew :json-kotlinx-method-override:run
 
 # Windows
-gradlew.bat :json-kotlinx-method-override:run
+.\gradlew.bat :json-kotlinx-method-override:run
 ```
 
 Then, open the [post.http](post.http) file and make a post request with the `X-Http-Method-Override` header set to `DELETE`. The server should return the `204 No Content` status code.

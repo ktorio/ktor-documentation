@@ -8,7 +8,7 @@ To run this sample, execute the following command in a repository's root directo
 ./gradlew :session-cookie-client:run
 
 # Windows
-gradlew.bat :session-cookie-client:run
+.\gradlew.bat :session-cookie-client:run
 ```
 
 Then, open the [http://localhost:8080/user](http://localhost:8080/user) page. It should display that a session doesn't exist or is expired. You can perform the following actions:

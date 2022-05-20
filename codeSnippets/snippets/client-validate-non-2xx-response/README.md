@@ -11,7 +11,7 @@ To run this sample, execute the following command in a repository's root directo
 ./gradlew :client-validate-non-2xx-response:run
 
 # Windows
-gradlew.bat :client-validate-non-2xx-response:run
+.\gradlew.bat :client-validate-non-2xx-response:run
 ```
 
 A client should raise a `MissingPageException` for a requested page.

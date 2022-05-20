@@ -11,7 +11,7 @@ To run this sample, execute the following command in a repository's root directo
 ./gradlew :client-download-streaming:run
 
 # Windows
-gradlew.bat :client-download-streaming:run
+.\gradlew.bat :client-download-streaming:run
 ```
 
 A client will save a file in a default temporary-file directory.

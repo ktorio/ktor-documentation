@@ -8,7 +8,7 @@ To run this sample, execute the following command in a repository's root directo
 ./gradlew :session-cookie-server:run
 
 # Windows
-gradlew.bat :session-cookie-server:run
+.\gradlew.bat :session-cookie-server:run
 ```
 
 * Go to the [http://0.0.0.0:8080/login](http://0.0.0.0:8080/login) page to create a session with a hard-coded user identifier.

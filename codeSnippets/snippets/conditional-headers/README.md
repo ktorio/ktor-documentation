@@ -8,7 +8,7 @@ To run this sample, execute the following command in a repository's root directo
 ./gradlew :conditional-headers:run
 
 # Windows
-gradlew.bat :conditional-headers:run
+.\gradlew.bat :conditional-headers:run
 ```
 
 Then, open a browser's network tools for [http://localhost:8080/html-dsl](http://localhost:8080/html-dsl), choose `styles.css` and make sure that the `ETag` and `Last-Modified` headers are passed in a response.

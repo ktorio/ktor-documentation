@@ -8,7 +8,7 @@ To run this sample, execute the following command in a repository's root directo
 ./gradlew :json-kotlinx:run
 
 # Windows
-gradlew.bat :json-kotlinx:run
+.\gradlew.bat :json-kotlinx:run
 ```
 
 Then, you can perform one of the following actions:

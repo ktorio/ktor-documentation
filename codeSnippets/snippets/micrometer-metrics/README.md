@@ -11,7 +11,7 @@ To run a sample, execute the following command in a repository's root directory:
 ./gradlew :micrometer-metrics:run
 
 # Windows
-gradlew.bat :micrometer-metrics:run
+.\gradlew.bat :micrometer-metrics:run
 ```
 Then, open the [http://0.0.0.0:8080/](http://0.0.0.0:8080/) page. You can also open [http://0.0.0.0:8080/metrics](http://0.0.0.0:8080/metrics) to check that a scrape endpoint is available.
 

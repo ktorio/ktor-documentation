@@ -1,6 +1,8 @@
 # OAuth Google authentication
 A sample project demonstrating how to use [OAuth](https://ktor.io/docs/oauth.html) to get a Google's profile information. To learn more about OAuth support for accessing Google APIs, see [Using OAuth 2.0 to Access Google APIs](https://developers.google.com/identity/protocols/oauth2).
 
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
+
 ## Obtaining client credentials
 To obtain client credentials required for accessing Google APIs, follow the steps below:
 1. Create a Google account.
@@ -28,7 +30,7 @@ To run this sample, execute the following command in a repository's root directo
 ./gradlew :auth-oauth-google:run
 
 # Windows
-gradlew.bat :auth-oauth-google:run
+.\gradlew.bat :auth-oauth-google:run
 ```
 
 Then, open the [http://localhost:8080/](http://localhost:8080/) page and enter credentials for your Google account to get a personal greeting.

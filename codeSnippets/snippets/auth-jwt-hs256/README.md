@@ -1,6 +1,8 @@
 # JWT authentication with HS256
 A sample project demonstrating how to authenticate a client using a [JSON Web Token](https://ktor.io/docs/jwt.html) signed with HS256.
 
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
+
 ## Running
 To run this sample, execute the following command in a repository's root directory:
 ```bash
@@ -8,7 +10,7 @@ To run this sample, execute the following command in a repository's root directo
 ./gradlew :auth-jwt-hs256:run
 
 # Windows
-gradlew.bat :auth-jwt-hs256:run
+.\gradlew.bat :auth-jwt-hs256:run
 ```
 
 Then, open the [requests.http](requests.http) file and do the following:

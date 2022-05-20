@@ -11,7 +11,7 @@ Before running this sample, you need to run [cors-backend](../cors-backend):
 ./gradlew :cors-backend:run
 
 # Windows
-gradlew.bat :cors-backend:run
+.\gradlew.bat :cors-backend:run
 ```
 
 To run this sample, execute the following command:
@@ -21,7 +21,7 @@ To run this sample, execute the following command:
 ./gradlew :cors-frontend:run
 
 # Windows
-gradlew.bat :cors-frontend:run
+.\gradlew.bat :cors-frontend:run
 ```
 
 Then, open the [http://localhost:8081/](http://localhost:8081/) page and click the button to make a cross-origin request.

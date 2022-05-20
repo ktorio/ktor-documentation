@@ -11,7 +11,7 @@ Execute this command in the repository's root directory to run this sample:
 ./gradlew :http2-jetty:run
 
 # Windows
-gradlew.bat :http2-jetty:run
+.\gradlew.bat :http2-jetty:run
 ```
 
 Then, open [https://0.0.0.0:8443](https://0.0.0.0:8443) to make sure that HTTP/2 is used.

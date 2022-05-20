@@ -2,6 +2,8 @@
 
 A sample project demonstrating how to use bearer [authentication](https://ktor.io/docs/auth.html) to get a Google's profile information. To learn more about OAuth support for accessing Google APIs, see [Using OAuth 2.0 to Access Google APIs](https://developers.google.com/identity/protocols/oauth2).
 
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
+
 ## Obtaining client credentials
 To obtain client credentials required for accessing Google APIs, follow the steps below:
 1. Create a Google account.
@@ -24,7 +26,7 @@ To run this sample, execute the following command in a repository's root directo
 ./gradlew :client-auth-oauth-google:run -q --console=plain
 
 # Windows
-gradlew.bat :client-auth-oauth-google:run -q --console=plain
+.\gradlew.bat :client-auth-oauth-google:run -q --console=plain
 ```
 
 Then, perform the following steps:
