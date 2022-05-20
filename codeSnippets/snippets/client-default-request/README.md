@@ -1,7 +1,6 @@
 # Client - Default request
 
 A sample Ktor project showing how to use the [DefaultRequest](https://ktor.io/docs/default-request.html) plugin to provide default settings used for each request.
-
 > This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
@@ -9,9 +8,5 @@ A sample Ktor project showing how to use the [DefaultRequest](https://ktor.io/do
 To run this sample, execute the following command in a repository's root directory:
 
 ```bash
-# macOS/Linux
 ./gradlew :client-default-request:run
-
-# Windows
-.\gradlew.bat :client-default-request:run
 ```

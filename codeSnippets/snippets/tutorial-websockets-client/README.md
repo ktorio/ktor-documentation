@@ -1,6 +1,7 @@
 # WebSockets chat client
 
 A sample Ktor project showing how to create a [WebSocket chat client](https://ktor.io/docs/getting-started-ktor-client-chat.html) using Ktor.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

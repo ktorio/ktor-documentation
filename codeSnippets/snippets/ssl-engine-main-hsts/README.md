@@ -1,6 +1,7 @@
 # HSTS
 
 A sample Ktor project showing how to use the [HSTS](https://ktor.io/docs/hsts.html) plugin.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

@@ -1,6 +1,7 @@
 # Client sockets - TLS
 
 A sample project demonstrating how to use [secure sockets](https://ktor.io/docs/servers-raw-sockets.html) on the client side.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

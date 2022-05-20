@@ -1,6 +1,7 @@
 # Client Logging
 
 A sample Ktor project showing how to log HTTP calls using the [Logging](https://ktor.io/docs/client-logging.html) plugin.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

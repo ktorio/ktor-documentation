@@ -1,6 +1,7 @@
 # HTTP/2 Netty
 
 A sample project demonstrating how to enable [HTTP/2](https://ktor.io/docs/advanced-http2.html) for the Netty engine.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

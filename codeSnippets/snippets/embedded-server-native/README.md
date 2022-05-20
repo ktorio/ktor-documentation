@@ -1,6 +1,7 @@
 # embeddedServer - Native
 
 A sample project demonstrating how to run a Ktor server in a Kotlin/Native application. Open [build.gradle.kts](build.gradle.kts) to see the Gradle configuration.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

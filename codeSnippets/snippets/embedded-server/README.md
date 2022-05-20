@@ -1,6 +1,7 @@
 # embeddedServer
 
 A sample Ktor project showing how to create a server using the [embeddedServer](https://ktor.io/docs/create-server.html#embedded-server) function.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

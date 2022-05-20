@@ -1,14 +1,11 @@
 # Sessions - Client
 A sample project demonstrating how to store session data in cookies.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 To run this sample, execute the following command in a repository's root directory:
 ```bash
-# macOS/Linux
 ./gradlew :session-cookie-client:run
-
-# Windows
-.\gradlew.bat :session-cookie-client:run
 ```
 
 Then, open the [http://localhost:8080/user](http://localhost:8080/user) page. It should display that a session doesn't exist or is expired. You can perform the following actions:

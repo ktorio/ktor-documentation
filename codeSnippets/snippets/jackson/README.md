@@ -1,6 +1,7 @@
 # Jackson
 
 A sample Ktor project demonstrating the [ContentNegotiation](https://ktor.io/docs/serialization.html) plugin using Jackson.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

@@ -1,6 +1,7 @@
 # Client Logging - Napier
 
 A sample Ktor project showing how to [log](https://ktor.io/docs/client-logging.html) HTTP calls using Napier.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

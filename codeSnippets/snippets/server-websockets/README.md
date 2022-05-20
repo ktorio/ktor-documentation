@@ -2,6 +2,7 @@
 
 A sample Ktor project showing how to use [WebSockets](https://ktor.io/docs/websocket.html) in a Ktor server.
 This project contains two WebSocket endpoints: `echo` and `chat`.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

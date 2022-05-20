@@ -1,6 +1,7 @@
 # Custom plugin
 
 A sample Ktor project demonstrating how to create [custom plugins](https://ktor.io/docs/custom-plugins.html) in Ktor.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

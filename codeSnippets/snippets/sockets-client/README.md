@@ -1,6 +1,7 @@
 # Client sockets
 
 A sample project demonstrating how to use [TCP/UDP sockets](https://ktor.io/docs/servers-raw-sockets.html) on the client side.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

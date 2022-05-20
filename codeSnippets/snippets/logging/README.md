@@ -1,6 +1,7 @@
 # Logging/Call logging
 
 A sample Ktor project showing how to enable [Logging](https://ktor.io/docs/logging.html) in Ktor and use the [CallLogging](https://ktor.io/docs/call-logging.html) plugin to log incoming client requests.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

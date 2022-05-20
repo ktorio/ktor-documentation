@@ -1,6 +1,7 @@
 # Client Timeout
 
 A sample Ktor project showing how to use the [HttpTimeout](https://ktor.io/docs/timeout.html) plugin.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

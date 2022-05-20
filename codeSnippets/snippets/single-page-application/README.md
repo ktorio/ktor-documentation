@@ -1,6 +1,7 @@
 # Serving single-page applications
 
 A sample Ktor project demonstrating how to serve a [single-page application](https://ktor.io/docs/serving-spa.html).
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

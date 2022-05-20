@@ -1,6 +1,7 @@
 # Parallel requests
 
 A sample Ktor project showing how to send several [requests](https://ktor.io/docs/request.html) asynchronously.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 Before running this sample, start a server from the [simulate-slow-server](../simulate-slow-server) example:

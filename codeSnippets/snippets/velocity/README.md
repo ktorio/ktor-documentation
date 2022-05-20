@@ -1,6 +1,7 @@
 # Velocity
 
 A sample Ktor project showing how to use [Velocity](https://ktor.io/docs/velocity.html) templates within your application.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

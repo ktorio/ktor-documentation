@@ -1,6 +1,7 @@
 # HTML DSL - Templates
 
 A sample Ktor project showing how to respond with an [HTML template](https://ktor.io/docs/html-dsl.html).
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

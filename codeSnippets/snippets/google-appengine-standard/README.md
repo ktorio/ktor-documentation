@@ -1,6 +1,7 @@
 # Google App Engine Standard
 
 A sample Ktor project that can be deployed on a [Google App Engine](https://ktor.io/docs/google-app-engine.html) standard infrastructure.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

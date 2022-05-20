@@ -1,18 +1,13 @@
 # CallId
 
 A sample Ktor project showing how to use the [CallId](https://ktor.io/docs/call-id.html) plugin to trace requests.
-
 > This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 
 To run a sample, execute the following command in a repository's root directory:
 ```bash
-# macOS/Linux
 ./gradlew :call-id:run
-
-# Windows
-.\gradlew.bat :call-id:run
 ```
 Then, open the [request.http](request.http) file and make the `GET` request with a randomly generated `X-Request-ID` header value. The application output will show the request ID in the log:
 

@@ -1,6 +1,7 @@
 # DoubleReceive
 
 A sample Ktor project showing how to use [DoubleReceive](https://ktor.io/docs/double-receive.html) to receive a request body already received by the [CallLogging](https://ktor.io/docs/call-logging.html) plugin.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

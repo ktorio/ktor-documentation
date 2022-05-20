@@ -1,6 +1,7 @@
 # Mustache
 
 A sample Ktor project showing how to use [Mustache](https://ktor.io/docs/mustache.html) templates within your application.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

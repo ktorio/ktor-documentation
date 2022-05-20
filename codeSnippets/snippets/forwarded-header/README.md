@@ -1,6 +1,7 @@
 # XForwardedHeader
 
 A sample Ktor project showing how to use the [XForwardedHeader](https://ktor.io/docs/forward-headers.html) plugin to get information about the original request.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

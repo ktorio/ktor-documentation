@@ -1,6 +1,7 @@
 # Static resources
 
 A sample Ktor project demonstrating how to serve [static content](https://ktor.io/docs/serving-static-content.html).
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

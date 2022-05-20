@@ -1,6 +1,7 @@
 # embeddedServer - Modules
 
 A sample Ktor project showing how to load a specified [module](https://ktor.io/docs/modules.html) when starting a server using the `embeddedServer` function.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

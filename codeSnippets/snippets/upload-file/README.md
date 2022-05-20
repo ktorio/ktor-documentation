@@ -2,6 +2,7 @@
 
 A sample Ktor project showing how to use the [receiveMultipart](https://ktor.io/docs/requests.html#form_data) function to upload a file sent as a part of a multipart request.
 
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 To upload a file, follow the steps below:

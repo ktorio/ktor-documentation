@@ -1,6 +1,7 @@
 # HTTPS Redirect
 
 A sample Ktor project showing how to use the [HttpsRedirect](https://ktor.io/docs/https-redirect.html) plugin.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

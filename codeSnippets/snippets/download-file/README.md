@@ -1,6 +1,7 @@
 # Download a File
 
 A sample Ktor project showing how to send a file in a [response](https://ktor.io/docs/responses.html) using the `respondFile` function. The `Content-Disposition` header is added to a response to make a file downloadable.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 To download a file, follow the steps below:

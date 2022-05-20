@@ -1,6 +1,7 @@
 # Client - JavaScript engine
 
 A sample Ktor project showing how to use the [JavaScript](https://ktor.io/docs/http-client-engines.html#js) client engine.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

@@ -1,6 +1,7 @@
 # Pebble
 
 A sample Ktor project showing how to use [Pebble](https://ktor.io/docs/pebble.html) templates within your application.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

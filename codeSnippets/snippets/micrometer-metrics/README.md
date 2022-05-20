@@ -1,17 +1,14 @@
 # Micrometer metrics
 
 A sample Ktor project showing how to enable and configure [Micrometer metrics](https://ktor.io/docs/micrometer-metrics.html) in your Ktor server application.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running a sample
 
 To run a sample, execute the following command in a repository's root directory:
 
 ```bash
-# macOS/Linux
 ./gradlew :micrometer-metrics:run
-
-# Windows
-.\gradlew.bat :micrometer-metrics:run
 ```
 Then, open the [http://0.0.0.0:8080/](http://0.0.0.0:8080/) page. You can also open [http://0.0.0.0:8080/metrics](http://0.0.0.0:8080/metrics) to check that a scrape endpoint is available.
 

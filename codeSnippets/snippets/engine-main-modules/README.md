@@ -1,6 +1,7 @@
 # EngineMain - Modules
 
 A sample Ktor project showing how to load specified [modules](https://ktor.io/docs/modules.html) when a server configuration is stored in a `HOCON` file.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

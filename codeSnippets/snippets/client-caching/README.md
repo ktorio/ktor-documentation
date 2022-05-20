@@ -1,18 +1,13 @@
 # Client caching
 
 A sample Ktor project showing how to use the [HttpCache](https://ktor.io/docs/client-caching.html) plugin.
-
 > This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 
 Before running this sample, start a server from the [caching-headers](../caching-headers) example:
 ```bash
-# macOS/Linux
 ./gradlew :caching-headers:run
-
-# Windows
-.\gradlew.bat :caching-headers:run
 ```
 
 This sample has the `/customer/1` route that responds with a JSON object with the configured `Cache-Control` header.
@@ -20,11 +15,7 @@ This sample has the `/customer/1` route that responds with a JSON object with th
 To see the client's caching in action, run this example by executing the following command:
 
 ```bash
-# macOS/Linux
 ./gradlew :client-caching:run
-
-# Windows
-.\gradlew.bat :client-caching:run
 ```
 
 The client will cache the result of the first `GET` request and won't send a second request.

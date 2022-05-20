@@ -1,7 +1,6 @@
 # Client Downloader
 
 A sample Ktor project showing how to download and store a file with the [Http client](https://ktor.io/docs/client.html).
-
 > This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
@@ -9,11 +8,7 @@ A sample Ktor project showing how to download and store a file with the [Http cl
 To run this sample, execute the following command in a repository's root directory:
 
 ```bash
-# macOS/Linux
 ./gradlew :client-download-file:run
-
-# Windows
-.\gradlew.bat :client-download-file:run
 ```
 
 A client will save a file in a default temporary-file directory.

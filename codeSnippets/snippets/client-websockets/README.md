@@ -1,6 +1,7 @@
 # Client WebSockets
 
 A sample Ktor project showing how to use [WebSockets](https://ktor.io/docs/websocket-client.html) in a Ktor client.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

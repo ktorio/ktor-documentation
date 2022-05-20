@@ -1,6 +1,7 @@
 # Static website
 
 A sample Ktor project showing how to create [a static website](https://ktor.io/docs/creating-static-website.html) using Ktor.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

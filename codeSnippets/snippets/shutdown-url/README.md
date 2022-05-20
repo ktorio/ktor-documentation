@@ -1,6 +1,7 @@
 # Shutdown URL
 
 A sample Ktor project showing how to use the [Shutdown URL](https://ktor.io/docs/shutdown-url.html) plugin.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

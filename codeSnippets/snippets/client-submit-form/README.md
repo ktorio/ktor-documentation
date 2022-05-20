@@ -1,6 +1,7 @@
 # Client submit form
 
 A sample Ktor project showing how to send [form parameters](https://ktor.io/docs/request.html#form_parameters) encoded using `multipart/form-data`.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 

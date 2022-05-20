@@ -1,17 +1,12 @@
 # Form authentication
 
 A sample project demonstrating how to use [session authentication](https://ktor.io/docs/session-auth.html) for a user logged in through a [web form](https://ktor.io/docs/form.html).
-
 > This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 To run this sample, execute the following command in a repository's root directory:
 ```bash
-# macOS/Linux
 ./gradlew :auth-form-session:run
-
-# Windows
-.\gradlew.bat :auth-form-session:run
 ```
 
 Then, perform the following steps:

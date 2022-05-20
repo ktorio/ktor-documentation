@@ -1,6 +1,7 @@
 # Webjars
 
 A sample Ktor project showing how to serve static content using the [Webjars](https://ktor.io/docs/webjars.html) plugin.
+> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 
