@@ -74,6 +74,14 @@ Open the `androidApp/build.gradle.kts` and add the following dependencies:
 ```
 {src="snippets/tutorial-client-kmm/androidApp/build.gradle.kts" lines="22,27-29"}
 
+### Enable the New Kotlin/Native memory model {id="new_memory_model"}
+To use Ktor client on Kotlin/Native targets (such as iOS), we need to enable the New Kotlin/Native memory model.
+Open the `gradle.properties` file and add the following line:
+
+```Gradle
+```
+{src="snippets/tutorial-client-kmm/gradle.properties" lines="14"}
+
 ## Update your application {id="code"}
 
 ### Shared code {id="shared-code"}
