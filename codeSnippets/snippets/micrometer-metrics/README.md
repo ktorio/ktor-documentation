@@ -23,5 +23,5 @@ To monitor the metrics of a running sample, you need to install Prometheus eithe
    ```Bash
    docker run -p 9090:9090 my-prometheus
    ```
-4. Open the [http://0.0.0.0:9090/graph](http://localhost:9090/graph) page to access the Prometheus expression browser.
+4. Open the [http://localhost:9090/graph](http://localhost:9090/graph) page to access the Prometheus expression browser.
 5. Enter the desired Ktor metric, for example, `ktor_http_server_requests_active`or `ktor_http_server_requests_seconds_count` to see monitoring results.
