@@ -1,7 +1,6 @@
 # Ktor client in a Kotlin Multiplatform Mobile application
 
 The project created in the [Creating a cross-platform mobile application](https://ktor.io/docs/getting-started-ktor-client-multiplatform-mobile.html) tutorial.
-> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
 
