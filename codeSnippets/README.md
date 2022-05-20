@@ -16,7 +16,7 @@ You can run any of these examples in IntelliJ IDEA in the following way:
    ./gradlew :auth-basic:run
    
    # Windows
-   gradlew.bat :auth-basic:run
+   .\gradlew.bat :auth-basic:run
    ```
 
    Wait until IntelliJ IDEA builds and runs an example.
