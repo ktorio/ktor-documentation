@@ -22,7 +22,7 @@ class ApplicationTest {
                         append("description", "Ktor logo")
                         append("image", File("ktor_logo.png").readBytes(), Headers.build {
                             append(HttpHeaders.ContentType, "image/png")
-                            append(HttpHeaders.ContentDisposition, "filename=ktor_logo.png")
+                            append(HttpHeaders.ContentDisposition, "filename=\"ktor_logo.png\"")
                         })
                     },
                     boundary,
