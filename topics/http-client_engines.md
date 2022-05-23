@@ -58,6 +58,7 @@ The table below shows whether a specific engine supports HTTP/2 and [WebSockets]
 | Curl    | ✅      | ❌          |
 
 You also need to consider the following limitations that affect general client configuration and using of specific plugins:
+- If an engine supports HTTP/2, you can enable it by customizing the engine configuration (see an example for the [](#java) engine).
 - To configure [SSL](client-ssl.md) in the Ktor client, you need to customize the configuration of a selected engine.
 - Some engines don't support [proxy](proxy.md#supported_engines).
 - The [Logging](client_logging.md) plugin provides different logger types for different platforms.

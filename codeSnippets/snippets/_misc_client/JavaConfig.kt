@@ -8,5 +8,8 @@ val client = HttpClient(Java) {
         threadsCount = 8
         pipelining = true
         proxy = ProxyBuilder.http("http://proxy-server.com/")
+        config {
+            version(java.net.http.HttpClient.Version.HTTP_2)
+        }
     }
 }
