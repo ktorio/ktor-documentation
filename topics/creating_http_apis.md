@@ -311,15 +311,32 @@ Now that we have everything wired up, we can finally start testing our applicati
 ## Test HTTP endpoints manually {id="manual_test"}
 
 Now that we have all the endpoints ready, it's time to test our application. While
-we can use any browser to test `GET` requests, we'll need a separate tool to test the other HTTP methods. Some options are `curl` or Postman – but if you're using IntelliJ IDEA Ultimate Edition, you actually already have a [client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html) that supports `.http` files, allowing you to specify and execute requests – without even having to leave the IDE.
+we can use any browser to test `GET` requests, we'll need a separate tool to test the other HTTP methods:
+- If you use IntelliJ IDEA Ultimate, you already have a [client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html) that supports `.http` files, allowing you to specify and execute requests.
+- If you use IntelliJ IDEA Community or other IDE, you can test your API using `curl`.
 
 ### Create a customer HTTP test file {id="create_customer_http"}
 
-`.http` files are one way of specifying HTTP requests to be executed by different types of tools, including IntelliJ IDEA Ultimate Edition. Let's create a new `CustomerTest.http` file in the project root:
+Let's create a new `CustomerTest.http` file in the project root:
+
+<tabs>
+<tab title="CustomerTest.http">
 
 ```http request
 ```
 {src="snippets/tutorial-http-api/CustomerTest.http"}
+
+</tab>
+<tab title="curl">
+
+```Bash
+```
+{src="snippets/tutorial-http-api/CustomerTest.bash"}
+
+</tab>
+</tabs>
+
+
 
 Inside this file, we have now specified a bunch of HTTP requests using all the supported HTTP methods of our API. IntelliJ IDEA now allows us to run each of these requests individually or all together. To really see what's going on, let's run them individually. But first, we need to make sure our API is actually reachable!
 
@@ -341,9 +358,24 @@ If everything is correct, we should see the output in the Run tool window:
 
 For the order endpoints, we can follow the same procedure: we create a new file called `OrderTest.http` in the root of our project and fill it with some HTTP requests:
 
+<tabs>
+<tab title="OrderTest.http">
+
 ```http request
 ```
 {src="snippets/tutorial-http-api/OrderTest.http"}
+
+</tab>
+<tab title="curl">
+
+```Bash
+```
+{src="snippets/tutorial-http-api/OrderTest.bash"}
+
+</tab>
+</tabs>
+
+
 
 Running these requests just as the ones before, we should see the expected output – list of orders, information about one order, and the total of the order.
 
