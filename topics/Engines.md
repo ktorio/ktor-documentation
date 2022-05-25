@@ -4,16 +4,24 @@
 Learn about engines that process network requests.
 </excerpt>
 
-To run a Ktor server application, you need to create and configure a server first.
-Server configuration can include different settings: a server engine, various engine-specific options, host and port values, and so on. The following engines are supported:
-- Netty
-- Jetty
-- Tomcat
-- CIO (Coroutine-based I/O)
+To run a Ktor server application, you need to [create](create_server.xml) and configure a server first.
+Server configuration includes different settings:
+- an [engine](#supported-engines) for processing network requests;
+- a host and port values used to access a server;
+- SSL settings;
+- ... and so on.
 
-Note that only the CIO engine is supported for a [Native server](native_server.md).
+## Supported engines {id="supported-engines"}
 
-> In addition to the engines mentioned above, Ktor provides a special engine type `TestEngine` for testing application logic. You can learn more about it from [](Testing.md).
+The table below lists engines supported by Ktor, along with the supported platforms:
+
+| Engine                             | Platforms                                              | HTTP/2 |
+|------------------------------------|--------------------------------------------------------|--------|
+| `Netty`                            | JVM                                                    | ✅      |
+| `Jetty`                            | JVM                                                    | ✅      |
+| `Tomcat`                           | JVM                                                    | ✅      |
+| `CIO` (Coroutine-based I/O)        | JVM, [Native](native_server.md), [GraalVM](Graalvm.md) | ❌      |
+| [ServletApplicationEngine](war.md) | JVM                                                    | ✅      |
 
 
 ## Add dependencies {id="dependencies"}
@@ -27,12 +35,9 @@ Below are examples of adding a dependency for Netty:
 <var name="artifact_name" value="ktor-server-netty"/>
 <include src="lib.xml" include-id="add_ktor_artifact"/>
 
-> For [testing](Testing.md), you need to add the `ktor-server-test-host` dependency. 
-There is also the `ktor-server-servlet` dependency that allows you to run an application in a servlet container like Jetty or Tomcat. Learn more at [](war.md).
-
 
 ## Choose how to create a server {id="choose-create-server"}
-A Ktor server application can be [created and run in two ways](create_server.xml): using the [embeddedServer](#embeddedServer) to quickly pass server parameters in code, or using [EngineMain](#EngineMain) to load the configuration from the external `application.conf` file.
+A Ktor server application can be [created and run in two ways](create_server.xml#embedded): using the [embeddedServer](#embeddedServer) to quickly pass server parameters in code, or using [EngineMain](#EngineMain) to load the configuration from the external `application.conf` file.
 
 ### embeddedServer {id="embeddedServer"}
 
@@ -49,7 +54,7 @@ The [embeddedServer](https://api.ktor.io/ktor-server/ktor-server-host-common/io.
 * `io.ktor.server.tomcat.EngineMain`
 * `io.ktor.server.cio.EngineMain`
 
-The `EngineMain.main` function is used to start a server with the selected engine and loads the [application module](Modules.md) specified in the external [application.conf](Configurations.xml) file. In the example below, we start a server from the application's `main` function:
+The `EngineMain.main` function is used to start a server with the selected engine and loads the [application module](Modules.md) specified in the external [configuration file](Configurations.xml). In the example below, we start a server from the application's `main` function:
 
 <tabs>
 <tab title="Application.kt">
@@ -106,7 +111,7 @@ mainClassName = "io.ktor.server.netty.EngineMain"
 
 In this section, we'll take a look how to specify various engine-specific options.
 
-### embeddedServer {id="embedded-server-configure"}
+### In code {id="embedded-server-configure"}
 
 The `embeddedServer` function allows you to pass engine-specific options using the `configure` optional parameter. This parameter includes options common for all engines and exposed by the [ApplicationEngine.Configuration](https://api.ktor.io/ktor-server/ktor-server-host-common/io.ktor.server.engine/-application-engine/-configuration/index.html) class.
 
@@ -181,7 +186,7 @@ embeddedServer(Tomcat, configure = {
 
 
 
-### EngineMain {id="engine-main-configure"}
+### In configuration file {id="engine-main-configure"}
 
 If you use `EngineMain`, you can specify options common for all engines in the [application.conf](Configurations.xml#hocon-file) file within the `ktor.deployment` group.
 

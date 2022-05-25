@@ -35,7 +35,7 @@
                 <toc-element id="create_server.xml"
                              show-structure-depth="2"/>
                 <toc-element id="Engines.md" accepts-web-file-names="custom-engines.html"
-                             show-structure-depth="2"/>
+                             show-structure-depth="3"/>
                 <toc-element id="Configurations.xml"
                              show-structure-depth="2"
                              accepts-web-file-names="configuration.html,environments.html"/>
