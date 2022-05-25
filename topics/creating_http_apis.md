@@ -329,7 +329,7 @@ Let's create a new `CustomerTest.http` file in the project root:
 </tab>
 <tab title="curl">
 
-```Bash
+```cURL
 ```
 {src="snippets/tutorial-http-api/CustomerTest.bash"}
 
@@ -368,7 +368,7 @@ For the order endpoints, we can follow the same procedure: we create a new file 
 </tab>
 <tab title="curl">
 
-```Bash
+```cURL
 ```
 {src="snippets/tutorial-http-api/OrderTest.bash"}
 
