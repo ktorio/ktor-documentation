@@ -63,7 +63,7 @@ Inside the `webSocket` block, you need to handle a WebSocket session, which is r
 
 1. Use the `send` function to send text content to the client. 
 2. Use the `incoming` and `outgoing` properties to access the channels for receiving and sending WebSocket frames. A frame is represented by the `Frame` class.
-3. When handing a session, you can check a frame type, for example:
+3. When handling a session, you can check a frame type, for example:
    * `Frame.Text` is a text frame. For this frame type, you can read its content using `Frame.Text.readText()`.
    * `Frame.Binary` is a binary frame. For this type, you can read its content using `Frame.Binary.readBytes()`.
    * `Frame.Close` is a closing frame. You can call `Frame.Close.readReason()` to get a close reason for the current session.
