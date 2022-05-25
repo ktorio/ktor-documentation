@@ -15,68 +15,100 @@
     </microformat>
 
     <excerpt>
-        Choose how to create a Ktor server - using the 'embeddedServer' function to configure parameters in code or using 'EngineMain' to load server configuration from an external file that uses the HOCON format.
+        Choose how to create a Ktor server - using the 'embeddedServer' function to configure parameters in code or using 'EngineMain' to load server configuration from an external file.
     </excerpt>
 
     <p>
-        To run a Ktor server application, you need to create a server first.
-        Server configuration can include different settings:
-        a server <a href="Engines.md">engine</a> (such as Netty, Jetty, etc.),
-        various engine-specific options, host and port values, and so on.
-        There are two main approaches in Ktor for creating and running a server:
+        Before creating a Ktor application, you need to take into account how your application will be <a href="deploy.md">deployed</a>:
     </p>
-
     <list>
         <li>
             <p>
-                The <a anchor="embedded-server">embeddedServer</a> function is a simple way to configure server parameters in code and quickly run an application.
+                As a <control><a anchor="embedded">self-contained package</a></control>
+            </p>
+            <p>
+                In this case, an application <a href="Engines.md">engine</a> used to process network requests should be a part of your application.
+                Your application has control over engine settings, connection, and SSL options.
             </p>
         </li>
         <li>
             <p>
-                <a anchor="engine-main">EngineMain</a> provides more flexibility to configure a server. You can specify server parameters in an <path>application.conf</path> file and change a configuration without recompiling your application. Moreover, you can run your application from a command line and override the required server parameters by passing corresponding command-line arguments.
+                As a <control><a anchor="servlet">servlet</a></control>
+            </p>
+            <p>
+                In this case, a Ktor application can be deployed inside a servlet container (such as Tomcat or Jetty), which controls the application lifecycle and connection settings.
             </p>
         </li>
     </list>
 
 
-    <chapter title="embeddedServer" id="embedded-server">
+    <chapter title="Embedded server" id="embedded">
         <p>
-            The <code>embeddedServer</code> function is a simple way to configure server parameters in code and quickly run an application.
-            In the code snippet below, it accepts an <a href="Engines.md">engine</a> and port as parameters to start a server.
-            In the example below, we run a server with the <code>Netty</code> engine and listen on the <code>8080</code> port:
+            To deliver a Ktor server application as a self-contained package, you need to create a server first.
+            Server configuration can include different settings:
+            a server <a href="Engines.md">engine</a> (such as Netty, Jetty, etc.),
+            various engine-specific options, host and port values, and so on.
+            There are two main approaches in Ktor for creating and running a server:
         </p>
-        <code style="block"
-              lang="kotlin"
-              src="snippets/embedded-server/src/main/kotlin/com/example/Application.kt">
-        </code>
-        <p>
-            You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server">embedded-server</a>.
-        </p>
+
+        <list>
+            <li>
+                <p>
+                    The <code>embeddedServer</code> function is a simple way to <a anchor="embedded-server">configure server parameters in code</a> and quickly run an application.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <code>EngineMain</code> provides more flexibility to configure a server. You can <a anchor="engine-main">specify server parameters in a file</a> and change a configuration without recompiling your application. Moreover, you can run your application from a command line and override the required server parameters by passing corresponding command-line arguments.
+                </p>
+            </li>
+        </list>
+
+        <chapter title="Configuration in code" id="embedded-server">
+            <p>
+                The <code>embeddedServer</code> function is a simple way to configure server parameters in code and quickly run an application.
+                In the code snippet below, it accepts an <a href="Engines.md">engine</a> and port as parameters to start a server.
+                In the example below, we run a server with the <code>Netty</code> engine and listen on the <code>8080</code> port:
+            </p>
+            <code style="block"
+                  lang="kotlin"
+                  src="snippets/embedded-server/src/main/kotlin/com/example/Application.kt">
+            </code>
+            <p>
+                You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server">embedded-server</a>.
+            </p>
+        </chapter>
+
+        <chapter title="Configuration in file" id="engine-main">
+            <p>
+                <code>EngineMain</code> starts a server with the selected engine and loads the <a href="Modules.md">application module</a> specified in the external <a href="Configurations.xml" anchor="hocon-file">application.conf</a> file. Besides modules to load, this file can include various server parameters (the <code>8080</code> port in the example below).
+            </p>
+
+            <tabs>
+                <tab title="Application.kt">
+                    <code style="block"
+                          lang="kotlin"
+                          src="snippets/engine-main/src/main/kotlin/com/example/Application.kt">
+                    </code>
+                </tab>
+                <tab title="application.conf">
+                    <code style="block"
+                          src="snippets/engine-main/src/main/resources/application.conf">
+                    </code>
+                </tab>
+            </tabs>
+            <p>
+                You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main">engine-main</a>.
+            </p>
+        </chapter>
     </chapter>
 
-    <chapter title="EngineMain" id="engine-main">
-        <p>
-            <code>EngineMain</code> starts a server with the selected engine and loads the <a href="Modules.md">application module</a> specified in the external <a href="Configurations.xml" anchor="hocon-file">application.conf</a> file. Besides modules to load, this file can include various server parameters (the <code>8080</code> port in the example below).
-        </p>
 
-        <tabs>
-            <tab title="Application.kt">
-                <code style="block"
-                      lang="kotlin"
-                      src="snippets/engine-main/src/main/kotlin/com/example/Application.kt">
-                </code>
-            </tab>
-            <tab title="application.conf">
-                <code style="block"
-                      src="snippets/engine-main/src/main/resources/application.conf">
-                </code>
-            </tab>
-        </tabs>
+    <chapter title="Servlet container" id="servlet">
         <p>
-            You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main">engine-main</a>.
+            A Ktor application can be run and deployed inside servlet containers that include Tomcat and Jetty.
+            To deploy inside a servlet container, you need to generate a <a href="war.md"/> archive and then deploy it to a server or a cloud service that supports WARs.
         </p>
     </chapter>
-
 
 </topic>
