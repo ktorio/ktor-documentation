@@ -140,6 +140,7 @@ module("snippets", "json-kotlinx-method-override")
 module("snippets", "caching-headers-routes")
 module("snippets", "jte")
 module("snippets", "custom-plugin-authorization")
+module("snippets", "client-configure-request")
 if(!System.getProperty("os.name").startsWith("Windows")) {
     module("snippets", "embedded-server-native")
 }

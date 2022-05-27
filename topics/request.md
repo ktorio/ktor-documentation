@@ -1,67 +1,125 @@
 [//]: # (title: Making requests)
+[percent_encoding]: https://en.wikipedia.org/wiki/Percent-encoding
+
+<microformat>
+<var name="example_name" value="client-configure-request"/>
+<include src="lib.xml" include-id="download_example"/>
+</microformat>
 
 <excerpt>
 Learn how to make requests and specify various request parameters: a request URL, an HTTP method, headers, and the body of a request.
 </excerpt>
 
-After [setting up the client](create-client.md), you can make HTTP requests. The main way for making HTTP requests is the [request](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/request.html) function that can take a URL as a parameter. Inside this function, you can configure various request parameters: 
-* Specify a request URL.
+After [setting up the client](create-client.md), you can make HTTP requests. The main way of making HTTP requests is the [request](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/request.html) function that can take a URL as a parameter. Inside this function, you can configure various request parameters: 
 * Specify an HTTP method, such as `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, or `PATCH`.
+* Specify a URL as a string or configure URL components (a domain, a path, query parameters, etc.) separately.
 * Add headers and cookies.
 * Set the body of a request, for example, a plain text, a data object, or form parameters.
 
 These parameters are exposed by the [HttpRequestBuilder](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/-http-request-builder/index.html) class.
 
 ```kotlin
-```
-{src="snippets/_misc_client/RequestMethodWithoutParams.kt" interpolate-variables="true" disable-links="false"}
+import io.ktor.client.request.*
+import io.ktor.client.statement.*
 
-Note that this function allows you to receive a response as an `HttpResponse` object. `HttpResponse` exposes API required to get a response body in various ways (a string, a JSON object, etc.) and obtain response parameters, such as a status code, content type, headers, and so on. You can learn more from the [](response.md) topic.
+val response: HttpResponse = client.request("https://ktor.io/") {
+  // Configure request parameters exposed by [[[HttpRequestBuilder|https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/-http-request-builder/index.html]]]
+}
+```
+{interpolate-variables="true" disable-links="false"}
+
+Note that this function allows you to receive a response as an `HttpResponse` object. `HttpResponse` exposes the API required to get a response body in various ways (a string, a JSON object, etc.) and obtain response parameters, such as a status code, content type, headers, and so on. You can learn more from the [](response.md) topic.
 
 > `request` is a suspending function, so requests should be executed only from a coroutine or another suspend function. You can learn more about calling suspending functions from [Coroutines basics](https://kotlinlang.org/docs/coroutines-basics.html).
 
-## Specify a request URL {id="url"}
 
-### Specify URL string {id="url-string"}
-
-The `request` function can take a URL as a parameter:
-
-```kotlin
-```
-{src="snippets/_misc_client/RequestMethodWithoutParams.kt" lines="4-6" interpolate-variables="true" disable-links="false"}
-
-### Configure URL components separately {id="url-components"}
-
-Another way to specify the URL is the `url` parameter exposed by `HttpRequestBuilder`. This parameter accepts [URLBuilder](https://api.ktor.io/ktor-http/io.ktor.http/-u-r-l-builder/index.html) and allows you to specify various URL components separately:
-
-```kotlin
-val response: HttpResponse = client.request {
-    url {
-        protocol = URLProtocol.HTTPS
-        host = "ktor.io"
-    }
-}
-```
-
-> To configure a base URL for all requests, you can use the [DefaultRequest](default-request.md#url) plugin. 
-
-
-## Set request parameters {id="parameters"}
-In this section, we'll see on how to specify various request parameters, including an HTTP method, headers, and cookies. If you need to configure some default parameters for all requests of a specific client, use the [DefaultRequest](default-request.md) plugin.
-
-
-### HTTP method {id="http-method"}
+### Specify an HTTP method {id="http-method"}
 
 When calling the `request` function, you can specify the desired HTTP method using the `method` property:
 
 ```kotlin
-```
-{src="snippets/_misc_client/RequestMethodWithParams.kt"}
+import io.ktor.client.request.*
+import io.ktor.client.statement.*
+import io.ktor.http.*
 
-In addition to the `request` function, `HttpClient` provides specific functions for basic HTTP methods: [get](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/get.html), [post](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/post.html), [put](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/put.html), and so on. For example, you can replace the example above with the following code:
+val response: HttpResponse = client.request("https://ktor.io/") {
+    method = HttpMethod.Get
+}
+```
+
+In addition to the `request` function, `HttpClient` provides specific functions for basic HTTP methods: [get](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/get.html), [post](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/post.html), [put](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/put.html), and so on. For example, you can replace the above request with the following code:
 ```kotlin
 ```
-{src="snippets/_misc_client/GetMethodWithoutParams.kt"}
+{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" lines="21"}
+
+In both examples, a request URL is specified as a string. You can also configure URL components separately using [HttpRequestBuilder](#url).
+
+## Specify a request URL {id="url"}
+
+The Ktor client allows you to configure a request URL in the following ways:
+
+- _Pass the entire URL string_
+   
+   ```kotlin
+   ```
+   {src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" lines="21"}
+   
+- _Configure URL components separately_
+   
+   ```kotlin
+   ```
+   {src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" lines="22-28"}
+   
+   In this case, the `url` parameter exposed by `HttpRequestBuilder` is used. This parameter accepts [URLBuilder](https://api.ktor.io/ktor-http/io.ktor.http/-u-r-l-builder/index.html) and provides more flexibility in building URLs.
+
+> To configure a base URL for all requests, you can use the [DefaultRequest](default-request.md#url) plugin.
+
+
+
+### Path segments {id="path_segments"}
+
+In the previous example, we've specified the entire URL path using the `URLBuilder.path` property. 
+You can also pass individual path segments using the `appendPathSegments` function.
+
+```kotlin
+```
+{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" lines="29-33"}
+
+Note that `appendPathSegments` [encodes][percent_encoding] path segments.
+To disable encoding, use `appendEncodedPathSegments`.
+
+
+
+### Query parameters {id="query_parameters"}
+To add <emphasis tooltip="query_string">query string</emphasis> parameters, use the `URLBuilder.parameters` property:
+
+```kotlin
+```
+{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" lines="34-38"}
+
+Note that `parameters` [encodes][percent_encoding] query parameters.
+To disable encoding, use `encodedParameters`.
+
+> The `trailingQuery` property can be used to keep the `?` character even if there are no query parameters.
+
+
+
+### URL fragment {id="url-fragment"}
+
+A hash mark `#` introduces the optional fragment near the end of the URL.
+You can configure a URL fragment using the `fragment` property.
+
+```kotlin
+```
+{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" lines="39-43"}
+
+Note that `fragment` [encodes][percent_encoding] a URL fragment.
+To disable encoding, use `encodedFragment`.
+
+
+## Set request parameters {id="parameters"}
+In this section, we'll see how to specify various request parameters, including an HTTP method, headers, and cookies. If you need to configure some default parameters for all requests of a specific client, use the [DefaultRequest](default-request.md) plugin.
+
 
 ### Headers {id="headers"}
 
@@ -69,7 +127,7 @@ To add headers to the request, you can use the following ways:
 - The [headers](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/headers.html) function allows you to add several headers at once:
    ```kotlin
    ```
-   {src="snippets/_misc_client/GetMethodWithHeaders.kt"}
+  {src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" lines="46-52"}
 - The [header](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/header.html) function allows you to append a single header.
 - The `basicAuth` and `bearerAuth` functions add the `Authorization` header with a corresponding HTTP scheme.
    > For advanced authentication configuration, refer to [](auth.md).
@@ -81,21 +139,10 @@ To send cookies, use the [cookie](https://api.ktor.io/ktor-client/ktor-client-co
 
 ```kotlin
 ```
-{src="snippets/_misc_client/GetMethodWithCookies.kt"}
+{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" lines="55-64"}
 
 Ktor also provides the [HttpCookies](http-cookies.md) plugin that allows you to keep cookies between calls. If this plugin is installed, cookies added using the `cookie` function are ignored.
 
-
-### Query parameters {id="query_parameters"}
-
-To add <emphasis tooltip="query_string">query string</emphasis> parameters, call the [parameter](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/parameter.html) function:
-
-```kotlin
-```
-{src="snippets/_misc_client/GetMethodWithQueryParam.kt"}
-
-Note that the `value` parameter accepts an `Any` instance. 
-So, if you need to specify several values for a single key, you can pass these values as a `List` object.
 
 
 ## Set request body {id="body"}
@@ -103,9 +150,16 @@ To set the body of a request, you need to call the `setBody` function exposed by
 
 ### Text {id="text"}
 Sending plain text as body can be implemented in the following way:
+
 ```kotlin
+import io.ktor.client.request.*
+import io.ktor.client.statement.*
+import io.ktor.http.*
+
+val response: HttpResponse = client.post("http://localhost:8080/post") {
+    setBody("Body content")
+}
 ```
-{src="snippets/_misc_client/PostMethodWithBody.kt"}
 
 
 ### Objects {id="objects"}
@@ -184,8 +238,15 @@ To see a full example, go to [client-parallel-requests](https://github.com/ktori
 ## Cancel a request {id="cancel-request"}
 
 If you need to cancel a request, you can cancel a coroutine that runs this request. The [launch](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/launch.html) function returns a `Job` that can be used to cancel the running coroutine:
+
 ```kotlin
+import kotlinx.coroutines.*
+
+val client = HttpClient(CIO)
+val job = launch {
+    val requestContent: String = client.get("http://localhost:8080")
+}
+job.cancel()
 ```
-{src="snippets/_misc_client/CancelRequest.kt"}
 
 Learn more about [Cancellation and timeouts](https://kotlinlang.org/docs/cancellation-and-timeouts.html).
