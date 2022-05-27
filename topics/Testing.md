@@ -258,7 +258,7 @@ If you need to preserve cookies between requests when testing, you need create a
 
 ## Test HTTPS {id="https"}
 
-If you need to test an [HTTPS endpoint](ssl.md), change the protocol used to make a request using the [URLBuilder.protocol](request.md#url-components) property:
+If you need to test an [HTTPS endpoint](ssl.md), change the protocol used to make a request using the [URLBuilder.protocol](request.md#url) property:
 
 ```kotlin
 ```
