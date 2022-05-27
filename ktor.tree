@@ -210,7 +210,6 @@
                 <toc-element id="tracing_routes.md"/>
             </toc-element>
             <toc-element id="events.md"/>
-            <toc-element id="utilities.md"/>
         </toc-element>
     </toc-element>
 
@@ -238,7 +237,7 @@
             </toc-element>
 
             <toc-element toc-title="Requests">
-                <toc-element id="request.md" show-structure-depth="2"/>
+                <toc-element id="request.md" show-structure-depth="2" accepts-web-file-names="utilities.html"/>
                 <toc-element id="type-safe-request.md" show-structure-depth="2"/>
                 <toc-element id="default-request.md" show-structure-depth="2"/>
                 <toc-element id="user-agent.md"/>

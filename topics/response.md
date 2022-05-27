@@ -8,7 +8,7 @@ All functions used to [make an HTTP request](request.md) (`request`, `get`, `pos
 
 ```kotlin
 ```
-{src="snippets/_misc_client/GetMethodWithoutParams.kt"}
+{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" lines="21"}
 
 
 ## Receive response body {id="body"}
