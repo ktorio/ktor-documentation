@@ -64,9 +64,11 @@ Loading modules to `testApplication` depends on the way used to [create a server
 
 #### Add modules automatically {id="auto"}
 
-If you have the `application.conf` file in the `resources` folder, `testApplication` loads all modules  and properties specified in the configuration file automatically.
+If you have the `application.conf` file in the `resources` folder, `testApplication` loads all modules and properties specified in the configuration file automatically. To disable the automatic loading of specific modules, you need to:
 
-> You can disable loading modules by customizing an [environment](#environment) for tests.
+1. Provide a [custom configuration file](#environment) for tests.
+2. Use the [ktor.application.modules](Configurations.xml#hocon-overview) configuration property to specify modules to load.
+
 
 #### Add modules manually {id="manual"}
 If you use `embeddedServer`, you can add modules to a test application manually using the `application` function:
