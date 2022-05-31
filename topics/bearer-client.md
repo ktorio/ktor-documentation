@@ -90,7 +90,7 @@ As the first step, we need to obtain client credentials required for accessing G
 
 ### OAuth authorization flow {id="oauth-flow"}
 
-The OAuth authorization flow for our applications looks as follows:
+The OAuth authorization flow for our application looks as follows:
 
 ```Console
 (1)  --> [[[Authorization request|#step1]]]                Resource owner

@@ -17,7 +17,7 @@ You can learn which dependencies you need from a topic for a required plugin.
 
 
 ## Install a plugin {id="install"}
-To install a plugin, you need pass it to the `install` function inside a [client configuration block](create-client.md#configure-client). For example, installing the `Logging` plugin looks as follows:
+To install a plugin, you need to pass it to the `install` function inside a [client configuration block](create-client.md#configure-client). For example, installing the `Logging` plugin looks as follows:
 
 ```kotlin
 ```
@@ -25,7 +25,7 @@ To install a plugin, you need pass it to the `install` function inside a [client
 
 
 ## Configure a plugin {id="configure_plugin"}
-You can configure a plugin inside the `install` block.For example, for the [Logging](client_logging.md) plugin, you can specify the logger and logging level:
+You can configure a plugin inside the `install` block. For example, for the [Logging](client_logging.md) plugin, you can specify the logger and logging level:
 ```kotlin
 ```
 {src="snippets/client-logging/src/main/kotlin/com/example/Application.kt" lines="12-17"}

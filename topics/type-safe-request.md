@@ -56,14 +56,14 @@ Let's summarize the examples above and create the `Articles` resource for CRUD o
 ```
 {src="snippets/client-type-safe-requests/src/main/kotlin/com/example/Application.kt" lines="15-29"}
 
-This resource can be used to list all articles, post a new article, edit it, and so on. We'll see how to [make type-safe requests](#make_requests) to this resource in the next chapter.
+This resource can be used to list all articles, post a new article, edit it, and so on. We'll see how to [make type-safe requests](#make_requests) to this resource in the next section.
 
 > You can find the full example here: [client-type-safe-requests](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-type-safe-requests).
 
 
 ## Make type-safe requests {id="make_requests"}
 
-To [make a request](request.md) to a typed resource, you need to pass a resource class instance to a request function (`request`, `get`, `post`, `put`, and so on). For example, a sample below shows how to make a request to the `/articles` path.
+To [make a request](request.md) to a typed resource, you need to pass a resource class instance to a request function (`request`, `get`, `post`, `put`, and so on). For example, the sample below shows how to make a request to the `/articles` path.
 
 ```kotlin
 @Serializable

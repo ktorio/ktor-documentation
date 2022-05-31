@@ -68,7 +68,7 @@ You also need to consider the following limitations that affect general client c
 
 ## Add an engine dependency {id="dependencies"}
 
-Apart from the [ktor-client-core](client-dependencies.md) artifact, the Ktor client requires adding a specific dependency for each engine. For each of the supported platform, you can see the available engines and required dependencies in a corresponding section:
+Apart from the [ktor-client-core](client-dependencies.md) artifact, the Ktor client requires adding a specific dependency for each engine. For each of the supported platforms, you can see the available engines and required dependencies in a corresponding section:
 * [JVM](#jvm)
 * [JVM and Android](#jvm-android)
 * [JavaScript](#js)

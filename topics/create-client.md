@@ -39,7 +39,7 @@ You can configure an engine using the `engine` function:
 See the [Engines](http-client_engines.md) section for additional details.
 
 ### Plugins {id="plugins"}
-To install a plugin, you need pass it to the `install` function inside a [client configuration block](#configure-client). For example, you can log HTTP calls by installing the [Logging](client_logging.md) plugin:
+To install a plugin, you need to pass it to the `install` function inside a [client configuration block](#configure-client). For example, you can log HTTP calls by installing the [Logging](client_logging.md) plugin:
 
 ```kotlin
 ```
