@@ -62,7 +62,7 @@ The [HttpResponse](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.clie
 
 ### Status code {id="status"}
 
-To get a status code of a response, use the [HttpResponse.status](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/status.html) property, for example:
+To get the status code of a response, use the [HttpResponse.status](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/status.html) property, for example:
 
 ```kotlin
 ```
