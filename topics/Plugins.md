@@ -58,6 +58,7 @@ As an alternative, you can use the `ktor-server` artifact containing all Ktor se
 Plugins are generally configured during the initialization phase of the server using the `install` function which takes a Plugin as a parameter. Depending on the way you used to [create a server](create_server.xml), you can install a plugin inside the `embeddedServer` call ...
 
 ```kotlin
+import io.ktor.server.application.*
 import io.ktor.server.plugins.cors.*
 import io.ktor.server.plugins.compression.*
 // ...
@@ -73,6 +74,7 @@ fun main() {
 ... or a specified [module](Modules.md):
 
 ```kotlin
+import io.ktor.server.application.*
 import io.ktor.server.plugins.cors.*
 import io.ktor.server.plugins.compression.*
 // ...

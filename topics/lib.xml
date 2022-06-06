@@ -11,6 +11,7 @@
             To <a href="Plugins.md" anchor="install">install</a> the <code>%plugin_name%</code> plugin, pass it to the <code>install</code> function in the application initialization code. Depending on the <a href="create_server.xml">way used to create a server</a>, this can be the <code>embeddedServer</code> function call ...
         </p>
         <code style="block" lang="kotlin" interpolate-variables="true">
+            import io.ktor.server.application.*
             import %package_name%.*
             // ...
             fun main() {
@@ -24,6 +25,7 @@
             ... or a specified <a href="Modules.md">module</a>.
         </p>
         <code style="block" lang="kotlin" interpolate-variables="true">
+            import io.ktor.server.application.*
             import %package_name%.*
             // ...
             fun Application.module() {
