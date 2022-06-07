@@ -2,7 +2,7 @@
 
 <excerpt>Learn how to create and configure the Ktor client.</excerpt>
 
-To instantiate the client, create the [HttpClient](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client/-http-client/index.html) class instance and pass an engine as a parameter:
+After adding the [client dependencies](client-dependencies.md), you can instantiate the client by creating the [HttpClient](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client/-http-client/index.html) class instance and passing an [engine](http-client_engines.md) as a parameter:
 
 ```kotlin
 ```
@@ -49,6 +49,8 @@ You can also configure a plugin inside the `install` block. For example, for the
 ```kotlin
 ```
 {src="snippets/client-logging/src/main/kotlin/com/example/Application.kt" lines="12-17"}
+
+Note that a specific plugin might require a separate [dependency](client-dependencies.md).
 
 ## Use the client {id="use-client"}
 After you've [added](client-dependencies.md) all the required dependencies and created the client, you can use it to [make requests](request.md) and [receive responses](response.md). 
