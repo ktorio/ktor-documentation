@@ -12,7 +12,7 @@ import javax.net.ssl.*
 fun main() {
     runBlocking {
         val selectorManager = SelectorManager(Dispatchers.IO)
-        val socket = aSocket(selectorManager).tcp().connect("www.jetbrains.com", port = 443).tls(coroutineContext = coroutineContext) {
+        val socket = aSocket(selectorManager).tcp().connect("youtrack.jetbrains.com", port = 443).tls(coroutineContext = coroutineContext) {
             trustManager = object : X509TrustManager {
                 override fun getAcceptedIssuers(): Array<X509Certificate?> = arrayOf()
                 override fun checkClientTrusted(certs: Array<X509Certificate?>?, authType: String?) {}
@@ -21,7 +21,7 @@ fun main() {
         }
         val sendChannel = socket.openWriteChannel()
         val EOL = "\r\n"
-        sendChannel.writeStringUtf8("GET / HTTP/1.1${EOL}Host: www.jetbrains.com${EOL}Connection: close${EOL}${EOL}")
+        sendChannel.writeStringUtf8("GET / HTTP/1.1${EOL}Host: youtrack.jetbrains.com${EOL}Connection: close${EOL}${EOL}")
         sendChannel.flush()
         println(socket.openReadChannel().readRemaining().readBytes().toString(Charsets.UTF_8))
     }
