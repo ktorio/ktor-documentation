@@ -33,7 +33,7 @@ To use [secure sockets](#secure) in the client, you also need to add `io.ktor:kt
 
 ### Create a server socket {id="server_create_socket"}
 
-To build a server socket, create the `ActorSelectorManager` instance, call the `SocketBuilder.tcp()` function on it, 
+To build a server socket, create the `SelectorManager` instance, call the `SocketBuilder.tcp()` function on it, 
 and then use `bind` to bind a server socket to specific port:
 
 ```kotlin
@@ -112,7 +112,7 @@ You can find the full example here: [sockets-server](https://github.com/ktorio/k
 
 ### Create a socket {id="client_create_socket"}
 
-To build a client socket, create the `ActorSelectorManager` instance, call the `SocketBuilder.tcp()` function on it,
+To build a client socket, create the `SelectorManager` instance, call the `SocketBuilder.tcp()` function on it,
 and then use `connect` to establish a connection and get a connected socket (a [Socket](https://api.ktor.io/ktor-network/io.ktor.network.sockets/-socket/index.html) instance):
 
 ```kotlin
@@ -128,7 +128,7 @@ To use secure sockets, you need to add the [ktor-network-tls](#add_dependencies)
 Then, call the `Socket.tls` function on a connected socket:
 
 ```kotlin
-val selectorManager = ActorSelectorManager(Dispatchers.IO)
+val selectorManager = SelectorManager(Dispatchers.IO)
 val socket = aSocket(selectorManager).tcp().connect("127.0.0.1", 8443).tls()
 ```
 
@@ -174,7 +174,7 @@ For example, you can write a line of UTF-8 characters using `ByteWriteChannel.wr
 
 ### Close connection {id="client_close"}
 
-To release resources associated with the [connected socket](#client_create_socket), call `Socket.close` and `ActorSelectorManager.close`:
+To release resources associated with the [connected socket](#client_create_socket), call `Socket.close` and `SelectorManager.close`:
 
 ```kotlin
 ```

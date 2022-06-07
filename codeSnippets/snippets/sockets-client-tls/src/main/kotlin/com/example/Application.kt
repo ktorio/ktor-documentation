@@ -11,7 +11,7 @@ import javax.net.ssl.*
 
 fun main() {
     runBlocking {
-        val selectorManager = ActorSelectorManager(Dispatchers.IO)
+        val selectorManager = SelectorManager(Dispatchers.IO)
         val socket = aSocket(selectorManager).tcp().connect("www.jetbrains.com", port = 443).tls(coroutineContext = coroutineContext) {
             trustManager = object : X509TrustManager {
                 override fun getAcceptedIssuers(): Array<X509Certificate?> = arrayOf()

@@ -8,7 +8,7 @@ import kotlin.system.*
 
 fun main(args: Array<String>) {
     runBlocking {
-        val selectorManager = ActorSelectorManager(Dispatchers.IO)
+        val selectorManager = SelectorManager(Dispatchers.IO)
         val socket = aSocket(selectorManager).tcp().connect("127.0.0.1", 9002)
 
         val receiveChannel = socket.openReadChannel()

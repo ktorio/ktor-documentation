@@ -7,7 +7,7 @@ import kotlinx.coroutines.*
 
 fun main(args: Array<String>) {
     runBlocking {
-        val selectorManager = ActorSelectorManager(Dispatchers.IO)
+        val selectorManager = SelectorManager(Dispatchers.IO)
         val serverSocket = aSocket(selectorManager).tcp().bind("127.0.0.1", 9002)
         println("Server is listening at ${serverSocket.localAddress}")
         while (true) {
