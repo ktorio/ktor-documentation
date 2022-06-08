@@ -54,7 +54,7 @@ The next thing we need is to configure the build script:
 
 ### Add the JavaExec task {id="java-exec"}
 
-In the `build.gradle.kts` file, add the `JavaExec` task and specify `standardInput` as show below:
+In the `build.gradle.kts` file, add the `JavaExec` task and specify `standardInput` as shown below:
 
 ```kotlin
 ```
