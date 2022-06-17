@@ -1,3 +1,5 @@
 [//]: # (title: OpenApi/Swagger)
 
 You can use [OpenApi generator](https://github.com/OpenAPITools/openapi-generator) to create a project from your API definitions. For more information please see the OpenAPITools [documentation](https://github.com/OpenAPITools/openapi-generator/blob/master/README.md). Alternatively, you can use IntelliJ IDEA's [functionality](https://www.jetbrains.com/help/idea/openapi.html#codegen). To generate a Ktor server project you need to choose `kotlin-server` as a target language. Check out the [documentation](https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/kotlin-server.md) for a full list of available options.
+
+> Note that generating OpenAPI definitions from code is not yet supported. You can follow the [KTOR-774](https://youtrack.jetbrains.com/issue/KTOR-774) feature request for updates.
