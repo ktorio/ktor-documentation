@@ -10,7 +10,8 @@
         <p>
             <b>Code examples</b>:
             <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server">embedded-server</a>,
-            <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main">engine-main</a>
+            <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main">engine-main</a>,
+            <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main-yaml">engine-main-yaml</a>
         </p>
     </microformat>
 
@@ -79,9 +80,9 @@
             </p>
         </chapter>
 
-        <chapter title="Configuration in file" id="engine-main">
+        <chapter title="Configuration in a file" id="engine-main">
             <p>
-                <code>EngineMain</code> starts a server with the selected engine and loads the <a href="Modules.md">application module</a> specified in the external <a href="Configurations.xml" anchor="hocon-file">application.conf</a> file. Besides modules to load, this file can include various server parameters (the <code>8080</code> port in the example below).
+                <code>EngineMain</code> starts a server with the selected engine and loads the <a href="Modules.md">application modules</a> specified in the external <a href="Configurations.xml" anchor="hocon-file">configuration file</a>: <path>application.conf</path> or <path>application.yaml</path>. Besides modules to load, a configuration file can include various server parameters (the <code>8080</code> port in the example below).
             </p>
 
             <tabs>
@@ -96,9 +97,14 @@
                           src="snippets/engine-main/src/main/resources/application.conf">
                     </code>
                 </tab>
+                <tab title="application.yaml">
+                    <code style="block" lang="yaml"
+                          src="snippets/engine-main-yaml/src/main/resources/application.yaml">
+                    </code>
+                </tab>
             </tabs>
             <p>
-                You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main">engine-main</a>.
+                You can find the full examples here: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main">engine-main</a> and <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main-yaml">engine-main-yaml</a>.
             </p>
         </chapter>
     </chapter>

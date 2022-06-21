@@ -33,9 +33,9 @@ You can find the full example here: [embedded-server-modules](https://github.com
 
 
 
-## HOCON file {id="hocon"}
+## Configuration file {id="hocon"}
 
-If you use the `application.conf` file to configure a server, you need to specify modules to load using the `ktor.application.modules` property. 
+If you use the `application.conf` or `application.yaml` file to configure a server, you need to specify modules to load using the `ktor.application.modules` property. 
 
 Suppose you have three modules defined in two packages: two modules in the `com.example` package and one in the `org.sample` package.
 
@@ -56,11 +56,24 @@ Suppose you have three modules defined in two packages: two modules in the `com.
 </tab>
 </tabs>
 
-To reference these modules in a configuration file, you need to provide their fully qualified names, separated by a comma.
+To reference these modules in a configuration file, you need to provide their fully qualified names.
 A fully qualified module name includes a fully qualified name of the class and an extension function name.
 
-```kotlin
+<tabs group="config">
+<tab title="application.conf" group-key="hocon">
+
+```shell
 ```
 {src="snippets/engine-main-modules/src/main/resources/application.conf" lines="1,5-10"}
+
+</tab>
+<tab title="application.yaml" group-key="yaml">
+
+```yaml
+```
+{src="snippets/engine-main-modules/src/main/resources/_application.yaml" lines="1,4-8"}
+
+</tab>
+</tabs>
 
 You can find the full example here: [engine-main-modules](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main-modules).

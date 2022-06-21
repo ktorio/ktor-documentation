@@ -37,7 +37,7 @@ Below are examples of adding a dependency for Netty:
 
 
 ## Choose how to create a server {id="choose-create-server"}
-A Ktor server application can be [created and run in two ways](create_server.xml#embedded): using the [embeddedServer](#embeddedServer) to quickly pass server parameters in code, or using [EngineMain](#EngineMain) to load the configuration from the external `application.conf` file.
+A Ktor server application can be [created and run in two ways](create_server.xml#embedded): using the [embeddedServer](#embeddedServer) to quickly pass server parameters in code, or using [EngineMain](#EngineMain) to load the configuration from the external `application.conf` or `application.yaml` file.
 
 ### embeddedServer {id="embeddedServer"}
 
@@ -67,9 +67,17 @@ The `EngineMain.main` function is used to start a server with the selected engin
 
 <tab title="application.conf">
 
-```kotlin
+```shell
 ```
 {src="snippets/engine-main/src/main/resources/application.conf"}
+
+</tab>
+
+<tab title="application.yaml">
+
+```yaml
+```
+{src="snippets/engine-main-yaml/src/main/resources/application.yaml"}
 
 </tab>
 </tabs>
@@ -186,9 +194,12 @@ embeddedServer(Tomcat, configure = {
 
 
 
-### In configuration file {id="engine-main-configure"}
+### In a configuration file {id="engine-main-configure"}
 
-If you use `EngineMain`, you can specify options common for all engines in the [application.conf](Configurations.xml#hocon-file) file within the `ktor.deployment` group.
+If you use `EngineMain`, you can specify options common for all engines in a [configuration file](Configurations.xml#hocon-file) within the `ktor.deployment` group.
+
+<tabs group="config">
+<tab title="application.conf" group-key="hocon">
 
 ```shell
 ktor {
@@ -199,3 +210,19 @@ ktor {
     }
 }
 ```
+
+</tab>
+<tab title="application.yaml" group-key="yaml">
+
+```yaml
+ktor:
+    deployment:
+        connectionGroupSize: 2
+        workerGroupSize: 5
+        callGroupSize: 10
+```
+
+</tab>
+</tabs>
+
+
