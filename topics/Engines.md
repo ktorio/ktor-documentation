@@ -196,7 +196,7 @@ embeddedServer(Tomcat, configure = {
 
 ### In a configuration file {id="engine-main-configure"}
 
-If you use `EngineMain`, you can specify options common for all engines in a [configuration file](Configurations.xml#hocon-file) within the `ktor.deployment` group.
+If you use `EngineMain`, you can specify options common for all engines in a [configuration file](Configurations.xml#configuration-file) within the `ktor.deployment` group.
 
 <tabs group="config">
 <tab title="application.conf" group-key="hocon">

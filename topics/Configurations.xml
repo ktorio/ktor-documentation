@@ -23,7 +23,7 @@
         </li>
         <li>
             <p>
-                For <code>EngineMain</code>, Ktor loads its configuration from an <a anchor="hocon-file">external file</a> that uses the <a href="https://github.com/lightbend/config/blob/master/HOCON.md">HOCON</a> format. This way provides more flexibility to configure a server and allows you to change a configuration without recompiling your application. Moreover, you can run your application from a command line and override the required server parameters by passing corresponding <a anchor="command-line">command-line</a> arguments.
+                For <code>EngineMain</code>, Ktor loads its configuration from a <a anchor="configuration-file">configuration file</a> that uses the <a href="https://github.com/lightbend/config/blob/master/HOCON.md">HOCON</a> or YAML format. This way provides more flexibility to configure a server and allows you to change a configuration without recompiling your application. Moreover, you can run your application from a command line and override the required server parameters by passing corresponding <a anchor="command-line">command-line</a> arguments.
             </p>
         </li>
     </list>
@@ -76,19 +76,47 @@
     </chapter>
 
 
-    <chapter title="HOCON file" id="hocon-file">
-        <chapter title="Overview" id="hocon-overview">
+    <chapter title="Configuration file" id="configuration-file">
+        <chapter title="Overview" id="configuration-file-overview">
             <p>
-                If you use <a href="create_server.xml" anchor="engine-main">EngineMain</a> to start a server, Ktor loads configurations settings from the <path>application.conf</path> HOCON file placed in application resources.
-                This file should contain at least <a href="Modules.md">modules to load</a> specified using the <code>ktor.application.modules</code> property, for example:
+                If you use <a href="create_server.xml" anchor="engine-main">EngineMain</a> to start a server, Ktor loads configuration settings automatically from:
             </p>
-            <code style="block">
-                ktor {
-                    application {
-                        modules = [ com.example.ApplicationKt.module ]
-                    }
-                }
-            </code>
+            <list>
+                <li>
+                    <p>
+                        the <path>application.conf</path> file (the HOCON format);
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        the <path>application.yaml</path> (the YAML format).
+                    </p>
+                    <note>
+                        <p>
+                            To use a YAML configuration file, you need to add the <code>ktor-server-config-yaml</code> <a href="server-dependencies.xml">dependency</a>.
+                        </p>
+                    </note>
+                </li>
+            </list>
+
+            <p>
+                A configuration file should contain at least <a href="Modules.md">modules to load</a> specified using the <code>ktor.application.modules</code> property, for example:
+            </p>
+
+            <tabs group="config">
+                <tab title="application.conf" group-key="hocon">
+                    <code style="block"
+                          src="snippets/engine-main/src/main/resources/application.conf"
+                          lines="1,5-8"/>
+                </tab>
+                <tab title="application.yaml" group-key="yaml">
+                    <code style="block"
+                          lang="yaml"
+                          src="snippets/engine-main-yaml/src/main/resources/application.yaml"
+                          lines="1,4-6"/>
+                </tab>
+            </tabs>
+
             <p>
                 In this case, Ktor will call the <code>Application.module</code> function for the <path>Application.kt</path> file below:
             </p>
@@ -105,19 +133,50 @@
                     <p>
                         In the example below, a server listening port is set to <code>8080</code> using the <code>ktor.deployment.port</code> property.
                     </p>
-                    <code style="block" src="snippets/engine-main/src/main/resources/application.conf"/>
+                    <tabs group="config">
+                        <tab title="application.conf" group-key="hocon">
+                            <code style="block"
+                                  src="snippets/engine-main/src/main/resources/application.conf"/>
+                        </tab>
+                        <tab title="application.yaml" group-key="yaml">
+                            <code style="block"
+                                  lang="yaml"
+                                  src="snippets/engine-main-yaml/src/main/resources/application.yaml"/>
+                        </tab>
+                    </tabs>
                 </li>
                 <li>
                     <p>
                         The example below enables Ktor to listen on the <code>8443</code> SSL port and specifies the required <a href="ssl.md">SSL settings</a> in a separate <code>security</code> block.
                     </p>
-                    <code style="block" src="snippets/ssl-engine-main/src/main/resources/application.conf"/>
+                    <tabs group="config">
+                        <tab title="application.conf" group-key="hocon">
+                            <code style="block"
+                                  src="snippets/ssl-engine-main/src/main/resources/application.conf"/>
+                        </tab>
+                        <tab title="application.yaml" group-key="yaml">
+                            <code style="block"
+                                  lang="yaml"
+                                  src="snippets/ssl-engine-main/src/main/resources/_application.yaml"/>
+                        </tab>
+                    </tabs>
+
                 </li>
                 <li>
                     <p>
-                        The <path>application.conf</path> file below contains a custom <code>jwt</code> group to store <a href="jwt.md" anchor="jwt-settings">JWT</a> settings.
+                        The configuration files below contain a custom <code>jwt</code> group to store <a href="jwt.md" anchor="jwt-settings">JWT</a> settings.
                     </p>
-                    <code style="block" src="snippets/auth-jwt-hs256/src/main/resources/application.conf" lines="1,6-16"/>
+                    <tabs group="config">
+                        <tab title="application.conf" group-key="hocon">
+                            <code style="block"
+                                  src="snippets/auth-jwt-hs256/src/main/resources/application.conf"/>
+                        </tab>
+                        <tab title="application.yaml" group-key="yaml">
+                            <code style="block"
+                                  lang="yaml"
+                                  src="snippets/auth-jwt-hs256/src/main/resources/_application.yaml"/>
+                        </tab>
+                    </tabs>
                     <p>
                         You can <a anchor="read-configuration-in-code">read and handle such settings</a> in code.
                     </p>
@@ -135,7 +194,7 @@
 
         <chapter title="Predefined properties" id="predefined-properties">
             <p>
-                Below is a list of predefined settings that you can use inside a <a anchor="hocon-overview">configuration file</a>.
+                Below is a list of predefined settings that you can use inside a <a anchor="configuration-file-overview">configuration file</a>.
             </p>
             <deflist style="wide">
                 <def title="ktor.deployment.host">

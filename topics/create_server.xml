@@ -43,7 +43,7 @@
     </list>
 
 
-    <chapter title="Embedded server" id="embedded">
+    <chapter title="Self-contained package" id="embedded">
         <p>
             To deliver a Ktor server application as a self-contained package, you need to create a server first.
             Server configuration can include different settings:
@@ -82,7 +82,7 @@
 
         <chapter title="Configuration in a file" id="engine-main">
             <p>
-                <code>EngineMain</code> starts a server with the selected engine and loads the <a href="Modules.md">application modules</a> specified in the external <a href="Configurations.xml" anchor="hocon-file">configuration file</a>: <path>application.conf</path> or <path>application.yaml</path>. Besides modules to load, a configuration file can include various server parameters (the <code>8080</code> port in the example below).
+                <code>EngineMain</code> starts a server with the selected engine and loads the <a href="Modules.md">application modules</a> specified in the external <a href="Configurations.xml" anchor="configuration-file">configuration file</a>: <path>application.conf</path> or <path>application.yaml</path>. Besides modules to load, a configuration file can include various server parameters (the <code>8080</code> port in the example below).
             </p>
 
             <tabs>
@@ -110,7 +110,7 @@
     </chapter>
 
 
-    <chapter title="Servlet container" id="servlet">
+    <chapter title="Servlet" id="servlet">
         <p>
             A Ktor application can be run and deployed inside servlet containers that include Tomcat and Jetty.
             To deploy inside a servlet container, you need to generate a <a href="war.md"/> archive and then deploy it to a server or a cloud service that supports WARs.

@@ -14,7 +14,7 @@ There are two ways to enable this plugin:
 
 ## Configure shutdown URL in HOCON {id="hocon"}
 
-You can configure a shutdown URL in a [HOCON](Configurations.xml#hocon-file) configuration file using the [ktor.deployment.shutdown.url](Configurations.xml#predefined-properties) property.
+You can configure a shutdown URL in a [HOCON](Configurations.xml#configuration-file) configuration file using the [ktor.deployment.shutdown.url](Configurations.xml#predefined-properties) property.
 
 ```kotlin
 ```

@@ -1,0 +1,14 @@
+ktor:
+    deployment:
+        port: 8080
+        sslPort: 8443
+    application:
+        modules:
+            - com.example.ApplicationKt.module
+
+    security:
+        ssl:
+            keyStore: keystore.jks
+            keyAlias: sampleAlias
+            keyStorePassword: foobar
+            privateKeyPassword: foobar

@@ -33,7 +33,7 @@
         <chapter title="application.conf" id="application-conf">
             <p>
                 To enable development mode in the
-                <a href="Configurations.xml" anchor="hocon-file">application.conf</a> file,
+                <a href="Configurations.xml" anchor="configuration-file">application.conf</a> file,
                 set the <code>development</code> option to <code>true</code>:
             </p>
             <code style="block">

@@ -67,7 +67,7 @@ Loading modules to `testApplication` depends on the way used to [create a server
 If you have the `application.conf` file in the `resources` folder, `testApplication` loads all modules and properties specified in the configuration file automatically. To disable the automatic loading of specific modules, you need to:
 
 1. Provide a [custom configuration file](#environment) for tests.
-2. Use the [ktor.application.modules](Configurations.xml#hocon-overview) configuration property to specify modules to load.
+2. Use the [ktor.application.modules](Configurations.xml#configuration-file-overview) configuration property to specify modules to load.
 
 
 #### Add modules manually {id="manual"}
