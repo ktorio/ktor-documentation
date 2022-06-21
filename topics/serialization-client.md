@@ -56,15 +56,17 @@ To register the JSON serializer in your application, call the `json` method:
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.serialization.kotlinx.json.*
 
-install(ContentNegotiation) {
-    json()
+val client = HttpClient(CIO) {
+    install(ContentNegotiation) {
+        json()
+    }
 }
 ```
 
 In the `json` constructor, you can access the [JsonBuilder](https://kotlin.github.io/kotlinx.serialization/kotlinx-serialization-json/kotlinx.serialization.json/-json-builder/index.html) API, for example:
 ```kotlin
 ```
-{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="21-26"}
+{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="20-27"}
 
 You can find the full example here: [client-json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-json-kotlinx).
 
@@ -76,8 +78,10 @@ To register the Gson serializer in your application, call the [gson](https://api
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.serialization.gson.*
 
-install(ContentNegotiation) {
-    gson()
+val client = HttpClient(CIO) {
+    install(ContentNegotiation) {
+        gson()
+    }
 }
 ```
 
@@ -92,8 +96,10 @@ To register the Jackson serializer in your application, call the [jackson](https
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.serialization.jackson.*
 
-install(ContentNegotiation) {
-    jackson()
+val client = HttpClient(CIO) {
+    install(ContentNegotiation) {
+        jackson()
+    }
 }
 ```
 
@@ -109,8 +115,10 @@ To register the XML serializer in your application, call the `xml` method:
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.serialization.kotlinx.xml.*
 
-install(ContentNegotiation) {
-    xml()
+val client = HttpClient(CIO) {
+    install(ContentNegotiation) {
+        xml()
+    }
 }
 ```
 
@@ -122,10 +130,12 @@ import io.ktor.serialization.kotlinx.xml.*
 import nl.adaptivity.xmlutil.*
 import nl.adaptivity.xmlutil.serialization.*
 
-install(ContentNegotiation) {
-    xml(format = XML {
-        xmlDeclMode = XmlDeclMode.Charset
-    })
+val client = HttpClient(CIO) {
+    install(ContentNegotiation) {
+        xml(format = XML {
+            xmlDeclMode = XmlDeclMode.Charset
+        })
+    }
 }
 ```
 
@@ -135,8 +145,10 @@ To register the CBOR serializer in your application, call the `cbor` method:
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.serialization.kotlinx.cbor.*
 
-install(ContentNegotiation) {
-    cbor()
+val client = HttpClient(CIO) {
+    install(ContentNegotiation) {
+        cbor()
+    }
 }
 ```
 
@@ -147,10 +159,12 @@ import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.serialization.kotlinx.cbor.*
 import kotlinx.serialization.cbor.*
 
-install(ContentNegotiation) {
-    cbor(Cbor {
-        ignoreUnknownKeys = true
-    })
+val client = HttpClient(CIO) {
+    install(ContentNegotiation) {
+        cbor(Cbor {
+            ignoreUnknownKeys = true
+        })
+    }
 }
 ```
 
