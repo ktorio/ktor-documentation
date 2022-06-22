@@ -69,21 +69,50 @@ For example, if you have a private key in the `key.pem` file and a public certif
 
 
 ## Configure SSL in Ktor {id="configure-ssl-ktor"}
-Specifying SSL settings in Ktor depends on the way used to [configure a Ktor server](create_server.xml): by using the `application.conf` configuration file or in code using the `embeddedServer` function.
+Specifying SSL settings in Ktor depends on the way used to [configure a Ktor server](create_server.xml): by using a configuration file or in code using the `embeddedServer` function.
 
-### HOCON file {id="hocon"}
+### Configuration file {id="config-file"}
 
-If your server is configured in `application.conf`, you can enable SSL using the following [properties](Configurations.xml#predefined-properties):
+If your server is configured in the `application.conf` or `application.yaml` [configuration file](Configurations.xml#configuration-file), you can enable SSL using the following [properties](Configurations.xml#predefined-properties):
 
 1. Specify the SSL port using the `ktor.deployment.sslPort` property:
-   ```
+
+   <tabs group="config">
+   <tab title="application.conf" group-key="hocon">
+   
+   ```shell
    ```
    {style="block" src="snippets/ssl-engine-main/src/main/resources/application.conf" lines="1-2,4-5,18"}
+   
+   </tab>
+   <tab title="application.yaml" group-key="yaml">
+   
+   ```yaml
+   ```
+   {style="block" src="snippets/ssl-engine-main/src/main/resources/_application.yaml" lines="1-2,4"}
+   
+   </tab>
+   </tabs>
 
 2. Provide keystore settings in a separate `security` group:
-   ```
+
+   <tabs group="config">
+   <tab title="application.conf" group-key="hocon">
+   
+   ```shell
    ```
    {style="block" src="snippets/ssl-engine-main/src/main/resources/application.conf" lines="1,10-18"}
+   
+   </tab>
+   <tab title="application.yaml" group-key="yaml">
+   
+   ```yaml
+   ```
+   {style="block" src="snippets/ssl-engine-main/src/main/resources/_application.yaml" lines="1,9-14"}
+   
+   </tab>
+   </tabs>
+
 
 You can find the full example here: [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-engine-main).
 
