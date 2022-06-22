@@ -1,0 +1,9 @@
+ktor:
+    development: true
+    deployment:
+        port: 8080
+        watch:
+            - classes
+    application:
+        modules:
+            - com.example.ApplicationKt.main

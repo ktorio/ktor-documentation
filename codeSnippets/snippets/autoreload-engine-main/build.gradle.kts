@@ -22,6 +22,7 @@ dependencies {
     implementation("io.ktor:ktor-server-core:$ktor_version")
     implementation("io.ktor:ktor-server-netty:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
+    implementation("io.ktor:ktor-server-config-yaml:$ktor_version")
     testImplementation("junit:junit:$junit_version")
     testImplementation("com.typesafe:config:1.3.1")
     testImplementation("io.ktor:ktor-server-test-host:$ktor_version")

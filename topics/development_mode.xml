@@ -26,21 +26,32 @@
     <chapter title="Enable development mode" id="enable">
         <p>
             You can enable development mode in different ways: in the application configuration file,
-            using a dedicated system property or environment variable.
+            using a dedicated system property, or environment variable.
         </p>
 
 
-        <chapter title="application.conf" id="application-conf">
+        <chapter title="Configuration file" id="application-conf">
             <p>
-                To enable development mode in the
-                <a href="Configurations.xml" anchor="configuration-file">application.conf</a> file,
+                To enable development mode in a
+                <a href="Configurations.xml" anchor="configuration-file">configuration file</a>,
                 set the <code>development</code> option to <code>true</code>:
             </p>
-            <code style="block">
-                ktor {
-                    development = true
-                }
-            </code>
+            <tabs group="config">
+                <tab title="application.conf" group-key="hocon">
+                    <code style="block">
+                        ktor {
+                            development = true
+                        }
+                    </code>
+                </tab>
+                <tab title="application.yaml" group-key="yaml">
+                    <code style="block" lang="yaml">
+                        ktor:
+                            development: true
+                    </code>
+                </tab>
+            </tabs>
+
         </chapter>
 
 
