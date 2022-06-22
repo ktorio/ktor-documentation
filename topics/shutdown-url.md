@@ -7,18 +7,32 @@
 
 The [ShutDownUrl](https://api.ktor.io/ktor-server/ktor-server-host-common/io.ktor.server.engine/-shut-down-url/index.html) plugin allows you to configure a URL used to shut down the server. 
 There are two ways to enable this plugin: 
-- In a [HOCON](#hocon) configuration file.
+- In a [configuration file](#config-file).
 - By [installing the plugin](#install).
 
 
 
-## Configure shutdown URL in HOCON {id="hocon"}
+## Configure shutdown URL in a configuration file {id="config-file"}
 
-You can configure a shutdown URL in a [HOCON](Configurations.xml#configuration-file) configuration file using the [ktor.deployment.shutdown.url](Configurations.xml#predefined-properties) property.
+You can configure a shutdown URL in a [configuration file](Configurations.xml#configuration-file) using the [ktor.deployment.shutdown.url](Configurations.xml#predefined-properties) property.
 
-```kotlin
+<tabs group="config">
+<tab title="application.conf" group-key="hocon">
+
+```shell
 ```
 {src="snippets/shutdown-url/src/main/resources/application.conf" lines="1-2,4-5,9"}
+
+</tab>
+<tab title="application.yaml" group-key="yaml">
+
+```yaml
+```
+{src="snippets/shutdown-url/src/main/resources/_application.yaml" lines="1-2,4-5"}
+
+</tab>
+</tabs>
+
 
 ## Configure shutdown URL by installing the plugin {id="install"}
 
