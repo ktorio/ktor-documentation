@@ -50,8 +50,8 @@
         <list>
             <li>
                 <p>
-                    If you use <code>EngineMain</code> to run a server, enable development mode
-                    in the <a href="development_mode.xml" anchor="application-conf">application.conf</a> file.
+                    If you use <code>EngineMain</code> to run a server, enable the development mode
+                    in a <a href="development_mode.xml" anchor="application-conf">configuration file</a>.
                 </p>
             </li>
             <li>
@@ -94,15 +94,38 @@
         <list>
             <li>
                 <p>
-                    In the <path>application.conf</path>, specify the <code>watch</code> option:
+                    In the <path>application.conf</path> or <path>application.yaml</path> file, specify the <code>watch</code> option:
                 </p>
-                <code style="block" src="snippets/autoreload-engine-main/src/main/resources/application.conf" lines="1-3,5-6,11"/>
+                <tabs group="config">
+                    <tab title="application.conf" group-key="hocon">
+                        <code style="block"
+                              src="snippets/autoreload-engine-main/src/main/resources/application.conf" lines="1-3,5-6,11"/>
+                    </tab>
+                    <tab title="application.yaml" group-key="yaml">
+                        <code style="block"
+                              lang="yaml"
+                              src="snippets/autoreload-engine-main/src/main/resources/_application.yaml" lines="1-3,5-6"/>
+                    </tab>
+                </tabs>
+
                 <p>
-                    You can specify several watch paths separated by a comma, for example:
+                    You can also specify several watch paths, for example:
                 </p>
-                <code style="block">
-                    watch = [ classes, resources ]
-                </code>
+                <tabs group="config">
+                    <tab title="application.conf" group-key="hocon">
+                        <code style="block">
+                            watch = [ classes, resources ]
+                        </code>
+                    </tab>
+                    <tab title="application.yaml" group-key="yaml">
+                        <code style="block" lang="yaml">
+                            watch:
+                                - classes
+                                - resources
+                        </code>
+                    </tab>
+                </tabs>
+
                 <p>
                     You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/autoreload-engine-main">autoreload-engine-main</a>.
                 </p>
