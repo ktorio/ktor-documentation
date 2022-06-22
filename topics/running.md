@@ -14,14 +14,14 @@ In this topic, we'll take a look at these configuration specifics and show you h
 
 ## Configuration specifics {id="specifics"}
 
-### Configuration in code vs HOCON file {id="code-hocon"}
+### Configuration: code vs configuration file {id="code-vs-config"}
 
 Running a Ktor application depends on the way you used to [create a server](create_server.xml) - `embeddedServer` or `EngineMain`:
 * For `embeddedServer`, server parameters (such as a host address and port) are configured in code, so you cannot change these parameters when running an application.
-* For `EngineMain`, Ktor loads its configuration from an external file that uses the `HOCON` format. Using this approach, you can run a [packaged application](#package) from a command line and override the required server parameters by passing corresponding [command-line arguments](Configurations.xml#command-line).
+* For `EngineMain`, Ktor loads its configuration from an external file that uses the `HOCON` or `YAML` format. Using this approach, you can run a [packaged application](#package) from a command line and override the required server parameters by passing corresponding [command-line arguments](Configurations.xml#command-line).
 
 
-### Starting EngineMain - Gradle and Maven specifics {id="gradle-maven"}
+### Starting EngineMain: Gradle and Maven specifics {id="gradle-maven"}
 
 If you use `EngineMain` to create a server, you need to specify the `main` function for starting a server with the desired [engine](Engines.md).
 The [example](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main) below demonstrates the `main` function used to run a server with the Netty engine:
