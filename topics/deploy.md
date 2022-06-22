@@ -14,9 +14,9 @@ Ktor allows you to create and start a server with the desired network [engine](E
 
 In contrast to the approach above, a servlet container should control the application lifecycle and connection settings. Ktor provides a special `ServletApplicationEngine` engine that delegates control over your application to a servlet container. To deploy inside a servlet container, you need to generate a [WAR archive](war.md).
 
-### Configuration in code vs HOCON file {id="code-hocon"}
+### Configuration: code vs configuration file {id="code-vs-config"}
 
-Configuring a self-contained Ktor application for deployment might depend on the approach used to [create and configure a server](create_server.xml): in code or by using the `application.conf` configuration file. As an example, a [hosting provider](#publishing) may require to specify a port used to listen for incoming requests. In this case, you need to [configure](Configurations.xml) a port either in code or in the `application.conf`.
+Configuring a self-contained Ktor application for deployment might depend on the approach used to [create and configure a server](create_server.xml): in code or by using a [configuration file](Configurations.xml#configuration-file). As an example, a [hosting provider](#publishing) may require to specify a port used to listen for incoming requests. In this case, you need to [configure](Configurations.xml) a port either in code or in the `application.conf`/`application.yaml`.
 
 
 ## Packaging {id="packaging"}
