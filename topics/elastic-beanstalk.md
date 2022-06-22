@@ -25,7 +25,7 @@ Before starting this tutorial, you need to create an AWS account.
 To open a sample application, follow the steps below:
 
 1. Clone a Ktor documentation repository and open the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets) project.
-2. Open the [embedded-server](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server) or [engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main) sample. These samples demonstrate different approaches to [creating and configuring a Ktor server](create_server.xml): in code or by using the `application.conf` configuration file. The only difference in deploying these projects is how to [specify a port](#port) used to listen for incoming requests.
+2. Open the [embedded-server](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server) or [engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main) sample. These samples demonstrate different approaches to [creating and configuring a Ktor server](create_server.xml): in code or by using a configuration file. The only difference in deploying these projects is how to [specify a port](#port) used to listen for incoming requests.
 
 ## Prepare an application {id="prepare-app"}
 

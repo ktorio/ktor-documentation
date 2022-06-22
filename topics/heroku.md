@@ -19,7 +19,7 @@ Before starting this tutorial, make sure that the following prerequisites are me
 
 ## Clone a sample application {id="clone"}
 Clone the [ktor-get-started-sample](https://github.com/ktorio/ktor-get-started-sample) project.
-> Note that Ktor provides two approaches to [create and configure a server](create_server.xml): in code or by using the `application.conf` configuration file. The only difference in deploying is how to [specify a port](#port) used to listen for incoming requests.
+> Note that Ktor provides two approaches to [create and configure a server](create_server.xml): in code or by using a configuration file. The only difference in deploying is how to [specify a port](#port) used to listen for incoming requests.
 
 
 ## Prepare an application {id="prepare-app"}
