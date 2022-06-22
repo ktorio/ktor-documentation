@@ -18,7 +18,7 @@
         <li>
             <p>
                 For <a anchor="embedded-server">embeddedServer</a>,
-                you can configure server parameters in code by passing the required parameters to the <code>embeddedServer</code> constructor.
+                you can configure server parameters in code by passing the required parameters to the <code>embeddedServer</code> function.
             </p>
         </li>
         <li>
@@ -79,17 +79,18 @@
     <chapter title="Configuration file" id="configuration-file">
         <chapter title="Overview" id="configuration-file-overview">
             <p>
-                If you use <a href="create_server.xml" anchor="engine-main">EngineMain</a> to start a server, Ktor loads configuration settings automatically from:
+                If you use <a href="create_server.xml" anchor="engine-main">EngineMain</a> to start a server, Ktor loads configuration settings automatically from a file named <path>application.*</path>.
+                Two configuration formats are supported:
             </p>
             <list>
                 <li>
                     <p>
-                        the <path>application.conf</path> file (the HOCON format);
+                        HOCON (<path>application.conf</path>)
                     </p>
                 </li>
                 <li>
                     <p>
-                        the <path>application.yaml</path> (the YAML format).
+                        YAML (<path>application.yaml</path>)
                     </p>
                     <note>
                         <p>
@@ -118,7 +119,7 @@
             </tabs>
 
             <p>
-                In this case, Ktor will call the <code>Application.module</code> function for the <path>Application.kt</path> file below:
+                In this case, Ktor calls the <code>Application.module</code> function in the <path>Application.kt</path> file below:
             </p>
             <code style="block"
                   lang="kotlin"
@@ -164,7 +165,7 @@
                 </li>
                 <li>
                     <p>
-                        The configuration files below contain a custom <code>jwt</code> group to store <a href="jwt.md" anchor="jwt-settings">JWT</a> settings.
+                        The configuration files below contain a custom <code>jwt</code> group used to keep <a href="jwt.md" anchor="jwt-settings">JWT</a> settings.
                     </p>
                     <tabs group="config">
                         <tab title="application.conf" group-key="hocon">
@@ -284,16 +285,28 @@
 
         <chapter title="Environment variables" id="environment-variables">
             <p>
-                In HOCON, you can substitute parameters with environment variables by using the <code>${ENV}</code> syntax.
+                In a configuration file, you can substitute parameters with environment variables by using the <code>${ENV}</code> / <code>$ENV</code> syntax.
                 For example, you can assign the <code>PORT</code> environment variable to the <code>ktor.deployment.port</code> property in the following way:
             </p>
-            <code style="block">
-                ktor {
-                    deployment {
-                        port = ${PORT}
-                    }
-                }
-            </code>
+            <tabs group="config">
+                <tab title="application.conf" group-key="hocon">
+                    <code style="block">
+                        ktor {
+                            deployment {
+                                port = ${PORT}
+                            }
+                        }
+                    </code>
+                </tab>
+                <tab title="application.yaml" group-key="yaml">
+                    <code style="block" lang="yaml">
+                        ktor:
+                            deployment:
+                                port: $PORT
+                    </code>
+                </tab>
+            </tabs>
+
             <p>
                 In this case, an environment variable value will be used to specify a listening port.
                 If the <code>PORT</code> environment variable variable doesn't exist at runtime, you can provide a default port value before assigning <code>${?PORT}</code> as follows:
@@ -311,16 +324,29 @@
 
         <chapter title="Read configuration in code" id="read-configuration-in-code">
             <p>
-                Ktor allows you to access property values specified in <path>application.conf</path> in code.
+                Ktor allows you to access property values specified inside a configuration file in code.
                 For example, if you've specified the <code>ktor.deployment.port</code> property,...
             </p>
-            <code style="block">
-                ktor {
-                    deployment {
-                        port = 8080
-                    }
-                }
-            </code>
+
+            <tabs group="config">
+                <tab title="application.conf" group-key="hocon">
+                    <code style="block">
+                        ktor {
+                            deployment {
+                                port = 8080
+                            }
+                        }
+                    </code>
+                </tab>
+                <tab title="application.yaml" group-key="yaml">
+                    <code style="block" lang="yaml">
+                        ktor:
+                            deployment:
+                                port: 8080
+                    </code>
+                </tab>
+            </tabs>
+
             <p>
                 ... you can access the application's configuration using <a href="https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-environment/config.html">ApplicationEnvironment.config</a> and get the required property value in the following way:
             </p>
@@ -341,7 +367,7 @@
 
         <chapter title="Command line" id="command-line">
             <p>
-                If you use <a href="create_server.xml" anchor="engine-main">EngineMain</a> to create a server, you can run a <a href="fatjar.md">packaged application</a> from a command line and override the required server parameters by passing corresponding command-line arguments. For example, you can override a port specified in the <path>application.conf</path> file in the following way:
+                If you use <a href="create_server.xml" anchor="engine-main">EngineMain</a> to create a server, you can run a <a href="fatjar.md">packaged application</a> from a command line and override the required server parameters by passing corresponding command-line arguments. For example, you can override a port specified in a configuration file in the following way:
             </p>
             <code style="block">
                 java -jar sample-app.jar -port=8080
@@ -357,11 +383,12 @@
                 </def>
                 <def title="-config">
                     <p>
-                        A path to a custom configuration file used instead of <path>application.conf</path> from resources.
+                        A path to a custom configuration file used instead of <path>application.conf</path> / <path>application.yaml</path> from resources.
                     </p>
-                    <code style="block">
-                        java -jar sample-app.jar -config=anotherfile.conf
-                    </code>
+                    <p>
+                        <emphasis>Example</emphasis>: <code style="block">java -jar sample-app.jar -config=anotherfile.conf</code>
+                    </p>
+
                 </def>
                 <def title="-host">
                     <p>
@@ -414,13 +441,25 @@
     <chapter title="Example: How to specify an environment using a custom property" id="custom-property">
         <p>
             You might want to do different things depending on whether a server is running locally or on a production machine.
-            To achieve this, you can add a custom property in <path>application.conf</path> and initialize it with a dedicated <a anchor="environment-variables">environment variable</a> whose value depends on whether a server is running locally or on production. In the example below, the <code>KTOR_ENV</code> environment variable is assigned to a custom <code>ktor.environment</code> property.
+            To achieve this, you can add a custom property in <path>application.conf</path> / <path>application.yaml</path> and initialize it with a dedicated <a anchor="environment-variables">environment variable</a> whose value depends on whether a server is running locally or on production. In the example below, the <code>KTOR_ENV</code> environment variable is assigned to a custom <code>ktor.environment</code> property.
         </p>
-        <code style="block">
-            ktor {
-                environment = ${?KTOR_ENV}
-            }
-        </code>
+
+        <tabs group="config">
+            <tab title="application.conf" group-key="hocon">
+                <code style="block">
+                    ktor {
+                        environment = ${?KTOR_ENV}
+                    }
+                </code>
+            </tab>
+            <tab title="application.yaml" group-key="yaml">
+                <code style="block" lang="yaml">
+                    ktor:
+                        environment: $KTOR_ENV
+                </code>
+            </tab>
+        </tabs>
+
         <p>
             You can access the <code>ktor.environment</code> value at runtime by <a anchor="read-configuration-in-code">reading configuration in code</a> and perform the required actions:
         </p>
