@@ -1,7 +1,7 @@
 val ktor_version: String by project
 val kotlin_version: String by project
 val logback_version: String by project
-val tcnative_version = "2.0.47.Final"
+val tcnative_version = "2.0.53.Final"
 
 plugins {
     application

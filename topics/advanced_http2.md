@@ -28,12 +28,27 @@ keytool -keystore test.jks -genkeypair -alias testkey -keyalg RSA -keysize 4096 
 
 ... or by using the [generateCertificate](ssl.md) function.
 
-The next step is configuring Ktor to use your keystore. See the example `application.conf`:
+The next step is configuring Ktor to use your keystore. See the example `application.conf` / `application.yaml` [configuration files](Configurations.xml#configuration-file):
 
+<tabs group="config">
+<tab title="application.conf" group-key="hocon">
 
-```kotlin
+```shell
 ```
 {src="snippets/http2-netty/src/main/resources/application.conf"}
+
+</tab>
+<tab title="application.yaml" group-key="yaml">
+
+```yaml
+```
+{src="snippets/http2-netty/src/main/resources/_application.yaml"}
+
+</tab>
+</tabs>
+
+
+
 
 ## ALPN implementation {id="apln_implementation"}
 
