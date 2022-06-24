@@ -173,7 +173,7 @@
 
         <toc-element id="deploy.md" show-structure-depth="2">
             <toc-element toc-title="Packaging">
-                <toc-element toc-title="Creating Fat JARs">
+                <toc-element toc-title="Creating fat JARs">
                     <toc-element id="fatjar.md" accepts-web-file-names="proguard.html,deploy-proguard.html"/>
                     <toc-element id="maven-assembly-plugin.md"/>
                 </toc-element>

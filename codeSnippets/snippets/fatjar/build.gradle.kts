@@ -5,7 +5,7 @@ val logback_version: String by project
 plugins {
     application
     kotlin("jvm")
-    id("com.github.johnrengelman.shadow") version "7.1.2"
+    id("io.ktor.plugin") version "2.1.0-eap-14"
 }
 
 application {
@@ -24,4 +24,10 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:$logback_version")
     testImplementation("io.ktor:ktor-server-test-host:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
+}
+
+ktor {
+    fatJar {
+        archiveFileName.set("fat.jar")
+    }
 }

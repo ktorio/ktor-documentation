@@ -46,7 +46,7 @@ The [Google App Engine Gradle plugin](https://github.com/GoogleCloudPlatform/app
 1. Open the `settings.gradle.kts` file and insert the following code to reference a plugin from the Central Maven repository:
    ```groovy
    ```
-   {src="settings.gradle.kts" lines="1-13"}
+   {src="settings.gradle.kts" lines="1-14"}
 
 2. Open `build.gradle.kts` and apply the plugin in the `plugins` block:
    ```kotlin

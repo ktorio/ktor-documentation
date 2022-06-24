@@ -1,55 +1,34 @@
-[//]: # (title: Gradle Shadow plugin)
+[//]: # (title: Creating fat JARs using the Ktor Gradle plugin)
 
 <microformat>
 <var name="example_name" value="fatjar"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
-<excerpt>Learn how to create an executable Fat JAR using the Gradle Shadow plugin.</excerpt>
+<excerpt>Learn how to create and run an executable fat JAR using the Ktor Gradle plugin.</excerpt>
 
-The Gradle [Shadow](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow) plugin allows you to create an executable JAR that includes all code dependencies (fat JAR).
+The [Ktor Gradle plugin](https://github.com/ktorio/ktor-build-plugins) allows you to create and run an executable JAR that includes all code dependencies (fat JAR).
 
-## Configure the Shadow plugin {id="configure-plugin"}
-To build a Fat JAR, you need to configure the Shadow plugin first:
+## Configure the Ktor plugin {id="configure-plugin"}
+To build a fat JAR, you need to configure the Ktor plugin first:
 1. Open the `build.gradle.kts` file and add the plugin to the `plugins` block:
    ```kotlin
    ```
    {src="snippets/fatjar/build.gradle.kts" lines="5,8-9"}
 
-2. Make sure that the [main application class](server-dependencies.xml#create-entry-point) is configured:
+2. Make sure the [main application class](server-dependencies.xml#create-entry-point) is configured:
    ```kotlin
    ```
    {src="snippets/fatjar/build.gradle.kts" lines="11-13"}
 
-
-## Build a Fat JAR {id="build"}
-To build a Fat JAR, open the terminal and execute the `shadowJar` task provided by the [Shadow plugin](#configure-plugin).
-
-<tabs group="os">
-<tab title="Linux/MacOS" group-key="unix">
-<code style="block" lang="Bash">./gradlew shadowJar</code>
-</tab>
-<tab title="Windows" group-key="windows">
-<code style="block" lang="CMD">gradlew.bat shadowJar</code>
-</tab>
-</tabs>
-
-When this build completes, you should see the `***-all.jar` file in the `build/libs` directory.
-For example, for the `fatjar` project a file name is `fatjar-all.jar`.
-
-> To learn how to use the resulting package to deploy your application using Docker, see the [](docker.md) help topic.
-
-
-## Run the application {id="run"}
-To run the [built application](#build):
-1. Go to the `build/libs` folder in a terminal.
-1. Execute the following command to run the application:
-   ```Bash
-   java -jar fatjar-all.jar
+3. Optionally, you can  configure the name of the fat JAR to be generated using the `ktor.fatJar` extension:
+   ```kotlin
    ```
-1. Wait until the following message is shown:
-   ```Bash
-   [main] INFO  Application - Responding at http://0.0.0.0:8080
-   ```
-   Open the link in a browser to see a running application:
-   <img src="ktor_idea_new_project_browser.png" alt="Ktor app in a browser" width="430"/>
+   {src="snippets/fatjar/build.gradle.kts" lines="29-33"}
+
+
+## Build and run a fat JAR {id="build"}
+
+The Ktor plugin provides the following tasks for creating and running fat JARs:
+- `buildFatJar`: builds a combined JAR of a project and runtime dependencies. You should see the `***-all.jar` file in the `build/libs` directory when this build completes.
+- `runFatJar`: builds a fat JAR of a project and runs it.
