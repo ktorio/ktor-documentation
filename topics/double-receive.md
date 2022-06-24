@@ -52,9 +52,6 @@ With the default configuration, `%plugin_name%` provides the ability to [receive
 - `String`
 - `Parameters` 
 - [data classes](serialization.md#create_data_class) used by the `ContentNegotiation` plugin
-
-By default, `%plugin_name%` doesn't support:
-
 - receiving different types from the same request
 - receiving a [stream or channel](requests.md#raw)
 
