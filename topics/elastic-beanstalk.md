@@ -46,8 +46,8 @@ First, you need to specify a port used to listen for incoming requests. Elastic 
    ```
   {src="snippets/aws-elastic-beanstalk/src/main/resources/application.conf" lines="1-5,9" style="block"}
 
-### Step 2: Apply the Shadow plugin {id="configure-shadow-plugin"}
-This tutorial shows how to deploy the application to Elastic Beanstalk using a [fat JAR](fatjar.md). To generate fat JARs, you need to apply the Shadow plugin. Open the `build.gradle.kts` file and add the plugin to the `plugins` block:
+### Step 2: Apply the Ktor plugin {id="configure-ktor-plugin"}
+This tutorial shows how to deploy the application to Elastic Beanstalk using a [fat JAR](fatjar.md). To generate fat JARs, you need to apply the Ktor plugin. Open the `build.gradle.kts` file and add the plugin to the `plugins` block:
 ```groovy
 ```
 {src="snippets/aws-elastic-beanstalk/build.gradle.kts" lines="5,8-9"}
@@ -59,14 +59,14 @@ Then, make sure that the [main application class](server-dependencies.xml#create
 
 
 ## Build a Fat JAR {id="build"}
-To build a Fat JAR, open the terminal and execute the `shadowJar` task provided by the [Shadow plugin](#configure-shadow-plugin):
+To build a Fat JAR, open the terminal and execute the `buildFatJar` task provided by the [Ktor plugin](#configure-ktor-plugin):
 
 <tabs group="os">
 <tab title="Linux/MacOS" group-key="unix">
-<code style="block" lang="Bash">./gradlew :aws-elastic-beanstalk:shadowJar</code>
+<code style="block" lang="Bash">./gradlew :aws-elastic-beanstalk:buildFatJar</code>
 </tab>
 <tab title="Windows" group-key="windows">
-<code style="block" lang="CMD">gradlew.bat :aws-elastic-beanstalk:shadowJar</code>
+<code style="block" lang="CMD">gradlew.bat :aws-elastic-beanstalk:buildFatJar</code>
 </tab>
 </tabs>
 

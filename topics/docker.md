@@ -19,6 +19,9 @@ Docker is a container system that allows for packaging software in a format that
 platform that supports Docker, such as Linux, macOS, and Windows. Conceptually Docker is an operating system with
 layers providing multiple services. While the basics of Docker will be covered, if you're not familiar with it, check out the [Getting Started](https://docs.docker.com/get-started/) documentation. 
 
+> The [Ktor Gradle plugin](https://github.com/ktorio/ktor-build-plugins) simplifies tasks related to packaging, running, and deploying your application using Docker.
+
+
 ## Clone a sample application {id="clone"}
 In this tutorial, we'll be using a project created in [](intellij-idea.xml): [ktor-get-started-sample](https://github.com/ktorio/ktor-get-started-sample).
 
@@ -47,7 +50,7 @@ In the root folder of the project, create a file named `Dockerfile` with the fol
 FROM gradle:7-jdk11 AS build
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
-RUN gradle shadowJar --no-daemon
+RUN gradle buildFatJar --no-daemon
 
 FROM openjdk:11
 EXPOSE 8080:8080

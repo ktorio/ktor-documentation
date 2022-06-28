@@ -8,7 +8,7 @@ A sample Ktor project showing how to use the [XForwardedHeader](https://ktor.io/
 To run this application under Docker Compose, follow the steps below:
 1. Create a fat JAR containing a Ktor application:
    ```Bash
-    ./gradlew :forwarded-header:shadowJar
+    ./gradlew :forwarded-header:buildFatJar
    ```
 2. Run the `docker-compose up` command:
    ```Bash

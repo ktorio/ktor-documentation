@@ -56,14 +56,14 @@ Finally, open `com/example/Application.kt` and pass `environment.config` to `Dat
 ```
 {src="snippets/tutorial-website-interactive-docker-compose/src/main/kotlin/com/example/Application.kt" lines="9-13"}
 
-### Configure the Shadow plugin {id="configure-shadow"}
+### Configure the Ktor plugin {id="configure-ktor-plugin"}
 
 In order to run on Docker, the application needs to have all the required files deployed to the container. Depending on the build system you're using,
 there are different plugins to accomplish this:
 - [](fatjar.md)
 - [](maven-assembly-plugin.md)
 
-For example, to apply the Shadow plugin, open the `build.gradle.kts` file and add the `shadow` plugin to the `plugins` block:
+For example, to apply the Ktor plugin, open the `build.gradle.kts` file and add the `ktor` plugin to the `plugins` block:
 
 ```kotlin
 ```
@@ -95,9 +95,9 @@ Create the `docker-compose.yml` in the root of the project and add the following
 
 ## Build and run services {id="build-run"}
 
-1. Before running `docker compose up`, create a [fat JAR](#configure-shadow) containing a Ktor application:
+1. Before running `docker compose up`, create a [fat JAR](#configure-ktor-plugin) containing a Ktor application:
    ```Bash
-   ./gradlew :tutorial-website-interactive-docker-compose:shadowJar
+   ./gradlew :tutorial-website-interactive-docker-compose:buildFatJar
    ```
 2. Then, execute `docker compose up` ...
    ```Bash

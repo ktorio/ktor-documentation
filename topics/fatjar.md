@@ -1,7 +1,7 @@
 [//]: # (title: Creating fat JARs using the Ktor Gradle plugin)
 
 <microformat>
-<var name="example_name" value="fatjar"/>
+<var name="example_name" value="deployment-ktor-plugin"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
@@ -14,17 +14,17 @@ To build a fat JAR, you need to configure the Ktor plugin first:
 1. Open the `build.gradle.kts` file and add the plugin to the `plugins` block:
    ```kotlin
    ```
-   {src="snippets/fatjar/build.gradle.kts" lines="5,8-9"}
+   {src="snippets/deployment-ktor-plugin/build.gradle.kts" lines="5,8-9"}
 
 2. Make sure the [main application class](server-dependencies.xml#create-entry-point) is configured:
    ```kotlin
    ```
-   {src="snippets/fatjar/build.gradle.kts" lines="11-13"}
+   {src="snippets/deployment-ktor-plugin/build.gradle.kts" lines="11-13"}
 
 3. Optionally, you can  configure the name of the fat JAR to be generated using the `ktor.fatJar` extension:
    ```kotlin
    ```
-   {src="snippets/fatjar/build.gradle.kts" lines="29-33"}
+   {src="snippets/deployment-ktor-plugin/build.gradle.kts" lines="29-32,51"}
 
 
 ## Build and run a fat JAR {id="build"}

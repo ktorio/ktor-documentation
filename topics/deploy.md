@@ -1,7 +1,16 @@
 [//]: # (title: Deployment)
 
+<microformat>
+<var name="example_name" value="deployment-ktor-plugin"/>
+<include src="lib.xml" include-id="download_example"/>
+</microformat>
 
 In this topic, we'll make an overview of how to deploy a Ktor application.
+
+> To simplify the deployment process of server Ktor applications, you can use the [Ktor](https://github.com/ktorio/ktor-build-plugins) plugin for Gradle, which provides the following capabilities:
+> - Building fat JARs.
+> - Dockerizing your applications.
+> - Building GraalVM native images.
 
 ## Ktor deployment specifics {id="ktor-specifics"}
 The deployment process for a server Ktor application depends on the following specifics:
@@ -25,7 +34,7 @@ Before deploying your application, you need to package it in one of the followin
 
 * **Fat JAR**
 
-  A fat JAR is an executable JAR that includes all code dependencies. You can deploy it to any [cloud service](#publishing) that supports fat JARs. A fat JAR is also required if you need to generate a native binary for GraalVM. To create a fat JAR, you can use the [Shadow](fatjar.md) plugin for Gradle or the [Assembly](maven-assembly-plugin.md) plugin for Maven.
+  A fat JAR is an executable JAR that includes all code dependencies. You can deploy it to any [cloud service](#publishing) that supports fat JARs. A fat JAR is also required if you need to generate a native binary for GraalVM. To create a fat JAR, you can use the [Ktor](fatjar.md) plugin for Gradle or the [Assembly](maven-assembly-plugin.md) plugin for Maven.
 
 * **Executable JVM application**
 
@@ -37,7 +46,8 @@ Before deploying your application, you need to package it in one of the followin
 
 * **GraalVM**
 
-   Ktor Server applications can make use of [GraalVM](Graalvm.md) in order to have native images for different platforms.
+   Ktor server applications can make use of [GraalVM](Graalvm.md) in order to have native images for different platforms.
+   The [Ktor Gradle plugin](https://github.com/ktorio/ktor-build-plugins) allows you to build a project's GraalVM native image.
 
 
 

@@ -18,7 +18,7 @@ Then, navigate to [http://localhost:5000/](http://localhost:5000/) to see the sa
 To deploy this application to AWS Elastic Beanstalk, generate a fat JAR first with the following command:
 
 ```
-./gradlew :aws-elastic-beanstalk:shadowJar
+./gradlew :aws-elastic-beanstalk:buildFatJar
 ```
 
 Then, deploy the generated `build/libs/aws-elastic-beanstalk-1.0-SNAPSHOT-all.jar` file as described in [Deploy an application](https://ktor.io/docs/elastic-beanstalk.html#deploy-app).
