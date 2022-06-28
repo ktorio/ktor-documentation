@@ -19,12 +19,12 @@ The table below lists platforms supported by each engine:
 | Apache  | [JVM](#jvm)                                             |
 | Java    | [JVM](#jvm)                                             |
 | Jetty   | [JVM](#jvm)                                             |
-| CIO     | [JVM](#jvm), [Android](#jvm-android), [Native](#native) |
 | Android | [JVM](#jvm), [Android](#jvm-android)                    |
 | OkHttp  | [JVM](#jvm), [Android](#jvm-android)                    |
-| Js      | [JavaScript](#js)                                       |
 | Darwin  | [Native](#native)                                       |
 | Curl    | [Native](#native)                                       |
+| CIO     | [JVM](#jvm), [Android](#jvm-android), [Native](#native) |
+| Js      | [JavaScript](#js)                                       |
 
 ### Supported Android/Java versions {id="minimal-version"}
 
@@ -155,21 +155,6 @@ The `Jetty` engine supports only HTTP/2 and can be configured in the following w
 
 In this section, we'll take a look on engines available for JVM/Android and their configurations.
 
-### CIO {id="cio"}
-CIO is a fully asynchronous coroutine-based engine that can be used for both JVM and Android platforms. It supports only HTTP/1.x for now. To use it, follow the steps below:
-1. Add the `ktor-client-cio` dependency:
-   <var name="artifact_name" value="ktor-client-cio"/>
-   <include src="lib.xml" include-id="add_ktor_artifact"/>
-1. Pass the [CIO](https://api.ktor.io/ktor-client/ktor-client-cio/io.ktor.client.engine.cio/-c-i-o/index.html) class as an argument to the `HttpClient` constructor:
-   ```kotlin
-   ```
-   {src="snippets/_misc_client/CioCreate.kt"}
-   
-1. To configure an engine, pass settings exposed by [CIOEngineConfig](https://api.ktor.io/ktor-client/ktor-client-cio/io.ktor.client.engine.cio/-c-i-o-engine-config/index.html) to the `engine` method:
-   ```kotlin
-   ```
-   {src="snippets/_misc_client/CioConfig.kt" interpolate-variables="true" disable-links="false"}
-
 ### Android {id="android"}
 The `Android` engine targets Android and can be configured in the following way:
 1. Add the `ktor-client-android` dependency:
@@ -198,31 +183,6 @@ The `OkHttp` engine is based on OkHttp can be configured in the following way:
    ```
    {src="snippets/_misc_client/OkHttpConfig.kt" interpolate-variables="true" disable-links="false"}
 
-
-## JavaScript {id="js"}
-
-The `Js` engine can be used for [JavaScript projects](https://kotlinlang.org/docs/js-overview.html). This engine uses the [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) for browser applications and `node-fetch` for Node.js. To use it, follow the steps below:
-
-1. Add the `ktor-client-js` dependency:
-   <var name="artifact_name" value="ktor-client-js"/>
-   <var name="target" value=""/>
-   <include src="lib.xml" include-id="add_ktor_artifact_mpp"/>
-2. Pass the `Js` class as an argument to the `HttpClient` constructor:
-   ```kotlin
-   import io.ktor.client.*
-   import io.ktor.client.engine.js.*
-   
-   val client = HttpClient(Js)
-   ```
-   
-   You can also call the `JsClient` function to get the `Js` engine singleton:
-   ```kotlin
-   import io.ktor.client.engine.js.*
-
-   val client = JsClient()
-   ```
-   
-You can find the full example here: [client-engine-js](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-engine-js).
 
 ## Native {id="native"}
 In this section, we'll have a look on how to configure engines targeted for [Kotlin/Native](https://kotlinlang.org/docs/native-overview.html).
@@ -276,6 +236,49 @@ For desktop platforms, Ktor also provides the `Curl` engine. This engine is supp
 
    You can find the full example here: [client-engine-curl](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-engine-curl).
 
+
+## JVM, Android, and Native {id="jvm-android-native"}
+
+### CIO {id="cio"}
+CIO is a fully asynchronous coroutine-based engine that can be used on JVM, Android, and Native platforms. It supports only HTTP/1.x for now. To use it, follow the steps below:
+1. Add the `ktor-client-cio` dependency:
+   <var name="artifact_name" value="ktor-client-cio"/>
+   <include src="lib.xml" include-id="add_ktor_artifact"/>
+1. Pass the [CIO](https://api.ktor.io/ktor-client/ktor-client-cio/io.ktor.client.engine.cio/-c-i-o/index.html) class as an argument to the `HttpClient` constructor:
+   ```kotlin
+   ```
+   {src="snippets/_misc_client/CioCreate.kt"}
+
+1. To configure an engine, pass settings exposed by [CIOEngineConfig](https://api.ktor.io/ktor-client/ktor-client-cio/io.ktor.client.engine.cio/-c-i-o-engine-config/index.html) to the `engine` method:
+   ```kotlin
+   ```
+   {src="snippets/_misc_client/CioConfig.kt" interpolate-variables="true" disable-links="false"}
+
+
+## JavaScript {id="js"}
+
+The `Js` engine can be used for [JavaScript projects](https://kotlinlang.org/docs/js-overview.html). This engine uses the [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) for browser applications and `node-fetch` for Node.js. To use it, follow the steps below:
+
+1. Add the `ktor-client-js` dependency:
+   <var name="artifact_name" value="ktor-client-js"/>
+   <var name="target" value=""/>
+   <include src="lib.xml" include-id="add_ktor_artifact_mpp"/>
+2. Pass the `Js` class as an argument to the `HttpClient` constructor:
+   ```kotlin
+   import io.ktor.client.*
+   import io.ktor.client.engine.js.*
+   
+   val client = HttpClient(Js)
+   ```
+
+   You can also call the `JsClient` function to get the `Js` engine singleton:
+   ```kotlin
+   import io.ktor.client.engine.js.*
+
+   val client = JsClient()
+   ```
+
+You can find the full example here: [client-engine-js](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-engine-js).
 
 ## Example: How to configure an engine in a multiplatform mobile project {id="mpp-config"}
 
