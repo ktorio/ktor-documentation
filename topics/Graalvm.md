@@ -40,4 +40,4 @@ To build a native executable, you need to configure the Ktor plugin first:
 ## Build and run a native executable {id="build"}
 
 The `buildNativeImage` task provided by the Ktor plugin generates a native executable with your application in the `build/native/nativeCompile` directory.
-Executing it will launch the Ktor server, responding on `https://0.0.0.0:8080`.
+Executing it will launch the Ktor server, responding on `https://0.0.0.0:8080` by default.
