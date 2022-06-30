@@ -2,6 +2,7 @@ pluginManagement {
     repositories {
         gradlePluginPortal()
         mavenCentral()
+        maven("https://maven.pkg.jetbrains.space/public/p/ktor/eap")
     }
     resolutionStrategy {
         eachPlugin {
@@ -106,7 +107,7 @@ module("snippets", "client-content-encoding")
 module("snippets", "client-caching")
 module("snippets", "client-default-request")
 module("snippets", "client-http-send")
-module("snippets", "fatjar")
+module("snippets", "deployment-ktor-plugin")
 module("snippets", "tutorial-http-api")
 module("snippets", "tutorial-website-interactive")
 module("snippets", "tutorial-website-interactive-persistence")

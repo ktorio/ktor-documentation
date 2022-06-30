@@ -1,41 +1,138 @@
 [//]: # (title: Docker)
 
 <microformat>
-<p>
-<control>Initial project</control>: <a href="https://github.com/ktorio/ktor-get-started-sample">ktor-get-started-sample</a>
-</p>
-<p>
-<control>Final project</control>: <a href="https://github.com/ktorio/ktor-get-started-sample/tree/docker">ktor-get-started-sample</a>, the <control>docker</control> branch
-</p>
+<var name="example_name" value="deployment-ktor-plugin"/>
+<include src="lib.xml" include-id="download_example"/>
 </microformat>
 
 <excerpt>
 Learn how to deploy a Ktor application to a Docker container, which can then be run either locally or on your cloud provider of choice.
 </excerpt>
 
-In this section, we'll see how to deploy a Ktor application to a [Docker](https://www.docker.com) container, which can then be run either locally or on your cloud provider of choice.
-
-Docker is a container system that allows for packaging software in a format that can then be run on any
-platform that supports Docker, such as Linux, macOS, and Windows. Conceptually Docker is an operating system with
-layers providing multiple services. While the basics of Docker will be covered, if you're not familiar with it, check out the [Getting Started](https://docs.docker.com/get-started/) documentation. 
-
-## Clone a sample application {id="clone"}
-In this tutorial, we'll be using a project created in [](intellij-idea.xml): [ktor-get-started-sample](https://github.com/ktorio/ktor-get-started-sample).
-
-
-## Get the application ready {id="prepare-app"}
-In order to run on Docker, the application needs to have all the required files deployed to the container. As a first step,
-you need to create a fat JAR file containing the application and its dependencies. Depending on the build system you're using,
-there are different ways to accomplish this:
-- To prepare a Gradle project, follow the steps from the [](fatjar.md#configure-plugin) section.
-- To prepare a Maven project, follow the steps from [](maven-assembly-plugin.md#configure-plugin).
+In this section, we'll see how to use the [Ktor Gradle plugin](https://github.com/ktorio/ktor-build-plugins) for packaging, running, and deploying applications using [Docker](https://www.docker.com).
 
 
 
-## Prepare Docker image {id="prepare-docker"}
+## Install the Ktor plugin {id="install-plugin"}
+
+To install the Ktor plugin, add it to the `plugins` block of your `build.gradle.(kts)` file:
+
+<tabs group="languages">
+<tab title="Gradle (Kotlin)" group-key="kotlin">
+
+```kotlin
+plugins {
+    id("io.ktor.plugin") version "%ktor_version%"
+}
+```
+{interpolate-variables="true"}
+
+</tab>
+<tab title="Gradle (Groovy)" group-key="groovy">
+
+```groovy
+plugins {
+    id "io.ktor.plugin" version "%ktor_version%"
+}
+```
+{interpolate-variables="true"}
+
+</tab>
+</tabs>
+
+
+## Plugin tasks {id="tasks"}
+
+After [installing](#install-plugin) the plugin, the following tasks are available for packaging, running, and deploying applications:
+
+- `buildImage`: builds a project's Docker image to a tarball. This task generates a `jib-image.tar` file in the `build` directory. You can load this image to a Docker daemon using the [docker load](https://docs.docker.com/engine/reference/commandline/load/) command:
+   ```Bash
+   docker load < build/jib-image.tar
+   ```
+- `publishImageToLocalRegistry`: builds and publishes a project's Docker image to a local registry.
+- `runDocker`: builds a project's image to a Docker daemon and runs it. Executing this task will launch the Ktor server, responding on `https://0.0.0.0:8080` by default.
+- `publishImage`: builds and publishes a project's Docker image to an external registry such as [Docker Hub](https://hub.docker.com/) or [Google Container Registry](https://cloud.google.com/container-registry). Note that you need to configure the external registry using the **[ktor.docker.externalRegistry](#external-registry)** property for this task.
+
+Note that by default, these tasks build the image with the `ktor-docker-image` name and `latest` tag. 
+You can customize these values in the [plugin configuration](#name-tag).
+
+## Configure the Ktor plugin {id="configure-plugin"}
+
+To configure the Ktor plugin settings related to Docker tasks, use the `ktor.docker` extension in your `build.gradle.(kts)` file:
+
+```kotlin
+ktor {
+    docker {
+        // ...
+    }
+}
+```
+
+### JRE version {id="jre-version"}
+
+The `jreVersion` property specifies the JRE version to use in the image:
+
+```kotlin
+```
+{src="snippets/deployment-ktor-plugin/build.gradle.kts" lines="29,34-35,46,51"}
+
+### Image name and tag {id="name-tag"}
+
+If you need to customize the image name and tag, use the `localImageName` and `imageTag` properties, respectively:
+
+```kotlin
+```
+{src="snippets/deployment-ktor-plugin/build.gradle.kts" lines="29,34,36-37,46,51"}
+
+
+### External registry {id="external-registry"}
+
+Before publishing a project's Docker image to an external registry using the **[publishImage](#tasks)** task, you need to configure the external registry using the `ktor.docker.externalRegistry` property. This property accepts the `DockerImageRegistry` instance, which provides configuration for the required registry type:
+
+- `DockerImageRegistry.dockerHub`: creates a `DockerImageRegistry` for [Docker Hub](https://hub.docker.com/).
+- `DockerImageRegistry.googleContainerRegistry`: creates a `DockerImageRegistry` for [Google Container Registry](https://cloud.google.com/container-registry).
+
+The example below shows how to configure the Docker Hub registry:
+
+```kotlin
+```
+{src="snippets/deployment-ktor-plugin/build.gradle.kts" lines="29,34,39-46,51"}
+
+Note that the Docker Hub name and password are fetched from the environment variables, so you need to set these values before running the `publishImage` task:
+
+<tabs group="os">
+<tab title="Linux/macOS" group-key="unix">
+
+```Bash
+export DOCKER_HUB_USERNAME=yourHubUsername
+export DOCKER_HUB_PASSWORD=yourHubPassword
+```
+
+</tab>
+<tab title="Windows" group-key="windows">
+
+```Bash
+setx DOCKER_HUB_USERNAME yourHubUsername
+setx DOCKER_HUB_PASSWORD yourHubPassword
+```
+
+</tab>
+</tabs>
+
+
+## Manual image configuration {id="manual"}
+
+If required, you can provide your own `Dockerfile` to assemble an image with a Ktor application.
+
+### Package the application {id="packagea-pp"}
+As a first step, you need to package your application along with its dependencies. 
+For example, this might be a [fat JAR](fatjar.md) or an [executable JVM application](gradle-application-plugin.md).
+
+
+### Prepare Docker image {id="prepare-docker"}
 
 To dockerize the application, we'll use [multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/):
-- First, we'll use the `gradle`/`maven` image to generate a distribution of the application.
+- First, we'll use the `gradle`/`maven` image to generate a fat JAR with the application.
 - Then, the generated distribution will be run in the environment created based on the `openjdk` image.
 
 In the root folder of the project, create a file named `Dockerfile` with the following contents:
@@ -47,7 +144,7 @@ In the root folder of the project, create a file named `Dockerfile` with the fol
 FROM gradle:7-jdk11 AS build
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
-RUN gradle shadowJar --no-daemon
+RUN gradle buildFatJar --no-daemon
 
 FROM openjdk:11
 EXPOSE 8080:8080
@@ -84,7 +181,10 @@ The second stage of the build works in the following way:
 * Runs the application (`ENTRYPOINT`).
 
 
-## Build and run the Docker image {id="build-run"}
+You can find the resulting project in the **docker** branch of the [ktor-get-started-sample](https://github.com/ktorio/ktor-get-started-sample) repository.
+
+
+### Build and run the Docker image {id="build-run"}
 
 The next step is to build and tag the Docker image:
 
@@ -98,8 +198,4 @@ Finally, start the image:
 docker run -p 8080:8080 my-application
 ```
 
-If using IntelliJ IDEA, you can click `Run` in the `Dockerfile` to perform these steps:
-
-![Docker Run](run-docker.png){width="291"}
-
-Learn more from the [Docker](https://www.jetbrains.com/help/idea/docker.html) topic.
+This will launch the Ktor server, responding on `https://0.0.0.0:8080`.

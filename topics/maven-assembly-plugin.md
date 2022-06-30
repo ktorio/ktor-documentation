@@ -1,4 +1,4 @@
-[//]: # (title: Maven Assembly plugin)
+[//]: # (title: Creating fat JARs using the Maven Assembly plugin)
 
 <microformat>
 <p>

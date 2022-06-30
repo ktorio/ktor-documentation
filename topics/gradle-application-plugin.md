@@ -50,7 +50,7 @@ In this topic, we'll use `installDist`:
 1. Run the `installDist` task in one of the following ways depending on your operating system:
    
    <tabs group="os">
-   <tab title="Linux/MacOS" group-key="unix">
+   <tab title="Linux/macOS" group-key="unix">
    <code style="block" lang="Bash">./gradlew :engine-main:installDist</code>
    </tab>
    <tab title="Windows" group-key="windows">
@@ -68,7 +68,7 @@ To run the [packaged application](#package):
 
    <chunk id="run_executable">
    <tabs group="os">
-   <tab title="Linux/MacOS" group-key="unix">
+   <tab title="Linux/macOS" group-key="unix">
    <code style="block" lang="Bash">./engine-main</code>
    </tab>
    <tab title="Windows" group-key="windows">
