@@ -184,7 +184,7 @@
                 <toc-element id="Graalvm.md"/>
             </toc-element>
             <toc-element toc-title="Containerizing">
-                <toc-element id="docker.md"
+                <toc-element id="docker.md" show-structure-depth="2"
                              accepts-web-file-names="containers.html"/>
                 <toc-element id="docker-compose.md" show-structure-depth="2"/>
             </toc-element>

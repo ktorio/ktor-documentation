@@ -62,7 +62,7 @@ Then, make sure that the [main application class](server-dependencies.xml#create
 To build a Fat JAR, open the terminal and execute the `buildFatJar` task provided by the [Ktor plugin](#configure-ktor-plugin):
 
 <tabs group="os">
-<tab title="Linux/MacOS" group-key="unix">
+<tab title="Linux/macOS" group-key="unix">
 <code style="block" lang="Bash">./gradlew :aws-elastic-beanstalk:buildFatJar</code>
 </tab>
 <tab title="Windows" group-key="windows">
