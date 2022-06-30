@@ -12,9 +12,7 @@ import org.slf4j.event.*
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
 fun Application.module() {
-    install(DoubleReceive) {
-        cacheRawRequest = false
-    }
+    install(DoubleReceive)
     install(CallLogging) {
         level = Level.TRACE
         format { call ->

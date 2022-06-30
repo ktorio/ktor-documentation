@@ -34,13 +34,13 @@ For example, you can enable logging of a request body using the [CallLogging](ca
 
 ```kotlin
 ```
-{src="snippets/double-receive/src/main/kotlin/com/example/Application.kt" lines="18-25"}
+{src="snippets/double-receive/src/main/kotlin/com/example/Application.kt" lines="16-23"}
 
 ... and then get a request body one more time inside a route handler.
 
 ```kotlin
 ```
-{src="snippets/double-receive/src/main/kotlin/com/example/Application.kt" lines="27-30"}
+{src="snippets/double-receive/src/main/kotlin/com/example/Application.kt" lines="25-28"}
 
 You can find the full example here: [double-receive](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/double-receive).
 
@@ -58,5 +58,7 @@ With the default configuration, `%plugin_name%` provides the ability to [receive
 Set the `cacheRawRequest` property to `false`, if you do not need to receive different types from the same request or receive a stream or channel:
 
 ```kotlin
+install(DoubleReceive) {
+    cacheRawRequest = false
+}
 ```
-{src="snippets/double-receive/src/main/kotlin/com/example/Application.kt" lines="15-17"}
