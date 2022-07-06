@@ -75,6 +75,8 @@ replaceXmlAttributeName if product instance
 
 # 09 - assorted attributes
 
+# FIXME: below assumes the single line but this is frequently false for <list>s in ktor-docs
 replaceXmlAttributeName list type style
+replaceXmlTagsInTopics menupath ui-path
 
 

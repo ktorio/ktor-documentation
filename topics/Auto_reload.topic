@@ -130,7 +130,7 @@
             <li>
                 <p>
                     To rebuild a project manually in IntelliJ IDEA, select
-                    <menupath>Build | Rebuild Project</menupath> from the main menu.
+                    <ui-path>Build | Rebuild Project</ui-path> from the main menu.
                 </p>
             </li>
             <li>
