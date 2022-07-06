@@ -2,7 +2,7 @@
 
 <tldr>
 <var name="example_name" value="client-timeout"/>
-<include src="lib.xml" element-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 </tldr>
 
 The [HttpTimeout](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-timeout/index.html) plugin allows you to configure the following timeouts:

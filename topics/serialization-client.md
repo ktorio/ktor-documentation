@@ -8,7 +8,7 @@
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="client-json-kotlinx"/>
-<include src="lib.xml" element-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 </tldr>
 
 <link-summary>
@@ -25,9 +25,9 @@ The [ContentNegotiation](https://api.ktor.io/ktor-client/ktor-client-plugins/kto
 ## Add dependencies {id="add_dependencies"}
 ### ContentNegotiation {id="add_content_negotiation_dependency"}
 
-<include src="lib.xml" element-id="add_ktor_artifact_intro"/>
-<include src="lib.xml" element-id="add_ktor_artifact"/>
-<include src="lib.xml" element-id="add_ktor_client_artifact_tip"/>
+<include src="lib.topic" element-id="add_ktor_artifact_intro"/>
+<include src="lib.topic" element-id="add_ktor_artifact"/>
+<include src="lib.topic" element-id="add_ktor_client_artifact_tip"/>
 
 Note that serializers for specific formats require additional artifacts. For example, kotlinx.serialization requires the `ktor-serialization-kotlinx-json` dependency for JSON. Depending on the included artifacts, Ktor chooses a default serializer automatically. If required, you can [specify the serializer](#configure_serializer) explicitly and configure it.
 

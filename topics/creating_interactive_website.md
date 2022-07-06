@@ -2,7 +2,7 @@
 
 <tldr>
 <var name="example_name" value="tutorial-website-interactive"/>
-<include src="lib.xml" element-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 <p>
 <b>Used plugins</b>: <a href="Routing_in_Ktor.md">Routing</a>, <a href="freemarker.md">FreeMarker</a>
 </p>

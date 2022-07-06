@@ -52,3 +52,6 @@ replaceXmlTagsInTopics excerpt link-summary
 
 find ./topics/ -type f -exec sed -i '' -r -e \
     's~<include ([^>]*) include-id="~<include \1 element-id="~g' {} \;
+
+find ./topics/ -type f -exec sed -i '' -r -e \
+    's~<include ([^>]*)src="([^.]*)\.xml"~<include \1src="\2\.topic"~g' {} \;

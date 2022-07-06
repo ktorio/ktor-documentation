@@ -110,7 +110,7 @@ In this section, we'll take a look on engines available for JVM.
 The `Apache` engine supports HTTP/1.1 and provides multiple configuration options. To use it, follow the steps below:
 1. Add the `ktor-client-apache` dependency:
    <var name="artifact_name" value="ktor-client-apache"/>
-   <include src="lib.xml" element-id="add_ktor_artifact"/>
+   <include src="lib.topic" element-id="add_ktor_artifact"/>
 1. Pass the [Apache](https://api.ktor.io/ktor-client/ktor-client-apache/io.ktor.client.engine.apache/-apache/index.html) class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
@@ -125,7 +125,7 @@ The `Apache` engine supports HTTP/1.1 and provides multiple configuration option
 The `Java` engine uses the [Java HTTP Client](https://openjdk.java.net/groups/net/httpclient/intro.html) introduced in Java 11. To use it, follow the steps below:
 1. Add the `ktor-client-java` dependency:
    <var name="artifact_name" value="ktor-client-java"/>
-   <include src="lib.xml" element-id="add_ktor_artifact"/>
+   <include src="lib.topic" element-id="add_ktor_artifact"/>
 1. Pass the [Java](https://api.ktor.io/ktor-client/ktor-client-java/io.ktor.client.engine.java/-java/index.html) class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
@@ -139,7 +139,7 @@ The `Java` engine uses the [Java HTTP Client](https://openjdk.java.net/groups/ne
 The `Jetty` engine supports only HTTP/2 and can be configured in the following way:
 1. Add the `ktor-client-jetty` dependency:
    <var name="artifact_name" value="ktor-client-jetty"/>
-   <include src="lib.xml" element-id="add_ktor_artifact"/>
+   <include src="lib.topic" element-id="add_ktor_artifact"/>
 1. Pass the [Jetty](https://api.ktor.io/ktor-client/ktor-client-jetty/io.ktor.client.engine.jetty/-jetty/index.html) class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
@@ -159,7 +159,7 @@ In this section, we'll take a look on engines available for JVM/Android and thei
 CIO is a fully asynchronous coroutine-based engine that can be used for both JVM and Android platforms. It supports only HTTP/1.x for now. To use it, follow the steps below:
 1. Add the `ktor-client-cio` dependency:
    <var name="artifact_name" value="ktor-client-cio"/>
-   <include src="lib.xml" element-id="add_ktor_artifact"/>
+   <include src="lib.topic" element-id="add_ktor_artifact"/>
 1. Pass the [CIO](https://api.ktor.io/ktor-client/ktor-client-cio/io.ktor.client.engine.cio/-c-i-o/index.html) class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
@@ -174,7 +174,7 @@ CIO is a fully asynchronous coroutine-based engine that can be used for both JVM
 The `Android` engine targets Android and can be configured in the following way:
 1. Add the `ktor-client-android` dependency:
    <var name="artifact_name" value="ktor-client-android"/>
-   <include src="lib.xml" element-id="add_ktor_artifact"/>
+   <include src="lib.topic" element-id="add_ktor_artifact"/>
 1. Pass the [Android](https://api.ktor.io/ktor-client/ktor-client-android/io.ktor.client.engine.android/-android/index.html) class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
@@ -188,7 +188,7 @@ The `Android` engine targets Android and can be configured in the following way:
 The `OkHttp` engine is based on OkHttp can be configured in the following way:
 1. Add the `ktor-client-okhttp` dependency:
    <var name="artifact_name" value="ktor-client-okhttp"/>
-   <include src="lib.xml" element-id="add_ktor_artifact"/>
+   <include src="lib.topic" element-id="add_ktor_artifact"/>
 1. Pass the [OkHttp](https://api.ktor.io/ktor-client/ktor-client-okhttp/io.ktor.client.engine.okhttp/-ok-http/index.html) class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
@@ -206,7 +206,7 @@ The `Js` engine can be used for [JavaScript projects](https://kotlinlang.org/doc
 1. Add the `ktor-client-js` dependency:
    <var name="artifact_name" value="ktor-client-js"/>
    <var name="target" value=""/>
-   <include src="lib.xml" element-id="add_ktor_artifact_mpp"/>
+   <include src="lib.topic" element-id="add_ktor_artifact_mpp"/>
 2. Pass the `Js` class as an argument to the `HttpClient` constructor:
    ```kotlin
    import io.ktor.client.*
@@ -235,7 +235,7 @@ The `Darwin` engine targets [Darwin-based](https://en.wikipedia.org/wiki/Darwin_
 1. Add the `ktor-client-darwin` dependency:
    <var name="artifact_name" value="ktor-client-darwin"/>
    <var name="target" value="-macosx64"/>
-   <include src="lib.xml" element-id="add_ktor_artifact_mpp"/>
+   <include src="lib.topic" element-id="add_ktor_artifact_mpp"/>
 2. Pass the `darwin` class as an argument to the `HttpClient` constructor:
    ```kotlin
    import io.ktor.client.*
@@ -259,7 +259,7 @@ For desktop platforms, Ktor also provides the `Curl` engine. This engine is supp
 2. Add the `ktor-client-curl` dependency:
    <var name="artifact_name" value="ktor-client-curl"/>
    <var name="target" value="-macosx64"/>
-   <include src="lib.xml" element-id="add_ktor_artifact_mpp"/>
+   <include src="lib.topic" element-id="add_ktor_artifact_mpp"/>
 3. Pass the `Curl` class as an argument to the `HttpClient` constructor:
    ```kotlin
    import io.ktor.client.*

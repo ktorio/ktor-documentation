@@ -10,7 +10,7 @@
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="freemarker"/>
-<include src="lib.xml" element-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 </tldr>
 
 Ktor allows you to use [FreeMarker templates](https://freemarker.apache.org/) as views within your application by installing the [FreeMarker](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-freemarker/io.ktor.server.freemarker/-free-marker) plugin.
@@ -18,12 +18,12 @@ Ktor allows you to use [FreeMarker templates](https://freemarker.apache.org/) as
 
 ## Add dependencies {id="add_dependencies"}
 
-<include src="lib.xml" element-id="add_ktor_artifact_intro"/>
-<include src="lib.xml" element-id="add_ktor_artifact"/>
+<include src="lib.topic" element-id="add_ktor_artifact_intro"/>
+<include src="lib.topic" element-id="add_ktor_artifact"/>
 
 ## Install FreeMarker {id="install_plugin"}
 
-<include src="lib.xml" element-id="install_plugin"/>
+<include src="lib.topic" element-id="install_plugin"/>
 
 Inside the `install` block, you can [configure](#configure) the desired [TemplateLoader][freemarker_template_loading] for loading FreeMarker templates.
 

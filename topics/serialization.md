@@ -9,7 +9,7 @@
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="json-kotlinx"/>
-<include src="lib.xml" element-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 </tldr>
 
 <link-summary>
@@ -26,8 +26,8 @@ The [ContentNegotiation](https://api.ktor.io/ktor-server/ktor-server-plugins/kto
 
 ### ContentNegotiation {id="add_content_negotiation_dependency"}
 
-<include src="lib.xml" element-id="add_ktor_artifact_intro"/>
-<include src="lib.xml" element-id="add_ktor_artifact"/>
+<include src="lib.topic" element-id="add_ktor_artifact_intro"/>
+<include src="lib.topic" element-id="add_ktor_artifact"/>
 
 Note that serializers for specific formats require additional artifacts. For example, kotlinx.serialization requires the `ktor-serialization-kotlinx-json` dependency for JSON.
 
@@ -43,21 +43,21 @@ To serialize/deserialize JSON data, you can choose one of the following librarie
 1. Add the Kotlin serialization plugin, as described in the [Setup](https://github.com/Kotlin/kotlinx.serialization#setup) section.
 2. Add the `ktor-serialization-kotlinx-json` artifact in the build script:
    <var name="artifact_name" value="ktor-serialization-kotlinx-json"/>
-   <include src="lib.xml" element-id="add_ktor_artifact"/>
+   <include src="lib.topic" element-id="add_ktor_artifact"/>
 
 </tab>
 <tab title="Gson" group-key="gson">
 
 * Add the `ktor-serialization-gson` artifact in the build script:
    <var name="artifact_name" value="ktor-serialization-gson"/>
-   <include src="lib.xml" element-id="add_ktor_artifact"/>
+   <include src="lib.topic" element-id="add_ktor_artifact"/>
 
 </tab>
 <tab title="Jackson" group-key="jackson">
 
 * Add the `ktor-serialization-jackson` artifact in the build script:
    <var name="artifact_name" value="ktor-serialization-jackson"/>
-   <include src="lib.xml" element-id="add_ktor_artifact"/>
+   <include src="lib.topic" element-id="add_ktor_artifact"/>
 
 </tab>
 </tabs>
@@ -67,19 +67,19 @@ To serialize/deserialize JSON data, you can choose one of the following librarie
 
 To serialize/deserialize XML, add the `ktor-serialization-kotlinx-xml` in the build script:
 <var name="artifact_name" value="ktor-serialization-kotlinx-xml"/>
-<include src="lib.xml" element-id="add_ktor_artifact"/>
+<include src="lib.topic" element-id="add_ktor_artifact"/>
 
 ### CBOR {id="add_cbor_dependency"}
 
 To serialize/deserialize CBOR, add the `ktor-serialization-kotlinx-cbor` in the build script:
 <var name="artifact_name" value="ktor-serialization-kotlinx-cbor"/>
-<include src="lib.xml" element-id="add_ktor_artifact"/>
+<include src="lib.topic" element-id="add_ktor_artifact"/>
 
 </chunk>
 
 ## Install ContentNegotiation {id="install_plugin"}
 
-<include src="lib.xml" element-id="install_plugin"/>
+<include src="lib.topic" element-id="install_plugin"/>
 
 
 ## Configure a serializer {id="configure_serializer"}

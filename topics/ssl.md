@@ -27,7 +27,7 @@ This might be useful if you need to convert a PEM certificate issued by a certif
 Ktor provides the ability to generate self-signed certificates for testing purposes by calling the [generateCertificate](https://api.ktor.io/ktor-network/ktor-network-tls/ktor-network-tls-certificates/io.ktor.network.tls.certificates/generate-certificate.html) function, which returns a [KeyStore](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/security/KeyStore.html) instance. To use this function, you need to add the `ktor-network-tls-certificates` artifact in the build script:
 
 <var name="artifact_name" value="ktor-network-tls-certificates"/>
-<include src="lib.xml" element-id="add_ktor_artifact"/>
+<include src="lib.topic" element-id="add_ktor_artifact"/>
 
 The code snippet below shows how to generate a certificate and save it to a keystore file:
 

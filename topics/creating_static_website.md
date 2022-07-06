@@ -2,7 +2,7 @@
 
 <tldr>
 <var name="example_name" value="tutorial-website-static"/>
-<include src="lib.xml" element-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 <p>
 <b>Used plugins</b>: <a href="Routing_in_Ktor.md">Routing</a>, <a href="Serving_Static_Content.md">Static Content</a>
 </p>
@@ -18,13 +18,13 @@ In this series of tutorials, we'll show you how to create a simple blog applicat
 ![](ktor_journal.png){animated="true" width="502" border-effect="rounded"}
 
 ## Prerequisites {id="prerequisites"}
-<include src="lib.xml" element-id="plugin_prerequisites"/>
+<include src="lib.topic" element-id="plugin_prerequisites"/>
 
 ## Create a new Ktor project {id="create_ktor_project"}
 
 To create a base project for our application using the Ktor plugin, [open IntelliJ IDEA](https://www.jetbrains.com/help/idea/run-for-the-first-time.html) and follow the steps below:
 
-1. <include src="lib.xml" element-id="new_project_idea"/>
+1. <include src="lib.topic" element-id="new_project_idea"/>
 2. In the **New Project** wizard, choose **Ktor** from the list on the left. On the right pane, specify the following settings:
    ![New Ktor project](tutorial_website_new_project.png){width="706" border-effect="rounded"}
 * **Name**: Specify a project name.

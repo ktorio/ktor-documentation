@@ -9,7 +9,7 @@
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="call-id"/>
-<include src="lib.xml" element-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 </tldr>
 
 The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-call-id/io.ktor.server.plugins.callid/-call-id.html) plugin allows you to trace client requests end-to-end by using unique request IDs or call IDs. Typically, working with a call ID in Ktor might look as follows:
@@ -24,12 +24,12 @@ Using `%plugin_name%` along with [CallLogging](call-logging.md) helps you troubl
 
 ## Add dependencies {id="add_dependencies"}
 
-<include src="lib.xml" element-id="add_ktor_artifact_intro"/>
-<include src="lib.xml" element-id="add_ktor_artifact"/>
+<include src="lib.topic" element-id="add_ktor_artifact_intro"/>
+<include src="lib.topic" element-id="add_ktor_artifact"/>
 
 ## Install %plugin_name% {id="install_plugin"}
 
-<include src="lib.xml" element-id="install_plugin"/>
+<include src="lib.topic" element-id="install_plugin"/>
 
 
 ## Configure %plugin_name% {id="configure"}

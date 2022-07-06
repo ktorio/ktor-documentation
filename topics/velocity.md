@@ -11,7 +11,7 @@
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="velocity"/>
-<include src="lib.xml" element-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 </tldr>
 
 Ktor allows you to use [Velocity templates](https://velocity.apache.org/engine/) as views within your application by installing the [Velocity](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-velocity/io.ktor.server.velocity/-velocity) plugin.
@@ -19,12 +19,12 @@ Ktor allows you to use [Velocity templates](https://velocity.apache.org/engine/)
 
 ## Add dependencies {id="add_dependencies"}
 
-<include src="lib.xml" element-id="add_ktor_artifact_intro"/>
-<include src="lib.xml" element-id="add_ktor_artifact"/>
+<include src="lib.topic" element-id="add_ktor_artifact_intro"/>
+<include src="lib.topic" element-id="add_ktor_artifact"/>
 
 ## Install Velocity {id="install_plugin"}
 
-<include src="lib.xml" element-id="install_plugin"/>
+<include src="lib.topic" element-id="install_plugin"/>
 
 Optionally, you can install the `VelocityTools` plugin to have the capability to add standard and custom [Velocity tools](#velocity_tools).
 

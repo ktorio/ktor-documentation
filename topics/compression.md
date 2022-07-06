@@ -9,7 +9,7 @@
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="compression"/>
-<include src="lib.xml" element-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 </tldr>
 
 Ktor provides the capability to compress [outgoing content](responses.md) by using the [Compression](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-compression/io.ktor.server.plugins.compression/-compression.html) plugin. You can use different compression algorithms, including `gzip` and `deflate`, 
@@ -20,12 +20,12 @@ specify the required conditions for compressing data (such as a content type or 
 
 ## Add dependencies {id="add_dependencies"}
 
-<include src="lib.xml" element-id="add_ktor_artifact_intro"/>
-<include src="lib.xml" element-id="add_ktor_artifact"/>
+<include src="lib.topic" element-id="add_ktor_artifact_intro"/>
+<include src="lib.topic" element-id="add_ktor_artifact"/>
 
 ## Install %plugin_name% {id="install_plugin"}
 
-<include src="lib.xml" element-id="install_plugin"/>
+<include src="lib.topic" element-id="install_plugin"/>
 
 This enables the `gzip`, `deflate`, and `identity` encoders on a server. In the next chapter, we'll see how to enable only specific encoders and configure conditions for compressing data.
 

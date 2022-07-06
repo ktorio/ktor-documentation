@@ -5,7 +5,7 @@
 <b>Required dependencies</b>: <code>io.ktor:ktor-server-html-builder</code>, <code>org.jetbrains.kotlin-wrappers:kotlin-css</code>
 </p>
 <var name="example_name" value="caching-headers"/>
-<include src="lib.xml" element-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 </tldr>
 
 CSS DSL extends [HTML DSL](html_dsl.md) and allows you to author stylesheets in Kotlin by using the [kotlin-css](https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-css/README.md) wrapper.
@@ -18,13 +18,13 @@ CSS DSL doesn't need [installation](Plugins.md#install), but requires including 
 
 1. The `ktor-server-html-builder` artifact for HTML DSL:
    <var name="artifact_name" value="ktor-server-html-builder"/>
-   <include src="lib.xml" element-id="add_ktor_artifact"/>
+   <include src="lib.topic" element-id="add_ktor_artifact"/>
    
 1. The `kotlin-css-jvm` artifact for building CSS:
    <var name="group_id" value="org.jetbrains.kotlin-wrappers"/>
    <var name="artifact_name" value="kotlin-css"/>
    <var name="version" value="kotlin_css_version"/>
-   <include src="lib.xml" element-id="add_artifact"/>
+   <include src="lib.topic" element-id="add_artifact"/>
    You can replace `$kotlin_css_version` with the required version of the `kotlin-css` artifact, for example, `%kotlin_css_version%`.
 
 

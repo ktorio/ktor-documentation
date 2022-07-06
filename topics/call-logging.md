@@ -9,7 +9,7 @@
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="logging"/>
-<include src="lib.xml" element-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 </tldr>
 
 Ktor provides the capability to log application events using the [SLF4J](http://www.slf4j.org/) library. You can learn about general logging configuration from the [](logging.md) topic.
@@ -19,13 +19,13 @@ The `%plugin_name%` plugin allows you to log incoming client requests.
 
 ## Add dependencies {id="add_dependencies"}
 
-<include src="lib.xml" element-id="add_ktor_artifact_intro"/>
-<include src="lib.xml" element-id="add_ktor_artifact"/>
+<include src="lib.topic" element-id="add_ktor_artifact_intro"/>
+<include src="lib.topic" element-id="add_ktor_artifact"/>
 
 
 ## Install %plugin_name% {id="install_plugin"}
 
-<include src="lib.xml" element-id="install_plugin"/>
+<include src="lib.topic" element-id="install_plugin"/>
 
 
 ## Configure logging settings {id="configure"}

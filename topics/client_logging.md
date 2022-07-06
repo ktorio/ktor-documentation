@@ -5,7 +5,7 @@
 <b>Required dependencies</b>: <code>io.ktor:ktor-client-logging</code>
 </p>
 <var name="example_name" value="client-logging"/>
-<include src="lib.xml" element-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 </tldr>
 
 Ktor client provides the capability to log HTTP calls using the [Logging](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-logging/io.ktor.client.plugins.logging/-logging/index.html) plugin.
@@ -21,12 +21,12 @@ To enable logging, you need to include the following artifacts in the build scri
   <var name="group_id" value="ch.qos.logback"/>
   <var name="artifact_name" value="logback-classic"/>
   <var name="version" value="logback_version"/>
-  <include src="lib.xml" element-id="add_artifact"/>
+  <include src="lib.topic" element-id="add_artifact"/>
   
 * The `ktor-client-logging` artifact:
   <var name="artifact_name" value="ktor-client-logging"/>
-  <include src="lib.xml" element-id="add_ktor_artifact"/>
-  <include src="lib.xml" element-id="add_ktor_client_artifact_tip"/>
+  <include src="lib.topic" element-id="add_ktor_artifact"/>
+  <include src="lib.topic" element-id="add_ktor_client_artifact_tip"/>
   
 
 ## Install Logging {id="install_plugin"}

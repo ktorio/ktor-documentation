@@ -28,11 +28,11 @@ The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-ser
 
 ## Add dependencies {id="add_dependencies"}
 
-<include src="lib.xml" element-id="add_ktor_artifact_intro"/>
-<include src="lib.xml" element-id="add_ktor_artifact"/>
+<include src="lib.topic" element-id="add_ktor_artifact_intro"/>
+<include src="lib.topic" element-id="add_ktor_artifact"/>
 
 ## Install %plugin_name% {id="install_plugin"}
 
-<include src="lib.xml" element-id="install_plugin"/>
+<include src="lib.topic" element-id="install_plugin"/>
 
 To learn how to use `%plugin_name%` to serve a file using HTTP range requests, see the [](responses.md#file) section.

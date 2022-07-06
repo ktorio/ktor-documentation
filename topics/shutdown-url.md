@@ -2,7 +2,7 @@
 
 <tldr>
 <var name="example_name" value="shutdown-url"/>
-<include src="lib.xml" element-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 </tldr>
 
 The [ShutDownUrl](https://api.ktor.io/ktor-server/ktor-server-host-common/io.ktor.server.engine/-shut-down-url/index.html) plugin allows you to configure a URL used to shut down the server. 

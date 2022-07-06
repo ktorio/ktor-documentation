@@ -49,7 +49,7 @@
         </p>
         <procedure hide-from-structure="true">
             <step>
-                <include src="lib.xml" element-id="new_project_idea"/>
+                <include src="lib.topic" element-id="new_project_idea"/>
             </step>
             <step>
                 <p>
@@ -162,7 +162,7 @@
     </chapter>
 
 
-    <include src="server-dependencies.xml" element-id="create-server"/>
+    <include src="server-dependencies.topic" element-id="create-server"/>
 
 
     <chapter title="Run an application" id="run-app">

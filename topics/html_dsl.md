@@ -6,7 +6,7 @@
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="html"/>
-<include src="lib.xml" element-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 </tldr>
 
 HTML DSL integrates the [kotlinx.html](https://github.com/Kotlin/kotlinx.html) library into Ktor and allows you to respond to a client with HTML blocks. With HTML DSL, you can write pure HTML in Kotlin, interpolate variables into views, and even build complex HTML layouts using templates.
@@ -14,7 +14,7 @@ HTML DSL integrates the [kotlinx.html](https://github.com/Kotlin/kotlinx.html) l
 
 ## Add dependencies {id="add_dependencies"}
 HTML DSL doesn't need [installation](Plugins.md#install) but requires the `%artifact_name%` artifact. You can include it in the build script as follows:
-<include src="lib.xml" element-id="add_ktor_artifact"/>
+<include src="lib.topic" element-id="add_ktor_artifact"/>
   
 
 ## Send HTML in response {id="html_response"}

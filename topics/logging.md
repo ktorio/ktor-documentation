@@ -2,7 +2,7 @@
 
 <tldr>
 <var name="example_name" value="logging"/>
-<include src="lib.xml" element-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 </tldr>
 
 <link-summary>
@@ -22,7 +22,7 @@ For example, Logback requires the following dependency:
 <var name="group_id" value="ch.qos.logback"/>
 <var name="artifact_name" value="logback-classic"/>
 <var name="version" value="logback_version"/>
-<include src="lib.xml" element-id="add_artifact"/>
+<include src="lib.topic" element-id="add_artifact"/>
 
 To use Log4j, you need to add the `org.apache.logging.log4j:log4j-core` and `org.apache.logging.log4j:log4j-slf4j-impl` artifacts.
 

@@ -5,7 +5,7 @@
 <b>Required dependencies</b>: <code>io.ktor:ktor-client-websockets</code>
 </p>
 <var name="example_name" value="client-websockets"/>
-<include src="lib.xml" element-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 </tldr>
 
 <link-summary>
@@ -29,8 +29,8 @@ The Ktor client supports WebSockets for the following [engines](http-client_engi
 To use WebSockets, you need to include the `ktor-client-websockets` artifact in the build script:
 
 <var name="artifact_name" value="ktor-client-websockets"/>
-<include src="lib.xml" element-id="add_ktor_artifact"/>
-<include src="lib.xml" element-id="add_ktor_client_artifact_tip"/>
+<include src="lib.topic" element-id="add_ktor_artifact"/>
+<include src="lib.topic" element-id="add_ktor_client_artifact_tip"/>
 
 ## Install WebSockets {id="install_plugin"}
 To install the `WebSockets` plugin, pass it to the `install` function inside a [client configuration block](create-client.md#configure-client):
