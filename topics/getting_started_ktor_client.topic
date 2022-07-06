@@ -93,7 +93,7 @@
                 </code>
                 <note id="eap-note">
                     <p>
-                        To use the EAP version of Ktor, you need to add a <a href="server-dependencies.xml" anchor="repositories">Space repository</a>.
+                        To use the EAP version of Ktor, you need to add a <a href="server-dependencies.topic" anchor="repositories">Space repository</a>.
                     </p>
                 </note>
             </step>

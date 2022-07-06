@@ -81,7 +81,7 @@
 
         <chapter title="Configuration in file" id="engine-main">
             <p>
-                <code>EngineMain</code> starts a server with the selected engine and loads the <a href="Modules.md">application module</a> specified in the external <a href="Configurations.xml" anchor="hocon-file">application.conf</a> file. Besides modules to load, this file can include various server parameters (the <code>8080</code> port in the example below).
+                <code>EngineMain</code> starts a server with the selected engine and loads the <a href="Modules.md">application module</a> specified in the external <a href="Configurations.topic" anchor="hocon-file">application.conf</a> file. Besides modules to load, this file can include various server parameters (the <code>8080</code> port in the example below).
             </p>
 
             <tabs>

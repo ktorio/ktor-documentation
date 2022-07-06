@@ -211,13 +211,13 @@
 
     <chapter title="Create an entry point for running an application" id="create-entry-point">
         <p>
-            <a href="running.md">Running</a> a Ktor server using Gradle/Maven depends on the way used to <a href="create_server.xml">create a server</a>.
+            <a href="running.md">Running</a> a Ktor server using Gradle/Maven depends on the way used to <a href="create_server.topic">create a server</a>.
             You can specify the application main class in one of the following ways:
         </p>
         <list>
             <li>
                 <p>
-                    If you use <a href="create_server.xml" anchor="embedded-server">embeddedServer</a>, specify the main class as follows:
+                    If you use <a href="create_server.topic" anchor="embedded-server">embeddedServer</a>, specify the main class as follows:
                 </p>
                 <tabs group="languages">
                     <tab title="Gradle (Kotlin)" group-key="kotlin">
@@ -247,7 +247,7 @@
             </li>
             <li>
                 <p>
-                    If you use <a href="create_server.xml" anchor="engine-main">EngineMain</a>, you need to configure it as the main class.
+                    If you use <a href="create_server.topic" anchor="engine-main">EngineMain</a>, you need to configure it as the main class.
                     For Netty, it will look as follows:
                 </p>
                 <tabs group="languages">

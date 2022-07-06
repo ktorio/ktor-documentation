@@ -16,7 +16,7 @@
             <list type="none">
                 <li>
                     <p>
-                        <a href="intellij-idea.xml"/>
+                        <a href="intellij-idea.topic"/>
                     </p>
                 </li>
                 <li>
@@ -48,13 +48,13 @@
             </p>
             <list type="none">
                 <li>
-                    <a href="server-dependencies.xml"/>
+                    <a href="server-dependencies.topic"/>
                 </li>
                 <li>
-                    <a href="create_server.xml"/>
+                    <a href="create_server.topic"/>
                 </li>
                 <li>
-                    <a href="Configurations.xml"/>
+                    <a href="Configurations.topic"/>
                 </li>
                 <li>
                     <a href="Plugins.md"/>
@@ -138,7 +138,7 @@
                     <a href="running.md"/>
                 </li>
                 <li>
-                    <a href="Auto_reload.xml"/>
+                    <a href="Auto_reload.topic"/>
                 </li>
                 <li>
                     <a href="Testing.md"/>
