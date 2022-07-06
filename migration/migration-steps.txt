@@ -51,7 +51,7 @@ replaceXmlTagsInTopics excerpt link-summary
 # 06 includes
 
 find ./topics/ -type f -exec sed -i '' -r -e \
-    's~<include ([^>]*) include-id="~<include \1 element-id="~g' {} \;
+    's~<include ([^>]*)include-id="~<include \1element-id="~g' {} \;
 
 find ./topics/ -type f -exec sed -i '' -r -e \
     's~<include ([^>]*)src="([^.]*)\.xml"~<include \1src="\2\.topic"~g' {} \;
@@ -60,3 +60,15 @@ find ./topics/ -type f -exec sed -i '' -r -e \
 
 find ./topics/ -type f -exec sed -i '' -r -e \
     's~<a ([^>]*)href="([^.]*)\.xml"~<a \1href="\2\.topic"~g' {} \;
+
+# 08 product -> instance
+
+replaceXmlAttributeName() {
+    find ./topics/ -type f -exec sed -i '' -r -e \
+        's~<'"$1"' ([^>]*)'"$2"'="~<'"$1"' \1'"$3"'="~g' {} \;
+}
+
+replaceXmlTagsInTopics for if
+replaceXmlAttributeName if product instance
+
+
