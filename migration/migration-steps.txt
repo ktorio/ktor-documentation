@@ -14,7 +14,6 @@ find ./topics/ -type f -iname '*.xml' -exec sed -i '' -e \
 #    - id -> topic is not roubst
 #    - show-structure-depth="2"
 #    - <toc-element href="https://api.ktor.io" toc-title="API Docs"/>
-#    - update extension for XML topics
 
 find . -type f -maxdepth 1 -iname '*.tree' -exec sed -i '' -e \
     's|DOCTYPE product-profile|DOCTYPE instance-profile|g' {} \;
@@ -30,4 +29,13 @@ find . -type f -maxdepth 1 -iname '*.tree' -exec sed -i '' -r -e \
 # 03 - project.ihp
 
 sed -i '' -r -e 's|(</?)product|\1instance|g' project.ihp
+
+# 04 rename XML topics
+
+for old in ./topics/*.xml; do
+    base_name=`basename $old .xml`;
+    find . -type f -maxdepth 1 -iname '*.tree' -exec sed -i '' -e 's|topic="'"$base_name"'.xml"|topic="'"$base_name"'.topic"|g' {} \;
+    mv $old ./topics/`basename $old .xml`.topic;
+done
+
 

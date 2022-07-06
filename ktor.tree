@@ -6,12 +6,12 @@
                  status="release"
                  start-page="welcome.xml">
 
-    <toc-element topic="welcome.xml"
+    <toc-element topic="welcome.topic"
                  accepts-web-file-names-ref="kotlin_docs"/>
 
     <toc-element toc-title="Ktor Server">
         <toc-element toc-title="Getting started with a Ktor Server">
-            <toc-element topic="intellij-idea.xml" accepts-web-file-names="getting-started.html"/>
+            <toc-element topic="intellij-idea.topic" accepts-web-file-names="getting-started.html"/>
             <toc-element topic="creating_http_apis.md"
                          show-structure-depth="2"
                          accepts-web-file-names-ref="tutorials"/>
@@ -28,15 +28,15 @@
         </toc-element>
 
         <toc-element toc-title="Developing applications">
-            <toc-element topic="server-dependencies.xml"
+            <toc-element topic="server-dependencies.topic"
                          show-structure-depth="2"
                          accepts-web-file-names="artifacts.html,maven.html,gradle.html"/>
             <toc-element toc-title="Creating and configuring a server">
-                <toc-element topic="create_server.xml"
+                <toc-element topic="create_server.topic"
                              show-structure-depth="2"/>
                 <toc-element topic="Engines.md" accepts-web-file-names="custom-engines.html"
                              show-structure-depth="3"/>
-                <toc-element topic="Configurations.xml"
+                <toc-element topic="Configurations.topic"
                              show-structure-depth="2"
                              accepts-web-file-names="configuration.html,environments.html"/>
                 <toc-element topic="logging.md"
@@ -44,7 +44,7 @@
                 <toc-element topic="Modules.md"/>
                 <toc-element topic="Plugins.md" show-structure-depth="2"
                              accepts-web-file-names="zfeatures.html,features.html"/>
-                <toc-element topic="development_mode.xml"
+                <toc-element topic="development_mode.topic"
                              show-structure-depth="2"/>
                 <toc-element topic="ssl.md"
                              show-structure-depth="2"
@@ -164,7 +164,7 @@
         <toc-element toc-title="Running and debugging">
             <toc-element topic="running.md" show-structure-depth="2"
                          accepts-web-file-names="engine.html"/>
-            <toc-element topic="Auto_reload.xml" accepts-web-file-names="autoreload.html"/>
+            <toc-element topic="Auto_reload.topic" accepts-web-file-names="autoreload.html"/>
         </toc-element>
 
         <toc-element topic="Testing.md"
@@ -218,7 +218,7 @@
 
     <toc-element toc-title="Ktor Client">
         <toc-element toc-title="Getting started with a Ktor Client">
-            <toc-element topic="getting_started_ktor_client.xml" show-structure-for="chapter,procedure"/>
+            <toc-element topic="getting_started_ktor_client.topic" show-structure-for="chapter,procedure"/>
             <toc-element topic="getting_started_ktor_client_chat.md" show-structure-depth="2"/>
             <toc-element topic="getting_started_ktor_client_multiplatform_mobile.md" show-structure-depth="2"/>
         </toc-element>
@@ -281,7 +281,7 @@
         <toc-element topic="migrating-2.md" show-structure-depth="2"/>
     </toc-element>
 
-    <toc-element topic="FAQ.xml"
+    <toc-element topic="FAQ.topic"
                  accepts-web-file-names="zfaq.html"/>
 
     <toc-element href="https://api.ktor.io"
