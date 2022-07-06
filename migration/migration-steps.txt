@@ -24,3 +24,7 @@ find . -type f -maxdepth 1 -iname '*.tree' -exec sed -i '' -r -e \
 find . -type f -maxdepth 1 -iname '*.tree' -exec sed -i '' -r -e \
     's| <toc-element id="([^"]*)"| <toc-element topic="\1"|g' {} \;
 
+# 03 - project.ihp
+
+sed -i '' -r -e 's|(</?)product|\1instance|g' project.ihp
+
