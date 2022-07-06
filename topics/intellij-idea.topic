@@ -154,7 +154,7 @@
                 <p>
                     The <path>Application.kt</path> file has the following code added automatically:
                 </p>
-                <code-block lang="kotlin" initial-collapse-state="expanded" collapsed-title="fun main" src="https://raw.githubusercontent.com/ktorio/ktor-get-started/main/src/main/kotlin/com/example/Application.kt"/>
+                <code-block lang="kotlin" default-state="expanded" collapsed-title="fun main" src="https://raw.githubusercontent.com/ktorio/ktor-get-started/main/src/main/kotlin/com/example/Application.kt"/>
 
                 <p>
                     The main parts of this code are:
@@ -169,7 +169,7 @@
                         <p>
                             <code>configureRouting</code> is an extension function that defines <a href="Routing_in_Ktor.md">routing</a>. This function is declared in a separate <code>plugins</code> package (the <path>Routing.kt</path> file).
                         </p>
-                        <code-block lang="kotlin" initial-collapse-state="expanded" collapsed-title="fun Application.configureRouting" src="https://raw.githubusercontent.com/ktorio/ktor-get-started/main/src/main/kotlin/com/example/plugins/Routing.kt"/>
+                        <code-block lang="kotlin" default-state="expanded" collapsed-title="fun Application.configureRouting" src="https://raw.githubusercontent.com/ktorio/ktor-get-started/main/src/main/kotlin/com/example/plugins/Routing.kt"/>
                         <p>
                             The <code>get</code> function within the <code>routing</code> block receives GET requests made to the <path>/</path> path and responds with a plain text response.
                         </p>

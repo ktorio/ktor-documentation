@@ -110,3 +110,10 @@ replaceXmlTagsInTopics $alien code
 
 replaceXmlAttributeName code-block lines include-lines
 
+# 11 - initial-collapse-state -> default-state
+
+replaceXmlAttributeName code-block initial-collapse-state default-state
+replaceXmlAttributeName chapter initial-collapse-state default-state
+replaceXmlAttributeName procedure initial-collapse-state default-state
+
+
