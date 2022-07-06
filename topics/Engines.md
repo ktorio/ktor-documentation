@@ -33,7 +33,7 @@ Before using the desired engine, you need to add the corresponding dependency to
 
 Below are examples of adding a dependency for Netty:
 <var name="artifact_name" value="ktor-server-netty"/>
-<include src="lib.xml" include-id="add_ktor_artifact"/>
+<include src="lib.xml" element-id="add_ktor_artifact"/>
 
 
 ## Choose how to create a server {id="choose-create-server"}

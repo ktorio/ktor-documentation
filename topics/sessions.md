@@ -26,11 +26,11 @@ In this topic, we'll look at how to install the `%plugin_name%` plugin, configur
 ## Add dependencies {id="add_dependencies"}
 To enable support for sessions, you need to include the `%artifact_name%` artifact in the build script:
 
-<include src="lib.xml" include-id="add_ktor_artifact"/>
+<include src="lib.xml" element-id="add_ktor_artifact"/>
 
 ## Install Sessions {id="install_plugin"}
 
-<include src="lib.xml" include-id="install_plugin"/>
+<include src="lib.xml" element-id="install_plugin"/>
 
 
 ## Session configuration overview {id="configuration_overview"}

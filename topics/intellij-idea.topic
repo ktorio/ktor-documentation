@@ -22,7 +22,7 @@
 
 
     <chapter title="Prerequisites" id="prerequisites">
-        <include src="lib.xml" include-id="plugin_prerequisites"/>
+        <include src="lib.xml" element-id="plugin_prerequisites"/>
     </chapter>
 
 
@@ -38,7 +38,7 @@
         </p>
         <procedure>
             <step>
-                <include src="lib.xml" include-id="new_project_idea"/>
+                <include src="lib.xml" element-id="new_project_idea"/>
             </step>
             <step>
                 <p>

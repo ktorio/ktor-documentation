@@ -2,7 +2,7 @@
 
 <tldr>
 <var name="example_name" value="client-auth-basic"/>
-<include src="lib.xml" include-id="download_example"/>
+<include src="lib.xml" element-id="download_example"/>
 </tldr>
 
 The Basic [authentication scheme](auth.md) can be used for logging in users. In this scheme, user credentials are transmitted as username/password pairs encoded using Base64. 

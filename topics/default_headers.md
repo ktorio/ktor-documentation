@@ -14,12 +14,12 @@ The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-ser
 
 ## Add dependencies {id="add_dependencies"}
 
-<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
-<include src="lib.xml" include-id="add_ktor_artifact"/>
+<include src="lib.xml" element-id="add_ktor_artifact_intro"/>
+<include src="lib.xml" element-id="add_ktor_artifact"/>
 
 ## Install %plugin_name% {id="install_plugin"}
 
-<include src="lib.xml" include-id="install_plugin"/>
+<include src="lib.xml" element-id="install_plugin"/>
 
 The `%plugin_name%` plugin adds the `Server` and `Date` headers into each response. If necessary, you can override the `Server`, as described in [](#override).
 

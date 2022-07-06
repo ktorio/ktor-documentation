@@ -2,14 +2,14 @@
 
 <tldr>
 <var name="example_name" value="client-websockets-serialization"/>
-<include src="lib.xml" include-id="download_example"/>
+<include src="lib.xml" element-id="download_example"/>
 </tldr>
 
 Similar to the [ContentNegotiation](serialization-client.md) plugin, WebSockets allow you to serialize/deserialize text frames in a specific format. The Ktor client supports the following formats out-of-the-box: JSON, XML, and CBOR.
 
 ## Add dependencies {id="add_dependencies"}
 
-<include src="serialization.md" include-id="serialization_dependency"/>
+<include src="serialization.md" element-id="serialization_dependency"/>
 
 ## Configure a serializer {id="configure_serializer"}
 

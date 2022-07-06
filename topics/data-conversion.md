@@ -1,6 +1,6 @@
 [//]: # (title: Data conversion)
 
-<include src="lib.xml" include-id="outdated_warning"/>
+<include src="lib.xml" element-id="outdated_warning"/>
 
 <var name="artifact_name" value="ktor-server-data-conversion"/>
 <var name="package_name" value="io.ktor.server.plugins.dataconversion"/>
@@ -17,13 +17,13 @@
 
 ## Add dependencies {id="add_dependencies"}
 
-<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
-<include src="lib.xml" include-id="add_ktor_artifact"/>
+<include src="lib.xml" element-id="add_ktor_artifact_intro"/>
+<include src="lib.xml" element-id="add_ktor_artifact"/>
 
 
 ## Install %plugin_name% {id="install_plugin"}
 
-<include src="lib.xml" include-id="install_plugin"/>
+<include src="lib.xml" element-id="install_plugin"/>
 
 ## Add converters {id="add-converters"}
 

@@ -1,6 +1,6 @@
 [//]: # (title: Tracing Routes)
 
-<include src="lib.xml" include-id="outdated_warning"/>
+<include src="lib.xml" element-id="outdated_warning"/>
 
 If you have problems trying to figure out why your route is not being executed,
 Ktor provides a `trace` method inside the routing plugin.

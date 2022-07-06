@@ -9,7 +9,7 @@
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="json-kotlinx-method-override"/>
-<include src="lib.xml" include-id="download_example"/>
+<include src="lib.xml" element-id="download_example"/>
 </tldr>
 
 <link-summary>
@@ -23,12 +23,12 @@ For instance, if the client sends a request with the `X-Http-Method-Override` he
 
 ## Add dependencies {id="add_dependencies"}
 
-<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
-<include src="lib.xml" include-id="add_ktor_artifact"/>
+<include src="lib.xml" element-id="add_ktor_artifact_intro"/>
+<include src="lib.xml" element-id="add_ktor_artifact"/>
 
 ## Install %plugin_name% {id="install_plugin"}
 
-<include src="lib.xml" include-id="install_plugin"/>
+<include src="lib.xml" element-id="install_plugin"/>
 
 
 ## Configure %plugin_name% {id="configure"}

@@ -9,7 +9,7 @@
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="jte"/>
-<include src="lib.xml" include-id="download_example"/>
+<include src="lib.xml" element-id="download_example"/>
 </tldr>
 
 Ktor allows you to use [JTE templates](https://github.com/casid/jte) as views within your application by installing the [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-jte/io.ktor.server.jte/-jte.html) plugin.
@@ -17,14 +17,14 @@ Ktor allows you to use [JTE templates](https://github.com/casid/jte) as views wi
 
 ## Add dependencies {id="add_dependencies"}
 
-<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
-<include src="lib.xml" include-id="add_ktor_artifact"/>
+<include src="lib.xml" element-id="add_ktor_artifact_intro"/>
+<include src="lib.xml" element-id="add_ktor_artifact"/>
 
 > To handle `.kte` files, you need to add the `gg.jte:jte-kotlin` artifact to your project.
 
 ## Install %plugin_name% {id="install_plugin"}
 
-<include src="lib.xml" include-id="install_plugin"/>
+<include src="lib.xml" element-id="install_plugin"/>
 
 Inside the `install` block, you can [configure](#configure) how to load JTE templates.
 

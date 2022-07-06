@@ -1,6 +1,6 @@
 [//]: # (title: Authentication)
 
-<include src="lib.xml" include-id="outdated_warning"/>
+<include src="lib.xml" element-id="outdated_warning"/>
 
 Requires reading first [Advanced Pipeline](Pipelines.md).
 

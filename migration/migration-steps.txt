@@ -48,3 +48,7 @@ replaceXmlTagsInTopics() {
 replaceXmlTagsInTopics microformat tldr
 replaceXmlTagsInTopics excerpt link-summary
 
+# 06 includes
+
+find ./topics/ -type f -exec sed -i '' -r -e \
+    's~<include ([^>]*) include-id="~<include \1 element-id="~g' {} \;

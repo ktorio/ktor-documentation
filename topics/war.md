@@ -40,7 +40,7 @@ In contrast to the approach above, a servlet container should control the applic
 
 To use Ktor in a servlet application, you need to include the `ktor-server-servlet` artifact in the build script:
 <var name="artifact_name" value="ktor-server-servlet"/>
-<include src="lib.xml" include-id="add_ktor_artifact"/>
+<include src="lib.xml" element-id="add_ktor_artifact"/>
 
 Note that you don't need the separate [Jetty or Tomcat artifacts](Engines.md#dependencies) when a Ktor application is deployed inside a servlet container.
 

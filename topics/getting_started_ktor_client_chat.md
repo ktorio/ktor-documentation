@@ -2,7 +2,7 @@
 
 <tldr>
 <var name="example_name" value="tutorial-websockets-client"/>
-<include src="lib.xml" include-id="download_example"/>
+<include src="lib.xml" element-id="download_example"/>
 </tldr>
 
 <link-summary>
@@ -14,17 +14,17 @@ In this tutorial, you will learn how to create a client chat application that us
 To learn how to create a chat server, see the [](creating_web_socket_chat.md) tutorial.
 
 ## Prerequisites {id="prerequisites"}
-<include src="lib.xml" include-id="client_prerequisites"/>
+<include src="lib.xml" element-id="client_prerequisites"/>
 
 ## Create a new project {id="new-project"}
 
 To create a WebSocket chat client, we need to create a new project first. [Open IntelliJ IDEA](https://www.jetbrains.com/help/idea/run-for-the-first-time.html) and follow
 the steps below:
 
-1. <include src="lib.xml" include-id="new_project_idea"/>
+1. <include src="lib.xml" element-id="new_project_idea"/>
 2. In the **New Project** wizard, choose **Kotlin Multiplatform** from the list on the left. On the right pane, specify the following settings:
    
-   <include src="getting_started_ktor_client.xml" include-id="kotlin_app_settings"/>
+   <include src="getting_started_ktor_client.xml" element-id="kotlin_app_settings"/>
 
    Click **Next**.
 
@@ -44,7 +44,7 @@ The next thing we need is to configure the build script:
    ```
    {interpolate-variables="true"}
 
-   <include src="getting_started_ktor_client.xml" include-id="eap-note"/>
+   <include src="getting_started_ktor_client.xml" element-id="eap-note"/>
 
 2. Open the `build.gradle.kts` file and add the following artifacts to the `dependencies` block:
    ```kotlin

@@ -46,8 +46,8 @@ HTTP provides a [general framework](https://developer.mozilla.org/en-US/docs/Web
 
 ## Add dependencies {id="add_dependencies"}
 
-<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
-<include src="lib.xml" include-id="add_ktor_artifact"/>
+<include src="lib.xml" element-id="add_ktor_artifact_intro"/>
+<include src="lib.xml" element-id="add_ktor_artifact"/>
 
 Note that some authentication providers, such as [JWT](jwt.md) and [LDAP](ldap.md), require additional artifacts.
 
@@ -55,7 +55,7 @@ Note that some authentication providers, such as [JWT](jwt.md) and [LDAP](ldap.m
 
 ## Install Authentication {id="install"}
 
-<include src="lib.xml" include-id="install_plugin"/>
+<include src="lib.xml" element-id="install_plugin"/>
 
 
 ## Configure Authentication {id="configure"}

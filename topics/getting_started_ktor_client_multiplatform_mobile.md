@@ -2,7 +2,7 @@
 
 <tldr>
 <var name="example_name" value="tutorial-client-kmm"/>
-<include src="lib.xml" include-id="download_example"/>
+<include src="lib.xml" element-id="download_example"/>
 <p>
 <b>Video</b>: <a href="https://youtu.be/_Q62iJoNOfg">Ktor for Networking in Kotlin Multiplatform Mobile projects</a> 
 </p>
@@ -45,7 +45,7 @@ To use the Ktor HTTP client in your project, you need to add at least two depend
    ```
    {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" lines="25-26,64"}
 
-   <include src="getting_started_ktor_client.xml" include-id="eap-note"/>
+   <include src="getting_started_ktor_client.xml" element-id="eap-note"/>
 
 3. To use the Ktor client in common code, add the dependency to `ktor-client-core` to the `commonMain` source set:
    ```kotlin

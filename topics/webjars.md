@@ -9,7 +9,7 @@
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="webjars"/>
-<include src="lib.xml" include-id="download_example"/>
+<include src="lib.xml" element-id="download_example"/>
 </tldr>
 
 <link-summary>
@@ -22,18 +22,18 @@ The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-ser
 ## Add dependencies {id="add_dependencies"}
 To enable `%plugin_name%`, you need to include the following artifacts in the build script:
 * Add the `%artifact_name%` dependency:
-  <include src="lib.xml" include-id="add_ktor_artifact"/>
+  <include src="lib.xml" element-id="add_ktor_artifact"/>
 
 * Add a dependency for a required client-side library. The example below shows how to add a Bootstrap artifact:
   <var name="group_id" value="org.webjars"/>
   <var name="artifact_name" value="bootstrap"/>
   <var name="version" value="bootstrap_version"/>
-  <include src="lib.xml" include-id="add_artifact"/>
+  <include src="lib.xml" element-id="add_artifact"/>
   You can replace `bootstrap_version` with the required version of the `bootstrap` artifact, for example, `%bootstrap_version%`.
 
 ## Install %plugin_name% {id="install_plugin"}
 
-<include src="lib.xml" include-id="install_plugin"/>
+<include src="lib.xml" element-id="install_plugin"/>
 
 
 ## Configure %plugin_name% {id="configure"}

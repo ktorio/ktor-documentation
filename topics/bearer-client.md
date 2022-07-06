@@ -2,7 +2,7 @@
 
 <tldr>
 <var name="example_name" value="client-auth-oauth-google"/>
-<include src="lib.xml" include-id="download_example"/>
+<include src="lib.xml" element-id="download_example"/>
 </tldr>
 
 

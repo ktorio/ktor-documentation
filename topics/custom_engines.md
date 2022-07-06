@@ -1,6 +1,6 @@
 [//]: # (title: Custom engines)
 
-<include src="lib.xml" include-id="outdated_warning"/>
+<include src="lib.xml" element-id="outdated_warning"/>
 
 Ktor's HTTP client and server provide a common interface while allowing to use of different engines to perform and handle HTTP requests.
 

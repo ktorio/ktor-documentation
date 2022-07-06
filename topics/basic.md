@@ -20,7 +20,7 @@ Ktor allows you to use basic authentication for logging in users and protecting 
 ## Add dependencies {id="add_dependencies"}
 To enable `basic` authentication, you need to include the `%artifact_name%` artifact in the build script:
 
-<include src="lib.xml" include-id="add_ktor_artifact"/>
+<include src="lib.xml" element-id="add_ktor_artifact"/>
 
 ## Basic authentication flow {id="flow"}
 

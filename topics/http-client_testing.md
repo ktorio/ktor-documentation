@@ -7,7 +7,7 @@
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="client-testing-mock"/>
-<include src="lib.xml" include-id="download_example"/>
+<include src="lib.xml" element-id="download_example"/>
 </tldr>
 
 <link-summary>
@@ -19,7 +19,7 @@ Ktor provides a [MockEngine](https://api.ktor.io/ktor-client/ktor-client-mock/io
 ## Add dependencies {id="add_dependencies"}
 Before using `MockEngine`, you need to include the `%artifact_name%` artifact in the build script.
 
-<include src="lib.xml" include-id="add_ktor_artifact_testing"/>
+<include src="lib.xml" element-id="add_ktor_artifact_testing"/>
 
 
 ## Usage {id="usage"}
