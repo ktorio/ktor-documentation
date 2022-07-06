@@ -1,215 +1,215 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE product-profile
+<!DOCTYPE instance-profile
         SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/product-profile.dtd">
-<product-profile id="ktor"
+<instance-profile id="ktor"
                  name="Ktor"
                  status="release"
                  start-page="welcome.xml">
 
-    <toc-element id="welcome.xml"
+    <toc-element topic="welcome.xml"
                  accepts-web-file-names-ref="kotlin_docs"/>
 
     <toc-element toc-title="Ktor Server">
         <toc-element toc-title="Getting started with a Ktor Server">
-            <toc-element id="intellij-idea.xml" accepts-web-file-names="getting-started.html"/>
-            <toc-element id="creating_http_apis.md"
+            <toc-element topic="intellij-idea.xml" accepts-web-file-names="getting-started.html"/>
+            <toc-element topic="creating_http_apis.md"
                          show-structure-depth="2"
                          accepts-web-file-names-ref="tutorials"/>
             <toc-element toc-title="Creating a website">
-                <toc-element id="creating_static_website.md"
+                <toc-element topic="creating_static_website.md"
                              show-structure-depth="2"/>
-                <toc-element id="creating_interactive_website.md"
+                <toc-element topic="creating_interactive_website.md"
                              show-structure-depth="2"/>
-                <toc-element id="interactive_website_add_persistence.md"
+                <toc-element topic="interactive_website_add_persistence.md"
                              show-structure-depth="2"/>
             </toc-element>
-            <toc-element id="creating_web_socket_chat.md"
+            <toc-element topic="creating_web_socket_chat.md"
                          show-structure-depth="2"/>
         </toc-element>
 
         <toc-element toc-title="Developing applications">
-            <toc-element id="server-dependencies.xml"
+            <toc-element topic="server-dependencies.xml"
                          show-structure-depth="2"
                          accepts-web-file-names="artifacts.html,maven.html,gradle.html"/>
             <toc-element toc-title="Creating and configuring a server">
-                <toc-element id="create_server.xml"
+                <toc-element topic="create_server.xml"
                              show-structure-depth="2"/>
-                <toc-element id="Engines.md" accepts-web-file-names="custom-engines.html"
+                <toc-element topic="Engines.md" accepts-web-file-names="custom-engines.html"
                              show-structure-depth="3"/>
-                <toc-element id="Configurations.xml"
+                <toc-element topic="Configurations.xml"
                              show-structure-depth="2"
                              accepts-web-file-names="configuration.html,environments.html"/>
-                <toc-element id="logging.md"
+                <toc-element topic="logging.md"
                              accepts-web-file-names="servers-logging.html"/>
-                <toc-element id="Modules.md"/>
-                <toc-element id="Plugins.md" show-structure-depth="2"
+                <toc-element topic="Modules.md"/>
+                <toc-element topic="Plugins.md" show-structure-depth="2"
                              accepts-web-file-names="zfeatures.html,features.html"/>
-                <toc-element id="development_mode.xml"
+                <toc-element topic="development_mode.xml"
                              show-structure-depth="2"/>
-                <toc-element id="ssl.md"
+                <toc-element topic="ssl.md"
                              show-structure-depth="2"
                              accepts-web-file-names="certificates.html,self-signed-certificate.html"/>
-                <toc-element id="advanced_http2.md"
+                <toc-element topic="advanced_http2.md"
                              show-structure-depth="2"/>
-                <toc-element id="native_server.md"/>
-                <toc-element id="openapi_swagger.md"/>
+                <toc-element topic="native_server.md"/>
+                <toc-element topic="openapi_swagger.md"/>
             </toc-element>
 
             <toc-element toc-title="Routing">
-                <toc-element id="Routing_in_Ktor.md"
+                <toc-element topic="Routing_in_Ktor.md"
                              show-structure-depth="2"
                              accepts-web-file-names="routing.html"/>
-                <toc-element id="Structuring_Applications.md"
+                <toc-element topic="Structuring_Applications.md"
                              accepts-web-file-names="structure.html"/>
-                <toc-element id="type-safe-routing.md" show-structure-depth="2"/>
-                <toc-element id="locations.md"
+                <toc-element topic="type-safe-routing.md" show-structure-depth="2"/>
+                <toc-element topic="locations.md"
                              accepts-web-file-names="features-locations.html"/>
-                <toc-element id="autoheadresponse.md"/>
-                <toc-element id="x-http-method-override.md"/>
+                <toc-element topic="autoheadresponse.md"/>
+                <toc-element topic="x-http-method-override.md"/>
             </toc-element>
 
             <toc-element toc-title="Handling requests and responses">
-                <toc-element id="requests.md"
+                <toc-element topic="requests.md"
                              show-structure-depth="2"
                              accepts-web-file-names="multipart-support.html,uploads.html,calls.html"/>
-                <toc-element id="responses.md"
+                <toc-element topic="responses.md"
                              show-structure-depth="2"/>
-                <toc-element id="status_pages.md" show-structure-depth="2"/>
-                <toc-element id="double-receive.md"/>
+                <toc-element topic="status_pages.md" show-structure-depth="2"/>
+                <toc-element topic="double-receive.md"/>
             </toc-element>
 
             <toc-element toc-title="Serving content">
-                <toc-element id="Serving_Static_Content.md"
+                <toc-element topic="Serving_Static_Content.md"
                              show-structure-depth="2"
                              accepts-web-file-names="static-content.html"/>
-                <toc-element id="serving-spa.md" show-structure-depth="2"/>
-                <toc-element id="webjars.md"/>
+                <toc-element topic="serving-spa.md" show-structure-depth="2"/>
+                <toc-element topic="webjars.md"/>
             </toc-element>
 
-            <toc-element id="Working_with_views.md"
+            <toc-element topic="Working_with_views.md"
                          accepts-web-file-names="templates.html">
-                <toc-element id="html_dsl.md"/>
-                <toc-element id="css_dsl.md"/>
-                <toc-element id="freemarker.md" show-structure-depth="2"/>
-                <toc-element id="velocity.md" show-structure-depth="2"/>
-                <toc-element id="mustache.md" show-structure-depth="2"/>
-                <toc-element id="thymeleaf.md" show-structure-depth="2"/>
-                <toc-element id="pebble.md" show-structure-depth="2"/>
-                <toc-element id="jte.md" show-structure-depth="2"/>
+                <toc-element topic="html_dsl.md"/>
+                <toc-element topic="css_dsl.md"/>
+                <toc-element topic="freemarker.md" show-structure-depth="2"/>
+                <toc-element topic="velocity.md" show-structure-depth="2"/>
+                <toc-element topic="mustache.md" show-structure-depth="2"/>
+                <toc-element topic="thymeleaf.md" show-structure-depth="2"/>
+                <toc-element topic="pebble.md" show-structure-depth="2"/>
+                <toc-element topic="jte.md" show-structure-depth="2"/>
             </toc-element>
 
-            <toc-element id="serialization.md"
+            <toc-element topic="serialization.md"
                          show-structure-depth="2"
                          accepts-web-file-names-ref="serialization_server"/>
 
-            <toc-element id="authentication.md" show-structure-depth="2"
+            <toc-element topic="authentication.md" show-structure-depth="2"
                          accepts-web-file-names="features-authentication.html">
-                <toc-element id="basic.md" show-structure-depth="2"/>
-                <toc-element id="digest.md" show-structure-depth="2"/>
-                <toc-element id="form.md" show-structure-depth="2"/>
-                <toc-element id="ldap.md" show-structure-depth="2"/>
-                <toc-element id="jwt.md" show-structure-depth="2"/>
-                <toc-element id="oauth.md" show-structure-depth="2"
+                <toc-element topic="basic.md" show-structure-depth="2"/>
+                <toc-element topic="digest.md" show-structure-depth="2"/>
+                <toc-element topic="form.md" show-structure-depth="2"/>
+                <toc-element topic="ldap.md" show-structure-depth="2"/>
+                <toc-element topic="jwt.md" show-structure-depth="2"/>
+                <toc-element topic="oauth.md" show-structure-depth="2"
                              accepts-web-file-names="authentication-oauth.html"/>
-                <toc-element id="session-auth.md" show-structure-depth="2"/>
+                <toc-element topic="session-auth.md" show-structure-depth="2"/>
             </toc-element>
 
-            <toc-element id="sessions.md" show-structure-depth="2"
+            <toc-element topic="sessions.md" show-structure-depth="2"
                          accepts-web-file-names="cookie-header.html,client-server.html,serializers.html,storages.html,transformers.html"/>
 
             <toc-element toc-title="HTTP">
-                <toc-element id="data-conversion.md"/>
+                <toc-element topic="data-conversion.md"/>
 
-                <toc-element id="default_headers.md"/>
-                <toc-element id="compression.md"
+                <toc-element topic="default_headers.md"/>
+                <toc-element topic="compression.md"
                              show-structure-depth="2"/>
-                <toc-element id="caching.md"
+                <toc-element topic="caching.md"
                              accepts-web-file-names="caching-headers.html"/>
-                <toc-element id="conditional_headers.md"/>
-                <toc-element id="cors.md" show-structure-depth="2"/>
+                <toc-element topic="conditional_headers.md"/>
+                <toc-element topic="cors.md" show-structure-depth="2"/>
 
-                <toc-element id="forward-headers.md" show-structure-depth="2"/>
-                <toc-element id="hsts.md"/>
-                <toc-element id="https-redirect.md"/>
-                <toc-element id="partial-content.md"/>
+                <toc-element topic="forward-headers.md" show-structure-depth="2"/>
+                <toc-element topic="hsts.md"/>
+                <toc-element topic="https-redirect.md"/>
+                <toc-element topic="partial-content.md"/>
             </toc-element>
 
-            <toc-element id="websocket.md"
+            <toc-element topic="websocket.md"
                          show-structure-depth="2"
                          accepts-web-file-names="servers-features-websockets.html">
-                <toc-element id="websocket_serialization.md" show-structure-depth="2"/>
-                <toc-element id="websocket_deflate_extension.md"/>
-                <toc-element id="websocket_extensions_api.md"/>
+                <toc-element topic="websocket_serialization.md" show-structure-depth="2"/>
+                <toc-element topic="websocket_deflate_extension.md"/>
+                <toc-element topic="websocket_extensions_api.md"/>
             </toc-element>
 
-            <toc-element id="servers_raw-sockets.md" show-structure-depth="2"/>
+            <toc-element topic="servers_raw-sockets.md" show-structure-depth="2"/>
 
             <toc-element toc-title="Monitoring">
-                <toc-element id="call-logging.md" show-structure-depth="2"/>
-                <toc-element id="call-id.md" show-structure-depth="2"/>
-                <toc-element id="micrometer_metrics.md"
+                <toc-element topic="call-logging.md" show-structure-depth="2"/>
+                <toc-element topic="call-id.md" show-structure-depth="2"/>
+                <toc-element topic="micrometer_metrics.md"
                              show-structure-depth="2"
                              accepts-web-file-names="metrics-micrometer.html"/>
-                <toc-element id="dropwizard_metrics.md" show-structure-depth="2"
+                <toc-element topic="dropwizard_metrics.md" show-structure-depth="2"
                              accepts-web-file-names="features-metrics.html"/>
             </toc-element>
 
             <toc-element toc-title="Administration">
-                <toc-element id="shutdown-url.md"/>
+                <toc-element topic="shutdown-url.md"/>
             </toc-element>
         </toc-element>
 
 
 
         <toc-element toc-title="Running and debugging">
-            <toc-element id="running.md" show-structure-depth="2"
+            <toc-element topic="running.md" show-structure-depth="2"
                          accepts-web-file-names="engine.html"/>
-            <toc-element id="Auto_reload.xml" accepts-web-file-names="autoreload.html"/>
+            <toc-element topic="Auto_reload.xml" accepts-web-file-names="autoreload.html"/>
         </toc-element>
 
-        <toc-element id="Testing.md"
+        <toc-element topic="Testing.md"
                      show-structure-depth="2"
                      accepts-web-file-names="servers-testing.html"/>
 
-        <toc-element id="deploy.md" show-structure-depth="2">
+        <toc-element topic="deploy.md" show-structure-depth="2">
             <toc-element toc-title="Packaging">
                 <toc-element toc-title="Creating Fat JARs">
-                    <toc-element id="fatjar.md" accepts-web-file-names="proguard.html,deploy-proguard.html"/>
-                    <toc-element id="maven-assembly-plugin.md"/>
+                    <toc-element topic="fatjar.md" accepts-web-file-names="proguard.html,deploy-proguard.html"/>
+                    <toc-element topic="maven-assembly-plugin.md"/>
                 </toc-element>
-                <toc-element id="gradle-application-plugin.md"
+                <toc-element topic="gradle-application-plugin.md"
                              accepts-web-file-names="packing.html"/>
-                <toc-element id="war.md"
+                <toc-element topic="war.md"
                              show-structure-depth="2"/>
-                <toc-element id="Graalvm.md"/>
+                <toc-element topic="Graalvm.md"/>
             </toc-element>
             <toc-element toc-title="Containerizing">
-                <toc-element id="docker.md"
+                <toc-element topic="docker.md"
                              accepts-web-file-names="containers.html"/>
-                <toc-element id="docker-compose.md" show-structure-depth="2"/>
+                <toc-element topic="docker-compose.md" show-structure-depth="2"/>
             </toc-element>
             <toc-element toc-title="Publishing">
-                <toc-element id="google-app-engine.md"
+                <toc-element topic="google-app-engine.md"
                              show-structure-depth="2"
                              accepts-web-file-names="hosting.html"/>
-                <toc-element id="heroku.md" show-structure-depth="2"/>
-                <toc-element id="elastic-beanstalk.md" show-structure-depth="2"/>
+                <toc-element topic="heroku.md" show-structure-depth="2"/>
+                <toc-element topic="elastic-beanstalk.md" show-structure-depth="2"/>
             </toc-element>
         </toc-element>
 
         <toc-element toc-title="Extending Ktor">
-            <toc-element id="custom_plugins.md"
+            <toc-element topic="custom_plugins.md"
                          show-structure-depth="2"
                          accepts-web-file-names="advanced-index.html,advanced-features.html,creating-custom-features.html,attributes.html,intercepting-routes.html,route.html"/>
-            <toc-element id="custom_plugins-base-api.md"
+            <toc-element topic="custom_plugins-base-api.md"
                          show-structure-depth="2"
                          accepts-web-file-names="creating-custom-plugins.html,advanced-authentication.html"/>
-            <toc-element id="Pipelines.md" accepts-web-file-names="pipeline.html"/>
+            <toc-element topic="Pipelines.md" accepts-web-file-names="pipeline.html"/>
             <toc-element toc-title="Routing under the covers">
-                <toc-element id="resolution_algorithms.md"/>
-                <toc-element id="tracing_routes.md"/>
+                <toc-element topic="resolution_algorithms.md"/>
+                <toc-element topic="tracing_routes.md"/>
             </toc-element>
-            <toc-element id="events.md"/>
+            <toc-element topic="events.md"/>
         </toc-element>
     </toc-element>
 
@@ -218,70 +218,70 @@
 
     <toc-element toc-title="Ktor Client">
         <toc-element toc-title="Getting started with a Ktor Client">
-            <toc-element id="getting_started_ktor_client.xml" show-structure-for="chapter,procedure"/>
-            <toc-element id="getting_started_ktor_client_chat.md" show-structure-depth="2"/>
-            <toc-element id="getting_started_ktor_client_multiplatform_mobile.md" show-structure-depth="2"/>
+            <toc-element topic="getting_started_ktor_client.xml" show-structure-for="chapter,procedure"/>
+            <toc-element topic="getting_started_ktor_client_chat.md" show-structure-depth="2"/>
+            <toc-element topic="getting_started_ktor_client_multiplatform_mobile.md" show-structure-depth="2"/>
         </toc-element>
         <toc-element toc-title="Developing applications">
             <toc-element toc-title="Setting up a client">
-                <toc-element id="client-dependencies.md" show-structure-depth="2"/>
-                <toc-element id="create-client.md"
+                <toc-element topic="client-dependencies.md" show-structure-depth="2"/>
+                <toc-element topic="create-client.md"
                              show-structure-depth="2" accepts-web-file-names="client.html,clients-index.html,quick-start.html"/>
-                <toc-element id="http-client_engines.md" accepts-web-file-names="http-client-multiplatform.html"
+                <toc-element topic="http-client_engines.md" accepts-web-file-names="http-client-multiplatform.html"
                              show-structure-depth="2"/>
-                <toc-element id="http-client_plugins.md"
+                <toc-element topic="http-client_plugins.md"
                              accepts-web-file-names="http-client-features.html"/>
-<!--                <toc-element id="http-client_multiplatform.md"/>-->
-                <toc-element id="client-ssl.md" show-structure-depth="2"/>
-                <toc-element id="proxy.md" show-structure-depth="2"/>
+                <!--                <toc-element topic="http-client_multiplatform.md"/>-->
+                <toc-element topic="client-ssl.md" show-structure-depth="2"/>
+                <toc-element topic="proxy.md" show-structure-depth="2"/>
             </toc-element>
 
             <toc-element toc-title="Requests">
-                <toc-element id="request.md" show-structure-depth="2" accepts-web-file-names="utilities.html"/>
-                <toc-element id="type-safe-request.md" show-structure-depth="2"/>
-                <toc-element id="default-request.md" show-structure-depth="2"/>
-                <toc-element id="user-agent.md"/>
-                <toc-element id="client_retry.md" show-structure-depth="2"/>
-                <toc-element id="http-send.md"/>
+                <toc-element topic="request.md" show-structure-depth="2" accepts-web-file-names="utilities.html"/>
+                <toc-element topic="type-safe-request.md" show-structure-depth="2"/>
+                <toc-element topic="default-request.md" show-structure-depth="2"/>
+                <toc-element topic="user-agent.md"/>
+                <toc-element topic="client_retry.md" show-structure-depth="2"/>
+                <toc-element topic="http-send.md"/>
             </toc-element>
             <toc-element toc-title="Responses">
-                <toc-element id="response.md"
+                <toc-element topic="response.md"
                              show-structure-depth="2"
                              accepts-web-file-names="streaming.html"/>
-                <toc-element id="response-validation.md"
+                <toc-element topic="response-validation.md"
                              show-structure-depth="2"/>
-                <toc-element id="http-redirect.md"/>
+                <toc-element topic="http-redirect.md"/>
             </toc-element>
-            <toc-element id="serialization-client.md"
+            <toc-element topic="serialization-client.md"
                          accepts-web-file-names="json-feature.html,json.html"
                          show-structure-depth="2"/>
-            <toc-element id="auth.md" show-structure-depth="2"
+            <toc-element topic="auth.md" show-structure-depth="2"
                          accepts-web-file-names="features-auth.html">
-                <toc-element id="basic-client.md"/>
-                <toc-element id="digest-client.md"/>
-                <toc-element id="bearer-client.md" show-structure-depth="2"/>
+                <toc-element topic="basic-client.md"/>
+                <toc-element topic="digest-client.md"/>
+                <toc-element topic="bearer-client.md" show-structure-depth="2"/>
             </toc-element>
-            <toc-element id="http-cookies.md"/>
-            <toc-element id="content-encoding.md"/>
-            <toc-element id="client-caching.md"/>
-            <toc-element id="http-plain-text.md"/>
-            <toc-element id="timeout.md"/>
-            <toc-element id="client_logging.md" show-structure-depth="2"
+            <toc-element topic="http-cookies.md"/>
+            <toc-element topic="content-encoding.md"/>
+            <toc-element topic="client-caching.md"/>
+            <toc-element topic="http-plain-text.md"/>
+            <toc-element topic="timeout.md"/>
+            <toc-element topic="client_logging.md" show-structure-depth="2"
                          accepts-web-file-names="features-logging.html"/>
-            <toc-element id="websocket_client.md" show-structure-depth="2"
+            <toc-element topic="websocket_client.md" show-structure-depth="2"
                          accepts-web-file-names="client-websockets.html,http-client-features-websockets.html,clients-websockets.html">
-                <toc-element id="websocket_client_serialization.md" show-structure-depth="2"/>
+                <toc-element topic="websocket_client_serialization.md" show-structure-depth="2"/>
             </toc-element>
         </toc-element>
 
-        <toc-element id="http-client_testing.md" show-structure-depth="2"/>
+        <toc-element topic="http-client_testing.md" show-structure-depth="2"/>
     </toc-element>
 
     <toc-element toc-title="Migrating Ktor applications">
-        <toc-element id="migrating-2.md" show-structure-depth="2"/>
+        <toc-element topic="migrating-2.md" show-structure-depth="2"/>
     </toc-element>
 
-    <toc-element id="FAQ.xml"
+    <toc-element topic="FAQ.xml"
                  accepts-web-file-names="zfaq.html"/>
 
     <toc-element href="https://api.ktor.io"
@@ -300,4 +300,4 @@
     <toc-element hidden="true"
                  accepts-web-file-names="build-from-source.html"
                  target-for-accept-web-file-names="https://github.com/ktorio/ktor/blob/main/CONTRIBUTING.md#building-the-project"/>
-</product-profile>
+</instance-profile>

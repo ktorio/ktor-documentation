@@ -6,3 +6,21 @@ find . -type f -maxdepth 1 -exec sed -i '' -e \
 find ./topics/ -type f -iname '*.xml' -exec sed -i '' -e \
     's|SYSTEM "https://resources.jetbrains.com/stardust/|SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/|g' {} \;
 
+# 02 - *.tree file
+#    Known problems:
+#    - id -> topic is not roubst
+#    - show-structure-depth="2"
+#    - <toc-element href="https://api.ktor.io" toc-title="API Docs"/>
+#    - update extension for XML topics
+
+find . -type f -maxdepth 1 -iname '*.tree' -exec sed -i '' -e \
+    's|DOCTYPE product-profile|DOCTYPE instance-profile|g' {} \;
+
+find . -type f -maxdepth 1 -iname '*.tree' -exec sed -i '' -r -e \
+    's|(</?)product-profile|\1instance-profile|g' {} \;
+
+# FIXME: relies on the `id` as the first attribute, works for ktor, but not robust at all
+
+find . -type f -maxdepth 1 -iname '*.tree' -exec sed -i '' -r -e \
+    's| <toc-element id="([^"]*)"| <toc-element topic="\1"|g' {} \;
+
