@@ -1,8 +1,8 @@
 [//]: # (title: Engines)
 
-<excerpt>
+<link-summary>
 Learn about engines that process network requests.
-</excerpt>
+</link-summary>
 
 To run a Ktor server application, you need to [create](create_server.xml) and configure a server first.
 Server configuration includes different settings:

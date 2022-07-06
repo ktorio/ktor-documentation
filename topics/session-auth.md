@@ -1,12 +1,12 @@
 [//]: # (title: Session authentication)
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:ktor-server-auth</code>, <code>io.ktor:ktor-server-sessions</code>
 </p>
 <var name="example_name" value="auth-form-session"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 
 [Sessions](sessions.md) provide a mechanism to persist data between different HTTP requests. Typical use cases include storing a logged-in user's ID, the contents of a shopping basket, or keeping user preferences on the client. 

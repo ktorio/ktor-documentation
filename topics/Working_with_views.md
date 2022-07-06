@@ -1,6 +1,6 @@
 [//]: # (title: Templating)
 
-<excerpt>Ktor provides different ways for working with views: you can build HTML/CSS using Kotlin DSL, or you can choose between JVM template engines, such as FreeMarker, Velocity, and so on.</excerpt>
+<link-summary>Ktor provides different ways for working with views: you can build HTML/CSS using Kotlin DSL, or you can choose between JVM template engines, such as FreeMarker, Velocity, and so on.</link-summary>
 
 Ktor provides different ways for working with views: you can build HTML/CSS using Kotlin DSL, or you can choose between JVM template engines, such as FreeMarker, Velocity, and so on. 
 * [](html_dsl.md)

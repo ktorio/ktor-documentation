@@ -6,7 +6,7 @@
        title="Adding Ktor dependencies"
        id="server-dependencies" auxiliary-id="Gradle">
 
-    <excerpt>Learn how to add Ktor dependencies to the existing Gradle/Maven project.</excerpt>
+    <link-summary>Learn how to add Ktor dependencies to the existing Gradle/Maven project.</link-summary>
 
     <p>
         In this topic, we'll show you how to add dependencies required for Ktor to the existing Gradle/Maven project.

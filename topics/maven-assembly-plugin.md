@@ -1,10 +1,10 @@
 [//]: # (title: Maven Assembly plugin)
 
-<microformat>
+<tldr>
 <p>
 <control>Sample project</control>: <a href="https://github.com/ktorio/ktor-maven-sample/">ktor-maven-sample</a>
 </p>
-</microformat>
+</tldr>
 
 The Maven [Assembly plugin](http://maven.apache.org/plugins/maven-assembly-plugin/) provides the ability to combine project output into a single distributable archive that contains dependencies, modules, site documentation, and other files.
 

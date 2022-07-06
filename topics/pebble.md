@@ -5,13 +5,13 @@
 <var name="package_name" value="io.ktor.server.pebble"/>
 <var name="artifact_name" value="ktor-server-pebble"/>
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="pebble"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 Ktor allows you to use [Pebble templates](https://pebbletemplates.io/) as views within your application by installing the [Pebble](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-pebble/io.ktor.server.pebble/-pebble) plugin.
 

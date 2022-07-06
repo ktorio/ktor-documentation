@@ -1,14 +1,14 @@
 [//]: # (title: Creating a static website)
 
-<microformat>
+<tldr>
 <var name="example_name" value="tutorial-website-static"/>
 <include src="lib.xml" include-id="download_example"/>
 <p>
 <b>Used plugins</b>: <a href="Routing_in_Ktor.md">Routing</a>, <a href="Serving_Static_Content.md">Static Content</a>
 </p>
-</microformat>
+</tldr>
 
-<excerpt>Learn how to create a static website using the Static Content plugin.</excerpt>
+<link-summary>Learn how to create a static website using the Static Content plugin.</link-summary>
 
 In this series of tutorials, we'll show you how to create a simple blog application in Ktor:
 - First, we'll show how to host static content like images and HTML pages.

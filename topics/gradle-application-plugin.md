@@ -1,10 +1,10 @@
 [//]: # (title: Gradle Application plugin)
 
-<microformat>
+<tldr>
 <p>
 <control>Sample project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main">engine-main</a>
 </p>
-</microformat>
+</tldr>
 
 The Gradle [Application plugin](https://docs.gradle.org/current/userguide/application_plugin.html) provides the ability to package applications, including code dependencies and generated start scripts. In this topic, we'll show you how to package and run a Ktor application.
 

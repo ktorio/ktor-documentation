@@ -1,14 +1,14 @@
 [//]: # (title: Modules)
 
-<microformat>
+<tldr>
 <p>
 <b>Code examples</b>: 
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server-modules">embedded-server-modules</a>, 
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main-modules">engine-main-modules</a>
 </p>
-</microformat>
+</tldr>
 
-<excerpt>Modules allow you to structure your application by grouping routes.</excerpt>
+<link-summary>Modules allow you to structure your application by grouping routes.</link-summary>
 
 Ktor allows you to use modules to [structure](Structuring_Applications.md) your application by defining a specific set of [routes](Routing_in_Ktor.md) inside a specific module. A module is an _[extension function](https://kotlinlang.org/docs/extensions.html)_ of the [Application](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application/index.html) class. In the example below, the `module1` extension function defines a module that accepts GET requests made to the `/module1` URL path.
 

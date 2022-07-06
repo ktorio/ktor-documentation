@@ -38,4 +38,13 @@ for old in ./topics/*.xml; do
     mv $old ./topics/`basename $old .xml`.topic;
 done
 
+# 05 MD topics - XML pieces
+
+replaceXmlTagsInTopics() {
+    find ./topics/ -type f -exec sed -i '' -r -e \
+        's^(</?)'"$1"'( |>)^\1'"$2"'\2^g' {} \;
+}
+
+replaceXmlTagsInTopics microformat tldr
+replaceXmlTagsInTopics excerpt link-summary
 

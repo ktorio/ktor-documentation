@@ -1,9 +1,9 @@
 [//]: # (title: WebSockets serialization)
 
-<microformat>
+<tldr>
 <var name="example_name" value="server-websockets-serialization"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 Similar to the [ContentNegotiation](serialization.md) plugin, WebSockets allow you to serialize/deserialize text frames in a specific format. Ktor supports the following formats out-of-the-box: JSON, XML, and CBOR.
 

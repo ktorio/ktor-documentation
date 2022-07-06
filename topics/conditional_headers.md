@@ -4,13 +4,13 @@
 <var name="package_name" value="io.ktor.server.plugins.conditionalheaders"/>
 <var name="plugin_name" value="ConditionalHeaders"/>
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="conditional-headers"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 The [ConditionalHeaders](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-conditional-headers/io.ktor.server.plugins.conditionalheaders/-conditional-headers.html) plugin avoids sending the body of content if it has not changed since the last request. This is achieved by using the following headers:
 * The `Last-Modified` response header contains a resource modification time. For example, if the client request contains the `If-Modified-Since` value, Ktor will send a full response only if a resource has been modified after the given date. Note that for [static files](Serving_Static_Content.md) Ktor appends the `Last-Modified` header automatically after [installing](#install_plugin) `ConditionalHeaders`.

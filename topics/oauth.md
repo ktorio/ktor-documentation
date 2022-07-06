@@ -3,13 +3,13 @@
 <var name="plugin_name" value="OAuth"/>
 <var name="artifact_name" value="ktor-server-auth"/>
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="auth-oauth-google"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 [OAuth](https://oauth.net/) is an open standard for access delegation. OAuth can be used to authorize users of your application by using external providers, such as Google, Facebook, Twitter, and so on.
 

@@ -1,6 +1,6 @@
 [//]: # (title: JSON Web Tokens)
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:ktor-server-auth</code>, <code>io.ktor:ktor-server-auth-jwt</code>
 </p>
@@ -9,7 +9,7 @@
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-jwt-hs256">auth-jwt-hs256</a>, 
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-jwt-rs256">auth-jwt-rs256</a>
 </p>
-</microformat>
+</tldr>
 
 [JSON Web Token](https://jwt.io/) is an open standard that defines a way for securely transmitting information between parties as a JSON object. This information can be verified and trusted since it is signed using a shared secret (with the `HS256` algorithm) or a public/private key pair (for example, `RS256`).
 

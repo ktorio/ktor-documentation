@@ -1,11 +1,11 @@
 [//]: # (title: Gradle Shadow plugin)
 
-<microformat>
+<tldr>
 <var name="example_name" value="fatjar"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
-<excerpt>Learn how to create an executable Fat JAR using the Gradle Shadow plugin.</excerpt>
+<link-summary>Learn how to create an executable Fat JAR using the Gradle Shadow plugin.</link-summary>
 
 The Gradle [Shadow](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow) plugin allows you to create an executable JAR that includes all code dependencies (fat JAR).
 

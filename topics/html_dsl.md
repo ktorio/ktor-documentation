@@ -1,13 +1,13 @@
 [//]: # (title: HTML DSL)
 
 <var name="artifact_name" value="ktor-server-html-builder"/>
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="html"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 HTML DSL integrates the [kotlinx.html](https://github.com/Kotlin/kotlinx.html) library into Ktor and allows you to respond to a client with HTML blocks. With HTML DSL, you can write pure HTML in Kotlin, interpolate variables into views, and even build complex HTML layouts using templates.
 

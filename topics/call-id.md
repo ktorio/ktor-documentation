@@ -4,13 +4,13 @@
 <var name="package_name" value="io.ktor.server.plugins.callid"/>
 <var name="plugin_name" value="CallId"/>
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="call-id"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-call-id/io.ktor.server.plugins.callid/-call-id.html) plugin allows you to trace client requests end-to-end by using unique request IDs or call IDs. Typically, working with a call ID in Ktor might look as follows:
 1. First, you need to obtain a call ID for a specific request in one of the following ways:

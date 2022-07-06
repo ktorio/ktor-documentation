@@ -1,14 +1,14 @@
 [//]: # (title: Creating a WebSocket chat)
 
-<microformat>
+<tldr>
 <var name="example_name" value="tutorial-websockets-server"/>
 <include src="lib.xml" include-id="download_example"/>
 <p>
 <b>Used plugins</b>: <a href="Routing_in_Ktor.md">Routing</a>, <a href="websocket.md">WebSockets</a>
 </p>
-</microformat>
+</tldr>
 
-<excerpt>In this tutorial, you will learn how to create a simple chat application that uses WebSockets.</excerpt>
+<link-summary>In this tutorial, you will learn how to create a simple chat application that uses WebSockets.</link-summary>
 
 In this tutorial, you will learn how to create a simple chat application that uses WebSockets.
 

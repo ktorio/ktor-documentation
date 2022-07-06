@@ -1,14 +1,14 @@
 [//]: # (title: Making requests)
 [percent_encoding]: https://en.wikipedia.org/wiki/Percent-encoding
 
-<microformat>
+<tldr>
 <var name="example_name" value="client-configure-request"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
-<excerpt>
+<link-summary>
 Learn how to make requests and specify various request parameters: a request URL, an HTTP method, headers, and the body of a request.
-</excerpt>
+</link-summary>
 
 After [setting up the client](create-client.md), you can make HTTP requests. The main way of making HTTP requests is the [request](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/request.html) function that can take a URL as a parameter. Inside this function, you can configure various request parameters: 
 * Specify an HTTP method, such as `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, or `PATCH`.

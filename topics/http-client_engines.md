@@ -1,8 +1,8 @@
 [//]: # (title: Engines)
 
-<excerpt>
+<link-summary>
 Learn about engines that process network requests.
-</excerpt>
+</link-summary>
 
 The [Ktor HTTP client](create-client.md) can be used on different platforms, including JVM, [Android](https://kotlinlang.org/docs/android-overview.html), [JavaScript](https://kotlinlang.org/docs/js-overview.html), and [Native](https://kotlinlang.org/docs/native-overview.html). A specific platform may require a specific engine that processes network requests. 
 For example, you can use `Apache` or `Jetty`for JVM applications, `OkHttp` or `Android` for Android, `Curl` for desktop applications targeting Kotlin/Native, and so on. Different engines may have specific features and provide different configuration options.

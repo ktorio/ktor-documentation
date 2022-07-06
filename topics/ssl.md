@@ -1,6 +1,6 @@
 [//]: # (title: SSL and certificates)
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:ktor-network-tls-certificates</code>
 </p>
@@ -9,7 +9,7 @@
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-engine-main">ssl-engine-main</a>, 
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-embedded-server">ssl-embedded-server</a>
 </p>
-</microformat>
+</tldr>
 
 In most cases, your Ktor services are placed behind a reverse proxy such as Nginx or Apache. 
 This means that a reverse proxy server handles security concerns, including SSL.

@@ -1,9 +1,9 @@
 [//]: # (title: Custom plugins - Base API)
 
-<microformat>
+<tldr>
 <var name="example_name" value="custom-plugin-base-api"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 > Starting with v2.0.0, Ktor provides a new simplified API for [creating custom plugins](custom_plugins.md).
 >

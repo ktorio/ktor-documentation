@@ -4,13 +4,13 @@
 <var name="package_name" value="io.ktor.server.plugins.callloging"/>
 <var name="artifact_name" value="ktor-server-call-logging"/>
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="logging"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 Ktor provides the capability to log application events using the [SLF4J](http://www.slf4j.org/) library. You can learn about general logging configuration from the [](logging.md) topic.
 

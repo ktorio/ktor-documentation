@@ -5,13 +5,13 @@
 <var name="package_name" value="io.ktor.server.freemarker"/>
 <var name="artifact_name" value="ktor-server-freemarker"/>
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="freemarker"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 Ktor allows you to use [FreeMarker templates](https://freemarker.apache.org/) as views within your application by installing the [FreeMarker](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-freemarker/io.ktor.server.freemarker/-free-marker) plugin.
 

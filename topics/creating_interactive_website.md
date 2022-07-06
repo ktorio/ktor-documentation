@@ -1,15 +1,15 @@
 [//]: # (title: Creating an interactive website)
 
-<microformat>
+<tldr>
 <var name="example_name" value="tutorial-website-interactive"/>
 <include src="lib.xml" include-id="download_example"/>
 <p>
 <b>Used plugins</b>: <a href="Routing_in_Ktor.md">Routing</a>, <a href="freemarker.md">FreeMarker</a>
 </p>
-</microformat>
+</tldr>
 
 
-<excerpt>Learn how to create an interactive website using HTML templating engines like FreeMarker.</excerpt>
+<link-summary>Learn how to create an interactive website using HTML templating engines like FreeMarker.</link-summary>
 
 In this series of tutorials, we'll show you how to create a simple blog application in Ktor:
 - In the first tutorial, we showed how to host [static content](creating_static_website.md) like images and HTML pages.

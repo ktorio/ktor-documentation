@@ -1,14 +1,14 @@
 [//]: # (title: GraalVM)
 
-<microformat>
+<tldr>
 <p>
 <control>Sample project</control>: <a href="https://github.com/ktorio/ktor-samples/tree/main/graalvm">graalvm</a>
 </p>
-</microformat>
+</tldr>
 
-<excerpt>
+<link-summary>
 Ktor Server applications can make use of GraalVM in order to have native images for different platforms.
-</excerpt>
+</link-summary>
 
 Ktor Server applications can make use of [GraalVM](https://graalvm.org) in order to have native images for different platforms, and of course, take advantage of the faster start-up times and other benefits that GraalVM provides. 
 

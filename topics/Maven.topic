@@ -6,11 +6,11 @@
        title="Adding Ktor to an existing Maven project"
        id="Maven">
 
-    <microformat>
+    <tldr>
         <p>
             <control>Final project</control>: <a href="https://github.com/ktorio/ktor-maven-sample/tree/main">ktor-maven-sample</a>
         </p>
-    </microformat>
+    </tldr>
 
     <p>
         In this tutorial, we'll show you how to integrate Ktor into the existing Maven project.

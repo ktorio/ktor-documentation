@@ -1,13 +1,13 @@
 [//]: # (title: Creating a WebSocket chat client)
 
-<microformat>
+<tldr>
 <var name="example_name" value="tutorial-websockets-client"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
-<excerpt>
+<link-summary>
 Learn how to create a client chat application that uses WebSockets.
-</excerpt>
+</link-summary>
 
 In this tutorial, you will learn how to create a client chat application that uses WebSockets. The client application will allow users to join a common chat server, send messages to other users, and see messages from other users in the terminal.
 

@@ -6,11 +6,11 @@
 <var name="package_name" value="io.ktor.server.plugins.dataconversion"/>
 <var name="plugin_name" value="DataConversion"/>
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
-</microformat>
+</tldr>
 
 `%plugin_name%` is a plugin that allows to serialize and deserialize a list of values. By default, it handles primitive types and enums, but it can also be configured to handle additional types. If you are using the [Locations plugin](locations.md) and want to support custom types as part of its parameters, you can add new custom converters with this service.
 

@@ -1,15 +1,15 @@
 [//]: # (title: Serving static content)
 
-<microformat>
+<tldr>
 <p><b>Code examples</b>:
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/static-files">static-files</a>,
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/static-resources">static-resources</a>
 </p>
-</microformat>
+</tldr>
 
-<excerpt>
+<link-summary>
 Ktor allows you to serve static files, such as stylesheets, scripts, images, and so on.
-</excerpt>
+</link-summary>
 
 Whether we're creating a website or an HTTP endpoint, many applications need to serve files (such as stylesheets, scripts, images, etc.). 
 While it is certainly possible with Ktor to load the contents of a file and [send it in response](responses.md) to a request, given this is such a common functionality, Ktor simplifies the entire process for us with the [static](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.http.content/static.html) plugin.

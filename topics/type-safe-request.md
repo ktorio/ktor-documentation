@@ -3,17 +3,17 @@
 <var name="plugin_name" value="Resources"/>
 <var name="artifact_name" value="ktor-client-resources"/>
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="client-type-safe-requests"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
-<excerpt>
+<link-summary>
 Learn how to make type-safe requests using the Resources plugin.
-</excerpt>
+</link-summary>
 
 Ktor provides the `%plugin_name%` plugin that allows you to implement type-safe [requests](request.md). To accomplish this, you need to create a class that describes resources available on a server and then annotate this class using the `@Resource` keyword. Such classes should also have the `@Serializable` annotation provided by the kotlinx.serialization library.
 

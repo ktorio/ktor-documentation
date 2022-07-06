@@ -1,6 +1,6 @@
 [//]: # (title: Adding client dependencies)
 
-<excerpt>Learn how to add client dependencies to the existing project.</excerpt>
+<link-summary>Learn how to add client dependencies to the existing project.</link-summary>
 
 To use the Ktor HTTP client in your project, you need to [configure repositories](#repositories) and add the following dependencies:
 - **[ktor-client-core](#client-dependency)**

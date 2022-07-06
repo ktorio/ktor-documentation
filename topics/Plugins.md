@@ -1,8 +1,8 @@
 [//]: # (title: Plugins)
 
-<excerpt>
+<link-summary>
 Plugins provide common functionality, for example, serialization and content encoding, compression, headers, cookie support, etc.
-</excerpt>
+</link-summary>
 
 A typical request/response pipeline in Ktor looks like the following:
 

@@ -1,12 +1,12 @@
 [//]: # (title: Logging)
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:ktor-client-logging</code>
 </p>
 <var name="example_name" value="client-logging"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 Ktor client provides the capability to log HTTP calls using the [Logging](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-logging/io.ktor.client.plugins.logging/-logging/index.html) plugin.
 This plugin provides different logger types for different platforms:

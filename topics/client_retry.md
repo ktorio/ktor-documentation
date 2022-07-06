@@ -1,13 +1,13 @@
 [//]: # (title: Retrying failed requests)
 
-<microformat>
+<tldr>
 <var name="example_name" value="client-retry"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
-<excerpt>
+<link-summary>
 The `HttpRequestRetry` plugin allows you to configure the retry policy for failed requests in various ways: specify the number of retries, configure conditions for retrying a request, or specify delay logic.
-</excerpt>
+</link-summary>
 
 By default, the Ktor client doesn't retry [requests](request.md) that failed due to network or server errors.
 You can use the [HttpRequestRetry](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-request-retry/index.html) plugin to configure the retry policy for failed requests in various ways: specify the number of retries, configure conditions for retrying a request, or modify a request before retrying.

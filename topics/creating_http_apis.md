@@ -1,14 +1,14 @@
 [//]: # (title: Creating HTTP APIs)
 
-<microformat>
+<tldr>
 <var name="example_name" value="tutorial-http-api"/>
 <include src="lib.xml" include-id="download_example"/>
 <p>
 <b>Used plugins</b>: <a href="Routing_in_Ktor.md">Routing</a>, <a href="serialization.md">ContentNegotiation</a>, kotlinx.serialization
 </p>
-</microformat>
+</tldr>
 
-<excerpt>This tutorial shows how to create an HTTP API that can serve as a backend for any application, be it mobile, web, desktop, or even a B2B service.</excerpt>
+<link-summary>This tutorial shows how to create an HTTP API that can serve as a backend for any application, be it mobile, web, desktop, or even a B2B service.</link-summary>
 
 In this tutorial, we're going to create an HTTP API that can serve as a backend for any application, be it mobile, web, desktop, or even a B2B service. We will see how routes are defined and structured, how serialization plugins help simplify tedious tasks, and how we can test parts of our application both manually and automated.
 

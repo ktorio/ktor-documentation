@@ -1,9 +1,9 @@
 [//]: # (title: Bearer authentication)
 
-<microformat>
+<tldr>
 <var name="example_name" value="client-auth-oauth-google"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 
 Bearer authentication involves security tokens called bearer tokens. As an example, these tokens can be used as a part of OAuth flow to authorize users of your application by using external providers, such as Google, Facebook, Twitter, and so on. You can learn how the OAuth flow might look from the [OAuth authorization flow](oauth.md#flow) section for a Ktor server.
