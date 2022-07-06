@@ -66,7 +66,7 @@ To run the [packaged application](#package):
 1. Go to the `build/install/engine-main/bin` folder in a terminal.
 1. Depending on your operating system, run the `ktor-gradle-sample` or `ktor-gradle-sample.bat` executable:
 
-   <chunk id="run_executable">
+   <snippet id="run_executable">
    <tabs group="os">
    <tab title="Linux/MacOS" group-key="unix">
    <code style="block" lang="Bash">./engine-main</code>
@@ -75,7 +75,7 @@ To run the [packaged application](#package):
    <code style="block" lang="CMD">engine-main.bat</code>
    </tab>
    </tabs>
-   </chunk>
+   </snippet>
    
 1. Wait until the following message is shown:
    ```Bash

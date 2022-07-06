@@ -38,7 +38,7 @@ Given that [resource classes](#resource_classes) should have the `@Serializable`
 
 ## Create resource classes {id="resource_classes"}
 
-<chunk id="resource_classes_server">
+<snippet id="resource_classes_server">
 
 Each resource class should have the following annotations:
 * The `@Serializable` annotation, which is provided by the [kotlinx.serialization library](#add_serialization).
@@ -102,7 +102,7 @@ class Articles() {
 
 As an example, this resource can be used to respond on `/articles/12`.
 
-</chunk>
+</snippet>
 
 ### Example: A resource for CRUD operations {id="example_crud"}
 

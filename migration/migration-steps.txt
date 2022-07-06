@@ -56,6 +56,8 @@ find ./topics/ -type f -exec sed -i '' -r -e \
 find ./topics/ -type f -exec sed -i '' -r -e \
     's~<include ([^>]*)src="([^.]*)\.xml"~<include \1src="\2\.topic"~g' {} \;
 
+replaceXmlTagsInTopics chunk snippet
+
 # 07 href's
 
 find ./topics/ -type f -exec sed -i '' -r -e \
