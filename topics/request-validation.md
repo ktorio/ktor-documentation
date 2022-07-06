@@ -108,12 +108,12 @@ To add validation of the `id` property, follow the steps below:
    ```kotlin
    ```
    {src="snippets/request-validation/src/main/kotlin/com/example/Application.kt" lines="57-60"}
-4. In the `%plugin_name%` plugin configuration, add validation of the `id` property to make sure it doesn't exceed the specified value:
+4. In the `%plugin_name%` plugin configuration, add validation of the `id` property to make sure it falls into a specified range:
    ```kotlin
    ```
    {src="snippets/request-validation/src/main/kotlin/com/example/Application.kt" lines="20,26-30,43"}
    
-   In this case, `%plugin_name%` will raise **[RequestValidationException](#validation-exception)** if the `id` value equals or exceeds `10`.
+   In this case, `%plugin_name%` will raise **[RequestValidationException](#validation-exception)** if the `id` value is less or equals to `0`.
 
 
 

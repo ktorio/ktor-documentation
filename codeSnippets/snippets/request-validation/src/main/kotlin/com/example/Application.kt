@@ -24,8 +24,8 @@ fun Application.module() {
             else ValidationResult.Valid
         }
         validate<Customer> { customer ->
-            if (customer.id >= 10)
-                ValidationResult.Invalid("A customer ID should be less than 10")
+            if (customer.id <= 0)
+                ValidationResult.Invalid("A customer ID should be greater than 0")
             else ValidationResult.Valid
         }
         validate {
@@ -35,7 +35,7 @@ fun Application.module() {
             validation { body ->
                 check(body is ByteArray)
                 val intValue = String(body).toInt()
-                if (intValue < 0)
+                if (intValue <= 0)
                     ValidationResult.Invalid("A value should be greater than 0")
                 else ValidationResult.Valid
             }
