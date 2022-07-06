@@ -74,6 +74,7 @@
                              accepts-web-file-names="multipart-support.html,uploads.html,calls.html"/>
                 <toc-element id="responses.md"
                              show-structure-depth="2"/>
+                <toc-element id="request-validation.md" show-structure-depth="2"/>
                 <toc-element id="status_pages.md" show-structure-depth="2"/>
                 <toc-element id="double-receive.md"/>
             </toc-element>

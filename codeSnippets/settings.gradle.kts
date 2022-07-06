@@ -143,6 +143,7 @@ module("snippets", "caching-headers-routes")
 module("snippets", "jte")
 module("snippets", "custom-plugin-authorization")
 module("snippets", "client-configure-request")
+module("snippets", "request-validation")
 if(!System.getProperty("os.name").startsWith("Windows")) {
     module("snippets", "embedded-server-native")
 }
