@@ -1,15 +1,14 @@
 POST http://localhost:8080/text
 Content-Type: text/plain
 
-Hello, world!
+Some text
 
 ###
-
 POST http://0.0.0.0:8080/json
 Content-Type: application/json
 
 {
-  "id": 11,
+  "id": 100,
   "firstName" : "Jet",
   "lastName": "Brains"
 }
@@ -18,4 +17,4 @@ Content-Type: application/json
 POST http://localhost:8080/array
 Content-Type: text/plain
 
-10
+-1

@@ -28,7 +28,7 @@ class ApplicationTest {
         }
         val response = client.post("/json") {
             contentType(ContentType.Application.Json)
-            setBody(Customer(11, "Jet", "Brains"))
+            setBody(Customer(100, "Jet", "Brains"))
         }
         assertEquals("\"A customer ID should be less than 10\"", response.bodyAsText())
         assertEquals(HttpStatusCode.BadRequest, response.status)

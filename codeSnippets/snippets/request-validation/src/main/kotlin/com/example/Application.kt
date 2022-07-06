@@ -24,7 +24,7 @@ fun Application.module() {
             else ValidationResult.Valid
         }
         validate<Customer> { customer ->
-            if (customer.id > 10)
+            if (customer.id >= 10)
                 ValidationResult.Invalid("A customer ID should be less than 10")
             else ValidationResult.Valid
         }
