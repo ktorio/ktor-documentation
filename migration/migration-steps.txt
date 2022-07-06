@@ -24,7 +24,7 @@ find . -type f -maxdepth 1 -iname '*.tree' -exec sed -i '' -r -e \
 # FIXME: relies on the `id` as the first attribute, works for ktor, but not robust at all
 
 find . -type f -maxdepth 1 -iname '*.tree' -exec sed -i '' -r -e \
-    's| <toc-element id="([^"]*)"| <toc-element topic="\1"|g' {} \;
+    's|<toc-element id="([^"]*)"|<toc-element topic="\1"|g' {} \;
 
 # 03 - project.ihp
 
