@@ -73,4 +73,8 @@ replaceXmlAttributeName() {
 replaceXmlTagsInTopics for if
 replaceXmlAttributeName if product instance
 
+# 09 - assorted attributes
+
+replaceXmlAttributeName list type style
+
 

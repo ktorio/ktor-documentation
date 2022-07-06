@@ -18,14 +18,14 @@
 
     <tabs>
         <tab title="Ktor Server">
-            <list type="horizontal" columns="2">
+            <list style="horizontal" columns="2">
                 <li>
                     <p>
                         <b>
                             Getting started
                         </b>
                     </p>
-                    <list type="none">
+                    <list style="none">
                         <li>
                             <p>
                                 <a href="intellij-idea.topic"/>
@@ -58,7 +58,7 @@
                             Configuring a server
                         </b>
                     </p>
-                    <list type="none">
+                    <list style="none">
                         <li>
                             <a href="server-dependencies.topic"/>
                         </li>
@@ -83,7 +83,7 @@
                             Routing
                         </b>
                     </p>
-                    <list type="none">
+                    <list style="none">
                         <li>
                             <a href="Routing_in_Ktor.md"/>
                         </li>
@@ -114,7 +114,7 @@
                             Plugins
                         </b>
                     </p>
-                    <list type="none">
+                    <list style="none">
                         <li>
                             <a href="Working_with_views.md"/>
                         </li>
@@ -145,7 +145,7 @@
                             Running, debugging, and testing
                         </b>
                     </p>
-                    <list type="none">
+                    <list style="none">
                         <li>
                             <a href="running.md"/>
                         </li>
@@ -167,7 +167,7 @@
                             Deployment
                         </b>
                     </p>
-                    <list type="none">
+                    <list style="none">
                         <li>
                             <a href="fatjar.md">Creating Fat JARs</a>
                         </li>
@@ -194,14 +194,14 @@
             </list>
         </tab>
         <tab title="Ktor Client">
-            <list type="horizontal" columns="2">
+            <list style="horizontal" columns="2">
                 <li>
                     <p>
                         <b>
                             Getting started
                         </b>
                     </p>
-                    <list type="none">
+                    <list style="none">
                         <li>
                             <p>
                                 <a href="getting_started_ktor_client.topic"/>
@@ -229,7 +229,7 @@
                             Setting up the client
                         </b>
                     </p>
-                    <list type="none">
+                    <list style="none">
                         <li>
                             <a href="client-dependencies.md"/>
                         </li>
@@ -254,7 +254,7 @@
                             Requests
                         </b>
                     </p>
-                    <list type="none">
+                    <list style="none">
                         <li>
                             <a href="request.md"/>
                         </li>
@@ -279,7 +279,7 @@
                             Responses
                         </b>
                     </p>
-                    <list type="none">
+                    <list style="none">
                         <li>
                             <a href="response.md"/>
                         </li>
@@ -298,7 +298,7 @@
                             Plugins
                         </b>
                     </p>
-                    <list type="none">
+                    <list style="none">
                         <li>
                             <a href="serialization-client.md"/>
                         </li>
@@ -329,7 +329,7 @@
                             Testing
                         </b>
                     </p>
-                    <list type="none">
+                    <list style="none">
                         <li>
                             <a href="http-client_testing.md"/>
                         </li>
