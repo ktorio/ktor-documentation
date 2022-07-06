@@ -79,4 +79,7 @@ replaceXmlAttributeName if product instance
 replaceXmlAttributeName list type style
 replaceXmlTagsInTopics menupath ui-path
 
+# more on includes, but can;t be moved up without moving the function
+replaceXmlAttributeName include src from
+
 

@@ -8,7 +8,7 @@
 
     <tldr>
         <var name="example_name" value="tutorial-client-get-started"/>
-        <include src="lib.topic" element-id="download_example"/>
+        <include from="lib.topic" element-id="download_example"/>
     </tldr>
 
     <link-summary>
@@ -21,7 +21,7 @@
     </p>
 
     <chapter title="Prerequisites" id="prerequisites">
-        <include src="lib.topic" element-id="client_prerequisites"/>
+        <include from="lib.topic" element-id="client_prerequisites"/>
     </chapter>
 
     <chapter title="Create a new project" id="new-project">
@@ -32,7 +32,7 @@
         </p>
         <procedure hide-from-structure="true">
             <step>
-                <include src="lib.topic" element-id="new_project_idea"/>
+                <include from="lib.topic" element-id="new_project_idea"/>
             </step>
             <step>
                 <p>

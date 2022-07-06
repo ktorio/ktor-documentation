@@ -19,12 +19,12 @@ If your server supposes to handle [cross-origin requests](https://developer.mozi
 
 ## Add dependencies {id="add_dependencies"}
 
-<include src="lib.topic" element-id="add_ktor_artifact_intro"/>
-<include src="lib.topic" element-id="add_ktor_artifact"/>
+<include from="lib.topic" element-id="add_ktor_artifact_intro"/>
+<include from="lib.topic" element-id="add_ktor_artifact"/>
 
 ## Install %plugin_name% {id="install_plugin"}
 
-<include src="lib.topic" element-id="install_plugin"/>
+<include from="lib.topic" element-id="install_plugin"/>
 
 
 ## Configure CORS {id="configure"}

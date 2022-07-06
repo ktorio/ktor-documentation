@@ -8,7 +8,7 @@
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="client-type-safe-requests"/>
-<include src="lib.topic" element-id="download_example"/>
+<include from="lib.topic" element-id="download_example"/>
 </tldr>
 
 <link-summary>
@@ -28,9 +28,9 @@ Given that [resource classes](#resource_classes) should have the `@Serializable`
 
 ### Add %plugin_name% dependencies {id="add_plugin_dependencies"}
 
-<include src="lib.topic" element-id="add_ktor_artifact_intro"/>
-<include src="lib.topic" element-id="add_ktor_artifact"/>
-<include src="lib.topic" element-id="add_ktor_client_artifact_tip"/>
+<include from="lib.topic" element-id="add_ktor_artifact_intro"/>
+<include from="lib.topic" element-id="add_ktor_artifact"/>
+<include from="lib.topic" element-id="add_ktor_client_artifact_tip"/>
 
 
 ## Install %plugin_name% {id="install_plugin"}
@@ -45,7 +45,7 @@ val client = HttpClient(CIO) {
 
 ## Create resource classes {id="resource_classes"}
 
-<include src="type-safe-routing.md" element-id="resource_classes_server"/>
+<include from="type-safe-routing.md" element-id="resource_classes_server"/>
 
 
 ### Example: A resource for CRUD operations {id="example_crud"}

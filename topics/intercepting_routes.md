@@ -1,6 +1,6 @@
 [//]: # (title: Intercepting Routes)
 
-<include src="lib.topic" element-id="outdated_warning"/>
+<include from="lib.topic" element-id="outdated_warning"/>
 
 If you just want to intercept some calls for a specific route, you have to create a `Route` node (usually by calling `createChild`) and intercept that node.
 

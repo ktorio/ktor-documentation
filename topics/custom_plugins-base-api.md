@@ -2,7 +2,7 @@
 
 <tldr>
 <var name="example_name" value="custom-plugin-base-api"/>
-<include src="lib.topic" element-id="download_example"/>
+<include from="lib.topic" element-id="download_example"/>
 </tldr>
 
 > Starting with v2.0.0, Ktor provides a new simplified API for [creating custom plugins](custom_plugins.md).
