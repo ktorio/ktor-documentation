@@ -51,10 +51,10 @@ In this topic, we'll use `installDist`:
    
    <tabs group="os">
    <tab title="Linux/MacOS" group-key="unix">
-   <code style="block" lang="Bash">./gradlew :engine-main:installDist</code>
+   <code-block lang="Bash">./gradlew :engine-main:installDist</code-block>
    </tab>
    <tab title="Windows" group-key="windows">
-   <code style="block" lang="CMD">gradlew.bat :engine-main:installDist</code>
+   <code-block lang="CMD">gradlew.bat :engine-main:installDist</code-block>
    </tab>
    </tabs>
    
@@ -69,10 +69,10 @@ To run the [packaged application](#package):
    <snippet id="run_executable">
    <tabs group="os">
    <tab title="Linux/MacOS" group-key="unix">
-   <code style="block" lang="Bash">./engine-main</code>
+   <code-block lang="Bash">./engine-main</code-block>
    </tab>
    <tab title="Windows" group-key="windows">
-   <code style="block" lang="CMD">engine-main.bat</code>
+   <code-block lang="CMD">engine-main.bat</code-block>
    </tab>
    </tabs>
    </snippet>

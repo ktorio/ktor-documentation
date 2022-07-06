@@ -154,7 +154,7 @@
                 <p>
                     The <path>Application.kt</path> file has the following code added automatically:
                 </p>
-                <code style="block" lang="kotlin" initial-collapse-state="expanded" collapsed-title="fun main" src="https://raw.githubusercontent.com/ktorio/ktor-get-started/main/src/main/kotlin/com/example/Application.kt"/>
+                <code-block lang="kotlin" initial-collapse-state="expanded" collapsed-title="fun main" src="https://raw.githubusercontent.com/ktorio/ktor-get-started/main/src/main/kotlin/com/example/Application.kt"/>
 
                 <p>
                     The main parts of this code are:
@@ -169,7 +169,7 @@
                         <p>
                             <code>configureRouting</code> is an extension function that defines <a href="Routing_in_Ktor.md">routing</a>. This function is declared in a separate <code>plugins</code> package (the <path>Routing.kt</path> file).
                         </p>
-                        <code style="block" lang="kotlin" initial-collapse-state="expanded" collapsed-title="fun Application.configureRouting" src="https://raw.githubusercontent.com/ktorio/ktor-get-started/main/src/main/kotlin/com/example/plugins/Routing.kt"/>
+                        <code-block lang="kotlin" initial-collapse-state="expanded" collapsed-title="fun Application.configureRouting" src="https://raw.githubusercontent.com/ktorio/ktor-get-started/main/src/main/kotlin/com/example/plugins/Routing.kt"/>
                         <p>
                             The <code>get</code> function within the <code>routing</code> block receives GET requests made to the <path>/</path> path and responds with a plain text response.
                         </p>
@@ -188,9 +188,9 @@
                     Wait until Intellij IDEA runs the application.
                     The Run tool window should show the following message:
                 </p>
-                <code style="block">
+                <code-block>
                     [main] INFO  ktor.application - Responding at http://0.0.0.0:8080
-                </code>
+                </code-block>
                 <img src="ktor_idea_new_project_run_tool_window.png" alt="Run tool window" width="706"/>
                 <p>
                     This means that the server is ready to accept requests at the <path>http://0.0.0.0:8080</path> address.

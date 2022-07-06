@@ -25,19 +25,19 @@ To enable `JWT`authentication, you need to include the `ktor-server-auth` and `k
 
 <tabs group="languages">
     <tab title="Gradle (Kotlin)" group-key="kotlin">
-        <code style="block" lang="Kotlin" title="Sample">
+        <code-block lang="Kotlin" title="Sample">
             implementation("io.ktor:ktor-server-auth:$ktor_version")
             implementation("io.ktor:ktor-server-auth-jwt:$ktor_version")
-        </code>
+        </code-block>
     </tab>
     <tab title="Gradle (Groovy)" group-key="groovy">
-        <code style="block" lang="Groovy" title="Sample">
+        <code-block lang="Groovy" title="Sample">
             implementation "io.ktor:ktor-server-auth:$ktor_version"
             implementation "io.ktor:ktor-server-auth-jwt:$ktor_version"
-        </code>
+        </code-block>
     </tab>
     <tab title="Maven" group-key="maven">
-        <code style="block" lang="XML" title="Sample">
+        <code-block lang="XML" title="Sample">
 &lt;dependency&gt;
 &lt;groupId&gt;io.ktor&lt;/groupId&gt;
 &lt;artifactId&gt;ktor-server-auth&lt;/artifactId&gt;
@@ -48,7 +48,7 @@ To enable `JWT`authentication, you need to include the `ktor-server-auth` and `k
 &lt;artifactId&gt;ktor-server-auth-jwt&lt;/artifactId&gt;
 &lt;version&gt;${ktor_version}&lt;/version&gt;
 &lt;/dependency&gt;
-        </code>
+        </code-block>
    </tab>
 </tabs>
 

@@ -40,10 +40,10 @@
             <p>
                 The code snippet below shows the basic server setup with the Netty engine and the <code>8080</code> port.
             </p>
-            <code style="block"
+            <code-block
                   lang="kotlin"
                   src="snippets/_misc/EmbeddedServerConfigure.kt">
-            </code>
+            </code-block>
             <p>
                 Note that you can set the <code>port</code> parameter to <code>0</code> to run the server on a random port.
                 The <code>embeddedServer</code> function returns an engine instance, so you can get a port value in code using the <a href="https://api.ktor.io/ktor-server/ktor-server-host-common/io.ktor.server.engine/-application-engine/resolved-connectors.html">ApplicationEngine.resolvedConnectors</a> function.
@@ -54,20 +54,20 @@
             <p>
                 In the example below, we've added the <code>configure</code> parameter for configuring setting specific for a selected engine. You can learn more about configuring engines from <a href="Engines.md" anchor="configure-engine"/>.
             </p>
-            <code style="block"
+            <code-block
                   lang="kotlin"
                   src="snippets/_misc/EmbeddedServerConfigureEngine.kt">
-            </code>
+            </code-block>
         </chapter>
 
         <chapter title="Custom environment" id="embedded-custom">
             <p>
                 The example below shows how to run a server with a custom environment represented by the <a href="https://api.ktor.io/ktor-server/ktor-server-host-common/io.ktor.server.engine/-application-engine-environment/index.html">ApplicationEngineEnvironment</a> interface.
             </p>
-            <code style="block"
+            <code-block
                   lang="kotlin"
                   src="snippets/_misc/EmbeddedServerConfigureCustomEnv.kt">
-            </code>
+            </code-block>
 
             <p>
                 You can also use a custom environment to serve HTTPS. The <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-embedded-server">ssl-embedded-server</a> example shows how to do this.
@@ -82,20 +82,20 @@
                 If you use <a href="create_server.topic" anchor="engine-main">EngineMain</a> to start a server, Ktor loads configurations settings from the <path>application.conf</path> HOCON file placed in application resources.
                 This file should contain at least <a href="Modules.md">modules to load</a> specified using the <code>ktor.application.modules</code> property, for example:
             </p>
-            <code style="block">
+            <code-block>
                 ktor {
                     application {
                         modules = [ com.example.ApplicationKt.module ]
                     }
                 }
-            </code>
+            </code-block>
             <p>
                 In this case, Ktor will call the <code>Application.module</code> function for the <path>Application.kt</path> file below:
             </p>
-            <code style="block"
+            <code-block
                   lang="kotlin"
                   src="snippets/engine-main/src/main/kotlin/com/example/Application.kt">
-            </code>
+            </code-block>
             <p>
                 Besides modules to load, you can configure various server settings, including <a anchor="predefined-properties">predefined</a> (such as a port or host, SSL settings, etc.) and custom ones.
                 Let's take a look at several examples.
@@ -105,19 +105,19 @@
                     <p>
                         In the example below, a server listening port is set to <code>8080</code> using the <code>ktor.deployment.port</code> property.
                     </p>
-                    <code style="block" src="snippets/engine-main/src/main/resources/application.conf"/>
+                    <code-block src="snippets/engine-main/src/main/resources/application.conf"/>
                 </li>
                 <li>
                     <p>
                         The example below enables Ktor to listen on the <code>8443</code> SSL port and specifies the required <a href="ssl.md">SSL settings</a> in a separate <code>security</code> block.
                     </p>
-                    <code style="block" src="snippets/ssl-engine-main/src/main/resources/application.conf"/>
+                    <code-block src="snippets/ssl-engine-main/src/main/resources/application.conf"/>
                 </li>
                 <li>
                     <p>
                         The <path>application.conf</path> file below contains a custom <code>jwt</code> group to store <a href="jwt.md" anchor="jwt-settings">JWT</a> settings.
                     </p>
-                    <code style="block" src="snippets/auth-jwt-hs256/src/main/resources/application.conf" lines="1,6-16"/>
+                    <code-block src="snippets/auth-jwt-hs256/src/main/resources/application.conf" include-lines="1,6-16"/>
                     <p>
                         You can <a anchor="read-configuration-in-code">read and handle such settings</a> in code.
                     </p>
@@ -228,25 +228,25 @@
                 In HOCON, you can substitute parameters with environment variables by using the <code>${ENV}</code> syntax.
                 For example, you can assign the <code>PORT</code> environment variable to the <code>ktor.deployment.port</code> property in the following way:
             </p>
-            <code style="block">
+            <code-block>
                 ktor {
                     deployment {
                         port = ${PORT}
                     }
                 }
-            </code>
+            </code-block>
             <p>
                 In this case, an environment variable value will be used to specify a listening port.
                 If the <code>PORT</code> environment variable variable doesn't exist at runtime, you can provide a default port value before assigning <code>${?PORT}</code> as follows:
             </p>
-            <code style="block">
+            <code-block>
                 ktor {
                     deployment {
                         port = 8080
                         port = ${?PORT}
                     }
                 }
-            </code>
+            </code-block>
         </chapter>
 
 
@@ -255,17 +255,17 @@
                 Ktor allows you to access property values specified in <path>application.conf</path> in code.
                 For example, if you've specified the <code>ktor.deployment.port</code> property,...
             </p>
-            <code style="block">
+            <code-block>
                 ktor {
                     deployment {
                         port = 8080
                     }
                 }
-            </code>
+            </code-block>
             <p>
                 ... you can access the application's configuration using <a href="https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-environment/config.html">ApplicationEnvironment.config</a> and get the required property value in the following way:
             </p>
-            <code style="block" lang="kotlin">
+            <code-block lang="kotlin">
                 fun Application.module() {
                     val port = environment.config.propertyOrNull("ktor.deployment.port")?.getString() ?: "8080"
                     routing {
@@ -274,7 +274,7 @@
                         }
                     }
                 }
-            </code>
+            </code-block>
             <p>
                 This is especially useful when you keep <a anchor="custom-property">custom settings</a> in a configuration file and need to access its values.
             </p>
@@ -284,9 +284,9 @@
             <p>
                 If you use <a href="create_server.topic" anchor="engine-main">EngineMain</a> to create a server, you can run a <a href="fatjar.md">packaged application</a> from a command line and override the required server parameters by passing corresponding command-line arguments. For example, you can override a port specified in the <path>application.conf</path> file in the following way:
             </p>
-            <code style="block">
+            <code-block>
                 java -jar sample-app.jar -port=8080
-            </code>
+            </code-block>
             <p>
                 The available command-line options are listed below:
             </p>
@@ -300,9 +300,9 @@
                     <p>
                         A path to a custom configuration file used instead of <path>application.conf</path> from resources.
                     </p>
-                    <code style="block">
+                    <code-block>
                         java -jar sample-app.jar -config=anotherfile.conf
-                    </code>
+                    </code-block>
                 </def>
                 <def title="-host">
                     <p>
@@ -338,9 +338,9 @@
             <p>
                 If you need to override a <a anchor="predefined-properties">predefined property</a> that doesn't have a corresponding command-line option, use the <code>-P</code> flag, for example:
             </p>
-            <code style="block">
+            <code-block>
                 java -jar sample-app.jar -P:ktor.deployment.callGroupSize=7
-            </code>
+            </code-block>
         </chapter>
 
     </chapter>
@@ -357,15 +357,15 @@
             You might want to do different things depending on whether a server is running locally or on a production machine.
             To achieve this, you can add a custom property in <path>application.conf</path> and initialize it with a dedicated <a anchor="environment-variables">environment variable</a> whose value depends on whether a server is running locally or on production. In the example below, the <code>KTOR_ENV</code> environment variable is assigned to a custom <code>ktor.environment</code> property.
         </p>
-        <code style="block">
+        <code-block>
             ktor {
                 environment = ${?KTOR_ENV}
             }
-        </code>
+        </code-block>
         <p>
             You can access the <code>ktor.environment</code> value at runtime by <a anchor="read-configuration-in-code">reading configuration in code</a> and perform the required actions:
         </p>
-        <code style="block" lang="kotlin">
+        <code-block lang="kotlin">
             fun Application.module() {
                 val env = environment.config.propertyOrNull("ktor.environment")?.getString()
                 routing {
@@ -378,7 +378,7 @@
                     }
                 }
             }
-        </code>
+        </code-block>
     </chapter>
 
 </topic>

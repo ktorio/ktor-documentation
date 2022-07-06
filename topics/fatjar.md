@@ -27,10 +27,10 @@ To build a Fat JAR, open the terminal and execute the `shadowJar` task provided 
 
 <tabs group="os">
 <tab title="Linux/MacOS" group-key="unix">
-<code style="block" lang="Bash">./gradlew shadowJar</code>
+<code-block lang="Bash">./gradlew shadowJar</code-block>
 </tab>
 <tab title="Windows" group-key="windows">
-<code style="block" lang="CMD">gradlew.bat shadowJar</code>
+<code-block lang="CMD">gradlew.bat shadowJar</code-block>
 </tab>
 </tabs>
 

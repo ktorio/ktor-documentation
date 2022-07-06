@@ -104,7 +104,7 @@
                 <p>
                     Open the <path>pom.xml</path> file. It should look something like this:
                 </p>
-                <code style="block" lang="XML"
+                <code-block lang="XML"
                       src="snippets/_misc/maven-initial.pom.xml"
                       interpolate-variables="true"/>
                 <p>
@@ -137,7 +137,7 @@
                 <p>
                     The <code>properties</code> and <code>dependencies</code> blocks might look as follows:
                 </p>
-                <code style="block" lang="XML"
+                <code-block lang="XML"
                       src="snippets/_misc/maven-ktor.pom.xml"
                       interpolate-variables="true"/>
                 <p>
@@ -149,7 +149,7 @@
                 <p>
                     The resulting <path>pom.xml</path> file should look as shown below.
                 </p>
-                <code style="block" lang="XML"
+                <code-block lang="XML"
                       src="snippets/_misc/maven-final.pom.xml"
                       interpolate-variables="true"/>
                 <tip>
@@ -182,9 +182,9 @@
                     Wait until Intellij IDEA runs the application.
                     The Run tool window should show the following message:
                 </p>
-                <code style="block">
+                <code-block>
                     [main] INFO  Application - Responding at http://0.0.0.0:8080
-                </code>
+                </code-block>
 <!--                <img src="ktor_idea_new_project_run_tool_window.png" alt="Run tool window" width="1000"/>-->
                 <p>
                     This means that the server is ready to accept requests at the <path>http://0.0.0.0:8080</path> address.

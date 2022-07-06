@@ -82,4 +82,31 @@ replaceXmlTagsInTopics menupath ui-path
 # more on includes, but can;t be moved up without moving the function
 replaceXmlAttributeName include src from
 
+# 10 - code / code-block's
+
+# first backup non-block code's
+
+alien="mg-729351-code-xsd";
+
+find ./topics/ -type f -exec sed -i '' -r -e \
+    's~<code>([^<]*)</code>~<'"$alien"'>\1</'"$alien"'>~g' {} \;
+
+find ./topics/ -type f -exec sed -i '' -r -e \
+    's~<code([^>]*) style="block"~<code-block\1~g' {} \;
+
+# below is just a check, it SHOULD return nothing at this point,
+# if it has found something, please let MG know
+
+grep -R "<code " topics/
+
+# and thus, all closing </code>'s belong to opening <code-block>'s
+
+find ./topics/ -type f -exec sed -i '' -e \
+    's~</code>~</code-block>~g' {} \;
+
+# now, restore non-block codes
+
+replaceXmlTagsInTopics $alien code
+
+replaceXmlAttributeName code-block lines include-lines
 
