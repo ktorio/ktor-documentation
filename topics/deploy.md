@@ -10,7 +10,6 @@ In this topic, we'll make an overview of how to deploy a Ktor application.
 > To simplify the deployment process of server Ktor applications, you can use the [Ktor](https://github.com/ktorio/ktor-build-plugins) plugin for Gradle, which provides the following capabilities:
 > - Building fat JARs.
 > - Dockerizing your applications.
-> - Building GraalVM native images.
 
 ## Ktor deployment specifics {id="ktor-specifics"}
 The deployment process for a server Ktor application depends on the following specifics:
@@ -47,7 +46,6 @@ Before deploying your application, you need to package it in one of the followin
 * **GraalVM**
 
    Ktor server applications can make use of [GraalVM](Graalvm.md) in order to have native images for different platforms.
-   The [Ktor Gradle plugin](https://github.com/ktorio/ktor-build-plugins) allows you to build a project's GraalVM native image.
 
 
 

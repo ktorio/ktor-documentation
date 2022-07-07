@@ -22,17 +22,3 @@ To build and run the project's Docker image, execute the `runDocker` task:
 ```bash
 ./gradlew :deployment-ktor-plugin:runDocker
 ```
-
-## Build a GraalVM native image
-
-To build the project's GraalVM native image, execute the `buildNativeImage` task:
-
-```bash
-./gradlew :deployment-ktor-plugin:buildNativeImage
-```
-
-Then, run the generated executable file:
-
-```bash
-./snippets/deployment-ktor-plugin/build/native/nativeCompile/native-image-sample
-```

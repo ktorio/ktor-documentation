@@ -74,7 +74,7 @@ The `jreVersion` property specifies the JRE version to use in the image:
 
 ```kotlin
 ```
-{src="snippets/deployment-ktor-plugin/build.gradle.kts" lines="29,34-35,46,51"}
+{src="snippets/deployment-ktor-plugin/build.gradle.kts" lines="29,34-35,46-47"}
 
 ### Image name and tag {id="name-tag"}
 
@@ -82,7 +82,7 @@ If you need to customize the image name and tag, use the `localImageName` and `i
 
 ```kotlin
 ```
-{src="snippets/deployment-ktor-plugin/build.gradle.kts" lines="29,34,36-37,46,51"}
+{src="snippets/deployment-ktor-plugin/build.gradle.kts" lines="29,34,36-37,46-47"}
 
 
 ### External registry {id="external-registry"}
@@ -96,7 +96,7 @@ The example below shows how to configure the Docker Hub registry:
 
 ```kotlin
 ```
-{src="snippets/deployment-ktor-plugin/build.gradle.kts" lines="29,34,39-46,51"}
+{src="snippets/deployment-ktor-plugin/build.gradle.kts" lines="29,34,39-47"}
 
 Note that the Docker Hub name and password are fetched from the environment variables, so you need to set these values before running the `publishImage` task:
 

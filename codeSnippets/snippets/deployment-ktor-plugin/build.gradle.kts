@@ -5,7 +5,7 @@ val logback_version: String by project
 plugins {
     application
     kotlin("jvm")
-    id("io.ktor.plugin") version "2.1.0-eap-16"
+    id("io.ktor.plugin") version "2.1.0-eap-21"
 }
 
 application {
@@ -43,9 +43,5 @@ ktor {
                 password = providers.environmentVariable("DOCKER_HUB_PASSWORD")
             )
         )
-    }
-
-    nativeImage {
-        imageName.set("native-image-sample")
     }
 }
