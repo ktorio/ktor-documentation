@@ -39,13 +39,18 @@ val client = HttpClient(CIO) {
 
 ## Configure Logging {id="configure_plugin"}
 
-The example below shows how to configure the `Logging` plugin:
+The `Logging` plugin configuration is provided by the [Logging.Config](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-logging/io.ktor.client.plugins.logging/-logging/-config/index.html) class.
+The example below shows a sample configuration:
 - The `logger` property is set to `Logger.DEFAULT`, which uses an SLF4J logging framework. For Native targets, set this property to `Logger.SIMPLE`.
-- The `level` property specifies the logging level.
+- The `level` property specifies the logging level. 
+   For instance, you can log only request/response headers or include their bodies.
+- The `filter` function allows you to filter log messages for requests matching the specified predicate. In the example below, only requests made to `ktor.io` get into the log.
 
 ```kotlin
 ```
-{src="/snippets/client-logging/src/main/kotlin/com/example/Application.kt"}
+{src="snippets/client-logging/src/main/kotlin/com/example/Application.kt"}
+
+You can find the full example here: [client-logging](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-logging).
 
 
 ### Provide a custom logger {id="custom_logger"}
@@ -55,6 +60,6 @@ The example below shows how to use the [Napier](https://github.com/AAkira/Napier
 
 ```kotlin
 ```
-{src="/snippets/client-logging-napier/src/main/kotlin/com/example/Application.kt" include-symbol="main"}
+{src="snippets/client-logging-napier/src/main/kotlin/com/example/Application.kt" include-symbol="main"}
 
 You can find the full example here: [client-logging-napier](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-logging-napier).

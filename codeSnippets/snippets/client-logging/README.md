@@ -13,10 +13,10 @@ To run this sample, execute the following command in a repository's root directo
 
 In the output, you'll see the request and response data:
 ```
-INFO io.ktor.client.HttpClient - REQUEST: https://ktor.io/
-INFO io.ktor.client.HttpClient - METHOD: HttpMethod(value=GET)
-INFO io.ktor.client.HttpClient - COMMON HEADERS
-INFO io.ktor.client.HttpClient - -> Accept: */*
-INFO io.ktor.client.HttpClient - -> Accept-Charset: UTF-8
+REQUEST: https://ktor.io/
+METHOD: HttpMethod(value=GET)
+COMMON HEADERS
+-> Accept: */*
+-> Accept-Charset: UTF-8
 ...
 ```

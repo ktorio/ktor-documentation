@@ -13,9 +13,13 @@ fun main() {
             install(Logging) {
                 logger = Logger.DEFAULT
                 level = LogLevel.HEADERS
+                filter { request ->
+                    request.url.host.contains("ktor.io")
+                }
             }
         }
 
-        val response: HttpResponse = client.get("https://ktor.io/")
+        val response1: HttpResponse = client.get("https://ktor.io/")
+        val response2: HttpResponse = client.get("https://jetbrains.com/")
     }
 }

@@ -25,10 +25,10 @@ To install a plugin, you need to pass it to the `install` function inside a [cli
 
 
 ## Configure a plugin {id="configure_plugin"}
-You can configure a plugin inside the `install` block. For example, for the [Logging](client_logging.md) plugin, you can specify the logger and logging level:
+You can configure a plugin inside the `install` block. For example, for the [Logging](client_logging.md) plugin, you can specify the logger, logging level, and condition for filtering log messages:
 ```kotlin
 ```
-{src="snippets/client-logging/src/main/kotlin/com/example/Application.kt" lines="12-17"}
+{src="snippets/client-logging/src/main/kotlin/com/example/Application.kt" lines="12-20"}
 
 
 ## Create a custom plugin {id="custom"}
