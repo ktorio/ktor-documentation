@@ -132,7 +132,6 @@ module("snippets", "sockets-server")
 module("snippets", "client-ssl-config")
 module("snippets", "client-engine-js")
 module("snippets", "client-engine-curl")
-module("snippets", "client-engine-darwin")
 module("snippets", "single-page-application")
 module("snippets", "ssl-engine-main-redirect")
 module("snippets", "ssl-engine-main-hsts")
@@ -143,4 +142,7 @@ module("snippets", "custom-plugin-authorization")
 module("snippets", "client-configure-request")
 if(!System.getProperty("os.name").startsWith("Windows")) {
     module("snippets", "embedded-server-native")
+}
+if(System.getProperty("os.name") == "Mac OS X") {
+    module("snippets", "client-engine-darwin")
 }
