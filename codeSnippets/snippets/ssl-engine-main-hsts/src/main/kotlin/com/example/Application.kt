@@ -10,6 +10,10 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 fun Application.module() {
     install(HSTS) {
         maxAgeInSeconds = 10
+        withHost("sample-host") {
+            maxAgeInSeconds = 60
+            includeSubDomains = false
+        }
     }
     routing {
         get("/") {
