@@ -2,65 +2,52 @@ package com.example
 
 import io.ktor.http.*
 import io.ktor.http.content.*
-import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
 import io.ktor.server.html.*
 import io.ktor.server.plugins.cachingheaders.*
-import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import kotlinx.css.*
 import kotlinx.html.*
-import kotlinx.serialization.*
-import kotlinx.serialization.json.*
 
-@Serializable
-data class Customer(val id: Int, val firstName: String, val lastName: String)
+fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
-fun Application.main() {
-    install(CachingHeaders) {
-        options { call, outgoingContent ->
-            when (outgoingContent.contentType?.withoutParameters()) {
-                ContentType.Text.CSS -> CachingOptions(CacheControl.MaxAge(maxAgeSeconds = 3600))
-                ContentType.Application.Json -> CachingOptions(CacheControl.MaxAge(maxAgeSeconds = 60))
-                else -> null
-            }
-        }
-    }
-    install(ContentNegotiation) {
-        json(Json)
-    }
+fun Application.module() {
     routing {
-        get("/html-dsl") {
-            call.respondHtml {
-                head {
-                    link(rel = "stylesheet", href = "/styles.css", type = "text/css")
-                }
-                body {
-                    h1(classes = "page-title") {
-                        +"Hello from Ktor!"
-                    }
+        install(CachingHeaders) {
+            options { call, content ->
+                when (content.contentType?.withoutParameters()) {
+                    ContentType.Text.Plain -> CachingOptions(CacheControl.MaxAge(maxAgeSeconds = 3600))
+                    ContentType.Text.Html -> CachingOptions(CacheControl.MaxAge(maxAgeSeconds = 60))
+                    else -> null
                 }
             }
         }
-        get("/styles.css") {
-            call.respondCss {
-                body {
-                    backgroundColor = Color.darkBlue
-                    margin(0.px)
-                }
-                rule("h1.page-title") {
-                    color = Color.white
+        route("/index") {
+            install(CachingHeaders) {
+                options { call, content -> CachingOptions(CacheControl.MaxAge(maxAgeSeconds = 1800)) }
+            }
+            get {
+                call.respondText("Index page")
+            }
+        }
+        route("/about") {
+            get {
+                call.respondHtml {
+                    body { p { +"About page" } }
                 }
             }
         }
-
-        get("/customer/1") {
-            call.respond(Customer(1, "Jane", "Smith"))
+        route("/profile") {
+            get {
+                val userLoggedIn = true
+                if(userLoggedIn) {
+                    call.caching = CachingOptions(CacheControl.NoStore(CacheControl.Visibility.Private))
+                    call.respondText("Profile page")
+                } else {
+                    call.caching = CachingOptions(CacheControl.MaxAge(maxAgeSeconds = 900))
+                    call.respondText("Login page")
+                }
+            }
         }
     }
-}
-
-suspend inline fun ApplicationCall.respondCss(builder: CssBuilder.() -> Unit) {
-    this.respondText(CssBuilder().apply(builder).toString(), ContentType.Text.CSS)
 }

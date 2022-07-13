@@ -4,7 +4,7 @@
 <p>
 <b>Required dependencies</b>: <code>io.ktor:ktor-server-html-builder</code>, <code>org.jetbrains.kotlin-wrappers:kotlin-css</code>
 </p>
-<var name="example_name" value="caching-headers"/>
+<var name="example_name" value="css-dsl"/>
 <include src="lib.xml" include-id="download_example"/>
 </microformat>
 
@@ -20,7 +20,7 @@ CSS DSL doesn't need [installation](Plugins.md#install), but requires including 
    <var name="artifact_name" value="ktor-server-html-builder"/>
    <include src="lib.xml" include-id="add_ktor_artifact"/>
    
-1. The `kotlin-css-jvm` artifact for building CSS:
+2. The `kotlin-css-jvm` artifact for building CSS:
    <var name="group_id" value="org.jetbrains.kotlin-wrappers"/>
    <var name="artifact_name" value="kotlin-css"/>
    <var name="version" value="kotlin_css_version"/>
@@ -28,24 +28,24 @@ CSS DSL doesn't need [installation](Plugins.md#install), but requires including 
    You can replace `$kotlin_css_version` with the required version of the `kotlin-css` artifact, for example, `%kotlin_css_version%`.
 
 
-## Use CSS DSL {id="use_css"}
+## Serve CSS {id="serve_css"}
 
 To send a CSS response, you need to extend `ApplicationCall` by adding the `respondCss` method to serialize a stylesheet into a string and send it to the client with the `CSS` content type:
 
 ```kotlin
 ```
-{src="snippets/caching-headers/src/main/kotlin/com/example/Application.kt" lines="64-66"}
+{src="snippets/css-dsl/src/main/kotlin/com/example/Application.kt" lines="39-41"}
 
 Then, you can provide CSS inside the required [route](Routing_in_Ktor.md):
 
 ```kotlin
 ```
-{src="snippets/caching-headers/src/main/kotlin/com/example/Application.kt" lines="46-56"}
+{src="snippets/css-dsl/src/main/kotlin/com/example/Application.kt" lines="25-35"}
 
 Finally, you can use the specified CSS for an HTML document created with [HTML DSL](html_dsl.md):
 
 ```kotlin
 ```
-{src="snippets/caching-headers/src/main/kotlin/com/example/Application.kt" lines="34-45"}
+{src="snippets/css-dsl/src/main/kotlin/com/example/Application.kt" lines="13-24"}
 
-You can find the full example here: [caching-headers](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/caching-headers).
+You can find the full example here: [css-dsl](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/css-dsl).

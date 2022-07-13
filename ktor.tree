@@ -124,7 +124,7 @@
                 <toc-element id="default_headers.md"/>
                 <toc-element id="compression.md"
                              show-structure-depth="2"/>
-                <toc-element id="caching.md"
+                <toc-element id="caching.md" show-structure-depth="2"
                              accepts-web-file-names="caching-headers.html"/>
                 <toc-element id="conditional_headers.md"/>
                 <toc-element id="cors.md" show-structure-depth="2"/>
