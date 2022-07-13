@@ -41,7 +41,7 @@ The [CachingOptions](https://api.ktor.io/ktor-http/io.ktor.http.content/-caching
 
 ### Route level {id="configure-route"}
 
-You can install plugins not only globally but also to a [specific routes](Plugins.md#install-route). For instance, the example below shows how to add specific caching headers for the `/index` route:
+You can install plugins not only globally but also to [specific routes](Plugins.md#install-route). For instance, the example below shows how to add the specified caching header for the `/index` route:
 
 ```kotlin
 ```
