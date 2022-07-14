@@ -130,7 +130,6 @@ The `embeddedServer` function allows you to pass engine-specific options using t
 In addition to these options, you can configure additional engine-specific properties.
 
 #### Netty
-{.no_toc}
 
 Netty-specific options are exposed by the [NettyApplicationEngine.Configuration](https://api.ktor.io/ktor-server/ktor-server-netty/io.ktor.server.netty/-netty-application-engine/-configuration/index.html) class.
 
@@ -148,7 +147,6 @@ embeddedServer(Netty, configure = {
 ```
 
 #### Jetty
-{.no_toc}
 
 If you use Jetty as the engine, you can configure the Jetty server inside the [configureServer](https://api.ktor.io/ktor-server/ktor-server-jetty/io.ktor.server.jetty/-jetty-application-engine-base/-configuration/configure-server.html) block, which provides access to a
 [Server](https://www.eclipse.org/jetty/javadoc/jetty-11/org/eclipse/jetty/server/Server.html) instance.
@@ -164,7 +162,6 @@ embeddedServer(Jetty, configure = {
 ```
 
 #### CIO
-{.no_toc}
 
 CIO-specific options are exposed by the [CIOApplicationEngine.Configuration](https://api.ktor.io/ktor-server/ktor-server-cio/io.ktor.server.cio/-c-i-o-application-engine/-configuration/index.html) class.
 
@@ -177,7 +174,6 @@ embeddedServer(CIO, configure = {
 ```
 
 #### Tomcat
-{.no_toc}
 
 If you use Tomcat as the engine, you can configure it using the [configureTomcat](https://api.ktor.io/ktor-server/ktor-server-tomcat/io.ktor.server.tomcat/-tomcat-application-engine/-configuration/configure-tomcat.html) property, which provides access to a
 [Tomcat](https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/startup/Tomcat.html) instance.
