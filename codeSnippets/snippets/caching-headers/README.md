@@ -7,5 +7,3 @@ To run this sample, execute the following command in a repository's root directo
 ```bash
 ./gradlew :caching-headers:run
 ```
-
-Then, you can open a browser's network tools for [http://localhost:8080/html-dsl](http://localhost:8080/html-dsl) and reload this page to make sure the `styles.css` file is served from memory cache.
