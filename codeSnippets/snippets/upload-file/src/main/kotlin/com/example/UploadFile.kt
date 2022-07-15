@@ -20,11 +20,14 @@ fun Application.main() {
                     is PartData.FormItem -> {
                         fileDescription = part.value
                     }
+
                     is PartData.FileItem -> {
                         fileName = part.originalFileName as String
                         var fileBytes = part.streamProvider().readBytes()
                         File("uploads/$fileName").writeBytes(fileBytes)
                     }
+
+                    else -> {}
                 }
             }
 
