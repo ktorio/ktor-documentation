@@ -27,8 +27,8 @@ HTTP provides a [general framework](https://developer.mozilla.org/en-US/docs/Web
 To enable authentication, you need to include the `ktor-client-auth` artifact in the build script:
 
 <var name="artifact_name" value="ktor-client-auth"/>
-<include src="lib.xml" include-id="add_ktor_artifact"/>
-<include src="lib.xml" include-id="add_ktor_client_artifact_tip"/>
+<include src="lib.topic" element-id="add_ktor_artifact"/>
+<include src="lib.topic" element-id="add_ktor_client_artifact_tip"/>
 
 
 ## Install Auth {id="install_plugin"}

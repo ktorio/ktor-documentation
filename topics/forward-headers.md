@@ -9,7 +9,7 @@
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="forwarded-header"/>
-<include src="lib.xml" include-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 </tldr>
 
 The [ForwardedHeaders](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-forwarded-header/io.ktor.server.plugins.forwardedheaders/-forwarded-headers.html) and [XForwardedHeaders](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-forwarded-header/io.ktor.server.plugins.forwardedheaders/-x-forwarded-headers.html) plugins allow you to handle reverse proxy headers to get information about the original [request](requests.md) when a Ktor server is placed behind a reverse proxy. This might be useful for [logging](logging.md) purposes.
@@ -30,7 +30,7 @@ The [ForwardedHeaders](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-
 ## Add dependencies {id="add_dependencies"}
 To use the `ForwardedHeaders`/`XForwardedHeaders` plugins, you need to include the `%artifact_name%` artifact in the build script:
 
-<include src="lib.xml" include-id="add_ktor_artifact"/>
+<include src="lib.topic" element-id="add_ktor_artifact"/>
 
 
 ## Install plugins {id="install_plugin"}
@@ -39,14 +39,14 @@ To use the `ForwardedHeaders`/`XForwardedHeaders` plugins, you need to include t
 <tab title="ForwardedHeader">
 
 <var name="plugin_name" value="ForwardedHeaders"/>
-<include src="lib.xml" include-id="install_plugin"/>
+<include src="lib.topic" element-id="install_plugin"/>
 
 </tab>
 
 <tab title="XForwardedHeader">
 
 <var name="plugin_name" value="XForwardedHeaders"/>
-<include src="lib.xml" include-id="install_plugin"/>
+<include src="lib.topic" element-id="install_plugin"/>
 
 </tab>
 </tabs>

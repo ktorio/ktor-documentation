@@ -2,7 +2,7 @@
 
 <tldr>
 <var name="example_name" value="deployment-ktor-plugin"/>
-<include src="lib.xml" include-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 </tldr>
 
 In this topic, we'll make an overview of how to deploy a Ktor application.

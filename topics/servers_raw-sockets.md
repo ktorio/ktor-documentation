@@ -23,8 +23,8 @@ It exposes a suspending API that uses [java.nio](https://docs.oracle.com/javase/
 ## Add dependencies {id="add_dependencies"}
 
 <var name="artifact_name" value="ktor-network"/>
-<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
-<include src="lib.xml" include-id="add_ktor_artifact"/>
+<include src="lib.topic" element-id="add_ktor_artifact_intro"/>
+<include src="lib.topic" element-id="add_ktor_artifact"/>
 
 To use [secure sockets](#secure) in the client, you also need to add `io.ktor:ktor-network-tls`.
 

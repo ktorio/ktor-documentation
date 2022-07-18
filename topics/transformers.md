@@ -1,6 +1,6 @@
 [//]: # (title: Transformers)
 
-<include src="lib.xml" include-id="outdated_warning"/>
+<include src="lib.topic" element-id="outdated_warning"/>
 
 
 ## Standard transformers

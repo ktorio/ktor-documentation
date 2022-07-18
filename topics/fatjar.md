@@ -2,7 +2,7 @@
 
 <tldr>
 <var name="example_name" value="deployment-ktor-plugin"/>
-<include src="lib.xml" include-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 </tldr>
 
 <link-summary>Learn how to create and run an executable fat JAR using the Ktor Gradle plugin.</link-summary>

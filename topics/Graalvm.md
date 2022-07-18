@@ -44,7 +44,7 @@ called `graal-server`. Executing it will launch the Ktor Server, responding on `
 
 [//]: # (<var name="example_name" value="deployment-ktor-plugin"/>)
 
-[//]: # (<include src="lib.xml" include-id="download_example"/>)
+[//]: # (<include src="lib.topic" element-id="download_example"/>)
 
 [//]: # (</tldr>)
 

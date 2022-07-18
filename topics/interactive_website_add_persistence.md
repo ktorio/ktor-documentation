@@ -2,7 +2,7 @@
 
 <tldr>
 <var name="example_name" value="tutorial-website-interactive-persistence"/>
-<include src="lib.xml" include-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 <p>
 <b>Used libraries</b>: <a href="https://github.com/JetBrains/Exposed">Exposed</a>, <a href="https://github.com/h2database/h2database">h2database</a>
 </p>

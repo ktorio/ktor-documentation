@@ -9,7 +9,7 @@
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="conditional-headers"/>
-<include src="lib.xml" include-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 </tldr>
 
 The [ConditionalHeaders](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-conditional-headers/io.ktor.server.plugins.conditionalheaders/-conditional-headers.html) plugin avoids sending the body of content if it has not changed since the last request. This is achieved by using the following headers:
@@ -18,12 +18,12 @@ The [ConditionalHeaders](https://api.ktor.io/ktor-server/ktor-server-plugins/kto
 
 ## Add dependencies {id="add_dependencies"}
 
-<include src="lib.xml" include-id="add_ktor_artifact_intro"/>
-<include src="lib.xml" include-id="add_ktor_artifact"/>
+<include src="lib.topic" element-id="add_ktor_artifact_intro"/>
+<include src="lib.topic" element-id="add_ktor_artifact"/>
 
 ## Install %plugin_name% {id="install_plugin"}
 
-<include src="lib.xml" include-id="install_plugin"/>
+<include src="lib.topic" element-id="install_plugin"/>
 
 
 ## Configure headers {id="configure"}

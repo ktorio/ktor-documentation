@@ -13,7 +13,7 @@ To use the Ktor HTTP client in your project, you need to [configure repositories
    
    Plugins are used to extend the client with a specific functionality.
 
-<include src="server-dependencies.xml" include-id="repositories"/>
+<include src="server-dependencies.topic" element-id="repositories"/>
 
 
 ## Add dependencies {id="add-ktor-dependencies"}
@@ -25,7 +25,7 @@ To use the Ktor HTTP client in your project, you need to [configure repositories
 ### Client dependency {id="client-dependency"}
 The main client functionality is available in the `ktor-client-core` artifact. Depending on your build system, you can add it in the following way:
 <var name="artifact_name" value="ktor-client-core"/>
-<include src="lib.xml" include-id="add_ktor_artifact"/>
+<include src="lib.topic" element-id="add_ktor_artifact"/>
 
 For a multiplatform project, you need to add the `ktor-client-core` artifact to the `commonMain` source set:
 
@@ -39,7 +39,7 @@ For a multiplatform project, you need to add the `ktor-client-core` artifact to 
 ### Engine dependency {id="engine-dependency"}
 An [engine](http-client_engines.md) is responsible for processing network requests. There are different client engines available for various platforms, such as Apache, CIO, Android, iOS, and so on. For example, you can add a `CIO` engine dependency as follows:
 <var name="artifact_name" value="ktor-client-cio"/>
-<include src="lib.xml" include-id="add_ktor_artifact"/>
+<include src="lib.topic" element-id="add_ktor_artifact"/>
 
 For a multiplatform project, you need to add a dependency for the required engine to a corresponding source set.
 For example, the code snippet below shows how to add the `ktor-client-okhttp` dependency to the `androidMain` source set:

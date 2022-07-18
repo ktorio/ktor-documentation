@@ -2,7 +2,7 @@
 
 <tldr>
 <var name="example_name" value="client-default-request"/>
-<include src="lib.xml" include-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 </tldr>
 
 <link-summary>

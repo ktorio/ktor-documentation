@@ -2,7 +2,7 @@
 
 <tldr>
 <var name="example_name" value="client-auth-digest"/>
-<include src="lib.xml" include-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 </tldr>
 
 In the Digest authentication scheme, a hash function is applied to a username and password before sending them over the network. 

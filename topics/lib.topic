@@ -6,7 +6,7 @@
        title="Library of Includes">
 
 
-    <chunk id="install_plugin">
+    <snippet id="install_plugin">
         <p>
             To <a href="Plugins.md" anchor="install">install</a> the <code>%plugin_name%</code> plugin, pass it to the <code>install</code> function in the application initialization code. Depending on the <a href="create_server.xml">way used to create a server</a>, this can be the <code>embeddedServer</code> function call ...
         </p>
@@ -33,23 +33,23 @@
                 // ...
             }
         </code>
-    </chunk>
+    </snippet>
 
 
-    <chunk id="add_ktor_artifact_intro">
+    <snippet id="add_ktor_artifact_intro">
         <p>
             To use <code>%plugin_name%</code>, you need to include the <code>%artifact_name%</code> artifact in the build script:
         </p>
-    </chunk>
+    </snippet>
 
-    <chunk id="add_ktor_client_artifact_tip">
+    <snippet id="add_ktor_client_artifact_tip">
         <p>
             You can learn more about artifacts required by the Ktor client from <a href="client-dependencies.md"/>.
         </p>
-    </chunk>
+    </snippet>
 
 
-    <chunk id="add_ktor_artifact">
+    <snippet id="add_ktor_artifact">
         <tabs group="languages">
             <tab title="Gradle (Kotlin)" group-key="kotlin">
                 <code style="block" lang="Kotlin" interpolate-variables="true">
@@ -73,9 +73,9 @@
         </code>
             </tab>
         </tabs>
-    </chunk>
+    </snippet>
 
-    <chunk id="add_ktor_artifact_mpp">
+    <snippet id="add_ktor_artifact_mpp">
         <tabs group="languages">
             <tab title="Gradle (Kotlin)" group-key="kotlin">
                 <code style="block" lang="Kotlin" interpolate-variables="true">
@@ -99,9 +99,9 @@
         </code>
             </tab>
         </tabs>
-    </chunk>
+    </snippet>
 
-    <chunk id="add_ktor_artifact_testing">
+    <snippet id="add_ktor_artifact_testing">
         <tabs group="languages">
             <tab title="Gradle (Kotlin)" group-key="kotlin">
                 <code style="block" lang="Kotlin" interpolate-variables="true">
@@ -125,10 +125,10 @@
         </code>
             </tab>
         </tabs>
-    </chunk>
+    </snippet>
 
 
-    <chunk id="add_artifact">
+    <snippet id="add_artifact">
         <tabs group="languages">
             <tab title="Gradle (Kotlin)" group-key="kotlin">
                 <code style="block" lang="Kotlin" interpolate-variables="true">
@@ -152,10 +152,10 @@
         </code>
             </tab>
         </tabs>
-    </chunk>
+    </snippet>
 
 
-    <chunk id="add_artifact_testing">
+    <snippet id="add_artifact_testing">
         <tabs group="languages">
             <tab title="Gradle (Kotlin)" group-key="kotlin">
                 <code style="block" lang="Kotlin" interpolate-variables="true">
@@ -179,9 +179,9 @@
         </code>
             </tab>
         </tabs>
-    </chunk>
+    </snippet>
 
-    <chunk id="add_ktor_artifact_multiplatform">
+    <snippet id="add_ktor_artifact_multiplatform">
         <tabs group="languages">
             <tab title="Gradle (Kotlin)" group-key="kotlin">
                 <code style="block" lang="Kotlin" interpolate-variables="true">
@@ -202,16 +202,16 @@
                 </code>
             </tab>
         </tabs>
-    </chunk>
+    </snippet>
 
 
-    <chunk id="outdated_warning">
+    <snippet id="outdated_warning">
         <tip>
             This help topic is in development and will be updated in the future.
         </tip>
-    </chunk>
+    </snippet>
 
-    <chunk id="experimental">
+    <snippet id="experimental">
         <p>
             The API is production ready, but may be slightly modified in a minor release. This is why it's marked with the
             <code>@%annotation_name%</code> annotation. If you want to use this API, you need to <code>OptIn</code>:
@@ -222,29 +222,29 @@
         <p>
             If you want to leave your feedback or subscribe on updates, check out the <a href="https://youtrack.jetbrains.com/issue/KTOR-%issue_number%">KTOR-%issue_number%</a> design issue.
         </p>
-    </chunk>
+    </snippet>
 
 
-    <chunk id="new_project_idea">
+    <snippet id="new_project_idea">
         <p>
             On the Welcome screen, click <control>New Project</control>.
         </p>
         <p>
             Otherwise, from the main menu, select <menupath>File | New | Project</menupath>.
         </p>
-    </chunk>
+    </snippet>
 
 
-    <chunk id="download_example">
+    <snippet id="download_example">
         <p>
             <b>Code example</b>:
             <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/%example_name%">
                 %example_name%
             </a>
         </p>
-    </chunk>
+    </snippet>
 
-    <chunk id="plugin_prerequisites">
+    <snippet id="plugin_prerequisites">
         <p>
             Before starting this tutorial:
         </p>
@@ -265,9 +265,9 @@
                 </p>
             </li>
         </list>
-    </chunk>
+    </snippet>
 
-    <chunk id="client_prerequisites">
+    <snippet id="client_prerequisites">
         <p>
             Before starting this tutorial:
         </p>
@@ -284,7 +284,7 @@
                 </p>
             </li>
         </list>
-    </chunk>
+    </snippet>
 </topic>
 
 

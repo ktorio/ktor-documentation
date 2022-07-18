@@ -2,7 +2,7 @@
 
 <tldr>
 <var name="example_name" value="client-ssl-config"/>
-<include src="lib.xml" include-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 </tldr>
 
 To configure SSL in the Ktor client, you need to customize the [configuration of an engine](http-client_engines.md#configure) used by your client.

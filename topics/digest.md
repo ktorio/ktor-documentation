@@ -7,7 +7,7 @@
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="auth-digest"/>
-<include src="lib.xml" include-id="download_example"/>
+<include src="lib.topic" element-id="download_example"/>
 </tldr>
 
 The Digest authentication scheme is a part of [HTTP framework](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) used for access control and authentication. In this scheme, a hash function is applied to a username and password before sending them over the network.
@@ -17,7 +17,7 @@ Ktor allows you to use digest authentication for logging in users and protecting
 ## Add dependencies {id="add_dependencies"}
 To enable `digest` authentication, you need to include the `%artifact_name%` artifact in the build script:
 
-<include src="lib.xml" include-id="add_ktor_artifact"/>
+<include src="lib.topic" element-id="add_ktor_artifact"/>
 
 ## Digest authentication flow {id="flow"}
 
