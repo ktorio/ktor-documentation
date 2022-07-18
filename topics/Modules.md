@@ -16,13 +16,13 @@ Ktor allows you to use modules to [structure](Structuring_Applications.md) your 
 ```
 {src="snippets/engine-main-modules/src/main/kotlin/com/example/Application.kt" lines="9-15"}
 
-Loading modules in your application depends on the way used to [create a server](create_server.xml): in code using the `embeddedServer` function or by using the `application.conf` configuration file.
+Loading modules in your application depends on the way used to [create a server](create_server.topic): in code using the `embeddedServer` function or by using the `application.conf` configuration file.
 
 > Note that [plugins](Plugins.md#install) installed in a specified module are in effect for other loaded modules.
 
 ## embeddedServer {id="embedded-server"}
 
-Typically, the `embeddedServer` function accepts a module implicitly as a lambda argument. You can see the example in the [](create_server.xml#embedded-server) section.
+Typically, the `embeddedServer` function accepts a module implicitly as a lambda argument. You can see the example in the [](create_server.topic#embedded-server) section.
 You can also extract application logic into separate modules and call these module functions inside the `embeddedServer` block:
 
 ```kotlin

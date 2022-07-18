@@ -5,8 +5,8 @@ Learn how to run a server Ktor application.
 </link-summary>
 
 When running a Ktor server application, take into account the following specifics:
-* The way used to [create a server](create_server.xml) affects whether you can override server parameters by passing command-line arguments when running a [packaged Ktor application](#package).
-* Gradle/Maven build scripts should specify the main class name when starting a server using [EngineMain](create_server.xml#engine-main).
+* The way used to [create a server](create_server.topic) affects whether you can override server parameters by passing command-line arguments when running a [packaged Ktor application](#package).
+* Gradle/Maven build scripts should specify the main class name when starting a server using [EngineMain](create_server.topic#engine-main).
 * Running your application inside a [servlet container](war.md) requires a specific servlet configuration.
 
 In this topic, we'll take a look at these configuration specifics and show you how to run a Ktor application in IntelliJ IDEA and as a packaged application.
@@ -16,9 +16,9 @@ In this topic, we'll take a look at these configuration specifics and show you h
 
 ### Configuration: code vs configuration file {id="code-vs-config"}
 
-Running a Ktor application depends on the way you used to [create a server](create_server.xml) - `embeddedServer` or `EngineMain`:
+Running a Ktor application depends on the way you used to [create a server](create_server.topic) - `embeddedServer` or `EngineMain`:
 * For `embeddedServer`, server parameters (such as a host address and port) are configured in code, so you cannot change these parameters when running an application.
-* For `EngineMain`, Ktor loads its configuration from an external file that uses the `HOCON` or `YAML` format. Using this approach, you can run a [packaged application](#package) from a command line and override the required server parameters by passing corresponding [command-line arguments](Configurations.xml#command-line).
+* For `EngineMain`, Ktor loads its configuration from an external file that uses the `HOCON` or `YAML` format. Using this approach, you can run a [packaged application](#package) from a command line and override the required server parameters by passing corresponding [command-line arguments](Configurations.topic#command-line).
 
 
 ### Starting EngineMain: Gradle and Maven specifics {id="gradle-maven"}
@@ -63,7 +63,7 @@ mainClassName = "io.ktor.server.netty.EngineMain"
 
 ### WAR specifics
 
-Ktor allows you to [create and start a server](create_server.xml) with the desired engine (such as Netty, Jetty, or Tomcat) right in the application. In this case, your application has control over engine settings, connection, and SSL options.
+Ktor allows you to [create and start a server](create_server.topic) with the desired engine (such as Netty, Jetty, or Tomcat) right in the application. In this case, your application has control over engine settings, connection, and SSL options.
 
 In contrast to this approach, a servlet container should control the application lifecycle and connection settings. Ktor provides a special `ServletApplicationEngine` engine that delegates control over your application to a servlet container. You can learn how to configure your application from [](war.md#configure-war).
 

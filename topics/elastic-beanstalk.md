@@ -10,7 +10,7 @@
 </p>
 </tldr>
 
-In this tutorial, we'll show you how to prepare and deploy a Ktor application to AWS Elastic Beanstalk. You can use one of the following initial projects depending on the way used to [create a Ktor server](create_server.xml):
+In this tutorial, we'll show you how to prepare and deploy a Ktor application to AWS Elastic Beanstalk. You can use one of the following initial projects depending on the way used to [create a Ktor server](create_server.topic):
 * [embedded-server](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server)
 * [engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main)
 
@@ -25,13 +25,13 @@ Before starting this tutorial, you need to create an AWS account.
 To open a sample application, follow the steps below:
 
 1. Clone a Ktor documentation repository and open the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets) project.
-2. Open the [embedded-server](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server) or [engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main) sample. These samples demonstrate different approaches to [creating and configuring a Ktor server](create_server.xml): in code or by using a configuration file. The only difference in deploying these projects is how to [specify a port](#port) used to listen for incoming requests.
+2. Open the [embedded-server](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server) or [engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main) sample. These samples demonstrate different approaches to [creating and configuring a Ktor server](create_server.topic): in code or by using a configuration file. The only difference in deploying these projects is how to [specify a port](#port) used to listen for incoming requests.
 
 ## Prepare an application {id="prepare-app"}
 
 ### Step 1: Configure a port {id="port"}
 
-First, you need to specify a port used to listen for incoming requests. Elastic Beanstalk forwards requests to your application on port 5000. Optionally, you can override the default port by setting the `PORT` environment variable. Depending on the way used to [configure a Ktor server](create_server.xml), you can configure a port in one of the following ways:
+First, you need to specify a port used to listen for incoming requests. Elastic Beanstalk forwards requests to your application on port 5000. Optionally, you can override the default port by setting the `PORT` environment variable. Depending on the way used to [configure a Ktor server](create_server.topic), you can configure a port in one of the following ways:
 * If you've chosen the [embedded-server](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server) sample with server configuration specified in code, you can obtain the environment variable value using `System.getenv` or use the default _5000_ value in a case an environment variable is not specified. Open the `Application.kt` file placed in the `src/main/kotlin/com/example` folder and change the `port` parameter value of the `embeddedServer` function as shown below:
    ```kotlin
    fun main() {

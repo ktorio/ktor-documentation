@@ -52,7 +52,7 @@ To create a base project for our application using the Ktor plugin, [open Intell
    * **Artifact**: This field shows a generated artifact name.
    * **Ktor version**: Choose the latest Ktor version.
    * **Engine**: Leave the default _Netty_ [engine](Engines.md).
-   * **Configuration in**: Choose _HOCON file_ to specify server parameters in a [dedicated configuration file](create_server.xml).
+   * **Configuration in**: Choose _HOCON file_ to specify server parameters in a [dedicated configuration file](create_server.topic).
    * **Add sample code**: Disable this option to skip adding sample code for plugins.
    
    Click **Next**.
@@ -96,7 +96,7 @@ The generated project also includes the `application.conf` and `logback.xml` con
    ```
   {src="snippets/tutorial-websockets-server/src/main/resources/application.conf" style="block"}
 
-  If you'd like to learn more about how a Ktor server is configured, check out the [](Configurations.xml) help topic.
+  If you'd like to learn more about how a Ktor server is configured, check out the [](Configurations.topic) help topic.
 * `logback.xml` sets up the basic logging structure for our server. If you'd like to learn more about logging in Ktor, check out the [](logging.md) topic.
 
 ### Source code {id="source_code"}

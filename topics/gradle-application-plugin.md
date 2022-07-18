@@ -38,7 +38,7 @@ To package an application, you need to apply the Application plugin first:
    </tabs>
    
    * The Application plugin is applied inside the `plugins` block.
-   * The `mainClass` property is used to configure the main class of the application. Note that the application main class depends on the way used to [create a server](create_server.xml).
+   * The `mainClass` property is used to configure the main class of the application. Note that the application main class depends on the way used to [create a server](create_server.topic).
      In the example above, the main class depends on the used engine and looks as follows: `io.ktor.server.netty.EngineMain`.
 
 

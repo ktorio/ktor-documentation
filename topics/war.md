@@ -27,11 +27,11 @@ In this topic, we'll show you how to:
 
 ## Configure Ktor in a servlet application {id="configure-ktor"}
 
-Ktor allows you to [create and start a server](create_server.xml) with the desired engine (such as Netty, Jetty, or Tomcat) right in the application. In this case, your application has control over engine settings, connection, and SSL options.
+Ktor allows you to [create and start a server](create_server.topic) with the desired engine (such as Netty, Jetty, or Tomcat) right in the application. In this case, your application has control over engine settings, connection, and SSL options.
 
 In contrast to the approach above, a servlet container should control the application lifecycle and connection settings. Ktor provides a special [ServletApplicationEngine](https://api.ktor.io/ktor-server/ktor-server-servlet/io.ktor.server.servlet/-servlet-application-engine/index.html) engine that delegates control over your application to a servlet container.
 
-> Note that [connection and SSL settings](Configurations.xml#configuration-file) are not in effect when a Ktor application is deployed inside a servlet container. 
+> Note that [connection and SSL settings](Configurations.topic#configuration-file) are not in effect when a Ktor application is deployed inside a servlet container. 
 > The [tomcat-war-ssl](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/tomcat-war-ssl) sample demonstrates how to configure SSL in Tomcat.
 
 

@@ -30,7 +30,7 @@ Before starting this tutorial, you need to perform the steps below:
 To open a sample application, follow the steps below:
 1. Clone a Ktor documentation repository and open the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets) project.
 2. Open the [engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main) module.
-   > Note that Ktor provides two approaches to [create and configure a server](create_server.xml): in code or by using a configuration file. In this tutorial, deploying process is the same for both approaches.
+   > Note that Ktor provides two approaches to [create and configure a server](create_server.topic): in code or by using a configuration file. In this tutorial, deploying process is the same for both approaches.
 
 ## Prepare an application {id="prepare-app"}
 ### Step 1: Apply the Shadow plugin {id="configure-shadow-plugin"}

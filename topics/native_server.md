@@ -6,7 +6,7 @@
 </tldr>
 
 Ktor supports [Kotlin/Native](https://kotlinlang.org/docs/native-overview.html) and allows you to run a server without an additional runtime or virtual machine. Currently, running a Ktor server under Kotlin/Native has the following limitations:
-* a [server should be created](create_server.xml) using `embeddedServer`
+* a [server should be created](create_server.topic) using `embeddedServer`
 * only the [CIO engine](Engines.md) is supported
 * [HTTPS](ssl.md) without a reverse proxy is not supported
 * Windows [target](#targets) is not supported
@@ -164,6 +164,6 @@ You can find the full example here: [embedded-server-native](https://github.com/
 
 ## Create a server {id="create-server"}
 
-After configuring your Gradle build script, you can create a Ktor server as described here: [](create_server.xml).
+After configuring your Gradle build script, you can create a Ktor server as described here: [](create_server.topic).
 
 

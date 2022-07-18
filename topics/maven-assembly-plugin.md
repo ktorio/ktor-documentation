@@ -16,7 +16,7 @@ To build an assembly, you need to configure the Assembly plugin first:
    ```
    {src="https://raw.githubusercontent.com/ktorio/ktor-maven-sample/main/pom.xml" lines="10,17-18"}
    
-   If you use [EngineMain](create_server.xml#engine-main) without the explicit `main` function, the application's main class depends on the used engine and might look as follows: `io.ktor.server.netty.EngineMain`.
+   If you use [EngineMain](create_server.topic#engine-main) without the explicit `main` function, the application's main class depends on the used engine and might look as follows: `io.ktor.server.netty.EngineMain`.
 2. Add `maven-assembly-plugin` to the `plugins` block as follows:
    ```xml
    ```

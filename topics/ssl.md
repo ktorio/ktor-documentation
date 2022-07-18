@@ -69,11 +69,11 @@ For example, if you have a private key in the `key.pem` file and a public certif
 
 
 ## Configure SSL in Ktor {id="configure-ssl-ktor"}
-Specifying SSL settings in Ktor depends on the way used to [configure a Ktor server](create_server.xml): by using a configuration file or in code using the `embeddedServer` function.
+Specifying SSL settings in Ktor depends on the way used to [configure a Ktor server](create_server.topic): by using a configuration file or in code using the `embeddedServer` function.
 
 ### Configuration file {id="config-file"}
 
-If your server is configured in the `application.conf` or `application.yaml` [configuration file](Configurations.xml#configuration-file), you can enable SSL using the following [properties](Configurations.xml#predefined-properties):
+If your server is configured in the `application.conf` or `application.yaml` [configuration file](Configurations.topic#configuration-file), you can enable SSL using the following [properties](Configurations.topic#predefined-properties):
 
 1. Specify the SSL port using the `ktor.deployment.sslPort` property:
 
@@ -118,7 +118,7 @@ You can find the full example here: [ssl-engine-main](https://github.com/ktorio/
 
 ### embeddedServer {id="embedded-server"}
 
-If you use the `embeddedServer` function to run your server, you need to pass a [custom environment](Configurations.xml#embedded-custom) and provide SSL settings there using [sslConnector](https://api.ktor.io/ktor-server/ktor-server-host-common/io.ktor.server.engine/ssl-connector.html):
+If you use the `embeddedServer` function to run your server, you need to pass a [custom environment](Configurations.topic#embedded-custom) and provide SSL settings there using [sslConnector](https://api.ktor.io/ktor-server/ktor-server-host-common/io.ktor.server.engine/ssl-connector.html):
 ```kotlin
 ```
 {src="snippets/ssl-embedded-server/src/main/kotlin/com/example/Application.kt" lines="21-37"}

@@ -4,7 +4,7 @@
 Learn about engines that process network requests.
 </link-summary>
 
-To run a Ktor server application, you need to [create](create_server.xml) and configure a server first.
+To run a Ktor server application, you need to [create](create_server.topic) and configure a server first.
 Server configuration includes different settings:
 - an [engine](#supported-engines) for processing network requests;
 - a host and port values used to access a server;
@@ -37,7 +37,7 @@ Below are examples of adding a dependency for Netty:
 
 
 ## Choose how to create a server {id="choose-create-server"}
-A Ktor server application can be [created and run in two ways](create_server.xml#embedded): using the [embeddedServer](#embeddedServer) to quickly pass server parameters in code, or using [EngineMain](#EngineMain) to load the configuration from the external `application.conf` or `application.yaml` file.
+A Ktor server application can be [created and run in two ways](create_server.topic#embedded): using the [embeddedServer](#embeddedServer) to quickly pass server parameters in code, or using [EngineMain](#EngineMain) to load the configuration from the external `application.conf` or `application.yaml` file.
 
 ### embeddedServer {id="embeddedServer"}
 
@@ -54,7 +54,7 @@ The [embeddedServer](https://api.ktor.io/ktor-server/ktor-server-host-common/io.
 * `io.ktor.server.tomcat.EngineMain`
 * `io.ktor.server.cio.EngineMain`
 
-The `EngineMain.main` function is used to start a server with the selected engine and loads the [application module](Modules.md) specified in the external [configuration file](Configurations.xml). In the example below, we start a server from the application's `main` function:
+The `EngineMain.main` function is used to start a server with the selected engine and loads the [application module](Modules.md) specified in the external [configuration file](Configurations.topic). In the example below, we start a server from the application's `main` function:
 
 <tabs>
 <tab title="Application.kt">
@@ -192,7 +192,7 @@ embeddedServer(Tomcat, configure = {
 
 ### In a configuration file {id="engine-main-configure"}
 
-If you use `EngineMain`, you can specify options common for all engines in a [configuration file](Configurations.xml#configuration-file) within the `ktor.deployment` group.
+If you use `EngineMain`, you can specify options common for all engines in a [configuration file](Configurations.topic#configuration-file) within the `ktor.deployment` group.
 
 <tabs group="config">
 <tab title="application.conf" group-key="hocon">

@@ -19,14 +19,14 @@ Before starting this tutorial, make sure that the following prerequisites are me
 
 ## Clone a sample application {id="clone"}
 Clone the [ktor-get-started-sample](https://github.com/ktorio/ktor-get-started-sample) project.
-> Note that Ktor provides two approaches to [create and configure a server](create_server.xml): in code or by using a configuration file. The only difference in deploying is how to [specify a port](#port) used to listen for incoming requests.
+> Note that Ktor provides two approaches to [create and configure a server](create_server.topic): in code or by using a configuration file. The only difference in deploying is how to [specify a port](#port) used to listen for incoming requests.
 
 
 ## Prepare an application {id="prepare-app"}
 
 ### Step 1: Configure a port {id="port"}
 
-First, you need to specify a port used to listen for incoming requests. Since Heroku uses the `PORT` environment variable, you need to configure the application to use a value of this variable. Depending on the way used to [configure a Ktor server](create_server.xml), do one of the following:
+First, you need to specify a port used to listen for incoming requests. Since Heroku uses the `PORT` environment variable, you need to configure the application to use a value of this variable. Depending on the way used to [configure a Ktor server](create_server.topic), do one of the following:
 * For the [ktor-get-started-sample](https://github.com/ktorio/ktor-get-started-sample) project with server configuration specified in code, you can obtain the environment variable value using `System.getenv`. Open the `Application.kt` file placed in the `src/main/kotlin/com/example` folder and change the `port` parameter value of the `embeddedServer` function as shown below:
    ```kotlin
    fun main() {

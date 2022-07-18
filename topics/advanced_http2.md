@@ -28,7 +28,7 @@ keytool -keystore test.jks -genkeypair -alias testkey -keyalg RSA -keysize 4096 
 
 ... or by using the [generateCertificate](ssl.md) function.
 
-The next step is configuring Ktor to use your keystore. See the example `application.conf` / `application.yaml` [configuration files](Configurations.xml#configuration-file):
+The next step is configuring Ktor to use your keystore. See the example `application.conf` / `application.yaml` [configuration files](Configurations.topic#configuration-file):
 
 <tabs group="config">
 <tab title="application.conf" group-key="hocon">

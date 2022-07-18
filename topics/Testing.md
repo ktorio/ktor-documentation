@@ -60,14 +60,14 @@ The runnable code example is available here: [engine-main](https://github.com/kt
 
 ### Step 1: Add application modules {id="add-modules"}
 To test an application, its [modules](Modules.md) should be loaded to `testApplication`.
-Loading modules to `testApplication` depends on the way used to [create a server](create_server.xml): by using a [configuration file](Configurations.xml#configuration-file) or in code using the `embeddedServer` function.
+Loading modules to `testApplication` depends on the way used to [create a server](create_server.topic): by using a [configuration file](Configurations.topic#configuration-file) or in code using the `embeddedServer` function.
 
 #### Add modules automatically {id="auto"}
 
 If you have the `application.conf` or `application.yaml` configuration file in the `resources` folder, `testApplication` loads all modules and properties specified in the configuration file automatically. To disable the automatic loading of specific modules, you need to:
 
 1. Provide a [custom configuration file](#environment) for tests.
-2. Use the [ktor.application.modules](Configurations.xml#configuration-file-overview) configuration property to specify modules to load.
+2. Use the [ktor.application.modules](Configurations.topic#configuration-file-overview) configuration property to specify modules to load.
 
 
 #### Add modules manually {id="manual"}
