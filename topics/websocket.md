@@ -1,5 +1,7 @@
 [//]: # (title: Server WebSockets)
 
+<show-structure for="chapter" depth="2"/>
+
 <var name="plugin_name" value="WebSockets"/>
 <var name="package_name" value="io.ktor.server.websocket"/>
 <var name="artifact_name" value="ktor-server-websockets"/>

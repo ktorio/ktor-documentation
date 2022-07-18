@@ -1,5 +1,7 @@
 [//]: # (title: Response validation)
 
+<show-structure for="chapter" depth="2"/>
+
 <tldr>
 <p><b>Code examples</b>:
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-validate-2xx-response">client-validate-2xx-response</a>,

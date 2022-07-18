@@ -1,5 +1,7 @@
 [//]: # (title: Creating HTTP APIs)
 
+<show-structure for="chapter" depth="2"/>
+
 <tldr>
 <var name="example_name" value="tutorial-http-api"/>
 <include from="lib.topic" element-id="download_example"/>
@@ -27,7 +29,7 @@ To create a base project for our application using the Ktor plugin, [open Intell
    ![New Ktor project](tutorial_http_api_new_project.png){width="706" border-effect="rounded"}
    * **Name**: Specify a project name.
    * **Location**: Specify a directory for your project.
-   * **Build System**: Make sure that _Gradle Kotlin_ is selected as a [build system](server-dependencies.xml).
+   * **Build System**: Make sure that _Gradle Kotlin_ is selected as a [build system](server-dependencies.topic).
    * **Website**: Leave the default `example.com` value as a domain used to generate a package name.
    * **Artifact**: This field shows a generated artifact name.
    * **Ktor version**: Choose the latest Ktor version.

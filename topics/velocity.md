@@ -1,5 +1,7 @@
 [//]: # (title: Velocity)
 
+<show-structure for="chapter" depth="2"/>
+
 [velocity_engine]: https://velocity.apache.org/engine/devel/apidocs/org/apache/velocity/app/VelocityEngine.html
 
 <var name="plugin_name" value="Velocity"/>

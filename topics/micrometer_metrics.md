@@ -1,4 +1,7 @@
 [//]: # (title: Micrometer metrics)
+
+<show-structure for="chapter" depth="2"/>
+
 [micrometer_jvm_metrics]: https://micrometer.io/docs/ref/jvm
 
 <var name="package_name" value="io.ktor.server.metrics.micrometer"/>

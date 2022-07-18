@@ -1,5 +1,7 @@
 [//]: # (title: Engines)
 
+<show-structure for="chapter" depth="2"/>
+
 <link-summary>
 Learn about engines that process network requests.
 </link-summary>
@@ -216,7 +218,7 @@ The `Darwin` engine targets [Darwin-based](https://en.wikipedia.org/wiki/Darwin_
 For desktop platforms, Ktor also provides the `Curl` engine. This engine is supported for the following platforms: `linuxX64`, `macosX64`, `macosArm64`, `mingwX64`. To use the `Curl` engine, follow the steps below:
 
 1. Install the [libcurl library](https://curl.se/libcurl/).
-   > On Windows, you may want to consider the [MinGW/MSYS2](FAQ.xml#native-curl) `curl` binary. 
+   > On Windows, you may want to consider the [MinGW/MSYS2](FAQ.topic#native-curl) `curl` binary. 
 2. Add the `ktor-client-curl` dependency:
    <var name="artifact_name" value="ktor-client-curl"/>
    <var name="target" value="-macosx64"/>

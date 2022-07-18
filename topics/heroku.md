@@ -1,5 +1,7 @@
 [//]: # (title: Heroku)
 
+<show-structure for="chapter" depth="2"/>
+
 <tldr>
 <p>
 <control>Initial project</control>: <a href="https://github.com/ktorio/ktor-get-started-sample">ktor-get-started-sample</a>
@@ -8,7 +10,7 @@
 
 <link-summary>Learn how to prepare and deploy a Ktor application to Heroku.</link-summary>
 
-In this tutorial, we'll show you how to prepare and deploy a Ktor application to Heroku. This tutorial uses a Ktor application from the [](intellij-idea.xml) topic.
+In this tutorial, we'll show you how to prepare and deploy a Ktor application to Heroku. This tutorial uses a Ktor application from the [](intellij-idea.topic) topic.
 
 
 ## Prerequisites {id="prerequisites"}

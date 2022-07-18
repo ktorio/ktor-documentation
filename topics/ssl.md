@@ -1,5 +1,7 @@
 [//]: # (title: SSL and certificates)
 
+<show-structure for="chapter" depth="2"/>
+
 <tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:ktor-network-tls-certificates</code>

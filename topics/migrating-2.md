@@ -1,5 +1,7 @@
 [//]: # (title: Migrating from 1.6.x to 2.0.0)
 
+<show-structure for="chapter" depth="2"/>
+
 This guide provides instructions on how to migrate your Ktor application from the 1.6.x version to 2.0.0.
 
 ## Ktor Server {id="server"}

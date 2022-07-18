@@ -1,5 +1,7 @@
 [//]: # (title: Testing)
 
+<show-structure for="chapter" depth="2"/>
+
 <var name="artifact_name" value="ktor-client-mock"/>
 
 <tldr>

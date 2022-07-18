@@ -1,4 +1,7 @@
 [//]: # (title: Mustache)
+
+<show-structure for="chapter" depth="2"/>
+
 [mustache_factory]: http://spullara.github.io/mustache/apidocs/com/github/mustachejava/MustacheFactory.html
 
 <var name="plugin_name" value="Mustache"/>

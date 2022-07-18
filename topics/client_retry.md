@@ -1,5 +1,7 @@
 [//]: # (title: Retrying failed requests)
 
+<show-structure for="chapter" depth="2"/>
+
 <tldr>
 <var name="example_name" value="client-retry"/>
 <include from="lib.topic" element-id="download_example"/>

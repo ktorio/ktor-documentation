@@ -1,4 +1,7 @@
 [//]: # (title: Pebble)
+
+<show-structure for="chapter" depth="2"/>
+
 [pebble_engine_builder]: https://pebbletemplates.io/com/mitchellbosecke/pebble/PebbleEngine/Builder/
 
 <var name="plugin_name" value="Pebble"/>

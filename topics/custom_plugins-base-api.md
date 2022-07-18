@@ -1,5 +1,7 @@
 [//]: # (title: Custom plugins - Base API)
 
+<show-structure for="chapter" depth="2"/>
+
 <tldr>
 <var name="example_name" value="custom-plugin-base-api"/>
 <include from="lib.topic" element-id="download_example"/>

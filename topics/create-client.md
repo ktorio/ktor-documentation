@@ -1,5 +1,7 @@
 [//]: # (title: Creating and configuring a client)
 
+<show-structure for="chapter" depth="2"/>
+
 <link-summary>Learn how to create and configure the Ktor client.</link-summary>
 
 After adding the [client dependencies](client-dependencies.md), you can instantiate the client by creating the [HttpClient](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client/-http-client/index.html) class instance and passing an [engine](http-client_engines.md) as a parameter:

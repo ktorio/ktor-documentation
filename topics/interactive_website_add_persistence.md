@@ -1,5 +1,7 @@
 [//]: # (title: Adding persistence to a website)
 
+<show-structure for="chapter" depth="2"/>
+
 <tldr>
 <var name="example_name" value="tutorial-website-interactive-persistence"/>
 <include from="lib.topic" element-id="download_example"/>

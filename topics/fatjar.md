@@ -16,7 +16,7 @@ To build a fat JAR, you need to configure the Ktor plugin first:
    ```
    {src="snippets/deployment-ktor-plugin/build.gradle.kts" lines="5,8-9"}
 
-2. Make sure the [main application class](server-dependencies.xml#create-entry-point) is configured:
+2. Make sure the [main application class](server-dependencies.topic#create-entry-point) is configured:
    ```kotlin
    ```
    {src="snippets/deployment-ktor-plugin/build.gradle.kts" lines="11-13"}

@@ -1,5 +1,7 @@
 [//]: # (title: Caching headers)
 
+<show-structure for="chapter" depth="2"/>
+
 <var name="plugin_name" value="CachingHeaders"/>
 <var name="package_name" value="io.ktor.server.plugins.cachingheaders"/>
 <var name="artifact_name" value="ktor-server-caching-headers"/>

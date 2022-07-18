@@ -1,5 +1,7 @@
 [//]: # (title: Testing)
 
+<show-structure for="chapter" depth="2"/>
+
 <tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:ktor-server-test-host</code>, <code>org.jetbrains.kotlin:kotlin-test</code>

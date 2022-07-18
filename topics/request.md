@@ -1,4 +1,7 @@
 [//]: # (title: Making requests)
+
+<show-structure for="chapter" depth="2"/>
+
 [percent_encoding]: https://en.wikipedia.org/wiki/Percent-encoding
 
 <tldr>

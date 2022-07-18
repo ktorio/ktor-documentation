@@ -1,5 +1,7 @@
 [//]: # (title: Serving single-page applications)
 
+<show-structure for="chapter" depth="2"/>
+
 <tldr>
 <var name="example_name" value="single-page-application"/>
 <include from="lib.topic" element-id="download_example"/>
@@ -14,7 +16,7 @@ Ktor provides the ability to serve single-page applications, including React, An
 
 ## Add dependencies {id="add_dependencies"}
 
-To serve a single-page application, you only need the [ktor-server-core](server-dependencies.xml#add-ktor-dependencies) dependency.
+To serve a single-page application, you only need the [ktor-server-core](server-dependencies.topic#add-ktor-dependencies) dependency.
 Any specific dependencies are not required.
 
 

@@ -1,5 +1,7 @@
 [//]: # (title: Serving static content)
 
+<show-structure for="chapter" depth="2"/>
+
 <tldr>
 <p><b>Code examples</b>:
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/static-files">static-files</a>,

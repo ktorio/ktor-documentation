@@ -1,5 +1,6 @@
 [//]: # (title: Custom plugins)
 
+<show-structure for="chapter" depth="2"/>
 
 <tldr>
 <var name="example_name" value="custom-plugin"/>
@@ -13,7 +14,7 @@ Starting with v2.0.0, Ktor provides a new API for creating custom [plugins](Plug
 
 ## Create and install your first plugin {id="first-plugin"}
 
-In this section, we'll demonstrate how to create and install your first plugin. You can use [ktor-get-started-sample](intellij-idea.xml) as a starting project.
+In this section, we'll demonstrate how to create and install your first plugin. You can use [ktor-get-started-sample](intellij-idea.topic) as a starting project.
 
 1. To create a plugin, call the `createApplicationPlugin` function and pass a plugin name:
    ```kotlin
@@ -235,7 +236,7 @@ val SimplePlugin = createApplicationPlugin(name = "SimplePlugin") {
 
 ### Environment {id="environment"}
 
-To access the application's environment, use the `environment` property. For example, this property allows you to determine whether the [development mode](development_mode.xml) is enabled:
+To access the application's environment, use the `environment` property. For example, this property allows you to determine whether the [development mode](development_mode.topic) is enabled:
 
 ```kotlin
 val SimplePlugin = createApplicationPlugin(name = "SimplePlugin") {

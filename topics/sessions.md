@@ -1,5 +1,7 @@
 [//]: # (title: Sessions)
 
+<show-structure for="chapter" depth="2"/>
+
 <var name="plugin_name" value="Sessions"/>
 <var name="package_name" value="io.ktor.server.sessions"/>
 <var name="artifact_name" value="ktor-server-sessions"/>

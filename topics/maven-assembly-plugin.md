@@ -11,7 +11,7 @@ The Maven [Assembly plugin](http://maven.apache.org/plugins/maven-assembly-plugi
 
 ## Configure the Assembly plugin {id="configure-plugin"}
 To build an assembly, you need to configure the Assembly plugin first:
-1. Go to the `pom.xml` file and make sure the [main application class](server-dependencies.xml#create-entry-point) is specified:
+1. Go to the `pom.xml` file and make sure the [main application class](server-dependencies.topic#create-entry-point) is specified:
    ```xml
    ```
    {src="https://raw.githubusercontent.com/ktorio/ktor-maven-sample/main/pom.xml" lines="10,17-18"}

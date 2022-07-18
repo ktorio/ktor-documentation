@@ -1,5 +1,7 @@
 [//]: # (title: Type-safe routing)
 
+<show-structure for="chapter" depth="2"/>
+
 <var name="plugin_name" value="Resources"/>
 <var name="package_name" value="io.ktor.server.resources"/>
 <var name="artifact_name" value="ktor-server-resources"/>

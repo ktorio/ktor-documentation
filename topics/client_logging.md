@@ -1,5 +1,7 @@
 [//]: # (title: Logging)
 
+<show-structure for="chapter" depth="2"/>
+
 <tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:ktor-client-logging</code>

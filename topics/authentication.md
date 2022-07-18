@@ -1,5 +1,7 @@
 [//]: # (title: Authentication and authorization)
 
+<show-structure for="chapter" depth="2"/>
+
 <var name="plugin_name" value="Authentication"/>
 <var name="package_name" value="io.ktor.server.auth"/>
 <var name="artifact_name" value="ktor-server-auth"/>

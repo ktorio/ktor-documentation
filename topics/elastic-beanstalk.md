@@ -1,5 +1,7 @@
 [//]: # (title: AWS Elastic Beanstalk)
 
+<show-structure for="chapter" depth="2"/>
+
 <tldr>
 <p>
 <control>Initial project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server">embedded-server</a> or 
@@ -52,7 +54,7 @@ This tutorial shows how to deploy the application to Elastic Beanstalk using a [
 ```
 {src="snippets/aws-elastic-beanstalk/build.gradle.kts" lines="5,8-9"}
 
-Then, make sure that the [main application class](server-dependencies.xml#create-entry-point) is configured:
+Then, make sure that the [main application class](server-dependencies.topic#create-entry-point) is configured:
 ```kotlin
 ```
 {src="snippets/aws-elastic-beanstalk/build.gradle.kts" lines="11-13"}

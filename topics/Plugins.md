@@ -1,5 +1,7 @@
 [//]: # (title: Plugins)
 
+<show-structure for="chapter" depth="2"/>
+
 <link-summary>
 Plugins provide common functionality, for example, serialization and content encoding, compression, headers, cookie support, etc.
 </link-summary>
@@ -132,5 +134,5 @@ Note that the following rules are applied to several installations of the same p
 By default, Ktor does not activate any Plugin, and it's up to us as developers to install the functionality our application need.
 
 Ktor does however provide a variety of Plugins that ship out of the box. We can see a complete list of these 
-either on the [Project Generator Site](https://start.ktor.io) or in the [IntelliJ IDEA Wizard](intellij-idea.xml). In addition,
+either on the [Project Generator Site](https://start.ktor.io) or in the [IntelliJ IDEA Wizard](intellij-idea.topic). In addition,
 we can also create our own [custom Plugins](custom_plugins.md).

@@ -1,5 +1,7 @@
 [//]: # (title: Type-safe requests)
 
+<show-structure for="chapter" depth="2"/>
+
 <var name="plugin_name" value="Resources"/>
 <var name="artifact_name" value="ktor-client-resources"/>
 

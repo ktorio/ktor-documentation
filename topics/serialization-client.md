@@ -1,5 +1,7 @@
 [//]: # (title: Content negotiation and serialization)
 
+<show-structure for="chapter" depth="2"/>
+
 <var name="plugin_name" value="ContentNegotiation"/>
 <var name="artifact_name" value="ktor-client-content-negotiation"/>
 

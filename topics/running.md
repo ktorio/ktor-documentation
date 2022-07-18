@@ -1,5 +1,7 @@
 [//]: # (title: Running)
 
+<show-structure for="chapter" depth="2"/>
+
 <link-summary>
 Learn how to run a server Ktor application.
 </link-summary>
@@ -69,7 +71,7 @@ In contrast to this approach, a servlet container should control the application
 
 
 ## Run an application {id="run"}
-> Restarting a server during development might take some time. Ktor allows you to overcome this limitation by using [Auto-reload](Auto_reload.xml), which reloads application classes on code changes and provides a fast feedback loop.
+> Restarting a server during development might take some time. Ktor allows you to overcome this limitation by using [Auto-reload](Auto_reload.topic), which reloads application classes on code changes and provides a fast feedback loop.
 
 ### Run an application in IDEA {id="idea"}
 

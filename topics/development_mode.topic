@@ -3,6 +3,9 @@
 
 <topic xmlns="" xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="development_mode" title="Development mode">
+
+    <show-structure for="chapter" depth="2"/>
+
     <p>
         Ktor provides a special mode targeted for development. This mode enables the following capabilities:
     </p>

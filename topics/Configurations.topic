@@ -6,6 +6,8 @@
        title="Configuration"
        id="Configurations">
 
+    <show-structure for="chapter" depth="2"/>
+
     <link-summary>
         This topic describes how to configure various server parameters, such as a host address and port, modules to load, enable the development mode, and so on.
     </link-summary>

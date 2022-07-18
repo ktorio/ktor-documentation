@@ -1,5 +1,7 @@
 [//]: # (title: Request validation)
 
+<show-structure for="chapter" depth="2"/>
+
 <var name="plugin_name" value="RequestValidation"/>
 <var name="package_name" value="io.ktor.server.plugins.requestvalidation"/>
 <var name="artifact_name" value="ktor-server-request-validation"/>

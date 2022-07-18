@@ -6,6 +6,8 @@
        title="Creating a client application"
        id="getting_started_ktor_client">
 
+    <show-structure for="chapter" depth="2"/>
+
     <tldr>
         <var name="example_name" value="tutorial-client-get-started"/>
         <include from="lib.topic" element-id="download_example"/>

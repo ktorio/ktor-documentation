@@ -1,5 +1,7 @@
 [//]: # (title: Docker Compose)
 
+<show-structure for="chapter" depth="2"/>
+
 <tldr>
 <p>
 <control>Initial project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/tutorial-website-interactive-persistence">tutorial-website-interactive-persistence</a>

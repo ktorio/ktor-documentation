@@ -1,5 +1,7 @@
 [//]: # (title: WAR)
 
+<show-structure for="chapter" depth="2"/>
+
 <tldr>
 <p>
 <b>Code examples</b>: 

@@ -1,5 +1,7 @@
 [//]: # (title: Receiving responses)
 
+<show-structure for="chapter" depth="2"/>
+
 <link-summary>
 Learn how to receive responses: get a response body in various ways (raw bytes, JSON objects, etc.) and obtain response parameters (a status code, content type, etc.).
 </link-summary>

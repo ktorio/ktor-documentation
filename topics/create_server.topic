@@ -6,6 +6,8 @@
        title="Creating a server"
        id="create_server" auxiliary-id="start_server">
 
+    <show-structure for="chapter" depth="2"/>
+
     <tldr>
         <p>
             <b>Code examples</b>:

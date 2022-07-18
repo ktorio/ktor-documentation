@@ -1,5 +1,7 @@
 [//]: # (title: Handling requests)
 
+<show-structure for="chapter" depth="2"/>
+
 <link-summary>Learn how to handle incoming requests inside route handlers: get request information, receive body contents, etc.</link-summary>
 
 Ktor allows you to handle incoming requests and send [responses](responses.md) inside [route handlers](Routing_in_Ktor.md#define_route). You can perform various actions when handling requests:

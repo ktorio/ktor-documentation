@@ -1,5 +1,7 @@
 [//]: # (title: Session authentication)
 
+<show-structure for="chapter" depth="2"/>
+
 <tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:ktor-server-auth</code>, <code>io.ktor:ktor-server-sessions</code>

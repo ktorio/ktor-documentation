@@ -1,5 +1,7 @@
 [//]: # (title: Engines)
 
+<show-structure for="chapter" depth="3"/>
+
 <link-summary>
 Learn about engines that process network requests.
 </link-summary>
@@ -25,7 +27,7 @@ The table below lists engines supported by Ktor, along with the supported platfo
 
 
 ## Add dependencies {id="dependencies"}
-Before using the desired engine, you need to add the corresponding dependency to your [build script](server-dependencies.xml):
+Before using the desired engine, you need to add the corresponding dependency to your [build script](server-dependencies.topic):
 * `ktor-server-netty`
 * `ktor-server-jetty`
 * `ktor-server-tomcat`

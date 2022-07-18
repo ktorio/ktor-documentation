@@ -26,7 +26,7 @@ The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-ser
 
 The code above installs the `%plugin_name%` plugin with the default configuration.
 
->When behind a reverse proxy, you need to install the `ForwardedHeader` or the `XForwardedHeader` plugin to detect HTTPS requests properly. If you get infinite redirect after installing one of these plugins, check out [this FAQ entry](FAQ.xml#infinite-redirect) for more details.
+>When behind a reverse proxy, you need to install the `ForwardedHeader` or the `XForwardedHeader` plugin to detect HTTPS requests properly. If you get infinite redirect after installing one of these plugins, check out [this FAQ entry](FAQ.topic#infinite-redirect) for more details.
 >
 {type="note"}
 

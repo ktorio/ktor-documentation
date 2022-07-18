@@ -1,5 +1,7 @@
 [//]: # (title: Form-based authentication)
 
+<show-structure for="chapter" depth="2"/>
+
 <var name="artifact_name" value="ktor-server-auth"/>
 
 <tldr>
