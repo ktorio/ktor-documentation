@@ -2,7 +2,7 @@
 
 <tldr>
 <var name="example_name" value="single-page-application"/>
-<include src="lib.topic" element-id="download_example"/>
+<include from="lib.topic" element-id="download_example"/>
 </tldr>
 
 <link-summary>

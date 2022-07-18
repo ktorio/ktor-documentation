@@ -23,7 +23,7 @@
         Ktor allows you to overcome this limitation by using <emphasis>Auto-reload</emphasis>, which reloads application classes on code changes and provides a fast feedback loop.
         To use Auto-reload, follow the steps below:
     </p>
-    <list type="decimal">
+    <list style="decimal">
         <li>
             <p>
                 <a anchor="enable">Enable the development mode</a>
@@ -153,7 +153,7 @@
             <li>
                 <p>
                     To rebuild a project manually in IntelliJ IDEA, select
-                    <menupath>Build | Rebuild Project</menupath> from the main menu.
+                    <ui-path>Build | Rebuild Project</ui-path> from the main menu.
                 </p>
             </li>
             <li>

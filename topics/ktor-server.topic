@@ -6,14 +6,14 @@
        title="Ktor Server"
        id="ktor-server">
 
-    <list type="horizontal" columns="2">
+    <list style="horizontal" columns="2">
         <li>
             <p>
                 <b>
                     Getting started
                 </b>
             </p>
-            <list type="none">
+            <list style="none">
                 <li>
                     <p>
                         <a href="intellij-idea.topic"/>
@@ -46,7 +46,7 @@
                     Configuring a server
                 </b>
             </p>
-            <list type="none">
+            <list style="none">
                 <li>
                     <a href="server-dependencies.topic"/>
                 </li>
@@ -71,7 +71,7 @@
                     Routing
                 </b>
             </p>
-            <list type="none">
+            <list style="none">
                 <li>
                     <a href="Routing_in_Ktor.md"/>
                 </li>
@@ -102,7 +102,7 @@
                     Plugins
                 </b>
             </p>
-            <list type="none">
+            <list style="none">
                 <li>
                     <a href="Working_with_views.md"/>
                 </li>
@@ -133,7 +133,7 @@
                     Running, debugging, and testing
                 </b>
             </p>
-            <list type="none">
+            <list style="none">
                 <li>
                     <a href="running.md"/>
                 </li>
@@ -155,7 +155,7 @@
                     Deployment
                 </b>
             </p>
-            <list type="none">
+            <list style="none">
                 <li>
                     <a href="fatjar.md">Creating Fat JARs</a>
                 </li>

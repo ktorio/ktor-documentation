@@ -1,6 +1,6 @@
 [//]: # (title: Utilities)
 
-<include src="lib.topic" element-id="outdated_warning"/>
+<include from="lib.topic" element-id="outdated_warning"/>
 
 ## Handling URL-encoded properties {id="url-encoded"}
 

@@ -9,7 +9,7 @@
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="caching-headers"/>
-<include src="lib.topic" element-id="download_example"/>
+<include from="lib.topic" element-id="download_example"/>
 </tldr>
 
 The [CachingHeaders](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-caching-headers/io.ktor.server.plugins.cachingheaders/-caching-headers.html) plugin adds the capability to configure the `Cache-Control` and `Expires` headers used for HTTP caching. You can [configure caching](#configure) in the following ways:
@@ -18,12 +18,12 @@ The [CachingHeaders](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-se
 
 ## Add dependencies {id="add_dependencies"}
 
-<include src="lib.topic" element-id="add_ktor_artifact_intro"/>
-<include src="lib.topic" element-id="add_ktor_artifact"/>
+<include from="lib.topic" element-id="add_ktor_artifact_intro"/>
+<include from="lib.topic" element-id="add_ktor_artifact"/>
 
 ## Install CachingHeaders {id="install_plugin"}
 
-<include src="lib.topic" element-id="install_plugin"/>
+<include from="lib.topic" element-id="install_plugin"/>
 
 After installing `%plugin_name%`, you can [configure](#configure) caching settings for various content types.
 

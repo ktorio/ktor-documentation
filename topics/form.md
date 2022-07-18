@@ -21,7 +21,7 @@ Form-based authentication uses a [web form](https://developer.mozilla.org/en-US/
 ## Add dependencies {id="add_dependencies"}
 To enable `form` authentication, you need to include the `%artifact_name%` artifact in the build script:
 
-<include src="lib.topic" element-id="add_ktor_artifact"/>
+<include from="lib.topic" element-id="add_ktor_artifact"/>
 
 ## Form-based authentication flow {id="flow"}
 

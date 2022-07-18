@@ -230,7 +230,7 @@
             On the Welcome screen, click <control>New Project</control>.
         </p>
         <p>
-            Otherwise, from the main menu, select <menupath>File | New | Project</menupath>.
+            Otherwise, from the main menu, select <ui-path>File | New | Project</ui-path>.
         </p>
     </snippet>
 
