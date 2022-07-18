@@ -190,7 +190,7 @@ In this section, we'll have a look on how to configure engines targeted for [Kot
 > To use the Ktor client on Kotlin/Native, enable the New Kotlin/Native memory model as described here: [Enable the new MM](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/NEW_MM.md#enable-the-new-mm).
 
 ### Darwin {id="darwin"}
-The `Darwin` engine targets [Darwin-based](https://en.wikipedia.org/wiki/Darwin_(operating_system)) operating systems (such as macOS, iOS, tvOS, and so on) and uses [NSURLSession](https://developer.apple.com/documentation/foundation/nsurlsession) internally. To use it, follow the steps below:
+The `Darwin` engine targets [Darwin-based](https://en.wikipedia.org/wiki/Darwin_(operating_system)) operating systems (such as macOS, iOS, tvOS, and so on) and uses [NSURLSession](https://developer.apple.com/documentation/foundation/nsurlsession) under the hood. To use the `Darwin` engine, follow the steps below:
 
 1. Add the `ktor-client-darwin` dependency:
    <var name="artifact_name" value="ktor-client-darwin"/>
@@ -203,7 +203,8 @@ The `Darwin` engine targets [Darwin-based](https://en.wikipedia.org/wiki/Darwin_
    
    val client = HttpClient(Darwin)
    ```
-3. To configure an engine, pass settings exposed by [DarwinClientEngineConfig](https://api.ktor.io/ktor-client/ktor-client-darwin/io.ktor.client.engine.darwin/-darwin-client-engine-config/index.html) to the `engine` method:
+3. To configure an engine, pass settings exposed by [DarwinClientEngineConfig](https://api.ktor.io/ktor-client/ktor-client-darwin/io.ktor.client.engine.darwin/-darwin-client-engine-config/index.html) to the `engine` function.
+   For instance, you can use the `configureRequest` function to access `NSMutableURLRequest` or `configureSession` to customize a session configuration. The code snippet below shows how to use `configureRequest`:
    ```kotlin
    ```
    {src="snippets/client-engine-darwin/src/nativeMain/kotlin/Main.kt" lines="8-14"}
