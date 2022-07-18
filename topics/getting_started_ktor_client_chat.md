@@ -147,7 +147,7 @@ We have now finished implementing our WebSocket-based chat client with Kotlin an
 
 ![App in action](app_in_action.png){animated="true" width="706"}
 
-We have included the final state of the client chat application in the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets) project: [tutorial-websockets-client](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/tutorial-websockets-client).
+We have included the final state of the client chat application in the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets) project: [tutorial-websockets-client](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-websockets-client).
 
 That's it for this tutorial on WebSockets with Ktor – time to congratulate yourself for building a whole application! If you're looking for some inspiration of where to take this project next, as well as related materials, continue to the next section.
 

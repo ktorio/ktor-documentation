@@ -103,6 +103,6 @@ After configuring LDAP, you can define the authorization for the different resou
 ```
 {src="snippets/auth-ldap/src/main/kotlin/com/example/Application.kt" lines="17-23"}
 
-You can find the complete runnable example here: [auth-ldap](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-ldap).
+You can find the complete runnable example here: [auth-ldap](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-ldap).
 
 > Bear in mind that current LDAP implementation is synchronous.

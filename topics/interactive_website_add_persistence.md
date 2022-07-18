@@ -228,7 +228,7 @@ Finally, go to the `post("{id}")` handler and use `dao.editArticle` to update an
 ```
 {src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/plugins/Routing.kt" lines="43-58"}
 
-> You can find the resulting project for this tutorial here: [tutorial-website-interactive-persistence](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/tutorial-website-interactive-persistence).
+> You can find the resulting project for this tutorial here: [tutorial-website-interactive-persistence](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-website-interactive-persistence).
 
 
 ## Run the application {id="run_app"}

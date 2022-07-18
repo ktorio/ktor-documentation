@@ -8,8 +8,8 @@
 </p>
 <p>
 <b>Code examples</b>: 
-<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-jwt-hs256">auth-jwt-hs256</a>, 
-<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-jwt-rs256">auth-jwt-rs256</a>
+<a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-jwt-hs256">auth-jwt-hs256</a>, 
+<a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-jwt-rs256">auth-jwt-rs256</a>
 </p>
 </tldr>
 
@@ -91,7 +91,7 @@ In this section, we'll see how to use JSON web tokens in a server Ktor applicati
 * Using `HS256` with a specified shared secret. 
 * Using `RS256` with a public/private key pair.
 
-You can find full runnable projects here: [auth-jwt-hs256](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-jwt-hs256), [auth-jwt-rs256](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-jwt-rs256).
+You can find full runnable projects here: [auth-jwt-hs256](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-jwt-hs256), [auth-jwt-rs256](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-jwt-rs256).
 
 ### Step 1: Configure JWT settings {id="jwt-settings"}
 

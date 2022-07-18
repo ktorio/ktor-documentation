@@ -56,7 +56,7 @@ The code below demonstrates how to test the most simple Ktor application that ac
 </tab>
 </tabs>
 
-The runnable code example is available here: [engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main).
+The runnable code example is available here: [engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main).
 
 ## Configure a test application {id="configure-test-app"}
 
@@ -88,7 +88,7 @@ This might be convenient for the following use-cases:
    ```
    {src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" lines="18,31-35,51"}
    
-   You can find the full example with a test here: [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-oauth-google).
+   You can find the full example with a test here: [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-oauth-google).
 
 ### Step 3: (Optional) Customize environment {id="environment"}
 
@@ -125,7 +125,7 @@ The sample below shows how to use `externalServices` to simulate a JSON response
 ```
 {src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" lines="18,36-47,51"}
 
-You can find the full example with a test here: [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/auth-oauth-google).
+You can find the full example with a test here: [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-oauth-google).
 
 ### Step 5: (Optional) Configure a client {id="configure-client"}
 
@@ -139,7 +139,7 @@ If you need to customize the client and install additional plugins, you can use 
 
 ### Step 6: Make a request {id="make-request"}
 
-To test your application, you can use a [configured client](#configure-client) to make a [request](request.md) and receive a [response](response.md). The [example below](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/json-kotlinx) shows how to test the `/customer` endpoint that handles `POST` requests:
+To test your application, you can use a [configured client](#configure-client) to make a [request](request.md) and receive a [response](response.md). The [example below](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/json-kotlinx) shows how to test the `/customer` endpoint that handles `POST` requests:
 
 ```kotlin
 ```
@@ -168,7 +168,7 @@ To send form data in a test POST/PUT request, you need to set the `Content-Type`
 
 #### x-www-form-urlencoded {id="x-www-form-urlencoded"}
 
-A test below from the [post-form-parameters](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/post-form-parameters) example shows how to make a test request with form parameters sent using the `x-www-form-urlencoded` content type. Note that the [formUrlEncode](https://api.ktor.io/ktor-http/io.ktor.http/form-url-encode.html) function is used to encode form parameters from a list of key/value pairs.
+A test below from the [post-form-parameters](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/post-form-parameters) example shows how to make a test request with form parameters sent using the `x-www-form-urlencoded` content type. Note that the [formUrlEncode](https://api.ktor.io/ktor-http/io.ktor.http/form-url-encode.html) function is used to encode form parameters from a list of key/value pairs.
 
 <tabs>
 <tab title="Test">
@@ -191,7 +191,7 @@ A test below from the [post-form-parameters](https://github.com/ktorio/ktor-docu
 
 #### multipart/form-data {id="multipart-form-data"}
 
-The code below demonstrates how to build `multipart/form-data` and test file uploading. You can find the full example here: [upload-file](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/upload-file).
+The code below demonstrates how to build `multipart/form-data` and test file uploading. You can find the full example here: [upload-file](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/upload-file).
 
 <tabs>
 <tab title="Test">
@@ -214,7 +214,7 @@ The code below demonstrates how to build `multipart/form-data` and test file upl
 
 ### Send JSON data {id="json-data"}
 
-To send JSON data in a test POST/PUT request, you need create a new client and install the [ContentNegotiation](serialization-client.md) plugin that allows serializing/deserializing the content in a specific format. Inside a request, you can specify the `Content-Type` header using the `contentType` function and the request body using [setBody](request.md#body). The [example below](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/json-kotlinx) shows how to test the `/customer` endpoint that handles `POST` requests.
+To send JSON data in a test POST/PUT request, you need create a new client and install the [ContentNegotiation](serialization-client.md) plugin that allows serializing/deserializing the content in a specific format. Inside a request, you can specify the `Content-Type` header using the `contentType` function and the request body using [setBody](request.md#body). The [example below](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/json-kotlinx) shows how to test the `/customer` endpoint that handles `POST` requests.
 
 <tabs>
 <tab title="Test">
@@ -238,7 +238,7 @@ To send JSON data in a test POST/PUT request, you need create a new client and i
 
 ## Preserve cookies during testing {id="preserving-cookies"}
 
-If you need to preserve cookies between requests when testing, you need create a new client and install the [HttpCookies](http-cookies.md) plugin. In a test below from the [session-cookie-client](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/session-cookie-client) example, reload count is increased after each request since cookies are preserved.
+If you need to preserve cookies between requests when testing, you need create a new client and install the [HttpCookies](http-cookies.md) plugin. In a test below from the [session-cookie-client](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/session-cookie-client) example, reload count is increased after each request since cookies are preserved.
 
 
 <tabs>
@@ -268,7 +268,7 @@ If you need to test an [HTTPS endpoint](ssl.md), change the protocol used to mak
 ```
 {src="snippets/ssl-engine-main/src/test/kotlin/ApplicationTest.kt" lines="10-18"}
 
-You can find the full example here: [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-engine-main).
+You can find the full example here: [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/ssl-engine-main).
 
 
 ## Test WebSockets {id="testing-ws"}
@@ -291,4 +291,4 @@ Apart from a testing engine, you can use the [Ktor HTTP Client](create-client.md
 ```
 {src="snippets/embedded-server/src/test/kotlin/EmbeddedServerTest.kt"}
 
-For a full example, refer to a test of the [embedded-server](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server) example.
+For a full example, refer to a test of the [embedded-server](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/embedded-server) example.

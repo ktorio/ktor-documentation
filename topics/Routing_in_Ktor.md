@@ -225,6 +225,6 @@ fun Route.totalizeOrderRoute() {
 }
 ```
 
-You can find the full example demonstrating this approach here: [tutorial-website-interactive](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/tutorial-website-interactive).
+You can find the full example demonstrating this approach here: [tutorial-website-interactive](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-website-interactive).
 
 > For our application to scale when it comes to maintainability, it is recommended to follow certain [Structuring patterns](Structuring_Applications.md).

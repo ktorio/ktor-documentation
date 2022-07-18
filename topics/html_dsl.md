@@ -48,7 +48,7 @@ In addition to generating plain HTML, Ktor provides a template engine that can b
     
 
 ### Example {id="example"}
-Let's see on the [example](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/html-templates) of how to create a hierarchical layout using templates. Imagine we have the following HTML:
+Let's see on the [example](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/html-templates) of how to create a hierarchical layout using templates. Imagine we have the following HTML:
 ```html
 <body>
 <h1>Ktor</h1>
@@ -95,4 +95,4 @@ Let's implement these layouts step-by-step:
    ```
    {src="snippets/html-templates/src/main/kotlin/com/example/Application.kt" lines="12-26"}
 
-You can find the full example here: [html-templates](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/html-templates).
+You can find the full example here: [html-templates](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/html-templates).

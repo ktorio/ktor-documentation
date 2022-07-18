@@ -82,7 +82,7 @@ You can handle `RequestValidationException` using the [StatusPages](status_pages
 ```
 {src="snippets/request-validation/src/main/kotlin/com/example/Application.kt" lines="44-48"}
 
-You can find the full example here: [request-validation](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/request-validation).
+You can find the full example here: [request-validation](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/request-validation).
 
 
 ## Example: Validating object properties {id="example-object"}

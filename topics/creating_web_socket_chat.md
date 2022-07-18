@@ -224,7 +224,7 @@ To see that our server is now behaving correctly – assigning usernames and bro
 </tabs>
 
 
-As we can see, our finished chat server can now receive and send messages with multiple participants. Feel free to open a few more tabs and play around with what we have built here! We have included the final state of the chat server in the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets) project: [tutorial-websockets-server](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/tutorial-websockets-server).
+As we can see, our finished chat server can now receive and send messages with multiple participants. Feel free to open a few more tabs and play around with what we have built here! We have included the final state of the chat server in the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets) project: [tutorial-websockets-server](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-websockets-server).
 
 In the [next tutorial](getting_started_ktor_client_chat.md), we will write a chat client for our server, which will allow us to send and receive messages directly from the command line. Because our clients will also be implemented using Ktor, we will get to reuse much of what we learned about managing WebSockets in Kotlin.
 

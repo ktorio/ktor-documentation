@@ -47,7 +47,7 @@ For example, to output the metrics every 10 seconds, you would:
 ```
 {src="snippets/dropwizard-metrics/src/main/kotlin/com/example/MetricsApplication.kt" lines="12-18,25"}
 
-You can find the full example here: [dropwizard-metrics](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/dropwizard-metrics).
+You can find the full example here: [dropwizard-metrics](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/dropwizard-metrics).
 
 If you run the application and open [http://0.0.0.0:8080](http://0.0.0.0:8080), the output will look like this:
 
@@ -70,7 +70,7 @@ The JMX reporter allows you to expose all the metrics to JMX, allowing you to vi
 ```
 {src="snippets/dropwizard-metrics/src/main/kotlin/com/example/MetricsApplication.kt" lines="12,19-23,25"}
 
-You can find the full example here: [dropwizard-metrics](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/dropwizard-metrics).
+You can find the full example here: [dropwizard-metrics](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/dropwizard-metrics).
 
 If you run the application and connect to its process using the [JConsole](https://docs.oracle.com/en/java/javase/17/management/using-jconsole.html), metrics will look like this:
 
@@ -117,4 +117,4 @@ In addition to HTTP metrics, Ktor exposes a set of metrics for monitoring the JV
 ```
 {src="snippets/dropwizard-metrics/src/main/kotlin/com/example/MetricsApplication.kt" lines="12,24-25"}
 
-You can find the full example here: [dropwizard-metrics](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/dropwizard-metrics).
+You can find the full example here: [dropwizard-metrics](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/dropwizard-metrics).

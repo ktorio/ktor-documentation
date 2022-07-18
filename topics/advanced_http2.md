@@ -4,7 +4,7 @@
 
 <tldr>
 <p>
-<b>Code examples</b>: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/http2-netty">http2-netty</a>, <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/http2-jetty">http2-jetty</a>
+<b>Code examples</b>: <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/http2-netty">http2-netty</a>, <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/http2-jetty">http2-jetty</a>
 </p>
 </tldr>
 
@@ -65,7 +65,7 @@ Since ALPN APIs are supported starting with Java 8, the Jetty engine doesn't req
 2. Add an SSL configuration as described in [](#ssl_certificate).
 3. Configure `sslPort`.
 
-The [http2-jetty](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/http2-jetty) runnable example demonstrates HTTP/2 support for Jetty.
+The [http2-jetty](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/http2-jetty) runnable example demonstrates HTTP/2 support for Jetty.
 
 ### Netty {id="netty"}
 
@@ -83,4 +83,4 @@ Add an API jar to dependencies ...
 {src="snippets/http2-netty/build.gradle.kts" lines="35-39"}
 
 `tc.native.classifier` should be one of the following: `linux-x86_64`, `osx-x86_64` or `windows-x86_64`. 
-The [http2-netty](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/http2-netty) runnable example demonstrates how to enable HTTP/2 support for Netty.
+The [http2-netty](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/http2-netty) runnable example demonstrates how to enable HTTP/2 support for Netty.

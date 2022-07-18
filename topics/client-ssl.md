@@ -25,7 +25,7 @@ Given that different engines use different [JSSE API](https://docs.oracle.com/en
 ## Configure SSL in Ktor {id="configure-ssl"}
 
 In this section, we'll see how to configure SSL for different engines.
-You can find the full example here: [client-ssl-config](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-ssl-config).
+You can find the full example here: [client-ssl-config](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-ssl-config).
 
 ### Apache {id="apache"}
 
@@ -64,7 +64,7 @@ In our example, a `TrustManager` instance is used to configure a certificate:
 ```
 {src="snippets/client-ssl-config/src/main/kotlin/com/example/Application.kt" lines="39-45"}
 
-> The [sockets-client-tls](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/sockets-client-tls) example shows how to trust all certificates.
+> The [sockets-client-tls](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/sockets-client-tls) example shows how to trust all certificates.
 > This approach should be used for development purposes only.
 
 

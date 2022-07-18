@@ -83,7 +83,7 @@ A Ktor client allows you to configure a token to be sent in the `Authorization` 
 
 ## Example: Using Bearer authentication to access Google API {id="example-oauth-google"}
 
-Let's take a look at how to use bearer authentication to access Google APIs, which use the [OAuth 2.0 protocol](https://developers.google.com/identity/protocols/oauth2) for authentication and authorization. We'll investigate the [client-auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-auth-oauth-google) console application that gets Google's profile information. 
+Let's take a look at how to use bearer authentication to access Google APIs, which use the [OAuth 2.0 protocol](https://developers.google.com/identity/protocols/oauth2) for authentication and authorization. We'll investigate the [client-auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-auth-oauth-google) console application that gets Google's profile information. 
 
 ### Obtain client credentials {id="google-client-credentials"}
 As the first step, we need to obtain client credentials required for accessing Google APIs:
@@ -260,7 +260,7 @@ The `ErrorInfo` class looks as follows:
 ```
 {src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/models/ErrorInfo.kt" lines="3-13"}
 
-You can find the full example here: [client-auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-auth-oauth-google).
+You can find the full example here: [client-auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-auth-oauth-google).
 
 
 

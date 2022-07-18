@@ -3,8 +3,8 @@
 <tldr>
 <p>
 <b>Code examples</b>: 
-<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server-modules">embedded-server-modules</a>, 
-<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main-modules">engine-main-modules</a>
+<a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/embedded-server-modules">embedded-server-modules</a>, 
+<a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main-modules">engine-main-modules</a>
 </p>
 </tldr>
 
@@ -29,7 +29,7 @@ You can also extract application logic into separate modules and call these modu
 ```
 {src="snippets/embedded-server-modules/src/main/kotlin/com/example/Application.kt"}
 
-You can find the full example here: [embedded-server-modules](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server-modules).
+You can find the full example here: [embedded-server-modules](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/embedded-server-modules).
 
 
 
@@ -76,4 +76,4 @@ A fully qualified module name includes a fully qualified name of the class and a
 </tab>
 </tabs>
 
-You can find the full example here: [engine-main-modules](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main-modules).
+You can find the full example here: [engine-main-modules](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main-modules).

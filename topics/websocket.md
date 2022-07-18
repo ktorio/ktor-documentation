@@ -84,7 +84,7 @@ The example below shows how to create the `echo` WebSocket endpoint to handle a 
 ```
 {src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" lines="21,26-37,54-55"}
 
-You can find the full example here: [server-websockets](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/server-websockets).
+You can find the full example here: [server-websockets](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/server-websockets).
 
 ### Example: Handle multiple sessions {id="handle-multiple-session"}
 
@@ -100,7 +100,7 @@ Then, you can create a new connection inside the `webSocket` handler when a new 
 ```
 {src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" lines="21,39-54"}
 
-You can find the full example here: [server-websockets](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/server-websockets).
+You can find the full example here: [server-websockets](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/server-websockets).
 
 
 

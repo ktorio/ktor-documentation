@@ -91,7 +91,7 @@ This means that call IDs containing capital letters won't pass verification. If 
 ```
 {src="snippets/call-id/src/main/kotlin/com/example/Application.kt" lines="13,15-18"}
 
-You can find the full example here: [call-id](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/call-id).
+You can find the full example here: [call-id](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/call-id).
 
 
 
@@ -105,7 +105,7 @@ After [retrieving](#retrieve)/[generating](#generate) a call ID, you can send it
    ```
   {src="snippets/call-id/src/main/kotlin/com/example/Application.kt" lines="13-14,18"}
 
-  You can find the full example here: [call-id](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/call-id).
+  You can find the full example here: [call-id](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/call-id).
 
 * The `replyToHeader` function sends a call ID in the specified header:
    ```kotlin
@@ -135,4 +135,4 @@ This key can be passed to a [logger configuration](logging.md#configure-logger) 
 ```
 {style="block" src="snippets/call-id/src/main/resources/logback.xml" lines="2-6"}
 
-You can find the full example here: [call-id](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/call-id).
+You can find the full example here: [call-id](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/call-id).

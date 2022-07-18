@@ -238,7 +238,7 @@
     <snippet id="download_example">
         <p>
             <b>Code example</b>:
-            <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/%example_name%">
+            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/%example_name%">
                 %example_name%
             </a>
         </p>

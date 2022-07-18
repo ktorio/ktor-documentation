@@ -52,4 +52,4 @@ For instance, if you've installed the `org.webjars:bootstrap` dependency, you ca
 
 Note that `%plugin_name%` allows you to change the versions of the dependencies without changing the path used to load them.
 
-> You can find the full example here: [webjars](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/webjars).
+> You can find the full example here: [webjars](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/webjars).

@@ -9,9 +9,9 @@
 <b>Required dependencies</b>: <code>io.ktor:ktor-network</code>, <code>io.ktor:ktor-network-tls</code>
 </p>
 <p><b>Code examples</b>:
-<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/sockets-server">sockets-server</a>,
-<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/sockets-client">sockets-client</a>,
-<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/sockets-client-tls">sockets-client-tls</a>
+<a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/sockets-server">sockets-server</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/sockets-client">sockets-client</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/sockets-client-tls">sockets-client-tls</a>
 </p>
 </tldr>
 
@@ -107,7 +107,7 @@ A code sample below demonstrates how to use sockets on the server side:
 ```
 {src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt"}
 
-You can find the full example here: [sockets-server](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/sockets-server).
+You can find the full example here: [sockets-server](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/sockets-server).
 
 
 ## Client {id="client"}
@@ -140,7 +140,7 @@ The `tls` function allows you to adjust TLS parameters provided by [TLSConfigBui
 ```
 {src="snippets/sockets-client-tls/src/main/kotlin/com/example/Application.kt" lines="14-21"}
 
-You can find the full example here: [sockets-client-tls](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/sockets-client-tls).
+You can find the full example here: [sockets-client-tls](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/sockets-client-tls).
 
 
 ### Receive data {id="client_receive"}
@@ -191,4 +191,4 @@ A code sample below demonstrates how to use sockets on the client side:
 ```
 {src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt"}
 
-You can find the full example here: [sockets-client](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/sockets-client).
+You can find the full example here: [sockets-client](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/sockets-client).

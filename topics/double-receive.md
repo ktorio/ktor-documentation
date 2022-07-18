@@ -42,7 +42,7 @@ For example, you can enable logging of a request body using the [CallLogging](ca
 ```
 {src="snippets/double-receive/src/main/kotlin/com/example/Application.kt" lines="25-28"}
 
-You can find the full example here: [double-receive](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/double-receive).
+You can find the full example here: [double-receive](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/double-receive).
 
 
 ## Configure %plugin_name% {id="configure"}

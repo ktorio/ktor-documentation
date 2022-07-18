@@ -211,7 +211,7 @@ The `Darwin` engine targets [Darwin-based](https://en.wikipedia.org/wiki/Darwin_
    ```
    {src="snippets/client-engine-darwin/src/nativeMain/kotlin/Main.kt" lines="8-14"}
 
-   You can find the full example here: [client-engine-darwin](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-engine-darwin).
+   You can find the full example here: [client-engine-darwin](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-engine-darwin).
 
 ### Curl {id="curl"}
 
@@ -237,7 +237,7 @@ For desktop platforms, Ktor also provides the `Curl` engine. This engine is supp
    ```
    {src="snippets/client-engine-curl/src/nativeMain/kotlin/Main.kt" lines="8-12"}
 
-   You can find the full example here: [client-engine-curl](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-engine-curl).
+   You can find the full example here: [client-engine-curl](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-engine-curl).
 
 
 ## JVM, Android, and Native {id="jvm-android-native"}
@@ -281,7 +281,7 @@ The `Js` engine can be used for [JavaScript projects](https://kotlinlang.org/doc
    val client = JsClient()
    ```
 
-You can find the full example here: [client-engine-js](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-engine-js).
+You can find the full example here: [client-engine-js](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-engine-js).
 
 ## Example: How to configure an engine in a multiplatform mobile project {id="mpp-config"}
 

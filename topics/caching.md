@@ -30,7 +30,7 @@ The [CachingHeaders](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-se
 After installing `%plugin_name%`, you can [configure](#configure) caching settings for various content types.
 
 ## Configure caching {id="configure"}
-To configure the `%plugin_name%` plugin, you need to define the [options](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-caching-headers/io.ktor.server.plugins.cachingheaders/-caching-headers-config/options.html) function to provide specified caching options for a given `ApplicationCall` and content type. The code snippet from the [caching-headers](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/caching-headers) example shows how to add the `Cache-Control` header with the `max-age` option for plain text and HTML:
+To configure the `%plugin_name%` plugin, you need to define the [options](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-caching-headers/io.ktor.server.plugins.cachingheaders/-caching-headers-config/options.html) function to provide specified caching options for a given `ApplicationCall` and content type. The code snippet from the [caching-headers](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/caching-headers) example shows how to add the `Cache-Control` header with the `max-age` option for plain text and HTML:
 
 ```kotlin
 ```

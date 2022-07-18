@@ -54,7 +54,7 @@ To enable serialization of data objects in Ktor, you need to install the [Conten
 ```
 {src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="32-36"}
 
-You can find the full example here: [json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/json-kotlinx).
+You can find the full example here: [json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/json-kotlinx).
 
 
 ### File {id="file"}
@@ -67,7 +67,7 @@ Note that this sample has two plugins installed:
 - [PartialContent](partial-content.md) enables the server to respond to requests with the `Range` header and send only a portion of content.
 - [AutoHeadResponse](autoheadresponse.md) provides the ability to automatically respond to `HEAD` request for every route that has a `GET` defined. This allows the client application to determine the file size by reading the `Content-Length` header value.
 
-To learn how to run the sample, see [download-file](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/download-file).
+To learn how to run the sample, see [download-file](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/download-file).
 
 
 ### Raw payload {id="raw"}

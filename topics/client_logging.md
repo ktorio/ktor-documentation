@@ -52,7 +52,7 @@ The example below shows a sample configuration:
 ```
 {src="snippets/client-logging/src/main/kotlin/com/example/Application.kt"}
 
-You can find the full example here: [client-logging](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-logging).
+You can find the full example here: [client-logging](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-logging).
 
 
 ### Provide a custom logger {id="custom_logger"}
@@ -64,4 +64,4 @@ The example below shows how to use the [Napier](https://github.com/AAkira/Napier
 ```
 {src="snippets/client-logging-napier/src/main/kotlin/com/example/Application.kt" include-symbol="main"}
 
-You can find the full example here: [client-logging-napier](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-logging-napier).
+You can find the full example here: [client-logging-napier](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-logging-napier).

@@ -120,4 +120,4 @@ To receive and convert a content of a text frame, call the `receiveDeserialized`
 ```
 {src="snippets/client-websockets-serialization/src/main/kotlin/com/example/Application.kt" lines="22-25"}
 
-You can find the full example here: [client-websockets-serialization](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-websockets-serialization).
+You can find the full example here: [client-websockets-serialization](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-websockets-serialization).

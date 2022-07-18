@@ -116,4 +116,4 @@ To pass a data object in a text frame using a [specified format](#configure_seri
 ```
 {src="snippets/server-websockets-serialization/src/main/kotlin/com/example/Application.kt" lines="20-22"}
 
-You can find the full example here: [server-websockets-serialization](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/server-websockets-serialization).
+You can find the full example here: [server-websockets-serialization](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/server-websockets-serialization).

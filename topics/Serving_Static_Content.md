@@ -4,8 +4,8 @@
 
 <tldr>
 <p><b>Code examples</b>:
-<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/static-files">static-files</a>,
-<a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/static-resources">static-resources</a>
+<a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/static-files">static-files</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/static-resources">static-resources</a>
 </p>
 </tldr>
 
@@ -306,7 +306,7 @@ Example applications that serve static files using both folders and resources ca
 
 You can find the full examples here:
 
-- [static-files](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/static-files)
-- [static-resources](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/static-resources)
+- [static-files](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/static-files)
+- [static-resources](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/static-resources)
 
 

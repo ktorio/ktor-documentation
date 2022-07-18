@@ -63,7 +63,7 @@ You can choose the content types to compress by calling `matchContentType` or ex
 ```
 {src="snippets/compression/src/main/kotlin/com/example/Application.kt" lines="12-13,15-19,21-25"}
 
-You can find the full example here: [compression](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/compression).
+You can find the full example here: [compression](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/compression).
 
 ### Configure response size {id="configure_response_size"}
 The `%plugin_name%` plugin allows you to disable compression for responses whose size doesn't exceed the specified value. To do this, pass the desired value (in bytes) to the `minimumSize` function:

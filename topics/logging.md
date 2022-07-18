@@ -46,7 +46,7 @@ If you want to output logs to a file, you can use the `FILE` appender.
 ```
 {style="block" src="snippets/logging/src/main/resources/logback-fileAppender.xml"}
 
-You can find the full example here: [logging](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/logging).
+You can find the full example here: [logging](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/logging).
 
 
 

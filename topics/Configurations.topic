@@ -72,7 +72,7 @@
             </code-block>
 
             <p>
-                You can also use a custom environment to serve HTTPS. The <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/ssl-embedded-server">ssl-embedded-server</a> example shows how to do this.
+                You can also use a custom environment to serve HTTPS. The <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/ssl-embedded-server">ssl-embedded-server</a> example shows how to do this.
             </p>
         </chapter>
     </chapter>

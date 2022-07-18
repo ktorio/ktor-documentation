@@ -70,7 +70,7 @@ In the `json` constructor, you can access the [JsonBuilder](https://kotlin.githu
 ```
 {src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="20-27"}
 
-You can find the full example here: [client-json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-json-kotlinx).
+You can find the full example here: [client-json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-json-kotlinx).
 
 </tab>
 <tab title="Gson" group-key="gson">
@@ -203,4 +203,4 @@ When a server sends a [response](response.md) with the `application/json`, `appl
 ```
 {src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="35"}
 
-You can find the full example here: [client-json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-json-kotlinx).
+You can find the full example here: [client-json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-json-kotlinx).

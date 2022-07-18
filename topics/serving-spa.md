@@ -82,4 +82,4 @@ To serve this application, the following configuration is used:
 - `defaultPage`: Specifies `main.html` as a default resource to serve.
 - `ignoreFiles`: Ignores paths that contain `.txt` at the end.
 
-You can find the full example here: [single-page-application](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/single-page-application).
+You can find the full example here: [single-page-application](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/single-page-application).

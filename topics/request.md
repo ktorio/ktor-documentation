@@ -183,7 +183,7 @@ The Ktor client provides the [submitForm](https://api.ktor.io/ktor-client/ktor-c
 ```
 {src="snippets/client-submit-form/src/main/kotlin/com/example/Application.kt" lines="12-22"}
 
-You can find the full example here: [client-submit-form](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-submit-form).
+You can find the full example here: [client-submit-form](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-submit-form).
 
 > To send form parameters encoded in URL, set `encodeInQuery` to `true`.
 
@@ -224,8 +224,8 @@ For both approaches, you need to build form data using the [formData](https://ap
 {src="snippets/client-upload-progress/src/main/kotlin/com/example/Application.kt" lines="39-43"}
 
 You can find the full examples here:
-- [client-upload](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-upload)
-- [client-upload-progress](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-upload-progress)
+- [client-upload](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-upload)
+- [client-upload-progress](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-upload-progress)
 
 
 ## Parallel requests {id="parallel_requests"}
@@ -235,7 +235,7 @@ When sending two requests at once, the client suspends the second request execut
 ```
 {src="snippets/client-parallel-requests/src/main/kotlin/com/example/Application.kt" lines="12,19-23,28"}
 
-To see a full example, go to [client-parallel-requests](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-parallel-requests).
+To see a full example, go to [client-parallel-requests](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-parallel-requests).
 
 
 ## Cancel a request {id="cancel-request"}

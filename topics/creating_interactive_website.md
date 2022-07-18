@@ -246,7 +246,7 @@ This code works as follows:
 - Depending on the action, the article is updated or deleted from the storage.
 
 
-> You can find the resulting project for this tutorial here: [tutorial-website-interactive](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/tutorial-website-interactive).
+> You can find the resulting project for this tutorial here: [tutorial-website-interactive](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-website-interactive).
 
 
 

@@ -4,10 +4,10 @@
 
 <tldr>
 <p>
-<control>Initial project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main">engine-main</a>
+<control>Initial project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main">engine-main</a>
 </p>
 <p>
-<control>Final project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/google-appengine-standard">google-appengine-standard</a>
+<control>Final project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/google-appengine-standard">google-appengine-standard</a>
 </p>
 </tldr>
 
@@ -15,7 +15,7 @@
 This tutorial shows how to prepare and deploy a Ktor project to a Google App Engine standard environment.
 </link-summary>
 
-In this tutorial, we'll show you how to prepare and deploy a Ktor project to a Google App Engine standard environment. This tutorial uses the [engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main) sample project as a starting project.
+In this tutorial, we'll show you how to prepare and deploy a Ktor project to a Google App Engine standard environment. This tutorial uses the [engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main) sample project as a starting project.
 
 
 
@@ -30,8 +30,8 @@ Before starting this tutorial, you need to perform the steps below:
 
 ## Clone a sample application {id="clone"}
 To open a sample application, follow the steps below:
-1. Clone a Ktor documentation repository and open the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets) project.
-2. Open the [engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main) module.
+1. Clone a Ktor documentation repository and open the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets) project.
+2. Open the [engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main) module.
    > Note that Ktor provides two approaches to [create and configure a server](create_server.topic): in code or by using a configuration file. In this tutorial, deploying process is the same for both approaches.
 
 ## Prepare an application {id="prepare-app"}
@@ -100,4 +100,4 @@ To deploy the application, open the terminal and follow the steps below:
    >
    {type="note"}
 
-You can find the completed example here: [google-appengine-standard](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/google-appengine-standard).
+You can find the completed example here: [google-appengine-standard](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/google-appengine-standard).

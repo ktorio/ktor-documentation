@@ -74,5 +74,5 @@ The `statusFile` handler allows you to serve HTML pages based on the status code
 
 The `statusFile` handler replaces any `#` character with the value of the status code within the list of configured statuses.
 
-> You can find the full example here: [status-pages](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/status-pages).
+> You can find the full example here: [status-pages](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/status-pages).
 

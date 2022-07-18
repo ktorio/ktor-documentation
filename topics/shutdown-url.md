@@ -43,4 +43,4 @@ To [install](Plugins.md#install) and configure shutdown URL in code, pass `ShutD
 {src="snippets/shutdown-url/src/main/kotlin/com/example/Application.kt" lines="11-14"}
 
 
-You can find the full example here: [shutdown-url](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/shutdown-url).
+You can find the full example here: [shutdown-url](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/shutdown-url).

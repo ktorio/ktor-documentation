@@ -81,4 +81,4 @@ The example below shows how to send a message to the `echo` WebSocket endpoint a
 ```
 {src="snippets/client-websockets/src/main/kotlin/com/example/Application.kt" include-symbol="main"}
 
-You can find the full example here: [client-websockets](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-websockets).
+You can find the full example here: [client-websockets](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-websockets).
