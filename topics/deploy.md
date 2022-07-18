@@ -1,9 +1,9 @@
 [//]: # (title: Deployment)
 
-<microformat>
+<tldr>
 <var name="example_name" value="deployment-ktor-plugin"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 In this topic, we'll make an overview of how to deploy a Ktor application.
 

@@ -1,13 +1,13 @@
 [//]: # (title: Cookies)
 
-<microformat>
+<tldr>
 <var name="example_name" value="client-cookies"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
-<excerpt>
+<link-summary>
 The HttpCookies plugin handles cookies automatically and keep them between calls in a storage.
-</excerpt>
+</link-summary>
 
 The Ktor client allows you to handle cookies manually in the following ways:
 * The `cookie` function allows you to append a cookie to a [specific request](request.md#cookies).

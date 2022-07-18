@@ -6,9 +6,9 @@
        title="Configuration"
        id="Configurations">
 
-    <excerpt>
+    <link-summary>
         This topic describes how to configure various server parameters, such as a host address and port, modules to load, enable the development mode, and so on.
-    </excerpt>
+    </link-summary>
 
     <p>
         Ktor allows you to configure various server parameters, such as a host address and port, <a href="Modules.md">modules</a> to load, enable the <a href="development_mode.xml">development mode</a>, and so on.

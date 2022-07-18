@@ -1,11 +1,11 @@
 [//]: # (title: Creating fat JARs using the Ktor Gradle plugin)
 
-<microformat>
+<tldr>
 <var name="example_name" value="deployment-ktor-plugin"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
-<excerpt>Learn how to create and run an executable fat JAR using the Ktor Gradle plugin.</excerpt>
+<link-summary>Learn how to create and run an executable fat JAR using the Ktor Gradle plugin.</link-summary>
 
 The [Ktor Gradle plugin](https://github.com/ktorio/ktor-build-plugins) allows you to create and run an executable JAR that includes all code dependencies (fat JAR).
 

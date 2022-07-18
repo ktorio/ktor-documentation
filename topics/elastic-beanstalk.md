@@ -1,6 +1,6 @@
 [//]: # (title: AWS Elastic Beanstalk)
 
-<microformat>
+<tldr>
 <p>
 <control>Initial project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server">embedded-server</a> or 
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main">engine-main</a>
@@ -8,7 +8,7 @@
 <p>
 <control>Final project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/aws-elastic-beanstalk">aws-elastic-beanstalk</a>
 </p>
-</microformat>
+</tldr>
 
 In this tutorial, we'll show you how to prepare and deploy a Ktor application to AWS Elastic Beanstalk. You can use one of the following initial projects depending on the way used to [create a Ktor server](create_server.xml):
 * [embedded-server](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server)

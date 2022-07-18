@@ -1,17 +1,17 @@
 [//]: # (title: Google App Engine)
 
-<microformat>
+<tldr>
 <p>
 <control>Initial project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main">engine-main</a>
 </p>
 <p>
 <control>Final project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/google-appengine-standard">google-appengine-standard</a>
 </p>
-</microformat>
+</tldr>
 
-<excerpt>
+<link-summary>
 This tutorial shows how to prepare and deploy a Ktor project to a Google App Engine standard environment.
-</excerpt>
+</link-summary>
 
 In this tutorial, we'll show you how to prepare and deploy a Ktor project to a Google App Engine standard environment. This tutorial uses the [engine-main](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main) sample project as a starting project.
 

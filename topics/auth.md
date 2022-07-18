@@ -1,14 +1,14 @@
 [//]: # (title: Authentication and authorization)
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:ktor-client-auth</code>
 </p>
-</microformat>
+</tldr>
 
-<excerpt>
+<link-summary>
 The Auth plugin handles authentication and authorization in your client application.
-</excerpt>
+</link-summary>
 
 Ktor provides the [Auth](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-auth/io.ktor.client.plugins.auth/-auth/index.html) plugin to handle authentication and authorization in your client application. 
 Typical usage scenarios include logging in users and gaining access to specific resources. 

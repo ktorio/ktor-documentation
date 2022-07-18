@@ -4,15 +4,15 @@
 <var name="package_name" value="io.ktor.server.auth"/>
 <var name="artifact_name" value="ktor-server-auth"/>
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
-</microformat>
+</tldr>
 
-<excerpt>
+<link-summary>
 The Authentication plugin handles authentication and authorization in Ktor: logging in users, granting access to specific resources, etc.
-</excerpt>
+</link-summary>
 
 Ktor provides the [Authentication](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-authentication/index.html) plugin to handle authentication and authorization. Typical usage scenarios include logging in users, granting access to specific resources, and securely transmitting information between parties. You can also use `Authentication` with [Sessions](sessions.md) to keep a user's information between requests.
 

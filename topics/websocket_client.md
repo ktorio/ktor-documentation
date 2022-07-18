@@ -1,16 +1,16 @@
 [//]: # (title: Client WebSockets)
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:ktor-client-websockets</code>
 </p>
 <var name="example_name" value="client-websockets"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
-<excerpt>
+<link-summary>
 Ktor supports the WebSocket protocol and allows you to create applications that require real-time data transfer from and to the server.
-</excerpt>
+</link-summary>
 
 Ktor supports the WebSocket protocol and allows you to create applications that require real-time data transfer from and to the server. For example, WebSockets can be used to create a [chat application](getting_started_ktor_client_chat.md).
 

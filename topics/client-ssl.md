@@ -1,9 +1,9 @@
 [//]: # (title: SSL)
 
-<microformat>
+<tldr>
 <var name="example_name" value="client-ssl-config"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 To configure SSL in the Ktor client, you need to customize the [configuration of an engine](http-client_engines.md#configure) used by your client.
 In this topic, we'll show you how to add an SSL certificate for different [JVM engines](http-client_engines.md#jvm).

@@ -1,9 +1,9 @@
 [//]: # (title: Native server)
 
-<microformat>
+<tldr>
 <var name="example_name" value="embedded-server-native"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 Ktor supports [Kotlin/Native](https://kotlinlang.org/docs/native-overview.html) and allows you to run a server without an additional runtime or virtual machine. Currently, running a Ktor server under Kotlin/Native has the following limitations:
 * a [server should be created](create_server.xml) using `embeddedServer`

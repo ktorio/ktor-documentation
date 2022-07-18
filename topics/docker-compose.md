@@ -1,13 +1,13 @@
 [//]: # (title: Docker Compose)
 
-<microformat>
+<tldr>
 <p>
 <control>Initial project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/tutorial-website-interactive-persistence">tutorial-website-interactive-persistence</a>
 </p>
 <p>
 <control>Final project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/tutorial-website-interactive-docker-compose">tutorial-website-interactive-docker-compose</a>
 </p>
-</microformat>
+</tldr>
 
 In this topic, we'll show how to run a server Ktor application under Docker Compose. We'll be using a project created in [](interactive_website_add_persistence.md), which uses Exposed to connect to an H2 file database. In this topic, we'll replace H2 with a PostgreSQL database running as a separate `db` service, while the Ktor application will be running as a `web` service.
 

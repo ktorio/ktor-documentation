@@ -6,17 +6,17 @@
        title="Auto-reload"
        id="Auto_reload">
 
-    <microformat>
+    <tldr>
         <p>
             <b>Code examples</b>:
             <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/autoreload-engine-main">autoreload-engine-main</a>,
             <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/autoreload-embedded-server">autoreload-embedded-server</a>
         </p>
-    </microformat>
+    </tldr>
 
-    <excerpt>
+    <link-summary>
         Ktor allows you to use Auto-reload to reload application classes on code changes.
-    </excerpt>
+    </link-summary>
 
     <p>
         <a href="running.md">Restarting</a> a server during development might take some time.

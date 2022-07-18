@@ -4,7 +4,7 @@
 <var name="package_name" value="io.ktor.server.plugins.partialcontent"/>
 <var name="plugin_name" value="PartialContent"/>
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
@@ -16,7 +16,7 @@
 <b>Client example</b>:
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-download-file-range">client-download-file-range</a>
 </p>
-</microformat>
+</tldr>
 
 The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-partial-content/io.ktor.server.plugins.partialcontent/-partial-content.html) plugin adds support for handling [HTTP range requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests) used to send only a portion of an HTTP message back to a client. This plugin is useful for streaming content or resuming partial downloads.
 

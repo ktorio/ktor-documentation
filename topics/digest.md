@@ -2,13 +2,13 @@
 
 <var name="artifact_name" value="ktor-server-auth"/>
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="auth-digest"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 The Digest authentication scheme is a part of [HTTP framework](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) used for access control and authentication. In this scheme, a hash function is applied to a username and password before sending them over the network.
 

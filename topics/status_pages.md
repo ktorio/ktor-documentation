@@ -4,17 +4,17 @@
 <var name="package_name" value="io.ktor.server.plugins.statuspages"/>
 <var name="artifact_name" value="ktor-server-status-pages"/>
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="status-pages"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
-<excerpt>
+<link-summary>
 %plugin_name% allows Ktor applications to respond appropriately to any failure state based on a thrown exception or status code.
-</excerpt>
+</link-summary>
 
 The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-status-pages/io.ktor.server.plugins.statuspages/-status-pages.html) plugin allows Ktor applications to [respond](responses.md) appropriately to any failure state based on a thrown exception or status code.
 

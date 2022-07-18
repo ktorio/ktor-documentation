@@ -1,10 +1,10 @@
 [//]: # (title: Custom plugins)
 
 
-<microformat>
+<tldr>
 <var name="example_name" value="custom-plugin"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 Starting with v2.0.0, Ktor provides a new API for creating custom [plugins](Plugins.md). In general, this API doesn't require an understanding of internal Ktor concepts, such as [Pipelines](Pipelines.md), Phases, and so on. Instead, you have access to different stages of [handling requests and responses](#call-handling) using the `onCall`, `onCallReceive`, and `onCallRespond` handlers.
 

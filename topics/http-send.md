@@ -1,9 +1,9 @@
 [//]: # (title: Intercepting requests using HttpSend)
 
-<microformat>
+<tldr>
 <var name="example_name" value="client-http-send"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 
 The [HttpSend](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-send/index.html) plugin allows you to monitor and retry HTTP calls depending on a response. For instance, you can implement call logging or retry a request if a server returns an error response (with the 4xx or 5xx status code).

@@ -6,14 +6,14 @@
        title="Creating a client application"
        id="getting_started_ktor_client">
 
-    <microformat>
+    <tldr>
         <var name="example_name" value="tutorial-client-get-started"/>
         <include src="lib.xml" include-id="download_example"/>
-    </microformat>
+    </tldr>
 
-    <excerpt>
+    <link-summary>
         Create your first client application for sending a request and receiving a response.
-    </excerpt>
+    </link-summary>
 
     <p>
         Ktor includes a multiplatform asynchronous HTTP client, which allows you to make requests and handle responses, extend its functionality with <a href="http-client_plugins.md">plugins</a>, such as authentication, JSON serialization, and so on.

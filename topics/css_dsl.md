@@ -1,12 +1,12 @@
 [//]: # (title: CSS DSL)
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:ktor-server-html-builder</code>, <code>org.jetbrains.kotlin-wrappers:kotlin-css</code>
 </p>
 <var name="example_name" value="css-dsl"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 CSS DSL extends [HTML DSL](html_dsl.md) and allows you to author stylesheets in Kotlin by using the [kotlin-css](https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-css/README.md) wrapper.
 

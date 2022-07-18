@@ -6,13 +6,13 @@
        title="Creating a new Ktor project"
        id="intellij-idea">
 
-    <microformat>
+    <tldr>
         <p>
             <control>Final project</control>: <a href="https://github.com/ktorio/ktor-get-started-sample">ktor-get-started-sample</a>
         </p>
-    </microformat>
+    </tldr>
 
-    <excerpt>This guide shows how to create, run, and test a simple Ktor application.</excerpt>
+    <link-summary>This guide shows how to create, run, and test a simple Ktor application.</link-summary>
 
     <p>
         Ktor is an asynchronous framework for creating microservices, web applications, and more.

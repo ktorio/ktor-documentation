@@ -4,17 +4,17 @@
 <var name="package_name" value="io.ktor.server.plugins.contentnegotiation"/>
 <var name="artifact_name" value="ktor-server-content-negotiation"/>
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="json-kotlinx"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
-<excerpt>
+<link-summary>
 The ContentNegotiation plugin serves two primary purposes: negotiating media types between the client and server and serializing/deserializing the content in a specific format.
-</excerpt>
+</link-summary>
 
 
 The [ContentNegotiation](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-content-negotiation/io.ktor.server.plugins.contentnegotiation/-content-negotiation.html) plugin serves two primary purposes:

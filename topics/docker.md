@@ -1,13 +1,13 @@
 [//]: # (title: Docker)
 
-<microformat>
+<tldr>
 <var name="example_name" value="deployment-ktor-plugin"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
-<excerpt>
+<link-summary>
 Learn how to deploy a Ktor application to a Docker container, which can then be run either locally or on your cloud provider of choice.
-</excerpt>
+</link-summary>
 
 In this section, we'll see how to use the [Ktor Gradle plugin](https://github.com/ktorio/ktor-build-plugins) for packaging, running, and deploying applications using [Docker](https://www.docker.com).
 

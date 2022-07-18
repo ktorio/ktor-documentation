@@ -4,15 +4,15 @@
 <var name="package_name" value="io.ktor.server.metrics.dropwizard"/>
 <var name="artifact_name" value="ktor-server-metrics"/>
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="dropwizard-metrics"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
-<excerpt>The %plugin_name% plugin lets you configure the Metrics library to get useful information about the server and incoming requests.</excerpt>
+<link-summary>The %plugin_name% plugin lets you configure the Metrics library to get useful information about the server and incoming requests.</link-summary>
 
 The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-metrics/io.ktor.server.metrics.dropwizard/-dropwizard-metrics.html) plugin lets you configure the [Metrics](http://metrics.dropwizard.io/) library to get useful information about the server and incoming requests.
 

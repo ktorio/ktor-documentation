@@ -4,13 +4,13 @@
 <var name="package_name" value="io.ktor.server.plugins.doublereceive"/>
 <var name="artifact_name" value="ktor-server-double-receive"/>
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="double-receive"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-double-receive/io.ktor.server.plugins.doublereceive/-double-receive.html) plugin provides the ability to [receive a request body](requests.md#body_contents) several times with no `RequestAlreadyConsumedException` exception.
 This might be useful if a [plugin](Plugins.md) is already consumed a request body, so you cannot receive it inside a route handler.

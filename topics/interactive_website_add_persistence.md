@@ -1,14 +1,14 @@
 [//]: # (title: Adding persistence to a website)
 
-<microformat>
+<tldr>
 <var name="example_name" value="tutorial-website-interactive-persistence"/>
 <include src="lib.xml" include-id="download_example"/>
 <p>
 <b>Used libraries</b>: <a href="https://github.com/JetBrains/Exposed">Exposed</a>, <a href="https://github.com/h2database/h2database">h2database</a>
 </p>
-</microformat>
+</tldr>
 
-<excerpt>Learn how to add persistence to a website using the Exposed ORM framework.</excerpt>
+<link-summary>Learn how to add persistence to a website using the Exposed ORM framework.</link-summary>
 
 In this series of tutorials, we'll show you how to create a simple blog application in Ktor:
 - In the first tutorial, we showed how to host [static content](creating_static_website.md) like images and HTML pages.

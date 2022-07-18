@@ -4,17 +4,17 @@
 <var name="package_name" value="io.ktor.server.webjars"/>
 <var name="artifact_name" value="ktor-server-webjars"/>
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="webjars"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
-<excerpt>
+<link-summary>
 The %plugin_name% plugin enables serving the client-side libraries provided by WebJars.
-</excerpt>
+</link-summary>
 
 
 The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-webjars/io.ktor.server.webjars/-webjars.html) plugin enables serving the client-side libraries provided by [WebJars](https://www.webjars.org/). It allows you to package your assets such as JavaScript and CSS libraries as part of your [fat JAR](fatjar.md).

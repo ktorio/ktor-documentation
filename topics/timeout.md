@@ -1,9 +1,9 @@
 [//]: # (title: Timeout)
 
-<microformat>
+<tldr>
 <var name="example_name" value="client-timeout"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 The [HttpTimeout](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-timeout/index.html) plugin allows you to configure the following timeouts:
 * __request timeout__ — a time period required to process an HTTP call: from sending a request to receiving a response.

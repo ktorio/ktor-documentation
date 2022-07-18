@@ -4,13 +4,13 @@
 <var name="package_name" value="io.ktor.server.plugins.compression"/>
 <var name="plugin_name" value="Compression"/>
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="compression"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 Ktor provides the capability to compress [outgoing content](responses.md) by using the [Compression](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-compression/io.ktor.server.plugins.compression/-compression.html) plugin. You can use different compression algorithms, including `gzip` and `deflate`, 
 specify the required conditions for compressing data (such as a content type or response size), or even compress data based on specific request parameters.

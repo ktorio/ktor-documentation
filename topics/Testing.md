@@ -1,14 +1,14 @@
 [//]: # (title: Testing)
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:ktor-server-test-host</code>, <code>org.jetbrains.kotlin:kotlin-test</code>
 </p>
-</microformat>
+</tldr>
 
-<excerpt>
+<link-summary>
 Learn how to test server Ktor applications using a special testing engine.
-</excerpt>
+</link-summary>
 
 Ktor provides a special testing engine that doesn't create a web server, doesn't bind to sockets, and doesn't make any real HTTP requests. Instead, it hooks directly into internal mechanisms and processes an application call directly. This results in quicker tests execution compared to running a complete web server for testing. 
 

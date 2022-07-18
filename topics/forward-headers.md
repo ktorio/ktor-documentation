@@ -4,13 +4,13 @@
 <var name="artifact_name" value="ktor-server-forwarded-header"/>
 <var name="package_name" value="io.ktor.server.plugins.forwardedheaders"/>
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="forwarded-header"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 The [ForwardedHeaders](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-forwarded-header/io.ktor.server.plugins.forwardedheaders/-forwarded-headers.html) and [XForwardedHeaders](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-forwarded-header/io.ktor.server.plugins.forwardedheaders/-x-forwarded-headers.html) plugins allow you to handle reverse proxy headers to get information about the original [request](requests.md) when a Ktor server is placed behind a reverse proxy. This might be useful for [logging](logging.md) purposes.
 

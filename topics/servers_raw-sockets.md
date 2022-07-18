@@ -2,7 +2,7 @@
 
 <var name="plugin_name" value="Sockets"/>
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:ktor-network</code>, <code>io.ktor:ktor-network-tls</code>
 </p>
@@ -11,7 +11,7 @@
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/sockets-client">sockets-client</a>,
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/sockets-client-tls">sockets-client-tls</a>
 </p>
-</microformat>
+</tldr>
 
 In addition to HTTP/WebSocket handling for the server and client, Ktor supports TCP and UDP raw sockets.
 It exposes a suspending API that uses [java.nio](https://docs.oracle.com/javase/8/docs/api/java/nio/package-summary.html) under the hoods.

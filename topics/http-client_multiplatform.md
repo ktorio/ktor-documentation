@@ -1,14 +1,14 @@
 [//]: # (title: Multiplatform)
 
-<microformat>
+<tldr>
 <p>
 Code example: <a href="https://github.com/ktorio/ktor-samples/tree/main/client-mpp">client-mpp</a>
 </p>
-</microformat>
+</tldr>
 
-<excerpt>
+<link-summary>
 The Ktor client can be used in multiplatform projects and supports Android, JavaScript, and Native platforms.
-</excerpt>
+</link-summary>
 
 The [Ktor HTTP client](create-client.md) can be used in [multiplatform projects](https://kotlinlang.org/docs/multiplatform.html) and supports the following platforms:
 * JVM

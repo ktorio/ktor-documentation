@@ -1,16 +1,16 @@
 [//]: # (title: Creating a cross-platform mobile application)
 
-<microformat>
+<tldr>
 <var name="example_name" value="tutorial-client-kmm"/>
 <include src="lib.xml" include-id="download_example"/>
 <p>
 <b>Video</b>: <a href="https://youtu.be/_Q62iJoNOfg">Ktor for Networking in Kotlin Multiplatform Mobile projects</a> 
 </p>
-</microformat>
+</tldr>
 
-<excerpt>
+<link-summary>
 Learn how to create a Kotlin Multiplatform Mobile application.
-</excerpt>
+</link-summary>
 
 The Ktor HTTP client can be used in multiplatform projects. In this tutorial, we'll create a simple Kotlin Multiplatform Mobile application, which sends a request and receives a response body as plain HTML text.
 

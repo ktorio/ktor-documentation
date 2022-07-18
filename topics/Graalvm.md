@@ -2,15 +2,15 @@
 
 [//]: # (title: GraalVM)
 
-<microformat>
+<tldr>
 <p>
 <control>Sample project</control>: <a href="https://github.com/ktorio/ktor-samples/tree/main/graalvm">graalvm</a>
 </p>
-</microformat>
+</tldr>
 
-<excerpt>
+<link-summary>
 Ktor Server applications can make use of GraalVM in order to have native images for different platforms.
-</excerpt>
+</link-summary>
 
 Ktor Server applications can make use of [GraalVM](https://graalvm.org) in order to have native images for different platforms, and of course, take advantage of the faster start-up times and other benefits that GraalVM provides.
 
@@ -40,20 +40,20 @@ If the shell script executes without any errors, you should obtain a native appl
 called `graal-server`. Executing it will launch the Ktor Server, responding on `https://0.0.0.0:8080`.
 
 
-[//]: # (<microformat>)
+[//]: # (<tldr>)
 
 [//]: # (<var name="example_name" value="deployment-ktor-plugin"/>)
 
 [//]: # (<include src="lib.xml" include-id="download_example"/>)
 
-[//]: # (</microformat>)
+[//]: # (</tldr>)
 
 [//]: # ()
-[//]: # (<excerpt>)
+[//]: # (<link-summary>)
 
 [//]: # (Ktor server applications can make use of GraalVM in order to have native images for different platforms.)
 
-[//]: # (</excerpt>)
+[//]: # (</link-summary>)
 
 [//]: # ()
 [//]: # (Ktor server applications can make use of [GraalVM]&#40;https://graalvm.org&#41; in order to have native images for different platforms and, of course, take advantage of the faster start-up times and other benefits that GraalVM provides. The [Ktor Gradle plugin]&#40;https://github.com/ktorio/ktor-build-plugins&#41; allows you to build a project's GraalVM native image.)

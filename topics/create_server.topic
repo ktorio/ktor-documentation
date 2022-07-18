@@ -6,18 +6,18 @@
        title="Creating a server"
        id="create_server" auxiliary-id="start_server">
 
-    <microformat>
+    <tldr>
         <p>
             <b>Code examples</b>:
             <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server">embedded-server</a>,
             <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main">engine-main</a>,
             <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/engine-main-yaml">engine-main-yaml</a>
         </p>
-    </microformat>
+    </tldr>
 
-    <excerpt>
+    <link-summary>
         Choose how to create a Ktor server - using the 'embeddedServer' function to configure parameters in code or using 'EngineMain' to load server configuration from an external file.
-    </excerpt>
+    </link-summary>
 
     <p>
         Before creating a Ktor application, you need to take into account how your application will be <a href="deploy.md">deployed</a>:

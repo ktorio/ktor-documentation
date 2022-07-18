@@ -1,15 +1,15 @@
 [//]: # (title: Response validation)
 
-<microformat>
+<tldr>
 <p><b>Code examples</b>:
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-validate-2xx-response">client-validate-2xx-response</a>,
 <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-validate-non-2xx-response">client-validate-non-2xx-response</a>
 </p>
-</microformat>
+</tldr>
 
-<excerpt>
+<link-summary>
 Ktor allows you to validate a response depending on its status code.
-</excerpt>
+</link-summary>
 
 By default, Ktor doesn't validate a [response](response.md) depending on its status code.
 If required, you can use the following validation strategies:

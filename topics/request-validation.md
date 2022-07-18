@@ -4,17 +4,17 @@
 <var name="package_name" value="io.ktor.server.plugins.requestvalidation"/>
 <var name="artifact_name" value="ktor-server-request-validation"/>
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="request-validation"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
-<excerpt>
+<link-summary>
 %plugin_name% provides the ability to validate a body of incoming requests.
-</excerpt>
+</link-summary>
 
 The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-request-validation/io.ktor.server.plugins.requestvalidation/-request-validation.html) plugin provides the ability to validate a body of incoming requests. You can validate a raw request body or specified request object properties if the `ContentNegotiation` plugin with a [serializer](serialization.md#configure_serializer) is installed. If a request body validation fails, the plugin raises `RequestValidationException`, which can be handled using the [StatusPages](status_pages.md) plugin.
 

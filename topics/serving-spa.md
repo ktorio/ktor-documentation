@@ -1,13 +1,13 @@
 [//]: # (title: Serving single-page applications)
 
-<microformat>
+<tldr>
 <var name="example_name" value="single-page-application"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
-<excerpt>
+<link-summary>
 Ktor provides the ability to serve single-page applications, including React, Angular, Vue, and so on.
-</excerpt>
+</link-summary>
 
 Ktor provides the ability to serve single-page applications, including React, Angular, or Vue.
 

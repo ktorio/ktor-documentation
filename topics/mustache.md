@@ -5,13 +5,13 @@
 <var name="package_name" value="io.ktor.server.mustache"/>
 <var name="artifact_name" value="ktor-server-mustache"/>
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="mustache"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 Ktor allows you to use [Mustache templates](https://github.com/spullara/mustache.java) as views within your application by installing the [Mustache](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-mustache/io.ktor.server.mustache/-mustache) plugin.
 

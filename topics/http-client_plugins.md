@@ -1,8 +1,8 @@
 [//]: # (title: Plugins)
 
-<excerpt>
+<link-summary>
 Get acquainted with plugins that provide common functionality, for example, logging, serialization, authorization, etc.
-</excerpt>
+</link-summary>
 
 Many applications require common functionality that is out of scope of the application logic. This could be things like [logging](client_logging.md),  [serialization](serialization-client.md), or [authorization](auth.md). All of these are provided in Ktor by means of what we call **Plugins**. 
 

@@ -4,13 +4,13 @@
 <var name="package_name" value="io.ktor.server.plugins.hsts"/>
 <var name="artifact_name" value="ktor-server-hsts"/>
 
-<microformat>
+<tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <var name="example_name" value="ssl-engine-main-hsts"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
 The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-hsts/io.ktor.server.plugins.hsts/-h-s-t-s.html) plugin adds the required _HTTP Strict Transport Security_ headers to the request according to the [RFC 6797](https://tools.ietf.org/html/rfc6797). When the browser receives HSTS policy headers, it no longer attempts to connect to the server with insecure connections for a given period.
 

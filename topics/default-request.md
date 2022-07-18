@@ -1,13 +1,13 @@
 [//]: # (title: Default request)
 
-<microformat>
+<tldr>
 <var name="example_name" value="client-default-request"/>
 <include src="lib.xml" include-id="download_example"/>
-</microformat>
+</tldr>
 
-<excerpt>
+<link-summary>
 The DefaultRequest plugin allows you to configure default parameters for all requests.
-</excerpt>
+</link-summary>
 
 The [DefaultRequest](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-default-request/index.html) plugin allows you to configure default parameters for all [requests](request.md): specify a base URL, add headers, configure query parameters, and so on.
 
