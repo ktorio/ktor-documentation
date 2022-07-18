@@ -10,7 +10,7 @@
     <topics dir="topics"/>
     <images dir="images" web-path="images/"/>
     <categories src="c.list"/>
-    <product src="ktor.tree"
+    <instance src="ktor.tree"
              web-path="/docs/"
              version="2.1.0"
              id="docs"
