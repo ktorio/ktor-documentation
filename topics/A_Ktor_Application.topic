@@ -20,7 +20,7 @@
               include-symbol="main">
         </code>
         <p>
-            We start by <a href="create_server.xml">creating a server</a>, in this case using Netty as an <a href="Engines.md">Engine</a>, and setting the port to 8080. After this, we define a route to respond to requests made to <path>/</path> with a simple <emphasis>Hello, world!</emphasis> text. Finally, we start the server.
+            We start by <a href="create_server.topic">creating a server</a>, in this case using Netty as an <a href="Engines.md">Engine</a>, and setting the port to 8080. After this, we define a route to respond to requests made to <path>/</path> with a simple <emphasis>Hello, world!</emphasis> text. Finally, we start the server.
         </p>
     </chapter>
 
@@ -35,7 +35,7 @@
         <list>
             <li>
                 <p>
-                    <a href="server-dependencies.xml">Add Ktor dependencies</a>
+                    <a href="server-dependencies.topic">Add Ktor dependencies</a>
                 </p>
                 <p>
                     Learn how to add dependencies required for a Ktor server to a Gradle or Maven project.
@@ -43,7 +43,7 @@
             </li>
             <li>
                 <p>
-                    <a href="create_server.xml">Choose a way to create a server</a>
+                    <a href="create_server.topic">Choose a way to create a server</a>
                 </p>
                 <p>
                     You can quickly configure a server using the <code>embeddedServer</code> function, or you can use <code>EngineMain</code> to have additional configuration possibilities.
@@ -59,7 +59,7 @@
             </li>
             <li>
                 <p>
-                    <a href="Configurations.xml">Configure a server</a>
+                    <a href="Configurations.topic">Configure a server</a>
                 </p>
                 <p>
                     Learn how to configure various server parameters (such as a host address and port, modules to load, etc.), read the configuration in code, and use environment variables.

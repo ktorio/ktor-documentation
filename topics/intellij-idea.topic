@@ -66,7 +66,7 @@
                     <li>
                         <p>
                             <control>Build System</control>:
-                            Choose the desired <a href="server-dependencies.xml">build system</a>.
+                            Choose the desired <a href="server-dependencies.topic">build system</a>.
                             This can be <emphasis>Gradle</emphasis> with Kotlin or Groovy DSL, or <emphasis>Maven</emphasis>.
                         </p>
                     </li>
@@ -97,7 +97,7 @@
                     <li>
                         <p>
                             <control>Configuration in</control>:
-                            Choose whether to specify server parameters <a href="create_server.xml">in code or in a HOCON file</a>.
+                            Choose whether to specify server parameters <a href="create_server.topic">in code or in a HOCON file</a>.
                         </p>
                     </li>
                     <li>
@@ -162,7 +162,7 @@
                 <list>
                     <li>
                         <p>
-                            The <a href="create_server.xml" anchor="embedded-server">embeddedServer</a> function is used to configure server parameters in code and run an application.
+                            The <a href="create_server.topic" anchor="embedded-server">embeddedServer</a> function is used to configure server parameters in code and run an application.
                         </p>
                     </li>
                     <li>

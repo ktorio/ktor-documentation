@@ -44,20 +44,20 @@
     <chapter title="Enable the development mode" id="enable">
         <p>
             To use Auto-reload, you need to enable the
-            <a href="development_mode.xml" anchor="enable">development mode</a> first.
-            This depends on the way you used to <a href="create_server.xml">create and run a server</a>:
+            <a href="development_mode.topic" anchor="enable">development mode</a> first.
+            This depends on the way you used to <a href="create_server.topic">create and run a server</a>:
         </p>
         <list>
             <li>
                 <p>
                     If you use <code>EngineMain</code> to run a server, enable the development mode
-                    in a <a href="development_mode.xml" anchor="application-conf">configuration file</a>.
+                    in a <a href="development_mode.topic" anchor="application-conf">configuration file</a>.
                 </p>
             </li>
             <li>
                 <p>
                     If you run a server using <code>embeddedServer</code>, you can use the
-                    <a href="development_mode.xml" anchor="system-property">io.ktor.development</a>
+                    <a href="development_mode.topic" anchor="system-property">io.ktor.development</a>
                     system property.
                 </p>
             </li>
