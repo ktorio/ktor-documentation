@@ -14,11 +14,11 @@
         <p>One of Ktor's goals is to remain as simple as possible and to avoid any kind of <i>magic</i>. The equivalent
             to a <i>Hello World</i> application in Ktor would be:
         </p>
-        <code style="block"
+        <code-block
               lang="kotlin"
               src="snippets/embedded-server/src/main/kotlin/com/example/Application.kt"
               include-symbol="main">
-        </code>
+        </code-block>
         <p>
             We start by <a href="create_server.topic">creating a server</a>, in this case using Netty as an <a href="Engines.md">Engine</a>, and setting the port to 8080. After this, we define a route to respond to requests made to <path>/</path> with a simple <emphasis>Hello, world!</emphasis> text. Finally, we start the server.
         </p>

@@ -71,10 +71,10 @@
                 In the code snippet below, it accepts an <a href="Engines.md">engine</a> and port as parameters to start a server.
                 In the example below, we run a server with the <code>Netty</code> engine and listen on the <code>8080</code> port:
             </p>
-            <code style="block"
+            <code-block
                   lang="kotlin"
                   src="snippets/embedded-server/src/main/kotlin/com/example/Application.kt">
-            </code>
+            </code-block>
             <p>
                 You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/embedded-server">embedded-server</a>.
             </p>
@@ -87,20 +87,20 @@
 
             <tabs>
                 <tab title="Application.kt">
-                    <code style="block"
+                    <code-block
                           lang="kotlin"
                           src="snippets/engine-main/src/main/kotlin/com/example/Application.kt">
-                    </code>
+                    </code-block>
                 </tab>
                 <tab title="application.conf">
-                    <code style="block"
+                    <code-block
                           src="snippets/engine-main/src/main/resources/application.conf">
-                    </code>
+                    </code-block>
                 </tab>
                 <tab title="application.yaml">
-                    <code style="block" lang="yaml"
+                    <code-block lang="yaml"
                           src="snippets/engine-main-yaml/src/main/resources/application.yaml">
-                    </code>
+                    </code-block>
                 </tab>
             </tabs>
             <p>

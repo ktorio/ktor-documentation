@@ -27,18 +27,18 @@
                 </p>
                 <tabs group="languages">
                     <tab title="Gradle (Kotlin)" group-key="kotlin">
-                        <code style="block" lang="Kotlin" interpolate-variables="true">
+                        <code-block lang="Kotlin" interpolate-variables="true">
                             repositories {
                                 mavenCentral()
                             }
-                        </code>
+                        </code-block>
                     </tab>
                     <tab title="Gradle (Groovy)" group-key="groovy">
-                        <code style="block" lang="Groovy" interpolate-variables="true">
+                        <code-block lang="Groovy" interpolate-variables="true">
                             repositories {
                                 mavenCentral()
                             }
-                        </code>
+                        </code-block>
                     </tab>
                     <tab title="Maven" group-key="maven">
                         <note>
@@ -59,25 +59,25 @@
                 </p>
                 <tabs group="languages">
                     <tab title="Gradle (Kotlin)" group-key="kotlin">
-                        <code style="block" lang="Kotlin">
+                        <code-block lang="Kotlin">
                             repositories {
                                 maven {
                                     url = uri("https://maven.pkg.jetbrains.space/public/p/ktor/eap")
                                 }
                             }
-                        </code>
+                        </code-block>
                     </tab>
                     <tab title="Gradle (Groovy)" group-key="groovy">
-                        <code style="block" lang="Groovy">
+                        <code-block lang="Groovy">
                             repositories {
                                 maven {
                                     url "https://maven.pkg.jetbrains.space/public/p/ktor/eap"
                                 }
                             }
-                        </code>
+                        </code-block>
                     </tab>
                     <tab title="Maven" group-key="maven">
-                        <code style="block" lang="XML">
+                        <code-block lang="XML">
                             <![CDATA[
                             <repositories>
                                 <repository>
@@ -86,7 +86,7 @@
                                 </repository>
                             </repositories>
                             ]]>
-                        </code>
+                        </code-block>
                     </tab>
                 </tabs>
                 <p>
@@ -94,25 +94,25 @@
                 </p>
                 <tabs group="languages">
                     <tab title="Gradle (Kotlin)" group-key="kotlin">
-                        <code style="block" lang="Kotlin">
+                        <code-block lang="Kotlin">
                             repositories {
                                 maven {
                                     url = uri("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev")
                                 }
                             }
-                        </code>
+                        </code-block>
                     </tab>
                     <tab title="Gradle (Groovy)" group-key="groovy">
-                        <code style="block" lang="Groovy">
+                        <code-block lang="Groovy">
                             repositories {
                                 maven {
                                     url "https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev"
                                 }
                             }
-                        </code>
+                        </code-block>
                     </tab>
                     <tab title="Maven" group-key="maven">
-                        <code style="block" lang="XML">
+                        <code-block lang="XML">
                             <![CDATA[
                             <repositories>
                                 <repository>
@@ -121,7 +121,7 @@
                                 </repository>
                             </repositories>
                             ]]>
-                        </code>
+                        </code-block>
                     </tab>
                 </tabs>
             </li>
@@ -155,23 +155,23 @@
             </p>
             <tabs group="languages">
                 <tab title="Gradle (Kotlin)" group-key="kotlin">
-                    <code style="block" lang="Kotlin" interpolate-variables="true">
+                    <code-block lang="Kotlin" interpolate-variables="true">
                         dependencies {
                             implementation("io.ktor:ktor-server-core:%ktor_version%")
                             implementation("io.ktor:ktor-server-netty:%ktor_version%")
                         }
-                    </code>
+                    </code-block>
                 </tab>
                 <tab title="Gradle (Groovy)" group-key="groovy">
-                    <code style="block" lang="Groovy" interpolate-variables="true">
+                    <code-block lang="Groovy" interpolate-variables="true">
                         dependencies {
                             implementation "io.ktor:ktor-server-core:%ktor_version%"
                             implementation "io.ktor:ktor-server-netty:%ktor_version%"
                         }
-                    </code>
+                    </code-block>
                 </tab>
                 <tab title="Maven" group-key="maven">
-                    <code style="block" lang="XML" interpolate-variables="true">
+                    <code-block lang="XML" interpolate-variables="true">
                 <![CDATA[
                         <dependencies>
                             <dependency>
@@ -186,7 +186,7 @@
                             </dependency>
                         </dependencies>
                         ]]>
-                </code>
+                </code-block>
                 </tab>
             </tabs>
         </chapter>
@@ -221,27 +221,27 @@
                 </p>
                 <tabs group="languages">
                     <tab title="Gradle (Kotlin)" group-key="kotlin">
-                        <code style="block" lang="Kotlin">
+                        <code-block lang="Kotlin">
                             application {
                                 mainClass.set("com.example.ApplicationKt")
                             }
-                        </code>
+                        </code-block>
                     </tab>
                     <tab title="Gradle (Groovy)" group-key="groovy">
-                        <code style="block" lang="Groovy">
+                        <code-block lang="Groovy">
                             application {
                                 mainClass = "com.example.ApplicationKt"
                             }
-                        </code>
+                        </code-block>
                     </tab>
                     <tab title="Maven" group-key="maven">
-                        <code style="block" lang="XML" interpolate-variables="true">
+                        <code-block lang="XML" interpolate-variables="true">
                 <![CDATA[
                             <properties>
                                 <main.class>com.example.ApplicationKt</main.class>
                             </properties>
                             ]]>
-                </code>
+                </code-block>
                     </tab>
                 </tabs>
             </li>
@@ -252,27 +252,27 @@
                 </p>
                 <tabs group="languages">
                     <tab title="Gradle (Kotlin)" group-key="kotlin">
-                        <code style="block" lang="Kotlin">
+                        <code-block lang="Kotlin">
                             application {
                                 mainClass.set("io.ktor.server.netty.EngineMain")
                             }
-                        </code>
+                        </code-block>
                     </tab>
                     <tab title="Gradle (Groovy)" group-key="groovy">
-                        <code style="block" lang="Groovy">
+                        <code-block lang="Groovy">
                             application {
                                 mainClass = "io.ktor.server.netty.EngineMain"
                             }
-                        </code>
+                        </code-block>
                     </tab>
                     <tab title="Maven" group-key="maven">
-                        <code style="block" lang="XML" interpolate-variables="true">
+                        <code-block lang="XML" interpolate-variables="true">
                 <![CDATA[
                             <properties>
                                 <main.class>io.ktor.server.netty.EngineMain</main.class>
                             </properties>
                             ]]>
-                </code>
+                </code-block>
                     </tab>
                 </tabs>
             </li>

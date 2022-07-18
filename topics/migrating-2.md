@@ -783,18 +783,18 @@ Update imports for [installing plugins](http-client_plugins.md#install):
 <td>
 <code>
 import io.ktor.client.features.auth.*
-</code>
+</code-block>
 <code>
 import io.ktor.client.features.auth.providers.*
-</code>
+</code-block>
 </td>
 <td>
 <code>
 import io.ktor.client.plugins.auth.*
-</code>
+</code-block>
 <code>
 import io.ktor.client.plugins.auth.providers.*
-</code>
+</code-block>
 </td>
 </tr>
 

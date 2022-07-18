@@ -58,9 +58,9 @@
         <p>
             You can use the <a href="default_headers.md">DefaultHeaders</a>plugin that sends a <code>Server</code> response header with the Ktor version on it, for example:
         </p>
-        <code style="block" interpolate-variables="true">
+        <code-block interpolate-variables="true">
             Server: ktor-server-core/%ktor_version%
-        </code>
+        </code-block>
     </chapter>
 
     <chapter title="My route is not being executed. How can I debug it?" id="route-not-executing" level="3">
@@ -129,9 +129,9 @@
                 <p>
                     Install <code>libcurl</code> using the following command:
                 </p>
-                <code lang="shell" style="block">
+                <code-block lang="shell">
                     pacman -S mingw-w64-x86_64-curl
-                </code>
+                </code-block>
             </step>
             <step>
                 <p>
