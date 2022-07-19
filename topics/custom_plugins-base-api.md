@@ -126,7 +126,7 @@ To [install](Plugins.md#install) a custom plugin to your application, call the `
 ## Examples {id="examples"}
 
 The code snippets below demonstrate several examples of custom plugins.
-You can find the runnable project here: [custom-plugin-base-api](https://github.com/ktorio/ktor-documentation/blob/%current-branch%/codeSnippets/snippets/custom-plugin-base-api)
+You can find the runnable project here: [custom-plugin-base-api](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/custom-plugin-base-api)
 
 ### Request logging {id="request-logging"}
 

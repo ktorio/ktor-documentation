@@ -35,7 +35,7 @@ In this section, we'll demonstrate how to create and install your first plugin. 
    ```
    
    
-You can find the full example here: [SimplePlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%current-branch%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/SimplePlugin.kt). In the following sections, we'll look at how to handle calls on different stages and provide a plugin configuration.
+You can find the full example here: [SimplePlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/SimplePlugin.kt). In the following sections, we'll look at how to handle calls on different stages and provide a plugin configuration.
 
 ## Handle calls {id="call-handling"}
 
@@ -109,7 +109,7 @@ Now let's create a plugin that receives a body as an integer value and adds `1` 
 2. `data` is a lambda argument that allows you to receive a request body as [ByteReadChannel](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) and convert it to the required type. In the example above, `ByteReadChannel.readUTF8Line` is used to read a request body. 
 3. Finally, you need to transform and return data. In our example, `1` is added to the received integer value.
 
-You can find the full example here: [DataTransformationPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%current-branch%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationPlugin.kt).
+You can find the full example here: [DataTransformationPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationPlugin.kt).
 
 
 ### onCallRespond {id="on-call-respond"}
@@ -126,7 +126,7 @@ Calling `call.respond` invokes the `onCallRespond`, which is in turn allows you 
 ```
 {src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationPlugin.kt" lines="18-26"}
 
-You can find the full example here: [DataTransformationPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%current-branch%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationPlugin.kt).
+You can find the full example here: [DataTransformationPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationPlugin.kt).
 
 
 ### Other useful handlers {id="other"}
@@ -139,7 +139,7 @@ These hooks include:
 - `ResponseBodyReadyForSend` is invoked when a response body comes through all transformations and is ready to be sent. 
 - `ResponseSent` is invoked when a response is successfully sent to a client.
 - `CallFailed` is invoked when a call fails with an exception.
-- [AuthenticationChecked](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-authentication-checked/index.html) is executed after [authentication](authentication.md) credentials are checked. The following example shows how to use this hook to implement authorization: [custom-plugin-authorization](https://github.com/ktorio/ktor-documentation/blob/%current-branch%/codeSnippets/snippets/custom-plugin-authorization).
+- [AuthenticationChecked](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-authentication-checked/index.html) is executed after [authentication](authentication.md) credentials are checked. The following example shows how to use this hook to implement authorization: [custom-plugin-authorization](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/custom-plugin-authorization).
 
 The example below shows how to handle `CallSetup`:
 
@@ -168,7 +168,7 @@ Request URL: http://localhost:8080/transform-data
 Read body delay (ms): 52
 ```
 
-You can find the full example here: [DataTransformationBenchmarkPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%current-branch%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationBenchmarkPlugin.kt).
+You can find the full example here: [DataTransformationBenchmarkPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationBenchmarkPlugin.kt).
 
 > You can also access call attributes in a [route handler](requests.md#request_information).
 
@@ -217,7 +217,7 @@ Finally, you can install and configure a plugin as follows:
 ```
 {src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" lines="15-18"}
 
-You can find the full example here: [CustomHeaderPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%current-branch%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt).
+You can find the full example here: [CustomHeaderPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt).
 
 
 

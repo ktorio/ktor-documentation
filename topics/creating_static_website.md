@@ -114,7 +114,7 @@ This module, in turn, calls the following extension functions:
 Before we dive into making a _[dynamic](creating_interactive_website.md)_ application, let's start by doing something a bit easier, but probably just as important – let's get Ktor to serve some *static* files. In the context of our journal, there are a number of things that we probably want to serve as static files – one example being a header image (a logo that identifies our site).
 
 1. Create the `files` folder inside `src/main/resources`.
-2. Download the [ktor_logo.png](https://github.com/ktorio/ktor-documentation/blob/%current-branch%/codeSnippets/snippets/tutorial-website-static/src/main/resources/files/ktor_logo.png) image file and add it to the created `files` folder.
+2. Download the [ktor_logo.png](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/tutorial-website-static/src/main/resources/files/ktor_logo.png) image file and add it to the created `files` folder.
 3. To serve static content, we can use a specific routing function already built into Ktor named [static](Serving_Static_Content.md). The function takes two parameters: the route under which the static content should be made available, and a lambda where we can define the location from where the content should be served.
 
    In the `plugins/Routing.kt` file, let's change the implementation for `Application.configureRouting()` to look like this:
