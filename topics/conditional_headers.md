@@ -33,6 +33,6 @@ To configure `%plugin_name%`, you need to call the [version](https://api.ktor.io
 The code snippet below shows how to add a `Etag` and `Last-Modified` headers for CSS:
 ```kotlin
 ```
-{src="snippets/conditional-headers/src/main/kotlin/com/example/Application.kt" lines="16-27"}
+{src="snippets/conditional-headers/src/main/kotlin/com/example/Application.kt" include-lines="16-27"}
 
 You can find the full example here: [conditional-headers](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/conditional-headers).

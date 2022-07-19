@@ -110,13 +110,13 @@
                 <tab title="application.conf" group-key="hocon">
                     <code-block
                           src="snippets/engine-main/src/main/resources/application.conf"
-                          lines="1,5-8"/>
+                          include-lines="1,5-8"/>
                 </tab>
                 <tab title="application.yaml" group-key="yaml">
                     <code-block
                           lang="yaml"
                           src="snippets/engine-main-yaml/src/main/resources/application.yaml"
-                          lines="1,4-6"/>
+                          include-lines="1,4-6"/>
                 </tab>
             </tabs>
 

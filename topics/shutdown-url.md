@@ -21,14 +21,14 @@ You can configure a shutdown URL in a [configuration file](Configurations.topic#
 
 ```shell
 ```
-{src="snippets/shutdown-url/src/main/resources/application.conf" lines="1-2,4-5,9"}
+{src="snippets/shutdown-url/src/main/resources/application.conf" include-lines="1-2,4-5,9"}
 
 </tab>
 <tab title="application.yaml" group-key="yaml">
 
 ```yaml
 ```
-{src="snippets/shutdown-url/src/main/resources/_application.yaml" lines="1-2,4-5"}
+{src="snippets/shutdown-url/src/main/resources/_application.yaml" include-lines="1-2,4-5"}
 
 </tab>
 </tabs>
@@ -40,7 +40,7 @@ To [install](Plugins.md#install) and configure shutdown URL in code, pass `ShutD
 
 ```kotlin
 ```
-{src="snippets/shutdown-url/src/main/kotlin/com/example/Application.kt" lines="11-14"}
+{src="snippets/shutdown-url/src/main/kotlin/com/example/Application.kt" include-lines="11-14"}
 
 
 You can find the full example here: [shutdown-url](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/shutdown-url).

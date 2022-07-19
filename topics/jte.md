@@ -41,7 +41,7 @@ For instance, the code snippet below enables Ktor to look up JTE templates in th
 
 ```kotlin
 ```
-{src="snippets/jte/src/main/kotlin/com/example/Application.kt" lines="14-17"}
+{src="snippets/jte/src/main/kotlin/com/example/Application.kt" include-lines="14-17"}
 
 ### Send a template in response {id="use_template"}
 Suppose you have the `index.kte` template in the `templates` directory:
@@ -52,4 +52,4 @@ Suppose you have the `index.kte` template in the `templates` directory:
 To use the template for the specified [route](Routing_in_Ktor.md), pass `JteContent` to the `call.respond` method in the following way:
 ```kotlin
 ```
-{src="snippets/jte/src/main/kotlin/com/example/Application.kt" lines="19-22"}
+{src="snippets/jte/src/main/kotlin/com/example/Application.kt" include-lines="19-22"}

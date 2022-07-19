@@ -43,7 +43,7 @@ The code below demonstrates how to test the most simple Ktor application that ac
 
 ```kotlin
 ```
-{src="snippets/engine-main/src/test/kotlin/EngineMainTest.kt" lines="3-16,27"}
+{src="snippets/engine-main/src/test/kotlin/EngineMainTest.kt" include-lines="3-16,27"}
 
 </tab>
 
@@ -51,7 +51,7 @@ The code below demonstrates how to test the most simple Ktor application that ac
 
 ```kotlin
 ```
-{src="snippets/engine-main/src/main/kotlin/com/example/Application.kt" lines="3-15"}
+{src="snippets/engine-main/src/main/kotlin/com/example/Application.kt" include-lines="3-15"}
 
 </tab>
 </tabs>
@@ -76,7 +76,7 @@ If you have the `application.conf` or `application.yaml` configuration file in t
 If you use `embeddedServer`, you can add modules to a test application manually using the `application` function:
 ```kotlin
 ```
-{src="snippets/embedded-server-modules/src/test/kotlin/EmbeddedServerTest.kt" lines="11-15,19"}
+{src="snippets/embedded-server-modules/src/test/kotlin/EmbeddedServerTest.kt" include-lines="11-15,19"}
 
 ### Step 2: (Optional) Add routing {id="add-routing"}
 
@@ -86,7 +86,7 @@ This might be convenient for the following use-cases:
 - You can add routes required only in a test application. The example below shows how to add the `/login-test` endpoint used to initialize a user [session](sessions.md) in tests:
    ```kotlin
    ```
-   {src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" lines="18,31-35,51"}
+   {src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="18,31-35,51"}
    
    You can find the full example with a test here: [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-oauth-google).
 
@@ -97,7 +97,7 @@ For example, to use a custom configuration for tests, you can create a custom co
 
 ```kotlin
 ```
-{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" lines="17-21,51"}
+{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="17-21,51"}
 
 Another way to specify configuration properties is using [MapApplicationConfig](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.config/-map-application-config/index.html). This might be useful if you want to access application configuration before the application starts. The example below shows how to pass `MapApplicationConfig` to the `testApplication` function using the `config` property:
 
@@ -123,7 +123,7 @@ The sample below shows how to use `externalServices` to simulate a JSON response
 
 ```kotlin
 ```
-{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" lines="18,36-47,51"}
+{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="18,36-47,51"}
 
 You can find the full example with a test here: [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-oauth-google).
 
@@ -133,7 +133,7 @@ The `testApplication` provides access to an HTTP client with default configurati
 If you need to customize the client and install additional plugins, you can use the `createClient` function. For example, to [send JSON data](#json-data) in a test POST/PUT request, you can install the [ContentNegotiation](serialization-client.md) plugin:
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" lines="32-37,44"}
+{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" include-lines="32-37,44"}
 
 
 
@@ -143,7 +143,7 @@ To test your application, you can use a [configured client](#configure-client) t
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" lines="32-41,44"}
+{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" include-lines="32-41,44"}
 
 
 
@@ -153,7 +153,7 @@ After receiving a [response](#make-request), you can verify the results by makin
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" lines="32-44"}
+{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" include-lines="32-44"}
 
 
 
@@ -175,7 +175,7 @@ A test below from the [post-form-parameters](https://github.com/ktorio/ktor-docu
 
 ```kotlin
 ```
-{src="snippets/post-form-parameters/src/test/kotlin/ApplicationTest.kt" lines="3-18,29"}
+{src="snippets/post-form-parameters/src/test/kotlin/ApplicationTest.kt" include-lines="3-18,29"}
 
 </tab>
 
@@ -183,7 +183,7 @@ A test below from the [post-form-parameters](https://github.com/ktorio/ktor-docu
 
 ```kotlin
 ```
-{src="snippets/post-form-parameters/src/main/kotlin/com/example/Application.kt" lines="3-16,45-46"}
+{src="snippets/post-form-parameters/src/main/kotlin/com/example/Application.kt" include-lines="3-16,45-46"}
 
 </tab>
 </tabs>
@@ -198,7 +198,7 @@ The code below demonstrates how to build `multipart/form-data` and test file upl
 
 ```kotlin
 ```
-{src="snippets/upload-file/src/test/kotlin/UploadFileTest.kt" lines="3-34,62"}
+{src="snippets/upload-file/src/test/kotlin/UploadFileTest.kt" include-lines="3-34,62"}
 
 </tab>
 
@@ -206,7 +206,7 @@ The code below demonstrates how to build `multipart/form-data` and test file upl
 
 ```kotlin
 ```
-{src="snippets/upload-file/src/main/kotlin/com/example/UploadFile.kt" lines="3-37"}
+{src="snippets/upload-file/src/main/kotlin/com/example/UploadFile.kt" include-lines="3-37"}
 
 </tab>
 </tabs>
@@ -221,7 +221,7 @@ To send JSON data in a test POST/PUT request, you need create a new client and i
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" lines="3-14,31-44,56"}
+{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" include-lines="3-14,31-44,56"}
 
 </tab>
 
@@ -229,7 +229,7 @@ To send JSON data in a test POST/PUT request, you need create a new client and i
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="3-16,25-31,38-44"}
+{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="3-16,25-31,38-44"}
 
 </tab>
 </tabs>
@@ -246,7 +246,7 @@ If you need to preserve cookies between requests when testing, you need create a
 
 ```kotlin
 ```
-{src="snippets/session-cookie-client/src/test/kotlin/ApplicationTest.kt" lines="3-27,47"}
+{src="snippets/session-cookie-client/src/test/kotlin/ApplicationTest.kt" include-lines="3-27,47"}
 
 </tab>
 
@@ -254,7 +254,7 @@ If you need to preserve cookies between requests when testing, you need create a
 
 ```kotlin
 ```
-{src="snippets/session-cookie-client/src/main/kotlin/com/example/Application.kt" lines="3-38"}
+{src="snippets/session-cookie-client/src/main/kotlin/com/example/Application.kt" include-lines="3-38"}
 
 </tab>
 </tabs>
@@ -266,7 +266,7 @@ If you need to test an [HTTPS endpoint](ssl.md), change the protocol used to mak
 
 ```kotlin
 ```
-{src="snippets/ssl-engine-main/src/test/kotlin/ApplicationTest.kt" lines="10-18"}
+{src="snippets/ssl-engine-main/src/test/kotlin/ApplicationTest.kt" include-lines="10-18"}
 
 You can find the full example here: [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/ssl-engine-main).
 
@@ -277,7 +277,7 @@ You can test [WebSocket conversations](websocket.md) by using the [WebSockets](w
 
 ```kotlin
 ```
-{src="snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt" lines="3-26,41"}
+{src="snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt" include-lines="3-26,41"}
 
 
 

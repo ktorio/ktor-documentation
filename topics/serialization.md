@@ -107,7 +107,7 @@ The `json` method also allows you to adjust serialization settings provided by [
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="25-30"}
+{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="25-30"}
 
 </tab>
 <tab title="Gson" group-key="gson">
@@ -126,7 +126,7 @@ The `gson` method also allows you to adjust serialization settings provided by [
 
 ```kotlin
 ```
-{src="snippets/gson/src/main/kotlin/com/example/GsonApplication.kt" lines="24-29"}
+{src="snippets/gson/src/main/kotlin/com/example/GsonApplication.kt" include-lines="24-29"}
 
 </tab>
 <tab title="Jackson" group-key="jackson">
@@ -146,7 +146,7 @@ The `jackson` method also allows you to adjust serialization settings provided b
 
 ```kotlin
 ```
-{src="snippets/jackson/src/main/kotlin/com/example/JacksonApplication.kt" lines="26-35"}
+{src="snippets/jackson/src/main/kotlin/com/example/JacksonApplication.kt" include-lines="26-35"}
 
 </tab>
 </tabs>
@@ -225,18 +225,18 @@ install(ContentNegotiation) {
 To deserialize received data into an object, you need to create a data class, for example:
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="14"}
+{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="14"}
 
 If you use kotlinx.serialization, make sure that this class has the `@Serializable` annotation:
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="10,12-14"}
+{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="10,12-14"}
 
 ### Receive data {id="receive_data"}
 To receive and convert a content for a request, call the `receive` method that accepts a data class as a parameter:
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="38-42"}
+{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="38-42"}
 
 The `Content-Type` of the request will be used to choose a [serializer](#configure_serializer) for processing the request. The example below shows a sample [HTTP client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html) request containing JSON or XML data that is converted to a `Customer` object on the server side:
 
@@ -245,14 +245,14 @@ The `Content-Type` of the request will be used to choose a [serializer](#configu
 
 ```HTTP
 ```
-{src="snippets/json-kotlinx/post.http" lines="1-9"}
+{src="snippets/json-kotlinx/post.http" include-lines="1-9"}
 
 </tab>
 <tab title="XML">
 
 ```HTTP
 ```
-{src="snippets/json-kotlinx/post.http" lines="12-15"}
+{src="snippets/json-kotlinx/post.http" include-lines="12-15"}
 
 </tab>
 </tabs>
@@ -265,7 +265,7 @@ You can find the full example here: [json-kotlinx](https://github.com/ktorio/kto
 To pass a data object in a response, you can use the `respond` method:
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="32-36"}
+{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="32-36"}
 
 In this case, Ktor uses the `Accept` header to choose the required [serializer](#configure_serializer). You can find the full example here: [json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/json-kotlinx).
 

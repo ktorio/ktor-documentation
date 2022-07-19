@@ -21,7 +21,7 @@ HTML DSL doesn't need [installation](Plugins.md#install) but requires the `%arti
 To send an HTML response, call the [respondHtml](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-html-builder/io.ktor.server.html/respond-html.html) method inside the required [route](Routing_in_Ktor.md):
 ```kotlin
 ```
-{src="snippets/html/src/main/kotlin/com/example/Application.kt" lines="12-28"}
+{src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="12-28"}
 
 In this case, the following HTML will be sent to the client:
 ```html
@@ -77,7 +77,7 @@ Let's implement these layouts step-by-step:
 2. A root layout template will look in the following way:
    ```kotlin
    ```
-   {src="snippets/html-templates/src/main/kotlin/com/example/Application.kt" lines="30-41"}
+   {src="snippets/html-templates/src/main/kotlin/com/example/Application.kt" include-lines="30-41"}
 
    The class exposes two properties:
    * The `header` property specifies a content inserted within the `h1` tag.
@@ -86,13 +86,13 @@ Let's implement these layouts step-by-step:
 3. A child template will look as follows:
    ```kotlin
    ```
-   {src="snippets/html-templates/src/main/kotlin/com/example/Application.kt" lines="43-56"}
+   {src="snippets/html-templates/src/main/kotlin/com/example/Application.kt" include-lines="43-56"}
 
    This template exposes the `articleTitle` and `articleText` properties, whose values will be inserted inside the `article`.
 
 4. Now we are ready to send HTML built using the specified property values:
    ```kotlin
    ```
-   {src="snippets/html-templates/src/main/kotlin/com/example/Application.kt" lines="12-26"}
+   {src="snippets/html-templates/src/main/kotlin/com/example/Application.kt" include-lines="12-26"}
 
 You can find the full example here: [html-templates](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/html-templates).

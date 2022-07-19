@@ -53,7 +53,7 @@ val response: HttpResponse = client.request("https://ktor.io/") {
 In addition to the `request` function, `HttpClient` provides specific functions for basic HTTP methods: [get](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/get.html), [post](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/post.html), [put](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/put.html), and so on. For example, you can replace the above request with the following code:
 ```kotlin
 ```
-{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" lines="21"}
+{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="21"}
 
 In both examples, a request URL is specified as a string. You can also configure URL components separately using [HttpRequestBuilder](#url).
 
@@ -65,13 +65,13 @@ The Ktor client allows you to configure a request URL in the following ways:
    
    ```kotlin
    ```
-   {src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" lines="21"}
+   {src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="21"}
    
 - _Configure URL components separately_
    
    ```kotlin
    ```
-   {src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" lines="22-28"}
+   {src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="22-28"}
    
    In this case, the `url` parameter exposed by `HttpRequestBuilder` is used. This parameter accepts [URLBuilder](https://api.ktor.io/ktor-http/io.ktor.http/-u-r-l-builder/index.html) and provides more flexibility in building URLs.
 
@@ -86,7 +86,7 @@ You can also pass individual path segments using the `appendPathSegments` functi
 
 ```kotlin
 ```
-{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" lines="29-33"}
+{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="29-33"}
 
 Note that `appendPathSegments` [encodes][percent_encoding] path segments.
 To disable encoding, use `appendEncodedPathSegments`.
@@ -98,7 +98,7 @@ To add <emphasis tooltip="query_string">query string</emphasis> parameters, use 
 
 ```kotlin
 ```
-{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" lines="34-38"}
+{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="34-38"}
 
 Note that `parameters` [encodes][percent_encoding] query parameters.
 To disable encoding, use `encodedParameters`.
@@ -114,7 +114,7 @@ You can configure a URL fragment using the `fragment` property.
 
 ```kotlin
 ```
-{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" lines="39-43"}
+{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="39-43"}
 
 Note that `fragment` [encodes][percent_encoding] a URL fragment.
 To disable encoding, use `encodedFragment`.
@@ -130,7 +130,7 @@ To add headers to the request, you can use the following ways:
 - The [headers](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/headers.html) function allows you to add several headers at once:
    ```kotlin
    ```
-  {src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" lines="46-52"}
+  {src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="46-52"}
 - The [header](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/header.html) function allows you to append a single header.
 - The `basicAuth` and `bearerAuth` functions add the `Authorization` header with a corresponding HTTP scheme.
    > For advanced authentication configuration, refer to [](auth.md).
@@ -142,7 +142,7 @@ To send cookies, use the [cookie](https://api.ktor.io/ktor-client/ktor-client-co
 
 ```kotlin
 ```
-{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" lines="55-64"}
+{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="55-64"}
 
 Ktor also provides the [HttpCookies](http-cookies.md) plugin that allows you to keep cookies between calls. If this plugin is installed, cookies added using the `cookie` function are ignored.
 
@@ -170,7 +170,7 @@ With the enabled [ContentNegotiation](serialization-client.md) plugin, you can s
 
 ```kotlin
 ```
-{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="29-32"}
+{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="29-32"}
 
 You can learn more from the [](serialization-client.md) help section.
 
@@ -181,7 +181,7 @@ The Ktor client provides the [submitForm](https://api.ktor.io/ktor-client/ktor-c
 
 ```kotlin
 ```
-{src="snippets/client-submit-form/src/main/kotlin/com/example/Application.kt" lines="12-22"}
+{src="snippets/client-submit-form/src/main/kotlin/com/example/Application.kt" include-lines="12-22"}
 
 You can find the full example here: [client-submit-form](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-submit-form).
 
@@ -203,7 +203,7 @@ For both approaches, you need to build form data using the [formData](https://ap
 
 ```kotlin
 ```
-{src="snippets/client-upload/src/main/kotlin/com/example/Application.kt" lines="13-24"}
+{src="snippets/client-upload/src/main/kotlin/com/example/Application.kt" include-lines="13-24"}
 
 </tab>
 
@@ -211,7 +211,7 @@ For both approaches, you need to build form data using the [formData](https://ap
 
 ```kotlin
 ```
-{src="snippets/client-upload-progress/src/main/kotlin/com/example/Application.kt" lines="16-33"}
+{src="snippets/client-upload-progress/src/main/kotlin/com/example/Application.kt" include-lines="16-33"}
 
 </tab>
 
@@ -221,7 +221,7 @@ For both approaches, you need to build form data using the [formData](https://ap
 
 ```kotlin
 ```
-{src="snippets/client-upload-progress/src/main/kotlin/com/example/Application.kt" lines="39-43"}
+{src="snippets/client-upload-progress/src/main/kotlin/com/example/Application.kt" include-lines="39-43"}
 
 You can find the full examples here:
 - [client-upload](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-upload)
@@ -233,7 +233,7 @@ You can find the full examples here:
 When sending two requests at once, the client suspends the second request execution until the first one is finished. If you need to perform several requests at once, you can use [launch](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/launch.html) or [async](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html) functions. The code snippet below shows how to perform two requests asynchronously:
 ```kotlin
 ```
-{src="snippets/client-parallel-requests/src/main/kotlin/com/example/Application.kt" lines="12,19-23,28"}
+{src="snippets/client-parallel-requests/src/main/kotlin/com/example/Application.kt" include-lines="12,19-23,28"}
 
 To see a full example, go to [client-parallel-requests](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-parallel-requests).
 

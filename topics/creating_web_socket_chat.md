@@ -80,7 +80,7 @@ To look at the structure of the [generated project](#create_ktor_project), let's
 First, let's open the `build.gradle.kts` file and examine added dependencies:
 ```kotlin
 ```
-{src="snippets/tutorial-websockets-server/build.gradle.kts" lines="19-26"}
+{src="snippets/tutorial-websockets-server/build.gradle.kts" include-lines="19-26"}
 
 Let's briefly go through these dependencies one by one:
 
@@ -107,7 +107,7 @@ The [application.conf](#configurations) configures the entry point of our applic
 
 ```kotlin
 ```
-{src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/Application.kt" lines="6-11"}
+{src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/Application.kt" include-lines="6-11"}
 
 This module, in turn, calls the following extension functions:
 
@@ -122,7 +122,7 @@ This module, in turn, calls the following extension functions:
 * `configureSockets` is a function defined in `plugins/Sockets.kt`, which installs and configures the `WebSockets` plugin:
    ```kotlin
    ```
-  {src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/plugins/Sockets.kt" lines="12-18,43"}
+  {src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/plugins/Sockets.kt" include-lines="12-18,43"}
 
 
 
@@ -206,7 +206,7 @@ We can now adjust our server's program to keep track of our Connection objects, 
 
 ```kotlin
 ```
-{src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/plugins/Sockets.kt" lines="3-12,19-43"}
+{src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/plugins/Sockets.kt" include-lines="3-12,19-43"}
 
 Our server now stores a (thread-safe) collection of `Connection`s. When a user connects, we create their `Connection` object (which also assigns itself a unique username), and add it to the collection. We then greet our user and let them know how many users are currently connecting. When we receive a message from the user, we prefix it with the unique name associated with their `Connection` object, and send it to all currently active connections. Finally, we remove the client's `Connection` object from our collection when the connection is terminated – either gracefully, when the incoming channel gets closed, or with an `Exception` when the network connection between client and server gets interrupted unexpectedly.
 

@@ -34,12 +34,12 @@ The code above installs `%plugin_name%` with the default configuration.
 
 ```kotlin
 ```
-{src="snippets/ssl-engine-main-hsts/src/main/kotlin/com/example/Application.kt" lines="11-12,17"}
+{src="snippets/ssl-engine-main-hsts/src/main/kotlin/com/example/Application.kt" include-lines="11-12,17"}
 
 You can also provide different HSTS configurations for different hosts using `withHost`:
 
 ```kotlin
 ```
-{src="snippets/ssl-engine-main-hsts/src/main/kotlin/com/example/Application.kt" lines="11-17"}
+{src="snippets/ssl-engine-main-hsts/src/main/kotlin/com/example/Application.kt" include-lines="11-17"}
 
 You can find the full example here: [ssl-engine-main-hsts](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/ssl-engine-main-hsts).

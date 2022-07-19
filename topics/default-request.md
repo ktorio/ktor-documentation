@@ -55,7 +55,7 @@ If you make the following request using the client with the above configuration,
 
 ```kotlin
 ```
-{src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" lines="25"}
+{src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" include-lines="25"}
 
 ... the resulting URL will be the following: `https://ktor.io/docs/welcome.html`.
 To learn how base and request URLs are merged, see [DefaultRequest](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-default-request/index.html).
@@ -71,7 +71,7 @@ The `url` function also allows you to specify URL components separately, for exa
 
 ```kotlin
 ```
-{src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" lines="15-20"}
+{src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" include-lines="15-20"}
 
 
 ### Headers {id="headers"}
@@ -80,7 +80,7 @@ To add a specific header to each request, use the `header` function:
 
 ```kotlin
 ```
-{src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" lines="14,21-22"}
+{src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" include-lines="14,21-22"}
 
 To avoid duplicating headers, you can use the `appendIfNameAbsent`, `appendIfNameAndValueAbsent`, and `contains` functions:
 
@@ -98,13 +98,13 @@ The example below uses the following `DefaultRequest` configuration:
 
 ```kotlin
 ```
-{src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" lines="13-23"}
+{src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" include-lines="13-23"}
 
 The request below made by this client specifies a latter path segment only and applies parameters configured for `DefaultRequest` automatically:
 
 ```kotlin
 ```
-{src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" lines="25-26"}
+{src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" include-lines="25-26"}
 
 You can find the full example here: [client-default-request](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-default-request).
 

@@ -37,7 +37,7 @@ A [runnable example](https://github.com/ktorio/ktor-documentation/tree/%ktor_ver
 
 ```kotlin
 ```
-{src="snippets/client-retry/src/main/kotlin/com/example/Application.kt" lines="13-17,19"}
+{src="snippets/client-retry/src/main/kotlin/com/example/Application.kt" include-lines="13-17,19"}
 
 * The `retryOnServerErrors` function enables retrying a request if a `5xx` response is received from a server and specifies the number of retries.
 * `exponentialDelay` specifies an exponential delay between retries, which is calculated using the Exponential backoff algorithm.

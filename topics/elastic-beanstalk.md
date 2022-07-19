@@ -46,18 +46,18 @@ First, you need to specify a port used to listen for incoming requests. Elastic 
 * If you've chosen the [engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main) sample with server configuration specified in the `application.conf` file, you can assign the environment variable to the `port` parameter by using the `${ENV}` syntax. Open the `application.conf` file placed in `src/main/resources` and update it as shown below:
    ```
    ```
-  {src="snippets/aws-elastic-beanstalk/src/main/resources/application.conf" lines="1-5,9" style="block"}
+  {src="snippets/aws-elastic-beanstalk/src/main/resources/application.conf" include-lines="1-5,9" style="block"}
 
 ### Step 2: Apply the Ktor plugin {id="configure-ktor-plugin"}
 This tutorial shows how to deploy the application to Elastic Beanstalk using a [fat JAR](fatjar.md). To generate fat JARs, you need to apply the Ktor plugin. Open the `build.gradle.kts` file and add the plugin to the `plugins` block:
 ```groovy
 ```
-{src="snippets/aws-elastic-beanstalk/build.gradle.kts" lines="5,8-9"}
+{src="snippets/aws-elastic-beanstalk/build.gradle.kts" include-lines="5,8-9"}
 
 Then, make sure that the [main application class](server-dependencies.topic#create-entry-point) is configured:
 ```kotlin
 ```
-{src="snippets/aws-elastic-beanstalk/build.gradle.kts" lines="11-13"}
+{src="snippets/aws-elastic-beanstalk/build.gradle.kts" include-lines="11-13"}
 
 
 ## Build a Fat JAR {id="build"}

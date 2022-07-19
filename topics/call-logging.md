@@ -36,20 +36,20 @@ You can configure `%plugin_name%` in multiple ways: specify a logging level, fil
 By default, Ktor uses the `Level.INFO` logging level. To change it, use the `level` property:
 ```kotlin
 ```
-{src="snippets/logging/src/main/kotlin/com/example/Application.kt" lines="14-15,25"}
+{src="snippets/logging/src/main/kotlin/com/example/Application.kt" include-lines="14-15,25"}
 
 ### Filter log requests {id="filter"}
 The `filter` property allows you to add conditions for filtering requests. In the example below, only requests made to `/api/v1` get into a log:
 ```kotlin
 ```
-{src="snippets/logging/src/main/kotlin/com/example/Application.kt" lines="14,16-18,25"}
+{src="snippets/logging/src/main/kotlin/com/example/Application.kt" include-lines="14,16-18,25"}
 
 ### Customize a log message format {id="format"}
 By using the `format` function, you can put any data related to a request/response into a log. The example below shows how to log a response status, a request HTTP method, and the `User-Agent` header value for each request.
 
 ```kotlin
 ```
-{src="snippets/logging/src/main/kotlin/com/example/Application.kt" lines="14,19-25"}
+{src="snippets/logging/src/main/kotlin/com/example/Application.kt" include-lines="14,19-25"}
 
 You can find the full example here: [logging](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/logging).
 

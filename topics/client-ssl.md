@@ -20,7 +20,7 @@ Given that different engines use different [JSSE API](https://docs.oracle.com/en
 
 ```kotlin
 ```
-{src="snippets/client-ssl-config/src/main/kotlin/com/example/Application.kt" lines="66-90"}
+{src="snippets/client-ssl-config/src/main/kotlin/com/example/Application.kt" include-lines="66-90"}
 
 ## Configure SSL in Ktor {id="configure-ssl"}
 
@@ -33,7 +33,7 @@ To enable SSL for Apache, you need to pass `SSLContext`:
 
 ```kotlin
 ```
-{src="snippets/client-ssl-config/src/main/kotlin/com/example/Application.kt" lines="20-24"}
+{src="snippets/client-ssl-config/src/main/kotlin/com/example/Application.kt" include-lines="20-24"}
 
 
 ### Java {id="java"}
@@ -42,7 +42,7 @@ For the Java client, pass `SSLContext` to the `sslContext` function inside the `
 
 ```kotlin
 ```
-{src="snippets/client-ssl-config/src/main/kotlin/com/example/Application.kt" lines="25-31"}
+{src="snippets/client-ssl-config/src/main/kotlin/com/example/Application.kt" include-lines="25-31"}
 
 
 ### Jetty {id="jetty"}
@@ -51,7 +51,7 @@ For Jetty, you need to create an instance of `SslContextFactory` and pass `SSLCo
 
 ```kotlin
 ```
-{src="snippets/client-ssl-config/src/main/kotlin/com/example/Application.kt" lines="32-38"}
+{src="snippets/client-ssl-config/src/main/kotlin/com/example/Application.kt" include-lines="32-38"}
 
 
 ### CIO {id="cio"}
@@ -62,7 +62,7 @@ In our example, a `TrustManager` instance is used to configure a certificate:
 
 ```kotlin
 ```
-{src="snippets/client-ssl-config/src/main/kotlin/com/example/Application.kt" lines="39-45"}
+{src="snippets/client-ssl-config/src/main/kotlin/com/example/Application.kt" include-lines="39-45"}
 
 > The [sockets-client-tls](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/sockets-client-tls) example shows how to trust all certificates.
 > This approach should be used for development purposes only.
@@ -75,7 +75,7 @@ This property accepts `HttpsURLConnection` as a parameter that allows you to pas
 
 ```kotlin
 ```
-{src="snippets/client-ssl-config/src/main/kotlin/com/example/Application.kt" lines="46-52"}
+{src="snippets/client-ssl-config/src/main/kotlin/com/example/Application.kt" include-lines="46-52"}
 
 
 ### OkHttp {id="okhttp"}
@@ -84,4 +84,4 @@ To configure OkHttp for using SSL, you need to pass `SSLSocketFactory` and `X509
 
 ```kotlin
 ```
-{src="snippets/client-ssl-config/src/main/kotlin/com/example/Application.kt" lines="53-59"}
+{src="snippets/client-ssl-config/src/main/kotlin/com/example/Application.kt" include-lines="53-59"}

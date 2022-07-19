@@ -71,7 +71,7 @@ For the `files` folder in the project root, the configuration looks as follows:
 
 ```kotlin
 ```
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" lines="10-11,22"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="10-11,22"}
 
 This maps any request to `/` to the `files` physical folder. 
 As the next step, you need to specify how to serve static files using the `file` or `files` functions.
@@ -101,14 +101,14 @@ For example, to serve the `files/index.html` file, update configuration as follo
 
 ```kotlin
 ```
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" lines="10-12,22"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="10-12,22"}
 
 As for the [Routing](Routing_in_Ktor.md#nested_routes) plugin, you can define sub-routes by nesting the `static` functions.
 The example below shows how to serve the `ktor_logo.png` file under the `/images` URL path:
 
 ```kotlin
 ```
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" lines="10-11,14-17,22"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="10-11,14-17,22"}
 
 Note that the `file` function optionally takes a second argument that allows you to map a physical filename to a virtual one.
 So for the example above, the `ktor_logo.png` image is served for requests to the following paths:
@@ -124,7 +124,7 @@ The code snippet below shows how to define `index.html` as the default file:
 
 ```kotlin
 ```
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" lines="10-11,13,22"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="10-11,13,22"}
 
 In this case, for requests to `/` a Ktor server serves `files/index.html`.
 
@@ -137,7 +137,7 @@ The snippet below shows how to serve stylesheets and scripts for our sample proj
 
 ```kotlin
 ```
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" lines="10-11,18-22"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="10-11,18-22"}
 
 `files("css")` would then allow for any file located in the `css` folder to be served as static content under the given URL pattern, which in this case is `assets`. 
 This means that a request to `/assets/styles.css` would serve the `files/css/styles.css` file.
@@ -206,7 +206,7 @@ For example, for the `static` package inside the `resources` folder, the configu
 
 ```kotlin
 ```
-{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" lines="10-11,22"}
+{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" include-lines="10-11,22"}
 
 This maps any request to `/` to the `static` package.
 As the next step, you need to specify how to serve static resources using the `resource` or `resources` functions.
@@ -234,14 +234,14 @@ For example, to serve the `static/index.html` file, update configuration as foll
 
 ```kotlin
 ```
-{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" lines="10-12,22"}
+{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" include-lines="10-12,22"}
 
 As for the [Routing](Routing_in_Ktor.md#nested_routes) plugin, you can define sub-routes by nesting the `static` functions.
 The example below shows how to serve the `ktor_logo.png` file under the `/images` URL path:
 
 ```kotlin
 ```
-{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" lines="10-11,14-17,22"}
+{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" include-lines="10-11,14-17,22"}
 
 Note that the `resource` function optionally takes a second argument that allows you to map a physical filename to a virtual one.
 So for the example above, the `ktor_logo.png` image is served for requests to the following paths:
@@ -258,7 +258,7 @@ The code snippet below shows how to define `index.html` as the default resource:
 
 ```kotlin
 ```
-{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" lines="10-11,13,22"}
+{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" include-lines="10-11,13,22"}
 
 In this case, for requests to `/` a Ktor server serves `static/index.html`.
 
@@ -271,7 +271,7 @@ The snippet below shows how to serve stylesheets and scripts for our sample proj
 
 ```kotlin
 ```
-{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" lines="10-11,18-22"}
+{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" include-lines="10-11,18-22"}
 
 `resources("css")` would then allow for any file located in the `css` resource folder to be served as static content under the given URL pattern, which in this case is `assets`.
 This means that a request to `/assets/styles.css` would serve the `files/css/styles.css` file.

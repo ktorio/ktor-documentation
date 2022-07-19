@@ -22,13 +22,13 @@ First, you need to add dependencies for the PostgreSQL library. Open the `gradle
 
 ```kotlin
 ```
-{src="gradle.properties" lines="19"}
+{src="gradle.properties" include-lines="19"}
 
 Then, open `build.gradle.kts` and add the following dependencies:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-docker-compose/build.gradle.kts" lines="4,21-22,29,33"}
+{src="snippets/tutorial-website-interactive-docker-compose/build.gradle.kts" include-lines="4,21-22,29,33"}
 
 ### Connect to a database {id="connect_db"}
 
@@ -36,7 +36,7 @@ The [tutorial-website-interactive-persistence](https://github.com/ktorio/ktor-do
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-docker-compose/src/main/resources/application.conf" lines="11-14"}
+{src="snippets/tutorial-website-interactive-docker-compose/src/main/resources/application.conf" include-lines="11-14"}
 
 Note that `jdbcURL` includes the following components:
 - `db:5432` is a host and port on which the PostgreSQL database is running.
@@ -48,7 +48,7 @@ Open `com/example/dao/DatabaseFactory.kt` and update the `init` function to load
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-docker-compose/src/main/kotlin/com/example/dao/DatabaseFactory.kt" lines="11-18"}
+{src="snippets/tutorial-website-interactive-docker-compose/src/main/kotlin/com/example/dao/DatabaseFactory.kt" include-lines="11-18"}
 
 The `init` function now accepts `ApplicationConfig` and uses `config.property` to load custom settings.
 
@@ -56,7 +56,7 @@ Finally, open `com/example/Application.kt` and pass `environment.config` to `Dat
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-docker-compose/src/main/kotlin/com/example/Application.kt" lines="9-13"}
+{src="snippets/tutorial-website-interactive-docker-compose/src/main/kotlin/com/example/Application.kt" include-lines="9-13"}
 
 ### Configure the Ktor plugin {id="configure-ktor-plugin"}
 
@@ -69,7 +69,7 @@ For example, to apply the Ktor plugin, open the `build.gradle.kts` file and add 
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-docker-compose/build.gradle.kts" lines="7-11"}
+{src="snippets/tutorial-website-interactive-docker-compose/build.gradle.kts" include-lines="7-11"}
 
 
 ## Configure Docker {id="configure-docker"}

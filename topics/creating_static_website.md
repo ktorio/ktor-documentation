@@ -61,7 +61,7 @@ To look at the structure of the [generated project](#create_ktor_project), let's
 First, let's open the `build.gradle.kts` file and examine added dependencies:
 ```kotlin
 ```
-{src="snippets/tutorial-website-static/build.gradle.kts" lines="19-26"}
+{src="snippets/tutorial-website-static/build.gradle.kts" include-lines="19-26"}
 
 Let's briefly go through these dependencies one by one:
 
@@ -88,7 +88,7 @@ The [application.conf](#configurations) configures the entry point of our applic
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-static/src/main/kotlin/com/example/Application.kt" lines="6-11"}
+{src="snippets/tutorial-website-static/src/main/kotlin/com/example/Application.kt" include-lines="6-11"}
 
 This module, in turn, calls the following extension functions:
 
@@ -103,7 +103,7 @@ This module, in turn, calls the following extension functions:
 * `configureTemplating` is a function defined in `plugins/Templating.kt`, which installs and configures the `FreeMarker` plugin:
    ```kotlin
    ```
-  {src="snippets/tutorial-website-static/src/main/kotlin/com/example/plugins/Templating.kt" lines="7-11"}
+  {src="snippets/tutorial-website-static/src/main/kotlin/com/example/plugins/Templating.kt" include-lines="7-11"}
 
   We'll show how to use FreeMarker templates in the next tutorial: [](creating_interactive_website.md).
 
@@ -121,7 +121,7 @@ Before we dive into making a _[dynamic](creating_interactive_website.md)_ applic
 
    ```kotlin
    ```
-   {src="snippets/tutorial-website-static/src/main/kotlin/com/example/plugins/Routing.kt" lines="3-13"}
+   {src="snippets/tutorial-website-static/src/main/kotlin/com/example/plugins/Routing.kt" include-lines="3-13"}
 
    This instructs Ktor that everything under the URL `/static` should be served using the `files` directory inside `resources`.
 

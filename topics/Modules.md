@@ -14,7 +14,7 @@ Ktor allows you to use modules to [structure](Structuring_Applications.md) your 
 
 ```kotlin
 ```
-{src="snippets/engine-main-modules/src/main/kotlin/com/example/Application.kt" lines="9-15"}
+{src="snippets/engine-main-modules/src/main/kotlin/com/example/Application.kt" include-lines="9-15"}
 
 Loading modules in your application depends on the way used to [create a server](create_server.topic): in code using the `embeddedServer` function or by using the `application.conf` configuration file.
 
@@ -64,14 +64,14 @@ A fully qualified module name includes a fully qualified name of the class and a
 
 ```shell
 ```
-{src="snippets/engine-main-modules/src/main/resources/application.conf" lines="1,5-10"}
+{src="snippets/engine-main-modules/src/main/resources/application.conf" include-lines="1,5-10"}
 
 </tab>
 <tab title="application.yaml" group-key="yaml">
 
 ```yaml
 ```
-{src="snippets/engine-main-modules/src/main/resources/_application.yaml" lines="1,4-8"}
+{src="snippets/engine-main-modules/src/main/resources/_application.yaml" include-lines="1,4-8"}
 
 </tab>
 </tabs>

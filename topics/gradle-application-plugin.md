@@ -19,7 +19,7 @@ To package an application, you need to apply the Application plugin first:
 
    ```kotlin
    ```
-   {src="snippets/engine-main/build.gradle.kts" lines="5-6,8-12"}
+   {src="snippets/engine-main/build.gradle.kts" include-lines="5-6,8-12"}
 
    </tab>
    <tab title="Gradle (Groovy)" group-key="groovy">

@@ -96,24 +96,24 @@ install(WebSockets) {
 To serialize/deserialize frames into/from an object, you need to create a data class, for example:
 ```kotlin
 ```
-{src="snippets/server-websockets-serialization/src/main/kotlin/com/example/Application.kt" lines="11"}
+{src="snippets/server-websockets-serialization/src/main/kotlin/com/example/Application.kt" include-lines="11"}
 
 If you use kotlinx.serialization, make sure that this class has the `@Serializable` annotation:
 ```kotlin
 ```
-{src="snippets/server-websockets-serialization/src/main/kotlin/com/example/Application.kt" lines="10-11"}
+{src="snippets/server-websockets-serialization/src/main/kotlin/com/example/Application.kt" include-lines="10-11"}
 
 ### Receive data {id="receive_data"}
 To receive and convert a content of a text frame, call the `receiveDeserialized` function that accepts a data class as a parameter:
 ```kotlin
 ```
-{src="snippets/server-websockets-serialization/src/main/kotlin/com/example/Application.kt" lines="23-26"}
+{src="snippets/server-websockets-serialization/src/main/kotlin/com/example/Application.kt" include-lines="23-26"}
 
 ### Send data {id="send_data"}
 To pass a data object in a text frame using a [specified format](#configure_serializer), you can use the `sendSerialized` function:
 
 ```kotlin
 ```
-{src="snippets/server-websockets-serialization/src/main/kotlin/com/example/Application.kt" lines="20-22"}
+{src="snippets/server-websockets-serialization/src/main/kotlin/com/example/Application.kt" include-lines="20-22"}
 
 You can find the full example here: [server-websockets-serialization](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/server-websockets-serialization).

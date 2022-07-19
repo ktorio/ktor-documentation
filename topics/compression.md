@@ -61,7 +61,7 @@ By default, Ktor doesn't compress specific content types, such as `audio`, `vide
 You can choose the content types to compress by calling `matchContentType` or exclude the desired media types from compression by using `excludeContentType`. The code snippet below shows how to compress JavaScript code using `gzip` and all text subtypes using `deflate`:
 ```kotlin
 ```
-{src="snippets/compression/src/main/kotlin/com/example/Application.kt" lines="12-13,15-19,21-25"}
+{src="snippets/compression/src/main/kotlin/com/example/Application.kt" include-lines="12-13,15-19,21-25"}
 
 You can find the full example here: [compression](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/compression).
 

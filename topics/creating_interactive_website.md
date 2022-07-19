@@ -25,13 +25,13 @@ The Ktor plugin for IntelliJ IDEA already [generated code](creating_static_websi
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-static/src/main/kotlin/com/example/plugins/Templating.kt" lines="3-11"}
+{src="snippets/tutorial-website-static/src/main/kotlin/com/example/plugins/Templating.kt" include-lines="3-11"}
 
 The `templateLoader` setting tells our application that FreeMarker templates will be located in the `templates` directory. Let's also add the `outputFormat` as follows:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/plugins/Templating.kt" lines="3-13"}
+{src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/plugins/Templating.kt" include-lines="3-13"}
 
 The `outputFormat` setting helps convert control characters provided by the user to their corresponding HTML entities. This ensures that when one of our journal entries contains a String like `<b>Hello</b>`, it is actually printed as `<b>Hello</b>`, not **Hello**. This so-called [escaping](https://freemarker.apache.org/docs/dgui_misc_autoescaping.html) is an essential step in preventing [XSS attacks](https://owasp.org/www-community/attacks/xss/).
 
@@ -41,7 +41,7 @@ First, we need to create a model describing an article in our journal applicatio
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/models/Article.kt" lines="1-12"}
+{src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/models/Article.kt" include-lines="1-12"}
 
 An article has three attributes: `id`, `title`, and `body`. The `title` and `body` attributes can be specified directly while a unique `id` is generated automatically using `AtomicInteger` - a thread-safe data structure that ensures that two articles will never receive the same ID.
 
@@ -50,7 +50,7 @@ Inside `Article.kt`, let's create a mutable list for storing articles and add th
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/models/Article.kt" lines="14-17"}
+{src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/models/Article.kt" include-lines="14-17"}
 
 
 ## Define routes {id="routes"}
@@ -104,7 +104,7 @@ Open `com/example/plugins/Routing.kt` and add the following code to the `get` ha
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/plugins/Routing.kt" lines="3-13,21-24,61-63"}
+{src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/plugins/Routing.kt" include-lines="3-13,21-24,61-63"}
 
 The `call.respond` function accepts the `FreeMarkerContent` object that represents content to be sent to the client. 
 In our case, the `FreeMarkerContent` constructor accepts two parameters:
@@ -178,7 +178,7 @@ Now let's handle requests for the `/articles/new` path. Open `Routing.kt` and ad
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/plugins/Routing.kt" lines="25-27"}
+{src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/plugins/Routing.kt" include-lines="25-27"}
 
 Here we respond with the `new.ftl` template without a data model since a new article doesn't exist yet.
 
@@ -192,7 +192,7 @@ The `new.ftl` template provides a form for submitting an article content. Given 
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/plugins/Routing.kt" lines="28-35"}
+{src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/plugins/Routing.kt" include-lines="28-35"}
 
 The `call.receiveParameters` function is used to [receive form parameters](requests.md#form_parameters) and get their values. After saving a new article, `call.respondRedirect` is called to redirect to a page showing this article. Note that a URL path for a specific article contains an ID parameter whose value should be obtained at runtime. We'll take a look at how to handle path parameters in the next chapter. 
 
@@ -203,7 +203,7 @@ To show a content of a specific article, we'll use the article ID as a [path par
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/plugins/Routing.kt" lines="36-39"}
+{src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/plugins/Routing.kt" include-lines="36-39"}
 
 `call.parameters` is used to obtain the article ID passed in a URL path. To show the article with this ID, we need to find this article in a storage and pass it in the `article` template variable. 
 
@@ -222,7 +222,7 @@ A route for editing an article should look as follows:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/plugins/Routing.kt" lines="40-43"}
+{src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/plugins/Routing.kt" include-lines="40-43"}
 
 Similar to a route for showing an article, `call.parameters` is used to obtain the article identifier and find this article in a storage.
 
@@ -238,7 +238,7 @@ Open the `Routing.kt` file and insert the following code inside `post("{id}")`:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/plugins/Routing.kt" lines="44-61"}
+{src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/plugins/Routing.kt" include-lines="44-61"}
 
 This code works as follows:
 - `call.parameters` is used to obtain the ID of the article to be edited.

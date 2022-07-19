@@ -119,7 +119,7 @@ As the first step, we need to build the authorization link that is used to reque
 
 ```kotlin
 ```
-{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="20-28"}
+{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="20-28"}
 
 - `client_id`: a client ID [obtained earlier](#google-client-credentials) is used to access Google APIs.
 - `scope`: scopes of resources required for a Ktor application. In our case, the application requests information about a user's profile.
@@ -134,7 +134,7 @@ At this step, we copy the authorization code from the browser, paste it in a con
 
 ```kotlin
 ```
-{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="29"}
+{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="29"}
 
 ### (3)  -> Authorization grant (code) {id="step3"}
 
@@ -142,19 +142,19 @@ Now we are ready to exchange the authorization code for tokens. To do this, we n
 
 ```kotlin
 ```
-{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="35-38,62"}
+{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="35-38,62"}
 
 Using the created client, we can securely pass the authorization code and other necessary options to the token endpoint as [form parameters](request.md#form_parameters):
 
 ```kotlin
 ```
-{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="65-73"}
+{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="65-73"}
 
 As a result, the token endpoint sends tokens in a JSON object, which is deserialized to a `TokenInfo` class instance using the installed `json` serializer. The `TokenInfo` class looks as follows:
 
 ```kotlin
 ```
-{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/models/TokenInfo.kt" lines="3-13"}
+{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/models/TokenInfo.kt" include-lines="3-13"}
 
 ### (4)  <- Access and refresh tokens {id="step4"}
 
@@ -162,7 +162,7 @@ When tokens are received, we can save them in a storage. In our example, a stora
 
 ```kotlin
 ```
-{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="32-33,74"}
+{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="32-33,74"}
 
 > Note that `bearerTokenStorage` should be created before [initializing the client](#step3) since it will be used inside the client configuration.
 
@@ -173,7 +173,7 @@ Now we have valid tokens, so we can make a request to the protected Google API a
 
 ```kotlin
 ```
-{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="35-44,57-62"}
+{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="35-44,57-62"}
 
 The following settings are specified: 
 
@@ -187,7 +187,7 @@ This client can be used to make a request to the protected resource:
 
 ```kotlin
 ```
-{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="81"}
+{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="81"}
 
 
 ### (6)  <- Protected resource {id="step6"}
@@ -196,14 +196,14 @@ The resource server returns information about a user in a JSON format. We can de
 
 ```kotlin
 ```
-{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="83-84"}
+{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="83-84"}
 
 
 The `UserInfo` class looks as follows:
 
 ```kotlin
 ```
-{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/models/UserInfo.kt" lines="3-13"}
+{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/models/UserInfo.kt" include-lines="3-13"}
 
 
 ### (7)  -> Request with expired token {id="step7"}
@@ -221,7 +221,7 @@ To obtain a new access token, we need to configure `refreshTokens` and make anot
 
 ```kotlin
 ```
-{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="40-41,45-53,56,60-61"}
+{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="40-41,45-53,56,60-61"}
 
 Note that the `refreshTokens` callback uses `RefreshTokensParams` as a receiver and allows you to access the following settings:
 - The `client` instance. In the code snippet above, we use it to submit form parameters.
@@ -235,7 +235,7 @@ After receiving new tokens, we can save them in the [storage](#step4), so `refre
 
 ```kotlin
 ```
-{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="45-56"}
+{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="45-56"}
 
 
 ### (11) -> Request with new token {id="step11"}
@@ -244,7 +244,7 @@ At this step, the request to the protected resource contains a new token and sho
 
 ```kotlin
 ```
-{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="81"}
+{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="81"}
 
 ### (12) <-- Protected resource {id="step12"}
 
@@ -252,13 +252,13 @@ Given that the [401 response](#step8) returns JSON data with error details, we n
 
 ```kotlin
 ```
-{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" lines="81-88"}
+{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="81-88"}
 
 The `ErrorInfo` class looks as follows:
 
 ```kotlin
 ```
-{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/models/ErrorInfo.kt" lines="3-13"}
+{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/models/ErrorInfo.kt" include-lines="3-13"}
 
 You can find the full example here: [client-auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-auth-oauth-google).
 

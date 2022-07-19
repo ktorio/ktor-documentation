@@ -45,26 +45,26 @@ To use the Ktor HTTP client in your project, you need to add at least two depend
 1. Specify Ktor version inside `sourceSets`:
    ```kotlin
    ```
-   {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" lines="25-26,64"}
+   {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="25-26,64"}
 
    <include from="getting_started_ktor_client.topic" element-id="eap-note"/>
 
 3. To use the Ktor client in common code, add the dependency to `ktor-client-core` to the `commonMain` source set:
    ```kotlin
    ```
-   {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" lines="27-31"}
+   {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="27-31"}
 
 4. Add an [engine dependency](http-client_engines.md) for the required platform to the corresponding source set:
    - For Android, add the `ktor-client-okhttp` dependency to the `androidMain` source set:
      ```kotlin
      ```
-     {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" lines="37-41"}
+     {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="37-41"}
    
      For Android, you can also use [other engine types](http-client_engines.md#jvm-android).
    - For iOS, add the `ktor-client-darwin` dependency to `iosMain`:
      ```kotlin
      ```
-     {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" lines="46-54"}
+     {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="46-54"}
 
 
 ### Add coroutines {id="coroutines"}
@@ -74,7 +74,7 @@ Open the `androidApp/build.gradle.kts` and add the following dependencies:
 
 ```kotlin
 ```
-{src="snippets/tutorial-client-kmm/androidApp/build.gradle.kts" lines="22,27-29"}
+{src="snippets/tutorial-client-kmm/androidApp/build.gradle.kts" include-lines="22,27-29"}
 
 ### Enable the New Kotlin/Native memory model {id="new_memory_model"}
 To use Ktor client on Kotlin/Native targets (such as iOS), we need to enable the New Kotlin/Native memory model.
@@ -82,7 +82,7 @@ Open the `gradle.properties` file and add the following line:
 
 ```Gradle
 ```
-{src="snippets/tutorial-client-kmm/gradle.properties" lines="14"}
+{src="snippets/tutorial-client-kmm/gradle.properties" include-lines="14"}
 
 ## Update your application {id="code"}
 
@@ -92,7 +92,7 @@ To update code shared between Android and iOS, open the `shared/src/commonMain/k
 
 ```kotlin
 ```
-{src="snippets/tutorial-client-kmm/shared/src/commonMain/kotlin/com/example/kmmktor/Greeting.kt" lines="7,12-17"}
+{src="snippets/tutorial-client-kmm/shared/src/commonMain/kotlin/com/example/kmmktor/Greeting.kt" include-lines="7,12-17"}
 
 - To create the HTTP client, the `HttpClient` constructor is called.
 - The suspending `getHtml` function is used to make a [request](request.md) and receive the body of a [response](response.md) as a string value.
@@ -106,7 +106,7 @@ Open the `androidApp/src/main/java/com/example/kmmktor/android/MainActivity.kt` 
 
 ```kotlin
 ```
-{src="snippets/tutorial-client-kmm/androidApp/src/main/java/com/example/kmmktor/android/MainActivity.kt" lines="10-29"}
+{src="snippets/tutorial-client-kmm/androidApp/src/main/java/com/example/kmmktor/android/MainActivity.kt" include-lines="10-29"}
 
 Inside the created `MainScope`, the [runCatching](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/run-catching.html) function is used to call the shared `getHtml` function and handle possible exceptions.
 
@@ -117,7 +117,7 @@ Open the `iosApp/iosApp/ContentView.swift` file and update `ContentView` code in
 
 ```Swift
 ```
-{src="snippets/tutorial-client-kmm/iosApp/iosApp/ContentView.swift" lines="4-24"}
+{src="snippets/tutorial-client-kmm/iosApp/iosApp/ContentView.swift" include-lines="4-24"}
 
 On iOS, the `getHtml` suspending function is available as a function with a callback.
 

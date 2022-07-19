@@ -19,14 +19,14 @@ In this section, we'll demonstrate how to create and install your first plugin. 
 1. To create a plugin, call the `createApplicationPlugin` function and pass a plugin name:
    ```kotlin
    ```
-   {src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/SimplePlugin.kt" lines="3-7"}
+   {src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/SimplePlugin.kt" include-lines="3-7"}
    
    This function returns the `ApplicationPlugin` instance that will be used in the next step to install a plugin.
    > There is also the `createRouteScopedPlugin` function allowing you to create plugins that can be [installed to a specific route](Plugins.md#install-route).
 2. To [install a plugin](Plugins.md#install), pass the created `ApplicationPlugin` instance to the `install` function in the application's initialization code:
    ```kotlin
    ```
-   {src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" lines="11-12,32"}
+   {src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" include-lines="11-12,32"}
 3. Finally, [run](running.md) your application to see the plugin's greeting in the console output:
    ```Bash
    2021-10-14 14:54:08.269 [main] INFO  Application - Autoreload is disabled because the development mode is off.
@@ -56,7 +56,7 @@ The `onCall` handler accepts the `ApplicationCall` as a lambda argument. This al
 The example below shows how to use `onCall` to create a custom plugin for logging incoming requests:
 ```kotlin
 ```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt" lines="6-12"}
+{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/RequestLoggingPlugin.kt" include-lines="6-12"}
 
 If you install this plugin, the application will show requested URLs in a console, for example:
 ```Bash
@@ -95,13 +95,13 @@ To [receive this body](requests.md#objects) as an integer value, you need create
 
 ```kotlin
 ```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" lines="27-28,30"}
+{src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" include-lines="27-28,30"}
 
 Now let's create a plugin that receives a body as an integer value and adds `1` to it. To do this, we need to handle `transformBody` inside `onCallReceive` as follows:
 
 ```kotlin
 ```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationPlugin.kt" lines="6-16,27"}
+{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationPlugin.kt" include-lines="6-16,27"}
 
 `transformBody` in the code snippet above works as follows:
 
@@ -118,13 +118,13 @@ You can find the full example here: [DataTransformationPlugin.kt](https://github
 
 ```kotlin
 ```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" lines="27-30"}
+{src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" include-lines="27-30"}
 
 Calling `call.respond` invokes the `onCallRespond`, which is in turn allows you to transform data to be sent to the client. For example, the code snippet below shows how to add `1` to the initial value:
 
 ```kotlin
 ```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationPlugin.kt" lines="18-26"}
+{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationPlugin.kt" include-lines="18-26"}
 
 You can find the full example here: [DataTransformationPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationPlugin.kt).
 
@@ -159,7 +159,7 @@ Custom plugins allow you to share any value related to a call, so you can access
 
 ```kotlin
 ```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationBenchmarkPlugin.kt" lines="6-18"}
+{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationBenchmarkPlugin.kt" include-lines="6-18"}
 
 If you make a `POST` request, the plugin prints a delay in a console:
 
@@ -201,13 +201,13 @@ The [Custom header](#custom-header) example demonstrates how to create a plugin 
 
 ```kotlin
 ```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt" lines="18-21"}
+{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt" include-lines="18-21"}
 
 To use this configuration in a plugin, pass a configuration class reference to `createApplicationPlugin`:
 
 ```kotlin
 ```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt" lines="5-16"}
+{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt" include-lines="5-16"}
 
 > Given that plugin configuration fields are mutable, saving them in local variables is recommended.
 
@@ -215,7 +215,7 @@ Finally, you can install and configure a plugin as follows:
 
 ```kotlin
 ```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" lines="15-18"}
+{src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" include-lines="15-18"}
 
 You can find the full example here: [CustomHeaderPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt).
 

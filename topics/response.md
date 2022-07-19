@@ -10,7 +10,7 @@ All functions used to [make an HTTP request](request.md) (`request`, `get`, `pos
 
 ```kotlin
 ```
-{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" lines="21"}
+{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="21"}
 
 
 ## Receive response body {id="body"}
@@ -21,18 +21,18 @@ To receive a raw body of a response, call the `body` function and pass the requi
 
 ```kotlin
 ```
-{src="snippets/_misc_client/ResponseTypes.kt" lines="11,12"}
+{src="snippets/_misc_client/ResponseTypes.kt" include-lines="11,12"}
 
 Similarly, you can get a body as [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/):
 
 ```kotlin
 ```
-{src="snippets/_misc_client/ResponseTypes.kt" lines="11,13"}
+{src="snippets/_misc_client/ResponseTypes.kt" include-lines="11,13"}
 
 A [runnable example](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-download-file) below shows how to get a response as a byte array and save it to a file:
 ```kotlin
 ```
-{src="snippets/client-download-file/src/main/kotlin/com/example/Downloader.kt" lines="12-24"}
+{src="snippets/client-download-file/src/main/kotlin/com/example/Downloader.kt" include-lines="12-24"}
 
 > The [onDownload](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/on-download.html) extension function in the example above is used to display download progress.
 
@@ -42,7 +42,7 @@ With the [ContentNegotiation](serialization-client.md) plugin installed, you can
 
 ```kotlin
 ```
-{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="35"}
+{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="35"}
 
 To learn more, see [](serialization-client.md#receive_send_data).
 
@@ -53,7 +53,7 @@ When you call the `HttpResponse.body` function to get a body, Ktor processes a r
 
 ```kotlin
 ```
-{src="snippets/client-download-streaming/src/main/kotlin/com/example/Application.kt" lines="15-31"}
+{src="snippets/client-download-streaming/src/main/kotlin/com/example/Application.kt" include-lines="15-31"}
 
 In this example, [ByteReadChannel](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) is used to read data asynchronously using byte packets ([ByteReadPacket](https://api.ktor.io/ktor-io/io.ktor.utils.io.core/-byte-read-packet/index.html)) and append the content of these packets to the content of a file.
 
@@ -68,7 +68,7 @@ To get the status code of a response, use the [HttpResponse.status](https://api.
 
 ```kotlin
 ```
-{src="snippets/_misc_client/ResponseTypes.kt" lines="1-4,9,11,15-17"}
+{src="snippets/_misc_client/ResponseTypes.kt" include-lines="1-4,9,11,15-17"}
 
 
 ### Headers {id="headers"}

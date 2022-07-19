@@ -30,12 +30,12 @@ Ktor provides two main ways to send HTML responses to a client:
 To send HTML build using Kotlin DSL, use the [call.respondHtml](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-html-builder/io.ktor.server.html/respond-html.html) function:
 ```kotlin
 ```
-{src="snippets/html/src/main/kotlin/com/example/Application.kt" lines="12-26"}
+{src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="12-26"}
 
 To send a template in a response, call the [call.respond](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.response/respond.html) function with a specific content ...
 ```kotlin
 ```
-{src="snippets/freemarker/src/main/kotlin/com/example/Application.kt" lines="16-19"}
+{src="snippets/freemarker/src/main/kotlin/com/example/Application.kt" include-lines="16-19"}
 
 ... or use an appropriate [call.respondTemplate](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-freemarker/io.ktor.server.freemarker/respond-template.html) function: 
 ```kotlin
@@ -52,7 +52,7 @@ To enable serialization of data objects in Ktor, you need to install the [Conten
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="32-36"}
+{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="32-36"}
 
 You can find the full example here: [json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/json-kotlinx).
 

@@ -105,7 +105,7 @@ Each [provider type](#choose-provider) has its own configuration. For instance, 
 
 ```kotlin
 ```
-{src="snippets/auth-basic/src/main/kotlin/com/example/Application.kt" lines="9-20"}
+{src="snippets/auth-basic/src/main/kotlin/com/example/Application.kt" include-lines="9-20"}
 
 To understand how the `validate` function works, we need to introduce two terms:
 * A _principal_ is an entity that can be authenticated: a user, a computer, a service, etc. In Ktor, various authentication providers might use different principals. For example, the `basic` and `form` providers authenticate [UserIdPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html) while the `jwt` provider verifies [JWTPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-principal/index.html).
@@ -151,14 +151,14 @@ In a case of successful authentication, you can retrieve an authenticated [Princ
 
 ```kotlin
 ```
-{src="snippets/auth-basic/src/main/kotlin/com/example/Application.kt" lines="21-27"}
+{src="snippets/auth-basic/src/main/kotlin/com/example/Application.kt" include-lines="21-27"}
 
 
 If you use [session authentication](session-auth.md), a principal might be a data class that stores session data. So, you need to pass this data class to `call.principal`:
 
 ```kotlin
 ```
-{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" lines="75-77,80-81"}
+{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="75-77,80-81"}
 
 
 

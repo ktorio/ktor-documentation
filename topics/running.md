@@ -30,7 +30,7 @@ The [example](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/c
 
 ```kotlin
 ```
-{src="snippets/engine-main/src/main/kotlin/com/example/Application.kt" lines="7"}
+{src="snippets/engine-main/src/main/kotlin/com/example/Application.kt" include-lines="7"}
 
 To run a Ktor server using Gradle/Maven without configuring the engine inside the `main` function, you need to specify the main class name in the build script as follows:
 

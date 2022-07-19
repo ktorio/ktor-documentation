@@ -45,7 +45,7 @@ Optionally, you can configure the plugin by passing [WebSocketOptions](https://a
 
 ```kotlin
 ```
-{src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" lines="15-20"}
+{src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" include-lines="15-20"}
 
 ## Handle WebSockets sessions {id="handle-sessions"}
 
@@ -82,7 +82,7 @@ The example below shows how to create the `echo` WebSocket endpoint to handle a 
 
 ```kotlin
 ```
-{src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" lines="21,26-37,54-55"}
+{src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" include-lines="21,26-37,54-55"}
 
 You can find the full example here: [server-websockets](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/server-websockets).
 
@@ -92,13 +92,13 @@ To handle multiple WebSocket sessions (for example, for a chat application), you
 
 ```kotlin
 ```
-{src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" lines="57-63"}
+{src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" include-lines="57-63"}
 
 Then, you can create a new connection inside the `webSocket` handler when a new client connects to the WebSocket endpoint:
 
 ```kotlin
 ```
-{src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" lines="21,39-54"}
+{src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" include-lines="21,39-54"}
 
 You can find the full example here: [server-websockets](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/server-websockets).
 

@@ -52,13 +52,13 @@ To register a Ktor servlet in your application, open the `WEB-INF/web.xml` file 
 
 ```xml
 ```
-{src="snippets/jetty-war/src/main/webapp/WEB-INF/web.xml" lines="7-16"}
+{src="snippets/jetty-war/src/main/webapp/WEB-INF/web.xml" include-lines="7-16"}
 
 Then, configure the URL pattern for this servlet:
 
 ```xml
 ```
-{src="snippets/jetty-war/src/main/webapp/WEB-INF/web.xml" lines="18-21"}
+{src="snippets/jetty-war/src/main/webapp/WEB-INF/web.xml" include-lines="18-21"}
 
 
 
@@ -68,7 +68,7 @@ The [Gretty](https://plugins.gradle.org/plugin/org.gretty) plugin allows you to 
 
 ```groovy
 ```
-{src="snippets/jetty-war/build.gradle.kts" lines="5,8,10"}
+{src="snippets/jetty-war/build.gradle.kts" include-lines="5,8,10"}
 
 Then, you can configure it in a `gretty` block as follows:
 
@@ -77,14 +77,14 @@ Then, you can configure it in a `gretty` block as follows:
 
 ```groovy
 ```
-{src="snippets/jetty-war/build.gradle.kts" lines="12-15"}
+{src="snippets/jetty-war/build.gradle.kts" include-lines="12-15"}
 
 </tab>
 <tab title="Tomcat">
 
 ```groovy
 ```
-{src="snippets/tomcat-war/build.gradle.kts" lines="12-16"}
+{src="snippets/tomcat-war/build.gradle.kts" include-lines="12-16"}
 
 </tab>
 </tabs>
@@ -95,7 +95,7 @@ Finally, configure the `run` task:
 
 ```groovy
 ```
-{src="snippets/jetty-war/build.gradle.kts" lines="29-33"}
+{src="snippets/jetty-war/build.gradle.kts" include-lines="29-33"}
 
 
 
@@ -105,7 +105,7 @@ The War plugin allows you to [generate](#generate-war) WAR archives. You can ins
 
 ```groovy
 ```
-{src="snippets/jetty-war/build.gradle.kts" lines="5,9-10"}
+{src="snippets/jetty-war/build.gradle.kts" include-lines="5,9-10"}
 
 
 

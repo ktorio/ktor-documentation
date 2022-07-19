@@ -57,7 +57,7 @@ In the [example](https://github.com/ktorio/ktor-documentation/tree/%ktor_version
 
 ```kotlin
 ```
-{src="snippets/client-validate-2xx-response/src/main/kotlin/com/example/Application.kt" lines="23-33"}
+{src="snippets/client-validate-2xx-response/src/main/kotlin/com/example/Application.kt" include-lines="23-33"}
 
 ### Handle non-2xx exceptions {id="non-2xx"}
 
@@ -65,4 +65,4 @@ If you need to customize [default validation](#default) and handle exceptions fo
 
 ```kotlin
 ```
-{src="snippets/client-validate-non-2xx-response/src/main/kotlin/com/example/Application.kt" lines="18-30"}
+{src="snippets/client-validate-non-2xx-response/src/main/kotlin/com/example/Application.kt" include-lines="18-30"}

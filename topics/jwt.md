@@ -60,13 +60,13 @@ The JWT authorization flow in Ktor might look as follows:
 1. A client makes a `POST` request with the credentials to a specific authentication [route](Routing_in_Ktor.md) in a server application. The example below shows an [HTTP client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html) `POST` request with the credentials passed in JSON:
    ```HTTP
    ```
-   {src="snippets/auth-jwt-hs256/requests.http" lines="2-8"}
+   {src="snippets/auth-jwt-hs256/requests.http" include-lines="2-8"}
 2. If the credentials are valid, a server generates a JSON web token and signs it with the specified algorithm. For example, this might be `HS256` with a specific shared secret or `RS256` with a public/private key pair.
 3. A server sends a generated JWT to a client.
 4. A client can now make a request to a protected resource with a JSON web token passed in the `Authorization` header using the `Bearer` schema.
    ```HTTP
    ```
-   {src="snippets/auth-jwt-hs256/requests.http" lines="13-14"}
+   {src="snippets/auth-jwt-hs256/requests.http" include-lines="13-14"}
 5. A server receives a request and performs the following validations:
    * Verifies a token's signature. Note that a [verification way](#configure-verifier) depends on the algorithm used to sign a token.
    * Perform [additional validations](#validate-payload) on the JWT payload.
@@ -102,14 +102,14 @@ To configure JWT-related settings, you can create a custom `jwt` group in a [con
 
 ```
 ```
-{style="block" src="snippets/auth-jwt-hs256/src/main/resources/application.conf" lines="11-16"}
+{style="block" src="snippets/auth-jwt-hs256/src/main/resources/application.conf" include-lines="11-16"}
 
 </tab>
 <tab title="RS256" group-key="rs256">
 
 ```
 ```
-{style="block" src="snippets/auth-jwt-rs256/src/main/resources/application.conf" lines="11-16"}
+{style="block" src="snippets/auth-jwt-rs256/src/main/resources/application.conf" include-lines="11-16"}
 
 </tab>
 </tabs>
@@ -125,14 +125,14 @@ You can [access these settings in code](Configurations.topic#read-configuration-
 
 ```kotlin
 ```
-{style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" lines="24-27"}
+{style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="24-27"}
 
 </tab>
 <tab title="RS256" group-key="rs256">
 
 ```kotlin
 ```
-{style="block" src="snippets/auth-jwt-rs256/src/main/kotlin/com/example/Application.kt" lines="31-34"}
+{style="block" src="snippets/auth-jwt-rs256/src/main/kotlin/com/example/Application.kt" include-lines="31-34"}
 
 </tab>
 </tabs>
@@ -148,14 +148,14 @@ To generate a JSON web token, you can use [JWTCreator.Builder](https://javadoc.i
 
 ```kotlin
 ```
-{style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" lines="50-61"}
+{style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="50-61"}
 
 </tab>
 <tab title="RS256" group-key="rs256">
 
 ```kotlin
 ```
-{style="block" src="snippets/auth-jwt-rs256/src/main/kotlin/com/example/Application.kt" lines="58-72"}
+{style="block" src="snippets/auth-jwt-rs256/src/main/kotlin/com/example/Application.kt" include-lines="58-72"}
 
 </tab>
 </tabs>
@@ -174,7 +174,7 @@ The `realm` property allows you to set the realm to be passed in `WWW-Authentica
 
 ```kotlin
 ```
-{style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" lines="27-30,46-47"}
+{style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="27-30,46-47"}
 
 
 ### Step 4: Configure a token verifier {id="configure-verifier"}
@@ -189,14 +189,14 @@ The `verifier` function allows you to verify a token format and its signature:
 
 ```kotlin
 ```
-{style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" lines="24-35,46-47"}
+{style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="24-35,46-47"}
 
 </tab>
 <tab title="RS256" group-key="rs256">
 
 ```kotlin
 ```
-{style="block" src="snippets/auth-jwt-rs256/src/main/kotlin/com/example/Application.kt" lines="32-44,55-56"}
+{style="block" src="snippets/auth-jwt-rs256/src/main/kotlin/com/example/Application.kt" include-lines="32-44,55-56"}
 
 </tab>
 </tabs>
@@ -207,13 +207,13 @@ The `verifier` function allows you to verify a token format and its signature:
 1. The `validate` function allows you to perform additional validations on the JWT payload. Check the `credential` parameter, which represents a [JWTCredential](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-credential/index.html) object and contains the JWT payload. In the example below, the value of a custom `username` claim is checked.
    ```kotlin
    ```
-   {style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" lines="28-29,36-42,46-47"}
+   {style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="28-29,36-42,46-47"}
    
    In a case of successful authentication, return [JWTPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-principal/index.html). 
 2. The `challenge` function allows you to configure a response to be sent if authentication fails.
    ```kotlin
    ```
-   {style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" lines="28-29,43-47"}
+   {style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="28-29,43-47"}
 
 
 
@@ -227,4 +227,4 @@ After configuring the `jwt` provider, you can define the authorization for the d
 
 ```kotlin
 ```
-{style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" lines="49,63-71"}
+{style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="49,63-71"}

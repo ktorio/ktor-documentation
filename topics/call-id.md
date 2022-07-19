@@ -89,7 +89,7 @@ This means that call IDs containing capital letters won't pass verification. If 
 
 ```kotlin
 ```
-{src="snippets/call-id/src/main/kotlin/com/example/Application.kt" lines="13,15-18"}
+{src="snippets/call-id/src/main/kotlin/com/example/Application.kt" include-lines="13,15-18"}
 
 You can find the full example here: [call-id](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/call-id).
 
@@ -103,7 +103,7 @@ After [retrieving](#retrieve)/[generating](#generate) a call ID, you can send it
 
    ```kotlin
    ```
-  {src="snippets/call-id/src/main/kotlin/com/example/Application.kt" lines="13-14,18"}
+  {src="snippets/call-id/src/main/kotlin/com/example/Application.kt" include-lines="13-14,18"}
 
   You can find the full example here: [call-id](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/call-id).
 
@@ -128,11 +128,11 @@ Using `%plugin_name%` along with [CallLogging](call-logging.md) helps you troubl
 
 ```kotlin
 ```
-{src="snippets/call-id/src/main/kotlin/com/example/Application.kt" lines="19-21"}
+{src="snippets/call-id/src/main/kotlin/com/example/Application.kt" include-lines="19-21"}
 
 This key can be passed to a [logger configuration](logging.md#configure-logger) to show call IDs in the log. For instance, the `logback.xml` file might look as follows:
 ```
 ```
-{style="block" src="snippets/call-id/src/main/resources/logback.xml" lines="2-6"}
+{style="block" src="snippets/call-id/src/main/resources/logback.xml" include-lines="2-6"}
 
 You can find the full example here: [call-id](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/call-id).

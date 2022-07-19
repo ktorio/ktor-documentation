@@ -33,7 +33,7 @@ Ktor allows you to use [Thymeleaf templates](https://www.thymeleaf.org/) as view
 Inside the `install` block, you can configure the `ClassLoaderTemplateResolver`. For example, the code snippet below enables Ktor to look up `*.html` templates in the `templates` package relative to the current classpath:
 ```kotlin
 ```
-{src="snippets/thymeleaf/src/main/kotlin/com/example/Application.kt" lines="12-18"}
+{src="snippets/thymeleaf/src/main/kotlin/com/example/Application.kt" include-lines="12-18"}
 
 ### Send a template in response {id="use_template"}
 Imagine you have the `index.html` template in `resources/templates`:
@@ -44,9 +44,9 @@ Imagine you have the `index.html` template in `resources/templates`:
 A data model for a user looks as follows:
 ```kotlin
 ```
-{src="snippets/thymeleaf/src/main/kotlin/com/example/Application.kt" lines="27"}
+{src="snippets/thymeleaf/src/main/kotlin/com/example/Application.kt" include-lines="27"}
 
 To use the template for the specified [route](Routing_in_Ktor.md), pass [ThymeleafContent](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-thymeleaf/io.ktor.server.thymeleaf/-thymeleaf-content/index.html) to the `call.respond` method in the following way:
 ```kotlin
 ```
-{src="snippets/thymeleaf/src/main/kotlin/com/example/Application.kt" lines="20-23"}
+{src="snippets/thymeleaf/src/main/kotlin/com/example/Application.kt" include-lines="20-23"}

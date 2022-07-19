@@ -33,7 +33,7 @@ For a multiplatform project, you need to add the `ktor-client-core` artifact to 
 
 ```kotlin
 ```
-{src="snippets/tutorial-client-kmm/shared/build.gradle.kts" lines="27-31"}
+{src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="27-31"}
 
 
 
@@ -48,7 +48,7 @@ For example, the code snippet below shows how to add the `ktor-client-okhttp` de
 
 ```kotlin
 ```
-{src="snippets/tutorial-client-kmm/shared/build.gradle.kts" lines="37-41"}
+{src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="37-41"}
 
 For a full list of dependencies required for a specific engine, see [](http-client_engines.md#dependencies).
 

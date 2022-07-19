@@ -34,18 +34,18 @@ To send a CSS response, you need to extend `ApplicationCall` by adding the `resp
 
 ```kotlin
 ```
-{src="snippets/css-dsl/src/main/kotlin/com/example/Application.kt" lines="39-41"}
+{src="snippets/css-dsl/src/main/kotlin/com/example/Application.kt" include-lines="39-41"}
 
 Then, you can provide CSS inside the required [route](Routing_in_Ktor.md):
 
 ```kotlin
 ```
-{src="snippets/css-dsl/src/main/kotlin/com/example/Application.kt" lines="25-35"}
+{src="snippets/css-dsl/src/main/kotlin/com/example/Application.kt" include-lines="25-35"}
 
 Finally, you can use the specified CSS for an HTML document created with [HTML DSL](html_dsl.md):
 
 ```kotlin
 ```
-{src="snippets/css-dsl/src/main/kotlin/com/example/Application.kt" lines="13-24"}
+{src="snippets/css-dsl/src/main/kotlin/com/example/Application.kt" include-lines="13-24"}
 
 You can find the full example here: [css-dsl](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/css-dsl).

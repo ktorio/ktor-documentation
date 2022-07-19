@@ -45,7 +45,7 @@ To allow such a request on the backend side, you need to configure the `CORS` pl
 
 ```kotlin
 ```
-{src="snippets/cors-backend/src/main/kotlin/com/example/Application.kt" lines="18-21"}
+{src="snippets/cors-backend/src/main/kotlin/com/example/Application.kt" include-lines="18-21"}
 
 You can find the full example here: [cors-backend](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/cors-backend).
 

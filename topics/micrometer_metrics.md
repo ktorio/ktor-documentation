@@ -53,7 +53,7 @@ After installing `MicrometerMetrics`, you need to create a [registry for your mo
 
 ```kotlin
 ```
-{src="snippets/micrometer-metrics/src/main/kotlin/com/example/Application.kt" lines="15-18,32,42"}
+{src="snippets/micrometer-metrics/src/main/kotlin/com/example/Application.kt" include-lines="15-18,32,42"}
 
 
 
@@ -77,7 +77,7 @@ You configure [distribution statistics](https://micrometer.io/docs/concepts#_con
 
 ```kotlin
 ```
-{src="snippets/micrometer-metrics/src/main/kotlin/com/example/Application.kt" lines="17,19-26,32"}
+{src="snippets/micrometer-metrics/src/main/kotlin/com/example/Application.kt" include-lines="17,19-26,32"}
 
 
 ### JVM and system metrics {id="jvm_metrics"}
@@ -85,7 +85,7 @@ In addition to [HTTP metrics](#ktor_metrics), Ktor exposes a set of metrics for 
 
 ```kotlin
 ```
-{src="snippets/micrometer-metrics/src/main/kotlin/com/example/Application.kt" lines="17,27-32"}
+{src="snippets/micrometer-metrics/src/main/kotlin/com/example/Application.kt" include-lines="17,27-32"}
 
 You can also assign an empty list to disable these metrics at all.
 
@@ -97,6 +97,6 @@ If you use Prometheus as a monitoring system, you need to expose an HTTP endpoin
 
    ```kotlin
    ```
-   {src="snippets/micrometer-metrics/src/main/kotlin/com/example/Application.kt" lines="15-18,32-33,38-42"}
+   {src="snippets/micrometer-metrics/src/main/kotlin/com/example/Application.kt" include-lines="15-18,32-33,38-42"}
 
    You can find the full example here: [micrometer-metrics](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/micrometer-metrics).

@@ -47,7 +47,7 @@ The `%plugin_name%` plugin validates a body of a request if you call the **[rece
 
 ```kotlin
 ```
-{src="snippets/request-validation/src/main/kotlin/com/example/Application.kt" lines="52-56,65"}
+{src="snippets/request-validation/src/main/kotlin/com/example/Application.kt" include-lines="52-56,65"}
 
 
 ### 2. Configure a validation function {id="validation-function"}
@@ -62,7 +62,7 @@ The `validate` function has two overloads allowing you to validate a request bod
    The example below shows how to validate a request body representing a `String` value:
    ```kotlin
    ```
-   {src="snippets/request-validation/src/main/kotlin/com/example/Application.kt" lines="20-25,43"}
+   {src="snippets/request-validation/src/main/kotlin/com/example/Application.kt" include-lines="20-25,43"}
 
    If you have the `ContentNegotiation` plugin installed configured with a specific [serializer](serialization.md#configure_serializer), you can validate object properties. Learn more from [](#example-object).
 
@@ -80,7 +80,7 @@ You can handle `RequestValidationException` using the [StatusPages](status_pages
 
 ```kotlin
 ```
-{src="snippets/request-validation/src/main/kotlin/com/example/Application.kt" lines="44-48"}
+{src="snippets/request-validation/src/main/kotlin/com/example/Application.kt" include-lines="44-48"}
 
 You can find the full example here: [request-validation](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/request-validation).
 
@@ -92,28 +92,28 @@ Suppose the server receives a `POST` request with the following JSON data:
 
 ```HTTP
 ```
-{src="snippets/request-validation/post.http" lines="7-14"}
+{src="snippets/request-validation/post.http" include-lines="7-14"}
 
 To add validation of the `id` property, follow the steps below:
 
 1. Create the `Customer` data class that describes the JSON object above:
    ```kotlin
    ```
-   {src="snippets/request-validation/src/main/kotlin/com/example/Application.kt" lines="14-15"}
+   {src="snippets/request-validation/src/main/kotlin/com/example/Application.kt" include-lines="14-15"}
 
 2. Install the `ContentNegotiation` plugin with the [JSON serializer](serialization.md#register_json):
    ```kotlin
    ```
-   {src="snippets/request-validation/src/main/kotlin/com/example/Application.kt" lines="49-51"}
+   {src="snippets/request-validation/src/main/kotlin/com/example/Application.kt" include-lines="49-51"}
 
 3. Receive the `Customer` object on the server side as follows:
    ```kotlin
    ```
-   {src="snippets/request-validation/src/main/kotlin/com/example/Application.kt" lines="57-60"}
+   {src="snippets/request-validation/src/main/kotlin/com/example/Application.kt" include-lines="57-60"}
 4. In the `%plugin_name%` plugin configuration, add validation of the `id` property to make sure it falls into a specified range:
    ```kotlin
    ```
-   {src="snippets/request-validation/src/main/kotlin/com/example/Application.kt" lines="20,26-30,43"}
+   {src="snippets/request-validation/src/main/kotlin/com/example/Application.kt" include-lines="20,26-30,43"}
    
    In this case, `%plugin_name%` will raise **[RequestValidationException](#validation-exception)** if the `id` value is less or equals to `0`.
 
@@ -126,15 +126,15 @@ Suppose the server receives a `POST` request with the following text data:
 
 ```HTTP
 ```
-{src="snippets/request-validation/post.http" lines="17-20"}
+{src="snippets/request-validation/post.http" include-lines="17-20"}
 
 To receive data as a byte array and validate it, perform the following steps:
 
 1. Receive data on the server side as follows:
    ```kotlin
    ```
-   {src="snippets/request-validation/src/main/kotlin/com/example/Application.kt" lines="61-64"}
+   {src="snippets/request-validation/src/main/kotlin/com/example/Application.kt" include-lines="61-64"}
 2. To validate the received data, we'll use the second `validate` [function overload](#validation-function) that accepts `ValidatorBuilder` and allows you to provide custom validation rules:
    ```kotlin
    ```
-   {src="snippets/request-validation/src/main/kotlin/com/example/Application.kt" lines="20,31-43"}
+   {src="snippets/request-validation/src/main/kotlin/com/example/Application.kt" include-lines="20,31-43"}

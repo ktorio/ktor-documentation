@@ -34,7 +34,7 @@ To configure the `%plugin_name%` plugin, you need to define the [options](https:
 
 ```kotlin
 ```
-{src="snippets/caching-headers/src/main/kotlin/com/example/Application.kt" lines="14-24,52-53"}
+{src="snippets/caching-headers/src/main/kotlin/com/example/Application.kt" include-lines="14-24,52-53"}
 
 The [CachingOptions](https://api.ktor.io/ktor-http/io.ktor.http.content/-caching-options/index.html) object accepts `Cache-Control` and `Expires` header values as parameters:
 
@@ -47,7 +47,7 @@ You can install plugins not only globally but also to [specific routes](Plugins.
 
 ```kotlin
 ```
-{src="snippets/caching-headers/src/main/kotlin/com/example/Application.kt" lines="25-32"}
+{src="snippets/caching-headers/src/main/kotlin/com/example/Application.kt" include-lines="25-32"}
 
 
 ### Call level {id="configure-call"}
@@ -56,6 +56,6 @@ If you need more fine-grained caching setup, you can configure caching options o
 
 ```kotlin
 ```
-{src="snippets/caching-headers/src/main/kotlin/com/example/Application.kt" lines="40-51"}
+{src="snippets/caching-headers/src/main/kotlin/com/example/Application.kt" include-lines="40-51"}
 
 > For logging in users, you can use the [Authentication](authentication.md) and [Sessions](sessions.md) plugins.

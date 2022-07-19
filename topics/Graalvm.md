@@ -82,7 +82,7 @@ called `graal-server`. Executing it will launch the Ktor Server, responding on `
 
 [//]: # (   ```)
 
-[//]: # (   {src="snippets/deployment-ktor-plugin/build.gradle.kts" lines="5,8-9"})
+[//]: # (   {src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="5,8-9"})
 
 [//]: # ()
 [//]: # (2. Make sure the [main application class]&#40;server-dependencies.xml#create-entry-point&#41; is configured:)
@@ -91,7 +91,7 @@ called `graal-server`. Executing it will launch the Ktor Server, responding on `
 
 [//]: # (   ```)
 
-[//]: # (   {src="snippets/deployment-ktor-plugin/build.gradle.kts" lines="11-13"})
+[//]: # (   {src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="11-13"})
 
 [//]: # ()
 [//]: # (3. Optionally, you can  configure the name of the native executable to be generated using the `ktor.nativeImage` extension:)
@@ -100,7 +100,7 @@ called `graal-server`. Executing it will launch the Ktor Server, responding on `
 
 [//]: # (   ```)
 
-[//]: # (   {src="snippets/deployment-ktor-plugin/build.gradle.kts" lines="29,48-51"})
+[//]: # (   {src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="29,48-51"})
 
 [//]: # ()
 [//]: # ()

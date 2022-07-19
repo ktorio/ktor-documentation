@@ -103,7 +103,7 @@ In Ktor, you can install plugins not only globally but also to specific [routes]
 
 ```kotlin
 ```
-{src="snippets/caching-headers/src/main/kotlin/com/example/Application.kt" lines="25-32"}
+{src="snippets/caching-headers/src/main/kotlin/com/example/Application.kt" include-lines="25-32"}
 
 Note that the following rules are applied to several installations of the same plugin:
 * Configuration of a plugin installed to a specific route overrides its [global configuration](#install).

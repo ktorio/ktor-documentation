@@ -68,7 +68,7 @@ val client = HttpClient(CIO) {
 In the `json` constructor, you can access the [JsonBuilder](https://kotlin.github.io/kotlinx.serialization/kotlinx-serialization-json/kotlinx.serialization.json/-json-builder/index.html) API, for example:
 ```kotlin
 ```
-{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="20-27"}
+{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="20-27"}
 
 You can find the full example here: [client-json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-json-kotlinx).
 
@@ -177,12 +177,12 @@ val client = HttpClient(CIO) {
 To receive and send data, you need to have a data class, for example:
 ```kotlin
 ```
-{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="16"}
+{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="16"}
 
 If you use kotlinx.serialization, make sure that this class has the `@Serializable` annotation:
 ```kotlin
 ```
-{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="15-16"}
+{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="15-16"}
 
 To learn more about `kotlinx.serialization`, see the [Kotlin Serialization Guide](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serialization-guide.md).
 
@@ -192,7 +192,7 @@ To send a [class instance](#create_data_class) within a [request](request.md) bo
 
 ```kotlin
 ```
-{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="29-32"}
+{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="29-32"}
 
 To send data as XML or CBOR, set `contentType` to `ContentType.Application.Xml` or `ContentType.Application.Cbor`, respectively.
 
@@ -201,6 +201,6 @@ To send data as XML or CBOR, set `contentType` to `ContentType.Application.Xml` 
 When a server sends a [response](response.md) with the `application/json`, `application/xml`, or `application/cbor` content, you can deserialize it by specifying a [data class](#create_data_class) as a parameter of a function used to receive a response payload (`body` in the example below):
 ```kotlin
 ```
-{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" lines="35"}
+{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="35"}
 
 You can find the full example here: [client-json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-json-kotlinx).

@@ -65,7 +65,7 @@ The `form` authentication provider exposes its settings via the [FormAuthenticat
 
 ```kotlin
 ```
-{src="snippets/auth-form-html-dsl/src/main/kotlin/com/example/Application.kt" lines="11-23"}
+{src="snippets/auth-form-html-dsl/src/main/kotlin/com/example/Application.kt" include-lines="11-23"}
 
 The `validate` function checks `UserPasswordCredential` and returns a `UserIdPrincipal` in a case of successful authentication or `null` if authentication fails.
 
@@ -77,4 +77,4 @@ After configuring the `form` provider, you can define the authorization for the 
 
 ```kotlin
 ```
-{src="snippets/auth-form-html-dsl/src/main/kotlin/com/example/Application.kt" lines="25-30,51"}
+{src="snippets/auth-form-html-dsl/src/main/kotlin/com/example/Application.kt" include-lines="25-30,51"}

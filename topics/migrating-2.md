@@ -197,14 +197,14 @@ In the test below, the `handleRequest` function is replaced with the `client.get
 
 ```kotlin
 ```
-{src="snippets/engine-main/src/test/kotlin/EngineMainTest.kt" lines="18-26"}
+{src="snippets/engine-main/src/test/kotlin/EngineMainTest.kt" include-lines="18-26"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/engine-main/src/test/kotlin/EngineMainTest.kt" lines="11-16"}
+{src="snippets/engine-main/src/test/kotlin/EngineMainTest.kt" include-lines="11-16"}
 
 </tab>
 </tabs>
@@ -219,14 +219,14 @@ In the test below, the `handleRequest` function is replaced with the `client.pos
 
 ```kotlin
 ```
-{src="snippets/post-form-parameters/src/test/kotlin/ApplicationTest.kt" lines="20-28"}
+{src="snippets/post-form-parameters/src/test/kotlin/ApplicationTest.kt" include-lines="20-28"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/post-form-parameters/src/test/kotlin/ApplicationTest.kt" lines="11-18"}
+{src="snippets/post-form-parameters/src/test/kotlin/ApplicationTest.kt" include-lines="11-18"}
 
 </tab>
 </tabs>
@@ -242,14 +242,14 @@ To build `multipart/form-data` in v2.0.0, you need to pass `MultiPartFormDataCon
 
 ```kotlin
 ```
-{src="snippets/upload-file/src/test/kotlin/UploadFileTest.kt" lines="36-61"}
+{src="snippets/upload-file/src/test/kotlin/UploadFileTest.kt" include-lines="36-61"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/upload-file/src/test/kotlin/UploadFileTest.kt" lines="15-34"}
+{src="snippets/upload-file/src/test/kotlin/UploadFileTest.kt" include-lines="15-34"}
 
 </tab>
 </tabs>
@@ -266,14 +266,14 @@ With v2.0.0, you need to create a new client instance and install the [ContentNe
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" lines="46-55"}
+{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" include-lines="46-55"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" lines="31-44"}
+{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" include-lines="31-44"}
 
 </tab>
 </tabs>
@@ -288,14 +288,14 @@ In v1.6.x, `cookiesSession` is used to preserve cookies between requests when te
 
 ```kotlin
 ```
-{src="snippets/session-cookie-client/src/test/kotlin/ApplicationTest.kt" lines="29-46"}
+{src="snippets/session-cookie-client/src/test/kotlin/ApplicationTest.kt" include-lines="29-46"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/session-cookie-client/src/test/kotlin/ApplicationTest.kt" lines="12-27"}
+{src="snippets/session-cookie-client/src/test/kotlin/ApplicationTest.kt" include-lines="12-27"}
 
 </tab>
 </tabs>
@@ -309,14 +309,14 @@ In the old API, `handleWebSocketConversation` is used to test [WebSocket convers
 
 ```kotlin
 ```
-{src="snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt" lines="28-40"}
+{src="snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt" include-lines="28-40"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt" lines="10-26"}
+{src="snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt" include-lines="10-26"}
 
 </tab>
 </tabs>

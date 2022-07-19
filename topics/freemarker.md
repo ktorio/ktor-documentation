@@ -36,7 +36,7 @@ Inside the `install` block, you can [configure](#configure) the desired [Templat
 To load templates, you need to assign the desired [TemplateLoader][freemarker_template_loading] type to the `templateLoader` property. For example, the code snippet below enables Ktor to look up templates in the `templates` package relative to the current classpath:
 ```kotlin
 ```
-{src="snippets/freemarker/src/main/kotlin/com/example/Application.kt" lines="12-14"}
+{src="snippets/freemarker/src/main/kotlin/com/example/Application.kt" include-lines="12-14"}
 
 ### Send a template in response {id="use_template"}
 Imagine you have the `index.ftl` template in `resources/templates`:
@@ -47,9 +47,9 @@ Imagine you have the `index.ftl` template in `resources/templates`:
 A data model for a user looks as follows:
 ```kotlin
 ```
-{src="snippets/freemarker/src/main/kotlin/com/example/Application.kt" lines="23"}
+{src="snippets/freemarker/src/main/kotlin/com/example/Application.kt" include-lines="23"}
 
 To use the template for the specified [route](Routing_in_Ktor.md), pass `FreeMarkerContent` to the `call.respond` method in the following way:
 ```kotlin
 ```
-{src="snippets/freemarker/src/main/kotlin/com/example/Application.kt" lines="16-19"}
+{src="snippets/freemarker/src/main/kotlin/com/example/Application.kt" include-lines="16-19"}

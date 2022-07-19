@@ -36,13 +36,13 @@ To configure timeouts, you can use corresponding properties:
 You can specify timeouts for all requests inside the `install` block. The code sample below shows how to set a request timout using `requestTimeoutMillis`:
 ```kotlin
 ```
-{src="/snippets/client-timeout/src/main/kotlin/com/example/Application.kt" lines="13-17"}
+{src="/snippets/client-timeout/src/main/kotlin/com/example/Application.kt" include-lines="13-17"}
 
 If you need to set a timeout only for a specific request, use the [HttpRequestBuilder.timeout](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/timeout.html) property:
 
 ```kotlin
 ```
-{src="/snippets/client-timeout/src/main/kotlin/com/example/Application.kt" lines="20-24"}
+{src="/snippets/client-timeout/src/main/kotlin/com/example/Application.kt" include-lines="20-24"}
 
 Note that timeouts specified for a specific request override global timeouts from the `install` block.
 

@@ -54,7 +54,7 @@ You can also check specific exceptions and respond with the required content:
 
 ```kotlin
 ```
-{src="snippets/status-pages/src/main/kotlin/com/example/Application.kt" lines="12-19,24"}
+{src="snippets/status-pages/src/main/kotlin/com/example/Application.kt" include-lines="12-19,24"}
 
 
 ### Status {id="status"}
@@ -63,14 +63,14 @@ The `status` handler provides the capability to respond with specific content ba
 
 ```kotlin
 ```
-{src="snippets/status-pages/src/main/kotlin/com/example/Application.kt" lines="12,20-22,24"}
+{src="snippets/status-pages/src/main/kotlin/com/example/Application.kt" include-lines="12,20-22,24"}
 
 ### Status file {id="status-file"}
 
 The `statusFile` handler allows you to serve HTML pages based on the status code. Suppose your project contains the `error401.html` and `error402.html` HTML pages in the `resources` folder. In this case, you can handle the `401` and `402` status codes using `statusFile` as follows:
 ```kotlin
 ```
-{src="snippets/status-pages/src/main/kotlin/com/example/Application.kt" lines="12,23-24"}
+{src="snippets/status-pages/src/main/kotlin/com/example/Application.kt" include-lines="12,23-24"}
 
 The `statusFile` handler replaces any `#` character with the value of the status code within the list of configured statuses.
 

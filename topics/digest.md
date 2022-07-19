@@ -84,7 +84,7 @@ The `digest` authentication provider validates user credentials using the `HA1` 
 
 ```kotlin
 ```
-{src="snippets/auth-digest/src/main/kotlin/com/example/Application.kt" lines="10-16"}
+{src="snippets/auth-digest/src/main/kotlin/com/example/Application.kt" include-lines="10-16"}
 
 
 ### Step 2: Configure a digest provider {id="configure-provider"}
@@ -95,7 +95,7 @@ The `digest` authentication provider exposes its settings via the [DigestAuthent
 
 ```kotlin
 ```
-{src="snippets/auth-digest/src/main/kotlin/com/example/Application.kt" lines="18-26,34"}
+{src="snippets/auth-digest/src/main/kotlin/com/example/Application.kt" include-lines="18-26,34"}
 
 You can also use the [nonceManager](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-digest-authentication-provider/-config/nonce-manager.html) property to specify how to generate nonce values.
 
@@ -106,4 +106,4 @@ After configuring the `digest` provider, you can define the authorization for th
 
 ```kotlin
 ```
-{src="snippets/auth-digest/src/main/kotlin/com/example/Application.kt" lines="27-33"}
+{src="snippets/auth-digest/src/main/kotlin/com/example/Application.kt" include-lines="27-33"}

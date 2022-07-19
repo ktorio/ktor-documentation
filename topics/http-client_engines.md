@@ -209,7 +209,7 @@ The `Darwin` engine targets [Darwin-based](https://en.wikipedia.org/wiki/Darwin_
    For instance, you can use the `configureRequest` function to access `NSMutableURLRequest` or `configureSession` to customize a session configuration. The code snippet below shows how to use `configureRequest`:
    ```kotlin
    ```
-   {src="snippets/client-engine-darwin/src/nativeMain/kotlin/Main.kt" lines="8-14"}
+   {src="snippets/client-engine-darwin/src/nativeMain/kotlin/Main.kt" include-lines="8-14"}
 
    You can find the full example here: [client-engine-darwin](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-engine-darwin).
 
@@ -235,7 +235,7 @@ For desktop platforms, Ktor also provides the `Curl` engine. This engine is supp
    The code snippet below shows how to disable SSL verification for testing purposes:
    ```kotlin
    ```
-   {src="snippets/client-engine-curl/src/nativeMain/kotlin/Main.kt" lines="8-12"}
+   {src="snippets/client-engine-curl/src/nativeMain/kotlin/Main.kt" include-lines="8-12"}
 
    You can find the full example here: [client-engine-curl](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-engine-curl).
 

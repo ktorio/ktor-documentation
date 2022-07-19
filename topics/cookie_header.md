@@ -18,7 +18,7 @@ In the example above, session data will be passed to the client using the `user_
 
 ```kotlin
 ```
-{src="snippets/session-cookie-client/src/main/kotlin/com/example/Application.kt" lines="11-16"}
+{src="snippets/session-cookie-client/src/main/kotlin/com/example/Application.kt" include-lines="11-16"}
 
 If the required attribute is not exposed explicitly, use the `extensions` property. For example, you can pass the `SameSite`attribute in the following way:
 ```kotlin

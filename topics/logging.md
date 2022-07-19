@@ -55,12 +55,12 @@ The Logger instance is represented by a class that implements the [Logger](http:
 
 ```kotlin
 ```
-{src="snippets/logging/src/main/kotlin/com/example/Application.kt" lines="12-13,35"}
+{src="snippets/logging/src/main/kotlin/com/example/Application.kt" include-lines="12-13,35"}
 
 You can also access the Logger from [ApplicationCall](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-call/index.html) using the `call.application.environment.log` property.
 
 ```kotlin
 ```
-{src="snippets/logging/src/main/kotlin/com/example/Application.kt" lines="26-28,30,34"}
+{src="snippets/logging/src/main/kotlin/com/example/Application.kt" include-lines="26-28,30,34"}
 
 To enable logging of client requests, you can use the [CallLogging](call-logging.md) plugin.

@@ -23,7 +23,7 @@ The [HttpCookies](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.clien
 To install `HttpCookies`, pass it to the `install` function inside a [client configuration block](create-client.md#configure-client):
 ```kotlin
 ```
-{src="snippets/client-cookies/src/main/kotlin/com/example/Application.kt" lines="12-14"}
+{src="snippets/client-cookies/src/main/kotlin/com/example/Application.kt" include-lines="12-14"}
 
 This is enough to enable the Ktor client to keep cookies between requests. You can find the full example here: [client-cookies](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-cookies).
 

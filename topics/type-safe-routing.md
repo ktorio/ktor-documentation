@@ -112,7 +112,7 @@ Let's summarize the examples above and create the `Articles` resource for CRUD o
 
 ```kotlin
 ```
-{src="snippets/resource-routing/src/main/kotlin/com/example/Application.kt" lines="14-28"}
+{src="snippets/resource-routing/src/main/kotlin/com/example/Application.kt" include-lines="14-28"}
 
 This resource can be used to list all articles, post a new article, edit it, and so on. We'll see how to [define route handlers](#define_route) for this resource in the next chapter.
 
@@ -145,7 +145,7 @@ The example below shows how to define route handlers for the `Articles` resource
 
 ```kotlin
 ```
-{src="snippets/resource-routing/src/main/kotlin/com/example/Application.kt" lines="32-64"}
+{src="snippets/resource-routing/src/main/kotlin/com/example/Application.kt" include-lines="32-64"}
 
 You can find the full example here: [resource-routing](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/resource-routing).
 

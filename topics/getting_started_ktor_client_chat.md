@@ -51,7 +51,7 @@ The next thing we need is to configure the build script:
 2. Open the `build.gradle.kts` file and add the following artifacts to the `dependencies` block:
    ```kotlin
    ```
-   {src="snippets/tutorial-websockets-client/build.gradle.kts" lines="1-2,21-25"}
+   {src="snippets/tutorial-websockets-client/build.gradle.kts" include-lines="1-2,21-25"}
 
 
 ### Add the JavaExec task {id="java-exec"}
@@ -60,7 +60,7 @@ In the `build.gradle.kts` file, add the `JavaExec` task and specify `standardInp
 
 ```kotlin
 ```
-{src="snippets/tutorial-websockets-client/build.gradle.kts" lines="17-19"}
+{src="snippets/tutorial-websockets-client/build.gradle.kts" include-lines="17-19"}
 
 Then, click the **Load Gradle Changes** icon in the top right corner of the `build.gradle.kts` file to install the dependencies.
 
@@ -115,7 +115,7 @@ We know that to output messages, we need to be able to receive them from the Web
 
 ```kotlin
 ```
-{src="snippets/tutorial-websockets-client/src/main/kotlin/Main.kt" lines="24-33"}
+{src="snippets/tutorial-websockets-client/src/main/kotlin/Main.kt" include-lines="24-33"}
 
 Because the function operates in the context of a `DefaultClientWebSocketSession`, we define `outputMessages()` as an extension function on the type. We also don't forget to add the `suspend` modifier – because iterating over the `incoming` channel suspends the coroutine while no new message is available.
 
@@ -123,7 +123,7 @@ Next, let's define a second function which allows the user to input text. Add a 
 
 ```kotlin
 ```
-{src="snippets/tutorial-websockets-client/src/main/kotlin/Main.kt" lines="35-46"}
+{src="snippets/tutorial-websockets-client/src/main/kotlin/Main.kt" include-lines="35-46"}
 
 Once again defined as a suspending extension function on `DefaultClientWebSocketSession`, this function's only job is to read text from the command line and send it to the server or to return when the user types `exit`.
 
@@ -135,7 +135,7 @@ Let's make use of our two new functions! We can call them inside the body of our
 
 ```kotlin
 ```
-{src="snippets/tutorial-websockets-client/src/main/kotlin/Main.kt" lines="7-22"}
+{src="snippets/tutorial-websockets-client/src/main/kotlin/Main.kt" include-lines="7-22"}
 
 This new implementation improves the behavior of our application: Once the connection to our chat server is established, we use the `launch` function from Kotlin's Coroutines library to launch the two long-running functions `outputMessages()` and `inputMessages()` on a new coroutine (without blocking the current thread). The launch function also returns a `Job` object for both of them, which we use to keep the program running until the user types `exit` or encounters a network error when trying to send a message. After `inputMessages()` has returned, we cancel the execution of the `outputMessages()` function, and `close` the client.
 

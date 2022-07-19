@@ -98,19 +98,19 @@ The [previous chapter](#call-handling) shows how to create a plugin that appends
 
 ```kotlin
 ```
-{src="snippets/custom-plugin-base-api/src/main/kotlin/com/example/plugins/CustomHeader.kt" lines="11-14"}
+{src="snippets/custom-plugin-base-api/src/main/kotlin/com/example/plugins/CustomHeader.kt" include-lines="11-14"}
 
 Given that plugin configuration fields are mutable, saving them in local variables is recommended:
 
 ```kotlin
 ```
-{src="snippets/custom-plugin-base-api/src/main/kotlin/com/example/plugins/CustomHeader.kt" lines="7-14,27"}
+{src="snippets/custom-plugin-base-api/src/main/kotlin/com/example/plugins/CustomHeader.kt" include-lines="7-14,27"}
 
 Finally, in the `install` function, you can get this configuration and use its properties 
 
 ```kotlin
 ```
-{src="snippets/custom-plugin-base-api/src/main/kotlin/com/example/plugins/CustomHeader.kt" lines="7-27"}
+{src="snippets/custom-plugin-base-api/src/main/kotlin/com/example/plugins/CustomHeader.kt" include-lines="7-27"}
 
 
 
@@ -120,7 +120,7 @@ To [install](Plugins.md#install) a custom plugin to your application, call the `
 
 ```kotlin
 ```
-{src="snippets/custom-plugin-base-api/src/main/kotlin/com/example/Application.kt" lines="12-15"}
+{src="snippets/custom-plugin-base-api/src/main/kotlin/com/example/Application.kt" include-lines="12-15"}
 
 
 ## Examples {id="examples"}

@@ -40,7 +40,7 @@ and then use `bind` to bind a server socket to specific port:
 
 ```kotlin
 ```
-{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" lines="10-11"}
+{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" include-lines="10-11"}
 
 The snippet above creates a TCP socket, which is the [ServerSocket](https://api.ktor.io/ktor-network/io.ktor.network.sockets/-server-socket/index.html) instance.
 To create a UDP socket, use `SocketBuilder.udp()`.
@@ -53,7 +53,7 @@ returns a connected socket (a [Socket](https://api.ktor.io/ktor-network/io.ktor.
 
 ```kotlin
 ```
-{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" lines="14"}
+{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" include-lines="14"}
 
 Once you have a connected socket, you can receive/send data by reading from or writing to the socket.
 
@@ -64,14 +64,14 @@ To receive data from the client, you need to call the `Socket.openReadChannel` f
 
 ```kotlin
 ```
-{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" lines="17"}
+{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" include-lines="17"}
 
 `ByteReadChannel` provides API for asynchronous reading of data.
 For example, you can read a line of UTF-8 characters using `ByteReadChannel.readUTF8Line`:
 
 ```kotlin
 ```
-{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" lines="22"}
+{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" include-lines="22"}
 
 
 
@@ -81,14 +81,14 @@ To send data to the client, call the `Socket.openWriteChannel` function, which r
 
 ```kotlin
 ```
-{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" lines="18"}
+{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" include-lines="18"}
 
 `ByteWriteChannel` provides API for asynchronous writing of sequences of bytes.
 For example, you can write a line of UTF-8 characters using `ByteWriteChannel.writeStringUtf8`:
 
 ```kotlin
 ```
-{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" lines="22-23"}
+{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" include-lines="22-23"}
 
 
 ### Close a socket {id="server_close"}
@@ -97,7 +97,7 @@ To release resources associated with the [connected socket](#accepts_connection)
 
 ```kotlin
 ```
-{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" lines="26"}
+{src="snippets/sockets-server/src/main/kotlin/com/example/Application.kt" include-lines="26"}
 
 ### Example {id="server-example"}
 
@@ -119,7 +119,7 @@ and then use `connect` to establish a connection and get a connected socket (a [
 
 ```kotlin
 ```
-{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt" lines="11-12"}
+{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt" include-lines="11-12"}
 
 Once you have a connected socket, you can receive/send data by reading from or writing to the socket.
 
@@ -138,7 +138,7 @@ The `tls` function allows you to adjust TLS parameters provided by [TLSConfigBui
 
 ```kotlin
 ```
-{src="snippets/sockets-client-tls/src/main/kotlin/com/example/Application.kt" lines="14-21"}
+{src="snippets/sockets-client-tls/src/main/kotlin/com/example/Application.kt" include-lines="14-21"}
 
 You can find the full example here: [sockets-client-tls](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/sockets-client-tls).
 
@@ -149,14 +149,14 @@ To receive data from the server, you need to call the `Socket.openReadChannel` f
 
 ```kotlin
 ```
-{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt" lines="14"}
+{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt" include-lines="14"}
 
 `ByteReadChannel` provides API for asynchronous reading of data.
 For example, you can read a line of UTF-8 characters using `ByteReadChannel.readUTF8Line`:
 
 ```kotlin
 ```
-{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt" lines="19"}
+{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt" include-lines="19"}
 
 
 ### Send data {id="client_send"}
@@ -165,14 +165,14 @@ To send data to the server, call the `Socket.openWriteChannel` function, which r
 
 ```kotlin
 ```
-{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt" lines="15"}
+{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt" include-lines="15"}
 
 `ByteWriteChannel` provides API for asynchronous writing of sequences of bytes.
 For example, you can write a line of UTF-8 characters using `ByteWriteChannel.writeStringUtf8`:
 
 ```kotlin
 ```
-{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt" lines="32-33"}
+{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt" include-lines="32-33"}
 
 ### Close connection {id="client_close"}
 
@@ -180,7 +180,7 @@ To release resources associated with the [connected socket](#client_create_socke
 
 ```kotlin
 ```
-{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt" lines="24-25"}
+{src="snippets/sockets-client/src/main/kotlin/com/example/Application.kt" include-lines="24-25"}
 
 
 ### Example {id="client-example"}

@@ -34,13 +34,13 @@ For example, you can enable logging of a request body using the [CallLogging](ca
 
 ```kotlin
 ```
-{src="snippets/double-receive/src/main/kotlin/com/example/Application.kt" lines="16-23"}
+{src="snippets/double-receive/src/main/kotlin/com/example/Application.kt" include-lines="16-23"}
 
 ... and then get a request body one more time inside a route handler.
 
 ```kotlin
 ```
-{src="snippets/double-receive/src/main/kotlin/com/example/Application.kt" lines="25-28"}
+{src="snippets/double-receive/src/main/kotlin/com/example/Application.kt" include-lines="25-28"}
 
 You can find the full example here: [double-receive](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/double-receive).
 

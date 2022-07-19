@@ -35,7 +35,7 @@ Optionally, you can install the `VelocityTools` plugin to have the capability to
 Inside the `install` block, you can configure the [VelocityEngine][velocity_engine]. For example, if you want to use templates from the classpath, use a resource loader for `classpath`:
 ```kotlin
 ```
-{src="snippets/velocity/src/main/kotlin/com/example/Application.kt" lines="13-16"}
+{src="snippets/velocity/src/main/kotlin/com/example/Application.kt" include-lines="13-16"}
 
 ### Send a template in response {id="use_template"}
 Imagine you have the `index.vl` template in `resources/templates`:
@@ -46,12 +46,12 @@ Imagine you have the `index.vl` template in `resources/templates`:
 A data model for a user looks as follows:
 ```kotlin
 ```
-{src="snippets/velocity/src/main/kotlin/com/example/Application.kt" lines="25"}
+{src="snippets/velocity/src/main/kotlin/com/example/Application.kt" include-lines="25"}
 
 To use the template for the specified [route](Routing_in_Ktor.md), pass `VelocityContent` to the `call.respond` method in the following way:
 ```kotlin
 ```
-{src="snippets/velocity/src/main/kotlin/com/example/Application.kt" lines="18-21"}
+{src="snippets/velocity/src/main/kotlin/com/example/Application.kt" include-lines="18-21"}
 
 
 ### Add Velocity tools {id="velocity_tools"}

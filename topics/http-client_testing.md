@@ -36,13 +36,13 @@ To test this client, its configuration needs to be shared with a test client, wh
 
 ```kotlin
 ```
-{src="snippets/client-testing-mock/src/main/kotlin/com/example/Application.kt" lines="13-15,24-32"}
+{src="snippets/client-testing-mock/src/main/kotlin/com/example/Application.kt" include-lines="13-15,24-32"}
 
 Then, you can use the `ApiClient` as follows to create an HTTP client with the `CIO` engine and make a request.
 
 ```kotlin
 ```
-{src="snippets/client-testing-mock/src/main/kotlin/com/example/Application.kt" lines="16-22"}
+{src="snippets/client-testing-mock/src/main/kotlin/com/example/Application.kt" include-lines="16-22"}
 
 ### Test a client {id="test-client"}
 
@@ -50,12 +50,12 @@ To test a client, you need to create a `MockEngine` instance with a handler that
 
 ```kotlin
 ```
-{src="snippets/client-testing-mock/src/test/kotlin/ApplicationTest.kt" lines="14-20"}
+{src="snippets/client-testing-mock/src/test/kotlin/ApplicationTest.kt" include-lines="14-20"}
 
 Then, you can pass the created `MockEngine` to initialize `ApiClient` and make required assertions.
 
 ```kotlin
 ```
-{src="snippets/client-testing-mock/src/test/kotlin/ApplicationTest.kt" lines="10-26"}
+{src="snippets/client-testing-mock/src/test/kotlin/ApplicationTest.kt" include-lines="10-26"}
 
 You can find the full example here: [client-testing-mock](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-testing-mock).

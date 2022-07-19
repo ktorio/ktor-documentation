@@ -42,7 +42,7 @@ To send user credentials in the `Authorization` header using the `Basic` scheme,
 
    ```kotlin
    ```
-   {src="snippets/client-auth-basic/src/main/kotlin/com/example/Application.kt" lines="13-22"}
+   {src="snippets/client-auth-basic/src/main/kotlin/com/example/Application.kt" include-lines="13-22"}
 
 4. Optionally, enable sending credentials in the initial request without waiting for a `401` (Unauthorized) response with the `WWW-Authenticate` header. You need to call the `sendWithoutRequest` function returning boolean and check the request parameters.
 

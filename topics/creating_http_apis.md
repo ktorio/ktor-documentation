@@ -60,7 +60,7 @@ To look at the structure of the [generated project](#create_ktor_project), let's
 First, let's open the `build.gradle.kts` file and examine added dependencies:
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/build.gradle.kts" lines="20-28"}
+{src="snippets/tutorial-http-api/build.gradle.kts" include-lines="20-28"}
 
 Let's briefly go through these dependencies one by one:
 
@@ -69,7 +69,7 @@ Let's briefly go through these dependencies one by one:
 - `ktor-server-content-negotiation` and `ktor-serialization-kotlinx-json` provide a convenient mechanism for converting Kotlin objects into a [serialized form](serialization.md) like JSON, and vice versa. We will use it to format our APIs output, and to consume user input that is structured in JSON. In order to use `ktor-serialization-kotlinx-json`, we also have to apply the `plugin.serialization` plugin.
    ```kotlin
    ```
-   {src="snippets/tutorial-http-api/build.gradle.kts" lines="5,8-9"}
+   {src="snippets/tutorial-http-api/build.gradle.kts" include-lines="5,8-9"}
 
 - `logback-classic` provides an implementation of SLF4J, allowing us to see nicely formatted [logs](logging.md) in a console.
 - `ktor-server-test-host` and `kotlin-test-junit` allow us to [test](Testing.md) parts of our Ktor application without having to use the whole HTTP stack in the process. We will use this to define unit tests for our project.
@@ -91,7 +91,7 @@ The [application.conf](#configurations) configures the entry point of our applic
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/Application.kt" lines="6-11"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/Application.kt" include-lines="6-11"}
 
 This module, in turn, calls the following extension functions:
 
@@ -107,7 +107,7 @@ This module, in turn, calls the following extension functions:
 * `configureSerialization` is a function defined in `plugins/Serialization.kt`, which installs `ContentNegotiation` and enables the `json` serializer:
    ```kotlin
    ```
-   {src="snippets/tutorial-http-api/src/main/kotlin/com/example/plugins/Serialization.kt" lines="7-11"}
+   {src="snippets/tutorial-http-api/src/main/kotlin/com/example/plugins/Serialization.kt" include-lines="7-11"}
 
 
 ## Customer routes {id="customer_routes"}
@@ -123,7 +123,7 @@ For our case, a customer should store some basic information in the form of text
 
    ```kotlin
    ```
-   {src="snippets/tutorial-http-api/src/main/kotlin/com/example/models/Customer.kt" lines="3-6"}
+   {src="snippets/tutorial-http-api/src/main/kotlin/com/example/models/Customer.kt" include-lines="3-6"}
 
    Note that we are using the `@Serializable` annotation from [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization). Together with its Ktor integration, this will allow us to generate the JSON representation we need for our API responses automatically – as we will see in just a bit.
 
@@ -133,7 +133,7 @@ To not complicate the code, for this tutorial, we'll be using an in-memory stora
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/models/Customer.kt" lines="8"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/models/Customer.kt" include-lines="8"}
 
 Now that we have a well-defined `Customer` class and a storage for our customer objects, it's time we create endpoints and expose them via our API!
 
@@ -175,13 +175,13 @@ To list all customers, we can return the `customerStorage` list by using the `ca
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" lines="3-18,44-45"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" include-lines="3-18,44-45"}
 
 In order for this to work, we need the `ContentNegotiation` plugin, which is already installed with the `json` serializer in `plugins/Serialization.kt`. What does content negotiation do? Let us consider the following request:
 
 ```HTTP
 ```
-{src="snippets/tutorial-http-api/CustomerTest.http" lines="36-37"}
+{src="snippets/tutorial-http-api/CustomerTest.http" include-lines="36-37"}
 
 When a client makes such a request, content negotiation allows the server to examine the `Accept` header, see if it can serve this specific type of content, and if so, return the result.
 
@@ -193,14 +193,14 @@ Another route we want to support is one that returns a specific customer based o
 
 ```HTTP
 ```
-{src="snippets/tutorial-http-api/CustomerTest.http" lines="40-41"}
+{src="snippets/tutorial-http-api/CustomerTest.http" include-lines="40-41"}
 
 In Ktor, paths can also contain [parameters](Routing_in_Ktor.md#match_url) that match specific path segments. We can access their value using the indexed access operator (`call.parameters["myParamName"]`). Let's add the following code to the `get("{id?}")` entry:
 
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" lines="19-30"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" include-lines="19-30"}
 
 First, we check whether the parameter `id` exists in the request. If it does not exist, we respond with a `400 Bad Request` status code and an error message, and are done. If the parameter exists, we try to `find` the corresponding record in our `customerStorage`. If we find it, we'll respond with the object. Otherwise, we'll return a 404 "Not Found" status code with an error message.
 
@@ -210,7 +210,7 @@ Next, we implement the option for a client to `POST` a JSON representation of a 
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" lines="31-35"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" include-lines="31-35"}
 
 `call.receive` integrates with the [configured Content Negotiation](#source_code) plugin. Calling it with the generic parameter `Customer` automatically deserializes the JSON request body into a Kotlin `Customer` object. We can then add the customer to our storage and respond with a status code of `201 Created`.
 
@@ -222,7 +222,7 @@ The implementation for deleting a customer follows a similar procedure as we hav
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" lines="36-43"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" include-lines="36-43"}
 
 Similar to the definition of our `get` request, we make sure that the `id` is not null. If the `id` is absent, we respond with a `400 Bad Request` error.
 
@@ -232,7 +232,7 @@ Up until now, we have only defined our routes inside an extension function on `R
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/plugins/Routing.kt" lines="3-9,13-14"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/plugins/Routing.kt" include-lines="3-9,13-14"}
 
 As you might remember, the `configureRouting` function is already [invoked](#source_code) in our `Application.module()` function in `Application.kt`.
 
@@ -252,13 +252,13 @@ Inside the `models` package, create a new file called `Order.kt` and fill it wit
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/models/Order.kt" lines="3-9"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/models/Order.kt" include-lines="3-9"}
 
 We also once again need a place to store our orders. To skip having to define a `POST` route – something you're more than welcome to attempt on your own using the knowledge from the `Customer` routes – we will prepopulate our `orderStorage` with some sample orders. We can again define it as a top-level declaration inside the `Order.kt` file.
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/models/Order.kt" lines="11-24"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/models/Order.kt" include-lines="11-24"}
 
 ### Define the routing for orders {id="define_order_routes"}
 We respond to a set of `GET` requests with three different patterns:
@@ -280,13 +280,13 @@ being that we're defining it in its own function. Let's create a file called `Or
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/OrderRoutes.kt" lines="3-16"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/OrderRoutes.kt" include-lines="3-16"}
 
 We apply the same structure to individual orders – with a similar implementation to customers, but encapsulated in its own function:
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/OrderRoutes.kt" lines="17-26"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/OrderRoutes.kt" include-lines="17-26"}
 
 #### Totalize an order {id="totalize_order"}
 
@@ -295,7 +295,7 @@ totalizing this. Implemented as a `totalizeOrderRoute` function, it looks like t
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/OrderRoutes.kt" lines="28-38"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/OrderRoutes.kt" include-lines="28-38"}
 
 A small thing to note here is that we are not limited to suffixes of routes for parameters – as we can see, it's absolutely possible to have a section in the middle be a path parameter (`/order/{id}/total`).
 
@@ -305,7 +305,7 @@ Finally, much like the case of customers, we need to register the routes. Hopefu
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/plugins/Routing.kt" lines="3-14"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/plugins/Routing.kt" include-lines="3-14"}
 
 Now that we have everything wired up, we can finally start testing our application, and see if everything works as we would expect it to!
 
