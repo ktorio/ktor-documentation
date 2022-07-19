@@ -47,7 +47,7 @@
             <a href="https://www.jetbrains.com/help/idea/run-for-the-first-time.html">open IntelliJ IDEA</a>, and follow
             the steps below:
         </p>
-        <procedure hide-from-structure="true">
+        <procedure>
             <step>
                 <include from="lib.topic" element-id="new_project_idea"/>
             </step>
@@ -99,7 +99,7 @@
         <p>
             After <a anchor="create-new-maven-project">creating an empty project</a>, we are ready to examine a Maven configuration file and add Ktor dependencies to it:
         </p>
-        <procedure hide-from-structure="true">
+        <procedure>
             <step>
                 <p>
                     Open the <path>pom.xml</path> file. It should look something like this:

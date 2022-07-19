@@ -10,7 +10,7 @@
         <p>
             To <a href="Plugins.md" anchor="install">install</a> the <code>%plugin_name%</code> plugin, pass it to the <code>install</code> function in the application initialization code. Depending on the <a href="create_server.topic">way used to create a server</a>, this can be the <code>embeddedServer</code> function call ...
         </p>
-        <code-block lang="kotlin" interpolate-variables="true">
+        <code-block lang="kotlin">
             import io.ktor.server.application.*
             import %package_name%.*
             // ...
@@ -24,7 +24,7 @@
         <p>
             ... or a specified <a href="Modules.md">module</a>.
         </p>
-        <code-block lang="kotlin" interpolate-variables="true">
+        <code-block lang="kotlin">
             import io.ktor.server.application.*
             import %package_name%.*
             // ...
@@ -52,17 +52,17 @@
     <snippet id="add_ktor_artifact">
         <tabs group="languages">
             <tab title="Gradle (Kotlin)" group-key="kotlin">
-                <code-block lang="Kotlin" interpolate-variables="true">
+                <code-block lang="Kotlin">
                     implementation("io.ktor:%artifact_name%:$ktor_version")
                 </code-block>
             </tab>
             <tab title="Gradle (Groovy)" group-key="groovy">
-                <code-block lang="Groovy" interpolate-variables="true">
+                <code-block lang="Groovy">
                     implementation "io.ktor:%artifact_name%:$ktor_version"
                 </code-block>
             </tab>
             <tab title="Maven" group-key="maven">
-                <code-block lang="XML" interpolate-variables="true">
+                <code-block lang="XML">
         <![CDATA[
                     <dependency>
                         <groupId>io.ktor</groupId>
@@ -78,17 +78,17 @@
     <snippet id="add_ktor_artifact_mpp">
         <tabs group="languages">
             <tab title="Gradle (Kotlin)" group-key="kotlin">
-                <code-block lang="Kotlin" interpolate-variables="true">
+                <code-block lang="Kotlin">
                     implementation("io.ktor:%artifact_name%:$ktor_version")
                 </code-block>
             </tab>
             <tab title="Gradle (Groovy)" group-key="groovy">
-                <code-block lang="Groovy" interpolate-variables="true">
+                <code-block lang="Groovy">
                     implementation "io.ktor:%artifact_name%:$ktor_version"
                 </code-block>
             </tab>
             <tab title="Maven" group-key="maven">
-                <code-block lang="XML" interpolate-variables="true">
+                <code-block lang="XML">
         <![CDATA[
                     <dependency>
                         <groupId>io.ktor</groupId>
@@ -104,17 +104,17 @@
     <snippet id="add_ktor_artifact_testing">
         <tabs group="languages">
             <tab title="Gradle (Kotlin)" group-key="kotlin">
-                <code-block lang="Kotlin" interpolate-variables="true">
+                <code-block lang="Kotlin">
                     testImplementation("io.ktor:%artifact_name%:$ktor_version")
                 </code-block>
             </tab>
             <tab title="Gradle (Groovy)" group-key="groovy">
-                <code-block lang="Groovy" interpolate-variables="true">
+                <code-block lang="Groovy">
                     testImplementation "io.ktor:%artifact_name%:$ktor_version"
                 </code-block>
             </tab>
             <tab title="Maven" group-key="maven">
-                <code-block lang="XML" interpolate-variables="true">
+                <code-block lang="XML">
         <![CDATA[
                     <dependency>
                         <groupId>io.ktor</groupId>
@@ -131,17 +131,17 @@
     <snippet id="add_artifact">
         <tabs group="languages">
             <tab title="Gradle (Kotlin)" group-key="kotlin">
-                <code-block lang="Kotlin" interpolate-variables="true">
+                <code-block lang="Kotlin">
                     implementation("%group_id%:%artifact_name%:$%version%")
                 </code-block>
             </tab>
             <tab title="Gradle (Groovy)" group-key="groovy">
-                <code-block lang="Groovy" interpolate-variables="true">
+                <code-block lang="Groovy">
                     implementation "%group_id%:%artifact_name%:$%version%"
                 </code-block>
             </tab>
             <tab title="Maven" group-key="maven">
-                <code-block lang="XML" interpolate-variables="true">
+                <code-block lang="XML">
         <![CDATA[
                     <dependency>
                         <groupId>%group_id%</groupId>
@@ -158,17 +158,17 @@
     <snippet id="add_artifact_testing">
         <tabs group="languages">
             <tab title="Gradle (Kotlin)" group-key="kotlin">
-                <code-block lang="Kotlin" interpolate-variables="true">
+                <code-block lang="Kotlin">
                     testImplementation("%group_id%:%artifact_name%:$%version%")
                 </code-block>
             </tab>
             <tab title="Gradle (Groovy)" group-key="groovy">
-                <code-block lang="Groovy" interpolate-variables="true">
+                <code-block lang="Groovy">
                     testImplementation "%group_id%:%artifact_name%:$%version%"
                 </code-block>
             </tab>
             <tab title="Maven" group-key="maven">
-                <code-block lang="XML" interpolate-variables="true">
+                <code-block lang="XML">
         <![CDATA[
                     <dependency>
                         <groupId>%group_id%</groupId>
@@ -184,7 +184,7 @@
     <snippet id="add_ktor_artifact_multiplatform">
         <tabs group="languages">
             <tab title="Gradle (Kotlin)" group-key="kotlin">
-                <code-block lang="Kotlin" interpolate-variables="true">
+                <code-block lang="Kotlin">
                     val %platform_name%Main by getting {
                         dependencies {
                             implementation("io.ktor:%artifact_name%:$ktor_version")
@@ -193,7 +193,7 @@
                 </code-block>
             </tab>
             <tab title="Gradle (Groovy)" group-key="groovy">
-                <code-block lang="Groovy" interpolate-variables="true">
+                <code-block lang="Groovy">
                     %platform_name%Main {
                         dependencies {
                             implementation "io.ktor:%artifact_name%:$ktor_version"
@@ -216,7 +216,7 @@
             The API is production ready, but may be slightly modified in a minor release. This is why it's marked with the
             <code>@%annotation_name%</code> annotation. If you want to use this API, you need to <code>OptIn</code>:
         </p>
-        <code-block lang="kotlin" interpolate-variables="true">
+        <code-block lang="kotlin">
             @OptIn(%annotation_name%::class)
         </code-block>
         <p>

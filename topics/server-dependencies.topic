@@ -29,14 +29,14 @@
                 </p>
                 <tabs group="languages">
                     <tab title="Gradle (Kotlin)" group-key="kotlin">
-                        <code-block lang="Kotlin" interpolate-variables="true">
+                        <code-block lang="Kotlin">
                             repositories {
                                 mavenCentral()
                             }
                         </code-block>
                     </tab>
                     <tab title="Gradle (Groovy)" group-key="groovy">
-                        <code-block lang="Groovy" interpolate-variables="true">
+                        <code-block lang="Groovy">
                             repositories {
                                 mavenCentral()
                             }
@@ -157,7 +157,7 @@
             </p>
             <tabs group="languages">
                 <tab title="Gradle (Kotlin)" group-key="kotlin">
-                    <code-block lang="Kotlin" interpolate-variables="true">
+                    <code-block lang="Kotlin">
                         dependencies {
                             implementation("io.ktor:ktor-server-core:%ktor_version%")
                             implementation("io.ktor:ktor-server-netty:%ktor_version%")
@@ -165,7 +165,7 @@
                     </code-block>
                 </tab>
                 <tab title="Gradle (Groovy)" group-key="groovy">
-                    <code-block lang="Groovy" interpolate-variables="true">
+                    <code-block lang="Groovy">
                         dependencies {
                             implementation "io.ktor:ktor-server-core:%ktor_version%"
                             implementation "io.ktor:ktor-server-netty:%ktor_version%"
@@ -173,7 +173,7 @@
                     </code-block>
                 </tab>
                 <tab title="Maven" group-key="maven">
-                    <code-block lang="XML" interpolate-variables="true">
+                    <code-block lang="XML">
                 <![CDATA[
                         <dependencies>
                             <dependency>
@@ -237,7 +237,7 @@
                         </code-block>
                     </tab>
                     <tab title="Maven" group-key="maven">
-                        <code-block lang="XML" interpolate-variables="true">
+                        <code-block lang="XML">
                 <![CDATA[
                             <properties>
                                 <main.class>com.example.ApplicationKt</main.class>
@@ -268,7 +268,7 @@
                         </code-block>
                     </tab>
                     <tab title="Maven" group-key="maven">
-                        <code-block lang="XML" interpolate-variables="true">
+                        <code-block lang="XML">
                 <![CDATA[
                             <properties>
                                 <main.class>io.ktor.server.netty.EngineMain</main.class>

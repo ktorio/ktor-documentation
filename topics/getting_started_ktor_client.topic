@@ -32,7 +32,7 @@
             <a href="https://www.jetbrains.com/help/idea/run-for-the-first-time.html">Open IntelliJ IDEA</a>, and follow
             the steps below:
         </p>
-        <procedure hide-from-structure="true">
+        <procedure>
             <step>
                 <include from="lib.topic" element-id="new_project_idea"/>
             </step>
@@ -85,12 +85,12 @@
         <p>
             Let's add dependencies required for a Ktor client.
         </p>
-        <procedure hide-from-structure="true">
+        <procedure>
             <step>
                 <p>
                     Open the <path>gradle.properties</path> file and add the following line to specify the Ktor version:
                 </p>
-                <code-block lang="kotlin" interpolate-variables="true">
+                <code-block lang="kotlin">
                     ktor_version=%ktor_version%
                 </code-block>
                 <note id="eap-note">
@@ -125,7 +125,7 @@
         <p>
             Now we can add a client's code to the <path>src/main/kotlin/Main.kt</path> file:
         </p>
-        <procedure hide-from-structure="true">
+        <procedure>
             <step>
                 <p>
                     Replace the existing code in <path>Main.kt</path> with the following:
@@ -195,7 +195,7 @@
         <p>
             Now we are ready to run our program to make a request.
         </p>
-        <procedure hide-from-structure="true">
+        <procedure>
             <step>
                 <p>
                     Click the gutter icon next to the <code>main</code> function and choose <control>Run 'MainKt'</control>.
