@@ -6,9 +6,7 @@
        title="Welcome"
        id="welcome">
 
-    <p>
-        <img src="ktor_logo.svg" alt="Ktor logo" width="306" height="127"/>
-    </p>
+    <img src="ktor_logo.svg" alt="Ktor logo" width="306" height="127"/>
     <p>
         Ktor is a framework to easily build connected applications – web applications, HTTP services, mobile and browser applications.
         Modern connected applications need to be asynchronous to provide the best experience to users, and Kotlin coroutines provide
