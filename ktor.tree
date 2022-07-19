@@ -256,9 +256,6 @@
     <toc-element topic="FAQ.topic"
                  accepts-web-file-names="zfaq.html"/>
 
-    <toc-element href="https://api.ktor.io"
-                 toc-title="API Docs"/>
-
     <toc-element hidden="true" accepts-web-file-names="generator.html"
                  target-for-accept-web-file-names="https://start.ktor.io/"/>
     <toc-element hidden="true" accepts-web-file-names-ref="samples"
