@@ -28,20 +28,23 @@ To create a base project for our application using the Ktor plugin, [open Intell
 
 1. <include from="lib.topic" element-id="new_project_idea"/>
 2. In the **New Project** wizard, choose **Ktor** from the list on the left. On the right pane, specify the following settings:
+   
    ![New Ktor project](tutorial_website_new_project.png){width="706" border-effect="rounded"}
-* **Name**: Specify a project name.
-* **Location**: Specify a directory for your project.
-* **Build System**: Make sure that _Gradle Kotlin_ is selected as a [build system](server-dependencies.topic).
-* **Website**: Leave the default `example.com` value as a domain used to generate a package name.
-* **Artifact**: This field shows a generated artifact name.
-* **Ktor version**: Choose the latest Ktor version.
-* **Engine**: Leave the default _Netty_ [engine](Engines.md).
-* **Configuration in**: Choose _HOCON file_ to specify server parameters in a [dedicated configuration file](create_server.topic).
-* **Add sample code**: Disable this option to skip adding sample code for plugins.
 
-Click **Next**.
+   * **Name**: Specify a project name.
+   * **Location**: Specify a directory for your project.
+   * **Build System**: Make sure that _Gradle Kotlin_ is selected as a [build system](server-dependencies.topic).
+   * **Website**: Leave the default `example.com` value as a domain used to generate a package name.
+   * **Artifact**: This field shows a generated artifact name.
+   * **Ktor version**: Choose the latest Ktor version.
+   * **Engine**: Leave the default _Netty_ [engine](Engines.md).
+   * **Configuration in**: Choose _HOCON file_ to specify server parameters in a [dedicated configuration file](create_server.topic).
+   * **Add sample code**: Disable this option to skip adding sample code for plugins.
+   
+   Click **Next**.
 
 3. On the next page, add the **Routing**, **Static Content**, and **FreeMarker** plugins:
+   
    ![Ktor plugins](tutorial_website_new_project_plugins.png){width="706" border-effect="rounded"}
 
    Click **Create** and wait until IntelliJ IDEA generates a project and installs the dependencies.
@@ -50,6 +53,7 @@ Click **Next**.
 ## Examine the project {id="project_setup"}
 
 To look at the structure of the [generated project](#create_ktor_project), let's invoke the [Project view](https://www.jetbrains.com/help/idea/project-tool-window.html):
+
 ![Initial project structure](tutorial_website_project_structure.png){width="481"}
 
 * The `build.gradle.kts` file contains [dependencies](#dependencies) required for a Ktor server and plugins.

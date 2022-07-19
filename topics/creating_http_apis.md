@@ -26,7 +26,9 @@ To create a base project for our application using the Ktor plugin, [open Intell
 
 1. <include from="lib.topic" element-id="new_project_idea"/>
 2. In the **New Project** wizard, choose **Ktor** from the list on the left. On the right pane, specify the following settings:
+   
    ![New Ktor project](tutorial_http_api_new_project.png){width="706" border-effect="rounded"}
+   
    * **Name**: Specify a project name.
    * **Location**: Specify a directory for your project.
    * **Build System**: Make sure that _Gradle Kotlin_ is selected as a [build system](server-dependencies.topic).
@@ -40,6 +42,7 @@ To create a base project for our application using the Ktor plugin, [open Intell
    Click **Next**.
    
 3. On the next page, add the **Routing**, **ContentNegotiation**, and **kotlinx.serialization** plugins:
+   
    ![Ktor plugins](tutorial_http_api_new_project_plugins.png){width="706" border-effect="rounded"}
    
    Click **Create** and wait until IntelliJ IDEA generates a project and installs the dependencies.
@@ -49,6 +52,7 @@ To create a base project for our application using the Ktor plugin, [open Intell
 ## Examine the project {id="project_setup"}
 
 To look at the structure of the [generated project](#create_ktor_project), let's invoke the [Project view](https://www.jetbrains.com/help/idea/project-tool-window.html):
+
 ![Initial project structure](tutorial_http_api_project_structure.png){width="481"}
 
 * The `build.gradle.kts` file contains [dependencies](#dependencies) required for a Ktor server and plugins.
