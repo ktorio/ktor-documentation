@@ -16,7 +16,7 @@
 
     <tabs>
         <tab title="Ktor Server">
-            <list style="horizontal" columns="2">
+            <list columns="2">
                 <li>
                     <p>
                         <b>
@@ -192,7 +192,7 @@
             </list>
         </tab>
         <tab title="Ktor Client">
-            <list style="horizontal" columns="2">
+            <list columns="2">
                 <li>
                     <p>
                         <b>
@@ -340,6 +340,7 @@
         </tab>
     </tabs>
 
-
-
+    <p>
+        <b><a href="https://api.ktor.io/">API Docs</a></b>
+    </p>
 </topic>
