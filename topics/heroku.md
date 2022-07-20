@@ -59,7 +59,7 @@ tasks {
 Note that the `installDist` task comes with the Gradle [application plugin](https://docs.gradle.org/current/userguide/application_plugin.html), which is already added to the sample project.
 
 ### Step 3: Create a Procfile {id="procfile"}
-Create a `Procfile` in a project root and add the following content:
+Create a [Procfile](https://devcenter.heroku.com/articles/procfile) in a project root and add the following content:
 ```
 web: ./build/install/ktor-get-started-sample/bin/ktor-get-started-sample
 ```
@@ -81,7 +81,8 @@ To deploy the application to Heroku using Git, open the terminal and follow the 
    ```Bash
    heroku login
    ```
-3. Create a Heroku application using the `heroku create` command:
+3. Create a Heroku application using the `heroku create` command.
+   You need to replace `ktor-sample-heroku` with a name of your application:
    ```Bash
    heroku create ktor-sample-heroku
    ```
