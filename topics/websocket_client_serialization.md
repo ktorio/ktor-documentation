@@ -120,4 +120,6 @@ To receive and convert a content of a text frame, call the `receiveDeserialized`
 ```
 {src="snippets/client-websockets-serialization/src/main/kotlin/com/example/Application.kt" include-lines="22-25"}
 
-You can find the full example here: [client-websockets-serialization](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-websockets-serialization).
+To receive deserialized frames from the [incoming](websocket_client.md#api-overview) channel, use the [WebsocketContentConverter.deserialize](https://api.ktor.io/ktor-shared/ktor-serialization/io.ktor.serialization/-websocket-content-converter/deserialize.html) function. `WebsocketContentConverter` is available via the `DefaultClientWebSocketSession.converter` property.
+
+> You can find the full example here: [client-websockets-serialization](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-websockets-serialization).

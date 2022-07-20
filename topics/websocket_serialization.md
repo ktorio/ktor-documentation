@@ -109,6 +109,8 @@ To receive and convert a content of a text frame, call the `receiveDeserialized`
 ```
 {src="snippets/server-websockets-serialization/src/main/kotlin/com/example/Application.kt" include-lines="23-26"}
 
+To receive deserialized frames from the [incoming](websocket.md#api-overview) channel, use the [WebsocketContentConverter.deserialize](https://api.ktor.io/ktor-shared/ktor-serialization/io.ktor.serialization/-websocket-content-converter/deserialize.html) function. `WebsocketContentConverter` is available via the `WebSocketServerSession.converter` property.
+
 ### Send data {id="send_data"}
 To pass a data object in a text frame using a [specified format](#configure_serializer), you can use the `sendSerialized` function:
 
@@ -116,4 +118,4 @@ To pass a data object in a text frame using a [specified format](#configure_seri
 ```
 {src="snippets/server-websockets-serialization/src/main/kotlin/com/example/Application.kt" include-lines="20-22"}
 
-You can find the full example here: [server-websockets-serialization](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/server-websockets-serialization).
+> You can find the full example here: [server-websockets-serialization](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/server-websockets-serialization).
