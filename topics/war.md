@@ -41,6 +41,7 @@ In contrast to the approach above, a servlet container should control the applic
 ### Add dependencies {id="add-dependencies"}
 
 To use Ktor in a servlet application, you need to include the `ktor-server-servlet` artifact in the build script:
+
 <var name="artifact_name" value="ktor-server-servlet"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
@@ -131,14 +132,14 @@ The `jetty-war.war` is created in the `build/libs` directory. You can deploy the
 <tabs>
 <tab title="Jetty">
 
-```dockerfile
+```Docker
 ```
 {src="snippets/jetty-war/Dockerfile"}
 
 </tab>
 <tab title="Tomcat">
 
-```dockerfile
+```Docker
 ```
 {src="snippets/tomcat-war/Dockerfile"}
 

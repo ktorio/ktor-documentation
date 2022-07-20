@@ -21,10 +21,12 @@ In Ktor, a user that already has an associated session can be authenticated usin
 To enable `session` authentication, you need to include the following artifacts in the build script:
 
 * Add the `ktor-server-sessions` dependency for using sessions:
+
   <var name="artifact_name" value="ktor-server-sessions"/>
   <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 * Add the `ktor-server-auth` dependency for authentication:
+
   <var name="artifact_name" value="ktor-server-auth"/>
   <include from="lib.topic" element-id="add_ktor_artifact"/>
 

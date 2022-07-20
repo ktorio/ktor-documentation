@@ -78,7 +78,7 @@ For example, to apply the Ktor plugin, open the `build.gradle.kts` file and add 
 
 To dockerize the application, create the `Dockerfile` in the root of the project and insert the following content:
 
-```dockerfile
+```Docker
 ```
 {src="snippets/tutorial-website-interactive-docker-compose/Dockerfile"}
 

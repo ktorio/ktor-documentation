@@ -41,7 +41,7 @@ route("a") { // matches first segment with the value "a" and quality 1.0
 }
 ```
 
-To show how resolution works in this more complex scenario, we need to specify the routing resolution algorithm, which consists of two parts.   
+To show how resolution works in this more complex scenario, we need to specify the routing resolution algorithm, which consists of two parts.
 Traversing the tree to find matched routes:
 
 1. Select root route's node as the current entry.

@@ -248,12 +248,6 @@
                         Note that this option uses the <a href="shutdown-url.md"/> plugin.
                     </p>
                 </def>
-                <def title="">
-                    <p>
-                        Properties specific for engines.
-                        Learn more from <a href="Engines.md" anchor="engine-main-configure"/>.
-                    </p>
-                </def>
             </deflist>
             <p id="ssl">
                 If you've set <code>ktor.deployment.sslPort</code>, you need to specify the following <a href="ssl.md">SSL-specific</a> properties:
@@ -388,7 +382,7 @@
                         A path to a custom configuration file used instead of <path>application.conf</path> / <path>application.yaml</path> from resources.
                     </p>
                     <p>
-                        <emphasis>Example</emphasis>: <code-block>java -jar sample-app.jar -config=anotherfile.conf</code-block>
+                        <emphasis>Example</emphasis>: <code>java -jar sample-app.jar -config=anotherfile.conf</code>
                     </p>
 
                 </def>

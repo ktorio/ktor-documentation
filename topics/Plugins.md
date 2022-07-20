@@ -48,10 +48,12 @@ In fact, what we've been calling `routing` until now, is nothing more than a Plu
 
 ## Add Plugin dependency {id="dependency"}
 Most of the plugins require a specific dependency. For example, the `CORS` plugin requires adding the `ktor-server-cors` artifact in the build script:
+
 <var name="artifact_name" value="ktor-server-cors"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 As an alternative, you can use the `ktor-server` artifact containing all Ktor server plugins:
+
 <var name="artifact_name" value="ktor-server"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 

@@ -65,10 +65,10 @@ To build a Fat JAR, open the terminal and execute the `buildFatJar` task provide
 
 <tabs group="os">
 <tab title="Linux/macOS" group-key="unix">
-<code-block lang="Bash">./gradlew :aws-elastic-beanstalk:buildFatJar</code-block>
+<code-block>./gradlew :aws-elastic-beanstalk:buildFatJar</code-block>
 </tab>
 <tab title="Windows" group-key="windows">
-<code-block lang="CMD">gradlew.bat :aws-elastic-beanstalk:buildFatJar</code-block>
+<code-block>gradlew.bat :aws-elastic-beanstalk:buildFatJar</code-block>
 </tab>
 </tabs>
 

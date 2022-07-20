@@ -61,13 +61,16 @@ Similarly, Ktor provides functions for all the other verbs, that is `put`, `post
 
 In summary, you need to specify the following settings to define a route:
 
-* **HTTP verb**  
+* **HTTP verb**
+
   Choose the HTTP verb, such as `GET`, `POST`, `PUT`, and so on. The most convenient way is to use a dedicated verb function, such as `get`, `post`, `put`, and so on.
 
-* **Path pattern**  
+* **Path pattern**
+
   Specify a path pattern used to [match a URL path](#match_url), for example, `/hello`, `/customer/{id}`. You can pass a path pattern right to the `get`/`post`/etc. function, or you can use the `route` function to group [route handlers](#multiple_routes) and define [nested routes](#nested_routes).
   
-* **Handler**  
+* **Handler**
+
   Specify how to handle [requests](requests.md) and [responses](responses.md). Inside the handler, you can get access to `ApplicationCall`, handle client requests, and send responses.
 
 
@@ -116,7 +119,7 @@ To access a parameter value inside the route handler, use the `call.parameters` 
 
 ### Path parameter with tailcard {id="path_parameter_tailcard"}
 
-A path parameter with a tailcard (`{param...}`) matches all the rest of the URL path and puts multiple values for each path segment into parameters using `param` as key. For example, `/user/{param...}` matches `/user/john/settings`.  
+A path parameter with a tailcard (`{param...}`) matches all the rest of the URL path and puts multiple values for each path segment into parameters using `param` as key. For example, `/user/{param...}` matches `/user/john/settings`.
 To access path segments' values inside the route handler, use `call.parameters.getAll("param")`. For the example above, the `getAll` function will return an array containing the _john_ and _settings_ values.
 
 ## Define multiple route handlers {id="multiple_routes"}

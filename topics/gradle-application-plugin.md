@@ -47,14 +47,14 @@ The Application plugin provides various ways for packaging the application, for 
 
 In this topic, we'll use `installDist`:
 1. Open a terminal.
-1. Run the `installDist` task in one of the following ways depending on your operating system:
+2. Run the `installDist` task in one of the following ways depending on your operating system:
    
    <tabs group="os">
    <tab title="Linux/macOS" group-key="unix">
-   <code-block lang="Bash">./gradlew :engine-main:installDist</code-block>
+   <code-block>./gradlew :engine-main:installDist</code-block>
    </tab>
    <tab title="Windows" group-key="windows">
-   <code-block lang="CMD">gradlew.bat :engine-main:installDist</code-block>
+   <code-block>gradlew.bat :engine-main:installDist</code-block>
    </tab>
    </tabs>
    
@@ -64,22 +64,23 @@ In this topic, we'll use `installDist`:
 ## Run the application {id="run"}
 To run the [packaged application](#package):
 1. Go to the `build/install/engine-main/bin` folder in a terminal.
-1. Depending on your operating system, run the `ktor-gradle-sample` or `ktor-gradle-sample.bat` executable:
+2. Depending on your operating system, run the `ktor-gradle-sample` or `ktor-gradle-sample.bat` executable:
 
    <snippet id="run_executable">
    <tabs group="os">
    <tab title="Linux/macOS" group-key="unix">
-   <code-block lang="Bash">./engine-main</code-block>
+   <code-block>./engine-main</code-block>
    </tab>
    <tab title="Windows" group-key="windows">
-   <code-block lang="CMD">engine-main.bat</code-block>
+   <code-block>engine-main.bat</code-block>
    </tab>
    </tabs>
    </snippet>
    
-1. Wait until the following message is shown:
+3. Wait until the following message is shown:
    ```Bash
    [main] INFO  Application - Responding at http://0.0.0.0:8080
    ```
    Open the link in a browser to see a running application:
+
    <img src="ktor_idea_new_project_browser.png" alt="Ktor app in a browser" width="430"/>

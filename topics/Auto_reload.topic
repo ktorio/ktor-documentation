@@ -168,11 +168,9 @@
                     <p>
                         To skip running tests when reloading a project, you can pass the <code>-x</code> option to the <code>build</code> task:
                     </p>
-                    <p>
-                        <code-block>
-                            ./gradlew -t build -x test -i
-                        </code-block>
-                    </p>
+                    <code-block>
+                        ./gradlew -t build -x test -i
+                    </code-block>
                 </tip>
             </li>
         </list>

@@ -142,7 +142,7 @@ In the root folder of the project, create a file named `Dockerfile` with the fol
 <tabs group="languages">
 <tab title="Gradle" group-key="kotlin">
 
-```dockerfile
+```Docker
 FROM gradle:7-jdk11 AS build
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
@@ -158,7 +158,7 @@ ENTRYPOINT ["java","-jar","/app/ktor-docker-sample.jar"]
 </tab>
 <tab title="Maven" group-key="maven">
 
-```dockerfile
+```Docker
 FROM maven:3-openjdk-11 AS build
 COPY . /home/maven/src
 WORKDIR /home/maven/src

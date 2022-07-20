@@ -14,6 +14,7 @@ HTML DSL integrates the [kotlinx.html](https://github.com/Kotlin/kotlinx.html) l
 
 ## Add dependencies {id="add_dependencies"}
 HTML DSL doesn't need [installation](Plugins.md#install) but requires the `%artifact_name%` artifact. You can include it in the build script as follows:
+
 <include from="lib.topic" element-id="add_ktor_artifact"/>
   
 
@@ -41,8 +42,8 @@ To learn more about generating HTML using kotlinx.html, see the [kotlinx.html wi
 In addition to generating plain HTML, Ktor provides a template engine that can be used to build complex layouts. You can create a hierarchy of templates for different parts of an HTML page, for example, a root template for the entire page, child templates for a page header and footer, and so on. Ktor exposes the following API for working with templates:
 
 1. To respond with an HTML built based on a specified template, call the [respondHtmlTemplate](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-html-builder/io.ktor.server.html/respond-html-template.html) method.
-1. To create a template, you need to implement the [Template](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-html-builder/io.ktor.server.html/-template/index.html) interface and override the `Template.apply` method providing HTML.
-1. Inside a created template class, you can define placeholders for different content types:
+2. To create a template, you need to implement the [Template](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-html-builder/io.ktor.server.html/-template/index.html) interface and override the `Template.apply` method providing HTML.
+3. Inside a created template class, you can define placeholders for different content types:
     * [Placeholder](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-html-builder/io.ktor.server.html/-placeholder/index.html) is used to insert the content. [PlaceholderList](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-html-builder/io.ktor.server.html/-placeholder-list/index.html) can be used to insert the content that appears multiple times (for example, list items).
     * [TemplatePlaceholder](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-html-builder/io.ktor.server.html/-template-placeholder/index.html) can be used to insert child templates and create nested layouts.
     

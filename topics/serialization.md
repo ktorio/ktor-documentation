@@ -44,6 +44,7 @@ To serialize/deserialize JSON data, you can choose one of the following librarie
 
 1. Add the Kotlin serialization plugin, as described in the [Setup](https://github.com/Kotlin/kotlinx.serialization#setup) section.
 2. Add the `ktor-serialization-kotlinx-json` artifact in the build script:
+
    <var name="artifact_name" value="ktor-serialization-kotlinx-json"/>
    <include from="lib.topic" element-id="add_ktor_artifact"/>
 
@@ -51,6 +52,7 @@ To serialize/deserialize JSON data, you can choose one of the following librarie
 <tab title="Gson" group-key="gson">
 
 * Add the `ktor-serialization-gson` artifact in the build script:
+
    <var name="artifact_name" value="ktor-serialization-gson"/>
    <include from="lib.topic" element-id="add_ktor_artifact"/>
 
@@ -58,6 +60,7 @@ To serialize/deserialize JSON data, you can choose one of the following librarie
 <tab title="Jackson" group-key="jackson">
 
 * Add the `ktor-serialization-jackson` artifact in the build script:
+
    <var name="artifact_name" value="ktor-serialization-jackson"/>
    <include from="lib.topic" element-id="add_ktor_artifact"/>
 
@@ -68,12 +71,14 @@ To serialize/deserialize JSON data, you can choose one of the following librarie
 ### XML {id="add_xml_dependency"}
 
 To serialize/deserialize XML, add the `ktor-serialization-kotlinx-xml` in the build script:
+
 <var name="artifact_name" value="ktor-serialization-kotlinx-xml"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 ### CBOR {id="add_cbor_dependency"}
 
 To serialize/deserialize CBOR, add the `ktor-serialization-kotlinx-cbor` in the build script:
+
 <var name="artifact_name" value="ktor-serialization-kotlinx-cbor"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 

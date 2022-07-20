@@ -152,13 +152,7 @@ Pipelines are merged when there are different points where interceptors can be i
 Ktor defines a pipeline without a subject, and the `ApplicationCall` as a context
 defining five phases (`Setup`, `Monitoring`, `Plugins`, `Call` and `Fallback`) to be executed in this order:
 
-```nomnoml
-#direction: right
-#.call: fill=#af8
-#.fallback: fill=#faa dashed
-[<call>Call]
-[<fallback>Fallback]
-
+```
 [Setup] then -> [Monitoring]
 [Monitoring] then -> [Plugins]
 [Plugins] then -> [Call]

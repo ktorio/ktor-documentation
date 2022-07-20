@@ -38,11 +38,12 @@ To run the [built application](#build):
    ```Bash
    java -jar target/ktor-maven-sample-0.0.1-jar-with-dependencies.jar
    ```
-1. Wait until the following message is shown:
+2. Wait until the following message is shown:
    ```Bash
    [main] INFO  Application - Responding at http://0.0.0.0:8080
    ```
    You can click the link to open the application in a default browser:
+
    <img src="ktor_idea_new_project_browser.png" alt="Ktor app in a browser" width="430"/>
 
 

@@ -20,12 +20,14 @@ This plugin provides different logger types for different platforms:
 ## Add dependencies {id="add_dependencies"}
 To enable logging, you need to include the following artifacts in the build script:
 * (Optional) An artifact with the required SLF4J implementation, for example, [Logback](https://logback.qos.ch/):
+
   <var name="group_id" value="ch.qos.logback"/>
   <var name="artifact_name" value="logback-classic"/>
   <var name="version" value="logback_version"/>
   <include from="lib.topic" element-id="add_artifact"/>
   
 * The `ktor-client-logging` artifact:
+
   <var name="artifact_name" value="ktor-client-logging"/>
   <include from="lib.topic" element-id="add_ktor_artifact"/>
   <include from="lib.topic" element-id="add_ktor_client_artifact_tip"/>

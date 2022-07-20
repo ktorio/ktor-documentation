@@ -21,13 +21,16 @@ The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-ser
 ## Add dependencies {id="add_dependencies"}
 To enable `%plugin_name%`, you need to include the following artifacts in the build script:
 * Add the `%artifact_name%` dependency:
+
   <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 * Optionally, add a dependency required for a specific reporter. The example below shows how to add an artifact required to report metrics via JMX:
+
   <var name="group_id" value="io.dropwizard.metrics"/>
   <var name="artifact_name" value="metrics-jmx"/>
   <var name="version" value="dropwizard_version"/>
   <include from="lib.topic" element-id="add_artifact"/>
+  
   You can replace `dropwizard_version` with the required version of the `metrics-jmx` artifact, for example, `%dropwizard_version%`.
 
 ## Install %plugin_name% {id="install_plugin"}
