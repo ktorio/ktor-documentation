@@ -20,7 +20,7 @@ fun main() {
         HttpResponseValidator {
             handleResponseExceptionWithRequest { exception, request ->
                 val clientException = exception as? ClientRequestException ?: return@handleResponseExceptionWithRequest
-                val exceptionResponse = exception.response
+                val exceptionResponse = clientException.response
                 if (exceptionResponse.status == HttpStatusCode.NotFound) {
                     val exceptionResponseText = exceptionResponse.bodyAsText()
                     throw MissingPageException(exceptionResponse, exceptionResponseText)
