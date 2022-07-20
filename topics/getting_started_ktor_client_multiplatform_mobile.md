@@ -90,7 +90,7 @@ To update code shared between Android and iOS, open the `shared/src/commonMain/k
 
 ```kotlin
 ```
-{src="snippets/tutorial-client-kmm/shared/src/commonMain/kotlin/com/example/kmmktor/Greeting.kt" lines="7,12-17"}
+{src="snippets/tutorial-client-kmm/shared/src/commonMain/kotlin/com/example/kmmktor/Greeting.kt" lines="3-7,12-17"}
 
 - To create the HTTP client, the `HttpClient` constructor is called.
 - The suspending `getHtml` function is used to make a [request](request.md) and receive the body of a [response](response.md) as a string value.
@@ -104,7 +104,7 @@ Open the `androidApp/src/main/java/com/example/kmmktor/android/MainActivity.kt` 
 
 ```kotlin
 ```
-{src="snippets/tutorial-client-kmm/androidApp/src/main/java/com/example/kmmktor/android/MainActivity.kt" lines="10-29"}
+{src="snippets/tutorial-client-kmm/androidApp/src/main/java/com/example/kmmktor/android/MainActivity.kt" lines="3-29"}
 
 Inside the created `MainScope`, the [runCatching](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/run-catching.html) function is used to call the shared `getHtml` function and handle possible exceptions.
 
@@ -115,7 +115,7 @@ Open the `iosApp/iosApp/ContentView.swift` file and update `ContentView` code in
 
 ```Swift
 ```
-{src="snippets/tutorial-client-kmm/iosApp/iosApp/ContentView.swift" lines="4-24"}
+{src="snippets/tutorial-client-kmm/iosApp/iosApp/ContentView.swift" lines="1-24"}
 
 On iOS, the `getHtml` suspending function is available as a function with a callback.
 
