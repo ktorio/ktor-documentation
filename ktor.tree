@@ -233,7 +233,7 @@
                 <toc-element id="http-client_plugins.md"
                              accepts-web-file-names="http-client-features.html"/>
 <!--                <toc-element id="http-client_multiplatform.md"/>-->
-                <toc-element id="client-ssl.md" show-structure-depth="2"/>
+                <toc-element id="client-ssl.md" show-structure-depth="3"/>
                 <toc-element id="proxy.md" show-structure-depth="2"/>
             </toc-element>
 
