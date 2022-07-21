@@ -1,6 +1,6 @@
 [//]: # (title: SSL)
 
-<show-structure for="chapter" depth="2"/>
+<show-structure for="chapter" depth="3"/>
 
 <tldr>
 <var name="example_name" value="client-ssl-config"/>
@@ -8,7 +8,7 @@
 </tldr>
 
 To configure SSL in the Ktor client, you need to customize the [configuration of an engine](http-client_engines.md#configure) used by your client.
-In this topic, we'll show you how to add an SSL certificate for different [JVM engines](http-client_engines.md#jvm).
+In this topic, we'll show you how to add an SSL certificate for engines that target [JVM](http-client_engines.md#jvm) and [Android](http-client_engines.md#jvm-android).
 
 > To learn how to generate a self-signed certificate using the Ktor API, see [](ssl.md#self-signed).
 
@@ -27,7 +27,10 @@ Given that different engines use different [JSSE API](https://docs.oracle.com/en
 In this section, we'll see how to configure SSL for different engines.
 You can find the full example here: [client-ssl-config](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-ssl-config).
 
-### Apache {id="apache"}
+
+### JVM {id="jvm"}
+
+#### Apache {id="apache"}
 
 To enable SSL for Apache, you need to pass `SSLContext`:
 
@@ -36,7 +39,7 @@ To enable SSL for Apache, you need to pass `SSLContext`:
 {src="snippets/client-ssl-config/src/main/kotlin/com/example/Application.kt" include-lines="20-24"}
 
 
-### Java {id="java"}
+#### Java {id="java"}
 
 For the Java client, pass `SSLContext` to the `sslContext` function inside the `config` block:
 
@@ -45,7 +48,7 @@ For the Java client, pass `SSLContext` to the `sslContext` function inside the `
 {src="snippets/client-ssl-config/src/main/kotlin/com/example/Application.kt" include-lines="25-31"}
 
 
-### Jetty {id="jetty"}
+#### Jetty {id="jetty"}
 
 For Jetty, you need to create an instance of `SslContextFactory` and pass `SSLContext`:
 
@@ -54,7 +57,11 @@ For Jetty, you need to create an instance of `SslContextFactory` and pass `SSLCo
 {src="snippets/client-ssl-config/src/main/kotlin/com/example/Application.kt" include-lines="32-38"}
 
 
-### CIO {id="cio"}
+### JVM and Android {id="jvm-android"}
+
+> All engines targeted for Android use [network security configuration](https://developer.android.com/training/articles/security-config).
+
+#### CIO {id="cio"}
 
 The CIO engine allows you to configure HTTPS settings inside the `https` block.
 Inside this block, you can access TLS parameters provided by [TLSConfigBuilder](https://api.ktor.io/ktor-network/ktor-network-tls/io.ktor.network.tls/-t-l-s-config-builder/index.html).
@@ -68,7 +75,7 @@ In our example, a `TrustManager` instance is used to configure a certificate:
 > This approach should be used for development purposes only.
 
 
-### Android {id="android"}
+#### Android {id="android"}
 
 The Android engine uses the `sslManager` property to configure SSL settings. 
 This property accepts `HttpsURLConnection` as a parameter that allows you to pass `SSLSocketFactory`:
@@ -78,10 +85,14 @@ This property accepts `HttpsURLConnection` as a parameter that allows you to pas
 {src="snippets/client-ssl-config/src/main/kotlin/com/example/Application.kt" include-lines="46-52"}
 
 
-### OkHttp {id="okhttp"}
+#### OkHttp {id="okhttp"}
 
 To configure OkHttp for using SSL, you need to pass `SSLSocketFactory` and `X509TrustManager` to the `sslSocketFactory` function:
 
 ```kotlin
 ```
 {src="snippets/client-ssl-config/src/main/kotlin/com/example/Application.kt" include-lines="53-59"}
+
+### Darwin {id="darwin"}
+
+To configure trusted certificates for the Darwin engine, use [CertificatePinner](https://api.ktor.io/ktor-client/ktor-client-darwin/io.ktor.client.engine.darwin.certificates/-certificate-pinner/index.html).
