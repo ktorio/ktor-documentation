@@ -4,7 +4,8 @@ import io.ktor.server.application.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import io.ktor.utils.io.core.*
+import io.ktor.util.cio.*
+import io.ktor.utils.io.*
 import java.io.*
 
 fun Application.main() {
@@ -21,15 +22,8 @@ fun Application.main() {
         }
 
         post("/upload") {
-            val channel = call.receiveChannel()
-            while (!channel.isClosedForRead) {
-                val packet = channel.readRemaining(DEFAULT_BUFFER_SIZE.toLong())
-                while (!packet.isEmpty) {
-                    val file = File("uploads/ktor_logo.png")
-                    val bytes = packet.readBytes()
-                    file.appendBytes(bytes)
-                }
-            }
+            val file = File("uploads/ktor_logo.png")
+            call.receiveChannel().copyAndClose(file.writeChannel())
             call.respondText("A file is uploaded")
         }
     }

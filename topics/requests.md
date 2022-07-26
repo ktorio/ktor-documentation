@@ -69,13 +69,14 @@ To receive the body of this request as a String value, use `ApplicationCall.rece
 
 ```kotlin
 ```
-{src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="12-15"}
+{src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="13-16"}
+
 
 You can also use `ApplicationCall.receiveChannel` to receive [ByteReadChannel](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) that allows asynchronous reading of byte sequences:
 
 ```kotlin
 ```
-{src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="17-21"}
+{src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="18-22"}
 
 You can find the full example here: [post-raw-data](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/post-raw-data).
 
