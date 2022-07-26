@@ -50,7 +50,33 @@ You can also obtain the entire query string using the [ApplicationRequest.queryS
 
 
 ## Body contents {id="body_contents"}
-This section shows how to receive body contents sent with `POST`, `PUT`, or `PATCH`:
+This section shows how to receive body contents sent with `POST`, `PUT`, or `PATCH`.
+
+### Raw payload {id="raw"}
+To access the raw body payload and parse it by yourself, you can use the following functions:
+* [receiveText](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/receive-text.html)
+* [receiveChannel](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/receive-channel.html)
+
+Suppose you have the following HTTP request:
+
+```HTTP
+```
+{src="snippets/post-raw-data/post.http" lines="1-4"}
+
+To receive the body of this request as a String value, use `ApplicationCall.receiveText`:
+
+```kotlin
+```
+{src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" lines="10-13"}
+
+You can also use `ApplicationCall.receiveChannel` to receive [ByteReadChannel](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) that allows asynchronous reading of byte sequences:
+
+```kotlin
+```
+{src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" lines="15-19"}
+
+You can find the full example here: [post-raw-data](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/post-raw-data).
+
 
 ### Objects {id="objects"}
 Ktor provides a [ContentNegotiation](serialization.md) plugin to negotiate the media type of request and deserialize content to an object of a required type. To receive and convert content for a request, call the [ApplicationCall.receive](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/receive.html) function that accepts a data class as a parameter:
@@ -91,10 +117,3 @@ Learn how to run this sample from [upload-file](https://github.com/ktorio/ktor-d
 > ```
 > 
 {type="tip"}
-
-
-### Raw payload {id="raw"}
-If you need to access the raw body payload and parse it by yourself, you can use the following functions:
-* [receiveChannel](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/receive-channel.html)
-* [receiveStream](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/receive-stream.html)
-* [receiveText](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/receive-text.html)
