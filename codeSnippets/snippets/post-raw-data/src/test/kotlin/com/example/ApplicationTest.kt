@@ -4,6 +4,8 @@ import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.server.testing.*
+import io.ktor.util.cio.*
+import java.io.*
 import kotlin.test.*
 
 class ApplicationTest {
@@ -23,5 +25,13 @@ class ApplicationTest {
             setBody("Hello, world!")
         }
         assertEquals("Hello, world!", response.bodyAsText())
+    }
+
+    @Test
+    fun testUploadBinary() = testApplication {
+        val response = client.post("/upload") {
+            setBody(File("ktor_logo.png").readChannel())
+        }
+        assertEquals("A file is uploaded", response.bodyAsText())
     }
 }

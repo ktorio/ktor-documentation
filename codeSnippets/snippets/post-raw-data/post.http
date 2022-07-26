@@ -9,3 +9,10 @@ POST http://localhost:8080/channel
 Content-Type: text/plain
 
 Hello, world!
+
+###
+
+POST http://localhost:8080/upload
+Content-Type: application/octet-stream
+
+< ./ktor_logo.png
