@@ -225,6 +225,18 @@ You can find the full examples here:
 - [client-upload-progress](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-upload-progress)
 
 
+### Binary data {id="binary"}
+
+To send binary data with the `application/octet-stream` content type, pass the [ByteReadChannel](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) instance to the `setBody` function.
+For example, you can use the [File.readChannel](https://api.ktor.io/ktor-utils/io.ktor.util.cio/read-channel.html) function to open a read channel for a file and fill it:
+
+```kotlin
+```
+{src="snippets/client-upload-binary-data/src/main/kotlin/com/example/Application.kt" lines="14-16"}
+
+You can find the full example here: [client-upload-binary-data](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-upload-binary-data).
+
+
 ## Parallel requests {id="parallel_requests"}
 
 When sending two requests at once, the client suspends the second request execution until the first one is finished. If you need to perform several requests at once, you can use [launch](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/launch.html) or [async](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html) functions. The code snippet below shows how to perform two requests asynchronously:
