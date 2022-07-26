@@ -235,9 +235,9 @@ For example, you can use the [File.readChannel](https://api.ktor.io/ktor-utils/i
 
 ```kotlin
 ```
-{src="snippets/client-upload-binary-data/src/main/kotlin/com/example/Application.kt" lines="14-16"}
+{src="snippets/client-upload-binary-data/src/main/kotlin/com/example/Application.kt" include-lines="14-16"}
 
-You can find the full example here: [client-upload-binary-data](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/client-upload-binary-data).
+You can find the full example here: [client-upload-binary-data](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-upload-binary-data).
 
 
 ## Parallel requests {id="parallel_requests"}
