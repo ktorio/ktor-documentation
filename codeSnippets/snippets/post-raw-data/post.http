@@ -5,7 +5,7 @@ Hello, world!
 
 ###
 
-POST http://localhost:8080/text
+POST http://localhost:8080/channel
 Content-Type: text/plain
 
 Hello, world!
