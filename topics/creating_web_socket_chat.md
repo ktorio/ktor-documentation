@@ -176,6 +176,8 @@ To try out the service, we can use [Postman](https://learning.postman.com/docs/s
 
 Then, we can enter any kind of message in the editor pane, and send it to our local server. If everything has gone according to plan, we should see sent and received messages and in the **Messages** pane, indicating that our echo-server is functioning just as intended.
 
+> IntelliJ IDEA Ultimate allows you to test your WebSocket server using the [HTTP Client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html#websocket).
+
 With this, we now have a solid foundation for bidirectional communication through WebSockets. Next, let's expand our program more closely resemble a chat server, allowing multiple participants to share messages with others.
 
 
