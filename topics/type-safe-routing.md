@@ -116,8 +116,6 @@ This resource can be used to list all articles, post a new article, edit it, and
 
 > You can find the full example here: [resource-routing](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/resource-routing).
 
-
-
 ## Define route handlers {id="define_route"}
 
 To [define a route handler](Routing_in_Ktor.md#define_route) for a typed resource, you need to pass a resource class to a verb function (`get`, `post`, `put`, and so on).
@@ -145,8 +143,43 @@ The example below shows how to define route handlers for the `Articles` resource
 ```
 {src="snippets/resource-routing/src/main/kotlin/com/example/Application.kt" lines="32-64"}
 
-You can find the full example here: [resource-routing](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/resource-routing).
+> You can find the full example here: [resource-routing](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/resource-routing).
 
+## Building links from resources {id="resource_links"}
+
+Besides using resource definitions for routing, they can also be used to build links.
+This is sometimes called "reverse routing".
+
+The `Resource` plugin extends `Application` with the overloaded `href` method with which we can generate a link from a `Resource`.
+
+For instance here we create a link for the above defined `Edit` resource:
+
+```kotlin
+val link: String = href(Articles.Id.Edit(Articles.Id(id = 123)))
+```
+
+Since the grandparent `Articles` resource defines the `sort` query parameter with the default value `new`, the `link` variable contains:
+
+```
+/articles/123/edit?sort=new
+```
+
+To generate URLs that specify host and protocol we can supply the `href` method with a `URLBuilder`.
+Additional query params can also be specified using the `URLBuilder`, as shown in this example:
+
+```kotlin
+val urlBuilder = URLBuilder(URLProtocol.HTTPS, "ktor.io", parameters = parametersOf("token", "123"))
+href(Articles(sort = null), urlBuilder)
+val link: String = urlBuilder.buildString()
+```
+
+The `link` variable subsequently contains:
+
+```
+https://ktor.io/articles?token=123
+```
+
+> Find more examples here: [resource-routing tests](https://github.com/ktorio/ktor-documentation/tree/%current-branch%/codeSnippets/snippets/resource-routing/src/test/kotlin/ApplicationTest.kt).
 
 
 
