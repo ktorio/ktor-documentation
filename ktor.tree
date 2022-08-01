@@ -58,7 +58,7 @@
             <toc-element toc-title="Routing">
                 <toc-element id="Routing_in_Ktor.md"
                              show-structure-depth="2"
-                             accepts-web-file-names="routing.html"/>
+                             accepts-web-file-names="routing.html,tracing-routes.html,resolution-algorithms.html"/>
                 <toc-element id="Structuring_Applications.md"
                              accepts-web-file-names="structure.html"/>
                 <toc-element id="type-safe-routing.md" show-structure-depth="2"/>
@@ -206,10 +206,6 @@
                          show-structure-depth="2"
                          accepts-web-file-names="creating-custom-plugins.html,advanced-authentication.html"/>
             <toc-element id="Pipelines.md" accepts-web-file-names="pipeline.html"/>
-            <toc-element toc-title="Routing under the covers">
-                <toc-element id="resolution_algorithms.md"/>
-                <toc-element id="tracing_routes.md"/>
-            </toc-element>
             <toc-element id="events.md"/>
         </toc-element>
     </toc-element>
