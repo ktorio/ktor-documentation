@@ -15,7 +15,7 @@ class ApplicationTest {
             contentType(ContentType.Text.Plain)
             setBody("Some text")
         }
-        assertEquals("\"Body text should start with 'Hello'\"", response.bodyAsText())
+        assertEquals("Body text should start with 'Hello'", response.bodyAsText())
         assertEquals(HttpStatusCode.BadRequest, response.status)
     }
 
@@ -30,7 +30,7 @@ class ApplicationTest {
             contentType(ContentType.Application.Json)
             setBody(Customer(-1, "Jet", "Brains"))
         }
-        assertEquals("\"A customer ID should be greater than 0\"", response.bodyAsText())
+        assertEquals("A customer ID should be greater than 0", response.bodyAsText())
         assertEquals(HttpStatusCode.BadRequest, response.status)
     }
 
@@ -40,7 +40,7 @@ class ApplicationTest {
             contentType(ContentType.Text.Plain)
             setBody("-1")
         }
-        assertEquals("\"A value should be greater than 0\"", response.bodyAsText())
+        assertEquals("A value should be greater than 0", response.bodyAsText())
         assertEquals(HttpStatusCode.BadRequest, response.status)
     }
 }
