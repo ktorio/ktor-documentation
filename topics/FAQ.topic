@@ -66,7 +66,7 @@
     <chapter title="My route is not being executed. How can I debug it?" id="route-not-executing" level="3">
         <p>
             Ktor provides a tracing mechanism to help troubleshooting routing decisions.
-            Check the <a href="tracing_routes.md">Tracing the routing decisions</a> section.
+            Check the <a href="Routing_in_Ktor.md" anchor="trace_routes">Tracing routes</a> section.
         </p>
     </chapter>
 

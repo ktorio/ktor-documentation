@@ -231,3 +231,29 @@ fun Route.totalizeOrderRoute() {
 You can find the full example demonstrating this approach here: [tutorial-website-interactive](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-website-interactive).
 
 > For our application to scale when it comes to maintainability, it is recommended to follow certain [Structuring patterns](Structuring_Applications.md).
+
+
+## Trace routes {id="trace_routes"}
+
+Ktor allows you to log information about route matches to determine why some routes are not being executed.
+To enable tracing, call the `trace` function inside the `routing` block as follows:
+
+```kotlin
+routing {
+    trace { application.log.trace(it.buildText()) }
+}
+```
+
+Then, [run](running.md) the application and make a request to the desired URL.
+The application's output might look as follows:
+
+```Console
+TRACE Application - Trace for [missing-page]
+/, segment:0 -> SUCCESS @ /
+  /, segment:0 -> SUCCESS @ /
+    /(method:GET), segment:0 -> FAILURE "Not all segments matched" @ /(method:GET)
+Matched routes:
+  No results
+Route resolve result:
+  FAILURE "No matched subtrees found" @ /
+```
