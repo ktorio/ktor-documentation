@@ -30,7 +30,7 @@ Ktor provides two main ways to send HTML responses to a client:
 To send HTML build using Kotlin DSL, use the [call.respondHtml](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-html-builder/io.ktor.server.html/respond-html.html) function:
 ```kotlin
 ```
-{src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="12-26"}
+{src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="12-28"}
 
 To send a template in a response, call the [call.respond](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.response/respond.html) function with a specific content ...
 ```kotlin
