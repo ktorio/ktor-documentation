@@ -187,10 +187,8 @@ For example, you can pass the following [predefined events](events.md#predefined
 The code snippet below shows how to handle application shutdown using `ApplicationStopped`:
 
 ```kotlin
-on(MonitoringEvent(ApplicationStopped)) {
-    println("Server is stopped")
-}
 ```
+{src="snippets/events/src/main/kotlin/com/example/plugins/ApplicationMonitoringPlugin.kt" lines="12-13,17"}
 
 This might be useful to release application resources.
 

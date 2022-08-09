@@ -1,90 +1,109 @@
 [//]: # (title: Application monitoring)
 
-<include from="lib.topic" element-id="outdated_warning"/>
+<show-structure for="chapter" depth="2"/>
 
-On the server-side, in addition to handling requests, Ktor exposes a mechanism to produce and consume global events.
+<tldr>
+<var name="example_name" value="events"/>
+<include src="lib.xml" include-id="download_example"/>
+</tldr>
 
-For example, when the application is starting, has started, or has stopped, an event is generated and raised.
-You can subscribe to or unsubscribe from these events and trigger code execution.
-The `monitor: ApplicationEvents` instance, associated with the application environment, acts as the event dispatcher.
+Ktor provides the ability to monitor your server application by using events.
+You can handle predefined events related to an application's lifecycle (application starting, stopping, etc.) or you can use custom events to handle specific cases. Events can be handled for:
+- the specified `Application` instance available inside a [module function](Modules.md);
+- the custom plugin using the [MonitoringEvent](custom_plugins.md#handle-app-events) hook.
 
-The `ApplicationEvents` dispatches typed `EventDefinition<T>` along with an object `T`.
 
-You can get the monitor along with the application instance by executing `application.environment.monitor`.
 
-## `ApplicationEvents` API
+## Event definition {id="event-definition"}
 
-The simplified API for the `monitor: ApplicationEvents` looks like this:
+Each event is represented by the [EventDefinition](https://api.ktor.io/ktor-shared/ktor-events/io.ktor.events/-event-definition/index.html) class instance. This class has a `T` type parameter specifying a type of value passed to the event. This value can be accessed in the [event handler](#handle-events-application) as a lambda argument. For example, most of the [predefined events](#predefined-events) accept `Application` as a parameter allowing you to access application properties inside the event handler.
 
-```kotlin
-class ApplicationEvents {
-    fun <T> subscribe(definition: EventDefinition<T>, handler: EventHandler<T>): DisposableHandle
-    fun <T> unsubscribe(definition: EventDefinition<T>, handler: EventHandler<T>)
-    fun <T> raise(definition: EventDefinition<T>, value: T)
-}
-
-class EventDefinition<T>
-
-typealias EventHandler<T> = (T) -> Unit
-
-interface DisposableHandle {
-    fun dispose()
-}
-```
-
-## Predefined EventDefinitions {id="predefined-events"}
-
-Ktor provides some predefined events that are dispatched by the engine:
+For a [custom event](#custom-events), you can pass a type parameter required for this event.
+The code snippet below shows how to create a custom `NotFoundEvent` that accepts the `ApplicationCall` instance.
 
 ```kotlin
-val ApplicationStarting: EventDefinition<Application>
-val ApplicationStarted: EventDefinition<Application>
-val ApplicationStopPreparing: EventDefinition<ApplicationEnvironment>
-val ApplicationStopping: EventDefinition<Application>
-val ApplicationStopped: EventDefinition<Application>
 ```
+{src="snippets/events/src/main/kotlin/com/example/plugins/ApplicationMonitoringPlugin.kt" include-lines="25"}
 
-## Subscribing to events and raising them
+The [](#custom-events) section shows how to raise this event in a custom plugin when a server returns the `404 Not Found` status code for a resource.
 
-You can subscribe to events by calling the `subscribe` method from the monitor.
-The subscribe method returns a `DisposableHandle` that you can call to cancel the subscription.
-Additionally, you can call the `unsubscribe` method with the same method handle to cancel the subscription.
 
-Using the disposable:
+### Predefined application events {id="predefined-events"}
+
+Ktor provides the following predefined events related to an application's lifecycle:
+
+- [ApplicationStarting](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-starting.html)
+- [ApplicationStarted](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-started.html)
+- [ApplicationStopPreparing](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-stop-preparing.html)
+- [ApplicationStopping](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-stopping.html)
+- [ApplicationStopped](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-stopped.html)
+
+For example, you can subscribe to the `ApplicationStopped` event to release application resources.
+
+
+## Handle events in an application {id="handle-events-application"}
+
+To handle events for the specified `Application` instance, use the `Application.environment.monitor` property.
+This property provides access to the [Events](https://api.ktor.io/ktor-shared/ktor-events/io.ktor.events/-events/index.html) instance, allowing you to handle application events:
+- `subscribe`: subscribes to an event specified by [EventDefinition](#event-definition).
+- `unsubscribe`: unsubscribes from an event specified by [EventDefinition](#event-definition).
+- `raise`: raises an event specified by [EventDefinition](#event-definition) with the specified value.
+   > The [](#custom-events) section shows how to raise custom events.
+
+The `subscribe` / `unsubscribe` functions accept the `EventDefinition` instance with the `T` value as a lambda argument. The example below shows how to subscribe to the `ApplicationStarted` event and [log](logging.md) a message in the event handler:
 
 ```kotlin
-val disposable = application.environment.monitor.subscribe(ApplicationStarting) { application: Application ->
-    // Handle the event using the application as subject
-}
-disposable.dispose() // Cancels the subscription
 ```
+{src="snippets/events/src/main/kotlin/com/example/Application.kt" include-lines="11,13-15,30"}
 
-Using a lambda stored in a property:
+In this example, you can see how to handle the `ApplicationStopped` event:
 
 ```kotlin
-val starting: (Application) -> Unit = { log("Application starting: $it") }
-
-application.environment.monitor.subscribe(ApplicationStarting, starting) // subscribe
-application.environment.monitor.unsubscribe(ApplicationStarting, starting) // unsubscribe
 ```
+{src="snippets/events/src/main/kotlin/com/example/Application.kt" include-lines="11,16-21,30"}
 
-Using a method reference:
+You can find the full example here: [events](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/events).
+
+
+
+
+## Handle events in a custom plugin {id="handle-events-plugin"}
+
+You can handle events in [custom plugins](custom_plugins.md#handle-app-events) using the `MonitoringEvent` hook. 
+The example below shows how to create the `ApplicationMonitoringPlugin` plugin and handle the `ApplicationStarted` and `ApplicationStopped` events:
 
 ```kotlin
-fun starting(application: Application) { log("Application starting: $it") }
-
-application.environment.monitor.subscribe(ApplicationStarting, ::starting) // subscribe
-application.environment.monitor.unsubscribe(ApplicationStarting, ::starting) // unsubscribe
 ```
+{src="snippets/events/src/main/kotlin/com/example/plugins/ApplicationMonitoringPlugin.kt" include-lines="3-17,23"}
 
-If you want to create custom events and dispatch or raise them:
+You can find the full example here: [events](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/events).
 
-```kotlin
-class MySubject
-val MyEventDefinition = EventDefinition<MySubject>()
-monitor.raise(MyEventDefinition, MySubject())
-```
 
-## Examples
+## Custom events {id="custom-events"}
 
-You can check the [CallLogging](https://github.com/ktorio/ktor/blob/33519fd01e6a57467e1b12b1297af84d25ace814/ktor-server/ktor-server-plugins/ktor-server-call-logging/jvm/src/io/ktor/server/plugins/callloging/CallLogging.kt) plugin source code that includes code subscribing to events from the application.
+In this section, we'll take a look at how to create a custom event raised when a server returns the `404 Not Found` status code for a resource. 
+
+1. First, you need to create the [event definition](#event-definition).
+   The code snippet below shows how to create a custom `NotFoundEvent` that accepts the `ApplicationCall` instance.
+   
+   ```kotlin
+   ```
+   {src="snippets/events/src/main/kotlin/com/example/plugins/ApplicationMonitoringPlugin.kt" include-lines="25"}
+2. To raise the event, call the `Events.raise` function. The sample below shows how to handle the `ResponseSent` [hook](custom_plugins.md#other) to raise the newly created event if the status code for a call is `404`.
+   
+   ```kotlin
+   ```
+   {src="snippets/events/src/main/kotlin/com/example/plugins/ApplicationMonitoringPlugin.kt" include-lines="3-8,18-23"}
+3. To handle the created event in the Application, [install](Plugins.md#install) the plugin ...
+   
+   ```kotlin
+   ```
+   {src="snippets/events/src/main/kotlin/com/example/Application.kt" include-lines="11-12,30"}
+   
+   ... and subscribe to the event using `Events.subscribe`:
+   
+   ```kotlin
+   ```
+   {src="snippets/events/src/main/kotlin/com/example/Application.kt" include-lines="11,22-24,30"}
+
+You can find the full example here: [events](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/events).

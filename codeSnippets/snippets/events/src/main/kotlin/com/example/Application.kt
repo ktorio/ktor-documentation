@@ -11,10 +11,10 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 fun Application.module() {
     install(ApplicationMonitoringPlugin)
     environment.monitor.subscribe(ApplicationStarted) { application ->
-        log.info("Server is started")
+        application.environment.log.info("Server is started")
     }
     environment.monitor.subscribe(ApplicationStopped) { application ->
-        log.info("Server is stopped")
+        application.environment.log.info("Server is stopped")
         // Release resources and unsubscribe from events
         application.environment.monitor.unsubscribe(ApplicationStarted) {}
         application.environment.monitor.unsubscribe(ApplicationStopped) {}
