@@ -206,7 +206,7 @@
                          show-structure-depth="2"
                          accepts-web-file-names="creating-custom-plugins.html,advanced-authentication.html"/>
             <toc-element id="Pipelines.md" accepts-web-file-names="pipeline.html"/>
-            <toc-element id="events.md"/>
+            <toc-element id="events.md" show-structure-depth="2"/>
         </toc-element>
     </toc-element>
 
