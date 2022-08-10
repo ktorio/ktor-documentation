@@ -8,9 +8,7 @@
 </tldr>
 
 Ktor provides the ability to monitor your server application by using events.
-You can handle predefined events related to an application's lifecycle (application starting, stopping, etc.) or you can use custom events to handle specific cases. Events can be handled for:
-- the specified [Application](Modules.md) instance;
-- a custom plugin using the [MonitoringEvent](custom_plugins.md#handle-app-events) hook.
+You can handle predefined events related to an application's lifecycle (application starting, stopping, etc.), or you can use custom events to handle specific cases. You can also handle events for custom plugins using the [MonitoringEvent](custom_plugins.md#handle-app-events) hook.
 
 
 
