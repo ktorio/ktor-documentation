@@ -9,14 +9,14 @@
 
 Ktor provides the ability to monitor your server application by using events.
 You can handle predefined events related to an application's lifecycle (application starting, stopping, etc.) or you can use custom events to handle specific cases. Events can be handled for:
-- the specified `Application` instance available inside a [module function](Modules.md);
-- the custom plugin using the [MonitoringEvent](custom_plugins.md#handle-app-events) hook.
+- the specified [Application](Modules.md) instance;
+- a custom plugin using the [MonitoringEvent](custom_plugins.md#handle-app-events) hook.
 
 
 
 ## Event definition {id="event-definition"}
 
-Each event is represented by the [EventDefinition](https://api.ktor.io/ktor-shared/ktor-events/io.ktor.events/-event-definition/index.html) class instance. This class has a `T` type parameter specifying a type of value passed to the event. This value can be accessed in the [event handler](#handle-events-application) as a lambda argument. For example, most of the [predefined events](#predefined-events) accept `Application` as a parameter allowing you to access application properties inside the event handler.
+Each event is represented by the [EventDefinition](https://api.ktor.io/ktor-shared/ktor-events/io.ktor.events/-event-definition/index.html) class instance. This class has a `T` type parameter specifying the type of value passed to the event. This value can be accessed in the [event handler](#handle-events-application) as a lambda argument. For example, most of the [predefined events](#predefined-events) accept `Application` as a parameter allowing you to access application properties inside the event handler.
 
 For a [custom event](#custom-events), you can pass a type parameter required for this event.
 The code snippet below shows how to create a custom `NotFoundEvent` that accepts the `ApplicationCall` instance.
@@ -44,7 +44,7 @@ For example, you can subscribe to the `ApplicationStopped` event to release appl
 ## Handle events in an application {id="handle-events-application"}
 
 To handle events for the specified `Application` instance, use the `Application.environment.monitor` property.
-This property provides access to the [Events](https://api.ktor.io/ktor-shared/ktor-events/io.ktor.events/-events/index.html) instance, allowing you to handle application events:
+This property provides access to the [Events](https://api.ktor.io/ktor-shared/ktor-events/io.ktor.events/-events/index.html) instance that exposes the following functions allowing you to handle application events:
 - `subscribe`: subscribes to an event specified by [EventDefinition](#event-definition).
 - `unsubscribe`: unsubscribes from an event specified by [EventDefinition](#event-definition).
 - `raise`: raises an event specified by [EventDefinition](#event-definition) with the specified value.
@@ -84,7 +84,7 @@ You can find the full example here: [events](https://github.com/ktorio/ktor-docu
 In this section, we'll take a look at how to create a custom event raised when a server returns the `404 Not Found` status code for a resource. 
 
 1. First, you need to create the [event definition](#event-definition).
-   The code snippet below shows how to create a custom `NotFoundEvent` that accepts the `ApplicationCall` instance.
+   The code snippet below shows how to create a custom `NotFoundEvent` event that accepts `ApplicationCall` as a parameter.
    
    ```kotlin
    ```
