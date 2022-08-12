@@ -104,7 +104,7 @@ Open `com/example/plugins/Routing.kt` and add the following code to the `get` ha
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/plugins/Routing.kt" include-lines="3-13,21-24,61-63"}
+{src="snippets/tutorial-website-interactive/src/main/kotlin/com/example/plugins/Routing.kt" include-lines="1-13,21-24,62-64"}
 
 The `call.respond` function accepts the `FreeMarkerContent` object that represents content to be sent to the client. 
 In our case, the `FreeMarkerContent` constructor accepts two parameters:
