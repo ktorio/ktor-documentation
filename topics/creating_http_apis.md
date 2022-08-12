@@ -123,11 +123,11 @@ First, let's tackle the `Customer` side of our application. We need to create a 
 For our case, a customer should store some basic information in the form of text: a customer should have an `id` by which we can identify them, a first and last name, and an email address. An easy way to model this in Kotlin is by using a data class:
 
 1. Create a [new package](https://www.jetbrains.com/help/idea/add-items-to-project.html#new-package) named `models` inside `com.example`.
-2. Create a `Customer.kt` file in the `models` package and add the following:
+2. Create a `Customer.kt` file in the `models` package and add the following code:
 
    ```kotlin
    ```
-   {src="snippets/tutorial-http-api/src/main/kotlin/com/example/models/Customer.kt" include-lines="3-6"}
+   {src="snippets/tutorial-http-api/src/main/kotlin/com/example/models/Customer.kt" include-lines="1-6"}
 
    Note that we are using the `@Serializable` annotation from [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization). Together with its Ktor integration, this will allow us to generate the JSON representation we need for our API responses automatically – as we will see in just a bit.
 
@@ -149,6 +149,8 @@ We want to respond to `GET`, `POST`, and `DELETE` requests on the `/customer` en
 2. Create a `CustomerRoutes.kt` file called in the `routes` package, and fill it with the following:
 
    ```kotlin
+   package com.example.routes
+   
    import io.ktor.server.routing.*
    
    fun Route.customerRouting() {
@@ -179,7 +181,7 @@ To list all customers, we can return the `customerStorage` list by using the `ca
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" include-lines="3-18,44-45"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" include-lines="1-18,44-45"}
 
 In order for this to work, we need the `ContentNegotiation` plugin, which is already installed with the `json` serializer in `plugins/Serialization.kt`. What does content negotiation do? Let us consider the following request:
 
@@ -236,7 +238,7 @@ Up until now, we have only defined our routes inside an extension function on `R
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/plugins/Routing.kt" include-lines="3-9,13-14"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/plugins/Routing.kt" include-lines="1-9,13-14"}
 
 As you might remember, the `configureRouting` function is already [invoked](#source_code) in our `Application.module()` function in `Application.kt`.
 
@@ -256,7 +258,7 @@ Inside the `models` package, create a new file called `Order.kt` and fill it wit
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/models/Order.kt" include-lines="3-9"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/models/Order.kt" include-lines="1-9"}
 
 We also once again need a place to store our orders. To skip having to define a `POST` route – something you're more than welcome to attempt on your own using the knowledge from the `Customer` routes – we will prepopulate our `orderStorage` with some sample orders. We can again define it as a top-level declaration inside the `Order.kt` file.
 
@@ -284,7 +286,7 @@ being that we're defining it in its own function. Let's create a file called `Or
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/OrderRoutes.kt" include-lines="3-16"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/OrderRoutes.kt" include-lines="1-16"}
 
 We apply the same structure to individual orders – with a similar implementation to customers, but encapsulated in its own function:
 
@@ -309,7 +311,7 @@ Finally, much like the case of customers, we need to register the routes. Hopefu
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/plugins/Routing.kt" include-lines="3-14"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/plugins/Routing.kt" include-lines="1-14"}
 
 Now that we have everything wired up, we can finally start testing our application, and see if everything works as we would expect it to!
 
