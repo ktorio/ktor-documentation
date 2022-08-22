@@ -23,16 +23,16 @@ so that all dependencies are bundled, i.e. you need to create a fat jar.
 
 ### Reflection configuration
 
-GraalVM has [some requirements](https://www.graalvm.org/reference-manual/native-image/Reflection/) when it comes to applications that use reflection,
-which is the case of Ktor. It requires that you provide it a [JSON file](https://github.com/ktorio/ktor-samples/blob/main/graalvm/reflection.json) with
+GraalVM has [some requirements](https://www.graalvm.org/22.1/reference-manual/native-image/Reflection/) when it comes to applications that use reflection,
+which is the case of Ktor. It requires that you provide it a [JSON file](https://github.com/ktorio/ktor-samples/blob/main/graalvm/src/main/resources/META-INF/native-image/reflect-config.json) with
 certain type information. This configuration file is then passed as an argument to the `native-image` tool.
 
 ## Execute the `native-image` tool
 
-Once the fat jar is ready, the only step required is to create the native image using the `native-image` tool. As this usually requires a number of parameters, for convenience, the sample application provides a shell script ([build.sh](https://github.com/ktorio/ktor-samples/blob/main/graalvm/build.sh) for macOS/Linux
-and [build.cmd](https://github.com/ktorio/ktor-samples/blob/main/graalvm/build.cmd) for Windows) that can be executed to obtain the final
-binary. You can use this script as a starting point for your own applications. However, please note that some options may vary
-depending on the dependencies being used, the package name of your project, etc.
+Once the fat jar is ready, the only step required is to create the native image using the `native-image` CLI tool. 
+This could be also done by [Gradle plugin](https://graalvm.github.io/native-build-tools/0.9.8/gradle-plugin.html). 
+You can see the example of the `build.gradle.kts` file [here](https://github.com/ktorio/ktor-samples/blob/main/graalvm/build.gradle.kts).
+However, please note that some options may vary depending on the dependencies being used, the package name of your project, etc.
 
 ## Run the resulting binary
 
