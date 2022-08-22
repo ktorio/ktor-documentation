@@ -48,10 +48,13 @@ You can find the full example here: [double-receive](https://github.com/ktorio/k
 ## Configure %plugin_name% {id="configure"}
 With the default configuration, `%plugin_name%` provides the ability to [receive a request body](requests.md#body_contents) as the following types:
 
-- `ByteArray` 
+- `ByteArray`
 - `String`
-- `Parameters` 
+- `Parameters`
 - [data classes](serialization.md#create_data_class) used by the `ContentNegotiation` plugin
+
+By default, `%plugin_name%` doesn't support:
+
 - receiving different types from the same request
 - receiving a [stream or channel](requests.md#raw)
 
