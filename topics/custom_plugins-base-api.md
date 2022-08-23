@@ -10,7 +10,7 @@
 {type="note"}
 
 Ktor exposes API for developing custom [plugins](Plugins.md) that implement common functionalities and can be reused in multiple applications. 
-This API allows you to intercept different [pipeline](Pipelines.md) phases to add custom logic to a request/response processing.
+This API allows you to intercept different pipeline phases to add custom logic to a request/response processing.
 For example, you can intercept the `Monitoring` phase to log incoming requests or collect metrics.
 
 ## Create a plugin {id="create"}
@@ -62,7 +62,7 @@ class CustomHeader() {
 
 ### Handle calls {id="call-handling"}
 
-In your custom plugin, you can handle requests and responses by intercepting [existing pipeline phases](Pipelines.md#ktor-pipelines) or [newly defined ones](Pipelines.md#phases). For example, the [Authentication](authentication.md) plugin adds the `Authenticate` and `Challenge` custom phases to the default pipeline. So, intercepting a specific pipeline allows you to access different stages of a call, for instance:
+In your custom plugin, you can handle requests and responses by intercepting [existing pipeline phases](#pipelines) or newly defined ones. For example, the [Authentication](authentication.md) plugin adds the `Authenticate` and `Challenge` custom phases to the default pipeline. So, intercepting a specific pipeline allows you to access different stages of a call, for instance:
 
 - `ApplicationCallPipeline.Monitoring`: intercepting this phase can be used for request logging or collecting metrics.
 - `ApplicationCallPipeline.Plugins`: can be used to modify response parameters, for instance, append custom headers.
@@ -154,10 +154,23 @@ The example below shows how to:
 {src="snippets/custom-plugin-base-api/src/main/kotlin/com/example/plugins/DataTransformation.kt"}
 
 
+## Pipelines {id="pipelines"}
+
+A [Pipeline](https://api.ktor.io/ktor-utils/io.ktor.util.pipeline/-pipeline/index.html) in Ktor is a collection of interceptors, grouped in one or more ordered phases. Each interceptor each can perform custom logic before and after processing a request.
+
+[ApplicationCallPipeline](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-call-pipeline/index.html) is a pipeline for executing application calls. This pipeline defines 5 phases:
+
+- `Setup`: a phase used for preparing a call and its attributes for processing.
+- `Monitoring`: a phase for tracing calls. It might be useful for request logging, collecting metrics, error handling, and so on.
+- `Plugins`: a phase used to [handle calls](#call-handling). Most plugins intercept at this phase.
+- `Call`: a phase used to complete a call.
+- `Fallback`: a phase for handling unprocessed calls.
+
+
 ## Mapping of pipeline phases to new API handlers {id="mapping"}
 
 Starting with v2.0.0, Ktor provides a new simplified API for [creating custom plugins](custom_plugins.md).
-In general, this API doesn't require an understanding of internal Ktor concepts, such as [Pipelines](Pipelines.md), Phases, and so on. Instead, you have access to different stages of [handling requests and responses](#call-handling) using various handlers, such as `onCall`, `onCallReceive`, `onCallRespond`, and so on. 
+In general, this API doesn't require an understanding of internal Ktor concepts, such as pipelines, phases, and so on. Instead, you have access to different stages of [handling requests and responses](#call-handling) using various handlers, such as `onCall`, `onCallReceive`, `onCallRespond`, and so on. 
 The table below shows how pipeline phases map to handlers in a new API.
 
 | Base API                               | New API                                                 |

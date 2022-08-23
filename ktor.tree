@@ -204,8 +204,7 @@
                          accepts-web-file-names="advanced-index.html,advanced-features.html,creating-custom-features.html,attributes.html,intercepting-routes.html,route.html"/>
             <toc-element id="custom_plugins-base-api.md"
                          show-structure-depth="2"
-                         accepts-web-file-names="creating-custom-plugins.html,advanced-authentication.html"/>
-            <toc-element id="Pipelines.md" accepts-web-file-names="pipeline.html"/>
+                         accepts-web-file-names="creating-custom-plugins.html,advanced-authentication.html,Pipelines.html,pipeline.html"/>
             <toc-element id="events.md" show-structure-depth="2"/>
         </toc-element>
     </toc-element>
