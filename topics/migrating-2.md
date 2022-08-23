@@ -120,9 +120,9 @@ This affects the entire Ktor API and requires updating your application as descr
 
 Renaming Feature to Plugin introduces the following changes for API related to [custom plugins](custom_plugins-base-api.md):
 * The `ApplicationFeature` interface is renamed to `BaseApplicationPlugin`.
-* The `Features` [pipeline phase](Pipelines.md) is renamed to `Plugins`.
+* The `Features` [pipeline phase](custom_plugins-base-api.md#pipelines) is renamed to `Plugins`.
 
-> Note that starting with v2.0.0, Ktor provides the new API for [creating custom plugins](custom_plugins.md). In general, this API doesn't require an understanding of internal Ktor concepts, such as [Pipelines](Pipelines.md), Phases, and so on. Instead, you have access to different stages of handling requests and responses using various handlers, such as `onCall`, `onCallReceive`, `onCallRespond`, and so on. You can learn how pipeline phases map to handlers in a new API from this section: [](custom_plugins-base-api.md#mapping).
+> Note that starting with v2.0.0, Ktor provides the new API for [creating custom plugins](custom_plugins.md). In general, this API doesn't require an understanding of internal Ktor concepts, such as pipelines, phases, and so on. Instead, you have access to different stages of handling requests and responses using various handlers, such as `onCall`, `onCallReceive`, `onCallRespond`, and so on. You can learn how pipeline phases map to handlers in a new API from this section: [](custom_plugins-base-api.md#mapping).
 
 
 ### Content negotiation and serialization {id="serialization"}

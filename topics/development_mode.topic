@@ -13,7 +13,7 @@
         <li><a href="Auto_reload.topic">Auto-reload</a> for reloading application classes
             without restarting the server.
         </li>
-        <li>Extended information for debugging <a href="Pipelines.md">pipelines</a> (with stack
+        <li>Extended information for debugging <a href="custom_plugins-base-api.md" anchor="pipelines">pipelines</a> (with stack
             traces).
         </li>
         <li>Extended debugging information on a <a href="status_pages.md">response page</a> in

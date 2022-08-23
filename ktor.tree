@@ -179,8 +179,7 @@
             <toc-element topic="custom_plugins.md"
                          accepts-web-file-names="advanced-index.html,advanced-features.html,creating-custom-features.html,attributes.html,intercepting-routes.html,route.html"/>
             <toc-element topic="custom_plugins-base-api.md"
-                         accepts-web-file-names="creating-custom-plugins.html,advanced-authentication.html"/>
-            <toc-element topic="Pipelines.md" accepts-web-file-names="pipeline.html"/>
+                         accepts-web-file-names="creating-custom-plugins.html,advanced-authentication.html,pipelines.html,pipeline.html"/>
             <toc-element topic="events.md"/>
         </toc-element>
     </toc-element>
