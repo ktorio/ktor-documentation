@@ -4,7 +4,7 @@
 
 <tldr>
 <var name="example_name" value="events"/>
-<include src="lib.xml" include-id="download_example"/>
+<include from="lib.topic" element-id="download_example"/>
 </tldr>
 
 Ktor provides the ability to monitor your server application by using events.
