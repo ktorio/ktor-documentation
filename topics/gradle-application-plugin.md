@@ -51,28 +51,28 @@ In this topic, we'll use `installDist`:
    
    <tabs group="os">
    <tab title="Linux/macOS" group-key="unix">
-   <code-block>./gradlew :engine-main:installDist</code-block>
+   <code-block>./gradlew installDist</code-block>
    </tab>
    <tab title="Windows" group-key="windows">
-   <code-block>gradlew.bat :engine-main:installDist</code-block>
+   <code-block>gradlew.bat installDist</code-block>
    </tab>
    </tabs>
    
-   Gradle will create an image of the application in the `build/install/engine-main` folder. 
+   Gradle will create an image of the application in the `build/install/<project_name>` folder. 
 
 
 ## Run the application {id="run"}
 To run the [packaged application](#package):
-1. Go to the `build/install/engine-main/bin` folder in a terminal.
-2. Depending on your operating system, run the `ktor-gradle-sample` or `ktor-gradle-sample.bat` executable:
+1. Go to the `build/install/<project_name>/bin` folder in a terminal.
+2. Depending on your operating system, run the `<project_name>` or `<project_name>.bat` executable, for example:
 
    <snippet id="run_executable">
    <tabs group="os">
    <tab title="Linux/macOS" group-key="unix">
-   <code-block>./engine-main</code-block>
+   <code-block>./ktor-sample</code-block>
    </tab>
    <tab title="Windows" group-key="windows">
-   <code-block>engine-main.bat</code-block>
+   <code-block>ktor-sample.bat</code-block>
    </tab>
    </tabs>
    </snippet>
