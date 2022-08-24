@@ -99,5 +99,7 @@ Running a Ktor application from the resulting package depends on the package typ
    java -jar sample-app.jar -port=8080
    ```
 * To run an application packaged using the Gradle [Application](gradle-application-plugin.md) plugin, run a corresponding executable:
+
    <include from="gradle-application-plugin.md" element-id="run_executable"/>
+  
 * To run a servlet Ktor application, use the `run` task of the [Gretty](war.md#run) plugin.
