@@ -30,7 +30,7 @@ Then, open `build.gradle.kts` and add the following dependencies:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-persistence/build.gradle.kts" include-lines="3-4,20-21,25-28,32"}
+{src="snippets/tutorial-website-interactive-persistence/build.gradle.kts" include-lines="3-4,21-22,26-29,33"}
 
 Click the **Load Gradle Changes** icon in the top right corner of the `build.gradle.kts` file to install newly added dependencies.
 

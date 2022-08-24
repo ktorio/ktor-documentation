@@ -65,7 +65,7 @@ To look at the structure of the [generated project](#create_ktor_project), let's
 First, let's open the `build.gradle.kts` file and examine added dependencies:
 ```kotlin
 ```
-{src="snippets/tutorial-website-static/build.gradle.kts" include-lines="19-26"}
+{src="snippets/tutorial-website-static/build.gradle.kts" include-lines="20-27"}
 
 Let's briefly go through these dependencies one by one:
 

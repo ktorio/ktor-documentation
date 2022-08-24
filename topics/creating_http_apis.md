@@ -64,7 +64,7 @@ To look at the structure of the [generated project](#create_ktor_project), let's
 First, let's open the `build.gradle.kts` file and examine added dependencies:
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/build.gradle.kts" include-lines="20-28"}
+{src="snippets/tutorial-http-api/build.gradle.kts" include-lines="21-29"}
 
 Let's briefly go through these dependencies one by one:
 
@@ -73,7 +73,7 @@ Let's briefly go through these dependencies one by one:
 - `ktor-server-content-negotiation` and `ktor-serialization-kotlinx-json` provide a convenient mechanism for converting Kotlin objects into a [serialized form](serialization.md) like JSON, and vice versa. We will use it to format our APIs output, and to consume user input that is structured in JSON. In order to use `ktor-serialization-kotlinx-json`, we also have to apply the `plugin.serialization` plugin.
    ```kotlin
    ```
-   {src="snippets/tutorial-http-api/build.gradle.kts" include-lines="5,8-9"}
+   {src="snippets/tutorial-http-api/build.gradle.kts" include-lines="5,9-10"}
 
 - `logback-classic` provides an implementation of SLF4J, allowing us to see nicely formatted [logs](logging.md) in a console.
 - `ktor-server-test-host` and `kotlin-test-junit` allow us to [test](Testing.md) parts of our Ktor application without having to use the whole HTTP stack in the process. We will use this to define unit tests for our project.
