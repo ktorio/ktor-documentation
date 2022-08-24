@@ -4,7 +4,7 @@
 <instance-profile id="ktor"
                  name="Ktor"
                  status="release"
-                 start-page="welcome.xml">
+                 start-page="welcome.topic">
 
     <toc-element topic="welcome.topic"
                  accepts-web-file-names-ref="kotlin_docs"/>
