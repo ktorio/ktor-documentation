@@ -19,7 +19,7 @@ Throughout this tutorial, we will implement a simple chat service, which will co
 - The **chat server application** will accept and manage connections from our chat users, receive messages, and distribute them to all connected clients.
 - The **chat client application** will be implemented in this tutorial: [](getting_started_ktor_client_chat.md). The client application will allow users to join a common chat server, send messages to other users, and see messages from other users in the terminal.
 
-![App in action](app_in_action.png){animated="true" width="706"}
+![App in action](app_in_action.gif){preview-src="app_in_action.png" width="706"}
 
 For both parts of the application, we will make use of Ktor's support for [WebSockets](websocket.md). Because Ktor is both a server-side and client-side framework, we will be able to reuse the knowledge we acquire building the chat server when it comes to building the client.
 

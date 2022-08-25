@@ -125,7 +125,7 @@
                     Start typing <emphasis>routing</emphasis> in the top left search box,
                     find <control>Routing</control> in the list, and click <control>Add</control>.
                 </p>
-                <img src="ktor_idea_new_project_plugins.png" alt="Add the Routing plugin" width="706" border-effect="rounded" animated="true"/>
+                <img src="ktor_idea_new_project_plugins.gif" preview-src="ktor_idea_new_project_plugins.png" alt="Add the Routing plugin" width="706"/>
                 <p>
                     Click <control>Create</control> and wait until IntelliJ IDEA generates a project and
                     installs the dependencies.

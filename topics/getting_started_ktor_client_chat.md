@@ -145,7 +145,7 @@ Until this happens, both input and output can happily happen concurrently, with 
 
 We have now finished implementing our WebSocket-based chat client with Kotlin and Ktor. To celebrate our success, let's give it a try! With the chat server running, start two instances of the chat client. You can do this by creating two identical **MainKt** [run configurations](https://www.jetbrains.com/help/idea/run-debug-configuration.html), which can be run separately. Even if you send multiple messages right after each other, they should be correctly displayed on all connected clients.
 
-![App in action](app_in_action.png){animated="true" width="706"}
+![App in action](app_in_action.gif){preview-src="app_in_action.png" width="706"}
 
 We have included the final state of the client chat application in the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets) project: [tutorial-websockets-client](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-websockets-client).
 

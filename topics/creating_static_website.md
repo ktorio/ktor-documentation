@@ -17,7 +17,7 @@ In this series of tutorials, we'll show you how to create a simple blog applicat
 - In the next tutorial, we'll make our application [interactive](creating_interactive_website.md) using the FreeMarker template engine.
 - Finally, we'll [add persistence](interactive_website_add_persistence.md) to our website using the Exposed framework.
 
-![](ktor_journal.png){animated="true" width="502" border-effect="rounded"}
+![](ktor_journal.gif){preview-src="ktor_journal.png" width="502"}
 
 ## Prerequisites {id="prerequisites"}
 <include from="lib.topic" element-id="plugin_prerequisites"/>

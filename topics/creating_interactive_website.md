@@ -264,6 +264,6 @@ IntelliJ IDEA will start the application, and after a few seconds, we should see
 
 Open [`http://localhost:8080/`](http://localhost:8080/) in a browser and try to create, edit, and delete articles:
 
-![](ktor_journal.png){animated="true" width="502"}
+![](ktor_journal.gif){preview-src="ktor_journal.png" width="502"}
 
 However, if you stop the server, all saved articles vanish as we are storing them in an in-memory storage. In the next tutorial, we'll show you how to add persistence to the website using the [Exposed](https://github.com/JetBrains/Exposed) framework: [](interactive_website_add_persistence.md).
