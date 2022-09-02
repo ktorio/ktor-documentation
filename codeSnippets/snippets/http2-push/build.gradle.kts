@@ -1,7 +1,7 @@
 val ktor_version: String by project
 val kotlin_version: String by project
 val logback_version: String by project
-val tcnative_version = "2.0.47.Final"
+val tcnative_version = "2.0.53.Final"
 
 plugins {
     application
@@ -35,7 +35,6 @@ dependencies {
     implementation("io.ktor:ktor-network-tls:$ktor_version")
     implementation("io.ktor:ktor-network-tls-certificates:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
-    implementation("io.netty:netty-tcnative:$tcnative_version")
     if (tcnative_classifier != null) {
         implementation("io.netty:netty-tcnative-boringssl-static:$tcnative_version:$tcnative_classifier")
     } else {

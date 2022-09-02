@@ -3,7 +3,7 @@ package com.example
 import io.ktor.network.tls.certificates.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
-import java.io.*
+import java.io.File
 
 fun main(args: Array<String>) {
     // generate SSL certificate
@@ -13,5 +13,5 @@ fun main(args: Array<String>) {
         generateCertificate(file)
     }
     // run embedded server
-    embeddedServer(Netty, commandLineEnvironment(args)).start()
+    embeddedServer(Netty, commandLineEnvironment(args)).start(true)
 }

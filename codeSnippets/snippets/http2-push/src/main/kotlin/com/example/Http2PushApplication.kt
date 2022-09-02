@@ -10,6 +10,7 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.html.*
 
+@OptIn(UseHttp2Push::class)
 fun Application.main() {
     install(DefaultHeaders)
     install(CallLogging)
