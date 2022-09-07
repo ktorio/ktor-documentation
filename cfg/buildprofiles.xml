@@ -33,7 +33,7 @@
         <config-algolia-id>OHIV241QET</config-algolia-id>
         <config-algolia-index>prod_JETBRAINSCOM_HELP</config-algolia-index>
         <config-algolia-product-id>docs</config-algolia-product-id>
-        <config-algloia-product-version>2.1.0</config-algloia-product-version>
+        <config-algloia-product-version>2.1.1</config-algloia-product-version>
 
     </variables>
     
