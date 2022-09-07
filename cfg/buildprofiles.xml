@@ -29,6 +29,12 @@
         <product-web-url>https://ktor.io/</product-web-url>
         <write-help-state-file>true</write-help-state-file>
 
+        <config-algolia-api-key>8c2683cac2d71d547b55183297abb506</config-algolia-api-key>
+        <config-algolia-id>OHIV241QET</config-algolia-id>
+        <config-algolia-index>prod_JETBRAINSCOM_HELP</config-algolia-index>
+        <config-algolia-product-id>docs</config-algolia-product-id>
+        <config-algloia-product-version>2.1.1</config-algloia-product-version>
+
     </variables>
     
     <build-profile product="ktor"/>
