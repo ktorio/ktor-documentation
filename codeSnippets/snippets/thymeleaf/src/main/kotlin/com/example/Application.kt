@@ -10,12 +10,21 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
 fun Application.module() {
     install(Thymeleaf) {
-        setTemplateResolver(ClassLoaderTemplateResolver().apply {
-            prefix = "templates/"
+        setTemplateResolver((if (developmentMode) {
+            FileTemplateResolver().apply {
+                cacheManager = null
+                prefix = "src/main/resources/templates/"
+            }
+        } else {
+            ClassLoaderTemplateResolver().apply {
+                prefix = "templates/"
+            }
+        }).apply {
             suffix = ".html"
             characterEncoding = "utf-8"
         })
     }
+
     routing {
         get("/index") {
             val sampleUser = User(1, "John")
