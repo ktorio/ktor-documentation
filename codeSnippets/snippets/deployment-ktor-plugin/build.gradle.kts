@@ -35,6 +35,13 @@ ktor {
         jreVersion.set(io.ktor.plugin.features.JreVersion.JRE_17)
         localImageName.set("sample-docker-image")
         imageTag.set("0.0.1-preview")
+        portMappings.set(listOf(
+            io.ktor.plugin.features.DockerPortMapping(
+                80,
+                8080,
+                io.ktor.plugin.features.DockerPortMappingProtocol.TCP
+            )
+        ))
 
         externalRegistry.set(
             io.ktor.plugin.features.DockerImageRegistry.dockerHub(

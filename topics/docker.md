@@ -52,7 +52,7 @@ After [installing](#install-plugin) the plugin, the following tasks are availabl
    docker load < build/jib-image.tar
    ```
 - `publishImageToLocalRegistry`: builds and publishes a project's Docker image to a local registry.
-- `runDocker`: builds a project's image to a Docker daemon and runs it. Executing this task will launch the Ktor server, responding on `https://0.0.0.0:8080` by default.
+- `runDocker`: builds a project's image to a Docker daemon and runs it. Executing this task will launch the Ktor server, responding on `http://0.0.0.0:8080` by default. If your server is configured to use another port, you can adjust [port mapping](#port-mapping).
 - `publishImage`: builds and publishes a project's Docker image to an external registry such as [Docker Hub](https://hub.docker.com/) or [Google Container Registry](https://cloud.google.com/container-registry). Note that you need to configure the external registry using the **[ktor.docker.externalRegistry](#external-registry)** property for this task.
 
 Note that by default, these tasks build the image with the `ktor-docker-image` name and `latest` tag. 
@@ -76,7 +76,7 @@ The `jreVersion` property specifies the JRE version to use in the image:
 
 ```kotlin
 ```
-{src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="29,34-35,46-47"}
+{src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="29,34-35,53-54"}
 
 ### Image name and tag {id="name-tag"}
 
@@ -84,7 +84,21 @@ If you need to customize the image name and tag, use the `localImageName` and `i
 
 ```kotlin
 ```
-{src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="29,34,36-37,46-47"}
+{src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="29,34,36-37,53-54"}
+
+### Port mapping {id="port-mapping"}
+
+By default, the [runDocker](#tasks) task publishes the `8080` container port to the `8080` Docker host port.
+If required, you can change these ports using the `portMappings` property.
+This might be useful if your server is [configured](Configurations.topic#predefined-properties) to use another port. 
+
+The example below shows how to map the `8080` container port to the `80` Docker host port.
+
+```kotlin
+```
+{src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="29,34,38-44,53-54"}
+
+In this case, you can access the server on `http://0.0.0.0:80`.
 
 
 ### External registry {id="external-registry"}
@@ -98,7 +112,7 @@ The example below shows how to configure the Docker Hub registry:
 
 ```kotlin
 ```
-{src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="29,34,39-47"}
+{src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="29,34,46-54"}
 
 Note that the Docker Hub name and password are fetched from the environment variables, so you need to set these values before running the `publishImage` task:
 

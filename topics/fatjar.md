@@ -24,7 +24,7 @@ To build a fat JAR, you need to configure the Ktor plugin first:
 3. Optionally, you can  configure the name of the fat JAR to be generated using the `ktor.fatJar` extension:
    ```kotlin
    ```
-   {src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="29-32,47"}
+   {src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="29-32,54"}
 
 
 ## Build and run a fat JAR {id="build"}
