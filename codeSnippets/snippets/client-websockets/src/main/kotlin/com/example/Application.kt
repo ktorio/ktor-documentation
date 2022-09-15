@@ -10,7 +10,9 @@ import java.util.*
 
 fun main() {
     val client = HttpClient(CIO) {
-        install(WebSockets)
+        install(WebSockets) {
+            pingInterval = 20_000
+        }
     }
     runBlocking {
         client.webSocket(method = HttpMethod.Get, host = "127.0.0.1", port = 8080, path = "/echo") {

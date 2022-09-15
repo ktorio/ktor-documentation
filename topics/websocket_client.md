@@ -34,18 +34,37 @@ To use WebSockets, you need to include the `ktor-client-websockets` artifact in 
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 <include from="lib.topic" element-id="add_ktor_client_artifact_tip"/>
 
-## Install WebSockets {id="install_plugin"}
+## Install and configure WebSockets {id="install_plugin"}
 To install the `WebSockets` plugin, pass it to the `install` function inside a [client configuration block](create-client.md#configure-client):
 
 ```kotlin
 val client = HttpClient(CIO) {
-    install(WebSockets) {
-        // Configure WebSockets
-    }
+    install(WebSockets)
 }
 ```
 
 Optionally, you can configure the plugin inside the `install` block by passing the required options using [WebSockets.Config](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.websocket/-web-sockets/-config/index.html).
+For instance, you can specify the interval of sending ping frames using the `pingInterval` property:
+
+```kotlin
+```
+{src="snippets/client-websockets/src/main/kotlin/com/example/Application.kt" include-lines="12-16"}
+
+Note that this property is not in effect for the OkHttp engine.
+You can change the ping interval for OkHttp in the [engine configuration](http-client_engines.md#okhttp):
+
+```kotlin
+import io.ktor.client.engine.okhttp.OkHttp
+
+val client = HttpClient(OkHttp) {
+    engine {
+        preconfigured = OkHttpClient.Builder()
+            .pingInterval(20, TimeUnit.SECONDS)
+            .build()
+    }
+}
+```
+
 
 
 ## Handle a WebSockets session {id="handle-session"}
