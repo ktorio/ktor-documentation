@@ -14,7 +14,7 @@ Ktor allows you to use modules to [structure](Structuring_Applications.md) your 
 
 ```kotlin
 ```
-{src="snippets/engine-main-modules/src/main/kotlin/com/example/Application.kt" include-lines="9-15"}
+{src="snippets/engine-main-modules/src/main/kotlin/com/example/Application.kt" include-lines="3-6,9-15"}
 
 Loading modules in your application depends on the way used to [create a server](create_server.topic): in code using the `embeddedServer` function or by using the `application.conf` configuration file.
 
