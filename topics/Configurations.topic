@@ -81,7 +81,7 @@
     <chapter title="Configuration file" id="configuration-file">
         <chapter title="Overview" id="configuration-file-overview">
             <p>
-                If you use <a href="create_server.topic" anchor="engine-main">EngineMain</a> to start a server, Ktor loads configuration settings automatically from a file named <path>application.*</path>.
+                If you use <a href="create_server.topic" anchor="engine-main">EngineMain</a> to start a server, Ktor loads configuration settings automatically from a file named <path>application.*</path> located in the <path>resources</path> directory.
                 Two configuration formats are supported:
             </p>
             <list>
