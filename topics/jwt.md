@@ -77,6 +77,10 @@ The JWT authorization flow in Ktor might look as follows:
 To install the `jwt` authentication provider, call the [jwt](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth-jwt/io.ktor.server.auth.jwt/jwt.html) function inside the `install` block:
 
 ```kotlin
+import io.ktor.server.application.*
+import io.ktor.server.auth.*
+import io.ktor.server.auth.jwt.*
+//...
 install(Authentication) {
     jwt {
         // Configure jwt authentication

@@ -54,6 +54,10 @@ To enable `LDAP` authentication, you need to include the `ktor-server-auth` and 
 To authenticate LDAP users, you first need to choose an authentication provider for username and password validation. In Ktor, the [basic](basic.md), [digest](digest.md), or [form-based](form.md) providers can be used for this. For example, to use the `basic` authentication provider, call the [basic](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/basic.html) function inside the `install` block.
 
 ```kotlin
+import io.ktor.server.application.*
+import io.ktor.server.auth.*
+import io.ktor.server.auth.ldap.*
+//...
 install(Authentication) {
     basic {
         validate { credentials ->

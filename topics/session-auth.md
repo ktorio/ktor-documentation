@@ -44,6 +44,10 @@ The authentication flow with sessions might vary and depends on how users are au
 To install the `session` authentication provider, call the [session](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/session.html) function with the required session type inside the `install` block:
 
 ```kotlin
+import io.ktor.server.application.*
+import io.ktor.server.auth.*
+import io.ktor.server.sessions.*
+//...
 install(Authentication) {
     session<UserSession> {
         // Configure session authentication

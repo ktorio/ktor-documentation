@@ -107,16 +107,14 @@ You can find the full example here: [post-form-parameters](https://github.com/kt
 If you need to receive a file sent as a part of a multipart request, call the [receiveMultipart](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/receive-multipart.html) function and then loop over each part as required. In the example below, `PartData.FileItem` is used to receive a file as a byte stream.
 ```kotlin
 ```
-{src="/snippets/upload-file/src/main/kotlin/com/example/UploadFile.kt" include-symbol="main"}
+{src="snippets/upload-file/src/main/kotlin/com/example/UploadFile.kt" include-lines="3-37"}
 
 Learn how to run this sample from [upload-file](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/upload-file).
 
-> To determine the uploaded file size, you can get the `Content-Length` [header value](#request_information) inside the `post` handler:
-> ```kotlin
-> post("/upload") {
->     val contentLength = call.request.header(HttpHeaders.ContentLength)
->     // ...
-> }
-> ```
-> 
-{type="tip"}
+To determine the uploaded file size, you can get the `Content-Length` [header value](#request_information) inside the `post` handler:
+```kotlin
+post("/upload") {
+    val contentLength = call.request.header(HttpHeaders.ContentLength)
+    // ...
+}
+```

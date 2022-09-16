@@ -20,6 +20,9 @@ The first step in defining a static route is to define the path under which the 
 For instance, if you want everything under the route `assets` to be treated as static content, you need to add the following to your application setup:
 
 ```kotlin
+import io.ktor.server.http.content.*
+import io.ktor.server.routing.*
+
 routing {
     static("assets") {
 
@@ -71,7 +74,7 @@ For the `files` folder in the project root, the configuration looks as follows:
 
 ```kotlin
 ```
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="10-11,22"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="3-11,22-24"}
 
 This maps any request to `/` to the `files` physical folder. 
 As the next step, you need to specify how to serve static files using the `file` or `files` functions.
@@ -206,7 +209,7 @@ For example, for the `static` package inside the `resources` folder, the configu
 
 ```kotlin
 ```
-{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" include-lines="10-11,22"}
+{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" include-lines="3-6,8-11,22-24"}
 
 This maps any request to `/` to the `static` package.
 As the next step, you need to specify how to serve static resources using the `resource` or `resources` functions.

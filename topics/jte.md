@@ -41,7 +41,7 @@ For instance, the code snippet below enables Ktor to look up JTE templates in th
 
 ```kotlin
 ```
-{src="snippets/jte/src/main/kotlin/com/example/Application.kt" include-lines="14-17"}
+{src="snippets/jte/src/main/kotlin/com/example/Application.kt" include-lines="3-6,9-10,13-17,24"}
 
 ### Send a template in response {id="use_template"}
 Suppose you have the `index.kte` template in the `templates` directory:
