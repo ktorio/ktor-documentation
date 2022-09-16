@@ -69,6 +69,9 @@ After [installing Authentication](#install), you can configure and use `Authenti
 To use a specific authentication provider ([basic](basic.md), [digest](digest.md), [form](form.md), and so on), you need to call the corresponding function inside the `install` block. For example, to use the `basic` authentication, call the [basic](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/basic.html) function:
 
 ```kotlin
+import io.ktor.server.application.*
+import io.ktor.server.auth.*
+// ...
 install(Authentication) {
     basic {
         // [[[Configure basic authentication|basic.md]]]

@@ -23,6 +23,10 @@ You can use the [HttpRequestRetry](https://api.ktor.io/ktor-client/ktor-client-c
 
 To install `HttpRequestRetry`, pass it to the `install` function inside a [client configuration block](create-client.md#configure-client):
 ```kotlin
+import io.ktor.client.*
+import io.ktor.client.engine.cio.*
+import io.ktor.client.plugins.*
+//...
 val client = HttpClient(CIO) {
     install(HttpRequestRetry)
 }

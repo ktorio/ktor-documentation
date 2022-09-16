@@ -16,6 +16,10 @@ A Ktor client allows you to configure a token to be sent in the `Authorization` 
 
 1. Call the `bearer` function inside the `install` block.
    ```kotlin
+   import io.ktor.client.*
+   import io.ktor.client.engine.cio.*
+   import io.ktor.client.plugins.auth.*
+   //...
    val client = HttpClient(CIO) {
        install(Auth) {
           bearer {
