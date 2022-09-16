@@ -22,7 +22,7 @@ HTML DSL doesn't need [installation](Plugins.md#install) but requires the `%arti
 To send an HTML response, call the [respondHtml](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-html-builder/io.ktor.server.html/respond-html.html) method inside the required [route](Routing_in_Ktor.md):
 ```kotlin
 ```
-{src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="12-28"}
+{src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="3-8,11-29"}
 
 In this case, the following HTML will be sent to the client:
 ```html

@@ -36,7 +36,7 @@ Inside the `install` block, you can [configure](#template_loading) the [Mustache
 To load templates, you need to assign the [MustacheFactory][mustache_factory] to the `mustacheFactory` property. For example, the code snippet below enables Ktor to look up templates in the `templates` package relative to the current classpath:
 ```kotlin
 ```
-{src="snippets/mustache/src/main/kotlin/com/example/Application.kt" include-lines="12-14"}
+{src="snippets/mustache/src/main/kotlin/com/example/Application.kt" include-lines="3-5,10-14,21"}
 
 ### Send a template in response {id="use_template"}
 Imagine you have the `index.hbs` template in `resources/templates`:

@@ -43,9 +43,15 @@ To serve this application, call [singlePageApplication](https://api.ktor.io/ktor
 and pass the folder name to the `react` function:
 
 ```kotlin
-routing {
-    singlePageApplication {
-        react("react-app")
+import io.ktor.server.application.*
+import io.ktor.server.http.content.*
+import io.ktor.server.routing.*
+
+fun Application.module() {
+    routing {
+        singlePageApplication {
+            react("react-app")
+        }
     }
 }
 ```
@@ -75,7 +81,7 @@ To serve this application, the following configuration is used:
 
 ```kotlin
 ```
-{src="snippets/single-page-application/src/main/kotlin/com/example/Application.kt" include-lines="8-17"}
+{src="snippets/single-page-application/src/main/kotlin/com/example/Application.kt" include-lines="3-13,15-17"}
 
 - `useResources`: Enables serving an application from a resource package.
 - `filesPath`: Specifies the path under which an application is located.

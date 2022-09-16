@@ -23,6 +23,10 @@ The [DefaultRequest](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.cl
 
 To install `DefaultRequest`, pass it to the `install` function inside a [client configuration block](create-client.md#configure-client) ...
 ```kotlin
+import io.ktor.client.*
+import io.ktor.client.engine.cio.*
+import io.ktor.client.plugins.*
+//...
 val client = HttpClient(CIO) {
     install(DefaultRequest)
 }
@@ -31,6 +35,10 @@ val client = HttpClient(CIO) {
 ... or call the `defaultRequest` function and [configure](#configure) required request parameters:
 
 ```kotlin
+import io.ktor.client.*
+import io.ktor.client.engine.cio.*
+import io.ktor.client.plugins.*
+//...
 val client = HttpClient(CIO) {
     defaultRequest {
         // this: DefaultRequestBuilder

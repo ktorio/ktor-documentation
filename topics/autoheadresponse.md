@@ -28,7 +28,7 @@ In order to take advantage of this functionality, we need to install the `AutoHe
 
 ```kotlin
 ```
-{src="snippets/autohead/src/main/kotlin/com/example/Application.kt" include-symbol="main"}
+{src="snippets/autohead/src/main/kotlin/com/example/Application.kt" include-lines="3-15"}
 
 In our case the `/home` route will now respond to `HEAD` request even though there is no explicit definition for this verb.
 

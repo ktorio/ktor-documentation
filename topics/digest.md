@@ -66,6 +66,9 @@ The digest authentication flow looks as follows:
 To install the `digest` authentication provider, call the [digest](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/digest.html) function inside the `install` block:
 
 ```kotlin
+import io.ktor.server.application.*
+import io.ktor.server.auth.*
+// ...
 install(Authentication) {
     digest {
         // Configure digest authentication

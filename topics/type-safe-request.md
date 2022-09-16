@@ -39,6 +39,10 @@ Given that [resource classes](#resource_classes) should have the `@Serializable`
 
 To install `%plugin_name%`, pass it to the `install` function inside a [client configuration block](create-client.md#configure-client):
 ```kotlin
+import io.ktor.client.*
+import io.ktor.client.engine.cio.*
+import io.ktor.client.plugins.resources.*
+//...
 val client = HttpClient(CIO) {
     install(Resources)
 }

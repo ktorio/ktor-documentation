@@ -49,6 +49,9 @@ The OAuth authorization flow in a Ktor application might look as follows:
 To install the `oauth` authentication provider, call the [oauth](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/oauth.html) function inside the `install` block:
 
 ```kotlin
+import io.ktor.server.application.*
+import io.ktor.server.auth.*
+//...
 install(Authentication) {
    oauth {
         // Configure oauth authentication

@@ -37,6 +37,10 @@ To enable authentication, you need to include the `ktor-client-auth` artifact in
 To install the `Auth` plugin, pass it to the `install` function inside a [client configuration block](create-client.md#configure-client):
 
 ```kotlin
+import io.ktor.client.*
+import io.ktor.client.engine.cio.*
+import io.ktor.client.plugins.auth.*
+//...
 val client = HttpClient(CIO) {
     install(Auth) {
         // Configure authentication

@@ -33,7 +33,7 @@ Ktor allows you to use [Thymeleaf templates](https://www.thymeleaf.org/) as view
 Inside the `install` block, you can configure the `ClassLoaderTemplateResolver`. For example, the code snippet below enables Ktor to look up `*.html` templates in the `templates` package relative to the current classpath:
 ```kotlin
 ```
-{src="snippets/thymeleaf/src/main/kotlin/com/example/Application.kt" include-lines="12-18"}
+{src="snippets/thymeleaf/src/main/kotlin/com/example/Application.kt" include-lines="3,6-8,11-18,25"}
 
 ### Send a template in response {id="use_template"}
 Imagine you have the `index.html` template in `resources/templates`:

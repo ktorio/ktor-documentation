@@ -35,7 +35,7 @@ The code snippet below shows how to generate a certificate and save it to a keys
 
 ```kotlin
 ```
-{src="snippets/ssl-embedded-server/src/main/kotlin/com/example/Application.kt" include-lines="12-19,38"}
+{src="snippets/ssl-embedded-server/src/main/kotlin/com/example/Application.kt" include-lines="4,10-19,38"}
 
 Since Ktor requires a certificate when it starts, you have to create a certificate before starting the server. 
 You can find the full example here: [ssl-embedded-server](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/ssl-embedded-server).
@@ -123,6 +123,6 @@ You can find the full example here: [ssl-engine-main](https://github.com/ktorio/
 If you use the `embeddedServer` function to run your server, you need to pass a [custom environment](Configurations.topic#embedded-custom) and provide SSL settings there using [sslConnector](https://api.ktor.io/ktor-server/ktor-server-host-common/io.ktor.server.engine/ssl-connector.html):
 ```kotlin
 ```
-{src="snippets/ssl-embedded-server/src/main/kotlin/com/example/Application.kt" include-lines="21-37"}
+{src="snippets/ssl-embedded-server/src/main/kotlin/com/example/Application.kt" include-lines="3-12,21-38"}
 
 You can find the full example here: [ssl-embedded-server](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/ssl-embedded-server).

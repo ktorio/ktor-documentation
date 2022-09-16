@@ -18,6 +18,10 @@ The Ktor client provides the [HttpCache](https://api.ktor.io/ktor-client/ktor-cl
 ## Install HttpCache {id="install_plugin"}
 To install `HttpCache`, pass it to the `install` function inside a [client configuration block](create-client.md#configure-client):
 ```kotlin
+import io.ktor.client.*
+import io.ktor.client.engine.cio.*
+import io.ktor.client.plugins.cache.*
+//...
 val client = HttpClient(CIO) {
     install(HttpCache)
 }

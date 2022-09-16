@@ -36,7 +36,7 @@ Inside the `install` block, you can [configure](#configure) the desired [Templat
 To load templates, you need to assign the desired [TemplateLoader][freemarker_template_loading] type to the `templateLoader` property. For example, the code snippet below enables Ktor to look up templates in the `templates` package relative to the current classpath:
 ```kotlin
 ```
-{src="snippets/freemarker/src/main/kotlin/com/example/Application.kt" include-lines="12-14"}
+{src="snippets/freemarker/src/main/kotlin/com/example/Application.kt" include-lines="3-5,10-14,21"}
 
 ### Send a template in response {id="use_template"}
 Imagine you have the `index.ftl` template in `resources/templates`:

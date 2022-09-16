@@ -13,8 +13,10 @@ The [UserAgent](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.
 To install `UserAgent`, pass it to the `install` function inside a [client configuration block](create-client.md#configure-client). Then, use the `agent` property to specify the `User-Agent` value:
 
 ```kotlin
+import io.ktor.client.*
+import io.ktor.client.engine.cio.*
 import io.ktor.client.plugins.*
-
+// ...
 val client = HttpClient(CIO) {
     install(UserAgent) {
         agent = "Ktor client"

@@ -37,7 +37,7 @@ To load templates, you need to configure how to load templates using [PebbleEngi
 
 ```kotlin
 ```
-{src="snippets/pebble/src/main/kotlin/com/example/Application.kt" include-lines="12-16"}
+{src="snippets/pebble/src/main/kotlin/com/example/Application.kt" include-lines="3-5,10-16,23"}
 
 ### Send a template in response {id="use_template"}
 Imagine you have the `index.html` template in `resources/templates`:

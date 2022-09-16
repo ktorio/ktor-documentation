@@ -20,6 +20,10 @@ You can specify these timeouts for all requests or only specific ones.
 
 To install `HttpTimeout`, pass it to the `install` function inside a [client configuration block](create-client.md#configure-client):
 ```kotlin
+import io.ktor.client.*
+import io.ktor.client.engine.cio.*
+import io.ktor.client.plugins.*
+//...
 val client = HttpClient(CIO) {
     install(HttpTimeout)
 }

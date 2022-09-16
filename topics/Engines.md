@@ -137,16 +137,21 @@ In addition to these options, you can configure additional engine-specific prope
 Netty-specific options are exposed by the [NettyApplicationEngine.Configuration](https://api.ktor.io/ktor-server/ktor-server-netty/io.ktor.server.netty/-netty-application-engine/-configuration/index.html) class.
 
 ```kotlin
-embeddedServer(Netty, configure = {
-    requestQueueLimit = 16
-    shareWorkGroup = false
-    configureBootstrap = {
+import io.ktor.server.engine.*
+import io.ktor.server.netty.*
+
+fun main() {
+    embeddedServer(Netty, configure = {
+        requestQueueLimit = 16
+        shareWorkGroup = false
+        configureBootstrap = {
+            // ...
+        }
+        responseWriteTimeoutSeconds = 10
+    }) {
         // ...
-    }
-    responseWriteTimeoutSeconds = 10 
-}) {
-    // ...
-}.start(true)
+    }.start(true)
+}
 ```
 
 #### Jetty {id="jetty-code"}
@@ -155,13 +160,18 @@ If you use Jetty as the engine, you can configure the Jetty server inside the [c
 [Server](https://www.eclipse.org/jetty/javadoc/jetty-11/org/eclipse/jetty/server/Server.html) instance.
 
 ```kotlin
-embeddedServer(Jetty, configure = {
-    configureServer = { // this: Server ->
+import io.ktor.server.engine.*
+import io.ktor.server.jetty.*
+
+fun main() {
+    embeddedServer(Jetty, configure = {
+        configureServer = { // this: Server ->
+            // ...
+        }
+    }) {
         // ...
-    } 
-}) {
-    // ...
-}.start(true)
+    }.start(true)
+}
 ```
 
 #### CIO {id="cio-code"}
@@ -169,11 +179,16 @@ embeddedServer(Jetty, configure = {
 CIO-specific options are exposed by the [CIOApplicationEngine.Configuration](https://api.ktor.io/ktor-server/ktor-server-cio/io.ktor.server.cio/-c-i-o-application-engine/-configuration/index.html) class.
 
 ```kotlin
-embeddedServer(CIO, configure = {
-    connectionIdleTimeoutSeconds = 45
-}) {
-    // ...
-}.start(true)
+import io.ktor.server.engine.*
+import io.ktor.server.cio.*
+
+fun main() {
+    embeddedServer(CIO, configure = {
+        connectionIdleTimeoutSeconds = 45
+    }) {
+        // ...
+    }.start(true)
+}
 ```
 
 #### Tomcat {id="tomcat-code"}
@@ -182,13 +197,18 @@ If you use Tomcat as the engine, you can configure it using the [configureTomcat
 [Tomcat](https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/startup/Tomcat.html) instance.
 
 ```kotlin
-embeddedServer(Tomcat, configure = {
-    configureTomcat = { // this: Tomcat ->
+import io.ktor.server.engine.*
+import io.ktor.server.tomcat.*
+
+fun main() {
+    embeddedServer(Tomcat, configure = {
+        configureTomcat = { // this: Tomcat ->
+            // ...
+        }
+    }) {
         // ...
-    }
-}) {
-    // ...
-}.start(true)
+    }.start(true)
+}
 ```
 
 

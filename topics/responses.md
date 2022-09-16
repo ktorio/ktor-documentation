@@ -61,7 +61,7 @@ You can find the full example here: [json-kotlinx](https://github.com/ktorio/kto
 To respond to a client with a contents of a file, use the [call.respondFile](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.response/respond-file.html) function. A code sample below shows how to send a specified file in a response and make this file downloadable by adding the `Content-Disposition` [header](#headers):
 ```kotlin
 ```
-{src="/snippets/download-file/src/main/kotlin/com/example/DownloadFile.kt" include-symbol="main"}
+{src="snippets/download-file/src/main/kotlin/com/example/DownloadFile.kt" include-lines="3-25"}
 
 Note that this sample has two plugins installed:
 - [PartialContent](partial-content.md) enables the server to respond to requests with the `Range` header and send only a portion of content.
