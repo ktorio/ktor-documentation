@@ -99,7 +99,7 @@ The [application.conf](#configurations) configures the entry point of our applic
 
 This module, in turn, calls the following extension functions:
 
-* `configureRouting` is a function defined in `plugins/Routing.kt`, which is currently doesn't do anything:
+* `configureRouting` is a function defined in `plugins/Routing.kt`, which currently doesn't do anything:
    ```kotlin
    fun Application.configureRouting() {
        routing {
