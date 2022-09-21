@@ -12,6 +12,7 @@
 </p>
 <var name="example_name" value="json-kotlinx"/>
 <include from="lib.topic" element-id="download_example"/>
+<include from="lib.topic" element-id="native_server_supported"/>
 </tldr>
 
 <link-summary>
@@ -74,6 +75,8 @@ To serialize/deserialize XML, add the `ktor-serialization-kotlinx-xml` in the bu
 
 <var name="artifact_name" value="ktor-serialization-kotlinx-xml"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
+
+Note that XML serialization is not supported for the [Native server](native_server.md).
 
 ### CBOR {id="add_cbor_dependency"}
 

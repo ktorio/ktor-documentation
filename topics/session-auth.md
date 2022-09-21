@@ -8,6 +8,7 @@
 </p>
 <var name="example_name" value="auth-form-session"/>
 <include from="lib.topic" element-id="download_example"/>
+<include from="lib.topic" element-id="native_server_not_supported"/>
 </tldr>
 
 

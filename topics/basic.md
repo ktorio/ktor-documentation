@@ -11,6 +11,7 @@
 <p>
 <b>Code examples</b>: <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-basic">auth-basic</a>, <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-basic-hash-table">auth-basic-hash-table</a>
 </p>
+<include from="lib.topic" element-id="native_server_supported"/>
 </tldr>
 
 The Basic authentication scheme is a part of [HTTP framework](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) used for access control and authentication. In this scheme, user credentials are transmitted as username/password pairs encoded using Base64.

@@ -7,6 +7,7 @@
 </p>
 <var name="example_name" value="html"/>
 <include from="lib.topic" element-id="download_example"/>
+<include from="lib.topic" element-id="native_server_supported"/>
 </tldr>
 
 HTML DSL integrates the [kotlinx.html](https://github.com/Kotlin/kotlinx.html) library into Ktor and allows you to respond to a client with HTML blocks. With HTML DSL, you can write pure HTML in Kotlin, interpolate variables into views, and even build complex HTML layouts using templates.

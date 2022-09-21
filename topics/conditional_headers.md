@@ -10,6 +10,7 @@
 </p>
 <var name="example_name" value="conditional-headers"/>
 <include from="lib.topic" element-id="download_example"/>
+<include from="lib.topic" element-id="native_server_supported"/>
 </tldr>
 
 The [ConditionalHeaders](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-conditional-headers/io.ktor.server.plugins.conditionalheaders/-conditional-headers.html) plugin avoids sending the body of content if it has not changed since the last request. This is achieved by using the following headers:

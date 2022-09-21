@@ -8,6 +8,7 @@
 </p>
 <var name="example_name" value="auth-ldap"/>
 <include from="lib.topic" element-id="download_example"/>
+<include from="lib.topic" element-id="native_server_not_supported"/>
 </tldr>
 
 LDAP is a protocol for working with various directory services that can store information about users. Ktor allows you to authenticate LDAP users using the [basic](basic.md), [digest](digest.md), or [form-based](form.md) authentications schemes.

@@ -12,6 +12,7 @@
 </p>
 <var name="example_name" value="compression"/>
 <include from="lib.topic" element-id="download_example"/>
+<include from="lib.topic" element-id="native_server_not_supported"/>
 </tldr>
 
 Ktor provides the capability to compress [outgoing content](responses.md) by using the [Compression](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-compression/io.ktor.server.plugins.compression/-compression.html) plugin. You can use different compression algorithms, including `gzip` and `deflate`, 

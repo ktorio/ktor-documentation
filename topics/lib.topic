@@ -285,6 +285,17 @@
             </li>
         </list>
     </snippet>
+
+    <snippet id="native_server_supported">
+        <p>
+            <b><a href="native_server.md">Native server</a> support</b>: ✅
+        </p>
+    </snippet>
+    <snippet id="native_server_not_supported">
+        <p>
+            <b><a href="native_server.md">Native server</a> support</b>: ❌
+        </p>
+    </snippet>
 </topic>
 
 

@@ -5,6 +5,10 @@
 <include from="lib.topic" element-id="download_example"/>
 </tldr>
 
+<link-summary>
+Ktor supports Kotlin/Native and allows you to run a server without an additional runtime or virtual machine.
+</link-summary>
+
 Ktor supports [Kotlin/Native](https://kotlinlang.org/docs/native-overview.html) and allows you to run a server without an additional runtime or virtual machine. Currently, running a Ktor server under Kotlin/Native has the following limitations:
 * a [server should be created](create_server.topic) using `embeddedServer`
 * only the [CIO engine](Engines.md) is supported

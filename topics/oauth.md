@@ -11,6 +11,7 @@
 </p>
 <var name="example_name" value="auth-oauth-google"/>
 <include from="lib.topic" element-id="download_example"/>
+<include from="lib.topic" element-id="native_server_supported"/>
 </tldr>
 
 [OAuth](https://oauth.net/) is an open standard for access delegation. OAuth can be used to authorize users of your application by using external providers, such as Google, Facebook, Twitter, and so on.

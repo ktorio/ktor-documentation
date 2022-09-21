@@ -12,6 +12,7 @@
 </p>
 <var name="example_name" value="micrometer-metrics"/>
 <include from="lib.topic" element-id="download_example"/>
+<include from="lib.topic" element-id="native_server_not_supported"/>
 </tldr>
 
 <link-summary>The MicrometerMetrics plugin enables Micrometer metrics in your Ktor server application and allows you to choose the required monitoring system, such as Prometheus, JMX, Elastic, and so on.</link-summary>

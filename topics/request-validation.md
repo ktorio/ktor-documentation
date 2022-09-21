@@ -12,6 +12,7 @@
 </p>
 <var name="example_name" value="request-validation"/>
 <include from="lib.topic" element-id="download_example"/>
+<include from="lib.topic" element-id="native_server_supported"/>
 </tldr>
 
 <link-summary>

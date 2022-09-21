@@ -10,12 +10,11 @@
 </p>
 <p>
 <b>Server example</b>:
-<a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/download-file">download-file</a>
-</p>
-<p>
-<b>Client example</b>:
+<a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/download-file">download-file</a>,
+<b>client example</b>:
 <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-download-file-range">client-download-file-range</a>
 </p>
+<include from="lib.topic" element-id="native_server_supported"/>
 </tldr>
 
 The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-partial-content/io.ktor.server.plugins.partialcontent/-partial-content.html) plugin adds support for handling [HTTP range requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests) used to send only a portion of an HTTP message back to a client. This plugin is useful for streaming content or resuming partial downloads.

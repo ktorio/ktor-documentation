@@ -12,6 +12,7 @@
 </p>
 <var name="example_name" value="jte"/>
 <include from="lib.topic" element-id="download_example"/>
+<include from="lib.topic" element-id="native_server_not_supported"/>
 </tldr>
 
 Ktor allows you to use [JTE templates](https://github.com/casid/jte) as views within your application by installing the [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-jte/io.ktor.server.jte/-jte.html) plugin.
