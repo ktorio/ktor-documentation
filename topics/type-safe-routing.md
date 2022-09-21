@@ -150,5 +150,36 @@ The example below shows how to define route handlers for the `Articles` resource
 You can find the full example here: [resource-routing](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/resource-routing).
 
 
+## Build links from resources {id="resource_links"}
 
+Besides using resource definitions for routing, they can also be used to build links.
+This is sometimes called _reverse routing_.
 
+The `Resources` plugin extends `Application` with the overloaded [href](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-resources/io.ktor.server.resources/href.html) method, which allows you to generate a link from a `Resource`. For instance, the code snippet below creates a link for the `Edit` resource [defined above](#example_crud):
+
+```kotlin
+val link: String = href(Articles.Id.Edit(Articles.Id(id = 123)))
+```
+
+Since the grandparent `Articles` resource defines the `sort` query parameter with the default value `new`, the `link` variable contains:
+
+```
+/articles/123/edit?sort=new
+```
+
+To generate URLs that specify the host and protocol, you can supply the `href` method with `URLBuilder`.
+Additional query params can also be specified using the `URLBuilder`, as shown in this example:
+
+```kotlin
+val urlBuilder = URLBuilder(URLProtocol.HTTPS, "ktor.io", parameters = parametersOf("token", "123"))
+href(Articles(sort = null), urlBuilder)
+val link: String = urlBuilder.buildString()
+```
+
+The `link` variable subsequently contains:
+
+```
+https://ktor.io/articles?token=123
+```
+
+> Find more examples here: [resource routing tests](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/resource-routing/src/test/kotlin/ApplicationTest.kt).
