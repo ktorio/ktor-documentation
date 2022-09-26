@@ -111,7 +111,7 @@ The [standard events from the WebSocket API](https://developer.mozilla.org/en-US
 
 * `onConnect` happens at the start of the block.
 * `onMessage` happens after successfully reading a message (for example, with `incoming.receive()`) or using suspended iteration with `for(frame in incoming)`.
-* `onClose` happens when the `incoming` channel is closed. That would complete the suspended iteration, or throw a `ClosedReceiveChannelException` when trying to receive a message`.
+* `onClose` happens when the `incoming` channel is closed. That would complete the suspended iteration, or throw a `ClosedReceiveChannelException` when trying to receive a message.
 * `onError` is equivalent to other exceptions.
 
 In both `onClose` and `onError`, the `closeReason` property is set.
