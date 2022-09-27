@@ -29,6 +29,9 @@ If your server supposes to handle [cross-origin requests](https://developer.mozi
 
 <include from="lib.topic" element-id="install_plugin"/>
 
+> If you install the `CORS` plugin to a [specific route](Plugins.md#install-route), you need to add the `options` handler to this route.
+> This allows Ktor to respond correctly to a CORS preflight request.
+
 
 ## Configure CORS {id="configure"}
 
