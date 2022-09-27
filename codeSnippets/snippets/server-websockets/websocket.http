@@ -2,15 +2,3 @@ WEBSOCKET ws://0.0.0.0:8080/echo
 Content-Type: text/plain
 
 JetBrains
-
-###
-WEBSOCKET ws://0.0.0.0:8080/chat
-Content-Type: text/plain
-
-Hello, there!
-
-###
-WEBSOCKET ws://0.0.0.0:8080/chat
-Content-Type: text/plain
-
-Hi!

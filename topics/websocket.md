@@ -46,7 +46,7 @@ Optionally, you can configure the plugin by passing [WebSocketOptions](https://a
 
 ```kotlin
 ```
-{src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" include-lines="15-20"}
+{src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" include-lines="13-18"}
 
 ## Handle WebSockets sessions {id="handle-sessions"}
 
@@ -69,7 +69,8 @@ Inside the `webSocket` block, you need to handle a WebSocket session, which is r
 3. When handling a session, you can check a frame type, for example:
    * `Frame.Text` is a text frame. For this frame type, you can read its content using `Frame.Text.readText()`.
    * `Frame.Binary` is a binary frame. For this type, you can read its content using `Frame.Binary.readBytes()`.
-   * `Frame.Close` is a closing frame. You can call `Frame.Close.readReason()` to get a close reason for the current session.
+   > Note that the `incoming` channel doesn't contain control frames such as the ping/pong or close frames.
+   > If you need control over control frames, use the [webSocketRaw](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-websockets/io.ktor.server.websocket/web-socket-raw.html) function to handle a WebSocket session.
 4. Use the `close` function to send a close frame with the specified reason.
 
 > If you need to get information about the client (for example, the client IP address), use the `call` property. You can learn more from [](requests.md#request_information).
@@ -83,25 +84,25 @@ The example below shows how to create the `echo` WebSocket endpoint to handle a 
 
 ```kotlin
 ```
-{src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" include-lines="21,26-37,54-55"}
+{src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" include-lines="19,24-36"}
 
 You can find the full example here: [server-websockets](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/server-websockets).
 
 ### Example: Handle multiple sessions {id="handle-multiple-session"}
 
-To handle multiple WebSocket sessions (for example, for a chat application), you need to store each session on a server. For example, you can define a connection with a unique name and associate it with a specified session. A sample `Connection` class below shows how to do this:
+To handle multiple WebSocket sessions (for example, in a [chat application](creating_web_socket_chat.md)), you need to store each session on a server. For example, you can define a connection with a unique name and associate it with a specified session. A sample `Connection` class below shows how to do this:
 
 ```kotlin
 ```
-{src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" include-lines="57-63"}
+{src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/Connection.kt" include-lines="3-11"}
 
 Then, you can create a new connection inside the `webSocket` handler when a new client connects to the WebSocket endpoint:
 
 ```kotlin
 ```
-{src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" include-lines="21,39-54"}
+{src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/plugins/Sockets.kt" include-lines="19-42"}
 
-You can find the full example here: [server-websockets](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/server-websockets).
+You can find the full example here: [tutorial-websockets-server](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-websockets-server).
 
 
 
