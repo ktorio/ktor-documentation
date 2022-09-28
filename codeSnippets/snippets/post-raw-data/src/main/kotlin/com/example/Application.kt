@@ -15,6 +15,11 @@ fun Application.main() {
             call.respondText(text)
         }
 
+        post("/bytes") {
+            val bytes = call.receive<ByteArray>()
+            call.respond(String(bytes))
+        }
+
         post("/channel") {
             val readChannel = call.receiveChannel()
             val text = readChannel.readRemaining().readText()

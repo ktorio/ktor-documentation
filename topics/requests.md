@@ -55,28 +55,40 @@ You can also obtain the entire query string using the [ApplicationRequest.queryS
 This section shows how to receive body contents sent with `POST`, `PUT`, or `PATCH`.
 
 ### Raw payload {id="raw"}
-To access the raw body payload and parse it by yourself, you can use the following functions:
-* [receiveText](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/receive-text.html)
-* [receiveChannel](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/receive-channel.html)
 
+To access the raw body payload and parse it manually, use the [ApplicationCall.receive](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/receive.html) function that accepts a type of payload to be received.
 Suppose you have the following HTTP request:
 
 ```HTTP
 ```
 {src="snippets/post-raw-data/post.http" include-lines="1-4"}
 
-To receive the body of this request as a String value, use `ApplicationCall.receiveText`:
+You can receive the body of this request as an object of the specified type using one of the following ways:
 
-```kotlin
-```
-{src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="13-16"}
+- **String**
 
+   To receive the body of a request as a String value, use `call.receive<String>()`.
+   You can also use [receiveText](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/receive-text.html) to achieve the same result:
+   ```kotlin
+   ```
+   {src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="13-16"}
+- **ByteArray**
 
-You can also use `ApplicationCall.receiveChannel` to receive [ByteReadChannel](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) that allows asynchronous reading of byte sequences:
+   To receive the body of a request as a byte array, call `call.receive<ByteArray>()`:
+   ```kotlin
+   ```
+   {src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="18-22"}
+- **ByteReadChannel**
 
-```kotlin
-```
-{src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="18-22"}
+   You can use `call.receive<ByteReadChannel>()` or [receiveChannel](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/receive-channel.html) to receive [ByteReadChannel](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) that enables asynchronous reading of byte sequences:
+   ```kotlin
+   ```
+   {src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="23-27"}
+
+   The next sample shows how to use `ByteReadChannel` to upload a file:
+   ```kotlin
+   ```
+   {src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="29-33"}
 
 You can find the full example here: [post-raw-data](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/post-raw-data).
 
