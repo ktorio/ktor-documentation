@@ -8,31 +8,51 @@
 
     <snippet id="install_plugin">
         <p>
-            To <a href="Plugins.md" anchor="install">install</a> the <code>%plugin_name%</code> plugin, pass it to the <code>install</code> function in the application initialization code. Depending on the <a href="create_server.topic">way used to create a server</a>, this can be the <code>embeddedServer</code> function call ...
+            To <a href="Plugins.md" anchor="install">install</a> the <code>%plugin_name%</code> plugin to the application,
+            pass it to the <code>install</code> function in the specified <a href="Modules.md">module</a>.
+            The code snippets below show how to install <code>%plugin_name%</code> ...
         </p>
-        <code-block lang="kotlin">
-            import io.ktor.server.application.*
-            import %package_name%.*
-            // ...
-            fun main() {
-                embeddedServer(Netty, port = 8080) {
-                    install(%plugin_name%)
+        <list>
+            <li>
+                ... inside the <code>embeddedServer</code> function call.
+            </li>
+            <li>
+                ... inside the explicitly defined <code>module</code>, which is an extension function of the <code>Application</code> class.
+            </li>
+        </list>
+        <tabs>
+            <tab title="embeddedServer">
+                <code-block lang="kotlin">
+                    import io.ktor.server.application.*
+                    import %package_name%.*
                     // ...
-                }.start(wait = true)
-            }
-        </code-block>
+                    fun main() {
+                        embeddedServer(Netty, port = 8080) {
+                            install(%plugin_name%)
+                            // ...
+                        }.start(wait = true)
+                    }
+                </code-block>
+            </tab>
+            <tab title="module">
+                <code-block lang="kotlin">
+                    import io.ktor.server.application.*
+                    import %package_name%.*
+                    // ...
+                    fun Application.module() {
+                        install(%plugin_name%)
+                        // ...
+                    }
+                </code-block>
+            </tab>
+        </tabs>
+    </snippet>
+
+    <snippet id="install_plugin_route">
         <p>
-            ... or a specified <a href="Modules.md">module</a>.
+            The <code>%plugin_name%</code> plugin can also be <a href="Plugins.md" anchor="install-route">installed to specific routes</a>.
+            This might be useful if you need different <code>%plugin_name%</code> configurations for different application resources.
         </p>
-        <code-block lang="kotlin">
-            import io.ktor.server.application.*
-            import %package_name%.*
-            // ...
-            fun Application.module() {
-                install(%plugin_name%)
-                // ...
-            }
-        </code-block>
     </snippet>
 
 

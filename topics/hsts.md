@@ -26,8 +26,8 @@ The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-ser
 ## Install %plugin_name% {id="install_plugin"}
 
 <include from="lib.topic" element-id="install_plugin"/>
+<include from="lib.topic" element-id="install_plugin_route"/>
 
-The code above installs `%plugin_name%` with the default configuration.  
 
 ## Configure %plugin_name% {id="configure"}
 

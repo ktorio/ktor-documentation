@@ -33,5 +33,6 @@ The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-ser
 ## Install %plugin_name% {id="install_plugin"}
 
 <include from="lib.topic" element-id="install_plugin"/>
+<include from="lib.topic" element-id="install_plugin_route"/>
 
 To learn how to use `%plugin_name%` to serve a file using HTTP range requests, see the [](responses.md#file) section.

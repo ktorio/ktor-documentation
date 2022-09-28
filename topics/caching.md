@@ -24,9 +24,10 @@ The [CachingHeaders](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-se
 <include from="lib.topic" element-id="add_ktor_artifact_intro"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
-## Install CachingHeaders {id="install_plugin"}
+## Install %plugin_name% {id="install_plugin"}
 
 <include from="lib.topic" element-id="install_plugin"/>
+<include from="lib.topic" element-id="install_plugin_route"/>
 
 After installing `%plugin_name%`, you can [configure](#configure) caching settings for various content types.
 

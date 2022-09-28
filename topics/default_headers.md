@@ -1,5 +1,7 @@
 [//]: # (title: Default headers)
 
+<show-structure for="chapter" depth="2"/>
+
 <var name="artifact_name" value="ktor-server-default-headers"/>
 <var name="package_name" value="io.ktor.server.plugins.defaultheaders"/>
 <var name="plugin_name" value="DefaultHeaders"/>
@@ -21,11 +23,11 @@ The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-ser
 ## Install %plugin_name% {id="install_plugin"}
 
 <include from="lib.topic" element-id="install_plugin"/>
+<include from="lib.topic" element-id="install_plugin_route"/>
 
-The `%plugin_name%` plugin adds the `Server` and `Date` headers into each response. If necessary, you can override the `Server`, as described in [](#override).
 
-
-## Add additional headers {id="add"}
+## Configure %plugin_name% {id="configure"}
+### Add additional headers {id="add"}
 To customize a list of default headers, pass a desired header to `install`  by using the `header(name, value)` function. The `name` parameter accepts an `HttpHeaders` value, for example:
 ```kotlin
     install(DefaultHeaders) {
@@ -40,7 +42,7 @@ To add a custom header, pass its name as a string value:
 ```
 
 
-## Override headers {id="override"}
+### Override headers {id="override"}
 To override the `Server` header, use a corresponding `HttpHeaders` value:
 ```kotlin
     install(DefaultHeaders) {

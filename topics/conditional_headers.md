@@ -25,6 +25,7 @@ The [ConditionalHeaders](https://api.ktor.io/ktor-server/ktor-server-plugins/kto
 ## Install %plugin_name% {id="install_plugin"}
 
 <include from="lib.topic" element-id="install_plugin"/>
+<include from="lib.topic" element-id="install_plugin_route"/>
 
 
 ## Configure headers {id="configure"}

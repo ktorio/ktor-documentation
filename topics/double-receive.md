@@ -29,8 +29,9 @@ For example, you can use `%plugin_name%` to log a request body using the [CallLo
 ## Install %plugin_name% {id="install_plugin"}
 
 <include from="lib.topic" element-id="install_plugin"/>
+<include from="lib.topic" element-id="install_plugin_route"/>
 
-After that, you can [receive a request body](requests.md#body_contents) several times and every invocation returns the same instance.
+After installing `%plugin_name%`, you can [receive a request body](requests.md#body_contents) several times and every invocation returns the same instance.
 For example, you can enable logging of a request body using the [CallLogging](call-logging.md) plugin...
 
 ```kotlin

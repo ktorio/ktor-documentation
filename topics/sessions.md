@@ -34,6 +34,7 @@ To enable support for sessions, you need to include the `%artifact_name%` artifa
 ## Install Sessions {id="install_plugin"}
 
 <include from="lib.topic" element-id="install_plugin"/>
+<include from="lib.topic" element-id="install_plugin_route"/>
 
 
 ## Session configuration overview {id="configuration_overview"}

@@ -99,7 +99,7 @@ install(Sessions) {
 } 
 ```
 
-### Install Plugins for specific routes {id="install-route"}
+### Install Plugins to specific routes {id="install-route"}
 
 In Ktor, you can install plugins not only globally but also to specific [routes](Routing_in_Ktor.md). This might be useful if you need different plugin configurations for different application resources. For instance, the [example](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/caching-headers-routes) below shows how to add the specified [caching header](caching.md) for the `/index` route:
 
