@@ -74,7 +74,9 @@ The following [example](https://github.com/ktorio/ktor-documentation/tree/%ktor_
 </tab>
 </tabs>
 
-To learn more about generating HTML using kotlinx.html, see the [kotlinx.html wiki](https://github.com/Kotlin/kotlinx.html/wiki).
+You can learn how to receive form parameters on the server side from [](requests.md#form_parameters).
+
+> To learn more about generating HTML using kotlinx.html, see the [kotlinx.html wiki](https://github.com/Kotlin/kotlinx.html/wiki).
 
 
 ## Templates {id="templates"}
