@@ -287,10 +287,13 @@ You can test [WebSocket conversations](websocket.md) by using the [WebSockets](w
 
 
 ## End-to-end testing with HttpClient {id="end-to-end"}
-Apart from a testing engine, you can use the [Ktor HTTP Client](create-client.md) for end-to-end testing of your server application.
+Apart from a testing engine, you can use the [Ktor HTTP client](create-client.md) for end-to-end testing of your server application.
+In the example below, the HTTP client makes a test request to the `TestServer`:
 
 ```kotlin
 ```
 {src="snippets/embedded-server/src/test/kotlin/EmbeddedServerTest.kt"}
 
-For a full example, refer to a test of the [embedded-server](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/embedded-server) example.
+For complete examples, refer to these samples:
+- [embedded-server](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/embedded-server): a sample server to be tested.
+- [e2e](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/e2e): contains helper classes and functions for setting up a test server.
