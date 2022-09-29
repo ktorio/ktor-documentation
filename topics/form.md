@@ -17,6 +17,7 @@
 </tldr>
 
 Form-based authentication uses a [web form](https://developer.mozilla.org/en-US/docs/Learn/Forms) to collect credential information and authenticate a user.
+To create a web form in Ktor, you can use [HTML DSL](html_dsl.md#html_response) or choose between JVM [template engines](Working_with_views.md), such as FreeMarker, Velocity, and so on.
 
 > Given that username and password are passed as clear text when using form-based authentication, you need to use [HTTPS/TLS](ssl.md) to protect sensitive information.
 

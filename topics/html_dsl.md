@@ -20,21 +20,60 @@ HTML DSL doesn't need [installation](Plugins.md#install) but requires the `%arti
   
 
 ## Send HTML in response {id="html_response"}
-To send an HTML response, call the [respondHtml](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-html-builder/io.ktor.server.html/respond-html.html) method inside the required [route](Routing_in_Ktor.md):
+To send an HTML response, call the [respondHtml](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-html-builder/io.ktor.server.html/respond-html.html) method inside the required [route](Routing_in_Ktor.md).
+The example below shows a sample HTML DSL and a corresponding HTML to be sent to the client:
+
+<tabs>
+<tab title="Kotlin">
+
 ```kotlin
 ```
 {src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="3-8,11-29"}
 
-In this case, the following HTML will be sent to the client:
+</tab>
+<tab title="HTML">
+
 ```html
+<html>
 <head>
     <title>Ktor</title>
 </head>
 <body>
-    <h1>Hello from Ktor!</h1>
+<h1>Hello from Ktor!</h1>
 </body>
-
+</html>
 ```
+
+</tab>
+</tabs>
+
+The following [example](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-form-html-dsl) shows how to respond with an HTML form used to collect [credential information](form.md) from a user:
+
+<tabs>
+<tab title="Kotlin">
+
+```kotlin
+```
+{src="snippets/auth-form-html-dsl/src/main/kotlin/com/example/Application.kt" include-lines="32-50"}
+
+</tab>
+<tab title="HTML">
+
+```html
+<html>
+<body>
+<form action="/login" enctype="application/x-www-form-urlencoded" method="post">
+    <p>Username:<input type="text" name="username"></p>
+    <p>Password:<input type="password" name="password"></p>
+    <p><input type="submit" value="Login"></p>
+</form>
+</body>
+</html>
+```
+
+</tab>
+</tabs>
+
 To learn more about generating HTML using kotlinx.html, see the [kotlinx.html wiki](https://github.com/Kotlin/kotlinx.html/wiki).
 
 
