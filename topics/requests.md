@@ -63,11 +63,11 @@ Suppose you have the following HTTP request:
 ```
 {src="snippets/post-raw-data/post.http" include-lines="1-4"}
 
-You can receive the body of this request as an object of the specified type using one of the following ways:
+You can receive the body of this request as an object of the specified type in one of the following ways:
 
 - **String**
 
-   To receive the body of a request as a String value, use `call.receive<String>()`.
+   To receive a request body as a String value, use `call.receive<String>()`.
    You can also use [receiveText](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/receive-text.html) to achieve the same result:
    ```kotlin
    ```
@@ -85,7 +85,7 @@ You can receive the body of this request as an object of the specified type usin
    ```
    {src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="23-27"}
 
-   The next sample shows how to use `ByteReadChannel` to upload a file:
+   The sample below shows how to use `ByteReadChannel` to upload a file:
    ```kotlin
    ```
    {src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="29-33"}
