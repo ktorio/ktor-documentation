@@ -19,6 +19,15 @@ class ApplicationTest {
     }
 
     @Test
+    fun testPostByteArray() = testApplication {
+        val response = client.post("/bytes") {
+            header(HttpHeaders.ContentType, ContentType.Text.Plain)
+            setBody("Hello, world!")
+        }
+        assertEquals("Hello, world!", response.bodyAsText())
+    }
+
+    @Test
     fun testPostChannel() = testApplication {
         val response = client.post("/channel") {
             header(HttpHeaders.ContentType, ContentType.Text.Plain)
