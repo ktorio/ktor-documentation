@@ -20,6 +20,7 @@ class ApplicationTest {
     <link rel="stylesheet" href="assets/styles.css">
     <script src="assets/script.js"></script>
 </head>
+<body>
 <img src="images/ktor_logo.png" alt="ktor logo">
 <h1>Static page</h1>
 <p>Welcome to my static page!</p>
