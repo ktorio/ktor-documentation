@@ -152,7 +152,7 @@ Here are several tips on handling requests for each endpoint:
 
 - `get<Articles>`
 
-   This route handler is supposed to get all articles sorted according to the `sort` query parameter.
+   This route handler is supposed to return all articles sorted according to the `sort` query parameter.
    For instance, this might be an [HTML page](responses.md#html) or a [JSON object](responses.md#object) with all articles.
 
 - `get<Articles.New>`
@@ -160,12 +160,12 @@ Here are several tips on handling requests for each endpoint:
    This endpoint responds with a [web form](responses.md#html) containing fields for creating a new article.
 - `post<Articles>`
 
-   The `post<Articles>` endpoint is supposed to receive [form parameters](requests.md#form_parameters) sent using a web form.
-   You can also receive JSON data as an [object](requests.md#objects) using the `ContentNegotiation` plugin.
+   The `post<Articles>` endpoint is supposed to receive [parameters](requests.md#form_parameters) sent using a web form.
+   Ktor also allows you to receive JSON data as an [object](requests.md#objects) using the `ContentNegotiation` plugin.
 - `get<Articles.Id>`
 
-   This route handler is supposed to get an article with the specified identifier.
-   This might be an [HTML page](responses.md#html) showing an article or a [JSON object](responses.md#object).
+   This route handler is supposed to return an article with the specified identifier.
+   This might be an [HTML page](responses.md#html) showing an article or a [JSON object](responses.md#object) with article data.
 - `get<Articles.Id.Edit>`
 
   This endpoint responds with a [web form](responses.md#html) containing fields for editing an existing article.
