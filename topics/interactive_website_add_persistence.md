@@ -16,6 +16,7 @@ In this series of tutorials, we'll show you how to create a simple blog applicat
 - In the first tutorial, we showed how to host [static content](creating_static_website.md) like images and HTML pages.
 - In the second tutorial, we added interactivity to our application using the FreeMarker template engine.
 - In this tutorial, we'll add persistence to our website using the Exposed framework. We'll use the H2 local database to store articles.
+- In the [next tutorial](connection-pooling-caching.md), we'll look at how to implement database connection pooling and caching using the HikariCP and Ehcache libraries, respectively.
 
 
 ## Add dependencies {id="add-dependencies"}
@@ -191,7 +192,7 @@ Finally, use `Table.deleteWhere` to remove an article from the database:
 
 ### Initialize DAOFacade {id="init-dao-facade"}
 
-Let's create an instance of `DAOFacade` and add a sample article to be inserted to the database before the application is started.
+Let's create an instance of `DAOFacade` and add a sample article into be inserted to the database before the application is started.
 Add the following code at the bottom of `DAOFacadeImpl.kt`:
 
 ```kotlin

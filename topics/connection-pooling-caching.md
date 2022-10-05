@@ -12,9 +12,8 @@
 
 <link-summary>Learn how to implement database connection pooling and caching.</link-summary>
 
-In the [previous tutorial](interactive_website_add_persistence.md), we added persistence to our website using the Exposed framework.
-In this tutorial, we'll take a look at how to implement database connection pooling and caching using the HikariCP and Ehcache libraries,
-respectively.
+In the [previous tutorial](interactive_website_add_persistence.md), we added persistence to a website using the Exposed framework.
+In this tutorial, we'll look at how to implement database connection pooling and caching using the HikariCP and Ehcache libraries, respectively.
 
 
 ## Add dependencies {id="add-dependencies"}
@@ -45,7 +44,7 @@ The _connection pooling_ mechanism solves this problem.
 
 In this section, we'll use the HikariCP framework to manage JDBC connection pooling in our application.
 
-### Extract connection settings to configuration {id="connection-settings-config"}
+### Extract connection settings into a configuration file {id="connection-settings-config"}
 
 In the [previous tutorial](interactive_website_add_persistence.md#connect_db), we used hardcoded `driverClassName` and `jdbcURL` in the `com/example/dao/DatabaseFactory.kt` file to establish a database connection:
 
@@ -78,7 +77,7 @@ Let's extract database connection settings to a [custom configuration group](Con
 ### Enable connection pooling {id="enable-connection-pooling"}
 
 To enable connection pooling in Exposed, you need to provide [DataSource](https://docs.oracle.com/en/java/javase/19/docs/api/java.sql/javax/sql/DataSource.html) as a parameter to the `Database.connect` function.
-HikariCP provides the `HikariDataSource` class that implements the `DataSource` interfaces.
+HikariCP provides the `HikariDataSource` class that implements the `DataSource` interface.
 
 1. To create `HikariDataSource`, open `com/example/dao/DatabaseFactory.kt` and add the `createHikariDataSource` function to the `DatabaseFactory` object:
 
@@ -86,7 +85,7 @@ HikariCP provides the `HikariDataSource` class that implements the `DataSource` 
    ```
    {src="snippets/tutorial-website-interactive-persistence-advanced/src/main/kotlin/com/example/dao/DatabaseFactory.kt" include-lines="4,11-12,25-35,39"}
 
-   Here are some notes on the specified settings:
+   Here are some notes on the data source settings:
      - The `createHikariDataSource` function takes the driver class name and database URL as the parameters.
      - The `maximumPoolSize` property specifies the maximum size the connection pool can reach.
      - `isAutoCommit` and `transactionIsolation` are set to sync with the default settings used by Exposed.
@@ -109,7 +108,7 @@ can reduce the workload for a database and the time to read the frequently-requi
 
 In this tutorial, we'll use the Ehcache library to organize the cache in a file.
 
-### Add a cache file path to configuration {id="cache-file-path"}
+### Add a cache file path to the configuration {id="cache-file-path"}
 
 Open the `src/main/resources/application.conf` file and add the `ehcacheFilePath` property to the `storage` group:
 
@@ -118,7 +117,7 @@ Open the `src/main/resources/application.conf` file and add the `ehcacheFilePath
 {src="snippets/tutorial-website-interactive-persistence-advanced/src/main/resources/application.conf" include-lines="11,15-16"}
 
 This property specifies the path to a file used to store the cache data.
-We'll use it later to configure a `DAOFacade` implementation for working with the cache.
+We'll use it later to configure a `DAOFacade` implementation for working with a cache.
 
 
 ### Implement caching {id="implement-caching"}
@@ -153,7 +152,7 @@ and delegates it to the database interface if there is no cached value.
    {src="snippets/tutorial-website-interactive-persistence-advanced/src/main/kotlin/com/example/dao/DAOFacadeCacheImpl.kt" include-lines="30-50"}
 
    - `allArticles`: we don't try to cache all the articles; we delegate this to the main database.
-   - `article`: when we get an article (`article`), we first check whether it's present in the cache, and only if it's not the case, we delegate this to the main `DAOFacade` and also add this article to the cache.
+   - `article`: when we get an article, we first check whether it's present in the cache, and only if it's not the case, we delegate this to the main `DAOFacade` and also add this article to the cache.
    - `addNewArticle`: when we add a new article, we delegate it to the main `DAOFacade`, but we also add this article to the cache.
    - `editArticle`: when editing the existing article, we update both the cache and the database.
    - `deleteArticle`: on delete, we need to delete the article both from the cache and from the main database.
@@ -161,11 +160,11 @@ and delegates it to the database interface if there is no cached value.
 
 ### Initialize DAOFacadeCacheImpl {id="init-dao-facade"}
 
-Let's create an instance of `DAOFacadeCacheImpl` and add a sample article to be inserted to the database before the application is started:
+Let's create an instance of `DAOFacadeCacheImpl` and add a sample article to be inserted into the database before the application is started:
 
 1. First, open the `DAOFacadeImpl.kt` file and remove the `dao` variable initialization at the bottom of the file.
 
-2. The, open `com/example/plugins/Routing.kt` and add initialize the `dao` variable inside the `configureRouting` block:
+2. Then, open `com/example/plugins/Routing.kt` and initialize the `dao` variable inside the `configureRouting` block:
 
    ```kotlin
    ```
