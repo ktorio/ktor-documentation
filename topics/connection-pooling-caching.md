@@ -64,7 +64,7 @@ Let's extract database connection settings to a [custom configuration group](Con
 
    ```kotlin
    ```
-   {src="snippets/tutorial-website-interactive-persistence-advanced/src/main/kotlin/com/example/dao/DatabaseFactory.kt" include-lines="13-18,23"}
+   {src="snippets/tutorial-website-interactive-persistence-advanced/src/main/kotlin/com/example/dao/DatabaseFactory.kt" include-lines="5,10-18,23,39"}
    
    The `init` function now accepts `ApplicationConfig` and uses `config.property` to load custom settings.
 

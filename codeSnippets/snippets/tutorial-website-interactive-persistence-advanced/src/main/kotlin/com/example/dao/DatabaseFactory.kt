@@ -16,8 +16,8 @@ object DatabaseFactory {
                 (config.propertyOrNull("storage.dbFilePath")?.getString()?.let {
                     File(it).canonicalFile.absolutePath
                 } ?: "")
-        Database.connect(createHikariDataSource(url = jdbcURL, driver = driverClassName))
-        transaction {
+        val database = Database.connect(createHikariDataSource(url = jdbcURL, driver = driverClassName))
+        transaction(database) {
             SchemaUtils.create(Articles)
         }
     }
