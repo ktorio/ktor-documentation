@@ -1,4 +1,4 @@
-[//]: # (title: Adding persistence to a website)
+[//]: # (title: Database persistence with Exposed)
 
 <show-structure for="chapter" depth="2"/>
 

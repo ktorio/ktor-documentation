@@ -17,7 +17,6 @@
             <toc-element toc-title="Creating a website">
                 <toc-element topic="creating_static_website.md"/>
                 <toc-element topic="creating_interactive_website.md"/>
-                <toc-element topic="interactive_website_add_persistence.md"/>
             </toc-element>
             <toc-element topic="creating_web_socket_chat.md"/>
         </toc-element>
@@ -150,6 +149,11 @@
 
         <toc-element topic="Testing.md"
                      accepts-web-file-names="servers-testing.html"/>
+
+        <toc-element toc-title="Database integration">
+            <toc-element topic="interactive_website_add_persistence.md"/>
+            <toc-element topic="connection-pooling-caching.md"/>
+        </toc-element>
 
         <toc-element topic="deploy.md">
             <toc-element toc-title="Packaging">
