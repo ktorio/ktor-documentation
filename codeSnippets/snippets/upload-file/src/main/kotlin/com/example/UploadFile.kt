@@ -29,6 +29,7 @@ fun Application.main() {
 
                     else -> {}
                 }
+                part.dispose()
             }
 
             call.respondText("$fileDescription is uploaded to 'uploads/$fileName'")
