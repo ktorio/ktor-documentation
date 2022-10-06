@@ -51,3 +51,16 @@ To use the template for the specified [route](Routing_in_Ktor.md), pass [Thymele
 ```kotlin
 ```
 {src="snippets/thymeleaf/src/main/kotlin/com/example/Application.kt" include-lines="20-23"}
+
+
+## Example: Auto reload Thymeleaf templates {id="auto-reload"}
+
+The example below shows how to reload Thymeleaf templates automatically when [development mode](development_mode.topic) is used.
+
+```kotlin
+```
+{src="snippets/thymeleaf-auto-reload/src/main/kotlin/com/example/Application.kt"}
+
+You can find the complete example here: [thymeleaf-auto-reload](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/thymeleaf-auto-reload).
+
+
