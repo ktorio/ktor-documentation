@@ -122,7 +122,7 @@ Inside the created scope, we can call the shared `greeting` function and handle 
 
 ### iOS code {id="ios-view"}
 
-1. Open the `iosApp/iOSApp.swift` file and update the entry point for the application:
+1. Open the `iosApp/iosApp/iOSApp.swift` file and update the entry point for the application:
    ```Swift
    ```
    {src="snippets/tutorial-client-kmm/iosApp/iosApp/iOSApp.swift"}
