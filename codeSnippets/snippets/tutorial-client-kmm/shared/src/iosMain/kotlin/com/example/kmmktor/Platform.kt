@@ -2,6 +2,8 @@ package com.example.kmmktor
 
 import platform.UIKit.UIDevice
 
-actual class Platform actual constructor() {
-    actual val platform: String = UIDevice.currentDevice.systemName() + " " + UIDevice.currentDevice.systemVersion
+class IOSPlatform: Platform {
+    override val name: String = UIDevice.currentDevice.systemName() + " " + UIDevice.currentDevice.systemVersion
 }
+
+actual fun getPlatform(): Platform = IOSPlatform()
