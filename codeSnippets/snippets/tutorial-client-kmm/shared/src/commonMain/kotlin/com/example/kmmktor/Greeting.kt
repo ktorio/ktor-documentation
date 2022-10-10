@@ -5,13 +5,10 @@ import io.ktor.client.request.*
 import io.ktor.client.statement.*
 
 class Greeting {
-    fun greeting(): String {
-        return "Hello, ${Platform().platform}!"
-    }
-
     private val client = HttpClient()
-    suspend fun getHtml(): String {
-        val response = client.get("https://ktor.io/docs")
+
+    suspend fun greeting(): String {
+        val response = client.get("https://ktor.io/docs/")
         return response.bodyAsText()
     }
 }

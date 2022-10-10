@@ -42,19 +42,19 @@ First, you need to set up an environment for cross-platform mobile development b
 
 To use the Ktor HTTP client in your project, you need to add at least two dependencies: a client dependency and an engine dependency. Open the `shared/build.gradle.kts` file and follow the steps below:
 
-1. Specify Ktor version inside `sourceSets`:
+1. Specify the Ktor version inside `sourceSets`:
    ```kotlin
    ```
-   {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="25-26,64"}
+   {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="24-25,64"}
 
    <include from="getting_started_ktor_client.topic" element-id="eap-note"/>
 
-3. To use the Ktor client in common code, add the dependency to `ktor-client-core` to the `commonMain` source set:
+2. To use the Ktor client in common code, add the dependency to `ktor-client-core` to the `commonMain` source set:
    ```kotlin
    ```
-   {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="27-31"}
+   {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="26-28,30-31"}
 
-4. Add an [engine dependency](http-client_engines.md) for the required platform to the corresponding source set:
+3. Add an [engine dependency](http-client_engines.md) for the required platform to the corresponding source set:
    - For Android, add the `ktor-client-okhttp` dependency to the `androidMain` source set:
      ```kotlin
      ```
@@ -69,20 +69,30 @@ To use the Ktor HTTP client in your project, you need to add at least two depend
 
 ### Add coroutines {id="coroutines"}
 
-In this tutorial, we'll use coroutines in [Android code](#android-activity).
-Open the `androidApp/build.gradle.kts` and add the following dependencies:
+To add `kotlinx.coroutines` to your project, specify a dependency in the common source set. 
+To do so, add the `kotlinx-coroutines-core` to the `build.gradle.kts` file of the shared module:
 
 ```kotlin
 ```
-{src="snippets/tutorial-client-kmm/androidApp/build.gradle.kts" include-lines="22,27-29"}
+{src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="26-31"}
+
+Then, open the `androidApp/build.gradle.kts` and add the `kotlinx-coroutines-android` dependency:
+
+```kotlin
+```
+{src="snippets/tutorial-client-kmm/androidApp/build.gradle.kts" include-lines="34,42-43"}
+
+This allows us to use coroutines in [Android code](#android-activity).
 
 ### Enable the New Kotlin/Native memory model {id="new_memory_model"}
-To use Ktor client on Kotlin/Native targets (such as iOS), we need to enable the New Kotlin/Native memory model.
+To use the Ktor client on Kotlin/Native targets (such as iOS), we need to enable the New Kotlin/Native memory model.
 Open the `gradle.properties` file and add the following line:
 
 ```Gradle
 ```
 {src="snippets/tutorial-client-kmm/gradle.properties" include-lines="14"}
+
+Click **Sync Now** in the top right corner of the `gradle.properties` file to install the added dependencies.
 
 ## Update your application {id="code"}
 
@@ -92,34 +102,37 @@ To update code shared between Android and iOS, open the `shared/src/commonMain/k
 
 ```kotlin
 ```
-{src="snippets/tutorial-client-kmm/shared/src/commonMain/kotlin/com/example/kmmktor/Greeting.kt" include-lines="3-7,12-17"}
+{src="snippets/tutorial-client-kmm/shared/src/commonMain/kotlin/com/example/kmmktor/Greeting.kt"}
 
 - To create the HTTP client, the `HttpClient` constructor is called.
-- The suspending `getHtml` function is used to make a [request](request.md) and receive the body of a [response](response.md) as a string value.
+- The suspending `greeting` function is used to make a [request](request.md) and receive the body of a [response](response.md) as a string value.
 
 ### Android code {id="android-activity"}
 
-To call the suspending `getHtml` function from the Android code, we need to create a coroutine scope.
-We'll be using [MainScope](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-main-scope.html), which can be used as the main coroutine scope for UI components.
+To call the suspending `greeting` function from the Android code, we'll be using [rememberCoroutineScope](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#rememberCoroutineScope(kotlin.Function0)).
 
 Open the `androidApp/src/main/java/com/example/kmmktor/android/MainActivity.kt` file and update `MainActivity` code as follows:
 
 ```kotlin
 ```
-{src="snippets/tutorial-client-kmm/androidApp/src/main/java/com/example/kmmktor/android/MainActivity.kt" include-lines="3-29"}
+{src="snippets/tutorial-client-kmm/androidApp/src/main/java/com/example/kmmktor/android/MainActivity.kt" include-lines="20-22,62-87"}
 
-Inside the created `MainScope`, the [runCatching](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/run-catching.html) function is used to call the shared `getHtml` function and handle possible exceptions.
+Inside the created scope, we can call the shared `greeting` function and handle possible exceptions.
 
 
 ### iOS code {id="ios-view"}
 
-Open the `iosApp/iosApp/ContentView.swift` file and update `ContentView` code in the following way:
-
-```Swift
-```
-{src="snippets/tutorial-client-kmm/iosApp/iosApp/ContentView.swift" include-lines="1-24"}
-
-On iOS, the `getHtml` suspending function is available as a function with a callback.
+1. Open the `iosApp/iOSApp.swift` file and update the entry point for the application:
+   ```Swift
+   ```
+   {src="snippets/tutorial-client-kmm/iosApp/iosApp/iOSApp.swift"}
+   
+2. Open the `iosApp/iosApp/ContentView.swift` file and update `ContentView` code in the following way:
+   ```Swift
+   ```
+   {src="snippets/tutorial-client-kmm/iosApp/iosApp/ContentView.swift"} 
+   
+   On iOS, the `greeting` suspending function is available as a function with a callback.
 
 ## Enable internet access on Android {id="android-internet"}
 

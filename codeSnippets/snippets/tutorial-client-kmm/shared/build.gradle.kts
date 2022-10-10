@@ -4,8 +4,6 @@ plugins {
     id("com.android.library")
 }
 
-version = "1.0"
-
 kotlin {
     android()
     iosX64()
@@ -15,6 +13,7 @@ kotlin {
     cocoapods {
         summary = "Some description for the Shared Module"
         homepage = "Link to the Shared Module homepage"
+        version = "1.0"
         ios.deploymentTarget = "14.1"
         podfile = project.file("../iosApp/Podfile")
         framework {
@@ -27,6 +26,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
             }
         }
         val commonTest by getting {
@@ -65,10 +65,10 @@ kotlin {
 }
 
 android {
-    compileSdk = 31
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    namespace = "com.example.kmmktor"
+    compileSdk = 32
     defaultConfig {
-        minSdk = 23
-        targetSdk = 31
+        minSdk = 21
+        targetSdk = 32
     }
 }
