@@ -22,7 +22,7 @@ The table below lists engines supported by Ktor, along with the supported platfo
 | `Netty`                            | JVM                                                    | ✅      |
 | `Jetty`                            | JVM                                                    | ✅      |
 | `Tomcat`                           | JVM                                                    | ✅      |
-| `CIO` (Coroutine-based I/O)        | JVM, [Native](native_server.md), [GraalVM](Graalvm.md) | ❌      |
+| `CIO` (Coroutine-based I/O)        | JVM, [Native](native_server.md), [GraalVM](Graalvm.md) | ✖️      |
 | [ServletApplicationEngine](war.md) | JVM                                                    | ✅      |
 
 

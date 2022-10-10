@@ -11,13 +11,13 @@ The table below shows supported proxy types for specific [engines](http-client_e
 
 | Engine     | HTTP proxy | SOCKS proxy |
 |------------|------------|-------------|
-| Apache     | ✅          |   ❌         |
-| Java       | ✅          |   ❌         |
-| Jetty      | ❌          |   ❌         |
-| CIO        | ✅          |   ❌         |
+| Apache     | ✅          |   ✖️         |
+| Java       | ✅          |   ✖️         |
+| Jetty      | ✖️          |   ✖️         |
+| CIO        | ✅          |   ✖️         |
 | Android    | ✅          |   ✅         |
 | OkHttp     | ✅          |   ✅         |
-| JavaScript | ❌          |   ❌         |
+| JavaScript | ✖️          |   ✖️         |
 | Darwin     | ✅          |   ✅         |
 | Curl       | ✅          |   ✅         |
 

@@ -49,15 +49,15 @@ The table below shows whether a specific engine supports HTTP/2 and [WebSockets]
 
 | Engine  | HTTP/2 | WebSockets |
 |---------|--------|------------|
-| Apache  | ❌      | ❌          |
-| Java    | ✅      | ❌          |
-| Jetty   | ✅      | ❌          |
-| CIO     | ❌      | ✅          |
-| Android | ❌      | ❌          |
+| Apache  | ✖️      | ✖️          |
+| Java    | ✅      | ✖️          |
+| Jetty   | ✅      | ✖️          |
+| CIO     | ✖️      | ✅          |
+| Android | ✖️      | ✖️          |
 | OkHttp  | ✅      | ✅          |
 | Js      | ✅      | ✅          |
 | Darwin  | ✅      | ✅          |
-| Curl    | ✅      | ❌          |
+| Curl    | ✅      | ✖️          |
 
 You also need to consider the following limitations that affect general client configuration and using of specific plugins:
 - If an engine supports HTTP/2, you can enable it by customizing the engine configuration (see an example for the [](#java) engine).
