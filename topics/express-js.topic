@@ -119,9 +119,44 @@
         </tabs>
 
 
-        <p><control>3: Compare two code blocks</control></p>
+        <p><control>3: Compare two code blocks (Horizontal)</control></p>
 
         <compare style="left-right" first-title="Express" second-title="Ktor">
+            <code-block lang="javascript">
+                const express = require('express')
+                const app = express()
+                const port = 3000
+
+                app.get('/', (req, res) => {
+                    res.send('Hello World!')
+                })
+
+                app.listen(port, () => {
+                    console.log(`Responding at http://0.0.0.0:${port}/`)
+                })
+            </code-block>
+            <code-block lang="kotlin">
+                import io.ktor.server.engine.*
+                import io.ktor.server.netty.*
+                import io.ktor.server.application.*
+                import io.ktor.server.response.*
+                import io.ktor.server.routing.*
+
+                fun main() {
+                    embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
+                        routing {
+                            get("/") {
+                                call.respondText("Hello World!")
+                            }
+                        }
+                    }.start(wait = true)
+                }
+            </code-block>
+        </compare>
+
+        <p><control>4: Compare two code blocks (Vertical)</control></p>
+
+        <compare style="top-bottom" first-title="Express" second-title="Ktor">
             <code-block lang="javascript">
                 const express = require('express')
                 const app = express()
