@@ -652,7 +652,7 @@
                             A request body is available under the <code>req.body</code> property:
                         </p>
                         <code-block lang="javascript" src="snippets/migrating-express/7_receive_request/app.js" include-lines="8-11"/>
-                        <p id="receive_sample_express">
+                        <p>
                             <emphasis>
                                 <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/7_receive_request/app.js">View sample on GitHub</a>
                             </emphasis>
@@ -668,7 +668,7 @@
                             In Ktor, you can receive a body as text using <code>call.receiveText</code>:
                         </p>
                         <code-block lang="kotlin" src="snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt" include-lines="30-33"/>
-                        <p id="receive_sample_ktor">
+                        <p>
                             <emphasis>
                                 <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt">View sample on GitHub</a>
                             </emphasis>
@@ -696,7 +696,11 @@
                             To receive JSON in Express, use <code>bodyParser.json</code>:
                         </p>
                         <code-block lang="javascript" src="snippets/migrating-express/7_receive_request/app.js" include-lines="2,12-16"/>
-                        <include from="express-js.topic" element-id="receive_sample_express"/>
+                        <p>
+                            <emphasis>
+                                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/7_receive_request/app.js">View sample on GitHub</a>
+                            </emphasis>
+                        </p>
                     </td>
                 </tr>
                 <tr>
@@ -717,7 +721,11 @@
                             Then, use the <code>receive</code> method that accepts this data class as a parameter:
                         </p>
                         <code-block lang="kotlin" src="snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt" include-lines="34-37"/>
-                        <include from="express-js.topic" element-id="receive_sample_ktor"/>
+                        <p>
+                            <emphasis>
+                                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt">View sample on GitHub</a>
+                            </emphasis>
+                        </p>
                     </td>
                 </tr>
             </table>
@@ -742,7 +750,11 @@
                             You need to set the parser type to <code>bodyParser.urlencoded</code>:
                         </p>
                         <code-block lang="javascript" src="snippets/migrating-express/7_receive_request/app.js" include-lines="2,17-21"/>
-                        <include from="express-js.topic" element-id="receive_sample_express"/>
+                        <p>
+                            <emphasis>
+                                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/7_receive_request/app.js">View sample on GitHub</a>
+                            </emphasis>
+                        </p>
                     </td>
                 </tr>
                 <tr>
@@ -754,7 +766,11 @@
                             In Ktor, use the <code>call.receiveParameters</code> function:
                         </p>
                         <code-block lang="kotlin" src="snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt" include-lines="38-42"/>
-                        <include from="express-js.topic" element-id="receive_sample_ktor"/>
+                        <p>
+                            <emphasis>
+                                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt">View sample on GitHub</a>
+                            </emphasis>
+                        </p>
                     </td>
                 </tr>
             </table>
@@ -778,7 +794,11 @@
                             To handle binary data in Express, set the parser type to <code>raw</code>:
                         </p>
                         <code-block lang="javascript" src="snippets/migrating-express/7_receive_request/app.js" include-lines="2-3,22-27"/>
-                        <include from="express-js.topic" element-id="receive_sample_express"/>
+                        <p>
+                            <emphasis>
+                                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/7_receive_request/app.js">View sample on GitHub</a>
+                            </emphasis>
+                        </p>
                     </td>
                 </tr>
                 <tr>
@@ -791,7 +811,11 @@
                             for asynchronous reading/writing sequences of bytes:
                         </p>
                         <code-block lang="kotlin" src="snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt" include-lines="43-47"/>
-                        <include from="express-js.topic" element-id="receive_sample_ktor"/>
+                        <p>
+                            <emphasis>
+                                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt">View sample on GitHub</a>
+                            </emphasis>
+                        </p>
                     </td>
                 </tr>
             </table>
@@ -817,7 +841,11 @@
                             In the example below, <control>multer</control> is used to upload a file to the server:
                         </p>
                         <code-block lang="javascript" src="snippets/migrating-express/7_receive_request/app.js" include-lines="4,28-40"/>
-                        <include from="express-js.topic" element-id="receive_sample_express"/>
+                        <p>
+                            <emphasis>
+                                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/7_receive_request/app.js">View sample on GitHub</a>
+                            </emphasis>
+                        </p>
                     </td>
                 </tr>
                 <tr>
@@ -831,7 +859,11 @@
                             In the example below, <code>PartData.FileItem</code> is used to receive a file as a byte stream:
                         </p>
                         <code-block lang="kotlin" src="snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt" include-lines="48-68"/>
-                        <include from="express-js.topic" element-id="receive_sample_ktor"/>
+                        <p>
+                            <emphasis>
+                                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt">View sample on GitHub</a>
+                            </emphasis>
+                        </p>
                     </td>
                 </tr>
             </table>
