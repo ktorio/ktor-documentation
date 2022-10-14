@@ -268,6 +268,12 @@
                 </td>
                 <td>
                     <code-block lang="kotlin" src="snippets/migrating-express-ktor/3_router/src/main/kotlin/com/example/Application.kt" include-lines="12,14-19,36"/>
+                    <tip>
+                        <p>
+                            See <a anchor="receive-request"/> to learn how to receive request bodies for <code>POST</code>, <code>PUT</code>, or
+                            <code>PATCH</code> requests.
+                        </p>
+                    </tip>
                     <p>
                         <emphasis>
                             <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/3_router/src/main/kotlin/com/example/Application.kt">View sample on GitHub</a>
