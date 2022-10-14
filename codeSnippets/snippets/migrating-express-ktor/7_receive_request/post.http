@@ -1,0 +1,46 @@
+POST http://0.0.0.0:8080/text
+Content-Type: text/plain
+
+Hello, world!
+
+###
+
+POST http://0.0.0.0:8080/json
+Content-Type: application/json
+
+{
+  "type": "Fiat",
+  "model" : "500",
+  "color": "white"
+}
+
+###
+
+POST http://localhost:8080/urlencoded
+Content-Type: application/x-www-form-urlencoded
+
+username=JetBrains&email=example@jetbrains.com&password=foobar&confirmation=foobar
+
+###
+
+POST http://localhost:8080/raw
+Content-Type: application/octet-stream
+
+< ./ktor_logo.png
+
+###
+
+POST http://localhost:8080/multipart
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="description"
+Content-Type: text/plain
+
+Ktor logo
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="ktor_logo.png"
+Content-Type: image/png
+
+< ./ktor_logo.png
+--WebAppBoundary--

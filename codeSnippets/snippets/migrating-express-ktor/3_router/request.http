@@ -1,0 +1,16 @@
+GET http://0.0.0.0:8080/book
+Content-Type: text/plain
+
+###
+
+POST http://0.0.0.0:8080/book
+Content-Type: text/plain
+
+Hello, world!
+
+###
+
+PUT http://0.0.0.0:8080/book
+Content-Type: text/plain
+
+Hello, world!

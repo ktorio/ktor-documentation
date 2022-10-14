@@ -252,6 +252,10 @@
         <toc-element topic="migrating-2.md"/>
     </toc-element>
 
+    <toc-element toc-title="Migrating from other frameworks">
+        <toc-element topic="express-js.topic"/>
+    </toc-element>
+
     <toc-element topic="FAQ.topic"
                  accepts-web-file-names="zfaq.html"/>
 
