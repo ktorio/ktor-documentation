@@ -15,6 +15,20 @@
         from generating an application and writing your first application to creating middleware for extending application functionality.
     </p>
 
+    <tip>
+        <p>
+            The sample projects used in this guide are available here:
+        </p>
+        <list>
+            <li>
+                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express">Express</a>
+            </li>
+            <li>
+                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor">Ktor</a>
+            </li>
+        </list>
+    </tip>
+
 
     <chapter title="Generate an app" id="generate">
         <table style="header-column">
@@ -47,7 +61,7 @@
                             <p>
                                 This generator allows you to specify project settings interactively and
                                 choose a set of required plugins.
-                                As an alternative, you can pass the necessary options to
+                                Alternatively, you can pass the necessary options to
                                 the <code>yo ktor</code> command (see <code>yo ktor --help</code>).
                             </p>
                         </li>
@@ -90,7 +104,7 @@
                 </td>
                 <td>
                     <p>
-                        The example below shows the simplest Express application that starts a server and listens on port
+                        The example below shows the Express application that starts a server and listens on port
                         <control>3000</control> for connections.
                     </p>
                     <code-block lang="javascript" src="snippets/migrating-express/1_hello/app.js"/>
@@ -142,10 +156,10 @@
 
     <chapter title="Serving static content" id="static">
         <p>
-            In this section, we'll look at how to serve static files such as images, CSS files,
+            In this section, we'll see how to serve static files such as images, CSS files,
             and JavaScript files in Express and Ktor.
             Suppose we have the <path>public</path> folder with the main <path>index.html</path> page
-            and a set of assets linked on this page.
+            and a set of linked assets.
         </p>
         <code-block>
             public
@@ -255,7 +269,7 @@
 
 
         <p>
-            The next examples demonstrate how to group route handlers by paths.
+            The following examples demonstrate how to group route handlers by paths.
         </p>
 
         <table style="header-column">
@@ -286,7 +300,7 @@
         </table>
 
         <p>
-            Both frameworks allow you to group routes that are related in a single file.
+            Both frameworks allow you to group related routes in a single file.
         </p>
         <table style="header-column">
             <tr>
@@ -296,7 +310,7 @@
                 <td>
                     <p>
                         Express provides the <code>express.Router</code> class to create mountable route handlers.
-                        Suppose we have the <path>birds.js</path> router file in the application directory.
+                        Suppose we have the <path>birds.js</path> router file in the application's directory.
                         This router module can be loaded in the application as shown in <path>app.js</path>:
                     </p>
                     <tabs>
@@ -351,7 +365,7 @@
 
     <chapter title="Route and query parameters" id="route-query-param">
         <p>
-            In this section, we'll see how to access route and query parameters.
+            This section will show us how to access route and query parameters.
         </p>
         <p>
             A route (or path) parameter is a named URL segment used to capture the value specified at its position in the URL.
@@ -368,6 +382,11 @@
                         return <emphasis>admin</emphasis> for the <path>/user/admin</path> path:
                     </p>
                     <code-block lang="javascript" src="snippets/migrating-express/4_parameters/app.js" include-lines="6-12"/>
+                    <p>
+                        <emphasis>
+                            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/4_parameters/app.js">View sample on GitHub</a>
+                        </emphasis>
+                    </p>
                 </td>
             </tr>
             <tr>
@@ -380,6 +399,11 @@
                         You can use <code>call.parameters</code> to access route parameters in route handlers:
                     </p>
                     <code-block lang="kotlin" src="snippets/migrating-express-ktor/4_parameters/src/main/kotlin/com/example/Application.kt" include-lines="11-18,24"/>
+                    <p>
+                        <emphasis>
+                            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/4_parameters/src/main/kotlin/com/example/Application.kt">View sample on GitHub</a>
+                        </emphasis>
+                    </p>
                 </td>
             </tr>
         </table>
@@ -447,6 +471,11 @@
                             call the <code>res.json</code> function:
                         </p>
                         <code-block lang="javascript" src="snippets/migrating-express/5_send_response/app.js" include-lines="6-9"/>
+                        <p>
+                            <emphasis>
+                                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/5_send_response/app.js">View sample on GitHub</a>
+                            </emphasis>
+                        </p>
                     </td>
                 </tr>
                 <tr>
@@ -455,7 +484,7 @@
                     </td>
                     <td>
                         <p>
-                            In Ktor, you need to install <a href="serialization.md">ContentNegotiation</a> and
+                            In Ktor, you need to install the <a href="serialization.md">ContentNegotiation</a> plugin and
                             configure the JSON serializer:
                         </p>
                         <code-block lang="kotlin" src="snippets/migrating-express-ktor/5_send_response/src/main/kotlin/com/example/Application.kt" include-lines="19-21"/>
@@ -464,9 +493,14 @@
                         </p>
                         <code-block lang="kotlin" src="snippets/migrating-express-ktor/5_send_response/src/main/kotlin/com/example/Application.kt" include-lines="15-16"/>
                         <p>
-                            Then, you can use <code>call.respond</code> to send a data object in a response:
+                            Then, you can use <code>call.respond</code> to send an object of this class in a response:
                         </p>
                         <code-block lang="kotlin" src="snippets/migrating-express-ktor/5_send_response/src/main/kotlin/com/example/Application.kt" include-lines="23-25"/>
+                        <p>
+                            <emphasis>
+                                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/5_send_response/src/main/kotlin/com/example/Application.kt">View sample on GitHub</a>
+                            </emphasis>
+                        </p>
                     </td>
                 </tr>
             </table>
@@ -482,7 +516,12 @@
                         <p>
                             To respond with a file in Express, use <code>res.sendFile</code>:
                         </p>
-                        <code-block lang="javascript" src="snippets/migrating-express/5_send_response/app.js" include-lines="11-13"/>
+                        <code-block lang="javascript" src="snippets/migrating-express/5_send_response/app.js" include-lines="2,10-13"/>
+                        <p>
+                            <emphasis>
+                                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/5_send_response/app.js">View sample on GitHub</a>
+                            </emphasis>
+                        </p>
                     </td>
                 </tr>
                 <tr>
@@ -494,6 +533,11 @@
                             Ktor provides the <code>call.respondFile</code> function for sending files to the client:
                         </p>
                         <code-block lang="kotlin" src="snippets/migrating-express-ktor/5_send_response/src/main/kotlin/com/example/Application.kt" include-lines="26-29"/>
+                        <p>
+                            <emphasis>
+                                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/5_send_response/src/main/kotlin/com/example/Application.kt">View sample on GitHub</a>
+                            </emphasis>
+                        </p>
                     </td>
                 </tr>
             </table>
@@ -501,7 +545,7 @@
             <p>
                 The Express application adds the <control>Accept-Ranges</control> HTTP response header
                 when responding with a file.
-                This header is used by the server to advertise its support for partial requests from the client for file downloads.
+                The server uses this header for advertising its support for partial requests from the client for file downloads.
                 In Ktor, you need to install the <a href="partial-content.md">PartialContent</a> plugin to support partial requests.
             </p>
         </chapter>
@@ -514,9 +558,14 @@
                     </td>
                     <td>
                         <p>
-                            The <code>res.download</code> function transfers the file at the path as an attachment:
+                            The <code>res.download</code> function transfers the specified file as an attachment:
                         </p>
                         <code-block lang="javascript" src="snippets/migrating-express/5_send_response/app.js" include-lines="15-17"/>
+                        <p>
+                            <emphasis>
+                                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/5_send_response/app.js">View sample on GitHub</a>
+                            </emphasis>
+                        </p>
                     </td>
                 </tr>
                 <tr>
@@ -525,10 +574,15 @@
                     </td>
                     <td>
                         <p>
-                            In Ktor, you need to specify the
+                            In Ktor, you need to configure the
                             <control>Content-Disposition</control> header manually to transfer the file as the attachment:
                         </p>
                         <code-block lang="kotlin" src="snippets/migrating-express-ktor/5_send_response/src/main/kotlin/com/example/Application.kt" include-lines="30-38"/>
+                        <p>
+                            <emphasis>
+                                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/5_send_response/src/main/kotlin/com/example/Application.kt">View sample on GitHub</a>
+                            </emphasis>
+                        </p>
                     </td>
                 </tr>
             </table>
@@ -584,8 +638,7 @@
                 </td>
                 <td>
                     <p>
-                        Suppose we have the following
-                        <control>pug</control> template in the <path>views</path> folder:
+                        Suppose we have the following Pug template in the <path>views</path> folder:
                     </p>
                     <code-block src="snippets/migrating-express/6_templates/views/index.pug"/>
                     <p>
@@ -626,15 +679,15 @@
 
     <chapter title="Receiving requests" id="receive-request">
         <p>
-            In this section, we'll show how to receive request bodies in different formats.
+            This section will show how to receive request bodies in different formats.
         </p>
         <chapter title="Raw text" id="receive-raw-text">
             <p>
-                The POST request below sends text data to the server:
+                The <code>POST</code> request below sends text data to the server:
             </p>
             <code-block lang="http" src="snippets/migrating-express/7_receive_request/post.http" include-lines="1-4"/>
             <p>
-                Let's see how to receive this request body as plain text on the server side.
+                Let's see how to receive a body of this request as plain text on the server side.
             </p>
             <table style="header-column">
                 <tr>
@@ -649,7 +702,7 @@
                         <p>
                             In the <code>post</code> handler,
                             you need to pass the text parser (<code>bodyParser.text</code>).
-                            A request body is available under the <code>req.body</code> property:
+                            A request body will be available under the <code>req.body</code> property:
                         </p>
                         <code-block lang="javascript" src="snippets/migrating-express/7_receive_request/app.js" include-lines="8-11"/>
                         <p>
@@ -665,7 +718,7 @@
                     </td>
                     <td>
                         <p>
-                            In Ktor, you can receive a body as text using <code>call.receiveText</code>:
+                            In Ktor, you can receive a body as a text using <code>call.receiveText</code>:
                         </p>
                         <code-block lang="kotlin" src="snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt" include-lines="30-33"/>
                         <p>
@@ -682,7 +735,7 @@
         <chapter title="JSON" id="receive-json">
             <p>
                 In this section, we'll look at how to receive a JSON body.
-                The sample below shows a POST request with a JSON object in its body:
+                The sample below shows a <code>POST</code> request with a JSON object in its body:
             </p>
             <code-block lang="http" src="snippets/migrating-express/7_receive_request/post.http" include-lines="8-15"/>
 
@@ -736,7 +789,7 @@
             <p>
                 Now let's see how to receive form data sent using the
                 <control>application/x-www-form-urlencoded</control> type.
-                The code snippet below shows a sample POST request with form data:
+                The code snippet below shows a sample <code>POST</code> request with form data:
             </p>
             <code-block lang="http" src="snippets/migrating-express/7_receive_request/post.http" include-lines="19-22"/>
             <table style="header-column">
@@ -746,7 +799,7 @@
                     </td>
                     <td>
                         <p>
-                            As for plain text and JSON, Express requires body-parser.
+                            As for plain text and JSON, Express requires <code>body-parser</code>.
                             You need to set the parser type to <code>bodyParser.urlencoded</code>:
                         </p>
                         <code-block lang="javascript" src="snippets/migrating-express/7_receive_request/app.js" include-lines="2,17-21"/>
@@ -824,9 +877,8 @@
 
         <chapter title="Multipart" id="receive-multipart">
             <p>
-                In the final section, let's take a look at how to handle
-                <emphasis>multipart</emphasis> bodies.
-                The POST request below sends a PNG image with a description using the
+                In the final section, let's look at how to handle <emphasis>multipart</emphasis> bodies.
+                The <code>POST</code> request below sends a PNG image with a description using the
                 <control>multipart/form-data</control> type:
             </p>
             <code-block lang="http" src="snippets/migrating-express/7_receive_request/post.http" include-lines="33-46"/>
@@ -875,7 +927,7 @@
     <chapter title="Creating middleware" id="middleware">
         <p>
             The final thing we'll look at is how to create middleware that allows you to extend the server functionality.
-            The examples below show how to implement request logging using both Express and Ktor.
+            The examples below show how to implement request logging using Express and Ktor.
         </p>
         <table style="header-column">
             <tr>
@@ -922,11 +974,8 @@
             For most of these functionalities, Ktor provides dedicated plugins
             that can be installed in the application and configured as required.
             To continue your journey with Ktor,
-            visit the <a href="https://ktor.io/learn/">Learn page</a>,
+            visit the <control><a href="https://ktor.io/learn/">Learn page</a></control>,
             which provides a set of step-by-step guides and ready-to-use samples.
         </p>
     </chapter>
-
-
-
 </topic>
