@@ -255,6 +255,11 @@
                 </td>
                 <td>
                     <code-block lang="javascript" src="snippets/migrating-express/3_router/app.js" include-lines="7-13"/>
+                    <p>
+                        <emphasis>
+                            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/3_router/app.js">View sample on GitHub</a>
+                        </emphasis>
+                    </p>
                 </td>
             </tr>
             <tr>
@@ -263,6 +268,11 @@
                 </td>
                 <td>
                     <code-block lang="kotlin" src="snippets/migrating-express-ktor/3_router/src/main/kotlin/com/example/Application.kt" include-lines="12,14-19,36"/>
+                    <p>
+                        <emphasis>
+                            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/3_router/src/main/kotlin/com/example/Application.kt">View sample on GitHub</a>
+                        </emphasis>
+                    </p>
                 </td>
             </tr>
         </table>
@@ -283,6 +293,11 @@
                         <code>app.route()</code>.
                     </p>
                     <code-block lang="javascript" src="snippets/migrating-express/3_router/app.js" include-lines="16-25"/>
+                    <p>
+                        <emphasis>
+                            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/3_router/app.js">View sample on GitHub</a>
+                        </emphasis>
+                    </p>
                 </td>
             </tr>
             <tr>
@@ -295,6 +310,11 @@
                         whereby you define the path and then place the verbs for that path as nested functions.
                     </p>
                     <code-block lang="kotlin" src="snippets/migrating-express-ktor/3_router/src/main/kotlin/com/example/Application.kt" include-lines="12,22-32,36"/>
+                    <p>
+                        <emphasis>
+                            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/3_router/src/main/kotlin/com/example/Application.kt">View sample on GitHub</a>
+                        </emphasis>
+                    </p>
                 </td>
             </tr>
         </table>
