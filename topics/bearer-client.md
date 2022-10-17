@@ -128,9 +128,9 @@ As the first step, we need to build the authorization link that is used to reque
 - `client_id`: a client ID [obtained earlier](#google-client-credentials) is used to access Google APIs.
 - `scope`: scopes of resources required for a Ktor application. In our case, the application requests information about a user's profile.
 - `response_type`: a grant type used to get an access token. In our case, we need to obtain an authorization code.
-- `redirect_uri`: the `http://127.0.0.1:8080` value indicates that the _Loopback IP address_ flow is used to the authorization code.
+- `redirect_uri`: the `http://127.0.0.1:8080` value indicates that the _Loopback IP address_ flow is used to get the authorization code.
    > To receive the authorization code using this URL, your application must be listening on the local web server.
-   > For example, you can use a [Ktor server](create_server.topic) to set up a server and get the authorization code as a query parameter.
+   > For example, you can use a [Ktor server](create_server.topic) to get the authorization code as a query parameter.
 - `access_type`: The access type is set to `offline` since our console application needs to refresh access tokens when the user is not present at the browser.
 
 
