@@ -37,7 +37,7 @@ fun Application.main(httpClient: HttpClient = applicationHttpClient) {
                     clientId = System.getenv("GOOGLE_CLIENT_ID"),
                     clientSecret = System.getenv("GOOGLE_CLIENT_SECRET"),
                     defaultScopes = listOf("https://www.googleapis.com/auth/userinfo.profile"),
-                    extraTokenParameters = listOf("access_type" to "offline")
+                    extraAuthParameters = listOf("access_type" to "offline")
                 )
             }
             client = httpClient

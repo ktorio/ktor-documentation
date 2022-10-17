@@ -4,8 +4,8 @@ A sample project demonstrating how to use [OAuth](https://ktor.io/docs/oauth.htm
 ## Obtaining client credentials
 To obtain client credentials required for accessing Google APIs, follow the steps below:
 1. Create a Google account.
-1. Open the [Google Cloud Console](https://console.cloud.google.com/apis/credentials) and create the `OAuth client ID` credentials with the `Web application` application type.
-1. Make sure that the following settings are specified:
+2. Open the [Google Cloud Console](https://console.cloud.google.com/apis/credentials) and create the `OAuth client ID` credentials with the `Web application` application type.
+3. Make sure that the following settings are specified:
    * **Authorised JavaScript origins**: `http://localhost:8080`
    * **Authorised redirect URIs**: `http://localhost:8080/callback`
 
@@ -13,15 +13,15 @@ To obtain client credentials required for accessing Google APIs, follow the step
 
 ## Running
 Before running this sample, assign a client ID and client secret to the `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` environment variables:
-   ```shell
-   # macOS/Linux
-   export GOOGLE_CLIENT_ID=yourClientId
-   export GOOGLE_CLIENT_SECRET=yourClientSecret
+```shell
+# macOS/Linux
+export GOOGLE_CLIENT_ID=yourClientId
+export GOOGLE_CLIENT_SECRET=yourClientSecret
    
-   # Windows
-   setx GOOGLE_CLIENT_ID yourClientId
-   setx GOOGLE_CLIENT_SECRET yourClientSecret
-   ```
+# Windows
+setx GOOGLE_CLIENT_ID yourClientId
+setx GOOGLE_CLIENT_SECRET yourClientSecret
+```
 
 To run this sample, execute the following command in a repository's root directory:
 ```bash
