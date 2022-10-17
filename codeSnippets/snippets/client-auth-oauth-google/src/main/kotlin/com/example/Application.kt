@@ -1,27 +1,30 @@
 package com.example
 
 import com.example.models.*
+import com.example.server.*
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.engine.cio.*
-import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.plugins.auth.*
 import io.ktor.client.plugins.auth.providers.*
+import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.request.*
 import io.ktor.client.request.forms.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
+
 import kotlinx.coroutines.*
 
 fun main() {
+    startServer()
     runBlocking {
         // Step 1: Get an authorization code
         val authorizationUrlQuery = Parameters.build {
             append("client_id", System.getenv("GOOGLE_CLIENT_ID"))
             append("scope", "https://www.googleapis.com/auth/userinfo.profile")
             append("response_type", "code")
-            append("redirect_uri", "urn:ietf:wg:oauth:2.0:oob")
+            append("redirect_uri", "http://127.0.0.1:8080")
             append("access_type", "offline")
         }.formUrlEncode()
         println("https://accounts.google.com/o/oauth2/auth?$authorizationUrlQuery")
@@ -68,7 +71,8 @@ fun main() {
                 append("grant_type", "authorization_code")
                 append("code", authorizationCode)
                 append("client_id", System.getenv("GOOGLE_CLIENT_ID"))
-                append("redirect_uri", "urn:ietf:wg:oauth:2.0:oob")
+                append("client_secret", System.getenv("GOOGLE_CLIENT_SECRET"))
+                append("redirect_uri", "http://127.0.0.1:8080")
             }
         ).body()
         bearerTokenStorage.add(BearerTokens(tokenInfo.accessToken, tokenInfo.refreshToken!!))
