@@ -113,7 +113,7 @@ Let's summarize the examples above and create the `Articles` resource for CRUD o
 
 ```kotlin
 ```
-{src="snippets/resource-routing/src/main/kotlin/com/example/Application.kt" include-lines="14-28"}
+{src="snippets/resource-routing/src/main/kotlin/com/example/Application.kt" include-lines="16-30"}
 
 This resource can be used to list all articles, post a new article, edit it, and so on. We'll see how to [define route handlers](#define_route) for this resource in the next chapter.
 
@@ -146,7 +146,7 @@ The example below shows how to define route handlers for the `Articles` resource
 
 ```kotlin
 ```
-{src="snippets/resource-routing/src/main/kotlin/com/example/Application.kt" include-lines="32-64"}
+{src="snippets/resource-routing/src/main/kotlin/com/example/Application.kt" include-lines="34-64,92-93"}
 
 Here are several tips on handling requests for each endpoint:
 
@@ -183,12 +183,14 @@ You can find the full example here: [resource-routing](https://github.com/ktorio
 
 Besides using resource definitions for routing, they can also be used to build links.
 This is sometimes called _reverse routing_.
+Building links from resources might be helpful if you need to add these links to 
+an HTML document created with [HTML DSL](html_dsl.md) or if you need to generate a [redirection response](responses.md#redirect).
 
 The `Resources` plugin extends `Application` with the overloaded [href](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-resources/io.ktor.server.resources/href.html) method, which allows you to generate a link from a `Resource`. For instance, the code snippet below creates a link for the `Edit` resource [defined above](#example_crud):
 
 ```kotlin
-val link: String = href(Articles.Id.Edit(Articles.Id(id = 123)))
 ```
+{src="snippets/resource-routing/src/main/kotlin/com/example/Application.kt" include-lines="79"}
 
 Since the grandparent `Articles` resource defines the `sort` query parameter with the default value `new`, the `link` variable contains:
 
@@ -200,10 +202,8 @@ To generate URLs that specify the host and protocol, you can supply the `href` m
 Additional query params can also be specified using the `URLBuilder`, as shown in this example:
 
 ```kotlin
-val urlBuilder = URLBuilder(URLProtocol.HTTPS, "ktor.io", parameters = parametersOf("token", "123"))
-href(Articles(sort = null), urlBuilder)
-val link: String = urlBuilder.buildString()
 ```
+{src="snippets/resource-routing/src/main/kotlin/com/example/Application.kt" include-lines="83-85"}
 
 The `link` variable subsequently contains:
 
@@ -211,4 +211,12 @@ The `link` variable subsequently contains:
 https://ktor.io/articles?token=123
 ```
 
-> Find more examples here: [resource routing tests](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/resource-routing/src/test/kotlin/ApplicationTest.kt).
+### Example {id="example_build_links"}
+
+The example below shows how to add links built from resources to the HTML response:
+
+```kotlin
+```
+{src="snippets/resource-routing/src/main/kotlin/com/example/Application.kt" include-lines="66-91"}
+
+You can find the full example here: [resource-routing](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/resource-routing).
