@@ -4,6 +4,7 @@ import com.example.dao.DatabaseFactory.dbQuery
 import com.example.models.*
 import kotlinx.coroutines.runBlocking
 import org.jetbrains.exposed.sql.*
+import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 
 class DAOFacadeImpl : DAOFacade {
     private fun resultRowToArticle(row: ResultRow) = Article(

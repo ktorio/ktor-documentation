@@ -141,7 +141,7 @@ Let's start with a function returning all entries. Our request is wrapped into a
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DAOFacadeImpl.kt" include-lines="1-17,44"}
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DAOFacadeImpl.kt" include-lines="1-18,45"}
 
 `Table.selectAll` returns an instance of `Query`, so to get the list of `Article` instances, we need to manually extract data for each row and convert it to our data class. We accomplish that using the helper function `resultRowToArticle` that builds an `Article` from the `ResultRow`.
 
@@ -155,7 +155,7 @@ Now let's implement a function returning one article:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DAOFacadeImpl.kt" include-lines="19-24"}
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DAOFacadeImpl.kt" include-lines="20-25"}
 
 The `select` function takes an extension lambda as an argument. The implicit receiver inside this lambda is of type `SqlExpressionBuilder`. You don't use this type explicitly, but it defines a bunch of useful operations on columns, which you use to build your queries. You can use comparisons (`eq`, `less`, `greater`), arithmetic operations (`plus`, `times`), check whether value belongs or doesn't belong to a provided list of values (`inList`, `notInList`), check whether the value is null or non-null, and many more.
 
@@ -167,7 +167,7 @@ To insert a new article into the table, use the `Table.insert` function, which t
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DAOFacadeImpl.kt" include-lines="26-32"}
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DAOFacadeImpl.kt" include-lines="27-33"}
 
 Inside this lambda, we specify which value is supposed to be set for which column. The `it` argument has a type `InsertStatement` on which we can call the `set` operator taking column and value as arguments.
 
@@ -178,7 +178,7 @@ To update the existing article, the `Table.update` is used:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DAOFacadeImpl.kt" include-lines="34-39"}
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DAOFacadeImpl.kt" include-lines="35-40"}
 
 
 ### Delete an article {id="delete_article"}
@@ -187,7 +187,7 @@ Finally, use `Table.deleteWhere` to remove an article from the database:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DAOFacadeImpl.kt" include-lines="41-43"}
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DAOFacadeImpl.kt" include-lines="42-44"}
 
 
 ### Initialize DAOFacade {id="init-dao-facade"}
@@ -197,7 +197,7 @@ Add the following code at the bottom of `DAOFacadeImpl.kt`:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DAOFacadeImpl.kt" include-lines="46-52"}
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DAOFacadeImpl.kt" include-lines="47-53"}
 
 
 ## Update routes {id="update_routes"}
