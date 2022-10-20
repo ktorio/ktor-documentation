@@ -15,7 +15,7 @@
 <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/session-cookie-server">session-cookie-server</a>,
 <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/session-header-server">session-header-server</a>
 </p>
-<include from="lib.topic" element-id="native_server_not_supported"/>
+<include from="lib.topic" element-id="native_server_supported"/>
 </tldr>
 
 <link-summary>
