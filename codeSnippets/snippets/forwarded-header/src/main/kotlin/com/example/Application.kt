@@ -13,10 +13,10 @@ fun Application.module() {
     install(XForwardedHeaders)
     routing {
         get("/hello") {
-            val localHost = call.request.local.remoteHost
-            val localPort = call.request.local.port
-            val remoteHost = call.request.origin.remoteHost
-            val remotePort = call.request.origin.port
+            val localHost = call.request.local.serverHost
+            val localPort = call.request.local.serverPort
+            val remoteHost = call.request.origin.serverHost
+            val remotePort = call.request.origin.serverPort
             call.respondText("Proxy request host/port: $localHost, $localPort\n" +
                     "Original request host/port: $remoteHost, $remotePort"
             )
