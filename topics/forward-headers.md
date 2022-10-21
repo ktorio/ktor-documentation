@@ -53,23 +53,21 @@ To use the `ForwardedHeaders`/`XForwardedHeaders` plugins, you need to include t
 </tab>
 </tabs>
 
+After installing `ForwardedHeaders`/`XForwardedHeaders`, you can get information about the original request using the 
+[call.request.origin](#request_info) property.
 
-`ForwardedHeaders` and `XForwardedHeaders` don't require any special configuration.
 
 
 ## Get request information {id="request_info"}
 
-
-
-
 ### Proxy request information {id="proxy_request_info"}
 
 To get information about the proxy request, use the [call.request.local](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/-application-request/local.html) property inside the [route handler](Routing_in_Ktor.md#define_route).
-The code snippet below shows how to obtain information about the host/port to which the request was sent:
+The code snippet below shows how to obtain information about the proxy address and the host to which the request was made:
 
 ```kotlin
 ```
-{src="snippets/forwarded-header/src/main/kotlin/com/example/Application.kt" include-lines="15-17,23"}
+{src="snippets/forwarded-header/src/main/kotlin/com/example/Application.kt" include-lines="17-19,25"}
 
 
 
@@ -79,7 +77,7 @@ To read information about the original request, use the [call.request.origin](ht
 
 ```kotlin
 ```
-{src="snippets/forwarded-header/src/main/kotlin/com/example/Application.kt" include-lines="15,18-19,23"}
+{src="snippets/forwarded-header/src/main/kotlin/com/example/Application.kt" include-lines="17,20-21,25"}
 
 The table below shows the values of different properties exposed by `call.request.origin` depending on whether `ForwardedHeaders`/`XForwardedHeaders` is installed or not.
 
@@ -95,3 +93,30 @@ The table below shows the values of different properties exposed by `call.reques
 | `origin.remotePort`    | _32864_                  | _32864_               |
 
 > You can find the full example here: [forwarded-header](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/forwarded-header).
+
+
+## Configure ForwardedHeaders {id="configure"}
+
+You may need to configure `ForwardedHeaders`/`XForwardedHeaders` if a request goes through multiple proxies.
+In this case, `X-Forwarded-For` contains all the IP addresses of each successive proxy, for example:
+
+```HTTP
+X-Forwarded-For: <client>, <proxy1>, <proxy2>
+```
+
+By default, `XForwardedHeader` assigns the first entry in `X-Forwarded-For` to the `call.request.origin.remoteHost` property.
+You can also supply custom logic for [selecting an IP address](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For#selecting_an_ip_address). 
+[XForwardedHeadersConfig](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-forwarded-header/io.ktor.server.plugins.forwardedheaders/-x-forwarded-headers-config/index.html) exposes the following API for this:
+
+- `useFirstProxy` and `useLastProxy` allow you to take the first or last value from the list of IP addresses, respectively.
+- `skipLastProxies` skips the specified number of entries starting from the right and takes the next entry.
+   For example, if the `proxiesCount` parameter is equal to `3`, `origin.remoteHost` will return `10.0.0.123` for the header below:
+   ```HTTP
+   X-Forwarded-For: 10.0.0.123, proxy-1, proxy-2, proxy-3
+   ```
+- `skipKnownProxies` removes the specified entries from the list and takes the last entry.
+   For example, if you pass `listOf("proxy-1", "proxy-3")` to this function, `origin.remoteHost` will return `proxy-2` for the header below:
+   ```HTTP
+   X-Forwarded-For: 10.0.0.123, proxy-1, proxy-2, proxy-3
+   ```
+- `extractEdgeProxy` allows you to provide custom logic for extracting the value from the `X-Forward-*` headers.

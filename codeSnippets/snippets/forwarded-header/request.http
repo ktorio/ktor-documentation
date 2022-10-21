@@ -1,0 +1,2 @@
+GET http://0.0.0.0:8080/hello
+X-Forwarded-For: 10.0.0.123, proxy-1, proxy-2, proxy-3
