@@ -59,10 +59,13 @@ To use the `ForwardedHeaders`/`XForwardedHeaders` plugins, you need to include t
 
 ## Get request information {id="request_info"}
 
+
+
+
 ### Proxy request information {id="proxy_request_info"}
 
-To get information about the proxy request, use the `call.request.local` property inside the [route handler](Routing_in_Ktor.md#define_route).
-The code snippet below shows how to obtain information about the host and port:
+To get information about the proxy request, use the [call.request.local](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/-application-request/local.html) property inside the [route handler](Routing_in_Ktor.md#define_route).
+The code snippet below shows how to obtain information about the host/port to which the request was sent:
 
 ```kotlin
 ```
@@ -72,10 +75,23 @@ The code snippet below shows how to obtain information about the host and port:
 
 ### Original request information
 
-To read information about the original request, use the `call.request.origin` property:
+To read information about the original request, use the [call.request.origin](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.plugins/origin.html) property:
 
 ```kotlin
 ```
 {src="snippets/forwarded-header/src/main/kotlin/com/example/Application.kt" include-lines="15,18-19,23"}
 
-You can find the full example here: [forwarded-header](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/forwarded-header).
+The table below shows the values of different properties exposed by `call.request.origin` depending on whether `ForwardedHeaders`/`XForwardedHeaders` is installed or not.
+
+![Request diagram](forwarded-headers.png){width="706"}
+
+| Property               | Without ForwardedHeaders | With ForwarderHeaders |
+|------------------------|--------------------------|-----------------------|
+| `origin.localHost`     | _web-server_             | _web-server_          |
+| `origin.localPort`     | _8080_                   | _8080_                |
+| `origin.serverHost`    | _web-server_             | _proxy_               |
+| `origin.serverPort`    | _8080_                   | _80_                  |
+| `origin.remoteHost`    | _proxy_                  | _client_              |
+| `origin.remotePort`    | _32864_                  | _32864_               |
+
+> You can find the full example here: [forwarded-header](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/forwarded-header).
