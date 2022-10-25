@@ -195,27 +195,71 @@ This might be useful to release application resources.
 
 ## Provide plugin configuration {id="plugin-configuration"}
 
-The [Custom header](#custom-header) example demonstrates how to create a plugin that appends a predefined custom header to each response. Let's make this plugin more useful and provide a configuration for passing the required custom header name/value. First, you need to define a configuration class:
+The [Custom header](#custom-header) example demonstrates how to create a plugin that appends a predefined custom header to each response. Let's make this plugin more useful and provide a configuration for passing the required custom header name/value. 
 
-```kotlin
-```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt" include-lines="18-21"}
+1. First, you need to define a configuration class:
 
-To use this configuration in a plugin, pass a configuration class reference to `createApplicationPlugin`:
+   ```kotlin
+   ```
+   {src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt" include-lines="18-21"}
 
-```kotlin
-```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt" include-lines="5-16"}
+2. To use this configuration in a plugin, pass a configuration class reference to `createApplicationPlugin`:
 
-> Given that plugin configuration fields are mutable, saving them in local variables is recommended.
+   ```kotlin
+   ```
+   {src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt" include-lines="5-16"}
 
-Finally, you can install and configure a plugin as follows:
+   Given that plugin configuration fields are mutable, saving them in local variables is recommended.
 
-```kotlin
-```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" include-lines="15-18"}
+3. Finally, you can install and configure a plugin as follows:
 
-You can find the full example here: [CustomHeaderPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt).
+   ```kotlin
+   ```
+   {src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" include-lines="15-18"}
+
+> You can find the full example here: [CustomHeaderPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt).
+
+
+### Configuration in a file {id="configuration-file"}
+
+If required, you can specify a plugin configuration in a [file](create_server.topic#engine-main) (`application.conf` or `application.yaml`).
+Let's see how to achieve this for `CustomHeaderPlugin`:
+
+1. First, add a new group with the plugin settings to the `application.conf` or `application.yaml` file:
+
+   <tabs group="config">
+   <tab title="application.conf" group-key="hocon">
+   
+   ```shell
+   ```
+   {src="snippets/custom-plugin/src/main/resources/application.conf" include-lines="10-15"}
+   
+   </tab>
+   <tab title="application.yaml" group-key="yaml">
+   
+   ```yaml
+   ```
+   {src="snippets/custom-plugin/src/main/resources/application.yaml" include-lines="8-11"}
+   
+   </tab>
+   </tabs>
+
+   In our example, the plugin settings are stored in the `http.custom_header` group.
+
+2. To get access to configuration file properties, pass `ApplicationConfig` to the configuration class constructor.
+   The `tryGetString` function returns the specified property value:
+
+   ```kotlin
+   ```
+   {src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPluginConfigurable.kt" include-lines="20-23"}
+
+3. Finally, assign the `http.custom_header` value to the `configurationPath` parameter of the `createApplicationPlugin` function:
+
+   ```kotlin
+   ```
+   {src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPluginConfigurable.kt" include-lines="6-18"}
+
+> You can find the full example here: [CustomHeaderPluginConfigurable.kt](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPluginConfigurable.kt).
 
 
 

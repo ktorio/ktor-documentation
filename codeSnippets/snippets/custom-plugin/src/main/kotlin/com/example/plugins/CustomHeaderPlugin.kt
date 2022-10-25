@@ -15,7 +15,7 @@ val CustomHeaderPlugin = createApplicationPlugin(
     }
 }
 
-public class PluginConfiguration {
+class PluginConfiguration {
     var headerName: String = "Custom-Header-Name"
     var headerValue: String = "Default value"
 }

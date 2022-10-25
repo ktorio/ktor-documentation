@@ -1,0 +1,11 @@
+ktor:
+  deployment:
+    port: 8080
+  application:
+    modules:
+      - com.example.ApplicationKt.module
+
+http:
+  custom_header:
+    header_name: X-Another-Custom-Header
+    header_value: Some value
