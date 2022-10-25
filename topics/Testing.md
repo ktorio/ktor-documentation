@@ -1,6 +1,6 @@
 [//]: # (title: Testing)
 
-<show-structure for="chapter" depth="2"/>
+<show-structure for="chapter" depth="3"/>
 
 <tldr>
 <p>
@@ -35,7 +35,7 @@ To test a server Ktor application, you need to include the following artifacts i
 
 To use a testing engine, follow the steps below:
 1. Create a JUnit test class and a test function.
-2. Use the `testApplication` function to set up a configured instance of a test application running locally.
+2. Use the [testApplication](https://api.ktor.io/ktor-server/ktor-server-test-host/io.ktor.server.testing/test-application.html) function to set up a configured instance of a test application running locally.
 3. Use the [Ktor HTTP client](create-client.md) instance inside a test application to make a request to your server, receive a response, and make assertions.
 
 The code below demonstrates how to test the most simple Ktor application that accepts GET requests made to the `/` path and responds with a plain text response.
@@ -60,13 +60,26 @@ The code below demonstrates how to test the most simple Ktor application that ac
 
 The runnable code example is available here: [engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main).
 
-## Configure a test application {id="configure-test-app"}
 
-### Step 1: Add application modules {id="add-modules"}
+## Test an application {id="test-app"}
+
+### Step 1: Configure a test application {id="configure-test-app"}
+
+A configuration of test applications might include the following steps:
+- [Adding application modules](#add-modules)
+- [(Optional) Adding routes](#add-routing)
+- [(Optional) Customizing environment](#environment)
+- [(Optional) Mocking external services](#external-services)
+
+> By default, the configured test application starts on the [first client call](#make-request).
+> Optionally, you can call the `startApplication` function to start the application manually.
+> This might be useful if you need to test your application's [lifecycle events](events.md#predefined-events).
+
+#### Add application modules {id="add-modules"}
 To test an application, its [modules](Modules.md) should be loaded to `testApplication`.
 Loading modules to `testApplication` depends on the way used to [create a server](create_server.topic): by using a [configuration file](Configurations.topic#configuration-file) or in code using the `embeddedServer` function.
 
-#### Add modules automatically {id="auto"}
+##### Add modules automatically {id="auto"}
 
 If you have the `application.conf` or `application.yaml` configuration file in the `resources` folder, `testApplication` loads all modules and properties specified in the configuration file automatically. To disable the automatic loading of specific modules, you need to:
 
@@ -74,13 +87,13 @@ If you have the `application.conf` or `application.yaml` configuration file in t
 2. Use the [ktor.application.modules](Configurations.topic#configuration-file-overview) configuration property to specify modules to load.
 
 
-#### Add modules manually {id="manual"}
+##### Add modules manually {id="manual"}
 If you use `embeddedServer`, you can add modules to a test application manually using the `application` function:
 ```kotlin
 ```
 {src="snippets/embedded-server-modules/src/test/kotlin/EmbeddedServerTest.kt" include-lines="11-15,19"}
 
-### Step 2: (Optional) Add routing {id="add-routing"}
+#### Add routes {id="add-routing"}
 
 You can add routes to your test application using the `routing` function.
 This might be convenient for the following use-cases:
@@ -92,7 +105,7 @@ This might be convenient for the following use-cases:
    
    You can find the full example with a test here: [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-oauth-google).
 
-### Step 3: (Optional) Customize environment {id="environment"}
+#### Customize environment {id="environment"}
 
 To build a custom environment for a test application, use the `environment` function.
 For example, to use a custom configuration for tests, you can create a custom configuration file in the `test/resources` folder and load it using the `config` property:
@@ -113,7 +126,7 @@ fun testRequest() = testApplication {
 }
 ```
 
-### Step 4: (Optional) Mock external services {id="external-services"}
+#### Mock external services {id="external-services"}
 
 Ktor allows you to mock external services using the `externalServices` function.
 Inside this function, you need to call the `hosts` function that accepts two parameters:
@@ -129,7 +142,7 @@ The sample below shows how to use `externalServices` to simulate a JSON response
 
 You can find the full example with a test here: [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-oauth-google).
 
-### Step 5: (Optional) Configure a client {id="configure-client"}
+### Step 2: (Optional) Configure a client {id="configure-client"}
 
 The `testApplication` provides access to an HTTP client with default configuration using the `client` property. 
 If you need to customize the client and install additional plugins, you can use the `createClient` function. For example, to [send JSON data](#json-data) in a test POST/PUT request, you can install the [ContentNegotiation](serialization-client.md) plugin:
@@ -138,10 +151,9 @@ If you need to customize the client and install additional plugins, you can use 
 {src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" include-lines="32-37,44"}
 
 
+### Step 3: Make a request {id="make-request"}
 
-### Step 6: Make a request {id="make-request"}
-
-To test your application, you can use a [configured client](#configure-client) to make a [request](request.md) and receive a [response](response.md). The [example below](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/json-kotlinx) shows how to test the `/customer` endpoint that handles `POST` requests:
+To test your application, use the [configured client](#configure-client) to make a [request](request.md) and receive a [response](response.md). The [example below](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/json-kotlinx) shows how to test the `/customer` endpoint that handles `POST` requests:
 
 ```kotlin
 ```
@@ -149,7 +161,7 @@ To test your application, you can use a [configured client](#configure-client) t
 
 
 
-### Step 7: Assert results {id="assert"}
+### Step 4: Assert results {id="assert"}
 
 After receiving a [response](#make-request), you can verify the results by making assertions provided by the [kotlin.test](https://kotlinlang.org/api/latest/kotlin.test/) library:
 
