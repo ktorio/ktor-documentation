@@ -32,15 +32,16 @@ The table below lists platforms supported by each engine:
 
 Client engines targeting JVM or both JVM and Android support the following Android/Java versions: 
 
-| Engine  | Android version | Java version |
-|---------|-----------------|--------------|
-| Apache  |                 | 8+           |
-| Java    |                 | 11+          |
-| Jetty   |                 | 8+           |
-| CIO     | 7.0+            | 8+           |
-| Android | 1.x+            | 8+           |
-| OkHttp  | 5.0+            | 8+           |
+| Engine  | Android version   | Java version |
+|---------|-------------------|--------------|
+| Apache  |                   | 8+           |
+| Java    |                   | 11+          |
+| Jetty   |                   | 8+           |
+| CIO     | 7.0+ <sup>*</sup> | 8+           |
+| Android | 1.x+              | 8+           |
+| OkHttp  | 5.0+              | 8+           |
 
+_* To use the CIO engine on older Android versions, you need to enable [Java 8 API desugaring](https://developer.android.com/studio/write/java8-support)._
 
 
 ### Limitations {id="limitations"}
