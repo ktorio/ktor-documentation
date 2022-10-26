@@ -33,7 +33,7 @@ To enable `%plugin_name%`, you need to include the following artifacts in the bu
   <var name="version" value="bootstrap_version"/>
   <include from="lib.topic" element-id="add_artifact"/>
   
-  You can replace `bootstrap_version` with the required version of the `bootstrap` artifact, for example, `%bootstrap_version%`.
+  You can replace `$bootstrap_version` with the required version of the `bootstrap` artifact, for example, `%bootstrap_version%`.
 
 ## Install %plugin_name% {id="install_plugin"}
 

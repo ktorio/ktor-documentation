@@ -32,11 +32,13 @@ The main client functionality is available in the `ktor-client-core` artifact. D
 <var name="artifact_name" value="ktor-client-core"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
+You can replace `$ktor_version` with the required Ktor version, for example, `%ktor_version%`.
+
 For a multiplatform project, you need to add the `ktor-client-core` artifact to the `commonMain` source set:
 
 ```kotlin
 ```
-{src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="27-31"}
+{src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="25-28,30-31"}
 
 
 
