@@ -222,7 +222,7 @@ The [Custom header](#custom-header) example demonstrates how to create a plugin 
 
 ### Configuration in a file {id="configuration-file"}
 
-If required, you can specify a plugin configuration in a [file](create_server.topic#engine-main) (`application.conf` or `application.yaml`).
+Ktor allows you to specify plugin settings in a [configuration file](create_server.topic#engine-main).
 Let's see how to achieve this for `CustomHeaderPlugin`:
 
 1. First, add a new group with the plugin settings to the `application.conf` or `application.yaml` file:
