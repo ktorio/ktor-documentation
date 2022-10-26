@@ -157,7 +157,7 @@ The example below shows how to:
 
 ## Pipelines {id="pipelines"}
 
-A [Pipeline](https://api.ktor.io/ktor-utils/io.ktor.util.pipeline/-pipeline/index.html) in Ktor is a collection of interceptors, grouped in one or more ordered phases. Each interceptor each can perform custom logic before and after processing a request.
+A [Pipeline](https://api.ktor.io/ktor-utils/io.ktor.util.pipeline/-pipeline/index.html) in Ktor is a collection of interceptors, grouped in one or more ordered phases. Each interceptor can perform custom logic before and after processing a request.
 
 [ApplicationCallPipeline](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-call-pipeline/index.html) is a pipeline for executing application calls. This pipeline defines 5 phases:
 
