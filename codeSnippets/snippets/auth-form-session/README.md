@@ -1,4 +1,4 @@
-# Form authentication
+# Form/session authentication
 
 A sample project demonstrating how to use [session authentication](https://ktor.io/docs/session-auth.html) for a user logged in through a [web form](https://ktor.io/docs/form.html).
 > This sample is a part of the [codeSnippets](../../README.md) Gradle project.
