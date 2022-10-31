@@ -90,7 +90,8 @@ fun Application.main() {
             }
             authenticate("auth-basic", strategy = AuthenticationStrategy.Required) {
                 get("/admin") {
-                    call.respondText("Hi, ${call.principal<UserSession>("auth-session")?.name}! Welcome to the Admin page.")
+                    val userSession = call.principal<UserSession>("auth-session")
+                    call.respondText("Hi, ${userSession?.name}! Welcome to the Admin page.")
                 }
             }
         }
