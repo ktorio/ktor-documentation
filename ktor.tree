@@ -3,7 +3,7 @@
         SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/product-profile.dtd">
 <instance-profile id="ktor"
                  name="Ktor"
-                 status="release"
+                 status="eap"
                  start-page="welcome.topic">
 
     <toc-element topic="welcome.topic"
