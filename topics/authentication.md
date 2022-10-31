@@ -127,25 +127,49 @@ So, the `validate` function checks a specified [Credential](https://api.ktor.io/
 ### Step 4: Define authorization scope {id="authenticate-route"}
 
 The final step is to define the authorization for the different resources in our application. You can do this by using the
-[authenticate](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/authenticate.html) function. This function can accept [a name of a provider](#provider-name) used to authenticate nested routes. The code snippet below uses a provider with the _auth-basic_ name to protect the `/login` and `/orders` routes:
+[authenticate](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/authenticate.html) function. This function accepts two optional parameters:
 
-```kotlin
-routing {
-    authenticate("auth-basic") {
-        get("/login") {
-            // ...
-        }    
-        get("/orders") {
-            // ...
-        }    
-    }
-    get("/") {
-        // ...
-    }
-}
-```
+- A [name of a provider](#provider-name) used to authenticate nested routes.
+  The code snippet below uses a provider with the _auth-basic_ name to protect the `/login` and `/orders` routes:
+   ```kotlin
+   routing {
+       authenticate("auth-basic") {
+           get("/login") {
+               // ...
+           }    
+           get("/orders") {
+               // ...
+           }    
+       }
+       get("/") {
+           // ...
+       }
+   }
+   ```
+- A strategy used to resolve nested authentication providers.
+  This strategy is represented by the `AuthenticationStrategy` enumeration value.
+  For instance, the client should provide authentication data for all providers registered 
+  with the `AuthenticationStrategy.Required` strategy.
+  In the code snippet below, only a user that passed [session authentication](session-auth.md) 
+  can try to access the `/admin` route using basic authentication:
+   ```kotlin
+   routing {
+       authenticate("auth-session", strategy = AuthenticationStrategy.Required) {
+           get("/hello") {
+               // ...
+           }    
+           authenticate("auth-basic", strategy = AuthenticationStrategy.Required) {
+               get("/admin") {
+                   // ...
+               }
+           }  
+       }
+   }
+   ```
+  
+  You can find the full example here: [auth-form-session-nested](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-form-session-nested).
+   
 
-Note that you can omit a provider name to use an unnamed provider.
 
 
 ### Step 5: Get a principal inside a route handler {id="get-principal"}
@@ -162,6 +186,16 @@ If you use [session authentication](session-auth.md), a principal might be a dat
 ```kotlin
 ```
 {src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="75-77,80-81"}
+
+In the case of [nested authentication providers](#authenticate-route), 
+you can pass a [provider name](#provider-name) to `call.principal` to get a principal for the desired provider.
+In the example below, the _auth-session_ value is passed to get a principal for a topmost session provider:
+
+```kotlin
+```
+{src="snippets/auth-form-session-nested/src/main/kotlin/com/example/Application.kt" include-lines="85,91-93,95-97"}
+
+
 
 
 
