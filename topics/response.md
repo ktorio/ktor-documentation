@@ -12,6 +12,31 @@ All functions used to [make an HTTP request](request.md) (`request`, `get`, `pos
 ```
 {src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="21"}
 
+## Receive response parameters {id="parameters"}
+
+The [HttpResponse](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/index.html) class allows you to get various response parameters, such as a status code, headers, HTTP version, and so on.
+
+### Status code {id="status"}
+
+To get the status code of a response, use the [HttpResponse.status](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/status.html) property, for example:
+
+```kotlin
+```
+{src="snippets/_misc_client/ResponseTypes.kt" include-lines="1-4,9,11,15-17"}
+
+
+### Headers {id="headers"}
+The [HttpResponse.headers](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/index.html) property allows you to get a [Headers](https://api.ktor.io/ktor-http/io.ktor.http/-headers/index.html) map containing all response headers. `HttpResponse` also exposes a bunch of specific functions for receiving specific header values, for example:
+* `contentType` for the `Content-Type` header value
+* `charset` for a charset from the `Content-Type` header value.
+* `etag` for the `E-Tag` header value.
+* `setCookie` for the `Set-Cookie` header value.
+  > Ktor also provides the [HttpCookies](http-cookies.md) plugin that allows you to keep cookies between calls.
+
+
+
+
+
 
 ## Receive response body {id="body"}
 
@@ -56,27 +81,3 @@ When you call the `HttpResponse.body` function to get a body, Ktor processes a r
 {src="snippets/client-download-streaming/src/main/kotlin/com/example/Application.kt" include-lines="15-31"}
 
 In this example, [ByteReadChannel](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) is used to read data asynchronously using byte packets ([ByteReadPacket](https://api.ktor.io/ktor-io/io.ktor.utils.io.core/-byte-read-packet/index.html)) and append the content of these packets to the content of a file.
-
-
-## Receive response parameters {id="parameters"}
-
-The [HttpResponse](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/index.html) class allows you to get various response parameters, such as a status code, headers, HTTP version, and so on.
-
-### Status code {id="status"}
-
-To get the status code of a response, use the [HttpResponse.status](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/status.html) property, for example:
-
-```kotlin
-```
-{src="snippets/_misc_client/ResponseTypes.kt" include-lines="1-4,9,11,15-17"}
-
-
-### Headers {id="headers"}
-The [HttpResponse.headers](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/index.html) property allows you to get a [Headers](https://api.ktor.io/ktor-http/io.ktor.http/-headers/index.html) map containing all response headers. `HttpResponse` also exposes a bunch of specific functions for receiving specific header values, for example:
-* `contentType` for the `Content-Type` header value
-* `charset` for a charset from the `Content-Type` header value.
-* `etag` for the `E-Tag` header value.
-* `setCookie` for the `Set-Cookie` header value.
-
-
-
