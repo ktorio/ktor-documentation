@@ -148,8 +148,8 @@ The final step is to define the authorization for the different resources in our
    ```
 - A strategy used to resolve nested authentication providers.
   This strategy is represented by the `AuthenticationStrategy` enumeration value.
-  For instance, `AuthenticationStrategy.Required` requires the client to provide authentication data 
-  for all authentication providers registered for this route.
+  For instance, the client should provide authentication data for all providers registered 
+  with the `AuthenticationStrategy.Required` strategy.
   In the code snippet below, only a user that passed [session authentication](session-auth.md) 
   can try to access the `/admin` route using basic authentication:
    ```kotlin
@@ -188,7 +188,7 @@ If you use [session authentication](session-auth.md), a principal might be a dat
 {src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="75-77,80-81"}
 
 In the case of [nested authentication providers](#authenticate-route), 
-you need to pass a [provider name](#provider-name) to `call.principal` to get a principal for the desired provider.
+you can pass a [provider name](#provider-name) to `call.principal` to get a principal for the desired provider.
 In the example below, the _auth-session_ value is passed to get a principal for a topmost session provider:
 
 ```kotlin
