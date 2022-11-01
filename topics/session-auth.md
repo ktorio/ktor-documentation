@@ -97,7 +97,7 @@ To save information about a logged-in user to a session, use the [call.sessions.
 
 ### Step 5: Define authorization scope {id="authenticate-route"}
 
-After configuring the `session` provider, you can define the authorization for the different resources in our application using the `authenticate` function. In a case of successful authentication, you can retrieve an authenticated `Principal` (the [UserSession](#data-class) instance) inside a route handler using the `call.principal` function and information about a user.
+After configuring the `session` provider, you can define the authorization for the different resources in our application using the **[authenticate](authentication.md#authenticate-route)** function. In a case of successful authentication, you can retrieve an authenticated `Principal` (the [UserSession](#data-class) instance) inside a route handler using the `call.principal` function and information about a user.
 
 ```kotlin
 ```

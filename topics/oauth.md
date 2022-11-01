@@ -98,7 +98,7 @@ The code snippet below shows how to create and configure the `oauth` provider wi
 
 
 ### Step 3: Add a login route {id="login-route"}
-After configuring the `oauth` provider, you need to create a protected login route inside the `authenticate` function that accepts the name of the `oauth` provider. When Ktor receives a request to this route, it will be automatically redirected to `authorizeUrl` defined in [providerLookup](#configure-oauth-provider).
+After configuring the `oauth` provider, you need to create a protected login route inside the **[authenticate](authentication.md#authenticate-route)** function that accepts the name of the `oauth` provider. When Ktor receives a request to this route, it will be automatically redirected to `authorizeUrl` defined in [providerLookup](#configure-oauth-provider).
 
 ```kotlin
 ```
