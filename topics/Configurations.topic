@@ -428,6 +428,9 @@
             <code-block>
                 java -jar sample-app.jar -P:ktor.deployment.callGroupSize=7
             </code-block>
+            <p>
+                You can also use the <code>-P</code> flag to override a custom property.
+            </p>
         </chapter>
 
     </chapter>
