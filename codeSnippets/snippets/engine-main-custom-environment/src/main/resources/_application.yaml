@@ -1,0 +1,7 @@
+ktor:
+    environment: $KTOR_ENV
+    deployment:
+        port: 8080
+    application:
+        modules:
+            - com.example.ApplicationKt.module

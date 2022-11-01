@@ -422,7 +422,8 @@
                 </def>
             </deflist>
             <p>
-                If you need to override a <a anchor="predefined-properties">predefined property</a> that doesn't have a corresponding command-line option, use the <code>-P</code> flag, for example:
+                If you need to override a <a anchor="predefined-properties">predefined property</a>
+                that doesn't have a corresponding command-line option, use the <code>-P</code> flag, for example:
             </p>
             <code-block>
                 java -jar sample-app.jar -P:ktor.deployment.callGroupSize=7
@@ -430,10 +431,6 @@
         </chapter>
 
     </chapter>
-
-
-
-
 
 
 
@@ -446,41 +443,20 @@
 
         <tabs group="config">
             <tab title="application.conf" group-key="hocon">
-                <code-block>
-                    ktor {
-                        environment = ${?KTOR_ENV}
-                    }
-                </code-block>
+                <code-block src="snippets/engine-main-custom-environment/src/main/resources/application.conf" include-lines="1-2,9"/>
             </tab>
             <tab title="application.yaml" group-key="yaml">
-                <code-block lang="yaml">
-                    ktor:
-                        environment: $KTOR_ENV
-                </code-block>
+                <code-block lang="yaml" src="snippets/engine-main-custom-environment/src/main/resources/_application.yaml" include-lines="1-2"/>
             </tab>
         </tabs>
 
         <p>
             You can access the <code>ktor.environment</code> value at runtime by <a anchor="read-configuration-in-code">reading configuration in code</a> and perform the required actions:
         </p>
-        <code-block lang="kotlin">
-            import io.ktor.server.application.*
-            import io.ktor.server.response.*
-            import io.ktor.server.routing.*
-
-            fun Application.module() {
-                val env = environment.config.propertyOrNull("ktor.environment")?.getString()
-                routing {
-                    get {
-                        call.respondText(when (env) {
-                            "dev" -> "Development"
-                            "prod" -> "Production"
-                            else -> "..."
-                        })
-                    }
-                }
-            }
-        </code-block>
+        <code-block lang="kotlin" src="snippets/engine-main-custom-environment/src/main/kotlin/com/example/Application.kt" include-lines="3-6,9-20"/>
+        <p>
+            You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main-custom-environment">engine-main-custom-environment</a>.
+        </p>
     </chapter>
 
 </topic>
