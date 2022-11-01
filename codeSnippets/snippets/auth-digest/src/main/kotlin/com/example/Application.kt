@@ -2,6 +2,7 @@ package com.example
 
 import io.ktor.server.application.*
 import io.ktor.server.auth.*
+import io.ktor.server.auth.Principal
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import java.security.*
@@ -22,13 +23,22 @@ fun Application.main() {
             digestProvider { userName, realm ->
                 userTable[userName]
             }
+            validate { credentials ->
+                if (credentials.userName.isNotEmpty()) {
+                    CustomPrincipal(credentials.userName, credentials.realm)
+                } else {
+                    null
+                }
+            }
         }
     }
     routing {
         authenticate("auth-digest") {
             get("/") {
-                call.respondText("Hello, ${call.principal<UserIdPrincipal>()?.name}!")
+                call.respondText("Hello, ${call.principal<CustomPrincipal>()?.userName}!")
             }
         }
     }
 }
+
+data class CustomPrincipal(val userName: String, val realm: String) : Principal
