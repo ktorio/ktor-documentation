@@ -6,7 +6,7 @@
        title="Configuration"
        id="Configurations">
 
-    <show-structure for="chapter" depth="2"/>
+    <show-structure for="chapter" depth="3"/>
 
     <link-summary>
         This topic describes how to configure various server parameters, such as a host address and port, modules to load, enable the development mode, and so on.
@@ -131,66 +131,68 @@
                 Besides modules to load, you can configure various server settings, including <a anchor="predefined-properties">predefined</a> (such as a port or host, SSL settings, etc.) and custom ones.
                 Let's take a look at several examples.
             </p>
-            <list>
-                <li>
-                    <p>
-                        In the example below, a server listening port is set to <code>8080</code> using the <code>ktor.deployment.port</code> property.
-                    </p>
-                    <tabs group="config">
-                        <tab title="application.conf" group-key="hocon">
-                            <code-block
-                                  src="snippets/engine-main/src/main/resources/application.conf"/>
-                        </tab>
-                        <tab title="application.yaml" group-key="yaml">
-                            <code-block
-                                  lang="yaml"
-                                  src="snippets/engine-main-yaml/src/main/resources/application.yaml"/>
-                        </tab>
-                    </tabs>
-                </li>
-                <li>
-                    <p>
-                        The example below enables Ktor to listen on the <code>8443</code> SSL port and specifies the required <a href="ssl.md">SSL settings</a> in a separate <code>security</code> block.
-                    </p>
-                    <tabs group="config">
-                        <tab title="application.conf" group-key="hocon">
-                            <code-block
-                                  src="snippets/ssl-engine-main/src/main/resources/application.conf"/>
-                        </tab>
-                        <tab title="application.yaml" group-key="yaml">
-                            <code-block
-                                  lang="yaml"
-                                  src="snippets/ssl-engine-main/src/main/resources/_application.yaml"/>
-                        </tab>
-                    </tabs>
 
-                </li>
-                <li>
-                    <p>
-                        The configuration files below contain a custom <code>jwt</code> group used to keep <a href="jwt.md" anchor="jwt-settings">JWT</a> settings.
-                    </p>
-                    <tabs group="config">
-                        <tab title="application.conf" group-key="hocon">
-                            <code-block
-                                  src="snippets/auth-jwt-hs256/src/main/resources/application.conf"/>
-                        </tab>
-                        <tab title="application.yaml" group-key="yaml">
-                            <code-block
-                                  lang="yaml"
-                                  src="snippets/auth-jwt-hs256/src/main/resources/_application.yaml"/>
-                        </tab>
-                    </tabs>
-                    <p>
-                        You can <a anchor="read-configuration-in-code">read and handle such settings</a> in code.
-                    </p>
-                </li>
-            </list>
-            <warning>
+            <chapter title="Basic configuration" id="config-basic">
                 <p>
-                    Note that sensitive data (like secret keys, database connection settings, and so on) should not be stored in the configuration file as plain text.
-                    Consider using <a anchor="environment-variables">environment variables</a> to specify such parameters.
+                    In the example below, a server listening port is set to <code>8080</code> using the <code>ktor.deployment.port</code> property.
                 </p>
-            </warning>
+                <tabs group="config">
+                    <tab title="application.conf" group-key="hocon">
+                        <code-block
+                                src="snippets/engine-main/src/main/resources/application.conf"/>
+                    </tab>
+                    <tab title="application.yaml" group-key="yaml">
+                        <code-block
+                                lang="yaml"
+                                src="snippets/engine-main-yaml/src/main/resources/application.yaml"/>
+                    </tab>
+                </tabs>
+            </chapter>
+
+            <chapter title="SSL configuration" id="config-ssl">
+                <p>
+                    The example below enables Ktor to listen on the <code>8443</code> SSL port and specifies the required <a href="ssl.md">SSL settings</a> in a separate <code>security</code> block.
+                </p>
+                <tabs group="config">
+                    <tab title="application.conf" group-key="hocon">
+                        <code-block
+                                src="snippets/ssl-engine-main/src/main/resources/application.conf"/>
+                    </tab>
+                    <tab title="application.yaml" group-key="yaml">
+                        <code-block
+                                lang="yaml"
+                                src="snippets/ssl-engine-main/src/main/resources/_application.yaml"/>
+                    </tab>
+                </tabs>
+            </chapter>
+
+            <chapter title="Custom configuration" id="config-custom">
+                <p>
+                    Apart from specifying the <a anchor="predefined-properties">predefined properties</a>,
+                    Ktor allows you to keep custom settings in the configuration file.
+                    The configuration files below contain a custom <code>jwt</code> group used to keep <a href="jwt.md" anchor="jwt-settings">JWT</a> settings.
+                </p>
+                <tabs group="config">
+                    <tab title="application.conf" group-key="hocon">
+                        <code-block
+                                src="snippets/auth-jwt-hs256/src/main/resources/application.conf"/>
+                    </tab>
+                    <tab title="application.yaml" group-key="yaml">
+                        <code-block
+                                lang="yaml"
+                                src="snippets/auth-jwt-hs256/src/main/resources/_application.yaml"/>
+                    </tab>
+                </tabs>
+                <p>
+                    You can <a anchor="read-configuration-in-code">read and handle such settings</a> in code.
+                </p>
+                <warning>
+                    <p>
+                        Note that sensitive data (like secret keys, database connection settings, and so on) should not be stored in the configuration file as plain text.
+                        Consider using <a anchor="environment-variables">environment variables</a> to specify such parameters.
+                    </p>
+                </warning>
+            </chapter>
         </chapter>
 
 
@@ -429,7 +431,7 @@
                 java -jar sample-app.jar -P:ktor.deployment.callGroupSize=7
             </code-block>
             <p>
-                You can also use the <code>-P</code> flag to override a custom property.
+                You can also use the <code>-P</code> flag to override a <a anchor="config-custom">custom property</a>.
             </p>
         </chapter>
 
@@ -449,7 +451,7 @@
                 <code-block src="snippets/engine-main-custom-environment/src/main/resources/application.conf" include-lines="1-2,9"/>
             </tab>
             <tab title="application.yaml" group-key="yaml">
-                <code-block lang="yaml" src="snippets/engine-main-custom-environment/src/main/resources/_application.yaml" include-lines="1-2"/>
+                <code-block lang="yaml" src="snippets/engine-main-custom-environment/src/main/resources/application.yaml" include-lines="1-2"/>
             </tab>
         </tabs>
 
