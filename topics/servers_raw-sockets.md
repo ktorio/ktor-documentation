@@ -13,6 +13,7 @@
 <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/sockets-client">sockets-client</a>,
 <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/sockets-client-tls">sockets-client-tls</a>
 </p>
+<include from="lib.topic" element-id="native_server_supported"/>
 </tldr>
 
 In addition to HTTP/WebSocket handling for the server and client, Ktor supports TCP and UDP raw sockets.
