@@ -13,7 +13,7 @@
 <include from="lib.topic" element-id="native_server_supported"/>
 </tldr>
 
-`%plugin_name%` is a plugin that allows to serialize and deserialize a list of values. By default, it handles primitive types and enums, but it can also be configured to handle additional types. If you are using the [Locations plugin](locations.md) and want to support custom types as part of its parameters, you can add new custom converters with this service.
+[%plugin_name%](https://api.ktor.io/ktor-utils/io.ktor.util.converters/-data-conversion/index.html) is a plugin that allows you to serialize and deserialize a list of values. By default, it handles primitive types and enums, but it can also be configured to handle additional types. If you are using the [Locations plugin](locations.md) and want to support custom types as part of its parameters, you can add new custom converters with this service.
 
 
 ## Add dependencies {id="add_dependencies"}
@@ -30,10 +30,10 @@
 
 To configure `%plugin_name%`, provide a `convert<T>` method to define type conversions. Inside, you have to provide a decoder and an encoder with the `decode` and `encode` methods accepting callbacks.
 
-* decode callback: `converter: (values: List<String>, type: Type) -> Any?`
+* decode callback: `fromValues(values: List<String>, type: TypeInfo): Any?`
   Accepts `values`, a list of strings representing repeated values in the URL, for example, `a=1&a=2`,
-  and accepts the `type` to convert to. It should return the decoded value.
-* encode callback: `converter: (value: Any?) -> List<String>` 
+  and accepts the `TypeInfo` to convert to. It should return the decoded value.
+* encode callback: `toValues(value: Any?): List<String>` 
   Accepts an arbitrary value, and should return a list of strings representing the value.
   When returning a list of a single element, it will be serialized as `key=item1`. For multiple values,
   it will be serialized in the query string as: `samekey=item1&samekey=item2`.
@@ -60,8 +60,9 @@ install(DataConversion) {
 }
 ```
 
-Another potential use is to customize how a specific enum is serialized. By default, enums are serialized and de-serialized
-using its `.name` in a case-sensitive fashion. But you can for example serialize them as lower case and deserialize
+Another potential use case is to customize how a specific enum is serialized. 
+By default, enums are serialized and deserialized using its `.name` in a case-sensitive fashion. 
+But you can, for example, serialize them as a lower case and deserialize
 them in a case-insensitive fashion: 
 
 ```kotlin
@@ -89,7 +90,7 @@ enum class LocationEnum {
 }
 ```
 
-## Accessing the service
+## Access the service
 {id="service"}
 
 You can access the `%plugin_name%` service from any call:
@@ -97,24 +98,3 @@ You can access the `%plugin_name%` service from any call:
 ```kotlin
 val dataConversion = call.conversionService
 ```
-
-## The ConversionService interface
-{id="interface"}
-
-```kotlin
-interface ConversionService {
-
-  fun fromValues(values: List<String>, type: TypeInfo): Any?
-  fun toValues(value: Any?): List<String>
-}
-```
-{id="ConversionService"}
-
-```kotlin
-class DelegatingConversionService(private val klass: KClass<*>, private val decoder: ((values: List<String>) -> Any?)?, private val encoder: ((value: Any?) -> List<String>)?) : ConversionService {
-
-  fun fromValues(values: List<String>, type: TypeInfo): Any?
-  fun toValues(value: Any?): List<String>
-}
-```
-{id="DelegatingConversionService"}
