@@ -412,6 +412,8 @@ We can now [run our unit test from the IDE](https://www.jetbrains.com/help/idea/
 
 And just like that, we have finished building our small JSON-based HTTP API. Of course, there are tons of topics you can still explore around Ktor and building APIs with it, so your learning journey doesn't have to stop here!
 
+> You can find the resulting project for this tutorial here: [tutorial-http-api](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-http-api).
+
 
 ## What's next {id="whats_next"}
 
@@ -428,7 +430,7 @@ plugins such as Authentication, etc.
 
 - **Integrate with a client!** Now that we are exposing data, it would make sense to explore how this data can be consumed again! Try writing an API client using the [Ktor HTTP client](create-client.md), for example, or try accessing it from a website using JavaScript or Kotlin/JS!
 
-  To make sure your API works nicely with **browser clients**, you should also set up a policy for [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS). The simplest and most permissive way to do this with Ktor would be by adding the following snippet to the top of `Application.module()`:
+  To make sure your API works nicely with **browser clients**, you should also set up a policy for [Cross-Origin Resource Sharing (CORS)](cors.md). The simplest and most permissive way to do this with Ktor would be by adding the following snippet to the top of `Application.module()`:
 
   ```kotlin
   install(CORS) {
