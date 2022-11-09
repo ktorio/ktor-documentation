@@ -16,13 +16,13 @@ Starting with v2.0.0, Ktor provides a new API for creating custom [plugins](Plug
 
 In this section, we'll demonstrate how to create and install your first plugin. You can use [ktor-get-started-sample](intellij-idea.topic) as a starting project.
 
-1. To create a plugin, call the `createApplicationPlugin` function and pass a plugin name:
+1. To create a plugin, call the [createApplicationPlugin](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/create-application-plugin.html) function and pass a plugin name:
    ```kotlin
    ```
    {src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/SimplePlugin.kt" include-lines="3-7"}
    
    This function returns the `ApplicationPlugin` instance that will be used in the next step to install a plugin.
-   > There is also the `createRouteScopedPlugin` function allowing you to create plugins that can be [installed to a specific route](Plugins.md#install-route).
+   > There is also the [createRouteScopedPlugin](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/create-route-scoped-plugin.html) function allowing you to create plugins that can be [installed to a specific route](Plugins.md#install-route).
 2. To [install a plugin](Plugins.md#install), pass the created `ApplicationPlugin` instance to the `install` function in the application's initialization code:
    ```kotlin
    ```
