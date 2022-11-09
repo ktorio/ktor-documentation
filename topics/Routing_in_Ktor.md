@@ -235,17 +235,9 @@ You can find the full example demonstrating this approach here: [tutorial-websit
 
 ## Trace routes {id="trace_routes"}
 
-Ktor allows you to log information about route matches to determine why some routes are not being executed.
-To enable tracing, call the `trace` function inside the `routing` block as follows:
-
-```kotlin
-routing {
-    trace { application.log.trace(it.buildText()) }
-}
-```
-
-Then, [run](running.md) the application and make a request to the desired URL.
-The application's output might look as follows:
+Ktor enables route tracing that helps you determine why some routes are not being executed.
+For example, if you [run](running.md) the application and make a request to a specified endpoint,
+the application's output might look as follows:
 
 ```Console
 TRACE Application - Trace for [missing-page]
