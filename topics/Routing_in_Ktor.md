@@ -249,3 +249,6 @@ Matched routes:
 Route resolve result:
   FAILURE "No matched subtrees found" @ /
 ```
+
+> To enable route tracing on the [Native server](native_server.md), 
+> pass the _TRACE_  value to the `KTOR_LOG_LEVEL` environment variable when [running](running.md) the application.
