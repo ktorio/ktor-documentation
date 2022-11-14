@@ -6,16 +6,16 @@
 </tldr>
 
 <link-summary>
-The HttpCache allows you to save previously fetched resources in an in-memory cache.
+The HttpCache allows you to save previously fetched resources in an in-memory or file cache.
 </link-summary>
 
-The Ktor client provides the [HttpCache](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.cache/-http-cache/index.html) plugin that allows you to save previously fetched resources in an in-memory cache.
+The Ktor client provides the [HttpCache](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.cache/-http-cache/index.html) plugin that allows you to save previously fetched resources in an in-memory or file cache.
 
 
 ## Add dependencies {id="add_dependencies"}
 `HttpCache` only requires the [ktor-client-core](client-dependencies.md) artifact and doesn't need any specific dependencies.
 
-## Install HttpCache {id="install_plugin"}
+## In-memory cache {id="memory_cache"}
 To install `HttpCache`, pass it to the `install` function inside a [client configuration block](create-client.md#configure-client):
 ```kotlin
 import io.ktor.client.*
@@ -27,10 +27,21 @@ val client = HttpClient(CIO) {
 }
 ```
 
-This is enough to enable the client to save previously fetched resources in a cache. For example, if you make two consequent requests to a resource with the configured `Cache-Control` header, the client executes only the first request and skips the second one since data is already saved in a cache.
+This is enough to enable the client to save previously fetched resources in an in-memory cache.
+For example, if you make two consequent [requests](request.md) to a resource with the configured `Cache-Control` header,
+the client executes only the first request and skips the second one since data is already saved in a cache.
+
+## Persistent cache {id="persistent_cache"}
+
+Ktor allows you to create a persistent cache by implementing the `CacheStorage` interface.
+On JVM, you can also use a file storage implementation represented by the `FileCacheStorage` class.
+
+To create a file storage for cache entries, pass the `File` instance to the `FileCacheStorage` constructor.
+Then, pass the created storage to the `publicStorage` or `privateStorage` function depending on 
+whether this storage is used as a shared or private cache.
 
 ```kotlin
 ```
-{src="snippets/client-caching/src/main/kotlin/com/example/Application.kt" include-lines="12-19"}
+{src="snippets/client-caching/src/main/kotlin/com/example/Application.kt" include-lines="14-18,20"}
 
-You can find a runnable example here: [client-caching](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-caching).
+> You can find the full example here: [client-caching](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-caching).
