@@ -175,7 +175,7 @@ To generate a JSON web token, you can use [JWTCreator.Builder](https://javadoc.i
 
 
 ### Step 3: Configure realm {id="realm"}
-The `realm` property allows you to set the realm to be passed in `WWW-Authenticate` header when accessing a [protected route](#authenticate-route).
+The `realm` property allows you to set the realm to be passed in the `WWW-Authenticate` header when accessing a [protected route](#authenticate-route).
 
 ```kotlin
 ```
@@ -214,7 +214,7 @@ The `verifier` function allows you to verify a token format and its signature:
    ```
    {style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="28-29,36-42,46-47"}
    
-   In a case of successful authentication, return [JWTPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-principal/index.html). 
+   In the case of successful authentication, return [JWTPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-principal/index.html). 
 2. The `challenge` function allows you to configure a response to be sent if authentication fails.
    ```kotlin
    ```
@@ -228,7 +228,7 @@ The `verifier` function allows you to verify a token format and its signature:
 
 ### Step 6: Define authorization scope {id="authenticate-route"}
 
-After configuring the `jwt` provider, you can define the authorization for the different resources in our application using the **[authenticate](authentication.md#authenticate-route)** function. In a case of successful authentication, you can retrieve an authenticated [JWTPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-principal/index.html) inside a route handler using the `call.principal` function and get the JWT payload. In the example below, the value of a custom `username` claim and a token expiration time are retrieved.
+After configuring the `jwt` provider, you can define the authorization for the different resources in our application using the **[authenticate](authentication.md#authenticate-route)** function. In the case of successful authentication, you can retrieve an authenticated [JWTPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-principal/index.html) inside a route handler using the `call.principal` function and get the JWT payload. In the example below, the value of a custom `username` claim and a token expiration time are retrieved.
 
 ```kotlin
 ```

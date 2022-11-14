@@ -67,24 +67,24 @@ You can optionally specify a [provider name](authentication.md#provider-name) th
 
 ## Configure basic authentication {id="configure"}
 
-To get a general idea on how to configure different authentication providers in Ktor, see [](authentication.md#configure). In this section, we'll see on configuration specifics of the `basic` authentication provider. 
+To get a general idea of how to configure different authentication providers in Ktor, see [](authentication.md#configure). In this section, we'll see on configuration specifics of the `basic` authentication provider. 
 
 ### Step 1: Configure a basic provider {id="configure-provider"}
 
 The `basic` authentication provider exposes its settings via the [BasicAuthenticationProvider.Configuration](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-basic-authentication-provider/-config/index.html) class. In the example below, the following settings are specified:
-* The `realm` property sets the realm to be passed in `WWW-Authenticate` header.
+* The `realm` property sets the realm to be passed in the `WWW-Authenticate` header.
 * The `validate` function validates a username and password.
 
 ```kotlin
 ```
 {src="snippets/auth-basic/src/main/kotlin/com/example/Application.kt" include-lines="9-20"}
    
-The `validate` function checks `UserPasswordCredential` and returns a `UserIdPrincipal` in a case of successful authentication or `null` if authentication fails. 
+The `validate` function checks `UserPasswordCredential` and returns a `UserIdPrincipal` in the case of successful authentication or `null` if authentication fails. 
 > You can also use [UserHashedTableAuth](#validate-user-hash) to validate users stored in an in-memory table that keeps usernames and password hashes.
 
 ### Step 2: Define authorization scope {id="authenticate-route"}
 
-After configuring the `basic` provider, you can define the authorization for the different resources in our application using the **[authenticate](authentication.md#authenticate-route)** function. In a case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html) inside a route handler using the `call.principal` function and get a name of an authenticated user.
+After configuring the `basic` provider, you can define the authorization for the different resources in our application using the **[authenticate](authentication.md#authenticate-route)** function. In the case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html) inside a route handler using the `call.principal` function and get a name of an authenticated user.
 
 ```kotlin
 ```

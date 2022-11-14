@@ -80,7 +80,7 @@ You can optionally specify a [provider name](authentication.md#provider-name) th
 
 ## Configure digest authentication {id="configure"}
 
-To get a general idea on how to configure different authentication providers in Ktor, see [](authentication.md#configure). In this section, we'll see on configuration specifics of the `digest` authentication provider.
+To get a general idea of how to configure different authentication providers in Ktor, see [](authentication.md#configure). In this section, we'll see on configuration specifics of the `digest` authentication provider.
 
 ### Step 1: Provide a user table with digests {id="digest-table"}
 
@@ -94,7 +94,7 @@ The `digest` authentication provider validates user credentials using the `HA1` 
 ### Step 2: Configure a digest provider {id="configure-provider"}
 
 The `digest` authentication provider exposes its settings via the [DigestAuthenticationProvider.Config](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-digest-authentication-provider/-config/index.html) class. In the example below, the following settings are specified:
-* The `realm` property sets the realm to be passed in `WWW-Authenticate` header.
+* The `realm` property sets the realm to be passed in the `WWW-Authenticate` header.
 * The `digestProvider` function fetches the `HA1` part of digest for a specified username.
 * (Optional) The `validate` function allows you to map the credentials to a custom principal.
 
@@ -107,7 +107,7 @@ You can also use the [nonceManager](https://api.ktor.io/ktor-server/ktor-server-
 
 ### Step 3: Define authorization scope {id="authenticate-route"}
 
-After configuring the `digest` provider, you can define the authorization for the different resources in our application using the **[authenticate](authentication.md#authenticate-route)** function. In a case of successful authentication, you can retrieve an authenticated [Principal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-principal/index.html) inside a route handler using the `call.principal` function and get a name of an authenticated user.
+After configuring the `digest` provider, you can define the authorization for the different resources in our application using the **[authenticate](authentication.md#authenticate-route)** function. In the case of successful authentication, you can retrieve an authenticated [Principal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-principal/index.html) inside a route handler using the `call.principal` function and get a name of an authenticated user.
 
 ```kotlin
 ```

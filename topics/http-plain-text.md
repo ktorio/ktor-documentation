@@ -2,7 +2,7 @@
 
 <include from="lib.topic" element-id="outdated_warning"/>
 
-This plugin allows you to process the plain text content in request and response: fills `Accept` header with registered charsets, encode request body and decode response body according to `ContentType` charset.
+This plugin allows you to process the plain text content in request and response: fills the `Accept` header with registered charsets, encode request body and decode response body according to `ContentType` charset.
 
 
 ## Configuration

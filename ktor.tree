@@ -89,6 +89,7 @@
                          accepts-web-file-names="features-authentication.html">
                 <toc-element topic="basic.md"/>
                 <toc-element topic="digest.md"/>
+                <toc-element topic="bearer.md"/>
                 <toc-element topic="form.md"/>
                 <toc-element topic="ldap.md"/>
                 <toc-element topic="jwt.md"/>

@@ -25,7 +25,8 @@ Ktor supports the following authentications and authorization schemes:
 HTTP provides a [general framework](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) for access control and authentication. In Ktor, you can use the following HTTP authentication schemes:
 * [Basic](basic.md) - uses `Base64` encoding to provide a username and password. Generally is not recommended if not used in combination with HTTPS.
 * [Digest](digest.md) - an authentication method that communicates user credentials in an encrypted form by applying a hash function to the username and password.
-* `Bearer` - an authentication scheme that involves security tokens called bearer tokens. You can use [JSON Web Tokens](#jwt) as bearer tokens and use the `jwt` authentication in Ktor to validate and authorize a request.
+* [Bearer](bearer.md) - an authentication scheme that involves security tokens called bearer tokens. 
+  The Bearer authentication scheme is used as part of [OAuth](oauth.md) or [JWT](jwt.md), but you can also provide custom logic for authorizing bearer tokens.
 
 
 ### Form-based authentication {id="form-auth"}
@@ -122,7 +123,7 @@ To understand how the `validate` function works, we need to introduce two terms:
   > - If you use [session authentication](session-auth.md), a principal might be a data class that stores session data.
 * A _credential_ is a set of properties for a server to authenticate a principal: a user/password pair, an API key, and so on. For instance, the `basic` and `form` providers use [UserPasswordCredential](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-user-password-credential/index.html) to validate a username and password while `jwt` validates [JWTCredential](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-credential/index.html).
 
-So, the `validate` function checks a specified [Credential](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-credential/index.html) and returns a [Principal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-principal/index.html) in a case of successful authentication or `null` if authentication fails.
+So, the `validate` function checks a specified [Credential](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-credential/index.html) and returns a [Principal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-principal/index.html) in the case of successful authentication or `null` if authentication fails.
 
 > To skip authentication based on a specific criteria, use [skipWhen](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-authentication-provider/-config/skip-when.html). For example, you can skip `basic` authentication if a [session](sessions.md) already exists:
 > ```kotlin
@@ -181,7 +182,7 @@ The final step is to define the authorization for the different resources in our
 
 ### Step 5: Get a principal inside a route handler {id="get-principal"}
 
-In a case of successful authentication, you can retrieve an authenticated [Principal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-principal/index.html) inside a route handler using the `call.principal` function. This function accepts a specific principal type returned by the [configured authentication provider](#configure-provider). In a code sample below, `call.principal` is used to obtain `UserIdPrincipal` and get a name of an authenticated user.
+In the case of successful authentication, you can retrieve an authenticated [Principal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-principal/index.html) inside a route handler using the `call.principal` function. This function accepts a specific principal type returned by the [configured authentication provider](#configure-provider). In a code sample below, `call.principal` is used to obtain `UserIdPrincipal` and get a name of an authenticated user.
 
 ```kotlin
 ```
