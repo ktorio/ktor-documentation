@@ -79,7 +79,7 @@ To authenticate an LDAP user, you need to call the [ldapAuthenticate](https://ap
 ```
 {src="snippets/auth-ldap/src/main/kotlin/com/example/Application.kt" include-lines="10-16"}
 
-The `validate` function returns a [UserIdPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html) in a case of successful authentication or `null` if authentication fails.
+The `validate` function returns a [UserIdPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html) in the case of successful authentication or `null` if authentication fails.
 
 Optionally, you can add additional validation for an authenticated user.
 
@@ -102,7 +102,7 @@ install(Authentication) {
 
 ### Step 3: Define authorization scope {id="authenticate-route"}
 
-After configuring LDAP, you can define the authorization for the different resources in our application using the **[authenticate](authentication.md#authenticate-route)** function. In a case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html) inside a route handler using the `call.principal` function and get a name of an authenticated user.
+After configuring LDAP, you can define the authorization for the different resources in our application using the **[authenticate](authentication.md#authenticate-route)** function. In the case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html) inside a route handler using the `call.principal` function and get a name of an authenticated user.
 
 ```kotlin
 ```

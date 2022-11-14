@@ -60,7 +60,7 @@ install(Authentication) {
 This section demonstrates how to authenticate a user with a [form-based authentication](form.md), save information about this user to a cookie session, and then authorize this user on subsequent requests using the `session` provider. You can find the complete example here: [auth-form-session](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-form-session).
 
 ### Step 1: Create a data class {id="data-class"}
-First, you need to create a data class for storing session data. Note that this class should inherit [Principal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-principal/index.html) since the [validate](#configure-session-auth) function should return a `Principal` in a case of successful authentication.
+First, you need to create a data class for storing session data. Note that this class should inherit [Principal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-principal/index.html) since the [validate](#configure-session-auth) function should return a `Principal` in the case of successful authentication.
 
 ```kotlin
 ```
@@ -79,7 +79,7 @@ You can learn more about configuring sessions from [](sessions.md#configuration_
 ### Step 3: Configure session authentication {id="configure-session-auth"}
 
 The `session` authentication provider exposes its settings via the [SessionAuthenticationProvider.Config](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-session-authentication-provider/-config/index.html) class. In the example below, the following settings are specified:
-* The `validate` function checks the [session instance](#data-class) and returns `Principal` in a case of successful authentication.
+* The `validate` function checks the [session instance](#data-class) and returns `Principal` in the case of successful authentication.
 * The `challenge` function specifies an action performed if authentication fails. For instance, you can redirect back to a login page or send [UnauthorizedResponse](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-unauthorized-response/index.html).
 
 ```kotlin
@@ -97,7 +97,7 @@ To save information about a logged-in user to a session, use the [call.sessions.
 
 ### Step 5: Define authorization scope {id="authenticate-route"}
 
-After configuring the `session` provider, you can define the authorization for the different resources in our application using the **[authenticate](authentication.md#authenticate-route)** function. In a case of successful authentication, you can retrieve an authenticated `Principal` (the [UserSession](#data-class) instance) inside a route handler using the `call.principal` function and information about a user.
+After configuring the `session` provider, you can define the authorization for the different resources in our application using the **[authenticate](authentication.md#authenticate-route)** function. In the case of successful authentication, you can retrieve an authenticated `Principal` (the [UserSession](#data-class) instance) inside a route handler using the `call.principal` function and information about a user.
 
 ```kotlin
 ```

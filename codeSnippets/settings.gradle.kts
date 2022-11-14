@@ -25,6 +25,7 @@ fun module(group: String, name: String) {
 module("snippets", "jetty-war")
 module("snippets", "tomcat-war")
 module("snippets", "auth-basic")
+module("snippets", "auth-bearer")
 module("snippets", "auth-basic-hash-table")
 module("snippets", "auth-digest")
 module("snippets", "auth-form-html-dsl")
