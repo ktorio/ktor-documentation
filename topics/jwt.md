@@ -175,7 +175,7 @@ To generate a JSON web token, you can use [JWTCreator.Builder](https://javadoc.i
 
 
 ### Step 3: Configure realm {id="realm"}
-The `realm` property allows you to set the realm to be passed in `WWW-Authenticate` header when accessing a [protected route](#authenticate-route).
+The `realm` property allows you to set the realm to be passed in the `WWW-Authenticate` header when accessing a [protected route](#authenticate-route).
 
 ```kotlin
 ```

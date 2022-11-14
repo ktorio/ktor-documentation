@@ -62,7 +62,7 @@ To get a general idea of how to configure different authentication providers in 
 ### Step 1: Configure a bearer provider {id="configure-provider"}
 
 The `bearer` authentication provider exposes its settings via the [BearerAuthenticationProvider.Configuration](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-bearer-authentication-provider/-config/index.html) class. In the example below, the following settings are specified:
-* The `realm` property sets the realm to be passed in `WWW-Authenticate` header.
+* The `realm` property sets the realm to be passed in the `WWW-Authenticate` header.
 * The `authenticate` function checks the token sent by the client and returns a `UserIdPrincipal` in the case of successful authentication or `null` if authentication fails.
 
 ```kotlin

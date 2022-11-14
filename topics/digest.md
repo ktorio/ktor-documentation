@@ -94,7 +94,7 @@ The `digest` authentication provider validates user credentials using the `HA1` 
 ### Step 2: Configure a digest provider {id="configure-provider"}
 
 The `digest` authentication provider exposes its settings via the [DigestAuthenticationProvider.Config](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-digest-authentication-provider/-config/index.html) class. In the example below, the following settings are specified:
-* The `realm` property sets the realm to be passed in `WWW-Authenticate` header.
+* The `realm` property sets the realm to be passed in the `WWW-Authenticate` header.
 * The `digestProvider` function fetches the `HA1` part of digest for a specified username.
 * (Optional) The `validate` function allows you to map the credentials to a custom principal.
 
