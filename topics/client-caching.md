@@ -34,9 +34,9 @@ the client executes only the first request and skips the second one since data i
 ## Persistent cache {id="persistent_cache"}
 
 Ktor allows you to create a persistent cache by implementing the `CacheStorage` interface.
-On JVM, you can also use a file storage implementation represented by the `FileCacheStorage` class.
+On JVM, you can use a file storage implementation represented by the `FileCacheStorage` class.
 
-To create a file storage for cache entries, pass the `File` instance to the `FileCacheStorage` constructor.
+To create a file cache storage, pass the `File` instance to the `FileCacheStorage` constructor.
 Then, pass the created storage to the `publicStorage` or `privateStorage` function depending on 
 whether this storage is used as a shared or private cache.
 
