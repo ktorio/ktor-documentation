@@ -158,3 +158,6 @@ if(!System.getProperty("os.name").startsWith("Windows")) {
 if(System.getProperty("os.name") == "Mac OS X") {
     module("snippets", "client-engine-darwin")
 }
+if(System.getProperty("os.name").startsWith("Windows")) {
+    module("snippets", "client-engine-winhttp")
+}
