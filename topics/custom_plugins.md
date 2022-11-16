@@ -155,7 +155,7 @@ on(CallSetup) { call->
 
 ### Share call state {id="call-state"}
 
-Custom plugins allow you to share any value related to a call, so you can access this value inside any handler processing this call. This value is stored as an attribute with a unique key in the `call.attributes` collection. The example below demonstrates how use attributes to calculate a time between receiving a request and reading a body:
+Custom plugins allow you to share any value related to a call, so you can access this value inside any handler processing this call. This value is stored as an attribute with a unique key in the `call.attributes` collection. The example below demonstrates how to use attributes to calculate the time between receiving a request and reading a body:
 
 ```kotlin
 ```

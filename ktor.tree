@@ -244,6 +244,7 @@
                          accepts-web-file-names="client-websockets.html,http-client-features-websockets.html,clients-websockets.html">
                 <toc-element topic="websocket_client_serialization.md"/>
             </toc-element>
+            <toc-element topic="client-custom-plugins.md"/>
         </toc-element>
 
         <toc-element topic="http-client_testing.md"/>

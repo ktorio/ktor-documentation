@@ -32,4 +32,4 @@ You can configure a plugin inside the `install` block. For example, for the [Log
 
 
 ## Create a custom plugin {id="custom"}
-If you want to create plugins, you can use the [standard plugins](https://github.com/ktorio/ktor/blob/main/ktor-client/ktor-client-core/common/src/io/ktor/client/plugins/) as a reference.
+To learn how to create custom plugins, refer to [](client-custom-plugins.md).
