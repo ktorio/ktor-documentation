@@ -147,10 +147,24 @@ This might be useful for handling redirects, retrying requests, authentication, 
 <code>on(SendingRequest)</code>
 </td>
 <td>
+<p>
 The <code>SendingRequest</code> hook is executed for every request, 
 even if it's not initiated by a user.
 For example, if a request results in a redirect, the <code>onRequest</code> handler will be executed only 
 for the original request, while <code>on(SendingRequest)</code> will be executed for both original and redirected requests.
+Similarly, if you used <code>on(Send)</code> to initiate an additional request,
+handlers will be ordered as follows:
+</p>
+
+```Console
+--> onRequest
+--> on(Send)
+--> on(SendingRequest)
+<-- onResponse
+--> on(SendingRequest)
+<-- onResponse
+```
+
 </td>
 </tr>
 
