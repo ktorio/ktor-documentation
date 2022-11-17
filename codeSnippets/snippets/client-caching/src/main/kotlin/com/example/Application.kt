@@ -14,7 +14,7 @@ fun main() {
         val client = HttpClient(CIO) {
             install(HttpCache) {
                 val cacheFile = Files.createDirectories(Paths.get("build/cache")).toFile()
-                publicStorage(FileCacheStorage(cacheFile))
+                publicStorage(FileStorage(cacheFile))
             }
             install(Logging) { level = LogLevel.INFO }
         }
