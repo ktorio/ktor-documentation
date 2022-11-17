@@ -24,6 +24,7 @@ The table below lists platforms supported by each engine:
 | Android | [JVM](#jvm), [Android](#jvm-android)                    |
 | OkHttp  | [JVM](#jvm), [Android](#jvm-android)                    |
 | Darwin  | [Native](#native)                                       |
+| WinHttp | [Native](#native)                                       |
 | Curl    | [Native](#native)                                       |
 | CIO     | [JVM](#jvm), [Android](#jvm-android), [Native](#native) |
 | Js      | [JavaScript](#js)                                       |
@@ -50,15 +51,16 @@ The table below shows whether a specific engine supports HTTP/2 and [WebSockets]
 
 | Engine  | HTTP/2 | WebSockets |
 |---------|--------|------------|
-| Apache  | ✖️      | ✖️          |
-| Java    | ✅      | ✖️          |
-| Jetty   | ✅      | ✖️          |
-| CIO     | ✖️      | ✅          |
-| Android | ✖️      | ✖️          |
+| Apache  | ✖️     | ✖️         |
+| Java    | ✅      | ✖️         |
+| Jetty   | ✅      | ✖️         |
+| CIO     | ✖️     | ✅          |
+| Android | ✖️     | ✖️         |
 | OkHttp  | ✅      | ✅          |
 | Js      | ✅      | ✅          |
 | Darwin  | ✅      | ✅          |
-| Curl    | ✅      | ✖️          |
+| WinHttp | ✅      | ✅          |
+| Curl    | ✅      | ✖️         |
 
 You also need to consider the following limitations that affect general client configuration and using of specific plugins:
 - If an engine supports HTTP/2, you can enable it by customizing the engine configuration (see an example for the [](#java) engine).
@@ -207,7 +209,7 @@ The `Darwin` engine targets [Darwin-based](https://en.wikipedia.org/wiki/Darwin_
    <var name="artifact_name" value="ktor-client-darwin"/>
    <var name="target" value="-macosx64"/>
    <include from="lib.topic" element-id="add_ktor_artifact_mpp"/>
-2. Pass the `darwin` class as an argument to the `HttpClient` constructor:
+2. Pass the `Darwin` class as an argument to the `HttpClient` constructor:
    ```kotlin
    import io.ktor.client.*
    import io.ktor.client.engine.darwin.*
@@ -221,6 +223,35 @@ The `Darwin` engine targets [Darwin-based](https://en.wikipedia.org/wiki/Darwin_
    {src="snippets/client-engine-darwin/src/nativeMain/kotlin/Main.kt" include-lines="8-14"}
 
    You can find the full example here: [client-engine-darwin](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-engine-darwin).
+
+
+
+### WinHttp {id="winhttp"}
+The `WinHttp` engine targets Windows-based operating systems. 
+To use the `WinHttp` engine, follow the steps below:
+
+1. Add the `ktor-client-winhttp` dependency:
+
+   <var name="artifact_name" value="ktor-client-winhttp"/>
+   <var name="target" value="-mingwx64"/>
+   <include from="lib.topic" element-id="add_ktor_artifact_mpp"/>
+2. Pass the `WinHttp` class as an argument to the `HttpClient` constructor:
+   ```kotlin
+   import io.ktor.client.*
+   import io.ktor.client.engine.winhttp.*
+   
+   val client = HttpClient(WinHttp)
+   ```
+3. To configure an engine, pass settings exposed by [WinHttpClientEngineConfig](https://api.ktor.io/ktor-client/ktor-client-winhttp/io.ktor.client.engine.winhttp/-winhttp-client-engine-config/index.html) to the `engine` function.
+   For instance, you can use the `protocolVersion` property to change the HTTP version:
+   ```kotlin
+   ```
+   {src="snippets/client-engine-winhttp/src/nativeMain/kotlin/Main.kt" include-lines="9-13"}
+
+   You can find the full example here: [client-engine-winhttp](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-engine-winhttp).
+
+
+
 
 ### Curl {id="curl"}
 
