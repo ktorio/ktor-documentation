@@ -9,7 +9,7 @@ Content-Type: application/json
 
 {
   "id": -1,
-  "firstName" : "Jet",
+  "firstName": "Jet",
   "lastName": "Brains"
 }
 
