@@ -186,7 +186,7 @@ The <a anchor="example-log-headers"/> example shows how to log response headers 
 <code>transformResponseBody</code>
 </td>
 <td>
-Allows you to transform a <a href="response.md" anchor="body">request body</a>.
+Allows you to transform a <a href="response.md" anchor="body">response body</a>.
 This handler is invoked for each <code>HttpResponse.body</code> call.
 You need to deserialize the body into an instance of <code>requestedType</code> 
 or return <code>null</code> if your transformation is not applicable.
