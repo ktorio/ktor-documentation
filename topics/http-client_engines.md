@@ -52,7 +52,7 @@ The table below shows whether a specific engine supports HTTP/2 and [WebSockets]
 | Engine  | HTTP/2 | WebSockets |
 |---------|--------|------------|
 | Apache  | ✖️     | ✖️         |
-| Java    | ✅      | ✖️         |
+| Java    | ✅      | ✅️         |
 | Jetty   | ✅      | ✖️         |
 | CIO     | ✖️     | ✅          |
 | Android | ✖️     | ✖️         |

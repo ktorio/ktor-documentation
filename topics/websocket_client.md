@@ -18,13 +18,7 @@ Ktor supports the WebSocket protocol and allows you to create applications that 
 
 The Ktor client allows you to handle a WebSocket session for exchanging messages with the server. To learn about WebSocket support in a Ktor server, see [](websocket.md).
 
-## Supported engines {id="supported_engines"}
-
-The Ktor client supports WebSockets for the following [engines](http-client_engines.md):
-- CIO
-- OkHttp
-- Js
-- Darwin
+> Engines that support WebSockets are listed in the [](http-client_engines.md#limitations) section.
 
 
 ## Add dependencies {id="add_dependencies"}
