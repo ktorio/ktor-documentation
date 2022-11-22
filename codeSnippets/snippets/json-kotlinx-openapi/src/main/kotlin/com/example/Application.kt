@@ -9,7 +9,7 @@ import io.ktor.server.routing.*
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.plugins.cors.routing.*
 import io.ktor.server.plugins.openapi.*
-import io.ktor.server.swagger.*
+import io.ktor.server.plugins.swagger.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
@@ -49,6 +49,6 @@ fun Application.main() {
         }
 
         swaggerUI(path = "swagger", swaggerFile = "openapi/documentation.yaml")
-        openAPI(path="openapi", swaggerFile = "src/main/resources/openapi/documentation.yaml")
+        openAPI(path="openapi", swaggerFile = "openapi/documentation.yaml")
     }
 }

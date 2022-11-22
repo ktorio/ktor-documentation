@@ -31,7 +31,7 @@ at the `path` rendered from the OpenAPI specification placed at `swaggerFile`:
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx-openapi/src/main/kotlin/com/example/Application.kt" include-lines="38,52-53"}
+{src="snippets/json-kotlinx-openapi/src/main/kotlin/com/example/Application.kt" include-lines="11,18-19,38,52-54"}
 
 This method tries to look up the OpenAPI specification in the application resources.
 Otherwise, it tries to read the OpenAPI specification from the file system using `java.io.File`.
