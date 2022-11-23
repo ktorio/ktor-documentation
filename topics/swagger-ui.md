@@ -35,8 +35,13 @@ To serve Swagger UI, you need to call the `swaggerUI` method that creates a `GET
 at the `path` rendered from the OpenAPI specification placed at `swaggerFile`:
 
 ```kotlin
+import io.ktor.server.plugins.swagger.*
+
+// ...
+routing {
+    swaggerUI(path = "swagger", swaggerFile = "openapi/documentation.yaml")
+}
 ```
-{src="snippets/json-kotlinx-openapi/src/main/kotlin/com/example/Application.kt" include-lines="12,18-19,38,51,53-54"}
 
 This method tries to look up the OpenAPI specification in the application resources.
 Otherwise, it tries to read the OpenAPI specification from the file system using `java.io.File`.
@@ -45,10 +50,8 @@ Optionally, you can customize Swagger UI inside the `swaggerUI` block.
 For example, you can use another Swagger UI version or apply a custom style.
 
 ```kotlin
-swaggerUI(path = "swagger", swaggerFile = "openapi/documentation.yaml") {
-     // this: SwaggerConfig       
-}
 ```
+{src="snippets/json-kotlinx-openapi/src/main/kotlin/com/example/Application.kt" include-lines="39,52-54,58"}
 
 You can now [run](running.md) the application and open the `/swagger` page to see the available endpoints, and test them.
 
@@ -62,4 +65,4 @@ The example below applies the following CORS configuration:
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx-openapi/src/main/kotlin/com/example/Application.kt" include-lines="34-37"}
+{src="snippets/json-kotlinx-openapi/src/main/kotlin/com/example/Application.kt" include-lines="35-38"}

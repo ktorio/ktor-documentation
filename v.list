@@ -13,5 +13,6 @@
     <var name="dropwizard_version" value="4.2.12"/>
     <var name="shadow_version" value="7.1.2"/>
     <var name="bootstrap_version" value="5.2.2"/>
+    <var name="swagger_codegen_version" value="1.0.36"/>
 
 </vars>

@@ -10,6 +10,7 @@ import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.plugins.cors.routing.*
 import io.ktor.server.plugins.openapi.*
 import io.ktor.server.plugins.swagger.*
+import io.swagger.codegen.v3.generators.html.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
@@ -48,7 +49,11 @@ fun Application.main() {
             call.respondText("Customer stored correctly", status = HttpStatusCode.Created)
         }
 
-        swaggerUI(path = "swagger", swaggerFile = "openapi/documentation.yaml")
-        openAPI(path="openapi", swaggerFile = "openapi/documentation.yaml")
+        swaggerUI(path = "swagger", swaggerFile = "openapi/documentation.yaml") {
+            version = "4.15.5"
+        }
+        openAPI(path="openapi", swaggerFile = "openapi/documentation.yaml") {
+            codegen = StaticHtmlCodegen()
+        }
     }
 }
