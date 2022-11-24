@@ -134,7 +134,7 @@ There are several ways to send specific headers in a response:
 {type="tip"}
 
 ### Cookies {id="cookies"}
-To access cookies sent in a response, use the [ApplicationResponse.cookies](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.response/-application-response/cookies.html) property:
+To configure cookies sent in a response, use the [ApplicationResponse.cookies](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.response/-application-response/cookies.html) property:
 ```kotlin
 get("/") {
     call.response.cookies.append("yummy_cookie", "choco")

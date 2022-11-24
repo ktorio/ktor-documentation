@@ -6,6 +6,13 @@ This guide provides instructions on how to migrate your Ktor application from th
 
 ## Ktor Server {id="server"}
 
+### Cookies {id="cookies"}
+With v2.2.0, the following API members related to configuring [response cookies](responses.md#cookies) are changed:
+- The `maxAge` parameter type passed to the `append` function is changed from `Int` to `Long`.
+- The `appendExpired` function is deprecated. Use the `append` function with `expires` parameter instead.
+
+
+
 ### Request address information {id="request-address-info"}
 
 Starting with the 2.2.0 version, the `RequestConnectionPoint.host` and `RequestConnectionPoint.port` properties 
