@@ -1,0 +1,56 @@
+openapi: "3.0.3"
+info:
+  title: "JSON API sample"
+  description: "A JSON API that allows you to view and add customers"
+  version: "1.0.0"
+servers:
+- url: "http://0.0.0.0:8080"
+paths:
+  /customer:
+    post:
+      description: "Creates a new customer"
+      requestBody:
+        description: "A JSON object containing customer information"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Customer"
+      responses:
+        "201":
+          description: "Created"
+          content:
+            text/plain:
+              schema:
+                type: "string"
+              examples:
+                Example#1:
+                  value: "Customer stored correctly"
+  /customer/{id}:
+    get:
+      description: "Returns a customer by its ID"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Customer"
+components:
+  schemas:
+    Customer:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int32"
+        firstName:
+          type: "string"
+        lastName:
+          type: "string"

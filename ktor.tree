@@ -39,7 +39,6 @@
                              accepts-web-file-names="certificates.html,self-signed-certificate.html"/>
                 <toc-element topic="advanced_http2.md"/>
                 <toc-element topic="native_server.md"/>
-                <toc-element topic="openapi_swagger.md"/>
             </toc-element>
 
             <toc-element toc-title="Routing">
@@ -102,8 +101,8 @@
                          accepts-web-file-names="cookie-header.html,client-server.html,serializers.html,storages.html,transformers.html"/>
 
             <toc-element toc-title="HTTP">
-                <toc-element topic="data-conversion.md"/>
-
+                <toc-element topic="swagger-ui.md" accepts-web-file-names="openapi-swagger.html"/>
+                <toc-element topic="openapi.md"/>
                 <toc-element topic="default_headers.md"/>
                 <toc-element topic="compression.md"/>
                 <toc-element topic="caching.md"
@@ -115,6 +114,7 @@
                 <toc-element topic="hsts.md"/>
                 <toc-element topic="https-redirect.md"/>
                 <toc-element topic="partial-content.md"/>
+                <toc-element topic="data-conversion.md"/>
             </toc-element>
 
             <toc-element topic="websocket.md"

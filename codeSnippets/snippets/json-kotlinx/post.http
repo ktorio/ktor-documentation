@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
   "id": 3,
-  "firstName" : "Jet",
+  "firstName": "Jet",
   "lastName": "Brains"
 }
 

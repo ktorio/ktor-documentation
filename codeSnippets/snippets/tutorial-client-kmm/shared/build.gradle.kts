@@ -22,7 +22,7 @@ kotlin {
     }
     
     sourceSets {
-        val ktorVersion = "2.2.0-eap-547"
+        val ktorVersion = "2.2.0-eap-551"
         val commonMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
