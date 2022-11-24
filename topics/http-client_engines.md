@@ -109,7 +109,7 @@ To learn how to configure a specific engine, see a corresponding section below.
 
 
 ## JVM {id="jvm"}
-In this section, we'll take a look on engines available for JVM.
+In this section, we'll take a look at engines available for JVM.
 
 ### Apache {id="apache"}
 The `Apache` engine supports HTTP/1.1 and provides multiple configuration options. To use it, follow the steps below:
@@ -163,7 +163,7 @@ The `Jetty` engine supports only HTTP/2 and can be configured in the following w
 
 ## JVM and Android {id="jvm-android"}
 
-In this section, we'll take a look on engines available for JVM/Android and their configurations.
+In this section, we'll take a look at engines available for JVM/Android and their configurations.
 
 ### Android {id="android"}
 The `Android` engine targets Android and can be configured in the following way:
@@ -197,7 +197,7 @@ The `OkHttp` engine is based on OkHttp can be configured in the following way:
 
 
 ## Native {id="native"}
-In this section, we'll have a look on how to configure engines targeted for [Kotlin/Native](https://kotlinlang.org/docs/native-overview.html).
+In this section, we'll have a look at how to configure engines targeted for [Kotlin/Native](https://kotlinlang.org/docs/native-overview.html).
 
 > Using the Ktor client in a Kotlin/Native project requires a [new memory manager](https://kotlinlang.org/docs/native-memory-manager.html), which is enabled by default starting with Kotlin 1.7.20.
 >
