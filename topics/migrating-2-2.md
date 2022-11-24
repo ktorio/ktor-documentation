@@ -4,6 +4,9 @@
 
 This guide provides instructions on how to migrate your Ktor application from the 2.0.x version to 2.2.x.
 
+> The API marked with the `WARNING` deprecation level will continue working till the 3.0.0 release.
+> You can learn more about deprecation levels from [Deprecated](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-deprecated/).
+
 ## Ktor Server {id="server"}
 
 ### Cookies {id="cookies"}
