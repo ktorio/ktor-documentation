@@ -16,7 +16,7 @@ Ktor supports [Kotlin/Native](https://kotlinlang.org/docs/native-overview.html) 
 * Windows [target](#targets) is not supported
 
 > Using the Ktor server in a Kotlin/Native project requires a [new memory manager](https://kotlinlang.org/docs/native-memory-manager.html).
-> Starting with the 2.2.0 Ktor version, the new Kotlin/Native memory manager is enabled by default.
+> Starting with Kotlin 1.7.20, the new Kotlin/Native memory manager is enabled by default.
 
 
 

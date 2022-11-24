@@ -199,7 +199,7 @@ The `OkHttp` engine is based on OkHttp can be configured in the following way:
 ## Native {id="native"}
 In this section, we'll have a look on how to configure engines targeted for [Kotlin/Native](https://kotlinlang.org/docs/native-overview.html).
 
-> Using the Ktor client in a Kotlin/Native project requires a [new memory manager](https://kotlinlang.org/docs/native-memory-manager.html), which is enabled by default starting with the 2.2.0 Ktor version.
+> Using the Ktor client in a Kotlin/Native project requires a [new memory manager](https://kotlinlang.org/docs/native-memory-manager.html), which is enabled by default starting with Kotlin 1.7.20.
 >
 {id="newmm-note"}
 
