@@ -190,8 +190,6 @@
     </toc-element>
 
 
-
-
     <toc-element toc-title="Ktor Client">
         <toc-element toc-title="Getting started with a Ktor Client">
             <toc-element topic="getting_started_ktor_client.topic"/>
@@ -252,6 +250,7 @@
 
     <toc-element toc-title="Migrating Ktor applications">
         <toc-element topic="migrating-2.md"/>
+        <toc-element topic="migrating-2-2.md"/>
     </toc-element>
 
     <toc-element toc-title="Migrating from other frameworks">

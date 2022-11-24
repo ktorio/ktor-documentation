@@ -1,8 +1,8 @@
-[//]: # (title: Migrating from 1.6.x to 2.0.0)
+[//]: # (title: Migrating from 1.6.x to 2.0.x)
 
 <show-structure for="chapter" depth="2"/>
 
-This guide provides instructions on how to migrate your Ktor application from the 1.6.x version to 2.0.0.
+This guide provides instructions on how to migrate your Ktor application from the 1.6.x version to 2.0.x.
 
 ## Ktor Server {id="server"}
 ### Server code is moved to the 'io.ktor.server.*' package {id="server-package"}
@@ -834,6 +834,8 @@ The `HttpClientFeature` interface is renamed to `HttpClientPlugin`.
 ### New memory model for Native targets {id="new-mm"}
 
 With v2.0.0, using the Ktor client on [Native](http-client_engines.md#native) targets requires enabling the new Kotlin/Native memory model: [Enable the new MM](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/NEW_MM.md#enable-the-new-mm).
+
+> Starting with v2.2.0, the new Kotlin/Native memory model is [enabled by default](migrating-2-2.md#new-mm).
 
 
 ### The 'Ios' engine is renamed to 'Darwin' {id="darwin"}

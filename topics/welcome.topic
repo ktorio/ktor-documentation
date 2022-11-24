@@ -132,6 +132,9 @@
                             <a href="micrometer_metrics.md"/>
                         </li>
                         <li>
+                            <a href="custom_plugins.md"/>
+                        </li>
+                        <li>
 
                         </li>
                     </list>
@@ -314,6 +317,9 @@
                         </li>
                         <li>
                             <a href="websocket_client.md"/>
+                        </li>
+                        <li>
+                            <a href="client-custom-plugins.md"/>
                         </li>
                         <li>
 

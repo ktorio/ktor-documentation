@@ -6,10 +6,10 @@
 </tldr>
 
 <link-summary>
-The HttpCache allows you to save previously fetched resources in an in-memory or file cache.
+The HttpCache allows you to save previously fetched resources in an in-memory or persistent cache.
 </link-summary>
 
-The Ktor client provides the [HttpCache](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.cache/-http-cache/index.html) plugin that allows you to save previously fetched resources in an in-memory or file cache.
+The Ktor client provides the [HttpCache](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.cache/-http-cache/index.html) plugin that allows you to save previously fetched resources in an in-memory or persistent cache.
 
 
 ## Add dependencies {id="add_dependencies"}
