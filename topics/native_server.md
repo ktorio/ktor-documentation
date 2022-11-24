@@ -15,6 +15,11 @@ Ktor supports [Kotlin/Native](https://kotlinlang.org/docs/native-overview.html) 
 * [HTTPS](ssl.md) without a reverse proxy is not supported
 * Windows [target](#targets) is not supported
 
+> Using the Ktor server in a Kotlin/Native project requires a [new memory manager](https://kotlinlang.org/docs/native-memory-manager.html).
+> Starting with the 2.2.0 Ktor version, the new Kotlin/Native memory manager is enabled by default.
+
+
+
 ## Supported targets {id="targets"}
 
 The following [targets](https://kotlinlang.org/docs/multiplatform-dsl-reference.html#targets) are supported for multiplatform projects:
@@ -137,15 +142,6 @@ The following [targets](https://kotlinlang.org/docs/multiplatform-dsl-reference.
 </tr>
 </table>
 
-
-
-## Enable the New Kotlin/Native memory model {id="new_memory_model"}
-To use Ktor server in a Kotlin/Native project, enable the New Kotlin/Native memory model as described here: [Enable the new MM](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/NEW_MM.md#enable-the-new-mm).
-For example, if you use Gradle, you can enable it by using the `kotlin.native.binary.memoryModel` flag in `gradle.properties`:
-
-```Gradle
-kotlin.native.binary.memoryModel=experimental
-```
 
 
 ## Add dependencies {id="add-dependencies"}

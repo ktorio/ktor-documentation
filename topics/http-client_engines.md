@@ -199,7 +199,9 @@ The `OkHttp` engine is based on OkHttp can be configured in the following way:
 ## Native {id="native"}
 In this section, we'll have a look on how to configure engines targeted for [Kotlin/Native](https://kotlinlang.org/docs/native-overview.html).
 
-> To use the Ktor client on Kotlin/Native, enable the New Kotlin/Native memory model as described here: [Enable the new MM](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/NEW_MM.md#enable-the-new-mm).
+> Using the Ktor client in a Kotlin/Native project requires a [new memory manager](https://kotlinlang.org/docs/native-memory-manager.html), which is enabled by default starting with the 2.2.0 Ktor version.
+>
+{id="newmm-note"}
 
 ### Darwin {id="darwin"}
 The `Darwin` engine targets [Darwin-based](https://en.wikipedia.org/wiki/Darwin_(operating_system)) operating systems (such as macOS, iOS, tvOS, and so on) and uses [NSURLSession](https://developer.apple.com/documentation/foundation/nsurlsession) under the hood. To use the `Darwin` engine, follow the steps below:

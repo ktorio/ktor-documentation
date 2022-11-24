@@ -22,7 +22,7 @@ To use the Ktor HTTP client in your project, you need to [configure repositories
 
 ## Add dependencies {id="add-ktor-dependencies"}
 
-> For [different platforms](#platforms), Ktor provides platform-specific artifacts with suffixes such as `-jvm` or `-js`, for example, `ktor-client-core-jvm`. Note that Gradle resolves artifacts appropriate for a given platform automatically while Maven doesn't support this capability. This means that for Maven you need to add a platform-specific suffix manually.
+> For [different platforms](#platforms), Ktor provides platform-specific artifacts with suffixes such as `-jvm` or `-js`, for example, `ktor-client-core-jvm`. Note that Gradle resolves artifacts appropriate for a given platform automatically, while Maven doesn't support this capability. This means that for Maven, you need to add a platform-specific suffix manually.
 >
 {type="tip"}
 
@@ -38,7 +38,7 @@ For a multiplatform project, you need to add the `ktor-client-core` artifact to 
 
 ```kotlin
 ```
-{src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="25-28,30-31"}
+{src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="19-23,25-26,59"}
 
 
 
@@ -54,7 +54,7 @@ For example, the code snippet below shows how to add the `ktor-client-okhttp` de
 
 ```kotlin
 ```
-{src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="37-41"}
+{src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="19-20,32-36,59"}
 
 For a full list of dependencies required for a specific engine, see [](http-client_engines.md#dependencies).
 
@@ -71,7 +71,7 @@ The Ktor HTTP client can be used on different platforms supported by Kotlin:
 - JVM
 - [Android](https://kotlinlang.org/docs/android-overview.html)
 - [Native](https://kotlinlang.org/docs/native-overview.html)
-   > Using the Ktor client on Kotlin/Native requires enabling the [New memory model](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/NEW_MM.md#enable-the-new-mm).
+   <include from="http-client_engines.md" element-id="newmm-note"/>
 - [JavaScript](https://kotlinlang.org/docs/js-overview.html)
 
 You can use it in [multiplatform projects](https://kotlinlang.org/docs/multiplatform.html), be it a multiplatform mobile or a full-stack web application. The following [targets](https://kotlinlang.org/docs/multiplatform-dsl-reference.html#targets) are supported for multiplatform projects:
