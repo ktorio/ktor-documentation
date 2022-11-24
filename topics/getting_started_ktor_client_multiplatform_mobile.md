@@ -45,26 +45,26 @@ To use the Ktor HTTP client in your project, you need to add at least two depend
 1. Specify the Ktor version inside `sourceSets`:
    ```kotlin
    ```
-   {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="24-25,64"}
+   {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="19-20,59"}
 
    <include from="getting_started_ktor_client.topic" element-id="eap-note"/>
 
 2. To use the Ktor client in common code, add the dependency to `ktor-client-core` to the `commonMain` source set:
    ```kotlin
    ```
-   {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="26-28,30-31"}
+   {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="21-23,25-26"}
 
 3. Add an [engine dependency](http-client_engines.md) for the required platform to the corresponding source set:
    - For Android, add the `ktor-client-okhttp` dependency to the `androidMain` source set:
      ```kotlin
      ```
-     {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="37-41"}
+     {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="32-36"}
    
      For Android, you can also use [other engine types](http-client_engines.md#jvm-android).
    - For iOS, add the `ktor-client-darwin` dependency to `iosMain`:
      ```kotlin
      ```
-     {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="46-54"}
+     {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="41-49"}
 
 
 ### Add coroutines {id="coroutines"}
@@ -74,7 +74,7 @@ To do so, add the `kotlinx-coroutines-core` to the `build.gradle.kts` file of th
 
 ```kotlin
 ```
-{src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="26-31"}
+{src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="21-26"}
 
 Then, open the `androidApp/build.gradle.kts` and add the `kotlinx-coroutines-android` dependency:
 
@@ -115,7 +115,7 @@ Open the `androidApp/src/main/java/com/example/kmmktor/android/MainActivity.kt` 
 
 ```kotlin
 ```
-{src="snippets/tutorial-client-kmm/androidApp/src/main/java/com/example/kmmktor/android/MainActivity.kt" include-lines="20-22,62-87"}
+{src="snippets/tutorial-client-kmm/androidApp/src/main/java/com/example/kmmktor/android/MainActivity.kt" include-lines="12-40"}
 
 Inside the created scope, we can call the shared `greeting` function and handle possible exceptions.
 
