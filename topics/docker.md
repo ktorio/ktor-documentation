@@ -197,8 +197,6 @@ The second stage of the build works in the following way:
 * Runs the application (`ENTRYPOINT`).
 
 
-You can find the resulting project in the **docker** branch of the [ktor-get-started-sample](https://github.com/ktorio/ktor-get-started-sample) repository.
-
 
 ### Build and run the Docker image {id="build-run"}
 
