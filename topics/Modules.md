@@ -22,8 +22,10 @@ Loading modules in your application depends on the way used to [create a server]
 
 ## embeddedServer {id="embedded-server"}
 
-Typically, the `embeddedServer` function accepts a module implicitly as a lambda argument. You can see the example in the [](create_server.topic#embedded-server) section.
-You can also extract application logic into separate modules and call these module functions inside the `embeddedServer` block:
+Typically, the `embeddedServer` function accepts a module implicitly as a lambda argument. 
+You can see the example in the [](create_server.topic#embedded-server) section.
+You can also extract application logic into a separate module and 
+pass a reference to this module as the `module` parameter:
 
 ```kotlin
 ```
