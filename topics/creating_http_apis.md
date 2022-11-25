@@ -173,7 +173,7 @@ We want to respond to `GET`, `POST`, and `DELETE` requests on the `/customer` en
 
    In this case, we're using the `route` function to group everything that falls under the `/customer` endpoint. We then create a block for each HTTP method. This is just one approach how we can structure our routes – when we tackle the `Order` routes in the next chapter, we will see another approach.
 
-   Notice also how we actually have two entries for `get`: one without a path parameter, and the other with `{id?}`. We'll use the first entry to list all customers, and the second to display a specific one.
+   Notice also how we actually have two entries for `get`: one without a path parameter, and the other with `{id?}`. We'll use the first entry to list all customers, and the second entry to display a specific one.
 
 #### List all customers {id="list_customers"}
 
@@ -321,7 +321,7 @@ Now that we have everything wired up, we can finally start testing our applicati
 Now that we have all the endpoints ready, it's time to test our application. While
 we can use any browser to test `GET` requests, we'll need a separate tool to test the other HTTP methods:
 - If you use IntelliJ IDEA Ultimate, you already have a [client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html) that supports `.http` files, allowing you to specify and execute requests.
-- If you use IntelliJ IDEA Community or other IDE, you can test your API using `curl`.
+- If you use IntelliJ IDEA Community or another IDE, you can test your API using `curl`.
 
 ### Create a customer HTTP test file {id="create_customer_http"}
 
@@ -417,7 +417,7 @@ And just like that, we have finished building our small JSON-based HTTP API. Of 
 
 ## What's next {id="whats_next"}
 
-With this step, we've finalized our HTTP API application. From here on we can add other
+With this step, we've finalized our HTTP API application. From here on, we can add other
 plugins such as Authentication, etc.
 
 ### Feature requests {id="feature_requests"}

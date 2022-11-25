@@ -11,7 +11,7 @@ To run this sample, execute the following command in a repository's root directo
 ./gradlew :client-custom-plugin:run
 ```
 
-Each of the installed plugins should add some information to output, for example:
+Each of the installed plugins should add some information to the output, for example:
 - A custom header added to each request.
 - A list of request and response headers.
 - The time between sending a request and receiving a response.

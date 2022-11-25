@@ -214,7 +214,7 @@ We can now adjust our server's program to keep track of our Connection objects, 
 ```
 {src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/plugins/Sockets.kt" include-lines="3-12,19-43"}
 
-Our server now stores a (thread-safe) collection of `Connection`s. When a user connects, we create their `Connection` object (which also assigns itself a unique username), and add it to the collection. We then greet our user and let them know how many users are currently connecting. When we receive a message from the user, we prefix it with the unique name associated with their `Connection` object, and send it to all currently active connections. Finally, we remove the client's `Connection` object from our collection when the connection is terminated – either gracefully, when the incoming channel gets closed, or with an `Exception` when the network connection between client and server gets interrupted unexpectedly.
+Our server now stores a (thread-safe) collection of `Connection`s. When a user connects, we create their `Connection` object (which also assigns itself a unique username), and add it to the collection. We then greet our user and let them know how many users are currently connecting. When we receive a message from the user, we prefix it with the unique name associated with their `Connection` object, and send it to all currently active connections. Finally, we remove the client's `Connection` object from our collection when the connection is terminated – either gracefully, when the incoming channel gets closed, or with an `Exception` when the network connection between the client and server gets interrupted unexpectedly.
 
 To see that our server is now behaving correctly – assigning usernames and broadcasting them to everybody connected – we can once again run our application using the play button in the gutter and use [Postman](https://learning.postman.com/docs/sending-requests/supported-api-frameworks/websocket/) to connect to `ws://localhost:8080/chat`. This time, we can use two separate tabs to validate that messages are exchanged properly.
 
@@ -242,7 +242,7 @@ Congratulations on finishing this tutorial on creating a chat application using 
 
 ### Feature requests
 
-At this point, we have implemented the absolute basics for a chat service, both on client and server side. If you want to, you can keep expanding on this project. To get you started, here are a few ideas of how to improve the application, in no particular order:
+At this point, we have implemented the absolute basics for a chat service, both on the client and server side. If you want to, you can keep expanding on this project. To get you started, here are a few ideas of how to improve the application, in no particular order:
 
 - **Custom usernames!** Instead of automatically assigning numbers to your users, you can ask users on application startup to enter a username, and persist this name alongside the Connection information on the server.
 - **Private messages!** If your users have something to say, but don't want to share it with the whole group, you could implement a `/whisper` command, which only relays the message to a certain person or select group of participants. You could even expand this functionality to handle more generic **chat commands!**

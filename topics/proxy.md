@@ -92,7 +92,7 @@ val client = HttpClient() {
 
 ## Proxy authentication and authorization {id="proxy_auth"}
 
-Proxy authentication and authorization are engine specific and should be handled manually.
+Proxy authentication and authorization are engine-specific and should be handled manually.
 For example, to authenticate a Ktor client to an HTTP proxy server using basic authentication, append the `Proxy-Authorization` header to [each request](default-request.md) as follows:
 
 ```kotlin

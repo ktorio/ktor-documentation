@@ -1,5 +1,5 @@
 # OAuth Google authentication
-A sample project demonstrating how to use [OAuth](https://ktor.io/docs/oauth.html) to get a Google's profile information. To learn more about OAuth support for accessing Google APIs, see [Using OAuth 2.0 to Access Google APIs](https://developers.google.com/identity/protocols/oauth2).
+A sample project demonstrating how to use [OAuth](https://ktor.io/docs/oauth.html) to get Google's profile information. To learn more about OAuth support for accessing Google APIs, see [Using OAuth 2.0 to Access Google APIs](https://developers.google.com/identity/protocols/oauth2).
  
 ## Obtaining client credentials
 To obtain client credentials required for accessing Google APIs, follow the steps below:

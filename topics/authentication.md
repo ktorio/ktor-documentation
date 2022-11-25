@@ -19,7 +19,7 @@ The Authentication plugin handles authentication and authorization in Ktor: logg
 Ktor provides the [Authentication](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-authentication/index.html) plugin to handle authentication and authorization. Typical usage scenarios include logging in users, granting access to specific resources, and securely transmitting information between parties. You can also use `Authentication` with [Sessions](sessions.md) to keep a user's information between requests.
 
 ## Supported authentication types {id="supported"}
-Ktor supports the following authentications and authorization schemes:
+Ktor supports the following authentication and authorization schemes:
 
 ### HTTP authentication {id="http-auth"}
 HTTP provides a [general framework](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) for access control and authentication. In Ktor, you can use the following HTTP authentication schemes:
@@ -125,7 +125,7 @@ To understand how the `validate` function works, we need to introduce two terms:
 
 So, the `validate` function checks a specified [Credential](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-credential/index.html) and returns a [Principal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-principal/index.html) in the case of successful authentication or `null` if authentication fails.
 
-> To skip authentication based on a specific criteria, use [skipWhen](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-authentication-provider/-config/skip-when.html). For example, you can skip `basic` authentication if a [session](sessions.md) already exists:
+> To skip authentication based on specific criteria, use [skipWhen](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-authentication-provider/-config/skip-when.html). For example, you can skip `basic` authentication if a [session](sessions.md) already exists:
 > ```kotlin
 > basic {
 >     skipWhen { call -> call.sessions.get<UserSession>() != null }

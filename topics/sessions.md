@@ -166,7 +166,7 @@ All three functions are [suspending](https://kotlinlang.org/docs/composing-suspe
 
 ### Sign session data {id="sign_session"}
 
-Signing session data prevents modifying a session's content but allows users see this content.
+Signing session data prevents modifying a session's content but allows users to see this content.
 To sign a session, pass a sign key to the `SessionTransportTransformerMessageAuthentication` constructor and pass this instance to the `transform` function:
 
 ```kotlin

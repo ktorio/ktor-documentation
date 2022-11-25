@@ -11,6 +11,6 @@ cart_session: {{cart_session_header}}
 GET http://localhost:8080/logout
 cart_session: {{cart_session_header}}
 
-### Step 4. Try to to get session data one more time.
+### Step 4. Try to get session data one more time.
 GET http://localhost:8080/cart
 cart_session: {{cart_session_header}}

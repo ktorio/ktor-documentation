@@ -91,7 +91,7 @@ The `onCallReceive` handler provides the `transformBody` function and allows you
 ```
 {src="snippets/custom-plugin/post.http"}
 
-To [receive this body](requests.md#objects) as an integer value, you need create a route handler for `POST` requests and call `call.receive` with the `Int` parameter:
+To [receive this body](requests.md#objects) as an integer value, you need to create a route handler for `POST` requests and call `call.receive` with the `Int` parameter:
 
 ```kotlin
 ```
@@ -120,7 +120,7 @@ You can find the full example here: [DataTransformationPlugin.kt](https://github
 ```
 {src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" include-lines="27-30"}
 
-Calling `call.respond` invokes the `onCallRespond`, which is in turn allows you to transform data to be sent to the client. For example, the code snippet below shows how to add `1` to the initial value:
+Calling `call.respond` invokes `onCallRespond`, which in turn allows you to transform data to be sent to the client. For example, the code snippet below shows how to add `1` to the initial value:
 
 ```kotlin
 ```

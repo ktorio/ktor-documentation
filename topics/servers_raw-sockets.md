@@ -17,7 +17,7 @@
 </tldr>
 
 In addition to HTTP/WebSocket handling for the server and client, Ktor supports TCP and UDP raw sockets.
-It exposes a suspending API that uses [java.nio](https://docs.oracle.com/javase/8/docs/api/java/nio/package-summary.html) under the hoods.
+It exposes a suspending API that uses [java.nio](https://docs.oracle.com/javase/8/docs/api/java/nio/package-summary.html) under the hood.
 
 > Sockets use an experimental API that is expected to evolve in the upcoming updates with potentially breaking changes.
 >
@@ -126,7 +126,7 @@ Once you have a connected socket, you can receive/send data by reading from or w
 
 ### Create a secure socket (SSL/TLS) {id="secure"}
 
-Secure sockets allows you to establish TLS connections. 
+Secure sockets allow you to establish TLS connections. 
 To use secure sockets, you need to add the [ktor-network-tls](#add_dependencies) dependency.
 Then, call the `Socket.tls` function on a connected socket:
 

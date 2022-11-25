@@ -75,7 +75,7 @@ Inside the `webSocket` block, you need to handle a WebSocket session, which is r
 
 > If you need to get information about the client (for example, the client IP address), use the `call` property. You can learn more from [](requests.md#request_information).
 
-Below we'll take a look at the examples of using this API.
+Below, we'll take a look at the examples of using this API.
 
 
 ### Example: Handle a single session {id="handle-single-session"}

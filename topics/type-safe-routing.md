@@ -47,7 +47,7 @@ Each resource class should have the following annotations:
 * The `@Serializable` annotation, which is provided by the [kotlinx.serialization library](#add_serialization).
 * The `@Resource` annotation.
 
-Below we'll take a look at several examples of resource classes - defining a single path segment, query and path parameters, and so on.
+Below, we'll take a look at several examples of resource classes - defining a single path segment, query and path parameters, and so on.
 
 ### Resource URL {id="resource_url"}
 

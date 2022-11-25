@@ -79,7 +79,7 @@ Apart from the [ktor-client-core](client-dependencies.md) artifact, the Ktor cli
 * [JavaScript](#js)
 * [Native](#native)
 
-> For different engines, Ktor provides platform-specific artifacts with suffixes such as `-jvm` or `-js`, for example, `ktor-client-cio-jvm`. Gradle resolves artifacts appropriate for a given platform while Maven doesn't support this capability. This means that for Maven you need to add a platform-specific suffix manually.
+> For different engines, Ktor provides platform-specific artifacts with suffixes such as `-jvm` or `-js`, for example, `ktor-client-cio-jvm`. Gradle resolves artifacts appropriate for a given platform while Maven doesn't support this capability. This means that for Maven, you need to add a platform-specific suffix manually.
 >
 {type="note"}
 
@@ -355,7 +355,7 @@ Let's demonstrate how to achieve this using a project created in the [](getting_
       }
    }
    ```
-   This example shows how to configure the [OkHttp](#okhttp) engine but you can also use other engines [supported for Android](#jvm-android).
+   This example shows how to configure the [OkHttp](#okhttp) engine, but you can also use other engines [supported for Android](#jvm-android).
 
 3. Open `shared/src/iosMain/kotlin/com/example/kmmktor/Platform.kt` and add an actual declaration of the `httpClient` function for the iOS module:
    ```kotlin

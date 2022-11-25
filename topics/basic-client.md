@@ -22,14 +22,14 @@ The basic authentication flow looks as follows:
 
    The Ktor client allows you to send credentials without waiting the `WWW-Authenticate` header using the `sendWithoutRequest` [function](#configure).
 
-4. Usually a client displays a login dialog where a user can enter credentials. Then, a client makes a request with the `Authorization` header containing a username and password pair encoded using Base64, for example:
+3. Usually, a client displays a login dialog where a user can enter credentials. Then, a client makes a request with the `Authorization` header containing a username and password pair encoded using Base64, for example:
 
    ```
    Authorization: Basic amV0YnJhaW5zOmZvb2Jhcg
    ```
    {style="block"}
 
-5. A server validates credentials sent by the client and responds with the requested content.
+4. A server validates credentials sent by the client and responds with the requested content.
 
 
 ## Configure basic authentication {id="configure"}

@@ -149,7 +149,7 @@ Ktor also provides the [HttpCookies](http-cookies.md) plugin that allows you to 
 
 
 ## Set request body {id="body"}
-To set the body of a request, you need to call the `setBody` function exposed by [HttpRequestBuilder](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/-http-request-builder/index.html). This function accepts different types of payloads, including plain text, arbitrary class instances, form data, byte arrays, and so on. Below we'll take a look at several examples.
+To set the body of a request, you need to call the `setBody` function exposed by [HttpRequestBuilder](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/-http-request-builder/index.html). This function accepts different types of payloads, including plain text, arbitrary class instances, form data, byte arrays, and so on. Below, we'll take a look at several examples.
 
 ### Text {id="text"}
 Sending plain text as body can be implemented in the following way:
@@ -264,4 +264,4 @@ val job = launch {
 job.cancel()
 ```
 
-Learn more about [Cancellation and timeouts](https://kotlinlang.org/docs/cancellation-and-timeouts.html).
+Learn more from [Cancellation and timeouts](https://kotlinlang.org/docs/cancellation-and-timeouts.html).

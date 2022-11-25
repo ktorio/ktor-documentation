@@ -79,7 +79,7 @@ In summary, you need to specify the following settings to define a route:
 
 A path pattern passed to the [routing](#define_route) functions (`route`, `get`, `post`, etc.) is used to match a _path_ component of the URL. A path can contain a sequence of path segments separated by a slash `/` character.
 
-> Note that Ktor distinguishes paths with and without a trailing slash. You can change this behaviour by [installing](Plugins.md#install) the `IgnoreTrailingSlash` plugin.
+> Note that Ktor distinguishes paths with and without a trailing slash. You can change this behavior by [installing](Plugins.md#install) the `IgnoreTrailingSlash` plugin.
 
 Below are several path examples:
 * `/hello`  
@@ -119,7 +119,7 @@ To access a parameter value inside the route handler, use the `call.parameters` 
 
 ### Path parameter with tailcard {id="path_parameter_tailcard"}
 
-A path parameter with a tailcard (`{param...}`) matches all the rest of the URL path and puts multiple values for each path segment into parameters using `param` as key. For example, `/user/{param...}` matches `/user/john/settings`.
+A path parameter with a tailcard (`{param...}`) matches all the rest of the URL path and puts multiple values for each path segment into parameters using `param` as a key. For example, `/user/{param...}` matches `/user/john/settings`.
 To access path segments' values inside the route handler, use `call.parameters.getAll("param")`. For the example above, the `getAll` function will return an array containing the _john_ and _settings_ values.
 
 ## Define multiple route handlers {id="multiple_routes"}
@@ -230,7 +230,7 @@ fun Route.totalizeOrderRoute() {
 
 You can find the full example demonstrating this approach here: [tutorial-website-interactive](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-website-interactive).
 
-> For our application to scale when it comes to maintainability, it is recommended to follow certain [Structuring patterns](Structuring_Applications.md).
+> For our application to scale when it comes to maintainability, it is recommended to follow certain [structuring patterns](Structuring_Applications.md).
 
 
 ## Trace routes {id="trace_routes"}

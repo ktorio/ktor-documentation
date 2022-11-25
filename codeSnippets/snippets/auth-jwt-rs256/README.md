@@ -9,5 +9,5 @@ To run this sample, execute the following command in a repository's root directo
 ```
 
 Then, open the [requests.http](requests.http) file and do the following:
-1. Run the first `POST` request to `http://localhost:8080/login` to emulate login process. A server will generate and return a token. Note that after receiving a response HTTP Client saves a generated token in a [variable](https://www.jetbrains.com/help/idea/http-response-handling-examples.html#script-var-example), which will be used to authorize the client in the second request.
+1. Run the first `POST` request to `http://localhost:8080/login` to emulate a login process. A server will generate and return a token. Note that after receiving a response, HTTP Client saves a generated token in a [variable](https://www.jetbrains.com/help/idea/http-response-handling-examples.html#script-var-example), which will be used to authorize the client in the second request.
 2. Run the second `GET` request with a token sent using the `Bearer` scheme and access the protected `hello` resource.

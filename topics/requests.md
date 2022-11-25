@@ -11,7 +11,7 @@ Ktor allows you to handle incoming requests and send [responses](responses.md) i
 * Receive [body contents](#body_contents), for example, data objects, form parameters, and files.
 
 ## General request information {id="request_information"}
-Inside a route handler, you can get access to a request using the [call.request](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-call/request.html) property. This returns the [ApplicationRequest](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/-application-request/index.html) instance and provides access to various request parameters. For example, the code snippet below shows how get a request URI:
+Inside a route handler, you can get access to a request using the [call.request](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-call/request.html) property. This returns the [ApplicationRequest](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/-application-request/index.html) instance and provides access to various request parameters. For example, the code snippet below shows how to get a request URI:
 ```kotlin
 routing {
     get("/") {

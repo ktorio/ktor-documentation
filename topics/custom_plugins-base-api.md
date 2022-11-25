@@ -12,7 +12,7 @@
 {type="note"}
 
 Ktor exposes API for developing custom [plugins](Plugins.md) that implement common functionalities and can be reused in multiple applications. 
-This API allows you to intercept different [pipeline](#pipelines) phases to add custom logic to a request/response processing.
+This API allows you to intercept different [pipeline](#pipelines) phases to add custom logic to request/response processing.
 For example, you can intercept the `Monitoring` phase to log incoming requests or collect metrics.
 
 ## Create a plugin {id="create"}

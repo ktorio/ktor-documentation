@@ -18,7 +18,7 @@
 <include from="lib.topic" element-id="native_server_supported"/>
 </tldr>
 
-If your server supposes to handle [cross-origin requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS), you need to install and configure the [CORS](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-cors/io.ktor.server.plugins.cors.routing/-c-o-r-s.html) Ktor plugin. This plugin allows you to configure allowed hosts, HTTP methods, headers set by the client, and so on.
+If your server is supposed to handle [cross-origin requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS), you need to install and configure the [CORS](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-cors/io.ktor.server.plugins.cors.routing/-c-o-r-s.html) Ktor plugin. This plugin allows you to configure allowed hosts, HTTP methods, headers set by the client, and so on.
 
 ## Add dependencies {id="add_dependencies"}
 
@@ -66,7 +66,7 @@ install(CORS) {
 }
 ```
 
-To allows cross-origin requests from any host, use the `anyHost` function.
+To allow cross-origin requests from any host, use the `anyHost` function.
 
 ```kotlin
 install(CORS) {

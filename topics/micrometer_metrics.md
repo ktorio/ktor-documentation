@@ -42,7 +42,7 @@ To enable `MicrometerMetrics`, you need to include the following artifacts in th
 
 ### Exposed metrics {id="ktor_metrics"}
 Ktor exposes the following metrics for monitoring HTTP requests:
-* `ktor.http.server.requests.active`: a [gauge](https://micrometer.io/docs/concepts#_gauges) that counts the amount of concurrent HTTP requests. This metric doesn't provide any tags.
+* `ktor.http.server.requests.active`: a [gauge](https://micrometer.io/docs/concepts#_gauges) that counts the number of concurrent HTTP requests. This metric doesn't provide any tags.
 * `ktor.http.server.requests`: a [timer](https://micrometer.io/docs/concepts#_timers) for measuring the time of each request. This metric provides a set of tags for monitoring request data, including `address` for a requested URL, `method` for an HTTP method, `route` for a Ktor route handling requests, and so on.
 
 You can customize the default `ktor.http.server.requests` prefix using the `metricName` [configuration](#configure_metrics) property.
@@ -91,7 +91,7 @@ In addition to [HTTP metrics](#ktor_metrics), Ktor exposes a set of metrics for 
 ```
 {src="snippets/micrometer-metrics/src/main/kotlin/com/example/Application.kt" include-lines="17,27-32"}
 
-You can also assign an empty list to disable these metrics at all.
+You can also assign an empty list to disable these metrics completely.
 
 
 ## Prometheus: expose a scrape endpoint {id="prometheus_endpoint"}

@@ -12,7 +12,7 @@ This guide provides instructions on how to migrate your Ktor application from th
 ### Cookies {id="cookies"}
 With v2.2.0, the following API members related to configuring [response cookies](responses.md#cookies) are changed:
 - The `maxAge` parameter type passed to the `append` function is changed from `Int` to `Long`.
-- The `appendExpired` function is deprecated. Use the `append` function with `expires` parameter instead.
+- The `appendExpired` function is deprecated. Use the `append` function with the `expires` parameter instead.
 
 
 
@@ -37,7 +37,7 @@ You can learn more from the [](forward-headers.md#original-request-information).
 ### Merging configurations {id="merge-configs"}
 Before v2.2.0, the `List<ApplicationConfig>.merge()` function is used to merge application configurations.
 In case both configurations have the same key, the resulting configuration takes the value from the first one.
-With this release, the following API is introduced to improve this behaviour:
+With this release, the following API is introduced to improve this behavior:
 - `public fun ApplicationConfig.withFallback(other: ApplicationConfig): ApplicationConfig`: this function works the same way as `merge()` and takes the value from the first configuration.
 - `public fun ApplicationConfig.mergeWith(other: ApplicationConfig): ApplicationConfig`: the resulting configuration takes the value from the second one.
 
@@ -47,14 +47,14 @@ With this release, the following API is introduced to improve this behaviour:
 ### Caching: Persistent storage {id="persistent-storage"}
 
 With v2.2.0, the following API related to response [caching](client-caching.md) is deprecated:
-- The `HttpCacheStorage` class is replaced with the `CacheStorage` interface, which can be used to implement persistent storage for the required platform.
+- The `HttpCacheStorage` class is replaced with the `CacheStorage` interface, which can be used to implement a persistent storage for the required platform.
 - The `publicStorage`/`privateStorage` properties are replaced with corresponding functions that accept `CacheStorage` instances.
 
 
 ### Custom plugins {id="custom-plugins"}
 
 Starting with the 2.2.0 release, Ktor provides a new API for creating custom client plugins. 
-To learn more, see [](http-client_plugins.md).
+To learn more, see [](client-custom-plugins.md).
 
 
 ## New memory model {id="new-mm"}

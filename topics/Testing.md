@@ -222,7 +222,7 @@ The code below demonstrates how to build `multipart/form-data` and test file upl
 
 ### Send JSON data {id="json-data"}
 
-To send JSON data in a test POST/PUT request, you need create a new client and install the [ContentNegotiation](serialization-client.md) plugin that allows serializing/deserializing the content in a specific format. Inside a request, you can specify the `Content-Type` header using the `contentType` function and the request body using [setBody](request.md#body). The [example below](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/json-kotlinx) shows how to test the `/customer` endpoint that handles `POST` requests.
+To send JSON data in a test POST/PUT request, you need to create a new client and install the [ContentNegotiation](serialization-client.md) plugin that allows serializing/deserializing the content in a specific format. Inside a request, you can specify the `Content-Type` header using the `contentType` function and the request body using [setBody](request.md#body). The [example below](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/json-kotlinx) shows how to test the `/customer` endpoint that handles `POST` requests.
 
 <tabs>
 <tab title="Test">
@@ -246,7 +246,7 @@ To send JSON data in a test POST/PUT request, you need create a new client and i
 
 ## Preserve cookies during testing {id="preserving-cookies"}
 
-If you need to preserve cookies between requests when testing, you need create a new client and install the [HttpCookies](http-cookies.md) plugin. In a test below from the [session-cookie-client](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/session-cookie-client) example, reload count is increased after each request since cookies are preserved.
+If you need to preserve cookies between requests when testing, you need to create a new client and install the [HttpCookies](http-cookies.md) plugin. In a test below from the [session-cookie-client](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/session-cookie-client) example, reload count is increased after each request since cookies are preserved.
 
 
 <tabs>

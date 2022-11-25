@@ -13,7 +13,7 @@
 <include from="lib.topic" element-id="native_server_supported"/>
 </tldr>
 
-The Bearer authentication scheme is a part of [HTTP framework](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) used for access control and authentication. This scheme involves security tokens called bearer tokens. The Bearer authentication scheme is used as part of [OAuth](oauth.md) or [JWT](jwt.md), but you can also provide custom logic for authorizing bearer tokens.
+The Bearer authentication scheme is a part of the [HTTP framework](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) used for access control and authentication. This scheme involves security tokens called bearer tokens. The Bearer authentication scheme is used as part of [OAuth](oauth.md) or [JWT](jwt.md), but you can also provide custom logic for authorizing bearer tokens.
 
 You can get general information about authentication in Ktor in the [](authentication.md) section.
 

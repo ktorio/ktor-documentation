@@ -71,7 +71,7 @@ A Ktor client allows you to configure a token to be sent in the `Authorization` 
 
    c. The client makes one more request to a protected resource automatically using a new token this time.
 
-5. Optionally, specify a condition for sending credentials without waiting for the `401` (Unauthorized) response. For example, you can check whether a request is made to a specified host.
+4. Optionally, specify a condition for sending credentials without waiting for the `401` (Unauthorized) response. For example, you can check whether a request is made to a specified host.
 
    ```kotlin
    install(Auth) {
@@ -254,7 +254,7 @@ At this step, the request to the protected resource contains a new token and sho
 
 ### (12) <-- Protected resource {id="step12"}
 
-Given that the [401 response](#step8) returns JSON data with error details, we need to update our sample to receive the information about a error as a `ErrorInfo` object:
+Given that the [401 response](#step8) returns JSON data with error details, we need to update our sample to receive the information about an error as a `ErrorInfo` object:
 
 ```kotlin
 ```

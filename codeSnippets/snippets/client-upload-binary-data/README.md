@@ -1,6 +1,6 @@
 # Client: Uploading binary data
 
-A sample Ktor project showing how to send a file as a binary data with a [request](https://ktor.io/docs/request.html).
+A sample Ktor project showing how to send a file as binary data with a [request](https://ktor.io/docs/request.html).
 > This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running

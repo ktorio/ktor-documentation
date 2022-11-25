@@ -9,7 +9,7 @@ Learn about engines that process network requests.
 To run a Ktor server application, you need to [create](create_server.topic) and configure a server first.
 Server configuration includes different settings:
 - an [engine](#supported-engines) for processing network requests;
-- a host and port values used to access a server;
+- host and port values used to access a server;
 - SSL settings;
 - ... and so on.
 
@@ -120,7 +120,7 @@ mainClassName = "io.ktor.server.netty.EngineMain"
 
 ## Configure an engine {id="configure-engine"}
 
-In this section, we'll take a look how to specify various engine-specific options.
+In this section, we'll take a look at how to specify various engine-specific options.
 
 ### In code {id="embedded-server-configure"}
 

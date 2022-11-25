@@ -66,7 +66,7 @@ You can optionally specify a [provider name](authentication.md#provider-name).
 
 This section demonstrates how to configure the `oauth` provider for authorizing users of your application using Google. You can find the complete runnable example here: [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-oauth-google). 
 
-> Note that to access Google APIs you need to create authorization credentials in the [Google Cloud Console](https://console.cloud.google.com/apis/credentials). Credentials contain the client ID and client secret that will be used to configure the `oauth` provider.
+> Note that to access Google APIs, you need to create authorization credentials in the [Google Cloud Console](https://console.cloud.google.com/apis/credentials). Credentials contain the client ID and client secret that will be used to configure the `oauth` provider.
 
 
 ### Step 1: Create the HTTP client {id="create-http-client"}

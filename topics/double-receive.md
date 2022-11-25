@@ -57,8 +57,8 @@ With the default configuration, `%plugin_name%` provides the ability to [receive
 
 By default, `%plugin_name%` doesn't support:
 
-- receiving different types from the same request
-- receiving a [stream or channel](requests.md#raw)
+- receiving different types from the same request;
+- receiving a [stream or channel](requests.md#raw).
 
 Set the `cacheRawRequest` property to `false`, if you do not need to receive different types from the same request or receive a stream or channel:
 

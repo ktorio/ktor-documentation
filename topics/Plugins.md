@@ -91,7 +91,7 @@ fun Application.module() {
 
 In addition to intercepting requests and responses, Plugins can have an option configuration section which is configured during this step.
 
-For instance, when installing [Cookies](sessions.md#cookie) we can set certain parameters such as where we want Cookies to be stored, or their name:
+For instance, when installing [Cookies](sessions.md#cookie) we can set certain parameters such as where we want cookies to be stored, or their name:
 
 ```kotlin
 install(Sessions) {
@@ -114,13 +114,13 @@ Note that the following rules are applied to several installations of the same p
    ```kotlin
    routing {
        route("index") {
-           install(CachingHeaders) { // First configuration }
+           install(CachingHeaders) { /* First configuration */ }
            get("a") {
                // ...
            }
        }
        route("index") {
-           install(CachingHeaders) { // Second configuration }
+           install(CachingHeaders) { /* Second configuration */ }
            get("b") {
                // ...
            }
@@ -133,8 +133,8 @@ Note that the following rules are applied to several installations of the same p
 
 ## Default, available, and custom Plugins {id="default_available_custom"}
 
-By default, Ktor does not activate any Plugin, and it's up to us as developers to install the functionality our application need.
+By default, Ktor does not activate any Plugin, and it's up to us as developers to install the functionality our application needs.
 
-Ktor does however provide a variety of Plugins that ship out of the box. We can see a complete list of these 
+Ktor does, however, provide a variety of Plugins that ship out of the box. We can see a complete list of these 
 either on the [Project Generator Site](https://start.ktor.io) or in the [IntelliJ IDEA Wizard](intellij-idea.topic). In addition,
 we can also create our own [custom Plugins](custom_plugins.md).

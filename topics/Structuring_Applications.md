@@ -4,7 +4,7 @@
 
 One of Ktor's strong points is in the flexibility it offers in terms of structuring our application. Different to many other server-side frameworks, it doesn't force us into a specific pattern such as having to place all cohesive routes in a single class name `CustomerController` for instance. While it is certainly possible, it's not required.
 
-In this section we're going to examine the different options we have to structure our applications.
+In this section, we're going to examine the different options we have to structure our applications.
 
 ## Group by file {id="group_by_file"}
 
@@ -53,8 +53,8 @@ to another file `ShipmentRoutes.kt`.
 ## Group routing definitions {id="group_routing_definitions"}
 
 One advantage of this approach is that we can also group the routing definitions, and potentially functionality, per file. 
-For instance, let's assume that we follow the group per file layout as above. Even though are routes in a different files, we need to declare them at the Application level. 
-As such our app would look something like the following:
+For instance, let's assume that we follow the group per file layout as above. Even though routes are in a different file, we need to declare them at the Application level. 
+As such, our app would look something like the following:
 
 ```kotlin
 routing {
@@ -140,7 +140,7 @@ Frameworks such as ASP.NET MVC or Ruby on Rails, have the concept of structuring
 This isn't far-fetched with the schema we have above which is grouping routes in their own packages/files, our views in the `resources` folder in the case of Ktor, and of course, nothing prevents us from having a package model where we place any data we want to display or respond to HTTP endpoints with.
 
 While this approach may work and is similar to other frameworks, some would argue that it would make more sense to group things by features, i.e. instead of having the project 
-distributed by routes, models and views, have these groups by specific behaviour/features, i.e. `OrderProcessPayment`, `CustomerAddressChange`, etc.
+distributed by routes, models and views, have these groups by specific behavior/features, i.e. `OrderProcessPayment`, `CustomerAddressChange`, etc.
 
 ![Feature grouping](ktor-routing-3.png){width="350"}
 
@@ -151,9 +151,9 @@ How this problem is solved very much depends on what is used for Views. If our a
 client-side. If we're using Kotlinx.HTML, then once again it's not an issue as the page can be generated from any Kotlin file placed anywhere. 
 
 The issue arises more when we're using a templating engine such as FreeMarker. These are peculiar in how and where template files should be located. 
-Fortunately some of them offer flexibility in how templates are loaded.
+Fortunately, some of them offer flexibility in how templates are loaded.
 
-For instance with FreeMarker, we can use a MultiTemplateLoader and then have templates loaded from different locations:
+For instance, with FreeMarker, we can use a MultiTemplateLoader and then have templates loaded from different locations:
 
 ```kotlin
 install(FreeMarker) {

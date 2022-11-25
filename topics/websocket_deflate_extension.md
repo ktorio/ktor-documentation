@@ -6,7 +6,7 @@ It's useful to enable this extension if you're sending large amounts of text dat
 
 ## Installation
 
-To use the extension it should be installed first. To do that we can use `install` method in `extensions` block:
+To use the extension, it should be installed first. To do that we can use `install` method in `extensions` block:
 
 ```kotlin
 // For client and server
@@ -19,7 +19,7 @@ install(WebSockets) {
             compressionLevel = Deflater.DEFAULT_COMPRESSION
 
             /**
-             * Prevent to compress small outgoing frames.
+             * Prevent compressing small outgoing frames.
              */
             compressIfBiggerThan(bytes = 4 * 1024)
         }
@@ -31,9 +31,10 @@ install(WebSockets) {
 
 #### Context takeover
 
-Specify if the client (and server) should use compression window. Enabling these parameters reduce the amount of space 
-allocated per single session. Please note that window size
-cannot be configured due to limitations of `java.util.zip.Deflater` API. The value is fixed to `15`.
+Specify if the client (and server) should use a compression window. 
+Enabling these parameters reduces the amount of space allocated per single session. 
+Note that the window size cannot be configured due to limitations of `java.util.zip.Deflater` API. 
+The value is fixed to `15`.
 
 ```kotlin
 clientNoContextTakeOver = false

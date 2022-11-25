@@ -69,7 +69,7 @@ In this section, we'll consider two cases of serving these files:
 ### Change the default root folder {id="default-folder"}
 
 By default, Ktor calculates a path for serving static files from a current working directory.
-If static files of your application is stored inside a specific folder, you can set it as a default root folder from where the content is served using the `staticRootFolder` property.
+If static files of your application are stored inside a specific folder, you can set it as a default root folder from where the content is served using the `staticRootFolder` property.
 For the `files` folder in the project root, the configuration looks as follows:
 
 ```kotlin
@@ -204,7 +204,7 @@ In this section, we'll consider two cases of serving these files:
 ### Change the default resource package {id="default-resource-package"}
 
 By default, Ktor calculates a path for serving static resources from a resources root directory.
-If static files of your application is stored inside a specific resource package, you can set it as a default package from where the content is served using the `staticBasePackage` property.
+If static files of your application are stored inside a specific resource package, you can set it as a default package from where the content is served using the `staticBasePackage` property.
 For example, for the `static` package inside the `resources` folder, the configuration looks as follows:
 
 ```kotlin

@@ -15,8 +15,8 @@ Once your host is configured properly for Ktor, HTTP/2 support will be activated
 
 Key requirements:
 
-* SSL certificate (can be self-signed)
-* ALPN implementation suitable for a particular engine (see corresponding sections for Netty and Jetty)
+* An SSL certificate (can be self-signed).
+* An ALPN implementation suitable for a particular engine (see corresponding sections for Netty and Jetty).
 
 ## SSL certificate {id="ssl_certificate"}
 

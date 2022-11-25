@@ -199,7 +199,7 @@ The `call.receiveParameters` function is used to [receive form parameters](reque
 
 ## Show a created article {id="show_article"}
 
-To show a content of a specific article, we'll use the article ID as a [path parameter](Routing_in_Ktor.md#path_parameter). In `Routing.kt`, add the following code inside `get("{id}")`:
+To show the content of a specific article, we'll use the article ID as a [path parameter](Routing_in_Ktor.md#path_parameter). In `Routing.kt`, add the following code inside `get("{id}")`:
 
 ```kotlin
 ```

@@ -55,7 +55,7 @@ After executing this command, `keytool` suggests you specify a keystore password
 
 If your certificate authority issues certificates in a PEM format, you need to convert it to the JKS format before [configuring SSL in Ktor](#configure-ssl-ktor).
 You can use `openssl` and `keytool` utilities to do this. 
-For example, if you have a private key in the `key.pem` file and a public certificate in `cert.pem`, conversion process might look as follows:
+For example, if you have a private key in the `key.pem` file and a public certificate in `cert.pem`, a conversion process might look as follows:
 
 1. Convert PEM into the PKCS12 format using `openssl` by using the following command:
    ```Bash

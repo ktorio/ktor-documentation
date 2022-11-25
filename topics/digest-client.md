@@ -22,7 +22,7 @@ The digest authentication flow looks as follows:
    ```
    {style="block"}
 
-3. Usually a client displays a login dialog where a user can enter credentials. Then, a client makes a request with the following `Authorization` header:
+3. Usually, a client displays a login dialog where a user can enter credentials. Then, a client makes a request with the following `Authorization` header:
 
    ```
    Authorization: Digest username="jetbrains",

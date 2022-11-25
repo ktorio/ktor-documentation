@@ -1,6 +1,6 @@
 # Ktor code examples
 
-The `codeSnippets` folder of a Ktor documentation repository contains a Gradle project with runnable code examples that show how to work with various Ktor plugins. Code from these examples are [referenced](#referencing-code-snippets) in corresponding documentation sections. 
+The `codeSnippets` folder of a Ktor documentation repository contains a Gradle project with runnable code examples that show how to work with various Ktor plugins. Code from these examples is [referenced](#referencing-code-snippets) in corresponding documentation sections. 
 
 You can run any of these examples in IntelliJ IDEA in the following way:
 1. [Clone](https://www.jetbrains.com/help/idea/manage-projects-hosted-on-github.html#clone-from-GitHub) a [Ktor documentation repository](https://github.com/ktorio/ktor-documentation).

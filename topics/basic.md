@@ -14,11 +14,11 @@
 <include from="lib.topic" element-id="native_server_supported"/>
 </tldr>
 
-The Basic authentication scheme is a part of [HTTP framework](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) used for access control and authentication. In this scheme, user credentials are transmitted as username/password pairs encoded using Base64.
+The Basic authentication scheme is a part of the [HTTP framework](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) used for access control and authentication. In this scheme, user credentials are transmitted as username/password pairs encoded using Base64.
 
 Ktor allows you to use basic authentication for logging in users and protecting specific [routes](Routing_in_Ktor.md). You can get general information about authentication in Ktor in the [](authentication.md) section.
 
-> Given that basic authentication passes username and password as clear text, you need to use [HTTPS/TLS](ssl.md) to protect sensitive information.
+> Given that basic authentication passes username and password as a clear text, you need to use [HTTPS/TLS](ssl.md) to protect sensitive information.
 
 ## Add dependencies {id="add_dependencies"}
 To enable `basic` authentication, you need to include the `%artifact_name%` artifact in the build script:
@@ -30,7 +30,7 @@ To enable `basic` authentication, you need to include the `%artifact_name%` arti
 The basic authentication flow looks as follows:
 
 1. A client makes a request without the `Authorization` header to a specific [route](Routing_in_Ktor.md) in a server application.
-1. A server responds to a client with a `401` (Unauthorized) response status and uses a `WWW-Authenticate` response header to provide information that the basic authentication scheme is used to protect a route. A typical `WWW-Authenticate` header looks like this:
+2. A server responds to a client with a `401` (Unauthorized) response status and uses a `WWW-Authenticate` response header to provide information that the basic authentication scheme is used to protect a route. A typical `WWW-Authenticate` header looks like this:
    
    ```
    WWW-Authenticate: Basic realm="Access to the '/' path", charset="UTF-8"
@@ -39,14 +39,14 @@ The basic authentication flow looks as follows:
    
    In Ktor, you can specify the realm and charset using corresponding properties when [configuring](#configure-provider) the `basic` authentication provider.
 
-1. Usually a client displays a login dialog where a user can enter credentials. Then, a client makes a request with the `Authorization` header containing a username and password pair encoded using Base64, for example:
+3. Usually, a client displays a login dialog where a user can enter credentials. Then, a client makes a request with the `Authorization` header containing a username and password pair encoded using Base64, for example:
    
    ```
    Authorization: Basic amV0YnJhaW5zOmZvb2Jhcg
    ```
    {style="block"}
 
-1. A server [validates](#configure-provider) credentials sent by a client and responds with the requested content.
+4. A server [validates](#configure-provider) credentials sent by a client and responds with the requested content.
 
 
 ## Install basic authentication {id="install"}
@@ -103,7 +103,7 @@ To use `UserHashedTableAuth` for validating users, follow the steps below:
    ```
    {src="snippets/auth-basic-hash-table/src/main/kotlin/com/example/Application.kt" include-lines="9"}
 
-1. Initialize a new instance of `UserHashedTableAuth` and specify the following properties:
+2. Initialize a new instance of `UserHashedTableAuth` and specify the following properties:
    * Provide a table of usernames and hashed passwords using the `table` property.
    * Assign a digest function to the `digester` property.
    
@@ -111,7 +111,7 @@ To use `UserHashedTableAuth` for validating users, follow the steps below:
    ```
    {src="snippets/auth-basic-hash-table/src/main/kotlin/com/example/Application.kt" include-lines="10-16"}
    
-1. Inside the `validate` function, call the [UserHashedTableAuth.authenticate](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-user-hashed-table-auth/authenticate.html) function to authenticate a user and return an instance of `UserIdPrincipal` if the credentials are valid:
+3. Inside the `validate` function, call the [UserHashedTableAuth.authenticate](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-user-hashed-table-auth/authenticate.html) function to authenticate a user and return an instance of `UserIdPrincipal` if the credentials are valid:
 
    ```kotlin
    ```

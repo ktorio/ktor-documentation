@@ -23,8 +23,8 @@ so that all dependencies are bundled, i.e. you need to create a fat jar.
 
 ### Reflection configuration
 
-GraalVM has [some requirements](https://www.graalvm.org/22.1/reference-manual/native-image/Reflection/) when it comes to applications that use reflection,
-which is the case of Ktor. It requires that you provide it a [JSON file](https://github.com/ktorio/ktor-samples/blob/main/graalvm/src/main/resources/META-INF/native-image/reflect-config.json) with
+GraalVM has [some requirements](https://www.graalvm.org/22.1/reference-manual/native-image/Reflection/) when it comes to applications that use reflection, which is the case of Ktor. 
+It requires that you provide it a [JSON file](https://github.com/ktorio/ktor-samples/blob/main/graalvm/src/main/resources/META-INF/native-image/reflect-config.json) with
 certain type information. This configuration file is then passed as an argument to the `native-image` tool.
 
 ## Execute the `native-image` tool
