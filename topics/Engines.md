@@ -22,7 +22,7 @@ The table below lists engines supported by Ktor, along with the supported platfo
 | `Netty`                            | JVM                                                    | ✅      |
 | `Jetty`                            | JVM                                                    | ✅      |
 | `Tomcat`                           | JVM                                                    | ✅      |
-| `CIO` (Coroutine-based I/O)        | JVM, [Native](native_server.md), [GraalVM](Graalvm.md) | ✖️      |
+| `CIO` (Coroutine-based I/O)        | JVM, [Native](native_server.md), [GraalVM](Graalvm.md) | ✖️     |
 | [ServletApplicationEngine](war.md) | JVM                                                    | ✅      |
 
 
@@ -89,13 +89,13 @@ The `EngineMain.main` function is used to start a server with the selected engin
 
 If you need to start a server using a build system task, you need to configure the required `EngineMain` as the main class:
 
-<tabs group="languages">
+<tabs group="languages" id="main-class-set-engine-main">
 <tab title="Gradle (Kotlin)" group-key="kotlin">
 
 ```kotlin
-    application {
-        mainClassName = "io.ktor.server.netty.EngineMain"
-    }
+application {
+    mainClass.set("io.ktor.server.netty.EngineMain")
+}
 ```
 
 </tab>
