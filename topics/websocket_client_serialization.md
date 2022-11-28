@@ -11,7 +11,7 @@ Similar to the [ContentNegotiation](serialization-client.md) plugin, WebSockets 
 
 ## Add dependencies {id="add_dependencies"}
 
-<include from="serialization.md" element-id="serialization_dependency"/>
+<include from="serialization.md" element-id="add_serialization_dependency"/>
 
 ## Configure a serializer {id="configure_serializer"}
 
