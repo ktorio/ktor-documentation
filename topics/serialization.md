@@ -22,7 +22,7 @@ The ContentNegotiation plugin serves two primary purposes: negotiating media typ
 
 The [ContentNegotiation](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-content-negotiation/io.ktor.server.plugins.contentnegotiation/-content-negotiation.html) plugin serves two primary purposes:
 * Negotiating media types between the client and server. For this, it uses the `Accept` and `Content-Type` headers.
-* Serializing/deserializing the content in a specific format. Ktor supports the following formats out-of-the-box: JSON, XML, and CBOR.
+* Serializing/deserializing the content in a specific format. Ktor supports the following formats out-of-the-box: JSON, XML, CBOR, and ProtoBuf.
 
 
 ## Add dependencies {id="add_dependencies"}
@@ -34,58 +34,71 @@ The [ContentNegotiation](https://api.ktor.io/ktor-server/ktor-server-plugins/kto
 
 Note that serializers for specific formats require additional artifacts. For example, kotlinx.serialization requires the `ktor-serialization-kotlinx-json` dependency for JSON.
 
-<snippet id="serialization_dependency">
 
-### JSON {id="add_json_dependency"}
+### Serialization {id="serialization_dependency"}
+
+<snippet id="add_serialization_dependency">
+
+Before using kotlinx.serialization converters, you need to add the Kotlin serialization plugin 
+as described in the [Setup](https://github.com/Kotlin/kotlinx.serialization#setup) section.
+
+#### JSON {id="add_json_dependency"}
 
 To serialize/deserialize JSON data, you can choose one of the following libraries: kotlinx.serialization, Gson, or Jackson. 
 
 <tabs group="json-libraries">
 <tab title="kotlinx.serialization" group-key="kotlinx">
 
-1. Add the Kotlin serialization plugin, as described in the [Setup](https://github.com/Kotlin/kotlinx.serialization#setup) section.
-2. Add the `ktor-serialization-kotlinx-json` artifact in the build script:
+Add the `ktor-serialization-kotlinx-json` artifact in the build script:
 
-   <var name="artifact_name" value="ktor-serialization-kotlinx-json"/>
-   <include from="lib.topic" element-id="add_ktor_artifact"/>
+<var name="artifact_name" value="ktor-serialization-kotlinx-json"/>
+<include from="lib.topic" element-id="add_ktor_artifact"/>
 
 </tab>
 <tab title="Gson" group-key="gson">
 
-* Add the `ktor-serialization-gson` artifact in the build script:
+Add the `ktor-serialization-gson` artifact in the build script:
 
-   <var name="artifact_name" value="ktor-serialization-gson"/>
-   <include from="lib.topic" element-id="add_ktor_artifact"/>
+<var name="artifact_name" value="ktor-serialization-gson"/>
+<include from="lib.topic" element-id="add_ktor_artifact"/>
 
 </tab>
 <tab title="Jackson" group-key="jackson">
 
-* Add the `ktor-serialization-jackson` artifact in the build script:
+Add the `ktor-serialization-jackson` artifact in the build script:
 
-   <var name="artifact_name" value="ktor-serialization-jackson"/>
-   <include from="lib.topic" element-id="add_ktor_artifact"/>
+<var name="artifact_name" value="ktor-serialization-jackson"/>
+<include from="lib.topic" element-id="add_ktor_artifact"/>
 
 </tab>
 </tabs>
 
 
-### XML {id="add_xml_dependency"}
+#### XML {id="add_xml_dependency"}
 
 To serialize/deserialize XML, add the `ktor-serialization-kotlinx-xml` in the build script:
 
 <var name="artifact_name" value="ktor-serialization-kotlinx-xml"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
-Note that XML serialization is not supported for the [Native server](native_server.md).
+Note that XML serialization is supported on JVM only.
 
-### CBOR {id="add_cbor_dependency"}
+#### CBOR {id="add_cbor_dependency"}
 
 To serialize/deserialize CBOR, add the `ktor-serialization-kotlinx-cbor` in the build script:
 
 <var name="artifact_name" value="ktor-serialization-kotlinx-cbor"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
+#### ProtoBuf {id="add_protobuf_dependency"}
+
+To serialize/deserialize ProtoBuf, add the `ktor-serialization-kotlinx-protobuf` in the build script:
+
+<var name="artifact_name" value="ktor-serialization-kotlinx-protobuf"/>
+<include from="lib.topic" element-id="add_ktor_artifact"/>
+
 </snippet>
+
 
 ## Install ContentNegotiation {id="install_plugin"}
 
@@ -111,7 +124,7 @@ install(ContentNegotiation) {
 }
 ```
 
-The `json` method also allows you to adjust serialization settings provided by [JsonBuilder](https://kotlin.github.io/kotlinx.serialization/kotlinx-serialization-json/kotlinx.serialization.json/-json-builder/index.html), for example:
+The `json` method also allows you to adjust serialization settings provided by [JsonBuilder](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-json/kotlinx.serialization.json/-json-builder/), for example:
 
 ```kotlin
 ```
@@ -200,7 +213,7 @@ install(ContentNegotiation) {
 }
 ```
 
-The `cbor` method also allows you to access CBOR serialization settings provided by [CborBuilder](https://kotlin.github.io/kotlinx.serialization/kotlinx-serialization-cbor/kotlinx.serialization.cbor/-cbor-builder/index.html), for example:
+The `cbor` method also allows you to access CBOR serialization settings provided by [CborBuilder](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-cbor/kotlinx.serialization.cbor/-cbor-builder/), for example:
 
 ```kotlin
 import io.ktor.server.plugins.contentnegotiation.*
@@ -213,6 +226,32 @@ install(ContentNegotiation) {
     })
 }
 ```
+
+### ProtoBuf serializer {id="register_protobuf"}
+To register the ProtoBuf serializer in your application, call the `protobuf` method:
+```kotlin
+import io.ktor.server.plugins.contentnegotiation.*
+import io.ktor.serialization.kotlinx.protobuf.*
+
+install(ContentNegotiation) {
+    protobuf()
+}
+```
+
+The `protobuf` method also allows you to access ProtoBuf serialization settings provided by [ProtoBufBuilder](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-protobuf/kotlinx.serialization.protobuf/-proto-buf-builder/), for example:
+
+```kotlin
+import io.ktor.server.plugins.contentnegotiation.*
+import io.ktor.serialization.kotlinx.protobuf.*
+import kotlinx.serialization.protobuf.*
+
+install(ContentNegotiation) {
+    protobuf(ProtoBuf {
+        encodeDefaults = true
+    })
+}
+```
+
 
 
 ### Custom serializer {id="register_custom"}
