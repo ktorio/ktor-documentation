@@ -7,7 +7,7 @@
 <include from="lib.topic" element-id="download_example"/>
 </tldr>
 
-Similar to the [ContentNegotiation](serialization-client.md) plugin, WebSockets allow you to serialize/deserialize text frames in a specific format. The Ktor client supports the following formats out-of-the-box: JSON, XML, and CBOR.
+Similar to the [ContentNegotiation](serialization-client.md) plugin, WebSockets allow you to serialize/deserialize text frames in a specific format. The Ktor client supports the following formats out-of-the-box: JSON, XML, CBOR, and ProtoBuf.
 
 ## Add dependencies {id="add_dependencies"}
 
@@ -83,6 +83,17 @@ import io.ktor.serialization.kotlinx.cbor.*
 
 install(WebSockets) {
     contentConverter = KotlinxWebsocketSerializationConverter(Cbor)
+}
+```
+
+### ProtoBuf serializer {id="register_protobuf"}
+To register the CBOR serializer in the WebSockets [configuration](websocket_client.md#install_plugin), create a `KotlinxWebsocketSerializationConverter` instance with the `ProtoBuf` parameter and assign this instance to the `contentConverter` property:
+
+```kotlin
+import io.ktor.serialization.kotlinx.protobuf.*
+
+install(WebSockets) {
+    contentConverter = KotlinxWebsocketSerializationConverter(ProtoBuf)
 }
 ```
 

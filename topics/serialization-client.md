@@ -19,7 +19,7 @@ The ContentNegotiation plugin serves two primary purposes: negotiating media typ
 
 The [ContentNegotiation](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-content-negotiation/io.ktor.client.plugins.contentnegotiation/-content-negotiation/index.html) plugin serves two primary purposes:
 * Negotiating media types between the client and server. For this, it uses the `Accept` and `Content-Type` headers.
-* Serializing/deserializing the content in a specific format when sending [requests](request.md) and receiving [responses](response.md). Ktor supports the following formats out-of-the-box: JSON, XML, and CBOR. Note that the XML serializer is supported on [JVM](http-client_engines.md) only.
+* Serializing/deserializing the content in a specific format when sending [requests](request.md) and receiving [responses](response.md). Ktor supports the following formats out-of-the-box: JSON, XML, CBOR, and ProtoBuf. Note that the XML serializer is supported on [JVM](http-client_engines.md) only.
 
 > On the server, Ktor provides the [ContentNegotiation](serialization.md) plugin for serializing/deserializing content.
 
@@ -33,7 +33,10 @@ The [ContentNegotiation](https://api.ktor.io/ktor-client/ktor-client-plugins/kto
 
 Note that serializers for specific formats require additional artifacts. For example, kotlinx.serialization requires the `ktor-serialization-kotlinx-json` dependency for JSON. Depending on the included artifacts, Ktor chooses a default serializer automatically. If required, you can [specify the serializer](#configure_serializer) explicitly and configure it.
 
-<include from="serialization.md" element-id="serialization_dependency"/>
+
+
+### Serialization {id="serialization_dependency"}
+<include from="serialization.md" element-id="add_serialization_dependency"/>
       
 
 ## Install ContentNegotiation {id="install_plugin"}
@@ -65,7 +68,7 @@ val client = HttpClient(CIO) {
 }
 ```
 
-In the `json` constructor, you can access the [JsonBuilder](https://kotlin.github.io/kotlinx.serialization/kotlinx-serialization-json/kotlinx.serialization.json/-json-builder/index.html) API, for example:
+In the `json` constructor, you can access the [JsonBuilder](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-json/kotlinx.serialization.json/-json-builder/) API, for example:
 ```kotlin
 ```
 {src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="20-27"}
@@ -154,7 +157,7 @@ val client = HttpClient(CIO) {
 }
 ```
 
-The `cbor` method also allows you to access CBOR serialization settings provided by [CborBuilder](https://kotlin.github.io/kotlinx.serialization/kotlinx-serialization-cbor/kotlinx.serialization.cbor/-cbor-builder/index.html), for example:
+The `cbor` method also allows you to access CBOR serialization settings provided by [CborBuilder](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-cbor/kotlinx.serialization.cbor/-cbor-builder/), for example:
 
 ```kotlin
 import io.ktor.client.plugins.contentnegotiation.*
@@ -169,6 +172,36 @@ val client = HttpClient(CIO) {
     }
 }
 ```
+
+### ProtoBuf serializer {id="register_protobuf"}
+To register the ProtoBuf serializer in your application, call the `protobuf` method:
+```kotlin
+import io.ktor.client.plugins.contentnegotiation.*
+import io.ktor.serialization.kotlinx.protobuf.*
+
+val client = HttpClient(CIO) {
+    install(ContentNegotiation) {
+        protobuf()
+    }
+}
+```
+
+The `protobuf` method also allows you to access ProtoBuf serialization settings provided by [ProtoBufBuilder](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-protobuf/kotlinx.serialization.protobuf/-proto-buf-builder/), for example:
+
+```kotlin
+import io.ktor.client.plugins.contentnegotiation.*
+import io.ktor.serialization.kotlinx.protobuf.*
+import kotlinx.serialization.protobuf.*
+
+val client = HttpClient(CIO) {
+    install(ContentNegotiation) {
+        protobuf(ProtoBuf {
+            encodeDefaults = true
+        })
+    }
+}
+```
+
 
 
 ## Receive and send data {id="receive_send_data"}
