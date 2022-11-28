@@ -27,9 +27,9 @@ by for the current session.
 There are two methods to check if the extension is in use: `WebSocketSession.extension` and `WebSocketSession.extensionOrNull`:
 ```kotlin
 webSocket("/echo") {
-    val myExtension = extension(MyWebSocketException) // will throw if `MyWebSocketException` is not negotiated
+    val myExtension = extension(MyWebSocketExtension) // will throw if `MyWebSocketExtension` is not negotiated
     // or
-    val myExtension = extensionOrNull(MyWebSocketException) ?: close() // will close the session if `MyWebSocketException` is not negotiated
+    val myExtension = extensionOrNull(MyWebSocketExtension) ?: close() // will close the session if `MyWebSocketExtension` is not negotiated
 }
 ```
 
