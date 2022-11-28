@@ -87,7 +87,7 @@ install(WebSockets) {
 ```
 
 ### ProtoBuf serializer {id="register_protobuf"}
-To register the CBOR serializer in the WebSockets [configuration](websocket_client.md#install_plugin), create a `KotlinxWebsocketSerializationConverter` instance with the `ProtoBuf` parameter and assign this instance to the `contentConverter` property:
+To register the ProtoBuf serializer in the WebSockets [configuration](websocket_client.md#install_plugin), create a `KotlinxWebsocketSerializationConverter` instance with the `ProtoBuf` parameter and assign this instance to the `contentConverter` property:
 
 ```kotlin
 import io.ktor.serialization.kotlinx.protobuf.*
