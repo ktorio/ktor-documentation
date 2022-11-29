@@ -15,7 +15,7 @@ fun Application.module() {
         register {
             rateLimiter(limit = 5, refillPeriod = 60.seconds)
         }
-        register(RateLimitName("free")) {
+        register(RateLimitName("public")) {
             rateLimiter(limit = 10, refillPeriod = 60.seconds)
         }
         register(RateLimitName("protected")) {
@@ -44,10 +44,10 @@ fun Application.module() {
                 call.respondText("Welcome to the home page! $requestsLeft requests left.")
             }
         }
-        rateLimit(RateLimitName("free")) {
-            get("/free-api") {
+        rateLimit(RateLimitName("public")) {
+            get("/public-api") {
                 val requestsLeft = call.response.headers["X-RateLimit-Remaining"]
-                call.respondText("Welcome to free API! $requestsLeft requests left.")
+                call.respondText("Welcome to public API! $requestsLeft requests left.")
             }
         }
         rateLimit(RateLimitName("protected")) {

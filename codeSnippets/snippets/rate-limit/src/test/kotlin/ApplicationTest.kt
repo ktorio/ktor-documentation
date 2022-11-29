@@ -18,11 +18,11 @@ class ApplicationTest {
         }
 
         repeat(10) {
-            client.get("/free-api").let {
+            client.get("/public-api").let {
                 assertEquals(HttpStatusCode.OK, it.status)
             }
         }
-        client.get("/free-api").let {
+        client.get("/public-api").let {
             assertEquals(HttpStatusCode.TooManyRequests, it.status)
         }
 

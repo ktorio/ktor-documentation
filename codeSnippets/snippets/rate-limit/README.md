@@ -1,6 +1,6 @@
-# Rate limit
+# Rate limiting
 
-A sample Ktor project showing how to provide [rate limiting](https://ktor.io/docs/rate-limit.html) for incoming requests.
+A sample Ktor project showing how to enable [rate limiting](https://ktor.io/docs/rate-limit.html) for incoming requests.
 > This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
