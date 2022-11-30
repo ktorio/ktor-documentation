@@ -5,9 +5,9 @@
 <vars>
 
     <var name="ktor_version" value="2.2.0"/>
-    <var name="kotlin_version" value="1.7.20"/>
+    <var name="kotlin_version" value="1.7.21"/>
     <var name="coroutines_version" value="1.6.4"/>
-    <var name="kotlin_css_version" value="1.0.0-pre.410"/>
+    <var name="kotlin_css_version" value="1.0.0-pre.454"/>
     <var name="logback_version" value="1.2.11"/>
     <var name="prometheus_version" value="1.9.5"/>
     <var name="dropwizard_version" value="4.2.12"/>
