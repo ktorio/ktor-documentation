@@ -48,7 +48,7 @@ Ktor uses the _token bucket_ algorithm for rate limiting, which works as follows
         - `X-RateLimit-Limit`: a specified bucket capacity.
         - `X-RateLimit-Remaining`: the number of tokens remaining in a bucket.
         - `X-RateLimit-Reset`: a UTC timestamp (in seconds) that specifies the time of refilling a bucket.
-    - If there is insufficient capacity, the server rejects a request using a `429 Too Many Requests` response and adds the `Retry-After` header, indicating how long the client should wait before making a follow-up request.
+    - If there is insufficient capacity, the server rejects a request using a `429 Too Many Requests` response and adds the `Retry-After` header, indicating how long the client should wait (in seconds) before making a follow-up request.
 3. After a specified period of time, a bucket capacity is refilled.
 
 
@@ -100,6 +100,8 @@ In this section, we'll see how to configure rate limiting:
    ```kotlin
    ```
    {src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="21,23-25,32"}
+
+   > Note that keys should have good `equals` and `hashCode` implementations.
 
 4. (Optional) `requestWeight` sets a function that returns how many tokens are consumed by a request.
    In the example below, a request key is used to configure a request weight:
