@@ -53,13 +53,17 @@
                 <toc-element topic="x-http-method-override.md"/>
             </toc-element>
 
-            <toc-element toc-title="Handling requests and responses">
+            <toc-element toc-title="Requests">
                 <toc-element topic="requests.md"
                              accepts-web-file-names="multipart-support.html,uploads.html,calls.html"/>
-                <toc-element topic="responses.md"/>
                 <toc-element topic="request-validation.md"/>
-                <toc-element topic="status_pages.md"/>
+                <toc-element topic="rate-limit.md"/>
                 <toc-element topic="double-receive.md"/>
+            </toc-element>
+
+            <toc-element toc-title="Responses">
+                <toc-element topic="responses.md"/>
+                <toc-element topic="status_pages.md"/>
             </toc-element>
 
             <toc-element toc-title="Serving content">
