@@ -101,11 +101,11 @@ Description
 </td>
 </tr>
 
-<include from="client-custom-plugins.md" element-id="onRequest"/>
-<include from="client-custom-plugins.md" element-id="transformRequestBody"/>
-<include from="client-custom-plugins.md" element-id="onResponse"/>
-<include from="client-custom-plugins.md" element-id="transformResponseBody"/>
-<include from="client-custom-plugins.md" element-id="onClose"/>
+<include from="client-custom-plugins.md" element-id="onRequest" id="on-request"/>
+<include from="client-custom-plugins.md" element-id="transformRequestBody" id="transform-request-body"/>
+<include from="client-custom-plugins.md" element-id="onResponse" id="on-response"/>
+<include from="client-custom-plugins.md" element-id="transformResponseBody" id="transform-response-body"/>
+<include from="client-custom-plugins.md" element-id="onClose" id="on-close"/>
 
 </table>
 
