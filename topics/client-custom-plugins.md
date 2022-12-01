@@ -86,7 +86,31 @@ using a set of dedicated handlers, for example:
    request and response bodies.
 
 There is also the `on(...)` handler that allows you to invoke specific hooks that might be useful to handle other stages of a call.
-The table below lists all handlers in the order they are executed:
+The tables below list all handlers in the order they are executed:
+
+<tabs>
+<tab title="Basic hooks">
+
+<table>
+<tr>
+<td>
+Handler
+</td>
+<td>
+Description
+</td>
+</tr>
+
+<include from="client-custom-plugins.md" element-id="onRequest"/>
+<include from="client-custom-plugins.md" element-id="transformRequestBody"/>
+<include from="client-custom-plugins.md" element-id="onResponse"/>
+<include from="client-custom-plugins.md" element-id="transformResponseBody"/>
+<include from="client-custom-plugins.md" element-id="onClose"/>
+
+</table>
+
+</tab>
+<tab title="All hooks">
 
 <table>
 <tr>
@@ -107,7 +131,7 @@ The <code>SetupRequest</code> hook is executed first in request processing.
 </td>
 </tr>
 
-<tr>
+<tr id="onRequest">
 <td>
 <code>onRequest</code>
 </td>
@@ -117,7 +141,7 @@ The <a anchor="example-custom-header"/> example shows how to append a custom hea
 </td>
 </tr>
 
-<tr>
+<tr id="transformRequestBody">
 <td>
 <code>transformRequestBody</code>
 </td>
@@ -169,7 +193,7 @@ handlers will be ordered as follows:
 </tr>
 
 
-<tr>
+<tr id="onResponse">
 <td>
 <code>onResponse</code>
 </td>
@@ -181,7 +205,7 @@ The <a anchor="example-log-headers"/> example shows how to log response headers 
 </tr>
 
 
-<tr>
+<tr id="transformResponseBody">
 <td>
 <code>transformResponseBody</code>
 </td>
@@ -194,7 +218,7 @@ or return <code>null</code> if your transformation is not applicable.
 </tr>
 
 
-<tr>
+<tr id="onClose">
 <td>
 <code>onClose</code>
 </td>
@@ -206,6 +230,9 @@ This handler is called when the client is <a href="create-client.md" anchor="clo
 
 
 </table>
+
+</tab>
+</tabs>
 
 
 ### Share call state {id="call-state"}
