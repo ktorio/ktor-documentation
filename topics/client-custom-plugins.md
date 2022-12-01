@@ -86,7 +86,31 @@ using a set of dedicated handlers, for example:
    request and response bodies.
 
 There is also the `on(...)` handler that allows you to invoke specific hooks that might be useful to handle other stages of a call.
-The table below lists all handlers in the order they are executed:
+The tables below list all handlers in the order they are executed:
+
+<tabs>
+<tab title="Basic hooks">
+
+<table>
+<tr>
+<td>
+Handler
+</td>
+<td>
+Description
+</td>
+</tr>
+
+<include from="client-custom-plugins.md" element-id="onRequest"/>
+<include from="client-custom-plugins.md" element-id="transformRequestBody"/>
+<include from="client-custom-plugins.md" element-id="onResponse"/>
+<include from="client-custom-plugins.md" element-id="transformResponseBody"/>
+<include from="client-custom-plugins.md" element-id="onClose"/>
+
+</table>
+
+</tab>
+<tab title="All hooks">
 
 <table>
 <tr>
@@ -107,28 +131,45 @@ The <code>SetupRequest</code> hook is executed first in request processing.
 </td>
 </tr>
 
+<snippet id="onRequest">
 <tr>
 <td>
 <code>onRequest</code>
 </td>
 <td>
+<p>
 This handler is executed for each HTTP <a href="request.md">request</a> and allows you to modify it.
-The <a anchor="example-custom-header"/> example shows how to append a custom header to each request by handling <code>onRequest</code>.
+</p>
+<p>
+<emphasis>
+Example: <a anchor="example-custom-header"/>
+</emphasis>
+</p>
 </td>
 </tr>
+</snippet>
 
+<snippet id="transformRequestBody">
 <tr>
 <td>
 <code>transformRequestBody</code>
 </td>
 <td>
+<p>
 Allows you to transform a <a href="request.md" anchor="body">request body</a>.
 In this handler, you need to serialize the body into 
 <a href="https://api.ktor.io/ktor-http/io.ktor.http.content/-outgoing-content/index.html">OutgoingContent</a> 
 (for example, <code>TextContent</code>, <code>ByteArrayContent</code>, or <code>FormDataContent</code>)
 or return <code>null</code> if your transformation is not applicable.
+</p>
+<p>
+<emphasis>
+Example: <a anchor="data-transformation"/>
+</emphasis>
+</p>
 </td>
 </tr>
+</snippet>
 
 
 <tr>
@@ -136,8 +177,15 @@ or return <code>null</code> if your transformation is not applicable.
 <code>on(Send)</code>
 </td>
 <td>
+<p>
 The <code>Send</code> hook provides the ability to inspect a response and initiate additional requests if needed. 
 This might be useful for handling redirects, retrying requests, authentication, and so on.
+</p>
+<p>
+<emphasis>
+Example: <a anchor="authentication"/>
+</emphasis>
+</p>
 </td>
 </tr>
 
@@ -165,35 +213,58 @@ handlers will be ordered as follows:
 <-- onResponse
 ```
 
+<p>
+<emphasis>
+Examples: <a anchor="example-log-headers"/>, <a anchor="example-response-time"/>
+</emphasis>
+</p>
 </td>
 </tr>
 
 
+<snippet id="onResponse">
 <tr>
 <td>
 <code>onResponse</code>
 </td>
 <td>
+<p>
 This handler is executed for each incoming HTTP <a href="request.md">response</a> and allows you to 
 inspect it in various ways: log a response, save cookies, and so on.
-The <a anchor="example-log-headers"/> example shows how to log response headers by handling <code>onResponse</code>.
+</p>
+<p>
+<emphasis>
+Examples: <a anchor="example-log-headers"/>, <a anchor="example-response-time"/>
+</emphasis>
+</p>
 </td>
 </tr>
+</snippet>
 
 
+<snippet id="transformResponseBody">
 <tr>
 <td>
 <code>transformResponseBody</code>
 </td>
 <td>
+<p>
 Allows you to transform a <a href="response.md" anchor="body">response body</a>.
 This handler is invoked for each <code>HttpResponse.body</code> call.
 You need to deserialize the body into an instance of <code>requestedType</code> 
 or return <code>null</code> if your transformation is not applicable.
+</p>
+<p>
+<emphasis>
+Example: <a anchor="data-transformation"/>
+</emphasis>
+</p>
 </td>
 </tr>
+</snippet>
 
 
+<snippet id="onClose">
 <tr>
 <td>
 <code>onClose</code>
@@ -203,9 +274,12 @@ Allows you to clean resources allocated by this plugin.
 This handler is called when the client is <a href="create-client.md" anchor="close-client">closed</a>.
 </td>
 </tr>
-
+</snippet>
 
 </table>
+
+</tab>
+</tabs>
 
 
 ### Share call state {id="call-state"}
@@ -267,3 +341,58 @@ Shows how to create a plugin that measures the time between sending a request an
 ```kotlin
 ```
 {src="snippets/client-custom-plugin/src/main/kotlin/com/example/plugins/ResponseTime.kt"}
+
+
+### Data transformation {id="data-transformation"}
+
+Shows how to transform request and response bodies using the `transformRequestBody` and `transformResponseBody` hooks:
+
+<tabs>
+<tab title="DataTransformation.kt">
+
+```kotlin
+```
+{src="snippets/client-custom-plugin-data-transformation/src/main/kotlin/com/example/plugins/DataTransformation.kt"}
+
+</tab>
+<tab title="Application.kt">
+
+```kotlin
+```
+{src="snippets/client-custom-plugin-data-transformation/src/main/kotlin/com/example/Application.kt"}
+
+</tab>
+<tab title="User.kt">
+
+```kotlin
+```
+{src="snippets/client-custom-plugin-data-transformation/src/main/kotlin/com/example/model/User.kt"}
+
+</tab>
+</tabs>
+
+You can find the full example here: [client-custom-plugin-data-transformation](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-custom-plugin-data-transformation).
+
+
+### Authentication {id="authentication"}
+
+A sample Ktor project showing how to use the `on(Send)` hook to add a bearer token to the `Authorization` header if an unauthorized response is received from the server:
+
+<tabs>
+<tab title="Auth.kt">
+
+```kotlin
+```
+{src="snippets/client-custom-plugin-auth/src/main/kotlin/com/example/plugins/Auth.kt"}
+
+</tab>
+<tab title="Application.kt">
+
+```kotlin
+```
+{src="snippets/client-custom-plugin-auth/src/main/kotlin/com/example/Application.kt"}
+
+</tab>
+</tabs>
+
+You can find the full example here: [client-custom-plugin-auth](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-custom-plugin-auth).
