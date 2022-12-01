@@ -8,7 +8,7 @@ val AuthPlugin = createClientPlugin("AuthPlugin", ::AuthPluginConfig) {
 
     on(Send) { request ->
         val originalCall = proceed(request)
-        originalCall.response.run {// this: HttpResponse
+        originalCall.response.run { // this: HttpResponse
             if(status == HttpStatusCode.Unauthorized && headers["WWW-Authenticate"]!!.contains("Bearer")) {
                 request.headers.append("Authorization", "Bearer $token")
                 proceed(request)
