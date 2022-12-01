@@ -136,8 +136,14 @@ The <code>SetupRequest</code> hook is executed first in request processing.
 <code>onRequest</code>
 </td>
 <td>
+<p>
 This handler is executed for each HTTP <a href="request.md">request</a> and allows you to modify it.
-The <a anchor="example-custom-header"/> example shows how to append a custom header to each request by handling <code>onRequest</code>.
+</p>
+<p>
+<emphasis>
+Example: <a anchor="example-custom-header"/>
+</emphasis>
+</p>
 </td>
 </tr>
 
@@ -146,11 +152,18 @@ The <a anchor="example-custom-header"/> example shows how to append a custom hea
 <code>transformRequestBody</code>
 </td>
 <td>
+<p>
 Allows you to transform a <a href="request.md" anchor="body">request body</a>.
 In this handler, you need to serialize the body into 
 <a href="https://api.ktor.io/ktor-http/io.ktor.http.content/-outgoing-content/index.html">OutgoingContent</a> 
 (for example, <code>TextContent</code>, <code>ByteArrayContent</code>, or <code>FormDataContent</code>)
 or return <code>null</code> if your transformation is not applicable.
+</p>
+<p>
+<emphasis>
+Example: <a anchor="data-transformation"/>
+</emphasis>
+</p>
 </td>
 </tr>
 
@@ -160,8 +173,15 @@ or return <code>null</code> if your transformation is not applicable.
 <code>on(Send)</code>
 </td>
 <td>
+<p>
 The <code>Send</code> hook provides the ability to inspect a response and initiate additional requests if needed. 
 This might be useful for handling redirects, retrying requests, authentication, and so on.
+</p>
+<p>
+<emphasis>
+Example: <a anchor="authentication"/>
+</emphasis>
+</p>
 </td>
 </tr>
 
@@ -189,6 +209,11 @@ handlers will be ordered as follows:
 <-- onResponse
 ```
 
+<p>
+<emphasis>
+Examples: <a anchor="example-log-headers"/>, <a anchor="example-response-time"/>
+</emphasis>
+</p>
 </td>
 </tr>
 
@@ -198,9 +223,15 @@ handlers will be ordered as follows:
 <code>onResponse</code>
 </td>
 <td>
+<p>
 This handler is executed for each incoming HTTP <a href="request.md">response</a> and allows you to 
 inspect it in various ways: log a response, save cookies, and so on.
-The <a anchor="example-log-headers"/> example shows how to log response headers by handling <code>onResponse</code>.
+</p>
+<p>
+<emphasis>
+Examples: <a anchor="example-log-headers"/>, <a anchor="example-response-time"/>
+</emphasis>
+</p>
 </td>
 </tr>
 
@@ -210,10 +241,17 @@ The <a anchor="example-log-headers"/> example shows how to log response headers 
 <code>transformResponseBody</code>
 </td>
 <td>
+<p>
 Allows you to transform a <a href="response.md" anchor="body">response body</a>.
 This handler is invoked for each <code>HttpResponse.body</code> call.
 You need to deserialize the body into an instance of <code>requestedType</code> 
 or return <code>null</code> if your transformation is not applicable.
+</p>
+<p>
+<emphasis>
+Example: <a anchor="data-transformation"/>
+</emphasis>
+</p>
 </td>
 </tr>
 
@@ -294,3 +332,58 @@ Shows how to create a plugin that measures the time between sending a request an
 ```kotlin
 ```
 {src="snippets/client-custom-plugin/src/main/kotlin/com/example/plugins/ResponseTime.kt"}
+
+
+### Data transformation {id="data-transformation"}
+
+Shows how to transform request and response bodies using the `transformRequestBody` and `transformResponseBody` hooks:
+
+<tabs>
+<tab title="DataTransformation.kt">
+
+```kotlin
+```
+{src="snippets/client-custom-plugin-data-transformation/src/main/kotlin/com/example/plugins/DataTransformation.kt"}
+
+</tab>
+<tab title="Application.kt">
+
+```kotlin
+```
+{src="snippets/client-custom-plugin-data-transformation/src/main/kotlin/com/example/Application.kt"}
+
+</tab>
+<tab title="User.kt">
+
+```kotlin
+```
+{src="snippets/client-custom-plugin-data-transformation/src/main/kotlin/com/example/model/User.kt"}
+
+</tab>
+</tabs>
+
+You can find the full example here: [client-custom-plugin-data-transformation](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-custom-plugin-data-transformation).
+
+
+### Authentication {id="authentication"}
+
+A sample Ktor project showing how to use the `on(Send)` hook to add a bearer token to the `Authorization` header if an unauthorized response is received from the server:
+
+<tabs>
+<tab title="Auth.kt">
+
+```kotlin
+```
+{src="snippets/client-custom-plugin-auth/src/main/kotlin/com/example/plugins/Auth.kt"}
+
+</tab>
+<tab title="Application.kt">
+
+```kotlin
+```
+{src="snippets/client-custom-plugin-auth/src/main/kotlin/com/example/Application.kt"}
+
+</tab>
+</tabs>
+
+You can find the full example here: [client-custom-plugin-auth](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-custom-plugin-auth).
