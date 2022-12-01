@@ -89,9 +89,9 @@ There is also the `on(...)` handler that allows you to invoke specific hooks tha
 The tables below list all handlers in the order they are executed:
 
 <tabs>
-<tab title="Basic hooks">
+<tab title="Basic hooks" id="basic-hooks">
 
-<table>
+<table id="basic-hooks-table">
 <tr>
 <td>
 Handler
@@ -110,9 +110,9 @@ Description
 </table>
 
 </tab>
-<tab title="All hooks">
+<tab title="All hooks" id="all-hooks">
 
-<table>
+<table id="all-hooks-table">
 <tr>
 <td>
 Handler
