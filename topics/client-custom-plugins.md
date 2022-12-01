@@ -89,9 +89,9 @@ There is also the `on(...)` handler that allows you to invoke specific hooks tha
 The tables below list all handlers in the order they are executed:
 
 <tabs>
-<tab title="Basic hooks" id="basic-hooks">
+<tab title="Basic hooks">
 
-<table id="basic-hooks-table">
+<table>
 <tr>
 <td>
 Handler
@@ -101,18 +101,18 @@ Description
 </td>
 </tr>
 
-<include from="client-custom-plugins.md" element-id="onRequest" id="on-request"/>
-<include from="client-custom-plugins.md" element-id="transformRequestBody" id="transform-request-body"/>
-<include from="client-custom-plugins.md" element-id="onResponse" id="on-response"/>
-<include from="client-custom-plugins.md" element-id="transformResponseBody" id="transform-response-body"/>
-<include from="client-custom-plugins.md" element-id="onClose" id="on-close"/>
+<include from="client-custom-plugins.md" element-id="onRequest"/>
+<include from="client-custom-plugins.md" element-id="transformRequestBody"/>
+<include from="client-custom-plugins.md" element-id="onResponse"/>
+<include from="client-custom-plugins.md" element-id="transformResponseBody"/>
+<include from="client-custom-plugins.md" element-id="onClose"/>
 
 </table>
 
 </tab>
-<tab title="All hooks" id="all-hooks">
+<tab title="All hooks">
 
-<table id="all-hooks-table">
+<table>
 <tr>
 <td>
 Handler
@@ -131,7 +131,8 @@ The <code>SetupRequest</code> hook is executed first in request processing.
 </td>
 </tr>
 
-<tr id="onRequest">
+<snippet id="onRequest">
+<tr>
 <td>
 <code>onRequest</code>
 </td>
@@ -146,8 +147,10 @@ Example: <a anchor="example-custom-header"/>
 </p>
 </td>
 </tr>
+</snippet>
 
-<tr id="transformRequestBody">
+<snippet id="transformRequestBody">
+<tr>
 <td>
 <code>transformRequestBody</code>
 </td>
@@ -166,6 +169,7 @@ Example: <a anchor="data-transformation"/>
 </p>
 </td>
 </tr>
+</snippet>
 
 
 <tr>
@@ -218,7 +222,8 @@ Examples: <a anchor="example-log-headers"/>, <a anchor="example-response-time"/>
 </tr>
 
 
-<tr id="onResponse">
+<snippet id="onResponse">
+<tr>
 <td>
 <code>onResponse</code>
 </td>
@@ -234,9 +239,11 @@ Examples: <a anchor="example-log-headers"/>, <a anchor="example-response-time"/>
 </p>
 </td>
 </tr>
+</snippet>
 
 
-<tr id="transformResponseBody">
+<snippet id="transformResponseBody">
+<tr>
 <td>
 <code>transformResponseBody</code>
 </td>
@@ -254,9 +261,11 @@ Example: <a anchor="data-transformation"/>
 </p>
 </td>
 </tr>
+</snippet>
 
 
-<tr id="onClose">
+<snippet id="onClose">
+<tr>
 <td>
 <code>onClose</code>
 </td>
@@ -265,7 +274,7 @@ Allows you to clean resources allocated by this plugin.
 This handler is called when the client is <a href="create-client.md" anchor="close-client">closed</a>.
 </td>
 </tr>
-
+</snippet>
 
 </table>
 
