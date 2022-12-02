@@ -6,7 +6,10 @@ import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.testing.*
+import org.junit.*
+import java.io.*
 import kotlin.test.*
+import kotlin.test.Test
 
 class CustomerTests {
     @Test
@@ -50,5 +53,10 @@ class CustomerTests {
         }
         assertEquals("Customer stored correctly", response.bodyAsText())
         assertEquals(HttpStatusCode.Created, response.status)
+    }
+
+    @After
+    fun deleteDocsDir() {
+        File("docs").deleteRecursively()
     }
 }

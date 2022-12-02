@@ -5,6 +5,7 @@ import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.server.testing.*
 import io.ktor.util.cio.*
+import org.junit.After
 import java.io.*
 import kotlin.test.*
 
@@ -42,5 +43,10 @@ class ApplicationTest {
             setBody(File("ktor_logo.png").readChannel())
         }
         assertEquals("A file is uploaded", response.bodyAsText())
+    }
+
+    @After
+    fun deleteUploadedFile() {
+        File("uploads/ktor_logo.png").delete()
     }
 }
