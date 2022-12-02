@@ -8,8 +8,10 @@ import io.ktor.http.content.*
 import io.ktor.server.application.*
 import io.ktor.server.testing.*
 import io.ktor.utils.io.streams.*
+import org.junit.*
 import java.io.*
 import kotlin.test.*
+import kotlin.test.Test
 
 class ApplicationTest {
     @Test
@@ -58,5 +60,10 @@ class ApplicationTest {
         }) {
             assertEquals("Ktor logo is uploaded to 'uploads/ktor_logo.png'", response.content)
         }
+    }
+
+    @After
+    fun deleteUploadedFile() {
+        File("uploads/ktor_logo.png").delete()
     }
 }
