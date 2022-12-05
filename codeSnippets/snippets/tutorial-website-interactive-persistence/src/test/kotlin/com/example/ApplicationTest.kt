@@ -1,16 +1,26 @@
 package com.example
 
+import com.example.dao.*
+import com.example.plugins.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
+import io.ktor.server.config.*
 import io.ktor.server.testing.*
-import org.junit.After
-import java.io.*
 import kotlin.test.*
 
 class ApplicationTest {
     @Test
     fun testApp() = testApplication {
+        environment {
+            config = MapApplicationConfig()
+        }
+        application {
+            TestDatabaseFactory.init()
+            configureRouting()
+            configureTemplating()
+        }
+
         val client = createClient {
             followRedirects = false
         }
@@ -59,10 +69,5 @@ class ApplicationTest {
         client.get(locationHeader).let {
             assertTrue { it.bodyAsText().contains("I finished a tutorial!") }
         }
-    }
-
-    @After
-    fun deleteDbFile() {
-        File("build/db.mv.db").delete()
     }
 }
