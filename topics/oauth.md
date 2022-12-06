@@ -75,13 +75,13 @@ Before configuring the `oauth` provider, you need to create the [HttpClient](cre
 
 ```kotlin
 ```
-{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="19-23"}
+{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="20-24"}
 
 The client instance is passed to the `main` [module function](Modules.md) to have the capability to create a separate client instance in a server [test](Testing.md).
 
 ```kotlin
 ```
-{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="24"}
+{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="25"}
 
 
 ### Step 2: Configure the OAuth provider {id="configure-oauth-provider"}
@@ -90,7 +90,7 @@ The code snippet below shows how to create and configure the `oauth` provider wi
 
 ```kotlin
 ```
-{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="28-45"}
+{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="29-50"}
 
 * The `urlProvider` specifies a [redirect route](#redirect-route) that will be opened when authorization is completed. 
 * `providerLookup` allows you to specify OAuth settings for a required provider. These settings are represented by the [OAuthServerSettings](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-o-auth-server-settings/index.html) class and allow Ktor to make automatic requests to the OAuth server. 
@@ -102,7 +102,7 @@ After configuring the `oauth` provider, you need to create a protected login rou
 
 ```kotlin
 ```
-{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="46-50,57,80"}
+{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="51-55,63,90"}
 
 A user will see the authorization page with the level of permissions required for a Ktor application. These permissions depend on `defaultScopes` specified in [providerLookup](#configure-oauth-provider).
 
@@ -114,7 +114,7 @@ Inside this route you can retrieve the [OAuthAccessTokenResponse](https://api.kt
 
 ```kotlin
 ```
-{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="46-57,80"}
+{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="51-63,90"}
 
 In this example, the following actions are performed after receiving a token:
 * a token is saved to a cookie [session](sessions.md), whose content can be accessed inside other routes;
@@ -127,6 +127,6 @@ After receiving a token inside the [redirect route](#redirect-route) and saving 
 
 ```kotlin
 ```
-{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="67-79"}
+{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="73-89"}
 
 You can find the complete runnable example here: [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-oauth-google). 
