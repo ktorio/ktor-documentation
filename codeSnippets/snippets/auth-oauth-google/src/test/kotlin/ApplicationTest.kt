@@ -30,7 +30,7 @@ class ApplicationTest {
         }
         routing {
             get("/login-test") {
-                call.sessions.set(UserSession("abc123"))
+                call.sessions.set(UserSession("xyzABC123","abc123"))
             }
         }
         externalServices {

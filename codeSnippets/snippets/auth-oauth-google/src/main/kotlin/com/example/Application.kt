@@ -13,6 +13,7 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.sessions.*
 import io.ktor.serialization.kotlinx.json.*
+import io.ktor.server.request.*
 import kotlinx.html.*
 import kotlinx.serialization.*
 
@@ -25,6 +26,7 @@ fun Application.main(httpClient: HttpClient = applicationHttpClient) {
     install(Sessions) {
         cookie<UserSession>("user_session")
     }
+    val redirects = mutableMapOf<String, String>()
     install(Authentication) {
         oauth("auth-oauth-google") {
             urlProvider = { "http://localhost:8080/callback" }
@@ -37,7 +39,10 @@ fun Application.main(httpClient: HttpClient = applicationHttpClient) {
                     clientId = System.getenv("GOOGLE_CLIENT_ID"),
                     clientSecret = System.getenv("GOOGLE_CLIENT_SECRET"),
                     defaultScopes = listOf("https://www.googleapis.com/auth/userinfo.profile"),
-                    extraAuthParameters = listOf("access_type" to "offline")
+                    extraAuthParameters = listOf("access_type" to "offline"),
+                    onStateCreated = { call, state ->
+                        redirects[state] = call.request.queryParameters["redirectUrl"]!!
+                    }
                 )
             }
             client = httpClient
@@ -51,8 +56,9 @@ fun Application.main(httpClient: HttpClient = applicationHttpClient) {
 
             get("/callback") {
                 val principal: OAuthAccessTokenResponse.OAuth2? = call.principal()
-                call.sessions.set(UserSession(principal?.accessToken.toString()))
-                call.respondRedirect("/hello")
+                call.sessions.set(UserSession(principal!!.state!!, principal.accessToken))
+                val redirect = redirects[principal.state!!]
+                call.respondRedirect(redirect!!)
             }
         }
         get("/") {
@@ -64,7 +70,7 @@ fun Application.main(httpClient: HttpClient = applicationHttpClient) {
                 }
             }
         }
-        get("/hello") {
+        get("/{path}") {
             val userSession: UserSession? = call.sessions.get()
             if (userSession != null) {
                 val userInfo: UserInfo = httpClient.get("https://www.googleapis.com/oauth2/v2/userinfo") {
@@ -74,13 +80,17 @@ fun Application.main(httpClient: HttpClient = applicationHttpClient) {
                 }.body()
                 call.respondText("Hello, ${userInfo.name}!")
             } else {
-                call.respondRedirect("/")
+                val redirectUrl = URLBuilder("http://0.0.0.0:8080/login").run {
+                    parameters.append("redirectUrl", call.request.uri)
+                    build()
+                }
+                call.respondRedirect(redirectUrl)
             }
         }
     }
 }
 
-data class UserSession(val token: String)
+data class UserSession(val state: String, val token: String)
 @Serializable
 data class UserInfo(
     val id: String,
