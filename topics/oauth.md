@@ -34,6 +34,7 @@ The OAuth authorization flow in a Ktor application might look as follows:
    * a callback or redirect URL specifying a Ktor application page that will be opened after authorization is completed;
    * scopes of third-party resources required for a Ktor application;
    * a grant type used to get an access token (Authorization Code in our case);
+   * a `state` parameter used to mitigate CSRF attacks and redirect users;
    * optional parameters specific for a certain provider.
 3. The authorization page shows a consent screen with the level of permissions required for a Ktor application. These permissions depend on scopes passed in step 2. 
 4. If a user approves the requested permissions, the authorization server redirects back to a redirect URL and sends the authorization code.
