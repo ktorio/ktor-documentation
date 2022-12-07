@@ -159,7 +159,7 @@ interface SessionStorage {
     suspend fun read(id: String): String
 }
 ```
-All three functions are [suspending](https://kotlinlang.org/docs/composing-suspending-functions.html). You can use [SessionStorageMemory](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-plugins/ktor-server-sessions/jvm/src/io/ktor/server/sessions/SessionStorageMemory.kt) as a reference.
+All three functions are [suspending](https://kotlinlang.org/docs/composing-suspending-functions.html). You can use [SessionStorageMemory](https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-plugins/ktor-server-sessions/jvmAndNix/src/io/ktor/server/sessions/SessionStorageMemory.kt) as a reference.
 
 
 ## Protect session data {id="protect_session"}
