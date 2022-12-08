@@ -314,16 +314,27 @@
 
             <p>
                 In this case, an environment variable value will be used to specify a listening port.
-                If the <code>PORT</code> environment variable variable doesn't exist at runtime, you can provide a default port value before assigning <code>${?PORT}</code> as follows:
+                If the <code>PORT</code> environment variable variable doesn't exist at runtime, you can provide a default port value as follows:
             </p>
-            <code-block>
-                ktor {
-                    deployment {
-                        port = 8080
-                        port = ${?PORT}
-                    }
-                }
-            </code-block>
+            <tabs group="config">
+                <tab title="application.conf" group-key="hocon">
+                    <code-block>
+                        ktor {
+                            deployment {
+                                port = 8080
+                                port = ${?PORT}
+                            }
+                        }
+                    </code-block>
+                </tab>
+                <tab title="application.yaml" group-key="yaml">
+                    <code-block lang="yaml">
+                        ktor:
+                            deployment:
+                                port: "$PORT:8080"
+                    </code-block>
+                </tab>
+            </tabs>
         </chapter>
 
 
