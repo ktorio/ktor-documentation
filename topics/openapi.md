@@ -2,6 +2,7 @@
 
 <var name="artifact_name" value="ktor-server-openapi"/>
 <var name="package_name" value="io.ktor.server.plugins.openapi"/>
+<var name="plugin_api_link" value="https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-openapi/io.ktor.server.plugins.openapi/open-a-p-i.html"/>
 
 <tldr>
 <p>
@@ -36,7 +37,7 @@ Ktor allows you to generate and serve OpenAPI documentation for your project bas
 
 ## Configure OpenAPI {id="configure-swagger"}
 
-To serve OpenAPI documentation, you need to call the `openAPI` method that creates a `GET` endpoint with documentation 
+To serve OpenAPI documentation, you need to call the [openAPI](%plugin_api_link%) method that creates a `GET` endpoint with documentation 
 at the `path` rendered from the OpenAPI specification placed at `swaggerFile`:
 
 ```kotlin

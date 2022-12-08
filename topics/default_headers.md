@@ -5,6 +5,7 @@
 <var name="artifact_name" value="ktor-server-default-headers"/>
 <var name="package_name" value="io.ktor.server.plugins.defaultheaders"/>
 <var name="plugin_name" value="DefaultHeaders"/>
+<var name="plugin_api_link" value="https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-default-headers/io.ktor.server.plugins.defaultheaders/-default-headers.html"/>
 
 <tldr>
 <p>
@@ -13,7 +14,7 @@
 <include from="lib.topic" element-id="native_server_not_supported"/>
 </tldr>
 
-The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-default-headers/io.ktor.server.plugins.defaultheaders/-default-headers.html) plugin adds the standard `Server` and `Date` headers into each response. Moreover, you can provide additional default headers and override the `Server` header.
+The [%plugin_name%](%plugin_api_link%) plugin adds the standard `Server` and `Date` headers into each response. Moreover, you can provide additional default headers and override the `Server` header.
 
 ## Add dependencies {id="add_dependencies"}
 

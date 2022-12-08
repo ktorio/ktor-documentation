@@ -2,6 +2,7 @@
 
 <var name="artifact_name" value="ktor-server-swagger"/>
 <var name="package_name" value="io.ktor.server.plugins.swagger"/>
+<var name="plugin_api_link" value="https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-swagger/io.ktor.server.plugins.swagger/swagger-u-i.html"/>
 
 <tldr>
 <p>
@@ -31,7 +32,7 @@ Serving Swagger UI requires adding the `%artifact_name%` artifact in the build s
 
 ## Configure Swagger UI {id="configure-swagger"}
 
-To serve Swagger UI, you need to call the `swaggerUI` method that creates a `GET` endpoint with Swagger UI 
+To serve Swagger UI, you need to call the [swaggerUI](%plugin_api_link%) method that creates a `GET` endpoint with Swagger UI 
 at the `path` rendered from the OpenAPI specification placed at `swaggerFile`:
 
 ```kotlin

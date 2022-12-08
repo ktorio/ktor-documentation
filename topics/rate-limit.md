@@ -5,6 +5,7 @@
 <var name="plugin_name" value="RateLimit"/>
 <var name="package_name" value="io.ktor.server.plugins.ratelimit"/>
 <var name="artifact_name" value="ktor-server-rate-limit"/>
+<var name="plugin_api_link" value="https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-rate-limit/io.ktor.server.plugins.ratelimit/-rate-limit.html"/>
 
 <tldr>
 <p>
@@ -19,7 +20,7 @@
 %plugin_name% provides the ability to validate a body of incoming requests.
 </link-summary>
 
-The `%plugin_name%` plugin allows you to limit the number of [requests](requests.md) 
+The [%plugin_name%](%plugin_api_link%) plugin allows you to limit the number of [requests](requests.md) 
 a client can make within a certain time period.
 Ktor provides different means for configuring rate limiting, for example:
 - You can enable rate limiting globally for a whole application or configure different rate limits for different [resources](Routing_in_Ktor.md).

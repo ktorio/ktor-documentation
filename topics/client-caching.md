@@ -33,10 +33,10 @@ the client executes only the first request and skips the second one since data i
 
 ## Persistent cache {id="persistent_cache"}
 
-Ktor allows you to create a persistent cache by implementing the `CacheStorage` interface.
-On JVM, you can use a file storage implementation represented by the `FileStorage` class.
+Ktor allows you to create a persistent cache by implementing the [CacheStorage](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.cache.storage/-cache-storage/index.html) interface.
+On JVM, you can create a file storage by calling the [FileStorage](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.cache.storage/-file-storage.html) function.
 
-To create a file cache storage, pass the `File` instance to the `FileStorage` constructor.
+To create a file cache storage, pass the `File` instance to the `FileStorage` function.
 Then, pass the created storage to the `publicStorage` or `privateStorage` function depending on 
 whether this storage is used as a shared or private cache.
 

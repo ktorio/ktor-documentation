@@ -16,7 +16,7 @@ Instead, you have access to different stages of [handling requests and responses
 In this section, we'll demonstrate how to create and install your first plugin that adds a custom header 
 to each [request](request.md):
 
-1. To create a plugin, call the `createClientPlugin` function and pass a plugin name as an argument:
+1. To create a plugin, call the [createClientPlugin](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.api/create-client-plugin.html) function and pass a plugin name as an argument:
    ```kotlin
    package com.example.plugins
    

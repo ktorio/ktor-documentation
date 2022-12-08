@@ -155,7 +155,7 @@ The final step is to define the authorization for the different resources in our
    }
    ```
 - A strategy used to resolve nested authentication providers.
-  This strategy is represented by the `AuthenticationStrategy` enumeration value.
+  This strategy is represented by the [AuthenticationStrategy](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-authentication-strategy/index.html) enumeration value.
   For instance, the client should provide authentication data for all providers registered 
   with the `AuthenticationStrategy.Required` strategy.
   In the code snippet below, only a user that passed [session authentication](session-auth.md) 
