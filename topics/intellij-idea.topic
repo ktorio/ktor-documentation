@@ -147,7 +147,7 @@
                     and open the <path>Application.kt</path> file placed by the following path:
                 </p>
                 <path>src/main/kotlin/com/example/Application.kt</path>
-                <img src="ktor_idea_new_project_view.png" alt="Project view" width="324"/>
+                <img src="ktor_idea_new_project_view.png" alt="Project view" width="496"/>
             </step>
             <step>
                 <p>
