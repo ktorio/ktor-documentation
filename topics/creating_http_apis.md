@@ -91,7 +91,7 @@ The generated project also includes the `application.conf` and `logback.xml` con
 
 ### Source code {id="source_code"}
 
-The [application.conf](#configurations) configures the entry point of our application to be `com.example.ApplicationKt.module`. This corresponds to the `Application.module()` function in `Application.kt`, which is an application [module](Modules.md):
+The [application.conf](#configurations) file configures the entry point of our application to be `com.example.ApplicationKt.module`. This corresponds to the `Application.module()` function in `Application.kt`, which is an application [module](Modules.md):
 
 ```kotlin
 ```
