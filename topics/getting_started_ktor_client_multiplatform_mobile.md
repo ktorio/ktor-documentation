@@ -46,6 +46,8 @@ Open the `build.gradle.kts` file and update versions of Kotlin Gradle plugins to
 ```
 {src="snippets/tutorial-client-kmm/build.gradle.kts" include-lines="1,5-7"}
 
+<include from="http-client_engines.md" element-id="newmm-note"/>
+
 ### Add Ktor dependencies {id="ktor-dependencies"}
 
 To use the Ktor HTTP client in your project, you need to add at least two dependencies: a client dependency and an engine dependency. Open the `shared/build.gradle.kts` file and follow the steps below:
@@ -91,14 +93,6 @@ Then, open the `androidApp/build.gradle.kts` and add the `kotlinx-coroutines-and
 {src="snippets/tutorial-client-kmm/androidApp/build.gradle.kts" include-lines="34,42-43"}
 
 This allows us to use coroutines in [Android code](#android-activity).
-
-### Enable the New Kotlin/Native memory model {id="new_memory_model"}
-To use the Ktor client on Kotlin/Native targets (such as iOS), we need to enable the New Kotlin/Native memory model.
-Open the `gradle.properties` file and add the following line:
-
-```Gradle
-```
-{src="snippets/tutorial-client-kmm/gradle.properties" include-lines="14"}
 
 Click **Sync Now** in the top right corner of the `gradle.properties` file to install the added dependencies.
 
