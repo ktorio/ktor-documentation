@@ -131,3 +131,21 @@ After receiving a token inside the [redirect route](#redirect-route) and saving 
 {src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="73-89"}
 
 You can find the complete runnable example here: [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-oauth-google). 
+
+## Issues & Solutions
+
+### Error 400: redirect_uri_mismatch
+
+![Screenshot showing an example of the error](./images/oauth_image1.png)
+
+If you get this error, this means you'll need to authorize the redirect URI pointing to `http://localhost:8080/callback`.
+
+This can be done by going to the `APIs & Services > Credentials` page on the console:
+
+![Screenshot showing the APIs & Services > Credentials page](./images/oauth_image2.png)
+
+Click on the OAuth Client ID that you're using for this guide.
+Afterwards, add `http://localhost:8080/callback` as an authorized redirect URL, and save the changes.
+It may take 5 minutes to an hour for the settings to take effect.
+
+![Screenshot showing the APIs & Services > Credentials page](./images/oauth_image3.png)
