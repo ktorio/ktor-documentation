@@ -49,11 +49,7 @@ In contrast to this approach, a servlet container should control the application
 
 ### Run an application in IDEA {id="idea"}
 
-You can run a Ktor application in IntelliJ IDEA in two ways:
-* Click the gutter icon next to the `main` function and choose **Run 'ApplicationKt'**.
-* Run an automatically created **Ktor** run configuration.
-
-You can learn more from the [Run a Ktor application](https://www.jetbrains.com/help/idea/ktor.html#run_ktor_app) section in the IntelliJ IDEA documentation.
+To learn how to run a Ktor application in IntelliJ IDEA, see the [Run a Ktor application](https://www.jetbrains.com/help/idea/ktor.html#run_ktor_app) section in the IntelliJ IDEA documentation.
 
 
 ### Run an application using Gradle/Maven {id="gradle-maven-run"}
