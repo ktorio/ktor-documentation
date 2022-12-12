@@ -41,7 +41,7 @@ To create a base project for our application using the Ktor plugin, [open Intell
    
    Click **Next**.
    
-3. On the next page, add the **Routing**, **ContentNegotiation**, and **kotlinx.serialization** plugins:
+3. On the next page, add the **Routing**, **Content Negotiation**, and **kotlinx.serialization** plugins:
    
    ![Ktor plugins](tutorial_http_api_new_project_plugins.png){width="706" border-effect="rounded"}
    

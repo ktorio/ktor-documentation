@@ -43,7 +43,7 @@ To create a base project for our application using the Ktor plugin, [open Intell
    
    Click **Next**.
 
-3. On the next page, add the **Routing**, **Static Content**, and **FreeMarker** plugins:
+3. On the next page, add the **Routing**, **Static Content**, and **Freemarker** plugins:
    
    ![Ktor plugins](tutorial_website_new_project_plugins.png){width="706" border-effect="rounded"}
 
