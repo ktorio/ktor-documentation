@@ -70,7 +70,7 @@ This section demonstrates how to configure the `oauth` provider for authorizing 
 ### Prerequisites: Create authorization credentials {id="authorization-credentials"}
 
 To access Google APIs, you need to create authorization credentials in the Google Cloud Console.
-1. Open the [Google Cloud Console](https://console.cloud.google.com/apis/credentials).
+1. Open the [Credentials](https://console.cloud.google.com/apis/credentials) page in the Google Cloud Console.
 2. Click **CREATE CREDENTIALS** and choose `OAuth client ID`.
 3. Choose `Web application` from the dropdown.
 4. Specify the following settings:
@@ -106,7 +106,8 @@ The code snippet below shows how to create and configure the `oauth` provider wi
 ```
 {src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="29-50"}
 
-* The `urlProvider` specifies a [redirect route](#redirect-route) that will be opened when authorization is completed. 
+* The `urlProvider` specifies a [redirect route](#redirect-route) that will be opened when authorization is completed.
+   > Make sure that this route is added to a list of [**Authorised redirect URIs**](#authorization-credentials).
 * `providerLookup` allows you to specify OAuth settings for a required provider. These settings are represented by the [OAuthServerSettings](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-o-auth-server-settings/index.html) class and allow Ktor to make automatic requests to the OAuth server. 
 * The `client` property specifies the [HttpClient](#create-http-client) used by Ktor to make requests to the OAuth server.
 
