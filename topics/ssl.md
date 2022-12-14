@@ -121,7 +121,7 @@ You can find the full example here: [ssl-engine-main](https://github.com/ktorio/
 
 ### embeddedServer {id="embedded-server"}
 
-If you use the `embeddedServer` function to run your server, you need to pass a [custom environment](Configuration-file.topic#embedded-custom) and provide SSL settings there using [sslConnector](https://api.ktor.io/ktor-server/ktor-server-host-common/io.ktor.server.engine/ssl-connector.html):
+If you use the `embeddedServer` function to run your server, you need to pass a [custom environment](Configuration-code.topic#embedded-custom) and provide SSL settings there using [sslConnector](https://api.ktor.io/ktor-server/ktor-server-host-common/io.ktor.server.engine/ssl-connector.html):
 ```kotlin
 ```
 {src="snippets/ssl-embedded-server/src/main/kotlin/com/example/Application.kt" include-lines="3-39"}
