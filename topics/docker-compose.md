@@ -32,7 +32,7 @@ Then, open `build.gradle.kts` and add the following dependencies:
 
 ### Connect to a database {id="connect_db"}
 
-The [tutorial-website-interactive-persistence](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-website-interactive-persistence) sample uses hardcoded `driverClassName` and `jdbcURL` in the `com/example/dao/DatabaseFactory.kt` file to establish a database connection. Let's extract connection settings for the PostgreSQL database to a [custom configuration group](Configuration-file.topic#configuration-file). Open the `src/main/resources/application.conf` file and add the `storage` group outside the `ktor` group as follows:
+The [tutorial-website-interactive-persistence](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-website-interactive-persistence) sample uses hardcoded `driverClassName` and `jdbcURL` in the `com/example/dao/DatabaseFactory.kt` file to establish a database connection. Let's extract connection settings for the PostgreSQL database to a [custom configuration group](Configuration-file.topic). Open the `src/main/resources/application.conf` file and add the `storage` group outside the `ktor` group as follows:
 
 ```kotlin
 ```

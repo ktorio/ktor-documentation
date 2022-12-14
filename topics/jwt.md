@@ -100,7 +100,7 @@ You can find complete projects here: [auth-jwt-hs256](https://github.com/ktorio/
 
 ### Step 1: Configure JWT settings {id="jwt-settings"}
 
-To configure JWT-related settings, you can create a custom `jwt` group in a [configuration file](Configuration-file.topic#configuration-file). For example, the `application.conf` file might look as follows:
+To configure JWT-related settings, you can create a custom `jwt` group in a [configuration file](Configuration-file.topic). For example, the `application.conf` file might look as follows:
 
 <tabs group="sign-alg">
 <tab title="HS256" group-key="hs256">

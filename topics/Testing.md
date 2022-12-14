@@ -77,7 +77,7 @@ A configuration of test applications might include the following steps:
 
 #### Add application modules {id="add-modules"}
 To test an application, its [modules](Modules.md) should be loaded to `testApplication`.
-Loading modules to `testApplication` depends on the way used to [create a server](create_server.topic): by using a [configuration file](Configuration-file.topic#configuration-file) or in code using the `embeddedServer` function.
+Loading modules to `testApplication` depends on the way used to [create a server](create_server.topic): by using a [configuration file](Configuration-file.topic) or in code using the `embeddedServer` function.
 
 ##### Add modules automatically {id="auto"}
 

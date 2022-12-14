@@ -215,7 +215,7 @@ fun main() {
 
 ### In a configuration file {id="engine-main-configure"}
 
-If you use `EngineMain`, you can specify options common for all engines in a [configuration file](Configuration-file.topic#configuration-file) within the `ktor.deployment` group.
+If you use `EngineMain`, you can specify options common for all engines in a [configuration file](Configuration-file.topic) within the `ktor.deployment` group.
 
 <tabs group="config">
 <tab title="application.conf" group-key="hocon">

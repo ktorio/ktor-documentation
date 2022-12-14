@@ -52,7 +52,7 @@ In the [previous tutorial](interactive_website_add_persistence.md#connect_db), w
 ```
 {src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DatabaseFactory.kt" include-lines="10-12,17"}
 
-Let's extract database connection settings to a [custom configuration group](Configuration-file.topic#configuration-file).
+Let's extract database connection settings to a [custom configuration group](Configuration-file.topic).
 
 1. Open the `src/main/resources/application.conf` file and add the `storage` group outside the `ktor` group as follows:
 

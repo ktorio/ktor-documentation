@@ -26,7 +26,7 @@ In contrast to the approach above, a servlet container should control the applic
 
 ### Configuration: code vs configuration file {id="code-vs-config"}
 
-Configuring a self-contained Ktor application for deployment might depend on the approach used to [create and configure a server](create_server.topic): in code or by using a [configuration file](Configuration-file.topic#configuration-file). As an example, a [hosting provider](#publishing) may require specifying a port used to listen for incoming requests. In this case, you need to [configure](Configuration-file.topic) a port either in code or in the `application.conf`/`application.yaml`.
+Configuring a self-contained Ktor application for deployment might depend on the approach used to [create and configure a server](create_server.topic): in code or by using a [configuration file](Configuration-file.topic). As an example, a [hosting provider](#publishing) may require specifying a port used to listen for incoming requests. In this case, you need to [configure](Configuration-file.topic) a port either in code or in the `application.conf`/`application.yaml`.
 
 
 ## Packaging {id="packaging"}

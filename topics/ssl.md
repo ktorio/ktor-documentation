@@ -76,7 +76,7 @@ Specifying SSL settings in Ktor depends on the way used to [configure a Ktor ser
 
 ### Configuration file {id="config-file"}
 
-If your server is configured in the `application.conf` or `application.yaml` [configuration file](Configuration-file.topic#configuration-file), you can enable SSL using the following [properties](Configuration-file.topic#predefined-properties):
+If your server is configured in the `application.conf` or `application.yaml` [configuration file](Configuration-file.topic), you can enable SSL using the following [properties](Configuration-file.topic#predefined-properties):
 
 1. Specify the SSL port using the `ktor.deployment.sslPort` property:
 
