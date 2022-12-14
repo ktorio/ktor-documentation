@@ -255,7 +255,8 @@
         <toc-element topic="http-client_testing.md"/>
     </toc-element>
 
-    <toc-element toc-title="Migrating Ktor applications">
+    <toc-element toc-title="Releases">
+        <toc-element topic="releases.md"/>
         <toc-element topic="migrating-2.md"/>
         <toc-element topic="migrating-2-2.md"/>
     </toc-element>
