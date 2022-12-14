@@ -14,7 +14,7 @@ For example, you can use `Apache` or `Jetty`for JVM applications, `OkHttp` or `A
 
 ### Supported platforms {id="platforms"}
 
-The table below lists platforms supported by each engine:
+The table below lists [platforms](client-supported-platforms.md) supported by each engine:
 
 | Engine  | Platforms                                               |
 |---------|---------------------------------------------------------|
