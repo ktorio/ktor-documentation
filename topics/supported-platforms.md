@@ -1,6 +1,6 @@
 [//]: # (title: Supported platforms)
 
-The Ktor HTTP client can be used on the following platforms supported by Kotlin:
+The Ktor server can be used on the following platforms supported by Kotlin:
 - JVM
 - [Native](native_server.md)
    <include from="http-client_engines.md" element-id="newmm-note"/>
