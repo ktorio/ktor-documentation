@@ -44,7 +44,7 @@ get("/index") {
     call.respondTemplate("index.ftl", mapOf("user" to sampleUser))
 }
 ```
-You can learn more from the [](Working_with_views.md) help section.
+You can learn more from the [](Templating.md) help section.
 
 
 ### Object {id="object"}

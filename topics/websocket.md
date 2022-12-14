@@ -1,4 +1,4 @@
-[//]: # (title: Server WebSockets)
+[//]: # (title: WebSockets)
 
 <show-structure for="chapter" depth="2"/>
 
@@ -60,7 +60,7 @@ routing {
     }
 }
 ```
-For such an endpoint, a server accepts WebSocket requests to `ws://localhost:8080/echo` when a [default configuration](Configurations.topic) is used.
+For such an endpoint, a server accepts WebSocket requests to `ws://localhost:8080/echo` when a [default configuration](Configuration-file.topic) is used.
 
 Inside the `webSocket` block, you need to handle a WebSocket session, which is represented by the [DefaultWebSocketServerSession](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-websockets/io.ktor.server.websocket/-default-web-socket-server-session/index.html) class. Session configuration might look as follows:
 

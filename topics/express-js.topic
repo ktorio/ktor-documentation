@@ -684,7 +684,7 @@
                 </td>
                 <td>
                     <p>
-                        Ktor supports several <a href="Working_with_views.md">JVM template engines</a>,
+                        Ktor supports several <a href="Templating.md">JVM template engines</a>,
                         such as FreeMarker, Velocity, and so on.
                         For example, if you need to respond with a FreeMarker template placed in application resources,
                         install and configure the <code>FreeMarker</code> plugin and

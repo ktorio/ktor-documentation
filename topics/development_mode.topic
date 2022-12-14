@@ -36,7 +36,7 @@
         <chapter title="Configuration file" id="application-conf">
             <p>
                 To enable development mode in a
-                <a href="Configurations.topic" anchor="configuration-file">configuration file</a>,
+                <a href="Configuration-file.topic">configuration file</a>,
                 set the <code>development</code> option to <code>true</code>:
             </p>
             <tabs group="config">

@@ -14,7 +14,7 @@ For example, you can use `Apache` or `Jetty`for JVM applications, `OkHttp` or `A
 
 ### Supported platforms {id="platforms"}
 
-The table below lists platforms supported by each engine:
+The table below lists [platforms](client-supported-platforms.md) supported by each engine:
 
 | Engine  | Platforms                                               |
 |---------|---------------------------------------------------------|
@@ -199,7 +199,7 @@ The `OkHttp` engine is based on OkHttp can be configured in the following way:
 ## Native {id="native"}
 In this section, we'll have a look at how to configure engines targeted for [Kotlin/Native](https://kotlinlang.org/docs/native-overview.html).
 
-> Using the Ktor client in a Kotlin/Native project requires a [new memory manager](https://kotlinlang.org/docs/native-memory-manager.html), which is enabled by default starting with Kotlin 1.7.20.
+> Using Ktor in a Kotlin/Native project requires a [new memory manager](https://kotlinlang.org/docs/native-memory-manager.html), which is enabled by default starting with Kotlin 1.7.20.
 >
 {id="newmm-note"}
 

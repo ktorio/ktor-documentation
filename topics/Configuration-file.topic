@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Configuration in a file"
+       id="Configuration-file">
+
+    <show-structure for="chapter" depth="2"/>
+
+    <link-summary>
+        This topic describes how to configure various server parameters in a configuration file.
+        Server parameters include a host address and port, modules to load, and so on.
+    </link-summary>
+
+    <p>
+        Ktor allows you to configure various server parameters, such as a host address and port, <a href="Modules.md">modules</a> to load, and so on.
+        The configuration depends on the way you used to create a server - <a href="create_server.topic">embeddedServer or EngineMain</a>.
+    </p>
+    <p>
+        For <code>EngineMain</code>, Ktor loads its configuration from a configuration file that uses the <a href="https://github.com/lightbend/config/blob/master/HOCON.md">HOCON</a> or YAML format.
+        This way provides more flexibility to configure a server and allows you to change a configuration without recompiling your application.
+        Moreover, you can run your application from a command line and override the required server parameters by passing corresponding <a anchor="command-line">command-line</a> arguments.
+    </p>
+
+
+
+    <chapter title="Overview" id="configuration-file-overview">
+        <p>
+            If you use <a href="create_server.topic" anchor="engine-main">EngineMain</a> to start a server, Ktor loads configuration settings automatically from a file named <path>application.*</path> located in the <path>resources</path> directory.
+            Two configuration formats are supported:
+        </p>
+        <list>
+            <li>
+                <p>
+                    HOCON (<path>application.conf</path>)
+                </p>
+            </li>
+            <li>
+                <p>
+                    YAML (<path>application.yaml</path>)
+                </p>
+                <note>
+                    <p>
+                        To use a YAML configuration file, you need to add the <code>ktor-server-config-yaml</code> <a href="server-dependencies.topic">dependency</a>.
+                    </p>
+                </note>
+            </li>
+        </list>
+
+        <p>
+            A configuration file should contain at least <a href="Modules.md">modules to load</a> specified using the <code>ktor.application.modules</code> property, for example:
+        </p>
+
+        <tabs group="config">
+            <tab title="application.conf" group-key="hocon">
+                <code-block
+                        src="snippets/engine-main/src/main/resources/application.conf"
+                        include-lines="1,5-8"/>
+            </tab>
+            <tab title="application.yaml" group-key="yaml">
+                <code-block
+                        lang="yaml"
+                        src="snippets/engine-main-yaml/src/main/resources/application.yaml"
+                        include-lines="1,4-6"/>
+            </tab>
+        </tabs>
+
+        <p>
+            In this case, Ktor calls the <code>Application.module</code> function in the <path>Application.kt</path> file below:
+        </p>
+        <code-block
+                lang="kotlin"
+                src="snippets/engine-main/src/main/kotlin/com/example/Application.kt">
+        </code-block>
+        <p>
+            Besides modules to load, you can configure various server settings, including <a anchor="predefined-properties">predefined</a> (such as a port or host, SSL settings, etc.) and custom ones.
+            Let's take a look at several examples.
+        </p>
+
+        <chapter title="Basic configuration" id="config-basic">
+            <p>
+                In the example below, a server listening port is set to <code>8080</code> using the <code>ktor.deployment.port</code> property.
+            </p>
+            <tabs group="config">
+                <tab title="application.conf" group-key="hocon">
+                    <code-block
+                            src="snippets/engine-main/src/main/resources/application.conf"/>
+                </tab>
+                <tab title="application.yaml" group-key="yaml">
+                    <code-block
+                            lang="yaml"
+                            src="snippets/engine-main-yaml/src/main/resources/application.yaml"/>
+                </tab>
+            </tabs>
+        </chapter>
+
+        <chapter title="SSL configuration" id="config-ssl">
+            <p>
+                The example below enables Ktor to listen on the <code>8443</code> SSL port and specifies the required <a href="ssl.md">SSL settings</a> in a separate <code>security</code> block.
+            </p>
+            <tabs group="config">
+                <tab title="application.conf" group-key="hocon">
+                    <code-block
+                            src="snippets/ssl-engine-main/src/main/resources/application.conf"/>
+                </tab>
+                <tab title="application.yaml" group-key="yaml">
+                    <code-block
+                            lang="yaml"
+                            src="snippets/ssl-engine-main/src/main/resources/_application.yaml"/>
+                </tab>
+            </tabs>
+        </chapter>
+
+        <chapter title="Custom configuration" id="config-custom">
+            <p>
+                Apart from specifying the <a anchor="predefined-properties">predefined properties</a>,
+                Ktor allows you to keep custom settings in the configuration file.
+                The configuration files below contain a custom <code>jwt</code> group used to keep <a href="jwt.md" anchor="jwt-settings">JWT</a> settings.
+            </p>
+            <tabs group="config">
+                <tab title="application.conf" group-key="hocon">
+                    <code-block
+                            src="snippets/auth-jwt-hs256/src/main/resources/application.conf"/>
+                </tab>
+                <tab title="application.yaml" group-key="yaml">
+                    <code-block
+                            lang="yaml"
+                            src="snippets/auth-jwt-hs256/src/main/resources/_application.yaml"/>
+                </tab>
+            </tabs>
+            <p>
+                You can <a anchor="read-configuration-in-code">read and handle such settings</a> in code.
+            </p>
+            <warning>
+                <p>
+                    Note that sensitive data (like secret keys, database connection settings, and so on) should not be stored in the configuration file as plain text.
+                    Consider using <a anchor="environment-variables">environment variables</a> to specify such parameters.
+                </p>
+            </warning>
+        </chapter>
+    </chapter>
+
+
+
+    <chapter title="Predefined properties" id="predefined-properties">
+        <p>
+            Below is a list of predefined settings that you can use inside a <a anchor="configuration-file-overview">configuration file</a>.
+        </p>
+        <deflist style="wide">
+            <def title="ktor.deployment.host">
+                <p>
+                    A host address.
+                </p>
+                <p>
+                    <emphasis>Example</emphasis>: <code>0.0.0.0</code>
+                </p>
+            </def>
+            <def title="ktor.deployment.port">
+                <p>
+                    A listening port. You can set this property to <code>0</code> to run the server on a random port.
+                </p>
+                <p>
+                    <emphasis>Example</emphasis>: <code>8080</code>, <code>0</code>
+                </p>
+            </def>
+            <def title="ktor.deployment.sslPort">
+                <p>
+                    A listening SSL port. You can set this property to <code>0</code> to run the server on a random port.
+                </p>
+                <p>
+                    <emphasis>Example</emphasis>: <code>8443</code>, <code>0</code>
+                </p>
+                <note>
+                    <p>
+                        Note that SSL requires additional options <a anchor="ssl">listed below</a>.
+                    </p>
+                </note>
+            </def>
+            <def title="ktor.deployment.watch">
+                <p>
+                    Watch paths used for <a href="Auto_reload.topic" anchor="watch-paths">auto-reloading</a>.
+                </p>
+            </def>
+            <def title="ktor.deployment.rootPath">
+                <p>
+                    A <a href="war.md">servlet</a> context path.
+                </p>
+                <p>
+                    <emphasis>Example</emphasis>: <code>/</code>
+                </p>
+            </def>
+            <def title="ktor.deployment.shutdown.url">
+                <p>
+                    A shutdown URL.
+                    Note that this option uses the <a href="shutdown-url.md"/> plugin.
+                </p>
+            </def>
+        </deflist>
+        <p id="ssl">
+            If you've set <code>ktor.deployment.sslPort</code>, you need to specify the following <a href="ssl.md">SSL-specific</a> properties:
+        </p>
+        <deflist style="wide">
+            <def title="ktor.security.ssl.keyStore">
+                <p>
+                    An SSL key store.
+                </p>
+            </def>
+            <def title="ktor.security.ssl.keyAlias">
+                <p>
+                    An alias for the SSL key store.
+                </p>
+            </def>
+            <def title="ktor.security.ssl.keyStorePassword">
+                <p>
+                    A password for the SSL key store.
+                </p>
+            </def>
+            <def title="ktor.security.ssl.privateKeyPassword">
+                <p>
+                    A password for the SSL private key.
+                </p>
+            </def>
+        </deflist>
+
+    </chapter>
+
+
+
+    <chapter title="Environment variables" id="environment-variables">
+        <p>
+            In a configuration file, you can substitute parameters with environment variables by using the <code>${ENV}</code> / <code>$ENV</code> syntax.
+            For example, you can assign the <code>PORT</code> environment variable to the <code>ktor.deployment.port</code> property in the following way:
+        </p>
+        <tabs group="config">
+            <tab title="application.conf" group-key="hocon">
+                <code-block>
+                    ktor {
+                        deployment {
+                            port = ${PORT}
+                        }
+                    }
+                </code-block>
+            </tab>
+            <tab title="application.yaml" group-key="yaml">
+                <code-block lang="yaml">
+                    ktor:
+                        deployment:
+                            port: $PORT
+                </code-block>
+            </tab>
+        </tabs>
+
+        <p>
+            In this case, an environment variable value will be used to specify a listening port.
+            If the <code>PORT</code> environment variable variable doesn't exist at runtime, you can provide a default port value as follows:
+        </p>
+        <tabs group="config">
+            <tab title="application.conf" group-key="hocon">
+                <code-block>
+                    ktor {
+                        deployment {
+                            port = 8080
+                            port = ${?PORT}
+                        }
+                    }
+                </code-block>
+            </tab>
+            <tab title="application.yaml" group-key="yaml">
+                <code-block lang="yaml">
+                    ktor:
+                        deployment:
+                            port: "$PORT:8080"
+                </code-block>
+            </tab>
+        </tabs>
+    </chapter>
+
+
+    <chapter title="Read configuration in code" id="read-configuration-in-code">
+        <p>
+            Ktor allows you to access property values specified inside a configuration file in code.
+            For example, if you've specified the <code>ktor.deployment.port</code> property,...
+        </p>
+
+        <tabs group="config">
+            <tab title="application.conf" group-key="hocon">
+                <code-block>
+                    ktor {
+                        deployment {
+                            port = 8080
+                        }
+                    }
+                </code-block>
+            </tab>
+            <tab title="application.yaml" group-key="yaml">
+                <code-block lang="yaml">
+                    ktor:
+                        deployment:
+                            port: 8080
+                </code-block>
+            </tab>
+        </tabs>
+
+        <p>
+            ... you can access the application's configuration using <a href="https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-environment/config.html">ApplicationEnvironment.config</a> and get the required property value in the following way:
+        </p>
+        <code-block lang="kotlin">
+            import io.ktor.server.application.*
+            import io.ktor.server.response.*
+            import io.ktor.server.routing.*
+
+            fun Application.module() {
+                val port = environment.config.propertyOrNull("ktor.deployment.port")?.getString() ?: "8080"
+                routing {
+                    get {
+                        call.respondText("Listening on port $port")
+                    }
+                }
+            }
+        </code-block>
+        <p>
+            This is especially useful when you keep <a anchor="custom-property">custom settings</a> in a configuration file and need to access its values.
+        </p>
+    </chapter>
+
+    <chapter title="Command line" id="command-line">
+        <p>
+            If you use <a href="create_server.topic" anchor="engine-main">EngineMain</a> to create a server, you can run a <a href="fatjar.md">packaged application</a> from a command line and override the required server parameters by passing corresponding command-line arguments. For example, you can override a port specified in a configuration file in the following way:
+        </p>
+        <code-block>
+            java -jar sample-app.jar -port=8080
+        </code-block>
+        <p>
+            The available command-line options are listed below:
+        </p>
+        <deflist style="narrow">
+            <def title="-jar">
+                <p>
+                    A path to JAR file.
+                </p>
+            </def>
+            <def title="-config">
+                <p>
+                    A path to a custom configuration file used instead of <path>application.conf</path> / <path>application.yaml</path> from resources.
+                </p>
+                <p>
+                    <emphasis>Example</emphasis>: <code>java -jar sample-app.jar -config=anotherfile.conf</code>
+                </p>
+
+            </def>
+            <def title="-host">
+                <p>
+                    A host address.
+                </p>
+            </def>
+            <def title="-port">
+                <p>
+                    A listening port.
+                </p>
+            </def>
+            <def title="-watch">
+                <p>
+                    Watch paths used for <a href="Auto_reload.topic" anchor="watch-paths">auto-reloading</a>.
+                </p>
+            </def>
+        </deflist>
+        <p>
+            <a href="ssl.md">SSL-specific</a> options:
+        </p>
+        <deflist style="narrow">
+            <def title="-sslPort">
+                <p>
+                    A listening SSL port.
+                </p>
+            </def>
+            <def title="-sslKeyStore">
+                <p>
+                    An SSL key store.
+                </p>
+            </def>
+        </deflist>
+        <p>
+            If you need to override a <a anchor="predefined-properties">predefined property</a>
+            that doesn't have a corresponding command-line option, use the <code>-P</code> flag, for example:
+        </p>
+        <code-block>
+            java -jar sample-app.jar -P:ktor.deployment.callGroupSize=7
+        </code-block>
+        <p>
+            You can also use the <code>-P</code> flag to override a <a anchor="config-custom">custom property</a>.
+        </p>
+    </chapter>
+
+
+    <chapter title="Example: How to specify an environment using a custom property" id="custom-property">
+        <p>
+            You might want to do different things depending on whether a server is running locally or on a production machine.
+            To achieve this, you can add a custom property in <path>application.conf</path> / <path>application.yaml</path> and initialize it with a dedicated <a anchor="environment-variables">environment variable</a> whose value depends on whether a server is running locally or on production. In the example below, the <code>KTOR_ENV</code> environment variable is assigned to a custom <code>ktor.environment</code> property.
+        </p>
+
+        <tabs group="config">
+            <tab title="application.conf" group-key="hocon">
+                <code-block src="snippets/engine-main-custom-environment/src/main/resources/application.conf" include-lines="1-2,9"/>
+            </tab>
+            <tab title="application.yaml" group-key="yaml">
+                <code-block lang="yaml" src="snippets/engine-main-custom-environment/src/main/resources/application.yaml" include-lines="1-2"/>
+            </tab>
+        </tabs>
+
+        <p>
+            You can access the <code>ktor.environment</code> value at runtime by <a anchor="read-configuration-in-code">reading configuration in code</a> and perform the required actions:
+        </p>
+        <code-block lang="kotlin" src="snippets/engine-main-custom-environment/src/main/kotlin/com/example/Application.kt" include-lines="3-6,9-20"/>
+        <p>
+            You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main-custom-environment">engine-main-custom-environment</a>.
+        </p>
+    </chapter>
+
+</topic>

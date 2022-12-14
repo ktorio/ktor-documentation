@@ -69,7 +69,8 @@
 
         <chapter title="Configuration in code" id="embedded-server">
             <p>
-                The <code>embeddedServer</code> function is a simple way to configure server parameters in code and quickly run an application.
+                The <code>embeddedServer</code> function is a simple way to configure server parameters
+                in <a href="Configuration-code.topic">code</a> and quickly run an application.
                 In the code snippet below, it accepts an <a href="Engines.md">engine</a> and port as parameters to start a server.
                 In the example below, we run a server with the <code>Netty</code> engine and listen on the <code>8080</code> port:
             </p>
@@ -84,7 +85,7 @@
 
         <chapter title="Configuration in a file" id="engine-main">
             <p>
-                <code>EngineMain</code> starts a server with the selected engine and loads the <a href="Modules.md">application modules</a> specified in the external <a href="Configurations.topic" anchor="configuration-file">configuration file</a> placed in the <path>resources</path> directory: <path>application.conf</path> or <path>application.yaml</path>.
+                <code>EngineMain</code> starts a server with the selected engine and loads the <a href="Modules.md">application modules</a> specified in the external <a href="Configuration-file.topic">configuration file</a> placed in the <path>resources</path> directory: <path>application.conf</path> or <path>application.yaml</path>.
                 Besides modules to load, a configuration file can include various server parameters (the <code>8080</code> port in the example below).
             </p>
 

@@ -22,33 +22,36 @@
         </toc-element>
 
         <toc-element toc-title="Developing applications">
-            <toc-element topic="server-dependencies.topic"
-                         accepts-web-file-names="artifacts.html,maven.html,gradle.html"/>
             <toc-element toc-title="Creating and configuring a server">
+                <toc-element topic="supported-platforms.md"/>
+                <toc-element topic="server-dependencies.topic"
+                             accepts-web-file-names="artifacts.html,maven.html,gradle.html">
+                    <toc-element topic="native_server.md"/>
+                </toc-element>
                 <toc-element topic="create_server.topic"/>
                 <toc-element topic="Engines.md" accepts-web-file-names="custom-engines.html"/>
-                <toc-element topic="Configurations.topic"
-                             accepts-web-file-names="configuration.html,environments.html"/>
-                <toc-element topic="logging.md"
-                             accepts-web-file-names="servers-logging.html"/>
+                <toc-element topic="Configuration-code.topic"/>
+                <toc-element topic="Configuration-file.topic"
+                             accepts-web-file-names="configuration.html,configurations.html,environments.html"/>
                 <toc-element topic="Modules.md"/>
                 <toc-element topic="Plugins.md"
                              accepts-web-file-names="zfeatures.html,features.html"/>
-                <toc-element topic="development_mode.topic"/>
                 <toc-element topic="ssl.md"
                              accepts-web-file-names="certificates.html,self-signed-certificate.html"/>
-                <toc-element topic="advanced_http2.md"/>
-                <toc-element topic="native_server.md"/>
+                <toc-element topic="http2.md" accepts-web-file-names="advanced-http2.html"/>
+                <toc-element topic="development_mode.topic"/>
+                <toc-element topic="logging.md"
+                             accepts-web-file-names="servers-logging.html"/>
             </toc-element>
 
             <toc-element toc-title="Routing">
                 <toc-element topic="Routing_in_Ktor.md"
                              accepts-web-file-names="routing.html,tracing-routes.html,resolution-algorithms.html"/>
-                <toc-element topic="Structuring_Applications.md"
-                             accepts-web-file-names="structure.html"/>
                 <toc-element topic="type-safe-routing.md"/>
                 <toc-element topic="locations.md"
                              accepts-web-file-names="features-locations.html"/>
+                <toc-element topic="Structuring_Applications.md"
+                             accepts-web-file-names="structure.html"/>
                 <toc-element topic="autoheadresponse.md"/>
                 <toc-element topic="x-http-method-override.md"/>
             </toc-element>
@@ -66,6 +69,9 @@
                 <toc-element topic="status_pages.md"/>
             </toc-element>
 
+            <toc-element topic="serialization.md"
+                         accepts-web-file-names-ref="serialization_server"/>
+
             <toc-element toc-title="Serving content">
                 <toc-element topic="Serving_Static_Content.md"
                              accepts-web-file-names="static-content.html"/>
@@ -73,8 +79,8 @@
                 <toc-element topic="webjars.md"/>
             </toc-element>
 
-            <toc-element topic="Working_with_views.md"
-                         accepts-web-file-names="templates.html">
+            <toc-element topic="Templating.md"
+                         accepts-web-file-names="templates.html,working-with-views.html">
                 <toc-element topic="html_dsl.md"/>
                 <toc-element topic="css_dsl.md"/>
                 <toc-element topic="freemarker.md"/>
@@ -84,9 +90,6 @@
                 <toc-element topic="pebble.md"/>
                 <toc-element topic="jte.md"/>
             </toc-element>
-
-            <toc-element topic="serialization.md"
-                         accepts-web-file-names-ref="serialization_server"/>
 
             <toc-element topic="authentication.md"
                          accepts-web-file-names="features-authentication.html">
@@ -202,13 +205,13 @@
         </toc-element>
         <toc-element toc-title="Developing applications">
             <toc-element toc-title="Setting up a client">
+                <toc-element topic="client-supported-platforms.md"/>
                 <toc-element topic="client-dependencies.md"/>
                 <toc-element topic="create-client.md"
                              accepts-web-file-names="client.html,clients-index.html,quick-start.html"/>
                 <toc-element topic="http-client_engines.md" accepts-web-file-names="http-client-multiplatform.html"/>
                 <toc-element topic="http-client_plugins.md"
                              accepts-web-file-names="http-client-features.html"/>
-<!--                <toc-element topic="http-client_multiplatform.md"/>-->
                 <toc-element topic="client-ssl.md"/>
                 <toc-element topic="proxy.md"/>
             </toc-element>
@@ -252,7 +255,8 @@
         <toc-element topic="http-client_testing.md"/>
     </toc-element>
 
-    <toc-element toc-title="Migrating Ktor applications">
+    <toc-element toc-title="Releases">
+        <toc-element topic="releases.md"/>
         <toc-element topic="migrating-2.md"/>
         <toc-element topic="migrating-2-2.md"/>
     </toc-element>

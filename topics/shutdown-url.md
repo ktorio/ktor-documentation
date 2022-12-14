@@ -14,7 +14,7 @@ There are two ways to enable this plugin:
 
 ## Configure shutdown URL in a configuration file {id="config-file"}
 
-You can configure a shutdown URL in a [configuration file](Configurations.topic#configuration-file) using the [ktor.deployment.shutdown.url](Configurations.topic#predefined-properties) property.
+You can configure a shutdown URL in a [configuration file](Configuration-file.topic) using the [ktor.deployment.shutdown.url](Configuration-file.topic#predefined-properties) property.
 
 <tabs group="config">
 <tab title="application.conf" group-key="hocon">

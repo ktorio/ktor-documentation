@@ -1,4 +1,4 @@
-[//]: # (title: Engines)
+[//]: # (title: Choosing an engine)
 
 <show-structure for="chapter" depth="3"/>
 
@@ -57,7 +57,7 @@ The [embeddedServer](https://api.ktor.io/ktor-server/ktor-server-host-common/io.
 * `io.ktor.server.tomcat.EngineMain`
 * `io.ktor.server.cio.EngineMain`
 
-The `EngineMain.main` function is used to start a server with the selected engine and loads the [application module](Modules.md) specified in the external [configuration file](Configurations.topic). In the example below, we start a server from the application's `main` function:
+The `EngineMain.main` function is used to start a server with the selected engine and loads the [application module](Modules.md) specified in the external [configuration file](Configuration-file.topic). In the example below, we start a server from the application's `main` function:
 
 <tabs>
 <tab title="Application.kt">
@@ -215,7 +215,7 @@ fun main() {
 
 ### In a configuration file {id="engine-main-configure"}
 
-If you use `EngineMain`, you can specify options common for all engines in a [configuration file](Configurations.topic#configuration-file) within the `ktor.deployment` group.
+If you use `EngineMain`, you can specify options common for all engines in a [configuration file](Configuration-file.topic) within the `ktor.deployment` group.
 
 <tabs group="config">
 <tab title="application.conf" group-key="hocon">

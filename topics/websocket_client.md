@@ -1,4 +1,4 @@
-[//]: # (title: Client WebSockets)
+[//]: # (title: WebSockets)
 
 <show-structure for="chapter" depth="2"/>
 

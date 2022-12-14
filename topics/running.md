@@ -20,7 +20,7 @@ In this topic, we'll take a look at these configuration specifics and show you h
 
 Running a Ktor application depends on the way you used to [create a server](create_server.topic) - `embeddedServer` or `EngineMain`:
 * For `embeddedServer`, server parameters (such as a host address and port) are configured in code, so you cannot change these parameters when running an application.
-* For `EngineMain`, Ktor loads its configuration from an external file that uses the `HOCON` or `YAML` format. Using this approach, you can run a [packaged application](#package) from a command line and override the required server parameters by passing corresponding [command-line arguments](Configurations.topic#command-line).
+* For `EngineMain`, Ktor loads its configuration from an external file that uses the `HOCON` or `YAML` format. Using this approach, you can run a [packaged application](#package) from a command line and override the required server parameters by passing corresponding [command-line arguments](Configuration-file.topic#command-line).
 
 
 ### Starting EngineMain: Gradle and Maven specifics {id="gradle-maven"}
