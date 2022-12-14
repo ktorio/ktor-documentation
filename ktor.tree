@@ -23,11 +23,12 @@
 
         <toc-element toc-title="Developing applications">
             <toc-element toc-title="Creating and configuring a server">
+                <toc-element topic="supported-platforms.md"/>
                 <toc-element topic="server-dependencies.topic"
-                             accepts-web-file-names="artifacts.html,maven.html,gradle.html"/>
-                <toc-element topic="create_server.topic">
+                             accepts-web-file-names="artifacts.html,maven.html,gradle.html">
                     <toc-element topic="native_server.md"/>
                 </toc-element>
+                <toc-element topic="create_server.topic"/>
                 <toc-element topic="Engines.md" accepts-web-file-names="custom-engines.html"/>
                 <toc-element topic="Configuration-code.topic"/>
                 <toc-element topic="Configuration-file.topic"
