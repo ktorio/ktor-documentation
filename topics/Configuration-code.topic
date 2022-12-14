@@ -4,7 +4,7 @@
 <topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        title="Configuration in code"
-       id="configuration-code">
+       id="Configuration-code">
 
     <show-structure for="chapter"/>
 
