@@ -90,7 +90,7 @@ If you need to customize the image name and tag, use the `localImageName` and `i
 
 By default, the [runDocker](#tasks) task publishes the `8080` container port to the `8080` Docker host port.
 If required, you can change these ports using the `portMappings` property.
-This might be useful if your server is [configured](Configurations.topic#predefined-properties) to use another port. 
+This might be useful if your server is [configured](Configuration-file.topic#predefined-properties) to use another port. 
 
 The example below shows how to map the `8080` container port to the `80` Docker host port.
 

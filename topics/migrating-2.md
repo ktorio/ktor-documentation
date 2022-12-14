@@ -53,7 +53,7 @@ This means that you need to update [dependencies](#server-package-dependencies) 
 | Subsystem                                    |                 1.6.x                 |                                                2.0.0 |
 |:---------------------------------------------|:-------------------------------------:|-----------------------------------------------------:|
 | [Application](create_server.topic)             |    `import io.ktor.application.*`     |                `import io.ktor.server.application.*` |
-| [Configuration](Configurations.topic)          |       `import io.ktor.config.*`       |                     `import io.ktor.server.config.*` |
+| [Configuration](Configuration-file.topic)          |       `import io.ktor.config.*`       |                     `import io.ktor.server.config.*` |
 | [Routing](Routing_in_Ktor.md)                |      `import io.ktor.routing.*`       |                    `import io.ktor.server.routing.*` |
 | [AutoHeadResponse](autoheadresponse.md)      |      `import io.ktor.features.*`      |           `import io.ktor.server.plugins.autohead.*` |
 | [StatusPages](status_pages.md)               |      `import io.ktor.features.*`      |        `import io.ktor.server.plugins.statuspages.*` |

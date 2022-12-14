@@ -59,7 +59,7 @@
             </li>
             <li>
                 <p>
-                    <a href="Configurations.topic">Configure a server</a>
+                    <a href="Configuration-file.topic">Configure a server</a>
                 </p>
                 <p>
                     Learn how to configure various server parameters (such as a host address and port, modules to load, etc.), read the configuration in code, and use environment variables.

@@ -83,7 +83,7 @@ The generated project also includes the `application.conf` and `logback.xml` con
    ```
   {src="snippets/tutorial-website-static/src/main/resources/application.conf" style="block"}
 
-  If you'd like to learn more about how a Ktor server is configured, check out the [](Configurations.topic) help topic.
+  If you'd like to learn more about how a Ktor server is configured, check out the [](Configuration-file.topic) help topic.
 * `logback.xml` sets up the basic logging structure for our server. If you'd like to learn more about logging in Ktor, check out the [](logging.md) topic.
 
 ### Source code {id="source_code"}

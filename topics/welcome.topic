@@ -64,7 +64,7 @@
                             <a href="create_server.topic"/>
                         </li>
                         <li>
-                            <a href="Configurations.topic"/>
+                            <a href="Configuration-code.topic">Configuring a server in code</a> or in a <a href="Configuration-file.topic">file</a>
                         </li>
                         <li>
                             <a href="Plugins.md"/>
@@ -86,19 +86,19 @@
                             <a href="Routing_in_Ktor.md"/>
                         </li>
                         <li>
-                            <a href="Structuring_Applications.md"/>
-                        </li>
-                        <li>
                             <a href="type-safe-routing.md"/>
                         </li>
                         <li>
-                            <a href="Serving_Static_Content.md"/>
+                            <a href="Structuring_Applications.md"/>
                         </li>
                         <li>
                             <a href="requests.md"/>
                         </li>
                         <li>
                             <a href="responses.md"/>
+                        </li>
+                        <li>
+                            <a href="Serving_Static_Content.md"/>
                         </li>
                         <li>
 
@@ -114,10 +114,10 @@
                     </p>
                     <list style="none">
                         <li>
-                            <a href="Working_with_views.md"/>
+                            <a href="serialization.md"/>
                         </li>
                         <li>
-                            <a href="serialization.md"/>
+                            <a href="Templating.md"/>
                         </li>
                         <li>
                             <a href="authentication.md"/>

@@ -186,7 +186,7 @@ To sign and encrypt a session, pass a sign/encrypt keys to the `SessionTransport
 
 By default, `SessionTransportTransformerEncrypt` uses the `AES` and `HmacSHA256` algorithms, which can be changed. 
 
-> Note that signing/encryption keys shouldn't be specified in code. You can use a custom group in the [configuration file](Configurations.topic#configuration-file-overview) to store signing/encryption keys and initialize them using [environment variables](Configurations.topic#environment-variables).
+> Note that signing/encryption keys shouldn't be specified in code. You can use a custom group in the [configuration file](Configuration-file.topic#configuration-file-overview) to store signing/encryption keys and initialize them using [environment variables](Configuration-file.topic#environment-variables).
 >
 {type="warning"}
 

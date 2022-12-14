@@ -84,7 +84,7 @@
 
     <chapter title="How to resolve 'No configuration setting found for key ktor'?" id="cannot-find-application-conf" level="3">
         <p>
-            This means that Ktor was not able to find a <a href="Configurations.topic" anchor="configuration-file">configuration file</a>.
+            This means that Ktor was not able to find a <a href="Configuration-file.topic" anchor="configuration-file">configuration file</a>.
             Re-check that it is in the <code>resources</code> folder, and that the <code>resources</code> folder is marked as such.
             You can consider to set up a project using the <a href="https://start.ktor.io/">project generator</a> or the <a href="intellij-idea.topic">IntelliJ plugin</a> to have a working project as the base.
         </p>

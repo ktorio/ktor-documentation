@@ -124,7 +124,7 @@ necessary to use objects in case we're worried about any kind of overhead.
 Having everything in a single file can become a bit cumbersome as the file grows. 
 What we could do instead is use folders (i.e. packages) to define different areas and then have each route in its own file.
 
-![Grouping by folders](ktor-routing-1.png){width="350"}
+![Grouping by folders](ktor-routing-1.png){width="350" border-effect="rounded"}
 
 While this does provide the advantage of a nice layout when it comes to routes and the individual actions, it could certainly 
 lead to “package overload”, and potentially having tons of filenames named the same, making navigation somewhat more difficult.
@@ -134,7 +134,7 @@ lead to “package overload”, and potentially having tons of filenames named t
 
 Frameworks such as ASP.NET MVC or Ruby on Rails, have the concept of structuring applications using three folders - Model, View, and Controllers (Routes).
 
-![Model View Controller](ktor-routing-2.png){width="350"}
+![Model View Controller](ktor-routing-2.png){width="350" border-effect="rounded"}
 
 
 This isn't far-fetched with the schema we have above which is grouping routes in their own packages/files, our views in the `resources` folder in the case of Ktor, and of course, nothing prevents us from having a package model where we place any data we want to display or respond to HTTP endpoints with.
@@ -142,10 +142,10 @@ This isn't far-fetched with the schema we have above which is grouping routes in
 While this approach may work and is similar to other frameworks, some would argue that it would make more sense to group things by features, i.e. instead of having the project 
 distributed by routes, models and views, have these groups by specific behavior/features, i.e. `OrderProcessPayment`, `CustomerAddressChange`, etc.
 
-![Feature grouping](ktor-routing-3.png){width="350"}
+![Feature grouping](ktor-routing-3.png){width="350" border-effect="rounded"}
 
 With many frameworks, this kind of organization of code isn't viable without seriously hacking the underlying conventions. However, with Ktor, given how flexible it is, 
-in principle it shouldn't be a problem. With one caveat - when we're using a [template engine](Working_with_views.md), resources could be an issue. But let's see how we could solve this.
+in principle it shouldn't be a problem. With one caveat - when we're using a [template engine](Templating.md), resources could be an issue. But let's see how we could solve this.
 
 How this problem is solved very much depends on what is used for Views. If our application is merely an HTTP backend, and we're using client-side technology, then usually all rendering is 
 client-side. If we're using Kotlinx.HTML, then once again it's not an issue as the page can be generated from any Kotlin file placed anywhere. 
