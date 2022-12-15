@@ -254,7 +254,7 @@ If you need to preserve cookies between requests when testing, you need to creat
 
 ```kotlin
 ```
-{src="snippets/session-cookie-client/src/test/kotlin/ApplicationTest.kt" include-lines="3-27,47"}
+{src="snippets/session-cookie-client/src/test/kotlin/cookieclient/ApplicationTest.kt" include-lines="3-27,47"}
 
 </tab>
 
@@ -262,7 +262,7 @@ If you need to preserve cookies between requests when testing, you need to creat
 
 ```kotlin
 ```
-{src="snippets/session-cookie-client/src/main/kotlin/com/example/Application.kt" include-lines="3-38"}
+{src="snippets/session-cookie-client/src/main/kotlin/cookieclient/Application.kt" include-lines="3-38"}
 
 </tab>
 </tabs>
