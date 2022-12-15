@@ -1,4 +1,4 @@
-package com.example
+package compression
 
 import io.ktor.http.*
 import io.ktor.server.application.*

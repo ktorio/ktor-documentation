@@ -5,12 +5,8 @@ A sample Ktor project showing how to use the [ContentEncoding](https://ktor.io/d
 
 ## Running
 
-Before running this sample, start a server from the [compression](../compression) example:
-```bash
-./gradlew :compression:run
-```
-
-Then, run this example by executing the following command:
+This sample uses the server from the [compression](../compression) example.
+To run this sample, execute the following command:
 
 ```bash
 ./gradlew :client-content-encoding:run
