@@ -77,7 +77,7 @@ The `basic` authentication provider exposes its settings via the [BasicAuthentic
 
 ```kotlin
 ```
-{src="snippets/auth-basic/src/main/kotlin/com/example/Application.kt" include-lines="9-20"}
+{src="snippets/auth-basic/src/main/kotlin/authbasic/Application.kt" include-lines="9-20"}
    
 The `validate` function checks `UserPasswordCredential` and returns a `UserIdPrincipal` in the case of successful authentication or `null` if authentication fails. 
 > You can also use [UserHashedTableAuth](#validate-user-hash) to validate users stored in an in-memory table that keeps usernames and password hashes.
@@ -88,7 +88,7 @@ After configuring the `basic` provider, you can define the authorization for the
 
 ```kotlin
 ```
-{src="snippets/auth-basic/src/main/kotlin/com/example/Application.kt" include-lines="21-27"}
+{src="snippets/auth-basic/src/main/kotlin/authbasic/Application.kt" include-lines="21-27"}
 
 
 ## Validate with UserHashedTableAuth {id="validate-user-hash"}
