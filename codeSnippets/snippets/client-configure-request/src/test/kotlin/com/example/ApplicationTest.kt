@@ -8,7 +8,7 @@ import org.junit.Test
 
 class ApplicationTest {
     @Test
-    fun testLoggerOutputInStdout() {
+    fun outputContainsRequestUrls() {
         val output = runGradleAppWaiting().inputStream.readString()
 
         assertThat(output, containsString("REQUEST: https://ktor.io/docs/welcome.html"))

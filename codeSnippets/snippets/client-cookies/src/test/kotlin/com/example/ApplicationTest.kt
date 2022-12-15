@@ -8,10 +8,11 @@ import org.junit.Test
 
 class ApplicationTest {
     @Test
-    fun outputContainsCompressionHeader() {
+    fun outputContainsSessionData() {
         val output = runGradleAppWaiting().inputStream.readString()
 
-        assertThat(output, containsString("Content-Encoding: deflate"))
-        assertThat(output, containsString("Body: Hello, world!"))
+        assertThat(output, containsString("Session ID is 123abc. Reload count is 1."))
+        assertThat(output, containsString("Session ID is 123abc. Reload count is 2."))
+        assertThat(output, containsString("Session ID is 123abc. Reload count is 3."))
     }
 }
