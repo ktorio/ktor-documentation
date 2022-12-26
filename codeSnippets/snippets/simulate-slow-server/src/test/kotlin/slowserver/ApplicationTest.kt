@@ -1,4 +1,4 @@
-package com.example
+package slowserver
 
 import io.ktor.client.request.*
 import io.ktor.server.testing.*
