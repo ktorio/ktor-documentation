@@ -8,4 +8,4 @@ To run this sample, execute the following command in a repository's root directo
 ./gradlew :auth-digest:run
 ```
 
-Then, open [http://localhost:8080/](http://localhost:8080/) in a web browser and enter one of the credentials specified in [userTable](src/main/kotlin/com/example/Application.kt).
+Then, open [http://localhost:8080/](http://localhost:8080/) in a web browser and enter one of the credentials specified in [userTable](src/main/kotlin/authdigest/Application.kt).

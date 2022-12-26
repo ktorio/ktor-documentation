@@ -5,13 +5,10 @@ A sample project demonstrating how to store cookies on a client using the [HttpC
 
 ## Running
 
-Before running this sample, start a server from the [session-cookie](../session-cookie-client) example:
-```bash
-./gradlew :session-cookie-client:run
-```
+This sample uses the server from the [session-cookie-client](../session-cookie-client) example.
 This server sends session data in the `Set-Cookie` response header after visiting the [http://localhost:8080/login](http://localhost:8080/login) page.
 
-To run a client sample, execute the following command:
+To run this sample, execute the following command:
 
 ```bash
 ./gradlew :client-cookies:run

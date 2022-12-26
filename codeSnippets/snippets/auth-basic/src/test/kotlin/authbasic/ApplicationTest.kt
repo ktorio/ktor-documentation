@@ -1,4 +1,4 @@
-package com.example;
+package authbasic
 
 import io.ktor.client.plugins.*
 import io.ktor.client.request.*

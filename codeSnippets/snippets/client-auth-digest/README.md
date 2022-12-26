@@ -5,13 +5,8 @@ A sample project demonstrating how to authenticate a client using digest [authen
 
 ## Running
 
-Before running this sample, start the [auth-digest](../auth-digest) server sample with a resource protected using digest authentication:
-
-```bash
-./gradlew :auth-digest:run
-```
-
-Then, run this client sample:
+This sample uses the server from the [auth-digest](../auth-digest) example.
+To run this sample, execute the following command:
 
 ```bash
 ./gradlew :client-auth-digest:run

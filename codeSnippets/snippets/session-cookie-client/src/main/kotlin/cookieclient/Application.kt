@@ -1,4 +1,4 @@
-package com.example
+package cookieclient
 
 import io.ktor.server.application.*
 import io.ktor.server.response.*

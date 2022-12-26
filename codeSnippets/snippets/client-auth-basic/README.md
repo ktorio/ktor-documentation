@@ -5,13 +5,8 @@ A sample project demonstrating how to authenticate a client using basic [authent
 
 ## Running
 
-Before running this sample, start the [auth-basic](../auth-basic) server sample with a resource protected using basic authentication:
-
-```bash
-./gradlew :auth-basic:run
-```
-
-Then, run this client sample:
+This sample uses the server from the [auth-basic](../auth-basic) example.
+To run this sample, execute the following command:
 
 ```bash
 ./gradlew :client-auth-basic:run

@@ -5,14 +5,10 @@ A sample Ktor project showing how to use the [HttpCache](https://ktor.io/docs/cl
 
 ## Running
 
-Before running this sample, start a server from the [caching-headers](../caching-headers) example:
-```bash
-./gradlew :caching-headers:run
-```
+This sample uses the server from the [caching-headers](../caching-headers) example,
+which has the `/index` route responding with a plain text with the configured `Cache-Control` header.
 
-This sample has the `/index` route that responds with a plain text with the configured `Cache-Control` header.
-
-To see the client's caching in action, run this example by executing the following command:
+To run this sample, execute the following command:
 
 ```bash
 ./gradlew :client-caching:run

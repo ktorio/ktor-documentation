@@ -1,4 +1,4 @@
-package com.example
+package authdigest
 
 import io.ktor.server.application.*
 import io.ktor.server.auth.*
