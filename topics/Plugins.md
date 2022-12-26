@@ -52,11 +52,6 @@ Most of the plugins require a specific dependency. For example, the `CORS` plugi
 <var name="artifact_name" value="ktor-server-cors"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
-As an alternative, you can use the `ktor-server` artifact containing all Ktor server plugins:
-
-<var name="artifact_name" value="ktor-server"/>
-<include from="lib.topic" element-id="add_ktor_artifact"/>
-
 ## Install Plugins {id="install"}
 
 Plugins are generally configured during the initialization phase of the server using the `install` function which takes a Plugin as a parameter. Depending on the way you used to [create a server](create_server.topic), you can install a plugin inside the `embeddedServer` call ...
