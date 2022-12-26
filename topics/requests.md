@@ -97,7 +97,7 @@ You can find the full example here: [post-raw-data](https://github.com/ktorio/kt
 Ktor provides a [ContentNegotiation](serialization.md) plugin to negotiate the media type of request and deserialize content to an object of a required type. To receive and convert content for a request, call the [ApplicationCall.receive](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/receive.html) function that accepts a data class as a parameter:
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="38-42"}
+{src="snippets/json-kotlinx/src/main/kotlin/jsonkotlinx/Application.kt" include-lines="38-42"}
 
 You can learn more from [](serialization.md).
 

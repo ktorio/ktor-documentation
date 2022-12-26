@@ -1,5 +1,7 @@
 package com.example
 
+import jsonkotlinx.*
+import e2e.*
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.engine.cio.*
@@ -8,6 +10,7 @@ import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
+import io.ktor.server.application.*
 import kotlinx.coroutines.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
@@ -16,6 +19,7 @@ import kotlinx.serialization.json.*
 data class Customer(val id: Int, val firstName: String, val lastName: String)
 
 fun main() {
+    defaultServer(Application::main).start()
     runBlocking {
         val client = HttpClient(CIO) {
             install(ContentNegotiation) {

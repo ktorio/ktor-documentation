@@ -1,4 +1,4 @@
-package com.example
+package jsonkotlinx
 
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.request.*

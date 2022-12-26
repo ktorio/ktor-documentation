@@ -266,14 +266,14 @@ With v2.0.0, you need to create a new client instance and install the [ContentNe
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" include-lines="46-55"}
+{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="46-55"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" include-lines="31-44"}
+{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="31-44"}
 
 </tab>
 </tabs>

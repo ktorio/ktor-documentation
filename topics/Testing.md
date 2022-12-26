@@ -142,7 +142,7 @@ The `testApplication` provides access to an HTTP client with default configurati
 If you need to customize the client and install additional plugins, you can use the `createClient` function. For example, to [send JSON data](#json-data) in a test POST/PUT request, you can install the [ContentNegotiation](serialization-client.md) plugin:
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" include-lines="32-37,44"}
+{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="32-37,44"}
 
 
 ### Step 3: Make a request {id="make-request"}
@@ -151,7 +151,7 @@ To test your application, use the [configured client](#configure-client) to make
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" include-lines="32-41,44"}
+{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="32-41,44"}
 
 
 
@@ -161,7 +161,7 @@ After receiving a [response](#make-request), you can verify the results by makin
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" include-lines="32-44"}
+{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="32-44"}
 
 
 
@@ -229,7 +229,7 @@ To send JSON data in a test POST/PUT request, you need to create a new client an
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" include-lines="3-14,31-44,56"}
+{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="3-14,31-44,56"}
 
 </tab>
 
@@ -237,7 +237,7 @@ To send JSON data in a test POST/PUT request, you need to create a new client an
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="3-16,25-31,38-44"}
+{src="snippets/json-kotlinx/src/main/kotlin/jsonkotlinx/Application.kt" include-lines="3-16,25-31,38-44"}
 
 </tab>
 </tabs>
