@@ -5,11 +5,8 @@ A sample Ktor project showing how to use the [HttpTimeout](https://ktor.io/docs/
 
 ## Running
 
-Before running this sample, start a server from the [simulate-slow-server](../simulate-slow-server) example:
-```bash
-./gradlew :simulate-slow-server:run
-```
-In this example, a server adds a two-second delay to each response.
+This client sample uses the server from the [simulate-slow-server](../simulate-slow-server) example.
+The server adds the two-second delay to each response.
 
 Then, send a client request by executing the following command in a repository's root directory:
 ```bash
