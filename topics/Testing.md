@@ -206,7 +206,7 @@ The code below demonstrates how to build `multipart/form-data` and test file upl
 
 ```kotlin
 ```
-{src="snippets/upload-file/src/test/kotlin/UploadFileTest.kt" include-lines="3-36,69"}
+{src="snippets/upload-file/src/test/kotlin/uploadfile/UploadFileTest.kt" include-lines="3-36,69"}
 
 </tab>
 
@@ -214,7 +214,7 @@ The code below demonstrates how to build `multipart/form-data` and test file upl
 
 ```kotlin
 ```
-{src="snippets/upload-file/src/main/kotlin/com/example/UploadFile.kt" include-lines="3-38"}
+{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="3-38"}
 
 </tab>
 </tabs>

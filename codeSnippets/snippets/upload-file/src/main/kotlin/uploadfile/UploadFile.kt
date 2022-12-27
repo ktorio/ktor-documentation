@@ -1,4 +1,4 @@
-package com.example
+package uploadfile
 
 import io.ktor.server.application.*
 import io.ktor.http.content.*
@@ -23,7 +23,7 @@ fun Application.main() {
 
                     is PartData.FileItem -> {
                         fileName = part.originalFileName as String
-                        var fileBytes = part.streamProvider().readBytes()
+                        val fileBytes = part.streamProvider().readBytes()
                         File("uploads/$fileName").writeBytes(fileBytes)
                     }
 

@@ -242,14 +242,14 @@ To build `multipart/form-data` in v2.0.0, you need to pass `MultiPartFormDataCon
 
 ```kotlin
 ```
-{src="snippets/upload-file/src/test/kotlin/UploadFileTest.kt" include-lines="38-63"}
+{src="snippets/upload-file/src/test/kotlin/uploadfile/UploadFileTest.kt" include-lines="38-63"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/upload-file/src/test/kotlin/UploadFileTest.kt" include-lines="17-36"}
+{src="snippets/upload-file/src/test/kotlin/uploadfile/UploadFileTest.kt" include-lines="17-36"}
 
 </tab>
 </tabs>
