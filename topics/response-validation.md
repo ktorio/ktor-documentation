@@ -57,7 +57,7 @@ In the [example](https://github.com/ktorio/ktor-documentation/tree/%ktor_version
 
 ```kotlin
 ```
-{src="snippets/client-validate-2xx-response/src/main/kotlin/com/example/Application.kt" include-lines="23-33"}
+{src="snippets/client-validate-2xx-response/src/main/kotlin/com/example/Application.kt" include-lines="26-36"}
 
 ### Handle non-2xx exceptions {id="non-2xx"}
 
