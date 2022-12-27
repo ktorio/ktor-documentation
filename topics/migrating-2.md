@@ -219,14 +219,14 @@ In the test below, the `handleRequest` function is replaced with the `client.pos
 
 ```kotlin
 ```
-{src="snippets/post-form-parameters/src/test/kotlin/ApplicationTest.kt" include-lines="20-28"}
+{src="snippets/post-form-parameters/src/test/kotlin/formparameters/ApplicationTest.kt" include-lines="20-28"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/post-form-parameters/src/test/kotlin/ApplicationTest.kt" include-lines="11-18"}
+{src="snippets/post-form-parameters/src/test/kotlin/formparameters/ApplicationTest.kt" include-lines="11-18"}
 
 </tab>
 </tabs>

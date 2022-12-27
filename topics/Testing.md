@@ -183,7 +183,7 @@ A test below from the [post-form-parameters](https://github.com/ktorio/ktor-docu
 
 ```kotlin
 ```
-{src="snippets/post-form-parameters/src/test/kotlin/ApplicationTest.kt" include-lines="3-18,29"}
+{src="snippets/post-form-parameters/src/test/kotlin/formparameters/ApplicationTest.kt" include-lines="3-18,29"}
 
 </tab>
 
@@ -191,7 +191,7 @@ A test below from the [post-form-parameters](https://github.com/ktorio/ktor-docu
 
 ```kotlin
 ```
-{src="snippets/post-form-parameters/src/main/kotlin/com/example/Application.kt" include-lines="3-16,45-46"}
+{src="snippets/post-form-parameters/src/main/kotlin/formparameters/Application.kt" include-lines="3-16,45-46"}
 
 </tab>
 </tabs>

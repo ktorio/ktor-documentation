@@ -110,7 +110,7 @@ Ktor allows you to receive form parameters sent with both `x-www-form-urlencoded
 You can obtain parameter values in code as follows:
 ```kotlin
 ```
-{src="snippets/post-form-parameters/src/main/kotlin/com/example/Application.kt" include-lines="12-16"}
+{src="snippets/post-form-parameters/src/main/kotlin/formparameters/Application.kt" include-lines="12-16"}
 
 You can find the full example here: [post-form-parameters](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/post-form-parameters).
 
