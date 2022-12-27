@@ -12,7 +12,7 @@ class RequestLogging {
             val plugin = RequestLogging()
             pipeline.intercept(ApplicationCallPipeline.Monitoring) {
                 call.request.origin.apply {
-                    println("Request URL: $scheme://$host:$port$uri")
+                    println("Request URL: $scheme://$localHost:$localPort$uri")
                 }
             }
             return plugin
