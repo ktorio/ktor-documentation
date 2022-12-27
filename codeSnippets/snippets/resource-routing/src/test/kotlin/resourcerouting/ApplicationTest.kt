@@ -1,4 +1,4 @@
-package com.example
+package resourcerouting
 
 import io.ktor.client.request.*
 import io.ktor.client.statement.*

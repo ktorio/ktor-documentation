@@ -1,4 +1,4 @@
-package com.example
+package resourcerouting
 
 import io.ktor.http.*
 import io.ktor.resources.*
