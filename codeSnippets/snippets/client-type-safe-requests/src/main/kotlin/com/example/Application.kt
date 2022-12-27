@@ -1,5 +1,7 @@
 package com.example
 
+import resourcerouting.*
+import e2e.*
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
 import io.ktor.client.plugins.*
@@ -9,6 +11,7 @@ import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.resources.*
+import io.ktor.server.application.*
 import kotlinx.coroutines.*
 import kotlinx.serialization.*
 
@@ -29,6 +32,7 @@ class Articles() {
 }
 
 fun main() {
+    defaultServer(Application::module).start()
     runBlocking {
         val client = HttpClient(CIO) {
             install(Resources)

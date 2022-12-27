@@ -60,7 +60,7 @@ Let's summarize the examples above and create the `Articles` resource for CRUD o
 
 ```kotlin
 ```
-{src="snippets/client-type-safe-requests/src/main/kotlin/com/example/Application.kt" include-lines="15-29"}
+{src="snippets/client-type-safe-requests/src/main/kotlin/com/example/Application.kt" include-lines="18-32"}
 
 This resource can be used to list all articles, post a new article, edit it, and so on. We'll see how to [make type-safe requests](#make_requests) to this resource in the next section.
 
@@ -91,7 +91,7 @@ The example below shows how to make typed requests to the `Articles` resource cr
 
 ```kotlin
 ```
-{src="snippets/client-type-safe-requests/src/main/kotlin/com/example/Application.kt" include-lines="31-48,60"}
+{src="snippets/client-type-safe-requests/src/main/kotlin/com/example/Application.kt" include-lines="34-52,64"}
 
 The [defaultRequest](default-request.md) function is used to specify a default URL for all requests.
 
