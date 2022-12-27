@@ -1,6 +1,7 @@
 val ktor_version: String by project
 val logback_version: String by project
 val junit_version: String by project
+val hamcrest_version: String by project
 
 plugins {
     application
@@ -21,6 +22,8 @@ dependencies {
     implementation("io.ktor:ktor-client-cio:$ktor_version")
     implementation("io.ktor:ktor-client-logging:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
+    implementation(project(":post-form-parameters"))
+    implementation(project(":e2e"))
     testImplementation("junit:junit:$junit_version")
-    testImplementation(project(":e2e"))
+    testImplementation("org.hamcrest:hamcrest:$hamcrest_version")
 }

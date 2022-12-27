@@ -181,7 +181,7 @@ The Ktor client provides the [submitForm](https://api.ktor.io/ktor-client/ktor-c
 
 ```kotlin
 ```
-{src="snippets/client-submit-form/src/main/kotlin/com/example/Application.kt" include-lines="12-22"}
+{src="snippets/client-submit-form/src/main/kotlin/com/example/Application.kt" include-lines="16-25"}
 
 You can find the full example here: [client-submit-form](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-submit-form).
 
