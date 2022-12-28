@@ -1,5 +1,6 @@
 package com.example
 
+import com.example.server.*
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.engine.cio.*
@@ -20,19 +21,19 @@ class CustomResponseException(response: HttpResponse, cachedResponseText: String
 }
 
 fun main() {
-    val client = HttpClient(CIO) {
-        install(ContentNegotiation) { json() }
-        HttpResponseValidator {
-            validateResponse { response ->
-                val error: Error = response.body()
-                if (error.code != 0) {
-                    throw CustomResponseException(response, "Code: ${error.code}, message: ${error.message}")
+    startServer()
+    runBlocking {
+        val client = HttpClient(CIO) {
+            install(ContentNegotiation) { json() }
+            HttpResponseValidator {
+                validateResponse { response ->
+                    val error: Error = response.body()
+                    if (error.code != 0) {
+                        throw CustomResponseException(response, "Code: ${error.code}, message: ${error.message}")
+                    }
                 }
             }
         }
-    }
-
-    runBlocking {
         val httpResponse: HttpResponse = try {
             client.get("http://localhost:8080/error")
         } catch (cause: ResponseException) {

@@ -219,14 +219,14 @@ In the test below, the `handleRequest` function is replaced with the `client.pos
 
 ```kotlin
 ```
-{src="snippets/post-form-parameters/src/test/kotlin/ApplicationTest.kt" include-lines="20-28"}
+{src="snippets/post-form-parameters/src/test/kotlin/formparameters/ApplicationTest.kt" include-lines="20-28"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/post-form-parameters/src/test/kotlin/ApplicationTest.kt" include-lines="11-18"}
+{src="snippets/post-form-parameters/src/test/kotlin/formparameters/ApplicationTest.kt" include-lines="11-18"}
 
 </tab>
 </tabs>
@@ -242,14 +242,14 @@ To build `multipart/form-data` in v2.0.0, you need to pass `MultiPartFormDataCon
 
 ```kotlin
 ```
-{src="snippets/upload-file/src/test/kotlin/UploadFileTest.kt" include-lines="38-63"}
+{src="snippets/upload-file/src/test/kotlin/uploadfile/UploadFileTest.kt" include-lines="38-63"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/upload-file/src/test/kotlin/UploadFileTest.kt" include-lines="17-36"}
+{src="snippets/upload-file/src/test/kotlin/uploadfile/UploadFileTest.kt" include-lines="17-36"}
 
 </tab>
 </tabs>
@@ -266,14 +266,14 @@ With v2.0.0, you need to create a new client instance and install the [ContentNe
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" include-lines="46-55"}
+{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="46-55"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" include-lines="31-44"}
+{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="31-44"}
 
 </tab>
 </tabs>

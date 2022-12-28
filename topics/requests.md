@@ -97,7 +97,7 @@ You can find the full example here: [post-raw-data](https://github.com/ktorio/kt
 Ktor provides a [ContentNegotiation](serialization.md) plugin to negotiate the media type of request and deserialize content to an object of a required type. To receive and convert content for a request, call the [ApplicationCall.receive](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/receive.html) function that accepts a data class as a parameter:
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="38-42"}
+{src="snippets/json-kotlinx/src/main/kotlin/jsonkotlinx/Application.kt" include-lines="38-42"}
 
 You can learn more from [](serialization.md).
 
@@ -110,7 +110,7 @@ Ktor allows you to receive form parameters sent with both `x-www-form-urlencoded
 You can obtain parameter values in code as follows:
 ```kotlin
 ```
-{src="snippets/post-form-parameters/src/main/kotlin/com/example/Application.kt" include-lines="12-16"}
+{src="snippets/post-form-parameters/src/main/kotlin/formparameters/Application.kt" include-lines="12-16"}
 
 You can find the full example here: [post-form-parameters](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/post-form-parameters).
 
@@ -119,7 +119,7 @@ You can find the full example here: [post-form-parameters](https://github.com/kt
 If you need to receive a file sent as a part of a multipart request, call the [receiveMultipart](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/receive-multipart.html) function and then loop over each part as required. In the example below, `PartData.FileItem` is used to receive a file as a byte stream.
 ```kotlin
 ```
-{src="snippets/upload-file/src/main/kotlin/com/example/UploadFile.kt" include-lines="3-38"}
+{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="3-38"}
 
 Learn how to run this sample from [upload-file](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/upload-file).
 

@@ -8,6 +8,8 @@ class ApplicationTest {
     fun requestContainsCustomHeader(): Unit = runBlocking {
         runGradleAppWaiting().inputStream.readString().let { outputString ->
             assertTrue(outputString.contains("X-Custom-Header: Hello, world!"))
+            assertTrue(outputString.contains("Content-Type: text/html"))
+            assertTrue(outputString.contains("Read response delay (ms)"))
         }
     }
 }

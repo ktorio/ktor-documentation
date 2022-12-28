@@ -113,7 +113,7 @@ Let's summarize the examples above and create the `Articles` resource for CRUD o
 
 ```kotlin
 ```
-{src="snippets/resource-routing/src/main/kotlin/com/example/Application.kt" include-lines="16-30"}
+{src="snippets/resource-routing/src/main/kotlin/resourcerouting/Application.kt" include-lines="16-30"}
 
 This resource can be used to list all articles, post a new article, edit it, and so on. We'll see how to [define route handlers](#define_route) for this resource in the next chapter.
 
@@ -146,7 +146,7 @@ The example below shows how to define route handlers for the `Articles` resource
 
 ```kotlin
 ```
-{src="snippets/resource-routing/src/main/kotlin/com/example/Application.kt" include-lines="34-64,92-93"}
+{src="snippets/resource-routing/src/main/kotlin/resourcerouting/Application.kt" include-lines="34-64,92-93"}
 
 Here are several tips on handling requests for each endpoint:
 
@@ -190,7 +190,7 @@ The `Resources` plugin extends `Application` with the overloaded [href](https://
 
 ```kotlin
 ```
-{src="snippets/resource-routing/src/main/kotlin/com/example/Application.kt" include-lines="79"}
+{src="snippets/resource-routing/src/main/kotlin/resourcerouting/Application.kt" include-lines="79"}
 
 Since the grandparent `Articles` resource defines the `sort` query parameter with the default value `new`, the `link` variable contains:
 
@@ -203,7 +203,7 @@ Additional query params can also be specified using the `URLBuilder`, as shown i
 
 ```kotlin
 ```
-{src="snippets/resource-routing/src/main/kotlin/com/example/Application.kt" include-lines="83-85"}
+{src="snippets/resource-routing/src/main/kotlin/resourcerouting/Application.kt" include-lines="83-85"}
 
 The `link` variable subsequently contains:
 
@@ -217,6 +217,6 @@ The example below shows how to add links built from resources to the HTML respon
 
 ```kotlin
 ```
-{src="snippets/resource-routing/src/main/kotlin/com/example/Application.kt" include-lines="66-91"}
+{src="snippets/resource-routing/src/main/kotlin/resourcerouting/Application.kt" include-lines="66-91"}
 
 You can find the full example here: [resource-routing](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/resource-routing).

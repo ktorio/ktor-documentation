@@ -6,7 +6,7 @@ A sample project demonstrating how to store cookies on a client using the [HttpC
 ## Running
 
 This sample uses the server from the [session-cookie-client](../session-cookie-client) example.
-This server sends session data in the `Set-Cookie` response header after visiting the [http://localhost:8080/login](http://localhost:8080/login) page.
+The server sends session data in the `Set-Cookie` response header after visiting the [http://localhost:8080/login](http://localhost:8080/login) page.
 
 To run this sample, execute the following command:
 

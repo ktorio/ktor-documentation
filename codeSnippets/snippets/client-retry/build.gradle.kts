@@ -22,7 +22,8 @@ dependencies {
     implementation("io.ktor:ktor-client-cio:$ktor_version")
     implementation("io.ktor:ktor-client-logging:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
+    implementation(project(":simulate-slow-server"))
+    implementation(project(":e2e"))
     testImplementation("junit:junit:$junit_version")
     testImplementation("org.hamcrest:hamcrest:$hamcrest_version")
-    testImplementation(project(":e2e"))
 }

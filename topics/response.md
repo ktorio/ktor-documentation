@@ -67,7 +67,7 @@ With the [ContentNegotiation](serialization-client.md) plugin installed, you can
 
 ```kotlin
 ```
-{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="35"}
+{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="39"}
 
 To learn more, see [](serialization-client.md#receive_send_data).
 

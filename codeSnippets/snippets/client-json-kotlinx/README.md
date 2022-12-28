@@ -5,13 +5,8 @@ A sample project demonstrating how to use the `kotlinx.serialization` library to
 
 ## Running
 
-Before running this sample, start the [json-kotlinx](../json-kotlinx) server sample:
-
-```bash
-./gradlew :json-kotlinx:run
-```
-
-Then, run this client sample to post and get JSON data:
+This sample uses the server from the [json-kotlinx](../json-kotlinx) example.
+To run this sample, execute the following command:
 
 ```bash
 ./gradlew :client-json-kotlinx:run

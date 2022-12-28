@@ -170,7 +170,7 @@ With the enabled [ContentNegotiation](serialization-client.md) plugin, you can s
 
 ```kotlin
 ```
-{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="29-32"}
+{src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="33-36"}
 
 You can learn more from the [](serialization-client.md) help section.
 
@@ -181,7 +181,7 @@ The Ktor client provides the [submitForm](https://api.ktor.io/ktor-client/ktor-c
 
 ```kotlin
 ```
-{src="snippets/client-submit-form/src/main/kotlin/com/example/Application.kt" include-lines="12-22"}
+{src="snippets/client-submit-form/src/main/kotlin/com/example/Application.kt" include-lines="16-25"}
 
 You can find the full example here: [client-submit-form](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-submit-form).
 

@@ -6,7 +6,7 @@ import io.ktor.server.plugins.*
 val RequestLoggingPlugin = createApplicationPlugin(name = "RequestLoggingPlugin") {
     onCall { call ->
         call.request.origin.apply {
-            println("Request URL: $scheme://$host:$port$uri")
+            println("Request URL: $scheme://$localHost:$localPort$uri")
         }
     }
 }

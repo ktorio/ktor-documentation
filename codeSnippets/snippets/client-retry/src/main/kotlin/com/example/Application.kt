@@ -1,14 +1,18 @@
 package com.example
 
+import slowserver.*
+import e2e.*
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
 import io.ktor.client.plugins.*
 import io.ktor.client.plugins.logging.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
+import io.ktor.server.application.*
 import kotlinx.coroutines.*
 
 fun main() {
+    defaultServer(Application::main).start()
     runBlocking {
         val client = HttpClient(CIO) {
             install(HttpRequestRetry) {

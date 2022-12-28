@@ -142,7 +142,7 @@ The `testApplication` provides access to an HTTP client with default configurati
 If you need to customize the client and install additional plugins, you can use the `createClient` function. For example, to [send JSON data](#json-data) in a test POST/PUT request, you can install the [ContentNegotiation](serialization-client.md) plugin:
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" include-lines="32-37,44"}
+{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="32-37,44"}
 
 
 ### Step 3: Make a request {id="make-request"}
@@ -151,7 +151,7 @@ To test your application, use the [configured client](#configure-client) to make
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" include-lines="32-41,44"}
+{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="32-41,44"}
 
 
 
@@ -161,7 +161,7 @@ After receiving a [response](#make-request), you can verify the results by makin
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" include-lines="32-44"}
+{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="32-44"}
 
 
 
@@ -183,7 +183,7 @@ A test below from the [post-form-parameters](https://github.com/ktorio/ktor-docu
 
 ```kotlin
 ```
-{src="snippets/post-form-parameters/src/test/kotlin/ApplicationTest.kt" include-lines="3-18,29"}
+{src="snippets/post-form-parameters/src/test/kotlin/formparameters/ApplicationTest.kt" include-lines="3-18,29"}
 
 </tab>
 
@@ -191,7 +191,7 @@ A test below from the [post-form-parameters](https://github.com/ktorio/ktor-docu
 
 ```kotlin
 ```
-{src="snippets/post-form-parameters/src/main/kotlin/com/example/Application.kt" include-lines="3-16,45-46"}
+{src="snippets/post-form-parameters/src/main/kotlin/formparameters/Application.kt" include-lines="3-16,45-46"}
 
 </tab>
 </tabs>
@@ -206,7 +206,7 @@ The code below demonstrates how to build `multipart/form-data` and test file upl
 
 ```kotlin
 ```
-{src="snippets/upload-file/src/test/kotlin/UploadFileTest.kt" include-lines="3-36,69"}
+{src="snippets/upload-file/src/test/kotlin/uploadfile/UploadFileTest.kt" include-lines="3-36,69"}
 
 </tab>
 
@@ -214,7 +214,7 @@ The code below demonstrates how to build `multipart/form-data` and test file upl
 
 ```kotlin
 ```
-{src="snippets/upload-file/src/main/kotlin/com/example/UploadFile.kt" include-lines="3-38"}
+{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="3-38"}
 
 </tab>
 </tabs>
@@ -229,7 +229,7 @@ To send JSON data in a test POST/PUT request, you need to create a new client an
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/ApplicationTest.kt" include-lines="3-14,31-44,56"}
+{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="3-14,31-44,56"}
 
 </tab>
 
@@ -237,7 +237,7 @@ To send JSON data in a test POST/PUT request, you need to create a new client an
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="3-16,25-31,38-44"}
+{src="snippets/json-kotlinx/src/main/kotlin/jsonkotlinx/Application.kt" include-lines="3-16,25-31,38-44"}
 
 </tab>
 </tabs>
