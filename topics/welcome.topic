@@ -129,7 +129,7 @@
                             <a href="websocket.md"/>
                         </li>
                         <li>
-                            <a href="micrometer_metrics.md"/>
+                            <a href="swagger-ui.md"/> / <a href="openapi.md"/>
                         </li>
                         <li>
                             <a href="custom_plugins.md"/>
