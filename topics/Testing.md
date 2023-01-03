@@ -93,6 +93,10 @@ If you use `embeddedServer`, you can add modules to a test application manually 
 ```
 {src="snippets/embedded-server-modules/src/test/kotlin/EmbeddedServerTest.kt" include-lines="11-15,19"}
 
+
+
+> You can also access the `Application` instance inside the `application` block.
+
 #### Add routes {id="add-routing"}
 
 You can add routes to your test application using the `routing` function.
