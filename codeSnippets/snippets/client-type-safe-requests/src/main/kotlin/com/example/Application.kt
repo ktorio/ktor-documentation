@@ -15,17 +15,13 @@ import io.ktor.server.application.*
 import kotlinx.coroutines.*
 import kotlinx.serialization.*
 
-@Serializable
 @Resource("/articles")
 class Articles() {
-    @Serializable
     @Resource("new")
     class New(val parent: Articles = Articles())
 
-    @Serializable
     @Resource("{id}")
     class Id(val parent: Articles = Articles(), val id: Long) {
-        @Serializable
         @Resource("edit")
         class Edit(val parent: Id)
     }
