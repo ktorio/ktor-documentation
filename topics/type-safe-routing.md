@@ -17,7 +17,7 @@
 
 <link-summary>Ktor provides the Resources plugin that allows you to implement type-safe routing.</link-summary>
 
-Ktor provides the [Resources](https://api.ktor.io/ktor-shared/ktor-resources/io.ktor.resources/-resources/index.html) plugin that allows you to implement type-safe [routing](Routing_in_Ktor.md). To accomplish this, you need to create a class that should act as a typed route and then annotate this class using the `@Resource` keyword. Note that the `@Resource` annotation has `@Serializable` behaviour provided by the kotlinx.serialization library.
+Ktor provides the [Resources](https://api.ktor.io/ktor-shared/ktor-resources/io.ktor.resources/-resources/index.html) plugin that allows you to implement type-safe [routing](Routing_in_Ktor.md). To accomplish this, you need to create a class that should act as a typed route and then annotate this class using the `@Resource` keyword. Note that the `@Resource` annotation has `@Serializable` behavior provided by the kotlinx.serialization library.
 
 > The Ktor client provides the capability to make [typed requests](type-safe-request.md) to a server.
 
@@ -26,7 +26,7 @@ Ktor provides the [Resources](https://api.ktor.io/ktor-shared/ktor-resources/io.
 
 ### Add kotlinx.serialization {id="add_serialization"}
 
-Given that [resource classes](#resource_classes) should have `@Serializable` behaviour, you need to add the Kotlin serialization plugin as described in the [Setup](https://github.com/Kotlin/kotlinx.serialization#setup) section.
+Given that [resource classes](#resource_classes) should have `@Serializable` behavior, you need to add the Kotlin serialization plugin as described in the [Setup](https://github.com/Kotlin/kotlinx.serialization#setup) section.
 
 ### Add %plugin_name% dependencies {id="add_plugin_dependencies"}
 
