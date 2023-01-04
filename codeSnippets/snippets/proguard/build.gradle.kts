@@ -16,7 +16,7 @@ buildscript {
 plugins {
     application
     kotlin("jvm")
-    id("io.ktor.plugin") version "2.2.1"
+    id("io.ktor.plugin") version "2.2.2"
 }
 
 application {
