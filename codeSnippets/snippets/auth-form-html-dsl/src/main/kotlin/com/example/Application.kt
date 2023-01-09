@@ -1,5 +1,6 @@
 package com.example
 
+import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.auth.*
 import io.ktor.server.html.*
@@ -19,6 +20,9 @@ fun Application.main() {
                     null
                 }
             }
+            challenge {
+                call.respond(HttpStatusCode.Unauthorized, "Credentials are not valid")
+            }
         }
     }
 
@@ -29,7 +33,7 @@ fun Application.main() {
             }
         }
 
-        get("/") {
+        get("/login") {
             call.respondHtml {
                 body {
                     form(action = "/login", encType = FormEncType.applicationXWwwFormUrlEncoded, method = FormMethod.post) {
@@ -50,4 +54,3 @@ fun Application.main() {
         }
     }
 }
-

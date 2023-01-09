@@ -54,7 +54,7 @@ The following [example](https://github.com/ktorio/ktor-documentation/tree/%ktor_
 
 ```kotlin
 ```
-{src="snippets/auth-form-html-dsl/src/main/kotlin/com/example/Application.kt" include-lines="32-50"}
+{src="snippets/auth-form-html-dsl/src/main/kotlin/com/example/Application.kt" include-lines="36-54"}
 
 </tab>
 <tab title="HTML">

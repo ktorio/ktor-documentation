@@ -67,19 +67,26 @@ You can optionally specify a [provider name](authentication.md#provider-name) th
 The `form` authentication provider exposes its settings via the [FormAuthenticationProvider.Config](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-form-authentication-provider/-config/index.html) class. In the example below, the following settings are specified:
 * The `userParamName` and `passwordParamName` properties specify parameter names used to fetch a username and password.
 * The `validate` function validates a username and password.
+  The `validate` function checks `UserPasswordCredential` and returns a `UserIdPrincipal` in the case of successful authentication or `null` if authentication fails.
+* The `challenge` function specifies an action performed if authentication fails. For instance, you can redirect back to a login page or send [UnauthorizedResponse](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-unauthorized-response/index.html).
 
 ```kotlin
 ```
-{src="snippets/auth-form-html-dsl/src/main/kotlin/com/example/Application.kt" include-lines="11-23"}
+{src="snippets/auth-form-html-dsl/src/main/kotlin/com/example/Application.kt" include-lines="12-27"}
 
-The `validate` function checks `UserPasswordCredential` and returns a `UserIdPrincipal` in the case of successful authentication or `null` if authentication fails.
+
 
 > As for the `basic` authentication, you can also use [UserHashedTableAuth](basic.md#validate-user-hash) to validate users stored in an in-memory table that keeps usernames and password hashes.
 
 ### Step 2: Define authorization scope {id="authenticate-route"}
 
-After configuring the `form` provider, you can define the authorization for the different resources in our application using the **[authenticate](authentication.md#authenticate-route)** function. In the case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html) inside a route handler using the `call.principal` function and get a name of an authenticated user.
+After configuring the `form` provider, you need to define a `post` route where the data gets sent.
+Then, add this route inside the **[authenticate](authentication.md#authenticate-route)** function.
+In the case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html) inside a route handler using the `call.principal` function and get a name of an authenticated user.
 
 ```kotlin
 ```
-{src="snippets/auth-form-html-dsl/src/main/kotlin/com/example/Application.kt" include-lines="25-30,51"}
+{src="snippets/auth-form-html-dsl/src/main/kotlin/com/example/Application.kt" include-lines="29-34,55"}
+
+You can use [Session authentication](session-auth.md) to store a logged-in user's ID.
+For example, when a user logs in using a web form for the first time, you can save a username to a cookie session and authorize this user on subsequent requests using the `session` provider.
