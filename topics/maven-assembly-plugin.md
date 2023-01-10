@@ -2,7 +2,7 @@
 
 <tldr>
 <p>
-<control>Sample project</control>: <a href="https://github.com/ktorio/ktor-maven-sample/">ktor-maven-sample</a>
+<control>Sample project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-server-get-started-maven">tutorial-server-get-started-maven</a>
 </p>
 </tldr>
 
@@ -14,20 +14,20 @@ To build an assembly, you need to configure the Assembly plugin first:
 1. Go to the `pom.xml` file and make sure the [main application class](server-dependencies.topic#create-entry-point) is specified:
    ```xml
    ```
-   {src="https://raw.githubusercontent.com/ktorio/ktor-maven-sample/main/pom.xml" include-lines="10,17-18"}
+   {src="snippets/tutorial-server-get-started-maven/pom.xml" include-lines="10,17-18"}
    
    If you use [EngineMain](create_server.topic#engine-main) without the explicit `main` function, the application's main class depends on the used engine and might look as follows: `io.ktor.server.netty.EngineMain`.
 2. Add `maven-assembly-plugin` to the `plugins` block as follows:
    ```xml
    ```
-   {src="https://raw.githubusercontent.com/ktorio/ktor-maven-sample/main/pom.xml" include-lines="109-133"}
+   {src="snippets/tutorial-server-get-started-maven/pom.xml" include-lines="105-129"}
 
 ## Build an assembly {id="build"}
 To build an assembly for the application, open the terminal and execute the following command:
 ```Bash
 mvn package
 ```
-When this build completes, you should see the `ktor-maven-sample-0.0.1-jar-with-dependencies.jar` file in the `target` directory.
+When this build completes, you should see the `tutorial-server-get-started-maven-0.0.1-jar-with-dependencies.jar` file in the `target` directory.
 
 > To learn how to use the resulting package to deploy your application using Docker, see the [](docker.md) help topic.
 
@@ -36,7 +36,7 @@ When this build completes, you should see the `ktor-maven-sample-0.0.1-jar-with-
 To run the [built application](#build):
 1. Open the terminal and execute the following command to run the application:
    ```Bash
-   java -jar target/ktor-maven-sample-0.0.1-jar-with-dependencies.jar
+   java -jar target/tutorial-server-get-started-maven-0.0.1-jar-with-dependencies.jar
    ```
 2. Wait until the following message is shown:
    ```Bash
