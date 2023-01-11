@@ -3,7 +3,7 @@ val kotlinx_html_version: String by project
 
 plugins {
     kotlin("js")
-    kotlin("plugin.serialization").version("1.7.22")
+    kotlin("plugin.serialization").version("1.8.0")
 }
 
 repositories {
@@ -25,7 +25,9 @@ kotlin {
         binaries.executable()
         browser {
             commonWebpackConfig {
-                cssSupport.enabled = true
+                cssSupport {
+                    enabled.set(true)
+                }
             }
         }
     }
