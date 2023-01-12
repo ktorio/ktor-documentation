@@ -22,8 +22,8 @@ fun ApplicationEngineEnvironmentBuilder.envConfig() {
         port = 8080
     }
     connector {
-        host = "127.0.0.1"
-        port = 9090
+        host = "0.0.0.0"
+        port = 8081
     }
 }
 

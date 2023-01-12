@@ -10,11 +10,8 @@
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
-<p>
-<b>Code examples</b>: 
-<a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/cors-backend">cors-backend</a>, 
-<a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/cors-frontend">cors-frontend</a>
-</p>
+<var name="example_name" value="cors"/>
+<include from="lib.topic" element-id="download_example"/>
 <include from="lib.topic" element-id="native_server_supported"/>
 </tldr>
 
@@ -39,19 +36,19 @@ CORS-specific configuration settings are exposed by the [CORSConfig](https://api
 
 ### Overview {id="overview"}
 
-Suppose you have a server listening on the `8080` port, with the `/customer` [route](Routing_in_Ktor.md) responding with [JSON](serialization.md#send_data) data. A [code snippet](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/cors-frontend) below shows a sample request made using the Fetch API from the client working on another port to make this request cross-origin.
+Suppose you have a server listening on the `8080` port, with the `/customer` [route](Routing_in_Ktor.md) responding with [JSON](serialization.md#send_data) data. A code snippet below shows a sample request made using the Fetch API from the client working on another port to make this request cross-origin:
 
 ```javascript
 ```
-{src="snippets/cors-frontend/files/js/script.js" initial-collapse-state="collapsed" collapsed-title="fetch('http://0.0.0.0:8080/customer')"}
+{src="snippets/cors/files/js/script.js" initial-collapse-state="collapsed" collapsed-title="fetch('http://0.0.0.0:8080/customer')"}
 
-To allow such a request on the backend side, you need to configure the `CORS` plugin as follows.
+To allow such a request on the backend side, you need to configure the `CORS` plugin as follows:
 
 ```kotlin
 ```
-{src="snippets/cors-backend/src/main/kotlin/com/example/Application.kt" include-lines="18-21"}
+{src="snippets/cors/src/main/kotlin/com/example/Application.kt" include-lines="46-49"}
 
-You can find the full example here: [cors-backend](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/cors-backend).
+You can find the full example here: [cors](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/cors).
 
 
 ### Hosts {id="hosts"}
