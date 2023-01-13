@@ -17,8 +17,6 @@ Learn how to run and deploy a Ktor application inside a servlet container using 
 
 A Ktor application can be run and deployed inside servlet containers that include Tomcat and Jetty. To deploy inside a servlet container, you need to generate a WAR archive and then deploy it to a server or a cloud service that supports WARs.
 
-> Ktor supports Jetty up to the 9.4.x version and Tomcat up to 9.0.x.
-
 In this topic, we'll show you how to:
 * configure Ktor to use it in a servlet application;
 * apply Gretty and War plugins for running and packaging WAR applications;
@@ -40,20 +38,47 @@ In contrast to the approach above, a servlet container should control the applic
 
 ### Add dependencies {id="add-dependencies"}
 
-To use Ktor in a servlet application, you need to include the `ktor-server-servlet` artifact in the build script:
+To use Ktor in a servlet application, you need to include the `ktor-server-servlet-jakarta` artifact in the build script:
 
-<var name="artifact_name" value="ktor-server-servlet"/>
+<var name="artifact_name" value="ktor-server-servlet-jakarta"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
-Note that you don't need the separate [Jetty or Tomcat artifacts](Engines.md#dependencies) when a Ktor application is deployed inside a servlet container.
+If you use the 9.x or earlier version of Tomcat/Jetty, add the `ktor-server-servlet` artifact instead.
+
+> Note that you don't need the separate [Jetty or Tomcat artifacts](Engines.md#dependencies) when a Ktor application is deployed inside a servlet container.
 
 ### Configure a servlet {id="configure-servlet"}
 
-To register a Ktor servlet in your application, open the `WEB-INF/web.xml` file and assign [ServletApplicationEngine](https://api.ktor.io/ktor-server/ktor-server-servlet/io.ktor.server.servlet/-servlet-application-engine/index.html) to the `servlet-class` attribute:
+To register a Ktor servlet in your application, open the `WEB-INF/web.xml` file and assign `ServletApplicationEngine` to the `servlet-class` attribute:
+
+
+<tabs>
+<tab title="Tomcat/Jetty v10.x+">
 
 ```xml
 ```
 {src="snippets/jetty-war/src/main/webapp/WEB-INF/web.xml" include-lines="7-16"}
+
+</tab>
+<tab title="Tomcat/Jetty v9.x">
+<code-block lang="XML">
+<![CDATA[
+<servlet>
+    <display-name>KtorServlet</display-name>
+    <servlet-name>KtorServlet</servlet-name>
+    <servlet-class>io.ktor.server.servlet.ServletApplicationEngine</servlet-class>
+    <init-param>
+        <param-name>io.ktor.ktor.config</param-name>
+        <param-value>application.conf</param-value>
+    </init-param>
+    <async-supported>true</async-supported>
+</servlet>
+]]>
+</code-block>
+</tab>
+</tabs>
+
+
 
 Then, configure the URL pattern for this servlet:
 
@@ -71,14 +96,14 @@ The [Gretty](https://plugins.gradle.org/plugin/org.gretty) plugin allows you to 
 ```
 {src="snippets/jetty-war/build.gradle.kts" include-lines="5,8,10"}
 
-Then, you can configure it in a `gretty` block as follows:
+Then, you can configure it in the `gretty` block as follows:
 
 <tabs>
 <tab title="Jetty">
 
 ```groovy
 ```
-{src="snippets/jetty-war/build.gradle.kts" include-lines="12-15"}
+{src="snippets/jetty-war/build.gradle.kts" include-lines="12-16"}
 
 </tab>
 <tab title="Tomcat">
@@ -90,13 +115,11 @@ Then, you can configure it in a `gretty` block as follows:
 </tab>
 </tabs>
 
-Note that if you want to use Tomcat, you need to specify `servletContainer` explicitly.
-
 Finally, configure the `run` task:
 
 ```groovy
 ```
-{src="snippets/jetty-war/build.gradle.kts" include-lines="29-33"}
+{src="snippets/jetty-war/build.gradle.kts" include-lines="32-36"}
 
 
 

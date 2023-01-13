@@ -7,7 +7,7 @@
     <servlet>
         <display-name>KtorServlet</display-name>
         <servlet-name>KtorServlet</servlet-name>
-        <servlet-class>io.ktor.server.servlet.ServletApplicationEngine</servlet-class>
+        <servlet-class>io.ktor.server.servlet.jakarta.ServletApplicationEngine</servlet-class>
         <init-param>
             <param-name>io.ktor.ktor.config</param-name>
             <param-value>application.conf</param-value>
