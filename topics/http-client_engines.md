@@ -49,18 +49,19 @@ _* To use the CIO engine on older Android versions, you need to enable [Java 8 A
 
 The table below shows whether a specific engine supports HTTP/2 and [WebSockets](websocket_client.md):
 
-| Engine  | HTTP/2 | WebSockets |
-|---------|--------|------------|
-| Apache  | ✖️     | ✖️         |
-| Java    | ✅      | ✅️         |
-| Jetty   | ✅      | ✖️         |
-| CIO     | ✖️     | ✅          |
-| Android | ✖️     | ✖️         |
-| OkHttp  | ✅      | ✅          |
-| Js      | ✅      | ✅          |
-| Darwin  | ✅      | ✅          |
-| WinHttp | ✅      | ✅          |
-| Curl    | ✅      | ✖️         |
+| Engine  | HTTP/2             | WebSockets |
+|---------|--------------------|------------|
+| Apache  | ✅️ _(for Apache5)_ | ✖️         |
+| Java    | ✅                  | ✅️         |
+| Jetty   | ✅                  | ✖️         |
+| CIO     | ✖️                 | ✅          |
+| Android | ✖️                 | ✖️         |
+| OkHttp  | ✅                  | ✅          |
+| Js      | ✅                  | ✅          |
+| Darwin  | ✅                  | ✅          |
+| WinHttp | ✅                  | ✅          |
+| Curl    | ✅                  | ✖️         |
+
 
 You also need to consider the following limitations that affect general client configuration and using of specific plugins:
 - If an engine supports HTTP/2, you can enable it by customizing the engine configuration (see an example for the [](#java) engine).
@@ -112,21 +113,50 @@ To learn how to configure a specific engine, see a corresponding section below.
 In this section, we'll take a look at engines available for JVM.
 
 ### Apache {id="apache"}
-The `Apache` engine supports HTTP/1.1 and provides multiple configuration options. To use it, follow the steps below:
-1. Add the `ktor-client-apache` dependency:
+The `Apache` engine supports HTTP/1.1 and provides multiple configuration options. 
+You can also use the `Apache5` engine if you need HTTP/2 support.
+1. Add the `ktor-client-apache5` or `ktor-client-apache` dependency:
 
-   <var name="artifact_name" value="ktor-client-apache"/>
+   <var name="artifact_name" value="ktor-client-apache5"/>
    <include from="lib.topic" element-id="add_ktor_artifact"/>
-2. Pass the [Apache](https://api.ktor.io/ktor-client/ktor-client-apache/io.ktor.client.engine.apache/-apache/index.html) class as an argument to the `HttpClient` constructor:
+2. Pass the `Apache5`/`Apache` class as an argument to the `HttpClient` constructor:
 
+   <tabs group="apache_version">
+   <tab title="Apache5" group-key="5">
+   
+   ```kotlin
+   ```
+   {src="snippets/_misc_client/Apache5Create.kt" include-lines="1-2,4-5"}
+   
+   </tab>
+   <tab title="Apache" group-key="4">
+   
    ```kotlin
    ```
    {src="snippets/_misc_client/ApacheCreate.kt"}
-3. To configure an engine, pass settings exposed by [ApacheEngineConfig](https://api.ktor.io/ktor-client/ktor-client-apache/io.ktor.client.engine.apache/-apache-engine-config/index.html) to the `engine` method:
+   
+   </tab>
+   </tabs>
+
+
+3. To configure an engine, pass settings exposed by `Apache5EngineConfig`/`ApacheEngineConfig` to the `engine` method:
+
+   <tabs group="apache_version">
+   <tab title="Apache5" group-key="5">
+
+   ```kotlin
+   ```
+   {src="snippets/_misc_client/Apache5Create.kt" include-lines="1-4,7-23"}
+
+   </tab>
+   <tab title="Apache" group-key="4">
 
    ```kotlin
    ```
    {src="snippets/_misc_client/ApacheConfig.kt" interpolate-variables="true" disable-links="false"}
+
+   </tab>
+   </tabs>
 
 
 ### Java {id="java"}
