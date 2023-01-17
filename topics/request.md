@@ -177,7 +177,7 @@ You can learn more from the [](serialization-client.md) help section.
 ### Form parameters {id="form_parameters"}
 The Ktor client provides the [submitForm](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/submit-form.html) function for sending form parameters using both `x-www-form-urlencoded` and `multipart/form-data` types. The example below shows how to send form parameters encoded as `multipart/form-data`:
 * `url` specifies a URL for making a request.
-* `formParameters` a set of form parameters built using `Parameters.build`.
+* `formParameters` a set of form parameters built using `parameters`.
 
 ```kotlin
 ```

@@ -16,7 +16,7 @@ fun main() {
         val client = HttpClient(CIO)
         val response: HttpResponse = client.submitForm(
             url = "http://localhost:8080/signup",
-            formParameters = Parameters.build {
+            formParameters = parameters {
                 append("username", "JetBrains")
                 append("email", "example@jetbrains.com")
                 append("password", "foobar")
