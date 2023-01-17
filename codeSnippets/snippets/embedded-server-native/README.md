@@ -9,3 +9,9 @@ To run a sample, execute the following command in a repository's root directory:
 ```bash
 ./gradlew :embedded-server-native:runReleaseExecutableNative
 ```
+
+To test this sample, execute the `nativeTest` task:
+
+```bash
+./gradlew :embedded-server-native:nativeTest
+```
