@@ -20,7 +20,7 @@ fun main() {
     startServer()
     runBlocking {
         // Step 1: Get an authorization code
-        val authorizationUrlQuery = Parameters.build {
+        val authorizationUrlQuery = parameters {
             append("client_id", System.getenv("GOOGLE_CLIENT_ID"))
             append("scope", "https://www.googleapis.com/auth/userinfo.profile")
             append("response_type", "code")
@@ -48,7 +48,7 @@ fun main() {
                     refreshTokens {
                         val refreshTokenInfo: TokenInfo = client.submitForm(
                             url = "https://accounts.google.com/o/oauth2/token",
-                            formParameters = Parameters.build {
+                            formParameters = parameters {
                                 append("grant_type", "refresh_token")
                                 append("client_id", System.getenv("GOOGLE_CLIENT_ID"))
                                 append("refresh_token", oldTokens?.refreshToken ?: "")
@@ -67,7 +67,7 @@ fun main() {
         // Step 4: Exchange the authorization code for tokens and save tokens in the storage
         val tokenInfo: TokenInfo = client.submitForm(
             url = "https://accounts.google.com/o/oauth2/token",
-            formParameters = Parameters.build {
+            formParameters = parameters {
                 append("grant_type", "authorization_code")
                 append("code", authorizationCode)
                 append("client_id", System.getenv("GOOGLE_CLIENT_ID"))
