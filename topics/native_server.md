@@ -26,7 +26,13 @@ Ktor server in a Kotlin/Native project requires at least two dependencies: a `kt
 
 ```kotlin
 ```
-{src="snippets/embedded-server-native/build.gradle.kts" include-lines="33-39,45"}
+{src="snippets/embedded-server-native/build.gradle.kts" include-lines="33-39,46"}
+
+To [test](Testing.md) a Native server, add the `ktor-server-test-host` artifact to the `nativeTest` source set:
+
+```kotlin
+```
+{src="snippets/embedded-server-native/build.gradle.kts" include-lines="33,40-46"}
 
 ## Configure native targets {id="native-target"}
 
