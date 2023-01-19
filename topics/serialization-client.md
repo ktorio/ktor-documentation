@@ -217,7 +217,7 @@ If you use kotlinx.serialization, make sure that this class has the `@Serializab
 ```
 {src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="18-19"}
 
-To learn more about `kotlinx.serialization`, see the [Kotlin Serialization Guide](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serialization-guide.md).
+<include from="serialization.md" element-id="serialization_types"/>
 
 ### Send data {id="send_data"}
 

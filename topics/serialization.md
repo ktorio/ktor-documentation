@@ -279,6 +279,16 @@ If you use kotlinx.serialization, make sure that this class has the `@Serializab
 ```
 {src="snippets/json-kotlinx/src/main/kotlin/jsonkotlinx/Application.kt" include-lines="10,12-14"}
 
+<snippet id="serialization_types">
+
+Serializing/deserializing of the following types is supported by the kotlinx.serialization library:
+
+- [Builtin classes](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md)
+- Deserializing of [Sequences](https://kotlinlang.org/docs/sequences.html)
+- Serializing of [Flows](https://kotlinlang.org/docs/flow.html)
+
+</snippet>
+
 ### Receive data {id="receive_data"}
 To receive and convert a content for a request, call the `receive` method that accepts a data class as a parameter:
 ```kotlin
