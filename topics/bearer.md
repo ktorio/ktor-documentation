@@ -70,9 +70,9 @@ The `bearer` authentication provider exposes its settings via the [BearerAuthent
 {src="snippets/auth-bearer/src/main/kotlin/com/example/Application.kt" include-lines="9-20"}
 
 
-### Step 2: Define authorization scope {id="authenticate-route"}
+### Step 2: Protect specific resources {id="authenticate-route"}
 
-After configuring the `bearer` provider, you can define the authorization for the different resources in our application using the **[authenticate](authentication.md#authenticate-route)** function. In the case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html) inside a route handler using the `call.principal` function and get a name of an authenticated user.
+After configuring the `bearer` provider, you can protect specific resources in our application using the **[authenticate](authentication.md#authenticate-route)** function. In the case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html) inside a route handler using the `call.principal` function and get a name of an authenticated user.
 
 ```kotlin
 ```

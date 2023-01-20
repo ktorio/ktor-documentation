@@ -132,9 +132,9 @@ So, the `validate` function checks a specified [Credential](https://api.ktor.io/
 > }
 
 
-### Step 4: Define authorization scope {id="authenticate-route"}
+### Step 4: Protect specific resources {id="authenticate-route"}
 
-The final step is to define the authorization for the different resources in our application. You can do this by using the
+The final step is to protect specific resources in our application. You can do this by using the
 [authenticate](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/authenticate.html) function. This function accepts two optional parameters:
 
 - A [name of a provider](#provider-name) used to authenticate nested routes.
