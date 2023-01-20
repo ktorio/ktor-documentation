@@ -226,9 +226,9 @@ The `verifier` function allows you to verify a token format and its signature:
 
 
 
-### Step 6: Define authorization scope {id="authenticate-route"}
+### Step 6: Protect specific resources {id="authenticate-route"}
 
-After configuring the `jwt` provider, you can define the authorization for the different resources in our application using the **[authenticate](authentication.md#authenticate-route)** function. In the case of successful authentication, you can retrieve an authenticated [JWTPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-principal/index.html) inside a route handler using the `call.principal` function and get the JWT payload. In the example below, the value of a custom `username` claim and a token expiration time are retrieved.
+After configuring the `jwt` provider, you can protect specific resources in our application using the **[authenticate](authentication.md#authenticate-route)** function. In the case of successful authentication, you can retrieve an authenticated [JWTPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-principal/index.html) inside a route handler using the `call.principal` function and get the JWT payload. In the example below, the value of a custom `username` claim and a token expiration time are retrieved.
 
 ```kotlin
 ```

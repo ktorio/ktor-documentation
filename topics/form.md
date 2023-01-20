@@ -78,7 +78,7 @@ The `form` authentication provider exposes its settings via the [FormAuthenticat
 
 > As for the `basic` authentication, you can also use [UserHashedTableAuth](basic.md#validate-user-hash) to validate users stored in an in-memory table that keeps usernames and password hashes.
 
-### Step 2: Define authorization scope {id="authenticate-route"}
+### Step 2: Protect specific resources {id="authenticate-route"}
 
 After configuring the `form` provider, you need to define a `post` route where the data gets sent.
 Then, add this route inside the **[authenticate](authentication.md#authenticate-route)** function.
