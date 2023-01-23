@@ -12,7 +12,7 @@
     <categories src="c.list"/>
     <instance src="ktor.tree"
              web-path="/docs/"
-             version="2.2.2"
+             version="2.2.3"
              id="docs"
              keymaps-mode="none"/>
 
