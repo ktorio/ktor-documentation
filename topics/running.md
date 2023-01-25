@@ -47,17 +47,13 @@ In contrast to this approach, a servlet container should control the application
 ## Run an application {id="run"}
 > Restarting a server during development might take some time. Ktor allows you to overcome this limitation by using [Auto-reload](Auto_reload.topic), which reloads application classes on code changes and provides a fast feedback loop.
 
-### Run an application in IDEA {id="idea"}
-
-To learn how to run a Ktor application in IntelliJ IDEA, see the [Run a Ktor application](https://www.jetbrains.com/help/idea/ktor.html#run_ktor_app) section in the IntelliJ IDEA documentation.
-
-
 ### Run an application using Gradle/Maven {id="gradle-maven-run"}
 
-To run a Ktor application using Gradle or Maven, use corresponding plugins:
-* [Application](https://docs.gradle.org/current/userguide/application_plugin.html) plugin for Gradle.
+To run a Ktor application using Gradle or Maven, use the corresponding plugins:
+* [Application](gradle-application-plugin.md) plugin for Gradle. For the [Native server](native_server.md), use the [Kotlin Multiplatform](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.multiplatform) plugin.
 * [Exec](https://www.mojohaus.org/exec-maven-plugin/) plugin for Maven.
 
+> To learn how to run a Ktor application in IntelliJ IDEA, see the [Run a Ktor application](https://www.jetbrains.com/help/idea/ktor.html#run_ktor_app) section in the IntelliJ IDEA documentation.
 
 
 ### Run a packaged application {id="package"}
