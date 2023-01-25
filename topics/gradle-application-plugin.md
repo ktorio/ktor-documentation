@@ -1,4 +1,4 @@
-[//]: # (title: Create the application distribution)
+[//]: # (title: Creating the application distribution)
 
 <tldr>
 <var name="example_name" value="deployment-ktor-plugin"/>
@@ -28,7 +28,7 @@ To create the application distribution, you need to apply the Ktor plugin first:
 The Application plugin provides various ways for packaging the application, for example, the `installDist` task installs the application with all runtime dependencies and start scripts. To create full distribution archives, you can use the `distZip` and `distTar` tasks.
 
 In this topic, we'll use `installDist`:
-1. Open a terminal.
+1. Open the terminal.
 2. Run the `installDist` task in one of the following ways depending on your operating system:
    
    <tabs group="os">
@@ -45,7 +45,7 @@ In this topic, we'll use `installDist`:
 
 ## Run the application {id="run"}
 To run the [packaged application](#package):
-1. Go to the `build/install/<project_name>/bin` folder in a terminal.
+1. Go to the `build/install/<project_name>/bin` folder in the terminal.
 2. Depending on your operating system, run the `<project_name>` or `<project_name>.bat` executable, for example:
 
    <snippet id="run_executable">
