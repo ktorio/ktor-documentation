@@ -132,7 +132,7 @@
 
 
 
-    <chapter title="Add dependencies" id="add-ktor-dependencies">
+    <chapter title="Add Ktor dependencies" id="add-ktor-dependencies">
         <chapter title="Core dependencies" id="core-dependencies">
             <p>
                 Every Ktor application requires at least the following dependencies:
@@ -194,13 +194,6 @@
         </chapter>
 
 
-        <chapter title="Logging dependency" id="logging-dependency">
-            <p>
-                Ktor uses SLF4J API as a facade for various logging frameworks (for example, Logback or Log4j) and allows you to log application events.
-                To learn how to add the required artifacts, see <a href="logging.md" anchor="add_dependencies"/>.
-            </p>
-        </chapter>
-
         <chapter title="Plugin dependencies" id="plugin-dependencies">
             <p>
                 <a href="Plugins.md">Plugins</a> that extend Ktor functionality might require additional dependencies.
@@ -208,6 +201,51 @@
             </p>
         </chapter>
 
+
+        <chapter title="Ensure dependencies consistency" id="dependencies-consistency">
+            <p>
+                Applying the <a href="https://github.com/ktorio/ktor-build-plugins">Ktor Gradle plugin</a> implicitly
+                adds the Ktor BOM dependency and allows you to ensure that all Ktor dependencies are at the same version.
+                In this case, you no longer need to specify a version when depending on Ktor artifacts:
+            </p>
+            <tabs group="languages">
+                <tab title="Gradle (Kotlin)" group-key="kotlin">
+                    <code-block lang="Kotlin">
+                        plugins {
+                            // ...
+                            id("io.ktor.plugin") version "%ktor_version%"
+                        }
+                        dependencies {
+                            implementation("io.ktor:ktor-server-core")
+                            implementation("io.ktor:ktor-server-netty")
+                            // ...
+                        }
+                    </code-block>
+                </tab>
+                <tab title="Gradle (Groovy)" group-key="groovy">
+                    <code-block lang="Groovy">
+                        plugins {
+                            // ...
+                            id "io.ktor.plugin" version "%ktor_version%"
+                        }
+                        dependencies {
+                            implementation "io.ktor:ktor-server-core"
+                            implementation "io.ktor:ktor-server-netty"
+                            // ...
+                        }
+                    </code-block>
+                </tab>
+            </tabs>
+        </chapter>
+
+    </chapter>
+
+
+    <chapter title="Add logging dependency" id="logging-dependency">
+        <p>
+            Ktor uses SLF4J API as a facade for various logging frameworks (for example, Logback or Log4j) and allows you to log application events.
+            To learn how to add the required artifacts, see <a href="logging.md" anchor="add_dependencies"/>.
+        </p>
     </chapter>
 
 
