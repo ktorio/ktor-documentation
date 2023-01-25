@@ -1,45 +1,27 @@
-[//]: # (title: Gradle Application plugin)
+[//]: # (title: Create the application distribution)
 
 <tldr>
-<p>
-<control>Sample project</control>: <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main">engine-main</a>
-</p>
+<var name="example_name" value="deployment-ktor-plugin"/>
+<include from="lib.topic" element-id="download_example"/>
 </tldr>
 
-The Gradle [Application plugin](https://docs.gradle.org/current/userguide/application_plugin.html) provides the ability to package applications, including code dependencies and generated start scripts. In this topic, we'll show you how to package and run a Ktor application.
+The [Ktor Gradle plugin](https://github.com/ktorio/ktor-build-plugins) automatically applies the 
+Gradle [Application plugin](https://docs.gradle.org/current/userguide/application_plugin.html), 
+which provides the ability to package applications, including code dependencies and generated start scripts. 
+In this topic, we'll show you how to package and run a Ktor application.
 
 
-## Apply the Application plugin and configure the main class {id="apply-plugin"}
-To package an application, you need to apply the Application plugin first:
-1. Open the `build.gradle(.kts)` file of your project.
-2. Make sure that the file contains the following code:
-
-   <tabs group="languages">
-   <tab title="Gradle (Kotlin)" group-key="kotlin">
-
+## Configure the Ktor plugin {id="configure-plugin"}
+To create the application distribution, you need to apply the Ktor plugin first:
+1. Open the `build.gradle.kts` file and add the plugin to the `plugins` block:
    ```kotlin
    ```
-   {src="snippets/engine-main/build.gradle.kts" include-lines="5-6,8-12"}
+   {src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="5,8-9"}
 
-   </tab>
-   <tab title="Gradle (Groovy)" group-key="groovy">
-
-   ```groovy
-   plugins {
-       id 'application'
-   }
-   
-   application {
-       mainClass = 'io.ktor.server.netty.EngineMain'
-   }
+2. Make sure the [main application class](server-dependencies.topic#create-entry-point) is configured:
+   ```kotlin
    ```
-
-   </tab>
-   </tabs>
-   
-   * The Application plugin is applied inside the `plugins` block.
-   * The `mainClass` property is used to configure the main class of the application. Note that the application main class depends on the way used to [create a server](create_server.topic).
-     In the example above, the main class depends on the used engine and looks as follows: `io.ktor.server.netty.EngineMain`.
+   {src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="11-13"}
 
 
 ## Package the application {id="package"}
@@ -57,8 +39,8 @@ In this topic, we'll use `installDist`:
    <code-block>gradlew.bat installDist</code-block>
    </tab>
    </tabs>
-   
-   Gradle will create an image of the application in the `build/install/<project_name>` folder. 
+
+   The Application plugin will create an image of the application in the `build/install/<project_name>` folder. 
 
 
 ## Run the application {id="run"}
