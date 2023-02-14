@@ -94,6 +94,8 @@ Below are several path examples:
   A path with a [tailcard](#tailcard) that matches all the rest of the URL path.
 * `/user/{param...}`  
   A path containing a [path parameter with tailcard](#path_parameter_tailcard).
+* `Regex("/.+/hello")`  
+  A path containing a [regular expression](#regular_expression) that matches path segments up to and including the first occurrence of the `/hello`.
 
 
 ### Wildcard {id="wildcard"}
@@ -121,6 +123,54 @@ To access a parameter value inside the route handler, use the `call.parameters` 
 
 A path parameter with a tailcard (`{param...}`) matches all the rest of the URL path and puts multiple values for each path segment into parameters using `param` as a key. For example, `/user/{param...}` matches `/user/john/settings`.
 To access path segments' values inside the route handler, use `call.parameters.getAll("param")`. For the example above, the `getAll` function will return an array containing the _john_ and _settings_ values.
+
+### Regular expression {id="regular_expression"}
+
+Regular expressions can be used with all defining route handlers functions: `route`, `get`, `post`, and so on. For example:
+
+```kotlin
+import io.ktor.server.routing.*
+import io.ktor.server.response.*
+
+routing {
+    get(Regex(".+/hello")) {
+        call.respondText("Hello")
+    }
+}
+```
+
+#### Named groups
+
+To declare a named group in the regular expression, use `(?<name>...)` syntax.
+You can use the `call.parameters` property to access a named group inside the route handler. For example, `call.parameters["id"]` in the code snippet below will return `123` for the `123/hello` path:
+
+```kotlin
+import io.ktor.server.routing.*
+import io.ktor.server.response.*
+
+routing {
+    get(Regex("(?<id>\\d+)/hello")) {
+        val id = call.parameters["id"]!!
+        call.respondText(id)
+    }
+}
+```
+Unnamed groups can't be accessed inside the route handler, but you can use them to match the path. For example, path `hello/world` will be matched while `hello/World` not:
+
+```kotlin
+import io.ktor.server.routing.*
+import io.ktor.server.response.*
+
+routing {
+    get(Regex("hello/[a-z]+")) {
+        call.respondText("Hello")
+    }
+}
+```
+Also, if the path matches by regex, it should start with a forward slash or nothing after the part consumed by regex. For example, path pattern `get(Regex("[a-z]+"))` will not match the path "hello1" 
+but will match the part `hello` of the path `hello/1` and leave `/1` for the next route. 
+
+> To know more about regular expressions, see [Kotlin documentation](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/).
 
 ## Define multiple route handlers {id="multiple_routes"}
 
