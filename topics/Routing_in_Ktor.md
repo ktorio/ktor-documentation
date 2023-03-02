@@ -126,7 +126,11 @@ To access path segments' values inside the route handler, use `call.parameters.g
 
 ### Regular expression {id="regular_expression"}
 
-Regular expressions can be used with all defining route handlers functions: `route`, `get`, `post`, and so on. For example:
+Regular expressions can be used with all defining route handlers functions: `route`, `get`, `post`, and so on. 
+
+> To know more about regular expressions, see [Kotlin documentation](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/).
+
+Let's write a route matches any path that ends with `/hello`.
 
 ```kotlin
 import io.ktor.server.routing.*
@@ -138,11 +142,19 @@ routing {
     }
 }
 ```
+With this route definition, any incoming request to a path ending with `/hello`, such as `/foo/hello`, `/bar/baz/hello`, 
+and so on, will be matched.
 
-#### Named groups
+#### Accessing path parts in handler
 
-To declare a named group in the regular expression, use `(?<name>...)` syntax.
-You can use the `call.parameters` property to access a named group inside the route handler. For example, `call.parameters["id"]` in the code snippet below will return `123` for the `123/hello` path:
+In regular expressions, named groups are a way to capture a specific part of a string that matches a pattern and assign it a name.
+Named groups are defined using the following syntax `(?<name>pattern)`, where `name` is the name of the group and
+`pattern` is the regular expression pattern that matches the group.
+
+By defining a named group in the route function, you can capture a part of the path, and then in the handler function,
+you can access the captured parameter using the `call.parameters` property.
+
+For example, you can define a route that matches requests to a path that includes an integer identifier followed by `/hello`.
 
 ```kotlin
 import io.ktor.server.routing.*
@@ -155,6 +167,9 @@ routing {
     }
 }
 ```
+In the code below, the `(?<id>\\d+)` named group is used to capture the integer identifier `id` from the path,
+and the `call.parameters` property is used to access the captured id parameter in the handler function.
+
 Unnamed groups can't be accessed inside the route handler, but you can use them to match the path. For example, path `hello/world` will be matched while `hello/World` not:
 
 ```kotlin
@@ -167,10 +182,8 @@ routing {
     }
 }
 ```
-Also, if the path matches by regex, it should start with a forward slash or nothing after the part consumed by regex. For example, path pattern `get(Regex("[a-z]+"))` will not match the path "hello1" 
-but will match the part `hello` of the path `hello/1` and leave `/1` for the next route. 
-
-> To know more about regular expressions, see [Kotlin documentation](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/).
+Also, the whole path segment should be consumed by regex. For example, path pattern `get(Regex("[a-z]+"))` will not match the path `"hello1"` 
+but will match the part `hello` of the path `hello/1` and leave `/1` for the next route.
 
 ## Define multiple route handlers {id="multiple_routes"}
 
