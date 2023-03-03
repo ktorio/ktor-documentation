@@ -130,7 +130,7 @@ Regular expressions can be used with all defining route handlers functions: `rou
 
 > To know more about regular expressions, see [Kotlin documentation](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/).
 
-Let's write a route matches any path that ends with `/hello`.
+Let's write a route that matches any path that ends with `/hello`.
 
 ```kotlin
 import io.ktor.server.routing.*
@@ -148,11 +148,11 @@ and so on, will be matched.
 #### Accessing path parts in handler
 
 In regular expressions, named groups are a way to capture a specific part of a string that matches a pattern and assign it a name.
-Named groups are defined using the following syntax `(?<name>pattern)`, where `name` is the name of the group and
-`pattern` is the regular expression pattern that matches the group.
+The syntax `(?<name>pattern)` is used to define named groups, where `name` is the name of a group and 
+`pattern` is a regular expression pattern that matches the group.
 
-By defining a named group in the route function, you can capture a part of the path, and then in the handler function,
-you can access the captured parameter using the `call.parameters` property.
+By defining a named group in a route function, you can capture a part of the path, and then in the handler function,
+you can access the captured parameter using the `call.parameters` object.
 
 For example, you can define a route that matches requests to a path that includes an integer identifier followed by `/hello`.
 
@@ -161,28 +161,28 @@ import io.ktor.server.routing.*
 import io.ktor.server.response.*
 
 routing {
-    get(Regex("(?<id>\\d+)/hello")) {
+    get(Regex("""(?<id>\d+)/hello""")) {
         val id = call.parameters["id"]!!
         call.respondText(id)
     }
 }
 ```
-In the code below, the `(?<id>\\d+)` named group is used to capture the integer identifier `id` from the path,
-and the `call.parameters` property is used to access the captured id parameter in the handler function.
+In the code below, the `(?<id>\d+)` named group is used to capture the integer identifier `id` from a requested path,
+and the `call.parameters` property is used to access the captured `id` parameter in the handler function.
 
-Unnamed groups can't be accessed inside the route handler, but you can use them to match the path. For example, path `hello/world` will be matched while `hello/World` not:
+Unnamed groups can't be accessed inside a regex route handler, but you can use them to match the path. For example, path `hello/world` will be matched while `hello/World` not:
 
 ```kotlin
 import io.ktor.server.routing.*
 import io.ktor.server.response.*
 
 routing {
-    get(Regex("hello/[a-z]+")) {
+    get(Regex("hello/([a-z]+)")) {
         call.respondText("Hello")
     }
 }
 ```
-Also, the whole path segment should be consumed by regex. For example, path pattern `get(Regex("[a-z]+"))` will not match the path `"hello1"` 
+Also, the whole path segment needs to be consumed by regex. For example, path pattern `get(Regex("[a-z]+"))` will not match the path `"hello1"` 
 but will match the part `hello` of the path `hello/1` and leave `/1` for the next route.
 
 ## Define multiple route handlers {id="multiple_routes"}
