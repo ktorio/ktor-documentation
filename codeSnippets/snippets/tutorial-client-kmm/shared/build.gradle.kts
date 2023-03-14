@@ -17,7 +17,7 @@ kotlin {
     }
 
     sourceSets {
-        val ktorVersion = "2.2.3"
+        val ktorVersion = "2.2.4"
         val commonMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
