@@ -14,23 +14,9 @@ Ktor allows you to serve static files, such as stylesheets, scripts, images, and
 </link-summary>
 
 Whether we're creating a website or an HTTP endpoint, many applications need to serve files (such as stylesheets, scripts, images, etc.). 
-While it is certainly possible with Ktor to load the contents of a file and [send it in response](responses.md) to a request, given this is such a common functionality, Ktor simplifies the entire process for us with the [static](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.http.content/static.html) plugin.
+While it is certainly possible with Ktor to load the contents of a file and [send it in response](responses.md) to a request, given this is such a common functionality, Ktor simplifies the entire process for us with the static [1](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.http.content/staticFiles.html) and [2](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.http.content/staticResources.html) plugins.
 
-The first step in defining a static route is to define the path under which the content should be served. 
-For instance, if you want everything under the route `assets` to be treated as static content, you need to add the following to your application setup:
-
-```kotlin
-import io.ktor.server.http.content.*
-import io.ktor.server.routing.*
-
-routing {
-    static("assets") {
-
-    }
-}
-```
-
-The next step is to define where we want the content to be served from:
+The first step is to define where we want the content to be served from:
 
 * [Folders](#folders) - describes how to serve static files from a local filesystem. In this case, relative paths are resolved using the current working directory.
 * [Embedded application resources](#resources) - describes how to serve static files from the classpath.
@@ -38,248 +24,310 @@ The next step is to define where we want the content to be served from:
 
 ## Folders {id="folders"}
 
-To demonstrate how to serve static files from a folder, let's suppose our sample project has the `files` directory in its root.
-This directory includes the following files:
-
-```text
-files
-├── index.html
-├── ktor_logo.png
-├── css
-│   └──styles.css
-└── js
-    ├── script.js
-    └── script.js.gz
+```kotlin
+routing {
+    staticFiles("/static", File("files"))
+}
 ```
+This maps any request to `/static` to the `files` physical folder in a current working directory.
+In this case, Ktor recursively serves up any file from `files` as long as a URL path and physical filename match.
 
-In this section, we'll consider two cases of serving these files:
-- Serving all files recursively with a URL path matching a physical path.
-- Serving files/folders using customized URL paths.
-
-| Physical path             | URL path matches physical path | URL path is customized  |
-|---------------------------|--------------------------------|-------------------------|
-| `files/index.html`        | `/index.html`                  | `/index.html` or `/`    |
-| `files/ktor_logo.png`     | `/ktor_logo.png`               | `/images/ktor_logo.png` |
-| `files/css/styles.css`    | `/css/styles.css`              | `/assets/styles.css`    |
-| `files/js/script.js(.gz)` | `/js/script.js`                | `/assets/script.js`     |
-
-> Ktor automatically looks up the content type of file based on its extension and sets the appropriate `Content-Type` header.
-
-
-### Change the default root folder {id="default-folder"}
-
-By default, Ktor calculates a path for serving static files from a current working directory.
-If static files of your application are stored inside a specific folder, you can set it as a default root folder from where the content is served using the `staticRootFolder` property.
-For the `files` folder in the project root, the configuration looks as follows:
+## Serving resources {id="resources"}
 
 ```kotlin
+routing {
+    staticResources("/static", "assets")
+}
 ```
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="3-11,22-24"}
-
-This maps any request to `/` to the `files` physical folder. 
-As the next step, you need to specify how to serve static files using the `file` or `files` functions.
+This maps any request to `/static` to the `assets` package in application resources.
+In this case, Ktor recursively serves up any file from `assets` package as long as a URL path and path to resource match.
 
 
-### Serve all files including in subfolders {id="serve-all-files"}
+### Additional configuration {id="configuration"}
 
-To serve all files from the `files` folder recursively, you can pass the `"."` string to the `files` function:
+Ktor provides more configurations to static files and resources.
+
+#### Define an index file {id="index"}
+
+We can also define the default file to be loaded when the directory is requested.
+By default, index file name is `index.html`, you can set custom one using `index` parameter:
+
+<tabs>
+<tab title="Folder">
 
 ```kotlin
-static("/") {
-    staticRootFolder = File("files")
-    files(".")
+routing {
+    staticFiles("/static", File("files"), index = "my_index.html")
 }
 ```
 
-In this case, Ktor serves up any file from `files` as long as a URL path and physical filename match.
-In the next chapters, we'll take a look at how to customize URL paths.
-
-
-
-
-### Serve individual files {id="serve-individual-files"}
-
-To serve individual files, use the `file` function. 
-For example, to serve the `files/index.html` file, update configuration as follows:
+</tab>
+<tab title="Resource">
 
 ```kotlin
+routing {
+    staticResources("/static", "assets", index = "my_index.html")
+}
 ```
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="10-12,22"}
 
-As for the [Routing](Routing_in_Ktor.md#nested_routes) plugin, you can define sub-routes by nesting the `static` functions.
-The example below shows how to serve the `ktor_logo.png` file under the `/images` URL path:
+</tab>
+</tabs>
 
-```kotlin
-```
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="10-11,14-17,22"}
+In this case, for requests to `/static/path/to/dir` a Ktor server serves `files/path/to/dir/my_index.html` for files and `assets/path/to/dir/my_index.html` for resources.
 
-Note that the `file` function optionally takes a second argument that allows you to map a physical filename to a virtual one.
-So for the example above, the `ktor_logo.png` image is served for requests to the following paths:
-- `/images/ktor_logo.png`
-- `/images/image.png`
+#### Pre-compressed files {id="precompressed"}
+Ability to serve pre-compressed files and avoid using [dynamic compression](compression.md).
 
-
-### Define a default file {id="define-default-file"}
-
-For a specific path, we can also define the default file to be loaded using the `default` function.
-The code snippet below shows how to define `index.html` as the default file:
-
+<tabs>
+<tab title="Folder">
 
 ```kotlin
-```
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="10-11,13,22"}
-
-In this case, for requests to `/` a Ktor server serves `files/index.html`.
-
-
-### Serve content from a folder {id="serve-folder"}
-
-In addition to serving individual files, you can serve the contents from a folder. 
-To accomplish this, you need to specify the folder name using the `files` function. 
-The snippet below shows how to serve stylesheets and scripts for our sample project:
-
-```kotlin
-```
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="10-11,18-22"}
-
-`files("css")` would then allow for any file located in the `css` folder to be served as static content under the given URL pattern, which in this case is `assets`. 
-This means that a request to `/assets/styles.css` would serve the `files/css/styles.css` file.
-
-
-### Serve pre-compressed files {id="precompressed"}
-
-Ktor provides the ability to serve pre-compressed files and avoid using [dynamic compression](compression.md). 
-For example, to serve pre-compressed files from the `css` and `js` folders, call `files` inside the `preCompressed` function in the following way:
-```kotlin
-static("assets") {
-    preCompressed {
-        files("css")
-        files("js")
+routing {
+    staticFiles("/static", File("files")) {
+        preCompressed(CompressedFileType.BROTLI, CompressedFileType.GZIP)
     }
 }
 ```
-You can also raise the priority of one compression type over another.
-In the example below, Ktor tries to serve `*.br` files over `*.gz`:
+
+</tab>
+<tab title="Resource">
 
 ```kotlin
-static("assets") {
-    preCompressed(CompressedFileType.BROTLI, CompressedFileType.GZIP) {
-        files("css")
-        files("js")
+routing {
+    staticResources("/static", "assets") {
+        preCompressed(CompressedFileType.BROTLI, CompressedFileType.GZIP)
     }
 }
 ```
-For example, for a request made to `/assets/script.js`, Ktor tries to serve `js/script.js.br` first.
 
+</tab>
+</tabs>
 
+In this example, for a request made to `/static/script.js`, Ktor can serve `js/script.js.br` or `js/script.js.gz`.
 
-## Embedded application resources {id="resources"}
+#### HEAD requests {id="autohead"}
+Ability to automatically responds to a `HEAD` request for every path inside static route that has a `GET` defined.
 
-To demonstrate how to serve static files from application resources, let's suppose our sample project has the `static` package in the `resources` directory.
-This package includes the following files:
-
-```text
-static
-├── index.html
-├── ktor_logo.png
-├── css
-│   └──styles.css
-└── js
-    └── script.js
-```
-
-In this section, we'll consider two cases of serving these files:
-- Serving all resources recursively with a URL path matching a physical path.
-- Serving resources/resource folders using customized URL paths.
-
-| Physical path              | URL path matches physical path | URL path is customized   |
-|----------------------------|--------------------------------|--------------------------|
-| `static/index.html`        | `/index.html`                  | `/index.html` or `/`     |
-| `static/ktor_logo.png`     | `/ktor_logo.png`               | `/images/ktor_logo.png`  |
-| `static/css/styles.css`    | `/css/styles.css`              | `/assets/styles.css`     |
-| `static/js/script.js(.gz)` | `/js/script.js`                | `/assets/script.js`      |
-
-> Ktor automatically looks up the content type of file based on its extension and sets the appropriate `Content-Type` header.
-
-### Change the default resource package {id="default-resource-package"}
-
-By default, Ktor calculates a path for serving static resources from a resources root directory.
-If static files of your application are stored inside a specific resource package, you can set it as a default package from where the content is served using the `staticBasePackage` property.
-For example, for the `static` package inside the `resources` folder, the configuration looks as follows:
+<tabs>
+<tab title="Folder">
 
 ```kotlin
-```
-{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" include-lines="3-6,8-11,22-24"}
-
-This maps any request to `/` to the `static` package.
-As the next step, you need to specify how to serve static resources using the `resource` or `resources` functions.
-
-
-### Serve all resources including in subfolders {id="serve-all-resources"}
-
-To serve all files from the `static` folder recursively, you can pass the `"."` string to the `resources` function:
-
-```kotlin
-static("/") {
-    staticBasePackage = "static"
-    resources(".")
+routing {
+    staticFiles("/static", File("files")) {
+        enableAutoHeadResponse()
+    }
 }
 ```
 
-In this case, Ktor serves up any file from `static` as long as a URL path and physical filename match.
-In the next chapters, we'll take a look at how to customize URL paths.
-
-
-### Serve individual resources {id="serve-individual-resources"}
-
-To serve individual resources, use the `resource` function.
-For example, to serve the `static/index.html` file, update configuration as follows:
+</tab>
+<tab title="Resource">
 
 ```kotlin
+routing {
+    staticResources("/static", "assets") {
+        enableAutoHeadResponse()
+    }
+}
 ```
-{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" include-lines="10-12,22"}
 
-As for the [Routing](Routing_in_Ktor.md#nested_routes) plugin, you can define sub-routes by nesting the `static` functions.
-The example below shows how to serve the `ktor_logo.png` file under the `/images` URL path:
+</tab>
+</tabs>
+
+#### Default file {id="default-file"}
+Ability to reply with default file for any request inside static route, that has no corresponding file
+
+<tabs>
+<tab title="Folder">
 
 ```kotlin
+routing {
+    staticFiles("/static", File("files")) {
+        default("/path/to/default/file")
+    }
+}
 ```
-{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" include-lines="10-11,14-17,22"}
 
-Note that the `resource` function optionally takes a second argument that allows you to map a physical filename to a virtual one.
-So for the example above, the `ktor_logo.png` image is served for requests to the following paths:
-- `/images/ktor_logo.png`
-- `/images/image.png`
-
-Ktor automatically looks up the content type of file based on its extension and sets the appropriate `Content-Type` header.
-
-### Define a default resource {id="define-default-resource"}
-
-For a specific path, we can also define the default resource to be loaded using the `defaultResource` function.
-The code snippet below shows how to define `index.html` as the default resource:
-
+</tab>
+<tab title="Resource">
 
 ```kotlin
+routing {
+    staticResources("/static", "assets") {
+        default("/path/to/default/file")
+    }
+}
 ```
-{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" include-lines="10-11,13,22"}
 
-In this case, for requests to `/` a Ktor server serves `static/index.html`.
+</tab>
+</tabs>
 
+#### Content type {id="content-type"}
+By default, Ktor tries to guess value of `Content-Type` header from a file extension.
 
-### Serve content from a resource folder {id="serve-resources"}
-
-In addition to serving individual files, you can serve the contents from a resource folder.
-To accomplish this, you need to specify the resource folder name using the `resources` function.
-The snippet below shows how to serve stylesheets and scripts for our sample project:
+<tabs>
+<tab title="Folder">
 
 ```kotlin
+routing {
+    staticFiles("/static", File("files")) {
+        contentType { file ->
+            when (file.name) {
+                "index.txt" -> ContentType.Text.Html
+                else -> null
+            }
+        }
+    }
+}
 ```
-{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" include-lines="10-11,18-22"}
 
-`resources("css")` would then allow for any file located in the `css` resource folder to be served as static content under the given URL pattern, which in this case is `assets`.
-This means that a request to `/assets/styles.css` would serve the `files/css/styles.css` file.
+</tab>
+<tab title="Resource">
 
+```kotlin
+routing {
+    staticResources("/static", "assets") {
+        contentType { url ->
+            when (url.file) {
+                "index.txt" -> ContentType.Text.Html
+                else -> null
+            }
+        }
+    }
+}
+```
 
+</tab>
+</tabs>
+
+In this example, response for file `index.txt` will have `Content-Type: text/html` header and apply default behaviour for every other file.
+
+#### Caching headers {id="caching"}
+Ktor can add [Caching headers](caching.md) for static files.
+
+<tabs>
+<tab title="Folder">
+
+```kotlin
+routing {
+    staticFiles("/static", File("files")) {
+        cacheControl { file ->
+            when (file.name) {
+                "index.txt" -> listOf(Immutable, CacheControl.MaxAge(10000))
+                else -> emptyList()
+            }
+        }   
+    }
+}
+```
+
+</tab>
+<tab title="Resource">
+
+```kotlin
+routing {
+    staticResources("/static", "assets") {
+        cacheControl { url ->
+            when (url.file) {
+                "index.txt" -> listOf(Immutable, CacheControl.MaxAge(10000))
+                else -> emptyList()
+            }
+        }   
+    }
+}
+```
+
+</tab>
+</tabs>
+
+#### Excluding files {id="exclude"}
+Ktor can exclude some files and respond with 403 Forbidden status code when such files are requested.
+
+<tabs>
+<tab title="Folder">
+
+```kotlin
+routing {
+    staticFiles("/static", File("files")) {
+        exclude { file -> file.path.contains("secret_file") }
+    }
+}
+```
+
+</tab>
+<tab title="Resource">
+
+```kotlin
+routing {
+    staticResources("/static", "assets") {
+        exclude { url -> url.path.contains("secret_file") }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+#### File extensions fallbacks {id="extensions"}
+When a requested file is not found, Ktor can add the given extensions to the file name and search for it. 
+
+<tabs>
+<tab title="Folder">
+
+```kotlin
+routing {
+    staticFiles("/static", File("files")) {
+        extensions("html", "htm")
+    }
+}
+```
+
+</tab>
+<tab title="Resource">
+
+```kotlin
+routing {
+    staticResources("/static", "assets") {  
+        extensions("html", "htm")
+    }
+}
+```
+
+</tab>
+</tabs>
+
+In this example, when `/static/index` is requested, ktor will serve `index.html` content.
+
+#### Custom modifications {id="modify"}
+Ktor can apply custom modification to a resulting response.
+
+<tabs>
+<tab title="Folder">
+
+```kotlin
+routing {
+    staticFiles("/static", File("files")) {
+        modify { file, call ->
+            call.response.headers.append(HttpHeaders.ETag, calculateEtag(file))
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Resource">
+
+```kotlin
+routing {
+    staticResources("/static", "assets") {
+        modify { url, call ->
+            call.response.headers.append(HttpHeaders.ETag, calculateEtag(file))
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
 
 ## Handle errors {id="errors"}
 
@@ -288,28 +336,8 @@ If the requested content is not found, Ktor will automatically respond with a `4
 
 ## Examples {id="examples"}
 
-Example applications that serve static files using both folders and resources can be found below:
-
-<tabs>
-<tab title="Folder">
-
-```kotlin
-```
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt"}
-
-</tab>
-<tab title="Resource">
-
-```kotlin
-```
-{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt"}
-
-</tab>
-</tabs>
-
 You can find the full examples here:
 
 - [static-files](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/static-files)
 - [static-resources](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/static-resources)
-
 
