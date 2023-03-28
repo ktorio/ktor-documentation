@@ -7,18 +7,9 @@ import java.io.*
 
 fun Application.module() {
     routing {
-        static("/") {
-            staticRootFolder = File("files")
-            file("index.html")
+        staticFiles("/", File("files")) {
             default("index.html")
-            static("images") {
-                file("ktor_logo.png")
-                file("image.png", "ktor_logo.png")
-            }
-            static("assets") {
-                files("css")
-                files("js")
-            }
+            preCompressed(CompressedFileType.GZIP)
         }
     }
 }
