@@ -196,6 +196,31 @@
                     Note that this option uses the <a href="shutdown-url.md"/> plugin.
                 </p>
             </def>
+            <def title="ktor.deployment.shutdownGracePeriod">
+                <p>
+                    A maximum time in milliseconds for a server to stop accepting new requests.
+                </p>
+            </def>
+            <def title="ktor.deployment.shutdownTimeout">
+                <p>
+                    A maximum time in milliseconds to wait until the server stops completely.
+                </p>
+            </def>
+            <def title="ktor.deployment.callGroupSize">
+                <p>
+                    A minimum size of a thread pool used to process application calls.
+                </p>
+            </def>
+            <def title="ktor.deployment.connectionGroupSize">
+                <p>
+                    A count of threads used to accept new connections and start call processing.
+                </p>
+            </def>
+            <def title="ktor.deployment.workerGroupSize">
+                <p>
+                    A size of the event group for processing connections, parsing messages, and doing the engine's internal work.
+                </p>
+            </def>
         </deflist>
         <p id="ssl">
             If you've set <code>ktor.deployment.sslPort</code>, you need to specify the following <a href="ssl.md">SSL-specific</a> properties:

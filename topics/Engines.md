@@ -226,6 +226,8 @@ ktor {
         connectionGroupSize = 2
         workerGroupSize = 5
         callGroupSize = 10
+        shutdownGracePeriod = 2000
+        shutdownTimeout = 3000
     }
 }
 ```
@@ -239,6 +241,8 @@ ktor:
         connectionGroupSize: 2
         workerGroupSize: 5
         callGroupSize: 10
+        shutdownGracePeriod: 2000
+        shutdownTimeout: 3000
 ```
 
 </tab>

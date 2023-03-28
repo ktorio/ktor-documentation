@@ -6,6 +6,8 @@ fun main() {
         connectionGroupSize = 2
         workerGroupSize = 5
         callGroupSize = 10
+        shutdownGracePeriod = 2000
+        shutdownTimeout = 3000
     }) {
         // ...
     }.start(wait = true)
