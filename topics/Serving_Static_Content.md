@@ -331,7 +331,7 @@ routing {
 
 ## Handle errors {id="errors"}
 
-If the requested content is not found, Ktor will automatically respond with a `404 Not Found` HTTP status code. For more information about personalizing error handling, see [](status_pages.md).
+If the requested content is not found, Ktor will automatically respond with a `404 Not Found` HTTP status code. For more information about personalizing error handling, see [Status Pages](status_pages.md).
  
 
 ## Examples {id="examples"}
