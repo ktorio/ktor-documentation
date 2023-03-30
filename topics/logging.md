@@ -82,3 +82,14 @@ You can also access the Logger from [ApplicationCall](https://api.ktor.io/ktor-s
 ```kotlin
 ```
 {src="snippets/logging/src/main/kotlin/com/example/Application.kt" include-lines="26-28,30,34"}
+
+## Logging in Plugins and Files {id="plugins_and_files"}
+
+Using application log inside plugins and files is not recommended. It is better to use a separate logger for each plugin or file. To do this, you can use any logging library. 
+
+For multiplatform projects, you can use the [KtorSimpleLogger](https://api.ktor.io/ktor-utils/io.ktor.util.logging/-ktor-simple-logger.html) class:
+
+```kotlin
+```
+
+{src="snippets/logging/src/main/kotlin/com/example/RequestTracePlugin.kt" include-lines="1-13"}
