@@ -372,6 +372,9 @@
                 <p>
                     <emphasis>Example</emphasis>: <code>java -jar sample-app.jar -config=anotherfile.conf</code>
                 </p>
+                <p>
+                    <emphasis>Note</emphasis>: You can pass multiple values. <code>java -jar sample-app.jar -config=config-base.conf -config=config-dev.conf</code>. In this case all configs will be merged, where values from configs on the right will have priority.
+                </p>
 
             </def>
             <def title="-host">
