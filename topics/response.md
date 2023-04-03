@@ -71,6 +71,7 @@ With the [ContentNegotiation](serialization-client.md) plugin installed, you can
 
 To learn more, see [](serialization-client.md#receive_send_data).
 
+Note: there are ContentNegotiation plugins for both client and server, make sure to use proper one (client in this case).
 
 ### Streaming data {id="streaming"}
 
