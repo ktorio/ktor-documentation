@@ -15,8 +15,11 @@
 <include from="lib.topic" element-id="native_server_not_supported"/>
 </tldr>
 
-Ktor provides the capability to compress [outgoing content](responses.md) by using the [Compression](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-compression/io.ktor.server.plugins.compression/-compression.html) plugin. You can use different compression algorithms, including `gzip` and `deflate`, 
-specify the required conditions for compressing data (such as a content type or response size), or even compress data based on specific request parameters.
+Ktor provides the capability to compress response body and decompress request body 
+by using the [Compression](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-compression/io.ktor.server.plugins.compression/-compression.html) plugin. 
+You can use different compression algorithms, including `gzip` and `deflate`, 
+specify the required conditions for compressing data (such as a content type or response size), 
+or even compress data based on specific request parameters.
 
 > To learn how to serve pre-compressed static files in Ktor, see [](Serving_Static_Content.md#precompressed).
 
@@ -30,7 +33,9 @@ specify the required conditions for compressing data (such as a content type or 
 
 <include from="lib.topic" element-id="install_plugin"/>
 
-This enables the `gzip`, `deflate`, and `identity` encoders on a server. In the next chapter, we'll see how to enable only specific encoders and configure conditions for compressing data.
+This enables the `gzip`, `deflate`, and `identity` encoders on a server.
+In the next chapter, we'll see how to enable only specific encoders and configure conditions for compressing data.
+Note that every added encoder will be used to decompress request body if needed.
 
 
 ## Configure compression settings {id="configure"}
@@ -103,4 +108,4 @@ install(Compression) {
 ```
 
 ## Implement custom encoder {id="custom_encoder"}
-If necessary, you can provide your own encoder by implementing the [CompressionEncoder](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-compression/io.ktor.server.plugins.compression/-compression-encoder/index.html) interface. See [GzipEncoder](https://github.com/ktorio/ktor/blob/b5b59ca3ae61601e6175f334e6a1252609638e61/ktor-server/ktor-server-plugins/ktor-server-compression/jvm/src/io/ktor/server/plugins/compression/Encoders.kt#L41) as an example of implementation.
+If necessary, you can provide your own encoder by implementing the [ContentEncoder](https://api.ktor.io/ktor-utils/ktor-server-compression/io.ktor.util/-content-encoder/index.html) interface. See [GzipEncoder](https://github.com/ktorio/ktor/blob/b5b59ca3ae61601e6175f334e6a1252609638e61/ktor-server/ktor-server-plugins/ktor-server-compression/jvm/src/io/ktor/server/plugins/compression/Encoders.kt#L41) as an example of implementation.
