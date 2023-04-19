@@ -53,6 +53,7 @@ The example below shows a sample configuration:
 - The `level` property specifies the logging level. 
    For instance, you can log only request/response headers or include their bodies.
 - The `filter` function allows you to filter log messages for requests matching the specified predicate. In the example below, only requests made to `ktor.io` get into the log.
+- The `sanitizeHeader` function allows you to sanitize sensitive headers to avoid their values appearing in the logs. In the example below, Authorization header value will be replaced with '***' when logging.
 
 ```kotlin
 ```
