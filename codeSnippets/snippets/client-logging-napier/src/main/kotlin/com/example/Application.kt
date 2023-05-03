@@ -15,7 +15,7 @@ fun main() {
             install(Logging) {
                 logger = object: Logger {
                     override fun log(message: String) {
-                        Napier.v("HTTP Client", null, message)
+                        Napier.v(message, "HTTP Client", null)
                     }
                 }
                 level = LogLevel.HEADERS
