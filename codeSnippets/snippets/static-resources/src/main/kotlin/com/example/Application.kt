@@ -8,7 +8,7 @@ import java.io.File
 
 fun Application.module() {
     routing {
-        staticResources("/", File("files")) {
+        staticResources("/static", "assets") {
             default("index.html")
             preCompressed(CompressedFileType.GZIP)
         }
