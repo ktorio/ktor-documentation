@@ -9,7 +9,7 @@ import kotlin.test.*
 class ApplicationTest {
     @Test
     fun testRoot() = testApplication {
-        val response = client.get("/")
+        val response = client.get("/static")
         assertEquals(
             """
 <!DOCTYPE html>
