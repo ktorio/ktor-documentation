@@ -183,6 +183,7 @@ interface ContentConverter {
 
 With v2.0.0, the Ktor server uses a new API for [testing](Testing.md), which solves various issues described in [KTOR-971](https://youtrack.jetbrains.com/issue/KTOR-971). The main changes are:
 * The `withTestApplication`/`withApplication` functions are replaced with a new `testApplication` function.
+    * Use the `application` function inside `testApplication` to add a module
 * Inside the `testApplication` function, you need to use the existing [Ktor client](create-client.md) instance to make requests to your server and verify the results.
 * To test specific functionalities (for example, cookies or WebSockets), you need to create a new client instance and install a corresponding [plugin](http-client_plugins.md).
 
@@ -205,6 +206,13 @@ In the test below, the `handleRequest` function is replaced with the `client.get
 ```kotlin
 ```
 {src="snippets/engine-main/src/test/kotlin/EngineMainTest.kt" include-lines="11-16"}
+
+</tab>
+<tab title="2.0.0 (explicit module)" group-key="2_0_explicit_module">
+
+```kotlin
+```
+{src="snippets/engine-main/src/test/kotlin/EngineMainTest.kt" include-lines="28-34"}
 
 </tab>
 </tabs>
