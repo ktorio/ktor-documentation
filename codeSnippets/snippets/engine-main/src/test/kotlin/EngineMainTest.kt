@@ -24,4 +24,12 @@ class ApplicationTest {
             }
         }
     }
+    
+    @Test
+    fun testExplicitModule() = testApplication {
+        application(Application::module)
+        val response = client.get("/")
+        assertEquals(HttpStatusCode.OK, response.status)
+        assertEquals("Hello, world!", response.bodyAsText())
+    }
 }
