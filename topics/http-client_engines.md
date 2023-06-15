@@ -114,7 +114,8 @@ In this section, we'll take a look at engines available for JVM.
 
 ### Apache {id="apache"}
 The `Apache` engine supports HTTP/1.1 and provides multiple configuration options. 
-You can also use the `Apache5` engine if you need HTTP/2 support.
+You can also use the `Apache5` engine if you need HTTP/2 support, which has HTTP/2 enabled by default.
+
 1. Add the `ktor-client-apache5` or `ktor-client-apache` dependency:
 
    <var name="artifact_name" value="ktor-client-apache5"/>
