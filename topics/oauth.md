@@ -25,6 +25,21 @@ The `oauth` provider supports the authorization code flow. You can configure OAu
 <include from="lib.topic" element-id="add_ktor_artifact_intro"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
+## Install the Sessions plugin
+In order to not ask for authorization each time a client tries to access a protected resource, the access token can be saved into the session on a successful authorization. 
+Later, in the handler of the protected route, the access token can be retrieved from the current session and used to request the resource.
+
+```kotlin
+import io.ktor.server.sessions.*
+
+install(Sessions) {
+    cookie<UserSession>("user_session")
+}
+
+// ... 
+data class UserSession(val state: String, val token: String)
+```
+
 
 ## OAuth authorization flow {id="flow"}
 The OAuth authorization flow in a Ktor application might look as follows:
