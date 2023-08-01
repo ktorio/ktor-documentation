@@ -3,7 +3,7 @@ val kotlinx_html_version: String by project
 
 plugins {
     kotlin("js")
-    kotlin("plugin.serialization").version("1.8.0")
+    kotlin("plugin.serialization").version("1.8.20")
 }
 
 repositories {
