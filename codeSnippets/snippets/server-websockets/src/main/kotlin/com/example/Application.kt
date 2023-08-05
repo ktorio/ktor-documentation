@@ -22,7 +22,7 @@ fun Application.module() {
         }
 
         webSocket("/echo") {
-            send("Please enter your name")
+            send(Frame.Text("Please enter your name"))
             for (frame in incoming) {
                 frame as? Frame.Text ?: continue
                 val receivedText = frame.readText()
