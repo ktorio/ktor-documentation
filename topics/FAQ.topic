@@ -144,13 +144,13 @@
     <chapter title="How to resolve 'NoTransformationFoundException'?" id="no-transformation-found-exception" level="3">
         <p>
             <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.call/-no-transformation-found-exception/index.html">NoTransformationFoundException</a>
-            representing the inability to find a suitable transformation for the <i>received body</i> from
+            represents the inability to find a suitable transformation for the <i>received body</i> from
             <b>resulted</b> type to <b>expected</b> by the client type.
         </p>
         <procedure>
             <step>
                 <p>
-                    Check that the <code>Accept</code> header in your request specifies the desired content type,
+                    Check that the <code>Accept</code> header in your request specifies the desired content type
                     and that the <code>Content-Type</code> header in the server's response matches the expected type on
                     the client side.
                 </p>
@@ -161,7 +161,7 @@
                 </p>
                 <p>
                     You can use the <a href="https://ktor.io/docs/serialization-client.html">ContentNegotiation</a>
-                    plugin for client side.
+                    plugin for the client side.
                     This plugin allows you to specify how to serialize and deserialize data for different content types.
                 </p>
                 <code-block lang="kotlin">
