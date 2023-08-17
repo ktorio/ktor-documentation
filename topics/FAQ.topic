@@ -173,6 +173,18 @@
                     }
                 </code-block>
             </step>
+            <step>
+                <p>
+                    Make sure that you install all the needed plugins. Possible missing features:
+                </p>
+                <list style="bullet">
+                    <li>Client <a href="https://ktor.io/docs/websocket-client.html">WebSockets</a> and
+                        Server <a href="https://ktor.io/docs/websocket.html">WebSockets</a></li>
+                    <li>Client <a href="https://ktor.io/docs/serialization-client.html">ContentNegotiation</a> and
+                        Server <a href="https://ktor.io/docs/serialization.html">ContentNegotiation</a></li>
+                    <li><a href="https://ktor.io/docs/compression.html">Compression</a></li>
+                </list>
+            </step>
         </procedure>
     </chapter>
 
