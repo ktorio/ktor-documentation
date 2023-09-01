@@ -9,7 +9,7 @@ val ehcache_version: String by project
 plugins {
     application
     kotlin("jvm")
-    id("io.ktor.plugin") version "2.3.3"
+    id("io.ktor.plugin") version "2.3.4"
 }
 
 application {
