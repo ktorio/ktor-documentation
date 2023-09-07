@@ -32,7 +32,7 @@ ktor {
     }
 
     docker {
-        jreVersion.set(io.ktor.plugin.features.JreVersion.JRE_17)
+        jreVersion.set(JavaVersion.VERSION_17)
         localImageName.set("sample-docker-image")
         imageTag.set("0.0.1-preview")
         portMappings.set(listOf(
