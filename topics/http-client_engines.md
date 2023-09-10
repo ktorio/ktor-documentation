@@ -291,6 +291,8 @@ To use the `WinHttp` engine, follow the steps below:
 For desktop platforms, Ktor also provides the `Curl` engine. This engine is supported for the following platforms: `linuxX64`, `macosX64`, `macosArm64`, `mingwX64`. To use the `Curl` engine, follow the steps below:
 
 1. Install the [libcurl library](https://curl.se/libcurl/).
+   > On Linux, you have to install the `gnutls` version of libcurl.
+
    > On Windows, you may want to consider the [MinGW/MSYS2](FAQ.topic#native-curl) `curl` binary. 
 2. Add the `ktor-client-curl` dependency:
 
