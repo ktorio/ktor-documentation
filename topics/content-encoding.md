@@ -42,6 +42,6 @@ The [example](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/c
 
 ```kotlin
 ```
-{src="snippets/client-content-encoding/src/main/kotlin/com/example/Application.kt" include-lines="17-22"}
+{src="snippets/client-content-encoding/src/main/kotlin/com/example/Application.kt" include-lines="16-21"}
 
 If required, you can implement the `ContentEncoder` interface to create a custom encoder and pass it to the `customEncoder` function.

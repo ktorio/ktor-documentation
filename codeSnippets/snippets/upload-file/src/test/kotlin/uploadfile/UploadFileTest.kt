@@ -7,6 +7,7 @@ import io.ktor.http.*
 import io.ktor.http.content.*
 import io.ktor.server.application.*
 import io.ktor.server.testing.*
+import io.ktor.utils.io.*
 import io.ktor.utils.io.streams.*
 import org.junit.*
 import java.io.*

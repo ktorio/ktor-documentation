@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE ihp
         SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/ihp.dtd">
-<ihp version="2.0">
+<ihp version="3.0">
     <settings/>
 
     <module name="ktor"/>
@@ -11,8 +11,8 @@
     <images dir="images" web-path="images/"/>
     <categories src="c.list"/>
     <instance src="ktor.tree"
-             web-path="/docs/"
-             version="2.3.4"
+             web-path="/docs/eap"
+             version="3.0.0"
              id="docs"
              keymaps-mode="none"/>
 
