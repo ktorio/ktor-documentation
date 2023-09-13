@@ -50,7 +50,8 @@ class ApplicationTest {
                         .withParameter(ContentDisposition.Parameters.Name, "description")
                         .toString()
                 )),
-                PartData.FileItem({ fileBytes.inputStream().asInput() }, {}, headersOf(
+                //TODO: document this change
+                PartData.FileItem({ ByteReadChannel(fileBytes) }, {}, headersOf(
                     HttpHeaders.ContentDisposition,
                     ContentDisposition.File
                         .withParameter(ContentDisposition.Parameters.Name, "image")

@@ -6,7 +6,7 @@ import io.ktor.http.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
-fun Route.listOrdersRoute() {
+fun RoutingBuilder.listOrdersRoute() {
     get("/order") {
         if (orderStorage.isNotEmpty()) {
             call.respond(orderStorage)
@@ -14,7 +14,7 @@ fun Route.listOrdersRoute() {
     }
 }
 
-fun Route.getOrderRoute() {
+fun RoutingBuilder.getOrderRoute() {
     get("/order/{id?}") {
         val id = call.parameters["id"] ?: return@get call.respondText("Bad Request", status = HttpStatusCode.BadRequest)
         val order = orderStorage.find { it.number == id } ?: return@get call.respondText(
@@ -25,7 +25,7 @@ fun Route.getOrderRoute() {
     }
 }
 
-fun Route.totalizeOrderRoute() {
+fun RoutingBuilder.totalizeOrderRoute() {
     get("/order/{id?}/total") {
         val id = call.parameters["id"] ?: return@get call.respondText("Bad Request", status = HttpStatusCode.BadRequest)
         val order = orderStorage.find { it.number == id } ?: return@get call.respondText(

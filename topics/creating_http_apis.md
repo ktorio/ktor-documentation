@@ -153,7 +153,7 @@ We want to respond to `GET`, `POST`, and `DELETE` requests on the `/customer` en
    
    import io.ktor.server.routing.*
    
-   fun Route.customerRouting() {
+   fun RoutingBuilder.customerRouting() {
        route("/customer") {
            get {
    
@@ -181,7 +181,7 @@ To list all customers, we can return the `customerStorage` list by using the `ca
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" include-lines="1-18,44-45"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" include-lines="1-17,43-44"}
 
 In order for this to work, we need the `ContentNegotiation` plugin, which is already installed with the `json` serializer in `plugins/Serialization.kt`. What does content negotiation do? Let us consider the following request:
 
@@ -206,7 +206,7 @@ In Ktor, paths can also contain [parameters](Routing_in_Ktor.md#match_url) that 
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" include-lines="19-30"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" include-lines="18-29"}
 
 First, we check whether the parameter `id` exists in the request. If it does not exist, we respond with a `400 Bad Request` status code and an error message, and are done. If the parameter exists, we try to `find` the corresponding record in our `customerStorage`. If we find it, we'll respond with the object. Otherwise, we'll return a 404 "Not Found" status code with an error message.
 
@@ -216,7 +216,7 @@ Next, we implement the option for a client to `POST` a JSON representation of a 
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" include-lines="31-35"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" include-lines="30-34"}
 
 `call.receive` integrates with the [configured Content Negotiation](#source_code) plugin. Calling it with the generic parameter `Customer` automatically deserializes the JSON request body into a Kotlin `Customer` object. We can then add the customer to our storage and respond with a status code of `201 Created`.
 
@@ -228,13 +228,13 @@ The implementation for deleting a customer follows a similar procedure as we hav
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" include-lines="36-43"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" include-lines="35-42"}
 
 Similar to the definition of our `get` request, we make sure that the `id` is not null. If the `id` is absent, we respond with a `400 Bad Request` error.
 
 ### Register the routes {id="register_customer_routes"}
 
-Up until now, we have only defined our routes inside an extension function on `Route` – so Ktor doesn't know about our routes yet, and we need to register them. Open the `plugins/Routing.kt` file and add the following code:
+Up until now, we have only defined our routes inside an extension function on `RoutingBuilder` – so Ktor doesn't know about our routes yet, and we need to register them. Open the `plugins/Routing.kt` file and add the following code:
 
 ```kotlin
 ```
