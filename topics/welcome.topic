@@ -313,6 +313,9 @@
                             <a href="content-encoding.md"/>
                         </li>
                         <li>
+                            <a href="bom-remover.md"/>
+                        </li>
+                        <li>
                             <a href="client-caching.md"/>
                         </li>
                         <li>

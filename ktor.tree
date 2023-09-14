@@ -240,6 +240,7 @@
             </toc-element>
             <toc-element topic="http-cookies.md"/>
             <toc-element topic="content-encoding.md"/>
+            <toc-element topic="bom-remover.md"/>
             <toc-element topic="client-caching.md"/>
             <toc-element topic="http-plain-text.md"/>
             <toc-element topic="timeout.md"/>
