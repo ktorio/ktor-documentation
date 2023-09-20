@@ -26,7 +26,7 @@ fun Application.main() {
             call.respondCss {
                 body {
                     backgroundColor = Color.darkBlue
-                    margin(0.px)
+                    margin = Margin(0.px)
                 }
                 rule("h1.page-title") {
                     color = Color.white
