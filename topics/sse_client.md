@@ -8,11 +8,13 @@
 </tldr>
 
 <link-summary>
-Ktor supports SSE and allows you to create applications that receive event-based updates from the server without requiring constant polling by the client.
+The SSE plugin allows a client to receive event-based updates from a server over an HTTP connection.
 </link-summary>
 
-Server-Sent Events (SSE) allows clients to automatically receive updates from a server over an HTTP connection. 
-The SSE plugin provides a straightforward method for creating a one-way connection between the server and the client. 
+<include from="sse_server.md" element-id="sse-description" />
+
+
+> To learn more about the SSE plugin for server-side support, see [](sse_server.md)
 
 ## Add dependencies {id="add_dependencies"}
 `SSE` only requires the [ktor-client-core](client-dependencies.md) artifact and doesn't need any specific dependencies.
@@ -45,7 +47,7 @@ Optionally, you can configure the plugin inside the `install` block by passing t
 {src="snippets/client-sse/src/main/kotlin/com.example/Application.kt" include-lines="11-15"}
 
 > Note that the `reconnectionTime` property is not supported in all engines.
-You can learn more in [](http-client_engines.md#configure)
+To learn more, see [](http-client_engines.md#configure)
 
 
 ## Handle an SSE session {id="handle-session"}
@@ -69,13 +71,13 @@ The `HttpClient` allows you to get access to an SSE session in one of the follow
          }
      }
   ```
+  
 - The [sseSession]() function allows you to open an SSE session.
 
-> The response is a `ServerSentEvent`
 
 ### Example {id="example"}
 
-The example below creates a new SSE session at the `events` endpoint,
+The example below creates a new SSE session with the `events` endpoint,
 reads events through the `incoming` property and prints the received `ServerSentEvent`.
 
 ```kotlin
@@ -83,5 +85,5 @@ reads events through the `incoming` property and prints the received `ServerSent
 {src="snippets/client-sse/src/main/kotlin/com.example/Application.kt" include-symbol="main"}
 
 
-You can find the full example here: [client-sse](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-sse).
+For the full example, see [client-sse](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-sse).
 
