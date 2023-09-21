@@ -28,8 +28,10 @@ The SSE plugins supported by Ktor provide a straightforward method for creating 
 </snippet>
 
 > An alternative to SSE are [Websockets](websocket.md). They provide a two-way connection between the server and the client using the Websocket protocol.
+>
+{style="note"}
 
-> To learn more about the SSE plugin for client-side support, see [](sse_client.md)
+> To learn more about the SSE plugin for client-side support, see [](sse_client.md).
 
 ## Add dependencies {id="add_dependencies"}
 
@@ -46,7 +48,7 @@ The SSE plugins supported by Ktor provide a straightforward method for creating 
 ### API overview {id="api-overview"}
 
 Once you have installed the `SSE` plugin, you can add a route to handle an SSE session.
-To do that, call the `sse` function inside the [routing](Routing_in_Ktor.md#define_route) block:
+To do that, call the `sse()` function inside the [routing](Routing_in_Ktor.md#define_route) block:
 
 ```kotlin
 routing { 
@@ -55,6 +57,7 @@ routing {
     }
 }
 ```
+
 It is also possible to define an SSE route without specifying a path:
 
 ```kotlin
@@ -64,14 +67,17 @@ routing {
     }
 }
 ```
+
 Within the `sse` block, you define the handler for the specified path, represented by the [ServerSSESession]() class. The following functions and properties are available within the block:
 
-1. Use the `send` function to create and send a `ServerSentEvent` to the client.
-2. Use the `call` property to access the associated received `ApplicationCall` that originated the session.
-3. (Optional) Use the `close` function to close the session and terminate the connection with the client. The `close` method is called automatically when all `send` operations are completed.
-> It's important to note that closing the session using the `close` method does not send a termination event to the client.
-> If you wish to send a specific event to signify the end of the SSE stream before closing the session, you can use the `send` function for it.
+* Use the `send()` function to create and send a `ServerSentEvent` to the client.
+* Use the `call` property to access the associated received `ApplicationCall` that originated the session.
+* Use the `close()` function to close the session and terminate the connection with the client. The `close()` method is called automatically when all `send()` operations are completed.
 
+> It's important to note that closing the session using the `close()` function does not send a termination event to the client.
+> If you wish to send a specific event to signify the end of the SSE stream before closing the session, you can use the `send()` function for it.
+>
+{style="note"}
 
 ### Example: Handle a single session {id="handle-single-session"}
 

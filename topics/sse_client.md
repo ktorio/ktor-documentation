@@ -14,7 +14,7 @@ The SSE plugin allows a client to receive event-based updates from a server over
 <include from="sse_server.md" element-id="sse-description" />
 
 
-> To learn more about the SSE plugin for server-side support, see [](sse_server.md)
+> To learn more about the SSE plugin for server-side support, see [](sse_server.md).
 
 ## Add dependencies {id="add_dependencies"}
 `SSE` only requires the [ktor-client-core](client-dependencies.md) artifact and doesn't need any specific dependencies.
@@ -33,22 +33,23 @@ val client = HttpClient(CIO) {
     install(SSE)
 }
 ```
+
 ## Configure the SSE plugin {id="configure"}
 
 [//]: # (TODO: Add link for SSEConfig)
 Optionally, you can configure the plugin inside the `install` block by passing the supported properties of the [SSEConfig]() class.
-
-1. Use the `reconnectionTime` property to specify a reconnection time.  If the connection to the server is lost, the client will wait for the specified time before attempting to reconnect.
-2. Use the `showCommentEvents` function to add events consisting only of comments in the incoming flow.
-3. Use the `showRetryEvents` function to add events consisting only of the retry field in the incoming flow.
+* Use the `reconnectionTime` property to specify a reconnection time.  If the connection to the server is lost, the client will wait for the specified time before attempting to reconnect.
+* Use the `showCommentEvents()` function to add events consisting only of comments in the incoming flow.
+* Use the `showRetryEvents()` function to add events consisting only of the retry field in the incoming flow.
 
 ```kotlin
 ```
 {src="snippets/client-sse/src/main/kotlin/com.example/Application.kt" include-lines="11-15"}
 
 > Note that the `reconnectionTime` property is not supported in all engines.
-To learn more, see [](http-client_engines.md#configure)
-
+> To learn more, see [](http-client_engines.md#configure).
+>
+{style="note"}
 
 ## Handle an SSE session {id="handle-session"}
 ### API overview {id="api-overview"}
@@ -61,7 +62,7 @@ This interface exposes the API that allows you to receive SSE events from a serv
 The `HttpClient` allows you to get access to an SSE session in one of the following ways:
 
 
-- The [sse]() function creates the SSE session and allows you to act on it. It accepts `ClientSSESession` as a block argument.
+* The [sse()]() function creates the SSE session and allows you to act on it. It accepts `ClientSSESession` as a block argument.
   Use the `incoming` property to access the channel for receiving events.
 
   ```kotlin
@@ -72,7 +73,7 @@ The `HttpClient` allows you to get access to an SSE session in one of the follow
      }
   ```
   
-- The [sseSession]() function allows you to open an SSE session.
+* The [sseSession()]() function allows you to open an SSE session.
 
 
 ### Example {id="example"}
