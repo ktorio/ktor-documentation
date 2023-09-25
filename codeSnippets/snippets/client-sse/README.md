@@ -11,7 +11,7 @@ Before running this sample, start a [Ktor server](../server-sse) first:
 ./gradlew :server-sse:run
 ```
 
-Then, execute the following command:
+Then, open a separate tab and execute the following command to start the client application:
 
 ```bash
 ./gradlew :client-sse:run

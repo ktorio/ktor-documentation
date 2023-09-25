@@ -20,14 +20,18 @@ The SSE plugin allows a server to send event-based updates to a client over an H
 
 <snippet id="sse-description">
 
-Server-Sent Events (SSE) is a technology that allows a server to continuously push events to a client over an HTTP connection. 
-It's particularly useful in cases where the server needs to send event-based updates without requiring the client to repeatedly poll the server.
+Server-Sent Events (SSE) is a technology that allows a server to continuously push events to a client over an HTTP
+connection.
+It's particularly useful in cases where the server needs to send event-based updates without requiring the client to
+repeatedly poll the server.
 
-The SSE plugins supported by Ktor provide a straightforward method for creating a one-way connection between the server and the client.
+The SSE plugins supported by Ktor provide a straightforward method for creating a one-way connection between the server
+and the client.
 
 </snippet>
 
-> An alternative to SSE are [Websockets](websocket.md). They provide a two-way connection between the server and the client using the Websocket protocol.
+> An alternative to SSE are [Websockets](websocket.md). They provide a two-way connection between the server and the
+client using the Websocket protocol.
 >
 {style="note"}
 
@@ -37,7 +41,6 @@ The SSE plugins supported by Ktor provide a straightforward method for creating 
 
 <include from="lib.topic" element-id="add_ktor_artifact_intro"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
-
 
 ## Install SSE {id="install_plugin"}
 
@@ -68,23 +71,30 @@ routing {
 }
 ```
 
-Within the `sse` block, you define the handler for the specified path, represented by the [ServerSSESession]() class. The following functions and properties are available within the block:
+Within the `sse` block, you define the handler for the specified path, represented by the [ServerSSESession]() class.
+The following functions and properties are available within the block:
 
 * Use the `send()` function to create and send a `ServerSentEvent` to the client.
 * Use the `call` property to access the associated received `ApplicationCall` that originated the session.
-* Use the `close()` function to close the session and terminate the connection with the client. The `close()` method is called automatically when all `send()` operations are completed.
+* Use the `close()` function to close the session and terminate the connection with the client. The `close()` method is
+  called automatically when all `send()` operations are completed.
 
-> It's important to note that closing the session using the `close()` function does not send a termination event to the client.
-> If you wish to send a specific event to signify the end of the SSE stream before closing the session, you can use the `send()` function for it.
+> It's important to note that closing the session using the `close()` function does not send a termination event to the
+client.
+> If you wish to send a specific event to signify the end of the SSE stream before closing the session, you can use
+the `send()` function for it.
 >
 {style="note"}
 
 ### Example: Handle a single session {id="handle-single-session"}
 
-The example below creates an SSE session with the `events` endpoint which sends 6 separate events over a single SSE channel with a delay of 1000ms.
+The example below creates an SSE session with the `events` endpoint which sends 6 separate events over a single SSE
+channel with a delay of 1000ms.
+
 ```kotlin
 ```
+
 {src="snippets/server-sse/src/main/kotlin/com/example/Application.kt" include-lines="14-21"}
 
-
-For the full example, see [server-sse](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/server-sse).
+For the full example,
+see [server-sse](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/server-sse).
