@@ -42,10 +42,12 @@ val client = HttpClient(CIO) {
 Optionally, you can configure the plugin inside the `install` block by passing the supported properties of
 the [SSEConfig]() class.
 
+[//]: # (TODO: Check and update the status of reconnection before release)
+
 * Use the `reconnectionTime` property to specify a reconnection time. If the connection to the server is lost, the
   client will wait for the specified time before attempting to reconnect.
 
-> Note that the `reconnectionTime` property is currently not supported.
+> Note that reconnection is currently not supported.
 > To learn more, see [](http-client_engines.md#configure).
 >
 {style="note"}
@@ -69,29 +71,35 @@ This interface exposes the API that allows you to receive SSE events from a serv
 
 The `HttpClient` allows you to get access to an SSE session in one of the following ways:
 
-* The [sse()]() function creates the SSE session and allows you to act on it. Optionally, use the following parameters
-  to configure the connection:
-    * Use `host`, `port` and `path`, or the `urlString` parameter to specify the server endpoint to
-      connect to.
-    * Use the `reconnectionTime` parameter to specify a reconnection time.
-    * Use the `showCommentEvents` parameter to specify whether to show events consisting only of comments in the
-      incoming flow.
-    * Use the `showRetryEvents` parameter to specify whether to show events consisting only of the retry field in the
-      incoming flow.
-
-      Within the lambda argument, you have access to the `ClientSSESession` context. Use the `incoming` property to
-      access the
-      channel for receiving events.
-
-  ```kotlin
-     runBlocking {
-        client.sse(host = "127.0.0.1", port = 8080, path = "/events") {
-             // this: ClientSSESession
-         }
-     }
-  ```
-
+* The [sse()]() function creates the SSE session and allows you to act on it.
 * The [sseSession()]() function allows you to open an SSE session.
+
+The following parameters are available to both functions. To specify the URL endpoint, choose from two options:
+
+* Use the `urlString` parameter to specify the whole URL as a string.
+* Use the `schema`, `host`, `port`, and `path` parameters to specify the protocol scheme, domain name, port number and
+  path name
+  respectively.
+
+```kotlin
+   runBlocking {
+      client.sse(host = "127.0.0.1", port = 8080, path = "/events") {
+           // this: ClientSSESession
+       }
+   }
+```
+
+Optionally, use the following parameters to configure the connection:
+
+* Use the `reconnectionTime` parameter to specify a reconnection time.
+* Use the `showCommentEvents` parameter to specify whether to show events consisting only of comments in the
+  incoming flow.
+* Use the `showRetryEvents` parameter to specify whether to show events consisting only of the retry field in the
+  incoming flow.
+
+Within the lambda argument, you have access to the `ClientSSESession` context. Use the `incoming` property to
+access the
+channel for receiving events.
 
 ### Example {id="example"}
 
