@@ -30,12 +30,12 @@ and the client.
 
 </snippet>
 
-> An alternative to SSE are [Websockets](websocket.md). They provide a two-way connection between the server and the
-client using the Websocket protocol.
+> To learn more about the SSE plugin for client-side support, see the [SSE client plugin](sse_client.md).
+
+> For multi-way communication, consider using [WebSockets](websocket.md). They provide a full-duplex communication
+> between the server and the client using the Websocket protocol.
 >
 {style="note"}
-
-> To learn more about the SSE plugin for client-side support, see [](sse_client.md).
 
 ## Add dependencies {id="add_dependencies"}
 

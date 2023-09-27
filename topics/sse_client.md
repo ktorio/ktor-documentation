@@ -14,7 +14,7 @@ The SSE plugin allows a client to receive event-based updates from a server over
 <include from="sse_server.md" element-id="sse-description" />
 
 
-> To learn more about the SSE plugin for server-side support, see [](sse_server.md).
+> To learn more about the SSE plugin for server-side support, see the [SSE server plugin](sse_server.md).
 
 ## Add dependencies {id="add_dependencies"}
 
