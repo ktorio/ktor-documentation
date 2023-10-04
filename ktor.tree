@@ -2,9 +2,9 @@
 <!DOCTYPE instance-profile
         SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/product-profile.dtd">
 <instance-profile id="ktor"
-                 name="Ktor"
-                 status="eap"
-                 start-page="welcome.topic">
+                  name="Ktor"
+                  status="eap"
+                  start-page="welcome.topic">
 
     <toc-element topic="welcome.topic"
                  accepts-web-file-names-ref="kotlin_docs"/>
@@ -149,7 +149,6 @@
         </toc-element>
 
 
-
         <toc-element toc-title="Running and debugging">
             <toc-element topic="running.md"
                          accepts-web-file-names="engine.html"/>
@@ -252,6 +251,9 @@
                 <toc-element topic="websocket_client_serialization.md"/>
             </toc-element>
             <toc-element topic="sse_client.md"/>
+            <toc-element toc-title="Monitoring">
+                <toc-element topic="client_call_id.md"/>
+            </toc-element>
             <toc-element topic="client-custom-plugins.md"/>
         </toc-element>
 
