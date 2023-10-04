@@ -18,13 +18,14 @@
 The %plugin_name% client plugin allows you to trace client requests by using unique call IDs.
 </link-summary>
 
-The %plugin_name% plugin allows you to trace client requests end-to-end by using unique call IDs. It is particularly useful
-in microservice architectures to keep track of calls, regardless of how many services a request goes through.
+The %plugin_name% plugin allows you to trace client requests end-to-end by using unique call IDs. It is particularly
+useful in microservice architectures to keep track of calls, regardless of how many services a request goes through.
 
 A calling scope might already have a call ID in its coroutine context. By default, the plugin uses the current context
 to retrieve a call ID and adds it to the context of the specific call using the `HttpHeaders.XRequestId` header.
 
-Additionally, if a scope comes without a call ID, you can configure the plugin to generate and apply a new call ID.
+Additionally, if a scope comes without a call ID, you can [configure the plugin](#configure) to generate and apply a new
+call ID.
 
 ## Add dependencies {id="add_dependencies"}
 
