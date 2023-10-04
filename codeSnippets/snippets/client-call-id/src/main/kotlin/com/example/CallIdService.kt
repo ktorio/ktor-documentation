@@ -20,8 +20,7 @@ fun main(args: Array<String>) {
 
 fun Application.module() {
     val client = HttpClient(CIO) {
-        install(ClientCallId) {
-        }
+        install(ClientCallId)
     }
     install(CallId) {
         retrieveFromHeader(HttpHeaders.XRequestId)

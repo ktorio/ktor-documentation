@@ -14,7 +14,11 @@
 <include from="lib.topic" element-id="download_example"/>
 </tldr>
 
-The CallId plugin allows you to trace client requests end-to-end by using unique call IDs. It is particularly useful
+<link-summary>
+The %plugin_name% client plugin allows you to trace client requests by using unique call IDs.
+</link-summary>
+
+The %plugin_name% plugin allows you to trace client requests end-to-end by using unique call IDs. It is particularly useful
 in microservice architectures to keep track of calls, regardless of how many services a request goes through.
 
 A calling scope might already have a call ID in its coroutine context. By default, the plugin uses the current context
@@ -41,12 +45,14 @@ it to the call context.
 Generate a call ID for a specific request in one of the following ways:
 
 * The `useCoroutineContext` property, enabled by default, adds a generator that uses the current `CoroutineContext` to
-  retrieve a call ID.
+  retrieve a call ID. To disable this functionality, set `useCoroutineContext` to `false`:
 
  ```kotlin
  ```
 
-{src="snippets/client-call-id/src/main/kotlin/com/example/Application.kt" include-lines="14-15,19"}
+{src="snippets/client-call-id/src/main/kotlin/com/example/Application.kt" include-lines="14,29,32"}
+
+> In a Ktor server, use the [CallId plugin](call-id.md) to add a call ID to the `CoroutineContext`.
 
 * The `generate()` function allows you to generate a call ID for an outgoing request. If it fails to generate a call ID,
   it returns `null`.
@@ -54,7 +60,7 @@ Generate a call ID for a specific request in one of the following ways:
  ```kotlin
  ```
 
-{src="snippets/client-call-id/src/main/kotlin/com/example/Application.kt" include-lines="14,16,19"}
+{src="snippets/client-call-id/src/main/kotlin/com/example/Application.kt" include-lines="14,15,18"}
 
 You can use multiple methods to generate a call ID. In this way, the first non-null value will be applied.
 
@@ -67,7 +73,7 @@ After you retrieve a call ID, you have the following options available to add it
  ```kotlin
  ```
 
-{src="snippets/client-call-id/src/main/kotlin/com/example/Application.kt" include-lines="14,18,19"}
+{src="snippets/client-call-id/src/main/kotlin/com/example/Application.kt" include-lines="14,17,18"}
 
 * The `addToHeader()` function adds a call ID to a specified header. It takes a header as a parameter, which defaults
   to `HttpHeaders.XRequestId`.
@@ -75,7 +81,7 @@ After you retrieve a call ID, you have the following options available to add it
  ```kotlin
  ```
 
-{src="snippets/client-call-id/src/main/kotlin/com/example/Application.kt" include-lines="14,17,19"}
+{src="snippets/client-call-id/src/main/kotlin/com/example/Application.kt" include-lines="14,16,18"}
 
 ## Example
 
@@ -85,7 +91,7 @@ it to the header:
  ```kotlin
  ```
 
-{src="snippets/client-call-id/src/main/kotlin/com/example/Application.kt" include-lines="13-21"}
+{src="snippets/client-call-id/src/main/kotlin/com/example/Application.kt" include-lines="13-20"}
 
 The plugin uses the coroutine context to get a call ID and utilizes the `generate()` function to generate a new one. The
 first non-null call ID is then applied to the request header using the `addToHeader()` function and to the request query
@@ -97,7 +103,7 @@ from the [CallId plugin for the server](call-id.md).
  ```kotlin
  ```
 
-{src="snippets/client-call-id/src/main/kotlin/com/example/CallIdService.kt" include-lines="26-27,30"}
+{src="snippets/client-call-id/src/main/kotlin/com/example/CallIdService.kt" include-lines="25-26,29"}
 
 In this way the Ktor server retrieves the ID of the specified header of the request and applies it to the `callId`
 property of the call.

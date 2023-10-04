@@ -12,7 +12,6 @@ fun main() {
     runBlocking {
         val client = HttpClient(CIO) {
             install(CallId) {
-                useCoroutineContext = true
                 generate { "call-id-client" }
                 addToHeader(HttpHeaders.XRequestId)
                 intercept { request, callId -> request.parameter("callId", callId) }
@@ -27,6 +26,7 @@ fun main() {
 
         val client2 = HttpClient(CIO) {
             install(CallId) {
+                useCoroutineContext = false
                 generate { "call-id-client-2" }
                 intercept { request, callId -> request.parameter("callId", callId) }
             }
