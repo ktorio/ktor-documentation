@@ -153,7 +153,7 @@ We want to respond to `GET`, `POST`, and `DELETE` requests on the `/customer` en
    
    import io.ktor.server.routing.*
    
-   fun RoutingBuilder.customerRouting() {
+   fun Route.customerRouting() {
        route("/customer") {
            get {
    
@@ -234,7 +234,7 @@ Similar to the definition of our `get` request, we make sure that the `id` is no
 
 ### Register the routes {id="register_customer_routes"}
 
-Up until now, we have only defined our routes inside an extension function on `RoutingBuilder` – so Ktor doesn't know about our routes yet, and we need to register them. Open the `plugins/Routing.kt` file and add the following code:
+Up until now, we have only defined our routes inside an extension function on `Route` – so Ktor doesn't know about our routes yet, and we need to register them. Open the `plugins/Routing.kt` file and add the following code:
 
 ```kotlin
 ```
