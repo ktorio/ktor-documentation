@@ -8,32 +8,37 @@ import io.ktor.client.plugins.callid.*
 import io.ktor.http.*
 import kotlinx.coroutines.*
 
-fun main() {
-    runBlocking {
-        val client = HttpClient(CIO) {
-            install(CallId) {
-                generate { "call-id-client" }
-                addToHeader(HttpHeaders.XRequestId)
-                intercept { request, callId -> request.parameter("callId", callId) }
-            }
-        }
+suspend fun main() {
+    getRequestWithCallIdFromContext()
+    getRequestWithCustomCallId()
+}
 
+suspend fun getRequestWithCallIdFromContext() {
+    val client = HttpClient(CIO) {
+        install(CallId) {
+            generate { "call-id-client" }
+            addToHeader(HttpHeaders.XRequestId)
+        }
+    }
+    client.use {
         val response: HttpResponse = client.get("http://0.0.0.0:8090/call")
         println(response.bodyAsText())
 
         val responseFromDoubleCall: HttpResponse = client.get("http://0.0.0.0:8090/double-call")
         println(responseFromDoubleCall.bodyAsText())
+    }
+}
 
-        val client2 = HttpClient(CIO) {
-            install(CallId) {
-                useCoroutineContext = false
-                generate { "call-id-client-2" }
-                intercept { request, callId -> request.parameter("callId", callId) }
-            }
+suspend fun getRequestWithCustomCallId() {
+    val client = HttpClient(CIO) {
+        install(CallId) {
+            useCoroutineContext = false
+            generate { "call-id-client-2" }
         }
+    }
+    client.use {
+        val response: HttpResponse = client.get("http://0.0.0.0:8090/call")
+        println(response.bodyAsText())
 
-        val response2: HttpResponse = client2.get("http://0.0.0.0:8090/call")
-        println(response2.bodyAsText())
-        client.close()
     }
 }

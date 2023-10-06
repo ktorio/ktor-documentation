@@ -51,7 +51,7 @@ Generate a call ID for a specific request in one of the following ways:
  ```kotlin
  ```
 
-{src="snippets/client-call-id/src/main/kotlin/com/example/Application.kt" include-lines="14,29,32"}
+{src="snippets/client-call-id/src/main/kotlin/com/example/Application.kt" include-lines="34-35,37"}
 
 > In a Ktor server, use the [CallId plugin](call-id.md) to add a call ID to the `CoroutineContext`.
 
@@ -61,7 +61,7 @@ Generate a call ID for a specific request in one of the following ways:
  ```kotlin
  ```
 
-{src="snippets/client-call-id/src/main/kotlin/com/example/Application.kt" include-lines="14,15,18"}
+{src="snippets/client-call-id/src/main/kotlin/com/example/Application.kt" include-lines="34,36-37"}
 
 You can use multiple methods to generate a call ID. In this way, the first non-null value will be applied.
 
@@ -74,7 +74,7 @@ After you retrieve a call ID, you have the following options available to add it
  ```kotlin
  ```
 
-{src="snippets/client-call-id/src/main/kotlin/com/example/Application.kt" include-lines="14,17,18"}
+{src="snippets/client-call-id/src/main/kotlin/com/example/CallIdService.kt" include-lines="23-27"}
 
 * The `addToHeader()` function adds a call ID to a specified header. It takes a header as a parameter, which defaults
   to `HttpHeaders.XRequestId`.
@@ -82,7 +82,7 @@ After you retrieve a call ID, you have the following options available to add it
  ```kotlin
  ```
 
-{src="snippets/client-call-id/src/main/kotlin/com/example/Application.kt" include-lines="14,16,18"}
+{src="snippets/client-call-id/src/main/kotlin/com/example/Application.kt" include-lines="18,20-21"}
 
 ## Example
 
@@ -92,11 +92,10 @@ it to the header:
  ```kotlin
  ```
 
-{src="snippets/client-call-id/src/main/kotlin/com/example/Application.kt" include-lines="13-20"}
+{src="snippets/client-call-id/src/main/kotlin/com/example/Application.kt" include-lines="17-22"}
 
 The plugin uses the coroutine context to get a call ID and utilizes the `generate()` function to generate a new one. The
-first non-null call ID is then applied to the request header using the `addToHeader()` function and to the request query
-parameter using the `intercept()` function.
+first non-null call ID is then applied to the request header using the `addToHeader()` function.
 
 In a Ktor server, the call ID can then be retrieved from the header using the [retrieve](call-id.md#retrieve) functions
 from the [CallId plugin for the server](call-id.md).
@@ -104,7 +103,7 @@ from the [CallId plugin for the server](call-id.md).
  ```kotlin
  ```
 
-{src="snippets/client-call-id/src/main/kotlin/com/example/CallIdService.kt" include-lines="25-26,29"}
+{src="snippets/client-call-id/src/main/kotlin/com/example/CallIdService.kt" include-lines="29-30,33"}
 
 In this way the Ktor server retrieves the ID of the specified header of the request and applies it to the `callId`
 property of the call.

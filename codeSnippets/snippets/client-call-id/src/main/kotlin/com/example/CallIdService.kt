@@ -20,12 +20,16 @@ fun main(args: Array<String>) {
 
 fun Application.module() {
     val client = HttpClient(CIO) {
-        install(ClientCallId)
+        install(ClientCallId) {
+            intercept { request, callId ->
+                request.header(HttpHeaders.XRequestId, callId)
+            }
+        }
     }
     install(CallId) {
         retrieveFromHeader(HttpHeaders.XRequestId)
         generate { "call-id-server" }
-        header(HttpHeaders.XRequestId)
+        replyToHeader(HttpHeaders.XRequestId)
     }
     routing {
         get("/") {
@@ -38,8 +42,7 @@ fun Application.module() {
         get("/call") {
             val callIdFromCall = call.callId
             val callIdFromHeader = call.request.headers[HttpHeaders.XRequestId]
-            val callIdFromParameter = call.request.queryParameters["callId"]
-            call.respond("in call: $callIdFromCall, in header: $callIdFromHeader, in query param: $callIdFromParameter")
+            call.respond("Handling request `/call` from client with call.callId: $callIdFromCall and X-RequestId: $callIdFromHeader")
         }
     }
 

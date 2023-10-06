@@ -21,7 +21,7 @@ The client makes 3 requests to the API and prints out information about the call
 
 The expected output is:
 ```
-in call: call-id-client, in header: call-id-client, in query param: call-id-client
-in call: call-id-client, in header: call-id-client, in query param: null
-in call: call-id-server, in header: null, in query param: call-id-client-2
+Handling request `/call` from client with call.callId: call-id-client and X-RequestId: call-id-client
+Handling request `/call` from client with call.callId: call-id-client and X-RequestId: call-id-client
+Handling request `/call` from client with call.callId: call-id-client-2 and X-RequestId: call-id-client-2
 ```
