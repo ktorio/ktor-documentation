@@ -17,9 +17,9 @@
 Ktor provides a mechanism to create routes in a typed way, for both:
 constructing URLs and reading the parameters.
 
-> In v2.0.0, the `Locations` plugin is deprecated. Use the [Resources](type-safe-routing.md) plugin instead.
+> The `Locations` plugin has been removed in version `3.0.0`. Use the [Resources](type-safe-routing.md) plugin instead.
 >
-{type="note"}
+{style="warning"}
 
 
 ## Add dependencies {id="add_dependencies"}

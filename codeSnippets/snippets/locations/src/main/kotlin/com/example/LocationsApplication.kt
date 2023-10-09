@@ -2,22 +2,26 @@ package com.example
 
 import io.ktor.server.application.*
 import io.ktor.server.html.*
-import io.ktor.server.locations.*
+import io.ktor.resources.Resource
+import io.ktor.server.resources.*
 import io.ktor.server.plugins.callloging.*
 import io.ktor.server.plugins.defaultheaders.*
 import io.ktor.server.routing.*
 import kotlinx.html.*
 import java.util.*
 
-@Location("/") class index()
-@Location("/number") class number(val value: Int)
+@Resource("/")
+class Index()
+
+@Resource("/number")
+class Number(val value: Int)
 
 fun Application.main() {
     install(DefaultHeaders)
     install(CallLogging)
-    install(Locations)
+    install(Resources)
     routing {
-        get<index> {
+        get<Index> {
             call.respondHtml {
                 head {
                     title { +"Ktor: locations" }
@@ -33,8 +37,8 @@ fun Application.main() {
                         val rnd = Random()
                         (0..5).forEach {
                             li {
-                                val number = number(rnd.nextInt(1000))
-                                a(href = locations.href(number)) {
+                                val number = Number(rnd.nextInt(1000))
+                                a(href = href(number)) {
                                     +"Number #${number.value}"
                                 }
                             }
@@ -44,7 +48,7 @@ fun Application.main() {
             }
         }
 
-        get<number> { number ->
+        get<Number> { number ->
             call.respondHtml {
                 head {
                     title { +"Ktor: locations" }

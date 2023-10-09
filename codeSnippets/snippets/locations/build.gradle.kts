@@ -5,6 +5,7 @@ val logback_version: String by project
 plugins {
     application
     kotlin("jvm")
+    kotlin("plugin.serialization").version("1.9.10")
 }
 
 application {
@@ -23,6 +24,6 @@ dependencies {
     implementation("io.ktor:ktor-server-default-headers:$ktor_version")
     implementation("io.ktor:ktor-server-call-logging:$ktor_version")
     implementation("io.ktor:ktor-server-html-builder:$ktor_version")
-    implementation("io.ktor:ktor-server-locations:$ktor_version")
+    implementation("io.ktor:ktor-server-resources:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
 }
