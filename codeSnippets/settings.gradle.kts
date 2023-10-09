@@ -160,6 +160,7 @@ module("snippets", "client-configure-request")
 module("snippets", "request-validation")
 module("snippets", "client-sse")
 module("snippets", "server-sse")
+module("snippets", "client-call-id")
 
 if(!System.getProperty("os.name").startsWith("Windows")) {
     module("snippets", "embedded-server-native")
