@@ -24,7 +24,7 @@ the [Resources plugin](type-safe-routing.md) instead. This requires the followin
 The following example shows how to implement these changes:
 
 <tabs group="ktor_versions">
-<tab title="1.6.x" group-key="1_6">
+<tab title="2.2.x" group-key="1_6">
 
 ```kotlin
 import io.ktor.server.locations.*
@@ -44,7 +44,7 @@ fun Application.module() {
 ```
 
 </tab>
-<tab title="2.0.0" group-key="2_0">
+<tab title="3.0.x" group-key="2_0">
 
 ```kotlin
 import io.ktor.resources.Resource
