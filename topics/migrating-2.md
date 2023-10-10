@@ -10,9 +10,12 @@ To unify and better distinguish the server and client APIs, server code is moved
 This means that you need to update [dependencies](#server-package-dependencies) for and [imports](#server-package-imports) in your application, as shown below.
 
 #### Dependencies {id="server-package-dependencies"}
+
+[//]: # (TODO: Add links for Locations)
+
 | Subsystem                                    |               1.6.x               |                                                                                2.0.0 |
 |:---------------------------------------------|:---------------------------------:|-------------------------------------------------------------------------------------:|
-| [Locations](locations.md)                    |     `io.ktor:ktor-locations`      |                                                      `io.ktor:ktor-server-locations` |
+| [Locations]()                                |     `io.ktor:ktor-locations`      |                                                      `io.ktor:ktor-server-locations` |
 | [Webjars](webjars.md)                        |      `io.ktor:ktor-webjars`       |                                                        `io.ktor:ktor-server-webjars` |
 | [AutoHeadResponse](autoheadresponse.md)      |    `io.ktor:ktor-server-core`     |                                             `io.ktor:ktor-server-auto-head-response` |
 | [StatusPages](status_pages.md)               |    `io.ktor:ktor-server-core`     |                                                   `io.ktor:ktor-server-status-pages` |
@@ -44,7 +47,7 @@ This means that you need to update [dependencies](#server-package-dependencies) 
 | [CallLogging](call-logging.md)               |    `io.ktor:ktor-server-core`     |                                                   `io.ktor:ktor-server-call-logging` |
 | [Micrometer metric](micrometer_metrics.md)   | `io.ktor:ktor-metrics-micrometer` |                                             `io.ktor:ktor-server-metrics-micrometer` |
 | [Dropwizard metrics](dropwizard_metrics.md)  |      `io.ktor:ktor-metrics`       |                                                        `io.ktor:ktor-server-metrics` |
-| [Sessions](sessions.md)                      |      `io.ktor:ktor-server-core`   |                                        `io.ktor:ktor-server-sessions` |
+| [Sessions](sessions.md)                      |    `io.ktor:ktor-server-core`     |                                                       `io.ktor:ktor-server-sessions` |
 
 > To add all plugins at once, you can use the `io.ktor:ktor-server` artifact.
 
@@ -52,8 +55,8 @@ This means that you need to update [dependencies](#server-package-dependencies) 
 #### Imports {id="server-package-imports"}
 | Subsystem                                    |                 1.6.x                 |                                                2.0.0 |
 |:---------------------------------------------|:-------------------------------------:|-----------------------------------------------------:|
-| [Application](create_server.topic)             |    `import io.ktor.application.*`     |                `import io.ktor.server.application.*` |
-| [Configuration](Configuration-file.topic)          |       `import io.ktor.config.*`       |                     `import io.ktor.server.config.*` |
+| [Application](create_server.topic)           |    `import io.ktor.application.*`     |                `import io.ktor.server.application.*` |
+| [Configuration](Configuration-file.topic)    |       `import io.ktor.config.*`       |                     `import io.ktor.server.config.*` |
 | [Routing](Routing_in_Ktor.md)                |      `import io.ktor.routing.*`       |                    `import io.ktor.server.routing.*` |
 | [AutoHeadResponse](autoheadresponse.md)      |      `import io.ktor.features.*`      |           `import io.ktor.server.plugins.autohead.*` |
 | [StatusPages](status_pages.md)               |      `import io.ktor.features.*`      |        `import io.ktor.server.plugins.statuspages.*` |
@@ -62,7 +65,7 @@ This means that you need to update [dependencies](#server-package-dependencies) 
 | [Requests](requests.md)                      |      `import io.ktor.request.*`       |                    `import io.ktor.server.request.*` |
 | [Responses](responses.md)                    |      `import io.ktor.response.*`      |                   `import io.ktor.server.response.*` |
 | [Plugins](#feature-plugin)                   |      `import io.ktor.features.*`      |                    `import io.ktor.server.plugins.*` |
-| [Locations](locations.md)                    |     `import io.ktor.locations.*`      |                  `import io.ktor.server.locations.*` |
+| [Locations]()                                |     `import io.ktor.locations.*`      |                  `import io.ktor.server.locations.*` |
 | [Static content](Serving_Static_Content.md)  |    `import io.ktor.http.content.*`    |               `import io.ktor.server.http.content.*` |
 | [HTML DSL](html_dsl.md)                      |        `import io.ktor.html.*`        |                       `import io.ktor.server.html.*` |
 | [FreeMarker](freemarker.md)                  |     `import io.ktor.freemarker.*`     |                 `import io.ktor.server.freemarker.*` |

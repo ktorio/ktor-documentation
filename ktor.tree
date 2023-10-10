@@ -285,6 +285,4 @@
     <toc-element hidden="true"
                  accepts-web-file-names="build-from-source.html"
                  target-for-accept-web-file-names="https://github.com/ktorio/ktor/blob/main/CONTRIBUTING.md#building-the-project"/>
-    <toc-element hidden="true" topic="locations.md"
-                 accepts-web-file-names="features-locations.html"/>
 </instance-profile>
