@@ -23,7 +23,7 @@ allows you to serialize and deserialize a list of values. By default, Ktor handl
 You can extend this service to handle additional types by installing and configuring the `%plugin_name%` plugin.
 
 If you are using the [Locations plugin](locations.md) and want to support
-custom types in the `Location` class parameters, you can utilise the `%plugin_name%` plugin to handle those types.
+custom types in the `Location` class parameters, you can utilize the `%plugin_name%` plugin to handle those types.
 
 > Note that the `Locations` plugin is experimental and will be removed in the future. For type-safe routing, we suggest
 > to use the [Resources](type-safe-routing.md) plugin instead,
@@ -44,9 +44,8 @@ You can define type conversions within the `%plugin_name%` configuration. Provid
 specified type and use the available
 functions to serialize and deserialize a list of values:
 
-* Use the `decode()` function to deserialize a list of values. The function takes a list of strings, representing
-  repeated values in the URL, and
-  should return the decoded value.
+* Use the `decode()` function to deserialize a list of values. It takes a list of strings, representing
+  repeated values in the URL and returns the decoded value.
 
   ```kotlin
   decode { values -> // converter: (values: List<String>) -> Any?
@@ -54,7 +53,7 @@ functions to serialize and deserialize a list of values:
   }
   ```
 
-* Use the `encode()` function to serialize a value. The function takes an arbitrary value, and should return a list of
+* Use the `encode()` function to serialize a value. The function takes an arbitrary value and returns a list of
   strings representing it.
 
   ```kotlin
@@ -104,7 +103,7 @@ The conversion service can then be called manually to retrieve the encoded and d
 
 Another potential use case is to customize how a specific `enum` is serialized.
 By default, enums are serialized and deserialized using their `name` attribute in a case-sensitive fashion.
-But you can, for example, serialize them as a lower case and deserialize
+But you can, for example, serialize them as lower case and deserialize
 them as case-insensitive, as seen in the following example:
 
 ```kotlin
