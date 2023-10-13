@@ -13,12 +13,17 @@
 <include from="lib.topic" element-id="native_server_supported"/>
 </tldr>
 
+<link-summary>
+The %plugin_name% plugin for the Ktor server allows you to add custom converters for serializing and deserializing a list of values.
+</link-summary>
+
 The [%plugin_name%](https://api.ktor.io/ktor-utils/io.ktor.util.converters/-data-conversion/index.html) plugin
-allows you to serialize and deserialize a list of values. By default, it handles primitive types and enums, but it can
-also be configured to handle additional types.
+allows you to serialize and deserialize a list of values. By default, Ktor handles primitive types and enums through the
+[DefaultConversionService](https://api.ktor.io/ktor-utils/io.ktor.util.converters/-default-conversion-service/index.html).
+You can extend this service to handle additional types by installing and configuring the `%plugin_name%` plugin.
 
 If you are using the [Locations plugin](locations.md) and want to support
-custom types as part of its parameters, you can add new custom converters with this service.
+custom types in the `Location` class parameters, you can utilise the `%plugin_name%` plugin to handle those types.
 
 > Note that the `Locations` plugin is experimental and will be removed in the future. For type-safe routing, we suggest
 > to use the [Resources](type-safe-routing.md) plugin instead,
@@ -98,9 +103,9 @@ The conversion service can then be called manually to retrieve the encoded and d
 ### Customize enum serialization with Locations
 
 Another potential use case is to customize how a specific `enum` is serialized.
-By default, enums are serialized and deserialized using their `name` in a case-sensitive fashion.
+By default, enums are serialized and deserialized using their `name` attribute in a case-sensitive fashion.
 But you can, for example, serialize them as a lower case and deserialize
-them as case-insensitive:
+them as case-insensitive, as seen in the following example:
 
 ```kotlin
 ```
