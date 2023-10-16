@@ -157,6 +157,8 @@ module("snippets", "embedded-server-multiple-connectors")
 module("snippets", "custom-plugin-authorization")
 module("snippets", "client-configure-request")
 module("snippets", "request-validation")
+module("snippets", "data-conversion")
+
 if(!System.getProperty("os.name").startsWith("Windows")) {
     module("snippets", "embedded-server-native")
 }
