@@ -1,0 +1,6 @@
+### GET request to "/article"
+GET http://localhost:8080/?article=a
+
+### GET request to "/date"
+
+GET http://localhost:8080/date?date=20170501
