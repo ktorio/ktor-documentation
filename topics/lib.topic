@@ -73,7 +73,7 @@
         <tabs group="languages">
             <tab title="Gradle (Kotlin)" group-key="kotlin">
                 <code-block lang="Kotlin">
-                    implementation("io.ktor:%artifact_name%:$ktor_version")
+                    implementation("io.ktor:%artifact_name%:$ktorVersion")
                 </code-block>
             </tab>
             <tab title="Gradle (Groovy)" group-key="groovy">
@@ -99,7 +99,7 @@
         <tabs group="languages">
             <tab title="Gradle (Kotlin)" group-key="kotlin">
                 <code-block lang="Kotlin">
-                    implementation("io.ktor:%artifact_name%:$ktor_version")
+                    implementation("io.ktor:%artifact_name%:$ktorVersion")
                 </code-block>
             </tab>
             <tab title="Gradle (Groovy)" group-key="groovy">
@@ -125,7 +125,7 @@
         <tabs group="languages">
             <tab title="Gradle (Kotlin)" group-key="kotlin">
                 <code-block lang="Kotlin">
-                    testImplementation("io.ktor:%artifact_name%:$ktor_version")
+                    testImplementation("io.ktor:%artifact_name%:$ktorVersion")
                 </code-block>
             </tab>
             <tab title="Gradle (Groovy)" group-key="groovy">
@@ -152,7 +152,7 @@
         <tabs group="languages">
             <tab title="Gradle (Kotlin)" group-key="kotlin">
                 <code-block lang="Kotlin">
-                    implementation("%group_id%:%artifact_name%:$%version%")
+                    implementation("%group_id%:%artifact_name%:$%version_kts%")
                 </code-block>
             </tab>
             <tab title="Gradle (Groovy)" group-key="groovy">
@@ -179,7 +179,7 @@
         <tabs group="languages">
             <tab title="Gradle (Kotlin)" group-key="kotlin">
                 <code-block lang="Kotlin">
-                    testImplementation("%group_id%:%artifact_name%:$%version%")
+                    testImplementation("%group_id%:%artifact_name%:$%version_kts%")
                 </code-block>
             </tab>
             <tab title="Gradle (Groovy)" group-key="groovy">
@@ -207,7 +207,7 @@
                 <code-block lang="Kotlin">
                     val %platform_name%Main by getting {
                         dependencies {
-                            implementation("io.ktor:%artifact_name%:$ktor_version")
+                            implementation("io.ktor:%artifact_name%:$ktorVersion")
                         }
                     }
                 </code-block>

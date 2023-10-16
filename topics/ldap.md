@@ -21,8 +21,8 @@ To enable `LDAP` authentication, you need to include the `ktor-server-auth` and 
 <tabs group="languages">
     <tab title="Gradle (Kotlin)" group-key="kotlin">
         <code-block lang="Kotlin" title="Sample">
-            implementation("io.ktor:ktor-server-auth:$ktor_version")
-            implementation("io.ktor:ktor-server-auth-ldap:$ktor_version")
+            implementation("io.ktor:ktor-server-auth:$ktorVersion")
+            implementation("io.ktor:ktor-server-auth-ldap:$ktorVersion")
         </code-block>
     </tab>
     <tab title="Gradle (Groovy)" group-key="groovy">

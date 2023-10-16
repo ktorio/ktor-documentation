@@ -1,4 +1,4 @@
-val ktor_version: String by project
+val ktorVersion: String by project
 
 plugins {
     application
@@ -15,6 +15,6 @@ repositories {
 }
 
 dependencies {
-    implementation("io.ktor:ktor-client-core:$ktor_version")
-    implementation("io.ktor:ktor-client-cio:$ktor_version")
+    implementation("io.ktor:ktor-client-core:$ktorVersion")
+    implementation("io.ktor:ktor-client-cio:$ktorVersion")
 }

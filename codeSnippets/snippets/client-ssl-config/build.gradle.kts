@@ -1,7 +1,7 @@
-val ktor_version: String by project
-val logback_version: String by project
-val junit_version: String by project
-val slf4j_version: String by project
+val ktorVersion: String by project
+val logbackVersion: String by project
+val junitVersion: String by project
+val slf4jVersion: String by project
 
 plugins {
     application
@@ -18,12 +18,12 @@ repositories {
 }
 
 dependencies {
-    implementation("io.ktor:ktor-client-core:$ktor_version")
-    implementation("io.ktor:ktor-client-apache5:$ktor_version")
-    implementation("io.ktor:ktor-client-java:$ktor_version")
-    implementation("io.ktor:ktor-client-jetty:$ktor_version")
+    implementation("io.ktor:ktor-client-core:$ktorVersion")
+    implementation("io.ktor:ktor-client-apache5:$ktorVersion")
+    implementation("io.ktor:ktor-client-java:$ktorVersion")
+    implementation("io.ktor:ktor-client-jetty:$ktorVersion")
     implementation("org.eclipse.jetty:jetty-alpn-java-client:11.0.16")
-    implementation("io.ktor:ktor-client-cio:$ktor_version")
-    implementation("io.ktor:ktor-client-android:$ktor_version")
-    implementation("io.ktor:ktor-client-okhttp:$ktor_version")
+    implementation("io.ktor:ktor-client-cio:$ktorVersion")
+    implementation("io.ktor:ktor-client-android:$ktorVersion")
+    implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
 }

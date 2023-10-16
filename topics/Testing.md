@@ -27,6 +27,7 @@ To test a server Ktor application, you need to include the following artifacts i
   <var name="group_id" value="org.jetbrains.kotlin"/>
   <var name="artifact_name" value="kotlin-test"/>
   <var name="version" value="kotlin_version"/>
+  <var name="version_kts" value="kotlinVersion"/>
   <include from="lib.topic" element-id="add_artifact_testing"/>
 
 > To test the [Native server](native_server.md#add-dependencies), add the testing artifacts to the `nativeTest` source set.

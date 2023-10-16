@@ -31,6 +31,7 @@ To enable `MicrometerMetrics`, you need to include the following artifacts in th
   <var name="group_id" value="io.micrometer"/>
   <var name="artifact_name" value="micrometer-registry-prometheus"/>
   <var name="version" value="prometheus_version"/>
+  <var name="version_kts" value="prometheusVersion"/>
   <include from="lib.topic" element-id="add_artifact"/>
   
   You can replace `$prometheus_version` with the required version of the `micrometer-registry-prometheus` artifact, for example, `%prometheus_version%`.

@@ -30,6 +30,7 @@ Ktor allows you to generate and serve OpenAPI documentation for your project bas
   <var name="group_id" value="io.swagger.codegen.v3"/>
   <var name="artifact_name" value="swagger-codegen-generators"/>
   <var name="version" value="swagger_codegen_version"/>
+  <var name="version_kts" value="swaggerCodegenVersion"/>
   <include from="lib.topic" element-id="add_artifact"/>
 
   You can replace `$swagger_codegen_version` with the required version of the `swagger-codegen-generators` artifact, for example, `%swagger_codegen_version%`.

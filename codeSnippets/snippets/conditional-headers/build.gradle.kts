@@ -1,7 +1,7 @@
-val ktor_version: String by project
-val kotlin_version: String by project
-val kotlin_css_version: String by project
-val logback_version: String by project
+val ktorVersion: String by project
+val kotlinVersion: String by project
+val kotlinCssVersion: String by project
+val logbackVersion: String by project
 
 plugins {
     application
@@ -18,11 +18,11 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
-    implementation("io.ktor:ktor-server-core:$ktor_version")
-    implementation("io.ktor:ktor-server-netty:$ktor_version")
-    implementation("io.ktor:ktor-server-conditional-headers:$ktor_version")
-    implementation("io.ktor:ktor-server-html-builder:$ktor_version")
-    implementation("org.jetbrains.kotlin-wrappers:kotlin-css:$kotlin_css_version")
-    implementation("ch.qos.logback:logback-classic:$logback_version")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
+    implementation("io.ktor:ktor-server-core:$ktorVersion")
+    implementation("io.ktor:ktor-server-netty:$ktorVersion")
+    implementation("io.ktor:ktor-server-conditional-headers:$ktorVersion")
+    implementation("io.ktor:ktor-server-html-builder:$ktorVersion")
+    implementation("org.jetbrains.kotlin-wrappers:kotlin-css:$kotlinCssVersion")
+    implementation("ch.qos.logback:logback-classic:$logbackVersion")
 }

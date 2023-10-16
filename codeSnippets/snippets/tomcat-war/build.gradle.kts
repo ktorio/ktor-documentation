@@ -1,6 +1,6 @@
-val ktor_version: String by project
-val kotlin_version: String by project
-val slf4j_version: String by project
+val ktorVersion: String by project
+val kotlinVersion: String by project
+val slf4jVersion: String by project
 
 plugins {
     application
@@ -21,9 +21,9 @@ repositories {
 }
 
 dependencies {
-    implementation("io.ktor:ktor-server-servlet-jakarta:$ktor_version")
-    implementation("org.slf4j:slf4j-jdk14:$slf4j_version")
-    testImplementation("io.ktor:ktor-server-test-host:$ktor_version")
+    implementation("io.ktor:ktor-server-servlet-jakarta:$ktorVersion")
+    implementation("org.slf4j:slf4j-jdk14:$slf4jVersion")
+    testImplementation("io.ktor:ktor-server-test-host:$ktorVersion")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }
 

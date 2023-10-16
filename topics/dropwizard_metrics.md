@@ -30,6 +30,7 @@ To enable `%plugin_name%`, you need to include the following artifacts in the bu
   <var name="group_id" value="io.dropwizard.metrics"/>
   <var name="artifact_name" value="metrics-jmx"/>
   <var name="version" value="dropwizard_version"/>
+  <var name="version_kts" value="dropwizardVersion"/>
   <include from="lib.topic" element-id="add_artifact"/>
   
   You can replace `$dropwizard_version` with the required version of the `metrics-jmx` artifact, for example, `%dropwizard_version%`.

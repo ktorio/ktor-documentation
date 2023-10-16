@@ -24,6 +24,7 @@ To enable logging, you need to include the following artifacts in the build scri
   <var name="group_id" value="ch.qos.logback"/>
   <var name="artifact_name" value="logback-classic"/>
   <var name="version" value="logback_version"/>
+  <var name="version_kts" value="logbackVersion"/>
   <include from="lib.topic" element-id="add_artifact"/>
   
 * The `ktor-client-logging` artifact:

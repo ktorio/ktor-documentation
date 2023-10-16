@@ -1,7 +1,7 @@
-val ktor_version: String by project
-val kotlin_version: String by project
-val logback_version: String by project
-val tcnative_version = "2.0.61.Final"
+val ktorVersion: String by project
+val kotlinVersion: String by project
+val logbackVersion: String by project
+val tcnativeVersion = "2.0.61.Final"
 
 plugins {
     application
@@ -18,7 +18,7 @@ repositories {
 }
 
 val osName = System.getProperty("os.name").toLowerCase()
-val tcnative_classifier = when {
+val tcnativeClassifier = when {
     osName.contains("win") -> "windows-x86_64"
     osName.contains("linux") -> "linux-x86_64"
     osName.contains("mac") -> "osx-x86_64"
@@ -26,18 +26,18 @@ val tcnative_classifier = when {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
-    implementation("io.ktor:ktor-server-core:$ktor_version")
-    implementation("io.ktor:ktor-server-netty:$ktor_version")
-    implementation("io.ktor:ktor-server-html-builder:$ktor_version")
-    implementation("io.ktor:ktor-server-default-headers:$ktor_version")
-    implementation("io.ktor:ktor-server-call-logging:$ktor_version")
-    implementation("io.ktor:ktor-network-tls:$ktor_version")
-    implementation("io.ktor:ktor-network-tls-certificates:$ktor_version")
-    implementation("ch.qos.logback:logback-classic:$logback_version")
-    if (tcnative_classifier != null) {
-        implementation("io.netty:netty-tcnative-boringssl-static:$tcnative_version:$tcnative_classifier")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
+    implementation("io.ktor:ktor-server-core:$ktorVersion")
+    implementation("io.ktor:ktor-server-netty:$ktorVersion")
+    implementation("io.ktor:ktor-server-html-builder:$ktorVersion")
+    implementation("io.ktor:ktor-server-default-headers:$ktorVersion")
+    implementation("io.ktor:ktor-server-call-logging:$ktorVersion")
+    implementation("io.ktor:ktor-network-tls:$ktorVersion")
+    implementation("io.ktor:ktor-network-tls-certificates:$ktorVersion")
+    implementation("ch.qos.logback:logback-classic:$logbackVersion")
+    if (tcnativeClassifier != null) {
+        implementation("io.netty:netty-tcnative-boringssl-static:$tcnativeVersion:$tcnativeClassifier")
     } else {
-        implementation("io.netty:netty-tcnative-boringssl-static:$tcnative_version")
+        implementation("io.netty:netty-tcnative-boringssl-static:$tcnativeVersion")
     }
 }

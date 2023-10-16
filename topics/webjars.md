@@ -31,6 +31,7 @@ To enable `%plugin_name%`, you need to include the following artifacts in the bu
   <var name="group_id" value="org.webjars"/>
   <var name="artifact_name" value="bootstrap"/>
   <var name="version" value="bootstrap_version"/>
+  <var name="version_kts" value="bootstrapVersion"/>
   <include from="lib.topic" element-id="add_artifact"/>
   
   You can replace `$bootstrap_version` with the required version of the `bootstrap` artifact, for example, `%bootstrap_version%`.

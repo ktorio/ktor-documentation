@@ -26,6 +26,7 @@ CSS DSL doesn't need [installation](Plugins.md#install), but requires including 
    <var name="group_id" value="org.jetbrains.kotlin-wrappers"/>
    <var name="artifact_name" value="kotlin-css"/>
    <var name="version" value="kotlin_css_version"/>
+   <var name="version_kts" value="kotlinCssVersion"/>
    <include from="lib.topic" element-id="add_artifact"/>
    
    You can replace `$kotlin_css_version` with the required version of the `kotlin-css` artifact, for example, `%kotlin_css_version%`.

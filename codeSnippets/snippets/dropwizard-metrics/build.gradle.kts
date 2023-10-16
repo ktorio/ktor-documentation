@@ -1,7 +1,7 @@
-val ktor_version: String by project
-val kotlin_version: String by project
-val logback_version: String by project
-val dropwizard_version: String by project
+val ktorVersion: String by project
+val kotlinVersion: String by project
+val logbackVersion: String by project
+val dropwizardVersion: String by project
 
 plugins {
     application
@@ -18,10 +18,10 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
-    implementation("io.ktor:ktor-server-core:$ktor_version")
-    implementation("io.ktor:ktor-server-netty:$ktor_version")
-    implementation("io.ktor:ktor-server-metrics:$ktor_version")
-    implementation("io.dropwizard.metrics:metrics-jmx:$dropwizard_version")
-    implementation("ch.qos.logback:logback-classic:$logback_version")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
+    implementation("io.ktor:ktor-server-core:$ktorVersion")
+    implementation("io.ktor:ktor-server-netty:$ktorVersion")
+    implementation("io.ktor:ktor-server-metrics:$ktorVersion")
+    implementation("io.dropwizard.metrics:metrics-jmx:$dropwizardVersion")
+    implementation("ch.qos.logback:logback-classic:$logbackVersion")
 }
