@@ -56,7 +56,7 @@
 
     <chapter title="How can I be sure of which version of Ktor am I using?" id="ktor-version-used" level="3">
         <p>
-            You can use the <a href="default_headers.md">DefaultHeaders</a>plugin that sends a <code>Server</code> response header with the Ktor version on it, for example:
+            You can use the <a href="default_headers.md">DefaultHeaders</a> plugin that sends a <code>Server</code> response header with the Ktor version on it, for example:
         </p>
         <code-block>
             Server: ktor-server-core/%ktor_version%
