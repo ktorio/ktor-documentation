@@ -18,9 +18,10 @@ The table below shows supported proxy types for specific [engines](http-client_e
 | Android    | ✅          |   ✅         |
 | OkHttp     | ✅          |   ✅         |
 | JavaScript | ✖️          |   ✖️         |
-| Darwin     | ✅          |   ✅         |
+| Darwin     | ✅          |   ✖️          |
 | Curl       | ✅          |   ✅         |
 
+> Note that HTTPS requests are currently not supported with the HTTP proxy for the Darwin engine.
 
 ## Add dependencies {id="add_dependencies"}
 
