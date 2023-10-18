@@ -37,6 +37,11 @@ and the client.
 >
 {style="note"}
 
+## Limitations
+
+Ktor does not provide support for data compression of SSE responses.
+If you use the [Compression](compression.md) plugin, it will skip compression for SSE responses by default.
+
 ## Add dependencies {id="add_dependencies"}
 
 <include from="lib.topic" element-id="add_ktor_artifact_intro"/>
