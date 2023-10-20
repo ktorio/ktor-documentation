@@ -16,7 +16,7 @@
         <config-feedback-url>https://forms-service.jetbrains.com/feedback</config-feedback-url>
         <config-feedback-enabled>true</config-feedback-enabled>
         <config-feedback-widget>true</config-feedback-widget>
-        <config-versions-switcher>https://raw.githubusercontent.com/ktorio/ktor-documentation/3.0.0/help-versions.json</config-versions-switcher>
+        <config-versions-switcher>https://raw.githubusercontent.com/ktorio/ktor-documentation/main/help-versions.json</config-versions-switcher>
         <config-webmaster>webmaster@jetbrains.com</config-webmaster>
         <config-feedback-support>https://www.jetbrains.com/support/</config-feedback-support>
         <config-sideblocks>true</config-sideblocks>
