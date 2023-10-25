@@ -101,15 +101,15 @@ First, open the `build.gradle.kts` file and examine the added dependencies:
 
 {src="snippets/tutorial-websockets-server/build.gradle.kts" include-lines="20-23,25-27"}
 
-- `ktor-server-core` adds Ktor's core components to the project.
-- `ktor-server-netty` adds the Netty [engine](Engines.md) to the project, allowing you to use server functionality
-  without having to rely on an external application container.
-- `ktor-server-websockets` allows you to use the [WebSocket plugin](websocket.md), the main communication mechanism for
+- `ktor-server-core-jvm` adds Ktor's core components to the project.
+- `ktor-server-websockets-jvm` allows you to use the [WebSocket plugin](websocket.md), the main communication mechanism for
   the chat.
+- `ktor-server-netty-jvm` adds the Netty [engine](Engines.md) to the project, allowing you to use server functionality
+  without having to rely on an external application container.
 
 [//]: # (- `logback-classic` provides an implementation of SLF4J, allowing you to see nicely formatted [logs]&#40;logging.md&#41; in a console.)
 
-- `ktor-server-test-host` and `kotlin-test-junit` allow you to [test](Testing.md) parts of your Ktor application without
+- `ktor-server-tests-jvm` and `kotlin-test-junit` allow you to [test](Testing.md) parts of your Ktor application without
   having to use the whole HTTP stack in the process.
 
 ### Configurations: application.conf and logback.xml {id="configurations"}
