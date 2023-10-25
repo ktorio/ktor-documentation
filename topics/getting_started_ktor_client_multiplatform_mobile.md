@@ -29,9 +29,18 @@ the [Set up an environment](https://kotlinlang.org/docs/multiplatform-mobile-set
 > You will need a Mac with macOS to complete certain steps in this tutorial, which include writing iOS-specific code and
 running an iOS application.
 >
-{type="note"}
+{style="note"}
 
 ## Create a new project {id="new-project"}
+
+To start a new Kotlin Multiplatform project, there are two approaches available:
+
+- You can create a project from a template within Android Studio.
+- Alternatively, you can use the [Kotlin Multiplatform Wizard](https://kmp.jetbrains.com/) to generate a new project.
+  The wizard provides options for customizing your project setup, allowing you to exclude Android support
+  or include a Ktor Server, for instance.
+
+For the sake of this tutorial, we will demonstrate the process of creating a project from a template:
 
 1. In Android Studio, select **File | New | New Project**.
 2. Select **Kotlin Multiplatform App** in the list of project templates, and click **Next**.
