@@ -23,7 +23,7 @@ client, Ktor simplifies this process by providing additional functions for servi
 With Ktor, you can serve content from [folders](#folders),[ZIP files](#zipped)
 ,and [embedded application resources](#resources).
 
-## Serving Folders {id="folders"}
+## Folders {id="folders"}
 
 To serve static files from a local filesystem, use the `staticFiles()` function. In this case, relative paths are
 resolved using the current working directory.
@@ -40,7 +40,7 @@ Ktor recursively serves up any file from `files` as long as a URL path and a phy
 For the full example,
 see [static-files](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/static-files).
 
-## Serving ZIP files {id="zipped"}
+## ZIP files {id="zipped"}
 
 To serve static content from a ZIP file, Ktor provides the `staticZip()` function.
 
@@ -55,7 +55,7 @@ zip file specified.
 For the full example,
 see [static-zip](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/static-zip).
 
-## Serving resources {id="resources"}
+## Resources {id="resources"}
 
 To serve content from the classpath, use the `staticResources()` function.
 
