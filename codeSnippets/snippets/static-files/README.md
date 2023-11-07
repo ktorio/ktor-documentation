@@ -13,5 +13,6 @@ To run this sample, execute the following command in a repository's root directo
 
 Then, navigate to the following pages:
 
+- [http://localhost:8080/resources](http://localhost:8080/resources) to see the default behaviour of `staticFiles`.
 - [http://localhost:8080/](http://localhost:8080/) to see the sample home page.
 - [http://localhost:8080/files](http://localhost:8080/) to see the default text file served as HTML. 

@@ -6,10 +6,8 @@ import io.ktor.server.routing.*
 
 fun Application.module() {
     routing {
-        /*
-        staticResources("/", "static")
-        staticResources("/", "static", index = "custom_index.html")
-         */
+        staticResources("/resources", "static")
+        staticResources("/custom", "static", index = "custom_index.html")
         staticResources("/", "static"){
             extensions("html", "htm")
             enableAutoHeadResponse()

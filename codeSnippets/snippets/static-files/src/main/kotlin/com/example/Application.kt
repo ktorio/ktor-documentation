@@ -8,9 +8,7 @@ import java.io.*
 
 fun Application.module() {
     routing {
-        /*
-        staticFiles("/", File("files"))
-        */
+        staticFiles("/resources", File("files"))
         staticFiles("/", File("files")) {
             default("index.html")
             preCompressed(CompressedFileType.BROTLI, CompressedFileType.GZIP)

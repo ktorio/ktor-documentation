@@ -21,7 +21,7 @@ While it is certainly possible with Ktor to load the contents of a file and [sen
 client, Ktor simplifies this process by providing additional functions for serving static content.
 
 With Ktor, you can serve content from [folders](#folders),[ZIP files](#zipped)
-,and [embedded application resources](#resources).
+, and [embedded application resources](#resources).
 
 ## Folders {id="folders"}
 
@@ -31,9 +31,9 @@ resolved using the current working directory.
  ```kotlin
  ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="10,12,37"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="10-11,35"}
 
-In the example above, any request from the root URL `/` is mapped to the `files` physical folder in the current working
+In the example above, any request from `/resources` is mapped to the `files` physical folder in the current working
 directory.
 Ktor recursively serves up any file from `files` as long as a URL path and a physical filename match.
 
@@ -62,9 +62,9 @@ To serve content from the classpath, use the `staticResources()` function.
 ```kotlin
 ```
 
-{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" include-lines="8,10,19"}
+{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" include-lines="8,9,17"}
 
-This maps any request from the root URL `/` to the `static` package in application `resources`.
+This maps any request from `/resources` to the `static` package in application resources.
 In this case, Ktor recursively serves up any file from the `static` package as long as a URL path and a path to resource
 match.
 
@@ -83,9 +83,9 @@ is requested. You can set a custom index file using the `index` parameter:
 ```kotlin
 ```
 
-{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" include-lines="11"}
+{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" include-lines="10"}
 
-In this case, for requests to the root directory `/`, Ktor serves `/custom_index.html`.
+In this case, when `/custom` is requested, Ktor serves `/custom_index.html`.
 
 ### Pre-compressed files {id="precompressed"}
 
@@ -95,7 +95,7 @@ To use this functionality, define the `preCompressed()` function inside a block 
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="14,16,20"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="12,14,18"}
 
 In this example, for a request made to `/js/script.js`, Ktor can serve `/js/script.js.br` or `/js/script.js.gz`.
 
@@ -107,7 +107,7 @@ static route that has a `GET` defined.
 ```kotlin
 ```
 
-{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" include-lines="13,15,18"}
+{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" include-lines="11,13,16"}
 
 ### Default file response {id="default-file"}
 
@@ -117,7 +117,7 @@ corresponding file.
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="14-15,20"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="12-13,18"}
 
 In this example when the client requests a resource that doesn't exist, the `index.html` file will
 be served as a response.
@@ -130,7 +130,7 @@ the `contentType()` function to set the `Content-Type` header explicitly.
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="21,24-29,36"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="19,22-27,34"}
 
 In this example, the response for file `html-file.txt` will have `Content-Type: text/html` header and for every other
 file default behaviour will be applied.
@@ -142,7 +142,7 @@ The `cacheControl()` function allows you to configure the `Cache-Control` header
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="9-10,21,30-38,40-42"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="9-10,19,28-36,38-40"}
 
 > For more information on caching in Ktor, see [Caching headers](caching.md).
 >
@@ -156,7 +156,7 @@ the server will respond with a `403 Forbidden` status code.
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="21,23,36"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="19,21,34"}
 
 ### File extensions fallbacks {id="extensions"}
 
@@ -165,7 +165,7 @@ When a requested file is not found, Ktor can add the given extensions to the fil
 ```kotlin
 ```
 
-{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" include-lines="13,14,18"}
+{src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" include-lines="11,12,16"}
 
 In this example, when `/index` is requested, Ktor will search for `/index.html` and serve the found content.
 
@@ -176,7 +176,7 @@ The `modify()` function allows you to apply custom modification to a resulting r
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="14,17-20"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="12,15-18"}
 
 ## Handle errors {id="errors"}
 
