@@ -2,7 +2,7 @@
 agp = "8.1.1"
 kotlin = "1.9.10"
 kotlinx = "1.7.3"
-ktor = "2.3.5"
+ktor = "2.3.6"
 compose = "1.5.1"
 compose-compiler = "1.5.3"
 compose-material3 = "1.1.2"
