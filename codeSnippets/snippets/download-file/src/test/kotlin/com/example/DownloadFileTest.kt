@@ -19,6 +19,12 @@ class DownloadFileTest {
         )
     }
 
+    @Test
+    fun respondWithTxtFileFromPath() = testApplication {
+        val response = client.get("/downloadFromPath")
+        assertEquals("Just a simple text file.", response.bodyAsText().trim())
+    }
+
     private fun assertPNG(array: ByteArray) {
         assertEquals((0x89).toByte(), array[0])
         assertEquals((0x50).toByte(), array[1])
