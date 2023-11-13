@@ -11,9 +11,9 @@
     <images dir="images" web-path="images/"/>
     <categories src="c.list"/>
     <instance src="ktor.tree"
-             web-path="/docs/eap"
-             version="3.0.0"
-             id="docs"
-             keymaps-mode="none"/>
+              web-path="/docs/eap"
+              version="3.0.0"
+              id="docs"
+              keymaps-mode="none"/>
 
 </ihp>

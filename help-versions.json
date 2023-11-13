@@ -1,5 +1,17 @@
 [
-  {"version":"1.6.8","url":"/docs/old/","isCurrent":false},
-  {"version":"2.3.5","url":"/docs/2.3.5","isCurrent":false},
-  {"version":"3.0.0","url":"/docs/3.0.0","isCurrent":true}
+  {
+    "version": "1.6.8",
+    "url": "/docs/old/",
+    "isCurrent": false
+  },
+  {
+    "version": "2.3.6",
+    "url": "/docs/2.3.6",
+    "isCurrent": false
+  },
+  {
+    "version": "3.0.0",
+    "url": "/docs/",
+    "isCurrent": true
+  }
 ]
