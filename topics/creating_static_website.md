@@ -69,11 +69,11 @@ First, let's open the `build.gradle.kts` file and examine added dependencies:
 
 Let's briefly go through these dependencies one by one:
 
-- `ktor-server-core` adds Ktor's core components to our project.
-- `ktor-server-netty` adds the Netty [engine](Engines.md) to our project, allowing us to use server functionality without having to rely on an external application container.
-- `ktor-server-freemarker` allows us to use the [FreeMarker](freemarker.md) template engine, which we'll use to create the main page of our journal.
+- `ktor-server-core-jvm` adds Ktor's core components to our project.
+- `ktor-server-freemarker-jvm` allows us to use the [FreeMarker](freemarker.md) template engine, which we'll use to create the main page of our journal.
+- `ktor-server-netty-jvm` adds the Netty [engine](Engines.md) to our project, allowing us to use server functionality without having to rely on an external application container.
 - `logback-classic` provides an implementation of SLF4J, allowing us to see nicely formatted [logs](logging.md) in a console.
-- `ktor-server-test-host` and `kotlin-test-junit` allow us to [test](Testing.md) parts of our Ktor application without having to use the whole HTTP stack in the process.
+- `ktor-server-test-jvm` and `kotlin-test-junit` allow us to [test](Testing.md) parts of our Ktor application without having to use the whole HTTP stack in the process.
 
 ### Configurations: application.conf and logback.xml {id="configurations"}
 
@@ -119,13 +119,13 @@ Before we dive into making a _[dynamic](creating_interactive_website.md)_ applic
 
 1. Create the `files` directory inside `src/main/resources`.
 2. Download the [ktor_logo.png](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/tutorial-website-static/src/main/resources/files/ktor_logo.png) image file and add it to the created `files` folder.
-3. To serve static content, we can use a specific routing function already built into Ktor named [static](Serving_Static_Content.md). The function takes two parameters: the route under which the static content should be made available, and a lambda where we can define the location from where the content should be served.
+3. To serve static content, we can use a specific routing function already built into Ktor named [staticResources](Serving_Static_Content.md). The function takes two parameters: the route under which the static content should be made available, and a lambda where we can define the location from where the content should be served.
 
    In the `plugins/Routing.kt` file, let's change the implementation for `Application.configureRouting()` to look like this:
 
    ```kotlin
    ```
-   {src="snippets/tutorial-website-static/src/main/kotlin/com/example/plugins/Routing.kt" include-lines="3-13"}
+   {src="snippets/tutorial-website-static/src/main/kotlin/com/example/plugins/Routing.kt" include-lines="3-11"}
 
    This instructs Ktor that everything under the URL `/static` should be served using the `files` directory inside `resources`.
 
