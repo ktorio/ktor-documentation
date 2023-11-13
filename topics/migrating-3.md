@@ -68,3 +68,32 @@ fun Application.module() {
 </tabs>
 
 For more information on working with `Resources`, refer to [](type-safe-routing.md).
+
+### Session encryption method update
+
+The encryption method offered by the `Sessions` plugin has been updated to enhance
+security.
+
+Specifically, the `SessionTransportTransformerEncrypt` method, which previously derived the MAC from the decrypted
+session value, now computes it from the encrypted value.
+
+To ensure compatibility with existing sessions, Ktor has introduced the `backwardCompatibleRead` property. For current
+configurations, include the property in the constructor
+of `SessionTransportTransformerEncrypt`:
+
+```kotlin
+install(Sessions) {
+  cookie<UserSession>("user_session") {
+    // ...
+    transform(
+      SessionTransportTransformerEncrypt(
+        secretEncryptKey, // your encrypt key here
+        secretSignKey, // your sign key here
+        backwardCompatibleRead = true
+      )
+    )
+  }
+}
+```
+
+For more information on session encryption in Ktor, see [](sessions.md#sign_encrypt_session).
