@@ -47,7 +47,7 @@
             <toc-element toc-title="Routing">
                 <toc-element topic="Routing_in_Ktor.md"
                              accepts-web-file-names="routing.html,tracing-routes.html,resolution-algorithms.html"/>
-                <toc-element topic="type-safe-routing.md"/>
+                <toc-element topic="type-safe-routing.md" accepts-web-file-names="locations.html,resources.html"/>
                 <toc-element topic="Structuring_Applications.md"
                              accepts-web-file-names="structure.html"/>
                 <toc-element topic="autoheadresponse.md"/>
