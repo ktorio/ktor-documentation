@@ -64,7 +64,7 @@ To look at the structure of the [generated project](#create_ktor_project), let's
 First, let's open the `build.gradle.kts` file and examine added dependencies:
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/build.gradle.kts" include-lines="21-29"}
+{src="snippets/tutorial-http-api/build.gradle.kts" include-lines="20-28"}
 
 Let's briefly go through these dependencies one by one:
 
@@ -72,7 +72,7 @@ Let's briefly go through these dependencies one by one:
 - `ktor-server-content-negotiation-jvm` and `ktor-serialization-kotlinx-json-jvm` provide a convenient mechanism for converting Kotlin objects into a [serialized form](serialization.md) like JSON, and vice versa. We will use it to format our APIs output, and to consume user input that is structured in JSON. In order to use `ktor-serialization-kotlinx-json`, we also have to apply the `plugin.serialization` plugin.
    ```kotlin
    ```
-   {src="snippets/tutorial-http-api/build.gradle.kts" include-lines="5,9-10"}
+   {src="snippets/tutorial-http-api/build.gradle.kts" include-lines="4,7-9"}
 
 - `ktor-server-netty-jvm` adds the Netty [engine](Engines.md) to our project, allowing us to use server functionality without having to rely on an external application container.
 - `logback-classic` provides an implementation of SLF4J, allowing us to see nicely formatted [logs](logging.md) in a console.

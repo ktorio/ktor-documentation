@@ -76,7 +76,7 @@ The `jreVersion` property specifies the JRE version to use in the image:
 
 ```kotlin
 ```
-{src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="29,34-35,53-54"}
+{src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="28,33-34,52-53"}
 
 ### Image name and tag {id="name-tag"}
 
@@ -84,7 +84,7 @@ If you need to customize the image name and tag, use the `localImageName` and `i
 
 ```kotlin
 ```
-{src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="29,34,36-37,53-54"}
+{src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="28,33,35-36,52-53"}
 
 ### Port mapping {id="port-mapping"}
 
@@ -96,7 +96,7 @@ The example below shows how to map the `8080` container port to the `80` Docker 
 
 ```kotlin
 ```
-{src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="29,34,38-44,53-54"}
+{src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="28,33,37-43,52-53"}
 
 In this case, you can access the server on `http://0.0.0.0:80`.
 
@@ -112,7 +112,7 @@ The example below shows how to configure the Docker Hub registry:
 
 ```kotlin
 ```
-{src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="29,34,46-54"}
+{src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="28,33,45-53"}
 
 Note that the Docker Hub name and password are fetched from the environment variables, so you need to set these values before running the `publishImage` task:
 
