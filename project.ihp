@@ -13,7 +13,7 @@
     <instance src="ktor.tree"
               web-path="/docs/eap"
               version="3.0.0"
-              id="docs"
+              id="docs/eap"
               keymaps-mode="none"/>
 
 </ihp>
