@@ -35,13 +35,20 @@ The main client functionality is available in the `ktor-client-core` artifact. D
 
 You can replace `$ktor_version` with the required Ktor version, for example, `%ktor_version%`.
 
-For a multiplatform project, you need to add the `ktor-client-core` artifact to the `commonMain` source set:
+#### Multiplatform {id="client-dependency-multiplatform"}
+
+For a multiplatform project, you can define the Ktor version and the `ktor-client-core` artifact in the `gradle/libs.versions.toml` file:
 
 ```kotlin
 ```
-{src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="19-23,25-26,59"}
+{src="snippets/tutorial-client-kmm/gradle/libs.versions.toml" include-lines="1,5,10-11,21"}
 
 
+Then, add `ktor-client-core` as a dependency to the `commonMain` source set:
+
+```kotlin
+```
+{src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="28-31,33-34,51"}
 
 
 ### Engine dependency {id="engine-dependency"}
@@ -50,12 +57,21 @@ An [engine](http-client_engines.md) is responsible for processing network reques
 <var name="artifact_name" value="ktor-client-cio"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
+#### Multiplatform {id="engine-dependency-multiplatform"}
+
 For a multiplatform project, you need to add a dependency for the required engine to a corresponding source set.
-For example, the code snippet below shows how to add the `ktor-client-okhttp` dependency to the `androidMain` source set:
+
+For example, to add the `OkHttp` engine dependency for Android, you can first define the Ktor version and the `ktor-client-okhttp` artifact in the `gradle/libs.versions.toml` file:
 
 ```kotlin
 ```
-{src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="19-20,32-36,59"}
+{src="snippets/tutorial-client-kmm/gradle/libs.versions.toml" include-lines="1,5,10-11,22"}
+
+Then, add `ktor-client-okhttp` as a dependency to the `androidMain` source set:
+
+```kotlin
+```
+{src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="28,41-45,51"}
 
 For a full list of dependencies required for a specific engine, see [](http-client_engines.md#dependencies).
 
