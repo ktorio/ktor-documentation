@@ -25,7 +25,7 @@ First, you need to add dependencies for the Exposed and H2 libraries. Open the `
 
 ```kotlin
 ```
-{src="gradle.properties" include-lines="17-18"}
+{src="gradle.properties" include-lines="13-14"}
 
 Then, open `build.gradle.kts` and add the following dependencies:
 

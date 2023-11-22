@@ -22,7 +22,7 @@ First, you need to add dependencies for the PostgreSQL library. Open the `gradle
 
 ```kotlin
 ```
-{src="gradle.properties" include-lines="19"}
+{src="gradle.properties" include-lines="15"}
 
 Then, open `build.gradle.kts` and add the following dependencies:
 
