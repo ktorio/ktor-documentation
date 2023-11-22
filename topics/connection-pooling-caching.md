@@ -23,7 +23,7 @@ Open the `gradle.properties` file and specify library versions:
 
 ```kotlin
 ```
-{src="gradle.properties" include-lines="20-21"}
+{src="gradle.properties" include-lines="16-17"}
 
 Then, open `build.gradle.kts` and add the following dependencies:
 
