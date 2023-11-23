@@ -55,11 +55,11 @@ The `id`, `title`, and `body` columns will store information about our articles.
 
 A [data access object](https://en.wikipedia.org/wiki/Data_access_object) (DAO) is a pattern that provides an interface to a database without exposing the details of the specific database. We'll define a `DAOFacade` interface later to abstract our specific requests to the database.
 
-Every database access using Exposed is started by obtaining a connection to the database. For that, you pass JDBC URL and the driver class name to the `Database.connect` function. Create the `dao` package inside `com.example` and add a new `DatabaseFactory.kt` file. Then, insert this code:
+Every database access using Exposed is started by obtaining a connection to the database. For that, you pass JDBC URL and the driver class name to the `Database.connect` function. Create the `dao` package inside `com.example` and add a new `DatabaseSingleton.kt` file. Then, insert this code:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DatabaseFactory.kt" include-lines="1-13,17,21"}
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DatabaseSingleton.kt" include-lines="1-13,17,21"}
 
 > Note that `driverClassName` and `jdbcURL` are hardcoded here. Ktor allows you to extract such settings to a [custom configuration group](Configuration-file.topic).
 
@@ -95,22 +95,22 @@ fun init() {
 
 ### Execute queries {id="queries"}
 
-For our convenience, let's create a utility function `dbQuery` inside the `DatabaseFactory` object, which we'll be using for all future requests to the database. Instead of using the transaction to access it in a blocking way, let's take advantage of coroutines and start each query in its own coroutine:
+For our convenience, let's create a utility function `dbQuery` inside the `DatabaseSingleton` object, which we'll be using for all future requests to the database. Instead of using the transaction to access it in a blocking way, let's take advantage of coroutines and start each query in its own coroutine:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DatabaseFactory.kt" include-lines="19-20"}
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DatabaseSingleton.kt" include-lines="19-20"}
 
-The resulting `DatabaseFactory.kt` file should look as follows:
+The resulting `DatabaseSingleton.kt` file should look as follows:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DatabaseFactory.kt"}
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DatabaseSingleton.kt"}
 
 
 ### Load database config at startup {id="startup"}
 
-Finally, we need to load the created configuration at the application startup. Open `Application.kt` and call `DatabaseFactory.init` from `the Application.module` body:
+Finally, we need to load the created configuration at the application startup. Open `Application.kt` and call `DatabaseSingleton.init` from `the Application.module` body:
 
 ```kotlin
 ```

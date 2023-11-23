@@ -16,7 +16,7 @@ class ApplicationTest {
             config = MapApplicationConfig()
         }
         application {
-            TestDatabaseFactory.init()
+            TestDatabaseSingleton.init()
             configureRouting()
             configureTemplating()
         }
