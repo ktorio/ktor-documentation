@@ -30,6 +30,7 @@ fun Application.main(httpClient: HttpClient = applicationHttpClient) {
     val redirects = mutableMapOf<String, String>()
     install(Authentication) {
         oauth("auth-oauth-google") {
+            // Configure oauth authentication
             urlProvider = { "http://localhost:8080/callback" }
             providerLookup = {
                 OAuthServerSettings.OAuth2ServerSettings(
@@ -60,7 +61,7 @@ fun Application.main(httpClient: HttpClient = applicationHttpClient) {
 
             get("/callback") {
                 val currentPrincipal: OAuthAccessTokenResponse.OAuth2? = call.principal()
-                //redirects home if can't find url before autorization
+                // redirects home if the url is not found before authorization
                 currentPrincipal?.let { principal ->
                     principal.state?.let { state ->
                         call.sessions.set(UserSession(state, principal.accessToken))
