@@ -1,6 +1,6 @@
 package com.example.dao
 
-import com.example.dao.DatabaseFactory.dbQuery
+import com.example.dao.DatabaseSingleton.dbQuery
 import com.example.models.*
 import kotlinx.coroutines.runBlocking
 import org.jetbrains.exposed.sql.*

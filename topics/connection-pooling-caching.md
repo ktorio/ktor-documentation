@@ -46,11 +46,11 @@ In this section, we'll use the HikariCP framework to manage JDBC connection pool
 
 ### Extract connection settings into a configuration file {id="connection-settings-config"}
 
-In the [previous tutorial](interactive_website_add_persistence.md#connect_db), we used hardcoded `driverClassName` and `jdbcURL` in the `com/example/dao/DatabaseFactory.kt` file to establish a database connection:
+In the [previous tutorial](interactive_website_add_persistence.md#connect_db), we used hardcoded `driverClassName` and `jdbcURL` in the `com/example/dao/DatabaseSingleton.kt` file to establish a database connection:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DatabaseFactory.kt" include-lines="10-12,17"}
+{src="snippets/tutorial-website-interactive-persistence/src/main/kotlin/com/example/dao/DatabaseSingleton.kt" include-lines="10-12,17"}
 
 Let's extract database connection settings to a [custom configuration group](Configuration-file.topic).
 
@@ -60,15 +60,15 @@ Let's extract database connection settings to a [custom configuration group](Con
    ```
    {src="snippets/tutorial-website-interactive-persistence-advanced/src/main/resources/application.conf" include-lines="11-14,16"}
 
-2. Open `com/example/dao/DatabaseFactory.kt` and update the `init` function to load storage settings from the configuration file:
+2. Open `com/example/dao/DatabaseSingleton.kt` and update the `init` function to load storage settings from the configuration file:
 
    ```kotlin
    ```
-   {src="snippets/tutorial-website-interactive-persistence-advanced/src/main/kotlin/com/example/dao/DatabaseFactory.kt" include-lines="5,10-18,23,39"}
+   {src="snippets/tutorial-website-interactive-persistence-advanced/src/main/kotlin/com/example/dao/DatabaseSingleton.kt" include-lines="5,10-18,23,39"}
    
    The `init` function now accepts `ApplicationConfig` and uses `config.property` to load custom settings.
 
-3. Finally, open `com/example/Application.kt` and pass `environment.config` to `DatabaseFactory.init` to load connection settings on application startup:
+3. Finally, open `com/example/Application.kt` and pass `environment.config` to `DatabaseSingleton.init` to load connection settings on application startup:
 
    ```kotlin
    ```
@@ -79,11 +79,11 @@ Let's extract database connection settings to a [custom configuration group](Con
 To enable connection pooling in Exposed, you need to provide [DataSource](https://docs.oracle.com/en/java/javase/19/docs/api/java.sql/javax/sql/DataSource.html) as a parameter to the `Database.connect` function.
 HikariCP provides the `HikariDataSource` class that implements the `DataSource` interface.
 
-1. To create `HikariDataSource`, open `com/example/dao/DatabaseFactory.kt` and add the `createHikariDataSource` function to the `DatabaseFactory` object:
+1. To create `HikariDataSource`, open `com/example/dao/DatabaseSingleton.kt` and add the `createHikariDataSource` function to the `DatabaseSingleton` object:
 
    ```kotlin
    ```
-   {src="snippets/tutorial-website-interactive-persistence-advanced/src/main/kotlin/com/example/dao/DatabaseFactory.kt" include-lines="4,11-12,25-35,39"}
+   {src="snippets/tutorial-website-interactive-persistence-advanced/src/main/kotlin/com/example/dao/DatabaseSingleton.kt" include-lines="4,11-12,25-35,39"}
 
    Here are some notes on the data source settings:
      - The `createHikariDataSource` function takes the driver class name and database URL as the parameters.
@@ -94,7 +94,7 @@ HikariCP provides the `HikariDataSource` class that implements the `DataSource` 
 
    ```kotlin
    ```
-   {src="snippets/tutorial-website-interactive-persistence-advanced/src/main/kotlin/com/example/dao/DatabaseFactory.kt" include-lines="12-13,19,23,39"}
+   {src="snippets/tutorial-website-interactive-persistence-advanced/src/main/kotlin/com/example/dao/DatabaseSingleton.kt" include-lines="12-13,19,23,39"}
 
    You can now [run the application](interactive_website_add_persistence.md#run_app) and make sure everything works as before.
 

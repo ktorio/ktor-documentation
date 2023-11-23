@@ -32,7 +32,7 @@ Then, open `build.gradle.kts` and add the following dependencies:
 
 ### Connect to a database {id="connect_db"}
 
-The [tutorial-website-interactive-persistence](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-website-interactive-persistence) sample uses hardcoded `driverClassName` and `jdbcURL` in the `com/example/dao/DatabaseFactory.kt` file to establish a database connection. Let's extract connection settings for the PostgreSQL database to a [custom configuration group](Configuration-file.topic). Open the `src/main/resources/application.conf` file and add the `storage` group outside the `ktor` group as follows:
+The [tutorial-website-interactive-persistence](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-website-interactive-persistence) sample uses hardcoded `driverClassName` and `jdbcURL` in the `com/example/dao/DatabaseSingleton.kt` file to establish a database connection. Let's extract connection settings for the PostgreSQL database to a [custom configuration group](Configuration-file.topic). Open the `src/main/resources/application.conf` file and add the `storage` group outside the `ktor` group as follows:
 
 ```kotlin
 ```
@@ -44,15 +44,15 @@ Note that `jdbcURL` includes the following components:
 
 These settings will be configured later in the [docker-compose.yml](#configure-docker) file.
 
-Open `com/example/dao/DatabaseFactory.kt` and update the `init` function to load storage settings from the configuration file:
+Open `com/example/dao/DatabaseSingleton.kt` and update the `init` function to load storage settings from the configuration file:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-docker-compose/src/main/kotlin/com/example/dao/DatabaseFactory.kt" include-lines="11-18"}
+{src="snippets/tutorial-website-interactive-docker-compose/src/main/kotlin/com/example/dao/DatabaseSingleton.kt" include-lines="11-18"}
 
 The `init` function now accepts `ApplicationConfig` and uses `config.property` to load custom settings.
 
-Finally, open `com/example/Application.kt` and pass `environment.config` to `DatabaseFactory.init` to load connection settings on application startup:
+Finally, open `com/example/Application.kt` and pass `environment.config` to `DatabaseSingleton.init` to load connection settings on application startup:
 
 ```kotlin
 ```
