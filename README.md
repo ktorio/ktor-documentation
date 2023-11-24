@@ -45,8 +45,8 @@ At the bottom of each documentation page published on [ktor.io/docs](https://kto
 page helpful?'** prompt:
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ktorio/ktor-documentation/vnikolova/update-readme/.github/images/feedback-prompt-for-dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ktorio/ktor-documentation/vnikolova/update-readme/.github/images/feedback-prompt-for-light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ktorio/ktor-documentation/main/.github/images/feedback-prompt-for-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ktorio/ktor-documentation/main/.github/images/feedback-prompt-for-light.png">
   <img width="400" alt="Shows the feedback prompt found in the bottom of each page of the Ktor Docs" src="https://raw.githubusercontent.com/ktorio/ktor-documentation/vnikolova/update-readme/.github/images/feedback-prompt-for-light.png">
 </picture>
 
