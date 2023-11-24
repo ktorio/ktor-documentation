@@ -37,7 +37,7 @@ request the resource.
 ```kotlin
 ```
 
-{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="14,25-29,125-128"}
+{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="14,25-29,101,128"}
 
 ## OAuth authorization flow {id="flow"}
 
@@ -46,13 +46,13 @@ The OAuth authorization flow in a Ktor application might look as follows:
 1. A user opens a login page in a Ktor application.
 2. Ktor makes an automatic redirect to the authorization page for a specific provider and passes the
    necessary [parameters](#configure-oauth-provider):
-    * a client ID used to access APIs of the selected provider;
-    * a callback or redirect URL specifying a Ktor application page that will be opened after authorization is
-      completed;
-    * scopes of third-party resources required for a Ktor application;
-    * a grant type used to get an access token (Authorization Code in our case);
-    * a `state` parameter used to mitigate CSRF attacks and redirect users;
-    * optional parameters specific for a certain provider.
+    * A client ID used to access APIs of the selected provider.
+    * A callback or redirect URL specifying a Ktor application page that will be opened after authorization is
+      completed.
+    * Scopes of third-party resources required for a Ktor application.
+    * A grant type used to get an access token (Authorization Code).
+    * A `state` parameter used to mitigate CSRF attacks and redirect users.
+    * Optional parameters specific for a certain provider.
 3. The authorization page shows a consent screen with the level of permissions required for a Ktor application. These
    permissions depend on the specified scopes, as configured in [](#configure-oauth-provider).
 4. If a user approves the requested permissions, the authorization server redirects back to the designated redirect URL
@@ -76,7 +76,7 @@ For example, to install an `oauth` provider with the name "auth-oauth-google" it
 ```kotlin
 ```
 
-{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="9-10,25-26,31-33,54-55"}
+{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="9-10,25-26,31-33,54-55,101"}
 
 ## Configure OAuth {id="configure-oauth"}
 
@@ -97,8 +97,8 @@ To access Google APIs, you need to create authorization credentials in the Googl
       In Ktor, the [urlProvider](#configure-oauth-provider) property is used to specify a redirect route that will be
       opened when authorization is completed.
 
-   Click **CREATE**.
-   In the invoked dialog, copy the created client ID and client secret that will be used to configure the `oauth`
+5. Click **CREATE**.
+6. In the invoked dialog, copy the created client ID and client secret that will be used to configure the `oauth`
    provider.
 
 ### Step 1: Create the HTTP client {id="create-http-client"}
@@ -118,7 +118,7 @@ client instance in a server [test](Testing.md).
 ```kotlin
 ```
 
-{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="26"}
+{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="26,101"}
 
 ### Step 2: Configure the OAuth provider {id="configure-oauth-provider"}
 
@@ -148,7 +148,7 @@ in [providerLookup](#configure-oauth-provider).
 ```kotlin
 ```
 
-{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="55-59,75,99"}
+{src="snippets/auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="56-60,76,100"}
 
 A user will see the authorization page with the level of permissions required for a Ktor application. These permissions
 depend on `defaultScopes` specified in [providerLookup](#configure-oauth-provider).
