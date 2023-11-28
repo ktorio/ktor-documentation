@@ -48,14 +48,14 @@ the `gradle/libs.versions.toml` file:
 ```kotlin
 ```
 
-{src="snippets/tutorial-client-kmm/gradle/libs.versions.toml" include-lines="1,5,10-11,21"}
+{src="snippets/tutorial-client-kmm/gradle/libs.versions.toml" include-lines="1,5,10-11,19"}
 
 Then, add `ktor-client-core` as a dependency to the `commonMain` source set:
 
 ```kotlin
 ```
 
-{src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="28-31,33-34,51"}
+{src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="26-28,30,40"}
 
 ### Engine dependency {id="engine-dependency"}
 
@@ -76,14 +76,14 @@ the `ktor-client-okhttp` artifact in the `gradle/libs.versions.toml` file:
 ```kotlin
 ```
 
-{src="snippets/tutorial-client-kmm/gradle/libs.versions.toml" include-lines="1,5,10-11,22"}
+{src="snippets/tutorial-client-kmm/gradle/libs.versions.toml" include-lines="1,5,10-11,20"}
 
 Then, add `ktor-client-okhttp` as a dependency to the `androidMain` source set:
 
 ```kotlin
 ```
 
-{src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="28,41-45,51"}
+{src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="26,34-36,40"}
 
 For a full list of dependencies required for a specific engine, see [](http-client_engines.md#dependencies).
 
