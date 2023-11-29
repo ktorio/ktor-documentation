@@ -22,9 +22,9 @@
         <config-sideblocks>true</config-sideblocks>
         <config-productid>docs</config-productid>
         <config-search-scopes-provider>https://data.services.jetbrains.com/search/</config-search-scopes-provider>
-        <noindex-content-in-deprecated>true</noindex-content-in-deprecated>
-        <noindex-content-in-eap>true</noindex-content-in-eap>
-        <noindex-content-in-release>false</noindex-content-in-release>
+        <noindex-content status="deprecated">true</noindex-content>
+        <noindex-content status="eap">true</noindex-content>
+        <noindex-content status="release">false</noindex-content>
         <generate-sitemap-url-prefix>https://ktor.io/docs/</generate-sitemap-url-prefix>
         <product-web-url>https://ktor.io/</product-web-url>
         <write-help-state-file>true</write-help-state-file>
