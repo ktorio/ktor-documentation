@@ -11,7 +11,7 @@
         <ktor_version>2.3.6</ktor_version>
         <kotlin.code.style>official</kotlin.code.style>
         <kotlin_version>1.8.0</kotlin_version>
-        <logback_version>1.2.11</logback_version>
+        <logback_version>1.2.13</logback_version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
         <main.class>com.example.ApplicationKt</main.class>
