@@ -10,7 +10,7 @@
 </tldr>
 
 <link-summary>
-Ktor allows you to serve static files, such as stylesheets, scripts, images, and so on.
+Learn how to serve static content, such as stylesheets, scripts, images, and so on.
 </link-summary>
 
 Whether we're creating a website or an HTTP endpoint, many applications need to serve files (such as stylesheets, scripts, images, etc.). 

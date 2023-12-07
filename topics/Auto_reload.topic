@@ -15,7 +15,7 @@
     </tldr>
 
     <link-summary>
-        Ktor allows you to use Auto-reload to reload application classes on code changes.
+        Learn how to use Auto-reload to reload application classes on code changes.
     </link-summary>
 
     <p>

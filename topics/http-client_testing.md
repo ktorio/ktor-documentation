@@ -12,8 +12,12 @@
 <include from="lib.topic" element-id="download_example"/>
 </tldr>
 
-<link-summary>
+<web-summary>
 Ktor provides a MockEngine that simulates HTTP calls without connecting to the endpoint.
+</web-summary>
+
+<link-summary>
+Learn how to test your client with MockEngine by simulating HTTP calls.
 </link-summary>
 
 Ktor provides a [MockEngine](https://api.ktor.io/ktor-client/ktor-client-mock/io.ktor.client.engine.mock/-mock-engine/index.html) that simulates HTTP calls without connecting to the endpoint.
