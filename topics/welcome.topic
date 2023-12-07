@@ -42,6 +42,7 @@
             <links narrow="true">
                 <group>
                     <title>Server configuration</title>
+                    <a href="intellij-idea.topic"/>
                     <a href="server-dependencies.topic"/>
                     <a href="create_server.topic"/>
                     <a href="Configuration-code.topic"/>
@@ -97,6 +98,7 @@
             <links narrow="true">
                 <group>
                     <title>Client setup</title>
+                    <a href="getting_started_ktor_client.topic"/>
                     <a href="client-dependencies.md"/>
                     <a href="create-client.md"/>
                     <a href="http-client_engines.md"/>

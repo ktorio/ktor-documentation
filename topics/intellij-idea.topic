@@ -11,7 +11,7 @@
         <include from="lib.topic" element-id="download_example"/>
     </tldr>
 
-    <link-summary>This guide shows how to create, run, and test a simple Ktor application.</link-summary>
+    <link-summary>Create, run, and test your first Ktor server application.</link-summary>
 
     <p>
         Ktor is an asynchronous framework for creating microservices, web applications, and more.
