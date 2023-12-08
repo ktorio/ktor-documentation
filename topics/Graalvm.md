@@ -8,8 +8,11 @@
 </p>
 </tldr>
 
-<link-summary>
+<web-summary>
 Ktor Server applications can make use of GraalVM in order to have native images for different platforms.
+</web-summary>
+<link-summary>
+Learn how to use GraalVM for native images on different platforms.
 </link-summary>
 
 Ktor Server applications can make use of [GraalVM](https://graalvm.org) in order to have native images for different platforms, and of course, take advantage of the faster start-up times and other benefits that GraalVM provides.

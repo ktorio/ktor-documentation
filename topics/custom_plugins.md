@@ -7,6 +7,10 @@
 <include from="lib.topic" element-id="download_example"/>
 </tldr>
 
+<link-summary>
+Learn how to create your own custom plugins.
+</link-summary>
+
 Starting with v2.0.0, Ktor provides a new API for creating custom [plugins](Plugins.md). In general, this API doesn't require an understanding of internal Ktor concepts, such as pipelines, phases, and so on. Instead, you have access to different stages of [handling requests and responses](#call-handling) using the `onCall`, `onCallReceive`, and `onCallRespond` handlers.
 
 > The API described in this topic is in effect for v2.0.0 and higher. For the old versions, you can use the [base API](custom_plugins-base-api.md).

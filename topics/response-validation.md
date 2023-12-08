@@ -10,7 +10,7 @@
 </tldr>
 
 <link-summary>
-Ktor allows you to validate a response depending on its status code.
+Learn how to validate a response depending on its status code.
 </link-summary>
 
 By default, Ktor doesn't validate a [response](response.md) depending on its status code.

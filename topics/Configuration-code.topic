@@ -9,8 +9,7 @@
     <show-structure for="chapter"/>
 
     <link-summary>
-        This topic describes how to configure various server parameters in code.
-        Server parameters include a host address and port, modules to load, and so on.
+        Learn how to configure various server parameters in code.
     </link-summary>
 
     <p>

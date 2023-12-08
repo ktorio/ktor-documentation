@@ -2,9 +2,9 @@
 <!DOCTYPE instance-profile
         SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/product-profile.dtd">
 <instance-profile id="ktor"
-                 name="Ktor"
-                 status="release"
-                 start-page="welcome.topic">
+                  name="Ktor"
+                  status="release"
+                  start-page="welcome.topic">
 
     <toc-element topic="welcome.topic"
                  accepts-web-file-names-ref="kotlin_docs"/>
@@ -267,7 +267,8 @@
 
     <toc-element topic="FAQ.topic"
                  accepts-web-file-names="zfaq.html"/>
-
+    <toc-element toc-title="API Documentation" href="https://api.ktor.io/"/>
+    <toc-element toc-title="Community Resources" href="https://github.com/mjovanc/awesome-ktor"/>
     <toc-element hidden="true" accepts-web-file-names="generator.html"
                  target-for-accept-web-file-names="https://start.ktor.io/"/>
     <toc-element hidden="true" accepts-web-file-names-ref="samples"

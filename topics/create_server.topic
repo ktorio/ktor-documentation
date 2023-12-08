@@ -18,7 +18,7 @@
     </tldr>
 
     <link-summary>
-        Choose how to create a Ktor server - using the 'embeddedServer' function to configure parameters in code or using 'EngineMain' to load server configuration from an external file.
+        Learn how to create a server depending on your application deployment needs.
     </link-summary>
 
     <p>

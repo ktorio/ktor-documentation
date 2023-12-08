@@ -8,7 +8,7 @@
 
     <show-structure for="chapter" depth="2"/>
 
-    <link-summary>Learn how to add Ktor dependencies to the existing Gradle/Maven project.</link-summary>
+    <link-summary>Learn how to add Ktor dependencies to an existing Gradle/Maven project.</link-summary>
 
     <p>
         In this topic, we'll show you how to add dependencies required for Ktor to the existing Gradle/Maven project.

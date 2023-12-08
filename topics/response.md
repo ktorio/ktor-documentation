@@ -3,7 +3,7 @@
 <show-structure for="chapter" depth="2"/>
 
 <link-summary>
-Learn how to receive responses: get a response body in various ways (raw bytes, JSON objects, etc.) and obtain response parameters (a status code, content type, etc.).
+Learn how to receive responses, get a response body and obtain response parameters.
 </link-summary>
 
 All functions used to [make an HTTP request](request.md) (`request`, `get`, `post`, etc.) allow you to receive a response as an [HttpResponse](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/index.html) object. `HttpResponse` exposes the API required to get a [response body](#body) in various ways (raw bytes, JSON objects, etc.) and obtain [response parameters](#parameters), such as a status code, content type, headers, and so on. For example, you can receive `HttpResponse` for a `GET` request without parameters as follows:
