@@ -4,7 +4,7 @@
         <web-root>https://ktor.io</web-root>
         <web-community-path>Developer Community:http://www.jetbrains.net/devnet/community/idea/kb</web-community-path>
         <download-page>https://ktor.io/create/</download-page>
-        <config-showDownloadButton>true</config-showDownloadButton>
+        <config-showDownloadButton>false</config-showDownloadButton>
         <enable-browser-edits>true</enable-browser-edits>
         <browser-edits-url>https://github.com/ktorio/ktor-documentation/edit/main/</browser-edits-url>
         <search-scope/>
@@ -41,7 +41,15 @@
         <analytics-body-html-file>google-analytics-noscript.html</analytics-body-html-file>
 
     </variables>
-    
+
     <build-profile product="ktor"/>
- 
+
+    <footer>
+        <copyright>2000-2024 JetBrains s.r.o.</copyright>
+        <social type="twitter" href="https://twitter.com/jetbrainsktor"/>
+        <link href="https://github.com/ktorio/ktor/blob/main/CONTRIBUTING.md">Contribute to Ktor</link>
+        <link href="https://ktor.io/eap/">Early Access Program</link>
+        <link href="https://api.ktor.io/">API Documentation</link>
+        <link href="https://app.slack.com/client/T09229ZC6/C0A974TJ9">Slack Community</link>
+    </footer>
 </buildprofiles>
