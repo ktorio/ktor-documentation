@@ -9,7 +9,7 @@
 </tldr>
 
 <link-summary>
-Learn how to test server Ktor applications using a special testing engine.
+Learn how to test your server application using a special testing engine.
 </link-summary>
 
 Ktor provides a special testing engine that doesn't create a web server, doesn't bind to sockets, and doesn't make any real HTTP requests. Instead, it hooks directly into internal mechanisms and processes an application call directly. This results in quicker tests execution compared to running a complete web server for testing. 

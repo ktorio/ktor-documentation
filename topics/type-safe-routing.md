@@ -15,7 +15,7 @@
 <include from="lib.topic" element-id="native_server_supported"/>
 </tldr>
 
-<link-summary>Ktor provides the Resources plugin that allows you to implement type-safe routing.</link-summary>
+<link-summary>The Resources plugin allows you to implement type-safe routing.</link-summary>
 
 Ktor provides the [Resources](https://api.ktor.io/ktor-shared/ktor-resources/io.ktor.resources/-resources/index.html) plugin that allows you to implement type-safe [routing](Routing_in_Ktor.md). To accomplish this, you need to create a class that should act as a typed route and then annotate this class using the `@Resource` keyword. Note that the `@Resource` annotation has `@Serializable` behavior provided by the kotlinx.serialization library.
 

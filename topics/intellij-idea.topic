@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
 
-<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        title="Creating a new Ktor project"
        id="intellij-idea">
@@ -11,7 +11,7 @@
         <include from="lib.topic" element-id="download_example"/>
     </tldr>
 
-    <link-summary>This guide shows how to create, run, and test a simple Ktor application.</link-summary>
+    <link-summary>Create, run, and test your first Ktor server application.</link-summary>
 
     <p>
         Ktor is an asynchronous framework for creating microservices, web applications, and more.

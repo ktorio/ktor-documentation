@@ -13,6 +13,10 @@
 <include from="lib.topic" element-id="native_server_not_supported"/>
 </tldr>
 
+<link-summary>
+The SwaggerUI plugin allows you to generate Swagger UI for your project.
+</link-summary>
+
 Ktor allows you to generate and serve Swagger UI for your project based on the existing OpenAPI specification.
 With Swagger UI, you can visualize and interact with the API resources. 
 

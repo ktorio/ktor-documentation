@@ -3,7 +3,7 @@
 <show-structure for="chapter" depth="2"/>
 
 <link-summary>
-Plugins provide common functionality, for example, serialization and content encoding, compression, headers, cookie support, etc.
+Plugins provide common functionality, such as serialization, content encoding, compression, and so on.
 </link-summary>
 
 A typical request/response pipeline in Ktor looks like the following:

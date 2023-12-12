@@ -13,6 +13,10 @@
 <include from="lib.topic" element-id="native_server_not_supported"/>
 </tldr>
 
+<link-summary>
+The OpenAPI plugin allows you to generate OpenAPI documentation for your project.
+</link-summary>
+
 Ktor allows you to generate and serve OpenAPI documentation for your project based on the existing OpenAPI specification.
 
 <include from="swagger-ui.md" element-id="open-api-note"/>

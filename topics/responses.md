@@ -2,7 +2,7 @@
 
 <show-structure for="chapter" depth="2"/>
 
-<link-summary>Learn how to send different types of responses: plain text, HTML documents and templates, serialized data objects, and so on.</link-summary>
+<link-summary>Learn how to send different types of responses.</link-summary>
 
 Ktor allows you to handle incoming [requests](requests.md) and send responses inside [route handlers](Routing_in_Ktor.md#define_route). You can send different types of responses: plain text, HTML documents and templates, serialized data objects, and so on. For each response, you can also configure various [response parameters](#parameters), such as a content type, headers, and cookies.
 

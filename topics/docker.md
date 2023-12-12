@@ -7,8 +7,12 @@
 <include from="lib.topic" element-id="download_example"/>
 </tldr>
 
-<link-summary>
+<web-summary>
 Learn how to deploy a Ktor application to a Docker container, which can then be run either locally or on your cloud provider of choice.
+</web-summary>
+
+<link-summary>
+Learn how to deploy your application to a Docker container.
 </link-summary>
 
 In this section, we'll see how to use the [Ktor Gradle plugin](https://github.com/ktorio/ktor-build-plugins) for packaging, running, and deploying applications using [Docker](https://www.docker.com).

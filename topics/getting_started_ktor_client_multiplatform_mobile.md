@@ -83,26 +83,26 @@ Then, define the Ktor client and engine libraries:
 ```kotlin
 ```
 
-{src="snippets/tutorial-client-kmm/gradle/libs.versions.toml" include-lines="11,21-23"}
+{src="snippets/tutorial-client-kmm/gradle/libs.versions.toml" include-lines="11,19-21"}
 
 To add the dependencies, open the `shared/build.gradle.kts` file and follow the steps below:
 
-1. To use the Ktor client in common code, add the dependency to `ktor-client-core` to the `commonMain` source set:
+1. To use the Ktor client in common code, add the dependency `ktor-client-core` to the `commonMain` source set:
    ```kotlin
    ```
-   {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="29-31,33-34"}
+   {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="26-28,30,40"}
 
 2. Add an [engine dependency](http-client_engines.md) for each required platform to the corresponding source set:
     - For Android, add the `ktor-client-okhttp` dependency to the `androidMain` source set:
       ```kotlin
       ```
-      {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="41-45"}
+      {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="34-36"}
 
       For Android, you can also use [other engine types](http-client_engines.md#jvm-android).
     - For iOS, add the `ktor-client-darwin` dependency to `iosMain`:
       ```kotlin
       ```
-      {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="46-50"}
+      {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="37-39"}
 
 ### Add coroutines {id="coroutines"}
 
@@ -112,13 +112,13 @@ To use coroutines in [Android code](#android-activity), you need to add `kotlinx
 
     ```kotlin
     ```
-   {src="snippets/tutorial-client-kmm/gradle/libs.versions.toml" include-lines="1,4,10-11,13-14"}
+   {src="snippets/tutorial-client-kmm/gradle/libs.versions.toml" include-lines="1,4,10-11,22-23"}
 
-2. Open the `build.gradle.kts` file and add the `kotlinx-coroutines-core` dependency to the shared module:
+2. Open the `build.gradle.kts` file and add the `kotlinx-coroutines-core` dependency to the `commonMain` source set:
 
     ```kotlin
     ```
-   {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="29-34"}
+   {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="26-30,40"}
 
 3. Then, open the `androidApp/build.gradle.kts` and add the `kotlinx-coroutines-android` dependency:
 
@@ -156,7 +156,7 @@ follows:
 ```kotlin
 ```
 
-{src="snippets/tutorial-client-kmm/androidApp/src/main/java/com/example/kmmktor/android/MainActivity.kt" include-lines="12-40"}
+{src="snippets/tutorial-client-kmm/androidApp/src/main/java/com/example/kmmktor/android/MainActivity.kt"}
 
 Inside the created scope, we can call the shared `greeting` function and handle possible exceptions.
 
