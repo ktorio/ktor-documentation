@@ -7,16 +7,15 @@ import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 
 fun main() {
-    val env = applicationEngineEnvironment {
-        envConfig()
+    val appProperties = applicationProperties {
+        module { module() }
     }
-    embeddedServer(Netty, env).start(true)
+    embeddedServer(Netty, appProperties) {
+        engineConfig()
+    }.start(true)
 }
 
-fun ApplicationEngineEnvironmentBuilder.envConfig() {
-    module {
-        module()
-    }
+fun ApplicationEngine.Configuration.engineConfig() {
     connector {
         host = "0.0.0.0"
         port = 8080
