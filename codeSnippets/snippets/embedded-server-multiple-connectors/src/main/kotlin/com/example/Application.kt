@@ -11,11 +11,11 @@ fun main() {
         module { module() }
     }
     embeddedServer(Netty, appProperties) {
-        engineConfig()
+        envConfig()
     }.start(true)
 }
 
-fun ApplicationEngine.Configuration.engineConfig() {
+fun ApplicationEngine.Configuration.envConfig() {
     connector {
         host = "0.0.0.0"
         port = 8080
