@@ -28,8 +28,8 @@ This restructuring comes with the following set of breaking changes:
 - `ApplicationEngineEnvironmentBuilder` has been renamed to `ApplicationEnvironmentBuilder`.
 - `applicationEngineEnvironment` has been renamed to `applicationEnvironment`.
 
-These changes will impact existing code that relies on the previous model. For example in `embeddedServer()` it might
-look like the following example:
+These changes will impact existing code that relies on the previous model. For example, in the `embeddedServer()`
+function, the changes can be illustrated through the following example:
 
 <tabs group="ktor_versions">
 <tab title="2.2.x" group-key="2_2">
@@ -40,14 +40,14 @@ import io.ktor.server.cio.*
 import io.ktor.server.engine.*
 import org.slf4j.helpers.NOPLogger
 
-fun defaultServer(module: Application.() -> Unit) = embeddedServer(CIO, environment = applicationEngineEnvironment {
-  log = NOPLogger.NOP_LOGGER
-
-  connector {
-    port = 8080
-  }
-
-  module(module)
+fun defaultServer(module: Application.() -> Unit) = 
+  embeddedServer(CIO,
+    environment = applicationEngineEnvironment {
+      log = NOPLogger.NOP_LOGGER
+      connector {
+        port = 8080
+      }
+      module(module)
 })
 ```
 
@@ -62,13 +62,14 @@ import org.slf4j.helpers.NOPLogger
 
 fun defaultServer(module: Application.() -> Unit) =
   embeddedServer(CIO,
-    environment = applicationEnvironment {log = NOPLogger.NOP_LOGGER },
+    environment = applicationEnvironment { log = NOPLogger.NOP_LOGGER },
     configure = {
-                  connector {
-                    port = 8080
-                  }
-                },
-    module)
+      connector {
+        port = 8080
+      }
+    },
+    module
+  )
 ```
 
 </tab>
