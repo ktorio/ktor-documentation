@@ -6,6 +6,87 @@ This guide provides instructions on how to migrate your Ktor application from th
 
 ## Ktor Server {id="server"}
 
+### `ApplicationEngine`, `ApplicationEnvironment`, and `Application`
+
+Several design changes have been introduced to improve configurability and provide a more defined
+separation between the `ApplicationEngine`, `ApplicationEnvironment` and `Application` instances.
+
+Before v3.0.0, `ApplicationEngine` managed `ApplicationEnvironment`, which in turn managed `Application`.
+
+In the current design, however, `Application` is responsible for creating, owning, and initiating
+both `ApplicationEngine` and `ApplicationEnvironment`.
+
+This restructuring comes with the following set of breaking changes:
+
+- `start()` and `stop()` methods have been removed from `ApplicationEnvironment`.
+- `embeddedServer()`
+  returns [`EmbeddedServer`](https://api.ktor.io/older/3.0.0-beta-1/ktor-server/ktor-server-core/io.ktor.server.engine/-embedded-server/index.html)
+  instead of `ApplicationEngine`.
+- A new
+  entity,[`ApplicationPropertiesBuilder`](https://api.ktor.io/older/3.0.0-beta-1/ktor-server/ktor-server-core/io.ktor.server.application/-application-properties-builder/index.html),
+  is introduced for configuring `Application` properties.
+- `ApplicationEngineEnvironmentBuilder` has been renamed to `ApplicationEnvironmentBuilder`.
+- `applicationEngineEnvironment` has been renamed to `applicationEnvironment`.
+
+These changes will impact existing code that relies on the previous model. For example in `embeddedServer()` it might
+look like the following example:
+
+<tabs group="ktor_versions">
+<tab title="2.2.x" group-key="2_2">
+
+```kotlin
+import io.ktor.server.application.*
+import io.ktor.server.cio.*
+import io.ktor.server.engine.*
+import org.slf4j.helpers.NOPLogger
+
+fun defaultServer(module: Application.() -> Unit) = embeddedServer(CIO, environment = applicationEngineEnvironment {
+  log = NOPLogger.NOP_LOGGER
+
+  connector {
+    port = 8080
+  }
+
+  module(module)
+})
+```
+
+</tab>
+<tab title="3.0.x" group-key="3_0">
+
+```kotlin
+import io.ktor.server.application.*
+import io.ktor.server.cio.*
+import io.ktor.server.engine.*
+import org.slf4j.helpers.NOPLogger
+
+fun defaultServer(module: Application.() -> Unit) =
+  embeddedServer(CIO,
+    environment = applicationEnvironment {log = NOPLogger.NOP_LOGGER },
+    configure = {
+                  connector {
+                    port = 8080
+                  }
+                },
+    module)
+```
+
+</tab>
+</tabs>
+
+For more details about this change,
+see [issue KTOR-3857 on YouTrack](https://youtrack.jetbrains.com/issue/KTOR-3857/Environment-Engine-Application-Design).
+
+### `ktor-server-host-common` module has been removed
+
+Due to `Application` requiring knowledge of `ApplicationEngine`, the contents of `ktor-server-host-common` module have
+been merged into `ktor-server-core`, namely
+the [`io.ktor.server.engine`](https://api.ktor.io/older/3.0.0-beta-1/ktor-server/ktor-server-core/io.ktor.server.engine/index.html)
+package.
+
+Ensure that your dependencies are updated accordingly. In most cases, you can simply remove
+the `ktor-server-host-common` dependency.
+
 ### `Locations` plugin has been removed
 
 The `Locations` plugin for the Ktor server has been removed. To create type-safe routing, use
@@ -24,7 +105,7 @@ the [Resources plugin](type-safe-routing.md) instead. This requires the followin
 The following example shows how to implement these changes:
 
 <tabs group="ktor_versions">
-<tab title="2.2.x" group-key="1_6">
+<tab title="2.2.x" group-key="2_2">
 
 ```kotlin
 import io.ktor.server.locations.*
@@ -44,7 +125,7 @@ fun Application.module() {
 ```
 
 </tab>
-<tab title="3.0.x" group-key="2_0">
+<tab title="3.0.x" group-key="3_0">
 
 ```kotlin
 import io.ktor.resources.Resource
