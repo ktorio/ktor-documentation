@@ -206,8 +206,8 @@ example below demonstrates how to use attributes to calculate the time between r
 ```kotlin
 ```
 
-{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationBenchmarkPlugin.kt" include-lines="
-6-18"}
+{src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/DataTransformationBenchmarkPlugin.kt"
+include-lines="6-18"}
 
 If you make a `POST` request, the plugin prints a delay in a console:
 
@@ -302,16 +302,16 @@ Let's see how to achieve this for `CustomHeaderPlugin`:
 
    ```kotlin
    ```
-   {src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPluginConfigurable.kt" include-lines="
-   20-23"}
+   {src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPluginConfigurable.kt"
+   include-lines="20-23"}
 
 3. Finally, assign the `http.custom_header` value to the `configurationPath` parameter of the `createApplicationPlugin`
    function:
 
    ```kotlin
    ```
-   {src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPluginConfigurable.kt" include-lines="
-   6-18"}
+   {src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPluginConfigurable.kt"
+   include-lines="6-18"}
 
 > You can find the full example
 here: [CustomHeaderPluginConfigurable.kt](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPluginConfigurable.kt).
