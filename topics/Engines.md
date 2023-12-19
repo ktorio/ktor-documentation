@@ -7,12 +7,9 @@ Learn about engines that process network requests.
 </link-summary>
 
 To run a Ktor server application, you need to [create](create_server.topic) and configure a server first.
-Server configuration includes different settings:
 
-- an [engine](#supported-engines) for processing network requests;
-- host and port values used to access a server;
-- SSL settings;
-- ... and so on.
+Server configuration can include various different settings, such as an [engine](#supported-engines) for processing
+network requests, host and port values used to access a server or SSL settings to name a few.
 
 ## Supported engines {id="supported-engines"}
 
@@ -49,7 +46,7 @@ load the configuration from the external `application.conf` or `application.yaml
 
 ### embeddedServer {id="embeddedServer"}
 
-The [embeddedServer](https://api.ktor.io/ktor-server/ktor-server-host-common/io.ktor.server.engine/embedded-server.html)
+The [embeddedServer](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/embedded-server.html)
 function accepts an engine factory used to create an engine of a specific type. In the example below, we pass
 the [Netty](https://api.ktor.io/ktor-server/ktor-server-netty/io.ktor.server.netty/-netty/index.html) factory to run a
 server with the Netty engine and listen on the `8080` port:
@@ -142,7 +139,7 @@ In this section, we'll take a look at how to specify various engine-specific opt
 
 The `embeddedServer` function allows you to pass engine-specific options using the `configure` optional parameter. This
 parameter includes options common for all engines and exposed by
-the [ApplicationEngine.Configuration](https://api.ktor.io/ktor-server/ktor-server-host-common/io.ktor.server.engine/-application-engine/-configuration/index.html)
+the [ApplicationEngine.Configuration](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/-application-engine/-configuration/index.html)
 class.
 
 ```kotlin

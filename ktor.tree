@@ -272,7 +272,6 @@
     <toc-element topic="FAQ.topic"
                  accepts-web-file-names="zfaq.html"/>
 
-    <toc-element hidden="true" toc-title="generator" accepts-web-file-names="generator.html"
     <toc-element toc-title="Other Resources">
         <toc-element toc-title="Community Resources" href="https://github.com/mjovanc/awesome-ktor"/>
     </toc-element>
