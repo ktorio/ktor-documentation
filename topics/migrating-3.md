@@ -18,21 +18,47 @@ both `ApplicationEngine` and `ApplicationEnvironment`.
 
 This restructuring comes with the following set of breaking changes:
 
-- `start()` and `stop()` methods have been removed from `ApplicationEnvironment`.
-- `embeddedServer()`
-  returns [`EmbeddedServer`](https://api.ktor.io/older/3.0.0-beta-1/ktor-server/ktor-server-core/io.ktor.server.engine/-embedded-server/index.html)
-  instead of `ApplicationEngine`.
-- A new
-  entity,[`ApplicationPropertiesBuilder`](https://api.ktor.io/older/3.0.0-beta-1/ktor-server/ktor-server-core/io.ktor.server.application/-application-properties-builder/index.html),
-  is introduced for configuring `Application` properties.
-- `ApplicationEngineEnvironmentBuilder` has been renamed to `ApplicationEnvironmentBuilder`.
-- `applicationEngineEnvironment` has been renamed to `applicationEnvironment`.
+- [`ApplicationEngineEnvironmentBuilder` and `applicationEngineEnvironment` classes are renamed.](#renamed-classes).
+- [`start()` and `stop()` methods are removed from `ApplicationEngineEnvironment`](#ApplicationEnvironment).
+- [Introduction of `ApplicationPropertiesBuilder`](#ApplicationPropertiesBuilder).
+- [`embeddedServer()` returns`EmbeddedServer`](#EmbeddedServer) instead of `ApplicationEngine`.
 
-These changes will impact existing code that relies on the previous model. For example, in the `embeddedServer()`
-function, the changes can be illustrated through the following example:
+These changes will impact existing code that relies on the previous model.
 
-<tabs group="ktor_versions">
-<tab title="2.2.x" group-key="2_2">
+#### Renamed classes {id="renamed-classes"}
+
+| Package                    | 2.x.x                                 | 3.0.x                           |
+|----------------------------|---------------------------------------|---------------------------------|
+| `io.ktor:ktor-server-core` | `ApplicationEngineEnvironmentBuilder` | `ApplicationEnvironmentBuilder` |
+| `io.ktor:ktor-server-core` | `applicationEngineEnvironment`        | `applicationEnvironment`        |
+
+#### `start()` and `stop()` methods are removed from `ApplicationEngineEnvironment` {id="ApplicationEnvironment"}
+
+With the merge of `AplicationEngineEnvironment`
+to [`ApplicationEnvironment`](https://api.ktor.io/older/3.0.0-beta-1/ktor-server/ktor-server-core/io.ktor.server.application/-application-environment/index.html),
+the `start()` and `stop()` methods are now
+only accessible
+through [`ApplicationEngine`](https://api.ktor.io/older/3.0.0-beta-1/ktor-server/ktor-server-core/io.ktor.server.engine/-application-engine/index.html).
+
+| 2.x.x                                                 | 3.0.x                                |
+|-------------------------------------------------------|--------------------------------------|
+| `ApplicationEngineEnvironment.start()`                | `ApplicationEngine.start()`          |
+| `ApplicationEngineEnvironment.stop()`                 | `ApplicationEngine.stop()`           |
+
+Additionally, in the following table you can see the list of removed properties
+and their current corresponding ownership:
+
+| 2.x.x                                           | 3.0.x                                        |
+|-------------------------------------------------|----------------------------------------------|
+| `ApplicationEngineEnvironment.connectors`       | `ApplciationEngine.Configuration.connectors` |
+| `ApplicationEnvironment.developmentMode`        | `Application.developmentMode`                |
+| `ApplicationEnvironment.monitor`                | `Application.monitor`                        |
+| `ApplicationEnvironment.parentCoroutineContext` | `Application.parentCoroutineContext`         |
+| `ApplicationEnvironment.rootPath`               | `Application.rootPath`                       |
+
+The ownership changes can be illustrated through the following example:
+
+<compare first-title="2.2.x" second-title="3.0.x">
 
 ```kotlin
 import io.ktor.server.application.*
@@ -40,19 +66,19 @@ import io.ktor.server.cio.*
 import io.ktor.server.engine.*
 import org.slf4j.helpers.NOPLogger
 
-fun defaultServer(module: Application.() -> Unit) = 
+fun defaultServer(module: Application.() -> Unit) =
   embeddedServer(CIO,
     environment = applicationEngineEnvironment {
       log = NOPLogger.NOP_LOGGER
-      connector {
-        port = 8080
+      connector { 
+          port = 8080
       }
       module(module)
-})
+    }
+  )
 ```
 
-</tab>
-<tab title="3.0.x" group-key="3_0">
+{validate="false" noinject}
 
 ```kotlin
 import io.ktor.server.application.*
@@ -65,17 +91,31 @@ fun defaultServer(module: Application.() -> Unit) =
     environment = applicationEnvironment { log = NOPLogger.NOP_LOGGER },
     configure = {
       connector {
-        port = 8080
+          port = 8080
       }
     },
     module
   )
 ```
 
-</tab>
-</tabs>
+</compare>
 
-For more details about this change,
+#### Introduction of `ApplicationPropertiesBuilder` {id="ApplicationPropertiesBuilder"}
+
+A new
+entity,[`ApplicationPropertiesBuilder`](https://api.ktor.io/older/3.0.0-beta-1/ktor-server/ktor-server-core/io.ktor.server.application/-application-properties-builder/index.html),
+is introduced for configuring `Application` properties represented by
+the [`ApplicationProperties`](https://api.ktor.io/older/3.0.0-beta-1/ktor-server/ktor-server-core/io.ktor.server.application/-application-properties/index.html)
+class. The class contains properties, previously available in `ApplicationEnvironment`.
+
+#### Introduction of `EmbeddedServer` {id="EmbeddedServer"}
+
+The
+class [`EmbeddedServer`](https://api.ktor.io/older/3.0.0-beta-1/ktor-server/ktor-server-core/io.ktor.server.engine/-embedded-server/index.html)
+is introduced and used to replace `ApplicationEngine` as a return type of the `embeddedServer()`
+function.
+
+For more details about the model change,
 see [issue KTOR-3857 on YouTrack](https://youtrack.jetbrains.com/issue/KTOR-3857/Environment-Engine-Application-Design).
 
 ### `ktor-server-host-common` module has been removed
@@ -105,8 +145,7 @@ the [Resources plugin](type-safe-routing.md) instead. This requires the followin
 
 The following example shows how to implement these changes:
 
-<tabs group="ktor_versions">
-<tab title="2.2.x" group-key="2_2">
+<compare first-title="2.2.x" second-title="3.0.x">
 
 ```kotlin
 import io.ktor.server.locations.*
@@ -124,9 +163,6 @@ fun Application.module() {
     }
 }
 ```
-
-</tab>
-<tab title="3.0.x" group-key="3_0">
 
 ```kotlin
 import io.ktor.resources.Resource
@@ -146,8 +182,7 @@ fun Application.module() {
 }
 ```
 
-</tab>
-</tabs>
+</compare>
 
 For more information on working with `Resources`, refer to [](type-safe-routing.md).
 
