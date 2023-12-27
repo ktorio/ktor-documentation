@@ -6,12 +6,12 @@
   },
   {
     "version": "2.3.7",
-    "url": "/docs/2.3.7",
+    "url": "/docs/",
     "isCurrent": false
   },
   {
-    "version": "3.0.0",
-    "url": "/docs/",
+    "version": "3.0.0-beta-1",
+    "url": "/docs/3.0.0-beta-1/",
     "isCurrent": true
   }
 ]
