@@ -123,9 +123,9 @@ class Articles()
 fun Application.module() {
     install(Resources)
     routing {
-        get<Articles> {
+        get<Articles> { articles ->
             // Get all articles ...
-            call.respondText("List of articles")
+            call.respondText("List of articles: $articles")
         }
     }
 }
