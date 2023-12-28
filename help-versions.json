@@ -13,5 +13,10 @@
     "version": "3.0.0-beta-1",
     "url": "/docs/3.0.0-beta-1/",
     "isCurrent": true
+  },
+  {
+    "version": "3.0.0-beta-1-eap-868",
+    "url": "/docs/eap/",
+    "isCurrent": false
   }
 ]
