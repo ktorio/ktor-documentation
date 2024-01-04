@@ -10,7 +10,9 @@
 <include from="lib.topic" element-id="download_example"/>
 </tldr>
 
-Ktor client provides the capability to log HTTP calls using the [Logging](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-logging/io.ktor.client.plugins.logging/-logging/index.html) plugin.
+Ktor client provides the capability to log HTTP calls using
+the [Logging](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-logging/io.ktor.client.plugins.logging/-logging)
+plugin.
 This plugin provides different logger types for different platforms:
 - On [JVM](http-client_engines.md#jvm), Ktor uses [SLF4J API](http://www.slf4j.org/) as a facade for various logging frameworks (for example, [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j)).
 - For [Native targets](http-client_engines.md#native), the `Logging` plugin provides a logger that prints everything to `STDOUT`.
@@ -47,11 +49,13 @@ val client = HttpClient(CIO) {
 
 ## Configure Logging {id="configure_plugin"}
 
-The `Logging` plugin configuration is provided by the [Logging.Config](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-logging/io.ktor.client.plugins.logging/-logging/-config/index.html) class.
-The example below shows a sample configuration:
+The `Logging` plugin configuration is provided by
+the [Logging.Config](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-logging/io.ktor.client.plugins.logging/-logging-config)
+class. The example below shows a sample configuration:
+
 - The `logger` property is set to `Logger.DEFAULT`, which uses an SLF4J logging framework. For Native targets, set this property to `Logger.SIMPLE`.
-- The `level` property specifies the logging level. 
-   For instance, you can log only request/response headers or include their bodies.
+- The `level` property specifies the logging level.
+  For instance, you can log only request/response headers or include their bodies.
 - The `filter` function allows you to filter log messages for requests matching the specified predicate. In the example below, only requests made to `ktor.io` get into the log.
 - The `sanitizeHeader` function allows you to sanitize sensitive headers to avoid their values appearing in the logs. In the example below, Authorization header value will be replaced with '***' when logged.
 
