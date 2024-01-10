@@ -5,7 +5,8 @@
 <include from="lib.topic" element-id="download_example"/>
 </tldr>
 
-The [HttpTimeout](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-timeout/index.html) plugin allows you to configure the following timeouts:
+The [HttpTimeout](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-timeout) plugin allows
+you to configure the following timeouts:
 * __request timeout__ — a time period required to process an HTTP call: from sending a request to receiving a response.
 * __connection timeout__ — a time period in which a client should establish a connection with a server.
 * __socket timeout__ — a maximum time of inactivity between two data packets when exchanging data with a server.
