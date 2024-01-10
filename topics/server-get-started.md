@@ -1,4 +1,4 @@
-# Get started with Ktor Server
+[//]: # (title: Get started with Ktor Server)
 
 <show-structure for="chapter" depth="2"/>
 
@@ -17,15 +17,35 @@ with Ktor.
 
 ## Create a new Ktor project {id="create-project"}
 
-The simplest way to create a new Ktor project is by using
+One of the fastest ways to create a new Ktor project is by using
 the [Ktor project generator](https://start.ktor.io/?_ga=2.179570276.13899987.1704363276-861017825.1700565260&_gl=1*422eap*_ga*ODYxMDE3ODI1LjE3MDA1NjUyNjA.*_ga_9J976DJZ68*MTcwNDM3MTUzOC40OS4xLjE3MDQzNzI5NDMuNTQuMC4w#/settings?name=ktor-sample-app&website=example.com&artifact=com.example.ktor-sample&kotlinVersion=1.9.22&ktorVersion=2.3.7&buildSystem=GRADLE&engine=NETTY&configurationIn=CODE&addSampleCode=true&plugins=).
 
-Alternatively, you can [create a new Ktor project with the plugin for IntelliJ IDEA Ultimate](intellij-idea.topic).
+To create a new project, follow the steps below:
 
-> Unless explicitly stated we don’t assume you have changed any settings in the Ktor Project Generator. Nor do we assume
-> that you have added any optional plugins.
+<procedure>
+  <step>
+   <p>Navigate to the <a href="https://start.ktor.io/?_ga=2.179570276.13899987.1704363276-861017825.1700565260&_gl=1*422eap*_ga*ODYxMDE3ODI1LjE3MDA1NjUyNjA.*_ga_9J976DJZ68*MTcwNDM3MTUzOC40OS4xLjE3MDQzNzI5NDMuNTQuMC4w#/settings?name=ktor-sample-app&website=example.com&artifact=com.example.ktor-sample&kotlinVersion=1.9.22&ktorVersion=2.3.7&buildSystem=GRADLE&engine=NETTY&configurationIn=CODE&addSampleCode=true&plugins=">Ktor Project Generator</a>.</p>
+  </step>
+  <step>
+    <p>In the <b>Project Name</b> field, enter <code>ktor-sample-app</code> as the name of your project.</p>
+    <img src="ktor_project_generator_new_project_name.png" alt="Ktor Project Generator with Project Name ktor-sample-app" border-effect="line" width="706"/>
+  </step>
+  <step>
+    <p>Click <b>Add Plugins</b>. For the sake of this tutorial, no plugins need to be added to the project at this stage.</p>
+  </step>
+  <step>
+    <p>On the next screen, click <b>Generate project</b>.</p>
+    <img src="ktor_project_generator_new_project_plugins_screen.png" alt="Ktor Project Generator plugins screen" border-effect="line" width="706"/>
+  </step>
+  <p>Your download should start automatically.</p>
+</procedure>
+
+> An alternative way to create a new Ktor project
+> is [by using the plugin for IntelliJ IDEA Ultimate](intellij-idea.topic).
+> If you choose to use this method instead, make sure to keep the same settings as in the method above and
+> leave out any optional plugins.
 >
-{style="note"}
+{style="tip"}
 
 ## Unpack and run the project {id="unpacking"}
 
@@ -38,32 +58,29 @@ Please alter the names and paths as required to match your own setup.
 
 <procedure>
   <step>
-  <p>Navigate to the <code>myprojects</code> folder in the home directory.</p>
-  <code-block prompt="tmp> " lang="console">
+  <p>In a terminal, navigate to the folder where you downloaded the project:</p>
+  <code-block lang="console">
     cd ~/myprojects
   </code-block>
- <code-block prompt="myprojects> " lang="console">
-  </code-block>
   </step>
  <step>
-  <p>Ensure the only thing in this folder is the ZIP archive.</p>
-  <code-block prompt="myprojects> " lang="console">
+  <p>Ensure the only thing in this folder is the ZIP archive:</p>
+  <code-block lang="console">
     ls
   </code-block>
- <code-block prompt="myprojects> " lang="console">
-    ktor-sample-app.zip
-  </code-block>
+ The `ls` command lists all the files and directories under the specified directory. The expected output is 
+  <code>ktor-sample-app.zip</code>.
   </step>
  <step>
-  <p>Unpack the ZIP archive into a folder of the same name.</p>
+  <p>Unpack the ZIP archive into a folder of the same name:</p>
   <tabs>
     <tab title="macOS" group-key="macOS">
-    <code-block prompt="myprojects> " lang="console">
+    <code-block lang="console">
       unzip ktor-sample-app.zip  -d ktor-sample-app
     </code-block>
     </tab>
     <tab title="Windows" group-key="windows">
-      <code-block prompt="myprojects> " lang="console">
+      <code-block lang="console">
         tar -xf ktor-sample-app.zip
       </code-block>
     </tab>
@@ -71,38 +88,40 @@ Please alter the names and paths as required to match your own setup.
   <p>Your directory will now contain the ZIP archive and the unpacked folder.</p>
   </step>
   <step>
-    <p>Change the directory into the newly created folder.</p>
-    <code-block prompt="myprojects> " lang="console">
+    <p>From the directory, navigate into the newly created folder:</p>
+    <code-block lang="console">
         cd ktor-sample-app
-      </code-block>
+    </code-block>
   </step>
   <step>
-  <p>Use the <code>chmod</code> command to make the gradlew Gradle helper script executable.</p>
-   <code-block prompt="ktor-sample-app> " lang="console">
+    <p>Use the <code>chmod</code> command to make the gradlew Gradle helper script executable:</p>
+   <code-block lang="console">
     chmod +x ./gradlew
   </code-block>
   </step>
   <step>
-  <p>You can verify that the file is executable by examining the first word of output from <code>ls -l</code>.
-  The 4th, 7th and 10th characters should be an ‘x’.</p>
-   <code-block prompt="ktor-sample-app> " lang="console">
+    <p>You can verify that the file is executable by examining the first word of output from <code>ls -l</code>.</p>
+   <code-block lang="console">
     ls -l gradlew | cut -d " " -f 1
   </code-block>
-  <p>Now that the <code>gradlew</code> script is executable, you can build the project via the Gradle build tool.</p>
+    <p>The 4th, 7th and 10th characters should be an ‘x’, for example <code>-rwxr-xr-x@</code>.</p>
+    <p>Now that the <code>gradlew</code> script is executable, you can build the project via the Gradle build tool.</p>
   </step>
   <step>
-  <p>To build the project, use the following command:</p>
-   <code-block prompt="ktor-sample-app> " lang="console">
+    <p>To build the project, use the following command:</p>
+   <code-block lang="console">
     ./gradlew build
   </code-block>
-  <p>If you see that your build has been successful you can execute the project, again via Gradle.</p>
+    <p>If you see that your build has been successful you can execute the project, again via Gradle.</p>
   </step>
   <step>
     <p>To run the project, use the following command:</p>
-   <code-block prompt="ktor-sample-app> " lang="console">
+   <code-block lang="console">
     ./gradlew run
   </code-block>
-  <p>You can verify the project is running by opening a browser at the URL mentioned in the output (<a href="http://0.0.0.0:8080"/>).</p>
+    <p>You can verify the project is running by opening a browser at the URL mentioned in the output (<a href="http://0.0.0.0:8080"/>).
+    You should see the following screen:</p>
+    <img src="server_get_started_ktor_sample_app_output.png" alt="Output of generated ktor project" border-effect="line" width="706"/>
   </step>
 </procedure>
 
@@ -125,72 +144,65 @@ folder:
 idea .
 ```
 
-{prompt="ktor-sample-app>"}
-
-Alternatively, you can launch IntelliJ IDEA yourself and then select the open command, either from the Welcome Screen or
-from the File Menu. You can then navigate to the `ktor-sample-app` folder and select it. See [the IntelliJ IDEA
+Alternatively, you can launch IntelliJ IDEA yourself and then select the open command, either from the *Welcome* screen
+or
+from the *File* menu. You can then navigate to the `ktor-sample-app` folder and select it. See [the IntelliJ IDEA
 documentation](https://www.jetbrains.com/help/idea/creating-and-managing-projects.html) for more details on managing
 projects.
 
 ### Explore the project {id="explore"}
 
-Whichever option you choose the project should open as shown below:
+Whichever option you choose, the project should open as shown below:
 
-[//]: # (include screenshot)
+![Generated Ktor project view in IDE](server_get_started_idea_project_view.png){ width="706" }
 
 In order to explain the project layout we have expanded the structure in the Project View and selected the
 file `settings-gradle.kts`.
-
-[//]: # (include screenshot)
 
 You will see that the code to run your application lives in packages under `src/main/kotlin`. The default package is
 called `com.example` and contains a subpackage called `plugins`.
 Two files have been created within these packages, named `Application.kt` and `Routing.kt`.
 
-[//]: # (include screenshot)
+![Ktor project src folder structure](server_get_started_idea_main_folder.png){ width="400" }
 
 The name of the project is configured in `settings-gradle.kts`.
 
-[//]: # (include screenshot)
+![Contents of settings.gradle.kt](server_get_started_idea_settings_file.png){ width="706" }
 
 Configuration files, and other kinds of content, live within the `src/main/resources` folder.
 
-[//]: # (include screenshot)
-
+![Ktor project resources folder structure](server_get_started_idea_resources_folder.png){ width="400" }
 A skeleton test has been created in a package under `src/test/kotlin`.
 
-[//]: # (include screenshot)
+![Ktor project test folder structure](server_get_started_idea_test_folder.png){ width="400" }
 
 ### Run the project {id="run"}
 
 <procedure>
   <p>To run the project from within IntelliJ IDEA:</p>
   <step>
-
-[//]: # (include elephant icon)
-
-  <p>Open the <a href="https://www.jetbrains.com/help/idea/jetgradle-tool-window.html">Gradle Tool Window</a> by clicking the Elephant Icon on the right hand sidebar.</p>
+    <p>Open the <a href="https://www.jetbrains.com/help/idea/jetgradle-tool-window.html">Gradle Tool Window</a> by clicking the Gradle icon (elephant) on the right sidebar.</p>
+    <img src="server_get_started_idea_gradle_tab.png" alt="Gradle tab in IntelliJ IDEA" border-effect="line" width="706"/>
   </step>
   <step>
-  <p>Within this tool window expand `Tasks` and `application`.</p>
-  </step>
-  <step>
-  <p>Double-click on the run task.</p>
+    <p>Within this tool window expand <b>Tasks</b> and <b>application</b>. Double-click on the <b>run</b> task.</p>
+    <img src="server_get_started_idea_gradle_tab.png" alt="Gradle tab in IntelliJ IDEA" border-effect="line" width="706"/>
   </step>
 </procedure>
 
 Your Ktor application should start in a [Run Tool Window](https://www.jetbrains.com/help/idea/run-tool-window.html) at
 the bottom of the IDE:
 
-[//]: # (include screenshot)
+![Project running in terminal](server_get_started_idea_run_terminal.png){ width="706" }
 
 The same messages that we saw on the command line should appear in the window. Once again you can open your browser at
 the specified URL (http://0.0.0.0:8080) and confirm that the project is running.
 
-[//]: # (include screenshot)
+![Hello World in Browser Screen](server_get_started_ktor_sample_app_output.png){ width="706" }
 
-You can manage the application via the Run Tool Window. Click on the red box to stop the application and the curved
-arrow to restart it. These options are explained further
+You can manage the application via the *Run Tool Window*. Click on the red box
+icon (![](intellij_idea_terminate_icon.svg){style="inline" height="16"}) to terminathe application and the curved
+arrow (![](intellij_idea_rerun_icon.svg){style="inline" height="16"}) to restart it. These options are explained further
 in [the IntelliJ IDEA Run Tool Window documentation](https://www.jetbrains.com/help/idea/run-tool-window.html#run-toolbar).
 
 [//]: # (Add link for Common problems document)
