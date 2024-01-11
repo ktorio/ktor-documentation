@@ -12,9 +12,10 @@
 The Auth plugin handles authentication and authorization in your client application.
 </link-summary>
 
-Ktor provides the [Auth](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-auth/io.ktor.client.plugins.auth/-auth/index.html) plugin to handle authentication and authorization in your client application. 
-Typical usage scenarios include logging in users and gaining access to specific resources. 
-
+Ktor provides
+the [Auth](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-auth/io.ktor.client.plugins.auth/-auth)
+plugin to handle authentication and authorization in your client application.
+Typical usage scenarios include logging in users and gaining access to specific resources.
 
 ## Supported authentication types {id="supported"}
 

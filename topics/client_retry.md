@@ -12,7 +12,10 @@ The HttpRequestRetry plugin allows you to configure the retry policy for failed 
 </link-summary>
 
 By default, the Ktor client doesn't retry [requests](request.md) that failed due to network or server errors.
-You can use the [HttpRequestRetry](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-request-retry/index.html) plugin to configure the retry policy for failed requests in various ways: specify the number of retries, configure conditions for retrying a request, or modify a request before retrying.
+You can use
+the [HttpRequestRetry](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-request-retry)
+plugin to configure the retry policy for failed requests in various ways: specify the number of retries, configure
+conditions for retrying a request, or modify a request before retrying.
 
 
 
@@ -46,7 +49,8 @@ A [runnable example](https://github.com/ktorio/ktor-documentation/tree/%ktor_ver
 * The `retryOnServerErrors` function enables retrying a request if a `5xx` response is received from a server and specifies the number of retries.
 * `exponentialDelay` specifies an exponential delay between retries, which is calculated using the Exponential backoff algorithm.
 
-You can learn more about supported configuration options from [HttpRequestRetry.Configuration](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-request-retry/-configuration/index.html).
+You can learn more about supported configuration options
+from [HttpRequestRetry.Configuration](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-request-retry/-configuration).
 
 ### Configure retry conditions {id="conditions"}
 
