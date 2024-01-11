@@ -50,12 +50,15 @@ To create a new project, follow the steps below:
 
 ## Unpack and run the project {id="unpacking"}
 
-This is the process to unpack, build and run the project from the command line. The descriptions below assume that:
+In this section you will learn how to unpack, build and run the project from the command line. The descriptions below
+assume that:
 
 - You have created and downloaded a project called `ktor-sample-app`.
 - This has been placed in a folder called `myprojects` in your home directory.
 
-Please alter the names and paths as required to match your own setup.
+If necessary, alter the names and paths to match your own setup.
+
+Open a command line tool of your choice and follow the steps:
 
 <procedure>
   <step>
@@ -65,12 +68,12 @@ Please alter the names and paths as required to match your own setup.
   </code-block>
   </step>
  <step>
-  <p>Ensure the only thing in this folder is the ZIP archive:</p>
+  <p>Ensure the folder only consists of the ZIP archive:</p>
   <code-block lang="console">
     ls
   </code-block>
- The `ls` command lists all the files and directories under the specified directory. The expected output is 
-  <code>ktor-sample-app.zip</code>.
+  <p>The <code>ls</code> command lists all the files and directories under the specified directory.</p>
+  <p>The expected output is <code>ktor-sample-app.zip</code>.</p>
   </step>
  <step>
   <p>Unpack the ZIP archive into a folder of the same name:</p>
@@ -105,7 +108,7 @@ Please alter the names and paths as required to match your own setup.
    <code-block lang="console">
     ls -l gradlew | cut -d " " -f 1
   </code-block>
-    <p>The 4th, 7th and 10th characters should be an ‘x’, for example <code>-rwxr-xr-x@</code>.</p>
+    <p>The 4th, 7th and 10th characters in the returned string should be an ‘x’, such as in <code>-rwxr-xr-x@</code>.</p>
     <p>Now that the <code>gradlew</code> script is executable, you can build the project via the Gradle build tool.</p>
   </step>
   <step>
@@ -122,7 +125,7 @@ Please alter the names and paths as required to match your own setup.
   </code-block>
   </step>
   <step>
-    <p>To verify the project is running, open a browser at the URL mentioned in the output (<a href="http://0.0.0.0:8080"/>).
+    <p>To verify the project is running, open a browser at the URL mentioned in the output (<a href="http://0.0.0.0:8080">http://0.0.0.0:8080</a>).
     You should see the message "Hello World!" displayed on the screen:</p>
     <img src="server_get_started_ktor_sample_app_output.png" alt="Output of generated ktor project" border-effect="line" width="706"/>
   </step>
@@ -131,7 +134,7 @@ Please alter the names and paths as required to match your own setup.
 Congratulations! You have successfully started your Ktor project.
 
 <p>Note that the command line is unresponsive because the underlying process is busy running the Ktor application. You can
-type <shortcut>CTRL+C</shortcut> to cancel the application.</p>
+press <shortcut>CTRL+C</shortcut> to terminate the application.</p>
 
 ## Open, explore and run in IntelliJ IDEA {id="open-explore-run"}
 
@@ -147,10 +150,13 @@ folder:
 idea .
 ```
 
-Alternatively, you can launch IntelliJ IDEA manually and then select the __Open__ command, either from the __Welcome__
-screen or from the __File__ menu. You can then navigate to the `ktor-sample-app` folder and select it.
-See [the IntelliJ IDEA documentation](https://www.jetbrains.com/help/idea/creating-and-managing-projects.html) for more
-details on managing projects.
+Alternatively, you can launch IntelliJ IDEA manually and go to **File | Open** in the main menu. Then, select
+the `ktor-sample-app` folder to open it.
+
+> For more details on managing projects,
+> see [the IntelliJ IDEA documentation](https://www.jetbrains.com/help/idea/creating-and-managing-projects.html).
+>
+{style="tip"}
 
 ### Explore the project {id="explore"}
 
@@ -158,7 +164,7 @@ Whichever option you choose, the project should open as shown below:
 
 ![Generated Ktor project view in IDE](server_get_started_idea_project_view.png){ width="706" }
 
-In order to explain the project layout we have expanded the structure in the __Project View__ and selected the
+In order to explain the project layout we have expanded the structure in the **Project** view and selected the
 file `settings-gradle.kts`.
 
 You will see that the code to run your application lives in packages under `src/main/kotlin`. The default package is
@@ -184,19 +190,19 @@ A skeleton test has been created in a package under `src/test/kotlin`.
 <procedure>
   <p>To run the project from within IntelliJ IDEA:</p>
   <step>
-    <p>Open the <a href="https://www.jetbrains.com/help/idea/jetgradle-tool-window.html">Gradle Tool Window</a>
+    <p>Open the <a href="https://www.jetbrains.com/help/idea/jetgradle-tool-window.html">Gradle tool window</a>
       by clicking the Gradle icon (<img alt="intelliJ IDEA gradle icon" src="intellij_idea_gradle_icon.svg" width="16" height="26"/>) on the right sidebar.</p>
     <img src="server_get_started_idea_gradle_tab.png" alt="Gradle tab in IntelliJ IDEA" border-effect="line" width="706"/>
   </step>
   <step>
-    <p>Within this tool window navigate to <b>Tasks > application</b>. Double-click on the <b>run</b> task.</p>
+    <p>Within this tool window navigate to <control>Tasks | application</control> and double-click on the <b>run</b> task.</p>
     <img src="server_get_started_idea_gradle_run.png" alt="Gradle tab in IntelliJ IDEA" border-effect="line" width="450"/>
   </step>
   <step>
-    <p>Your Ktor application should start in the <a href="https://www.jetbrains.com/help/idea/run-tool-window.html">Run tool window</a> at
+    <p>Your Ktor application will start in the <a href="https://www.jetbrains.com/help/idea/run-tool-window.html">Run tool window</a> at
     the bottom of the IDE:</p>
     <img src="server_get_started_idea_run_terminal.png" alt="Project running in terminal" width="706" />
-    <p>The same messages that were previously displayed on the command line should now appear in the <b>Run</b> tool window.</p>
+    <p>The same messages that were previously displayed on the command line will now be visible in the <b>Run</b> tool window.</p>
   </step>
   <step>
     <p>To confirm the project is running, open your browser at the specified URL
@@ -206,7 +212,7 @@ A skeleton test has been created in a package under `src/test/kotlin`.
   </step>
 </procedure>
 
-You can manage the application via the __Run__ tool window.
+You can manage the application via the **Run** tool window.
 
 - To terminate the application, click the stop button (![](intellij_idea_terminate_icon.svg){style="inline" height="16"
   width="16"}).
@@ -242,12 +248,12 @@ for you automatically.
 
 ### Change the default port
 
-In the __Project View__ navigate to the `src/main/kotlin` folder and then into the single package that has been created
+In the **Project** view navigate to the `src/main/kotlin` folder and then into the single package that has been created
 for you and follow the steps:
 
 <procedure>
   <step>
-    <p> Open the <code>Application.kt</code> file. You should find code similar to the following:</p>
+    <p>Open the <code>Application.kt</code> file. You should find code similar to the following:</p>
     <code-block lang="kotlin">
     fun main() {
         embeddedServer(
@@ -289,8 +295,8 @@ for you and follow the steps:
 
 ### Change the port via YAML
 
-When creating a new Ktor project, you have the option to store configuration externally, within either a __YAML__ or
-a __HOCON__ file:
+When creating a new Ktor project, you have the option to store configuration externally, within either a YAML or
+a HOCON file:
 
 ![Ktor project generator configuration options](ktor_project_generator_configuration_options.png){ width="400" }
 
@@ -298,7 +304,7 @@ If you had chosen to store configuration externally then this would be the code 
 
 ```Kotlin
 fun main(args: Array<String>): Unit =
-io.ktor.server.netty.EngineMain.main(args)
+    io.ktor.server.netty.EngineMain.main(args)
 
 
 @Suppress("unused")
@@ -343,15 +349,16 @@ with [changing the default port](#change-the-default-port) above.
 
 Next, you will create a new HTTP endpoint that will respond to a GET request.
 
+In the **Project** tool window, navigate to the `src/main/kotlin/com/example` folder and follow the steps:
+
 <procedure>
   <step>
-    <p>Navigate to the <code>Application.kt</code> file and find the <code>configureRouting()</code> function.</p>
+    <p>Open the <code>Application.kt</code> file and find the <code>configureRouting()</code> function.</p>
   </step>
   <step>
-    <p>In intelliJ IDEA, use the <a href="https://www.jetbrains.com/help/idea/navigating-through-the-source-code.html#go_to_declaration">Go-To Declaration</a>
-        to navigate to the <code>configureRouting()</code> function by placing the caret over the function name 
+    <p>In intelliJ IDEA, navigate to the <code>configureRouting()</code> function by placing the caret over the function name 
         and pressing <shortcut layout="macOS">⌘Cmd+C</shortcut>.</p>
-    <p>Alternatively, you can navigate to the function by opening the file <code>Routing.kt</code>.</p>
+    <p>Alternatively, you can navigate to the function by opening the <code>Routing.kt</code> file.</p>
     <p>This is the code you should see:</p>
     <code-block lang="kotlin">
     fun Application.configureRouting() {
@@ -393,9 +400,11 @@ Next, you will create a new HTTP endpoint that will respond to a GET request.
 
 ### Configure static content
 
+In the **Project** tool window, navigate to the `src/main/kotlin/com/example/plugins` folder and follow the steps:
+
 <procedure>
   <step>
-    <p>Open the file <code>Routing.kt</code>, as in the previous task.</p>
+    <p>Open the <code>Routing.kt</code> file.</p>
     <p>Once again this should be the default content:</p>
     <code-block lang="kotlin">
     fun Application.configureRouting() {
@@ -439,17 +448,17 @@ Next, you will create a new HTTP endpoint that will respond to a GET request.
     </code-block>
   </step>
   <step>
-    <p>In the <b>Project</b> tool window, right-click the <code>src/main/resources</code> folder and select <b>New | Directory</b>.</p>
-    <p>Alternatively, select the <code>src/main/resources</code> folder, press <shortcut layout="macOS">⌘Сmd+N</shortcut>, and click <b>Directory</b>.</p>
+    <p>In the <control>Project</control> tool window, right-click the <code>src/main/resources</code> folder and select <control>New | Directory</control>.</p>
+    <p>Alternatively, select the <code>src/main/resources</code> folder, press <shortcut layout="macOS">⌘Сmd+N</shortcut>, and click <control>Directory</control>.</p>
   </step>
   <step>
     <p>Name the new directory <code>mycontent</code> and press <shortcut>↩Enter</shortcut>.</p>
   </step>
   <step>
-    <p>Right-click on the newly created folder and click <b>New | File</b>.</p>
+    <p>Right-click on the newly created folder and click <control>New | File</control>.</p>
   </step>
   <step>
-    <p>Name the new file <code>sample.html</code> and press <shortcut>↩Enter</shortcut>.</p>
+    <p>Name the new file "sample.html" and press <shortcut>↩Enter</shortcut>.</p>
   </step>
   <step>
     <p>Populate the newly created file page with valid HTML, for example:</p>
@@ -476,9 +485,11 @@ underneath `src/test/kotlin`.
 Assuming you have accepted the default settings the class will be called `ApplicationTest` and will live in the
 package `com.example`.
 
+In the **Project** tool window, navigate to the `src/test/kotlin` folder and follow the steps:
+
 <procedure>
     <step>
-        <p>Open <code>ApplicationTest.kt</code> and add the code below:</p>
+        <p>Open the <code>ApplicationTest.kt</code> file and add the code below:</p>
         <code-block lang="kotlin">
         class ApplicationTest {
             @Test
@@ -521,15 +532,15 @@ add this additional test:
 ```Kotlin
 @Test
 fun testNewEndpoint() = testApplication {
-    application {
-        module()
-    }
+        application {
+            module()
+        }
 
-    val response = client.get("/test1")
-    assertEquals(HttpStatusCode.OK, response.status)
-    assertEquals("html", response.contentType()?.contentSubtype)
-    assertContains(response.bodyAsText(), "Hello From Ktor")
-}
+        val response = client.get("/test1")
+        assertEquals(HttpStatusCode.OK, response.status)
+        assertEquals("html", response.contentType()?.contentSubtype)
+        assertContains(response.bodyAsText(), "Hello From Ktor")
+    }
 ```
 
 The following additional import is required:
@@ -542,7 +553,8 @@ import kotlin.test.assertContains
 
 You can handle errors in your Ktor application by using the [StatusPages plugin](status_pages.md).
 
-This plugin is not included in your project by default. You could have added it to your project via the __Plugins__ section in the Ktor
+This plugin is not included in your project by default. You could have added it to your project via the **Plugins**
+section in the Ktor
 Project Generator, or the Project Wizard in IntelliJ IDEA. Since you've already created your project, in the next steps
 you will learn how to add and configure the plugin manually.
 
@@ -554,6 +566,7 @@ There are four steps to achieving this:
 4. [Restart and invoke the sample code.](#restart-and-invoke)
 
 <procedure title="Add a new dependency" id="add-dependency">
+  <p>In the <control>Project</control> tool window, navigate to the <code>src/test/kotlin</code> folder and follow the steps:</p>
     <step>
         <p>Open the <code>build.gradle.kts</code> file.</p>
     </step>
@@ -586,7 +599,7 @@ There are four steps to achieving this:
         <code-block lang="kotlin"
                     src="snippets/server-get-started/src/main/kotlin/com/example/plugins/Routing.kt"
                     include-lines="11-17,20-22,32-33"/>
-        <p>These lines install the StatusPages plugin and specify what actions to take
+        <p>These lines install the <code>StatusPages</code> plugin and specify what actions to take
         when an exception of type <code>IllegalStateException</code> is thrown.</p>
     </step>
     <step>
@@ -613,11 +626,11 @@ purpose of this task, the output is displayed directly in the browser.
 
 <procedure title="Restart and invoke the sample code" id="restart-and-invoke">
     <step>
-        <p>Restart the application.</p>
-    </step>
+      <p>Click on the rerun button (<img alt="intelliJ IDEA rerun button icon" src="intellij_idea_rerun_icon.svg" height="16" width="16" />)
+      to restart the application.</p>    </step>
     <step>
         <p>In your browser, navigate to the URL <a href="http://0.0.0.0:9292/error-test">http://0.0.0.0:9292/error-test</a>.
-You     should see the error message displayed as shown below:</p>
+        You should see the error message displayed as shown below:</p>
         <img src="server_get_started_register_error_handler_output.png" 
         alt="A browser screen with message `App in illegal state as Too Busy`" width="706"/>
     </step>
