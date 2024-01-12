@@ -43,12 +43,12 @@ To enable `JWT`authentication, you need to include the `ktor-server-auth` and `k
         <code-block lang="XML" title="Sample">
 &lt;dependency&gt;
 &lt;groupId&gt;io.ktor&lt;/groupId&gt;
-&lt;artifactId&gt;ktor-server-auth&lt;/artifactId&gt;
+&lt;artifactId&gt;ktor-server-auth-jvm&lt;/artifactId&gt;
 &lt;version&gt;${ktor_version}&lt;/version&gt;
 &lt;/dependency&gt;
 &lt;dependency&gt;
 &lt;groupId&gt;io.ktor&lt;/groupId&gt;
-&lt;artifactId&gt;ktor-server-auth-jwt&lt;/artifactId&gt;
+&lt;artifactId&gt;ktor-server-auth-jwt-jvm&lt;/artifactId&gt;
 &lt;version&gt;${ktor_version}&lt;/version&gt;
 &lt;/dependency&gt;
         </code-block>
