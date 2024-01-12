@@ -11,6 +11,9 @@ This ensures that the information contained within the token remains tamper-proo
 
 In the following sections, we will cover how such keys are generated and used alongside the [JWT Ktor authentication](jwt.md) plugin.
 
+You can follow along by using the [auth-jwt-rs256](https://github.com/ktorio/ktor-documentation/blob/1.6.8/codeSnippets/snippets/auth-jwt-rs256/) sample project's private key,
+found in `resources/application.conf`. Simply save the private key in a `.pk8` file and [skip to the second](#second-step) step first step.
+
 ## Generating an RSA private key
 
 To generate a private key, you can use `OpenSSL`, `ssh-keygen` or any other valid utility. For the rest of this page, we will
@@ -19,16 +22,16 @@ focus on OpenSSL.
 <tabs>
 <tab title="OpenSSL">
 <code-block lang="shell">
-openssl genpkey -algorithm rsa &gt; your_file_name.pk8
+openssl genpkey -algorithm rsa &gt; ktor.pk8
 </code-block>
 </tab>
 </tabs>
 
-This command generates a private key using the RSA algorithm and stores it in the specified file.
+This command generates a private key using the RSA algorithm and stores it in the specified file, here `ktor.pk8`.
 The content of the file is [Base64](https://en.wikipedia.org/wiki/Base64) encoded and thus, needs to be
 decoded before we can derive its public key.
 
-## Deriving the public key
+## Deriving the public key {id="second-step"}
 
 In order to derive the public key from your previously generated private key, you will need to perform
 the following steps:
@@ -37,20 +40,20 @@ the following steps:
 2) Extract the public key
 3) Save the public key in PEM format
 
-This will give you the private key in `your_file_name.pk8`, and the public key in `your_file_name.spki`.
+This will give you the private key in `ktor.pk8`, and the public key in `ktor.spki`.
 
 Let's see how to do this using OpenSSL:
 
 <tabs>
 <tab title="OpenSSL">
 <code-block lang="shell">
-base64 -d &lt; your_file_name.pk8 | openssl pkey -inform der -pubout | tee your_file_name.spki
+base64 -d &lt; ktor.pk8 | openssl pkey -inform der -pubout | tee ktor.spki
 </code-block>
 
 * `base64 -d < ktor.pk8`: This command decodes the Base64-encoded content of the `.pk8` file specified. The -d option is used for decoding.
 * `|`: Pipes the decoded output to the next command.
 * `openssl pkey -inform der -pubout`: This command reads the decoded content as [DER](https://en.wikipedia.org/wiki/X.690#DER_encoding) (Distinguished Encoding Rules) format, extracts the public key, and outputs it in [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) (Privacy Enhanced Mail) format. The `-inform der` specifies the input format as DER, and `-pubout` indicates that the public key should be output.
-* `tee your_file_name.spki`: The `tee` command is used to redirect the output to both the console and a file named `your_file_name.spki`. This file will contain the public key in PEM format.
+* `tee ktor.spki`: The `tee` command is used to redirect the output to both the console and a file named `ktor.spki`. This file will contain the public key in PEM format.
 </tab>
 </tabs>
 
@@ -69,11 +72,11 @@ This can easily be done with the following command:
 <tabs>
 <tab title="OpenSSL">
 <code-block lang="shell">
-openssl pkey -in your_file_name.spki -pubin -noout -text
+openssl pkey -in ktor.spki -pubin -noout -text
 </code-block>
 
 * `pkey`: This is the OpenSSL command-line utility for processing private and public keys.
-* `-in your_file_name.spki`: Specifies the input file containing the public key in PEM format. In this case, the input file is your_file_name.spki.
+* `-in ktor.spki`: Specifies the input file containing the public key in PEM format. In this case, the input file is ktor.spki.
 * `-pubin`: Indicates that the input file contains a public key. Without this option, OpenSSL would assume that the input file contains a private key.
 * `-noout`: This option prevents OpenSSL from outputting the encoded public key. The command will only display information about the public key, and the actual key won't be printed to the console.
 * `-text`: Requests that OpenSSL display the textual representation of the key. This includes details such as the key type, size, and the actual key data in human-readable form.
@@ -84,7 +87,7 @@ Let's see the sample output by using the key present in the official ktor [auth-
 You can find the private key in the [applciation.conf](https://github.com/ktorio/ktor-documentation/blob/1.6.8/codeSnippets/snippets/auth-jwt-rs256/src/main/resources/application.conf) file.
 
 ```Shell
-$ openssl pkey -in your_file_name.spki -pubin -noout -text
+$ openssl pkey -in ktor.spki -pubin -noout -text
 RSA Public-Key: (512 bit)
 Modulus:
     00:b5:f2:5a:2e:bc:d7:20:b5:20:d5:4d:cd:d4:a5:
