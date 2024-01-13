@@ -2,34 +2,34 @@
 
 [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) is a widely used public-key crypto-system that enables secure data transmission, digital signatures, and key exchange.
 
-RSA-256, part of the RSA (Rivest–Shamir–Adleman) encryption algorithm, 
-utilizes a 256-bit key size to secure digital communications. 
+RSA-256, part of the RSA (Rivest–Shamir–Adleman) encryption algorithm, utilizes SHA-256 for hashing and a key (usually 2048-bit, 4096-bit or higher) to secure digital communications. 
 
-In the realm of [JSON Web Token](https://jwt.io/) authentication,
-RSA-256 plays a crucial role since the integrity and authenticity of JWTs can be verified through signature mechanisms, such as RSA-256, where a public/private key pair is employed.
-This ensures that the information contained within the token remains tamper-proof and trustworthy.
+In the realm of [JSON Web Token](https://jwt.io/) authentication, RS256 plays a crucial role since the integrity and authenticity of JWTs can be verified through signature mechanisms, such as RS256, where a public/private key pair is employed. This ensures that the information contained within the token remains tamper-proof and trustworthy.
 
-In the following sections, we will cover how such keys are generated and used alongside the [JWT Ktor authentication](jwt.md) plugin.
+The following sections will cover how such keys are generated and used alongside the [JWT Ktor authentication](jwt.md) plugin.
 
 You can follow along by using the [auth-jwt-rs256](https://github.com/ktorio/ktor-documentation/blob/1.6.8/codeSnippets/snippets/auth-jwt-rs256/) sample project's private key,
-found in `resources/application.conf`. Simply save the private key in a `.pk8` file and [skip to the second](#second-step) step first step.
+found in `resources/application.conf`. Simply save the private key in a `.pk8` file and [skip to the second](#second-step) step.
+
+<tip>
+<p>
+For production use, it is recommended that you choose a more modern alternative, such as ES256, that's based on more modern, efficient, and secure cryptography. However, because RSA still has its uses and is supported by the JWT plugin, the documentation below uses RSA.
+</p>
+</tip>
 
 ## Generating an RSA private key
 
-To generate a private key, you can use `OpenSSL`, `ssh-keygen` or any other valid utility. For the rest of this page, we will
-focus on OpenSSL.
+To generate a private key, you can use `OpenSSL`, `ssh-keygen` or any other valid utility. For the rest of this page, OpenSSL will be used.
 
 <tabs>
 <tab title="OpenSSL">
 <code-block lang="shell">
-openssl genpkey -algorithm rsa &gt; ktor.pk8
+openssl genpkey -algorithm rsa -pkeyopt rsa_keygen_bits:2048 &gt; ktor.pk8
 </code-block>
 </tab>
 </tabs>
 
-This command generates a private key using the RSA algorithm and stores it in the specified file, here `ktor.pk8`.
-The content of the file is [Base64](https://en.wikipedia.org/wiki/Base64) encoded and thus, needs to be
-decoded before we can derive its public key.
+The [openssl genpkey](https://www.openssl.org/docs/man3.0/man1/openssl-genpkey.html) command generates a private 2048-bit key using the RSA algorithm and stores it in the specified file, here `ktor.pk8`. The content of the file is [Base64](https://en.wikipedia.org/wiki/Base64) encoded and thus, needs to be decoded before the public key can be derived.
 
 ## Deriving the public key {id="second-step"}
 
@@ -112,6 +112,7 @@ see how to convert them to decimal and encode them properly.
 We now need to convert the hexadecimal representation of the exponent and modulus to their respective [Base64URL](https://en.wikipedia.org/wiki/Base64#URL_applications) encodings.
 
 ### Exponent
+
 Let us begin with the exponent attribute which has a hex value of `0x10001`. 
 
 <tabs>
@@ -127,7 +128,7 @@ echo 010001 | xxd -p -r | base64
 
 <note>
 <p>
-Note that we used an even number of hex digits by padding an extra 0 to the left.
+Note that an even number of hex digits was used by padding an extra 0 to the left.
 </p>
 </note>
 </tab>
@@ -140,13 +141,11 @@ $ echo 010001 | xxd -p -r | base64
 AQAB
 ```
 
-The Base64URL encoded value of the exponent is `AQAB` and does not require further processing for this case.
-In other cases, you may need to use the `tr` command as we will see in the next step.
+The Base64URL encoded value of the exponent is `AQAB` and does not require further processing for this case. In other cases, you may need to use the `tr` command as you will see in the next step.
 
 ### Modulus
 
-Let's perform the same process now, for the `n` attribute. This time, we will use the `tr` utility to
-further process the hexadecimal representation of the modulus.
+Let's perform the same process now, for the `n` attribute. This time, you will use the `tr` utility to further process the hexadecimal representation of the modulus.
 
 <tabs>
 <tab title="OpenSSL">
@@ -181,24 +180,26 @@ $ echo "b5:f2:5a:2e:bc:d7:20:b5:20:d5:4d:cd:d4:a5:
 tfJaLrzXILUg1U3N1KV8yJr92GHn5OtYZR7qWk1Mc4cy4JGjklYup7weMjBD9f3bBVoIsiUVX6xNcYIr0Ie0AQ
 ```
 
-<note>
+<tip>
 <p>
-Note that the leading 00 byte has been omitted; that's an artifact of the ASN.1 encoding.
+Note that the leading 00 byte has been omitted. The leading 00 byte in the modulus is related to the ASN.1 encoding of the RSA public key. In the ASN.1 DER encoding of integers, the leading zero byte is removed if the most significant bit of the integer is 0. This is a standard part of ASN.1 encoding rules.
+In the context of RSA public keys, the modulus is a big-endian integer, and when represented in DER encoding, it follows these rules. The removal of the leading zero byte is done to ensure that the integer is interpreted correctly according to the DER rules.
 </p>
-</note>
+</tip>
 
-By leveraging the `tr` command properly, the modulus field has been encoded into a Base64URL string that we can use in our `jwks.json` file.
+By leveraging the `tr` command properly, the modulus field has been encoded into a Base64URL string that you can use in your `jwks.json` file.
+
 ## Populating the jwks.json file
 
-In the previous steps, we gathered the following necessary information:
+In the previous steps, you gathered the following necessary information:
 
 1) An RSA key-pair
 2) The modulus of the RSA public key in Base64URL format
 3) The exponent of the RSA public key in Base64URL format
 
-With these at hand, we can now populate the [jwks.json](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-key-sets) file of our ktor project. 
-Simply specify the `e` and `n` values with the Base64URL encoded values we produced earlier respectively, specify a key id (in this case, we are using the `kid` from
-the sample project but you can use any string you like) and the `kty` attribute as `RSA`:
+With these at hand, you can now populate the [jwks.json](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-key-sets) file of your ktor project. 
+Simply specify the `e` and `n` values with the Base64URL encoded values you produced earlier respectively, specify a key id (in this case, you will be using the `kid` from
+the sample project, but you can use any string you like) and the `kty` attribute as `RSA`:
 
 ```json
 {
@@ -217,11 +218,9 @@ All that's left now, is to specify your private key so that your Ktor project ca
 
 ## Defining the private key
 
-With your public key information set up, the last step is to provide your Ktor project with access
-to your private key.
+With your public key information set up, the last step is to provide your Ktor project with access to your private key.
 
-Assuming that you have extracted your private key (that you generated at the beginning in your `.pk8` file) into an environment variable on your system, called `jwt_pk` in this case, your `resources/application.conf` file's jwt section
-should look similar to:
+Assuming that you have extracted your private key (that you generated at the beginning in your `.pk8` file) into an environment variable on your system, called `jwt_pk` in this case, your `resources/application.conf` file's jwt section should look similar to:
 
 ```
 jwt {
@@ -234,7 +233,6 @@ jwt {
 
 <tip>
 <p>
-Your private key is considered sensitive information and should not be stored directly in code. You should
-consider using environment variables for sensitive data.
+Your private key is considered sensitive information and should not be stored directly in code. Consider using environment variables or a secret store for sensitive data.
 </p>
 </tip>
