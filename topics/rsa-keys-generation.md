@@ -2,18 +2,18 @@
 
 [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) is a widely used public-key crypto-system that enables secure data transmission, digital signatures, and key exchange.
 
-RSA-256, part of the RSA (Rivest–Shamir–Adleman) encryption algorithm, utilizes SHA-256 for hashing and a key (usually 2048-bit, 4096-bit or higher) to secure digital communications. 
+RS256, part of the RSA (Rivest–Shamir–Adleman) encryption algorithm, utilizes SHA-256 for hashing and a key (usually 2048-bit, 4096-bit or higher) to secure digital communications. 
 
 In the realm of [JSON Web Token](https://jwt.io/) authentication, RS256 plays a crucial role since the integrity and authenticity of JWTs can be verified through signature mechanisms, such as RS256, where a public/private key pair is employed. This ensures that the information contained within the token remains tamper-proof and trustworthy.
 
 The following sections will cover how such keys are generated and used alongside the [JWT Ktor authentication](jwt.md) plugin.
 
-You can follow along by using the [auth-jwt-rs256](https://github.com/ktorio/ktor-documentation/blob/1.6.8/codeSnippets/snippets/auth-jwt-rs256/) sample project's private key,
+You can follow along by using the [auth-jwt-rs256](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/auth-jwt-rs256/) sample project's private key,
 found in `resources/application.conf`. Simply save the private key in a `.pk8` file and [skip to the second](#second-step) step.
 
 <tip>
 <p>
-For production use, it is recommended that you choose a more modern alternative, such as ES256, that's based on more modern, efficient, and secure cryptography. However, because RSA still has its uses and is supported by the JWT plugin, the documentation below uses RSA.
+For production use, it is recommended that you choose a more modern alternative, such as <a href="https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm">ES256</a>, that's based on more modern, efficient, and secure cryptography. However, because RSA still has its uses and is supported by the JWT plugin, the documentation below uses RSA.
 </p>
 </tip>
 
@@ -83,8 +83,8 @@ openssl pkey -in ktor.spki -pubin -noout -text
 </tab>
 </tabs>
 
-Let's see the sample output by using the key present in the official ktor [auth-jwt-rs256 sample](https://github.com/ktorio/ktor-documentation/tree/1.6.8/codeSnippets/snippets/auth-jwt-rs256).
-You can find the private key in the [applciation.conf](https://github.com/ktorio/ktor-documentation/blob/1.6.8/codeSnippets/snippets/auth-jwt-rs256/src/main/resources/application.conf) file.
+Let's see the sample output by using the key present in the official ktor [auth-jwt-rs256 sample](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-jwt-rs256).
+You can find the private key in the [applciation.conf](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/auth-jwt-rs256/src/main/resources/application.conf) file.
 
 ```Shell
 $ openssl pkey -in ktor.spki -pubin -noout -text
@@ -157,6 +157,13 @@ echo "b5:f2:5a:2e:bc:d7:20:b5:20:d5:4d:cd:d4:a5:
     2b:d0:87:b4:01" | tr -d ": \n" | xxd -p -r | base64 | tr +/ -_ | tr -d "=\n"
 </code-block>
 
+<note>
+<p>
+Note that the leading 00 byte has been omitted. The leading 00 byte in the modulus is related to the ASN.1 encoding of the RSA public key. In the ASN.1 DER encoding of integers, the leading zero byte is removed if the most significant bit of the integer is 0. This is a standard part of ASN.1 encoding rules.
+In the context of RSA public keys, the modulus is a big-endian integer, and when represented in DER encoding, it follows these rules. The removal of the leading zero byte is done to ensure that the integer is interpreted correctly according to the DER rules.
+</p>
+</note>
+
 * `echo "b5:f2:5a:2e:bc:d7:20:b5:20:d5:4d:cd:d4:a5: \ ... "`: This part of the command echoes a multi-line hexadecimal string, representing a series of bytes. The backslashes at the end of each line indicate line continuation.
 * `tr -d ": \n"`: The `tr` command is used to delete characters specified in the argument list.
 Here, it removes colons, spaces, and newline characters from the hexadecimal string, making it a continuous string of hex digits.
@@ -179,13 +186,6 @@ $ echo "b5:f2:5a:2e:bc:d7:20:b5:20:d5:4d:cd:d4:a5:
     2b:d0:87:b4:01" | tr -d ": \n" | xxd -p -r | base64 | tr +/ -_ | tr -d "=\n"
 tfJaLrzXILUg1U3N1KV8yJr92GHn5OtYZR7qWk1Mc4cy4JGjklYup7weMjBD9f3bBVoIsiUVX6xNcYIr0Ie0AQ
 ```
-
-<tip>
-<p>
-Note that the leading 00 byte has been omitted. The leading 00 byte in the modulus is related to the ASN.1 encoding of the RSA public key. In the ASN.1 DER encoding of integers, the leading zero byte is removed if the most significant bit of the integer is 0. This is a standard part of ASN.1 encoding rules.
-In the context of RSA public keys, the modulus is a big-endian integer, and when represented in DER encoding, it follows these rules. The removal of the leading zero byte is done to ensure that the integer is interpreted correctly according to the DER rules.
-</p>
-</tip>
 
 By leveraging the `tr` command properly, the modulus field has been encoded into a Base64URL string that you can use in your `jwks.json` file.
 
@@ -233,6 +233,6 @@ jwt {
 
 <tip>
 <p>
-Your private key is considered sensitive information and should not be stored directly in code. Consider using environment variables or a secret store for sensitive data.
+Your private key is considered sensitive information and should not be stored directly in code. Consider using environment variables or a <a href="https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html">secret store</a> for sensitive data.
 </p>
 </tip>
