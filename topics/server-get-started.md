@@ -11,14 +11,26 @@
 Learn how to open, run and test a server application with Ktor.
 </link-summary>
 
+Welcome to the Get Started guide for Ktor Server!
+
+This is the first of a series of tutorials to get you started with
+building server applications with Ktor. You can do the tutorials individually,
+however, we strongly recommend that you do them in the suggested order:
+
+1. Get started with Ktor Server.
+2. [Create HTTP APIs](creating_http_apis.md).
+3. [Create a static website](creating_static_website.md).
+4. [Create an interactive website](creating_interactive_website.md).
+5. [Create a WebSocket chat](creating_web_socket_chat.md).
+
 In this section, you will learn how to create, open and run
 your first Ktor server project. Once you get up and running, you can attempt a series of tasks to familiarize yourself
 with Ktor.
 
 ## Create a new Ktor project {id="create-project"}
 
-One of the fastest ways to create a new Ktor project is by using
-the [Ktor project generator](https://start.ktor.io/?_ga=2.179570276.13899987.1704363276-861017825.1700565260&_gl=1*422eap*_ga*ODYxMDE3ODI1LjE3MDA1NjUyNjA.*_ga_9J976DJZ68*MTcwNDM3MTUzOC40OS4xLjE3MDQzNzI5NDMuNTQuMC4w#/settings?name=ktor-sample-app&website=example.com&artifact=com.example.ktor-sample&kotlinVersion=1.9.22&ktorVersion=2.3.7&buildSystem=GRADLE&engine=NETTY&configurationIn=CODE&addSampleCode=true&plugins=).
+One of the fastest ways to create a new Ktor project is by using the
+web-based [Ktor project generator](https://start.ktor.io/?_ga=2.179570276.13899987.1704363276-861017825.1700565260&_gl=1*422eap*_ga*ODYxMDE3ODI1LjE3MDA1NjUyNjA.*_ga_9J976DJZ68*MTcwNDM3MTUzOC40OS4xLjE3MDQzNzI5NDMuNTQuMC4w#/settings?name=ktor-sample-app&website=example.com&artifact=com.example.ktor-sample&kotlinVersion=1.9.22&ktorVersion=2.3.7&buildSystem=GRADLE&engine=NETTY&configurationIn=CODE&addSampleCode=true&plugins=).
 
 To create a new project, follow the steps below:
 
@@ -73,7 +85,11 @@ Open a command line tool of your choice and follow the steps:
     ls
   </code-block>
   <p>The <code>ls</code> command lists all the files and directories under the specified directory.</p>
-  <p>The expected output is <code>ktor-sample-app.zip</code>.</p>
+  <p>The expected output is:</p>
+  <code-block prompt="$ " lang="console">
+  ls
+  ktor-sample-app.zip
+  </code-block>
   </step>
  <step>
   <p>Unpack the ZIP archive into a folder of the same name:</p>
@@ -108,7 +124,11 @@ Open a command line tool of your choice and follow the steps:
    <code-block lang="console">
     ls -l gradlew | cut -d " " -f 1
   </code-block>
-    <p>The 4th, 7th and 10th characters in the returned string should be an ‘x’, such as in <code>-rwxr-xr-x@</code>.</p>
+    <p>The 4th, 7th and 10th characters in the returned string should be an ‘x':</p>
+    <code-block prompt="$ " lang="console">
+    ls -l gradlew | cut -d " " -f 1
+    -rwxr-xr-x@
+    </code-block>
     <p>Now that the <code>gradlew</code> script is executable, you can build the project via the Gradle build tool.</p>
   </step>
   <step>
@@ -150,7 +170,9 @@ folder:
 idea .
 ```
 
-Alternatively, you can launch IntelliJ IDEA manually and go to **File | Open** in the main menu. Then, select
+Alternatively, to open the project manually launch IntelliJ IDEA.
+
+If the Welcome screen opens, click **Open**. Otherwise, go to **File | Open** in the main menu and select
 the `ktor-sample-app` folder to open it.
 
 > For more details on managing projects,
@@ -216,8 +238,8 @@ You can manage the application via the **Run** tool window.
 
 - To terminate the application, click the stop button (![](intellij_idea_terminate_icon.svg){style="inline" height="16"
   width="16"}).
-- To restart the process, click the rerun button (![](intellij_idea_rerun_icon.svg){style="inline" height="16" width="
-  16"}).
+- To restart the process, click the rerun button (![](intellij_idea_rerun_icon.svg){style="inline" height="16"
+  width="16"}).
 
 These options are explained further
 in [the IntelliJ IDEA Run Tool Window documentation](https://www.jetbrains.com/help/idea/run-tool-window.html#run-toolbar).
@@ -637,3 +659,9 @@ purpose of this task, the output is displayed directly in the browser.
 </procedure>
 
 ## What's next
+
+If you've made it to the end of the additional tasks, you now have a grasp of configuring the Ktor
+server, integrating a Ktor plugin, and implementing a new route. However, this is just the beginning. To delve deeper
+into the foundational concepts of Ktor, continue to the next tutorials in this guide.
+
+In the next tutorial, you will learn about routing a requests by [creating an HTTP API](creating_http_apis.md).
