@@ -11,11 +11,11 @@
 Learn how to open, run and test a server application with Ktor.
 </link-summary>
 
-Welcome to the Get Started guide for Ktor Server!
+Welcome to the Get Started with Ktor Server guide!
 
 This is the first of a series of tutorials to get you started with
-building server applications with Ktor. You can do the tutorials individually,
-however, we strongly recommend that you do them in the suggested order:
+building server applications with Ktor. You can do each tutorial independently,
+however, we strongly recommend that you follow the suggested order:
 
 1. Get started with Ktor Server.
 2. [Create HTTP APIs](creating_http_apis.md).
@@ -658,10 +658,10 @@ purpose of this task, the output is displayed directly in the browser.
     </step>
 </procedure>
 
-## What's next
+## Next steps
 
 If you've made it to the end of the additional tasks, you now have a grasp of configuring the Ktor
 server, integrating a Ktor plugin, and implementing a new route. However, this is just the beginning. To delve deeper
-into the foundational concepts of Ktor, continue to the next tutorials in this guide.
+into the foundational concepts of Ktor, continue to the next tutorial in this guide.
 
-In the next tutorial, you will learn about routing a requests by [creating an HTTP API](creating_http_apis.md).
+Next up, you will learn about routing a requests by [creating an HTTP API](creating_http_apis.md).
