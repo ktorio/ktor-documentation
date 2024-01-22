@@ -10,9 +10,9 @@
                  accepts-web-file-names-ref="kotlin_docs"/>
 
     <toc-element toc-title="Ktor Server">
+        <toc-element topic="intellij-idea.topic"/>
         <toc-element toc-title="Getting started with Ktor Server" topic="server-get-started.md"
                      accepts-web-file-names="getting-started.html">
-            <toc-element topic="intellij-idea.topic"/>
             <toc-element topic="creating_http_apis.md"
                          accepts-web-file-names-ref="tutorials"/>
             <toc-element toc-title="Creating a website">
