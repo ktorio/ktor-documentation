@@ -244,12 +244,6 @@ You can manage the application via the **Run** tool window.
 These options are explained further
 in [the IntelliJ IDEA Run Tool Window documentation](https://www.jetbrains.com/help/idea/run-tool-window.html#run-toolbar).
 
-> Note that if you try to start a second copy of the application, whilst the first is already running, then the second
-> will be unable to run. This is one of several common errors that developers encounter when beginning to write
-> server-side code. You can find these errors, plus their resolutions, explained in the [Common Problems document]().
->
-{style="tip"}
-
 ## Additional Tasks To Attempt {id="additional-tasks"}
 
 Here are some additional tasks you may wish to try:
