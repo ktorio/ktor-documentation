@@ -2,6 +2,8 @@
 
 <show-structure for="chapter" depth="2"/>
 
+<var name="plugin_name" value="Authentication JWT"/>
+
 <tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:ktor-server-auth</code>, <code>io.ktor:ktor-server-auth-jwt</code>
@@ -14,7 +16,11 @@
 <include from="lib.topic" element-id="native_server_not_supported"/>
 </tldr>
 
-[JSON Web Token](https://jwt.io/) is an open standard that defines a way for securely transmitting information between parties as a JSON object. This information can be verified and trusted since it is signed using a shared secret (with the `HS256` algorithm) or a public/private key pair (for example, `RS256`).
+<link-summary>
+The %plugin_name% plugin allows you to authenticate clients using Json Web Token. 
+</link-summary>
+
+[JSON Web Token (JWT)](https://jwt.io/) is an open standard that defines a way for securely transmitting information between parties as a JSON object. This information can be verified and trusted since it is signed using a shared secret (with the `HS256` algorithm) or a public/private key pair (for example, `RS256`).
 
 Ktor handles JWTs passed in the `Authorization` header using the `Bearer` schema and allows you to:
 * verify the signature of a JSON web token;
