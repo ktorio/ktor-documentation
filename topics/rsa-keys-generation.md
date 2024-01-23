@@ -29,8 +29,8 @@ For production use, it is recommended that you choose a more modern alternative,
 
 ## Generating an RSA private key
 
-To generate a private key, you can use OpenSSL, `ssh-keygen` or any other valid utility. For demonstration purposes,
-OpenSSL will be used.
+To generate a private key, you can use OpenSSL, `ssh-keygen` or another tool of your choice for creating authentication
+key pairs. For demonstration purposes, OpenSSL will be used.
 
 In a new terminal window, run the following command:
 
