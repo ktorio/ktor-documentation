@@ -80,18 +80,6 @@ Open a command line tool of your choice and follow the steps:
   </code-block>
   </step>
  <step>
-  <p>Ensure the folder only consists of the ZIP archive:</p>
-  <code-block lang="console">
-    ls
-  </code-block>
-  <p>The <code>ls</code> command lists all the files and directories under the specified directory.</p>
-  <p>The expected output is:</p>
-  <code-block prompt="$ " lang="console">
-  ls
-  ktor-sample-app.zip
-  </code-block>
-  </step>
- <step>
   <p>Unpack the ZIP archive into a folder of the same name:</p>
   <tabs>
     <tab title="macOS" group-key="macOS">
@@ -114,35 +102,45 @@ Open a command line tool of your choice and follow the steps:
     </code-block>
   </step>
   <step>
-    <p>Use the <code>chmod</code> command to make the gradlew Gradle helper script executable:</p>
-   <code-block lang="console">
-    chmod +x ./gradlew
-  </code-block>
-  </step>
-  <step>
-    <p>You can verify that the file is executable by examining the first word of output from <code>ls -l</code>.</p>
-   <code-block lang="console">
-    ls -l gradlew | cut -d " " -f 1
-  </code-block>
-    <p>The 4th, 7th and 10th characters in the returned string should be an ‘x':</p>
-    <code-block prompt="$ " lang="console">
-    ls -l gradlew | cut -d " " -f 1
-    -rwxr-xr-x@
-    </code-block>
-    <p>Now that the <code>gradlew</code> script is executable, you can build the project via the Gradle build tool.</p>
+    <p>On macOS/UNIX systems, you will need to make the gradlew Gradle helper script executable. To do that, use the <code>chmod</code> command:</p>
+    <tabs>
+    <tab title="macOS" group-key="macOS">
+       <code-block lang="console">
+        chmod +x ./gradlew
+      </code-block>
+    </tab>
+    </tabs>
   </step>
   <step>
     <p>To build the project, use the following command:</p>
-   <code-block lang="console">
-    ./gradlew build
-  </code-block>
+    <tabs>
+    <tab title="macOS" group-key="macOS">
+       <code-block lang="console">
+        ./gradlew build
+      </code-block>
+    </tab>
+    <tab title="Windows" group-key="windows">
+       <code-block lang="console">
+      gradlew build
+      </code-block>
+    </tab>
+    </tabs>
     <p>If you see that your build has been successful you can execute the project, again via Gradle.</p>
   </step>
   <step>
     <p>To run the project, use the following command:</p>
-   <code-block lang="console">
-    ./gradlew run
-  </code-block>
+ <tabs>
+    <tab title="macOS" group-key="macOS">
+       <code-block lang="console">
+        ./gradlew run
+      </code-block>
+    </tab>
+    <tab title="Windows" group-key="windows">
+       <code-block lang="console">
+      gradlew run
+      </code-block>
+    </tab>
+    </tabs>
   </step>
   <step>
     <p>To verify the project is running, open a browser at the URL mentioned in the output (<a href="http://0.0.0.0:8080">http://0.0.0.0:8080</a>).
