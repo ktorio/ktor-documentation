@@ -29,7 +29,7 @@
         <algolia-api-key>8c2683cac2d71d547b55183297abb506</algolia-api-key>
         <algolia-id>OHIV241QET</algolia-id>
         <algolia-index>prod_JETBRAINSCOM_HELP</algolia-index>
-
+        <config-algloia-product-version>3.0.0</config-algloia-product-version>
         <analytics-head-script-file>google-analytics-code.html</analytics-head-script-file>
         <analytics-body-html-file>google-analytics-noscript.html</analytics-body-html-file>
 
