@@ -65,6 +65,7 @@
                     <a href="authentication.md"/>
                     <a href="sessions.md"/>
                     <a href="websocket.md"/>
+                    <a href="sse_server.md"/>
                     <a href="swagger-ui.md"/> / <a href="openapi.md"/>
                     <a href="custom_plugins.md"/>
                 </group>
@@ -121,8 +122,10 @@
                     <a href="auth.md"/>
                     <a href="http-cookies.md"/>
                     <a href="content-encoding.md"/>
+                    <a href="bom-remover.md"/>
                     <a href="client-caching.md"/>
                     <a href="websocket_client.md"/>
+                    <a href="sse_client.md"/>
                     <a href="client-custom-plugins.md"/>
                 </group>
                 <group>

@@ -11,7 +11,7 @@ class ApplicationTest {
     fun outputContainsCompressionHeader() {
         val output = runGradleAppWaiting().inputStream.readString()
 
-        assertThat(output, containsString("Content-Encoding: deflate"))
+        assertThat(output, containsString("Content-Encoding: [deflate]"))
         assertThat(output, containsString("Body: Hello, world!"))
     }
 }

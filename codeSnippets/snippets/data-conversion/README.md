@@ -13,15 +13,10 @@ To run the service, execute the following command in a repository's root directo
 
 ## Test
 
-Open [get.http](get.http) and run a `GET` request by clicking on the `play` button in the intelliJ IDEA editor.
+1. Open [get.http](get.http).
+2. Run the `GET` request by clicking on the `play` button from the intelliJ IDEA editor.
 
-The first `GET` request calls the `/article` endpoint with parameter `article=a`. The expected response is:
-
-```
-The received article is A
-```
-
-The second `GET` request calls the `/date` endpoint with parameter `date=20170501`. The expected response is:
+The `GET` request calls the `/date` endpoint with parameter `date=20170501`. The expected response is:
 
 ```
 The date is 2017-05-01

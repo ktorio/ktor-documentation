@@ -16,12 +16,12 @@ To create the application distribution, you need to apply the Ktor plugin first:
 1. Open the `build.gradle.kts` file and add the plugin to the `plugins` block:
    ```kotlin
    ```
-   {src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="5,8-9"}
+   {src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="4,7-8"}
 
 2. Make sure the [main application class](server-dependencies.topic#create-entry-point) is configured:
    ```kotlin
    ```
-   {src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="11-13"}
+   {src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="10-12"}
 
 
 ## Package the application {id="package"}

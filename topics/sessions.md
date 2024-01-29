@@ -182,7 +182,14 @@ To sign and encrypt a session, pass a sign/encrypt keys to the `SessionTransport
 
 ```kotlin
 ```
+
 {src="snippets/session-cookie-client/src/main/kotlin/cookieclient/Application.kt" include-lines="12-20"}
+
+> Note that the [encryption method has been updated](migrating-3.md#session-encryption-method-update) in Ktor
+> version `3.0.0`. If you are migrating from an earlier version, use the `backwardCompatibleRead` property in the
+> constructor of `SessionTransportTransformerEncrypt` to ensure compatibility with existing sessions.
+>
+{style="note"}
 
 By default, `SessionTransportTransformerEncrypt` uses the `AES` and `HmacSHA256` algorithms, which can be changed. 
 

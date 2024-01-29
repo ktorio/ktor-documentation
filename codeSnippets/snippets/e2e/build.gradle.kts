@@ -14,5 +14,4 @@ dependencies {
     implementation("junit:junit:$junit_version")
     api("io.ktor:ktor-server-core:$ktor_version")
     api("io.ktor:ktor-server-cio:$ktor_version")
-    api("io.ktor:ktor-server-host-common:$ktor_version")
 }

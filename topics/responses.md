@@ -56,18 +56,31 @@ To enable serialization of data objects in Ktor, you need to install the [Conten
 
 You can find the full example here: [json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/json-kotlinx).
 
+[//]: # (TODO: Check link for LocalPathFile)
 
 ### File {id="file"}
-To respond to a client with a content of a file, use the [call.respondFile](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.response/respond-file.html) function. A code sample below shows how to send a specified file in a response and make this file downloadable by adding the `Content-Disposition` [header](#headers):
+
+To respond to a client with a content of a file, you have two options:
+
+- For `File` resources, use
+  the [call.respondFile](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.response/respond-file.html)
+  function.
+- For `Path` resources, use the `call.respond()` function with
+  the [LocalPathContent](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.http.content/-local-path-content/index.html)
+  class.
+
+A code sample below shows how to send a specified file in a response and make this file downloadable by adding the `Content-Disposition` [header](#headers):
+
 ```kotlin
 ```
-{src="snippets/download-file/src/main/kotlin/com/example/DownloadFile.kt" include-lines="3-25"}
+{src="snippets/download-file/src/main/kotlin/com/example/DownloadFile.kt" include-lines="3-35"}
 
 Note that this sample has two plugins installed:
 - [PartialContent](partial-content.md) enables the server to respond to requests with the `Range` header and send only a portion of content.
 - [AutoHeadResponse](autoheadresponse.md) provides the ability to automatically respond to `HEAD` request for every route that has a `GET` defined. This allows the client application to determine the file size by reading the `Content-Length` header value.
 
-To learn how to run the sample, see [download-file](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/download-file).
+For the full code sample,
+see [download-file](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/download-file).
 
 
 ### Raw payload {id="raw"}

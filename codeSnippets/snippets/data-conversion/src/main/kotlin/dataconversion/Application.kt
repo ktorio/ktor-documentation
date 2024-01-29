@@ -1,7 +1,6 @@
 package dataconversion
 
 import io.ktor.server.application.*
-import io.ktor.server.locations.*
 import io.ktor.server.plugins.dataconversion.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
@@ -13,17 +12,9 @@ import java.time.format.SignStyle
 import java.time.temporal.ChronoField
 import java.util.*
 
-enum class ArticleEnum {
-    A, B, C
-}
-
-@Location("/")
-class LocationWithEnum(val article: ArticleEnum)
-
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
 fun Application.module() {
-    install(Locations)
     install(DataConversion) {
         convert<LocalDate> { // this: DelegatingConversionService
             val formatter = DateTimeFormatterBuilder()
@@ -40,18 +31,9 @@ fun Application.module() {
                 listOf(SimpleDateFormat.getInstance().format(value))
             }
         }
-        convert<ArticleEnum> {
-            decode { values ->
-                ArticleEnum.entries.first { it.name.lowercase() in values }
-            }
-            encode { value -> listOf(value.name.lowercase()) }
-        }
     }
 
     routing {
-        get<LocationWithEnum> { data ->
-            call.respondText("The received article is ${data.article.name}")
-        }
         get("/date") {
             val encodedDate = application.conversionService.toValues(call.parameters["date"])
             val decodedDate = application.conversionService.fromValues(encodedDate, typeInfo<LocalDate>())

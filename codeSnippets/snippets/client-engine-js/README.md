@@ -1,6 +1,7 @@
 # Client - JavaScript engine
 
-A sample Ktor project showing how to use the [JavaScript](https://ktor.io/docs/http-client-engines.html#js) client engine.
+A sample Ktor project showing how to use the [JavaScript](https://ktor.io/docs/http-client-engines.html#js) client
+engine.
 > This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running
@@ -16,7 +17,7 @@ Then, run [cors](../cors):
 Open another terminal tab and run this sample by executing the following command:
 
 ```bash
-./gradlew :client-engine-js:browserProductionRun --continuous
+./gradlew :client-engine-js:jsBrowserProductionRun --continuous
 ```
 
 On the opened page, click the button to make a request.

@@ -108,7 +108,7 @@ To add the dependencies, open the `shared/build.gradle.kts` file and follow the 
 
 To use coroutines in [Android code](#android-activity), you need to add `kotlinx.coroutines` to your project:
 
-1. Open the `gradle/libs.versions.toml` file and specify the kotlinx version and libraries:
+1. Open the `gradle/libs.versions.toml` file and specify the coroutines version and libraries:
 
     ```kotlin
     ```

@@ -6,6 +6,11 @@
   },
   {
     "version": "2.3.7",
+    "url": "/docs/2.3.7",
+    "isCurrent": false
+  },
+  {
+    "version": "3.0.0",
     "url": "/docs/",
     "isCurrent": false
   },

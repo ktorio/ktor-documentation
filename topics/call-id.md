@@ -15,6 +15,10 @@
 <include from="lib.topic" element-id="native_server_supported"/>
 </tldr>
 
+<link-summary>
+The %plugin_name% server plugin allows you to trace client requests by using unique call IDs.
+</link-summary>
+
 The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-call-id/io.ktor.server.plugins.callid/-call-id.html) plugin allows you to trace client requests end-to-end by using unique request IDs or call IDs. Typically, working with a call ID in Ktor might look as follows:
 1. First, you need to obtain a call ID for a specific request in one of the following ways:
    * A reverse proxy (such as Nginx) or cloud provider (such as [Heroku](heroku.md)) might add a call ID in a specific header, for example, `X-Request-Id`. In this case, Ktor allows you to [retrieve](#retrieve) a call ID.

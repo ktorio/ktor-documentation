@@ -13,5 +13,5 @@ fun main(args: Array<String>) {
         generateCertificate(file)
     }
     // run embedded server
-    embeddedServer(Netty, commandLineEnvironment(args)).start()
+    EmbeddedServer(CommandLineConfig(args).applicationProperties, Netty).start()
 }

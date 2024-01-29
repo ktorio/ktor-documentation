@@ -8,8 +8,16 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import org.slf4j.*
 import java.io.*
+import java.security.KeyStore
 
 fun main() {
+    embeddedServer(Netty, applicationEnvironment { log = LoggerFactory.getLogger("ktor.application") }, {
+        envConfig()
+    }, module = Application::module).start(wait = true)
+}
+
+private fun ApplicationEngine.Configuration.envConfig() {
+
     val keyStoreFile = File("build/keystore.jks")
     val keyStore = buildKeyStore {
         certificate("sampleAlias") {
@@ -19,23 +27,17 @@ fun main() {
     }
     keyStore.saveToFile(keyStoreFile, "123456")
 
-    val environment = applicationEngineEnvironment {
-        log = LoggerFactory.getLogger("ktor.application")
-        connector {
-            port = 8080
-        }
-        sslConnector(
-            keyStore = keyStore,
-            keyAlias = "sampleAlias",
-            keyStorePassword = { "123456".toCharArray() },
-            privateKeyPassword = { "foobar".toCharArray() }) {
-            port = 8443
-            keyStorePath = keyStoreFile
-        }
-        module(Application::module)
+    connector {
+        port = 8080
     }
-
-    embeddedServer(Netty, environment).start(wait = true)
+    sslConnector(
+        keyStore = keyStore,
+        keyAlias = "sampleAlias",
+        keyStorePassword = { "123456".toCharArray() },
+        privateKeyPassword = { "foobar".toCharArray() }) {
+        port = 8443
+        keyStorePath = keyStoreFile
+    }
 }
 
 fun Application.module() {

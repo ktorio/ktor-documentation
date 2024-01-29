@@ -4,6 +4,8 @@ import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
+import io.ktor.server.application.*
+import io.ktor.server.engine.*
 import io.ktor.server.testing.*
 import org.junit.Test
 import kotlin.test.*
@@ -11,24 +13,30 @@ import kotlin.test.*
 class ApplicationTest {
     @Test
     fun testFrontendPage(): Unit = testApplication {
-        environment {
+        engine {
             envConfig()
         }
-        client.get("/") {
+        testApplicationProperties { module {
+                frontendModule()
+                backendModule()
+            }
+        }
+
+        val response = client.get("/"){
             host = "0.0.0.0"
             port = 8081
-        }.apply {
-            assertEquals(
-                """
-<!DOCTYPE html>
-<html>
-  <head>
-    <script src="/static/script.js"></script>
-  </head>
-  <body><button onclick="saveCustomer()">Make a CORS request to save a customer</button></body>
-</html>
-
-""".trimIndent(), bodyAsText())
         }
+        assertEquals(
+            """
+            <!DOCTYPE html>
+            <html>
+              <head>
+                <script src="/static/script.js"></script>
+              </head>
+              <body><button onclick="saveCustomer()">Make a CORS request to save a customer</button></body>
+            </html>
+            
+            """.trimIndent(), response.bodyAsText()
+        )
     }
 }

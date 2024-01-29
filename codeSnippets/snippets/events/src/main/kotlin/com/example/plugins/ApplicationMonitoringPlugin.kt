@@ -12,12 +12,12 @@ val ApplicationMonitoringPlugin = createApplicationPlugin(name = "ApplicationMon
     on(MonitoringEvent(ApplicationStopped)) { application ->
         application.log.info("Server is stopped")
         // Release resources and unsubscribe from events
-        application.environment.monitor.unsubscribe(ApplicationStarted) {}
-        application.environment.monitor.unsubscribe(ApplicationStopped) {}
+        application.monitor.unsubscribe(ApplicationStarted) {}
+        application.monitor.unsubscribe(ApplicationStopped) {}
     }
     on(ResponseSent) { call ->
         if (call.response.status() == HttpStatusCode.NotFound) {
-            this@createApplicationPlugin.application.environment.monitor.raise(NotFoundEvent, call)
+            this@createApplicationPlugin.application.monitor.raise(NotFoundEvent, call)
         }
     }
 }

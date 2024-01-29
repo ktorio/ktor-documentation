@@ -28,7 +28,7 @@ Then, open `build.gradle.kts` and add the following dependencies:
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-docker-compose/build.gradle.kts" include-lines="4,21-22,29,33"}
+{src="snippets/tutorial-website-interactive-docker-compose/build.gradle.kts" include-lines="3,20-21,28,32"}
 
 ### Connect to a database {id="connect_db"}
 
@@ -69,7 +69,7 @@ For example, to apply the Ktor plugin, open the `build.gradle.kts` file and add 
 
 ```kotlin
 ```
-{src="snippets/tutorial-website-interactive-docker-compose/build.gradle.kts" include-lines="7-11"}
+{src="snippets/tutorial-website-interactive-docker-compose/build.gradle.kts" include-lines="6-10"}
 
 
 ## Configure Docker {id="configure-docker"}
