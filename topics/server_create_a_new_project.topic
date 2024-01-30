@@ -32,57 +32,220 @@
     </p>
     <list type="decimal">
         <li>Create, open and run a new Ktor project.</li>
-        <li><a href="creating_http_apis.md">Create HTTP APIs</a></li>
-        <li><a href="creating_static_website.md">Create a static website</a></li>
-        <li><a href="creating_interactive_website.md">Create an interactive website</a></li>
-        <li><a href="creating_web_socket_chat.md">Create a WebSocket chat</a></li>
+        <li><a href="creating_http_apis.md">Create HTTP APIs</a>.</li>
+        <li><a href="creating_static_website.md">Create a static website</a>.</li>
+        <li><a href="creating_interactive_website.md">Create an interactive website</a>.</li>
+        <li><a href="creating_web_socket_chat.md">Create a WebSocket chat</a>.</li>
     </list>
     <chapter id="create-project" title="Create a new Ktor project">
         <p>
-            One of the fastest ways to create a new Ktor project is by using the
-            web-based <a href="https://start.ktor.io/">Ktor project generator</a>.
+            One of the fastest ways to create a new Ktor project is by <a
+                anchor="create-project-with-the-ktor-project-generator">using the
+            web-based Ktor project generator</a>.
         </p>
-        <p>
-            To create a new project, follow the steps below:
-        </p>
-        <procedure>
-            <step>
-                <p>Navigate to the <a href="https://start.ktor.io/">Ktor Project Generator</a>.</p>
-            </step>
-            <step>
-                <p>In the
-                    <control>Project Name</control>
-                    field, enter
-                    <path>ktor-sample-app</path>
-                    as the name of your project.
-                </p>
-                <img src="ktor_project_generator_new_project_name.png"
-                     alt="Ktor Project Generator with Project Name ktor-sample-app" border-effect="line"
-                     width="706"/>
-            </step>
-            <step>
-                <p>Click
-                    <control>Add Plugins</control>
-                    . For the sake of this tutorial, no plugins need to be added to the project
-                    at this stage.
-                </p>
-            </step>
-            <step>
-                <p>On the next screen, click
-                    <control>Generate project</control>
-                    .
-                </p>
-                <img src="ktor_project_generator_new_project_plugins_screen.png"
-                     alt="Ktor Project Generator plugins screen" border-effect="line" width="706"/>
-            </step>
-            <p>Your download should start automatically.</p>
-        </procedure>
-        <tip>
-            An alternative way to create a new Ktor project
-            is <a href="intellij-idea.topic">by using the plugin for IntelliJ IDEA Ultimate</a>.
-            If you choose to use this method instead, make sure to keep the same settings as in the method above and
-            leave out any optional plugins.
-        </tip>
+        <p>Alternatively, if you have intelliJ IDEA Ultimate installed, you can <a
+                anchor="create_project_with_intellij">use the dedicated Ktor plugin to create
+            a new project</a>.</p>
+
+        <chapter title="Use the Ktor project generator"
+                 id="create-project-with-the-ktor-project-generator" collapsible="true" default-state="expanded">
+            <p>
+                To create a new project with the Ktor project generator, follow the steps below:
+            </p>
+            <procedure>
+                <step>
+                    <p>Navigate to the <a href="https://start.ktor.io/">Ktor Project Generator</a>.</p>
+                </step>
+                <step>
+                    <p>In the
+                        <control>Project Name</control>
+                        field, enter
+                        <path>ktor-sample-app</path>
+                        as the name of your project.
+                    </p>
+                    <img src="ktor_project_generator_new_project_name.png"
+                         alt="Ktor Project Generator with Project Name ktor-sample-app" border-effect="line"
+                         width="706"/>
+                </step>
+                <step>
+                    <p>Click
+                        <control>Adjust project settings</control>
+                        to expand the setting menu:
+                    </p>
+                    <img src="ktor_project_generator_adjust_project_settings.png"
+                         alt="expanded view of Ktor project settings" border-effect="line" width="706"/>
+                    <p>
+                        The following settings are available:
+                    </p>
+                    <list>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_build_system"/>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_website"/>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_artifact"/>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_ktor_version"/>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_engine"/>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_config"/>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_sample_code"/>
+                        </li>
+                    </list>
+                    <p>For this tutorial you can leave the default values for these settings.</p>
+                </step>
+                <step>
+                    <p>Click
+                        <control>Add Plugins</control>
+                        to go to the next screen.
+                    </p>
+                    <img src="ktor_project_generator_new_project_plugins_screen.png"
+                         alt="Ktor Project Generator plugins screen" border-effect="line" width="706"/>
+                    <p>Here you can choose a set of <a href="Plugins.md">plugins</a> -
+                        building blocks that provide common functionality of a Ktor application, for example,
+                        authentication, serialization and content encoding, compression, cookie support, and so on.
+                    </p>
+                    <p>For the sake of this tutorial, no plugins need to be added to the project
+                        at this stage. </p>
+                </step>
+                <step>
+                    <p>
+                        Click
+                        <control>Generate project</control>
+                        to generate and download your Ktor project.
+                    </p>
+                </step>
+                <p>Your download should start automatically.</p>
+            </procedure>
+            <p>Now that you have generated a new project, continue to <a anchor="unpacking">unpack and run your Ktor
+                project</a>.</p>
+        </chapter>
+        <chapter title="Use the Ktor plugin for intelliJ IDEA Ultimate" id="create_project_with_intellij"
+                 collapsible="true">
+            <p>
+                This section describes project setup using the <a
+                    href="https://plugins.jetbrains.com/plugin/16008-ktor">Ktor plugin</a> for Intellij IDEA Ultimate.
+            </p>
+            <p>
+                To create a new Ktor project,
+                <a href="https://www.jetbrains.com/help/idea/run-for-the-first-time.html">open IntelliJ IDEA</a>, and
+                follow the steps below:
+            </p>
+            <procedure>
+                <step>
+                    <include from="lib.topic" element-id="new_project_idea"/>
+                </step>
+                <step>
+                    <p>
+                        In the
+                        <control>New Project</control>
+                        wizard, choose
+                        <control>Ktor</control>
+                        from the list on the left.
+                    </p>
+                </step>
+                <step>
+                    <p>
+                        On the right pane, you can specify the following settings:
+                    </p>
+                    <img src="ktor_idea_new_project_settings.png" alt="Ktor Project Settings" width="706"
+                         border-effect="rounded"/>
+                    <list>
+                        <li>
+                            <p>
+                                <control>Name</control>
+                                :
+                                Specify a project name. Enter
+                                <path>ktor-sample-app</path>
+                                as the name of your project.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <control>Location</control>
+                                :
+                                Specify a directory for your project.
+                            </p>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_website"/>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_artifact"/>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_engine"/>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_sample_code"/>
+                        </li>
+                    </list>
+                </step>
+                <step>
+                    <p>
+                        Click
+                        <control>Advanced Settings</control>
+                        to expand the
+                        additional settings menu:
+                    </p>
+                    <img src="ktor_idea_new_project_advanced_settings.png" alt="Ktor Project Advanced Settings"
+                         width="706" border-effect="rounded"/>
+                    <p>
+                        The following settings are available:
+                    </p>
+                    <list>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_build_system"/>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_ktor_version"/>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_config"/>
+                        </li>
+                    </list>
+                    <p>For the sake of this tutorial, you can leave the default values of these settings.</p>
+                </step>
+                <step>
+                    <p>
+                        Click
+                        <control>Next</control>
+                        to go to the next page.
+                    </p>
+                    <img src="ktor_idea_new_project_plugins_list.png" alt="Ktor plugins" width="706"
+                         border-effect="rounded"/>
+                    <p>
+                        On this page, you can choose a set of <a href="Plugins.md">plugins</a> -
+                        building blocks that provide common functionality of a Ktor application, for example,
+                        authentication, serialization and content encoding, compression, cookie support, and so on.
+                    </p>
+
+                    <p>For the sake of this tutorial, no plugins need to be added to the project
+                        at this stage. </p>
+                </step>
+                <step>
+                    <p>
+                        Click
+                        <control>Create</control>
+                        and wait until IntelliJ IDEA generates a project and
+                        installs the dependencies.
+                    </p>
+                </step>
+            </procedure>
+            <p>
+                Now that you've created a new project, continue to learn how to <a anchor="open-explore-run">open,
+                explore and run</a>
+                the application.
+            </p>
+        </chapter>
     </chapter>
     <chapter title="Unpack and run your Ktor project" id="unpacking">
         <p>
