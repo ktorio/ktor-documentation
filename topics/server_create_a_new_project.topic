@@ -48,7 +48,7 @@
             a new project</a>.</p>
 
         <chapter title="Use the Ktor project generator"
-                 id="create-project-with-the-ktor-project-generator" collapsible="true" default-state="expanded">
+                 id="create-project-with-the-ktor-project-generator">
             <p>
                 To create a new project with the Ktor project generator, follow the steps below:
             </p>
