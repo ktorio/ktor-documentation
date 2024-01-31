@@ -128,8 +128,10 @@ Note that the following rules are applied to several installations of the same p
 
 ## Default, available, and custom Plugins {id="default_available_custom"}
 
-By default, Ktor does not activate any Plugin, and it's up to us as developers to install the functionality our application needs.
+By default, Ktor does not activate any plugins, so it's up to you to install the plugins for the functionality your
+application needs.
 
-Ktor does, however, provide a variety of Plugins that ship out of the box. We can see a complete list of these 
-either on the [Project Generator Site](https://start.ktor.io) or in the [IntelliJ IDEA Wizard](intellij-idea.topic). In addition,
-we can also create our own [custom Plugins](custom_plugins.md).
+Ktor does, however, provide a variety of plugins that ship out of the box. You can see a complete list of these in
+the [Ktor Plugin Registry](https://github.com/ktorio/ktor-plugin-registry/tree/main/plugins/server).
+
+In addition, you can also create your own [custom plugins](custom_plugins.md).
