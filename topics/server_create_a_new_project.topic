@@ -8,7 +8,7 @@
 >
     <show-structure for="chapter" depth="2"/>
     <tldr>
-        <var name="example_name" value="server-get-started"/>
+        <var name="example_name" value="tutorial-server-get-started"/>
         <include from="lib.topic" element-id="download_example"/>
     </tldr>
 
@@ -672,7 +672,7 @@
                 <step>
                     <p>To create a new endpoint, insert the additional five lines of code shown below:</p>
                     <code-block lang="kotlin"
-                                src="snippets/server-get-started/src/main/kotlin/com/example/plugins/Routing.kt"
+                                src="snippets/tutorial-server-get-started/src/main/kotlin/com/example/plugins/Routing.kt"
                                 include-lines="11,17,20-28,32-33"/>
                     <p>Note that you can change the <code>/test1</code> URL to be whatever you like.</p>
                 </step>
@@ -796,7 +796,7 @@
                 <step>
                     <p>Populate the newly created file page with valid HTML, for example:</p>
                     <code-block lang="html"
-                                src="snippets/server-get-started/src/main/resources/mycontent/sample.html"
+                                src="snippets/tutorial-server-get-started/src/main/resources/mycontent/sample.html"
                                 include-lines="1-14"/>
                 </step>
                 <step>
@@ -965,7 +965,7 @@
                     <p>Navigate to the <code>configureRouting()</code> method in <code>Routing.kt</code> and add the
                         following lines of code:</p>
                     <code-block lang="kotlin"
-                                src="snippets/server-get-started/src/main/kotlin/com/example/plugins/Routing.kt"
+                                src="snippets/tutorial-server-get-started/src/main/kotlin/com/example/plugins/Routing.kt"
                                 include-lines="11-17,20-22,32-33"/>
                     <p>These lines install the <code>StatusPages</code> plugin and specify what actions to take
                         when an exception of type <code>IllegalStateException</code> is thrown.</p>
@@ -986,7 +986,7 @@
                     <p>Staying within the <code>configureRouting()</code> method, add the additional lines as shown
                         below:</p>
                     <code-block lang="kotlin"
-                                src="snippets/server-get-started/src/main/kotlin/com/example/plugins/Routing.kt"
+                                src="snippets/tutorial-server-get-started/src/main/kotlin/com/example/plugins/Routing.kt"
                                 include-lines="11-17,20-22,29-33"/>
                     <p>You have now added an endpoint with the URL <code>/error-test</code>. When this endpoint is
                         triggered, an
