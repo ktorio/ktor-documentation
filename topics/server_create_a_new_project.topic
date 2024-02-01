@@ -1016,7 +1016,7 @@
             into the foundational concepts of Ktor, continue to the next tutorial in this guide.
         </p>
         <p>
-            Next up, you will learn about routing a requests by <a href="creating_http_apis.md">creating an HTTP API</a>.
+            Next up, you will learn about routing and requests by <a href="creating_http_apis.md">creating an HTTP API</a>.
         </p>
     </chapter>
 </topic>

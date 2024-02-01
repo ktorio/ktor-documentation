@@ -4,9 +4,7 @@
 
 <link-summary>Learn how to prepare and deploy a Ktor application to Heroku.</link-summary>
 
-In this tutorial, you will learn how to prepare and deploy a Ktor application to Heroku. This tutorial uses a Ktor
-application from the [](server_create_a_new_project.topic) topic.
-
+In this tutorial, we'll show you how to prepare and deploy a Ktor application to Heroku.
 
 ## Prerequisites {id="prerequisites"}
 Before starting this tutorial, make sure that the following prerequisites are met:
