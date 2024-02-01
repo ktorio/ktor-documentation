@@ -380,6 +380,12 @@
     </snippet>
 
 
+    <snippet id="release_details_link">
+        <p>
+            <a href="https://github.com/ktorio/ktor/releases/tag/%version%">Release notes on
+                GitHub</a>
+        </p>
+    </snippet>
 </topic>
 
 
