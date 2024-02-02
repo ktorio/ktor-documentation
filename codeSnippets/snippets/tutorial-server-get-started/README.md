@@ -1,13 +1,17 @@
 # Getting started with a Ktor Server
 
-A sample project created in the [Creating a new Ktor project](https://ktor.io/docs/intellij-idea.html) tutorial.
-> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
+A sample project created in
+the [Create, open and run a new Ktor project](https://ktor.io/docs/server-create-a-new-project.html)
+tutorial.
 
-## Running
+> This sample is part of the [codeSnippets](../../README.md) Gradle project.
 
-To run a sample, execute the following command in a repository's root directory:
+## Run
+
+To run the sample, execute the following command in a repository's root directory:
 
 ```bash
 ./gradlew :tutorial-server-get-started:run
 ```
 
+Navigate to [http://0.0.0.0:8080/](http://0.0.0.0:8080/) to see the output.

@@ -19,7 +19,7 @@ Starting with v2.0.0, Ktor provides a new API for creating custom [plugins](Plug
 ## Create and install your first plugin {id="first-plugin"}
 
 In this section, we'll demonstrate how to create and install your first plugin. 
-You can use an application created in the [](intellij-idea.topic) tutorial as a starting project.
+You can use an application created in the [](server_create_a_new_project.topic) tutorial as a starting project.
 
 1. To create a plugin, call the [createApplicationPlugin](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/create-application-plugin.html) function and pass a plugin name:
    ```kotlin

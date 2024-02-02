@@ -4,8 +4,7 @@
 
 <link-summary>Learn how to prepare and deploy a Ktor application to Heroku.</link-summary>
 
-In this tutorial, we'll show you how to prepare and deploy a Ktor application to Heroku. This tutorial uses a Ktor application from the [](intellij-idea.topic) topic.
-
+In this tutorial, we'll show you how to prepare and deploy a Ktor application to Heroku.
 
 ## Prerequisites {id="prerequisites"}
 Before starting this tutorial, make sure that the following prerequisites are met:
@@ -15,7 +14,7 @@ Before starting this tutorial, make sure that the following prerequisites are me
 
 ## Create a sample application {id="create-sample-app"}
 
-Create a sample application as described in [](intellij-idea.topic).
+Create a sample application as described in [](server_create_a_new_project.topic).
 
 > Note that Ktor provides two approaches to [create and configure a server](create_server.topic): in code or by using a configuration file. The only difference in deploying is how to [specify a port](#port) used to listen for incoming requests.
 
