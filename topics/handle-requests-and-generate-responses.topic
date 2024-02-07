@@ -668,6 +668,10 @@
                         }
                     }
                 </code-block>
+                <p>This will require the following import:</p>
+                <code-block lang="kotlin">
+                    import io.ktor.server.http.content.staticResources
+                </code-block>
             </step>
             <step>
                 <p>Restart the application. </p>
