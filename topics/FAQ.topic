@@ -8,7 +8,14 @@
 
     <chapter title="What is the proper way to pronounce Ktor?" id="pronounce">
         <p>
-            <emphasis>Kay-tor</emphasis>
+            <emphasis>/keɪ-tor/</emphasis>
+        </p>
+    </chapter>
+
+    <chapter title='What does the name "Ktor" stand for?' id="name-meaning">
+        <p>
+            The name Ktor is derived from the abbreviation <code>ctor</code> (constructor) with the first letter
+            replaced by 'K' for Kotlin.
         </p>
     </chapter>
 
