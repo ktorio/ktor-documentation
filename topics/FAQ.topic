@@ -201,10 +201,10 @@
                 </p>
                 <code-block lang="kotlin">
                     val client = HttpClient(CIO) {
-                    install(ContentNegotiation) {
-                    json() // Example: Register JSON content transformation
-                    // Add more transformations as needed for other content types
-                    }
+                        install(ContentNegotiation) {
+                            json() // Example: Register JSON content transformation
+                            // Add more transformations as needed for other content types
+                        }
                     }
                 </code-block>
             </step>
