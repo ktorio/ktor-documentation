@@ -6,83 +6,98 @@
        title="FAQ"
        id="FAQ">
 
-    <chapter title="What is the proper way to pronounce Ktor?" id="pronounce" level="3">
+    <chapter title="What is the proper way to pronounce Ktor?" id="pronounce">
         <p>
             <emphasis>Kay-tor</emphasis>
         </p>
     </chapter>
 
-    <chapter title="How do I put questions, report bugs, contact you, contribute, give feedback, etc.?" id="feedback" level="3">
+    <chapter title="How do I put questions, report bugs, contact you, contribute, give feedback, etc.?" id="feedback">
         <p>
-            Go to the <a href="https://ktor.io/support/">Support</a> page to learn more about the available support channels.
-            The <a href="https://github.com/ktorio/ktor/blob/main/CONTRIBUTING.md">How to contribute</a> guide describes the ways you can contribute to Ktor.
+            Go to the <a href="https://ktor.io/support/">Support</a> page to learn more about the available support
+            channels.
+            The <a href="https://github.com/ktorio/ktor/blob/main/CONTRIBUTING.md">How to contribute</a> guide describes
+            the ways you can contribute to Ktor.
         </p>
     </chapter>
 
-    <chapter title="What does CIO mean?" id="cio" level="3">
+    <chapter title="What does CIO mean?" id="cio">
         <p>
-            CIO stands for <emphasis>Coroutine-based I/O</emphasis>.
-            Usually we call it to an engine that uses Kotlin and Coroutines to implement the logic implementing an IETF RFC or another protocol without relying on external JVM-based libraries.
+            CIO stands for
+            <emphasis>Coroutine-based I/O</emphasis>
+            .
+            Usually we call it to an engine that uses Kotlin and Coroutines to implement the logic implementing an IETF
+            RFC or another protocol without relying on external JVM-based libraries.
         </p>
     </chapter>
 
-    <chapter title="How to fix unresolved (red) Ktor imports?" id="ktor-artifact" level="3">
+    <chapter title="How to fix unresolved (red) Ktor imports?" id="ktor-artifact">
         <p>
-            Make sure that corresponding <a href="server-dependencies.topic">Ktor artifacts</a> are added in the build script.
+            Make sure that corresponding <a href="server-dependencies.topic">Ktor artifacts</a> are added in the build
+            script.
         </p>
     </chapter>
 
 
-    <chapter title="Does Ktor provide a way to catch IPC signals (e.g. SIGTERM or SIGINT) so the server shutdown can be handled gracefully?" id="sigterm" level="3">
+    <chapter
+            title="Does Ktor provide a way to catch IPC signals (e.g. SIGTERM or SIGINT) so the server shutdown can be handled gracefully?"
+            id="sigterm">
         <p>
-            If you are running an <a href="create_server.topic" anchor="engine-main">EngineMain</a>, it will be handled automatically.
-            Otherwise, you need to <a href="https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-cio/jvmAndNix/src/io/ktor/server/cio/EngineMain.kt#L21">handle it manually</a>.
+            If you are running an <a href="create_server.topic" anchor="engine-main">EngineMain</a>, it will be handled
+            automatically.
+            Otherwise, you need to <a
+                href="https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-cio/jvmAndNix/src/io/ktor/server/cio/EngineMain.kt#L21">handle
+            it manually</a>.
             You can use the <code>Runtime.getRuntime().addShutdownHook</code> JVM's facility.
         </p>
     </chapter>
 
-    <chapter title="How do I get the client IP behind a proxy?" id="proxy-ip" level="3">
+    <chapter title="How do I get the client IP behind a proxy?" id="proxy-ip">
         <p>
-            The <code>call.request.origin</code> property gives <a href="requests.md" anchor="request_information">connection information</a> about the original caller (the proxy) if the proxy provides proper headers, and the <a href="forward-headers.md">ForwardedHeader</a> plugin is installed.
+            The <code>call.request.origin</code> property gives <a href="requests.md" anchor="request_information">connection
+            information</a> about the original caller (the proxy) if the proxy provides proper headers, and the <a
+                href="forward-headers.md">ForwardedHeader</a> plugin is installed.
         </p>
     </chapter>
 
-    <chapter title="How can I test the latest commits on main?" id="bleeding-edge" level="3">
+    <chapter title="How can I test the latest commits on main?" id="bleeding-edge">
         <p>
             You can get Ktor nightly builds from <code>jetbrains.space</code>.
             Learn more from <a href="https://ktor.io/eap/">Early Access Program</a>.
         </p>
     </chapter>
 
-    <chapter title="How can I be sure of which version of Ktor am I using?" id="ktor-version-used" level="3">
+    <chapter title="How can I be sure of which version of Ktor am I using?" id="ktor-version-used">
         <p>
-            You can use the <a href="default_headers.md">DefaultHeaders</a> plugin that sends a <code>Server</code> response header with the Ktor version on it, for example:
+            You can use the <a href="default_headers.md">DefaultHeaders</a> plugin that sends a <code>Server</code>
+            response header with the Ktor version on it, for example:
         </p>
         <code-block>
             Server: ktor-server-core/%ktor_version%
         </code-block>
     </chapter>
 
-    <chapter title="My route is not being executed. How can I debug it?" id="route-not-executing" level="3">
+    <chapter title="My route is not being executed. How can I debug it?" id="route-not-executing">
         <p>
             Ktor provides a tracing mechanism to help troubleshooting routing decisions.
             Check the <a href="Routing_in_Ktor.md" anchor="trace_routes">Tracing routes</a> section.
         </p>
     </chapter>
 
-    <chapter title="How to resolve 'Response has already been sent'?" id="response-already-sent" level="3">
+    <chapter title="How to resolve 'Response has already been sent'?" id="response-already-sent">
         <p>
-            This means that you, or a plugin or interceptor, have already called <code>call.respond* </code> functions, and you are calling it again.
+            This means that you, or a plugin or interceptor, have already called <code>call.respond* </code> functions,
+            and you are calling it again.
         </p>
     </chapter>
 
-    <chapter title="How can I subscribe to Ktor events?" id="ktor-events" level="3">
+    <chapter title="How can I subscribe to Ktor events?" id="ktor-events">
         <p>
             See the <a href="events.md">Application monitoring</a> page to learn more.
         </p>
     </chapter>
 
-    <chapter title="How to resolve 'No configuration setting found for key ktor'?" id="cannot-find-application-conf" level="3">
+    <chapter title="How to resolve 'No configuration setting found for key ktor'?" id="cannot-find-application-conf">
         <p>
             This means that Ktor was not able to find a <a href="Configuration-file.topic">configuration file</a>.
             Ensure that there is a configuration file in the <code>resources</code> folder, and that the
@@ -94,13 +109,14 @@
         </p>
     </chapter>
 
-    <chapter title="Can I use Ktor on Android?" id="android-support" level="3">
+    <chapter title="Can I use Ktor on Android?" id="android-support">
         <p>
-            Yes, Ktor servers and clients  are known to work on Android 5 (API 21) or greater, at least with the Netty engine.
+            Yes, Ktor servers and clients are known to work on Android 5 (API 21) or greater, at least with the Netty
+            engine.
         </p>
     </chapter>
 
-    <chapter title="Why 'CURL -I' returns a '404 Not Found'?" id="curl-head-not-found" level="3">
+    <chapter title="Why 'CURL -I' returns a '404 Not Found'?" id="curl-head-not-found">
         <p>
             <code>CURL -I</code> is an alias of <code>CURL --head</code> that performs <code>HEAD</code> requests.
             By default, Ktor doesn't handle <code>HEAD</code> requests for <code>GET</code> handlers.
@@ -108,19 +124,25 @@
         </p>
     </chapter>
 
-    <chapter title="How to resolve an infinite redirect when using the 'HttpsRedirect' plugin?" id="infinite-redirect" level="3">
+    <chapter title="How to resolve an infinite redirect when using the 'HttpsRedirect' plugin?" id="infinite-redirect">
         <p>
-            The most probable cause is that your backend is behind a reverse proxy or a load balancer, and that this intermediary
-            is making normal HTTP requests to your backend, thus the <code>HttpsRedirect</code> plugin inside your Ktor backend believes that it is a normal HTTP request and responds with the redirect.
+            The most probable cause is that your backend is behind a reverse proxy or a load balancer, and that this
+            intermediary
+            is making normal HTTP requests to your backend, thus the <code>HttpsRedirect</code> plugin inside your Ktor
+            backend believes that it is a normal HTTP request and responds with the redirect.
         </p>
         <p>
-            Normally, reverse-proxies send some headers describing the original request (like it was HTTPS, or the original IP address), and there is a plugin <a href="forward-headers.md">ForwardedHeader</a> to parse those headers so the <a href="https-redirect.md">HttpsRedirect</a> plugin knows that the original request was HTTPS.
+            Normally, reverse-proxies send some headers describing the original request (like it was HTTPS, or the
+            original IP address), and there is a plugin <a href="forward-headers.md">ForwardedHeader</a> to parse those
+            headers so the <a href="https-redirect.md">HttpsRedirect</a> plugin knows that the original request was
+            HTTPS.
         </p>
     </chapter>
 
-    <chapter title="How to install 'curl' on Windows to use a corresponding engine on Kotlin/Native?" id="native-curl" level="3">
+    <chapter title="How to install 'curl' on Windows to use a corresponding engine on Kotlin/Native?" id="native-curl">
         <p>
-            The <a href="http-client_engines.md" anchor="curl">Curl</a> client engine requires installing the <code>curl</code> library.
+            The <a href="http-client_engines.md" anchor="curl">Curl</a> client engine requires installing the
+            <code>curl</code> library.
             On Windows, you may want to consider a MinGW/MSYS2 <code>curl</code> binary.
         </p>
         <procedure>
@@ -139,13 +161,15 @@
             </step>
             <step>
                 <p>
-                    If you've installed MinGW/MSYS2 to a default location, add <path>C:\msys64\mingw64\bin\</path> to the <code>PATH</code> environment variable.
+                    If you've installed MinGW/MSYS2 to a default location, add
+                    <path>C:\msys64\mingw64\bin\</path>
+                    to the <code>PATH</code> environment variable.
                 </p>
             </step>
         </procedure>
     </chapter>
 
-    <chapter title="How to resolve 'NoTransformationFoundException'?" id="no-transformation-found-exception" level="3">
+    <chapter title="How to resolve 'NoTransformationFoundException'?" id="no-transformation-found-exception">
         <p>
             <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.call/-no-transformation-found-exception/index.html">NoTransformationFoundException</a>
             represents the inability to find a suitable transformation for the <i>received body</i> from
@@ -170,10 +194,10 @@
                 </p>
                 <code-block lang="kotlin">
                     val client = HttpClient(CIO) {
-                        install(ContentNegotiation) {
-                            json() // Example: Register JSON content transformation
-                            // Add more transformations as needed for other content types
-                        }
+                    install(ContentNegotiation) {
+                    json() // Example: Register JSON content transformation
+                    // Add more transformations as needed for other content types
+                    }
                     }
                 </code-block>
             </step>
@@ -181,7 +205,7 @@
                 <p>
                     Make sure that you install all the needed plugins. Possible missing features:
                 </p>
-                <list style="bullet">
+                <list type="bullet">
                     <li>Client <a href="https://ktor.io/docs/websocket-client.html">WebSockets</a> and
                         Server <a href="https://ktor.io/docs/websocket.html">WebSockets</a></li>
                     <li>Client <a href="https://ktor.io/docs/serialization-client.html">ContentNegotiation</a> and
