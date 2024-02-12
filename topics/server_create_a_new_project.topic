@@ -814,26 +814,31 @@
         </chapter>
         <chapter title="Write an integration test" id="write-an-integration-test">
             <p>
-                Ktor provides support for creating integration tests, and a skeleton test is created for you
-                underneath
-                <path>src/test/kotlin</path>
+                Ktor provides support for <a href="Testing.md">creating integration tests</a>, and your generated
+                project comes bundled with this functionality.
             </p>
-            <p>
-                Assuming you have accepted the default settings the class will be called
-                <path>ApplicationTest</path>
-                and will live in the
-                package
-                <path>com.example</path>
-                .
-            </p>
-            <p>
-                In the
-                <ui-path>Project</ui-path>
-                tool window, navigate to the
-                <path>src/test/kotlin</path>
-                folder and follow the steps:
-            </p>
+            <p>To make use of this, follow the steps below:</p>
             <procedure>
+                <step>
+                    <p>
+                        Create a new directory under
+                        <path>src</path>
+                        called "test" and a subdirectory called "kotlin".
+                    </p>
+                </step>
+                <step>
+                    <p>Create a new package inside
+                        <path>src/test/kotlin</path>
+                        called "com.example".
+                    </p>
+                </step>
+                <step>
+                    <p>
+                        Within
+                        <path>src/test/kotlin/com.example</path>
+                        create a new file called "ApplicationTest.kt".
+                    </p>
+                </step>
                 <step>
                     <p>Open the <code>ApplicationTest.kt</code> file and add the code below:</p>
                     <code-block lang="kotlin">
