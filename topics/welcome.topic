@@ -24,9 +24,9 @@
 
         <primary>
             <title>Ktor Server</title>
-            <a href="creating_http_apis.md"
-               summary="Learn how routing and serialization work in Ktor by creating an HTTP API.">
-                Create an HTTP API
+            <a href="handle-requests-and-generate-responses.topic"
+               summary="Learn how routing and requests work in Ktor by creating a Task Manager application.">
+                Handle requests and generate responses
             </a>
             <a href="creating_interactive_website.md"
                summary="Discover the process of turning a static website into an interactive one using the StaticContent and Freemarker plugins.">

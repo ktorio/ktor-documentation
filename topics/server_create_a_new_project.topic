@@ -1017,7 +1017,8 @@
             into the foundational concepts of Ktor, continue to the next tutorial in this guide.
         </p>
         <p>
-            Next up, you will learn about routing and requests by <a href="creating_http_apis.md">creating an HTTP API</a>.
+            Next up, you will learn how to <a href="handle-requests-and-generate-responses.topic">handle requests and
+            generate responses by creating a Task Manager application</a>.
         </p>
     </chapter>
 </topic>
