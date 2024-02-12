@@ -130,7 +130,8 @@
     </chapter>
     <chapter title="Iteration 2: Implement a Task Model" id="iteration-2">
         <p>
-            Having created the project you now need to:
+            Now that you have created the project and set up basic routing, you will extend your application by doing
+            the following:
         </p>
         <list type="decimal">
             <li><a anchor="create-model-types">Create model types to represent tasks.</a></li>
@@ -150,15 +151,14 @@
                 </p>
             </step>
             <step>
-                <p>Name the directory
-                    <path>model</path>
+                <p>Name the directory "model"
                     and press
                     <shortcut>↩ Enter</shortcut>
                     .
                 </p>
             </step>
             <step>
-                <p>Right-click the
+                <p>Right-click on the newly created
                     <path>model</path>
                     package and select
                     <ui-path>New | File</ui-path>
@@ -166,8 +166,7 @@
                 </p>
             </step>
             <step>
-                <p>Name the file
-                    <path>Task.kt</path>
+                <p>Name the file "Task.kt"
                     and press
                     <shortcut>↩ Enter</shortcut>
                     .
@@ -176,7 +175,8 @@
             <step>
                 <p>Inside the newly created
                     <path>Task.kt</path>
-                    file add the following enum to represent priorities and a class to represent tasks:
+                    file add the following <code>enum</code> to represent priorities and a <code>class</code> to
+                    represent tasks:
                 </p>
                 <code-block lang="kotlin">
                     enum class Priority {
@@ -208,8 +208,9 @@
                 ]]>
                 </code-block>
                 <p>
-                    The first function enables <code>Task</code> objects to be rendered as table rows, whilst the
-                    second allows a list of tasks to be rendered as a table.
+                    The function <code>Task.taskAsRow()</code> enables <code>Task</code> objects to be rendered as table
+                    rows, whilst <code><![CDATA[List<Task>.tasksAsTable()]]></code>
+                    allows a list of tasks to be rendered as a table.
                 </p>
             </step>
         </procedure>
@@ -217,13 +218,14 @@
             <step>
                 <p>Inside your
                     <path>model</path>
-                    package create a file called
-                    <path>TaskRepository.kt</path>
-                    .
+                    package create a new file called "TaskRepository.kt".
                 </p>
             </step>
             <step>
-                <p>Add the following code to define a list of Tasks:</p>
+                <p>Inside
+                    <path>TaskRepository.kt</path>
+                    add the following code to define a list of Tasks:
+                </p>
                 <code-block lang="kotlin">
                     val tasks = mutableListOf(
                         Task("cleaning", "Clean the house", Priority.Low),
@@ -312,22 +314,22 @@
                         }
                         fun addTask(task: Task) {
                             if(taskByName(task.name) != null) {
-                            throw IllegalStateException("Cannot duplicate task names!")
+                                throw IllegalStateException("Cannot duplicate task names!")
                             }
-                        tasks.add(task)
+                            tasks.add(task)
                         }
                     }
                 ]]>
                 </code-block>
                 <p>
-                    This implements a very simple data store for tasks based on a list. For the purposes of the example
-                    we want to preserve the order in which the tasks were added, but also disallow duplicates by
+                    This implements a very simple data store for tasks based on a list. For the purposes of the example,
+                    the order in which the tasks are added will be preserved, but duplicates will be disallowed by
                     throwing an exception.</p>
-                <p>In later tutorials we will show you how to implement repositories which connect to relational
+                <p>In later tutorials you will learn how to implement repositories which connect to relational
                     databases via the <a href="https://github.com/JetBrains/Exposed">Exposed library</a>.
                 </p>
                 <p>
-                    For now, you have a repository you can use inside your route.
+                    For now, you will utilise the repository inside your route.
                 </p>
             </step>
             <step>
@@ -351,7 +353,7 @@
                     }
                 </code-block>
                 <p>
-                    When a request arrives the repository is used to fetch the current list of tasks. Then, an
+                    When a request arrives, the repository is used to fetch the current list of tasks. Then, an
                     HTTP response is built containing these tasks.
                 </p>
             </step>
@@ -408,7 +410,7 @@
             <step>
                 <p>Open the
                     <path>Routing.kt</path>
-                    file and add the following route into your code, as show below:
+                    file and add the following route into your code, as shown below:
                 </p>
                 <code-block lang="kotlin">
                     routing {
@@ -440,25 +442,25 @@
                     }
                 </code-block>
                 <p>
-                    As summarized above we have written a handler for the URL
+                    As summarized above, you have written a handler for the URL
                     <code>/tasks/byPriority/{priority}</code>
                     . The symbol
                     <code>priority</code>
                     represents the query parameter that the user has added. Unfortunately, on the server there's
                     no way of guaranteeing that this is one of the four values in the corresponding Kotlin enumeration,
-                    so we must check it manually.
+                    so it must be checked manually.
                 </p>
                 <p>
-                    If the query parameter is absent we return a <code>400</code> status code to the client. Otherwise,
-                    we extract the
-                    value of the parameter and try to convert it to a member of our enumeration. Should this fail an
-                    exception will be thrown, which we catch and handle by again returning a <code>400</code>.
+                    If the query parameter is absent, the server returns a <code>400</code> status code to the client.
+                    Otherwise, it extracts the
+                    value of the parameter and tries to convert it to a member of the enumeration. Should this fail, an
+                    exception will be thrown, which the server catches and returns a <code>400</code> status code.
                 </p>
                 <p>
-                    Assuming the conversion succeeds we use our repository to find the matching <code>Tasks</code>. If
+                    Assuming the conversion succeeds, the repository is used to find the matching <code>Tasks</code>. If
                     there are no
-                    tasks of the specified priority we return a <code>404</code> status code, otherwise we send the
-                    matches back in an HTML table.
+                    tasks of the specified priority the server returns a <code>404</code> status code, otherwise it
+                    sends the matches back in an HTML table.
                 </p>
             </step>
         </procedure>
@@ -519,7 +521,7 @@
     <chapter title="Iteration 5: Adding unit tests" id="iteration-5">
         <p>
             So far you have added two routes - one for retrieving all tasks and one for retrieving tasks by priority.
-            Tools like Postman enable us to fully test these routes, but they require manual inspection and run
+            Tools like Postman enable you to fully test these routes, but they require manual inspection and run
             externally to Ktor.
         </p>
         <p>
@@ -589,7 +591,7 @@
                 <p>
                     In each of these tests a new instance of Ktor is created. This is running inside a test environment,
                     instead
-                    of a web server like Netty. The module written for us by the Project Generator is loaded, which in
+                    of a web server like Netty. The module written for you by the Project Generator is loaded, which in
                     turn
                     invokes the routing function. You can then use the built-in <code>client</code> object to send
                     requests to the application, and to validate the responses that are returned.
@@ -622,9 +624,9 @@
             user completes and submits an HTML form.
         </p>
         <p>
-            Unlike a GET request a POST request has a <code>body</code>, which contains the names and values of all the
+            Unlike a GET request, a POST request has a <code>body</code>, which contains the names and values of all the
             inputs that are present on the form. This information is encoded to separate the data from different inputs
-            and to escape illegal characters. We do not need to worry about the details of this process, as the browser
+            and to escape illegal characters. You do not need to worry about the details of this process, as the browser
             and Ktor will manage it for us.
         </p>
         <p>
@@ -641,7 +643,7 @@
                 <p>
                     Inside
                     <path>src/main/resources</path>
-                    create a folder called <code>task-ui</code>.
+                    create a new folder called "task-ui".
                     This will be the folder for your static content.
                 </p>
             </step>
@@ -649,44 +651,44 @@
                 <p>
                     Within the
                     <path>task-ui</path>
-                    folder, create a new file called <code>task-form.html</code>.
+                    folder, create a new file called "task-form.html".
                 </p>
             </step>
             <step>
-                <p>Add the following content to the newly created
+                <p>Open the newly created
                     <path>task-form.html</path>
-                    file:
+                    file and add the following content to it:
                 </p>
                 <code-block lang="html"><![CDATA[
                     <!DOCTYPE html>
                     <html lang="en">
-                    <head>
-                        <meta charset="UTF-8">
-                        <title>Adding a new task</title>
-                    </head>
-                    <body>
-                    <h1>Adding a new task</h1>
-                    <form method="post" action="/tasks">
-                        <div>
-                            <label for="name">Name: </label>
-                            <input type="text" id="name" name="name" size="10">
-                        </div>
-                        <div>
-                            <label for="description">Description: </label>
-                            <input type="text" id="description" name="description" size="20">
-                        </div>
-                        <div>
-                            <label for="priority">Priority: </label>
-                            <select id="priority" name="priority">
-                                <option name="Low">Low</option>
-                                <option name="Medium">Medium</option>
-                                <option name="High">High</option>
-                                <option name="Vital">Vital</option>
-                            </select>
-                        </div>
-                        <input type="submit">
-                    </form>
-                    </body>
+                        <head>
+                            <meta charset="UTF-8">
+                            <title>Adding a new task</title>
+                        </head>
+                        <body>
+                            <h1>Adding a new task</h1>
+                            <form method="post" action="/tasks">
+                                <div>
+                                    <label for="name">Name: </label>
+                                    <input type="text" id="name" name="name" size="10">
+                                </div>
+                                <div>
+                                    <label for="description">Description: </label>
+                                    <input type="text" id="description" name="description" size="20">
+                                </div>
+                                <div>
+                                    <label for="priority">Priority: </label>
+                                    <select id="priority" name="priority">
+                                        <option name="Low">Low</option>
+                                        <option name="Medium">Medium</option>
+                                        <option name="High">High</option>
+                                        <option name="Vital">Vital</option>
+                                    </select>
+                                </div>
+                                <input type="submit">
+                            </form>
+                        </body>
                     </html>
 ]]>
                 </code-block>
@@ -738,7 +740,7 @@
         <procedure title="Add a handler for the form" id="add-form-handler">
             <step>
                 <p>
-                    Add the following additional route into the <code>configureRouting()</code> function:
+                    In <path>Routing.kt</path> add the following additional route into the <code>configureRouting()</code> function:
                 </p>
                 <code-block lang="kotlin">
                     fun Application.configureRouting() {
