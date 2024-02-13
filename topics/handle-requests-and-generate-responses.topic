@@ -56,8 +56,8 @@
     </chapter>
     <chapter title="Iteration 1: Display static HTML content" id="iteration-1">
         <p>Using the <a href="https://start.ktor.io">Ktor Project Generator</a>, create a new project called
-            <control>ktor-task-app</control>.
-            You can accept all the default options, but may wish to change the
+            <control>ktor-task-app</control>
+            . You can accept all the default options, but may wish to change the
             <control>artifact</control>
             name.
         </p>
@@ -95,8 +95,8 @@
                         }
                         ]]>
                     </code-block>
-                <p>With this you have created a new route for the URL <code>/tasks</code> and the GET request type. A GET
-                    request is the most basic
+                <p>With this you have created a new route for the URL <code>/tasks</code> and the GET request type. A
+                    GET request is the most basic
                     request type in HTTP. It is triggered when the user types into the browser's address bar or clicks
                     on a regular HTML link. </p>
                 <p>
@@ -305,12 +305,15 @@
                         )
 
                         fun allTasks(): List<Task> = tasks
+
                         fun tasksByPriority(priority: Priority) = tasks.filter {
                             it.priority == priority
                         }
+
                         fun taskByName(name: String) = tasks.find {
                             it.name.equals(name, ignoreCase = true)
                         }
+
                         fun addTask(task: Task) {
                             if(taskByName(task.name) != null) {
                                 throw IllegalStateException("Cannot duplicate task names!")
@@ -422,6 +425,7 @@
                                     call.respond(HttpStatusCode.BadRequest)
                                     return@get
                                 }
+
                                 try {
                                     val priority = Priority.valueOf(priorityAsText)
                                     val tasks = TaskRepository.tasksByPriority(priority)
@@ -430,13 +434,14 @@
                                         call.respond(HttpStatusCode.NotFound)
                                         return@get
                                     }
+
                                     call.respondText(
                                         contentType = ContentType.parse("text/html"),
                                         text = tasks.tasksAsTable()
                                     )
                                 } catch(ex: IllegalArgumentException) {
                                     call.respond(HttpStatusCode.BadRequest)
-                                }
+                            }
                         }
                     }
                 </code-block>
@@ -715,6 +720,7 @@
                             staticResources("/task-ui", "task-ui")
 
                             get("/tasks") { ... }
+
                             get("/tasks/byPriority/{priority}") { … }
                         }
                     }
@@ -746,21 +752,26 @@
                         routing {
                             //...
                             staticResources("/task-ui", "task-ui")
+
                             get("/tasks") { ... }
+
                             get("/tasks/byPriority/{priority}") { ...}
 
                             //add the following route
                             post("/tasks") {
                                 val formContent = call.receiveParameters()
+
                                 val params = Triple(
                                     formContent["name"] ?: "",
                                     formContent["description"] ?: "",
                                     formContent["priority"] ?: ""
                                 )
+
                                 if (params.toList().any { it.isEmpty() }) {
                                     call.respond(HttpStatusCode.BadRequest)
                                     return@post
                                 }
+
                                 try {
                                     val priority = Priority.valueOf(params.third)
                                     TaskRepository.addTask(
@@ -770,12 +781,13 @@
                                             priority
                                         )
                                     )
+
                                     call.respond(HttpStatusCode.NoContent)
-                                    } catch (ex: IllegalArgumentException) {
+                                } catch (ex: IllegalArgumentException) {
                                     call.respond(HttpStatusCode.BadRequest)
-                                    } catch (ex: IllegalStateException) {
+                                } catch (ex: IllegalStateException) {
                                     call.respond(HttpStatusCode.BadRequest)
-                                    }
+                                }
                             }
                         }
                     }
@@ -854,6 +866,7 @@
                                 ).formUrlEncode()
                             )
                         }
+
                         assertEquals(HttpStatusCode.NoContent, response1.status)
 
                         val response2 = client.get("/tasks")
@@ -889,9 +902,11 @@
                         get {
                             //Code remains the same
                         }
+
                         get("/byPriority/{priority}") {
                             //Code remains the same
                         }
+
                         post {
                             //Code remains the same
                         }
@@ -921,19 +936,23 @@
                                 call.respond(HttpStatusCode.BadRequest)
                                 return@get
                             }
+
                             val task = TaskRepository.taskByName(name)
                             if (task == null) {
                                 call.respond(HttpStatusCode.NotFound)
                                 return@get
                             }
+
                             call.respondText(
                                 contentType = ContentType.parse("text/html"),
                                 text = listOf(task).tasksAsTable()
                             )
                         }
+
                         get("/byPriority/{priority}") {
                             //Code remains the same
                         }
+
                         post {
                             //Code remains the same
                         }
