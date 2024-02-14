@@ -54,7 +54,8 @@
             model types, a list of values and a single route.
         </p>
     </chapter>
-    <chapter title="Iteration 1: Display static HTML content" id="iteration-1">
+    <chapter title="Display static HTML content" id="display-static-html">
+        <p>In the first iteration you will add a new route to your application that will return static HTML content.</p>
         <p>Using the <a href="https://start.ktor.io">Ktor Project Generator</a>, create a new project called
             <control>ktor-task-app</control>
             . You can accept all the default options, but may wish to change the
@@ -123,11 +124,13 @@
                     in your browser. You should see the to-do list displayed:
                 </p>
                 <img src="tutorial_routing_and_requests_implementation_1.png"
-                     alt="A browser window displaying a to-do list with two items" width="706"/>
+                     alt="A browser window displaying a to-do list with two items"
+                     border-effect="rounded"
+                     width="706"/>
             </step>
         </procedure>
     </chapter>
-    <chapter title="Iteration 2: Implement a Task Model" id="iteration-2">
+    <chapter title="Implement a Task Model" id="implement-a-task-model">
         <p>
             Now that you have created the project and set up basic routing, you will extend your application by doing
             the following:
@@ -140,39 +143,19 @@
         </list>
         <procedure title="Create model types" id="create-model-types">
             <step>
-                <p>In the
-                    <ui-path>Project</ui-path>
-                    tool window, right-click the
-                    <path>src/main/kotlin/com.example</path>
-                    node and select
-                    <ui-path>New | Directory</ui-path>
-                    .
+                <p>Inside
+                    <path>src/main/kotlin/com/example</path>
+                    create a new directory called "model".
                 </p>
             </step>
             <step>
-                <p>Name the directory "model"
-                    and press
-                    <shortcut>↩ Enter</shortcut>
-                    .
-                </p>
-            </step>
-            <step>
-                <p>Right-click on the newly created
+                <p>Within the
                     <path>model</path>
-                    package and select
-                    <ui-path>New | File</ui-path>
-                    to create a new file.
+                    directory create a new file called "Task.kt".
                 </p>
             </step>
             <step>
-                <p>Name the file "Task.kt"
-                    and press
-                    <shortcut>↩ Enter</shortcut>
-                    .
-                </p>
-            </step>
-            <step>
-                <p>Inside the newly created
+                <p>Open the
                     <path>Task.kt</path>
                     file add the following <code>enum</code> to represent priorities and a <code>class</code> to
                     represent tasks:
@@ -217,13 +200,13 @@
             <step>
                 <p>Inside your
                     <path>model</path>
-                    package create a new file called "TaskRepository.kt".
+                    directory create a new file called "TaskRepository.kt".
                 </p>
             </step>
             <step>
-                <p>Inside
+                <p>Open
                     <path>TaskRepository.kt</path>
-                    add the following code to define a list of Tasks:
+                    and add the following code to define a list of Tasks:
                 </p>
                 <code-block lang="kotlin">
                     val tasks = mutableListOf(
@@ -269,20 +252,24 @@
         </procedure>
         <procedure title="Test the new feature" id="test">
             <step>
-                <p>Click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
-                                                   src="intellij_idea_rerun_icon.svg" height="16" width="16"/>)
+                <p>In intelliJ IDEA, click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
+                                                                     src="intellij_idea_rerun_icon.svg"
+                                                                     height="16"
+                                                                     width="16"/>)
                     to restart the application.</p>
             </step>
             <step>
                 <p>Navigate to <a href="http://0.0.0.0:8080/tasks">http://0.0.0.0:8080/tasks</a> in your browser.
                     It should display an HTML table containing tasks:</p>
                 <img src="tutorial_routing_and_requests_implementation_2.png"
-                     alt="A browser window displaying a table with four rows" width="706"/>
+                     alt="A browser window displaying a table with four rows"
+                     border-effect="rounded"
+                     width="706"/>
                 <p>If so, congratulations! The basic functionality of the application is working correctly.</p>
             </step>
         </procedure>
     </chapter>
-    <chapter title="Iteration 3: Refactor the model" id="iteration-3">
+    <chapter title="Refactor the model" id="refactor-the-model">
         <p>
             Before you continue with extending your app's functionality,
             you need to refactor the design by encapsulating the list of values within a repository. This will allow you
@@ -362,8 +349,9 @@
         </procedure>
         <procedure title="Test the refactored code">
             <step>
-                <p>Click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
-                                                   src="intellij_idea_rerun_icon.svg" height="16" width="16"/>)
+                <p>In intelliJ IDEA, click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
+                                                                     src="intellij_idea_rerun_icon.svg" height="16"
+                                                                     width="16"/>)
                     to restart the application.</p>
             </step>
             <step>
@@ -372,11 +360,13 @@
                     in your browser. The output should remain the same with the HTML table displayed:
                 </p>
                 <img src="tutorial_routing_and_requests_implementation_1.png"
-                     alt="A browser window displaying a to-do list with two items" width="706"/>
+                     alt="A browser window displaying a to-do list with two items"
+                     border-effect="rounded"
+                     width="706"/>
             </step>
         </procedure>
     </chapter>
-    <chapter title="Iteration 4: Working with parameters" id="iteration-4">
+    <chapter title="Work with parameters" id="work-with-parameters">
         <p>
             In this iteration, you will allow the user to view tasks by priority. To do this, your application must
             allow GET requests to the following URLs:
@@ -478,7 +468,9 @@
                         href="http://0.0.0.0:8080/tasks/byPriority/Medium">http://0.0.0.0:8080/tasks/byPriority/Medium</a>:
                 </p>
                 <img src="tutorial_routing_and_requests_implementation_4.png"
-                     alt="A browser window displaying a table with Medium priority tasks" width="706"/>
+                     alt="A browser window displaying a table with Medium priority tasks"
+                     border-effect="rounded"
+                     width="706"/>
             </step>
             <step>
                 <p>
@@ -495,7 +487,9 @@
                     .
                 </p>
                 <img src="tutorial_routing_and_requests_postman.png"
-                     alt="A GET request in Postman showing the response details" width="706"/>
+                     alt="A GET request in Postman showing the response details"
+                     border-effect="rounded"
+                     width="706"/>
                 <p>
                     This shows the raw output from the server, plus all the details of the request and response.
                 </p>
@@ -510,7 +504,9 @@
                     pane.
                 </p>
                 <img src="tutorial_routing_and_requests_postman_vital.png"
-                     alt="A GET request in Postman showing the status code" width="706"/>
+                     alt="A GET request in Postman showing the status code"
+                     border-effect="rounded"
+                     width="706"/>
             </step>
             <step>
                 <p>
@@ -518,11 +514,13 @@
                     with an invalid property:
                 </p>
                 <img src="tutorial_routing_and_requests_postman_bad_request.png"
-                     alt="A GET request in Postman with a Bad Request status code" width="706"/>
+                     alt="A GET request in Postman with a Bad Request status code"
+                     border-effect="rounded"
+                     width="706"/>
             </step>
         </procedure>
     </chapter>
-    <chapter title="Iteration 5: Adding unit tests" id="iteration-5">
+    <chapter title="Add unit tests" id="add-unit-tests">
         <p>
             So far you have added two routes - one for retrieving all tasks and one for retrieving tasks by priority.
             Tools like Postman enable you to fully test these routes, but they require manual inspection and run
@@ -540,9 +538,15 @@
         <procedure>
             <step>
                 <p>
-                    Create a new file called <code>ApplicationTest.kt</code> under the path
+                    Inside
                     <ui-path>src/test/kotlin</ui-path>
-                    and add the following code:
+                    create a new file called "ApplicationTest.kt".
+                </p>
+            </step>
+            <step>
+                <p>Open the
+                    <path>ApplicationTest.kt</path>
+                    file and add the following code:
                 </p>
                 <code-block lang="kotlin">
                     package com.example
@@ -617,7 +621,7 @@
             </step>
         </procedure>
     </chapter>
-    <chapter title="Iteration 6: Handling POST requests" id="iteration-6">
+    <chapter title="Handle POST requests" id="handle-post-requests">
         <p>
             You can follow the process described above to create any number of additional routes for GET requests. These
             would allow the user to fetch tasks using whatever search criteria we like. But users will also want to be
@@ -704,7 +708,7 @@
                     Navigate to the
                     <path>Routing.kt</path>
                     file within
-                    <path>src/main/kotlin/com.example/plugins</path>
+                    <path>src/main/kotlin/com/example/plugins</path>
                     .
                 </p>
             </step>
@@ -739,7 +743,9 @@
                     in your browser. The HTML form should be displayed:
                 </p>
                 <img src="tutorial_routing_and_requests_implementation_6.png"
-                     alt="A browser window displaying an HTML form" width="706"/>
+                     alt="A browser window displaying an HTML form"
+                     border-effect="rounded"
+                     width="706"/>
             </step>
         </procedure>
         <procedure title="Add a handler for the form" id="add-form-handler">
@@ -831,7 +837,9 @@
                     .
                 </p>
                 <img src="tutorial_routing_and_requests_iteration_6_test_1.png"
-                     alt="A browser window displaying an HTML form with sample data" width="706"/>
+                     alt="A browser window displaying an HTML form with sample data"
+                     border-effect="rounded"
+                     width="706"/>
                 <p>When you submit the form you should not be directed to a new page.</p>
             </step>
             <step>
@@ -840,7 +848,9 @@
                     see that the new task has been added.
                 </p>
                 <img src="tutorial_routing_and_requests_iteration_6_test_2.png"
-                     alt="A browser window displaying an HTML table with tasks" width="706"/>
+                     alt="A browser window displaying an HTML table with tasks"
+                     border-effect="rounded"
+                     width="706"/>
             </step>
             <step>
                 <p>
@@ -888,7 +898,7 @@
             </step>
         </procedure>
     </chapter>
-    <chapter title="Iteration 7: Refactoring the routing">
+    <chapter title="Refactor the routing" id="refactor-the-routing">
         <p>
             If you examine your routing thus far you will see that all the routes begin with <code>/tasks</code>. You can
             remove this duplication by placing them into their own sub-route:
@@ -961,7 +971,7 @@
             }
         </code-block>
     </chapter>
-    <chapter title="What's next">
+    <chapter title="What's next" id="next-steps">
         <p>
             You have now implemented basic routing and request handling functionality. In addition, you were introduced
             to validation, error handling and unit testing. All these topics will be expanded in subsequent tutorials.
