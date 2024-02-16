@@ -379,7 +379,21 @@
         </p>
     </snippet>
 
+    <snippet id="generate_project_step_1">
+        <p>
+            Navigate to the
+            <a href="https://start.ktor.io/">Ktor Project Generator</a>
+            .
+        </p>
+    </snippet>
 
+    <snippet id="generate_project_final_step">
+        <p>
+            Click
+            <control>Generate project</control>
+            to generate and download your Ktor project.
+        </p>
+    </snippet>
     <snippet id="release_details_link">
         <p>
             <a href="https://github.com/ktorio/ktor/releases/tag/%version%">See changelog on
