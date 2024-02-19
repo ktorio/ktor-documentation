@@ -119,14 +119,14 @@
                     import kotlinx.serialization.Serializable
 
                     enum class Priority {
-                    Low, Medium, High, Vital
+                        Low, Medium, High, Vital
                     }
 
                     @Serializable
                     data class Task(
-                    val name: String,
-                    val description: String,
-                    val priority: Priority
+                        val name: String,
+                        val description: String,
+                        val priority: Priority
                     )
                 </code-block>
                 <p>
@@ -150,20 +150,20 @@
                     import io.ktor.server.routing.*
 
                     fun Application.configureRouting() {
-                    routing {
-                    staticResources("static", "static")
+                        routing {
+                            staticResources("static", "static")
 
-                    get("/tasks") {
-                    call.respond(
-                    listOf(
-                    Task("cleaning", "Clean the house", Priority.Low),
-                    Task("gardening", "Mow the lawn", Priority.Medium),
-                    Task("shopping", "Buy the groceries", Priority.High),
-                    Task("painting", "Paint the fence", Priority.Medium)
-                    )
-                    )
-                    }
-                    }
+                            get("/tasks") {
+                                call.respond(
+                                    listOf(
+                                        Task("cleaning", "Clean the house", Priority.Low),
+                                        Task("gardening", "Mow the lawn", Priority.Medium),
+                                        Task("shopping", "Buy the groceries", Priority.High),
+                                        Task("painting", "Paint the fence", Priority.Medium)
+                                    )
+                                )
+                            }
+                        }
                     }
                 </code-block>
                 <p>
@@ -197,7 +197,7 @@
                 When you created the project you included the <a href="serialization.md">Content Negotiation</a> plugin.
                 This plugin looks at the types
                 of content that the client can render and matches these against the content types that the current
-                service can provide. Hence the term
+                service can provide. Hence, the term
                 <format style="italic">Content Negotiation</format>
                 .
             </p>
@@ -220,7 +220,7 @@
             </p>
             <code-block lang="kotlin">
                 install(ContentNegotiation) {
-                json()
+                    json()
                 }
             </code-block>
             <p>
@@ -237,7 +237,7 @@
             <p>
                 In a production environment, you wouldn’t want to display JSON directly in the browser. Instead, there
                 would be JavaScript code running within the browser, which would make the request and then display the
-                data returned as part of a Single Page Application (SPA). Typically this kind of application would be
+                data returned as part of a Single Page Application (SPA). Typically, this kind of application would be
                 written using a framework like React, Angular, or Vue.js.
             </p>
             <p>
@@ -402,50 +402,52 @@
                     import model.TaskRepository
 
                     fun Application.configureRouting() {
-                    routing {
-                    staticResources("static", "static")
+                        routing {
+                            staticResources("static", "static")
 
-                    //updated implementation using TaskRepository
-                    route("/tasks") {
-                    get {
-                    val tasks = TaskRepository.allTasks()
-                    call.respond(tasks)
-                    }
-                    get("/byName/{taskName}") {
-                    val name = call.parameters["taskName"]
-                    if (name == null) {
-                    call.respond(HttpStatusCode.BadRequest)
-                    return@get
-                    }
-                    val task = TaskRepository.taskByName(name)
-                    if (task == null) {
-                    call.respond(HttpStatusCode.NotFound)
-                    return@get
-                    }
-                    call.respond(task)
-                    }
-                    get("/byPriority/{priority}") {
-                    val priorityAsText = call.parameters["priority"]
-                    if (priorityAsText == null) {
-                    call.respond(HttpStatusCode.BadRequest)
-                    return@get
-                    }
-                    try {
-                    val priority = Priority.valueOf(priorityAsText)
-                    val tasks = TaskRepository.tasksByPriority(priority)
+                            //updated implementation using TaskRepository
+                            route("/tasks") {
 
+                                get {
+                                    val tasks = TaskRepository.allTasks()
+                                    call.respond(tasks)
+                                }
 
-                    if (tasks.isEmpty()) {
-                    call.respond(HttpStatusCode.NotFound)
-                    return@get
-                    }
-                    call.respond(tasks)
-                    } catch (ex: IllegalArgumentException) {
-                    call.respond(HttpStatusCode.BadRequest)
-                    }
-                    }
-                    }
-                    }
+                                get("/byName/{taskName}") {
+                                    val name = call.parameters["taskName"]
+                                    if (name == null) {
+                                        call.respond(HttpStatusCode.BadRequest)
+                                        return@get
+                                    }
+
+                                    val task = TaskRepository.taskByName(name)
+                                    if (task == null) {
+                                        call.respond(HttpStatusCode.NotFound)
+                                        return@get
+                                    }
+                                    call.respond(task)
+                                }
+                                get("/byPriority/{priority}") {
+                                    val priorityAsText = call.parameters["priority"]
+                                    if (priorityAsText == null) {
+                                        call.respond(HttpStatusCode.BadRequest)
+                                        return@get
+                                    }
+                                    try {
+                                        val priority = Priority.valueOf(priorityAsText)
+                                        val tasks = TaskRepository.tasksByPriority(priority)
+
+                                        if (tasks.isEmpty()) {
+                                            call.respond(HttpStatusCode.NotFound)
+                                            return@get
+                                        }
+                                        call.respond(tasks)
+                                    } catch (ex: IllegalArgumentException) {
+                                        call.respond(HttpStatusCode.BadRequest)
+                                    }
+                                }
+                            }
+                        }
                     }
                 </code-block>
                 <p>
@@ -612,9 +614,9 @@
                 </p>
                 <code-block lang="json">
                     {
-                    “name”: “cooking”,
-                    “description”: “Cook the dinner”,
-                    “priority”: “High”
+                        “name”: “cooking”,
+                        “description”: “Cook the dinner”,
+                        “priority”: “High”
                     }
                 </code-block>
                 <img src="tutorial_creating_restful_apis_add_task.png"
@@ -645,9 +647,9 @@
                     Content-Type: application/json
 
                     {
-                    "name": "cooking",
-                    "description": "Cook the dinner",
-                    "priority": "High"
+                        "name": "cooking",
+                        "description": "Cook the dinner",
+                        "priority": "High"
                     }
                 </code-block>
                 <p>Make sure to separate your HTTP requests using "###".</p>
@@ -669,7 +671,7 @@
                 </p>
                 <code-block lang="kotlin">
                     fun removeTask(name: String): Boolean {
-                    return tasks.removeIf { it.name == name }
+                        return tasks.removeIf { it.name == name }
                     }
                 </code-block>
             </step>
@@ -681,16 +683,17 @@
                 </p>
                 <code-block lang="kotlin">
                     delete("/{taskName}") {
-                    val name = call.parameters["taskName"]
-                    if (name == null) {
-                    call.respond(HttpStatusCode.BadRequest)
-                    return@delete
-                    }
-                    if (TaskRepository.removeTask(name)) {
-                    call.respond(HttpStatusCode.NoContent)
-                    } else {
-                    call.respond(HttpStatusCode.NotFound)
-                    }
+                        val name = call.parameters["taskName"]
+                        if (name == null) {
+                            call.respond(HttpStatusCode.BadRequest)
+                            return@delete
+                        }
+
+                        if (TaskRepository.removeTask(name)) {
+                            call.respond(HttpStatusCode.NoContent)
+                        } else {
+                            call.respond(HttpStatusCode.NotFound)
+                        }
                     }
                 </code-block>
             </step>
