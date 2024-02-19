@@ -1,4 +1,4 @@
-FROM jetty:11.0.19
+FROM jetty:11.0.20
 EXPOSE 8080:8080
 COPY ./build/libs/jetty-war.war/ /var/lib/jetty/webapps
 WORKDIR /var/lib/jetty
