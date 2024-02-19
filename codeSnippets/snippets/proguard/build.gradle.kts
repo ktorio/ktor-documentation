@@ -9,7 +9,7 @@ buildscript {
         maven("https://plugins.gradle.org/m2")
     }
     dependencies {
-        classpath("com.guardsquare:proguard-gradle:7.4.1")
+        classpath("com.guardsquare:proguard-gradle:7.4.2")
     }
 }
 
