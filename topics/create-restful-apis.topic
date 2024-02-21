@@ -186,7 +186,7 @@
             </step>
             <img src="tutorial_creating_restful_apis_starter_code_preview.png"
                  alt="JSON data displayed in a browser screen"
-                 border-effect="line"
+                 border-effect="rounded"
                  width="706"/>
             <p>Clearly a lot of work is being performed on our behalf. What exactly is going on?</p>
         </procedure>
@@ -495,7 +495,7 @@
                 <step>
                     <p>Click
                         <control>Send</control>
-                        to send the request and see the response.
+                        to send the request and see the response in the response viewer.
                     </p>
                     <img src="tutorial_creating_restful_apis_tasks_medium_priority_postman.png"
                          alt="A GET request in Postman showing tasks with medium priority in JSON format"
@@ -529,6 +529,12 @@
                             alt="intelliJ IDEA gutter icon"
                             src="intellij_idea_gutter_icon.svg"
                             width="16" height="26"/>) next to it.
+                    </p>
+                </step>
+                <step>
+                    <p>This will open and run in the
+                        <path>Services</path>
+                        tool window:
                     </p>
                     <img src="tutorial_creating_restful_apis_tasks_medium_priority_http_file.png"
                          alt="A GET request in an HTTP file showing tasks with medium priority in JSON format"
@@ -621,7 +627,7 @@
                 </code-block>
                 <img src="tutorial_creating_restful_apis_add_task.png"
                      alt="A POST request in Postman for adding a new task"
-                     border-effect="rounded"
+                     border-effect="line"
                      width="706"/>
             </step>
             <step>
@@ -712,16 +718,25 @@
             </step>
             <step>
                 <p>
-                    You can now test the functionality by sending a DELETE request.
+                    To send the DELETE request within IntelliJ IDE, click on the gutter icon (<img
+                        alt="intelliJ IDEA gutter icon"
+                        src="intellij_idea_gutter_icon.svg"
+                        width="16" height="26"/>) next to it.
+                </p>
+            </step>
+            <step>
+                <p>You will see the response in the
+                    <path>Services</path>
+                    tool window:
                 </p>
                 <img src="tutorial_creating_restful_apis_delete_task.png"
                      alt="A DELETE request in an HTTP Request file"
-                     border-effect="rounded"
+                     border-effect="line"
                      width="706"/>
             </step>
         </procedure>
     </chapter>
-    <chapter title="Create unit tests via Ktor Client" id="create-unit-tests">
+    <chapter title="Create unit test s via Ktor Client" id="create-unit-tests">
         <p>
             So far you have tested your application manually but, as you’ve already noticed, this approach is
             time-consuming and will not scale. Instead, you can implement JUnit tests, using the built-in
