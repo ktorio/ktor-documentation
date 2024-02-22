@@ -101,7 +101,7 @@
             <step>
                 <p>
                     Navigate to
-                    <path>src/main/kotlin</path>
+                    <path>src/main/kotlin/com/example</path>
                     and create a subpackage called "model".
                 </p>
             </step>
@@ -122,7 +122,7 @@
                     file:
                 </p>
                 <code-block lang="kotlin">
-                    package model
+                    package com.example.model
 
                     import kotlinx.serialization.Serializable
 
@@ -155,7 +155,7 @@
                 <code-block lang="kotlin">
                     package com.example.plugins
 
-                    import model.*
+                    import com.example.model.*
                     import io.ktor.server.application.*
                     import io.ktor.server.http.content.*
                     import io.ktor.server.response.*
@@ -362,11 +362,13 @@
             <p>
                 Inside the
                 <path>model</path>
-                package create a new <path>.kt</path> file called "TaskRepository" and add the code below:
+                package create a new
+                <path>.kt</path>
+                file called "TaskRepository" and add the code below:
             </p>
             <code-block lang="kotlin">
                 <![CDATA[
-                package model
+                package com.example.model
 
                 object TaskRepository {
                     private val tasks = mutableListOf(
@@ -725,7 +727,7 @@
                         routing {
                             route("/tasks") {
                                 //...
-
+                                //add the following function
                                 delete("/{taskName}") {
                                     val name = call.parameters["taskName"]
                                     if (name == null) {
@@ -788,7 +790,7 @@
         <procedure>
             <step>
                 <p>
-                    Navigate to the
+                    Open the
                     <path>ApplicationTest.kt</path>
                     file within
                     <path>src/test/kotlin/com/example</path>
@@ -810,7 +812,7 @@
                 import io.ktor.http.*
                 import io.ktor.serialization.kotlinx.json.*
                 import io.ktor.server.testing.*
-                import model.*
+                import com.example.model.*
                 import kotlin.test.*
 
                 class ApplicationTest {
@@ -925,7 +927,9 @@
                 <p>
                     Navigate to the
                     <path>src/test/kotlin/com/example</path>
-                    folder and create a new file called "ApplicationJsonPathTest.kt".
+                    folder and create a new
+                    <path>.kt</path>
+                    file called "ApplicationJsonPathTest".
                 </p>
             </step>
             <step>
@@ -941,7 +945,7 @@ package com.example
 import com.jayway.jsonpath.DocumentContext
 import com.jayway.jsonpath.JsonPath
 import io.ktor.client.*
-import model.Priority
+import com.example.model.Priority
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
