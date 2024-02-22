@@ -1,5 +1,5 @@
 GET http://0.0.0.0:8080/tasks/byPriority/Medium
-    Accept: application/json
+Accept: application/json
 
 ###
 

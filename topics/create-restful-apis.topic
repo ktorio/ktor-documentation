@@ -121,22 +121,8 @@
                     <path>Task.kt</path>
                     file:
                 </p>
-                <code-block lang="kotlin">
-                    package com.example.model
-
-                    import kotlinx.serialization.Serializable
-
-                    enum class Priority {
-                        Low, Medium, High, Vital
-                    }
-
-                    @Serializable
-                    data class Task(
-                        val name: String,
-                        val description: String,
-                        val priority: Priority
-                    )
-                </code-block>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-server-restful-api/src/main/kotlin/com/example/model/Task.kt"/>
                 <p>
                     In the previous tutorial you used extension functions to convert Tasks into HTML. In this case, the
                     <code>Task</code> class is annotated with the <a
@@ -234,11 +220,9 @@
                 <path>src/kotlin/main/com/example/plugins</path>
                 , which includes the following:
             </p>
-            <code-block lang="kotlin">
-                install(ContentNegotiation) {
-                    json()
-                }
-            </code-block>
+            <code-block lang="kotlin"
+                        src="snippets/tutorial-server-restful-api/src/main/kotlin/com/example/plugins/Serialization.kt"
+                        include-lines="10-12"/>
             <p>
                 This code installs the <code>ContentNegotiation</code> plugin, and also configures the <code>kotlinx.serialization</code>
                 plugin. With this, when clients send requests the server can send back objects serialized as JSON.
@@ -262,70 +246,7 @@
                 <path>src/main/resources/static</path>
                 and replace the default content with the following:
             </p>
-            <code-block lang="html"><![CDATA[
-                <html>
-                <head>
-                    <title>A Simple SPA For Tasks</title>
-                    <script type="application/javascript">
-                        function fetchAndDisplayTasks() {
-                            fetchTasks()
-                                .then(tasks => displayTasks(tasks))
-                            }
-
-                        function fetchTasks() {
-                            return fetch(
-                                "/tasks",
-                                {
-                                    headers: { 'Accept': 'application/json' }
-                                }
-                            ).then(resp => resp.json());
-                        }
-
-                        function displayTasks(tasks) {
-                            const tasksTableBody = document.getElementById("tasksTableBody")
-                            tasks.forEach(task => {
-                                const newRow = taskRow(task);
-                                tasksTableBody.appendChild(newRow);
-                            });
-                        }
-
-                        function taskRow(task) {
-                            return tr([
-                                td(task.name),
-                                td(task.description),
-                                td(task.priority)
-                            ]);
-                        }
-
-                        function tr(children) {
-                            const node = document.createElement("tr");
-                            children.forEach(child => node.appendChild(child));
-                            return node;
-                        }
-
-                        function td(text) {
-                            const node = document.createElement("td");
-                            node.appendChild(document.createTextNode(text));
-                            return node;
-                        }
-                    </script>
-                </head>
-                <body>
-                <h1>Viewing Tasks Via JS</h1>
-                <form action="javascript:fetchAndDisplayTasks()">
-                    <input type="submit" value="View The Tasks">
-                </form>
-                <table>
-                    <thead>
-                        <tr><th>Name</th><th>Description</th><th>Priority</th></tr>
-                    </thead>
-                    <tbody id="tasksTableBody">
-                    </tbody>
-                </table>
-                </body>
-                </html>
-            ]]>
-            </code-block>
+            <code-block lang="html" src="snippets/tutorial-server-restful-api/src/main/resources/static/index.html"/>
             <p>
                 This page contains an HTML form and an empty table. When you submit the form a JavaScript event handler
                 sends a request to the <code>/tasks</code> endpoint, with the <code>Accept</code> header set to
@@ -366,37 +287,9 @@
                 <path>.kt</path>
                 file called "TaskRepository" and add the code below:
             </p>
-            <code-block lang="kotlin">
-                <![CDATA[
-                package com.example.model
-
-                object TaskRepository {
-                    private val tasks = mutableListOf(
-                        Task("cleaning", "Clean the house", Priority.Low),
-                        Task("gardening", "Mow the lawn", Priority.Medium),
-                        Task("shopping", "Buy the groceries", Priority.High),
-                        Task("painting", "Paint the fence", Priority.Medium)
-                    )
-
-                    fun allTasks(): List<Task> = tasks
-
-                    fun tasksByPriority(priority: Priority) = tasks.filter {
-                        it.priority == priority
-                    }
-
-                    fun taskByName(name: String) = tasks.find {
-                        it.name.equals(name, ignoreCase = true)
-                    }
-
-                    fun addTask(task: Task) {
-                        if (taskByName(task.name) != null) {
-                            throw IllegalStateException("Cannot duplicate task names!")
-                        }
-                        tasks.add(task)
-                    }
-                }
-                ]]>
-            </code-block>
+            <code-block lang="kotlin"
+                        src="snippets/tutorial-server-restful-api/src/main/kotlin/com/example/model/TaskRepository.kt"
+                        include-lines="1-26,31"/>
         </procedure>
         <procedure title="Reuse the routes for GET requests" id="get-requests">
             <p>
@@ -525,23 +418,21 @@
                     <p>
                         In the project root directory, create a new
                         <path>.http</path>
-                        with the name "REST Task Manager".
+                        file with the name "REST Task Manager".
                     </p>
                 </step>
                 <step>
                     <p>
-                        Open the
+                        Open
                         <path>REST Task Manager.http</path>
-                        file and add the following GET request:
+                        and add the following GET request:
                     </p>
-                    <code-block lang="http">
-                        GET http://0.0.0.0:8080/tasks/byPriority/Medium
-                        Accept: application/json
-                    </code-block>
+                    <code-block lang="http" src="snippets/tutorial-server-restful-api/REST Task Manager.http"
+                                include-lines="1-2"/>
                 </step>
                 <step>
                     <p>
-                        To send the request within the IntelliJ IDE, click on the gutter icon (<img
+                        To send the request within IntelliJ IDE, click on the gutter icon (<img
                             alt="intelliJ IDEA gutter icon"
                             src="intellij_idea_gutter_icon.svg"
                             width="16" height="26"/>) next to it.
@@ -641,13 +532,8 @@
                     <ui-path>Body</ui-path>
                     pane add the following JSON document to represent a new task:
                 </p>
-                <code-block lang="json">
-                    {
-                        “name”: “cooking”,
-                        “description”: “Cook the dinner”,
-                        “priority”: “High”
-                    }
-                </code-block>
+                <code-block lang="json" src="snippets/tutorial-server-restful-api/REST Task Manager.http"
+                            include-lines="9-13"/>
                 <img src="tutorial_creating_restful_apis_add_task.png"
                      alt="A POST request in Postman for adding a new task"
                      border-effect="line"
@@ -671,18 +557,8 @@
                     Within IntelliJ IDEA Ultimate you could perform the same steps by adding the following to your HTTP
                     Request file:
                 </p>
-                <code-block lang="http">
-                    ###
-
-                    POST http://0.0.0.0:8080/tasks
-                    Content-Type: application/json
-
-                    {
-                        "name": "cooking",
-                        "description": "Cook the dinner",
-                        "priority": "High"
-                    }
-                </code-block>
+                <code-block lang="http" src="snippets/tutorial-server-restful-api/REST Task Manager.http"
+                            include-lines="4-14"/>
             </step>
         </procedure>
     </chapter>
@@ -699,11 +575,9 @@
                     file add the following method within the <code>TaskRepository</code> object to remove tasks based on
                     their name:
                 </p>
-                <code-block lang="kotlin">
-                    fun removeTask(name: String): Boolean {
-                        return tasks.removeIf { it.name == name }
-                    }
-                </code-block>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-server-restful-api/src/main/kotlin/com/example/model/TaskRepository.kt"
+                            include-lines="28-30"/>
             </step>
             <step>
                 <p>
@@ -746,11 +620,8 @@
                 <p>
                     Add the following DELETE request to your HTTP Request File:
                 </p>
-                <code-block lang="http">
-                    ###
-
-                    DELETE http://0.0.0.0:8080/tasks/gardening
-                </code-block>
+                <code-block lang="http" src="snippets/tutorial-server-restful-api/REST Task Manager.http"
+                            include-lines="15-17"/>
             </step>
             <step>
                 <p>
@@ -794,80 +665,10 @@
                     <path>ApplicationTest.kt</path>
                     file with the following:
                 </p>
-                <code-block lang="kotlin"><![CDATA[
-                package com.example
+                <code-block
+                        src="snippets/tutorial-server-restful-api/src/test/kotlin/com/example/ApplicationTest.kt"
+                        lang="kotlin"/>
 
-                import io.ktor.client.call.*
-                import io.ktor.client.plugins.contentnegotiation.*
-                import io.ktor.client.request.*
-                import io.ktor.http.*
-                import io.ktor.serialization.kotlinx.json.*
-                import io.ktor.server.testing.*
-                import com.example.model.*
-                import kotlin.test.*
-
-                class ApplicationTest {
-                    @Test
-                    fun tasksCanBeFoundByPriority() = testApplication {
-                        val client = createClient {
-                            install(ContentNegotiation) {
-                                json()
-                            }
-                        }
-
-                        val response = client.get("/tasks/byPriority/Medium")
-                        val results = response.body<List<Task>>()
-
-                        assertEquals(HttpStatusCode.OK, response.status)
-
-                        val expectedTaskNames = listOf("gardening", "painting")
-                        val actualTaskNames = results.map(Task::name)
-                        assertContentEquals(expectedTaskNames, actualTaskNames)
-                    }
-
-                    @Test
-                    fun invalidPriorityProduces400() = testApplication {
-                        val response = client.get("/tasks/byPriority/Invalid")
-                        assertEquals(HttpStatusCode.BadRequest, response.status)
-                    }
-
-
-                    @Test
-                    fun unusedPriorityProduces404() = testApplication {
-                        val response = client.get("/tasks/byPriority/Vital")
-                        assertEquals(HttpStatusCode.NotFound, response.status)
-                    }
-
-                    @Test
-                    fun newTasksCanBeAdded() = testApplication {
-                        val client = createClient {
-                            install(ContentNegotiation) {
-                                json()
-                            }
-                        }
-
-                        val task = Task("swimming", "Go to the beach", Priority.Low)
-                        val response1 = client.post("/tasks") {
-                            header(
-                                HttpHeaders.ContentType,
-                                ContentType.Application.Json
-                            )
-
-                            setBody(task)
-                        }
-                        assertEquals(HttpStatusCode.NoContent, response1.status)
-
-                        val response2 = client.get("/tasks")
-                        assertEquals(HttpStatusCode.OK, response2.status)
-
-                        val taskNames = response2
-                            .body<List<Task>>()
-                            .map { it.name }
-
-                        assertContains(taskNames, "swimming")
-                    }
-                }
-                ]]></code-block>
                 <p>
                     Note that you need to install the <code>ContentNegotiation</code> and
                     <code>kotlinx.serialization</code> plugins into the client, in the same way as you did on the
@@ -880,9 +681,9 @@
                     <path>build.gradle.kts</path>
                     file:
                 </p>
-                <code-block lang="kotlin">
-                    testImplementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
-                </code-block>
+                <code-block src="snippets/tutorial-server-restful-api/build.gradle.kts"
+                            lang="kotlin"
+                            include-lines="29"/>
             </step>
         </procedure>
     </chapter>
@@ -908,11 +709,12 @@
             <step>
                 <p>In your
                     <path>build.gradle.kts</path>
-                    file, add the JSONPath library as a test dependency:
+                    file, add the JSONPath library to the <code>dependencies</code> block:
                 </p>
-                <code-block lang="kotlin">
-                    testImplementation("com.jayway.jsonpath:json-path:2.9.0")
-                </code-block>
+                <code-block
+                        src="snippets/tutorial-server-restful-api/build.gradle.kts"
+                        include-lines="32"
+                        lang="kotlin"/>
             </step>
             <step>
                 <p>
@@ -929,53 +731,9 @@
                     <path>ApplicationJsonPathTest.kt</path>
                     file:
                 </p>
-                <code-block lang="kotlin">
-                    <![CDATA[
-package com.example
-
-import com.jayway.jsonpath.DocumentContext
-import com.jayway.jsonpath.JsonPath
-import io.ktor.client.*
-import com.example.model.Priority
-import io.ktor.client.request.*
-import io.ktor.client.statement.*
-import io.ktor.http.*
-import io.ktor.server.testing.*
-import kotlin.test.*
-
-
-class ApplicationJsonPathTest {
-    @Test
-    fun tasksCanBeFound() = testApplication {
-        val jsonDoc = client.getAsJsonPath("/tasks")
-
-        val result: List<String> = jsonDoc.read("$[*].name")
-        assertEquals("cleaning", result[0])
-        assertEquals("gardening", result[1])
-        assertEquals("shopping", result[2])
-    }
-
-    @Test
-    fun tasksCanBeFoundByPriority() = testApplication {
-        val priority = Priority.Medium
-        val jsonDoc = client.getAsJsonPath("/tasks/byPriority/$priority")
-
-        val result: List<String> =
-            jsonDoc.read("$[?(@.priority == '$priority')].name")
-        assertEquals(2, result.size)
-
-        assertEquals("gardening", result[0])
-        assertEquals("painting", result[1])
-    }
-
-    suspend fun HttpClient.getAsJsonPath(url: String): DocumentContext {
-        val response = this.get(url) {
-            accept(ContentType.Application.Json)
-        }
-        return JsonPath.parse(response.bodyAsText())
-    }
-}
-                ]]></code-block>
+                <code-block
+                        src="snippets/tutorial-server-restful-api/src/test/kotlin/com/example/ApplicationJsonPathTest.kt"
+                        lang="kotlin"/>
                 <p>
                     The JsonPath queries work as follows:
                 </p>
