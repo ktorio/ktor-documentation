@@ -40,6 +40,10 @@
         <analytics-head-script-file>google-analytics-code.html</analytics-head-script-file>
         <analytics-body-html-file>google-analytics-noscript.html</analytics-body-html-file>
 
+        <sitemap priority="0.35" change-frequency="monthly"/>
+        <generate-sitemap-url-prefix>https://www.jetbrains.com/help/</generate-sitemap-url-prefix>
+
+        <website-title>%instance% Documentation</website-title>
     </variables>
 
     <build-profile product="ktor"/>
