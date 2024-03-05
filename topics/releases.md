@@ -33,6 +33,12 @@ The following table lists details of the latest Ktor releases.
 
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
+<tr><td>2.3.9</td><td>March 4, 2024</td><td><p>
+A patch release including a bug fix for the ContentNegotiation client plugin, and an added support for sending secure cookies over HTTP.
+</p>
+<var name="version" value="2.3.9"/>
+<include from="lib.topic" element-id="release_details_link"/>
+</td></tr>
 <tr><td>2.3.8</td><td>January 31, 2024</td><td><p>
 A patch release including various bug fixes for URLBuilder, CORS and WebSocket plugins.
 </p>
