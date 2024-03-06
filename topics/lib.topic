@@ -316,6 +316,76 @@
             <b><a href="native_server.md">Native server</a> support</b>: ✖️
         </p>
     </snippet>
+
+    <snippet id="generator_project_settings_build_system">
+        <p>
+            <control>Build System</control>
+            :
+            Choose the desired <a href="server-dependencies.topic">build system</a>.
+            This can be
+            <emphasis>Gradle</emphasis>
+            with Kotlin or Groovy DSL, or
+            <emphasis>Maven</emphasis>
+            .
+        </p>
+    </snippet>
+    <snippet id="generator_project_settings_website">
+        <p>
+            <control>Website</control>
+            :
+            Specify a domain used to generate a package name.
+        </p>
+    </snippet>
+
+    <snippet id="generator_project_settings_artifact">
+        <p>
+            <control>Artifact</control>
+            :
+            This field shows a generated artifact name.
+        </p>
+    </snippet>
+
+    <snippet id="generator_project_settings_ktor_version">
+        <p>
+            <control>Ktor version</control>
+            :
+            Choose the required Ktor version.
+        </p>
+    </snippet>
+
+    <snippet id="generator_project_settings_engine">
+        <p>
+            <control>Engine</control>
+            :
+            Select an <a href="Engines.md">engine</a> used to run a server.
+        </p>
+    </snippet>
+
+    <snippet id="generator_project_settings_config">
+        <p>
+            <control>Configuration in</control>
+            :
+            Choose
+            <emphasis>Code</emphasis>
+            to specify server parameters <a href="create_server.topic">in code</a>.
+        </p>
+    </snippet>
+
+    <snippet id="generator_project_settings_sample_code">
+        <p>
+            <control>Add sample code</control>
+            :
+            Leave this option enabled to add sample code for plugins added on the next page.
+        </p>
+    </snippet>
+
+
+    <snippet id="release_details_link">
+        <p>
+            <a href="https://github.com/ktorio/ktor/releases/tag/%version%">See changelog on
+                GitHub</a>
+        </p>
+    </snippet>
 </topic>
 
 

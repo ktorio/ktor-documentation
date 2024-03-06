@@ -2,7 +2,9 @@
 <!DOCTYPE ihp
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/ihp.dtd">
 <ihp version="2.0">
-    <settings/>
+    <settings>
+        <wrs-supernova use-version="2.1.1738-p5259"/>
+    </settings>
 
     <module name="ktor"/>
     <snippets src="codeSnippets"/>

@@ -1,0 +1,1027 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Create, open and run a new Ktor project"
+       id="server_create_a_new_project"
+>
+    <show-structure for="chapter" depth="2"/>
+    <tldr>
+        <var name="example_name" value="tutorial-server-get-started"/>
+        <include from="lib.topic" element-id="download_example"/>
+    </tldr>
+
+    <link-summary>
+        Learn how to open, run and test a server application with Ktor.
+    </link-summary>
+    <web-summary>
+        Get started with building your first Ktor Server application. In this tutorial you will learn how to create,
+        open and run a new Ktor project.
+    </web-summary>
+    <p>
+        In this tutorial, you will learn how to create, open and run
+        your first Ktor server project. Once you get up and running, you can attempt a series of tasks to familiarize
+        yourself
+        with Ktor.
+    </p>
+    <p>
+        This is the first of a series of tutorials to get you started with
+        building server applications with Ktor. You can do each tutorial independently,
+        however, we strongly recommend that you follow the suggested order:
+    </p>
+    <list type="decimal">
+        <li>Create, open and run a new Ktor project.</li>
+        <li><a href="creating_http_apis.md">Create HTTP APIs</a>.</li>
+        <li><a href="creating_static_website.md">Create a static website</a>.</li>
+        <li><a href="creating_interactive_website.md">Create an interactive website</a>.</li>
+        <li><a href="creating_web_socket_chat.md">Create a WebSocket chat</a>.</li>
+    </list>
+    <chapter id="create-project" title="Create a new Ktor project">
+        <p>
+            One of the fastest ways to create a new Ktor project is by <a
+                anchor="create-project-with-the-ktor-project-generator">using the
+            web-based Ktor project generator</a>.
+        </p>
+        <p>Alternatively, if you have intelliJ IDEA Ultimate installed, you can <a
+                anchor="create_project_with_intellij">use the dedicated Ktor plugin to create
+            a new project</a>.</p>
+
+        <chapter title="Use the Ktor project generator"
+                 id="create-project-with-the-ktor-project-generator">
+            <p>
+                To create a new project with the Ktor project generator, follow the steps below:
+            </p>
+            <procedure>
+                <step>
+                    <p>Navigate to the <a href="https://start.ktor.io/">Ktor Project Generator</a>.</p>
+                </step>
+                <step>
+                    <p>In the
+                        <control>Project Name</control>
+                        field, enter
+                        <path>ktor-sample-app</path>
+                        as the name of your project.
+                    </p>
+                    <img src="ktor_project_generator_new_project_name.png"
+                         alt="Ktor Project Generator with Project Name ktor-sample-app" border-effect="line"
+                         width="706"/>
+                </step>
+                <step>
+                    <p>Click
+                        <control>Adjust project settings</control>
+                        to expand the setting menu:
+                    </p>
+                    <img src="ktor_project_generator_adjust_project_settings.png"
+                         alt="expanded view of Ktor project settings" border-effect="line" width="706"/>
+                    <p>
+                        The following settings are available:
+                    </p>
+                    <list>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_build_system"/>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_website"/>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_artifact"/>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_ktor_version"/>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_engine"/>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_config"/>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_sample_code"/>
+                        </li>
+                    </list>
+                    <p>For this tutorial you can leave the default values for these settings.</p>
+                </step>
+                <step>
+                    <p>Click
+                        <control>Add Plugins</control>
+                        to go to the next screen.
+                    </p>
+                    <img src="ktor_project_generator_new_project_plugins_screen.png"
+                         alt="Ktor Project Generator plugins screen" border-effect="line" width="706"/>
+                    <p>Here you can choose a set of <a href="Plugins.md">plugins</a> -
+                        building blocks that provide common functionality of a Ktor application, for example,
+                        authentication, serialization and content encoding, compression, cookie support, and so on.
+                    </p>
+                    <p>For the sake of this tutorial, no plugins need to be added to the project
+                        at this stage. </p>
+                </step>
+                <step>
+                    <p>
+                        Click
+                        <control>Generate project</control>
+                        to generate and download your Ktor project.
+                    </p>
+                </step>
+                <p>Your download should start automatically.</p>
+            </procedure>
+            <p>Now that you have generated a new project, continue to <a anchor="unpacking">unpack and run your Ktor
+                project</a>.</p>
+        </chapter>
+        <chapter title="Use the Ktor plugin for intelliJ IDEA Ultimate" id="create_project_with_intellij"
+                 collapsible="true">
+            <p>
+                This section describes project setup using the <a
+                    href="https://plugins.jetbrains.com/plugin/16008-ktor">Ktor plugin</a> for Intellij IDEA Ultimate.
+            </p>
+            <p>
+                To create a new Ktor project,
+                <a href="https://www.jetbrains.com/help/idea/run-for-the-first-time.html">open IntelliJ IDEA</a>, and
+                follow the steps below:
+            </p>
+            <procedure>
+                <step>
+                    <include from="lib.topic" element-id="new_project_idea"/>
+                </step>
+                <step>
+                    <p>
+                        In the
+                        <control>New Project</control>
+                        wizard, choose
+                        <control>Ktor</control>
+                        from the list on the left.
+                    </p>
+                </step>
+                <step>
+                    <p>
+                        On the right pane, you can specify the following settings:
+                    </p>
+                    <img src="ktor_idea_new_project_settings.png" alt="Ktor Project Settings" width="706"
+                         border-effect="rounded"/>
+                    <list>
+                        <li>
+                            <p>
+                                <control>Name</control>
+                                :
+                                Specify a project name. Enter
+                                <path>ktor-sample-app</path>
+                                as the name of your project.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <control>Location</control>
+                                :
+                                Specify a directory for your project.
+                            </p>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_website"/>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_artifact"/>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_engine"/>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_sample_code"/>
+                        </li>
+                    </list>
+                </step>
+                <step>
+                    <p>
+                        Click
+                        <control>Advanced Settings</control>
+                        to expand the
+                        additional settings menu:
+                    </p>
+                    <img src="ktor_idea_new_project_advanced_settings.png" alt="Ktor Project Advanced Settings"
+                         width="706" border-effect="rounded"/>
+                    <p>
+                        The following settings are available:
+                    </p>
+                    <list>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_build_system"/>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_ktor_version"/>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_config"/>
+                        </li>
+                    </list>
+                    <p>For the sake of this tutorial, you can leave the default values of these settings.</p>
+                </step>
+                <step>
+                    <p>
+                        Click
+                        <control>Next</control>
+                        to go to the next page.
+                    </p>
+                    <img src="ktor_idea_new_project_plugins_list.png" alt="Ktor plugins" width="706"
+                         border-effect="rounded"/>
+                    <p>
+                        On this page, you can choose a set of <a href="Plugins.md">plugins</a> -
+                        building blocks that provide common functionality of a Ktor application, for example,
+                        authentication, serialization and content encoding, compression, cookie support, and so on.
+                    </p>
+
+                    <p>For the sake of this tutorial, no plugins need to be added to the project
+                        at this stage. </p>
+                </step>
+                <step>
+                    <p>
+                        Click
+                        <control>Create</control>
+                        and wait until IntelliJ IDEA generates a project and
+                        installs the dependencies.
+                    </p>
+                </step>
+            </procedure>
+            <p>
+                Now that you've created a new project, continue to learn how to <a anchor="open-explore-run">open,
+                explore and run</a>
+                the application.
+            </p>
+        </chapter>
+    </chapter>
+    <chapter title="Unpack and run your Ktor project" id="unpacking">
+        <p>
+            In this section you will learn how to unpack, build and run the project from the command line. The
+            descriptions below
+            assume that:
+        </p>
+        <list type="bullet">
+            <li>You have created and downloaded a project called
+                <path>ktor-sample-app</path>
+                .
+            </li>
+            <li>This has been placed in a folder called
+                <path>myprojects</path>
+                in your home directory.
+            </li>
+        </list>
+        <p>If necessary, alter the names and paths to match your own setup.</p>
+        <p>Open a command line tool of your choice and follow the steps:</p>
+        <procedure>
+            <step>
+                <p>In a terminal, navigate to the folder where you downloaded the project:</p>
+                <code-block lang="console">
+                    cd ~/myprojects
+                </code-block>
+            </step>
+            <step>
+                <p>Unpack the ZIP archive into a folder of the same name:</p>
+                <tabs>
+                    <tab title="macOS" group-key="macOS">
+                        <code-block lang="console">
+                            unzip ktor-sample-app.zip -d ktor-sample-app
+                        </code-block>
+                    </tab>
+                    <tab title="Windows" group-key="windows">
+                        <code-block lang="console">
+                            tar -xf ktor-sample-app.zip
+                        </code-block>
+                    </tab>
+                </tabs>
+                <p>Your directory will now contain the ZIP archive and the unpacked folder.</p>
+            </step>
+            <step>
+                <p>From the directory, navigate into the newly created folder:</p>
+                <code-block lang="console">
+                    cd ktor-sample-app
+                </code-block>
+            </step>
+            <step>
+                <p>On macOS/UNIX systems, you will need to make the gradlew Gradle helper script executable. To do that,
+                    use the <code>chmod</code> command:</p>
+                <tabs>
+                    <tab title="macOS" group-key="macOS">
+                        <code-block lang="console">
+                            chmod +x ./gradlew
+                        </code-block>
+                    </tab>
+                </tabs>
+            </step>
+            <step>
+                <p>To build the project, use the following command:</p>
+                <tabs>
+                    <tab title="macOS" group-key="macOS">
+                        <code-block lang="console">
+                            ./gradlew build
+                        </code-block>
+                    </tab>
+                    <tab title="Windows" group-key="windows">
+                        <code-block lang="console">
+                            gradlew build
+                        </code-block>
+                    </tab>
+                </tabs>
+                <p>If you see that your build has been successful you can execute the project, again via Gradle.</p>
+            </step>
+            <step>
+                <p>To run the project, use the following command:</p>
+                <tabs>
+                    <tab title="macOS" group-key="macOS">
+                        <code-block lang="console">
+                            ./gradlew run
+                        </code-block>
+                    </tab>
+                    <tab title="Windows" group-key="windows">
+                        <code-block lang="console">
+                            gradlew run
+                        </code-block>
+                    </tab>
+                </tabs>
+            </step>
+            <step>
+                <p>To verify the project is running, open a browser at the URL mentioned in the output (<a
+                        href="http://0.0.0.0:8080">http://0.0.0.0:8080</a>).
+                    You should see the message "Hello World!" displayed on the screen:</p>
+                <img src="server_get_started_ktor_sample_app_output.png" alt="Output of generated ktor project"
+                     border-effect="line" width="706"/>
+            </step>
+        </procedure>
+        <p>Congratulations! You have successfully started your Ktor project.</p>
+        <p>Note that the command line is unresponsive because the underlying process is busy running the Ktor
+            application. You can
+            press
+            <shortcut>CTRL+C</shortcut>
+            to terminate the application.
+        </p>
+    </chapter>
+    <chapter title="Open, explore and run your Ktor project in IntelliJ IDEA" id="open-explore-run">
+        <chapter title="Open the project" id="open">
+            <p>If you have <a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a> installed, you can easily open
+                the project from the command
+                line.
+            </p>
+            <p>
+                Make sure you are in the project folder and then type the <code>idea</code> command, followed by a
+                period to represent the current
+                folder:
+            </p>
+            <code-block lang="Bash">
+                idea .
+            </code-block>
+            <p>
+                Alternatively, to open the project manually launch IntelliJ IDEA.
+            </p>
+            <p>
+                If the Welcome screen opens, click
+                <control>Open</control>
+                . Otherwise, go to
+                <ui-path>File | Open</ui-path>
+                in the main menu and select
+                the
+                <path>ktor-sample-app</path>
+                folder to open it.
+            </p>
+            <tip>
+                For more details on managing projects,
+                see <a href="https://www.jetbrains.com/help/idea/creating-and-managing-projects.html">the IntelliJ IDEA
+                documentation</a>.
+            </tip>
+        </chapter>
+        <chapter title="Explore the project" id="explore">
+            <p>Whichever option you choose, the project should open as shown below:</p>
+            <img src="server_get_started_idea_project_view.png" alt="Generated Ktor project view in IDE" width="706"/>
+            <p>
+                In order to explain the project layout we have expanded the structure in the
+                <control>Project</control>
+                view and selected the
+                file
+                <path>settings-gradle.kts</path>
+                .
+            </p>
+            <p>
+                You will see that the code to run your application lives in packages under
+                <path>src/main/kotlin</path>
+                . The default package is
+                called
+                <path>com.example</path>
+                and contains a subpackage called
+                <path>plugins</path>
+                .
+                Two files have been created within these packages, named
+                <path>Application.kt</path>
+                and
+                <path>Routing.kt</path>
+            </p>
+            <img src="server_get_started_idea_main_folder.png" alt="Ktor project src folder structure" width="400"/>
+            <p>The name of the project is configured in
+                <path>settings-gradle.kts</path>
+                .
+            </p>
+            <img src="server_get_started_idea_settings_file.png" alt="Contents of settings.gradle.kt" width="706"/>
+            <p>
+                Configuration files, and other kinds of content, live within the
+                <path>src/main/resources</path>
+                folder.
+            </p>
+            <img src="server_get_started_idea_resources_folder.png" alt="Ktor project resources folder structure"
+                 width="400"/>
+            <p>
+                A skeleton test has been created in a package under
+                <path>src/test/kotlin</path>
+                .
+            </p>
+            <img src="server_get_started_idea_test_folder.png" alt="Ktor project test folder structure" width="400"/>
+        </chapter>
+        <chapter title="Run the project" id="run">
+            <procedure>
+                <p>To run the project from within IntelliJ IDEA:</p>
+                <step>
+                    <p>Open the <a href="https://www.jetbrains.com/help/idea/jetgradle-tool-window.html">Gradle tool
+                        window</a>
+                        by clicking the Gradle icon (<img alt="intelliJ IDEA gradle icon"
+                                                          src="intellij_idea_gradle_icon.svg" width="16" height="26"/>)
+                        on the right sidebar.</p>
+                    <img src="server_get_started_idea_gradle_tab.png" alt="Gradle tab in IntelliJ IDEA"
+                         border-effect="line" width="706"/>
+                </step>
+                <step>
+                    <p>Within this tool window navigate to
+                        <ui-path>Tasks | application</ui-path>
+                        and double-click on the
+                        <control>run</control>
+                        task.
+                    </p>
+                    <img src="server_get_started_idea_gradle_run.png" alt="Gradle tab in IntelliJ IDEA"
+                         border-effect="line" width="450"/>
+                </step>
+                <step>
+                    <p>Your Ktor application will start in the <a
+                            href="https://www.jetbrains.com/help/idea/run-tool-window.html">Run tool window</a> at
+                        the bottom of the IDE:</p>
+                    <img src="server_get_started_idea_run_terminal.png" alt="Project running in terminal" width="706"/>
+                    <p>The same messages that were previously displayed on the command line will now be visible in the
+                        <ui-path>Run</ui-path>
+                        tool window.
+                    </p>
+                </step>
+                <step>
+                    <p>To confirm the project is running, open your browser at the specified URL
+                        (<a href="http://0.0.0.0:8080">http://0.0.0.0:8080</a>).</p>
+                    <p>You should once again see the message "Hello World!" displayed on the screen:</p>
+                    <img src="server_get_started_ktor_sample_app_output.png" alt="Hello World in Browser Screen"
+                         width="706"/>
+                </step>
+            </procedure>
+            <p>
+                You can manage the application via the
+                <ui-path>Run</ui-path>
+                tool window.
+            </p>
+            <list type="bullet">
+                <li>
+                    To terminate the application, click the stop button <img src="intellij_idea_terminate_icon.svg"
+                                                                             style="inline" height="16" width="16"
+                                                                             alt="intelliJ IDEA terminate icon"/>
+                </li>
+                <li>
+                    To restart the process, click the rerun button <img src="intellij_idea_rerun_icon.svg"
+                                                                        style="inline" height="16" width="16"
+                                                                        alt="intelliJ IDEA rerun icon"/>
+                </li>
+            </list>
+            <p>
+                These options are explained further
+                in <a href="https://www.jetbrains.com/help/idea/run-tool-window.html#run-toolbar">the IntelliJ IDEA Run
+                Tool Window documentation</a>.
+            </p>
+        </chapter>
+    </chapter>
+    <chapter title="Additional Tasks To Attempt" id="additional-tasks">
+        <p>Here are some additional tasks you may wish to try:</p>
+        <list type="decimal">
+            <li><a anchor="change-the-default-port">Change the default port.</a></li>
+            <li><a anchor="change-the-port-via-yaml">Change the port via YAML.</a></li>
+            <li><a anchor="add-a-new-http-endpoint">Add a new HTTP endpoint.</a></li>
+            <li><a anchor="configure-static-content">Configure static content.</a></li>
+            <li><a anchor="write-an-integration-test">Write an integration test.</a></li>
+            <li><a anchor="register-error-handlers">Register error handlers.</a></li>
+        </list>
+        <p>
+            These tasks do not depend on one another, but gradually increase in complexity. Attempting them in the order
+            declared is
+            the easiest way to learn incrementally. For simplicity, and to avoid duplication, the descriptions below
+            assume you are
+            attempting the tasks in order.
+        </p>
+        <p>
+            Where coding is required we have specified both the code and the corresponding imports. The IDE may add
+            these imports
+            for you automatically.
+        </p>
+        <chapter title="Change the default port" id="change-the-default-port">
+            <p>
+                In the
+                <ui-path>Project</ui-path>
+                view navigate to the
+                <path>src/main/kotlin</path>
+                folder and then into the single package that has been created
+                for you and follow the steps:
+            </p>
+            <procedure>
+                <step>
+                    <p>Open the
+                        <path>Application.kt</path>
+                        file. You should find code similar to the following:
+                    </p>
+                    <code-block lang="kotlin">
+                        fun main() {
+                            embeddedServer(
+                                Netty,
+                                port = 8080, // This is the port on which Ktor is listening
+                                host = "0.0.0.0",
+                                module = Application::module
+                            ).start(wait = true)
+                        }
+
+                        fun Application.module() {
+                            configureRouting()
+                        }
+                    </code-block>
+                </step>
+                <step>
+                    <p>In the <code>embeddedServer()</code> function, change the <code>port</code> parameter
+                        to another number of your choosing, such as "9292".</p>
+                    <code-block lang="kotlin">
+                        fun main() {
+                            embeddedServer(
+                                Netty,
+                                port = 9292,
+                                host = "0.0.0.0",
+                                module = Application::module
+                            ).start(wait = true)
+                        }
+                    </code-block>
+                </step>
+                <step>
+                    <p>Click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
+                                                       src="intellij_idea_rerun_icon.svg" height="16" width="16"/>)
+                        to restart the application.</p>
+                </step>
+                <step>
+                    <p>To verify that your application is running under the new port number, you can open your browser
+                        at the new URL (<a href="http://0.0.0.0:9292">http://0.0.0.0:9292</a>), or
+                        <a href="https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html#creating-http-request-files">create
+                            a new HTTP Request file in IntelliJ IDEA</a>:</p>
+                    <img src="server_get_started_port_change.png"
+                         alt="Testing port change with an HTTP request file in IntelliJ IDEA" width="706"/>
+                </step>
+            </procedure>
+        </chapter>
+        <chapter title="Change the port via YAML" id="change-the-port-via-yaml">
+            <p>
+                When creating a new Ktor project, you have the option to store configuration externally, within either a
+                YAML or
+                a HOCON file:
+            </p>
+            <img src="ktor_project_generator_configuration_options.png" width="400"
+                 alt="Ktor project generator configuration options"/>
+            <p>
+                If you had chosen to store configuration externally then this would be the code in
+                <path>Application.kt</path>
+                :
+            </p>
+            <code-block lang="kotlin"><![CDATA[
+                fun main(args: Array<String>): Unit =
+                    io.ktor.server.netty.EngineMain.main(args)
+
+                @Suppress("unused")
+                fun Application.module() {
+                    configureRouting()
+                }
+            ]]></code-block>
+            <p>
+                These would be the values stored in the configuration file within
+                <path>src/main/resources/</path>
+                :
+            </p>
+            <tabs>
+                <tab title="application.yaml (YAML)" group-key="yaml">
+                    <code-block lang="yaml">
+                        ktor:
+                        application:
+                        modules:
+                        - com.example.ApplicationKt.module
+                        deployment:
+                        port: 8080
+                    </code-block>
+                </tab>
+                <tab title="application.conf (HOCON)" group-key="hocon">
+                    <code-block lang="json">
+                        ktor {
+                            deployment {
+                                port = 8080
+                                port = ${?PORT}
+                            }
+                            application {
+                                modules = [ com.example.ApplicationKt.module ]
+                            }
+                        }
+                    </code-block>
+                </tab>
+            </tabs>
+            <p>
+                In this case you do not need to alter any code to change the port number. Simply alter the value in the
+                YAML or HOCON
+                file and restart the application. The change can be verified in the same way as
+                with <a anchor="change-the-default-port">the default port</a> above.
+            </p>
+        </chapter>
+        <chapter title="Add a new HTTP endpoint" id="add-a-new-http-endpoint">
+            <p>Next, you will create a new HTTP endpoint that will respond to a GET request.</p>
+            <p>
+                In the
+                <ui-path>Project</ui-path>
+                tool window, navigate to the
+                <path>src/main/kotlin/com/example</path>
+                folder and follow the steps:
+            </p>
+            <procedure>
+                <step>
+                    <p>Open the
+                        <path>Application.kt</path>
+                        file and find the <code>configureRouting()</code> function.
+                    </p>
+                </step>
+                <step>
+                    <p>In intelliJ IDEA, navigate to the <code>configureRouting()</code> function by placing the caret
+                        over the function name
+                        and pressing
+                        <shortcut>⌘Cmd+C</shortcut>
+                        .
+                    </p>
+                    <p>Alternatively, you can navigate to the function by opening the <code>Routing.kt</code> file.</p>
+                    <p>This is the code you should see:</p>
+                    <code-block lang="Kotlin" validate="true">
+                        fun Application.configureRouting() {
+                            routing {
+                                get("/") {
+                                    call.respondText("Hello World!")
+                                }
+                            }
+                        }
+                    </code-block>
+                </step>
+                <step>
+                    <p>To create a new endpoint, insert the additional five lines of code shown below:</p>
+                    <code-block lang="kotlin"
+                                src="snippets/tutorial-server-get-started/src/main/kotlin/com/example/plugins/Routing.kt"
+                                include-lines="11,17,20-28,32-33"/>
+                    <p>Note that you can change the <code>/test1</code> URL to be whatever you like.</p>
+                </step>
+                <step>
+                    <p>In order to make use of <code>ContentType</code>, add the following import:</p>
+                    <code-block lang="kotlin">
+                        import io.ktor.http.*
+                    </code-block>
+                </step>
+                <step>
+                    <p>Click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
+                                                       src="intellij_idea_rerun_icon.svg" height="16" width="16"/>)
+                        to restart the application.</p>
+                </step>
+                <step>
+                    <p>Request the new URL in the browser (<a
+                            href="http://0.0.0.0:9292/test1">http://0.0.0.0:9292/test1</a>). The
+                        port number you should use will depend on whether you have attempted the first task (<a
+                                href="#change-the-default-port">Changing the default port</a>). You should see the
+                        output displayed
+                        below:</p>
+                    <img src="server_get_started_add_new_http_endpoint_output.png"
+                         alt="A browser screen displaying Hello from Ktor" width="706"/>
+                    <p>If you have created an HTTP Request File you can also verify the new endpoint there:</p>
+                    <img src="server_get_started_add_new_http_endpoint.png" alt="An HTTP request file in intelliJ IDEA"
+                         width="450"/>
+                    <p>Note that a line containing three hashes (###) is needed to separate different requests.</p>
+                </step>
+            </procedure>
+        </chapter>
+        <chapter title="Configure static content" id="configure-static-content">
+            <p>In the
+                <ui-path>Project</ui-path>
+                tool window, navigate to the
+                <path>src/main/kotlin/com/example/plugins</path>
+                folder and follow the steps:
+            </p>
+            <procedure>
+                <step>
+                    <p>Open the <code>Routing.kt</code> file.</p>
+                    <p>Once again this should be the default content:</p>
+                    <code-block lang="kotlin">
+                        fun Application.configureRouting() {
+                            routing {
+                                get("/") {
+                                call.respondText("Hello World!")
+                            }
+                        }
+                    </code-block>
+                    <p>For this task it does not matter whether you have inserted the
+                        content for the extra endpoint specified in <a href="#add-a-new-http-endpoint">Adding a new HTTP
+                            endpoint</a>.</p>
+                </step>
+                <step>
+                    <p>Add the following line to the routing section:</p>
+                    <code-block lang="kotlin">
+                        fun Application.configureRouting() {
+                            routing {
+                            // Add the line below
+                            staticResources("/content", "mycontent")
+
+                            get("/") {
+                                call.respondText("Hello World!")
+                            }
+                        }
+                    </code-block>
+                    <p>The meaning of this line is as follows:</p>
+                    <list type="bullet">
+                        <li>Invoking <code>staticResources()</code> tells Ktor that we want our application to be able
+                            to provide standard website content, such
+                            as HTML and JavaScript files. Although this content may be executed within the browser, it
+                            is considered static from
+                            the server's point of view.
+                        </li>
+                        <li>The URL <code>/content</code> specifies the path that should be used to fetch this content.
+                        </li>
+                        <li>The path <code>mycontent</code> is the name of the folder within which the static content
+                            will live. Ktor will look for this
+                            folder within the <code>resources</code> directory.
+                        </li>
+                    </list>
+                </step>
+                <step>
+                    <p>Add the following import:</p>
+                    <code-block lang="kotlin">
+                        import io.ktor.server.http.content.*
+                    </code-block>
+                </step>
+                <step>
+                    <p>In the
+                        <control>Project</control>
+                        tool window, right-click the <code>src/main/resources</code> folder and select
+                        <control>New | Directory</control>
+                        .
+                    </p>
+                    <p>Alternatively, select the <code>src/main/resources</code> folder, press
+                        <shortcut>⌘Сmd+N</shortcut>
+                        , and click
+                        <control>Directory</control>
+                        .
+                    </p>
+                </step>
+                <step>
+                    <p>Name the new directory <code>mycontent</code> and press
+                        <shortcut>↩Enter</shortcut>
+                        .
+                    </p>
+                </step>
+                <step>
+                    <p>Right-click on the newly created folder and click
+                        <control>New | File</control>
+                        .
+                    </p>
+                </step>
+                <step>
+                    <p>Name the new file "sample.html" and press
+                        <shortcut>↩Enter</shortcut>
+                        .
+                    </p>
+                </step>
+                <step>
+                    <p>Populate the newly created file page with valid HTML, for example:</p>
+                    <code-block lang="html"
+                                src="snippets/tutorial-server-get-started/src/main/resources/mycontent/sample.html"
+                                include-lines="1-14"/>
+                </step>
+                <step>
+                    <p>Click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
+                                                       src="intellij_idea_rerun_icon.svg" height="16" width="16"/>)
+                        to restart the application.</p>
+                </step>
+                <step>
+                    <p>When you open your browser at <a href="http://0.0.0.0:9292/content/sample.html">http://0.0.0.0:9292/content/sample.html</a>
+                        the content of your sample page should be displayed:</p>
+                    <img src="server_get_started_configure_static_content_output.png"
+                         alt="Output of a static page in browser" width="706"/>
+                </step>
+            </procedure>
+        </chapter>
+        <chapter title="Write an integration test" id="write-an-integration-test">
+            <p>
+                Ktor provides support for <a href="Testing.md">creating integration tests</a>, and your generated
+                project comes bundled with this functionality.
+            </p>
+            <p>To make use of this, follow the steps below:</p>
+            <procedure>
+                <step>
+                    <p>
+                        Create a new directory under
+                        <path>src</path>
+                        called "test" and a subdirectory called "kotlin".
+                    </p>
+                </step>
+                <step>
+                    <p>Create a new package inside
+                        <path>src/test/kotlin</path>
+                        called "com.example".
+                    </p>
+                </step>
+                <step>
+                    <p>
+                        Within
+                        <path>src/test/kotlin/com.example</path>
+                        create a new file called "ApplicationTest.kt".
+                    </p>
+                </step>
+                <step>
+                    <p>Open the <code>ApplicationTest.kt</code> file and add the code below:</p>
+                    <code-block lang="kotlin">
+                        class ApplicationTest {
+
+                            @Test
+                            fun testRoot() = testApplication {
+                                application {
+                                    module()
+                                }
+                                val response = client.get("/")
+
+                                assertEquals(HttpStatusCode.OK, response.status)
+                                assertEquals("Hello World!", response.bodyAsText())
+                            }
+                        }
+                    </code-block>
+                    <p>The <code>testApplication()</code> method creates a new instance of Ktor. This instance is
+                        running inside a test environment, as
+                        opposed to a server such as Netty.</p>
+                    <p>You can then use the <code>application()</code> method to invoke the same setup that is called
+                        from
+                        <code>embeddedServer()</code>.</p>
+                    <p>Finally, you can use the built-in <code>client</code> object and JUnit assertions to send a
+                        sample request and check the response.</p>
+                </step>
+                <step>
+                    <p>Add the following required imports:</p>
+                    <code-block lang="kotlin">
+                        import io.ktor.client.request.*
+                        import io.ktor.client.statement.*
+                        import io.ktor.http.*
+                        import io.ktor.server.testing.*
+                        import org.junit.Assert.assertEquals
+                        import org.junit.Test
+                    </code-block>
+                </step>
+            </procedure>
+            <p>
+                The test can be run in any of the standard ways for executing tests in IntelliJ IDEA. Note that, because
+                you are running
+                a new instance of Ktor, the success or failure of the test does not depend on whether your application
+                is running at
+                0.0.0.0.
+            </p>
+            <p>
+                If you have successfully completed <a anchor="add-a-new-http-endpoint">adding a new HTTP endpoint</a>,
+                you should be able to
+                add this additional test:
+            </p>
+            <code-block lang="Kotlin">
+                @Test
+                fun testNewEndpoint() = testApplication {
+                    application {
+                        module()
+                    }
+
+                    val response = client.get("/test1")
+
+                    assertEquals(HttpStatusCode.OK, response.status)
+                    assertEquals("html", response.contentType()?.contentSubtype)
+                    assertContains(response.bodyAsText(), "Hello From Ktor")
+                }
+            </code-block>
+            <p>The following additional import is required:</p>
+            <code-block lang="Kotlin">
+                import kotlin.test.assertContains
+            </code-block>
+        </chapter>
+        <chapter title="Register error handlers" id="register-error-handlers">
+            <p>
+                You can handle errors in your Ktor application by using the <a href="status_pages.md">StatusPages
+                plugin</a>.
+            </p>
+            <p>
+                This plugin is not included in your project by default. You could have added it to your project via the
+                <ui-path>Plugins</ui-path>
+                section in the Ktor
+                Project Generator, or the Project Wizard in IntelliJ IDEA. Since you've already created your project, in
+                the next steps
+                you will learn how to add and configure the plugin manually.
+            </p>
+            <p>
+                There are four steps to achieving this:
+            </p>
+            <list type="decimal">
+                <li><a anchor="add-dependency">Add a new dependency in the Gradle build file.</a></li>
+                <li><a anchor="install-plugin-and-specify-handler">Install the plugin and specify an exception
+                    handler.</a></li>
+                <li><a anchor="write-sample-code">Write sample code to trigger the handler.</a></li>
+                <li><a anchor="restart-and-invoke">Restart and invoke the sample code.</a></li>
+            </list>
+            <procedure title="Add a new dependency" id="add-dependency">
+                <p>In the
+                    <control>Project</control>
+                    tool window, navigate to the <code>src/test/kotlin</code> folder and follow the steps:
+                </p>
+                <step>
+                    <p>Open the <code>build.gradle.kts</code> file.</p>
+                </step>
+                <step>
+                    <p>In the dependencies section add the extra dependency as shown below:</p>
+                    <code-block lang="kotlin">
+                        dependencies {
+                            // The new dependency to be added
+                            implementation("io.ktor:ktor-server-status-pages:$ktor_version")
+                            // The existing dependencies
+                            implementation("io.ktor:ktor-server-core-jvm:$ktor_version")
+                            implementation("io.ktor:ktor-server-netty-jvm:$ktor_version")
+                            implementation("ch.qos.logback:logback-classic:$logback_version")
+                            testImplementation("io.ktor:ktor-server-tests-jvm:$ktor_version")
+                            testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
+                        }
+                    </code-block>
+                    <p>When you have done this you will need to reload the project to pick up this new dependency.</p>
+                </step>
+                <step>
+                    <p>Reload the project by pressing
+                        <shortcut>Shift+⌘Cmd+I</shortcut>
+                        on macOS or
+                        <shortcut>Ctrl+Shift+O</shortcut>
+                        on Windows.
+                    </p>
+                </step>
+            </procedure>
+            <procedure title="Install the plugin and specify an exception handler"
+                       id="install-plugin-and-specify-handler">
+                <step>
+                    <p>Navigate to the <code>configureRouting()</code> method in <code>Routing.kt</code> and add the
+                        following lines of code:</p>
+                    <code-block lang="kotlin"
+                                src="snippets/tutorial-server-get-started/src/main/kotlin/com/example/plugins/Routing.kt"
+                                include-lines="11-17,20-22,32-33"/>
+                    <p>These lines install the <code>StatusPages</code> plugin and specify what actions to take
+                        when an exception of type <code>IllegalStateException</code> is thrown.</p>
+                </step>
+                <step>
+                    <p>Add the following import:</p>
+                    <code-block lang="kotlin">
+                        import io.ktor.server.plugins.statuspages.*
+                    </code-block>
+                </step>
+            </procedure>
+            <p>
+                Note that an HTTP error code would usually be set in the response, but for the
+                purpose of this task, the output is displayed directly in the browser.
+            </p>
+            <procedure title="Write sample code to trigger the handler" id="write-sample-code">
+                <step>
+                    <p>Staying within the <code>configureRouting()</code> method, add the additional lines as shown
+                        below:</p>
+                    <code-block lang="kotlin"
+                                src="snippets/tutorial-server-get-started/src/main/kotlin/com/example/plugins/Routing.kt"
+                                include-lines="11-17,20-22,29-33"/>
+                    <p>You have now added an endpoint with the URL <code>/error-test</code>. When this endpoint is
+                        triggered, an
+                        exception will be thrown with the type used in the handler.</p>
+                </step>
+            </procedure>
+
+            <procedure title="Restart and invoke the sample code" id="restart-and-invoke">
+                <step>
+                    <p>Click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
+                                                       src="intellij_idea_rerun_icon.svg" height="16" width="16"/>)
+                        to restart the application.</p></step>
+                <step>
+                    <p>In your browser, navigate to the URL <a href="http://0.0.0.0:9292/error-test">http://0.0.0.0:9292/error-test</a>.
+                        You should see the error message displayed as shown below:</p>
+                    <img src="server_get_started_register_error_handler_output.png"
+                         alt="A browser screen with message `App in illegal state as Too Busy`" width="706"/>
+                </step>
+            </procedure>
+        </chapter>
+    </chapter>
+    <chapter title="Next steps" id="next_steps">
+        <p>
+            If you've made it to the end of the additional tasks, you now have a grasp of configuring the Ktor
+            server, integrating a Ktor plugin, and implementing a new route. However, this is just the beginning. To
+            delve deeper
+            into the foundational concepts of Ktor, continue to the next tutorial in this guide.
+        </p>
+        <p>
+            Next up, you will learn about routing and requests by <a href="creating_http_apis.md">creating an HTTP API</a>.
+        </p>
+    </chapter>
+</topic>
