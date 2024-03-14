@@ -1,7 +1,7 @@
 [versions]
 agp = "8.2.2"
 kotlin = "1.9.20"
-coroutines = "1.7.3"
+coroutines = "1.8.0"
 ktor = "2.3.9"
 compose = "1.6.3"
 compose-compiler = "1.5.4"
