@@ -5,7 +5,7 @@ coroutines = "1.7.3"
 ktor = "2.3.9"
 compose = "1.5.4"
 compose-compiler = "1.5.4"
-compose-material3 = "1.1.2"
+compose-material3 = "1.2.1"
 androidx-activityCompose = "1.8.2"
 
 [libraries]
