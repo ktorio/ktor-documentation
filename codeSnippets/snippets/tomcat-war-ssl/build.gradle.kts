@@ -5,12 +5,12 @@ val slf4j_version: String by project
 plugins {
     application
     kotlin("jvm")
-    id("org.gretty") version "3.1.2"
+    id("org.gretty") version "4.0.3"
     id("war")
 }
 
 gretty {
-    servletContainer = "tomcat9"
+    servletContainer = "tomcat10"
     contextPath = "/"
     logbackConfigFile = "src/main/resources/logback.xml"
     httpsEnabled = true
