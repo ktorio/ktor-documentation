@@ -47,7 +47,7 @@ A data model for a user looks as follows:
 ```
 {src="snippets/thymeleaf/src/main/kotlin/com/example/Application.kt" include-lines="27"}
 
-To use the template for the specified [route](Routing_in_Ktor.md), pass [ThymeleafContent](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-thymeleaf/io.ktor.server.thymeleaf/-thymeleaf-content/index.html) to the `call.respond` method in the following way:
+To use the template for the specified [route](server-routing.md), pass [ThymeleafContent](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-thymeleaf/io.ktor.server.thymeleaf/-thymeleaf-content/index.html) to the `call.respond` method in the following way:
 ```kotlin
 ```
 {src="snippets/thymeleaf/src/main/kotlin/com/example/Application.kt" include-lines="20-23"}
@@ -55,7 +55,7 @@ To use the template for the specified [route](Routing_in_Ktor.md), pass [Thymele
 
 ## Example: Auto reload Thymeleaf templates {id="auto-reload"}
 
-The example below shows how to reload Thymeleaf templates automatically when [development mode](development_mode.topic) is used.
+The example below shows how to reload Thymeleaf templates automatically when [development mode](server-development-mode.topic) is used.
 
 ```kotlin
 ```

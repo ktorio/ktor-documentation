@@ -10,7 +10,7 @@ This guide provides instructions on how to migrate your Ktor application from th
 ## Ktor Server {id="server"}
 
 ### Cookies {id="cookies"}
-With v2.2.0, the following API members related to configuring [response cookies](responses.md#cookies) are changed:
+With v2.2.0, the following API members related to configuring [response cookies](server-responses.md#cookies) are changed:
 - The `maxAge` parameter type passed to the `append` function is changed from `Int` to `Long`.
 - The `appendExpired` function is deprecated. Use the `append` function with the `expires` parameter instead.
 
@@ -31,7 +31,7 @@ get("/hello") {
 
 Use `RequestConnectionPoint.serverHost` and `RequestConnectionPoint.serverPort` instead.
 We've also added the `localHost`/`localPort` properties that return the hostname/port on which the request was received. 
-You can learn more from the [](forward-headers.md#original-request-information).
+You can learn more from the [](server-forward-headers.md#original-request-information).
 
 
 ### Merging configurations {id="merge-configs"}
@@ -61,4 +61,4 @@ To learn more, see [](client-custom-plugins.md).
 
 With v2.2.0, Ktor uses the 1.7.20 version of Kotlin, in which the new Kotlin/Native memory model 
 is [enabled by default](https://kotlinlang.org/docs/whatsnew1720.html#the-new-kotlin-native-memory-manager-enabled-by-default).
-This means that you don't need to enable it explicitly for [Native server](native_server.md) or client engines targeting [Kotlin/Native](http-client_engines.md#native).
+This means that you don't need to enable it explicitly for [Native server](server-native.md) or client engines targeting [Kotlin/Native](client-engines.md#native).

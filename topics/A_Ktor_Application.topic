@@ -3,7 +3,7 @@
 
 <topic xmlns="" xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="A_Ktor_Application" title="A Ktor application">
-    <p>Ktor can be used to create a variety of server and <a href="create-client.md">client-side</a> applications.
+    <p>Ktor can be used to create a variety of server and <a href="client-create-and-configure.md">client-side</a> applications.
         Whether we want to create a website that serves static and dynamic pages, an HTTP endpoint, a RESTful system, or
         even microservices, Ktor makes it all possible.
     </p>
@@ -20,7 +20,7 @@
               include-symbol="main">
         </code-block>
         <p>
-            We start by <a href="create_server.topic">creating a server</a>, in this case using Netty as an <a href="Engines.md">Engine</a>, and setting the port to 8080. After this, we define a route to respond to requests made to <path>/</path> with a simple <emphasis>Hello, world!</emphasis> text. Finally, we start the server.
+            We start by <a href="server-create-and-configure.topic">creating a server</a>, in this case using Netty as an <a href="server-engines.md">Engine</a>, and setting the port to 8080. After this, we define a route to respond to requests made to <path>/</path> with a simple <emphasis>Hello, world!</emphasis> text. Finally, we start the server.
         </p>
     </chapter>
 
@@ -43,7 +43,7 @@
             </li>
             <li>
                 <p>
-                    <a href="create_server.topic">Choose a way to create a server</a>
+                    <a href="server-create-and-configure.topic">Choose a way to create a server</a>
                 </p>
                 <p>
                     You can quickly configure a server using the <code>embeddedServer</code> function, or you can use <code>EngineMain</code> to have additional configuration possibilities.
@@ -51,7 +51,7 @@
             </li>
             <li>
                 <p>
-                    <a href="Engines.md">Choose an engine</a>
+                    <a href="server-engines.md">Choose an engine</a>
                 </p>
                 <p>
                     Configuring a server requires choosing an engine, such as Netty, Jetty, Tomcat, and so on.
@@ -59,7 +59,7 @@
             </li>
             <li>
                 <p>
-                    <a href="Configuration-file.topic">Configure a server</a>
+                    <a href="server-configuration-file.topic">Configure a server</a>
                 </p>
                 <p>
                     Learn how to configure various server parameters (such as a host address and port, modules to load, etc.), read the configuration in code, and use environment variables.
@@ -67,7 +67,7 @@
             </li>
             <li>
                 <p>
-                    <a href="Plugins.md">Add functionality with Plugins</a>
+                    <a href="server-plugins.md">Add functionality with Plugins</a>
                 </p>
                 <p>
                     Get acquainted with plugins that provide common functionality, for example, serialization and content encoding, compression, headers, cookie support, etc.
@@ -75,7 +75,7 @@
             </li>
             <li>
                 <p>
-                    <a href="Routing_in_Ktor.md">Handle requests with Routing</a>
+                    <a href="server-routing.md">Handle requests with Routing</a>
                 </p>
                 <p>
                     Learn how to handle incoming requests made to different URLs using routing.
@@ -83,7 +83,7 @@
             </li>
             <li>
                 <p>
-                    <a href="Modules.md">Divide your application into Modules</a>
+                    <a href="server-modules.md">Divide your application into Modules</a>
                 </p>
                 <p>
                      Use modules to divide your application into logical parts, each of which can house any functionality.
@@ -91,7 +91,7 @@
             </li>
             <li>
                 <p>
-                    <a href="Structuring_Applications.md">Structure your application</a>
+                    <a href="server-application-structure.md">Structure your application</a>
                 </p>
                 <p>
                     Learn how to structure your application to keep it maintainable as the application grows.

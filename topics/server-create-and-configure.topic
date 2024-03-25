@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Creating a server"
+       id="server-create-and-configure" help-id="start_server;create_server">
+
+    <show-structure for="chapter" depth="2"/>
+
+    <tldr>
+        <p>
+            <b>Code examples</b>:
+            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/embedded-server">embedded-server</a>,
+            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main">engine-main</a>,
+            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main-yaml">engine-main-yaml</a>
+        </p>
+    </tldr>
+
+    <link-summary>
+        Learn how to create a server depending on your application deployment needs.
+    </link-summary>
+
+    <p>
+        Before creating a Ktor application, you need to take into account how your application will be <a href="server-deployment.md">deployed</a>:
+    </p>
+    <list>
+        <li>
+            <p>
+                As a <control><a anchor="embedded">self-contained package</a></control>
+            </p>
+            <p>
+                In this case, an application <a href="server-engines.md">engine</a> used to process network requests should be a part of your application.
+                Your application has control over engine settings, connection, and SSL options.
+            </p>
+        </li>
+        <li>
+            <p>
+                As a <control><a anchor="servlet">servlet</a></control>
+            </p>
+            <p>
+                In this case, a Ktor application can be deployed inside a servlet container (such as Tomcat or Jetty), which controls the application lifecycle and connection settings.
+            </p>
+        </li>
+    </list>
+
+
+    <chapter title="Self-contained package" id="embedded">
+        <p>
+            To deliver a Ktor server application as a self-contained package, you need to create a server first.
+            Server configuration can include different settings:
+            a server <a href="server-engines.md">engine</a> (such as Netty, Jetty, etc.),
+            various engine-specific options, host and port values, and so on.
+            There are two main approaches in Ktor for creating and running a server:
+        </p>
+
+        <list>
+            <li>
+                <p>
+                    The <code>embeddedServer</code> function is a simple way to <a anchor="embedded-server">configure server parameters in code</a> and quickly run an application.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <code>EngineMain</code> provides more flexibility to configure a server. You can <a anchor="engine-main">specify server parameters in a file</a> and change a configuration without recompiling your application. Moreover, you can run your application from a command line and override the required server parameters by passing corresponding command-line arguments.
+                </p>
+            </li>
+        </list>
+
+        <chapter title="Configuration in code" id="embedded-server">
+            <p>
+                The <code>embeddedServer</code> function is a simple way to configure server parameters
+                in <a href="server-configuration-code.topic">code</a> and quickly run an application.
+                In the code snippet below, it accepts an <a href="server-engines.md">engine</a> and port as parameters to start a server.
+                In the example below, we run a server with the <code>Netty</code> engine and listen on the <code>8080</code> port:
+            </p>
+            <code-block
+                  lang="kotlin"
+                  src="snippets/embedded-server/src/main/kotlin/com/example/Application.kt">
+            </code-block>
+            <p>
+                You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/embedded-server">embedded-server</a>.
+            </p>
+        </chapter>
+
+        <chapter title="Configuration in a file" id="engine-main">
+            <p>
+                <code>EngineMain</code> starts a server with the selected engine and loads the <a href="server-modules.md">application modules</a> specified in the external <a href="server-configuration-file.topic">configuration file</a> placed in the <path>resources</path> directory: <path>application.conf</path> or <path>application.yaml</path>.
+                Besides modules to load, a configuration file can include various server parameters (the <code>8080</code> port in the example below).
+            </p>
+
+            <tabs>
+                <tab title="Application.kt">
+                    <code-block
+                          lang="kotlin"
+                          src="snippets/engine-main/src/main/kotlin/com/example/Application.kt">
+                    </code-block>
+                </tab>
+                <tab title="application.conf">
+                    <code-block
+                          src="snippets/engine-main/src/main/resources/application.conf">
+                    </code-block>
+                </tab>
+                <tab title="application.yaml">
+                    <code-block lang="yaml"
+                          src="snippets/engine-main-yaml/src/main/resources/application.yaml">
+                    </code-block>
+                </tab>
+            </tabs>
+            <p>
+                You can find the full examples here: <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main">engine-main</a> and <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main-yaml">engine-main-yaml</a>.
+            </p>
+        </chapter>
+    </chapter>
+
+
+    <chapter title="Servlet" id="servlet">
+        <p>
+            A Ktor application can be run and deployed inside servlet containers that include Tomcat and Jetty.
+            To deploy inside a servlet container, you need to generate a <a href="war.md"/> archive and then deploy it to a server or a cloud service that supports WARs.
+        </p>
+    </chapter>
+
+</topic>

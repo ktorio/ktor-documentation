@@ -27,11 +27,11 @@ In this topic, we'll show you how to:
 
 ## Configure Ktor in a servlet application {id="configure-ktor"}
 
-Ktor allows you to [create and start a server](create_server.topic) with the desired engine (such as Netty, Jetty, or Tomcat) right in the application. In this case, your application has control over engine settings, connection, and SSL options.
+Ktor allows you to [create and start a server](server-create-and-configure.topic) with the desired engine (such as Netty, Jetty, or Tomcat) right in the application. In this case, your application has control over engine settings, connection, and SSL options.
 
 In contrast to the approach above, a servlet container should control the application lifecycle and connection settings. Ktor provides a special [ServletApplicationEngine](https://api.ktor.io/ktor-server/ktor-server-servlet/io.ktor.server.servlet/-servlet-application-engine/index.html) engine that delegates control over your application to a servlet container.
 
-> Note that [connection and SSL settings](Configuration-file.topic) are not in effect when a Ktor application is deployed inside a servlet container. 
+> Note that [connection and SSL settings](server-configuration-file.topic) are not in effect when a Ktor application is deployed inside a servlet container. 
 > The [tomcat-war-ssl](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tomcat-war-ssl) sample demonstrates how to configure SSL in Tomcat.
 
 
@@ -45,7 +45,7 @@ To use Ktor in a servlet application, you need to include the `ktor-server-servl
 
 If you use the 9.x or earlier version of Tomcat/Jetty, add the `ktor-server-servlet` artifact instead.
 
-> Note that you don't need the separate [Jetty or Tomcat artifacts](Engines.md#dependencies) when a Ktor application is deployed inside a servlet container.
+> Note that you don't need the separate [Jetty or Tomcat artifacts](server-engines.md#dependencies) when a Ktor application is deployed inside a servlet container.
 
 ### Configure a servlet {id="configure-servlet"}
 

@@ -94,7 +94,7 @@ If you need to customize the image name and tag, use the `localImageName` and `i
 
 By default, the [runDocker](#tasks) task publishes the `8080` container port to the `8080` Docker host port.
 If required, you can change these ports using the `portMappings` property.
-This might be useful if your server is [configured](Configuration-file.topic#predefined-properties) to use another port. 
+This might be useful if your server is [configured](server-configuration-file.topic#predefined-properties) to use another port. 
 
 The example below shows how to map the `8080` container port to the `80` Docker host port.
 
@@ -146,7 +146,7 @@ If required, you can provide your own `Dockerfile` to assemble an image with a K
 
 ### Package the application {id="packagea-pp"}
 As a first step, you need to package your application along with its dependencies. 
-For example, this might be a [fat JAR](fatjar.md) or an [executable JVM application](gradle-application-plugin.md).
+For example, this might be a [fat JAR](server-fatjar.md) or an [executable JVM application](server-packaging.md).
 
 
 ### Prepare Docker image {id="prepare-docker"}

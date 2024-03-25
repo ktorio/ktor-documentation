@@ -49,7 +49,7 @@ A data model for a user looks as follows:
 ```
 {src="snippets/velocity/src/main/kotlin/com/example/Application.kt" include-lines="25"}
 
-To use the template for the specified [route](Routing_in_Ktor.md), pass `VelocityContent` to the `call.respond` method in the following way:
+To use the template for the specified [route](server-routing.md), pass `VelocityContent` to the `call.respond` method in the following way:
 ```kotlin
 ```
 {src="snippets/velocity/src/main/kotlin/com/example/Application.kt" include-lines="18-21"}

@@ -145,7 +145,7 @@
                 </li>
                 <li>
                     <p>
-                        A dependency for an <a href="Engines.md">engine</a> (for example, <code>ktor-server-netty</code>).
+                        A dependency for an <a href="server-engines.md">engine</a> (for example, <code>ktor-server-netty</code>).
                     </p>
                 </li>
             </list>
@@ -196,7 +196,7 @@
 
         <chapter title="Plugin dependencies" id="plugin-dependencies">
             <p>
-                <a href="Plugins.md">Plugins</a> that extend Ktor functionality might require additional dependencies.
+                <a href="server-plugins.md">Plugins</a> that extend Ktor functionality might require additional dependencies.
                 You can learn more from corresponding topics.
             </p>
         </chapter>
@@ -244,20 +244,20 @@
     <chapter title="Add logging dependency" id="logging-dependency">
         <p>
             Ktor uses SLF4J API as a facade for various logging frameworks (for example, Logback or Log4j) and allows you to log application events.
-            To learn how to add the required artifacts, see <a href="logging.md" anchor="add_dependencies"/>.
+            To learn how to add the required artifacts, see <a href="server-logging.md" anchor="add_dependencies"/>.
         </p>
     </chapter>
 
 
     <chapter title="Create an entry point for running an application" id="create-entry-point">
         <p>
-            <a href="running.md">Running</a> a Ktor server using Gradle/Maven depends on the way used to <a href="create_server.topic">create a server</a>.
+            <a href="running.md">Running</a> a Ktor server using Gradle/Maven depends on the way used to <a href="server-create-and-configure.topic">create a server</a>.
             You can specify the application main class in one of the following ways:
         </p>
         <list>
             <li>
                 <p>
-                    If you use <a href="create_server.topic" anchor="embedded-server">embeddedServer</a>, specify the main class as follows:
+                    If you use <a href="server-create-and-configure.topic" anchor="embedded-server">embeddedServer</a>, specify the main class as follows:
                 </p>
                 <tabs group="languages">
                     <tab title="Gradle (Kotlin)" group-key="kotlin">
@@ -287,7 +287,7 @@
             </li>
             <li>
                 <p>
-                    If you use <a href="create_server.topic" anchor="engine-main">EngineMain</a>, you need to configure it as the main class.
+                    If you use <a href="server-create-and-configure.topic" anchor="engine-main">EngineMain</a>, you need to configure it as the main class.
                     For Netty, it will look as follows:
                 </p>
                 <tabs group="languages">
@@ -325,7 +325,7 @@
             <list>
                 <li>
                     <p>
-                        <a href="fatjar.md"/>
+                        <a href="server-fatjar.md"/>
                     </p>
                 </li>
                 <li>

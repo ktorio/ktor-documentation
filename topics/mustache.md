@@ -50,7 +50,7 @@ A data model for a user looks as follows:
 ```
 {src="snippets/mustache/src/main/kotlin/com/example/Application.kt" include-lines="24"}
 
-To use the template for the specified [route](Routing_in_Ktor.md), pass `MustacheContent` to the `call.respond` method in the following way:
+To use the template for the specified [route](server-routing.md), pass `MustacheContent` to the `call.respond` method in the following way:
 ```kotlin
 ```
 {src="snippets/mustache/src/main/kotlin/com/example/Application.kt" include-lines="17-20"}

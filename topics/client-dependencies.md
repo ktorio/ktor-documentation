@@ -59,7 +59,7 @@ Then, add `ktor-client-core` as a dependency to the `commonMain` source set:
 
 ### Engine dependency {id="engine-dependency"}
 
-An [engine](http-client_engines.md) is responsible for processing network requests. There are different client engines
+An [engine](client-engines.md) is responsible for processing network requests. There are different client engines
 available for various platforms, such as Apache, CIO, Android, iOS, and so on. For example, you can add a `CIO` engine
 dependency as follows:
 
@@ -85,13 +85,13 @@ Then, add `ktor-client-okhttp` as a dependency to the `androidMain` source set:
 
 {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="26,34-36,40"}
 
-For a full list of dependencies required for a specific engine, see [](http-client_engines.md#dependencies).
+For a full list of dependencies required for a specific engine, see [](client-engines.md#dependencies).
 
 ### Plugin dependency {id="plugin-dependency"}
 
-Ktor lets you use additional client functionality ([plugins](http-client_plugins.md)) that is not available by default,
+Ktor lets you use additional client functionality ([plugins](client-plugins.md)) that is not available by default,
 for example, logging, authorization, or serialization. Some of them are provided in separate artifacts. You can learn
 which dependencies you need from a topic for a required plugin.
 
 > For a multiplatform project, a plugin dependency should be added to the `commonMain` source set. Note that some
-plugins might have  [limitations](http-client_engines.md#limitations) for specific platforms.
+plugins might have  [limitations](client-engines.md#limitations) for specific platforms.

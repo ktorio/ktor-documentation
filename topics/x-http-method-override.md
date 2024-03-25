@@ -19,7 +19,7 @@
 
 The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-method-override/io.ktor.server.plugins.methodoverride/-x-http-method-override.html) plugin enables the capability to tunnel HTTP verbs inside the `X-HTTP-Method-Override` header.
 This might be useful if your server API handles multiple HTTP verbs (`GET`, `PUT`, `POST`, `DELETE`, and so on), but the client can only use a limited set of verbs (for example, `GET` and `POST`) due to specific limitations.
-For instance, if the client sends a request with the `X-Http-Method-Override` header set to `DELETE`, Ktor will process this request using the `delete` [route handler](Routing_in_Ktor.md#define_route).
+For instance, if the client sends a request with the `X-Http-Method-Override` header set to `DELETE`, Ktor will process this request using the `delete` [route handler](server-routing.md#define_route).
 
 
 ## Add dependencies {id="add_dependencies"}
@@ -45,7 +45,7 @@ The HTTP request below uses the `POST` verb with the `X-Http-Method-Override` he
 ```
 {src="snippets/json-kotlinx-method-override/post.http"}
 
-To handle such requests using the `delete` [route handler](Routing_in_Ktor.md#define_route), you need to install `%plugin_name%`:
+To handle such requests using the `delete` [route handler](server-routing.md#define_route), you need to install `%plugin_name%`:
 
 ```kotlin
 ```

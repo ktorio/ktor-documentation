@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Auto-reload"
+       id="server-auto-reload" help-id="Auto_reload">
+
+    <tldr>
+        <p>
+            <b>Code examples</b>:
+            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/autoreload-engine-main">autoreload-engine-main</a>,
+            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/autoreload-embedded-server">autoreload-embedded-server</a>
+        </p>
+    </tldr>
+
+    <link-summary>
+        Learn how to use Auto-reload to reload application classes on code changes.
+    </link-summary>
+
+    <p>
+        <a href="running.md">Restarting</a> a server during development might take some time.
+        Ktor allows you to overcome this limitation by using <emphasis>Auto-reload</emphasis>, which reloads application classes on code changes and provides a fast feedback loop.
+        To use Auto-reload, follow the steps below:
+    </p>
+    <list style="decimal">
+        <li>
+            <p>
+                <a anchor="enable">Enable the development mode</a>
+            </p>
+        </li>
+        <li>
+            <p>
+                (Optional) <a anchor="watch-paths">Configure watch paths</a>
+            </p>
+        </li>
+        <li>
+            <p>
+                <a anchor="recompile">Enable recompiling on changes</a>
+            </p>
+        </li>
+    </list>
+
+    <chapter title="Enable the development mode" id="enable">
+        <p>
+            To use Auto-reload, you need to enable the
+            <a href="server-development-mode.topic" anchor="enable">development mode</a> first.
+            This depends on the way you used to <a href="server-create-and-configure.topic">create and run a server</a>:
+        </p>
+        <list>
+            <li>
+                <p>
+                    If you use <code>EngineMain</code> to run a server, enable the development mode
+                    in a <a href="server-development-mode.topic" anchor="application-conf">configuration file</a>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    If you run a server using <code>embeddedServer</code>, you can use the
+                    <a href="server-development-mode.topic" anchor="system-property">io.ktor.development</a>
+                    system property.
+                </p>
+            </li>
+        </list>
+        <p>
+            When development mode is enabled, Ktor will be watching output files from the working directory automatically.
+            If required, you can narrow down a set of watched folders by specifying
+            <a anchor="watch-paths">watch paths</a>.
+        </p>
+    </chapter>
+
+
+    <chapter title="Configure watch paths" id="watch-paths">
+        <p>
+            When you <a anchor="enable">enable</a> development mode,
+            Ktor starts watching output files from the working directory.
+            For example, for a <path>ktor-sample</path> project build with Gradle the following folders
+            will be watched:
+        </p>
+        <code-block>
+            ktor-sample/build/classes/kotlin/main/META-INF
+            ktor-sample/build/classes/kotlin/main/com/example
+            ktor-sample/build/classes/kotlin/main/com
+            ktor-sample/build/classes/kotlin/main
+            ktor-sample/build/resources/main
+        </code-block>
+        <p>
+            Watch paths allow you to narrow down a set of watched folders.
+            To do this, you can specify a part of a watched path.
+            For example, to monitor changes in the <path>ktor-sample/build/classes</path> subfolders,
+            pass <code>classes</code> as a watch path.
+            Depending on the way you use to run a server, you can specify a watch path in the following ways:
+        </p>
+        <list>
+            <li>
+                <p>
+                    In the <path>application.conf</path> or <path>application.yaml</path> file, specify the <code>watch</code> option:
+                </p>
+                <tabs group="config">
+                    <tab title="application.conf" group-key="hocon">
+                        <code-block
+                              src="snippets/autoreload-engine-main/src/main/resources/application.conf" include-lines="1-3,5-6,11"/>
+                    </tab>
+                    <tab title="application.yaml" group-key="yaml">
+                        <code-block
+                              lang="yaml"
+                              src="snippets/autoreload-engine-main/src/main/resources/_application.yaml" include-lines="1-3,5-6"/>
+                    </tab>
+                </tabs>
+
+                <p>
+                    You can also specify several watch paths, for example:
+                </p>
+                <tabs group="config">
+                    <tab title="application.conf" group-key="hocon">
+                        <code-block>
+                            watch = [ classes, resources ]
+                        </code-block>
+                    </tab>
+                    <tab title="application.yaml" group-key="yaml">
+                        <code-block lang="yaml">
+                            watch:
+                                - classes
+                                - resources
+                        </code-block>
+                    </tab>
+                </tabs>
+
+                <p>
+                    You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/autoreload-engine-main">autoreload-engine-main</a>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    If you are using <code>embeddedServer</code>, pass a watch path as the <code>watchPaths</code> parameter:
+                </p>
+                <code-block lang="Kotlin" src="snippets/autoreload-embedded-server/src/main/kotlin/com/example/Application.kt" include-lines="10-16"/>
+                <p>
+                    You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/autoreload-embedded-server">autoreload-embedded-server</a>.
+                </p>
+            </li>
+        </list>
+    </chapter>
+
+    <chapter title="Recompile on changes" id="recompile">
+        <p>
+            Since Auto-reload detects changes in output files,
+            you need to rebuild a project.
+            You can do this manually in IntelliJ IDEA or
+            enable continuous build execution in Gradle using the <code>-t</code> command-line option.
+        </p>
+        <list>
+            <li>
+                <p>
+                    To rebuild a project manually in IntelliJ IDEA, select
+                    <ui-path>Build | Rebuild Project</ui-path> from the main menu.
+                </p>
+            </li>
+            <li>
+                <p>
+                    To rebuild a project automatically using Gradle,
+                    you can run the <code>build</code> task with the <code>-t</code> option in a terminal:
+                </p>
+                <code-block>
+                    ./gradlew -t build
+                </code-block>
+                <tip>
+                    <p>
+                        To skip running tests when reloading a project, you can pass the <code>-x</code> option to the <code>build</code> task:
+                    </p>
+                    <code-block>
+                        ./gradlew -t build -x test -i
+                    </code-block>
+                </tip>
+            </li>
+        </list>
+    </chapter>
+
+</topic>
