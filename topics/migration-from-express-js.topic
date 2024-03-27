@@ -4,7 +4,7 @@
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        title="Migrating from Express to Ktor"
-       id="migrating-from-express-js" help-id="express-js">
+       id="migration-from-express-js" help-id="express-js;migrating-from-express-js">
 
     <show-structure for="chapter" depth="2"/>
 

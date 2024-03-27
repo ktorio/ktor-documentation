@@ -333,12 +333,14 @@
 
     <toc-element toc-title="Releases">
         <toc-element topic="releases.md"/>
-        <toc-element topic="migrating-2.md"/>
-        <toc-element topic="migrating-2-2.md"/>
+        <toc-element topic="migration-to-20x.md"
+                     accepts-web-file-names="migrating-2.html"/>
+        <toc-element topic="migration-to-22x.md"
+                     accepts-web-file-names="migrating-2-2.html"/>
     </toc-element>
 
     <toc-element toc-title="Migrating from other frameworks">
-        <toc-element topic="migrating-from-express-js.topic"
+        <toc-element topic="migration-from-express-js.topic"
                      accepts-web-file-names="express-js.html"/>
     </toc-element>
 
