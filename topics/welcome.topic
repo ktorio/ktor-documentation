@@ -70,7 +70,7 @@
                 </group>
                 <group>
                     <title>Run, debug and test</title>
-                    <a href="running.md"/>
+                    <a href="server-run.md"/>
                     <a href="server-auto-reload.topic"/>
                     <a href="server-testing.md"/>
                 </group>

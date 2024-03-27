@@ -251,7 +251,7 @@
 
     <chapter title="Create an entry point for running an application" id="create-entry-point">
         <p>
-            <a href="running.md">Running</a> a Ktor server using Gradle/Maven depends on the way used to <a href="server-create-and-configure.topic">create a server</a>.
+            <a href="server-run.md">Running</a> a Ktor server using Gradle/Maven depends on the way used to <a href="server-create-and-configure.topic">create a server</a>.
             You can specify the application main class in one of the following ways:
         </p>
         <list>

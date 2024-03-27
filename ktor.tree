@@ -200,8 +200,8 @@
 
 
         <toc-element toc-title="Running and debugging">
-            <toc-element topic="running.md"
-                         accepts-web-file-names="engine.html"/>
+            <toc-element topic="server-run.md"
+                         accepts-web-file-names="engine.html,running.html"/>
             <toc-element topic="server-auto-reload.topic" accepts-web-file-names="autoreload.html,auto-reload.html"/>
         </toc-element>
 

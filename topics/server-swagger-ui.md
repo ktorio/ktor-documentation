@@ -58,7 +58,7 @@ For example, you can use another Swagger UI version or apply a custom style.
 ```
 {src="snippets/json-kotlinx-openapi/src/main/kotlin/com/example/Application.kt" include-lines="39,52-54,58"}
 
-You can now [run](running.md) the application and open the `/swagger` page to see the available endpoints, and test them.
+You can now [run](server-run.md) the application and open the `/swagger` page to see the available endpoints, and test them.
 
 
 ## Configure CORS {id="configure-cors"}

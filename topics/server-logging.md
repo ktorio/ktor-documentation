@@ -58,7 +58,7 @@ You can find the full example here: [logging](https://github.com/ktorio/ktor-doc
 ## Native {id="native"}
 
 To configure the logging level for the Native server, 
-assign one of the following values to the `KTOR_LOG_LEVEL` environment variable when [running](running.md) the application:
+assign one of the following values to the `KTOR_LOG_LEVEL` environment variable when [running](server-run.md) the application:
 - _TRACE_
 - _DEBUG_
 - _INFO_

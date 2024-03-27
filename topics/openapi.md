@@ -63,4 +63,4 @@ You can customize generation settings inside the `openAPI` block:
 ```
 {src="snippets/json-kotlinx-openapi/src/main/kotlin/com/example/Application.kt" include-lines="39,55-58"}
 
-You can now [run](running.md) the application and open the `/openapi` page to see the generated documentation.
+You can now [run](server-run.md) the application and open the `/openapi` page to see the generated documentation.

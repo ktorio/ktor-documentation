@@ -19,7 +19,7 @@
     </link-summary>
 
     <p>
-        <a href="running.md">Restarting</a> a server during development might take some time.
+        <a href="server-run.md">Restarting</a> a server during development might take some time.
         Ktor allows you to overcome this limitation by using <emphasis>Auto-reload</emphasis>, which reloads application classes on code changes and provides a fast feedback loop.
         To use Auto-reload, follow the steps below:
     </p>

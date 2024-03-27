@@ -301,7 +301,7 @@ You can find the full example demonstrating this approach here: [tutorial-websit
 ## Trace routes {id="trace_routes"}
 
 With [logging](server-logging.md) configured, Ktor enables route tracing that helps you determine why some routes are not being executed.
-For example, if you [run](running.md) the application and make a request to a specified endpoint,
+For example, if you [run](server-run.md) the application and make a request to a specified endpoint,
 the application's output might look as follows:
 
 ```Console
@@ -316,4 +316,4 @@ Route resolve result:
 ```
 
 > To enable route tracing on the [Native server](server-native.md), 
-> pass the _TRACE_  value to the `KTOR_LOG_LEVEL` environment variable when [running](running.md) the application.
+> pass the _TRACE_  value to the `KTOR_LOG_LEVEL` environment variable when [running](server-run.md) the application.

@@ -32,7 +32,7 @@ You can use an application created in the [](server-create-a-new-project.topic) 
    ```kotlin
    ```
    {src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" include-lines="11-12,32"}
-3. Finally, [run](running.md) your application to see the plugin's greeting in the console output:
+3. Finally, [run](server-run.md) your application to see the plugin's greeting in the console output:
    ```Bash
    2021-10-14 14:54:08.269 [main] INFO  Application - Autoreload is disabled because the development mode is off.
    SimplePlugin is installed!
