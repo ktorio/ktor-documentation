@@ -76,7 +76,7 @@ In the `gradle/libs.versions.toml` file add the Ktor version:
 
 {src="snippets/tutorial-client-kmm/gradle/libs.versions.toml" include-lines="1,5"}
 
-<include from="client-getting-started.topic" element-id="eap-note"/>
+<include from="client-create-new-application.topic" element-id="eap-note"/>
 
 Then, define the Ktor client and engine libraries:
 

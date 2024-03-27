@@ -96,7 +96,7 @@ If you call the `HttpClient` constructor without an argument, the client will ch
 ```
 {src="snippets/_misc_client/DefaultEngineCreate.kt"}
 
-This can be useful for multiplatform projects. For example, for a project targeting both [Android and iOS](client-getting-started-multiplatform.md), you can add the [Android](#jvm-android) dependency to the `androidMain` source set and the [Darwin](#darwin) dependency to the `iosMain` source set. The necessary dependency will be selected at compile time.
+This can be useful for multiplatform projects. For example, for a project targeting both [Android and iOS](client-create-multiplatform-application.md), you can add the [Android](#jvm-android) dependency to the `androidMain` source set and the [Darwin](#darwin) dependency to the `iosMain` source set. The necessary dependency will be selected at compile time.
 
 
 ## Configure an engine {id="configure"}
@@ -368,7 +368,7 @@ You can find the full example here: [client-engine-js](https://github.com/ktorio
 ## Example: How to configure an engine in a multiplatform mobile project {id="mpp-config"}
 
 To configure engine-specific options in a multiplatform mobile project, you can use [expect/actual declarations](https://kotlinlang.org/docs/multiplatform-mobile-connect-to-platform-specific-apis.html).
-Let's demonstrate how to achieve this using a project created in the [](client-getting-started-multiplatform.md) tutorial:
+Let's demonstrate how to achieve this using a project created in the [](client-create-multiplatform-application.md) tutorial:
 
 1. Open the `shared/src/commonMain/kotlin/com/example/kmmktor/Platform.kt` file and add a top-level `httpClient` function, which accepts a client configuration and returns `HttpClient`:
    ```kotlin

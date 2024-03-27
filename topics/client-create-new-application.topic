@@ -4,7 +4,7 @@
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        title="Creating a client application"
-       id="client-getting-started" help-id="getting_started_ktor_client">
+       id="client-create-new-application" help-id="getting_started_ktor_client;client-getting-started;client-get-started;client-create-a-new-application">
 
     <show-structure for="chapter" depth="2"/>
 

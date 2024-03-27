@@ -16,7 +16,7 @@
                summary="Learn how to create, run and test a server application with Ktor.">
                 Get started with Ktor Server
             </a>
-            <a href="client-getting-started.topic" type="cross-platform"
+            <a href="client-create-new-application.topic" type="cross-platform"
                summary="Learn how to create, run and test a client application with Ktor.">
                 Get started with Ktor Client
             </a>
@@ -86,11 +86,11 @@
             </links>
             <cards>
                 <title>Ktor Client</title>
-                <a href="client-getting-started-websocket-chat.md"
+                <a href="client-create-websocket-chat.md"
                    summary="Create a console chat application with the WebSockets plugin.">
                     Create a chat client application
                 </a>
-                <a href="client-getting-started-multiplatform.md"
+                <a href="client-create-multiplatform-application.md"
                    summary="Create a Kotlin Multiplatform Mobile application and learn how to make requests and receive responses with the Ktor Client.">
                     Create a cross-platform mobile application
                 </a>
@@ -98,7 +98,7 @@
             <links narrow="true">
                 <group>
                     <title>Client setup</title>
-                    <a href="client-getting-started.topic"/>
+                    <a href="client-create-new-application.topic"/>
                     <a href="client-dependencies.md"/>
                     <a href="client-create-and-configure.md"/>
                     <a href="client-engines.md"/>

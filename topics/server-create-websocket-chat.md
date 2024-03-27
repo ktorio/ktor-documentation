@@ -18,7 +18,7 @@ solution consists of two parts:
 - The **chat server application** will accept and manage connections from the chat users, receive messages, and
   distribute them to all connected clients.
 - The **chat client application** will allow users to join a common chat server, send messages, and read user messages
-  in the terminal. To follow this tutorial, see [](client-getting-started-websocket-chat.md).
+  in the terminal. To follow this tutorial, see [](client-create-websocket-chat.md).
 
 ![App in action](app_in_action.gif){preview-src="app_in_action.png" width="706"}
 
@@ -295,7 +295,7 @@ see [tutorial-websockets-server](https://github.com/ktorio/ktor-documentation/tr
 
 Congratulations on creating a chat application using Kotlin, Ktor and WebSockets.
 
-In the [next tutorial](client-getting-started-websocket-chat.md), you will create a chat client for the server, which will
+In the [next tutorial](client-create-websocket-chat.md), you will create a chat client for the server, which will
 allow you to send and receive messages directly from the command line. Because the client will also be implemented with
 Ktor, you will reuse much of what you just learned about managing WebSockets.
 

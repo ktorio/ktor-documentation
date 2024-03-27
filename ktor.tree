@@ -254,11 +254,11 @@
 
     <toc-element toc-title="Ktor Client">
         <toc-element toc-title="Getting started with a Ktor Client">
-            <toc-element topic="client-getting-started.topic"
+            <toc-element topic="client-create-new-application.topic"
                          accepts-web-file-names="getting-started-ktor-client.html"/>
-            <toc-element topic="client-getting-started-websocket-chat.md"
+            <toc-element topic="client-create-websocket-chat.md"
                          accepts-web-file-names="getting-started-ktor-client-chat.html"/>
-            <toc-element topic="client-getting-started-multiplatform.md"
+            <toc-element topic="client-create-multiplatform-application.md"
                          accepts-web-file-names="getting-started-ktor-client-multiplatform-mobile.html"/>
         </toc-element>
         <toc-element toc-title="Developing applications">

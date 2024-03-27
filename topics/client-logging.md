@@ -19,7 +19,7 @@ This plugin provides different logger types for different platforms:
   frameworks (for example, [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j)).
 - For [Native targets](client-engines.md#native), the `Logging` plugin provides a logger that prints everything
   to `STDOUT`.
-- For [multiplatform projects](client-getting-started-multiplatform.md), you can specify
+- For [multiplatform projects](client-create-multiplatform-application.md), you can specify
   a [custom logger](#custom_logger) (for example, [Napier](https://github.com/AAkira/Napier)).
 
 ## Add dependencies {id="add_dependencies"}

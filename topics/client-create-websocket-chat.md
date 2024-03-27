@@ -40,7 +40,7 @@ the steps below:
 
    ![Kotlin Multiplatform](ktor_idea_new_gradle_project_settings_chat.png){width="706"}
 
-   <include from="client-getting-started.topic" element-id="kotlin_app_settings"/>
+   <include from="client-create-new-application.topic" element-id="kotlin_app_settings"/>
 
    Click **Next**.
 
@@ -62,7 +62,7 @@ Next, you will configure the build script by adding the required project depende
    ```
    {interpolate-variables="true"}
 
-   <include from="client-getting-started.topic" element-id="eap-note"/>
+   <include from="client-create-new-application.topic" element-id="eap-note"/>
 
 2. Open the `build.gradle.kts` file and add the following artifacts to the `dependencies` block:
    ```kotlin
@@ -214,7 +214,7 @@ At this point, you have implemented a functional chat service, both on the clien
 expanding on this project. To get you started, here are a few ideas of how to improve the application:
 
 - Integrate what you have learned in this tutorial in the context of a multi-platform application. Learn
-  about [](client-getting-started-multiplatform.md).
+  about [](client-create-multiplatform-application).
 - Improve the User Interface for the chat
   using [TornadoFX](https://tornadofx.io/), [Compose for Desktop](https://www.jetbrains.com/lp/compose/) or another
   framework of your choice.
