@@ -214,7 +214,7 @@ At this point, you have implemented a functional chat service, both on the clien
 expanding on this project. To get you started, here are a few ideas of how to improve the application:
 
 - Integrate what you have learned in this tutorial in the context of a multi-platform application. Learn
-  about [](client-create-multiplatform-application).
+  about [](client-create-multiplatform-application.md).
 - Improve the User Interface for the chat
   using [TornadoFX](https://tornadofx.io/), [Compose for Desktop](https://www.jetbrains.com/lp/compose/) or another
   framework of your choice.

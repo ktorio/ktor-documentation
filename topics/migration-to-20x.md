@@ -835,7 +835,7 @@ The `HttpClientFeature` interface is renamed to `HttpClientPlugin`.
 
 With v2.0.0, using the Ktor client on [Native](client-engines.md#native) targets requires enabling the new Kotlin/Native memory model: [Enable the new MM](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/NEW_MM.md#enable-the-new-mm).
 
-> Starting with v2.2.0, the new Kotlin/Native memory model is [enabled by default](migration-to-22x#new-mm).
+> Starting with v2.2.0, the new Kotlin/Native memory model is [enabled by default](migration-to-22x.md#new-mm).
 
 
 ### The 'Ios' engine is renamed to 'Darwin' {id="darwin"}
