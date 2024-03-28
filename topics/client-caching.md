@@ -16,7 +16,7 @@ The Ktor client provides the [HttpCache](https://api.ktor.io/ktor-client/ktor-cl
 `HttpCache` only requires the [ktor-client-core](client-dependencies.md) artifact and doesn't need any specific dependencies.
 
 ## In-memory cache {id="memory_cache"}
-To install `HttpCache`, pass it to the `install` function inside a [client configuration block](create-client.md#configure-client):
+To install `HttpCache`, pass it to the `install` function inside a [client configuration block](client-create-and-configure.md#configure-client):
 ```kotlin
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
@@ -28,7 +28,7 @@ val client = HttpClient(CIO) {
 ```
 
 This is enough to enable the client to save previously fetched resources in an in-memory cache.
-For example, if you make two consequent [requests](request.md) to a resource with the configured `Cache-Control` header,
+For example, if you make two consequent [requests](client-requests.md) to a resource with the configured `Cache-Control` header,
 the client executes only the first request and skips the second one since data is already saved in a cache.
 
 ## Persistent cache {id="persistent_cache"}

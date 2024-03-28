@@ -7,10 +7,10 @@
 <include from="lib.topic" element-id="download_example"/>
 </tldr>
 
-To configure SSL in the Ktor client, you need to customize the [configuration of an engine](http-client_engines.md#configure) used by your client.
-In this topic, we'll show you how to add an SSL certificate for engines that target [JVM](http-client_engines.md#jvm) and [Android](http-client_engines.md#jvm-android).
+To configure SSL in the Ktor client, you need to customize the [configuration of an engine](client-engines.md#configure) used by your client.
+In this topic, we'll show you how to add an SSL certificate for engines that target [JVM](client-engines.md#jvm) and [Android](client-engines.md#jvm-android).
 
-> To learn how to generate a self-signed certificate using the Ktor API, see [](ssl.md#self-signed).
+> To learn how to generate a self-signed certificate using the Ktor API, see [](server-ssl.md#self-signed).
 
 
 ## Load SSL settings {id="ssl-settings"}

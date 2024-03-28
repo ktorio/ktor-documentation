@@ -12,11 +12,11 @@
         </description>
 
         <spotlight>
-            <a href="server_create_a_new_project.topic" type="server"
+            <a href="server-create-a-new-project.topic" type="server"
                summary="Learn how to create, run and test a server application with Ktor.">
                 Get started with Ktor Server
             </a>
-            <a href="getting_started_ktor_client.topic" type="cross-platform"
+            <a href="client-create-new-application.topic" type="cross-platform"
                summary="Learn how to create, run and test a client application with Ktor.">
                 Get started with Ktor Client
             </a>
@@ -24,15 +24,15 @@
 
         <primary>
             <title>Ktor Server</title>
-            <a href="creating_http_apis.md"
+            <a href="server-create-http-apis.md"
                summary="Learn how routing and serialization work in Ktor by creating an HTTP API.">
                 Create an HTTP API
             </a>
-            <a href="creating_interactive_website.md"
+            <a href="server-create-interactive-website.md"
                summary="Discover the process of turning a static website into an interactive one using the StaticContent and Freemarker plugins.">
                 Create an interactive website
             </a>
-            <a href="creating_web_socket_chat.md"
+            <a href="server-create-websocket-chat.md"
                summary="Create a chat application with the WebSockets plugin.">
                 Create a server chat application
             </a>
@@ -42,43 +42,43 @@
             <links narrow="true">
                 <group>
                     <title>Server configuration</title>
-                    <a href="server_create_a_new_project.topic"/>
+                    <a href="server-create-a-new-project.topic"/>
                     <a href="server-dependencies.topic"/>
-                    <a href="create_server.topic"/>
-                    <a href="Configuration-code.topic"/>
-                    <a href="Configuration-file.topic"/>
-                    <a href="Plugins.md"/>
+                    <a href="server-create-and-configure.topic"/>
+                    <a href="server-configuration-code.topic"/>
+                    <a href="server-configuration-file.topic"/>
+                    <a href="server-plugins.md"/>
                 </group>
                 <group>
                     <title>Routing</title>
-                    <a href="Routing_in_Ktor.md"/>
-                    <a href="type-safe-routing.md"/>
-                    <a href="Structuring_Applications.md"/>
-                    <a href="requests.md"/>
-                    <a href="responses.md"/>
-                    <a href="Serving_Static_Content.md"/>
+                    <a href="server-routing.md"/>
+                    <a href="server-resources.md"/>
+                    <a href="server-application-structure.md"/>
+                    <a href="server-requests.md"/>
+                    <a href="server-responses.md"/>
+                    <a href="server-static-content.md"/>
                 </group>
                 <group>
                     <title>Plugins</title>
-                    <a href="serialization.md"/>
-                    <a href="Templating.md"/>
-                    <a href="authentication.md"/>
-                    <a href="sessions.md"/>
-                    <a href="websocket.md"/>
-                    <a href="swagger-ui.md"/> / <a href="openapi.md"/>
-                    <a href="custom_plugins.md"/>
+                    <a href="server-serialization.md"/>
+                    <a href="server-templating.md"/>
+                    <a href="server-auth.md"/>
+                    <a href="server-sessions.md"/>
+                    <a href="server-websockets.md"/>
+                    <a href="server-swagger-ui.md"/> / <a href="server-openapi.md"/>
+                    <a href="server-custom-plugins.md"/>
                 </group>
                 <group>
                     <title>Run, debug and test</title>
-                    <a href="running.md"/>
-                    <a href="Auto_reload.topic"/>
-                    <a href="Testing.md"/>
+                    <a href="server-run.md"/>
+                    <a href="server-auto-reload.topic"/>
+                    <a href="server-testing.md"/>
                 </group>
                 <group>
                     <title>Deployment</title>
-                    <a href="fatjar.md">Creating Fat JARs</a>
-                    <a href="war.md"/>
-                    <a href="Graalvm.md"/>
+                    <a href="server-fatjar.md">Creating Fat JARs</a>
+                    <a href="server-war.md"/>
+                    <a href="graalvm.md"/>
                     <a href="docker.md"/>
                     <a href="google-app-engine.md"/>
                     <a href="heroku.md"/>
@@ -86,11 +86,11 @@
             </links>
             <cards>
                 <title>Ktor Client</title>
-                <a href="getting_started_ktor_client_chat.md"
+                <a href="client-create-websocket-chat.md"
                    summary="Create a console chat application with the WebSockets plugin.">
                     Create a chat client application
                 </a>
-                <a href="getting_started_ktor_client_multiplatform_mobile.md"
+                <a href="client-create-multiplatform-application.md"
                    summary="Create a Kotlin Multiplatform Mobile application and learn how to make requests and receive responses with the Ktor Client.">
                     Create a cross-platform mobile application
                 </a>
@@ -98,36 +98,36 @@
             <links narrow="true">
                 <group>
                     <title>Client setup</title>
-                    <a href="getting_started_ktor_client.topic"/>
+                    <a href="client-create-new-application.topic"/>
                     <a href="client-dependencies.md"/>
-                    <a href="create-client.md"/>
-                    <a href="http-client_engines.md"/>
-                    <a href="http-client_plugins.md"/>
+                    <a href="client-create-and-configure.md"/>
+                    <a href="client-engines.md"/>
+                    <a href="client-plugins.md"/>
                 </group>
                 <group>
                     <title>Requests</title>
-                    <a href="request.md"/>
-                    <a href="type-safe-request.md"/>
-                    <a href="default-request.md"/>
-                    <a href="client_retry.md"/>
+                    <a href="client-requests.md"/>
+                    <a href="client-resources.md"/>
+                    <a href="client-default-request.md"/>
+                    <a href="client-request-retry.md"/>
                 </group>
                 <group>
                     <title>Responses</title>
-                    <a href="response.md"/>
-                    <a href="response-validation.md"/>
+                    <a href="client-responses.md"/>
+                    <a href="client-response-validation.md"/>
                 </group>
                 <group>
                     <title>Plugins</title>
-                    <a href="auth.md"/>
-                    <a href="http-cookies.md"/>
-                    <a href="content-encoding.md"/>
+                    <a href="client-auth.md"/>
+                    <a href="client-cookies.md"/>
+                    <a href="client-content-encoding.md"/>
                     <a href="client-caching.md"/>
-                    <a href="websocket_client.md"/>
+                    <a href="client-websockets.md"/>
                     <a href="client-custom-plugins.md"/>
                 </group>
                 <group>
                     <title>Testing</title>
-                    <a href="http-client_testing.md"/>
+                    <a href="client-testing.md"/>
                 </group>
             </links>
         </misc>

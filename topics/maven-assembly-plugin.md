@@ -21,7 +21,7 @@ To build an assembly, you need to configure the Assembly plugin first:
    ```
    {src="snippets/tutorial-server-get-started-maven/pom.xml" include-lines="10,18-19"}
 
-   > If you use [EngineMain](create_server.topic#engine-main) without the explicit `main()` function, the application's
+   > If you use [EngineMain](server-create-and-configure.topic#engine-main) without the explicit `main()` function, the application's
    > main class depends on the used engine and might look as follows: `io.ktor.server.netty.EngineMain`.
    {style="tip"}
 

@@ -4,7 +4,7 @@ The Ktor HTTP client can be used on different platforms supported by Kotlin:
 - JVM
 - [Android](https://kotlinlang.org/docs/android-overview.html)
 - [Native](https://kotlinlang.org/docs/native-overview.html)
-   <include from="http-client_engines.md" element-id="newmm-note"/>
+   <include from="client-engines.md" element-id="newmm-note"/>
 - [JavaScript](https://kotlinlang.org/docs/js-overview.html)
 
 You can use it in [multiplatform projects](https://kotlinlang.org/docs/multiplatform.html), be it a multiplatform mobile or a full-stack web application. The following [targets](https://kotlinlang.org/docs/multiplatform-dsl-reference.html#targets) are supported for multiplatform projects:

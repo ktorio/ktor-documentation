@@ -8,8 +8,8 @@
 
     <snippet id="install_plugin">
         <p>
-            To <a href="Plugins.md" anchor="install">install</a> the <code>%plugin_name%</code> plugin to the application,
-            pass it to the <code>install</code> function in the specified <a href="Modules.md">module</a>.
+            To <a href="server-plugins.md" anchor="install">install</a> the <code>%plugin_name%</code> plugin to the application,
+            pass it to the <code>install</code> function in the specified <a href="server-modules.md">module</a>.
             The code snippets below show how to install <code>%plugin_name%</code> ...
         </p>
         <list>
@@ -50,7 +50,7 @@
 
     <snippet id="install_plugin_route">
         <p>
-            The <code>%plugin_name%</code> plugin can also be <a href="Plugins.md" anchor="install-route">installed to specific routes</a>.
+            The <code>%plugin_name%</code> plugin can also be <a href="server-plugins.md" anchor="install-route">installed to specific routes</a>.
             This might be useful if you need different <code>%plugin_name%</code> configurations for different application resources.
         </p>
     </snippet>
@@ -308,12 +308,12 @@
 
     <snippet id="native_server_supported">
         <p>
-            <b><a href="native_server.md">Native server</a> support</b>: ✅
+            <b><a href="server-native.md">Native server</a> support</b>: ✅
         </p>
     </snippet>
     <snippet id="native_server_not_supported">
         <p>
-            <b><a href="native_server.md">Native server</a> support</b>: ✖️
+            <b><a href="server-native.md">Native server</a> support</b>: ✖️
         </p>
     </snippet>
 
@@ -357,7 +357,7 @@
         <p>
             <control>Engine</control>
             :
-            Select an <a href="Engines.md">engine</a> used to run a server.
+            Select an <a href="server-engines.md">engine</a> used to run a server.
         </p>
     </snippet>
 
@@ -367,7 +367,7 @@
             :
             Choose
             <emphasis>Code</emphasis>
-            to specify server parameters <a href="create_server.topic">in code</a>.
+            to specify server parameters <a href="server-create-and-configure.topic">in code</a>.
         </p>
     </snippet>
 

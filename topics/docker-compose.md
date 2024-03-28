@@ -11,7 +11,7 @@
 </p>
 </tldr>
 
-In this topic, we'll show how to run a server Ktor application under Docker Compose. We'll be using a project created in [](interactive_website_add_persistence.md), which uses Exposed to connect to an H2 file database. In this topic, we'll replace H2 with a PostgreSQL database running as a separate `db` service, while the Ktor application will be running as a `web` service.
+In this topic, we'll show how to run a server Ktor application under Docker Compose. We'll be using a project created in [](db-persistence.md), which uses Exposed to connect to an H2 file database. In this topic, we'll replace H2 with a PostgreSQL database running as a separate `db` service, while the Ktor application will be running as a `web` service.
 
 
 ## Get the application ready {id="prepare-app"}
@@ -32,7 +32,7 @@ Then, open `build.gradle.kts` and add the following dependencies:
 
 ### Connect to a database {id="connect_db"}
 
-The [tutorial-website-interactive-persistence](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-website-interactive-persistence) sample uses hardcoded `driverClassName` and `jdbcURL` in the `com/example/dao/DatabaseSingleton.kt` file to establish a database connection. Let's extract connection settings for the PostgreSQL database to a [custom configuration group](Configuration-file.topic). Open the `src/main/resources/application.conf` file and add the `storage` group outside the `ktor` group as follows:
+The [tutorial-website-interactive-persistence](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-website-interactive-persistence) sample uses hardcoded `driverClassName` and `jdbcURL` in the `com/example/dao/DatabaseSingleton.kt` file to establish a database connection. Let's extract connection settings for the PostgreSQL database to a [custom configuration group](server-configuration-file.topic). Open the `src/main/resources/application.conf` file and add the `storage` group outside the `ktor` group as follows:
 
 ```kotlin
 ```
@@ -62,7 +62,7 @@ Finally, open `com/example/Application.kt` and pass `environment.config` to `Dat
 
 In order to run on Docker, the application needs to have all the required files deployed to the container. Depending on the build system you're using,
 there are different plugins to accomplish this:
-- [](fatjar.md)
+- [](server-fatjar.md)
 - [](maven-assembly-plugin.md)
 
 For example, to apply the Ktor plugin, open the `build.gradle.kts` file and add the `ktor` plugin to the `plugins` block:

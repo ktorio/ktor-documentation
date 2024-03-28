@@ -11,14 +11,14 @@
 Learn how to create your own custom client plugin.
 </link-summary>
 
-Starting with v2.2.0, Ktor provides a new API for creating custom client [plugins](http-client_plugins.md). In general, this API doesn't require an understanding of internal Ktor concepts, such as pipelines, phases, and so on. 
+Starting with v2.2.0, Ktor provides a new API for creating custom client [plugins](client-plugins.md). In general, this API doesn't require an understanding of internal Ktor concepts, such as pipelines, phases, and so on. 
 Instead, you have access to different stages of [handling requests and responses](#call-handling) using a set of handlers, such as `onRequest`, `onResponse`, and so on.
 
 
 ## Create and install your first plugin {id="first-plugin"}
 
 In this section, we'll demonstrate how to create and install your first plugin that adds a custom header 
-to each [request](request.md):
+to each [request](client-requests.md):
 
 1. To create a plugin, call the [createClientPlugin](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.api/create-client-plugin.html) function and pass a plugin name as an argument:
    ```kotlin
@@ -39,7 +39,7 @@ to each [request](request.md):
    ```
    {src="snippets/client-custom-plugin/src/main/kotlin/com/example/plugins/CustomHeader.kt"}
 
-3. To [install the plugin](http-client_plugins.md#install), pass the created `ClientPlugin` instance to the `install` function inside the client's configuration block:
+3. To [install the plugin](client-plugins.md#install), pass the created `ClientPlugin` instance to the `install` function inside the client's configuration block:
    ```kotlin
    import com.example.plugins.*
    
@@ -142,7 +142,7 @@ The <code>SetupRequest</code> hook is executed first in request processing.
 </td>
 <td>
 <p>
-This handler is executed for each HTTP <a href="request.md">request</a> and allows you to modify it.
+This handler is executed for each HTTP <a href="client-requests.md">request</a> and allows you to modify it.
 </p>
 <p>
 <emphasis>
@@ -160,7 +160,7 @@ Example: <a anchor="example-custom-header"/>
 </td>
 <td>
 <p>
-Allows you to transform a <a href="request.md" anchor="body">request body</a>.
+Allows you to transform a <a href="client-requests.md" anchor="body">request body</a>.
 In this handler, you need to serialize the body into 
 <a href="https://api.ktor.io/ktor-http/io.ktor.http.content/-outgoing-content/index.html">OutgoingContent</a> 
 (for example, <code>TextContent</code>, <code>ByteArrayContent</code>, or <code>FormDataContent</code>)
@@ -233,7 +233,7 @@ Examples: <a anchor="example-log-headers"/>, <a anchor="example-response-time"/>
 </td>
 <td>
 <p>
-This handler is executed for each incoming HTTP <a href="request.md">response</a> and allows you to 
+This handler is executed for each incoming HTTP <a href="client-requests.md">response</a> and allows you to 
 inspect it in various ways: log a response, save cookies, and so on.
 </p>
 <p>
@@ -253,7 +253,7 @@ Examples: <a anchor="example-log-headers"/>, <a anchor="example-response-time"/>
 </td>
 <td>
 <p>
-Allows you to transform a <a href="response.md" anchor="body">response body</a>.
+Allows you to transform a <a href="client-responses.md" anchor="body">response body</a>.
 This handler is invoked for each <code>HttpResponse.body</code> call.
 You need to deserialize the body into an instance of <code>requestedType</code> 
 or return <code>null</code> if your transformation is not applicable.
@@ -275,7 +275,7 @@ Example: <a anchor="data-transformation"/>
 </td>
 <td>
 Allows you to clean resources allocated by this plugin.
-This handler is called when the client is <a href="create-client.md" anchor="close-client">closed</a>.
+This handler is called when the client is <a href="client-create-and-configure.md" anchor="close-client">closed</a>.
 </td>
 </tr>
 </snippet>
@@ -305,7 +305,7 @@ You can find the full example here: [ResponseTime.kt](https://github.com/ktorio/
 ## Access client configuration {id="client-config"}
 
 You can access your client configuration using the `client` property, which returns the [HttpClient](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client/-http-client/index.html) instance.
-The example below shows how to get the [proxy address](proxy.md) used by the client:
+The example below shows how to get the [proxy address](client-proxy.md) used by the client:
 
 ```kotlin
 import io.ktor.client.plugins.api.*

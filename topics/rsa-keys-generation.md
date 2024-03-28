@@ -18,7 +18,7 @@ In the realm of [JSON Web Token](https://jwt.io/) authentication, RS256 plays a 
 authenticity of JWTs can be verified through signature mechanisms, such as RS256, where a public/private key pair is
 employed. This ensures that the information contained within the token remains tamper-proof and trustworthy.
 
-In this section you will learn how such keys are generated and used alongside the [Authentication JWT](jwt.md)
+In this section you will learn how such keys are generated and used alongside the [Authentication JWT](server-jwt.md)
 plugin provided by Ktor.
 
 <warning>
