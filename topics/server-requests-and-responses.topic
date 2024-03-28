@@ -3,8 +3,8 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
 <topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-       title="Handle requests and generate responses" id="server-requests-and-responses"
-       help-id="handle-requests-and-generate-responses">
+       title="Use Ktor and Kotlin to handle HTTP requests and generate responses" id="server-requests-and-responses"
+       help-id="server-requests-and-responses">
     <show-structure for="chapter" depth="2"/>
     <tldr>
         <var name="example_name" value="tutorial-server-routing-and-requests"/>
@@ -13,15 +13,17 @@
             <b>Used plugins</b>: <a href="server-routing.md">Routing</a>
         </p>
     </tldr>
-    <link-summary>This tutorial teaches you the basics of routing and requests in
-        Ktor Server by building a simple Task Manager application.
+    <link-summary>
+        Learn the basics of routing, handling requests, and parameters in Kotlin with Ktor by
+        building a task manager application.
     </link-summary>
     <web-summary>
-        Learn about routing and requests in Ktor Server by creating and HTTP API.
+        Learn the fundamentals of validation, error handling, and unit testing for services created with Kotlin and
+        Ktor.
     </web-summary>
     <p>
-        In this tutorial you will learn the basics of routing, handling requests, and parameters with Ktor by building a
-        Task Manager application.
+        In this tutorial, you’ll learn the basics of routing, handling requests, and parameters in Kotlin with Ktor by
+        building a task manager application.
     </p>
     <p>
         By the end of this tutorial you will know how to do the following:

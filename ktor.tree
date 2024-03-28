@@ -14,6 +14,7 @@
             <toc-element topic="server-create-a-new-project.topic"
                          accepts-web-file-names="getting-started.html, intellij-idea.html"/>
             <toc-element topic="server-requests-and-responses.topic"
+                         toc-title="Handle requests and generate responses"
                          accepts-web-file-names="creating-http-apis.html" accepts-web-file-names-ref="tutorials"/>
             <toc-element topic="create-restful-apis.topic"/>
             <toc-element toc-title="Creating a website">
