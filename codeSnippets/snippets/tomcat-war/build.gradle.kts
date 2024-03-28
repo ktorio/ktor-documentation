@@ -5,7 +5,7 @@ val slf4j_version: String by project
 plugins {
     application
     kotlin("jvm")
-    id("org.gretty") version "4.0.3"
+    id("org.gretty") version "4.1.3"
     id("war")
 }
 
