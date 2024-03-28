@@ -3,8 +3,7 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
 <topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-       title="Use Ktor and Kotlin to handle HTTP requests and generate responses" id="server-requests-and-responses"
-       help-id="server-requests-and-responses">
+       title="Use Ktor and Kotlin to handle HTTP requests and generate responses" id="server-requests-and-responses">
     <show-structure for="chapter" depth="2"/>
     <tldr>
         <var name="example_name" value="tutorial-server-routing-and-requests"/>
