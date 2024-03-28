@@ -66,7 +66,8 @@
                              accepts-web-file-names="structure.html,structuring-applications.html"/>
                 <toc-element topic="server-autoheadresponse.md"
                              accepts-web-file-names="autoheadresponse.html"/>
-                <toc-element topic="x-http-method-override.md"/>
+                <toc-element topic="server-method-override.md"
+                             accepts-web-file-names="x-http-method-override.html"/>
             </toc-element>
 
             <toc-element toc-title="Requests">
@@ -108,9 +109,12 @@
                              accepts-web-file-names="css-dsl.html"/>
                 <toc-element topic="server-freemarker.md"
                              accepts-web-file-names="freemarker.html"/>
-                <toc-element topic="velocity.md"/>
-                <toc-element topic="mustache.md"/>
-                <toc-element topic="thymeleaf.md"/>
+                <toc-element topic="server-velocity.md"
+                             accepts-web-file-names="velocity.html"/>
+                <toc-element topic="server-mustache.md"
+                             accepts-web-file-names="mustache.html"/>
+                <toc-element topic="server-thymeleaf.md"
+                             accepts-web-file-names="thymeleaf.html"/>
                 <toc-element topic="server-pebble.md"
                              accepts-web-file-names="pebble.html"/>
                 <toc-element topic="server-jte.md"
@@ -145,7 +149,8 @@
             <toc-element toc-title="HTTP">
                 <toc-element topic="server-swagger-ui.md"
                              accepts-web-file-names="openapi-swagger.html,swagger-ui.html"/>
-                <toc-element topic="openapi.md"/>
+                <toc-element topic="server-openapi.md"
+                             accepts-web-file-names="openapi.html"/>
                 <toc-element topic="server-default-headers.md"
                              accepts-web-file-names="default-headers.html"/>
                 <toc-element topic="server-compression.md"
@@ -188,8 +193,8 @@
                              accepts-web-file-names="call-id.html"/>
                 <toc-element topic="server-metrics-micrometer.md"
                              accepts-web-file-names="metrics-micrometer.html,micrometer-metrics.html"/>
-                <toc-element topic="dropwizard-metrics.md"
-                             accepts-web-file-names="features-metrics.html"/>
+                <toc-element topic="server-metrics-dropwizard.md"
+                             accepts-web-file-names="features-metrics.html,dropwizard-metrics.html"/>
             </toc-element>
 
             <toc-element toc-title="Administration">
@@ -225,7 +230,8 @@
                 </toc-element>
                 <toc-element topic="server-packaging.md"
                              accepts-web-file-names="packing.html,gradle-application-plugin.html"/>
-                <toc-element topic="war.md"/>
+                <toc-element topic="server-war.md"
+                             accepts-web-file-names="war.html"/>
                 <toc-element topic="graalvm.md"/>
             </toc-element>
             <toc-element toc-title="Containerizing">

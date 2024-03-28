@@ -22,7 +22,7 @@ The deployment process for a server Ktor application depends on the following sp
 
 Ktor allows you to create and start a server with the desired network [engine](server-engines.md) (such as Netty, Jetty, or Tomcat) right in the application. In this case, an engine is a part of your application. Your application has control over engine settings, connection, and SSL options. To deploy your application, you can [package](#packaging) it as a fat JAR or an executable JVM application.
 
-In contrast to the approach above, a servlet container should control the application lifecycle and connection settings. Ktor provides a special `ServletApplicationEngine` engine that delegates control over your application to a servlet container. To deploy inside a servlet container, you need to generate a [WAR archive](war.md).
+In contrast to the approach above, a servlet container should control the application lifecycle and connection settings. Ktor provides a special `ServletApplicationEngine` engine that delegates control over your application to a servlet container. To deploy inside a servlet container, you need to generate a [WAR archive](server-war.md).
 
 ### Configuration: code vs configuration file {id="code-vs-config"}
 
@@ -43,7 +43,7 @@ Before deploying your application, you need to package it in one of the followin
 
 * **WAR**
 
-   A [WAR archive](war.md) lets you deploy your application inside a servlet container, such as Tomcat or Jetty.
+   A [WAR archive](server-war.md) lets you deploy your application inside a servlet container, such as Tomcat or Jetty.
 
 * **GraalVM**
 

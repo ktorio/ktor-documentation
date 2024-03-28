@@ -183,7 +183,7 @@
             </def>
             <def title="ktor.deployment.rootPath">
                 <p>
-                    A <a href="war.md">servlet</a> context path.
+                    A <a href="server-war.md">servlet</a> context path.
                 </p>
                 <p>
                     <emphasis>Example</emphasis>: <code>/</code>

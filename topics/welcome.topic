@@ -65,7 +65,7 @@
                     <a href="server-auth.md"/>
                     <a href="server-sessions.md"/>
                     <a href="server-websockets.md"/>
-                    <a href="server-swagger-ui.md"/> / <a href="openapi.md"/>
+                    <a href="server-swagger-ui.md"/> / <a href="server-openapi.md"/>
                     <a href="server-custom-plugins.md"/>
                 </group>
                 <group>
@@ -77,7 +77,7 @@
                 <group>
                     <title>Deployment</title>
                     <a href="server-fatjar.md">Creating Fat JARs</a>
-                    <a href="war.md"/>
+                    <a href="server-war.md"/>
                     <a href="graalvm.md"/>
                     <a href="docker.md"/>
                     <a href="google-app-engine.md"/>

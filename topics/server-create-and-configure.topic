@@ -117,7 +117,7 @@
     <chapter title="Servlet" id="servlet">
         <p>
             A Ktor application can be run and deployed inside servlet containers that include Tomcat and Jetty.
-            To deploy inside a servlet container, you need to generate a <a href="war.md"/> archive and then deploy it to a server or a cloud service that supports WARs.
+            To deploy inside a servlet container, you need to generate a <a href="server-war.md"/> archive and then deploy it to a server or a cloud service that supports WARs.
         </p>
     </chapter>
 

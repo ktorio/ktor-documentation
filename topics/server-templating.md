@@ -6,9 +6,9 @@ Ktor provides different ways for working with views: you can build HTML/CSS usin
 * [](server-html-dsl.md)
 * [](server-css-dsl.md)
 * [](server-freemarker.md)
-* [](velocity.md)
-* [](mustache.md)
-* [](thymeleaf.md)
+* [](server-velocity.md)
+* [](server-mustache.md)
+* [](server-thymeleaf.md)
 * [](server-pebble.md)
 * [](server-jte.md)
 
