@@ -32,7 +32,7 @@
     </p>
     <list type="decimal">
         <li>Create, open and run a new Ktor project.</li>
-        <li><a href="handle-requests-and-generate-responses.topic">Handle requests and generate responses</a>.</li>
+        <li><a href="server-requests-and-responses.topic">Handle requests and generate responses</a>.</li>
         <li><a href="create-restful-apis.topic">Create RESTful API's that generate JSON</a>.</li>
         <li><a href="server-create-static-website.md">Create a static website</a>.</li>
         <li><a href="server-create-interactive-website.md">Create an interactive website</a>.</li>
@@ -1022,7 +1022,7 @@
             into the foundational concepts of Ktor, continue to the next tutorial in this guide.
         </p>
         <p>
-            Next up, you will learn how to <a href="handle-requests-and-generate-responses.topic">handle requests and
+            Next up, you will learn how to <a href="server-requests-and-responses.topic">handle requests and
             generate responses by creating a Task Manager application</a>.
         </p>
     </chapter>

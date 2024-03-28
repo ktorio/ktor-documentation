@@ -24,7 +24,7 @@
 
         <primary>
             <title>Ktor Server</title>
-            <a href="handle-requests-and-generate-responses.topic"
+            <a href="server-requests-and-responses.topic"
                summary="Learn how routing and requests work in Ktor by creating a Task Manager application.">
                 Handle requests and generate responses
             </a>

@@ -3,13 +3,14 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
 <topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-       title="Handle requests and generate responses" id="handle-requests-and-generate-responses">
+       title="Handle requests and generate responses" id="server-requests-and-responses"
+       help-id="handle-requests-and-generate-responses">
     <show-structure for="chapter" depth="2"/>
     <tldr>
         <var name="example_name" value="tutorial-server-routing-and-requests"/>
         <include from="lib.topic" element-id="download_example"/>
         <p>
-            <b>Used plugins</b>: <a href="Routing_in_Ktor.md">Routing</a>
+            <b>Used plugins</b>: <a href="server-routing.md">Routing</a>
         </p>
     </tldr>
     <link-summary>This tutorial teaches you the basics of routing and requests in
@@ -35,7 +36,7 @@
         <p>
             This is the second tutorial of the Get started with Ktor Server guide. You can do this tutorial
             independently, however, we strongly recommend that you complete the preceding tutorial to learn how to <a
-                href="server_create_a_new_project.topic">Create, open, and run a new Ktor project</a>.
+                href="server-create-a-new-project.topic">Create, open, and run a new Ktor project</a>.
         </p>
         <p>It is also very useful to have a basic understanding of HTTP request types, headers and status
             codes.</p>
@@ -67,7 +68,7 @@
         </p>
         <tip>
             For more information on creating a new project, see <a
-                href="server_create_a_new_project.topic">Create, open, and run a new Ktor project</a>. If you have
+                href="server-create-a-new-project.topic">Create, open, and run a new Ktor project</a>. If you have
             recently completed that tutorial, feel free to reuse the project created there.
         </tip>
         <procedure>
@@ -512,7 +513,7 @@
             to fully automate your testing.
         </p>
         <p>
-            Ktor provides its own <a href="Testing.md">test framework</a> to support the automated validation of routes.
+            Ktor provides its own <a href="server-testing.md">test framework</a> to support the automated validation of routes.
             Next, you will write some tests for your app's existing functionality.
         </p>
         <procedure>

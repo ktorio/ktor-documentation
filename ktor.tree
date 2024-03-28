@@ -13,7 +13,7 @@
         <toc-element toc-title="Getting started with Ktor Server">
             <toc-element topic="server-create-a-new-project.topic"
                          accepts-web-file-names="getting-started.html, intellij-idea.html"/>
-            <toc-element topic="handle-requests-and-generate-responses.topic"
+            <toc-element topic="server-requests-and-responses.topic"
                          accepts-web-file-names="creating-http-apis.html" accepts-web-file-names-ref="tutorials"/>
             <toc-element topic="create-restful-apis.topic"/>
             <toc-element toc-title="Creating a website">
