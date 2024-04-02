@@ -3,14 +3,22 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
 <topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-       title="Create RESTful APIs that generate JSON" id="create-restful-apis">
+       title="How to create RESTful APIs in Kotlin with Ktor" id="create-restful-apis">
     <show-structure for="chapter" depth="2"/>
     <tldr>
         <var name="example_name" value="tutorial-server-restful-api"/>
         <include from="lib.topic" element-id="download_example"/>
     </tldr>
+    <web-summary>
+        Learn to build Kotlin RESTful APIs with Ktor. This tutorial covers setup, routing, and testing on a real-life
+        example. It’s an ideal entry-level tutorial for Kotlin backend developers.
+    </web-summary>
+    <link-summary>
+        Learn how to build a backend service using Kotlin and Ktor, featuring an example of a
+        RESTful API that generates JSON files.
+    </link-summary>
     <p>
-        In the <a href="">previous tutorial</a>, we introduced you to the
+        In the <a href="server-requests-and-responses.topic">previous tutorial</a>, we introduced you to the
         fundamentals of validation, error handling, and unit testing. This article will expand on these topics by
         creating a RESTful service for managing tasks.
     </p>
@@ -25,7 +33,7 @@
     <chapter title="Prerequisites" id="prerequisites">
         <p>This is the third tutorial in the Get started with Ktor Server guide. You can do this tutorial independently,
             however, we strongly recommend that you complete the preceding tutorial to learn how to <a
-                    href="">handle requests and generate responses</a>
+                    href="server-requests-and-responses.topic">handle requests and generate responses</a>
             .
         </p>
         <p>We recommend that you install <a href="https://www.jetbrains.com/help/idea/installation-guide.html">IntelliJ
@@ -274,7 +282,7 @@
         <p>
             Now that you are familiar with the process of content negotiation, continue with transferring the
             functionality
-            from the <a href="">previous tutorial</a> into this one.
+            from the <a href="server-requests-and-responses.topic">previous tutorial</a> into this one.
         </p>
         <procedure title="Reuse the Task Repository" id="task-repository">
             <p>
