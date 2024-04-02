@@ -1,0 +1,940 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="Use Ktor and Kotlin to handle HTTP requests and generate responses" id="server-requests-and-responses">
+    <show-structure for="chapter" depth="2"/>
+    <tldr>
+        <var name="example_name" value="tutorial-server-routing-and-requests"/>
+        <include from="lib.topic" element-id="download_example"/>
+        <p>
+            <b>Used plugins</b>: <a href="server-routing.md">Routing</a>
+        </p>
+    </tldr>
+    <link-summary>
+        Learn the basics of routing, handling requests, and parameters in Kotlin with Ktor by
+        building a task manager application.
+    </link-summary>
+    <web-summary>
+        Learn the fundamentals of validation, error handling, and unit testing for services created with Kotlin and
+        Ktor.
+    </web-summary>
+    <p>
+        In this tutorial, you’ll learn the basics of routing, handling requests, and parameters in Kotlin with Ktor by
+        building a task manager application.
+    </p>
+    <p>
+        By the end of this tutorial you will know how to do the following:
+    </p>
+    <list type="bullet">
+        <li>Handle GET and POST requests.</li>
+        <li>Extract information from requests.</li>
+        <li>Handle errors when converting data.</li>
+        <li>Use unit tests to validate routing.</li>
+    </list>
+    <chapter title="Prerequisites" id="prerequisites">
+        <p>
+            This is the second tutorial of the Get started with Ktor Server guide. You can do this tutorial
+            independently, however, we strongly recommend that you complete the preceding tutorial to learn how to <a
+                href="server-create-a-new-project.topic">Create, open, and run a new Ktor project</a>.
+        </p>
+        <p>It is also very useful to have a basic understanding of HTTP request types, headers and status
+            codes.</p>
+        <p>We recommend that you install <a href="https://www.jetbrains.com/help/idea/installation-guide.html">IntelliJ
+            IDEA</a>, but you could use another IDE of your choice.
+        </p>
+    </chapter>
+    <chapter title="Task Manager Application" id="sample-application">
+        <p>In this tutorial you will incrementally build a Task Manager application with the following
+            functionality:</p>
+        <list type="bullet">
+            <li>View all the available tasks as an HTML table.</li>
+            <li>View tasks by priority and name, again as HTML.</li>
+            <li>Add additional tasks by submitting an HTML form.</li>
+        </list>
+        <p>
+            You will do the minimum possible to get some basic functionality working, and then improve and extend this
+            functionality over seven iterations. This minimum functionality will consist of a project containing some
+            model types, a list of values and a single route.
+        </p>
+    </chapter>
+    <chapter title="Display static HTML content" id="display-static-html">
+        <p>In the first iteration you will add a new route to your application that will return static HTML content.</p>
+        <p>Using the <a href="https://start.ktor.io">Ktor Project Generator</a>, create a new project called
+            <control>ktor-task-app</control>
+            . You can accept all the default options, but may wish to change the
+            <control>artifact</control>
+            name.
+        </p>
+        <tip>
+            For more information on creating a new project, see <a
+                href="server-create-a-new-project.topic">Create, open, and run a new Ktor project</a>. If you have
+            recently completed that tutorial, feel free to reuse the project created there.
+        </tip>
+        <procedure>
+            <step>Open the
+                <path>Routing.kt</path>
+                file within the
+                <path>src/main/kotlin/com/example/plugins</path>
+                folder.
+            </step>
+            <step>
+                <p>Replace the existing <code>Application.configureRouting()</code> function with the implementation
+                    below:</p>
+                <code-block lang="kotlin"><![CDATA[
+                        fun Application.configureRouting() {
+                            routing {
+                                get("/tasks") {
+                                    call.respondText(
+                                        contentType = ContentType.parse("text/html"),
+                                            text = """
+                                        <h3>TODO:</h3>
+                                        <ol>
+                                            <li>A table of all the tasks</li>
+                                            <li>A form to submit new tasks</li>
+                                        </ol>
+                                        """.trimIndent()
+                                    )
+                                }
+                            }
+                        }
+                        ]]>
+                    </code-block>
+                <p>With this you have created a new route for the URL <code>/tasks</code> and the GET request type. A
+                    GET request is the most basic
+                    request type in HTTP. It is triggered when the user types into the browser's address bar or clicks
+                    on a regular HTML link. </p>
+                <p>
+                    For the moment you are just returning static content. To notify the client that you will be sending
+                    HTML, you set the HTTP Content Type header to <code>"text/html"</code>.
+                </p>
+            </step>
+            <step>
+                <p>
+                    Add the following import to access the <code>ContentType</code> object:
+                </p>
+                <code-block lang="kotlin">
+                    import io.ktor.http.ContentType
+                </code-block>
+            </step>
+            <step>
+                <p>In Intellij IDEA, click on the run gutter icon (<img alt="intelliJ IDEA run application icon"
+                                                                        src="intellij_idea_gutter_icon.svg" height="16"
+                                                                        width="16"/>) next to the <code>main()</code>
+                    function in
+                    <path>Application.kt</path>
+                    to start the application.
+                </p>
+            </step>
+            <step>
+                <p>
+                    Navigate to <a href="http://0.0.0.0:8080/tasks">http://0.0.0.0:8080/tasks</a>
+                    in your browser. You should see the to-do list displayed:
+                </p>
+                <img src="tutorial_routing_and_requests_implementation_1.png"
+                     alt="A browser window displaying a to-do list with two items"
+                     border-effect="rounded"
+                     width="706"/>
+            </step>
+        </procedure>
+    </chapter>
+    <chapter title="Implement a Task Model" id="implement-a-task-model">
+        <p>
+            Now that you have created the project and set up basic routing, you will extend your application by doing
+            the following:
+        </p>
+        <list type="decimal">
+            <li><a anchor="create-model-types">Create model types to represent tasks.</a></li>
+            <li><a anchor="create-sample-values">Declare a list of tasks containing sample values.</a></li>
+            <li><a anchor="add-a-route">Modify the route and request handler to return this list.</a></li>
+            <li><a anchor="test">Test that the new feature works using the browser.</a></li>
+        </list>
+        <procedure title="Create model types" id="create-model-types">
+            <step>
+                <p>Inside
+                    <path>src/main/kotlin/com/example</path>
+                    create a new subpackage called "model".
+                </p>
+            </step>
+            <step>
+                <p>Within the
+                    <path>model</path>
+                    directory create a new
+                    <path>.kt</path>
+                    file called "Task".
+                </p>
+            </step>
+            <step>
+                <p>Open the
+                    <path>Task.kt</path>
+                    file add the following <code>enum</code> to represent priorities and a <code>class</code> to
+                    represent tasks:
+                </p>
+                <code-block lang="kotlin">
+                    enum class Priority {
+                        Low, Medium, High, Vital
+                    }
+                    data class Task(
+                        val name: String,
+                        val description: String,
+                        val priority: Priority
+                    )
+                </code-block>
+            </step>
+            <step>
+                <p>You will be sending task information to the client inside HTML tables, so also add the following
+                    extension functions:</p>
+                <code-block lang="kotlin"><![CDATA[
+                    fun Task.taskAsRow() = """
+                        <tr>
+                            <td>$name</td><td>$description</td><td>$priority</td>
+                        </tr>
+                        """.trimIndent()
+
+                    fun List<Task>.tasksAsTable() = this.joinToString(
+                        prefix = "<table rules=\"all\">",
+                        postfix = "</table>",
+                        separator = "\n",
+                        transform = Task::taskAsRow
+                    )
+                ]]>
+                </code-block>
+                <p>
+                    The function <code>Task.taskAsRow()</code> enables <code>Task</code> objects to be rendered as table
+                    rows, whilst <code><![CDATA[List<Task>.tasksAsTable()]]></code>
+                    allows a list of tasks to be rendered as a table.
+                </p>
+            </step>
+        </procedure>
+        <procedure title="Create sample values" id="create-sample-values">
+            <step>
+                <p>Inside your
+                    <path>model</path>
+                    directory create a new
+                    <path>.kt</path>
+                    file called "TaskRepository".
+                </p>
+            </step>
+            <step>
+                <p>Open
+                    <path>TaskRepository.kt</path>
+                    and add the following code to define a list of Tasks:
+                </p>
+                <code-block lang="kotlin">
+                    val tasks = mutableListOf(
+                        Task("cleaning", "Clean the house", Priority.Low),
+                        Task("gardening", "Mow the lawn", Priority.Medium),
+                        Task("shopping", "Buy the groceries", Priority.High),
+                        Task("painting", "Paint the fence", Priority.Medium)
+                    )
+                </code-block>
+            </step>
+        </procedure>
+        <procedure title="Add a new route" id="add-a-route">
+            <step>
+                <p>Open the
+                    <path>Routing.kt</path>
+                    file and replace the existing <code>Application.configureRouting()</code> function with the
+                    implementation below:
+                </p>
+                <code-block lang="kotlin">
+                    fun Application.configureRouting() {
+                        routing {
+                            get("/tasks") {
+                                call.respondText(
+                                    contentType = ContentType.parse("text/html"),
+                                    text = tasks.tasksAsTable()
+                                )
+                            }
+                        }
+                    }
+                </code-block>
+                <p>
+                    Instead of returning static content to the client you are now providing a list of tasks. As a list
+                    cannot be sent over the network directly, it must be converted into a format the client will
+                    understand. In this case the tasks are converted into an HTML table.
+                </p>
+            </step>
+            <step>
+                <p>Make sure to add the required import:</p>
+                <code-block lang="kotlin">
+                    import model.*
+                </code-block>
+            </step>
+        </procedure>
+        <procedure title="Test the new feature" id="test">
+            <step>
+                <p>In intelliJ IDEA, click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
+                                                                     src="intellij_idea_rerun_icon.svg"
+                                                                     height="16"
+                                                                     width="16"/>)
+                    to restart the application.</p>
+            </step>
+            <step>
+                <p>Navigate to <a href="http://0.0.0.0:8080/tasks">http://0.0.0.0:8080/tasks</a> in your browser.
+                    It should display an HTML table containing tasks:</p>
+                <img src="tutorial_routing_and_requests_implementation_2.png"
+                     alt="A browser window displaying a table with four rows"
+                     border-effect="rounded"
+                     width="706"/>
+                <p>If so, congratulations! The basic functionality of the application is working correctly.</p>
+            </step>
+        </procedure>
+    </chapter>
+    <chapter title="Refactor the model" id="refactor-the-model">
+        <p>
+            Before you continue with extending your app's functionality,
+            you need to refactor the design by encapsulating the list of values within a repository. This will allow you
+            to centralize your data management and thereby focus on the Ktor specific code.
+        </p>
+        <procedure>
+            <step>
+                <p>
+                    Return to the
+                    <path>TaskRepository.kt</path>
+                    file and replace the existing list of tasks with the code below:
+                </p>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-server-routing-and-requests/src/main/kotlin/model/TaskRepository.kt"/>
+                <p>
+                    This implements a very simple data store for tasks based on a list. For the purposes of the example,
+                    the order in which the tasks are added will be preserved, but duplicates will be disallowed by
+                    throwing an exception.</p>
+                <p>In later tutorials you will learn how to implement repositories which connect to relational
+                    databases via the <a href="https://github.com/JetBrains/Exposed">Exposed library</a>.
+                </p>
+                <p>
+                    For now, you will utilise the repository inside your route.
+                </p>
+            </step>
+            <step>
+                <p>
+                    Open the
+                    <path>Routing.kt</path>
+                    file and replace the existing <code>Application.configureRouting()</code> function with the
+                    implementation below:
+                </p>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-server-routing-and-requests/src/main/kotlin/com/example/plugins/Routing.kt"
+                            include-lines="11-12,16-22,90-91"/>
+                <p>
+                    When a request arrives, the repository is used to fetch the current list of tasks. Then, an
+                    HTTP response is built containing these tasks.
+                </p>
+            </step>
+        </procedure>
+        <procedure title="Test the refactored code">
+            <step>
+                <p>In intelliJ IDEA, click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
+                                                                     src="intellij_idea_rerun_icon.svg" height="16"
+                                                                     width="16"/>)
+                    to restart the application.</p>
+            </step>
+            <step>
+                <p>
+                    Navigate to <a href="http://0.0.0.0:8080/tasks">http://0.0.0.0:8080/tasks</a>
+                    in your browser. The output should remain the same with the HTML table displayed:
+                </p>
+                <img src="tutorial_routing_and_requests_implementation_2.png"
+                     alt="A browser window displaying a table with four rows"
+                     border-effect="rounded"
+                     width="706"/>
+            </step>
+        </procedure>
+    </chapter>
+    <chapter title="Work with parameters" id="work-with-parameters">
+        <p>
+            In this iteration, you will allow the user to view tasks by priority. To do this, your application must
+            allow GET requests to the following URLs:
+        </p>
+        <list type="bullet">
+            <li><a href="http://0.0.0.0:8080/tasks/byPriority/Low">/tasks/byPriority/Low</a></li>
+            <li><a href="http://0.0.0.0:8080/tasks/byPriority/Medium">/tasks/byPriority/Medium</a></li>
+            <li><a href="http://0.0.0.0:8080/tasks/byPriority/High">/tasks/byPriority/High</a></li>
+            <li><a href="http://0.0.0.0:8080/tasks/byPriority/Vital">/tasks/byPriority/Vital</a></li>
+        </list>
+        <p>
+            The route you would add is
+            <code>/tasks/byPriority/{priority}</code>
+            where the name in braces represents a query parameter that you will need to extract at runtime. The query
+            parameter can have any name you like, but <code>priority</code> seems the obvious choice.
+        </p>
+        <p>
+            The process to handle the request can be summarized as follows:
+        </p>
+        <list type="decimal">
+            <li>Extract a query parameter called <code>priority</code> from the request.</li>
+            <li>If this parameter is absent return a <code>400</code> status (Bad Request).</li>
+            <li>Convert the text value of the parameter into a <code>Priority</code> enum value.</li>
+            <li>If this fails also again return a response with a <code>400</code> status code.</li>
+            <li>Use the repository to find all the tasks with the specified priority.</li>
+            <li>If there are no matching tasks return a <code>404</code> status (Not Found).</li>
+            <li>Return the matching tasks formatted as an HTML table.</li>
+        </list>
+        <p>
+            You will first implement this functionality, and then find the best way to check it is working.
+        </p>
+        <procedure title="Add a new route">
+            <p>Open the
+                <path>Routing.kt</path>
+                file and add the following route into your code, as shown below:
+            </p>
+            <code-block lang="kotlin">
+                routing {
+                    get("/tasks") { ... }
+
+                    //add the following route
+                    get("/tasks/byPriority/{priority}") {
+                        val priorityAsText = call.parameters["priority"]
+                            if (priorityAsText == null) {
+                                call.respond(HttpStatusCode.BadRequest)
+                                return@get
+                            }
+
+                            try {
+                                val priority = Priority.valueOf(priorityAsText)
+                                val tasks = TaskRepository.tasksByPriority(priority)
+
+                                if (tasks.isEmpty()) {
+                                    call.respond(HttpStatusCode.NotFound)
+                                    return@get
+                                }
+
+                                call.respondText(
+                                    contentType = ContentType.parse("text/html"),
+                                    text = tasks.tasksAsTable()
+                                )
+                            } catch(ex: IllegalArgumentException) {
+                                call.respond(HttpStatusCode.BadRequest)
+                        }
+                    }
+                }
+            </code-block>
+            <p>
+                As summarized above, you have written a handler for the URL
+                <code>/tasks/byPriority/{priority}</code>
+                . The symbol
+                <code>priority</code>
+                represents the query parameter that the user has added. Unfortunately, on the server there's
+                no way of guaranteeing that this is one of the four values in the corresponding Kotlin enumeration,
+                so it must be checked manually.
+            </p>
+            <p>
+                If the query parameter is absent, the server returns a <code>400</code> status code to the client.
+                Otherwise, it extracts the
+                value of the parameter and tries to convert it to a member of the enumeration. Should this fail, an
+                exception will be thrown, which the server catches and returns a <code>400</code> status code.
+            </p>
+            <p>
+                Assuming the conversion succeeds, the repository is used to find the matching <code>Tasks</code>. If
+                there are no
+                tasks of the specified priority the server returns a <code>404</code> status code, otherwise it
+                sends the matches back in an HTML table.
+            </p>
+        </procedure>
+        <procedure title="Test the new route">
+            <p>
+                You can test this functionality in the browser by requesting the different URLs.
+            </p>
+            <step>
+                <p>In intelliJ IDEA, click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
+                                                                     src="intellij_idea_rerun_icon.svg"
+                                                                     height="16"
+                                                                     width="16"/>)
+                    to restart the application.</p>
+            </step>
+            <step>
+                <p>
+                    To retrieve all the medium priority tasks navigate to <a
+                        href="http://0.0.0.0:8080/tasks/byPriority/Medium">http://0.0.0.0:8080/tasks/byPriority/Medium</a>:
+                </p>
+                <img src="tutorial_routing_and_requests_implementation_4.png"
+                     alt="A browser window displaying a table with Medium priority tasks"
+                     border-effect="rounded"
+                     width="706"/>
+            </step>
+            <step>
+                <p>
+                    Unfortunately, the testing you can do via the browser is limited in the case of errors. The browser will
+                    not show the details of an unsuccessful response, unless you use developer extensions. A
+                    simpler alternative would be to use a specialist tool, such as <a
+                        href="https://learning.postman.com/docs/sending-requests/requests/">Postman</a>.
+                </p>
+            </step>
+            <step>
+                <p>
+                    In Postman, send a GET request for the same URL
+                    <code>http://0.0.0.0:8080/tasks/byPriority/Medium</code>
+                    .
+                </p>
+                <img src="tutorial_routing_and_requests_postman.png"
+                     alt="A GET request in Postman showing the response details"
+                     border-effect="rounded"
+                     width="706"/>
+                <p>
+                    This shows the raw output from the server, plus all the details of the request and response.
+                </p>
+            </step>
+            <step>
+                <p>
+                    To check that a <code>404</code> status code is returned on request for vital tasks, send a new GET
+                    request to
+                    <code>http://0.0.0.0:8080/tasks/byPriority/Vital</code>
+                    . You will then see the status code displayed in the upper right corner of the
+                    <control>Response</control>
+                    pane.
+                </p>
+                <img src="tutorial_routing_and_requests_postman_vital.png"
+                     alt="A GET request in Postman showing the status code"
+                     border-effect="rounded"
+                     width="706"/>
+            </step>
+            <step>
+                <p>
+                    To verify that a <code>400</code> is returned when an invalid priority is specified, create another GET request
+                    with an invalid property:
+                </p>
+                <img src="tutorial_routing_and_requests_postman_bad_request.png"
+                     alt="A GET request in Postman with a Bad Request status code"
+                     border-effect="rounded"
+                     width="706"/>
+            </step>
+        </procedure>
+    </chapter>
+    <chapter title="Add unit tests" id="add-unit-tests">
+        <p>
+            So far you have added two routes - one for retrieving all tasks and one for retrieving tasks by priority.
+            Tools like Postman enable you to fully test these routes, but they require manual inspection and run
+            externally to Ktor.
+        </p>
+        <p>
+            This is acceptable when prototyping and in small applications. However, this approach does not scale to
+            large applications where there may be thousands of tests that need to run frequently. A better solution is
+            to fully automate your testing.
+        </p>
+        <p>
+            Ktor provides its own <a href="server-testing.md">test framework</a> to support the automated validation of routes.
+            Next, you will write some tests for your app's existing functionality.
+        </p>
+        <procedure>
+            <step>
+                <p>
+                    Create a new directory within
+                    <path>src</path>
+                    called "test" and a subdirectory called "kotlin".
+                </p>
+            </step>
+            <step>
+                <p>
+                    Inside
+                    <path>src/test/kotlin</path>
+                    create a new
+                    <path>.kt</path>
+                    file called "ApplicationTest".
+                </p>
+            </step>
+            <step>
+                <p>Open the
+                    <path>ApplicationTest.kt</path>
+                    file and add the following code:
+                </p>
+                <code-block lang="kotlin">
+                    package com.example
+
+                    import io.ktor.client.request.*
+                    import io.ktor.client.statement.*
+                    import io.ktor.http.*
+                    import io.ktor.server.testing.*
+                    import org.junit.Test
+                    import kotlin.test.assertContains
+                    import kotlin.test.assertEquals
+
+
+                    class ApplicationTest {
+                        @Test
+                        fun tasksCanBeFoundByPriority() = testApplication {
+                            application {
+                                module()
+                            }
+
+                            val response = client.get("/tasks/byPriority/Medium")
+                            val body = response.bodyAsText()
+
+                            assertEquals(HttpStatusCode.OK, response.status)
+                            assertContains(body, "Mow the lawn")
+                            assertContains(body, "Paint the fence")
+                        }
+
+                        @Test
+                        fun invalidPriorityProduces400() = testApplication {
+                            application {
+                                module()
+                            }
+
+                            val response = client.get("/tasks/byPriority/Invalid")
+                            assertEquals(HttpStatusCode.BadRequest, response.status)
+                        }
+
+                        @Test
+                        fun unusedPriorityProduces404() = testApplication {
+                            application {
+                                module()
+                            }
+
+                            val response = client.get("/tasks/byPriority/Vital")
+                            assertEquals(HttpStatusCode.NotFound, response.status)
+                        }
+                    }
+                </code-block>
+                <p>
+                    In each of these tests a new instance of Ktor is created. This is running inside a test environment,
+                    instead
+                    of a web server like Netty. The module written for you by the Project Generator is loaded, which in
+                    turn
+                    invokes the routing function. You can then use the built-in <code>client</code> object to send
+                    requests to the application, and to validate the responses that are returned.
+                </p>
+                <p>
+                    The test can be run within the IDE or as part of your CI/CD pipeline.
+                </p>
+            </step>
+            <step>
+                <p>To run the tests within the IntelliJ IDE, click on the gutter icon (<img
+                        alt="intelliJ IDEA gutter icon"
+                        src="intellij_idea_gutter_icon.svg"
+                        width="16" height="26"/>) next to
+                    each test function.</p>
+                <tip>
+                    For more details on how to run unit tests in the IntelliJ IDE, see the <a
+                        href="https://www.jetbrains.com/help/idea/performing-tests.html">IntelliJ IDEA documentation</a>.
+                </tip>
+            </step>
+        </procedure>
+    </chapter>
+    <chapter title="Handle POST requests" id="handle-post-requests">
+        <p>
+            You can follow the process described above to create any number of additional routes for GET requests. These
+            would allow the user to fetch tasks using whatever search criteria we like. But users will also want to be
+            able to create new tasks.
+        </p>
+        <p>
+            In that case the appropriate type of HTTP request is a POST. A POST request is typically triggered when a
+            user completes and submits an HTML form.
+        </p>
+        <p>
+            Unlike a GET request, a POST request has a <code>body</code>, which contains the names and values of all the
+            inputs that are present on the form. This information is encoded to separate the data from different inputs
+            and to escape illegal characters. You do not need to worry about the details of this process, as the browser
+            and Ktor will manage it for us.
+        </p>
+        <p>
+            Next, you'll extend your existing application to allow the creation of new tasks in the following steps:
+        </p>
+        <list type="decimal">
+            <li><a anchor="create-static-content">Create a static content folder, containing an HTML form</a>.</li>
+            <li><a anchor="register-folder">Make Ktor aware of this folder, so its contents can be served</a>.</li>
+            <li><a anchor="add-form-handler">Add a new request handler to process the form submission</a>.</li>
+            <li><a anchor="test-functionality">Test the finished functionality</a>.</li>
+        </list>
+        <procedure title="Create the static content" id="create-static-content">
+            <step>
+                <p>
+                    Inside
+                    <path>src/main/resources</path>
+                    create a new directory called "task-ui".
+                    This will be the folder for your static content.
+                </p>
+            </step>
+            <step>
+                <p>
+                    Within the
+                    <path>task-ui</path>
+                    folder, create a new
+                    <path>.html</path>
+                    file called "task-form".
+                </p>
+            </step>
+            <step>
+                <p>Open the newly created
+                    <path>task-form.html</path>
+                    file and add the following content to it:
+                </p>
+                <code-block lang="html"
+                            src="snippets/tutorial-server-routing-and-requests/src/main/resources/task-ui/task-form.html"/>
+            </step>
+        </procedure>
+        <procedure title="Register the folder with Ktor" id="register-folder">
+            <step>
+                <p>
+                    Navigate to the
+                    <path>Routing.kt</path>
+                    file within
+                    <path>src/main/kotlin/com/example/plugins</path>
+                    .
+                </p>
+            </step>
+            <step>
+                <p>
+                    Add the following call to <code>staticResources()</code> into the <code>configureRouting()</code>
+                    function:
+                </p>
+                <code-block lang="kotlin">
+                    fun Application.configureRouting() {
+                        routing {
+                            //add the following line
+                            staticResources("/task-ui", "task-ui")
+
+                            get("/tasks") { ... }
+
+                            get("/tasks/byPriority/{priority}") { … }
+                        }
+                    }
+                </code-block>
+                <p>This will require the following import:</p>
+                <code-block lang="kotlin">
+                    import io.ktor.server.http.content.staticResources
+                </code-block>
+            </step>
+            <step>
+                <p>Restart the application. </p>
+            </step>
+            <step>
+                <p>
+                    Navigate to <a href="http://0.0.0.0:8080/task-ui/task-form.html">http://0.0.0.0:8080/task-ui/task-form.html</a>
+                    in your browser. The HTML form should be displayed:
+                </p>
+                <img src="tutorial_routing_and_requests_implementation_6.png"
+                     alt="A browser window displaying an HTML form"
+                     border-effect="rounded"
+                     width="706"/>
+            </step>
+        </procedure>
+        <procedure title="Add a handler for the form" id="add-form-handler">
+            <p>
+                In <path>Routing.kt</path> add the following additional route into the <code>configureRouting()</code> function:
+            </p>
+            <code-block lang="kotlin">
+                fun Application.configureRouting() {
+                    routing {
+                        //...
+
+                        //add the following route
+                        post("/tasks") {
+                            val formContent = call.receiveParameters()
+
+                            val params = Triple(
+                                formContent["name"] ?: "",
+                                formContent["description"] ?: "",
+                                formContent["priority"] ?: ""
+                            )
+
+                            if (params.toList().any { it.isEmpty() }) {
+                                call.respond(HttpStatusCode.BadRequest)
+                                return@post
+                            }
+
+                            try {
+                                val priority = Priority.valueOf(params.third)
+                                TaskRepository.addTask(
+                                    Task(
+                                        params.first,
+                                        params.second,
+                                        priority
+                                    )
+                                )
+
+                                call.respond(HttpStatusCode.NoContent)
+                            } catch (ex: IllegalArgumentException) {
+                                call.respond(HttpStatusCode.BadRequest)
+                            } catch (ex: IllegalStateException) {
+                                call.respond(HttpStatusCode.BadRequest)
+                            }
+                        }
+                    }
+                }
+            </code-block>
+            <p>
+                As you can see the new route is mapped to POST requests rather than GET requests. Ktor
+                processes the body of the request via the call to <code>receiveParameters()</code>. This returns a
+                collection of the
+                parameters that were present in the body of the request.
+            </p>
+            <p>
+                There are three parameters, so you can store the associated values in a <a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-triple/">Triple</a> . If a parameter
+                is not present then an empty string is stored instead.
+            </p>
+            <p>
+                If any of the values are empty, the server will return a response with a status code
+                of <code>400</code>. Then, it will attempt to convert the third parameter to a <code>Priority</code>
+                and, if successful, add the
+                information to the repository in a new <code>Task</code>. Both of these actions may result in an
+                exception, in which case once again return a status code <code>400</code>.
+            </p>
+            <p>
+                Otherwise, if everything is successful, the server will return a <code>204</code> status code (aka
+                No Content) to the client. This
+                signifies that their request has succeeded, but there's no fresh information to send them as a
+                result.
+            </p>
+        </procedure>
+        <procedure title="Test the finished functionality" id="test-functionality">
+            <step>
+                <p>
+                    Restart the application.
+                </p>
+            </step>
+            <step>
+                <p>Navigate to <a href="http://0.0.0.0:8080/task-ui/task-form.html">http://0.0.0.0:8080/task-ui/task-form.html</a>
+                    in the browser.
+                </p>
+            </step>
+            <step>
+                <p>
+                    Fill in the form with sample data and click
+                    <control>Submit</control>
+                    .
+                </p>
+                <img src="tutorial_routing_and_requests_iteration_6_test_1.png"
+                     alt="A browser window displaying an HTML form with sample data"
+                     border-effect="rounded"
+                     width="706"/>
+                <p>When you submit the form you should not be directed to a new page.</p>
+            </step>
+            <step>
+                <p>
+                    Navigate to the URL <a href="http://0.0.0.0:8080/tasks">http://0.0.0.0:8080/tasks</a>. You should
+                    see that the new task has been added.
+                </p>
+                <img src="tutorial_routing_and_requests_iteration_6_test_2.png"
+                     alt="A browser window displaying an HTML table with tasks"
+                     border-effect="rounded"
+                     width="706"/>
+            </step>
+            <step>
+                <p>
+                    To validate the functionality, add the following test to <path>ApplicationTest.kt</path>:
+                </p>
+                <code-block lang="kotlin">
+                    @Test
+                    fun newTasksCanBeAdded() = testApplication {
+                        application {
+                            module()
+                        }
+
+                        val response1 = client.post("/tasks") {
+                            header(
+                                HttpHeaders.ContentType,
+                                ContentType.Application.FormUrlEncoded.toString()
+                            )
+                            setBody(
+                                listOf(
+                                    "name" to "swimming",
+                                    "description" to "Go to the beach",
+                                    "priority" to "Low"
+                                ).formUrlEncode()
+                            )
+                        }
+
+                        assertEquals(HttpStatusCode.NoContent, response1.status)
+
+                        val response2 = client.get("/tasks")
+                        assertEquals(HttpStatusCode.OK, response2.status)
+                        val body = response2.bodyAsText()
+
+                        assertContains(body, "swimming")
+                        assertContains(body, "Go to the beach")
+                    }
+                </code-block>
+                <p>
+                    In this test two requests are sent to the server, a POST request to create a new task and a GET
+                    request to confirm the new task has been added. When making the first request, the
+                    <code>setBody()</code> method is used to insert content into the body of the request. The test
+                    framework provides a <code>formUrlEncode()</code>
+                    extension method on collections, which abstracts the process of formatting the data as the browser
+                    would.
+                </p>
+            </step>
+        </procedure>
+    </chapter>
+    <chapter title="Refactor the routing" id="refactor-the-routing">
+        <p>
+            If you examine your routing thus far you will see that all the routes begin with <code>/tasks</code>. You can
+            remove this duplication by placing them into their own sub-route:
+        </p>
+        <code-block lang="kotlin">
+            fun Application.configureRouting() {
+                routing {
+                    staticResources("/task-ui", "task-ui")
+
+                    route("/tasks") {
+                        get {
+                            //Code remains the same
+                        }
+
+                        get("/byPriority/{priority}") {
+                            //Code remains the same
+                        }
+
+                        post {
+                            //Code remains the same
+                        }
+                    }
+            }
+        </code-block>
+        <p>
+            If your application reached the stage where you had multiple sub-routes, then it would be appropriate to put
+            each into its own helper function. However, this is not required at present.
+        </p>
+        <p>
+            The better organized your routes are the easier it is to extend them. For example, you could add a route for
+            finding tasks by name:
+        </p>
+        <code-block lang="kotlin">
+            fun Application.configureRouting() {
+                routing {
+                    staticResources("/task-ui", "task-ui")
+
+                    route("/tasks") {
+                        get {
+                            //Code remains the same
+                        }
+                        get("/byName/{taskName}") {
+                            val name = call.parameters["taskName"]
+                            if (name == null) {
+                                call.respond(HttpStatusCode.BadRequest)
+                                return@get
+                            }
+
+                            val task = TaskRepository.taskByName(name)
+                            if (task == null) {
+                                call.respond(HttpStatusCode.NotFound)
+                                return@get
+                            }
+
+                            call.respondText(
+                                contentType = ContentType.parse("text/html"),
+                                text = listOf(task).tasksAsTable()
+                            )
+                        }
+
+                        get("/byPriority/{priority}") {
+                            //Code remains the same
+                        }
+
+                        post {
+                            //Code remains the same
+                        }
+                    }
+                }
+            }
+        </code-block>
+    </chapter>
+    <chapter title="Next steps" id="next-steps">
+        <p>
+            You have now implemented basic routing and request handling functionality. In addition, you were introduced
+            to validation, error handling and unit testing. All these topics will be expanded in subsequent tutorials.
+        </p>
+    </chapter>
+</topic>
