@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title>A Simple SPA For Tasks</title>
+    <script type="application/javascript">
+        function fetchAndDisplayTasks() {
+            fetchTasks()
+                .then(tasks => displayTasks(tasks))
+        }
+
+        function fetchTasks() {
+            return fetch(
+                "/tasks",
+                {
+                    headers: { 'Accept': 'application/json' }
+                }
+            ).then(resp => resp.json());
+        }
+
+        function displayTasks(tasks) {
+            const tasksTableBody = document.getElementById("tasksTableBody")
+            tasks.forEach(task => {
+                const newRow = taskRow(task);
+                tasksTableBody.appendChild(newRow);
+            });
+        }
+
+        function taskRow(task) {
+            return tr([
+                td(task.name),
+                td(task.description),
+                td(task.priority)
+            ]);
+        }
+
+        function tr(children) {
+            const node = document.createElement("tr");
+            children.forEach(child => node.appendChild(child));
+            return node;
+        }
+
+        function td(text) {
+            const node = document.createElement("td");
+            node.appendChild(document.createTextNode(text));
+            return node;
+        }
+    </script>
+</head>
+<body>
+<h1>Viewing Tasks Via JS</h1>
+<form action="javascript:fetchAndDisplayTasks()">
+    <input type="submit" value="View The Tasks">
+</form>
+<table>
+    <thead>
+    <tr><th>Name</th><th>Description</th><th>Priority</th></tr>
+    </thead>
+    <tbody id="tasksTableBody">
+    </tbody>
+</table>
+</body>
+</html>
