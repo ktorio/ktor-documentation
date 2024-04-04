@@ -159,6 +159,7 @@ module("snippets", "client-configure-request")
 module("snippets", "request-validation")
 module("snippets", "data-conversion")
 module("snippets", "tutorial-server-routing-and-requests")
+module("snippets", "tutorial-server-restful-api")
 
 if(!System.getProperty("os.name").startsWith("Windows")) {
     module("snippets", "embedded-server-native")
