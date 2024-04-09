@@ -28,10 +28,7 @@
                summary="Learn how routing and requests work in Ktor by creating a Task Manager application.">
                 Handle requests and generate responses
             </a>
-            <a href="server-create-interactive-website.md"
-               summary="Discover the process of turning a static website into an interactive one using the StaticContent and Freemarker plugins.">
-                Create an interactive website
-            </a>
+            <a href="server-build-web-applications.topic"/>
             <a href="server-create-websocket-chat.md"
                summary="Create a chat application with the WebSockets plugin.">
                 Create a server chat application

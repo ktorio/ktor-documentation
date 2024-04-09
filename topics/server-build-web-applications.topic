@@ -3,21 +3,32 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
 <topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-       title="Create web applications" id="server-create-web-applications">
+       title="Build web applications" id="server-build-web-applications">
     <tldr>
         <var name="example_name" value="tutorial-server-web-application"/>
         <include from="lib.topic" element-id="download_example"/>
         <p>
-            <b>Used plugins</b>: <a href="server-routing.md">Routing</a>,
+            <b>Used plugins</b>: <a href="server-routing.md"/>,
             <a href="server-static-content.md">Static Content</a>,
-            <a href="server-thymeleaf.md">Thymeleaf</a>
+            <a href="server-thymeleaf.md"/>
         </p>
     </tldr>
+    <web-summary>
+        Learn to build server-side web applications in Kotlin with Ktor.
+    </web-summary>
+    <link-summary>
+        Discover the process of building a web application using Thymeleaf templates.
+    </link-summary>
 
     <p>
-        In the previous tutorial, you learned how to create a RESTful service in Kotlin with Ktor, which we assumed
-        would be consumed by a single page application written in JavaScript. Although this is a very popular
-        architecture, it does not suit every project.
+        In this tutorial, we will show you how to create a web application in Kotlin with Ktor by using
+        <a href="https://www.thymeleaf.org/">Thymeleaf</a> templates.
+    </p>
+
+    <p>
+        In the <a href="server-create-restful-apis.topic">previous tutorial</a>, you learned how to create a RESTful
+        service, which we assumed would be consumed by a single page application written in JavaScript. Although this is
+        a very popular architecture, it does not suit every project.
     </p>
     <p>
         There are many reasons why you may wish to keep all the implementation on the server and only send markup to the
@@ -37,18 +48,15 @@
     <p>
         Ktor supports this approach by integrating with several server-page technologies.
     </p>
-    <p>
-        In this tutorial, we will show you how to create a web application by using
-        <a href="https://www.thymeleaf.org/">Thymeleaf</a> templates.
-    </p>
 
     <chapter title="Prerequisites" id="prerequisites">
         <p>
             This tutorial is part of the Get started with Ktor Server guide. You can do this tutorial independently,
-            however, we strongly recommend that you complete the preceding tutorial to learn how to create RESTful APIs.
+            however, we strongly recommend that you complete the
+            <a href="server-create-restful-apis.topic">preceding tutorial</a> to learn how to create RESTful APIs.
         </p>
-        <p>
-            We recommend that you install IntelliJ IDEA, but you could use another IDE of your choice.
+        <p>We recommend that you install <a href="https://www.jetbrains.com/help/idea/installation-guide.html">IntelliJ
+            IDEA</a>, but you could use another IDE of your choice.
         </p>
     </chapter>
 
@@ -60,14 +68,14 @@
 
         <p>
             You could manually add these to your existing project, but it’s simpler to generate a new project and then
-            incrementally port the code from the previous tutorial. We will reiterate all the code as we go, so you
+            incrementally reuse the code from the previous tutorial. We will reiterate all the code as we go, so you
             don’t need to
             have the previous projects to hand.
         </p>
 
         <procedure title="Create the initial project with plugins" id="create-project">
             <step>
-                Navigate to the Ktor Project Generator.
+                <include from="lib.topic" element-id="generate_project_step_1"/>
             </step>
             <step>
                 <p>
@@ -104,9 +112,7 @@
                      alt="Ktor Project Generator plugins list" border-effect="line" width="706"/>
             </step>
             <step>
-                Click
-                <control>Generate project</control>
-                to generate and download your Ktor project.
+                <include from="lib.topic" element-id="generate_project_final_step"/>
             </step>
         </procedure>
 
@@ -141,12 +147,12 @@
                 </p>
                 <list>
                     <li>
-                        In the Routing and Requests article we added handwritten extension functions to convert Tasks
-                        into HTML.
+                        In the <a href="server-requests-and-responses.topic"/> tutorial we added handwritten extension
+                        functions to convert Tasks into HTML.
                     </li>
                     <li>
-                        In the Content Negotiation and REST article we annotated the Task class with the Serializable
-                        type from the kotlinx.serialization library.
+                        In the <a href="server-create-restful-apis.topic"/> tutorial we annotated the Task class with
+                        the <code>Serializable</code> type from the kotlinx.serialization library.
                     </li>
                 </list>
                 <p>
@@ -164,34 +170,35 @@
                 <p>
                     In the <code>configureTemplating()</code> method add a route for <code>/tasks</code> as shown below:
                 </p>
-                <code-block lang="kotlin">
-                    fun Application.configureTemplating() {
-                        install(Thymeleaf) {
-                            setTemplateResolver(ClassLoaderTemplateResolver().apply {
-                                prefix = "templates/thymeleaf/"
-                                suffix = ".html"
-                                characterEncoding = "utf-8"
-                            })
-                        }
-                        routing {
-                            get("/html-thymeleaf") {
-                                call.respond(ThymeleafContent(
-                                    "index",
-                                    mapOf("user" to ThymeleafUser(1, "user1"))
-                                ))
-                            }
-                            //this is the additional route to add
-                            get("/tasks") {
-                                val tasks = listOf(
-                                    Task("cleaning", "Clean the house", Priority.Low),
-                                    Task("gardening", "Mow the lawn", Priority.Medium),
-                                    Task("shopping", "Buy the groceries", Priority.High),
-                                    Task("painting", "Paint the fence", Priority.Medium)
-                                )
-                                call.respond(ThymeleafContent("all-tasks", mapOf("tasks" to tasks)))
-                            }
-                        }
-                    }
+                <code-block lang="kotlin"><![CDATA[
+fun Application.configureTemplating() {
+    install(Thymeleaf) {
+        setTemplateResolver(ClassLoaderTemplateResolver().apply {
+            prefix = "templates/thymeleaf/"
+            suffix = ".html"
+            characterEncoding = "utf-8"
+        })
+    }
+    routing {
+        get("/html-thymeleaf") {
+            call.respond(ThymeleafContent(
+                "index",
+                mapOf("user" to ThymeleafUser(1, "user1"))
+            ))
+        }
+        //this is the additional route to add
+        get("/tasks") {
+            val tasks = listOf(
+                Task("cleaning", "Clean the house", Priority.Low),
+                Task("gardening", "Mow the lawn", Priority.Medium),
+                Task("shopping", "Buy the groceries", Priority.High),
+                Task("painting", "Paint the fence", Priority.Medium)
+            )
+            call.respond(ThymeleafContent("all-tasks", mapOf("tasks" to tasks)))
+        }
+    }
+}
+]]>
                 </code-block>
                 <p>
                     When the server receives a request for <code>/tasks</code> it creates a list of tasks and then
@@ -229,7 +236,10 @@
                             src="snippets/tutorial-server-web-application/src/main/resources/templates/thymeleaf/all-tasks.html"/>
             </step>
             <step>
-                Start the application by clicking on the run button.
+                <p>In IntelliJ IDEA, click on the run button (<img alt="intelliJ IDEA run button icon"
+                                                                   src="intellij_idea_gutter_icon.svg" height="16"
+                                                                   width="16"/>)
+                    to start the application.</p>
             </step>
             <step>
                 <p>
@@ -257,10 +267,11 @@
             <path>Routing.kt</path>
             file:
         </p>
-        <code-block lang="kotlin">
+        <code-block lang="kotlin"><![CDATA[
             static("/static") {
                 resources("static")
             }
+            ]]>
         </code-block>
         <p>
             This means that, for example, a request to <code>/static/index.hml</code> will be served content from
@@ -322,7 +333,7 @@
 
         <procedure title="Reuse routes for GET requests" id="reuse-routes">
             <p>
-                Now that you have the repository, you can implement all the routes for GET requests.
+                Now that you have created the repository, you can implement all the routes for GET requests.
             </p>
             <step>
                 Navigate to the
@@ -339,25 +350,25 @@
                             src="snippets/tutorial-server-web-application/src/main/kotlin/com/example/plugins/Templating.kt"
                             include-lines="13-67,98-100"/>
                 <p>
-                    The above code is only slightly different from the previous tutorial, and can be summarized as
-                    follows:
+                    The above code can be summarized as follows:
                 </p>
                 <list>
                     <li>
-                        In the case of a GET request to <code>/tasks</code> we retrieve all the tasks from the
-                        repository and use the
+                        In the case of a GET request to <code>/tasks</code> the server retrieves all the tasks from the
+                        repository and uses the
                         <path>all-tasks</path>
                         template to generate the next view sent to the browser.
                     </li>
                     <li>
-                        In the case of a GET request to <code>/tasks/byName</code> we retrieve the parameter called
-                        <code>taskName</code> from the Query String, find the matching task, and use the
+                        In a GET request to <code>/tasks/byName</code> the server retrieves the parameter
+                        called <code>taskName</code> from the Query String, finds the matching task, and uses the
                         <path>single-task</path>
                         template to generate the next view sent to the browser.
                     </li>
                     <li>
-                        In the case of a GET request to <code>/tasks/byPriority</code> we retrieve the parameter called
-                        <code>priority</code> from the Query String, find the matching tasks, and use the
+                        In a GET request to <code>/tasks/byPriority</code> the server retrieves the
+                        parameter called
+                        <code>priority</code> from the Query String, finds the matching tasks, and uses the
                         <path>tasks-by-priority</path>
                         template to generate the next view sent to the browser.
                     </li>
@@ -434,17 +445,18 @@
             </step>
             <step>
                 <p>
-                    Enter new task details and click on the
-                    <control>submit</control>
-                    button to submit the form.
+                    Enter new task details in the
+                    <control>Create or edit a task</control>
+                    form.
                 </p>
                 <img src="server_create_web_app_new_task.png"
                      alt="A web browser displaying HTML forms" border-effect="rounded" width="706"/>
             </step>
             <step>
-                <p>
-                    Once submitted, the details will appear in the generated list of tasks,
-                    as shown below:
+                <p>Click on the
+                    <control>submit</control>
+                    button to submit the form.
+                    Once submitted, the details will appear in the generated list of tasks:
                 </p>
                 <img src="server_create_web_app_new_task_added.png"
                      alt="A web browser displaying a list of tasks" border-effect="rounded" width="706"/>
@@ -453,7 +465,12 @@
         </procedure>
     </chapter>
 
-    <seealso>
-        <!--Give some related links to how-to articles-->
-    </seealso>
+    <chapter title="Next steps" id="next-steps">
+        <p>
+            Congratulations! You have now completed rebuilding your Task Manager as a web application and
+            learned how to utilize Thymeleaf templates.</p>
+        <p>
+            Continue to the next tutorial to learn how to work with websockets.
+        </p>
+    </chapter>
 </topic>
