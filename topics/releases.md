@@ -33,6 +33,12 @@ The following table lists details of the latest Ktor releases.
 
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
+<tr><td>2.3.10</td><td>April 8, 2024</td><td><p>
+A patch release including various bug fixes for the CallLogging and SSE server plugins, improved Android client logging, and more.
+</p>
+<var name="version" value="2.3.10"/>
+<include from="lib.topic" element-id="release_details_link"/>
+</td></tr>
 <tr><td>2.3.9</td><td>March 4, 2024</td><td><p>
 A patch release including a bug fix for the ContentNegotiation client plugin, and an added support for sending secure cookies over HTTP.
 </p>

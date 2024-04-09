@@ -14,7 +14,7 @@
     <categories src="c.list"/>
     <instance src="ktor.tree"
               web-path="/docs/"
-              version="2.3.9"
+              version="2.3.10"
               id="docs"
               keymaps-mode="none"/>
 
