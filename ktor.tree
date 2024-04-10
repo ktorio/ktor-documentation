@@ -17,7 +17,8 @@
                          toc-title="Handle requests and generate responses"
                          accepts-web-file-names="creating-http-apis.html" accepts-web-file-names-ref="tutorials"/>
             <toc-element topic="server-create-restful-apis.topic" toc-title="Create RESTful APIs"/>
-            <toc-element topic="server-build-web-applications.topic"
+            <toc-element topic="server-build-web-application.topic"
+                         toc-title="Build a web application"
                          accepts-web-file-names="creating-static-website.html,creating-interactive-website.html"/>
             <toc-element topic="server-create-websocket-chat.md"
                          accepts-web-file-names="creating-web-socket-chat.html"/>

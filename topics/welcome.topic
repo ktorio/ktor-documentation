@@ -28,7 +28,7 @@
                summary="Learn how routing and requests work in Ktor by creating a Task Manager application.">
                 Handle requests and generate responses
             </a>
-            <a href="server-build-web-applications.topic"/>
+            <a href="server-build-web-application.topic">Build a web application</a>
             <a href="server-create-websocket-chat.md"
                summary="Create a chat application with the WebSockets plugin.">
                 Create a server chat application

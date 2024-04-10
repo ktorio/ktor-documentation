@@ -797,7 +797,7 @@
             learned the nits and grits of unit testing with the Ktor Client and JsonPath.</p>
         <p>
             Continue to
-            <a href="server-build-web-applications.topic">the next tutorial</a>
+            <a href="server-build-web-application.topic">the next tutorial</a>
             to learn how to reuse your API service to build a web application.
         </p>
     </chapter>
