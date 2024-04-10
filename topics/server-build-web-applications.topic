@@ -88,12 +88,12 @@
                      alt="Ktor Project Generator initial step" border-effect="line" width="706"/>
             </step>
             <step>
-                You can leave the default values for the rest of the settings and click on
+                You can leave the default values for the rest of the settings and click on the
                 <control>Add plugins</control>
-                to go to the next screen.
+                button to go to the next screen.
             </step>
             <step>
-                <p> In the plugins section search for and add the following plugins by clicking on the
+                <p> In the next screen search for and add the following plugins by clicking on the
                     <control>Add</control>
                     button:
                 </p>
@@ -119,7 +119,7 @@
 
         <procedure title="Add started code" id="add-starter-code">
             <step>
-                Open your project in IntelliJ IDEA or another editor of your choice.
+                Open your project in IntelliJ IDEA or another IDE of your choice.
             </step>
             <step>
                 Navigate to
@@ -127,7 +127,9 @@
                 and create a subpackage called "model".
             </step>
             <step>
-                Inside the model package, create a new
+                Inside the
+                <path>model</path>
+                package, create a new
                 <path>.kt</path>
                 file called "Task".
             </step>
@@ -148,11 +150,13 @@
                 </p>
                 <list>
                     <li>
-                        In the <a href="server-requests-and-responses.topic"/> tutorial we added handwritten extension
+                        In the <a href="server-requests-and-responses.topic">Handle requests and generate responses</a>
+                        tutorial we added handwritten extension
                         functions to convert Tasks into HTML.
                     </li>
                     <li>
-                        In the <a href="server-create-restful-apis.topic"/> tutorial we annotated the Task class with
+                        In the <a href="server-create-restful-apis.topic">Create RESTful APIs</a> tutorial we annotated
+                        the Task class with
                         the <code>Serializable</code> type from the kotlinx.serialization library.
                     </li>
                 </list>
@@ -161,7 +165,7 @@
                 </p>
             </step>
             <step>
-                Navigate to the
+                Open the
                 <path>Templating.kt</path>
                 file within the
                 <path>plugins</path>
@@ -455,9 +459,9 @@ fun Application.configureTemplating() {
             </step>
             <step>
                 <p>Click on the
-                    <control>submit</control>
+                    <control>Submit</control>
                     button to submit the form.
-                    Once submitted, the details will appear in the generated list of tasks:
+                    You will then see the new task displayed in a list of all tasks:
                 </p>
                 <img src="server_create_web_app_new_task_added.png"
                      alt="A web browser displaying a list of tasks" border-effect="rounded" width="706"/>
