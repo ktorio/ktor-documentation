@@ -14,14 +14,15 @@
         </p>
     </tldr>
     <web-summary>
-        Learn to build server-side web applications in Kotlin with Ktor.
+        Learn how to build web applications with Ktor and Kotlin. This tutorial guides you from HTML frontend
+        design with templates to connection with RESTful services on the backend.
     </web-summary>
     <link-summary>
-        Discover the process of building a web application using Thymeleaf templates.
+        Discover the process of building a web application in Kotlin with Ktor.
     </link-summary>
 
     <p>
-        In this tutorial, we will show you how to create a web application in Kotlin with Ktor by using
+        In this tutorial, we will show you how to build a web application in Kotlin with Ktor and
         <a href="https://www.thymeleaf.org/">Thymeleaf</a> templates.
     </p>
 

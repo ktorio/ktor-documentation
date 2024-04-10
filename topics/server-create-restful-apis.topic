@@ -796,8 +796,9 @@
             Congratulations! You have now completed creating a RESTful API service for your Task Manager application and
             learned the nits and grits of unit testing with the Ktor Client and JsonPath.</p>
         <p>
-            Continue to the next tutorial to learn how to <a href="server-create-static-website.md">create a static
-            website</a>.
+            Continue to
+            <a href="server-build-web-applications.topic">the next tutorial</a>
+            to learn how to reuse your API service to build a web application.
         </p>
     </chapter>
 </topic>
