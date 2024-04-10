@@ -32,10 +32,9 @@
     </p>
     <list type="decimal">
         <li>Create, open and run a new Ktor project.</li>
-        <li><a href="server-requests-and-responses.topic">Handle requests and generate responses</a>.</li>
-        <li><a href="server-create-restful-apis.topic">Create RESTful API's that generate JSON</a>.</li>
-        <li><a href="server-create-static-website.md">Create a static website</a>.</li>
-        <li><a href="server-create-interactive-website.md">Create an interactive website</a>.</li>
+        <li><a href="server-requests-and-responses.topic">Handle req uests and generate responses</a>.</li>
+        <li><a href="server-create-restful-apis.topic">Create RESTful APIs that generate JSON</a>.</li>
+        <li><a href="server-build-web-applications.topic">Build web applications</a>.</li>
         <li><a href="server-create-websocket-chat.md">Create a WebSocket chat</a>.</li>
     </list>
     <chapter id="create-project" title="Create a new Ktor project">
