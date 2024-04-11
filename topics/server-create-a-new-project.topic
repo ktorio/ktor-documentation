@@ -606,11 +606,11 @@
                 <tab title="application.yaml (YAML)" group-key="yaml">
                     <code-block lang="yaml">
                         ktor:
-                        application:
-                        modules:
-                        - com.example.ApplicationKt.module
-                        deployment:
-                        port: 8080
+                            application:
+                                modules:
+                                    - com.example.ApplicationKt.module
+                            deployment:
+                                port: 8080
                     </code-block>
                 </tab>
                 <tab title="application.conf (HOCON)" group-key="hocon">
