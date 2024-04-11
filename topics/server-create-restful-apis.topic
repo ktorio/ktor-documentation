@@ -9,6 +9,10 @@
     <tldr>
         <var name="example_name" value="tutorial-server-restful-api"/>
         <include from="lib.topic" element-id="download_example"/>
+        <p>
+            <b>Used plugins</b>: <a href="server-routing.md"/>,<a href="server-static-content.md">Static Content</a>,
+            <a href="server-serialization.md">Content Negotiation</a>, kotlinx.serialization
+        </p>
     </tldr>
     <web-summary>
         Learn to build Kotlin RESTful APIs with Ktor. This tutorial covers setup, routing, and testing on a real-life
