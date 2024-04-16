@@ -1,0 +1,85 @@
+<html>
+<head>
+    <title>Using Ktor WebSockets</title>
+    <script>
+        function readAndDisplayAllTasks() {
+            clearTable();
+
+            const serverURL = 'ws://0.0.0.0:8080/tasks';
+            const socket = new WebSocket(serverURL);
+
+            socket.onopen = logOpenToConsole;
+            socket.onclose = logCloseToConsole;
+            socket.onmessage = readAndDisplayTask;
+        }
+
+        function readAndDisplayTask(event) {
+            let task = JSON.parse(event.data);
+            logTaskToConsole(task);
+            addTaskToTable(task);
+        }
+
+        function logTaskToConsole(task) {
+            console.log(`Received ${task.name}`);
+        }
+
+        function logCloseToConsole() {
+            console.log("Web socket connection closed");
+        }
+
+        function logOpenToConsole() {
+            console.log("Web socket connection opened");
+        }
+
+        function tableBody() {
+            return document.getElementById("tasksTableBody");
+        }
+
+        function clearTable() {
+            tableBody().innerHTML = "";
+        }
+
+        function addTaskToTable(task) {
+            tableBody().appendChild(taskRow(task));
+        }
+
+
+        function taskRow(task) {
+            return tr([
+                td(task.name),
+                td(task.description),
+                td(task.priority)
+            ]);
+        }
+
+
+        function tr(children) {
+            const node = document.createElement("tr");
+            children.forEach(child => node.appendChild(child));
+            return node;
+        }
+
+
+        function td(text) {
+            const node = document.createElement("td");
+            node.appendChild(document.createTextNode(text));
+            return node;
+        }
+    </script>
+</head>
+<body>
+<h1>Viewing Tasks Via WebSockets</h1>
+<form action="javascript:readAndDisplayAllTasks()">
+    <input type="submit" value="View The Tasks">
+</form>
+<table rules="all">
+    <thead>
+    <tr>
+        <th>Name</th><th>Description</th><th>Priority</th>
+    </tr>
+    </thead>
+    <tbody id="tasksTableBody">
+    </tbody>
+</table>
+</body>
+</html>
