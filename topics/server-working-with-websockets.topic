@@ -229,7 +229,7 @@
                 </p>
             </step>
             <step>
-                <include from="lib.topic" id="intellij_idea_start_application"/>
+                <include from="lib.topic" element-id="intellij_idea_start_application"/>
             </step>
             <step>
                 <p>
