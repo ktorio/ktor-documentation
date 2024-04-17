@@ -183,29 +183,29 @@
                     }
                 </code-block>
                 <p>
-                    This code performs the following tasks:
+                    In this code the following steps occur:
                 </p>
-                <list>
+                <list type="decimal">
                     <li>The WebSockets plugin is installed and configured with standard settings.</li>
-                    <li>The <code>contentConverter</code> property is set, which will allow the plugin to
-                        serialize objects being sent and received through the <a
+                    <li>The <code>contentConverter</code> property is set, enabling the plugin to
+                        serialize objects sent and received through the <a
                                 href="https://github.com/Kotlin/kotlinx.serialization">kotlinx.serialization</a>
                         library.
                     </li>
-                    <li>The routing is configured with a single endpoint, where the relative URL is <code>/tasks</code>.
+                    <li>Routing is configured with a single endpoint, where the relative URL is <code>/tasks</code>.
                     </li>
-                    <li>When a request is received, a list of tasks is serialized down the WebSocket connection.</li>
-                    <li>When all the items have been sent, the server will close the connection.</li>
+                    <li>Upon receiving a request, a list of tasks is serialized down the WebSocket connection.</li>
+                    <li>Once all items are sent, the server closes the connection.</li>
                 </list>
                 <p>
-                    For the purposes of the demo, we introduce a delay of one second between sending tasks. This will
-                    allow us to watch the tasks appear incrementally in our client. If we sent all the tasks together
-                    this example would appear identical to the <a href="server-create-restful-apis.topic">RESTful
+                    For demonstration purposes, a one-second delay is introduced between sending tasks. This
+                    allows us to observe the tasks appearing incrementally in our client. Without this delay,
+                    the example would appear identical to the <a href="server-create-restful-apis.topic">RESTful
                     service</a> and <a href="server-build-web-application.topic">Web Application</a> developed in
                     previous articles.
                 </p>
                 <p>
-                    The final task in this iteration is to create a client for this endpoint. Because you included the
+                    The final step in this iteration is to create a client for this endpoint. Because you included the
                     <a href="server-static-content.md">Static Content</a> plugin, an
                     <path>index.html</path>
                     file has been generated within
@@ -222,10 +222,11 @@
                 <code-block src="snippets/tutorial-server-websockets/src/main/resources/static/index.html" lang="html"/>
                 <p>
                     This page uses the <a href="https://websockets.spec.whatwg.org//#websocket">WebSocket type</a>,
-                    which is available in all modern browsers. We create this object in JavaScript, passing the URL of
-                    our endpoint into the constructor. Then we attach event handlers for the <code>onopen</code>, <code>onclose</code>
-                    and <code>onmessage</code> events. When the <code>onmessage</code> event fires, we add a row to a
-                    table using the methods of the document object.
+                    available in all modern browsers. We create this object in JavaScript, passing the URL of
+                    our endpoint into the constructor. Subsequently, we attach event handlers for the
+                    <code>onopen</code>, <code>onclose</code>,
+                    and <code>onmessage</code> events. Upon triggering the <code>onmessage</code> event, we append a row
+                    to a table using the document object's methods.
                 </p>
             </step>
             <step>
@@ -241,12 +242,13 @@
                      border-effect="rounded"
                      width="706"/>
                 <p>
-                    When you click on the form the tasks should be loaded from the server, at a rate of one per second.
-                    As a result, the table should be populated incrementally. If you open the
+                    When you click on the form, tasks should be loaded from the server, appearing at a rate of one per
+                    second. As a result, the table should be populated incrementally. You can also view the logged
+                    messages by opening the
                     <control>JavaScript Console</control>
                     in your browser's
                     <control>developer tools</control>
-                    you can also view the messages we are logging.
+                    .
                 </p>
                 <img src="tutorial_server_websockets_iteration_1_click.gif"
                      alt="A web browser page displaying list items on button click"
@@ -263,33 +265,35 @@
     <chapter title="Understanding WebSockets" id="understanding-websockets">
         <p>
             Before moving to the next iteration, it may be helpful to review some of the fundamentals of WebSockets.
-            If you are already familiar with WebSockets, feel free to continue with <a anchor="improve-design">improving
+            If you are already familiar with WebSockets, you can continue to <a anchor="improve-design">improve
             the design of your service</a>.
         </p>
         <p>
             In previous tutorials, your clients were sending HTTP Requests and receiving HTTP Responses. This works well
             and enables the Internet to be scalable and resilient.
         </p>
-        <p>However, it is not suitable in scenarios where:</p>
+        <p>However, it's not suitable for scenarios where:</p>
         <list>
-            <li>Content is going to be generated incrementally over time.</li>
-            <li>Content will be changing frequently in response to events.</li>
+            <li>Content is generated incrementally over time.</li>
+            <li>Content changes frequently in response to events.</li>
             <li>Clients need to interact with the server as content is produced.</li>
             <li>Data sent by one client needs to be quickly propagated to others.</li>
         </list>
         <p>
-            Examples of these scenarios include share trading, purchasing cinema and concert tickets, bidding for items
-            in online auctions, and chat functionality in social media. WebSockets were created to handle these kinds of
+            Examples of these scenarios include share trading, purchasing cinema and concert tickets, bidding
+            in online auctions, and chat functionality in social media. WebSockets were developed to handle these
             situations.
         </p>
         <p>
-            A WebSocket connection is made over TCP and can last for an extended period. The connection provides ‘full
-            duplex communication’ - which means that clients can send messages to the server and vice versa.
+            A WebSocket connection is established over TCP and can last for an extended period. The connection provides
+            ‘full duplex communication’, meaning clients can send messages to the server and receive messages from it
+            simultaneously.
         </p>
         <p>
             The WebSocket API defines four events (open, message, close, and error) and two actions (send and close).
-            Different languages and libraries expose this functionality in different ways. For example, in Kotlin the
-            sequence of incoming messages can be consumed as a <a href="https://kotlinlang.org/docs/flow.html">Flow</a>.
+            How this functionality is accessed can vary across different languages and libraries.
+            For example, in Kotlin, you can consume the sequence of incoming messages as a <a
+                href="https://kotlinlang.org/docs/flow.html">Flow</a>.
         </p>
     </chapter>
     <chapter title="Improve the design" id="improve-design">
@@ -343,17 +347,17 @@
     </chapter>
     <chapter title="Send messages through WebSockets" id="send-messages">
         <p>
-            To demonstrate the power of WebSockets you will create a new endpoint where:
+            To illustrate the power of WebSockets, you'll create a new endpoint where:
         </p>
         <list>
             <li>
-                A client is sent all the existing tasks when it starts up.
+                When a client starts up, it receives all existing tasks.
             </li>
             <li>
-                Clients can now create and send tasks.
+                Clients can create and send tasks.
             </li>
             <li>
-                When one client sends a task other clients are notified.
+                When one client sends a task, other clients are notified.
             </li>
         </list>
         <procedure>
@@ -370,21 +374,21 @@
                 <p>With this code you have done the following:</p>
                 <list>
                     <li>
-                        The functionality to send all existing tasks is refactored into a helper method.
+                        Refactored the functionality to send all existing tasks into a helper method.
                     </li>
                     <li>
-                        In the <code>routing</code> section you create a thread-safe list of <code>session</code>
-                        objects. This will be used to keep track of all the clients.
+                        In the <code>routing</code> section, you've created a thread-safe list of <code>session</code>
+                        objects to keep track of all clients.
                     </li>
                     <li>
-                        A new endpoint is added with a relative URL of <code>/task2</code>. When a client connects to
+                        Added a new endpoint with a relative URL of <code>/task2</code>. When a client connects to
                         this endpoint, the corresponding <code>session</code> object is added to the list. The server
-                        then enters an infinite loop in waiting to receive a new task. When a new task arrives, the
+                        then enters an infinite loop in waiting to receive a new task. Upon receiving a new task, the
                         server stores it in the repository and sends a copy to all clients, including the current one.
                     </li>
                 </list>
                 <p>
-                    To test this functionality, you will create a new page, which extends the functionality in
+                    To test this functionality, you'll create a new page that extends the functionality in
                     <path>index.html</path>
                     .
                 </p>
@@ -408,9 +412,9 @@
                             lang="html"
                 />
                 <p>
-                    This new page adds an HTML form, into which we enter the information for a new task. When this form
-                    is submitted, the <code>sendTaskToServer</code> event handler is called. This builds a JavaScript
-                    object containing the information from the form and sends it to the server through the
+                    This new page introduces an HTML form, into which the user can enter the information for a new task.
+                    Upon submitting the form, the <code>sendTaskToServer</code> event handler is called. This builds a
+                    JavaScript object with the form data and sends it to the server using the
                     <code>send</code> method of the WebSocket object.
                 </p>
             </step>
@@ -421,17 +425,17 @@
         <procedure>
             <p>To test this functionality, open two browsers side-by-side and follow the steps below.</p>
             <step>
-                Navigate to
+                In Browser A, navigate to
                 <a href="http://0.0.0.0:8080/static/wsClient.html">http://0.0.0.0:8080/static/wsClient.html</a>
-                in Browser A. You should see the default tasks displayed.
+                . You should see the default tasks displayed.
             </step>
             <step>
                 Add a new task in Browser A. The new task should appear in the table on that page.
             </step>
             <step>
-                Navigate to
+                In Browser B, navigate to
                 <a href="http://0.0.0.0:8080/static/wsClient.html">http://0.0.0.0:8080/static/wsClient.html</a>
-                in Browser B. You should see the default tasks, plus any new tasks that you added in Browser A.
+                . You should see the default tasks, plus any new tasks that you added in Browser A.
             </step>
             <step>
                 <p>
@@ -446,8 +450,8 @@
     </chapter>
     <chapter title="Add automated tests" id="add-automated-tests">
         <p>
-            To make your QA process fast, reproducible, and hands-free, you would want to use Ktor's built-in support
-            for automated testing. To do this, follow the steps below:
+            To streamline your QA process and make it fast, reproducible, and hands-free, you can use Ktor's built-in
+            support for automated testing. Follow these steps:
         </p>
         <procedure>
             <step>
@@ -485,12 +489,12 @@
                             lang="kotlin"
                 />
                 <p>
-                    With this, you do the following:
+                    With this setup, you:
                 </p>
                 <list>
                     <li>
                         Configure your service to run within the test environment and enable the same functionality that
-                        you would have in production - namely Routing, JSON Serialization, and WebSockets.
+                        you would have in production, including Routing, JSON Serialization, and WebSockets.
                     </li>
                     <li>
                         Configure Content Negotiation and WebSocket support within the Ktor Client. Without this, the
@@ -507,7 +511,7 @@
                         Consume the incoming tasks as a <code>flow</code>, incrementally adding them to a list.
                     </li>
                     <li>
-                        When all the tasks have been received, compare the <code>expectedTasks</code> to the <code>actualTasks</code>
+                        Once all tasks have been received, compare the <code>expectedTasks</code> to the <code>actualTasks</code>
                         in the usual way.
                     </li>
                 </list>
@@ -516,12 +520,13 @@
     </chapter>
     <chapter title="Next steps" id="next-steps">
         <p>
-            Congratulations! You have now completed modifying your Task Manager service by implementing WebSocket
-            communication and adding automated tests with the Ktor Client.</p>
+            Great work! By incorporating WebSocket communication and automated tests with the Ktor Client, you've
+            enhanced your Task Manager service significantly.
+        </p>
         <p>
             Continue to
             <a href="db-persistence.md">the next tutorial</a>
-            to learn how your service can interact with relational databases through the Exposed library.
+            to explore how your service can seamlessly interact with relational databases using the Exposed library.
         </p>
     </chapter>
 </topic>
