@@ -20,9 +20,9 @@
             <toc-element topic="server-build-web-application.topic"
                          toc-title="Build a web application"
                          accepts-web-file-names="creating-static-website.html,creating-interactive-website.html"/>
-            <toc-element topic="server-create-websocket-chat.md"
-                         accepts-web-file-names="creating-web-socket-chat.html"/>
-            <toc-element topic="server-working-with-websockets.topic"/>
+            <toc-element topic="server-working-with-websockets.topic"
+                         toc-title="Create a WebSocket application"
+                         accepts-web-file-names="creating-web-socket-chat.html,server-create-websocket-chat.html"/>
         </toc-element>
 
         <toc-element toc-title="Developing applications">
