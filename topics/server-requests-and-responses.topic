@@ -154,15 +154,17 @@
             <step>
                 <p>Inside
                     <path>src/main/kotlin/com/example</path>
-                    create a new subpackage called "model".
+                    create a new subpackage called
+                    <path>model</path>
+                    .
                 </p>
             </step>
             <step>
                 <p>Within the
                     <path>model</path>
                     directory create a new
-                    <path>.kt</path>
-                    file called "Task".
+                    <path>Task.kt</path>
+                    file.
                 </p>
             </step>
             <step>
@@ -212,8 +214,8 @@
                 <p>Inside your
                     <path>model</path>
                     directory create a new
-                    <path>.kt</path>
-                    file called "TaskRepository".
+                    <path>TaskRepository.kt</path>
+                    file.
                 </p>
             </step>
             <step>
@@ -251,13 +253,13 @@
                     }
                 </code-block>
                 <p>
-                    Instead of returning static content to the client you are now providing a list of tasks. As a list
+                    Instead of returning static content to the client, you are now providing a list of tasks. As a list
                     cannot be sent over the network directly, it must be converted into a format the client will
                     understand. In this case the tasks are converted into an HTML table.
                 </p>
             </step>
             <step>
-                <p>Make sure to add the required import:</p>
+                <p>Add the required import:</p>
                 <code-block lang="kotlin">
                     import model.*
                 </code-block>
@@ -302,7 +304,7 @@
                     the order in which the tasks are added will be preserved, but duplicates will be disallowed by
                     throwing an exception.</p>
                 <p>In later tutorials you will learn how to implement repositories which connect to relational
-                    databases via the <a href="https://github.com/JetBrains/Exposed">Exposed library</a>.
+                    databases through the <a href="https://github.com/JetBrains/Exposed">Exposed library</a>.
                 </p>
                 <p>
                     For now, you will utilise the repository inside your route.
@@ -357,20 +359,20 @@
         <p>
             The route you would add is
             <code>/tasks/byPriority/{priority}</code>
-            where the name in braces represents a query parameter that you will need to extract at runtime. The query
-            parameter can have any name you like, but <code>priority</code> seems the obvious choice.
+            where <code>{priority}</code> represents a query parameter that you will need to extract at runtime. The
+            query parameter can have any name you like, but <code>priority</code> seems the obvious choice.
         </p>
         <p>
             The process to handle the request can be summarized as follows:
         </p>
         <list type="decimal">
             <li>Extract a query parameter called <code>priority</code> from the request.</li>
-            <li>If this parameter is absent return a <code>400</code> status (Bad Request).</li>
+            <li>If this parameter is absent, return a <code>400</code> status (Bad Request).</li>
             <li>Convert the text value of the parameter into a <code>Priority</code> enum value.</li>
-            <li>If this fails also again return a response with a <code>400</code> status code.</li>
-            <li>Use the repository to find all the tasks with the specified priority.</li>
-            <li>If there are no matching tasks return a <code>404</code> status (Not Found).</li>
-            <li>Return the matching tasks formatted as an HTML table.</li>
+            <li>If this fails, return a response with a <code>400</code> status code.</li>
+            <li>Use the repository to find all tasks with the specified priority.</li>
+            <li>If there are no matching tasks, return a <code>404</code> status (Not Found).</li>
+            <li>Return the matching tasks, formatted as an HTML table.</li>
         </list>
         <p>
             You will first implement this functionality, and then find the best way to check it is working.
@@ -456,9 +458,9 @@
             </step>
             <step>
                 <p>
-                    Unfortunately, the testing you can do via the browser is limited in the case of errors. The browser will
-                    not show the details of an unsuccessful response, unless you use developer extensions. A
-                    simpler alternative would be to use a specialist tool, such as <a
+                    Unfortunately, the testing you can do through the browser is limited in the case of errors. The
+                    browser will not show the details of an unsuccessful response, unless you use developer extensions.
+                    A simpler alternative would be to use a specialist tool, such as <a
                         href="https://learning.postman.com/docs/sending-requests/requests/">Postman</a>.
                 </p>
             </step>
@@ -514,7 +516,8 @@
             to fully automate your testing.
         </p>
         <p>
-            Ktor provides its own <a href="server-testing.md">test framework</a> to support the automated validation of routes.
+            Ktor provides its own <a href="server-testing.md">test framework</a> to support the automated validation of
+            routes.
             Next, you will write some tests for your app's existing functionality.
         </p>
         <procedure>
@@ -522,7 +525,11 @@
                 <p>
                     Create a new directory within
                     <path>src</path>
-                    called "test" and a subdirectory called "kotlin".
+                    called
+                    <path>test</path>
+                    and a subdirectory called
+                    <path>kotlin</path>
+                    .
                 </p>
             </step>
             <step>
@@ -530,8 +537,8 @@
                     Inside
                     <path>src/test/kotlin</path>
                     create a new
-                    <path>.kt</path>
-                    file called "ApplicationTest".
+                    <path>ApplicationTest.kt</path>
+                    file.
                 </p>
             </step>
             <step>
@@ -642,7 +649,9 @@
                 <p>
                     Inside
                     <path>src/main/resources</path>
-                    create a new directory called "task-ui".
+                    create a new directory called
+                    <path>task-ui</path>
+                    .
                     This will be the folder for your static content.
                 </p>
             </step>
@@ -651,8 +660,8 @@
                     Within the
                     <path>task-ui</path>
                     folder, create a new
-                    <path>.html</path>
-                    file called "task-form".
+                    <path>task-form.html</path>
+                    file.
                 </p>
             </step>
             <step>
@@ -676,7 +685,7 @@
             </step>
             <step>
                 <p>
-                    Add the following call to <code>staticResources()</code> into the <code>configureRouting()</code>
+                    Add the following call to <code>staticResources()</code> into the <code>Application.configureRouting()</code>
                     function:
                 </p>
                 <code-block lang="kotlin">
@@ -712,7 +721,9 @@
         </procedure>
         <procedure title="Add a handler for the form" id="add-form-handler">
             <p>
-                In <path>Routing.kt</path> add the following additional route into the <code>configureRouting()</code> function:
+                In
+                <path>Routing.kt</path>
+                add the following additional route into the <code>configureRouting()</code> function:
             </p>
             <code-block lang="kotlin">
                 fun Application.configureRouting() {
@@ -773,7 +784,7 @@
                 exception, in which case once again return a status code <code>400</code>.
             </p>
             <p>
-                Otherwise, if everything is successful, the server will return a <code>204</code> status code (aka
+                Otherwise, if everything is successful, the server will return a <code>204</code> status code (
                 No Content) to the client. This
                 signifies that their request has succeeded, but there's no fresh information to send them as a
                 result.
