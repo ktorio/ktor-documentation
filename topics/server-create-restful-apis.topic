@@ -60,7 +60,9 @@
             <step>
                 <p>In the
                     <control>Project Name</control>
-                    field, enter "ktor-rest-task-app" as the name of your project.
+                    field, enter
+                    <path>ktor-rest-task-app</path>
+                    as the name of your project.
                 </p>
                 <img src="tutorial_creating_restful_apis_project_name.png"
                      alt="Naming the project in the Ktor Project Generator"
@@ -115,7 +117,9 @@
                 <p>
                     Navigate to
                     <path>src/main/kotlin/com/example</path>
-                    and create a subpackage called "model".
+                    and create a subpackage called
+                    <path>model</path>
+                    .
                 </p>
             </step>
             <step>
@@ -123,23 +127,24 @@
                     Inside the
                     <path>model</path>
                     package, create a new
-                    <path>.kt</path>
-                    file called "Task".
+                    <path>Task.kt</path>
+                    file.
                 </p>
             </step>
             <step>
                 <p>
-                    As in the previous tutorial, you will add an <code>enum</code> to represent priorities and a <code>class</code>
-                    to represent tasks. Add the following to the
+                    Open the
                     <path>Task.kt</path>
-                    file:
+                    file and add an <code>enum</code> to represent priorities and a <code>class</code>
+                    to represent tasks:
                 </p>
                 <code-block lang="kotlin"
                             src="snippets/tutorial-server-restful-api/src/main/kotlin/com/example/model/Task.kt"/>
                 <p>
-                    In the previous tutorial you used extension functions to convert Tasks into HTML. In this case, the
+                    In the previous tutorial you used extension functions to convert a <code>Task</code> into HTML. In
+                    this case, the
                     <code>Task</code> class is annotated with the <a
-                        href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serializable/">Serializable</a>
+                        href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serializable/"><code>Serializable</code></a>
                     type from the
                     <code>kotlinx.serialization</code> library.
                 </p>
@@ -184,9 +189,9 @@
                 </p>
             </step>
             <step>
-                <p>In IntelliJ IDEA, click the run button <img src="intellij_idea_gutter_icon.svg"
-                                                               style="inline" height="16" width="16"
-                                                               alt="intelliJ IDEA run icon"/> to start the
+                <p>In IntelliJ IDEA, click on the run button <img src="intellij_idea_gutter_icon.svg"
+                                                                  style="inline" height="16" width="16"
+                                                                  alt="intelliJ IDEA run icon"/> to start the
                     application.
                 </p>
             </step>
@@ -206,8 +211,8 @@
     <chapter title="Understand Content Negotiation" id="content-negotiation">
         <chapter title="Content Negotiation via the browser" id="via-browser">
             <p>
-                When you created the project you included the <a href="server-serialization.md">Content Negotiation</a> plugin.
-                This plugin looks at the types
+                When you created the project you included the <a href="server-serialization.md">Content Negotiation</a>
+                plugin. This plugin looks at the types
                 of content that the client can render and matches these against the content types that the current
                 service can provide. Hence, the term
                 <format style="italic">Content Negotiation</format>
@@ -224,7 +229,8 @@
             <code-block>
                 text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
             </code-block>
-            <p>Note the inclusion of “*/*”.This header signals that it accepts HTML, XML or Images - but it would also accept any other content
+            <p>Note the inclusion of <code>*/*</code>.This header signals that it accepts HTML, XML or Images - but it
+                would also accept any other content
                 type.</p>
             <p>The Content Negotiation plugin needs to find a format to send data back to the browser. If you look
                 inside the generated code in the project you will find a file called
@@ -245,43 +251,50 @@
                 JSON, and the browser will try to display anything it is sent. So the request succeeds.
             </p>
         </chapter>
-        <chapter title="Content Negotiation via JavaScript" id="via-javascript">
+        <procedure title="Content Negotiation via JavaScript" id="via-javascript">
             <p>
                 In a production environment, you wouldn’t want to display JSON directly in the browser. Instead, there
                 would be JavaScript code running within the browser, which would make the request and then display the
                 data returned as part of a Single Page Application (SPA). Typically, this kind of application would be
                 written using a framework like React, Angular, or Vue.js.
             </p>
-            <p>
-                To simulate this, open the
-                <path>index.html</path>
-                page inside
-                <path>src/main/resources/static</path>
-                and replace the default content with the following:
-            </p>
-            <code-block lang="html" src="snippets/tutorial-server-restful-api/src/main/resources/static/index.html"/>
-            <p>
-                This page contains an HTML form and an empty table. When you submit the form a JavaScript event handler
-                sends a request to the <code>/tasks</code> endpoint, with the <code>Accept</code> header set to
-                <code>application/json</code>. The data returned is then de-serialized and added to an HTML table.
-            </p>
-            <p>
-                In IntelliJ IDEA, click the rerun button <img src="intellij_idea_rerun_icon.svg"
-                                                              style="inline" height="16" width="16"
-                                                              alt="intelliJ IDEA rerun icon"/> to restart the
-                application.
-            </p>
-            <p>
-                If you navigate to the URL <a href="http://0.0.0.0:8080/static/index.html">http://0.0.0.0:8080/static/index.html</a>
-                you should be able to fetch the data by clicking on the
-                <control>View The Tasks</control>
-                button:
-            </p>
-            <img src="tutorial_creating_restful_apis_tasks_via_js.png"
-                 alt="A browser window showing a button and tasks displayed as an HTML table"
-                 border-effect="line"
-                 width="706"/>
-        </chapter>
+            <step>
+                <p>
+                    To simulate this, open the
+                    <path>index.html</path>
+                    page inside
+                    <path>src/main/resources/static</path>
+                    and replace the default content with the following:
+                </p>
+                <code-block lang="html" src="snippets/tutorial-server-restful-api/src/main/resources/static/index.html"/>
+                <p>
+                    This page contains an HTML form and an empty table. Upon submitting the form a JavaScript event
+                    handler
+                    sends a request to the <code>/tasks</code> endpoint, with the <code>Accept</code> header set to
+                    <code>application/json</code>. The data returned is then de-serialized and added to an HTML table.
+                </p>
+            </step>
+            <step>
+                <p>
+                    In IntelliJ IDEA, click the rerun button <img src="intellij_idea_rerun_icon.svg"
+                                                                  style="inline" height="16" width="16"
+                                                                  alt="intelliJ IDEA rerun icon"/> to restart the
+                    application.
+                </p>
+            </step>
+            <step>
+                <p>
+                    Navigate to the URL <a href="http://0.0.0.0:8080/static/index.html">http://0.0.0.0:8080/static/index.html</a>.
+                    You should be able to fetch the data by clicking on the
+                    <control>View The Tasks</control>
+                    button:
+                </p>
+                <img src="tutorial_creating_restful_apis_tasks_via_js.png"
+                     alt="A browser window showing a button and tasks displayed as an HTML table"
+                     border-effect="line"
+                     width="706"/>
+            </step>
+        </procedure>
     </chapter>
     <chapter title="Add the GET routes" id="porting-get-routes">
         <p>
@@ -293,16 +306,25 @@
             <p>
                 You can reuse the repository for Tasks without any modification, so let’s do that first.
             </p>
-            <p>
-                Inside the
-                <path>model</path>
-                package create a new
-                <path>.kt</path>
-                file called "TaskRepository" and add the code below:
-            </p>
-            <code-block lang="kotlin"
-                        src="snippets/tutorial-server-restful-api/src/main/kotlin/com/example/model/TaskRepository.kt"
-                        include-lines="1-26,31"/>
+            <step>
+                <p>
+                    Inside the
+                    <path>model</path>
+                    package create a new
+                    <path>TaskRepository.kt</path>
+                    file.
+                </p>
+            </step>
+            <step>
+                <p>
+                    Open
+                    <path>TaskRepository.kt</path>
+                    and add the code below:
+                </p>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-server-restful-api/src/main/kotlin/com/example/model/TaskRepository.kt"
+                            include-lines="1-26,31"/>
+            </step>
         </procedure>
         <procedure title="Reuse the routes for GET requests" id="get-requests">
             <p>
@@ -430,15 +452,15 @@
                 <step>
                     <p>
                         In the project root directory, create a new
-                        <path>.http</path>
-                        file with the name "REST Task Manager".
+                        <path>REST Task Manager.http</path>
+                        file.
                     </p>
                 </step>
                 <step>
                     <p>
-                        Open
+                        Open the
                         <path>REST Task Manager.http</path>
-                        and add the following GET request:
+                        file and add the following GET request:
                     </p>
                     <code-block lang="http" src="snippets/tutorial-server-restful-api/REST Task Manager.http"
                                 include-lines="1-2"/>
@@ -734,15 +756,15 @@
                     Navigate to the
                     <path>src/test/kotlin/com/example</path>
                     folder and create a new
-                    <path>.kt</path>
-                    file called "ApplicationJsonPathTest".
+                    <path>ApplicationJsonPathTest.kt</path>
+                    file.
                 </p>
             </step>
             <step>
                 <p>
-                    Add the following content to the
+                    Open the
                     <path>ApplicationJsonPathTest.kt</path>
-                    file:
+                    file and add the following content to it:
                 </p>
                 <code-block
                         src="snippets/tutorial-server-restful-api/src/test/kotlin/com/example/ApplicationJsonPathTest.kt"
