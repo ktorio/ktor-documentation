@@ -33,10 +33,14 @@ val client = HttpClient(CIO) {
 
 ## Configure timeouts {id="configure_plugin"}
 
-To configure timeouts, you can use corresponding properties:
-* [requestTimeoutMillis](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-timeout/-http-timeout-capability-configuration/request-timeout-millis.html) specifies a timeout for a whole HTTP call, from sending a request to receiving a response.
-* [connectTimeoutMillis](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-timeout/-http-timeout-capability-configuration/connect-timeout-millis.html) specifies a timeout for establishing a connection with a server.
-* [socketTimeoutMillis](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-timeout/-http-timeout-capability-configuration/socket-timeout-millis.html) specifies a timeout for the maximum time in between two data packets when exchanging data with a server.
+To configure timeouts, you can use the corresponding properties:
+
+* [requestTimeoutMillis](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-timeout-config/request-timeout-millis.html)
+  specifies a timeout for a whole HTTP call, from sending a request to receiving a response.
+* [connectTimeoutMillis](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-timeout-config/connect-timeout-millis.html)
+  specifies a timeout for establishing a connection with a server.
+* [socketTimeoutMillis](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-timeout-config/socket-timeout-millis.html)
+  specifies a timeout for the maximum time in between two data packets when exchanging data with a server.
 
 You can specify timeouts for all requests inside the `install` block. The code sample below shows how to set a request timout using `requestTimeoutMillis`:
 ```kotlin
