@@ -1,0 +1,26 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Current Tasks</title>
+</head>
+<body>
+<h1>The Selected Task</h1>
+<table>
+    <tbody>
+    <tr>
+        <th>Name</th>
+        <td th:text="${task.name}"></td>
+    </tr>
+    <tr>
+        <th>Description</th>
+        <td th:text="${task.description}"></td>
+    </tr>
+    <tr>
+        <th>Priority</th>
+        <td th:text="${task.priority}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
