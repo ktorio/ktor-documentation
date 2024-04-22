@@ -1,0 +1,53 @@
+<html>
+<head>
+</head>
+<body>
+<h1>Task Manager Web Application</h1>
+<div>
+    <h3><a href="/tasks">View all the tasks</a></h3>
+</div>
+<div>
+    <h3>View tasks by priority</h3>
+    <form method="get" action="/tasks/byPriority">
+        <select name="priority">
+            <option name="Low">Low</option>
+            <option name="Medium">Medium</option>
+            <option name="High">High</option>
+            <option name="Vital">Vital</option>
+        </select>
+        <input type="submit">
+    </form>
+</div>
+<div>
+    <h3>View a task by name</h3>
+    <form method="get" action="/tasks/byName">
+        <input type="text" name="name" width="10">
+        <input type="submit">
+    </form>
+</div>
+<div>
+    <h3>Create or edit a task</h3>
+    <form method="post" action="/tasks">
+        <div>
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name" size="10">
+        </div>
+        <div>
+            <label for="description">Description: </label>
+            <input type="text" id="description"
+                   name="description" size="20">
+        </div>
+        <div>
+            <label for="priority">Priority: </label>
+            <select id="priority" name="priority">
+                <option name="Low">Low</option>
+                <option name="Medium">Medium</option>
+                <option name="High">High</option>
+                <option name="Vital">Vital</option>
+            </select>
+        </div>
+        <input type="submit">
+    </form>
+</div>
+</body>
+</html>
