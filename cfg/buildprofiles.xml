@@ -48,6 +48,7 @@
         <custom-favicons>
             https://resources.jetbrains.com/storage/products/company/brand/logos/Ktor_icon.png
         </custom-favicons>
+        <primary-color>iris</primary-color>
     </variables>
 
     <build-profile product="ktor"/>
