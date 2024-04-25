@@ -44,6 +44,11 @@
         <generate-sitemap-url-prefix>https://www.jetbrains.com/help/</generate-sitemap-url-prefix>
 
         <website-title>%instance% Documentation</website-title>
+        <header-logo>https://resources.jetbrains.com/storage/products/company/brand/logos/Ktor_icon.png</header-logo>
+        <custom-favicons>
+            https://resources.jetbrains.com/storage/products/company/brand/logos/Ktor_icon.png
+        </custom-favicons>
+        <primary-color>iris</primary-color>
     </variables>
 
     <build-profile product="ktor"/>
