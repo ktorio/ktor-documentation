@@ -34,14 +34,70 @@ plugin serves two primary purposes:
 
 Note that serializers for specific formats require additional artifacts. For example, kotlinx.serialization requires the `ktor-serialization-kotlinx-json` dependency for JSON. Depending on the included artifacts, Ktor chooses a default serializer automatically. If required, you can [specify the serializer](#configure_serializer) explicitly and configure it.
 
-
-
 ### Serialization {id="serialization_dependency"}
-<include from="server-serialization.md" element-id="add_serialization_dependency"/>
-      
+
+Before using kotlinx.serialization converters, you need to add the Kotlin serialization plugin
+as described in the [Setup](https://github.com/Kotlin/kotlinx.serialization#setup) section.
+
+#### JSON {id="add_json_dependency"}
+
+To serialize/deserialize JSON data, you can choose one of the following libraries: kotlinx.serialization, Gson, or Jackson.
+
+<tabs group="json-libraries">
+<tab title="kotlinx.serialization" group-key="kotlinx">
+
+Add the `ktor-serialization-kotlinx-json` artifact in the build script:
+
+<var name="artifact_name" value="ktor-serialization-kotlinx-json"/>
+<include from="lib.topic" element-id="add_ktor_artifact"/>
+
+</tab>
+<tab title="Gson" group-key="gson">
+
+Add the `ktor-serialization-gson` artifact in the build script:
+
+<var name="artifact_name" value="ktor-serialization-gson"/>
+<include from="lib.topic" element-id="add_ktor_artifact"/>
+
+</tab>
+<tab title="Jackson" group-key="jackson">
+
+Add the `ktor-serialization-jackson` artifact in the build script:
+
+<var name="artifact_name" value="ktor-serialization-jackson"/>
+<include from="lib.topic" element-id="add_ktor_artifact"/>
+
+</tab>
+</tabs>
+
+
+#### XML {id="add_xml_dependency"}
+
+To serialize/deserialize XML, add the `ktor-serialization-kotlinx-xml` in the build script:
+
+<var name="artifact_name" value="ktor-serialization-kotlinx-xml"/>
+<include from="lib.topic" element-id="add_ktor_artifact"/>
+
+Note that XML serialization is supported on JVM only.
+
+#### CBOR {id="add_cbor_dependency"}
+
+To serialize/deserialize CBOR, add the `ktor-serialization-kotlinx-cbor` in the build script:
+
+<var name="artifact_name" value="ktor-serialization-kotlinx-cbor"/>
+<include from="lib.topic" element-id="add_ktor_artifact"/>
+
+#### ProtoBuf {id="add_protobuf_dependency"}
+
+To serialize/deserialize ProtoBuf, add the `ktor-serialization-kotlinx-protobuf` in the build script:
+
+<var name="artifact_name" value="ktor-serialization-kotlinx-protobuf"/>
+<include from="lib.topic" element-id="add_ktor_artifact"/>
 
 ## Install ContentNegotiation {id="install_plugin"}
+
 To install `ContentNegotiation`, pass it to the `install` function inside a [client configuration block](client-create-and-configure.md#configure-client):
+
 ```kotlin
 val client = HttpClient(CIO) {
     install(ContentNegotiation)
