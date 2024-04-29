@@ -16,6 +16,9 @@
             <a href="https://github.com/ktorio/ktor-plugin-registry/blob/main/plugins/server/org.postgresql/postgres/2.2/documentation.md">Postgres</a>
         </p>
     </tldr>
+    <card-summary>
+        Learn the process of connecting RESTful services to a database using the Exposed SQL Library.
+    </card-summary>
     <web-summary>
         Learn how to build a Single Page Application (SPA) with Kotlin and Ktor, and connect RESTful services to a
         database using the Exposed SQL Library.

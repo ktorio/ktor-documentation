@@ -36,6 +36,7 @@
         <li><a href="server-create-restful-apis.topic">Create RESTful APIs that generate JSON</a>.</li>
         <li><a href="server-build-web-application.topic">Build a Web Application</a>.</li>
         <li><a href="server-working-with-websockets.topic">Create a WebSocket application</a>.</li>
+        <li><a href="server-integrate-database.topic">Integrate a database</a>.</li>
     </list>
     <chapter id="create-project" title="Create a new Ktor project">
         <p>
