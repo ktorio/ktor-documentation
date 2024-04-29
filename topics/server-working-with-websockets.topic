@@ -14,6 +14,9 @@
             <a href="https://kotlinlang.org/api/kotlinx.serialization/">kotlinx.serialization</a>
         </p>
     </tldr>
+    <card-summary>
+        Learn how to harness the power of WebSockets to send and receive content.
+    </card-summary>
     <link-summary>
         Learn how to harness the power of WebSockets to send and receive content.
     </link-summary>

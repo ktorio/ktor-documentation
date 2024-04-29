@@ -3,14 +3,19 @@ val kotlin_version: String by project
 val logback_version: String by project
 
 plugins {
-    application
     kotlin("jvm")
     id("io.ktor.plugin") version "2.3.10"
     id("org.jetbrains.kotlin.plugin.serialization") version "1.9.23"
 }
 
+group = "com.example"
+version = "0.0.1"
+
 application {
-    mainClass.set("io.ktor.server.netty.EngineMain")
+    mainClass.set("com.example.ApplicationKt")
+
+    val isDevelopment: Boolean = project.ext.has("development")
+    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
 }
 
 repositories {
