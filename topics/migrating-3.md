@@ -131,7 +131,7 @@ the `ktor-server-host-common` dependency.
 ### `Locations` plugin has been removed
 
 The `Locations` plugin for the Ktor server has been removed. To create type-safe routing, use
-the [Resources plugin](type-safe-routing.md) instead. This requires the following changes:
+the [Resources plugin](server-resources.md) instead. This requires the following changes:
 
 * Replace the `io.ktor:ktor-server-locations` artifact with `io.ktor:ktor-server-resources`.
 
@@ -184,7 +184,7 @@ fun Application.module() {
 
 </compare>
 
-For more information on working with `Resources`, refer to [](type-safe-routing.md).
+For more information on working with `Resources`, refer to [](server-resources.md).
 
 ### Session encryption method update
 
@@ -213,4 +213,4 @@ install(Sessions) {
 }
 ```
 
-For more information on session encryption in Ktor, see [](sessions.md#sign_encrypt_session).
+For more information on session encryption in Ktor, see [](server-sessions.md#sign_encrypt_session).

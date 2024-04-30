@@ -23,7 +23,7 @@ The SSE plugin allows a client to receive event-based updates from a server over
 ## Install SSE {id="install_plugin"}
 
 To install the `SSE` plugin, pass it to the `install` function inside
-a [client configuration block](create-client.md#configure-client):
+a [client configuration block](client-create-and-configure.md#configure-client):
 
 ```kotlin
 import io.ktor.client.*
@@ -48,7 +48,7 @@ the [SSEConfig]() class.
   client will wait for the specified time before attempting to reconnect.
 
 > Note that reconnection is currently not supported.
-> To learn more, see [](http-client_engines.md#configure).
+> To learn more, see [](client-engines.md#configure).
 >
 {style="note"}
 

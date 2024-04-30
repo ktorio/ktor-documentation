@@ -34,7 +34,7 @@ You can use an application created in the [](server-create-a-new-project.topic) 
    This function returns the `ApplicationPlugin` instance that will be used in the next step to install a plugin.
    > There is also
    the [createRouteScopedPlugin](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/create-route-scoped-plugin.html)
-   function allowing you to create plugins that can be [installed to a specific route](Plugins.md#install-route).
+   function allowing you to create plugins that can be [installed to a specific route](server-plugins.md#install-route).
 2. To [install a plugin](server-plugins.md#install), pass the created `ApplicationPlugin` instance to the `install` function in
    the application's initialization code:
    ```kotlin

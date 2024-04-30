@@ -88,7 +88,7 @@ In this case, when `/custom` is requested, Ktor serves `/custom_index.html`.
 
 ### Pre-compressed files {id="precompressed"}
 
-Ktor provides the ability to serve pre-compressed files and avoid using [dynamic compression](compression.md).
+Ktor provides the ability to serve pre-compressed files and avoid using [dynamic compression](server-compression.md).
 To use this functionality, define the `preCompressed()` function inside a block statement:
 
 ```kotlin

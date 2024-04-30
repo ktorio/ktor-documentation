@@ -42,7 +42,7 @@ To use `BOMRemover`, you need to include the `%artifact_name%` artifact in the b
 ## Install BOMRemover {id="install_plugin"}
 
 To install `BOMRemover`, pass it to the `install` function inside
-a [client configuration block](create-client.md#configure-client):
+a [client configuration block](client-create-and-configure.md#configure-client):
 
 ```kotlin
 import io.ktor.client.*

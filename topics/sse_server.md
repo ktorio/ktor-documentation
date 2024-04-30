@@ -32,7 +32,7 @@ and the client.
 
 > To learn more about the SSE plugin for client-side support, see the [SSE client plugin](sse_client.md).
 
-> For multi-way communication, consider using [WebSockets](websocket.md). They provide a full-duplex communication
+> For multi-way communication, consider using [WebSockets](server-websockets.md). They provide a full-duplex communication
 > between the server and the client using the Websocket protocol.
 >
 {style="note"}
@@ -40,7 +40,7 @@ and the client.
 ## Limitations
 
 Ktor does not provide support for data compression of SSE responses.
-If you use the [Compression](compression.md) plugin, it will skip compression for SSE responses by default.
+If you use the [Compression](server-compression.md) plugin, it will skip compression for SSE responses by default.
 
 ## Add dependencies {id="add_dependencies"}
 
@@ -56,7 +56,7 @@ If you use the [Compression](compression.md) plugin, it will skip compression fo
 ### API overview {id="api-overview"}
 
 Once you have installed the `SSE` plugin, you can add a route to handle an SSE session.
-To do that, call the `sse()` function inside the [routing](Routing_in_Ktor.md#define_route) block:
+To do that, call the `sse()` function inside the [routing](server-routing.md#define_route) block:
 
 ```kotlin
 routing { 

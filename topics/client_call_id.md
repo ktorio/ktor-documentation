@@ -53,7 +53,7 @@ Generate a call ID for a specific request in one of the following ways:
 
 {src="snippets/client-call-id/src/main/kotlin/com/example/Application.kt" include-lines="34-35,37"}
 
-> In a Ktor server, use the [CallId plugin](call-id.md) to add a call ID to the `CoroutineContext`.
+> In a Ktor server, use the [CallId plugin](server-call-id.md) to add a call ID to the `CoroutineContext`.
 
 * The `generate()` function allows you to generate a call ID for an outgoing request. If it fails to generate a call ID,
   it returns `null`.
@@ -97,8 +97,8 @@ it to the header:
 The plugin uses the coroutine context to get a call ID and utilizes the `generate()` function to generate a new one. The
 first non-null call ID is then applied to the request header using the `addToHeader()` function.
 
-In a Ktor server, the call ID can then be retrieved from the header using the [retrieve](call-id.md#retrieve) functions
-from the [CallId plugin for the server](call-id.md).
+In a Ktor server, the call ID can then be retrieved from the header using the [retrieve](server-call-id.md#retrieve) functions
+from the [CallId plugin for the server](server-call-id.md).
 
  ```kotlin
  ```

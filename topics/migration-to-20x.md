@@ -12,7 +12,7 @@ This means that you need to update [dependencies](#server-package-dependencies) 
 #### Dependencies {id="server-package-dependencies"}
 | Subsystem                                           |               1.6.x               |                                                                                2.0.0 |
 |:----------------------------------------------------|:---------------------------------:|-------------------------------------------------------------------------------------:|
-| [Locations](server-locations.md)                    |     `io.ktor:ktor-locations`      |                                                      `io.ktor:ktor-server-locations` |
+| [Locations](https://ktor.io/docs/server-locations.html)                    |     `io.ktor:ktor-locations`      |                                                      `io.ktor:ktor-server-locations` |
 | [Webjars](server-webjars.md)                        |      `io.ktor:ktor-webjars`       |                                                        `io.ktor:ktor-server-webjars` |
 | [AutoHeadResponse](server-autoheadresponse.md)      |    `io.ktor:ktor-server-core`     |                                             `io.ktor:ktor-server-auto-head-response` |
 | [StatusPages](server-status-pages.md)               |    `io.ktor:ktor-server-core`     |                                                   `io.ktor:ktor-server-status-pages` |
@@ -62,7 +62,7 @@ This means that you need to update [dependencies](#server-package-dependencies) 
 | [Requests](server-requests.md)                      |      `import io.ktor.request.*`       |                    `import io.ktor.server.request.*` |
 | [Responses](server-responses.md)                    |      `import io.ktor.response.*`      |                   `import io.ktor.server.response.*` |
 | [Plugins](#feature-plugin)                          |      `import io.ktor.features.*`      |                    `import io.ktor.server.plugins.*` |
-| [Locations](server-locations.md)                    |     `import io.ktor.locations.*`      |                  `import io.ktor.server.locations.*` |
+| [Locations](https://ktor.io/docs/server-locations.html)                    |     `import io.ktor.locations.*`      |                  `import io.ktor.server.locations.*` |
 | [Static content](server-static-content.md)          |    `import io.ktor.http.content.*`    |               `import io.ktor.server.http.content.*` |
 | [HTML DSL](server-html-dsl.md)                      |        `import io.ktor.html.*`        |                       `import io.ktor.server.html.*` |
 | [FreeMarker](server-freemarker.md)                  |     `import io.ktor.freemarker.*`     |                 `import io.ktor.server.freemarker.*` |
