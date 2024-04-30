@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Configuration in code"
+       id="server-configuration-code" help-id="Configuration-code;server-configuration-in-code">
+
+    <show-structure for="chapter"/>
+
+    <link-summary>
+        Learn how to configure various server parameters in code.
+    </link-summary>
+
+    <p>
+        Ktor allows you to configure various server parameters, such as a host address and port, <a
+            href="server-modules.md">modules</a> to load, and so on.
+        The configuration depends on the way you used to create a server - <a href="server-create-and-configure.topic">embeddedServer
+        or EngineMain</a>.
+    </p>
+    <p>
+        For <code>embeddedServer</code>, you can configure server parameters in code by passing the required parameters to the <code>embeddedServer</code> function.
+        The <a
+            href="https://api.ktor.io/older/3.0.0-beta-1/ktor-server/ktor-server-core/io.ktor.server.engine/embedded-server.html">embeddedServer</a>
+        function accepts different parameters for configuring a server, including a <a href="server-engines.md">server
+        engine</a>, a host and port to listen, and so on.
+        In this section, we'll take a look at several examples of running <code>embeddedServer</code> with different
+        setting.
+    </p>
+
+
+    <chapter title="Basic configuration" id="embedded-basic">
+        <p>
+            The code snippet below shows the basic server setup with the Netty engine and the <code>8080</code> port.
+        </p>
+        <code-block
+                lang="kotlin"
+                src="snippets/_misc/EmbeddedServerConfigure.kt">
+        </code-block>
+        <p>
+            Note that you can set the <code>port</code> parameter to <code>0</code> to run the server on a random port.
+            The <code>embeddedServer</code> function returns an engine instance, so you can get a port value in code
+            using the <a
+                href="https://api.ktor.io/older/3.0.0-beta-1/ktor-server/ktor-server-core/io.ktor.server.engine/-application-engine/resolved-connectors.html">ApplicationEngine.resolvedConnectors</a>
+            function.
+        </p>
+    </chapter>
+
+    <chapter title="Engine configuration" id="embedded-engine">
+        <p>
+            In the example below, we've added the <code>configure</code> parameter for configuring setting specific for
+            a selected engine. You can learn more about configuring engines from <a href="server-engines.md"
+                                                                                    anchor="configure-engine"/>.
+        </p>
+        <code-block
+                lang="kotlin"
+                src="snippets/_misc/EmbeddedServerConfigureEngine.kt">
+        </code-block>
+    </chapter>
+
+    <chapter title="Custom environment" id="embedded-custom">
+        <p>
+            The example below shows how to run a server with multiple connector endpoints
+            using a custom configuration represented by the <a
+                href="https://api.ktor.io/older/3.0.0-beta-1/ktor-server/ktor-server-core/io.ktor.server.engine/-application-engine/-configuration/index.html">ApplicationEngine</a>
+            interface.
+        </p>
+        <code-block
+                lang="kotlin"
+                src="snippets/embedded-server-multiple-connectors/src/main/kotlin/com/example/Application.kt"
+                include-lines="3-28">
+        </code-block>
+
+        <p>
+            For the complete example, see <a
+                href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/embedded-server-multiple-connectors">embedded-server-multiple-connectors</a>.
+        </p>
+
+        <tip>
+            <p>
+                You can also use a custom environment to <a href="server-ssl.md" anchor="embedded-server">serve HTTPS</a>.
+            </p>
+        </tip>
+    </chapter>
+
+
+</topic>

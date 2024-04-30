@@ -33,6 +33,12 @@ The following table lists details of the latest Ktor releases.
 
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
+<tr><td>2.3.10</td><td>April 8, 2024</td><td><p>
+A patch release including various bug fixes for the CallLogging and SSE server plugins, improved Android client logging, and more.
+</p>
+<var name="version" value="2.3.10"/>
+<include from="lib.topic" element-id="release_details_link"/>
+</td></tr>
 <tr><td>2.3.9</td><td>March 4, 2024</td><td><p>
 A patch release including a bug fix for the ContentNegotiation client plugin, and an added support for sending secure cookies over HTTP.
 </p>
@@ -55,7 +61,7 @@ A patch release including bug fixes in ContentNegotiation, WebSockets, and the m
 <tr><td>3.0.0-beta-1</td><td>November 23, 2023</td><td>
 <p>
 A major pre-release version with various improvements and bug fixes, including client and server SSE support.
-For more information on breaking changes, see <a href="https://ktor.io/docs/3.0.0-beta-1/migrating-3.html>">the migration guide</a>.
+For more information on breaking changes, see <a href="https://ktor.io/docs/3.0.0-beta-1/migrating-3.html">the migration guide</a>.
 </p>
 <var name="version" value="3.0.0-beta-1"/>
 <include from="lib.topic" element-id="release_details_link"/>
@@ -140,7 +146,7 @@ A patch release for the <code>java.lang.NoClassDefFoundError: kotlinx/atomicfu/A
 <tr><td>2.2.0</td><td>December 7, 2022</td><td>
 <p>
 A multiple feature release, including Swagger UI hosting, new plugins API, multiplatform support for Sessions and more.
-For more information, see the <a href="migrating-2-2.md">Migrating from 2.0.x to 2.2.x</a> guide.
+For more information, see the <a href="migration-to-22x.md">Migrating from 2.0.x to 2.2.x</a> guide.
 </p>
 <var name="version" value="2.2.0"/>
 <include from="lib.topic" element-id="release_details_link"/>
@@ -197,7 +203,7 @@ A patch release with various bug fixes and updated Kotlin version to <code>1.6.2
 <tr><td>2.0.0</td><td>April 11, 2022</td><td>
 <p>
 A major release with updated API docs and various new features. For more information on braking changes and how to
-migrate from <code>1.x.x</code>, see <a href="migrating-2.md">the migration guide</a>.
+migrate from <code>1.x.x</code>, see <a href="migration-to-20x.md">the migration guide</a>.
 </p>
 <var name="version" value="2.0.0"/>
 <include from="lib.topic" element-id="release_details_link"/>

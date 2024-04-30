@@ -36,11 +36,11 @@ Before starting this tutorial, you need to perform the steps below:
 To open a sample application, follow the steps below:
 1. Clone a Ktor documentation repository and open the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets) project.
 2. Open the [engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main) module.
-   > Note that Ktor provides two approaches to [create and configure a server](create_server.topic): in code or by using a configuration file. In this tutorial, deploying process is the same for both approaches.
+   > Note that Ktor provides two approaches to [create and configure a server](server-create-and-configure.topic): in code or by using a configuration file. In this tutorial, deploying process is the same for both approaches.
 
 ## Prepare an application {id="prepare-app"}
 ### Step 1: Apply the Shadow plugin {id="configure-shadow-plugin"}
-This tutorial shows how to deploy the application to Google App Engine using a [fat JAR](fatjar.md). To generate fat JARs, you need to apply the Shadow plugin. Open the `build.gradle.kts` file and add the plugin to the `plugins` block:
+This tutorial shows how to deploy the application to Google App Engine using a [fat JAR](server-fatjar.md). To generate fat JARs, you need to apply the Shadow plugin. Open the `build.gradle.kts` file and add the plugin to the `plugins` block:
 ```kotlin
 ```
 {src="snippets/google-appengine-standard/build.gradle.kts" include-lines="7,11-12"}
