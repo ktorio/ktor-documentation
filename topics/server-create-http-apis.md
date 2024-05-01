@@ -206,7 +206,7 @@ In Ktor, paths can also contain [parameters](server-routing.md#match_url) that m
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" include-lines="18-29"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" include-lines="19-30"}
 
 First, we check whether the parameter `id` exists in the request. If it does not exist, we respond with a `400 Bad Request` status code and an error message, and are done. If the parameter exists, we try to `find` the corresponding record in our `customerStorage`. If we find it, we'll respond with the object. Otherwise, we'll return a 404 "Not Found" status code with an error message.
 
@@ -216,7 +216,7 @@ Next, we implement the option for a client to `POST` a JSON representation of a 
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" include-lines="30-34"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" include-lines="31-35"}
 
 `call.receive` integrates with the [configured Content Negotiation](#source_code) plugin. Calling it with the generic parameter `Customer` automatically deserializes the JSON request body into a Kotlin `Customer` object. We can then add the customer to our storage and respond with a status code of `201 Created`.
 
@@ -228,7 +228,7 @@ The implementation for deleting a customer follows a similar procedure as we hav
 
 ```kotlin
 ```
-{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" include-lines="35-42"}
+{src="snippets/tutorial-http-api/src/main/kotlin/com/example/routes/CustomerRoutes.kt" include-lines="36-43"}
 
 Similar to the definition of our `get` request, we make sure that the `id` is not null. If the `id` is absent, we respond with a `400 Bad Request` error.
 
