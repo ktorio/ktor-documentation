@@ -3,6 +3,7 @@ package com.example
 import com.example.plugins.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.plugins.websocket.*
+import io.ktor.serialization.*
 import io.ktor.serialization.kotlinx.*
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.testing.*
@@ -60,4 +61,3 @@ class ApplicationTest {
             list + task
         }
 }
-
