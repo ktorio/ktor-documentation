@@ -1,0 +1,129 @@
+<html>
+<head>
+    <title>WebSocket Client</title>
+    <script>
+        let serverURL;
+        let socket;
+
+        function setupSocket() {
+            serverURL = 'ws://0.0.0.0:8080/tasks2';
+            socket = new WebSocket(serverURL);
+
+            socket.onopen = logOpenToConsole;
+            socket.onclose = logCloseToConsole;
+            socket.onmessage = readAndDisplayTask;
+        }
+
+        function readAndDisplayTask(event) {
+            let task = JSON.parse(event.data);
+            logTaskToConsole(task);
+            addTaskToTable(task);
+        }
+
+        function logTaskToConsole(task) {
+            console.log(`Received ${task.name}`);
+        }
+
+        function logCloseToConsole() {
+            console.log("Web socket connection closed");
+        }
+
+        function logOpenToConsole() {
+            console.log("Web socket connection opened");
+        }
+
+        function tableBody() {
+            return document.getElementById("tasksTableBody");
+        }
+
+        function addTaskToTable(task) {
+            tableBody().appendChild(taskRow(task));
+        }
+
+        function taskRow(task) {
+            return tr([
+                td(task.name),
+                td(task.description),
+                td(task.priority)
+            ]);
+        }
+
+        function tr(children) {
+            const node = document.createElement("tr");
+            children.forEach(child => node.appendChild(child));
+            return node;
+        }
+
+        function td(text) {
+            const node = document.createElement("td");
+            node.appendChild(document.createTextNode(text));
+            return node;
+        }
+
+        function getFormValue(name) {
+            return document.forms[0][name].value
+        }
+
+        function buildTaskFromForm() {
+            return {
+                name: getFormValue("newTaskName"),
+                description: getFormValue("newTaskDescription"),
+                priority: getFormValue("newTaskPriority")
+            }
+        }
+
+        function logSendingToConsole(data) {
+            console.log("About to send",data);
+        }
+
+        function sendTaskViaSocket(data) {
+            socket.send(JSON.stringify(data));
+        }
+
+        function sendTaskToServer() {
+            let data = buildTaskFromForm();
+            logSendingToConsole(data);
+            sendTaskViaSocket(data);
+            //prevent form submission
+            return false;
+        }
+    </script>
+</head>
+<body onload="setupSocket()">
+<h1>Viewing Tasks Via WebSockets</h1>
+<table rules="all">
+    <thead>
+    <tr>
+        <th>Name</th><th>Description</th><th>Priority</th>
+    </tr>
+    </thead>
+    <tbody id="tasksTableBody">
+    </tbody>
+</table>
+<div>
+    <h3>Create a new task</h3>
+    <form onsubmit="return sendTaskToServer()">
+        <div>
+            <label for="newTaskName">Name: </label>
+            <input type="text" id="newTaskName"
+                   name="newTaskName" size="10">
+        </div>
+        <div>
+            <label for="newTaskDescription">Description: </label>
+            <input type="text" id="newTaskDescription"
+                   name="newTaskDescription" size="20">
+        </div>
+        <div>
+            <label for="newTaskPriority">Priority: </label>
+            <select id="newTaskPriority" name="newTaskPriority">
+                <option name="Low">Low</option>
+                <option name="Medium">Medium</option>
+                <option name="High">High</option>
+                <option name="Vital">Vital</option>
+            </select>
+        </div>
+        <input type="submit">
+    </form>
+</div>
+</body>
+</html>
