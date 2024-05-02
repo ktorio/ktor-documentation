@@ -35,7 +35,7 @@
         <li><a href="server-requests-and-responses.topic">Handle req uests and generate responses</a>.</li>
         <li><a href="server-create-restful-apis.topic">Create RESTful APIs that generate JSON</a>.</li>
         <li><a href="server-build-web-application.topic">Build a web application</a>.</li>
-        <li><a href="server-create-websocket-chat.md">Create a WebSocket chat</a>.</li>
+        <li><a href="server-working-with-websockets.topic">Create a WebSocket application</a>.</li>
     </list>
     <chapter id="create-project" title="Create a new Ktor project">
         <p>
