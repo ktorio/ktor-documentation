@@ -24,9 +24,10 @@
                          toc-title="Create a WebSocket application"
                          accepts-web-file-names="creating-web-socket-chat.html,server-create-websocket-chat.html,
                          getting-started-ktor-client-chat.html, client-create-websocket-chat.html"/>
-                         accepts-web-file-names="creating-web-socket-chat.html,server-create-websocket-chat.html"/>
             <toc-element topic="server-integrate-database.topic"
-                         toc-title="Integrate a database"/>
+                         toc-title="Integrate a database"
+                         accepts-web-file-names="db-persistence.html, interactive-website-add-persistence.html,
+                         db-connection-pooling-caching.html, connection-pooling-caching.html"/>
         </toc-element>
 
         <toc-element toc-title="Developing applications">
@@ -215,13 +216,6 @@
 
         <toc-element topic="server-testing.md"
                      accepts-web-file-names="servers-testing.html,testing.html"/>
-
-        <toc-element toc-title="Database integration">
-            <toc-element topic="db-persistence.md"
-                         accepts-web-file-names="interactive-website-add-persistence.html"/>
-            <toc-element topic="db-connection-pooling-caching.md"
-                         accepts-web-file-names="connection-pooling-caching.html"/>
-        </toc-element>
 
         <toc-element topic="server-deployment.md"
                      accepts-web-file-names="deploy.html">
