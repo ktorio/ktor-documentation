@@ -22,7 +22,8 @@
                          accepts-web-file-names="creating-static-website.html,creating-interactive-website.html"/>
             <toc-element topic="server-working-with-websockets.topic"
                          toc-title="Create a WebSocket application"
-                         accepts-web-file-names="creating-web-socket-chat.html,server-create-websocket-chat.html"/>
+                         accepts-web-file-names="creating-web-socket-chat.html,server-create-websocket-chat.html,
+                         getting-started-ktor-client-chat.html, client-create-websocket-chat.html"/>
         </toc-element>
 
         <toc-element toc-title="Developing applications">
@@ -261,8 +262,6 @@
         <toc-element toc-title="Getting started with a Ktor Client">
             <toc-element topic="client-create-new-application.topic"
                          accepts-web-file-names="getting-started-ktor-client.html"/>
-            <toc-element topic="client-create-websocket-chat.md"
-                         accepts-web-file-names="getting-started-ktor-client-chat.html"/>
             <toc-element topic="client-create-multiplatform-application.md"
                          accepts-web-file-names="getting-started-ktor-client-multiplatform-mobile.html"/>
         </toc-element>
