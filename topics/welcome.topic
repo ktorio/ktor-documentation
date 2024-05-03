@@ -82,9 +82,9 @@
             </links>
             <cards>
                 <title>Ktor Client</title>
-                <a href="client-create-websocket-chat.md"
-                   summary="Create a console chat application with the WebSockets plugin.">
-                    Create a chat client application
+                <a href="client-create-new-application.topic"
+                   summary="Create a client application with Ktor.">
+                    Create a client application
                 </a>
                 <a href="client-create-multiplatform-application.md"
                    summary="Create a Kotlin Multiplatform Mobile application and learn how to make requests and receive responses with the Ktor Client.">
