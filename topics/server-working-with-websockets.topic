@@ -430,7 +430,7 @@
                 </p>
             </step>
             <step>
-                Restart your application.
+                <include from="lib.topic" element-id="intellij_idea_restart_application"/>
             </step>
             <step>
                 <p>To test this functionality, open two browsers side-by-side and follow the steps below.</p>
