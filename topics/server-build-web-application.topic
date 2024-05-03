@@ -28,8 +28,8 @@
 
     <p>
         In the <a href="server-create-restful-apis.topic">previous tutorial</a>, you learned how to create a RESTful
-        service, which we assumed would be consumed by a single page application written in JavaScript. Although this is
-        a very popular architecture, it does not suit every project.
+        service, which we assumed would be consumed by a Single Page Application (SPA) written in JavaScript. Although
+        this is a very popular architecture, it does not suit every project.
     </p>
     <p>
         There are many reasons why you may wish to keep all the implementation on the server and only send markup to the
@@ -53,8 +53,7 @@
 
     <chapter title="Prerequisites" id="prerequisites">
         <p>
-            This tutorial is part of the Get started with Ktor Server guide. You can do this tutorial independently,
-            however, we strongly recommend that you complete the
+            You can do this tutorial independently, however, we strongly recommend that you complete the
             <a href="server-create-restful-apis.topic">preceding tutorial</a> to learn how to create RESTful APIs.
         </p>
         <p>We recommend that you install <a href="https://www.jetbrains.com/help/idea/installation-guide.html">IntelliJ
@@ -64,11 +63,12 @@
 
     <chapter title="Hello Task Manager Web Application" id="hello-task-manager">
         <p>
-            In this tutorial, you'll transform the Task Manager you built in the previous tutorial into a Web
-            Application. To do this, you'll use several Ktor modules.
+            In this tutorial, you'll transform the Task Manager you built in the <a
+                href="server-create-restful-apis.topic">previous tutorial</a> into a Web
+            Application. To do this, you'll use several Ktor <a href="server-plugins.md">plugins</a>.
         </p>
         <p>
-            While you could manually add these modules to your existing project, it’s easier to generate a new project
+            While you could manually add these plugins to your existing project, it’s easier to generate a new project
             and gradually incorporate code from the previous tutorial. We'll provide all the necessary code along the
             way, so you don’t need to have the previous projects to hand.
         </p>
@@ -118,7 +118,7 @@
             </step>
         </procedure>
 
-        <procedure title="Add started code" id="add-starter-code">
+        <procedure title="Add starter code" id="add-starter-code">
             <step>
                 Open your project in IntelliJ IDEA or another IDE of your choice.
             </step>
@@ -146,7 +146,8 @@
                 <code-block lang="kotlin"
                             src="snippets/tutorial-server-web-application/src/main/kotlin/models/Task.kt"/>
                 <p>
-                    Once again we want to create Task objects and send them to clients in a form that can be displayed.
+                    Once again, we want to create <code>Task</code> objects and send them to clients in a form that can
+                    be displayed.
                 </p>
                 <p>
                     You may recall that:
@@ -246,10 +247,7 @@ fun Application.configureTemplating() {
                             src="snippets/tutorial-server-web-application/src/main/resources/templates/thymeleaf/all-tasks.html"/>
             </step>
             <step>
-                <p>In IntelliJ IDEA, click on the run button (<img alt="intelliJ IDEA run button icon"
-                                                                   src="intellij_idea_gutter_icon.svg" height="16"
-                                                                   width="16"/>)
-                    to start the application.</p>
+                <include from="lib.topic" element-id="intellij_idea_start_application"/>
             </step>
             <step>
                 <p>
@@ -304,19 +302,21 @@ fun Application.configureTemplating() {
                 <code-block lang="html"
                             src="snippets/tutorial-server-web-application/src/main/resources/static/index.html"/>
             </step>
-            <step>Restart the application.</step>
+            <step>
+                <include from="lib.topic" element-id="intellij_idea_restart_application"/>
+            </step>
             <step>
                 <p>
                     Navigate to <a href="http://localhost:8080/static/index.html">http://localhost:8080/static/index.html</a>
-                    in the browser. You should see a link button and three HTML forms
+                    in your browser. You should see a link button and three HTML forms
                     that allow you to view, filter and create tasks:
                 </p>
                 <img src="server_create_web_app_tasks_form.png"
                      alt="A web browser displaying an HTML form" border-effect="rounded" width="706"/>
                 <p>
-                    Note that when you are filtering tasks by name or priority, you are submitting an HTML form
-                    through a GET request. This means that the parameters will be added to the query string after the
-                    URL.
+                    Note that when you are filtering tasks by <code>name</code> or <code>priority</code>, you are
+                    submitting an HTML form through a GET request. This means that the parameters will be added to the
+                    query string after the URL.
                 </p>
                 <p>
                     For example, if you search for tasks of <code>Medium</code> priority this is the request that
@@ -343,7 +343,7 @@ fun Application.configureTemplating() {
 
         <procedure title="Reuse routes for GET requests" id="reuse-routes">
             <p>
-                Now that you have created the repository, you can implement all the routes for GET requests.
+                Now that you have created the repository, you can implement the routes for GET requests.
             </p>
             <step>
                 Navigate to the
@@ -448,7 +448,7 @@ fun Application.configureTemplating() {
                             include-lines="68-97"/>
             </step>
             <step>
-                Restart the application.
+                <include from="lib.topic" element-id="intellij_idea_restart_application"/>
             </step>
             <step>
                 Navigate to <a href="http://0.0.0.0:8080/static/index.html">http://0.0.0.0:8080/static/index.html</a> in
@@ -481,7 +481,8 @@ fun Application.configureTemplating() {
             Congratulations! You have now completed rebuilding your Task Manager as a web application and
             learned how to utilize Thymeleaf templates.</p>
         <p>
-            Continue to the next tutorial to learn how to work with websockets.
+            Continue to the <a href="server-working-with-websockets.topic">next tutorial</a> to learn how to work with
+            Web Sockets.
         </p>
     </chapter>
 </topic>

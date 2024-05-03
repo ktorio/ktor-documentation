@@ -24,11 +24,11 @@
     </link-summary>
     <p>
         In the <a href="server-requests-and-responses.topic">previous tutorial</a>, we introduced you to the
-        fundamentals of validation, error handling, and unit testing. This article will expand on these topics by
+        fundamentals of validation, error handling, and unit testing. This tutorial will expand on these topics by
         creating a RESTful service for managing tasks.
     </p>
     <p>
-        This tutorial will teach you how to do the following:
+        You will learn how to do the following:
     </p>
     <list>
         <li>Create RESTful services that use JSON serialization.</li>
@@ -36,7 +36,7 @@
         <li>Define the routes for a REST API within Ktor.</li>
     </list>
     <chapter title="Prerequisites" id="prerequisites">
-        <p>This is the third tutorial in the Get started with Ktor Server guide. You can do this tutorial independently,
+        <p>You can do this tutorial independently,
             however, we strongly recommend that you complete the preceding tutorial to learn how to <a
                     href="server-requests-and-responses.topic">handle requests and generate responses</a>
             .
@@ -47,10 +47,10 @@
     </chapter>
     <chapter title="Hello RESTful Task Manager" id="hello-restful-task-manager">
         <p>In this tutorial, you will be rewriting your existing Task Manager as a RESTful service. To do this you will
-            use several Ktor modules.</p>
+            use several Ktor <a href="server-plugins.md">plugins</a>.</p>
         <p>
-            You could manually add these to your existing project, but it’s simpler to generate a new project and then
-            incrementally port the code from the previous tutorial. You will reiterate all the code as you go, so you
+            While you could manually add it to your existing project, it’s simpler to generate a new project and then
+            incrementally add the code from the previous tutorial. You will reiterate all the code as you go, so you
             don’t need to have the previous project to hand.
         </p>
         <procedure title="Create a new project with plugins">
@@ -189,11 +189,7 @@
                 </p>
             </step>
             <step>
-                <p>In IntelliJ IDEA, click on the run button <img src="intellij_idea_gutter_icon.svg"
-                                                                  style="inline" height="16" width="16"
-                                                                  alt="intelliJ IDEA run icon"/> to start the
-                    application.
-                </p>
+                <include from="lib.topic" element-id="intellij_idea_start_application"/>
             </step>
             <step>
                 <p>
@@ -247,8 +243,8 @@
                 plugin. With this, when clients send requests the server can send back objects serialized as JSON.
             </p>
             <p>
-                In the case of the request from the browser the Content Negotiation plugin knows it can only return
-                JSON, and the browser will try to display anything it is sent. So the request succeeds.
+                In the case of the request from the browser the <code>ContentNegotiation</code> plugin knows it can only
+                return JSON, and the browser will try to display anything it is sent. So the request succeeds.
             </p>
         </chapter>
         <procedure title="Content Negotiation via JavaScript" id="via-javascript">
@@ -256,7 +252,9 @@
                 In a production environment, you wouldn’t want to display JSON directly in the browser. Instead, there
                 would be JavaScript code running within the browser, which would make the request and then display the
                 data returned as part of a Single Page Application (SPA). Typically, this kind of application would be
-                written using a framework like React, Angular, or Vue.js.
+                written using a framework like <a href="https://react.dev/">React</a>,
+                <a href="https://angular.io/">Angular</a>,
+                or <a href="https://vuejs.org/">Vue.js</a>.
             </p>
             <step>
                 <p>
@@ -275,12 +273,7 @@
                 </p>
             </step>
             <step>
-                <p>
-                    In IntelliJ IDEA, click the rerun button <img src="intellij_idea_rerun_icon.svg"
-                                                                  style="inline" height="16" width="16"
-                                                                  alt="intelliJ IDEA rerun icon"/> to restart the
-                    application.
-                </p>
+                <include from="lib.topic" element-id="intellij_idea_restart_application"/>
             </step>
             <step>
                 <p>
@@ -302,50 +295,53 @@
             functionality
             from the <a href="server-requests-and-responses.topic">previous tutorial</a> into this one.
         </p>
-        <procedure title="Reuse the Task Repository" id="task-repository">
+        <chapter title="Reuse the Task Repository" id="task-repository">
             <p>
                 You can reuse the repository for Tasks without any modification, so let’s do that first.
             </p>
-            <step>
-                <p>
-                    Inside the
-                    <path>model</path>
-                    package create a new
-                    <path>TaskRepository.kt</path>
-                    file.
-                </p>
-            </step>
-            <step>
-                <p>
-                    Open
-                    <path>TaskRepository.kt</path>
-                    and add the code below:
-                </p>
-                <code-block lang="kotlin"
-                            src="snippets/tutorial-server-restful-api/src/main/kotlin/com/example/model/TaskRepository.kt"
-                            include-lines="1-26,31"/>
-            </step>
-        </procedure>
-        <procedure title="Reuse the routes for GET requests" id="get-requests">
+            <procedure>
+                <step>
+                    <p>
+                        Inside the
+                        <path>model</path>
+                        package create a new
+                        <path>TaskRepository.kt</path>
+                        file.
+                    </p>
+                </step>
+                <step>
+                    <p>
+                        Open
+                        <path>TaskRepository.kt</path>
+                        and add the code below:
+                    </p>
+                    <code-block lang="kotlin"
+                                src="snippets/tutorial-server-restful-api/src/main/kotlin/com/example/model/TaskRepository.kt"
+                                include-lines="1-26,31"/>
+                </step>
+            </procedure>
+        </chapter>
+        <chapter title="Reuse the routes for GET requests" id="get-requests">
             <p>
-                Now that you’ve created the repository you can implement all the routes for GET requests. The previous
+                Now that you’ve created the repository, you can implement the routes for GET requests. The previous
                 code can be simplified because you no longer need to worry about converting tasks to HTML:
             </p>
-            <step>
-                <p>
-                    Navigate to the
-                    <path>Routing.kt</path>
-                    file in
-                    <path>src/main/kotlin/com/example/plugins</path>
-                    .
-                </p>
-            </step>
-            <step>
-                <p>
-                    Update the code for the <code>/tasks</code> route inside the
-                    <code>Application.configureRouting()</code> function with the following implementation:
-                </p>
-                <code-block lang="kotlin">
+            <procedure>
+                <step>
+                    <p>
+                        Navigate to the
+                        <path>Routing.kt</path>
+                        file in
+                        <path>src/main/kotlin/com/example/plugins</path>
+                        .
+                    </p>
+                </step>
+                <step>
+                    <p>
+                        Update the code for the <code>/tasks</code> route inside the
+                        <code>Application.configureRouting()</code> function with the following implementation:
+                    </p>
+                    <code-block lang="kotlin"><![CDATA[
                     fun Application.configureRouting() {
                         routing {
                             staticResources("static", "static")
@@ -393,25 +389,26 @@
                             }
                         }
                     }
-                </code-block>
-                <p>
-                    With this, your server can respond to the following GET requests:</p>
-                <list>
-                    <li><code>/tasks</code> returns all tasks in the repository.</li>
-                    <li><code>/tasks/byName/{taskName}</code> returns tasks filtered by the specified
-                        <code>taskName</code>.
-                    </li>
-                    <li><code>/tasks/byPriority/{priority}</code> returns tasks filtered by the specified
-                        <code>priority</code>.
-                    </li>
-                </list>
-            </step>
-        </procedure>
+                ]]></code-block>
+                    <p>
+                        With this, your server can respond to the following GET requests:</p>
+                    <list>
+                        <li><code>/tasks</code> returns all tasks in the repository.</li>
+                        <li><code>/tasks/byName/{taskName}</code> returns tasks filtered by the specified
+                            <code>taskName</code>.
+                        </li>
+                        <li><code>/tasks/byPriority/{priority}</code> returns tasks filtered by the specified
+                            <code>priority</code>.
+                        </li>
+                    </list>
+                </step>
+            </procedure>
+        </chapter>
         <chapter title="Test the functionality" id="test-tasks-routes">
             <procedure title="Use the browser">
-                <p>You could test these routes in the browser. For example, you can navigate to <a
+                <p>You could test these routes in the browser. For example, navigate to <a
                         href="http://0.0.0.0:8080/tasks/byPriority/Medium">http://0.0.0.0:8080/tasks/byPriority/Medium</a>
-                    to see all the tasks with a medium priority displayed in JSON format:</p>
+                    to see all the tasks with a <code>Medium</code> priority displayed in JSON format:</p>
                 <img src="tutorial_creating_restful_apis_tasks_medium_priority.png"
                      alt="A browser window showing tasks with medium priority in JSON format"
                      border-effect="rounded"
@@ -680,8 +677,9 @@
     </chapter>
     <chapter title="Create unit tests with Ktor Client" id="create-unit-tests">
         <p>
-            So far you have tested your application manually but, as you’ve already noticed, this approach is
-            time-consuming and will not scale. Instead, you can implement JUnit tests, using the built-in
+            So far you have tested your application manually, but, as you’ve already noticed, this approach is
+            time-consuming and will not scale. Instead, you can implement <a href="server-testing.md">JUnit tests</a>,
+            using the built-in
             <code>client</code> object to fetch and deserialize JSON.
         </p>
         <procedure>
@@ -706,7 +704,8 @@
 
                 <p>
                     Note that you need to install the <code>ContentNegotiation</code> and
-                    <code>kotlinx.serialization</code> plugins into the client, in the same way as you did on the
+                    <code>kotlinx.serialization</code> plugins into the <a
+                        href="client-create-and-configure.md#plugins">Ktor client</a>, in the same way as you did on the
                     server.
                 </p>
             </step>
@@ -725,8 +724,8 @@
     <chapter title="Create unit tests with JsonPath" id="unit-tests-via-jsonpath">
         <p>
             Testing your service with the Ktor client, or a similar library, is convenient, but it has a drawback from a
-            QA perspective. The server, not directly handling JSON, can't be certain about its assumptions regarding the
-            JSON structure.
+            Quality Assurance (QA) perspective. The server, not directly handling JSON, can't be certain about its
+            assumptions regarding the JSON structure.
         </p>
         <p>
             For example, assumptions like:
@@ -739,7 +738,8 @@
         <p>
             If your service is intended for use by multiple clients, it's crucial to have confidence in the JSON
             structure. To achieve this, use the Ktor Client to retrieve text from the server and then analyze this
-            content using the JSONPath library.</p>
+            content using the <a href="https://mvnrepository.com/artifact/com.jayway.jsonpath/json-path">JSONPath</a>
+            library.</p>
         <procedure>
             <step>
                 <p>In your
