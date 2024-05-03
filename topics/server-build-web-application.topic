@@ -17,8 +17,11 @@
         Learn how to build web applications with Ktor and Kotlin. This tutorial guides you from HTML frontend
         design with templates to connection with RESTful services on the backend.
     </web-summary>
+    <card-summary>
+        Discover the process of building a Web Application in Kotlin with Ktor and Thymeleaf templates.
+    </card-summary>
     <link-summary>
-        Discover the process of building a web application in Kotlin with Ktor.
+        Discover the process of building a Web Application in Kotlin with Ktor.
     </link-summary>
 
     <p>
