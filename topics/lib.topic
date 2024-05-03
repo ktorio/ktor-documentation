@@ -397,6 +397,14 @@
             on the right side of the editor to load Gradle changes.</p>
     </snippet>
 
+    <snippet id="intellij_idea_run_test">
+        <p>In IntelliJ IDEA, click on the run button
+            (<img src="intellij_idea_gutter_icon.svg"
+                  style="inline" height="16" width="16"
+                  alt="intelliJ IDEA run icon"/>)
+            next to the test class definition to run the tests.</p>
+    </snippet>
+
     <snippet id="intellij_idea_start_application">
         <p>In IntelliJ IDEA, click on the run button
             (<img src="intellij_idea_gutter_icon.svg"

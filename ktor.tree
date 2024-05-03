@@ -24,6 +24,9 @@
                          toc-title="Create a WebSocket application"
                          accepts-web-file-names="creating-web-socket-chat.html,server-create-websocket-chat.html,
                          getting-started-ktor-client-chat.html, client-create-websocket-chat.html"/>
+                         accepts-web-file-names="creating-web-socket-chat.html,server-create-websocket-chat.html"/>
+            <toc-element topic="server-integrate-database.topic"
+                         toc-title="Integrate a database"/>
         </toc-element>
 
         <toc-element toc-title="Developing applications">
