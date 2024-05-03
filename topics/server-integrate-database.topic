@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="Integrate a database with Kotlin, Ktor, and Exposed" id="server-integrate-database">
+    <show-structure for="chapter" depth="2"/>
+    <tldr>
+        <var name="example_name" value="tutorial-server-database-integration"/>
+        <include from="lib.topic" element-id="download_example"/>
+        <p>
+            <b>Used plugins</b>: <a href="server-routing.md"/>,<a href="server-static-content.md">Static Content</a>,
+            <a href="server-serialization.md">Content Negotiation</a>, <a href="server-status-pages.md"/>,
+            <a href="server-serialization.md">kotlinx.serialization</a>,
+            <a href="https://github.com/ktorio/ktor-plugin-registry/blob/main/plugins/server/org.jetbrains/exposed/2.2/documentation.md">Exposed</a>,
+            <a href="https://github.com/ktorio/ktor-plugin-registry/blob/main/plugins/server/org.postgresql/postgres/2.2/documentation.md">Postgres</a>
+        </p>
+    </tldr>
+    <card-summary>
+        Learn the process of connecting RESTful services to a database using the Exposed SQL Library.
+    </card-summary>
+    <web-summary>
+        Learn how to build a Single Page Application (SPA) with Kotlin and Ktor, and connect RESTful services to a
+        database using the Exposed SQL Library.
+    </web-summary>
+
+    <p>
+        In this article, you will learn how to integrate your Ktor services with relational databases using <a
+            href="https://github.com/JetBrains/Exposed">Exposed</a>, the
+        SQL library for Kotlin.
+    </p>
+    <p>By the end of this tutorial, you’ll learn how to do the following:</p>
+    <list>
+        <li>Create RESTful services that use JSON serialization.</li>
+        <li>Inject different repositories into these services.</li>
+        <li>Create unit tests for your services using fake repositories.</li>
+        <li>Build working repositories using Exposed and Dependency Injection (DI).</li>
+        <li>Deploy services that access external databases.</li>
+    </list>
+    <p>
+        In previous tutorials, we used the Task Manager example to cover basics, such as <a
+            href="server-requests-and-responses.topic">handling requests</a>,
+        <a href="server-create-restful-apis.topic">creating RESTful APIs</a> or
+        <a href="server-build-web-application.topic">building Web Apps with Thymeleaf templates</a>.
+        While those tutorials focused on front-end functionality using a simple in-memory <code>TaskRepository</code>,
+        this guide shifts focus to show how your Ktor services can interact with relational databases through the
+        <a href="https://github.com/JetBrains/Exposed">Exposed SQL Library</a>.
+    </p>
+    <p>
+        Even though this guide is longer and more complex, you’ll still produce working code quickly and gradually
+        introduce new features.
+    </p>
+    <p>This guide will be broken down into two parts:</p>
+    <list type="decimal">
+        <li>
+            <a anchor="create-restful-service-and-repository">Creating your application with an in-memory
+                repository.</a>
+        </li>
+        <li>
+            <a anchor="add-postgresql-repository">Swapping the in-memory repository for one that uses PostgreSQL.</a>
+        </li>
+    </list>
+
+    <chapter title="Prerequisites" id="prerequisites">
+        <p>
+            You can do this tutorial independently, however, we recommend that you complete the <a
+                href="server-create-restful-apis.topic">Create RESTful APIs</a> tutorial to get familiar with Content
+            Negotiation and REST.
+        </p>
+        <p>We recommend that you install <a href="https://www.jetbrains.com/help/idea/installation-guide.html">IntelliJ
+            IDEA</a>, but you could use another IDE of your choice.
+        </p>
+    </chapter>
+
+    <chapter title="Create a RESTful service and an in-memory repository" id="create-restful-service-and-repository">
+        <p>
+            First, you will recreate your Task Manager RESTful service. Initially, this will use an in-memory
+            repository, but you will structure a design that allows it to be substituted with minimal effort.
+        </p>
+        <p>You will do this in six stages:</p>
+        <list type="decimal">
+            <li>
+                <a anchor="create-project">Create the initial project.</a>
+            </li>
+            <li>
+                <a anchor="add-starter-code">Add starter code.</a>
+            </li>
+            <li>
+                <a anchor="add-routes">Add the CRUD routes.</a>
+            </li>
+            <li>
+                <a anchor="add-client-page">Add a Single Page Application (SPA).</a>
+            </li>
+            <li>
+                <a anchor="test-manually">Test the application manually.</a>
+            </li>
+            <li>
+                <a anchor="add-automated-tests">Add automated tests.</a>
+            </li>
+        </list>
+        <chapter title="Create a new project with plugins" id="create-project">
+            <p>
+                To create a new project with the Ktor Project Generator, follow the steps below:
+            </p>
+            <procedure>
+                <step>
+                    <include from="lib.topic" element-id="generate_project_step_1"/>
+                </step>
+                <step>
+                    <p>In the
+                        <control>Project Name</control>
+                        field, enter
+                        <path>ktor-exposed-task-app</path>
+                        as the name of your project.
+                    </p>
+                    <img src="tutorial_server_db_integration_project_name.png"
+                         alt="Naming the project in the Ktor Project Generator"
+                         border-effect="line"
+                         width="706"/>
+                </step>
+                <step>
+                    <p>You can leave the default values for the rest of the settings and click on
+                        <control>Add plugins</control>
+                        to go to the next screen.
+                    </p>
+                </step>
+                <step>
+                    <p>
+                        In the plugins section search for and add the following plugins by clicking on the
+                        <control>Add</control>
+                        button:
+                    </p>
+                    <list type="bullet">
+                        <li>Routing</li>
+                        <li>Content Negotiation</li>
+                        <li>Kotlinx.serialization</li>
+                        <li>Static Content</li>
+                        <li>Status Pages</li>
+                        <li>Exposed</li>
+                        <li>Postgres</li>
+                    </list>
+                    <img src="ktor_project_generator_add_plugins.gif" alt="Adding plugins in the Ktor Project Generator"
+                         border-effect="line"
+                         width="400"/>
+                </step>
+                <step>
+                    <p>
+                        Once you have added the plugins, click on the
+                        <control>7 plugins added</control>
+                        link at the bottom left, to display the added plugins.
+                    </p>
+                    <p>You will then see a list of all the plugins that will be added to your project:</p>
+                    <img src="tutorial_server_db_integration_plugin_list.png"
+                         alt="Plugins list in the Ktor Project Generator"
+                         border-effect="line"
+                         width="400"/>
+                </step>
+                <step>
+                    <include from="lib.topic" element-id="generate_project_final_step"/>
+                </step>
+                <step>
+                    <p>
+                        Open the generated project in <a href="https://www.jetbrains.com/help/idea/installation-guide.html">IntelliJ
+                        IDEA</a> or another IDE of your choice.
+                    </p>
+                </step>
+                <step>
+                    <p>
+                        Navigate to
+                        <path>src/main/kotlin/plugins</path>
+                        and delete the files
+                        <path>CitySchema.kt</path>
+                        and
+                        <path>UsersSchema.kt</path>
+                        .
+                    </p>
+                </step>
+                <step id="delete-function">
+                    <p>
+                        Open the
+                        <path>Databases.kt</path>
+                        file and remove the content of the <code>configureDatabases()</code> function.
+                    </p>
+                    <code-block lang="kotlin">
+                        fun Application.configureDatabases() {
+                        }
+                    </code-block>
+                    <p>
+                        The reason for removing this functionality is that the Ktor Project Generator has added sample code
+                        to show how to persist data about users and cities to HSQLDB or PostgreSQL. You will not be
+                        requiring that sample code in this tutorial.
+                    </p>
+                </step>
+            </procedure>
+        </chapter>
+        <chapter title="Add starter code" id="add-starter-code">
+            <procedure>
+                <step>
+                    Navigate to
+                    <path>src/main/kotlin/com/example</path>
+                    and create a subpackage called
+                    <path>model</path>
+                    .
+                </step>
+                <step>
+                    Inside the
+                    <path>model</path>
+                    package, create a new
+                    <path>Task.kt</path>
+                    file.
+                </step>
+                <step>
+                    <p>
+                        Open
+                        <path>Task.kt</path>
+                        and add an <code>enum</code> to represent priorities and a <code>class</code> to represent tasks.
+                    </p>
+                    <code-block src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/model/Task.kt"
+                                lang="kotlin"/>
+                    <p>
+                        The <code>Task</code> class is annotated with the <code>Serializable</code> type from the <a
+                            href="server-serialization.md">kotlinx.serialization</a> library.
+                    </p>
+                    <p>
+                        As in previous tutorials, you will create an in-memory repository. However, this time the repository
+                        will implement an <code>interface</code> so that you can easily replace it later.
+                    </p>
+                </step>
+                <step>
+                    In the
+                    <path>model</path>
+                    subpackage, create a new
+                    <path>TaskRepository.kt</path>
+                    file.
+                </step>
+                <step>
+                    <p>
+                        Open
+                        <path>TaskRepository.kt</path>
+                        and add the following <code>interface</code>:
+                    </p>
+                    <code-block
+                            src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/model/TaskRepository.kt"
+                            lang="kotlin"/>
+                </step>
+                <step>
+                    Create a new
+                    <path>FakeTaskRepository.kt</path>
+                    file.
+                </step>
+                <step>
+                    <p>
+                        Open
+                        <path>FakeTaskRepository.kt</path>
+                        and add the following <code>class</code>:
+                    </p>
+                    <code-block
+                            src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/model/FakeTaskRepository.kt"
+                            lang="kotlin"/>
+                </step>
+            </procedure>
+        </chapter>
+        <chapter title="Add routes" id="add-routes">
+            <procedure>
+                <step>
+                    Open the
+                    <path>Serialization.kt</path>
+                    file in
+                    <path>src/main/kotlin/com/example/plugins</path>
+                    .
+                </step>
+                <step>
+                    <p>
+                        Replace the existing <code>Application.configureSerialization()</code> function with the
+                        implementation below:
+                    </p>
+                    <code-block
+                            src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/plugins/Serialization.kt"
+                            lang="kotlin"/>
+                    <p>
+                        This is the same routing that you implemented in the <a href="server-create-restful-apis.topic">Create
+                        RESTful APIs</a> tutorial, except that you are now passing the repository into the
+                        <code>routing()</code> function
+                        as a parameter. Because the type of the parameter is an <code>interface</code>, many different
+                        implementations can be injected.
+                    </p>
+                    <p>
+                        Now that you have added a parameter to <code>configureSerialization()</code>, existing calls will no
+                        longer compile. Fortunately, this function is only called once.
+                    </p>
+                </step>
+                <step>
+                    Open the
+                    <path>Application.kt</path>
+                    file within
+                    <path>src/main/kotlin/com/example</path>
+                    .
+                </step>
+                <step>
+                    <p>
+                        Replace the <code>module()</code> function with the implementation below:
+                    </p>
+                    <code-block lang="kotlin"><![CDATA[
+                    import FakeTaskRepository
+                    //...
+
+                    fun Application.module() {
+                        val repository = FakeTaskRepository()
+
+                        configureSerialization(repository)
+                        configureDatabases()
+                        configureRouting()
+                    }
+                ]]></code-block>
+                    <p>
+                        You are now injecting an instance of your <code>FakeTaskRepository</code> into <code>configureSerialization()</code>.
+                        The long-term goal is to be able to replace this with a <code>PostgresTaskRepository</code>.
+                    </p>
+                </step>
+            </procedure>
+        </chapter>
+        <chapter title="Add a client page" id="add-client-page">
+            <procedure>
+                <step>
+                    Open the
+                    <path>index.html</path>
+                    file in
+                    <path>src/main/resources/static</path>
+                    .
+                </step>
+                <step>
+                    <p>
+                        Replace the current content with the implementation below:
+                    </p>
+                    <code-block
+                            src="snippets/tutorial-server-db-integration/src/main/resources/static/index.html"
+                            lang="html"/>
+                    <p>
+                        This is the same SPA that was used in previous tutorials. Because it is written in JavaScript and
+                        only uses libraries available within the browser, you do not have to worry about client-side
+                        dependencies.
+                    </p>
+                </step>
+            </procedure>
+        </chapter>
+        <chapter title="Test the application manually" id="test-manually">
+            <procedure>
+                <step>
+                    <include from="lib.topic" element-id="intellij_idea_start_application"/>
+                </step>
+                <step>
+                    <p>
+                        Navigate to <a
+                            href="http://0.0.0.0:8080/static/index.html">http://0.0.0.0:8080/static/index.html</a>
+                        in your browser. You should see the client page consisting of three forms and a table displaying the
+                        filtered results.
+                    </p>
+                    <img src="tutorial_server_db_integration_index_page.png"
+                         alt="A browser window showing the Task Manager Client"
+                         border-effect="rounded"
+                         width="706"/>
+                </step>
+                <step>
+                    <p>
+                        Test the application by filling out and sending the forms using the
+                        <control>Go</control>
+                        buttons. Use the
+                        <control>View</control>
+                        and
+                        <control>Delete</control>
+                        buttons on the table items.
+                    </p>
+                    <img src="tutorial_server_db_integration_manual_test.gif"
+                         alt="A browser window showing the Task Manager Client"
+                         border-effect="rounded"
+                         width="706"/>
+                </step>
+            </procedure>
+        </chapter>
+        <chapter title="Add automated unit tests" id="add-automated-tests">
+            <procedure>
+                <step>
+                    <p>
+                        Open
+                        <path>ApplicationTest.kt</path>
+                        in
+                        <path>src/test/kotlin/com/example</path>
+                        and add the following tests:
+                    </p>
+                    <code-block
+                            src="snippets/tutorial-server-db-integration/src/test/kotlin/com/example/ApplicationTest.kt"
+                            lang="kotlin"/>
+                    <p>
+                        For these tests to compile and run, you will need to add a dependency on the <a
+                            href="https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-content-negotiation/io.ktor.server.plugins.contentnegotiation/-content-negotiation.html">Content
+                        Negotiation</a>
+                        plugin for the Ktor Client.
+                    </p>
+                </step>
+                <step>
+                    <p>
+                        Open the
+                        <path>build.gradle.kts</path>
+                        and add the following dependency:
+                    </p>
+                    <code-block lang="kotlin">
+                        testImplementation("io.ktor:ktor-client-content-negotiation-jvm:$ktor_version")
+                    </code-block>
+                </step>
+                <step>
+                    <include from="lib.topic" element-id="intellij_idea_load_gradle_changes"/>
+                </step>
+                <step>
+                    <include from="lib.topic" element-id="intellij_idea_run_test"/>
+                    <p>You should then see that the tests ran successfully in the
+                        <control>Run</control>
+                        pane.
+                    </p>
+                    <img src="tutorial_server_db_integration_test_results.png"
+                         alt="Successful Test results show in the Run pane in intelliJ IDEA"
+                         border-effect="line"
+                         width="706"/>
+                </step>
+            </procedure>
+        </chapter>
+    </chapter>
+    <chapter title="Add a PostgreSQL Repository" id="add-postgresql-repository">
+        <p>
+            Now that you have a working application that uses in-memory data, the next step is to externalize the data
+            storage to a PostgreSQL database.
+        </p>
+        <p>
+            You will achieve this by doing the following:
+        </p>
+        <list type="decimal">
+            <li><a anchor="create-schema">Create the database schema within PostgreSQL.</a></li>
+            <li><a anchor="adapt-repo">Adapt the <code>TaskRepository</code> for asynchronous access.</a></li>
+            <li><a anchor="config-db-connection">Configure a database connection within the application.</a></li>
+            <li><a anchor="create-mapping">Map the <code>Task</code> type to the associated database table.</a></li>
+            <li><a anchor="create-new-repo">Create a new repository based on this mapping.</a></li>
+            <li><a anchor="switch-repo">Switch to this new repository in the startup code.</a></li>
+        </list>
+        <chapter title="Create the database schema" id="create-schema">
+            <procedure>
+                <step>
+                    <p>
+                        Using your database management tool of choice, create a new database within PostgreSQL.
+                        The name does not matter as long as you remember it. In this example, we will use
+                        <path>ktor_tutorial_db</path>
+                        .
+                    </p>
+                    <tip>
+                        <p>
+                            For more information on PostgreSQL, refer to the <a
+                                href="https://www.postgresql.org/docs/current/">official
+                            documentation</a>.
+                        </p>
+                        <p>
+                            In IntelliJ IDEA, you can then make use of the Database Tools to <a
+                                href="https://www.jetbrains.com/help/idea/postgresql.html">connect to and manage your
+                            PostgreSQL
+                            database.</a>
+                        </p>
+                    </tip>
+                </step>
+                <step>
+                    <p>
+                        Run the SQL commands below against your database. These commands will create and populate the
+                        database schema:
+                    </p>
+                    <code-block lang="sql">
+                        DROP TABLE IF EXISTS task;
+                        CREATE TABLE task(id SERIAL PRIMARY KEY, name VARCHAR(50), description VARCHAR(50), priority VARCHAR(50));
+
+                        INSERT INTO task (name, description, priority) VALUES ('cleaning', 'Clean the house', 'Low');
+                        INSERT INTO task (name, description, priority) VALUES ('gardening', 'Mow the lawn', 'Medium');
+                        INSERT INTO task (name, description, priority) VALUES ('shopping', 'Buy the groceries', 'High');
+                        INSERT INTO task (name, description, priority) VALUES ('painting', 'Paint the fence', 'Medium');
+                        INSERT INTO task (name, description, priority) VALUES ('exercising', 'Walk the dog', 'Medium');
+                        INSERT INTO task (name, description, priority) VALUES ('meditating', 'Contemplate the infinite', 'High');
+                    </code-block>
+                    <p>
+                        Note the following:
+                    </p>
+                    <list>
+                        <li>
+                            You are creating a single table called
+                            <path>task</path>
+                            , with columns for the
+                            <path>name</path>
+                            ,
+                            <path>description</path>
+                            , and
+                            <path>priority</path>
+                            . These will need to be mapped to the properties of the <code>Task</code> class.
+                        </li>
+                        <li>
+                            You are re-creating the table if it already exists, so you can run the script repeatedly.
+                        </li>
+                        <li>
+                            There is an additional column called
+                            <path>id</path>
+                            , which is of type <code>SERIAL</code>. This will be an integer value, used to give each row its
+                            primary key. These values will be assigned by the database on your behalf.
+                        </li>
+                    </list>
+                </step>
+            </procedure>
+        </chapter>
+        <chapter title="Adapt the existing repository" id="adapt-repo">
+            <procedure>
+                <p>
+                    When executing queries against the database, it's preferable for them to run asynchronously to avoid
+                    blocking the thread handling the HTTP request. In Kotlin, this is best managed through <a
+                        href="https://kotlinlang.org/docs/coroutines-overview.html">coroutines</a>.
+                </p>
+                <step>
+                    <p>
+                        Open the
+                        <path>TaskRepository.kt</path>
+                        file in
+                        <path>src/main/kotlin/com/example/model</path>
+                        .
+                    </p>
+                </step>
+                <step>
+                    <p>
+                        Add the <code>suspend</code> keyword to all interface methods:
+                    </p>
+                    <code-block lang="kotlin"><![CDATA[
+                    interface TaskRepository {
+                        suspend fun allTasks(): List<Task>
+                        suspend fun tasksByPriority(priority: Priority): List<Task>
+                        suspend fun taskByName(name: String): Task?
+                        suspend fun addTask(task: Task)
+                        suspend fun removeTask(name: String): Boolean
+                    }
+                ]]></code-block>
+                    <p>
+                        This will allow implementations of the interface methods to start jobs of work on a different
+                        Coroutine Dispatcher.
+                    </p>
+                    <p>
+                        You now need to adjust the methods of the <code>FakeTaskRepository</code> to match, although you do
+                        not need to switch Dispatcher in that implementation.
+                    </p>
+                </step>
+                <step>
+                    <p>
+                        Open the
+                        <path>FakeTaskRepository.kt</path>
+                        file and add the <code>suspend</code> keyword to all methods:
+                    </p>
+                    <code-block lang="kotlin"><![CDATA[
+                    class FakeTaskRepository : TaskRepository {
+                        private val tasks = mutableListOf(
+                            ...
+                        )
+
+                        override suspend fun allTasks(): List<Task> = tasks
+
+                        override suspend fun tasksByPriority(priority: Priority) = tasks.filter { ... }
+
+                        override suspend fun taskByName(name: String) = tasks.find { ... }
+
+                        override suspend fun addTask(task: Task) { ... }
+
+                        override suspend fun removeTask(name: String): Boolean { ... }
+                    }
+                ]]></code-block>
+                    <p>
+                        Up to this point, you haven’t introduced any new functionality. Instead, you’ve laid the groundwork
+                        for creating a <code>PostgresTaskRepository</code> that will asynchronously run queries against the
+                        database.
+                    </p>
+                </step>
+            </procedure>
+        </chapter>
+        <chapter title="Configure the database connection" id="config-db-connection">
+            <procedure>
+                <p>
+                    In <a anchor="delete-function">the first part of this tutorial</a> , you deleted the sample code in the
+                    <code>configureDatabases()</code> method, found within
+                    <path>Databases.kt</path>
+                    . You are now ready to add in our own
+                    implementation.
+                </p>
+                <step>
+                    Open the
+                    <path>Databases.kt</path>
+                    file in
+                    <path>src/main/kotlin/com/example/plugins</path>
+                    .
+                </step>
+                <step>
+                    <p>
+                        Use the <code>Databse.connect()</code> function to connect to your database, adjusting the values of
+                        the settings to match your environment:
+                    </p>
+                    <code-block lang="kotlin">
+                        fun Application.configureDatabases() {
+                        Database.connect(
+                        "jdbc:postgresql://localhost:5432/ktor_tutorial_db",
+                        user = "postgres",
+                        password = "password"
+                        )
+                        }
+                    </code-block>
+                </step>
+            </procedure>
+        </chapter>
+        <chapter title="Create the Object / Relational mapping" id="create-mapping">
+            <procedure>
+                <step>
+                    Navigate to
+                    <path>scr/main/kotlin/com/example</path>
+                    and create a new package called
+                    <path>db</path>
+                    .
+                </step>
+                <step>
+                    Inside the
+                    <path>db</path>
+                    package, create a new
+                    <path>mapping.kt</path>
+                    file.
+                </step>
+                <step>
+                    <p>
+                        Open
+                        <path>mapping.kt</path>
+                        and add the types <code>TaskTable</code> and <code>TaskDAO</code>:
+                    </p>
+                    <code-block
+                            src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/db/mapping.kt"
+                            lang="kotlin"/>
+                    <p>
+                        These types use the Exposed library to map the properties in the <code>Task</code> type to the
+                        columns in the
+                        <path>task</path>
+                        table in the database. The <code>TaskTable</code> type defines the basic mapping, whilst the <code>TaskDAO</code>
+                        type adds the helper methods to create, find, update, and delete tasks.
+                    </p>
+                    <p>
+                        Support for the DAO types hasn’t been added by the Ktor Project Generator, so you will need to add
+                        the relevant dependency in the Gradle build file.
+                    </p>
+                </step>
+                <step>
+                    <p>
+                        Open the
+                        <path>gradle.build.kts</path>
+                        file and add the following dependency:
+                    </p>
+                    <code-block>
+                        implementation("org.jetbrains.exposed:exposed-dao:$exposed_version")
+                    </code-block>
+                </step>
+                <step>
+                    <include from="lib.topic" element-id="intellij_idea_load_gradle_changes"/>
+                </step>
+                <step>
+                    <p>
+                        Navigate back to the
+                        <path>mapping.kt</path>
+                        file and add the following two helper functions:
+                    </p>
+                    <code-block
+                            src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/db/mapping.kt"
+                            lang="kotlin"/>
+                    <p>
+                        <code>suspendTransaction()</code> takes a block of code and runs it within a database transaction,
+                        through the IO Dispatcher. This is designed to offload blocking jobs of work onto a thread pool.
+                    </p>
+                    <p>
+                        <code>daoToModel()</code> transforms an instance of the <code>TaskDAO</code> type to the
+                        <code>Task</code> object.
+                    </p>
+                </step>
+            </procedure>
+        </chapter>
+        <chapter title="Write the New Repository" id="create-new-repo">
+            <procedure>
+                <p>You now have all the resources needed to create a database-specific repository.</p>
+                <step>
+                    Navigate to
+                    <path>src/main/kotlin/com/example/model</path>
+                    and create a new
+                    <path>PostgresTaskRepository.kt</path>
+                    file.
+                </step>
+                <step>
+                    <p>
+                        Open the
+                        <path>PostgresTaskRepository.kt</path>
+                        file and create a new type with the following implementation:
+                    </p>
+                    <code-block
+                            src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/model/PostgresTaskRepository.kt"
+                            lang="kotlin"/>
+                    <p>
+                        In this implementation, you use the helper methods of the <code>TaskDAO</code> and
+                        <code>TaskTable</code> types to interact with the database. Having created this new repository, the
+                        only remaining task is to switch to using it within your routes.
+                    </p>
+                </step>
+            </procedure>
+        </chapter>
+        <chapter title="Switch to the new repository" id="switch-repo">
+            <procedure>
+                <p>To switch to an external database, you simply need to change the repository type.</p>
+                <step>
+                    Open the
+                    <path>Application.kt</path>
+                    file in
+                    <path>src/main/kotlin/com/example</path>
+                    .
+                </step>
+                <step>
+                    <p>
+                        In the <code>Application.module()</code> function, replace the <code>FakeTaskRepository</code> with
+                        <code>PostgresTaskRepository</code>:
+                    </p>
+                    <code-block lang="kotlin"><![CDATA[
+                    fun Application.module() {
+                        val repository = PostgresTaskRepository()
+
+                        configureSerialization(repository)
+                        configureDatabases()
+                        configureRouting()
+                    }
+                ]]></code-block>
+                    <p>
+                        Because you are injecting the dependency through the interface, the switch in implementation is
+                        transparent to the code for managing routes.
+                    </p>
+                </step>
+                <step>
+                    Restart the application.
+                </step>
+                <step>
+                    Navigate to <a href="http://0.0.0.0:8080/static/index.html">http://0.0.0.0:8080/static/index.html</a>.
+                    The UI remains unchanged, but it now fetches the data from the database.
+                </step>
+                <step>
+                    <p>
+                        To verify this, add a new task using the form, and query the data held in the tasks table in PostgreSQL.
+                    </p>
+                    <tip>
+                        <p>
+                            In intelliJ IDEA, you can use a
+                            <a href="https://www.jetbrains.com/help/idea/query-consoles.html#create_console">Query Console</a>
+                            and the <code>SELECT</code> SQL statement to query table data:
+                        </p>
+                        <code-block lang="SQL">
+                            SELECT * FROM task;
+                        </code-block>
+                        <p>
+                            Once queried, the data should be displayed in the
+                            <ui-path>Service</ui-path>
+                            pane, including the new task:
+                        </p>
+                        <img src="tutorial_server_db_integration_task_table.png"
+                             alt="A table of tasks displayed in the Service pane in intelliJ IDEA"
+                             border-effect="line"
+                             width="706"/>
+                    </tip>
+                </step>
+            </procedure>
+        </chapter>
+        <p>
+            With this, you have successfully completed integrating a database into your applciation.
+        </p>
+        <p>
+            The <code>FakeTaskRepository</code> type is no longer needed in production code, but is still valuable for
+            testing. Therefore, you can move it to the testing source set, in
+            <path>src/test/com/example</path>
+            .
+        </p>
+        <p>
+            The final project structure should look something like this:
+        </p>
+        <img src="tutorial_server_db_integration_src_folder.png"
+             alt="The src folder shown within the Project View in intelliJ IDEA"
+             border-effect="line"
+             width="400"/>
+    </chapter>
+    <chapter title="Next steps" id="next-steps">
+        <p>
+            You now have a Single Page Application communicating with a Ktor RESTful service. This in turn uses a
+            Repository written with Exposed to access PostgreSQL. You also have a suite of tests that verifies the core
+            functionality, without requiring either a web server or a database.
+        </p>
+        <p>
+            This structure can be expanded as required to support arbitrary functionality. But before doing this, you
+            should consider non-functional aspects of the design, such as fault-tolerance, security, and scalability.
+        </p>
+    </chapter>
+</topic>

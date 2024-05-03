@@ -537,7 +537,7 @@
         </p>
         <p>
             Continue to
-            <a href="db-persistence.md">the next tutorial</a>
+            <a href="server-integrate-database.topic">the next tutorial</a>
             to explore how your service can seamlessly interact with relational databases using the Exposed library.
         </p>
     </chapter>

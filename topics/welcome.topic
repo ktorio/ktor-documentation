@@ -32,6 +32,7 @@
             <a href="server-working-with-websockets.topic">
                 Create a WebSocket application
             </a>
+            <a href="server-integrate-database.topic">Integrate a database</a>
         </primary>
         <secondary></secondary>
         <misc>
