@@ -7,3 +7,4 @@ target
 local.properties
 *.lock
 /app/snippets-api
+.gitignore template:
