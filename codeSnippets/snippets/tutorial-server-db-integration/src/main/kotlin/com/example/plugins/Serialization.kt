@@ -21,6 +21,7 @@ fun Application.configureSerialization(repository: TaskRepository) {
                 val tasks = repository.allTasks()
                 call.respond(tasks)
             }
+
             get("/byName/{taskName}") {
                 val name = call.parameters["taskName"]
                 if (name == null) {
@@ -34,6 +35,7 @@ fun Application.configureSerialization(repository: TaskRepository) {
                 }
                 call.respond(task)
             }
+
             get("/byPriority/{priority}") {
                 val priorityAsText = call.parameters["priority"]
                 if (priorityAsText == null) {
@@ -54,6 +56,7 @@ fun Application.configureSerialization(repository: TaskRepository) {
                     call.respond(HttpStatusCode.BadRequest)
                 }
             }
+
             post {
                 try {
                     val task = call.receive<Task>()
@@ -65,6 +68,7 @@ fun Application.configureSerialization(repository: TaskRepository) {
                     call.respond(HttpStatusCode.BadRequest)
                 }
             }
+
             delete("/{taskName}") {
                 val name = call.parameters["taskName"]
                 if (name == null) {

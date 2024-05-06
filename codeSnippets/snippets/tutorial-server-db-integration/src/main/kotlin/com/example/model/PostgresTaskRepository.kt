@@ -1,11 +1,13 @@
-package com.example.model;
+package com.example.model
 
 import Priority
 import Task
-import daoToModel
+import com.example.db.TaskDAO
+import com.example.db.TaskTable
+import com.example.db.daoToModel
+import com.example.db.suspendTransaction
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.deleteWhere
-import suspendTransaction
 
 class PostgresTaskRepository : TaskRepository {
     override suspend fun allTasks(): List<Task> = suspendTransaction {

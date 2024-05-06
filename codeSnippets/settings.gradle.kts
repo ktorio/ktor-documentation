@@ -162,6 +162,7 @@ module("snippets", "data-conversion")
 module("snippets", "tutorial-server-routing-and-requests")
 module("snippets", "tutorial-server-restful-api")
 module("snippets", "tutorial-server-websockets")
+module("snippets", "tutorial-server-db-integration")
 
 if(!System.getProperty("os.name").startsWith("Windows")) {
     module("snippets", "embedded-server-native")
