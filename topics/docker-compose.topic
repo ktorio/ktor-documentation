@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       id="docker-compose" title="Docker Compose">
+
+    <show-structure for="chapter" depth="2"/>
+    <tldr>
+        <p>
+            <control>Initial project</control>
+            : <a
+                href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-server-db-integration">tutorial-server-db-integration</a>
+        </p>
+        <p>
+            <control>Final project</control>
+            : <a
+                href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-server-docker-compose">tutorial-server-docker-compose</a>
+        </p>
+    </tldr>
+    <p>In this topic, we'll show how to run a server Ktor application under Docker Compose. We'll be using a project
+        created
+        in the <a href="server-integrate-database.topic">Integrate a Database</a> tutorial, which uses Exposed to
+        connect to a PostgreSQL database where the database
+        and the web
+        application run separately.</p>
+    <chapter title="Get the application ready" id="prepare-app">
+        <chapter title="Connect to a database" id="connect_db">
+            <p>
+                The <a
+                    href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-server-db-integration">tutorial-server-db-integration</a>
+                sample uses hardcoded <code>url</code> in the
+                <code>src/main/kotlin/com/example/plugins/databases.kt</code> file to establish a
+                database connection.</p>
+            <p>
+                Let's extract connection settings for the PostgreSQL database to
+                a <a href="server-configuration-file.topic">custom configuration group</a>.
+            </p>
+            <procedure>
+                <step>
+                    <p>Open the
+                        <path>application.yaml</path>
+                        file in
+                        <path>src/main/resources/</path>
+                        and
+                        add the <code>storage</code> group outside the <code>ktor</code> group as follows:
+                    </p>
+                    <code-block lang="yaml"
+                                src="snippets/tutorial-server-docker-compose/src/main/resources/application.yaml"/>
+                    <p>Note that <code>jdbcURL</code> includes the following components:</p>
+                    <list>
+                        <li><code>db:5432</code> is a host and port on which the PostgreSQL database is running.</li>
+                        <li><code>ktor_tutorial_db</code> is the name of the database created when running services.
+                        </li>
+                    </list>
+                    <p>These settings will be configured later in the <a
+                            anchor="configure-docker">docker-compose.yml</a> file.
+                    </p>
+                </step>
+                <step>
+                    <p>
+                        Open the
+                        <path>Databases.kt</path>
+                        file in
+                        <path>src/main/kotlin/com/example/plugins/Databases.kt</path>
+                        and update the <code>configureDatabases()</code> function
+                        to load storage settings from the configuration file:
+                    </p>
+                    <code-block lang="kotlin"
+                                src="snippets/tutorial-server-docker-compose/src/main/kotlin/com/example/plugins/Databases.kt"
+                                include-lines="13-23"/>
+                    <p>
+                        The <code>configureDatabases()</code> function now accepts <code>ApplicationConfig</code> and
+                        uses <code>config.property</code> to load custom settings.
+                    </p>
+                </step>
+                <step>
+                    <p>
+                        Open the
+                        <path>Application.kt</path>
+                        file in
+                        <path>src/main/kotlin/com/example/</path>
+                        and pass <code>environment.config</code> to <code>configureDatabases()</code>
+                        to load connection settings on application startup:
+                    </p>
+                    <code-block lang="kotlin"
+                                src="snippets/tutorial-server-docker-compose/src/main/kotlin/com/example/Application.kt"
+                                include-lines="11-17"/>
+                </step>
+            </procedure>
+        </chapter>
+        <chapter title="Configure the Ktor plugin" id="configure-ktor-plugin">
+            <p>In order to run on Docker, the application needs to have all the required files deployed to the
+                container. Depending on the build system you're using,
+                there are different plugins to accomplish this:</p>
+            <list>
+                <li><a href="server-fatjar.md"></a></li>
+                <li><a href="maven-assembly-plugin.md"></a></li>
+            </list>
+            <p>In our example, the Ktor plugin is already applied in the
+                <path>build.gradle.kts</path>
+                file.
+            </p>
+            <code-block lang="kotlin" src="snippets/tutorial-server-docker-compose/build.gradle.kts"
+                        include-lines="5-10">
+            </code-block>
+        </chapter>
+    </chapter>
+    <chapter title="Configure Docker" id="configure-docker">
+        <chapter title="Prepare Docker image" id="prepare-docker-image">
+            <p>
+                To dockerize the application, create a new
+                <path>Dockerfile</path>
+                in the root directory of the project and insert
+                the following content:
+            </p>
+            <code-block lang="Docker" src="snippets/tutorial-server-docker-compose/Dockerfile"/>
+            <p>
+                Note that this
+                <path>Dockerfile</path>
+                requires creating a fat JAR before running <code>docker compose
+                up</code>.
+            </p>
+            <tip>
+                To learn how to use multi-stage builds to generate an application distribution using Docker, see
+                <a href="docker.md" anchor="prepare-docker"/>.
+            </tip>
+        </chapter>
+        <chapter title="Configure Docker Compose" id="configure-docker-compose">
+            <p>In the root directory of the project, create a new
+                <path>docker-compose.yml</path>
+                file. and add the following content:
+            </p>
+            <code-block lang="yaml" src="snippets/tutorial-server-docker-compose/docker-compose.yml"/>
+            <list>
+                <li>The <code>web</code> service is used to run the Ktor application packaged inside the <a
+                        anchor="prepare-docker-image">image</a>.
+                </li>
+                <li>The <code>db</code> service uses the <code>postgres</code> image to create the
+                    <code>ktor_tutorial_db</code> database for storing articles of our journal.
+                </li>
+            </list>
+        </chapter>
+    </chapter>
+    <chapter title="Build and run services" id="build-run">
+        <procedure>
+            <step>
+                <p>
+                    First, create a <a anchor="configure-ktor-plugin">fat JAR</a>
+                    containing a Ktor application:
+                </p>
+                <code-block lang="Bash">
+                    ./gradlew :tutorial-server-docker-compose:buildFatJar
+                </code-block>
+            </step>
+            <step>
+                <p>
+                    Use the <code>docker compose up</code> command to build the images and start containers:
+                </p>
+                <code-block lang="Bash">
+                    docker compose --project-directory snippets/tutorial-website-interactive-docker-compose up
+                </code-block>
+            </step>
+            <step>
+                <p>
+                    Once Docker Compose has finished building the images, navigate to
+                    <a href="http://localhost:8080/">http://localhost:8080/</a> to
+                    open the web application.
+                </p>
+            </step>
+        </procedure>
+    </chapter>
+
+</topic>

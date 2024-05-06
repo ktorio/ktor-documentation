@@ -234,7 +234,7 @@
             <toc-element toc-title="Containerizing">
                 <toc-element topic="docker.md"
                              accepts-web-file-names="containers.html"/>
-                <toc-element topic="docker-compose.md"/>
+                <toc-element topic="docker-compose.topic"/>
             </toc-element>
             <toc-element toc-title="Publishing">
                 <toc-element topic="google-app-engine.md"
