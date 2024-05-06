@@ -239,14 +239,25 @@
                         <path>TaskRepository.kt</path>
                         and add the following <code>interface</code>:
                     </p>
-                    <code-block
-                            src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/model/TaskRepository.kt"
-                            lang="kotlin"/>
+                    <code-block lang="kotlin"><![CDATA[
+                        package com.example.model
+
+                        import Priority
+                        import Task
+
+                        interface TaskRepository {
+                            fun allTasks(): List<Task>
+                            fun tasksByPriority(priority: Priority): List<Task>
+                            fun taskByName(name: String): Task?
+                            fun addTask(task: Task)
+                            fun removeTask(name: String): Boolean
+                        }
+                    ]]></code-block>
                 </step>
                 <step>
                     Create a new
                     <path>FakeTaskRepository.kt</path>
-                    file.
+                    file inside the same directory.
                 </step>
                 <step>
                     <p>
@@ -255,7 +266,7 @@
                         and add the following <code>class</code>:
                     </p>
                     <code-block
-                            src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/model/FakeTaskRepository.kt"
+                            src="snippets/tutorial-server-db-integration/src/test/kotlin/com/example/FakeTaskRepository.kt"
                             lang="kotlin"/>
                 </step>
             </procedure>
@@ -301,11 +312,11 @@
                         Replace the <code>module()</code> function with the implementation below:
                     </p>
                     <code-block lang="kotlin"><![CDATA[
-                    import FakeTaskRepository
+                    import com.example.FakeTaskRepository
                     //...
 
                     fun Application.module() {
-                        val repository = FakeTaskRepository()
+                        val repository = com.example.FakeTaskRepository()
 
                         configureSerialization(repository)
                         configureDatabases()
@@ -313,7 +324,7 @@
                     }
                 ]]></code-block>
                     <p>
-                        You are now injecting an instance of your <code>FakeTaskRepository</code> into <code>configureSerialization()</code>.
+                        You are now injecting an instance of your <code>com.example.FakeTaskRepository</code> into <code>configureSerialization()</code>.
                         The long-term goal is to be able to replace this with a <code>PostgresTaskRepository</code>.
                     </p>
                 </step>
@@ -541,18 +552,18 @@
                         Coroutine Dispatcher.
                     </p>
                     <p>
-                        You now need to adjust the methods of the <code>FakeTaskRepository</code> to match, although you do
+                        You now need to adjust the methods of the <code>com.example.FakeTaskRepository</code> to match, although you do
                         not need to switch Dispatcher in that implementation.
                     </p>
                 </step>
                 <step>
                     <p>
                         Open the
-                        <path>FakeTaskRepository.kt</path>
+                        <path>com.example.FakeTaskRepository.kt</path>
                         file and add the <code>suspend</code> keyword to all methods:
                     </p>
                     <code-block lang="kotlin"><![CDATA[
-                    class FakeTaskRepository : TaskRepository {
+                    class com.example.FakeTaskRepository : TaskRepository {
                         private val tasks = mutableListOf(
                             ...
                         )
@@ -597,15 +608,15 @@
                         Use the <code>Databse.connect()</code> function to connect to your database, adjusting the values of
                         the settings to match your environment:
                     </p>
-                    <code-block lang="kotlin">
+                    <code-block lang="kotlin"><![CDATA[
                         fun Application.configureDatabases() {
-                        Database.connect(
-                        "jdbc:postgresql://localhost:5432/ktor_tutorial_db",
-                        user = "postgres",
-                        password = "password"
-                        )
+                            Database.connect(
+                                "jdbc:postgresql://localhost:5432/ktor_tutorial_db",
+                                user = "postgres",
+                                password = "password"
+                            )
                         }
-                    </code-block>
+                    ]]></code-block>
                 </step>
             </procedure>
         </chapter>
@@ -633,6 +644,7 @@
                     </p>
                     <code-block
                             src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/db/mapping.kt"
+                            include-lines="1-2,5-8,11-24"
                             lang="kotlin"/>
                     <p>
                         These types use the Exposed library to map the properties in the <code>Task</code> type to the
@@ -652,8 +664,26 @@
                         <path>gradle.build.kts</path>
                         file and add the following dependency:
                     </p>
-                    <code-block>
-                        implementation("org.jetbrains.exposed:exposed-dao:$exposed_version")
+                    <code-block lang="kotlin"><![CDATA[
+                        //...
+                        val exposed_version: String by project
+
+                        //..
+
+                        dependencies {
+                            //...
+                            implementation("org.jetbrains.exposed:exposed-dao:$exposed_version")
+                        }
+                    ]]></code-block>
+                </step>
+                <step>
+                    <p>
+                        Open the
+                        <path>gradle.properties</path>
+                        file located in the project's root directory and add a new property for the Exposed version:
+                    </p>
+                    <code-block lang="kotlin">
+                        exposed_version=%exposed_version%
                     </code-block>
                 </step>
                 <step>
@@ -667,6 +697,7 @@
                     </p>
                     <code-block
                             src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/db/mapping.kt"
+                            include-lines="26-34"
                             lang="kotlin"/>
                     <p>
                         <code>suspendTransaction()</code> takes a block of code and runs it within a database transaction,
@@ -676,6 +707,15 @@
                         <code>daoToModel()</code> transforms an instance of the <code>TaskDAO</code> type to the
                         <code>Task</code> object.
                     </p>
+                </step>
+                <step>
+                    <p>
+                        Add the following missing imports:
+                    </p>
+                    <code-block
+                            src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/db/mapping.kt"
+                            include-lines="3-4,9-10"
+                            lang="kotlin"/>
                 </step>
             </procedure>
         </chapter>
@@ -718,10 +758,15 @@
                 </step>
                 <step>
                     <p>
-                        In the <code>Application.module()</code> function, replace the <code>FakeTaskRepository</code> with
+                        In the <code>Application.module()</code> function, replace the <code>com.example.FakeTaskRepository</code> with
                         <code>PostgresTaskRepository</code>:
                     </p>
                     <code-block lang="kotlin"><![CDATA[
+                    //...
+                    import com.example.model.PostgresTaskRepository
+
+                    //...
+
                     fun Application.module() {
                         val repository = PostgresTaskRepository()
 
@@ -736,15 +781,17 @@
                     </p>
                 </step>
                 <step>
-                    Restart the application.
+                    <include from="lib.topic" element-id="intellij_idea_restart_application"/>
                 </step>
                 <step>
-                    Navigate to <a href="http://0.0.0.0:8080/static/index.html">http://0.0.0.0:8080/static/index.html</a>.
+                    Navigate to <a
+                        href="http://0.0.0.0:8080/static/index.html">http://0.0.0.0:8080/static/index.html</a>.
                     The UI remains unchanged, but it now fetches the data from the database.
                 </step>
                 <step>
                     <p>
-                        To verify this, add a new task using the form, and query the data held in the tasks table in PostgreSQL.
+                        To verify this, add a new task using the form and query the data held in the tasks table in
+                        PostgreSQL.
                     </p>
                     <tip>
                         <p>
