@@ -1,13 +1,12 @@
 package com.example
 
 import Task
-import com.example.plugins.configureRouting
-import com.example.plugins.configureSerialization
+import com.example.plugins.*
 import io.ktor.client.call.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.request.*
 import io.ktor.http.*
-import io.ktor.serialization.kotlinx.json.*
+import io.ktor.serialization.kotlinx.json.json
 import io.ktor.server.testing.*
 import kotlin.test.*
 
@@ -38,10 +37,6 @@ class ApplicationTest {
 
     @Test
     fun invalidPriorityProduces400() = testApplication {
-        application {
-            module()
-        }
-
         val response = client.get("/tasks/byPriority/Invalid")
         assertEquals(HttpStatusCode.BadRequest, response.status)
     }
