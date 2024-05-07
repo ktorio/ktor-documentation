@@ -17,20 +17,17 @@
                 href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-server-docker-compose">tutorial-server-docker-compose</a>
         </p>
     </tldr>
-    <p>In this topic, we'll show how to run a server Ktor application under Docker Compose. We'll be using a project
-        created
-        in the <a href="server-integrate-database.topic">Integrate a Database</a> tutorial, which uses Exposed to
-        connect to a PostgreSQL database where the database
-        and the web
+    <p>In this topic, we'll show you how to run a server Ktor application under
+        <a href="https://docs.docker.com/compose/">Docker Compose</a>. We'll be using a project created in the
+        <a href="server-integrate-database.topic">Integrate a Database</a> tutorial, which uses
+        <a href="https://github.com/JetBrains/Exposed">Exposed</a> to
+        connect to a <a href="https://www.postgresql.org/docs/">PostgreSQL</a> database where the database and the web
         application run separately.</p>
     <chapter title="Get the application ready" id="prepare-app">
-        <chapter title="Connect to a database" id="connect_db">
+        <chapter title="Extract database settings" id="extract-db-settings">
             <p>
-                The <a
-                    href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-server-db-integration">tutorial-server-db-integration</a>
-                sample uses hardcoded <code>url</code> in the
-                <code>src/main/kotlin/com/example/plugins/databases.kt</code> file to establish a
-                database connection.</p>
+                The project created in the <a href="server-integrate-database.topic#config-db-connection">Integrate a
+                Database</a> tutorial uses hardcoded attributes to establish a database connection.</p>
             <p>
                 Let's extract connection settings for the PostgreSQL database to
                 a <a href="server-configuration-file.topic">custom configuration group</a>.
@@ -40,20 +37,15 @@
                     <p>Open the
                         <path>application.yaml</path>
                         file in
-                        <path>src/main/resources/</path>
-                        and
-                        add the <code>storage</code> group outside the <code>ktor</code> group as follows:
+                        <path>src/main/resources</path>
+                        and add the <code>storage</code> group outside the <code>ktor</code> group as follows:
                     </p>
                     <code-block lang="yaml"
                                 src="snippets/tutorial-server-docker-compose/src/main/resources/application.yaml"/>
-                    <p>Note that <code>jdbcURL</code> includes the following components:</p>
-                    <list>
-                        <li><code>db:5432</code> is a host and port on which the PostgreSQL database is running.</li>
-                        <li><code>ktor_tutorial_db</code> is the name of the database created when running services.
-                        </li>
-                    </list>
                     <p>These settings will be configured later in the <a
-                            anchor="configure-docker">docker-compose.yml</a> file.
+                            anchor="configure-docker">
+                        <path>docker-compose.yml</path>
+                    </a> file.
                     </p>
                 </step>
                 <step>
@@ -61,7 +53,7 @@
                         Open the
                         <path>Databases.kt</path>
                         file in
-                        <path>src/main/kotlin/com/example/plugins/Databases.kt</path>
+                        <path>src/main/kotlin/com/example/plugins/</path>
                         and update the <code>configureDatabases()</code> function
                         to load storage settings from the configuration file:
                     </p>
@@ -106,7 +98,7 @@
         </chapter>
     </chapter>
     <chapter title="Configure Docker" id="configure-docker">
-        <chapter title="Prepare Docker image" id="prepare-docker-image">
+        <chapter title="Prepare the Docker image" id="prepare-docker-image">
             <p>
                 To dockerize the application, create a new
                 <path>Dockerfile</path>
@@ -128,7 +120,7 @@
         <chapter title="Configure Docker Compose" id="configure-docker-compose">
             <p>In the root directory of the project, create a new
                 <path>docker-compose.yml</path>
-                file. and add the following content:
+                file and add the following content:
             </p>
             <code-block lang="yaml" src="snippets/tutorial-server-docker-compose/docker-compose.yml"/>
             <list>
@@ -136,7 +128,7 @@
                         anchor="prepare-docker-image">image</a>.
                 </li>
                 <li>The <code>db</code> service uses the <code>postgres</code> image to create the
-                    <code>ktor_tutorial_db</code> database for storing articles of our journal.
+                    <code>ktor_tutorial_db</code> database for storing tasks.
                 </li>
             </list>
         </chapter>
@@ -145,8 +137,8 @@
         <procedure>
             <step>
                 <p>
-                    First, create a <a anchor="configure-ktor-plugin">fat JAR</a>
-                    containing a Ktor application:
+                    Run the following command to create the <a anchor="configure-ktor-plugin">fat JAR</a>
+                    containing your Ktor application:
                 </p>
                 <code-block lang="Bash">
                     ./gradlew :tutorial-server-docker-compose:buildFatJar
@@ -157,15 +149,22 @@
                     Use the <code>docker compose up</code> command to build the images and start containers:
                 </p>
                 <code-block lang="Bash">
-                    docker compose --project-directory snippets/tutorial-website-interactive-docker-compose up
+                    docker compose --project-directory snippets/tutorial-server-docker-compose up
                 </code-block>
             </step>
             <step>
+                Wait until Docker Compose has finished building the images.
+            </step>
+            <step>
                 <p>
-                    Once Docker Compose has finished building the images, navigate to
-                    <a href="http://localhost:8080/">http://localhost:8080/</a> to
-                    open the web application.
+                    Navigate to <a href="http://localhost:8080/">http://localhost:8080/</a> to
+                    open the web application. You should see the Task Manager Client page displaying three forms for
+                    filtering and adding new tasks,as well as a table of tasks.
                 </p>
+                <img src="tutorial_server_db_integration_manual_test.gif"
+                     alt="A browser window showing the Task Manager Client"
+                     border-effect="rounded"
+                     width="706"/>
             </step>
         </procedure>
     </chapter>
