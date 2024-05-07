@@ -160,8 +160,9 @@
                 </step>
                 <step>
                     <p>
-                        Open the generated project in <a href="https://www.jetbrains.com/help/idea/installation-guide.html">IntelliJ
-                        IDEA</a> or another IDE of your choice.
+                        Open the generated project in
+                        <a href="https://www.jetbrains.com/help/idea/installation-guide.html">IntelliJ
+                            IDEA</a> or another IDE of your choice.
                     </p>
                 </step>
                 <step>
@@ -186,8 +187,8 @@
                         }
                     </code-block>
                     <p>
-                        The reason for removing this functionality is that the Ktor Project Generator has added sample code
-                        to show how to persist data about users and cities to HSQLDB or PostgreSQL. You will not be
+                        The reason for removing this functionality is that the Ktor Project Generator has added sample
+                        code to show how to persist data about users and cities to HSQLDB or PostgreSQL. You will not be
                         requiring that sample code in this tutorial.
                     </p>
                 </step>
@@ -213,7 +214,8 @@
                     <p>
                         Open
                         <path>Task.kt</path>
-                        and add an <code>enum</code> to represent priorities and a <code>class</code> to represent tasks.
+                        and add an <code>enum</code> to represent priorities and a <code>class</code> to represent
+                        tasks.
                     </p>
                     <code-block src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/model/Task.kt"
                                 lang="kotlin"/>
@@ -222,8 +224,8 @@
                             href="server-serialization.md">kotlinx.serialization</a> library.
                     </p>
                     <p>
-                        As in previous tutorials, you will create an in-memory repository. However, this time the repository
-                        will implement an <code>interface</code> so that you can easily replace it later.
+                        As in previous tutorials, you will create an in-memory repository. However, this time the
+                        repository will implement an <code>interface</code> so that you can easily replace it later.
                     </p>
                 </step>
                 <step>
@@ -296,8 +298,8 @@
                         implementations can be injected.
                     </p>
                     <p>
-                        Now that you have added a parameter to <code>configureSerialization()</code>, existing calls will no
-                        longer compile. Fortunately, this function is only called once.
+                        Now that you have added a parameter to <code>configureSerialization()</code>, existing calls
+                        will no longer compile. Fortunately, this function is only called once.
                     </p>
                 </step>
                 <step>
@@ -324,7 +326,8 @@
                     }
                 ]]></code-block>
                     <p>
-                        You are now injecting an instance of your <code>com.example.FakeTaskRepository</code> into <code>configureSerialization()</code>.
+                        You are now injecting an instance of your <code>com.example.FakeTaskRepository</code> into
+                        <code>configureSerialization()</code>.
                         The long-term goal is to be able to replace this with a <code>PostgresTaskRepository</code>.
                     </p>
                 </step>
@@ -347,8 +350,8 @@
                             src="snippets/tutorial-server-db-integration/src/main/resources/static/index.html"
                             lang="html"/>
                     <p>
-                        This is the same SPA that was used in previous tutorials. Because it is written in JavaScript and
-                        only uses libraries available within the browser, you do not have to worry about client-side
+                        This is the same SPA that was used in previous tutorials. Because it is written in JavaScript
+                        and only uses libraries available within the browser, you do not have to worry about client-side
                         dependencies.
                     </p>
                 </step>
@@ -363,8 +366,8 @@
                     <p>
                         Navigate to <a
                             href="http://0.0.0.0:8080/static/index.html">http://0.0.0.0:8080/static/index.html</a>
-                        in your browser. You should see the client page consisting of three forms and a table displaying the
-                        filtered results.
+                        in your browser. You should see the client page consisting of three forms and a table displaying
+                        the filtered results.
                     </p>
                     <img src="tutorial_server_db_integration_index_page.png"
                          alt="A browser window showing the Task Manager Client"
@@ -511,8 +514,8 @@
                         <li>
                             There is an additional column called
                             <path>id</path>
-                            , which is of type <code>SERIAL</code>. This will be an integer value, used to give each row its
-                            primary key. These values will be assigned by the database on your behalf.
+                            , which is of type <code>SERIAL</code>. This will be an integer value, used to give each row
+                            its primary key. These values will be assigned by the database on your behalf.
                         </li>
                     </list>
                 </step>
@@ -552,8 +555,8 @@
                         Coroutine Dispatcher.
                     </p>
                     <p>
-                        You now need to adjust the methods of the <code>com.example.FakeTaskRepository</code> to match, although you do
-                        not need to switch Dispatcher in that implementation.
+                        You now need to adjust the methods of the <code>com.example.FakeTaskRepository</code> to match,
+                        although you do not need to switch Dispatcher in that implementation.
                     </p>
                 </step>
                 <step>
@@ -580,9 +583,9 @@
                     }
                 ]]></code-block>
                     <p>
-                        Up to this point, you haven’t introduced any new functionality. Instead, you’ve laid the groundwork
-                        for creating a <code>PostgresTaskRepository</code> that will asynchronously run queries against the
-                        database.
+                        Up to this point, you haven’t introduced any new functionality. Instead, you’ve laid the
+                        groundwork for creating a <code>PostgresTaskRepository</code> that will asynchronously run
+                        queries against the database.
                     </p>
                 </step>
             </procedure>
@@ -590,11 +593,11 @@
         <chapter title="Configure the database connection" id="config-db-connection">
             <procedure>
                 <p>
-                    In <a anchor="delete-function">the first part of this tutorial</a> , you deleted the sample code in the
+                    In <a anchor="delete-function">the first part of this tutorial</a> , you deleted the sample code in
+                    the
                     <code>configureDatabases()</code> method, found within
                     <path>Databases.kt</path>
-                    . You are now ready to add in our own
-                    implementation.
+                    . You are now ready to add in our own implementation.
                 </p>
                 <step>
                     Open the
@@ -605,8 +608,8 @@
                 </step>
                 <step>
                     <p>
-                        Use the <code>Databse.connect()</code> function to connect to your database, adjusting the values of
-                        the settings to match your environment:
+                        Use the <code>Databse.connect()</code> function to connect to your database, adjusting the
+                        values of the settings to match your environment:
                     </p>
                     <code-block lang="kotlin"><![CDATA[
                         fun Application.configureDatabases() {
@@ -617,6 +620,21 @@
                             )
                         }
                     ]]></code-block>
+                    <p>Note that the <code>url</code> includes the following components:</p>
+                    <list>
+                        <li>
+                            <code>localhost:5432</code> is the host and port on which the PostgreSQL database is
+                            running.
+                        </li>
+                        <li>
+                            <code>ktor_tutorial_db</code> is the name of the database created when running services.
+                        </li>
+                    </list>
+                    <tip>
+                        For more information, see
+                        <a href="https://jetbrains.github.io/Exposed/database-and-datasource.html">
+                            working with Database and DataSource in Exposed</a>.
+                    </tip>
                 </step>
             </procedure>
         </chapter>
@@ -650,12 +668,12 @@
                         These types use the Exposed library to map the properties in the <code>Task</code> type to the
                         columns in the
                         <path>task</path>
-                        table in the database. The <code>TaskTable</code> type defines the basic mapping, whilst the <code>TaskDAO</code>
-                        type adds the helper methods to create, find, update, and delete tasks.
+                        table in the database. The <code>TaskTable</code> type defines the basic mapping, whilst the
+                        <code>TaskDAO</code> type adds the helper methods to create, find, update, and delete tasks.
                     </p>
                     <p>
-                        Support for the DAO types hasn’t been added by the Ktor Project Generator, so you will need to add
-                        the relevant dependency in the Gradle build file.
+                        Support for the DAO types hasn’t been added by the Ktor Project Generator, so you will need to
+                        add the relevant dependency in the Gradle build file.
                     </p>
                 </step>
                 <step>
@@ -700,7 +718,8 @@
                             include-lines="26-34"
                             lang="kotlin"/>
                     <p>
-                        <code>suspendTransaction()</code> takes a block of code and runs it within a database transaction,
+                        <code>suspendTransaction()</code> takes a block of code and runs it within a database
+                        transaction,
                         through the IO Dispatcher. This is designed to offload blocking jobs of work onto a thread pool.
                     </p>
                     <p>
@@ -740,8 +759,8 @@
                             lang="kotlin"/>
                     <p>
                         In this implementation, you use the helper methods of the <code>TaskDAO</code> and
-                        <code>TaskTable</code> types to interact with the database. Having created this new repository, the
-                        only remaining task is to switch to using it within your routes.
+                        <code>TaskTable</code> types to interact with the database. Having created this new repository,
+                        the only remaining task is to switch to using it within your routes.
                     </p>
                 </step>
             </procedure>
@@ -758,8 +777,8 @@
                 </step>
                 <step>
                     <p>
-                        In the <code>Application.module()</code> function, replace the <code>com.example.FakeTaskRepository</code> with
-                        <code>PostgresTaskRepository</code>:
+                        In the <code>Application.module()</code> function, replace the <code>com.example.FakeTaskRepository</code>
+                        with <code>PostgresTaskRepository</code>:
                     </p>
                     <code-block lang="kotlin"><![CDATA[
                     //...
@@ -796,8 +815,8 @@
                     <tip>
                         <p>
                             In intelliJ IDEA, you can use a
-                            <a href="https://www.jetbrains.com/help/idea/query-consoles.html#create_console">Query Console</a>
-                            and the <code>SELECT</code> SQL statement to query table data:
+                            <a href="https://www.jetbrains.com/help/idea/query-consoles.html#create_console">Query
+                                Console</a> and the <code>SELECT</code> SQL statement to query table data:
                         </p>
                         <code-block lang="SQL">
                             SELECT * FROM task;
@@ -816,7 +835,7 @@
             </procedure>
         </chapter>
         <p>
-            With this, you have successfully completed integrating a database into your applciation.
+            With this, you have successfully completed integrating a database into your application.
         </p>
         <p>
             The <code>FakeTaskRepository</code> type is no longer needed in production code, but is still valuable for
@@ -834,13 +853,17 @@
     </chapter>
     <chapter title="Next steps" id="next-steps">
         <p>
-            You now have a Single Page Application communicating with a Ktor RESTful service. This in turn uses a
-            Repository written with Exposed to access PostgreSQL. You also have a suite of tests that verifies the core
-            functionality, without requiring either a web server or a database.
+            You now have an application communicating with a Ktor RESTful service. This in turn uses a
+            repository written with <a href="https://github.com/JetBrains/Exposed">Exposed</a> to access
+            <a href="https://www.postgresql.org/docs/">PostgreSQL</a>. You also have <a anchor="add-automated-tests">a
+            suite of tests</a> that verifies the core functionality, without requiring either a web server or a
+            database.
         </p>
         <p>
-            This structure can be expanded as required to support arbitrary functionality. But before doing this, you
-            should consider non-functional aspects of the design, such as fault-tolerance, security, and scalability.
+            This structure can be expanded as required to support arbitrary functionality, however, you
+            might want to consider non-functional aspects of the design first, such as fault-tolerance, security, and
+            scalability. You can start by <a href="docker-compose.topic#extract-db-settings">extracting the database
+            connection settings</a> to a <a href="server-configuration-file.topic">configuration file</a>.
         </p>
     </chapter>
 </topic>
