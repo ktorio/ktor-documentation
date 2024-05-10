@@ -68,4 +68,4 @@ supported by those engines:
 | [Darwin](client-engines.md#darwin) | ✅️              | ✖️              | ✅️             |
 | [JavaScript](client-engines.md#js) | ✅               | ✖️              | ✖️             |
 | [Curl](client-engines.md#curl)     | ✅               | ✅️              | ✖️             |
-| [MockEngine](client-testing.md)    | ✅               | ✖️              | ✖️             |
+| [MockEngine](client-testing.md)    | ✅               | ✖️              | ✅              |
