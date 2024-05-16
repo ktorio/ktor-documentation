@@ -19,9 +19,10 @@
     </link-summary>
 
     <p>
-        Ktor includes a multiplatform asynchronous HTTP client, which allows you to make requests and handle responses,
-        extend its functionality with <a href="client-plugins.md">plugins</a>, such as authentication, JSON
-        serialization, and more.
+        Ktor includes a multiplatform asynchronous HTTP client, which allows you to <a href="client-requests.md">make
+        requests</a> and <a href="client-responses.md">handle responses</a>,
+        extend its functionality with <a href="client-plugins.md">plugins</a>, such as <a href="client-auth.md">authentication</a>,
+        <a href="client-serialization.md">JSON serialization</a>, and more.
     </p>
     <p>
         In this tutorial, we'll show you how to create your first Ktor client application that sends a request and
@@ -34,8 +35,13 @@
 
     <chapter title="Create a new project" id="new-project">
         <p>
-            To try out a Ktor client in action, we'll create a Kotlin/JVM project.
-            <a href="https://www.jetbrains.com/help/idea/run-for-the-first-time.html">Open IntelliJ IDEA</a> and follow
+            You can <a href="client-create-and-configure.md">create and configure</a> a Ktor Client in your existing
+            project manually, however a convenient way to start from scratch is by generating a new project using the
+            bundled Kotlin plugin for IntelliJ IDEA.
+        </p>
+        <p>
+            To create a new Kotlin project,
+            <a href="https://www.jetbrains.com/help/idea/run-for-the-first-time.html">open IntelliJ IDEA</a> and follow
             the steps below:
         </p>
         <procedure>
