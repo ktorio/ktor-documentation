@@ -24,12 +24,12 @@
 
         <primary>
             <title>Ktor Server</title>
-            <a href="server-requests-and-responses.topic"
-               summary="Learn how routing and requests work in Ktor by creating a Task Manager application.">
+            <a href="server-requests-and-responses.topic">
                 Handle requests and generate responses
             </a>
-            <a href="server-build-web-application.topic">Build a web application</a>
-            <a href="server-working-with-websockets.topic">
+            <a href="server-create-restful-apis.topic">Create a RESTful API</a>
+            <a href="server-create-website.topic">Create a website</a>
+            <a href="server-create-websocket-application.topic">
                 Create a WebSocket application
             </a>
             <a href="server-integrate-database.topic">Integrate a database</a>

@@ -3,7 +3,7 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
 <topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-       title="Create a WebSocket application in Kotlin with Ktor" id="server-working-with-websockets">
+       title="Create a WebSocket application in Kotlin with Ktor" id="server-create-websocket-application">
     <show-structure for="chapter" depth="2"/>
     <tldr>
         <var name="example_name" value="tutorial-server-websockets"/>
@@ -25,10 +25,8 @@
         of connecting your backend services with a client, through WebSockets.
     </web-summary>
     <p>
-        This article will walk you through the process of working with WebSockets in Kotlin with Ktor. It builds on the
-        material covered in the <a href="server-create-restful-apis.topic">Create RESTful APIs</a> tutorial. We will
-        take the service developed in that tutorial and incrementally add the ability to exchange Task objects with a
-        client, through a <a href="server-websockets.md">WebSocket</a> connection.
+        This article walks you through the process of creating a WebSocket application in Kotlin with Ktor. It builds on
+        the material covered in the <a href="server-create-restful-apis.topic">Create RESTful APIs</a> tutorial.
     </p>
     <p>This article will teach you how to do the following:</p>
     <list>
@@ -209,7 +207,7 @@
                         For demonstration purposes, a one-second delay is introduced between sending tasks. This
                         allows us to observe the tasks appearing incrementally in our client. Without this delay,
                         the example would appear identical to the <a href="server-create-restful-apis.topic">RESTful
-                        service</a> and <a href="server-build-web-application.topic">Web Application</a> developed in
+                        service</a> and <a href="server-create-website.topic">Web Application</a> developed in
                         previous articles.
                     </p>
                     <p>

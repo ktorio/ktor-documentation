@@ -3,7 +3,7 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
 <topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-       title="Build a web application in Kotlin with Ktor" id="server-build-web-application">
+       title="Create a website in Kotlin with Ktor" id="server-create-website">
     <tldr>
         <var name="example_name" value="tutorial-server-web-application"/>
         <include from="lib.topic" element-id="download_example"/>
@@ -14,18 +14,18 @@
         </p>
     </tldr>
     <web-summary>
-        Learn how to build web applications with Ktor and Kotlin. This tutorial guides you from HTML frontend
-        design with templates to connection with RESTful services on the backend.
+        Learn how to build websites with Ktor and Kotlin. This tutorial shows you how to combine Thymeleaf templates
+        with Ktor routes to generate HTML-based user interfaces on the server side.
     </web-summary>
     <card-summary>
-        Discover the process of building a Web Application in Kotlin with Ktor and Thymeleaf templates.
+        Learn how to build a website in Kotlin with Ktor and Thymeleaf templates.
     </card-summary>
     <link-summary>
-        Discover the process of building a Web Application in Kotlin with Ktor.
+        Learn how to build a website in Kotlin with Ktor and Thymeleaf templates.
     </link-summary>
 
     <p>
-        In this tutorial, we will show you how to build a web application in Kotlin with Ktor and
+        In this tutorial, we will show you how to build an interactive website in Kotlin with Ktor and
         <a href="https://www.thymeleaf.org/">Thymeleaf</a> templates.
     </p>
 
@@ -484,7 +484,7 @@ fun Application.configureTemplating() {
             Congratulations! You have now completed rebuilding your Task Manager as a web application and
             learned how to utilize Thymeleaf templates.</p>
         <p>
-            Continue to the <a href="server-working-with-websockets.topic">next tutorial</a> to learn how to work with
+            Continue to the <a href="server-create-websocket-application.topic">next tutorial</a> to learn how to work with
             Web Sockets.
         </p>
     </chapter>

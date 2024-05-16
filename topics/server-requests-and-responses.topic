@@ -16,6 +16,9 @@
         Learn the basics of routing, handling requests, and parameters in Kotlin with Ktor by
         building a task manager application.
     </link-summary>
+    <card-summary>
+        Learn how routing and requests work in Ktor by creating a Task Manager application.
+    </card-summary>
     <web-summary>
         Learn the fundamentals of validation, error handling, and unit testing for services created with Kotlin and
         Ktor.

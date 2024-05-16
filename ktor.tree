@@ -16,12 +16,12 @@
             <toc-element topic="server-requests-and-responses.topic"
                          toc-title="Handle requests and generate responses"
                          accepts-web-file-names="creating-http-apis.html" accepts-web-file-names-ref="tutorials"/>
-            <toc-element topic="server-create-restful-apis.topic" toc-title="Create RESTful APIs"/>
-            <toc-element topic="server-build-web-application.topic"
-                         toc-title="Build a web application"
+            <toc-element topic="server-create-restful-apis.topic" toc-title="Create a RESTful API"/>
+            <toc-element topic="server-create-website.topic"
+                         toc-title="Create a website"
                          accepts-web-file-names="creating-static-website.html,creating-interactive-website.html,
                          server-create-static-website.html, server-create-interactive-website.html"/>
-            <toc-element topic="server-working-with-websockets.topic"
+            <toc-element topic="server-create-websocket-application.topic"
                          toc-title="Create a WebSocket application"
                          accepts-web-file-names="creating-web-socket-chat.html,server-create-websocket-chat.html,
                          getting-started-ktor-client-chat.html, client-create-websocket-chat.html"/>
