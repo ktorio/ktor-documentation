@@ -17,11 +17,14 @@
         </p>
     </tldr>
     <card-summary>
-        Learn the process of connecting RESTful services to a database using the Exposed SQL Library.
+        Learn the process of connecting Ktor services to database repositories with the Exposed SQL Library.
     </card-summary>
+    <link-summary>
+        Learn the process of connecting Ktor services to database repositories with the Exposed SQL Library.
+    </link-summary>
     <web-summary>
-        Learn how to build a Single Page Application (SPA) with Kotlin and Ktor, and connect RESTful services to a
-        database using the Exposed SQL Library.
+        Learn how to use Kotlin and Ktor to build a single-page application (SPA) in which RESTful services link to
+        database repositories. It uses the Exposed SQL library and allows you to fake repositories for testing.
     </web-summary>
 
     <p>
@@ -41,7 +44,7 @@
         In previous tutorials, we used the Task Manager example to cover basics, such as <a
             href="server-requests-and-responses.topic">handling requests</a>,
         <a href="server-create-restful-apis.topic">creating RESTful APIs</a> or
-        <a href="server-build-web-application.topic">building Web Apps with Thymeleaf templates</a>.
+        <a href="server-create-website.topic">building Web Apps with Thymeleaf templates</a>.
         While those tutorials focused on front-end functionality using a simple in-memory <code>TaskRepository</code>,
         this guide shifts focus to show how your Ktor services can interact with relational databases through the
         <a href="https://github.com/JetBrains/Exposed">Exposed SQL Library</a>.
