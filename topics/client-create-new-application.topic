@@ -35,8 +35,8 @@
 
     <chapter title="Create a new project" id="new-project">
         <p>
-            You can <a href="client-create-and-configure.md">create and configure</a> a Ktor Client in your existing
-            project manually, however a convenient way to start from scratch is by generating a new project using the
+            You can <a href="client-create-and-configure.md">create and configure</a> a Ktor Client manually in an
+            existing project, however a convenient way to start from scratch is by generating a new project using the
             bundled Kotlin plugin for IntelliJ IDEA.
         </p>
         <p>
@@ -79,7 +79,7 @@
                     </li>
                     <li>
                         <p>
-                            <control>Build System</control>
+                            <control>Build system</control>
                             : Make sure that
                             <control>Gradle</control>
                             is selected.
@@ -91,6 +91,12 @@
                             : Choose
                             <control>Kotlin</control>
                             .
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <control>Add sample code</control>
+                            : Select this option to include sample code in the generated project.
                         </p>
                     </li>
                 </list>
@@ -136,11 +142,14 @@
                 <code-block lang="kotlin" src="snippets/tutorial-client-get-started/build.gradle.kts"
                             include-lines="1-2,17-20"/>
 
-                <p>
-                    <code>ktor-client-core</code> is a core dependency that provides the main client functionality,
-                    while <code>ktor-client-cio</code> is a dependency for an <a href="client-engines.md">engine</a>
-                    processing network requests.
-                </p>
+                <list>
+                    <li><code>ktor-client-core</code> is a core dependency that provides the main client functionality,
+                    </li>
+                    <li>
+                        <code>ktor-client-cio</code> is a dependency for an <a href="client-engines.md">engine</a>
+                        processing network requests.
+                    </li>
+                </list>
             </step>
             <step>
                 <p>
@@ -166,7 +175,7 @@
                 <p>
                     Open the
                     <path>Main.kt</path>
-                    file and replace the existing code with the following:
+                    file and replace the existing code with the following implementation:
                 </p>
                 <code-block lang="kotlin"><![CDATA[
                     import io.ktor.client.*
@@ -184,7 +193,7 @@
             </step>
             <step>
                 <p>
-                    Use the <code>HttpClient.get()</code> method to <a href="client-requests.md">make a GET request</a>.
+                    Use the <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/get.html"><code>HttpClient.get()</code></a> method to <a href="client-requests.md">make a GET request</a>.
                     A <a href="client-responses.md">response</a> will be received as a <code>HttpResponse</code> class
                     object.
                 </p>
@@ -267,14 +276,14 @@
                 </p>
                 <img src="client_get_started_run_output.png" alt="Server response" width="706"/>
                 <p>
-                    And just like that you now have a working Ktor Client.
+                    With this you have created a working Ktor Client.
                 </p>
             </step>
         </procedure>
     </chapter>
     <chapter title="Next steps" id="next-steps">
         <p>
-            To better understand and extend this configuration, take a look at how to
+            To better understand and extend this configuration, explore how to
             <a href="client-create-and-configure.md">create and configure a Ktor client</a>.
         </p>
     </chapter>
