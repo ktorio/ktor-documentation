@@ -259,7 +259,7 @@
 
 
     <toc-element toc-title="Ktor Client">
-        <toc-element toc-title="Getting started with a Ktor Client">
+        <toc-element toc-title="Getting started with Ktor Client">
             <toc-element topic="client-create-new-application.topic"
                          accepts-web-file-names="getting-started-ktor-client.html"/>
             <toc-element topic="client-create-websocket-chat.md"

@@ -289,21 +289,10 @@
 
     <snippet id="client_prerequisites">
         <p>
-            Before starting this tutorial:
+            Before starting this tutorial,
+            <a href="https://www.jetbrains.com/help/idea/installation-guide.html">install IntelliJ IDEA Community or
+                Ultimate</a>.
         </p>
-        <list>
-            <li>
-                <p>
-                    <a href="https://www.jetbrains.com/help/idea/installation-guide.html">Install IntelliJ IDEA Community or Ultimate</a>.
-                </p>
-            </li>
-            <li>
-                <p>
-                    Make sure the <a href="https://plugins.jetbrains.com/plugin/6954-kotlin">Kotlin</a> plugin is installed and enabled. Learn how to do this from the
-                    <a href="https://www.jetbrains.com/help/idea/managing-plugins.html#open-plugin-settings">Install plugins</a> topic.
-                </p>
-            </li>
-        </list>
     </snippet>
 
     <snippet id="native_server_supported">
