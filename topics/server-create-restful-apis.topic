@@ -11,7 +11,9 @@
         <include from="lib.topic" element-id="download_example"/>
         <p>
             <b>Used plugins</b>: <a href="server-routing.md"/>,<a href="server-static-content.md">Static Content</a>,
-            <a href="server-serialization.md">Content Negotiation</a>, kotlinx.serialization
+            <a href="server-serialization.md">Content Negotiation</a>, <a
+                href="https://kotlinlang.org/api/kotlinx.serialization/">kotlinx.serialization</a>
+
         </p>
     </tldr>
     <card-summary>
@@ -26,6 +28,10 @@
         Learn how to build a backend service using Kotlin and Ktor, featuring an example of a
         RESTful API that generates JSON files.
     </link-summary>
+    <p>
+        In this tutorial, we’ll explain how to build a backend service using Kotlin and Ktor, featuring an example of a
+        RESTful API that generates JSON files.
+    </p>
     <p>
         In the <a href="server-requests-and-responses.topic">previous tutorial</a>, we introduced you to the
         fundamentals of validation, error handling, and unit testing. This tutorial will expand on these topics by
