@@ -60,7 +60,12 @@ In a case of a timeout, Ktor throws `HttpRequestTimeoutException`, `ConnectTimeo
 
 ## Limitations {id="limitations"}
 
-`HttpTimeout` has some limitations for specific [engines](client-engines.md):
-* [Darwin](client-engines.md#darwin) doesn't support a connection timeout.
-* [JavaScript](client-engines.md#js) supports only a request timeout.
-* [Curl](client-engines.md#curl) doesn't support a socket timeout.
+`HttpTimeout` has some limitations for specific [engines](client-engines.md). The table below shows which timeouts are
+supported by those engines:
+
+| Engine                             | Request Timeout | Connect Timeout | Socket Timeout |
+|------------------------------------|-----------------|-----------------|----------------|
+| [Darwin](client-engines.md#darwin) | ✅️              | ✖️              | ✅️             |
+| [JavaScript](client-engines.md#js) | ✅               | ✖️              | ✖️             |
+| [Curl](client-engines.md#curl)     | ✅               | ✅️              | ✖️             |
+| [MockEngine](client-testing.md)    | ✅               | ✖️              | ✅              |

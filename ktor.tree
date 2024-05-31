@@ -13,17 +13,22 @@
         <toc-element toc-title="Getting started with Ktor Server">
             <toc-element topic="server-create-a-new-project.topic"
                          accepts-web-file-names="getting-started.html, intellij-idea.html"/>
-            <toc-element topic="server-create-http-apis.md"
-                         accepts-web-file-names="creating-http-apis.html"
-                         accepts-web-file-names-ref="tutorials"/>
-            <toc-element toc-title="Creating a website">
-                <toc-element topic="server-create-static-website.md"
-                             accepts-web-file-names="creating-static-website.html"/>
-                <toc-element topic="server-create-interactive-website.md"
-                             accepts-web-file-names="creating-interactive-website.html"/>
-            </toc-element>
-            <toc-element topic="server-create-websocket-chat.md"
-                         accepts-web-file-names="creating-web-socket-chat.html"/>
+            <toc-element topic="server-requests-and-responses.topic"
+                         toc-title="Handle requests and generate responses"
+                         accepts-web-file-names="creating-http-apis.html" accepts-web-file-names-ref="tutorials"/>
+            <toc-element topic="server-create-restful-apis.topic" toc-title="Create a RESTful API"/>
+            <toc-element topic="server-create-website.topic"
+                         toc-title="Create a website"
+                         accepts-web-file-names="creating-static-website.html,creating-interactive-website.html,
+                         server-create-static-website.html, server-create-interactive-website.html"/>
+            <toc-element topic="server-create-websocket-application.topic"
+                         toc-title="Create a WebSocket application"
+                         accepts-web-file-names="creating-web-socket-chat.html,server-create-websocket-chat.html,
+                         getting-started-ktor-client-chat.html, client-create-websocket-chat.html"/>
+            <toc-element topic="server-integrate-database.topic"
+                         toc-title="Integrate a database"
+                         accepts-web-file-names="db-persistence.html, interactive-website-add-persistence.html,
+                         db-connection-pooling-caching.html, connection-pooling-caching.html"/>
         </toc-element>
 
         <toc-element toc-title="Developing applications">
@@ -212,13 +217,6 @@
         <toc-element topic="server-testing.md"
                      accepts-web-file-names="servers-testing.html,testing.html"/>
 
-        <toc-element toc-title="Database integration">
-            <toc-element topic="db-persistence.md"
-                         accepts-web-file-names="interactive-website-add-persistence.html"/>
-            <toc-element topic="db-connection-pooling-caching.md"
-                         accepts-web-file-names="connection-pooling-caching.html"/>
-        </toc-element>
-
         <toc-element topic="server-deployment.md"
                      accepts-web-file-names="deploy.html">
             <toc-element toc-title="Packaging">
@@ -236,7 +234,7 @@
             <toc-element toc-title="Containerizing">
                 <toc-element topic="docker.md"
                              accepts-web-file-names="containers.html"/>
-                <toc-element topic="docker-compose.md"/>
+                <toc-element topic="docker-compose.topic"/>
             </toc-element>
             <toc-element toc-title="Publishing">
                 <toc-element topic="google-app-engine.md"
@@ -258,11 +256,9 @@
 
 
     <toc-element toc-title="Ktor Client">
-        <toc-element toc-title="Getting started with a Ktor Client">
+        <toc-element toc-title="Getting started with Ktor Client">
             <toc-element topic="client-create-new-application.topic"
                          accepts-web-file-names="getting-started-ktor-client.html"/>
-            <toc-element topic="client-create-websocket-chat.md"
-                         accepts-web-file-names="getting-started-ktor-client-chat.html"/>
             <toc-element topic="client-create-multiplatform-application.md"
                          accepts-web-file-names="getting-started-ktor-client-multiplatform-mobile.html"/>
         </toc-element>

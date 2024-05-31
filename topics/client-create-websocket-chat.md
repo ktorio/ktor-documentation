@@ -14,8 +14,6 @@
 Learn how to create a client chat application that uses WebSockets.
 </link-summary>
 
-This is the second part of the [](server-create-websocket-chat.md) tutorial.
-
 In this section, you will learn how to create a Ktor client chat application that
 uses [WebSockets](client-websockets.md). The application will allow users to join a common chat server, send messages to
 users, and read messages from users in the terminal.
@@ -25,7 +23,7 @@ users, and read messages from users in the terminal.
 <include from="lib.topic" element-id="client_prerequisites"/>
 
 * To test the client, you will need a running server application. Follow the preceding tutorial
-  for [](server-create-websocket-chat.md) or download the code
+  for [](server-create-websocket-application.topic) or download the code
   example [tutorial-websockets-server](https://github.com/ktorio/ktor-documentation/tree/2.3.4/codeSnippets/snippets/tutorial-websockets-server).
 
 ## Create a new project {id="new-project"}

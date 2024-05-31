@@ -32,10 +32,11 @@
     </p>
     <list type="decimal">
         <li>Create, open and run a new Ktor project.</li>
-        <li><a href="server-create-http-apis.md">Create HTTP APIs</a>.</li>
-        <li><a href="server-create-static-website.md">Create a static website</a>.</li>
-        <li><a href="server-create-interactive-website.md">Create an interactive website</a>.</li>
-        <li><a href="server-create-websocket-chat.md">Create a WebSocket chat</a>.</li>
+        <li><a href="server-requests-and-responses.topic">Handle requests and generate responses</a>.</li>
+        <li><a href="server-create-restful-apis.topic">Create a RESTful API that generates JSON</a>.</li>
+        <li><a href="server-create-website.topic">Create a website using Thymeleaf templates</a>.</li>
+        <li><a href="server-create-websocket-application.topic">Create a WebSocket application</a>.</li>
+        <li><a href="server-integrate-database.topic">Integrate a database with Exposed</a>.</li>
     </list>
     <chapter id="create-project" title="Create a new Ktor project">
         <p>
@@ -1021,7 +1022,8 @@
             into the foundational concepts of Ktor, continue to the next tutorial in this guide.
         </p>
         <p>
-            Next up, you will learn about routing and requests by <a href="server-create-http-apis.md">creating an HTTP API</a>.
+            Next up, you will learn how to <a href="server-requests-and-responses.topic">handle requests and
+            generate responses by creating a Task Manager application</a>.
         </p>
     </chapter>
 </topic>

@@ -13,8 +13,8 @@
 <link-summary>Learn how to add persistence to a website using the Exposed ORM framework.</link-summary>
 
 In this series of tutorials, we'll show you how to create a simple blog application in Ktor:
-- In the first tutorial, we showed how to host [static content](server-create-static-website.md) like images and HTML pages.
-- In the second tutorial, we [added interactivity](server-create-interactive-website.md) to our application using the FreeMarker template engine.
+- In the first tutorial, we showed how to host static content like images and HTML pages.
+- In the second tutorial, we added interactivity to our application using the FreeMarker template engine.
 - In **this tutorial**, we'll add persistence to our website using the Exposed framework. We'll use the H2 local database to store articles.
 - In the [next tutorial](db-connection-pooling-caching.md), we'll look at how to implement database connection pooling and caching using the HikariCP and Ehcache libraries, respectively.
 

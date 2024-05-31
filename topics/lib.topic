@@ -289,21 +289,10 @@
 
     <snippet id="client_prerequisites">
         <p>
-            Before starting this tutorial:
+            Before starting this tutorial,
+            <a href="https://www.jetbrains.com/help/idea/installation-guide.html">install IntelliJ IDEA Community or
+                Ultimate</a>.
         </p>
-        <list>
-            <li>
-                <p>
-                    <a href="https://www.jetbrains.com/help/idea/installation-guide.html">Install IntelliJ IDEA Community or Ultimate</a>.
-                </p>
-            </li>
-            <li>
-                <p>
-                    Make sure the <a href="https://plugins.jetbrains.com/plugin/6954-kotlin">Kotlin</a> plugin is installed and enabled. Learn how to do this from the
-                    <a href="https://www.jetbrains.com/help/idea/managing-plugins.html#open-plugin-settings">Install plugins</a> topic.
-                </p>
-            </li>
-        </list>
     </snippet>
 
     <snippet id="native_server_supported">
@@ -379,11 +368,57 @@
         </p>
     </snippet>
 
+    <snippet id="generate_project_step_1">
+        <p>
+            Navigate to the
+            <a href="https://start.ktor.io/">Ktor Project Generator</a>
+            .
+        </p>
+    </snippet>
 
+    <snippet id="generate_project_final_step">
+        <p>
+            Click
+            <control>Generate project</control>
+            to generate and download your Ktor project.
+        </p>
+    </snippet>
     <snippet id="release_details_link">
         <p>
             <a href="https://github.com/ktorio/ktor/releases/tag/%version%">See changelog on
                 GitHub</a>
+        </p>
+    </snippet>
+
+    <snippet id="intellij_idea_load_gradle_changes">
+        <p>In intelliJ IDEA, click on the notification Gradle icon
+            (<img alt="intelliJ IDEA gradle icon"
+                  src="intellij_idea_gradle_icon.svg" width="16" height="26"/>)
+            on the right side of the editor to load Gradle changes.</p>
+    </snippet>
+
+    <snippet id="intellij_idea_run_test">
+        <p>In IntelliJ IDEA, click on the run button
+            (<img src="intellij_idea_gutter_icon.svg"
+                  style="inline" height="16" width="16"
+                  alt="intelliJ IDEA run icon"/>)
+            next to the test class definition to run the tests.</p>
+    </snippet>
+
+    <snippet id="intellij_idea_start_application">
+        <p>In IntelliJ IDEA, click on the run button
+            (<img src="intellij_idea_gutter_icon.svg"
+                  style="inline" height="16" width="16"
+                  alt="intelliJ IDEA run icon"/>)
+            to start the application.</p>
+    </snippet>
+
+    <snippet id="intellij_idea_restart_application">
+        <p>
+            In IntelliJ IDEA, click the rerun button (<img src="intellij_idea_rerun_icon.svg"
+                                                           style="inline" height="16" width="16"
+                                                           alt="intelliJ IDEA rerun icon"/>) to restart the
+            application.
         </p>
     </snippet>
 </topic>

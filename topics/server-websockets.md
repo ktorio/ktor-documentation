@@ -24,7 +24,6 @@ The Websockets plugin allows you to create a multi-way communication session bet
 WebSocket is a protocol which provides a full-duplex communication session between the user's browser and a server over
 a single TCP connection. It is particularly useful for creating applications that require real-time data transfer from
 and to the server.
-For example, WebSockets can be used to create a [chat application](server-create-websocket-chat.md).
 
 Ktor supports the WebSocket protocol both on the server-, and the client-side.
 
@@ -129,7 +128,7 @@ see [server-websockets](https://github.com/ktorio/ktor-documentation/tree/%ktor_
 
 ### Example: Handle multiple sessions {id="handle-multiple-session"}
 
-To handle multiple WebSocket sessions (for example, in a [chat application](server-create-websocket-chat.md)), you need to
+To handle multiple WebSocket sessions, you need to
 store each session on a server. To do this, you define a connection with a unique name and associate it with a specified
 session. A sample `Connection` class below shows how to do this:
 
