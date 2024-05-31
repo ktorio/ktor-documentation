@@ -948,7 +948,11 @@
     <chapter title="Next steps" id="next-steps">
         <p>
             You have now implemented basic routing and request handling functionality. In addition, you were introduced
-            to validation, error handling and unit testing. All these topics will be expanded in subsequent tutorials.
+            to validation, error handling, and unit testing. All these topics will be expanded in subsequent tutorials.
+        </p>
+        <p>
+            Continue to <a href="server-create-restful-apis.topic">the next tutorial</a> to learn how to create a
+            RESTful API for your task manager that generates JSON files.
         </p>
     </chapter>
 </topic>
