@@ -6,7 +6,7 @@
        title="Integrate a database with Kotlin, Ktor, and Exposed" id="server-integrate-database">
     <show-structure for="chapter" depth="2"/>
     <tldr>
-        <var name="example_name" value="tutorial-server-database-integration"/>
+        <var name="example_name" value="tutorial-server-db-integration"/>
         <include from="lib.topic" element-id="download_example"/>
         <p>
             <b>Used plugins</b>: <a href="server-routing.md"/>,<a href="server-static-content.md">Static Content</a>,
