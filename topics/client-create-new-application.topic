@@ -244,9 +244,31 @@
                 <code-block
                         lang="kotlin"
                         src="snippets/tutorial-client-get-started/src/main/kotlin/Main.kt"/>
+            </step>
+            <step>
                 <p>
-                    Proceed to the next section to learn how to run your application.
+                    To see logs correctly, you need to add a logger dependency. In the
+                    <path>gradle.properties</path>
+                    file, specify the logger version:
                 </p>
+                <code-block lang="kotlin">
+                    logback_version=%logback_version%
+                </code-block>
+            </step>
+            <step>
+                <p>
+                    In the
+                    <path>build.gradle.kts</path>
+                    file, add the logging artifact to the <code>dependencies</code> block:
+                </p>
+                <code-block lang="kotlin"><![CDATA[
+                    val logback_version: String by project
+
+                    dependencies {
+                        //...
+                        implementation("ch.qos.logback:logback-classic:$logback_version")
+                    }
+                ]]></code-block>
             </step>
         </procedure>
     </chapter>
