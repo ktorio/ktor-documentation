@@ -135,12 +135,24 @@
             </step>
             <step>
                 <p>
+                    Because Ktor uses the SLF4J abstraction layer for logging on JVM, you need to
+                    <a href="client-logging.md" anchor="jvm">provide a logging framework</a>, such as
+                    <a href="https://logback.qos.ch/">Logback</a>. In the
+                    <path>gradle.properties</path>
+                    file, specify the version for the logging framework:
+                </p>
+                <code-block lang="kotlin">
+                    logback_version=%logback_version%
+                </code-block>
+            </step>
+            <step>
+                <p>
                     Open the
                     <path>build.gradle.kts</path>
                     file and add the following artifacts to the dependencies block:
                 </p>
                 <code-block lang="kotlin" src="snippets/tutorial-client-get-started/build.gradle.kts"
-                            include-lines="1-2,17-20"/>
+                            include-lines="1-2,17-22"/>
 
                 <list>
                     <li><code>ktor-client-core</code> is a core dependency that provides the main client functionality,
@@ -148,6 +160,10 @@
                     <li>
                         <code>ktor-client-cio</code> is a dependency for an <a href="client-engines.md">engine</a>
                         processing network requests.
+                    </li>
+                    <li>
+                        <code>ch.qos.logback:logback-classic</code> is a logging dependency that provides the logging
+                        framework.
                     </li>
                 </list>
             </step>
@@ -244,31 +260,6 @@
                 <code-block
                         lang="kotlin"
                         src="snippets/tutorial-client-get-started/src/main/kotlin/Main.kt"/>
-            </step>
-            <step>
-                <p>
-                    To see logs correctly, you need to add a logger dependency. In the
-                    <path>gradle.properties</path>
-                    file, specify the logger version:
-                </p>
-                <code-block lang="kotlin">
-                    logback_version=%logback_version%
-                </code-block>
-            </step>
-            <step>
-                <p>
-                    In the
-                    <path>build.gradle.kts</path>
-                    file, add the logging artifact to the <code>dependencies</code> block:
-                </p>
-                <code-block lang="kotlin"><![CDATA[
-                    val logback_version: String by project
-
-                    dependencies {
-                        //...
-                        implementation("ch.qos.logback:logback-classic:$logback_version")
-                    }
-                ]]></code-block>
             </step>
         </procedure>
     </chapter>

@@ -10,30 +10,49 @@
 <include from="lib.topic" element-id="download_example"/>
 </tldr>
 
-Ktor client provides the capability to log HTTP calls using
+Logging is a way to keep track of what your program is doing and diagnose problems by recording important events,
+errors, or informational messages.
+
+Ktor provides the capability to log HTTP calls using
 the [Logging](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-logging/io.ktor.client.plugins.logging/-logging)
 plugin.
-This plugin provides different logger types for different platforms:
+This plugin provides different logger types for different platforms.
 
-- On [JVM](client-engines.md#jvm), Ktor uses [SLF4J API](http://www.slf4j.org/) as a facade for various logging
-  frameworks (for example, [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j)).
-- For [Native targets](client-engines.md#native), the `Logging` plugin provides a logger that prints everything
-  to `STDOUT`.
-- For [multiplatform projects](client-create-multiplatform-application.md), you can specify
-  a [custom logger](#custom_logger) (for example, [Napier](https://github.com/AAkira/Napier)).
+## JVM
 
-## Add dependencies {id="add_dependencies"}
+<snippet id="jvm-logging">
+  <p>
+    On <a href="client-engines.md" anchor="jvm">JVM</a>, Ktor uses the Simple Logging Facade for Java
+    (<a href="http://www.slf4j.org/">SLF4J</a>) as an
+    abstraction layer for logging. This allows you to bind logging with a framework of your choice according to your needs
+    and preferences. Common choices include <a href="https://logback.qos.ch/">Logback</a> or 
+    <a href="https://logging.apache.org/log4j">Log4j</a>. If no binding is provided, SLF4J will default to a no-operation (NOP) implementation, which essentially disables
+    logging.
+  </p>
 
-To enable logging, you need to include the following artifacts in the build script:
-
-* (Optional) An artifact with the required SLF4J implementation, for example, [Logback](https://logback.qos.ch/):
-
+  <p>
+    To enable logging, include an artifact with the required SLF4J implementation, such
+    as <a href="https://logback.qos.ch/">Logback</a>:
+  </p>
   <var name="group_id" value="ch.qos.logback"/>
   <var name="artifact_name" value="logback-classic"/>
   <var name="version" value="logback_version"/>
   <include from="lib.topic" element-id="add_artifact"/>
+</snippet>
 
-* The `ktor-client-logging` artifact:
+## Native
+
+For [Native targets](client-engines.md#native), the `Logging` plugin provides a logger that prints everything
+to `STDOUT`.
+
+## Multiplatform
+
+In [multiplatform projects](client-create-multiplatform-application.md), you can specify
+a [custom logger](#custom_logger) (for example, [Napier](https://github.com/AAkira/Napier)).
+
+## Add dependencies {id="add_dependencies"}
+
+To add the `Logging` plugin, include the following artifact to your build script:
 
   <var name="artifact_name" value="ktor-client-logging"/>
   <include from="lib.topic" element-id="add_ktor_artifact"/>

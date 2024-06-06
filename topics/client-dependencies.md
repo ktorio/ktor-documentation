@@ -15,6 +15,10 @@ dependencies:
   Engines are used to process network requests.
   Note that a [specific platform](client-supported-platforms.md) may require a specific engine that processes network
   requests.
+- (Optional) **[Logging dependency](#logging-dependency)**
+
+  Provide a logging framework to enable structured and flexible logging capabilities.
+
 - (Optional) **[Plugin dependency](#plugin-dependency)**
 
   Plugins are used to extend the client with a specific functionality.
@@ -87,10 +91,16 @@ Then, add `ktor-client-okhttp` as a dependency to the `androidMain` source set:
 
 For a full list of dependencies required for a specific engine, see [](client-engines.md#dependencies).
 
+### Logging dependency
+
+<include from="client-logging.md" element-id="jvm-logging"/>
+
+For more information on logging in Ktor, see [](client-logging.md).
+
 ### Plugin dependency {id="plugin-dependency"}
 
 Ktor lets you use additional client functionality ([plugins](client-plugins.md)) that is not available by default,
-for example, logging, authorization, or serialization. Some of them are provided in separate artifacts. You can learn
+such as authorization and serialization. Some of them are provided in separate artifacts. You can learn
 which dependencies you need from a topic for a required plugin.
 
 > For a multiplatform project, a plugin dependency should be added to the `commonMain` source set. Note that some
