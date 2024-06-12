@@ -24,9 +24,11 @@ This plugin provides different logger types for different platforms.
   <p>
     On <a href="client-engines.md" anchor="jvm">JVM</a>, Ktor uses the Simple Logging Facade for Java
     (<a href="http://www.slf4j.org/">SLF4J</a>) as an
-    abstraction layer for logging. This allows you to bind logging with a framework of your choice according to your needs
-    and preferences. Common choices include <a href="https://logback.qos.ch/">Logback</a> or 
-    <a href="https://logging.apache.org/log4j">Log4j</a>. If no binding is provided, SLF4J will default to a no-operation (NOP) implementation, which essentially disables
+    abstraction layer for logging. SLF4J decouples the logging API from the underlying logging implementation, 
+    allowing you to integrate the logging framework that best suits your application's requirements.
+    Common choices include <a href="https://logback.qos.ch/">Logback</a> or 
+    <a href="https://logging.apache.org/log4j">Log4j</a>. If no framework is provided, SLF4J will default to a 
+    no-operation (NOP) implementation, which essentially disables
     logging.
   </p>
 
@@ -43,12 +45,12 @@ This plugin provides different logger types for different platforms.
 ## Native
 
 For [Native targets](client-engines.md#native), the `Logging` plugin provides a logger that prints everything
-to `STDOUT`.
+to the standard output stream (`STDOUT`).
 
 ## Multiplatform
 
 In [multiplatform projects](client-create-multiplatform-application.md), you can specify
-a [custom logger](#custom_logger) (for example, [Napier](https://github.com/AAkira/Napier)).
+a [custom logger](#custom_logger), such as [Napier](https://github.com/AAkira/Napier).
 
 ## Add dependencies {id="add_dependencies"}
 
@@ -79,22 +81,28 @@ The `Logging` plugin configuration is provided by
 the [Logging.Config](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-logging/io.ktor.client.plugins.logging/-logging-config)
 class. The example below shows a sample configuration:
 
-- The `logger` property is set to `Logger.DEFAULT`, which uses an SLF4J logging framework. For Native targets, set this
-  property to `Logger.SIMPLE`.
-- The `level` property specifies the logging level.
-  For instance, you can log only request/response headers or include their bodies.
-- The `filter` function allows you to filter log messages for requests matching the specified predicate. In the example
-  below, only requests made to `ktor.io` get into the log.
-- The `sanitizeHeader` function allows you to sanitize sensitive headers to avoid their values appearing in the logs. In
-  the example below, Authorization header value will be replaced with '***' when logged.
+`logger`
+: Specifies a Logger instance. `Logger.DEFAULT` uses an SLF4J logging framework. For Native targets, set this
+property to `Logger.SIMPLE`.
+
+`level`
+: Specifies the logging level. `LogLevel.HEADERS` will log only request/response headers.
+
+`filter()`
+: Allows you to filter log messages for requests matching the specified predicate. In the example
+below, only requests made to `ktor.io` get into the log.
+
+`sanitizeHeader()`
+: Allows you to sanitize sensitive headers to avoid their values appearing in the logs. In
+the example below, the `Authorization` header value will be replaced with '***' when logged.
 
 ```kotlin
 ```
 
 {src="snippets/client-logging/src/main/kotlin/com/example/Application.kt"}
 
-You can find the full example
-here: [client-logging](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-logging).
+For the full example,
+see [client-logging](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-logging).
 
 ### Provide a custom logger {id="custom_logger"}
 
