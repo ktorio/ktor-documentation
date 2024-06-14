@@ -42,6 +42,27 @@ This plugin provides different logger types for different platforms.
   <include from="lib.topic" element-id="add_artifact"/>
 </snippet>
 
+### Android
+
+<p>
+    On Android, we recommend to use the SLF4J Android library:
+</p>
+ <var name="group_id" value="org.slf4j"/>
+  <var name="artifact_name" value="slf4j-android"/>
+  <var name="version" value="slf4j_version"/>
+<tabs group="languages">
+    <tab title="Gradle (Kotlin)" group-key="kotlin">
+        <code-block lang="Kotlin">
+            implementation("%group_id%:%artifact_name%:$%version%")
+        </code-block>
+    </tab>
+    <tab title="Gradle (Groovy)" group-key="groovy">
+        <code-block lang="Groovy">
+            implementation "%group_id%:%artifact_name%:$%version%"
+        </code-block>
+    </tab>
+</tabs>
+
 ## Native
 
 For [Native targets](client-engines.md#native), the `Logging` plugin provides a logger that prints everything
