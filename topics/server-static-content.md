@@ -14,7 +14,7 @@ Learn how to serve static content, such as stylesheets, scripts, images, and so 
 </link-summary>
 
 Whether we're creating a website or an HTTP endpoint, many applications need to serve files (such as stylesheets, scripts, images, etc.). 
-While it is certainly possible with Ktor to load the contents of a file and [send it in response](server-responses.md) to a request, given this is such a common functionality, Ktor simplifies the entire process for us with the static [1](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.http.content/staticFiles.html) and [2](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.http.content/staticResources.html) plugins.
+While it is certainly possible with Ktor to load the contents of a file and [send it in response](server-responses.md) to a request, given this is such a common functionality, Ktor simplifies the entire process for us with the static [1](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.http.content/static-files.html) and [2](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.http.content/static-resources.html) plugins.
 
 The first step is to define where we want the content to be served from:
 
