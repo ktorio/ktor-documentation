@@ -42,6 +42,13 @@ ktor {
     }
 }
 
+fun getMinimizedJarFile(
+    fatJarFileNameWithoutExtension: String,
+    fatJarDestinationDirectory: DirectoryProperty
+): Provider<RegularFile> {
+    return fatJarDestinationDirectory.file("$fatJarFileNameWithoutExtension.min.jar")
+}
+
 val buildMinimizedJar = tasks.register<proguard.gradle.ProGuardTask>("buildMinimizedJar") {
     group = "ktor"
 
@@ -51,7 +58,10 @@ val buildMinimizedJar = tasks.register<proguard.gradle.ProGuardTask>("buildMinim
     val fatJarFileNameWithoutExtension = fatJarFile.get().asFile.nameWithoutExtension
     val fatJarDestinationDirectory = tasks.shadowJar.get().destinationDirectory
 
-    val minimizedJarFile = fatJarDestinationDirectory.get().file("$fatJarFileNameWithoutExtension-min.jar")
+    val minimizedJarFile = getMinimizedJarFile(
+        fatJarFileNameWithoutExtension = fatJarFileNameWithoutExtension,
+        fatJarDestinationDirectory = fatJarDestinationDirectory
+    )
 
     injars(fatJarFile)
     outjars(minimizedJarFile)
@@ -115,5 +125,13 @@ tasks.register<JavaExec>("runMinimizedJar") {
     group = "ktor"
 
     dependsOn(buildMinimizedJar)
-    classpath = files(tasks.shadowJar.get().archiveFile)
+
+    val fatJarFileNameWithoutExtension = tasks.shadowJar.get().archiveFile.get().asFile.nameWithoutExtension
+    val fatJarDestinationDirectory = tasks.shadowJar.get().destinationDirectory
+
+    val minimizedJarFile = getMinimizedJarFile(
+        fatJarFileNameWithoutExtension = fatJarFileNameWithoutExtension,
+        fatJarDestinationDirectory = fatJarDestinationDirectory
+    )
+    classpath = files(minimizedJarFile)
 }
