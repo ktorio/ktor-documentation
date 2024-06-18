@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException
+import java.nio.file.Paths
 
 val ktor_version: String by project
 val kotlin_version: String by project
@@ -49,23 +50,25 @@ val buildMinimizedJar = tasks.register<proguard.gradle.ProGuardTask>("buildMinim
     val fatJarFile = tasks.shadowJar.flatMap { it.archiveFile }
     val fatJarFileNameWithoutExtension = fatJarFile.get().asFile.nameWithoutExtension
     val fatJarDestinationDirectory = tasks.shadowJar.get().destinationDirectory
+
+    val minimizedJarFile = fatJarDestinationDirectory.get().file("$fatJarFileNameWithoutExtension-min.jar")
+
     injars(fatJarFile)
-    outjars(
-        fatJarDestinationDirectory.file("${fatJarFileNameWithoutExtension}.min.jar")
-    )
+    outjars(minimizedJarFile)
 
     // Automatically handle the Java version of this build.
     val javaHome = System.getProperty("java.home")
-    if (System.getProperty("java.version").startsWith("1.")) {
+    val javaVersion = System.getProperty("java.version")
+    if (javaVersion.startsWith("1.")) {
         // Before Java 9, runtime classes are packaged in a single JAR file.
-        libraryjars("$javaHome/lib/rt.jar")
+        libraryjars(Paths.get(javaHome, "lib", "rt.jar"))
     } else {
         // Starting from Java 9, runtime classes are packaged in modular JMOD files.
-        fun includeJavaModuleFromJDK(jModFileName: String) {
-            val jModFilePath = "$javaHome/jmods/$jModFileName"
+        fun includeJavaModuleFromJdk(jModFileNameWithoutExtension: String) {
+            val jModFilePath = Paths.get(javaHome, "jmods", "$jModFileNameWithoutExtension.jmod").toString()
             val jModFile = File(jModFilePath)
             if (!jModFile.exists()) {
-                throw FileNotFoundException("The '$jModFile' at '$jModFilePath' doesn't exist.")
+                throw FileNotFoundException("The Java module '$jModFileNameWithoutExtension' at '$jModFilePath' doesn't exist.")
             }
             libraryjars(
                 mapOf("jarfilter" to "!**.jar", "filter" to "!module-info.class"),
@@ -73,34 +76,36 @@ val buildMinimizedJar = tasks.register<proguard.gradle.ProGuardTask>("buildMinim
             )
         }
         val javaModules = listOf(
-            "java.base.jmod",
+            "java.base",
             // All imports from "org.mozilla.javascript.tools.debugger" use Java Swing/Desktop imports
-            "java.desktop.jmod",
+            "java.desktop",
             // Some libraries depends on Java logging
-            "java.logging.jmod",
+            "java.logging",
             // Some libraries depends on Java xml
-            "java.xml.jmod",
+            "java.xml",
             // Needed by some Ktor modules such as "ktor-server-auth-jvm"
-            "java.naming.jmod",
+            "java.naming",
             // Needed by some Ktor packages such as "io.ktor.util.debug"
-            "java.management.jmod",
+            "java.management",
             // Needed by some libraries such as "com.github.fge.jsonschema"
-            "java.scripting.jmod",
+            "java.scripting",
             // All classes in "com.fasterxml.jackson.databind" need this
-            "java.sql.jmod",
+            "java.sql",
             // Might be needed when using Java engine in Ktor Client
-            "java.net.http.jmod"
+            "java.net.http"
         )
-        javaModules.forEach { includeJavaModuleFromJDK(it) }
+        javaModules.forEach { includeJavaModuleFromJdk(jModFileNameWithoutExtension = it) }
     }
 
-    // This will include the Kotlin library jars, it will be needed even though Shadow JAR already includes it
-    // to solve all warnings that are related to Kotlin without '-dontwarn kotlin.**'
-    // this will also solve warnings that are coming from some libraries
+    // Includes the main source set's compile classpath for Proguard.
+    // Notice that Shadow JAR already includes Kotlin standard library and dependencies, yet this
+    // is essential for resolving Kotlin and other library warnings without using '-dontwarn kotlin.**'
     injars(sourceSets.main.get().compileClasspath)
 
     printmapping(fatJarDestinationDirectory.file("$fatJarFileNameWithoutExtension.map"))
+    // Disabling obfuscation makes the JAR file size a bit larger and the debugging process a bit less easy
     dontobfuscate()
+    // Kotlinx serialization breaks when using optimizations
     dontoptimize()
 
     configuration(file("proguard.pro"))
