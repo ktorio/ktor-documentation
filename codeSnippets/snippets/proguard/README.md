@@ -22,11 +22,15 @@ this example:
 3. [Proguard](https://github.com/Guardsquare/proguard) Kotlin Example: https://github.com/Guardsquare/proguard/blob/master/examples/application-kotlin/proguard.pro
 4. [Google Guava](https://github.com/google/guava): https://github.com/google/guava/wiki/UsingProGuardWithGuava
 
-This example is configured to work with Kotlinx coroutines and serialization, required modules that are part of the JDK
+This example is already configured to work the libraries mentioned above, required modules that are part of the JDK
 and some libraries that Ktor server depends on.
 
+> If you're using Ktor Client with OkHttp as an engine in Ktor Server, you need to include
+> [OkHttp Proguard](https://square.github.io/okhttp/features/r8_proguard/) Rules, otherwise you will get warnings that
+> cause the proguard task build to fail.
+
 If you're using additional libraries that use features such as 
-reflections or dynamic class loading, You will get a warning that needs to be solved, some common ways to solve this:
+reflections or dynamic class loading, You will usually get warnings that need to be solved, some common ways to solve this:
 
 1. You can see if the library supports Proguard, take a look at the docs, resources of the module you want to include.
 `README.md` file, or some common folders such as `proguard` or `rules`, also in `META-INF/proguard` in the JAR file, which
