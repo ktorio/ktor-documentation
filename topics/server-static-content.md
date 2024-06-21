@@ -70,9 +70,9 @@ match.
 For the full example,
 see [static-resources](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/static-resources).
 
-## Configuration {id="configuration"}
+## Additional configuration {id="configuration"}
 
-All functions provided by Ktor to serve static content can be customized further.
+Ktor provides more configurations to static files and resources.
 
 ### Index file {id="index"}
 

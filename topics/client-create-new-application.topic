@@ -140,8 +140,7 @@
                     file and add the following artifacts to the dependencies block:
                 </p>
                 <code-block lang="kotlin" src="snippets/tutorial-client-get-started/build.gradle.kts"
-                            include-lines="1-2,17-20"/>
-
+                            include-lines="1,17-20,22"/>
                 <list>
                     <li><code>ktor-client-core</code> is a core dependency that provides the main client functionality,
                     </li>
@@ -244,9 +243,6 @@
                 <code-block
                         lang="kotlin"
                         src="snippets/tutorial-client-get-started/src/main/kotlin/Main.kt"/>
-                <p>
-                    Proceed to the next section to learn how to run your application.
-                </p>
             </step>
         </procedure>
     </chapter>
@@ -268,18 +264,119 @@
                 <img src="client_get_started_run_main.png" alt="Run app" width="706"/>
             </step>
             <step>
+                Wait until Intellij IDEA runs the application.
+            </step>
+            <step>
                 <p>
-                    Wait until Intellij IDEA runs the application.
-                    The server should respond with the <code>200 OK</code> message, displayed in the
+                    You will see the output displayed in the
+                    <control>Run</control>
+                    pane on the bottom of the IDE.
+                </p>
+                <img src="client_get_started_run_output_with_warning.png" alt="Server response" width="706"/>
+                <p>
+                    Although the server responds with the <code>200 OK</code> message,
+                    you will also see an error message indicating that SLF4J failed to locate the
+                    <code>StaticLoggerBinder</code> class, defaulting to a no-operation (NOP) logger
+                    implementation. This effectively means that logging is disabled.
+                </p>
+                <p>
+                    You now have a working client application. However, to fix this warning and be able to debug
+                    HTTP calls with logging, <a anchor="enable-logging">an additional step</a> is required.
+                </p>
+            </step>
+        </procedure>
+    </chapter>
+    <chapter title="Enable logging" id="enable-logging">
+        <p>
+            Because Ktor uses the SLF4J abstraction layer for logging on JVM, to enable logging, you need to
+            <a href="client-logging.md" anchor="jvm">provide a logging framework</a>, such as
+            <a href="https://logback.qos.ch/">Logback</a>.
+        </p>
+        <procedure id="enable-logging-procedure">
+            <step>
+                <p>
+                    In the
+                    <path>gradle.properties</path>
+                    file, specify the version for the logging framework:
+                </p>
+                <code-block lang="kotlin">
+                    logback_version=%logback_version%
+                </code-block>
+            </step>
+            <step>
+                <p>
+                    Open the
+                    <path>build.gradle.kts</path>
+                    file and add the following artifact to the dependencies block:
+                </p>
+                <code-block lang="kotlin">
+                    //...
+                    val logback_version: String by project
+
+                    dependencies {
+                        //...
+                        implementation("ch.qos.logback:logback-classic:$logback_version")
+                    }
+                </code-block>
+            </step>
+            <step>
+                Click the
+                <control>Load Gradle Changes</control>
+                icon to install the newly added dependency.
+            </step>
+            <step>
+                <include from="lib.topic" element-id="intellij_idea_restart_application"/>
+            </step>
+            <step>
+                <p>
+                    You should no longer see the error, but the same <code>200 OK</code> message will be displayed in
+                    the
                     <control>Run</control>
                     pane on the bottom of the IDE.
                 </p>
                 <img src="client_get_started_run_output.png" alt="Server response" width="706"/>
                 <p>
-                    With this you have created a working Ktor Client.
+                    With this, you have enabled logging. To start seeing logs, you need to add logging
+                    configuration.
                 </p>
             </step>
+            <step>
+                <p>Navigate to
+                    <path>src/main/resources</path>
+                    and create a new
+                    <path>logback.xml</path>
+                    file with the following implementation:
+                </p>
+                <code-block lang="xml" ignore-vars="true"><![CDATA[
+                    <configuration>
+                        <appender name="APPENDER" class="ch.qos.logback.core.ConsoleAppender">
+                            <encoder>
+                                <pattern>%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+                            </encoder>
+                        </appender>
+                        <root level="trace">
+                            <appender-ref ref="APPENDER"/>
+                        </root>
+                    </configuration>
+                ]]></code-block>
+            </step>
+            <step>
+                <include from="lib.topic" element-id="intellij_idea_restart_application"/>
+            </step>
+            <step>
+                <p>
+                    You should now be able to see trace logs above the printed response within the
+                    <control>Run</control>
+                    pane:
+                </p>
+                <img src="client_get_started_run_output_with_logs.png" alt="Server response" width="706"/>
+            </step>
         </procedure>
+        <tip>
+            Ktor offers a simple and straightforward way to add logs for HTTP calls through the
+            <a href="client-logging.md">Logging</a> plugin, while adding a
+            configuration file allows you to fine-tune logging behaviour in complex applications.
+        </tip>
     </chapter>
     <chapter title="Next steps" id="next-steps">
         <p>

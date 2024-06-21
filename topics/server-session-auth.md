@@ -90,6 +90,8 @@ The `session` authentication provider exposes its settings via the [SessionAuthe
 ### Step 4: Save user data in a session {id="save-session"}
 
 To save information about a logged-in user to a session, use the [call.sessions.set](server-sessions.md#use_sessions) function.
+> This example shows a simple authentication flow using a web form.
+For more information on how to define it, please refer to the [Form-based authentication](server-form-based-auth.md) documentation.
 
 ```kotlin
 ```
