@@ -30,6 +30,7 @@
                          toc-title="Integrate a database"
                          accepts-web-file-names="db-persistence.html, interactive-website-add-persistence.html,
                          db-connection-pooling-caching.html, connection-pooling-caching.html"/>
+            <toc-element topic="full-stack-development-with-kotlin-multiplatform.topic"/>
         </toc-element>
 
         <toc-element toc-title="Developing applications">

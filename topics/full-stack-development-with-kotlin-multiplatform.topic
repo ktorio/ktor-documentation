@@ -1,0 +1,878 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="Full-stack development with Kotlin Multiplatform" id="full-stack-development-with-kotlin-multiplatform">
+
+    <p>In this article, you will learn how to use Ktor as one component in a Kotlin Multiplatform application.</p>
+    <p>By the end of this tutorial, you’ll learn how to do the following:</p>
+    <list>
+        <li>Create full-stack applications using Kotlin Multiplatform.</li>
+        <li>Understand the project created by the Multiplatform Wizard.</li>
+        <li>Create Compose Multiplatform clients that call Ktor services.</li>
+        <li>Reuse shared types across different layers of your design.</li>
+        <li>Correctly include and configure multiplatform libraries.</li>
+    </list>
+    <p>
+        In previous tutorials, we used the Task Manager example to handle requests, create RESTful APIs, and integrate a
+        database with Exposed. Client applications were kept as minimal as possible, so you could focus on learning the
+        fundamentals of Ktor.
+    </p>
+    <p>
+        You will create a client that will target the Android, iOS, and desktop platforms, using a Ktor service to
+        acquire the data to be displayed. Wherever possible you will share data types between the client and the server,
+        speeding up development and reducing the potential for errors.
+    </p>
+    <chapter title="Prerequisites" id="prerequisites">
+        <p>
+            In previous articles, IntelliJ IDEA was used as the IDE. In this case, because you will be working with
+            mobile applications, Android Studio will be used instead. You will need to install and configure Android
+            Studio <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-setup.html">as
+            described in the Kotlin Multiplatform documentation</a>.
+        </p>
+        <p>
+            If this is the first time you use Compose Multiplatform we recommend that you complete the
+            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-getting-started.html">Get
+                started with Compose Multiplatform tutorial</a> before starting this one. To reduce the complexity of
+            the task, you can focus on a single client platform. For example, if you have never used iOS, it might be
+            wise to focus on desktop or Android development.
+        </p>
+    </chapter>
+    <chapter title="Create a new project" id="create-project">
+        <p>
+            Instead of choosing the <a href="https://start.ktor.io/">Ktor Project Generator</a> to create the initial
+            project, you will use the <a href="https://kmp.jetbrains.com/">Kotlin Multiplatform Wizard</a>. This will
+            create a project to which you can add clients and services. The clients can either use a native UI library,
+            such as SwiftUI, or share the same UI
+            by using <a href="https://www.jetbrains.com/lp/compose-multiplatform/">Compose Multiplatform</a>.
+        </p>
+        <procedure id="generate-project">
+            <step>
+                Open the <a href="https://kmp.jetbrains.com/">Kotlin Multiplatform Wizard</a>.
+            </step>
+            <step>
+                <p>
+                    Enter
+                    <path>full-stack-task-manager</path>
+                    as the name of the project, and
+                    <path>org.example.ktor</path>
+                    as the project ID.
+                </p>
+            </step>
+            <step>
+                <p>
+                    Select
+                    <ui-path>Android</ui-path>
+                    ,
+                    <ui-path>iOS</ui-path>
+                    ,
+                    <ui-path>Desktop</ui-path>
+                    , and
+                    <ui-path>Server</ui-path>
+                    as the targeted platforms.
+                    <img style="block" src="full_stack_development_tutorial_wizard_settings.png"
+                         alt="Kotlin Multiplatform wizard settings" width="450" border-effect="line"/>
+                </p>
+            </step>
+            <step>
+                <p>
+                    Click the
+                    <control>Download</control>
+                    button to download the project.
+                </p>
+            </step>
+            <step>
+                Unpack the resulting ZIP file into a folder of your choice.
+            </step>
+        </procedure>
+    </chapter>
+    <chapter title="Examine the project" id="examine-project">
+        <procedure id="open-project">
+            <step>
+                Launch Android Studio.
+            </step>
+            <step>
+                <p>
+                    On the Welcome screen, click
+                    <control>Open</control>
+                    , or select
+                    <control>File | Open</control>
+                    in the editor.
+                </p>
+            </step>
+            <step>
+                Navigate to the unpacked project folder and then click
+                <control>Open</control>
+                .
+            </step>
+            <step>
+                <p>
+                    Once the project has been loaded, it will be displayed in the
+                    <ui-path>Android View</ui-path>
+                    by default. Using the
+                    dropdown at the top left of the window switch from the
+                    <ui-path>Android View</ui-path>
+                    to the
+                    <ui-path>Project View</ui-path>
+                    .
+                    <img style="block" src="android_studio_view_switch_dropdown.png"
+                         alt="View dropdown in Android Studio" width="300" border-effect="line"/>
+                </p>
+            </step>
+            <step>
+                In the
+                <ui-path>Project View</ui-path>
+                , open
+                <path>Application.kt</path>
+                within
+                <path>server/src/main/kotlin</path>
+                .
+            </step>
+            <step>
+                <p>
+                    In the
+                    <ui-path>Gradle View</ui-path>
+                    , find the run task within
+                    <path>server/tasks/application</path>
+                    . Your IDE should look like the image below.
+                    <img style="block" src="full_stack_development_tutorial_IDE_layout.png"
+                         alt="Extended project layout in Android Studio" width="706" border-effect="rounded"/>
+                </p>
+            </step>
+        </procedure>
+        <p>
+            If you look at the project structure you will see that the
+            <path>server</path>
+            folder is one of three Kotlin modules in the project. The other two are
+            <path>shared</path>
+            and
+            <path>composeApp</path>
+            .
+        </p>
+        <p>
+            The structure of the
+            <path>server</path>
+            module is very similar to that produced by the <a href="https://start.ktor.io/">Ktor Project Generator</a>.
+            You have a dedicated build file to
+            declare plugins and dependencies, and a source set containing the code to build and launch a Ktor service:
+        </p>
+        <img src="full_stack_development_tutorial_server_folder.png"
+             alt="Contents of the server folder in a Kotlin Multiplatform project" width="300" border-effect="line"/>
+        <procedure title="Run the service" id="run-service">
+            <p>
+                You can run this service by executing the
+                <ui-path>run</ui-path>
+                task of the Gradle application plugin.
+            </p>
+            <step>
+                From the extended project layout, double-click on the
+                <ui-path>run</ui-path>
+                task within the
+                <path>server</path>
+                subsection of the
+                <ui-path>Gradle View</ui-path>
+                to run the Ktor service.
+            </step>
+            <step>
+                <p>
+                    Navigate to <a href="http://0.0.0.0:8080/">http://0.0.0.0:8080/</a> to open the application.
+                    You should see a message from Ktor displayed in the browser.
+                    <img src="full_stack_development_tutorial_run.png"
+                         alt="A Ktor server browser response" width="706"
+                         border-effect="rounded" style="block"/>
+                </p>
+            </step>
+        </procedure>
+        <p>
+            If you look at the routing instructions in the
+            <path>Application.kt</path>
+            file, you will see an extra feature, which is not present in the ‘Hello World’ code created by the Ktor
+            Project Generator:
+        </p>
+        <code-block lang="kotlin"><![CDATA[
+            fun Application.module() {
+                routing {
+                    get("/") {
+                        call.respondText("Ktor: ${Greeting().greet()}")
+                    }
+                }
+            }
+        ]]></code-block>
+        <p>
+            This creates an instance of the <code>Greeting</code> type and invokes its <code>greet()</code> method. If
+            you look for this type in the
+            <path>server</path>
+            module you will not be able to find it. Instead, you will find it
+            within the
+            <path>shared</path>
+            module:
+            <img src="full_stack_development_tutorial_shared_module.png"
+                 alt="Greeting.kt and Platform.kt opened in Android Studio" width="706"
+                 border-effect="rounded" style="block"/>
+        </p>
+        <p>
+            The
+            <path>shared</path>
+            module contains code that will be used across different target platforms.
+        </p>
+        <p>
+            The
+            <path>commonMain</path>
+            source set holds types that will be used on all platforms. As you can see this is where the
+            <code>Greeting</code> type
+            lives. This is where you will put the common code that you want to share between client and server, and also
+            between different client platforms.
+        </p>
+        <p>
+            The
+            <path>shared</path>
+            module also contains a source set for each platform where you wish to provide a client. This is because
+            types declared within
+            <path>commonMain</path>
+            may require functionality that varies by target platform. In the case of
+            the <code>Greeting</code> type, you want to obtain the name of the current platform. This is achieved
+            through <a
+                href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-connect-to-apis.html">expected
+            and actual declarations</a>.
+        </p>
+        <p>
+            In the
+            <path>commonMain</path>
+            source set of the
+            <path>shared</path>
+            module you declare a <code>getPlatform()</code> function with the <code>expect</code> keyword.
+        </p>
+        <tabs>
+            <tab title="commonMain/Platform.kt" id="commonMain">
+                <code-block lang="kotlin">
+                    interface Platform {
+                        val name: String
+                    }
+
+                    expect fun getPlatform(): Platform
+                </code-block>
+            </tab>
+        </tabs>
+        <p>Then each target platform
+            must provide an <code>actual</code> declaration of the <code>getPlatform()</code> function, as shown below:</p>
+        <tabs>
+            <tab title="Platform.ios.kt" id="iosMain">
+                <code-block lang="kotlin">
+                    import platform.UIKit.UIDevice
+
+                    class IOSPlatform: Platform {
+                        override val name: String = UIDevice.currentDevice.systemName() + " " + UIDevice.currentDevice.systemVersion
+                    }
+
+                    actual fun getPlatform(): Platform = IOSPlatform()
+                </code-block>
+            </tab>
+            <tab title="Platform.android.kt" id="androidMain">
+                <code-block lang="kotlin">
+                    import android.os.Build
+
+                    class AndroidPlatform : Platform {
+                        override val name: String = "Android ${Build.VERSION.SDK_INT}"
+                    }
+
+                    actual fun getPlatform(): Platform = AndroidPlatform()
+                </code-block>
+            </tab>
+            <tab title="Platform.jvm.kt" id="jvmMain">
+                <code-block lang="kotlin">
+                    class JVMPlatform: Platform {
+                        override val name: String = "Java ${System.getProperty("java.version")}"
+                    }
+
+                    actual fun getPlatform(): Platform = JVMPlatform()
+                </code-block>
+            </tab>
+        </tabs>
+        <p>
+            There is one additional module in the project, the
+            <path>composeApp</path>
+            module. This is where the Android, iOS, and Desktop clients live. You can run these as specified in
+            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-create-first-app.html#run-your-application">the
+                ‘Run your application’ step</a> of the Compose Multiplatform tutorial.
+        </p>
+        <p>
+            These clients are not linked to the Ktor service at the moment, but they do use the shared
+            <code>Greeting</code> class. For example, if you execute the
+            <ui-path>iosApp</ui-path>
+            run configuration, a client will start
+            in the iOS Simulator:
+            <img style="block" src="full_stack_development_tutorial_run_android.gif"
+                 alt="Running the app in the Android Simulator" width="300" border-effect="rounded"/>
+            This shows a screen with a single button placed on the top. Pressing the button shows and hides an image.
+            When the button is pressed for the first time, the details of the current platform are added to its text.
+            The code to achieve this is found in
+            <path>composeApp/commonMain/kotlin/App.kt</path>
+            :
+        </p>
+        <code-block lang="kotlin">
+            @OptIn(ExperimentalResourceApi::class)
+            @Composable
+            fun App() {
+                MaterialTheme {
+                    var greetingText by remember { mutableStateOf("Hello World!") }
+                    var showImage by remember { mutableStateOf(false) }
+                    Column(
+                        Modifier.fillMaxWidth(),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Button(onClick = {
+                            greetingText = "Compose: ${Greeting().greet()}"
+                            showImage = !showImage
+                        }) {
+                            Text(greetingText)
+                        }
+                        AnimatedVisibility(showImage) {
+                            Image(
+                                painterResource("compose-multiplatform.xml"),
+                                null
+                            )
+                        }
+                    }
+                }
+            }
+        </code-block>
+        <p>
+            This is a composable function, which you will modify later in this article. For the moment all that is
+            important is that it displays a UI and makes use of the <code>Greeting</code> type, which in turn uses the
+            platform-specific <code>Platform</code> type.
+        </p>
+        <p>
+            Now that you understand the structure of the generated project, you can incrementally include the task
+            manager functionality from previous articles.
+        </p>
+    </chapter>
+    <chapter title="Add the model types" id="add-model-types">
+        <p>
+            First, you will add the model types and make sure that they are accessible on both the client and the
+            server.
+        </p>
+        <procedure>
+            <step>
+                Navigate to
+                <path>shared/src/commonMain/kotlin</path>
+                and create a package called
+                <path>com.kmp.ktor.model</path>
+                .
+            </step>
+            <step>
+                Inside the new package, create a new file called
+                <path>Task.kt</path>
+                .
+            </step>
+            <step>
+                <p>
+                    Add an <code>enum</code> to represent priorities and a <code>class</code> to represent tasks. The
+                    <code>Task</code>
+                    class is annotated with the <code>Serializable</code> type from the
+                    <code>kotlinx.serialization</code>
+                    library:
+                </p>
+                <code-block lang="kotlin">
+                    import kotlinx.serialization.Serializable
+
+                    enum class Priority {
+                        Low, Medium, High, Vital
+                    }
+
+                    @Serializable
+                    data class Task(
+                        val name: String,
+                        val description: String,
+                        val priority: Priority
+                    )
+
+                </code-block>
+                <p>
+                    You will notice that neither the import nor the annotation compiles. This is because the <code>kotlinx.serialization</code>
+                    library has not been included for us by the wizard.
+                </p>
+            </step>
+            <step>
+                <p>
+                    Navigate to
+                    <path>shared/build.gradle.kts</path>
+                    and add the serialization plugin:
+                </p>
+                <code-block lang="kotlin">
+                    plugins {
+                        // existing plugins omitted
+                        kotlin("plugin.serialization") version "1.9.20"
+                    }
+                </code-block>
+            </step>
+            <step>
+                <p>
+                    In the same file, add a new dependency to the
+                    <path>commonMain</path>
+                    source set:
+                </p>
+                <code-block lang="kotlin">
+                    sourceSets {
+                        commonMain.dependencies {
+                            // existing dependencies omitted
+                            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.1")
+                        }
+                    }
+                </code-block>
+            </step>
+            <step>
+                In Android studio, click on
+                <ui-path>Sync now</ui-path>
+                to sync the build file. You should now find that your
+                <path>Task.kt</path>
+                file compiles successfully.
+            </step>
+        </procedure>
+        <p>
+            Note that the code would have compiled without including the serialization plugin, however, the types
+            required to serialize <code>Task</code> objects across the network would not have been produced. This would
+            lead to runtime errors when attempting to invoke the service.
+        </p>
+        <p>
+            Placing the serialization plugin in another module (such as
+            <path>server</path>
+            or
+            <path>composeApp</path>
+            ) would not have caused an error at build time. But again, the additional types required for serialization
+            would not have been generated, leading to runtime errors.
+        </p>
+    </chapter>
+    <chapter title="Create the server" id="create-server">
+        <p>
+            The next stage is to create the server implementation for our task manager.
+        </p>
+        <procedure>
+            <step>
+                Navigate to the
+                <path>server/src/main/kotlin</path>
+                folder and create a sub-package called
+                <path>com.kmp.ktor.model</path>
+                .
+            </step>
+            <step>
+                <p>
+                    Inside this package, create a new
+                    <path>TaskRepository.kt</path>
+                    file and add the following interface for our repository:
+                </p>
+                <code-block lang="kotlin"><![CDATA[
+                    interface TaskRepository {
+                        fun allTasks(): List<Task>
+                        fun tasksByPriority(priority: Priority): List<Task>
+                        fun taskByName(name: String): Task?
+                        fun addOrUpdateTask(task: Task)
+                        fun removeTask(name: String): Boolean
+                    }
+                ]]></code-block>
+            </step>
+            <step>
+                <p>
+                    In the same package, create a new file called
+                    <path>InMemoryTaskRepository.kt</path>
+                    containing the following class:
+                </p>
+                <code-block lang="kotlin"><![CDATA[
+                    class InMemoryTaskRepository : TaskRepository {
+                        private var tasks = listOf(
+                            Task("Cleaning", "Clean the house", Low),
+                            Task("Gardening", "Mow the lawn", Medium),
+                            Task("Shopping", "Buy the groceries", High),
+                            Task("Painting", "Paint the fence", Low),
+                            Task("Cooking", "Cook the dinner", Medium),
+                            Task("Relaxing", "Take a walk", High),
+                            Task("Exercising", "Go to the gym", Low),
+                            Task("Learning", "Read a book", Medium),
+                            Task("Snoozing", "Go for a nap", High),
+                            Task("Socializing", "Go to a party", High)
+                        )
+
+                        override fun allTasks(): List<Task> = tasks
+
+                        override fun tasksByPriority(priority: Priority) = tasks.filter {
+                            it.priority == priority
+                        }
+
+                        override fun taskByName(name: String) = tasks.find {
+                            it.name.equals(name, ignoreCase = true)
+                        }
+
+                        override fun addOrUpdateTask(task: Task) {
+                            var notFound = true
+
+                            tasks = tasks.map {
+                                if (it.name == task.name) {
+                                    notFound = false
+                                    task
+                                } else {
+                                    it
+                                }
+                            }
+                            if (notFound) {
+                                tasks = tasks.plus(task)
+                            }
+                        }
+
+                        override fun removeTask(name: String): Boolean {
+                            val oldTasks = tasks
+                            tasks = tasks.filterNot { it.name == name }
+                            return oldTasks.size > tasks.size
+                        }
+                    }
+                ]]></code-block>
+            </step>
+            <step>
+                <p>
+                    Navigate to
+                    <path>Application.kt</path>
+                    and replace the existing <code>Application.module()</code> function with the implementation below:
+                </p>
+                <code-block lang="kotlin">
+                    //add code ...
+                </code-block>
+                <p>
+                    This implementation is very similar to that in previous tutorials with the exception that now you
+                    have placed all the routing code within the <code>Application.module()</code> function for
+                    simplicity.
+                </p>
+                <p>
+                    Once you have entered this code and added the imports, you will find that there is an outstanding
+                    compiler error. This is because the <code>ContentNegotiation</code> plugin was not included by the
+                    project wizard.
+                </p>
+            </step>
+            <step>
+                <p>
+                    Open the server-side build file inside
+                    <path>server/build.gradle.kts</path>
+                    and add the following dependencies:
+                </p>
+                <code-block lang="kotlin">
+                    dependencies {
+                        // existing dependencies omitted
+                        implementation("io.ktor:ktor-serialization-kotlinx-json-jvm:$ktor")
+                        implementation("io.ktor:ktor-server-content-negotiation-jvm:$ktor")
+                    }
+                </code-block>
+            </step>
+            <step>
+                Resync the build file. You should find that you can now import the <code>ContentNegotiation</code> type
+                and <code>json()</code> function.
+            </step>
+            <step>
+                Rerun the server. You should find that the routes are reachable from the browser.
+            </step>
+            <step>
+                <p>
+                    Navigate to <a href="http://0.0.0.0:8080/tasks">http://0.0.0.0:8080/tasks</a>
+                    to see the server response of tasks in a JSON format.
+                    <img style="block" src="full_stack_development_tutorial_run_server.gif"
+                         width="707" border-effect="rounded" alt="Server response in browser"/>
+                </p>
+            </step>
+        </procedure>
+        <p>
+            Before moving on to the client there are two things to note regarding running the server:
+        </p>
+        <list>
+            <li>
+                <p>
+                    If you execute the
+                    <ui-path>run</ui-path>
+                    configuration for the Server in Android Studio, the IDE will be blocked from building and running
+                    your clients. Instead, open a terminal window and invoke it directly with the following command:
+                </p>
+                <code-block lang="console">
+                    ./gradlew :server:run
+                </code-block>
+            </li>
+            <li>
+                <p>
+                    To ensure that the types required by the <code>kotlinx.serialization</code> library have been
+                    generated, you should build an executable that includes both your code and all the dependencies it
+                    requires. To do this, use the following command:
+                </p>
+                <code-block lang="console">
+                    ./gradlew :server:runFatJar
+                </code-block>
+            </li>
+        </list>
+    </chapter>
+    <chapter title="Create the client" id="create-client">
+        <p>
+            For your clients to be able to access the server you need to include the Ktor Client. There are three types
+            of dependency involved in this:
+        </p>
+        <list>
+            <li>The core functionality for the Ktor Client.</li>
+            <li>Platform-specific engines to handle networking.</li>
+            <li>Support for content negotiation and serialization.</li>
+        </list>
+        <procedure>
+            <step>
+                Navigate to
+                <path>composeApp/build.gradle.kts</path>
+                and add the following dependencies:
+                <code-block lang="kotlin">
+                    sourceSets {
+                        val desktopMain by getting
+
+                        androidMain.dependencies {
+                            // existing dependencies omitted
+                            implementation("io.ktor:ktor-client-android:2.3.3")
+                        }
+                        desktopMain.dependencies {
+                            // existing dependencies omitted
+                            implementation("io.ktor:ktor-client-cio:2.3.3")
+                        }
+                        commonMain.dependencies {
+                            // existing dependencies omitted
+                            implementation("io.ktor:ktor-client-core:2.3.3")
+                            implementation("io.ktor:ktor-client-content-negotiation:2.3.3")
+                            implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.3")
+                        }
+
+                        iosMain.dependencies {
+                            implementation("io.ktor:ktor-client-darwin:2.3.3")
+                        }
+                    }
+
+                </code-block>
+                <p>
+                    Once this is done you can add a <code>TaskApi</code> type for your clients to act as a thin wrapper
+                    around the Ktor Client.
+                </p>
+            </step>
+            <step>
+                Navigate to
+                <path>composeApp/commonMain/kotlin</path>
+                and create a new package called
+                <path>com.kmp.ktor.network</path>
+                .
+            </step>
+            <step>
+                <p>
+                    Inside the new package, create a new
+                    <path>TaskApi.kt</path>
+                    file with the following implementation:
+                </p>
+                <code-block lang="kotlin">
+                    //...
+                </code-block>
+                <p>
+                    Note you should replace <code>1.2.3.4</code> with the IP address of your current machine. You will
+                    not be able to make calls to <code>0.0.0.0</code> or <code>localhost</code> from code running on an
+                    Android Virtual Device or
+                    the iPhone simulator.
+                </p>
+            </step>
+            <step>
+                <p>
+                    Navigate to
+                    <path>App.kt</path>
+                    and replace the App composable with the implementation below:
+                </p>
+                <code-block lang="kotlin">
+                    //...
+                </code-block>
+                <p>
+                    This will use the <code>TaskApi</code> type to retrieve the list of tasks from the server, and then
+                    display the name of each one in a column.
+                </p>
+            </step>
+            <step>
+                <p>
+                    Test the application by running the iOS and desktop clients:
+                    <img style="block" src="full_stack_development_tutorial_run_iOS.png"
+                         alt="App running on iOS" width="363" border-effect="rounded"/>
+                    <img style="block" src="full_stack_development_tutorial_run_desktop.png"
+                         alt="App running on desktop" width="707" border-effect="rounded"/>
+                </p>
+            </step>
+            <step>
+                <p>
+                    In the case of the desktop client, you need to assign dimensions and a title to the containing
+                    window. Open the file
+                    <path>composeApp/src/desktopMain/kotlin/main.kt</path>.
+                    You should see the following piece of code:
+                </p>
+                <code-block lang="kotlin">
+                    fun main() = application {
+                        Window(onCloseRequest = ::exitApplication) {
+                            App()
+                        }
+                    }
+                </code-block>
+                <p>
+                    Modify this code to set the <code>title</code> and <code>state</code> properties, as shown below:
+                </p>
+                <code-block lang="kotlin">
+                    val state = WindowState(
+                        size = DpSize(400.dp, 600.dp),
+                        position = WindowPosition(200.dp, 100.dp)
+                    )
+
+                    fun main() = application {
+                        Window(
+                            title = "Task Manager (Desktop)",
+                            state = state,
+                            onCloseRequest = ::exitApplication
+                        ) {
+                            App()
+                        }
+                    }
+                </code-block>
+            </step>
+            <step>
+                <p>
+                    Run the application. The desktop client should now reflect the changes:
+                    <img style="block" src="full_stack_development_tutorial_run_idesktop_resized.png"
+                         alt="App running on desktop" width="400" border-effect="rounded"/>
+                </p>
+            </step>
+            <step>
+                <p>
+                    On the Android platform, you need to explicitly give the application networking permissions, and
+                    allow it to send and receive data in cleartext. To enable these permissions open
+                    <path>composeApp/src/androidMain/AndroidManifest.xml</path>
+                    and add the following settings:
+                </p>
+                <code-block lang="xml"><![CDATA[
+                    <manifest>
+                        ...>
+                        <application
+                                android:usesCleartextTraffic="true">
+                        ...>
+                        ...
+                        </application>
+                        <uses-permission android:name="android.permission.INTERNET"/>
+                    </manifest>
+                    ]]>
+                </code-block>
+            </step>
+            <step>
+                <p>
+                    Run the application. You should now find that your Android client will run as well:
+                    <img style="block" src="full_stack_development_tutorial_run_iOS.png"
+                         alt="App running on Android" width="350" border-effect="rounded"/>
+                </p>
+                <note>
+                    In this demo, we are simplifying the process for clarity. In real-world applications, it is crucial
+                    to avoid sending unencrypted data over the network.
+                </note>
+            </step>
+        </procedure>
+    </chapter>
+    <chapter title="Improve the UI" id="improve-ui">
+        <p>
+            The clients are now communicating with the server, but this is hardly a compelling user interface.
+        </p>
+        <procedure>
+            <step>
+                <p>
+                    Open the
+                    <path>App.kt</path>
+                    file and replace the existing <code>App</code> with the <code>App</code> and <code>TaskCard</code>
+                    composables below:
+                </p>
+                <code-block lang="kotlin">
+                    //...
+                </code-block>
+                <p>
+                    With this implementation, your client now has some basic functionality.
+                </p>
+                <p>
+                    By using the LaunchedEffect type all tasks are loaded on startup, while the <code>LazyColumn</code>
+                    composable allows the user to scroll through tasks.
+                </p>
+                <p>
+                    Finally, a separate <code>TaskCard</code> composable is created, which in turn uses a
+                    <code>Card</code> to display the details of each <code>Task</code>. Buttons have been added to
+                    delete and update the task.
+                </p>
+            </step>
+            <step>
+                <p>
+                    Rerun the application. You can now scroll through tasks, view their details, and delete them:
+                    <img style="block" src="full_stack_development_tutorial_improved_ui.gif"
+                         alt="App running on Android with improved UI" width="350" border-effect="rounded"/>
+                </p>
+            </step>
+        </procedure>
+    </chapter>
+    <chapter title="Add update functionality" id="add-update-functionality">
+        <p>
+            To complete the client, you need to incorporate the functionality to update tasks.
+        </p>
+        <procedure>
+            <step>
+                <p>
+                    Include the <code>UpdateTaskDialog</code> composable below in
+                    <path>composeApp/commonMain/kotlin</path>
+                    :
+                </p>
+                <code-block lang="kotlin">
+                    //...
+                </code-block>
+                <p>
+                    This is a composable that displays the details of a <code>Task</code> with a dialog box. The <code>description</code>
+                    and <code>priority</code> are placed within <code>TextField</code> composables so they can be
+                    updated. When the user presses the update button, it triggers the <code>onConfirm()</code> callback.
+                </p>
+            </step>
+            <step>
+                <p>
+                    Navigate back to the <code>App</code> composable and update the code as shown below:
+                </p>
+                <code-block lang="kotlin">
+                    //...
+                </code-block>
+                <p>
+                    You are storing an additional piece of state, which is the current task selected. If this value is
+                    not null, then we invoke our <code>UpdateTaskDialog</code> composable, with the
+                    <code>onConfirm()</code> callback set to send a POST request to the server using the
+                    <code>TaskApi</code>.
+                </p>
+                <p>
+                    Finally, when you are creating the <code>TaskCard</code> composables, you use the
+                    <code>onUpdate()</code> callback to set the <code>currentTask</code> state variable.
+                </p>
+                <p>
+                    Once you have made these changes you should be able to update the details of each task by using the
+                    buttons:
+                    <img style="block" src="full_stack_development_tutorial_delete_task.gif"
+                         alt="Deleting tasks on Android" width="350" border-effect="rounded"/>
+                </p>
+            </step>
+        </procedure>
+    </chapter>
+    <chapter title="Next steps" id="next-steps">
+        <p>
+            In this article, you have used Ktor within the context of a Kotlin Multiplatform application. You can now
+            create a project containing multiple services and clients, targeting a range of different platforms.
+        </p>
+        <p>
+            As you have seen, it is possible to build out features without any code duplication or redundancy. The types
+            required in all layers of the project can be placed within the
+            <path>shared</path>
+            multiplatform module. Functionality
+            which is only required by the services goes in the
+            <path>server</path>
+            module, whilst functionality only required by the
+            clients is placed in
+            <path>composeApp</path>
+            .
+        </p>
+        <p>
+            This kind of development inevitably requires knowledge of both client and server technologies. But you can
+            use Kotlin multiplatform libraries and Compose Multiplatform to minimize the amount of new material you need
+            to learn. Even if your focus is initially only on a single platform, you can easily add others as demand for
+            your application grows.
+        </p>
+    </chapter>
+</topic>
