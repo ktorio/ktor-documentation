@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException
+import java.nio.file.Files
 import java.nio.file.Paths
 
 val ktor_version: String by project
@@ -75,9 +76,8 @@ val buildMinimizedJar = tasks.register<proguard.gradle.ProGuardTask>("buildMinim
     } else {
         // Starting from Java 9, runtime classes are packaged in modular JMOD files.
         fun includeJavaModuleFromJdk(jModFileNameWithoutExtension: String) {
-            val jModFilePath = Paths.get(javaHome, "jmods", "$jModFileNameWithoutExtension.jmod").toString()
-            val jModFile = File(jModFilePath)
-            if (!jModFile.exists()) {
+            val jModFilePath = Paths.get(javaHome, "jmods", "$jModFileNameWithoutExtension.jmod")
+            if (!Files.exists(jModFilePath)) {
                 throw FileNotFoundException("The Java module '$jModFileNameWithoutExtension' at '$jModFilePath' doesn't exist.")
             }
             libraryjars(
