@@ -112,7 +112,7 @@ val buildMinimizedJar = tasks.register<proguard.gradle.ProGuardTask>("buildMinim
     // is essential for resolving Kotlin and other library warnings without using '-dontwarn kotlin.**'
     injars(sourceSets.main.get().compileClasspath)
 
-    printmapping(fatJarDestinationDirectory.file("$fatJarFileNameWithoutExtension.map"))
+    printmapping(fatJarDestinationDirectory.file("${minimizedJarFile.get().asFile.nameWithoutExtension}.map"))
     // Disabling obfuscation makes the JAR file size a bit larger and the debugging process a bit less easy
     dontobfuscate()
     // Kotlinx serialization breaks when using optimizations
