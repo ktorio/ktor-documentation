@@ -1,4 +1,5 @@
-import java.io.FileNotFoundException
+import java.nio.file.Files
+import java.nio.file.NoSuchFileException
 import java.nio.file.Paths
 
 val ktor_version: String by project
@@ -75,10 +76,9 @@ val buildMinimizedJar = tasks.register<proguard.gradle.ProGuardTask>("buildMinim
     } else {
         // Starting from Java 9, runtime classes are packaged in modular JMOD files.
         fun includeJavaModuleFromJdk(jModFileNameWithoutExtension: String) {
-            val jModFilePath = Paths.get(javaHome, "jmods", "$jModFileNameWithoutExtension.jmod").toString()
-            val jModFile = File(jModFilePath)
-            if (!jModFile.exists()) {
-                throw FileNotFoundException("The Java module '$jModFileNameWithoutExtension' at '$jModFilePath' doesn't exist.")
+            val jModFilePath = Paths.get(javaHome, "jmods", "$jModFileNameWithoutExtension.jmod")
+            if (!Files.exists(jModFilePath)) {
+                throw NoSuchFileException("The Java module '$jModFileNameWithoutExtension' at '$jModFilePath' doesn't exist.")
             }
             libraryjars(
                 mapOf("jarfilter" to "!**.jar", "filter" to "!module-info.class"),
@@ -112,7 +112,7 @@ val buildMinimizedJar = tasks.register<proguard.gradle.ProGuardTask>("buildMinim
     // is essential for resolving Kotlin and other library warnings without using '-dontwarn kotlin.**'
     injars(sourceSets.main.get().compileClasspath)
 
-    printmapping(fatJarDestinationDirectory.file("$fatJarFileNameWithoutExtension.map"))
+    printmapping(fatJarDestinationDirectory.file("${minimizedJarFile.get().asFile.nameWithoutExtension}.map"))
     // Disabling obfuscation makes the JAR file size a bit larger and the debugging process a bit less easy
     dontobfuscate()
     // Kotlinx serialization breaks when using optimizations
