@@ -15,8 +15,9 @@
                          accepts-web-file-names="getting-started.html, intellij-idea.html"/>
             <toc-element topic="server-requests-and-responses.topic"
                          toc-title="Handle requests and generate responses"
-                         accepts-web-file-names="creating-http-apis.html" accepts-web-file-names-ref="tutorials"/>
-            <toc-element topic="server-create-restful-apis.topic" toc-title="Create a RESTful API"/>
+                         accepts-web-file-names-ref="tutorials"/>
+            <toc-element topic="server-create-restful-apis.topic" toc-title="Create a RESTful API"
+                         accepts-web-file-names="creating-http-apis.html, server-create-http-apis.html"/>
             <toc-element topic="server-create-website.topic"
                          toc-title="Create a website"
                          accepts-web-file-names="creating-static-website.html,creating-interactive-website.html,
