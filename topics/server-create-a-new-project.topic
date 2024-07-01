@@ -59,22 +59,25 @@
                 </step>
                 <step>
                     <p>In the
-                        <control>Project Name</control>
+                        <control>Project artifact</control>
                         field, enter
-                        <path>ktor-sample-app</path>
-                        as the name of your project.
+                        <path>com.example.ktor-sample-app</path>
+                        as the name of your project artifact.
+                        <img src="ktor_project_generator_new_project_artifact_name.png"
+                             alt="Ktor Project Generator with Project Artifact Name org.example.ktor-sample-app"
+                             border-effect="line"
+                             style="block"
+                             width="706"/>
                     </p>
-                    <img src="ktor_project_generator_new_project_name.png"
-                         alt="Ktor Project Generator with Project Name ktor-sample-app" border-effect="line"
-                         width="706"/>
                 </step>
                 <step>
                     <p>Click
-                        <control>Adjust project settings</control>
-                        to expand the setting menu:
+                        <control>Configure</control>
+                        to open the settings dropdown menu:
+                        <img src="ktor_project_generator_new_project_configure.png"
+                             style="block"
+                             alt="expanded view of Ktor project settings" border-effect="line" width="706"/>
                     </p>
-                    <img src="ktor_project_generator_adjust_project_settings.png"
-                         alt="expanded view of Ktor project settings" border-effect="line" width="706"/>
                     <p>
                         The following settings are available:
                     </p>
@@ -105,23 +108,29 @@
                 </step>
                 <step>
                     <p>Click
-                        <control>Add Plugins</control>
-                        to go to the next screen.
+                        <control>Done</control>
+                        to save the configuration and close the menu.
                     </p>
-                    <img src="ktor_project_generator_new_project_plugins_screen.png"
-                         alt="Ktor Project Generator plugins screen" border-effect="line" width="706"/>
-                    <p>Here you can choose a set of <a href="server-plugins.md">plugins</a> -
-                        building blocks that provide common functionality of a Ktor application, for example,
-                        authentication, serialization and content encoding, compression, cookie support, and so on.
+                </step>
+                <step>
+                    <p>Below you will find a set of <a href="server-plugins.md">plugins</a> that you can add to your
+                        project. Plugins are building blocks that provide common functionality in a Ktor application,
+                        such as authentication, serialization and content encoding, compression, cookie support, and
+                        more.
                     </p>
                     <p>For the sake of this tutorial, no plugins need to be added to the project
                         at this stage. </p>
                 </step>
                 <step>
                     <p>
-                        Click
-                        <control>Generate project</control>
-                        to generate and download your Ktor project.
+                        Click the
+                        <control>Download</control>
+                        button to generate and download your Ktor project.
+                        <img src="ktor_project_generator_new_project_download.png"
+                             alt="Ktor Project Generator download button"
+                             border-effect="line"
+                             style="block"
+                             width="706"/>
                     </p>
                 </step>
                 <p>Your download should start automatically.</p>

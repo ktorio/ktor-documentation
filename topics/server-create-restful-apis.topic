@@ -69,20 +69,15 @@
             </step>
             <step>
                 <p>In the
-                    <control>Project Name</control>
+                    <control>Project artifact</control>
                     field, enter
-                    <path>ktor-rest-task-app</path>
-                    as the name of your project.
-                </p>
-                <img src="tutorial_creating_restful_apis_project_name.png"
-                     alt="Naming the project in the Ktor Project Generator"
-                     border-effect="line"
-                     width="706"/>
-            </step>
-            <step>
-                <p>You can leave the default values for the rest of the settings and click on
-                    <control>Add plugins</control>
-                    to go to the next screen.
+                    <path>com.example.ktor-rest-task-app</path>
+                    as the name of your project artifact.
+                    <img src="tutorial_creating_restful_apis_project_artifact.png"
+                         alt="Naming the project artifact in the Ktor Project Generator"
+                         style="block"
+                         border-effect="line"
+                         width="706"/>
                 </p>
             </step>
             <step>
@@ -97,21 +92,22 @@
                     <li>Kotlinx.serialization</li>
                     <li>Static Content</li>
                 </list>
-                <img src="ktor_project_generator_add_plugins.gif" alt="Adding plugins in the Ktor Project Generator"
-                     border-effect="line"
-                     width="400"/>
+                <p>
+                    <img src="ktor_project_generator_add_plugins.gif" alt="Adding plugins in the Ktor Project Generator"
+                         border-effect="line"
+                         style="block"
+                         width="706"/>
+                </p>
             </step>
             <step>
-                <p>
-                    Once you have added the plugins, click on the
-                    <control>4 plugins added</control>
-                    link at the bottom left, to display the added plugins.
+                <p>You will then see all four plugins listed next to the tabs:
+                    <img src="tutorial_creating_restful_apis_plugins_list.png"
+                         alt="Plugins list in the Ktor Project Generator"
+                         border-effect="line"
+                         style="block"
+                         width="706"/>
                 </p>
-                <p>You will then see a list of all the plugins that will be added to your project:</p>
-                <img src="tutorial_creating_restful_apis_plugins_list.png"
-                     alt="Plugins list in the Ktor Project Generator"
-                     border-effect="line"
-                     width="400"/>
+
             </step>
             <step>
                 <include from="lib.topic" element-id="generate_project_final_step"/>
