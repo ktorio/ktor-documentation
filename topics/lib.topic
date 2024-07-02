@@ -380,9 +380,9 @@
 
     <snippet id="generate_project_final_step">
         <p>
-            Click
-            <control>Generate project</control>
-            to generate and download your Ktor project.
+            Click the
+            <control>Download</control>
+            button to generate and download your Ktor project.
         </p>
     </snippet>
     <snippet id="release_details_link">

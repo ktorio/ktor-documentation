@@ -97,17 +97,14 @@
                          border-effect="line"
                          style="block"
                          width="706"/>
-                </p>
-            </step>
-            <step>
-                <p>You will then see all four plugins listed next to the tabs:
+                    Once you have added the plugins, you will see all
+                    four plugins listed below the project settings.
                     <img src="tutorial_creating_restful_apis_plugins_list.png"
                          alt="Plugins list in the Ktor Project Generator"
                          border-effect="line"
                          style="block"
                          width="706"/>
                 </p>
-
             </step>
             <step>
                 <include from="lib.topic" element-id="generate_project_final_step"/>
