@@ -138,10 +138,11 @@
                         <li>Postgres</li>
                     </list>
                     <p>
-                        <img src="ktor_project_generator_add_plugins.gif" alt="Adding plugins in the Ktor Project Generator"
+                        <img src="ktor_project_generator_add_plugins.gif"
+                             alt="Adding plugins in the Ktor Project Generator"
                              border-effect="line"
                              style="block"
-                             width="400"/>
+                             width="706"/>
                     </p>
                 </step>
                 <step>
