@@ -611,7 +611,7 @@
                 </step>
                 <step>
                     <p>
-                        Use the <code>Databse.connect()</code> function to connect to your database, adjusting the
+                        Use the <code>Database.connect()</code> function to connect to your database, adjusting the
                         values of the settings to match your environment:
                     </p>
                     <code-block lang="kotlin"><![CDATA[
