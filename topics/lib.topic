@@ -354,19 +354,19 @@
 
     <snippet id="generator_project_settings_config">
         <p>
-            <control>Configuration in</control>
+            <control>Configuration</control>
             :
-            Choose
-            <emphasis>Code</emphasis>
-            to specify server parameters <a href="server-create-and-configure.topic">in code</a>.
+            Choose whether
+            to specify server parameters <a href="server-configuration-file.topic">in a YAML or HOCON file</a>, or
+            <a href="server-configuration-code.topic">in code</a>.
         </p>
     </snippet>
 
     <snippet id="generator_project_settings_sample_code">
         <p>
-            <control>Add sample code</control>
+            <control>Include samples</control>
             :
-            Leave this option enabled to add sample code for plugins added on the next page.
+            Leave this option enabled to add sample code for plugins.
         </p>
     </snippet>
 

@@ -86,12 +86,6 @@
                             <include from="lib.topic" element-id="generator_project_settings_build_system"/>
                         </li>
                         <li>
-                            <include from="lib.topic" element-id="generator_project_settings_website"/>
-                        </li>
-                        <li>
-                            <include from="lib.topic" element-id="generator_project_settings_artifact"/>
-                        </li>
-                        <li>
                             <include from="lib.topic" element-id="generator_project_settings_ktor_version"/>
                         </li>
                         <li>
