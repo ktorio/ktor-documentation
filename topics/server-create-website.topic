@@ -83,18 +83,15 @@
             <step>
                 <p>
                     In the
-                    <control>Project Name</control>
+                    <control>Project artifact</control>
                     field, enter
-                    <path>ktor-task-web-app</path>
-                    as the name of your project.
+                    <path>com.example.ktor-task-web-app</path>
+                    as the name of your project artifact.
+                    <img src="server_create_web_app_generator_project_artifact.png"
+                         alt="Ktor Project Generator project artifact name"
+                         style="block"
+                         border-effect="line" width="706"/>
                 </p>
-                <img src="server_create_web_app_generator_name.png"
-                     alt="Ktor Project Generator initial step" border-effect="line" width="706"/>
-            </step>
-            <step>
-                You can leave the default values for the rest of the settings and click on the
-                <control>Add plugins</control>
-                button to go to the next screen.
             </step>
             <step>
                 <p> In the next screen, search for and add the following plugins by clicking on the
@@ -106,15 +103,19 @@
                     <li>Static Content</li>
                     <li>Thymeleaf</li>
                 </list>
-            </step>
-            <step>
                 <p>
-                    Once you have added the plugins, click on the
-                    <control>3 plugins added</control>
-                    link at the bottom left to display the added plugins. You should see all 3 plugins listed:
+                    <img src="ktor_project_generator_add_plugins.gif"
+                         alt="Adding plugins in the Ktor Project Generator"
+                         border-effect="line"
+                         style="block"
+                         width="706"/>
+                    Once you have added the plugins, you will see all
+                    three plugins listed below the project settings.
+                    <img src="server_create_web_app_generator_plugins.png"
+                         alt="Ktor Project Generator plugins list"
+                         style="block"
+                         border-effect="line" width="706"/>
                 </p>
-                <img src="server_create_web_app_generator_plugins.png"
-                     alt="Ktor Project Generator plugins list" border-effect="line" width="706"/>
             </step>
             <step>
                 <include from="lib.topic" element-id="generate_project_final_step"/>
