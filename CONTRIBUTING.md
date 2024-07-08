@@ -34,7 +34,7 @@ personal preference.
 3. Add the original Ktor docs repository as a "Git remote" executing this command:
 
    ```Bash
-   git remote add upstream https://github.com/ktorio/ktor-documentation/
+   git remote add upstream https://github.com/ktorio/ktor-documentation.git
    ```
 4. Create a new branch from `main`:
 
