@@ -345,6 +345,16 @@
                         <code>Application.configureRouting()</code> function with the following implementation:
                     </p>
                     <code-block lang="kotlin"><![CDATA[
+                    package example.com.plugins
+
+                    import com.example.model.Priority
+                    import com.example.model.TaskRepository
+                    import io.ktor.http.*
+                    import io.ktor.server.application.*
+                    import io.ktor.server.http.content.*
+                    import io.ktor.server.response.*
+                    import io.ktor.server.routing.*
+
                     fun Application.configureRouting() {
                         routing {
                             staticResources("static", "static")
@@ -404,6 +414,9 @@
                             <code>priority</code>.
                         </li>
                     </list>
+                </step>
+                <step>
+                    <include from="lib.topic" element-id="intellij_idea_restart_application"/>
                 </step>
             </procedure>
         </chapter>
@@ -512,6 +525,8 @@
                     Add a new POST route to the <code>Application.configureRouting()</code> function as follows:
                 </p>
                 <code-block lang="kotlin"><![CDATA[
+                    //...
+
                     fun Application.configureRouting() {
                         routing {
                             //...
@@ -540,6 +555,7 @@
                 </p>
                 <code-block lang="kotlin">
                     //...
+                    import com.example.model.Task
                     import io.ktor.serialization.*
                     import io.ktor.server.request.*
                 </code-block>
@@ -714,13 +730,17 @@
             </step>
             <step>
                 <p>
-                    Add the following dependency into your
+                    Add the following dependencies into your
                     <path>build.gradle.kts</path>
                     file:
                 </p>
-                <code-block src="snippets/tutorial-server-restful-api/build.gradle.kts"
-                            lang="kotlin"
-                            include-lines="29"/>
+                <code-block lang="kotlin">
+                    val ktor_version: String by project
+
+                    //...
+                    testImplementation("io.ktor:ktor-server-test-host:$ktor_version")
+                    testImplementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
+                </code-block>
             </step>
         </procedure>
     </chapter>
