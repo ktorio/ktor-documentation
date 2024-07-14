@@ -123,22 +123,24 @@ see [server-websockets](https://github.com/ktorio/ktor-documentation/tree/%ktor_
 
 ### Example: Handle multiple sessions {id="handle-multiple-session"}
 
-To handle multiple WebSocket sessions, you need to
-store each session on a server. To do this, you define a connection with a unique name and associate it with a specified
-session. A sample `Connection` class below shows how to do this:
+To efficiently manage multiple WebSocket sessions and handle broadcasting, you can utilize Kotlin's `SharedFlow`. This approach provides a more scalable and concurrency-friendly method for managing WebSocket communications. Here's how to implement this pattern:
+
+1. Set up a `SharedFlow` for broadcasting messages:
+
+```kotlin
+```
+{src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/plugins/Sockets.kt" include-lines="23-25"}
+
+2. In your WebSocket route, implement the broadcasting and message handling logic:
 
 ```kotlin
 ```
 
-{src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/Connection.kt" include-lines="3-11"}
+{src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/plugins/Sockets.kt" include-lines="26-48"}
 
-Then, you can create a new connection inside the `webSocket` handler when a new client connects to the WebSocket
-endpoint:
+This implementation uses `SharedFlow` to broadcast messages to all connected clients. The runCatching block processes incoming messages and emits them to the SharedFlow, which then broadcasts to all collectors.
 
-```kotlin
-```
-
-{src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/plugins/Sockets.kt" include-lines="19-42"}
+By using this pattern, you can efficiently manage multiple WebSocket sessions without manually tracking individual connections. This approach scales well for applications with many concurrent WebSocket connections and provides a clean, reactive way to handle message broadcasting.
 
 For the full example,
 see [tutorial-websockets-server](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-websockets-server).

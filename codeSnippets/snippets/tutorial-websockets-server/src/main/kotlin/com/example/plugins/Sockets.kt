@@ -1,13 +1,16 @@
 package com.example.plugins
 
 import com.example.*
+import data.source.remote.model.MessageResponse
 import io.ktor.websocket.*
 import io.ktor.server.application.*
 import io.ktor.server.routing.*
 import io.ktor.server.websocket.*
+import kotlinx.coroutines.channels.consumeEach
 import java.time.*
-import java.util.*
-import kotlin.collections.LinkedHashSet
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.launch
 
 fun Application.configureSockets() {
     install(WebSockets) {
@@ -17,26 +20,30 @@ fun Application.configureSockets() {
         masking = false
     }
     routing {
-        val connections = Collections.synchronizedSet<Connection?>(LinkedHashSet())
-        webSocket("/chat") {
-            println("Adding user!")
-            val thisConnection = Connection(this)
-            connections += thisConnection
-            try {
-                send("You are connected! There are ${connections.count()} users here.")
-                for (frame in incoming) {
-                    frame as? Frame.Text ?: continue
-                    val receivedText = frame.readText()
-                    val textWithUsername = "[${thisConnection.name}]: $receivedText"
-                    connections.forEach {
-                        it.session.send(textWithUsername)
+        val messageResponseFlow = MutableSharedFlow<MessageResponse>()
+        val sharedFlow = messageResponseFlow.asSharedFlow()
+
+        webSocket("/ws") {
+            send("You are connected to WebSocket!")
+
+            val job = launch {
+                sharedFlow.collect { message ->
+                    send(message.message)
+                }
+            }
+
+            runCatching {
+                incoming.consumeEach { frame ->
+                    if (frame is Frame.Text) {
+                        val receivedText = frame.readText()
+                        val messageResponse = MessageResponse(receivedText)
+                        messageResponseFlow.emit(messageResponse)
                     }
                 }
-            } catch (e: Exception) {
-                println(e.localizedMessage)
-            } finally {
-                println("Removing $thisConnection!")
-                connections -= thisConnection
+            }.onFailure { exception ->
+                println("WebSocket exception: ${exception.localizedMessage}")
+            }.also {
+                job.cancel()
             }
         }
     }
