@@ -129,14 +129,14 @@ To efficiently manage multiple WebSocket sessions and handle broadcasting, you c
 
 ```kotlin
 ```
-{src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/plugins/Sockets.kt" include-lines="23-25"}
+{src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/plugins/Sockets.kt" include-lines="22-24"}
 
 2. In your WebSocket route, implement the broadcasting and message handling logic:
 
 ```kotlin
 ```
 
-{src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/plugins/Sockets.kt" include-lines="26-48"}
+{src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/plugins/Sockets.kt" include-lines="25-47"}
 
 This implementation uses `SharedFlow` to broadcast messages to all connected clients. The runCatching block processes incoming messages and emits them to the SharedFlow, which then broadcasts to all collectors.
 
