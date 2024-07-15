@@ -129,14 +129,25 @@ To efficiently manage multiple WebSocket sessions and handle broadcasting, you c
 
 ```kotlin
 ```
-{src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/plugins/Sockets.kt" include-lines="22-24"}
+{src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/plugins/Sockets.kt" include-lines="23-24"}
 
 2. In your WebSocket route, implement the broadcasting and message handling logic:
 
 ```kotlin
 ```
 
-{src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/plugins/Sockets.kt" include-lines="25-47"}
+{src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/plugins/Sockets.kt" include-lines="25-48"}
+
+#### Testing WebSocket Broadcasting with SharedFlow
+
+1. Unit Testing:
+   - Use `testApplication` from `io.ktor.server.testing`
+   - Simulate WebSocket connections with `createClient { install(WebSockets) }`
+   - Verify message broadcasting across multiple clients
+
+2. Manual Testing:
+   - Run the server and connect multiple WebSocket clients to `ws://localhost:8080/ws`
+   - Send messages from different clients to observe broadcasting
 
 This implementation uses `SharedFlow` to broadcast messages to all connected clients. The runCatching block processes incoming messages and emits them to the SharedFlow, which then broadcasts to all collectors.
 
