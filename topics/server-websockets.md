@@ -124,23 +124,23 @@ see [server-websockets](https://github.com/ktorio/ktor-documentation/tree/%ktor_
 ### Example: Handle multiple sessions {id="handle-multiple-session"}
 
 To efficiently manage multiple WebSocket sessions and handle broadcasting, you can utilize Kotlin's
-[`SharedFlow`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-shared-flow/). This
-approach provides a scalable and concurrency-friendly method for managing WebSocket communications. Here's how to
+[`SharedFlow`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-shared-flow/).
+This approach provides a scalable and concurrency-friendly method for managing WebSocket communications. Here's how to
 implement this pattern:
 
 1. Define a `SharedFlow` for broadcasting messages:
 
 ```kotlin
 ```
-{src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/plugins/Sockets.kt" include-lines="23-24"}
 
+{src="snippets/server-websockets-sharedflow/src/main/kotlin/com/example/plugins/Sockets.kt" include-lines="23-24"}
 
 2. In your WebSocket route, implement the broadcasting and message handling logic:
 
 ```kotlin
 ```
 
-{src="snippets/tutorial-websockets-server/src/main/kotlin/com/example/plugins/Sockets.kt" include-lines="25-48"}
+{src="snippets/server-websockets-sharedflow/src/main/kotlin/com/example/plugins/Sockets.kt" include-lines="25-48"}
 
 The `runCatching` block processes
 incoming messages and emits them to the `SharedFlow`, which then broadcasts to all collectors.
@@ -150,7 +150,7 @@ connections. This approach scales well for applications with many concurrent Web
 reactive way to handle message broadcasting.
 
 For the full example,
-see [tutorial-websockets-server](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-websockets-server).
+see [server-websockets-sharedflow](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/server-websockets-sharedflow).
 
 ## The WebSocket API and Ktor {id="websocket-api"}
 
