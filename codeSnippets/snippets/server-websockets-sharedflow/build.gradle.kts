@@ -6,6 +6,7 @@ plugins {
     application
     kotlin("jvm")
     id("io.ktor.plugin") version "3.0.0-beta-1"
+    kotlin("plugin.serialization").version("1.9.20")
 }
 
 application {
@@ -21,6 +22,7 @@ dependencies {
     implementation("io.ktor:ktor-server-core-jvm")
     implementation("io.ktor:ktor-server-websockets-jvm")
     implementation("io.ktor:ktor-server-netty-jvm")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
     testImplementation("io.ktor:ktor-server-tests-jvm")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")

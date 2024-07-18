@@ -33,6 +33,12 @@ The following table lists details of the latest Ktor releases.
 
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
+<tr><td>2.3.12</td><td>June 20, 2024</td><td><p>
+A patch release, including bug fixes in Ktor Core and Ktor Server, as well as version updates for Netty and OpenAPI.
+</p>
+<var name="version" value="2.3.12"/>
+<include from="lib.topic" element-id="release_details_link"/>
+</td></tr>
 <tr><td>2.3.11</td><td>May 9, 2024</td><td><p>
 A patch release, including a bug fix for applying a socket timeout to the Test Client's engine.
 </p>

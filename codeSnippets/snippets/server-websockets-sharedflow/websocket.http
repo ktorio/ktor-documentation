@@ -1,10 +1,10 @@
-WEBSOCKET ws://0.0.0.0:8080/chat
+WEBSOCKET ws://0.0.0.0:8080/ws
 Content-Type: text/plain
 
 Hello, there!
 
 ###
-WEBSOCKET ws://0.0.0.0:8080/chat
+WEBSOCKET ws://0.0.0.0:8080/ws
 Content-Type: text/plain
 
 Hi!

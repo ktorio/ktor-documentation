@@ -69,20 +69,15 @@
             </step>
             <step>
                 <p>In the
-                    <control>Project Name</control>
+                    <control>Project artifact</control>
                     field, enter
-                    <path>ktor-rest-task-app</path>
-                    as the name of your project.
-                </p>
-                <img src="tutorial_creating_restful_apis_project_name.png"
-                     alt="Naming the project in the Ktor Project Generator"
-                     border-effect="line"
-                     width="706"/>
-            </step>
-            <step>
-                <p>You can leave the default values for the rest of the settings and click on
-                    <control>Add plugins</control>
-                    to go to the next screen.
+                    <path>com.example.ktor-rest-task-app</path>
+                    as the name of your project artifact.
+                    <img src="tutorial_creating_restful_apis_project_artifact.png"
+                         alt="Naming the project artifact in the Ktor Project Generator"
+                         style="block"
+                         border-effect="line"
+                         width="706"/>
                 </p>
             </step>
             <step>
@@ -97,21 +92,19 @@
                     <li>Kotlinx.serialization</li>
                     <li>Static Content</li>
                 </list>
-                <img src="ktor_project_generator_add_plugins.gif" alt="Adding plugins in the Ktor Project Generator"
-                     border-effect="line"
-                     width="400"/>
-            </step>
-            <step>
                 <p>
-                    Once you have added the plugins, click on the
-                    <control>4 plugins added</control>
-                    link at the bottom left, to display the added plugins.
+                    <img src="ktor_project_generator_add_plugins.gif" alt="Adding plugins in the Ktor Project Generator"
+                         border-effect="line"
+                         style="block"
+                         width="706"/>
+                    Once you have added the plugins, you will see all
+                    four plugins listed below the project settings.
+                    <img src="tutorial_creating_restful_apis_plugins_list.png"
+                         alt="Plugins list in the Ktor Project Generator"
+                         border-effect="line"
+                         style="block"
+                         width="706"/>
                 </p>
-                <p>You will then see a list of all the plugins that will be added to your project:</p>
-                <img src="tutorial_creating_restful_apis_plugins_list.png"
-                     alt="Plugins list in the Ktor Project Generator"
-                     border-effect="line"
-                     width="400"/>
             </step>
             <step>
                 <include from="lib.topic" element-id="generate_project_final_step"/>
@@ -352,6 +345,16 @@
                         <code>Application.configureRouting()</code> function with the following implementation:
                     </p>
                     <code-block lang="kotlin"><![CDATA[
+                    package example.com.plugins
+
+                    import com.example.model.Priority
+                    import com.example.model.TaskRepository
+                    import io.ktor.http.*
+                    import io.ktor.server.application.*
+                    import io.ktor.server.http.content.*
+                    import io.ktor.server.response.*
+                    import io.ktor.server.routing.*
+
                     fun Application.configureRouting() {
                         routing {
                             staticResources("static", "static")
@@ -411,6 +414,9 @@
                             <code>priority</code>.
                         </li>
                     </list>
+                </step>
+                <step>
+                    <include from="lib.topic" element-id="intellij_idea_restart_application"/>
                 </step>
             </procedure>
         </chapter>
@@ -519,6 +525,8 @@
                     Add a new POST route to the <code>Application.configureRouting()</code> function as follows:
                 </p>
                 <code-block lang="kotlin"><![CDATA[
+                    //...
+
                     fun Application.configureRouting() {
                         routing {
                             //...
@@ -547,6 +555,7 @@
                 </p>
                 <code-block lang="kotlin">
                     //...
+                    import com.example.model.Task
                     import io.ktor.serialization.*
                     import io.ktor.server.request.*
                 </code-block>
@@ -721,13 +730,17 @@
             </step>
             <step>
                 <p>
-                    Add the following dependency into your
+                    Add the following dependencies into your
                     <path>build.gradle.kts</path>
                     file:
                 </p>
-                <code-block src="snippets/tutorial-server-restful-api/build.gradle.kts"
-                            lang="kotlin"
-                            include-lines="29"/>
+                <code-block lang="kotlin">
+                    val ktor_version: String by project
+
+                    //...
+                    testImplementation("io.ktor:ktor-server-test-host:$ktor_version")
+                    testImplementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
+                </code-block>
             </step>
         </procedure>
     </chapter>
