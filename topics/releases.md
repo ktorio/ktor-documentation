@@ -33,6 +33,12 @@ The following table lists details of the latest Ktor releases.
 
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
+<tr><td>3.0.0-beta-2</td><td>July 15, 2024</td><td><p>
+A major pre-release version with various improvements and bug fixes, including SSE support improvements and a Ktor client for Kotlin/Wasm.
+</p>
+<var name="version" value="3.0.0-beta-2"/>
+<include from="lib.topic" element-id="release_details_link"/>
+</td></tr>
 <tr><td>2.3.12</td><td>June 20, 2024</td><td><p>
 A patch release, including bug fixes in Ktor Core and Ktor Server, as well as version updates for Netty and OpenAPI.
 </p>
