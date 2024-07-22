@@ -5,18 +5,34 @@
        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
        title="Full-stack development with Kotlin Multiplatform" id="full-stack-development-with-kotlin-multiplatform">
 
-    <p>In this article, you will learn how to use Ktor as one component in a Kotlin Multiplatform application.</p>
-    <p>By the end of this tutorial, you’ll learn how to do the following:</p>
+    <web-summary>
+        Learn how to develop a cross-platform full-stack application in Kotlin and Ktor. In this tutorial, you will
+        discover how to use Kotlin Multiplatform to build for Android, iOS, and desktop, and handle data effortlessly
+        using Ktor.
+    </web-summary>
+    <link-summary>
+        Learn how to develop a cross-platform full-stack application in Kotlin and Ktor.
+    </link-summary>
+    <p>
+        In this article, you will learn how to develop a full-stack application in Kotlin that runs on Android, iOS,
+        and desktop platforms, all while leveraging Ktor for seamless data handling.
+    </p>
+    <p>By the end of this tutorial, you’ll know how to do the following:</p>
     <list>
         <li>Create full-stack applications using Kotlin Multiplatform.</li>
-        <li>Understand the project created by the Multiplatform Wizard.</li>
-        <li>Create Compose Multiplatform clients that call Ktor services.</li>
+        <li>Understand the project created by the <a href="https://kmp.jetbrains.com/">Multiplatform Wizard</a>.</li>
+        <li>Create <a href="https://www.jetbrains.com/lp/compose-multiplatform/">Compose Multiplatform</a> clients that
+            call Ktor services.
+        </li>
         <li>Reuse shared types across different layers of your design.</li>
         <li>Correctly include and configure multiplatform libraries.</li>
     </list>
     <p>
-        In previous tutorials, we used the Task Manager example to handle requests, create RESTful APIs, and integrate a
-        database with Exposed. Client applications were kept as minimal as possible, so you could focus on learning the
+        In previous tutorials, we used the Task Manager example to
+        <a href="server-requests-and-responses.topic">handle requests</a>,
+        <a href="server-create-restful-apis.topic">create RESTful APIs</a>, and
+        <a href="server-integrate-database.topic">integrate a database with Exposed</a>.
+        Client applications were kept as minimal as possible, so you could focus on learning the
         fundamentals of Ktor.
     </p>
     <p>
@@ -123,19 +139,21 @@
             <step>
                 In the
                 <ui-path>Project View</ui-path>
-                , open
+                , navigate to
+                <path>server/src/main/kotlin/org/example/ktor</path>
+                and open the
                 <path>Application.kt</path>
-                within
-                <path>server/src/main/kotlin</path>
-                .
+                file.
             </step>
             <step>
                 <p>
                     In the
                     <ui-path>Gradle View</ui-path>
-                    , find the run task within
+                    on the right side of the IDE, navigate to
                     <path>server/tasks/application</path>
-                    . Your IDE should look like the image below.
+                    and find the
+                    <control>run</control>
+                    task. Your IDE should look like the image below.
                     <img style="block" src="full_stack_development_tutorial_IDE_layout.png"
                          alt="Extended project layout in Android Studio" width="706" border-effect="rounded"/>
                 </p>
@@ -245,48 +263,29 @@
         </p>
         <tabs>
             <tab title="commonMain/Platform.kt" id="commonMain">
-                <code-block lang="kotlin">
-                    interface Platform {
-                        val name: String
-                    }
-
-                    expect fun getPlatform(): Platform
-                </code-block>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-full-stack-task-manager/shared/src/commonMain/kotlin/Platform.kt"
+                />
             </tab>
         </tabs>
         <p>Then each target platform
-            must provide an <code>actual</code> declaration of the <code>getPlatform()</code> function, as shown below:</p>
+            must provide an <code>actual</code> declaration of the <code>getPlatform()</code> function, as shown below:
+        </p>
         <tabs>
             <tab title="Platform.ios.kt" id="iosMain">
-                <code-block lang="kotlin">
-                    import platform.UIKit.UIDevice
-
-                    class IOSPlatform: Platform {
-                        override val name: String = UIDevice.currentDevice.systemName() + " " + UIDevice.currentDevice.systemVersion
-                    }
-
-                    actual fun getPlatform(): Platform = IOSPlatform()
-                </code-block>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-full-stack-task-manager/shared/src/iosMain/kotlin/Platform.ios.kt"
+                />
             </tab>
             <tab title="Platform.android.kt" id="androidMain">
-                <code-block lang="kotlin">
-                    import android.os.Build
-
-                    class AndroidPlatform : Platform {
-                        override val name: String = "Android ${Build.VERSION.SDK_INT}"
-                    }
-
-                    actual fun getPlatform(): Platform = AndroidPlatform()
-                </code-block>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-full-stack-task-manager/shared/src/androidMain/kotlin/Platform.android.kt"
+                />
             </tab>
             <tab title="Platform.jvm.kt" id="jvmMain">
-                <code-block lang="kotlin">
-                    class JVMPlatform: Platform {
-                        override val name: String = "Java ${System.getProperty("java.version")}"
-                    }
-
-                    actual fun getPlatform(): Platform = JVMPlatform()
-                </code-block>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-full-stack-task-manager/shared/src/jvmMain/kotlin/Platform.jvm.kt"
+                />
             </tab>
         </tabs>
         <p>
@@ -307,10 +306,10 @@
             This shows a screen with a single button placed on the top. Pressing the button shows and hides an image.
             When the button is pressed for the first time, the details of the current platform are added to its text.
             The code to achieve this is found in
-            <path>composeApp/commonMain/kotlin/App.kt</path>
+            <path>composeApp/src/commonMain/kotlin/App.kt</path>
             :
         </p>
-        <code-block lang="kotlin">
+        <code-block lang="kotlin"><![CDATA[
             @OptIn(ExperimentalResourceApi::class)
             @Composable
             fun App() {
@@ -336,7 +335,7 @@
                     }
                 }
             }
-        </code-block>
+        ]]></code-block>
         <p>
             This is a composable function, which you will modify later in this article. For the moment all that is
             important is that it displays a UI and makes use of the <code>Greeting</code> type, which in turn uses the
@@ -352,12 +351,12 @@
             First, you will add the model types and make sure that they are accessible on both the client and the
             server.
         </p>
-        <procedure>
+        <procedure id="add-model-types-procedure">
             <step>
                 Navigate to
                 <path>shared/src/commonMain/kotlin</path>
                 and create a package called
-                <path>com.kmp.ktor.model</path>
+                <path>model</path>
                 .
             </step>
             <step>
@@ -373,21 +372,9 @@
                     <code>kotlinx.serialization</code>
                     library:
                 </p>
-                <code-block lang="kotlin">
-                    import kotlinx.serialization.Serializable
-
-                    enum class Priority {
-                        Low, Medium, High, Vital
-                    }
-
-                    @Serializable
-                    data class Task(
-                        val name: String,
-                        val description: String,
-                        val priority: Priority
-                    )
-
-                </code-block>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-full-stack-task-manager/shared/src/commonMain/kotlin/model/Task.kt"
+                />
                 <p>
                     You will notice that neither the import nor the annotation compiles. This is because the <code>kotlinx.serialization</code>
                     library has not been included for us by the wizard.
@@ -399,12 +386,10 @@
                     <path>shared/build.gradle.kts</path>
                     and add the serialization plugin:
                 </p>
-                <code-block lang="kotlin">
-                    plugins {
-                        // existing plugins omitted
-                        kotlin("plugin.serialization") version "1.9.20"
-                    }
-                </code-block>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-full-stack-task-manager/shared/build.gradle.kts"
+                            include-lines="4-5,8-9"
+                />
             </step>
             <step>
                 <p>
@@ -412,14 +397,10 @@
                     <path>commonMain</path>
                     source set:
                 </p>
-                <code-block lang="kotlin">
-                    sourceSets {
-                        commonMain.dependencies {
-                            // existing dependencies omitted
-                            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.1")
-                        }
-                    }
-                </code-block>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-full-stack-task-manager/shared/build.gradle.kts"
+                            include-lines="25-30"
+                />
             </step>
             <step>
                 In Android studio, click on
@@ -447,12 +428,12 @@
         <p>
             The next stage is to create the server implementation for our task manager.
         </p>
-        <procedure>
+        <procedure id="create-server-procedure">
             <step>
                 Navigate to the
-                <path>server/src/main/kotlin</path>
+                <path>server/src/main/kotlin/org/example/ktor</path>
                 folder and create a sub-package called
-                <path>com.kmp.ktor.model</path>
+                <path>model</path>
                 .
             </step>
             <step>
@@ -461,15 +442,9 @@
                     <path>TaskRepository.kt</path>
                     file and add the following interface for our repository:
                 </p>
-                <code-block lang="kotlin"><![CDATA[
-                    interface TaskRepository {
-                        fun allTasks(): List<Task>
-                        fun tasksByPriority(priority: Priority): List<Task>
-                        fun taskByName(name: String): Task?
-                        fun addOrUpdateTask(task: Task)
-                        fun removeTask(name: String): Boolean
-                    }
-                ]]></code-block>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-full-stack-task-manager/server/src/main/kotlin/org/example/ktor/model/TaskRepository.kt"
+                />
             </step>
             <step>
                 <p>
@@ -477,64 +452,19 @@
                     <path>InMemoryTaskRepository.kt</path>
                     containing the following class:
                 </p>
-                <code-block lang="kotlin"><![CDATA[
-                    class InMemoryTaskRepository : TaskRepository {
-                        private var tasks = listOf(
-                            Task("Cleaning", "Clean the house", Low),
-                            Task("Gardening", "Mow the lawn", Medium),
-                            Task("Shopping", "Buy the groceries", High),
-                            Task("Painting", "Paint the fence", Low),
-                            Task("Cooking", "Cook the dinner", Medium),
-                            Task("Relaxing", "Take a walk", High),
-                            Task("Exercising", "Go to the gym", Low),
-                            Task("Learning", "Read a book", Medium),
-                            Task("Snoozing", "Go for a nap", High),
-                            Task("Socializing", "Go to a party", High)
-                        )
-
-                        override fun allTasks(): List<Task> = tasks
-
-                        override fun tasksByPriority(priority: Priority) = tasks.filter {
-                            it.priority == priority
-                        }
-
-                        override fun taskByName(name: String) = tasks.find {
-                            it.name.equals(name, ignoreCase = true)
-                        }
-
-                        override fun addOrUpdateTask(task: Task) {
-                            var notFound = true
-
-                            tasks = tasks.map {
-                                if (it.name == task.name) {
-                                    notFound = false
-                                    task
-                                } else {
-                                    it
-                                }
-                            }
-                            if (notFound) {
-                                tasks = tasks.plus(task)
-                            }
-                        }
-
-                        override fun removeTask(name: String): Boolean {
-                            val oldTasks = tasks
-                            tasks = tasks.filterNot { it.name == name }
-                            return oldTasks.size > tasks.size
-                        }
-                    }
-                ]]></code-block>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-full-stack-task-manager/server/src/main/kotlin/org/example/ktor/model/InMemoryTaskRepository.kt"
+                />
             </step>
             <step>
                 <p>
                     Navigate to
                     <path>Application.kt</path>
-                    and replace the existing <code>Application.module()</code> function with the implementation below:
+                    and replace the existing code with the implementation below:
                 </p>
-                <code-block lang="kotlin">
-                    //add code ...
-                </code-block>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-full-stack-task-manager/server/src/main/kotlin/org/example/ktor/Application.kt"
+                />
                 <p>
                     This implementation is very similar to that in previous tutorials with the exception that now you
                     have placed all the routing code within the <code>Application.module()</code> function for
@@ -552,16 +482,13 @@
                     <path>server/build.gradle.kts</path>
                     and add the following dependencies:
                 </p>
-                <code-block lang="kotlin">
-                    dependencies {
-                        // existing dependencies omitted
-                        implementation("io.ktor:ktor-serialization-kotlinx-json-jvm:$ktor")
-                        implementation("io.ktor:ktor-server-content-negotiation-jvm:$ktor")
-                    }
-                </code-block>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-full-stack-task-manager/server/build.gradle.kts"
+                            include-lines="14-15,20-21,24"
+                />
             </step>
             <step>
-                Resync the build file. You should find that you can now import the <code>ContentNegotiation</code> type
+                Re-sync the build file. You should find that you can now import the <code>ContentNegotiation</code> type
                 and <code>json()</code> function.
             </step>
             <step>
@@ -613,46 +540,30 @@
             <li>Platform-specific engines to handle networking.</li>
             <li>Support for content negotiation and serialization.</li>
         </list>
-        <procedure>
+        <procedure id="create-client-procedure">
             <step>
                 Navigate to
                 <path>composeApp/build.gradle.kts</path>
                 and add the following dependencies:
-                <code-block lang="kotlin">
-                    sourceSets {
-                        val desktopMain by getting
-
-                        androidMain.dependencies {
-                            // existing dependencies omitted
-                            implementation("io.ktor:ktor-client-android:2.3.3")
-                        }
-                        desktopMain.dependencies {
-                            // existing dependencies omitted
-                            implementation("io.ktor:ktor-client-cio:2.3.3")
-                        }
-                        commonMain.dependencies {
-                            // existing dependencies omitted
-                            implementation("io.ktor:ktor-client-core:2.3.3")
-                            implementation("io.ktor:ktor-client-content-negotiation:2.3.3")
-                            implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.3")
-                        }
-
-                        iosMain.dependencies {
-                            implementation("io.ktor:ktor-client-darwin:2.3.3")
-                        }
-                    }
-
-                </code-block>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-full-stack-task-manager/composeApp/build.gradle.kts"
+                            include-lines="33-37,40-43,51-56,58-64"
+                />
                 <p>
                     Once this is done you can add a <code>TaskApi</code> type for your clients to act as a thin wrapper
                     around the Ktor Client.
                 </p>
             </step>
             <step>
+                Click
+                <ui-path>Sync now</ui-path>
+                to sync the changes in the build file.
+            </step>
+            <step>
                 Navigate to
-                <path>composeApp/commonMain/kotlin</path>
+                <path>composeApp/src/commonMain/kotlin</path>
                 and create a new package called
-                <path>com.kmp.ktor.network</path>
+                <path>network</path>
                 .
             </step>
             <step>
@@ -661,9 +572,9 @@
                     <path>TaskApi.kt</path>
                     file with the following implementation:
                 </p>
-                <code-block lang="kotlin">
-                    //...
-                </code-block>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/network/TaskApi.kt"
+                />
                 <p>
                     Note you should replace <code>1.2.3.4</code> with the IP address of your current machine. You will
                     not be able to make calls to <code>0.0.0.0</code> or <code>localhost</code> from code running on an
@@ -677,9 +588,9 @@
                     <path>App.kt</path>
                     and replace the App composable with the implementation below:
                 </p>
-                <code-block lang="kotlin">
-                    //...
-                </code-block>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/App1.kt"
+                />
                 <p>
                     This will use the <code>TaskApi</code> type to retrieve the list of tasks from the server, and then
                     display the name of each one in a column.
@@ -687,7 +598,9 @@
             </step>
             <step>
                 <p>
-                    Test the application by running the iOS and desktop clients:
+                    Test the application by running the iOS and desktop clients. Click on the
+                    <control>Fetch Tasks</control>
+                    button to display the list of tasks:
                     <img style="block" src="full_stack_development_tutorial_run_iOS.png"
                          alt="App running on iOS" width="363" border-effect="rounded"/>
                     <img style="block" src="full_stack_development_tutorial_run_desktop.png"
@@ -698,40 +611,32 @@
                 <p>
                     In the case of the desktop client, you need to assign dimensions and a title to the containing
                     window. Open the file
-                    <path>composeApp/src/desktopMain/kotlin/main.kt</path>.
+                    <path>composeApp/src/desktopMain/kotlin/main.kt</path>
+                    .
                     You should see the following piece of code:
                 </p>
-                <code-block lang="kotlin">
-                    fun main() = application {
-                        Window(onCloseRequest = ::exitApplication) {
-                            App()
-                        }
-                    }
-                </code-block>
-                <p>
-                    Modify this code to set the <code>title</code> and <code>state</code> properties, as shown below:
-                </p>
-                <code-block lang="kotlin">
-                    val state = WindowState(
-                        size = DpSize(400.dp, 600.dp),
-                        position = WindowPosition(200.dp, 100.dp)
-                    )
-
+                <code-block lang="kotlin"><![CDATA[
                     fun main() = application {
                         Window(
-                            title = "Task Manager (Desktop)",
-                            state = state,
-                            onCloseRequest = ::exitApplication
+                            onCloseRequest = ::exitApplication,
+                            title = "full-stack-task-manager",
                         ) {
                             App()
                         }
                     }
-                </code-block>
+                ]]></code-block>
+                <p>
+                    Modify this code to change the <code>title</code> and set the <code>state</code> property, as shown
+                    below:
+                </p>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/desktopMain/kotlin/main.kt"
+                />
             </step>
             <step>
                 <p>
                     Run the application. The desktop client should now reflect the changes:
-                    <img style="block" src="full_stack_development_tutorial_run_idesktop_resized.png"
+                    <img style="block" src="full_stack_development_tutorial_run_desktop_resized.png"
                          alt="App running on desktop" width="400" border-effect="rounded"/>
                 </p>
             </step>
@@ -758,7 +663,7 @@
             <step>
                 <p>
                     Run the application. You should now find that your Android client will run as well:
-                    <img style="block" src="full_stack_development_tutorial_run_iOS.png"
+                    <img style="block" src="full_stack_development_tutorial_run_android.png"
                          alt="App running on Android" width="350" border-effect="rounded"/>
                 </p>
                 <note>
@@ -772,22 +677,25 @@
         <p>
             The clients are now communicating with the server, but this is hardly a compelling user interface.
         </p>
-        <procedure>
+        <procedure id="improve-ui-procedure">
             <step>
                 <p>
                     Open the
                     <path>App.kt</path>
-                    file and replace the existing <code>App</code> with the <code>App</code> and <code>TaskCard</code>
+                    file located in
+                    <path>composeApp/src/commonMain/kotlin</path>
+                    and replace the existing <code>App</code> with the <code>App</code> and <code>TaskCard</code>
                     composables below:
                 </p>
-                <code-block lang="kotlin">
-                    //...
-                </code-block>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/App.kt"
+                            include-lines="1-32,34-38,52-62,64-105"
+                />
                 <p>
                     With this implementation, your client now has some basic functionality.
                 </p>
                 <p>
-                    By using the LaunchedEffect type all tasks are loaded on startup, while the <code>LazyColumn</code>
+                    By using the <code>LaunchedEffect</code> type all tasks are loaded on startup, while the <code>LazyColumn</code>
                     composable allows the user to scroll through tasks.
                 </p>
                 <p>
@@ -809,16 +717,17 @@
         <p>
             To complete the client, you need to incorporate the functionality to update tasks.
         </p>
-        <procedure>
+        <procedure id="add-update-func-procedure">
             <step>
                 <p>
                     Include the <code>UpdateTaskDialog</code> composable below in
                     <path>composeApp/commonMain/kotlin</path>
                     :
                 </p>
-                <code-block lang="kotlin">
-                    //...
-                </code-block>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/App.kt"
+                            include-lines="107-155"
+                />
                 <p>
                     This is a composable that displays the details of a <code>Task</code> with a dialog box. The <code>description</code>
                     and <code>priority</code> are placed within <code>TextField</code> composables so they can be
@@ -829,9 +738,10 @@
                 <p>
                     Navigate back to the <code>App</code> composable and update the code as shown below:
                 </p>
-                <code-block lang="kotlin">
-                    //...
-                </code-block>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/App.kt"
+                            include-lines="27-69"
+                />
                 <p>
                     You are storing an additional piece of state, which is the current task selected. If this value is
                     not null, then we invoke our <code>UpdateTaskDialog</code> composable, with the
