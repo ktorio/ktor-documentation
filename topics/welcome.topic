@@ -127,6 +127,11 @@
                     <a href="client-testing.md"/>
                 </group>
             </links>
+            <cards>
+                <title>Integrations</title>
+                <a href="tutorial-first-steps-with-kotlin-rpc.topic"/>
+            </cards>
         </misc>
+
     </section-starting-page>
 </topic>

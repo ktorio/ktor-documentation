@@ -11,6 +11,12 @@
         Discover the fundamentals of RPC and explore a detailed comparison between RPC and REST in this comprehensive
         guide. Learn how to create your first application with Kotlin RPC.
     </web-summary>
+    <link-summary>
+        Learn how to create your first application with Kotlin RPC and Ktor.
+    </link-summary>
+    <card-summary>
+        Learn how to create your first application with Kotlin RPC and Ktor.
+    </card-summary>
     <tldr>
         <p><b>Code examples</b>:
             <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-kotlin-rpc-client">
@@ -587,8 +593,8 @@
         </p>
         <p>
             If this introduction has piqued your interest, make sure to check out
-            the <a href="https://github.com/Kotlin/kotlinx-rpc/tree/main/samples">official examples</a>. It is still
-            very early days, so play with the library and let us know what you think.
+            the <a href="https://github.com/Kotlin/kotlinx-rpc/tree/main/samples">official examples</a>. The <code>kotlinx.rpc</code>
+            library is in its early stages, so we encourage you to explore it and share your feedback with us.
         </p>
     </chapter>
 </topic>
