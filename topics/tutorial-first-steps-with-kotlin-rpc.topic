@@ -21,7 +21,7 @@
             </a>
         </p>
         <p>
-            <b>Used plugins</b>: <a href="server-routing.md">Routing</a>,
+            <b>Used plugins</b>: <a href="server-routing.md">Routing</a>, <a href="client-websockets.md">WebSockets</a>,
             <a href="https://kotlinlang.org/api/kotlinx.serialization/">kotlinx.serialization</a>,
             <a href="https://github.com/Kotlin/kotlinx-rpc">kotlinx.rpc</a>
         </p>
@@ -363,7 +363,7 @@
                 </step>
             </procedure>
         </chapter>
-        <chapter title="Complete and run the application" id="complete-and-run">
+        <chapter title="Add dependencies" id="add-dependencies">
             <p>
                 You now have all the code necessary to run the application, but at the moment, it would not even
                 compile, never mind execute. At present, there is no wizard to create a <code>kotlinx.rpc</code> project
@@ -418,8 +418,43 @@
                         With this, you can now run the projects and start making RPC calls.
                     </p>
                 </step>
+            </procedure>
+        </chapter>
+        <chapter title="Run the application" id="run-application">
+            <p>
+                To run the demo, follow the steps below:
+            </p>
+            <procedure id="run-app-procedure">
                 <step>
-                    To test the application, run the server first, followed by the client.
+                    Navigate to the
+                    <path>Main.kt</path>
+                    file of the server project.
+                </step>
+                <step>
+                    <p>In IntelliJ IDEA, click on the run button
+                        (<img src="intellij_idea_gutter_icon.svg"
+                              style="inline" height="16" width="16"
+                              alt="intelliJ IDEA run icon"/>)
+                        next to the <code>main()</code> function
+                        to start the application.</p>
+                    <p>
+                        You should see the output in the
+                        <control>Run</control>
+                        tool panel:
+                    </p>
+                    <img src="tutorial_kotlin_rpc_run_server.png" alt="Run server output in intelliJ IDEA"
+                         style="block" width="706" border-effect="line"/>
+                </step>
+                <step>
+                    Navigate to the
+                    <path>Main.kt</path>
+                    file of the client project and run the application. You should see the following output in the
+                    console:
+                    <code-block lang="shell">
+                        Your pizza cost 7.89
+
+                        Process finished with exit code 0
+                    </code-block>
                 </step>
             </procedure>
         </chapter>
@@ -535,11 +570,14 @@
                 />
             </step>
             <step>
-                When you run the demo, you can see the results being displayed incrementally.
+                Run the server and the client. When you run the client, you will see the results being displayed
+                incrementally:
+                <img src="tutorial_kotlin_rpc_run_client.gif" alt="Client output incrementally displaying results"
+                     style="block" width="706" border-effect="line"/>
             </step>
         </procedure>
     </chapter>
-    <chapter title="Next steps">
+    <chapter title="Next steps" id="next-steps">
         <p>
             Kotlin RPC extends the Kotlin ecosystem in a new direction, offering an alternative to REST and GraphQL for
             creating and consuming services. It is built on proven libraries and frameworks, such as Ktor, Coroutines,
