@@ -5,6 +5,8 @@
        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
        title="First steps with Kotlin RPC" id="tutorial-first-steps-with-kotlin-rpc">
 
+    <show-structure for="chapter" depth="2"/>
+
     <web-summary>
         Discover the fundamentals of RPC and explore a detailed comparison between RPC and REST in this comprehensive
         guide. Learn how to create your first application with Kotlin RPC.
@@ -100,6 +102,18 @@
             as possible, we’ll use a console-based client. Future articles will show how it would work with KMP-based
             desktop and mobile clients.
         </p>
+        <chapter title="Prerequisites" id="prerequisites">
+            <p>
+                This tutorial assumes you have a fundamental understanding of Kotlin programming. If you are new to
+                Kotlin, consider reviewing some <a href="https://kotlinlang.org/docs/getting-started.html">
+                introductory materials</a>.
+            </p>
+            <p>For the best experience, we recommend using <a
+                    href="https://www.jetbrains.com/idea/download">IntelliJ
+                IDEA Ultimate</a> as your integrated development environment (IDE) as it offers comprehensive support
+                and tools that will enhance your productivity.
+            </p>
+        </chapter>
         <chapter title="Create the projects" id="create-projects">
             <p>First, you will create two projects, one for the client and one for the server.</p>
             <p>
@@ -140,7 +154,7 @@
                 that step at the end.
             </p>
         </chapter>
-        <chapter title="The shared types" id="shared-types">
+        <chapter title="Add the shared types" id="shared-types">
             <p>
                 The heart of any RPC project is the interface that defines the procedures to be called remotely, along
                 with the types used in the definition of those procedures.
@@ -180,8 +194,8 @@
                 </step>
             </procedure>
         </chapter>
-        <chapter title="The client implementation">
-            <procedure>
+        <chapter title="Implement the client" id="client-implementation">
+            <procedure id="client-impl-procedure">
                 <step>
                     In the client project, navigate to the
                     <path>Main.kt</path>
@@ -260,7 +274,7 @@
                         include-lines="59"
             />
         </chapter>
-        <chapter title="The server implementation" id="server-implementation">
+        <chapter title="Implement the server" id="server-implementation">
             <p>
                 The implementation on the server side breaks down into two parts. Firstly, you need to create an
                 implementation of our interface, and secondly, you need to host it within a server.
@@ -331,7 +345,7 @@
                 </step>
             </procedure>
         </chapter>
-        <chapter title="Completing and running the application" id="complete-and-run">
+        <chapter title="Complete and run the application" id="complete-and-run">
             <p>
                 You now have all the code necessary to run the application, but at the moment, it would not even
                 compile, never mind execute. At present, there is no wizard to create a <code>kotlinx.rpc</code> project
@@ -432,7 +446,7 @@
             applicable to browser-based applications.
         </p>
     </chapter>
-    <chapter title="Kotlin RPC vs. Google RPC / gRPC" id="kotlin-rpc-vs-google-rpc">
+    <chapter title="Kotlin RPC vs. Google RPC" id="kotlin-rpc-vs-google-rpc">
         <p>
             Google RPC is the dominant RPC technology in the software industry at present. A standard called Protocol
             Buffers (protobuf) is used to define data structures and message payloads using a language-neutral Interface
@@ -450,10 +464,10 @@
             instead.
         </p>
     </chapter>
-    <chapter title="Extending our example" id="extend-the-example">
+    <chapter title="Extend the example" id="extend-the-example">
         <p>
-            Let’s make our example a little more complex to create a foundation that you can build on in the following
-            article.
+            Finally, let's enhance the complexity of our example application to establish a solid foundation for future
+            development.
         </p>
         <procedure id="extend-server">
             <step>
