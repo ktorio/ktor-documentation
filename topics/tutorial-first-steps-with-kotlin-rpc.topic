@@ -11,9 +11,27 @@
         Discover the fundamentals of RPC and explore a detailed comparison between RPC and REST in this comprehensive
         guide. Learn how to create your first application with Kotlin RPC.
     </web-summary>
+    <tldr>
+        <p><b>Code examples</b>:
+            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-kotlin-rpc-client">
+                tutorial-kotlin-rpc-client
+            </a>,
+            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-kotlin-rpc-server">
+                tutorial-kotlin-rpc-server
+            </a>
+        </p>
+        <p>
+            <b>Used plugins</b>: <a href="server-routing.md">Routing</a>,
+            <a href="https://kotlinlang.org/api/kotlinx.serialization/">kotlinx.serialization</a>,
+            <a href="https://github.com/Kotlin/kotlinx-rpc">kotlinx.rpc</a>
+        </p>
+    </tldr>
     <p>
-        Kotlin RPC is a new and exciting addition to the Kotlin ecosystem, which builds on well-established foundations
-        and runs on the <code>kotlinx.rpc</code> library. The library enables you to make procedure calls over network
+        Kotlin RPC (Remote Procedure Call) is a new and exciting addition to the Kotlin ecosystem, which builds on well-established foundations
+        and runs on the <code>kotlinx.rpc</code> library.
+    </p>
+    <p>
+        The <code>kotlinx.rpc</code> library enables you to make procedure calls over network
         boundaries using nothing but regular Kotlin language constructs. As such, it provides an alternative to both
         REST and Google RPC (gPRC) while (in upcoming functionality) offering opportunities to interoperate with both.
     </p>
@@ -22,12 +40,24 @@
         go and evaluate the library in your own projects. Future articles will drill into low-level details and
         real-world considerations.
     </p>
+    <chapter title="Prerequisites" id="prerequisites">
+        <p>
+            This tutorial assumes you have a fundamental understanding of Kotlin programming. If you are new to
+            Kotlin, consider reviewing some <a href="https://kotlinlang.org/docs/getting-started.html">
+            introductory materials</a>.
+        </p>
+        <p>For the best experience, we recommend using <a
+                href="https://www.jetbrains.com/idea/download">IntelliJ
+            IDEA Ultimate</a> as your integrated development environment (IDE) as it offers comprehensive support
+            and tools that will enhance your productivity.
+        </p>
+    </chapter>
     <chapter title="What is RPC?" id="what-is-rpc">
         <chapter title="Local vs. remote procedure calls" id="local-vs-remote">
             <p>
-                Anyone who has ever studied programming will be familiar with the idea of a procedure call. This is one
-                of the fundamentals we all learn initially, regardless of language. Technically, these are local
-                procedure calls, since they always take place within the same program.
+                Anyone with programming experience will be familiar with the concept of a procedure call. This is a
+                fundamental concept in any programming language. Technically, these are
+                local procedure calls, since they always take place within the same program.
             </p>
             <p>
                 A remote procedure call is when the function call and parameters are in some way transferred over a
@@ -92,28 +122,16 @@
             </p>
         </chapter>
         <p>
-            Having introduced the core concepts of RPC, let’s see how they apply in kotlinx.rpc by building a sample
-            application.
+            Having introduced the core concepts of RPC, let’s see how they apply in <code>kotlinx.rpc</code> by building
+            a sample application.
         </p>
     </chapter>
-    <chapter title="Hello, kotlinx.rpc">
+    <chapter title="Hello, kotlinx.rpc" id="hello-kotlinx-rpc">
         <p>
             Let’s try to create an application for ordering pizza over the network. In order to keep the code as simple
             as possible, we’ll use a console-based client. Future articles will show how it would work with KMP-based
             desktop and mobile clients.
         </p>
-        <chapter title="Prerequisites" id="prerequisites">
-            <p>
-                This tutorial assumes you have a fundamental understanding of Kotlin programming. If you are new to
-                Kotlin, consider reviewing some <a href="https://kotlinlang.org/docs/getting-started.html">
-                introductory materials</a>.
-            </p>
-            <p>For the best experience, we recommend using <a
-                    href="https://www.jetbrains.com/idea/download">IntelliJ
-                IDEA Ultimate</a> as your integrated development environment (IDE) as it offers comprehensive support
-                and tools that will enhance your productivity.
-            </p>
-        </chapter>
         <chapter title="Create the projects" id="create-projects">
             <p>First, you will create two projects, one for the client and one for the server.</p>
             <p>
@@ -386,7 +404,7 @@
                     <code>kotlinx-serialization</code>:
                     <code-block lang="kotlin"
                                 src="snippets/tutorial-kotlin-rpc-client/build.gradle.kts"
-                                include-lines="16-23"
+                                include-lines="16-22"
                     />
                 </step>
                 <step>

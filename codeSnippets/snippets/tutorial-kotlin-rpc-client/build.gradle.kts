@@ -18,10 +18,8 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-rpc-krpc-client")
     implementation("org.jetbrains.kotlinx:kotlinx-rpc-krpc-ktor-client")
     implementation("org.jetbrains.kotlinx:kotlinx-rpc-krpc-serialization-json")
-    implementation("ch.qos.logback:logback-classic:1.5.6")
     testImplementation(kotlin("test"))
 }
-
 
 tasks.test {
     useJUnitPlatform()
