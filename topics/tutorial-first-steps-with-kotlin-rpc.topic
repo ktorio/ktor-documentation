@@ -468,60 +468,6 @@
             and contrast Kotlin RPC with the two main alternatives – REST and gRPC.
         </p>
     </chapter>
-    <chapter title="RPC vs. REST" id="rpc-vs-rest">
-        <p>
-            The idea of RPC is considerably older than REST, <a
-                href="https://en.wikipedia.org/wiki/Remote_procedure_call">dating back at least to 1981</a>. When
-            compared to REST, the RPC-based approach does not constrain you to a uniform interface (such as the HTTP
-            request types), is much simpler to work with in code, and can be more performant thanks to binary messaging.
-        </p>
-        <p>
-            There are, however, three major advantages to REST:
-        </p>
-        <list type="decimal">
-            <li>
-                It can be used directly by JavaScript clients in the browser and, hence, as part of single-page
-                applications. Because RPC frameworks rely on generated stubs and binary messaging, they do not fit in
-                well with the JavaScript ecosystem.
-            </li>
-            <li>
-                REST makes it obvious when a feature involves networking. This helps avoid <a
-                    href="https://martinfowler.com/articles/distributed-objects-microservices.html">the distributed
-                objects antipattern</a> identified by Martin Fowler. This occurs when a team splits its OO design into
-                two or more pieces without considering the performance and reliability implications of making local
-                procedure calls remote.
-            </li>
-            <li>
-                REST APIs are built on a series of conventions that make them relatively easy to create, document,
-                monitor, debug, and test. There is a huge ecosystem of tools to support this.
-            </li>
-        </list>
-        <p>
-            These trade-offs mean that Kotlin RPC is best used in two scenarios. Firstly, in KMP clients using <a
-                href="https://www.jetbrains.com/lp/compose-multiplatform/">Compose Multiplatform</a>, and secondly,
-            amongst collaborating microservices in the cloud. Future developments in <a
-                href="https://kotlinlang.org/docs/wasm-overview.html">Kotlin/Wasm</a> may make <code>kotlinx.rpc</code>
-            more applicable to browser-based applications.
-        </p>
-    </chapter>
-    <chapter title="Kotlin RPC vs. Google RPC" id="kotlin-rpc-vs-google-rpc">
-        <p>
-            Google RPC is the dominant RPC technology in the software industry at present. A standard called Protocol
-            Buffers (protobuf) is used to define data structures and message payloads using a language-neutral Interface
-            Definition Language (IDL). These IDL definitions can be converted into a wide variety of programming
-            languages and are serialized using a compact and efficient binary format. Microservice frameworks like
-            Quarkus and Micronaut already have support for gRPC.
-        </p>
-        <p>
-            It would be difficult for Kotlin RPC to compete with gRPC, and there would be no benefit in this for the
-            Kotlin community. Thankfully, there are no plans to do this. Instead, the intention is for kotlinx.rpc to be
-            compatible and interoperable with gRPC. It will be possible for kotlinx.rpc services to use gRPC as their
-            networking protocol and for kotlinx.rpc clients to call gRPC services. <code>kotlinx.rpc</code> will use <a
-                href="https://kotlin.github.io/kotlinx-rpc/transport.html">its own kRPC protocol</a> as the default
-            option (as is the case in our current example), but there will be nothing to prevent you from choosing gRPC
-            instead.
-        </p>
-    </chapter>
     <chapter title="Extend the example" id="extend-the-example">
         <p>
             Finally, let's enhance the complexity of our example application to establish a solid foundation for future
@@ -580,6 +526,60 @@
                      style="block" width="706" border-effect="line"/>
             </step>
         </procedure>
+    </chapter>
+    <chapter title="RPC vs. REST" id="rpc-vs-rest">
+        <p>
+            The idea of RPC is considerably older than REST, <a
+                href="https://en.wikipedia.org/wiki/Remote_procedure_call">dating back at least to 1981</a>. When
+            compared to REST, the RPC-based approach does not constrain you to a uniform interface (such as the HTTP
+            request types), is much simpler to work with in code, and can be more performant thanks to binary messaging.
+        </p>
+        <p>
+            There are, however, three major advantages to REST:
+        </p>
+        <list type="decimal">
+            <li>
+                It can be used directly by JavaScript clients in the browser and, hence, as part of single-page
+                applications. Because RPC frameworks rely on generated stubs and binary messaging, they do not fit in
+                well with the JavaScript ecosystem.
+            </li>
+            <li>
+                REST makes it obvious when a feature involves networking. This helps avoid <a
+                    href="https://martinfowler.com/articles/distributed-objects-microservices.html">the distributed
+                objects antipattern</a> identified by Martin Fowler. This occurs when a team splits its OO design into
+                two or more pieces without considering the performance and reliability implications of making local
+                procedure calls remote.
+            </li>
+            <li>
+                REST APIs are built on a series of conventions that make them relatively easy to create, document,
+                monitor, debug, and test. There is a huge ecosystem of tools to support this.
+            </li>
+        </list>
+        <p>
+            These trade-offs mean that Kotlin RPC is best used in two scenarios. Firstly, in KMP clients using <a
+                href="https://www.jetbrains.com/lp/compose-multiplatform/">Compose Multiplatform</a>, and secondly,
+            amongst collaborating microservices in the cloud. Future developments in <a
+                href="https://kotlinlang.org/docs/wasm-overview.html">Kotlin/Wasm</a> may make <code>kotlinx.rpc</code>
+            more applicable to browser-based applications.
+        </p>
+    </chapter>
+    <chapter title="Kotlin RPC vs. Google RPC" id="kotlin-rpc-vs-google-rpc">
+        <p>
+            Google RPC is the dominant RPC technology in the software industry at present. A standard called Protocol
+            Buffers (protobuf) is used to define data structures and message payloads using a language-neutral Interface
+            Definition Language (IDL). These IDL definitions can be converted into a wide variety of programming
+            languages and are serialized using a compact and efficient binary format. Microservice frameworks like
+            Quarkus and Micronaut already have support for gRPC.
+        </p>
+        <p>
+            It would be difficult for Kotlin RPC to compete with gRPC, and there would be no benefit in this for the
+            Kotlin community. Thankfully, there are no plans to do this. Instead, the intention is for kotlinx.rpc to be
+            compatible and interoperable with gRPC. It will be possible for kotlinx.rpc services to use gRPC as their
+            networking protocol and for kotlinx.rpc clients to call gRPC services. <code>kotlinx.rpc</code> will use <a
+                href="https://kotlin.github.io/kotlinx-rpc/transport.html">its own kRPC protocol</a> as the default
+            option (as is the case in our current example), but there will be nothing to prevent you from choosing gRPC
+            instead.
+        </p>
     </chapter>
     <chapter title="Next steps" id="next-steps">
         <p>
