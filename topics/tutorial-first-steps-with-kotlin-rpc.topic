@@ -27,7 +27,7 @@
             </a>
         </p>
         <p>
-            <b>Used plugins</b>: <a href="server-routing.md">Routing</a>, <a href="client-websockets.md">WebSockets</a>,
+            <b>Used plugins</b>: <a href="server-routing.md">Routing</a>,
             <a href="https://kotlinlang.org/api/kotlinx.serialization/">kotlinx.serialization</a>,
             <a href="https://github.com/Kotlin/kotlinx-rpc">kotlinx.rpc</a>
         </p>
@@ -39,12 +39,11 @@
     <p>
         The <code>kotlinx.rpc</code> library enables you to make procedure calls over network
         boundaries using nothing but regular Kotlin language constructs. As such, it provides an alternative to both
-        REST and Google RPC (gPRC) while (in upcoming functionality) offering opportunities to interoperate with both.
+        REST and Google RPC (gPRC).
     </p>
     <p>
         In this article, we will introduce the core concepts of Kotlin RPC and build a simple application. You can then
-        go and evaluate the library in your own projects. Future articles will drill into low-level details and
-        real-world considerations.
+        go and evaluate the library in your own projects.
     </p>
     <chapter title="Prerequisites" id="prerequisites">
         <p>
@@ -96,10 +95,11 @@
                     the current language.
                 </li>
                 <li>
-                    Helper classes that will be used to convert the procedure invocation into a format that can be sent
-                    over the network and unpack the return value that results. These are often referred to as
+                    Helper classes, known as
                     <format style="italic">client stubs</format>
-                    . They may be created at build time or dynamically at runtime.
+                    , that will be used to convert the procedure invocation into a format that can be sent
+                    over the network and to unpack the resulting return value. These stubs can be created either during the build process or
+                    dynamically at runtime.
                 </li>
                 <li>
                     An underlying
@@ -134,9 +134,8 @@
     </chapter>
     <chapter title="Hello, kotlinx.rpc" id="hello-kotlinx-rpc">
         <p>
-            Let’s try to create an application for ordering pizza over the network. In order to keep the code as simple
-            as possible, we’ll use a console-based client. Future articles will show how it would work with KMP-based
-            desktop and mobile clients.
+            Let’s create an application for ordering pizza over the network. In order to keep the code as simple
+            as possible, we’ll use a console-based client.
         </p>
         <chapter title="Create the projects" id="create-projects">
             <p>First, you will create two projects, one for the client and one for the server.</p>
@@ -147,7 +146,7 @@
             </p>
             <procedure id="create-projects-procedure">
                 <step>
-                    Launch <a href="">intelliJ IDEA</a>.
+                    Launch <a href="https://www.jetbrains.com/idea/download/">intelliJ IDEA</a>.
                 </step>
                 <step>
                     <include from="lib.topic" element-id="new_project_idea"/>
@@ -211,7 +210,7 @@
                         reason for this will be explained later.
                     </p>
                     <p>
-                        Assuming you are using <a href="https://github.com/Kotlin/kotlinx.serialization"><code>kotlinx.serialization</code></a>
+                        Because you are using <a href="https://github.com/Kotlin/kotlinx.serialization"><code>kotlinx.serialization</code></a>
                         to help transfer information over the network, then the types used in parameters must be marked with the
                         <code>Serializable</code> annotation.
                     </p>
@@ -226,7 +225,7 @@
                     file and add the following implementation:
                     <code-block lang="kotlin"
                                 src="snippets/tutorial-kotlin-rpc-client/src/main/kotlin/Main.kt"
-                                include-lines="1-12,14-35,37-38,58-60"
+                                include-lines="1-12,14-37,39-40,60-62"
                     />
                 </step>
             </procedure>
@@ -246,28 +245,28 @@
             </p>
             <code-block lang="kotlin"
                         src="snippets/tutorial-kotlin-rpc-client/src/main/kotlin/Main.kt"
-                        include-lines="15,60"
+                        include-lines="15,62"
             />
             <tip>
                 Note that <code>runBlocking</code> is designed for spikes and tests, rather than production code.
             </tip>
             <p>
                 Next, you create an instance of the Ktor client in the standard way. <code>kotlinx.rpc</code> uses
-                <a href="client-websockets.md">WebSockets</a> to transfer information, so you need to ensure that the
-                matching plugin is loaded:
+                the <a href="client-websockets.md">WebSockets</a> plugin under the hood to transfer information. You
+                only need to ensure that it is loaded by using the <code>installRPC()</code> function:
             </p>
             <code-block lang="kotlin"
                         src="snippets/tutorial-kotlin-rpc-client/src/main/kotlin/Main.kt"
-                        include-lines="16-18"
+                        include-lines="16-20"
             />
             <p>
-                Having created this Ktor client, you then create an <code>RPCClient</code> object for invoking remote
+                Having created this Ktor client, you then create a <code>KtorRPCClient</code> object for invoking remote
                 procedures. You will need to configure the location of the server and the mechanism being used to
                 transfer information:
             </p>
             <code-block lang="kotlin"
                         src="snippets/tutorial-kotlin-rpc-client/src/main/kotlin/Main.kt"
-                        include-lines="20-32"
+                        include-lines="22-34"
             />
             <p>
                 At this point, the standard setup has been completed, and you are ready to use the functionality
@@ -276,14 +275,14 @@
             </p>
             <code-block lang="kotlin"
                         src="snippets/tutorial-kotlin-rpc-client/src/main/kotlin/Main.kt"
-                        include-lines="34"
+                        include-lines="36"
             />
             <p>
                 You can then make the remote procedure call and use the result:
             </p>
             <code-block lang="kotlin"
                         src="snippets/tutorial-kotlin-rpc-client/src/main/kotlin/Main.kt"
-                        include-lines="37-38"
+                        include-lines="39-40"
             />
             <p>
                 Note that a tremendous amount of work is being done for you at this point. The details of the call and
@@ -295,7 +294,7 @@
             </p>
             <code-block lang="kotlin"
                         src="snippets/tutorial-kotlin-rpc-client/src/main/kotlin/Main.kt"
-                        include-lines="59"
+                        include-lines="61"
             />
         </chapter>
         <chapter title="Implement the server" id="server-implementation">
@@ -400,7 +399,7 @@
                             KSP is the Kotlin Symbol Processing API used to develop the <code>kotlinx.rpc</code> plugin.
                         </li>
                         <li>
-                            The RPC plugin is needed to create the client- and server-side stubs.
+                            The RPC plugin is needed to create the stubs for the client-side.
                         </li>
                     </list>
                 </step>
@@ -501,8 +500,8 @@
             These trade-offs mean that Kotlin RPC is best used in two scenarios. Firstly, in KMP clients using <a
                 href="https://www.jetbrains.com/lp/compose-multiplatform/">Compose Multiplatform</a>, and secondly,
             amongst collaborating microservices in the cloud. Future developments in <a
-                href="https://kotlinlang.org/docs/wasm-overview.html">Kotlin/Wasm</a> may make kotlin.rpc more
-            applicable to browser-based applications.
+                href="https://kotlinlang.org/docs/wasm-overview.html">Kotlin/Wasm</a> may make <code>kotlinx.rpc</code>
+            more applicable to browser-based applications.
         </p>
     </chapter>
     <chapter title="Kotlin RPC vs. Google RPC" id="kotlin-rpc-vs-google-rpc">
@@ -517,7 +516,7 @@
             It would be difficult for Kotlin RPC to compete with gRPC, and there would be no benefit in this for the
             Kotlin community. Thankfully, there are no plans to do this. Instead, the intention is for kotlinx.rpc to be
             compatible and interoperable with gRPC. It will be possible for kotlinx.rpc services to use gRPC as their
-            networking protocol and for kotlinx.rpc clients to call gRPC services. kotlin.rpc will use <a
+            networking protocol and for kotlinx.rpc clients to call gRPC services. <code>kotlinx.rpc</code> will use <a
                 href="https://kotlin.github.io/kotlinx-rpc/transport.html">its own kRPC protocol</a> as the default
             option (as is the case in our current example), but there will be nothing to prevent you from choosing gRPC
             instead.
@@ -554,8 +553,7 @@
                 />
                 <p>
                     Note that this implementation assumes the same <code>PizzaShopImpl</code> object will be shared
-                    across all clients, and ignores the thread safety issues this would cause. This will be addressed in
-                    a subsequent article.
+                    across all clients, and ignores the thread safety issues this would cause.
                 </p>
             </step>
             <step>
@@ -564,7 +562,7 @@
                 file on the client, submit multiple orders using two different client IDs:
                 <code-block lang="kotlin"
                             src="snippets/tutorial-kotlin-rpc-client/src/main/kotlin/Main.kt"
-                            include-lines="34,40-47"
+                            include-lines="36,42-49"
                 />
                 <p>
                     Then you iterate over the results, using the <code>Coroutines</code> library and
@@ -572,7 +570,7 @@
                 </p>
                 <code-block lang="kotlin"
                             src="snippets/tutorial-kotlin-rpc-client/src/main/kotlin/Main.kt"
-                            include-lines="49-57"
+                            include-lines="51-59"
                 />
             </step>
             <step>
@@ -587,14 +585,23 @@
         <p>
             Kotlin RPC extends the Kotlin ecosystem in a new direction, offering an alternative to REST and GraphQL for
             creating and consuming services. It is built on proven libraries and frameworks, such as Ktor, Coroutines,
-            and <code>kotlinx-serialization</code>, and interoperates with related specifications like gRPC. For teams
+            and <code>kotlinx-serialization</code>. For teams
             seeking to make use of Kotlin Multiplatform and Compose Multiplatform, it will provide a simple and
             efficient option for distributed messaging.
         </p>
         <p>
             If this introduction has piqued your interest, make sure to check out
-            the <a href="https://github.com/Kotlin/kotlinx-rpc/tree/main/samples">official examples</a>. The <code>kotlinx.rpc</code>
-            library is in its early stages, so we encourage you to explore it and share your feedback with us.
+            the <a href="https://kotlin.github.io/kotlinx-rpc/get-started.html">official <code>kotlinx.rpc</code>
+            documentation</a> and <a
+                href="https://github.com/Kotlin/kotlinx-rpc/tree/main/samples">examples</a>.
+        </p>
+        <p>
+            The <code>kotlinx.rpc</code>
+            library is in its early stages, so we encourage you to explore it and share your feedback.
+            Bugs and feature requests can be found on <a href="https://youtrack.jetbrains.com/issues/KRPC">YouTrack</a>
+            while general discussions take place on <a
+                href="https://kotlinlang.slack.com/archives/C072YJ3Q91V">Slack</a> (<a
+                href="https://surveys.jetbrains.com/s3/kotlin-slack-sign-up">request access</a>).
         </p>
     </chapter>
 </topic>

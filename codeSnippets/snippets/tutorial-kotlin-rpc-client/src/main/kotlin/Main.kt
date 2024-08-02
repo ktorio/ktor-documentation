@@ -3,21 +3,23 @@ package com.example
 import com.example.model.Pizza
 import com.example.model.PizzaShop
 import io.ktor.client.*
-import io.ktor.client.plugins.websocket.*
 import io.ktor.http.*
 import kotlinx.coroutines.runBlocking
 import kotlinx.rpc.client.withService
 import kotlinx.rpc.serialization.json
+import kotlinx.rpc.transport.ktor.client.installRPC
 import kotlinx.rpc.transport.ktor.client.rpc
 import kotlinx.rpc.transport.ktor.client.rpcConfig
 import kotlinx.rpc.streamScoped
 
 fun main() = runBlocking {
     val ktorClient = HttpClient {
-        install(WebSockets)
+        installRPC {
+            waitForServices = true
+        }
     }
 
-    val client = ktorClient.rpc {
+    val client: KtorRPCClient = ktorClient.rpc {
         url {
             host = "localhost"
             port = 8080
@@ -51,7 +53,7 @@ fun main() = runBlocking {
             println("AB12 ordered ${it.name}")
         }
 
-        pizzaShop.viewOrders("AB12").collect {
+        pizzaShop.viewOrders("CD34").collect {
             println("CD34 ordered ${it.name}")
         }
     }
