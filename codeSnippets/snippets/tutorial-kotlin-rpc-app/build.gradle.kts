@@ -17,7 +17,11 @@ dependencies {
     implementation("io.ktor:ktor-client-cio-jvm")
     implementation("org.jetbrains.kotlinx:kotlinx-rpc-krpc-client")
     implementation("org.jetbrains.kotlinx:kotlinx-rpc-krpc-ktor-client")
+    implementation("io.ktor:ktor-server-netty-jvm:2.3.12")
+    implementation("org.jetbrains.kotlinx:kotlinx-rpc-krpc-server")
+    implementation("org.jetbrains.kotlinx:kotlinx-rpc-krpc-ktor-server")
     implementation("org.jetbrains.kotlinx:kotlinx-rpc-krpc-serialization-json")
+    implementation("ch.qos.logback:logback-classic:1.5.6")
     testImplementation(kotlin("test"))
 }
 

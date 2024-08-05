@@ -35,10 +35,10 @@ fun main() = runBlocking {
 
     val pizzaShop: PizzaShop = client.withService<PizzaShop>()
 
-/*
-    val receipt = pizzaShop.orderPizza(Pizza("Pepperoni"))
-    println("Your pizza cost ${receipt.amount}")
-*/
+    /*
+        val receipt = pizzaShop.orderPizza(Pizza("Pepperoni"))
+        println("Your pizza cost ${receipt.amount}")
+    */
 
     pizzaShop.orderPizza("AB12", Pizza("Pepperoni"))
     pizzaShop.orderPizza("AB12", Pizza("Hawaiian"))

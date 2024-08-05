@@ -18,14 +18,8 @@
         Learn how to create your first application with Kotlin RPC and Ktor.
     </card-summary>
     <tldr>
-        <p><b>Code examples</b>:
-            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-kotlin-rpc-client">
-                tutorial-kotlin-rpc-client
-            </a>,
-            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-kotlin-rpc-server">
-                tutorial-kotlin-rpc-server
-            </a>
-        </p>
+        <var name="example_name" value="tutorial-kotlin-rpc-app"/>
+        <include from="lib.topic" element-id="download_example"/>
         <p>
             <b>Used plugins</b>: <a href="server-routing.md">Routing</a>,
             <a href="https://kotlinlang.org/api/kotlinx.serialization/">kotlinx.serialization</a>,
@@ -82,7 +76,7 @@
                 procedure calls within a conventional IT infrastructure. The terminology can vary, and responsibilities
                 can be divided in different ways, but every RPC framework must provide:
             </p>
-            <list style="decimal">
+            <list type="decimal">
                 <li>
                     A way to declare the procedures that will be invoked remotely. In object-oriented programming, an
                     interface is the logical choice. This could be the interface construct provided by the current
@@ -137,14 +131,13 @@
             Let’s create an application for ordering pizza over the network. In order to keep the code as simple
             as possible, we’ll use a console-based client.
         </p>
-        <chapter title="Create the projects" id="create-projects">
-            <p>First, you will create two projects, one for the client and one for the server.</p>
+        <chapter title="Create the project" id="create-project">
+            <p>First, you will create a project that will include both the client and server implementations.</p>
             <p>
-                It would be possible to create a single project that combines both tasks, but then it becomes hard to
-                appreciate what is really going on. For example, your build file would include both client and
-                server-side dependencies, obscuring what is essential on each side of the network.
+                In more complex applications, it's best practice to use separate modules for the client and server.
+                However, for simplicity in this tutorial, we will use a single module for both.
             </p>
-            <procedure id="create-projects-procedure">
+            <procedure id="create-project-procedure">
                 <step>
                     Launch <a href="https://www.jetbrains.com/idea/download/">intelliJ IDEA</a>.
                 </step>
@@ -155,7 +148,7 @@
                     In the
                     <control>Name</control>
                     field, enter
-                    <path>KotlinRpcPizzaServer</path>
+                    <path>KotlinRpcPizzaApp</path>
                     as the name of your project.
                     <img src="tutorial_kotlin_rpc_intellij_project.png" alt="IntelliJ New Kotlin Project window"
                          style="block" width="706" border-effect="rounded"/>
@@ -165,14 +158,9 @@
                     <control>Create</control>
                     .
                 </step>
-                <step>
-                    Repeat the process to create a second project with the name
-                    <path>KotlinRpcPizzaClient</path>
-                    .
-                </step>
             </procedure>
             <p>
-                Normally, you would immediately configure the build file of each project. However, that’s an
+                Normally, you would immediately configure the project build file. However, that’s an
                 implementation detail that won't enhance your understanding of the technology, so you'll get back to
                 that step at the end.
             </p>
@@ -183,15 +171,14 @@
                 with the types used in the definition of those procedures.
             </p>
             <p>
-                These types will need to be placed in both the client and server projects. Ideally, you want a build
-                process that packages them into a separate library, which can be shared as needed. However, for
-                simplicity of this example, you can copy and paste.
+                In a multi-module project, these types will need to be shared. However, in this example, this step won't
+                be necessary.
             </p>
             <procedure id="shared-types-procedure">
                 <step>
                     Navigate to the
                     <path>src/main/kotlin</path>
-                    folder to ech project and create a new subpackage called
+                    folder and create a new subpackage called
                     <path>model</path>
                     .
                 </step>
@@ -202,7 +189,7 @@
                     <path>PizzaShop.kt</path>
                     file with the following implementation:
                     <code-block lang="kotlin"
-                                src="snippets/tutorial-kotlin-rpc-client/src/main/kotlin/model/PizzaShop.kt"
+                                src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/model/PizzaShop.kt"
                                 include-lines="1-7,9,13-19"
                     />
                     <p>
@@ -220,11 +207,18 @@
         <chapter title="Implement the client" id="client-implementation">
             <procedure id="client-impl-procedure">
                 <step>
-                    In the client project, navigate to the
-                    <path>Main.kt</path>
-                    file and add the following implementation:
+                    Navigate to
+                    <path>src/main/kotlin</path>
+                    and create a new
+                    <path>Client.kt</path>
+                    file.
+                </step>
+                <step>
+                    Open
+                    <path>Client.kt</path>
+                    and add the following implementation:
                     <code-block lang="kotlin"
-                                src="snippets/tutorial-kotlin-rpc-client/src/main/kotlin/Main.kt"
+                                src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
                                 include-lines="1-12,14-37,39-40,60-62"
                     />
                 </step>
@@ -244,7 +238,7 @@
                 create the initial coroutine, and execute the rest of the client within it:
             </p>
             <code-block lang="kotlin"
-                        src="snippets/tutorial-kotlin-rpc-client/src/main/kotlin/Main.kt"
+                        src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
                         include-lines="15,62"
             />
             <tip>
@@ -256,7 +250,7 @@
                 only need to ensure that it is loaded by using the <code>installRPC()</code> function:
             </p>
             <code-block lang="kotlin"
-                        src="snippets/tutorial-kotlin-rpc-client/src/main/kotlin/Main.kt"
+                        src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
                         include-lines="16-20"
             />
             <p>
@@ -265,7 +259,7 @@
                 transfer information:
             </p>
             <code-block lang="kotlin"
-                        src="snippets/tutorial-kotlin-rpc-client/src/main/kotlin/Main.kt"
+                        src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
                         include-lines="22-34"
             />
             <p>
@@ -274,14 +268,14 @@
                 the methods of the <code>PizzaShop</code> interface:
             </p>
             <code-block lang="kotlin"
-                        src="snippets/tutorial-kotlin-rpc-client/src/main/kotlin/Main.kt"
+                        src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
                         include-lines="36"
             />
             <p>
                 You can then make the remote procedure call and use the result:
             </p>
             <code-block lang="kotlin"
-                        src="snippets/tutorial-kotlin-rpc-client/src/main/kotlin/Main.kt"
+                        src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
                         include-lines="39-40"
             />
             <p>
@@ -293,7 +287,7 @@
                 Finally, we need to shut down the client as usual:
             </p>
             <code-block lang="kotlin"
-                        src="snippets/tutorial-kotlin-rpc-client/src/main/kotlin/Main.kt"
+                        src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
                         include-lines="61"
             />
         </chapter>
@@ -304,16 +298,18 @@
             </p>
             <procedure id="create-interface">
                 <step>
-                    In the server project, navigate to the
-                    <path>Main.kt</path>
-                    file in
+                    Navigate to
                     <path>src/main/kotlin</path>
-                    .
+                    and create a new
+                    <path>Server.kt</path>
+                    file.
                 </step>
                 <step>
-                    Add the following interface:
+                    Open
+                    <path>Server.kt</path>
+                    and add the following interface:
                     <code-block lang="kotlin"
-                                src="snippets/tutorial-kotlin-rpc-server/src/main/kotlin/Main.kt"
+                                src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Server.kt"
                                 include-lines="1-6,17-20,22-24,49"
                     />
                     <p>
@@ -331,7 +327,7 @@
                         Add the following code into the same file:
                     </p>
                     <code-block lang="kotlin"
-                                src="snippets/tutorial-kotlin-rpc-server/src/main/kotlin/Main.kt"
+                                src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Server.kt"
                                 include-lines="51-72"
                     />
                     <p>Here's the breakdown:</p>
@@ -340,7 +336,7 @@
                         configuration:
                     </p>
                     <code-block lang="kotlin"
-                                src="snippets/tutorial-kotlin-rpc-server/src/main/kotlin/Main.kt"
+                                src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Server.kt"
                                 include-lines="52-55"
                     />
                     <p>
@@ -348,7 +344,7 @@
                         <code>kotlinx.rpc</code> plugin and declares one or more routes:
                     </p>
                     <code-block lang="kotlin"
-                                src="snippets/tutorial-kotlin-rpc-server/src/main/kotlin/Main.kt"
+                                src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Server.kt"
                                 include-lines="58-61,71-72"
                     />
                     <p>
@@ -357,7 +353,7 @@
                         But in this case, our implementation will be listening at that URL for incoming requests:
                     </p>
                     <code-block lang="kotlin"
-                                src="snippets/tutorial-kotlin-rpc-server/src/main/kotlin/Main.kt"
+                                src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Server.kt"
                                 include-lines="62-70"
                     />
                     <p>
@@ -372,15 +368,15 @@
             <p>
                 You now have all the code necessary to run the application, but at the moment, it would not even
                 compile, never mind execute. At present, there is no wizard to create a <code>kotlinx.rpc</code> project
-                for us, so you need to configure the build files manually. Fortunately, this is not too complex.
+                for us, so you need to configure the build file manually. Fortunately, this is not too complex.
             </p>
             <procedure id="configure-build-files">
                 <step>
                     In the
                     <path>build.gradle.kts</path>
-                    file in each project, add the following plugins:
+                    file, add the following plugins:
                     <code-block lang="kotlin"
-                                src="snippets/tutorial-kotlin-rpc-server/build.gradle.kts"
+                                src="snippets/tutorial-kotlin-rpc-app/build.gradle.kts"
                                 include-lines="1-7"
                     />
                     <p>
@@ -404,21 +400,16 @@
                     </list>
                 </step>
                 <step>
-                    On the client side, add the dependencies for the Ktor client, the client part of the <code>kotlinx.rpc</code>
-                    runtime, and the library for integrating <code>kotlinx.rpc</code> and
-                    <code>kotlinx-serialization</code>:
+                    Add the following dependencies:
                     <code-block lang="kotlin"
-                                src="snippets/tutorial-kotlin-rpc-client/build.gradle.kts"
-                                include-lines="16-22"
+                                src="snippets/tutorial-kotlin-rpc-app/build.gradle.kts"
+                                include-lines="16-26"
                     />
-                </step>
-                <step>
-                    On the server side, add the same integration library, the Ktor server, and the server part of the
-                    <code>kotlinx.rpc</code> runtime:
-                    <code-block lang="kotlin"
-                                src="snippets/tutorial-kotlin-rpc-server/build.gradle.kts"
-                                include-lines="17-23"
-                    />
+                    <p>
+                        This adds the Ktor client and server, the client and server parts of the
+                        <code>kotlinx.rpc</code> runtime, and the library for integrating <code>kotlinx.rpc</code> and
+                        <code>kotlinx-serialization</code>.
+                    </p>
                     <p>
                         With this, you can now run the projects and start making RPC calls.
                     </p>
@@ -432,8 +423,8 @@
             <procedure id="run-app-procedure">
                 <step>
                     Navigate to the
-                    <path>Main.kt</path>
-                    file of the server project.
+                    <path>Server.kt</path>
+                    file.
                 </step>
                 <step>
                     <p>In IntelliJ IDEA, click on the run button
@@ -452,8 +443,8 @@
                 </step>
                 <step>
                     Navigate to the
-                    <path>Main.kt</path>
-                    file of the client project and run the application. You should see the following output in the
+                    <path>Client.kt</path>
+                    file and run the application. You should see the following output in the
                     console:
                     <code-block lang="shell">
                         Your pizza cost 7.89
@@ -477,24 +468,24 @@
             <step>
                 In the
                 <path>PizzaShop.kt</path>
-                file in each project, extend the <code>orderPizza</code> method by including the client’s ID, and add a
+                file, extend the <code>orderPizza</code> method by including the client’s ID, and add a
                 <code>viewOrders</code> method that returns all the pending orders for a specified client:
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-kotlin-rpc-server/src/main/kotlin/model/PizzaShop.kt"
-                            include-lines="1-5,9-11"
+                            src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/model/PizzaShop.kt"
+                            include-lines="1-7,11-13"
                 />
                 <p>
-                    This new version of the interface will need to be shared in both the client and server projects. You
-                    can take advantage of the coroutines library by returning a <code>Flow</code> rather than a <code>List</code>
-                    or <code>Set</code>. This will allow us to steam the information to the client one pizza at a time.
+                    You can take advantage of the coroutines library by returning a <code>Flow</code> rather than a
+                    <code>List</code> or <code>Set</code>. This will allow you to steam the information to the client
+                    one pizza at a time.
                 </p>
             </step>
             <step>
-                On the server side, navigate to the
-                <path>Main.kt</path>
+                Navigate to the
+                <path>Server.kt</path>
                 file and implement this functionality by storing the current orders in a map of lists:
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-kotlin-rpc-server/src/main/kotlin/Main.kt"
+                            src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Server.kt"
                             include-lines="18-20,26-49"
                 />
                 <p>
@@ -505,10 +496,10 @@
             </step>
             <step>
                 In the
-                <path>Main.kt</path>
-                file on the client, submit multiple orders using two different client IDs:
+                <path>Client.kt</path>
+                file, submit multiple orders using two different client IDs:
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-kotlin-rpc-client/src/main/kotlin/Main.kt"
+                            src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
                             include-lines="36,42-49"
                 />
                 <p>
@@ -516,7 +507,7 @@
                     <code>streamScoped</code> method:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-kotlin-rpc-client/src/main/kotlin/Main.kt"
+                            src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
                             include-lines="51-59"
                 />
             </step>
