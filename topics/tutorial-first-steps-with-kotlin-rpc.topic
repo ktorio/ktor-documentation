@@ -490,8 +490,9 @@
                 />
                 <p>
                     Note that a new instance of <code>PizzaShopImpl</code> is created for each client service instance.
-                    This avoids conflicts between clients by isolating their state. However, it does not address thread safety within a single client's
-                    instance, particularly if the same instance is accessed concurrently by multiple coroutines.
+                    This avoids conflicts between clients by isolating their state. However, it does not address thread
+                    safety within a single server's instance, particularly if the same instance is accessed concurrently
+                    by multiple coroutines.
                 </p>
             </step>
             <step>
