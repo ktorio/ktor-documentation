@@ -98,8 +98,8 @@
                     Helper classes, known as
                     <format style="italic">client stubs</format>
                     , that will be used to convert the procedure invocation into a format that can be sent
-                    over the network and to unpack the resulting return value. These stubs can be created either during the build process or
-                    dynamically at runtime.
+                    over the network and to unpack the resulting return value. These stubs can be created either during
+                    the compiling process or dynamically at runtime.
                 </li>
                 <li>
                     An underlying
@@ -498,8 +498,9 @@
                             include-lines="18-20,26-49"
                 />
                 <p>
-                    Note that this implementation assumes the same <code>PizzaShopImpl</code> object will be shared
-                    across all clients, and ignores the thread safety issues this would cause.
+                    Note that a new instance of <code>PizzaShopImpl</code> is created for each client service instance.
+                    This avoids conflicts between clients by isolating their state. However, it does not address thread safety within a single client's
+                    instance, particularly if the same instance is accessed concurrently by multiple coroutines.
                 </p>
             </step>
             <step>
