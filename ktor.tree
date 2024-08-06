@@ -334,6 +334,10 @@
                      accepts-web-file-names="http-client-testing.html"/>
     </toc-element>
 
+    <toc-element toc-title="Integrations">
+        <toc-element topic="tutorial-first-steps-with-kotlin-rpc.topic"/>
+    </toc-element>
+
     <toc-element toc-title="Releases">
         <toc-element topic="releases.md"/>
         <toc-element topic="migration-to-20x.md"
