@@ -454,10 +454,6 @@
                 </step>
             </procedure>
         </chapter>
-        <p>
-            Having created a basic example, let’s now dig deeper into how everything works. In particular, let’s compare
-            and contrast Kotlin RPC with the two main alternatives – REST and gRPC.
-        </p>
     </chapter>
     <chapter title="Extend the example" id="extend-the-example">
         <p>
@@ -519,6 +515,10 @@
                      style="block" width="706" border-effect="line"/>
             </step>
         </procedure>
+        <p>
+            Having created a working example, let’s now dig deeper into how everything works. In particular, let’s
+            compare and contrast Kotlin RPC with the two main alternatives – REST and gRPC.
+        </p>
     </chapter>
     <chapter title="RPC vs. REST" id="rpc-vs-rest">
         <p>
