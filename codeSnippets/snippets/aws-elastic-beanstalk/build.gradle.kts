@@ -10,7 +10,7 @@ application {
     mainClass.set("io.ktor.server.netty.EngineMain")
 }
 
-version "1.0-SNAPSHOT"
+version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()

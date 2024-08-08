@@ -1,4 +1,4 @@
-package com.example
+package com.example.oauth.google
 
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.plugins.cookies.*
@@ -18,9 +18,6 @@ class ApplicationTest {
     fun testHello() = testApplication {
         environment {
             config = ApplicationConfig("application-custom.conf")
-        }
-        application {
-            main()
         }
         val testHttpClient = createClient {
             install(HttpCookies)

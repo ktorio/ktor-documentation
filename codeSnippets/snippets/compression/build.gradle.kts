@@ -25,3 +25,7 @@ dependencies {
     testImplementation("io.ktor:ktor-server-test-host-jvm:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }
+
+kotlin {
+    jvmToolchain(11)
+}

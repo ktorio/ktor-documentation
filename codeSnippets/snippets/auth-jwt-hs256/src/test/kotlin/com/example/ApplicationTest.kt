@@ -14,9 +14,6 @@ import kotlin.test.*
 class ApplicationTest {
     @Test
     fun testHello() = testApplication {
-        application {
-            main()
-        }
         environment {
             config = ApplicationConfig("application-custom.conf")
         }
