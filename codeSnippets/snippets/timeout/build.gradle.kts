@@ -28,6 +28,6 @@ dependencies {
     implementation("io.ktor:ktor-client-apache:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
     testImplementation("io.ktor:ktor-client-mock-jvm:$ktor_version")
-    testImplementation("io.ktor:ktor-server-test-host:$ktor_version")
+    testImplementation("io.ktor:ktor-server-test-host-jvm:$ktor_version")
 }
 

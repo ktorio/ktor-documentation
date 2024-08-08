@@ -10,6 +10,9 @@ import kotlin.test.*
 class GuiceApplicationTest {
     @Test
     fun testRoot() = testApplication {
+        application {
+            main()
+        }
         val response = client.get("/")
         assertEquals(HttpStatusCode.OK, response.status)
         assertEquals(

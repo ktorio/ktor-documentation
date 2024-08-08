@@ -9,6 +9,9 @@ import kotlin.test.*
 class JacksonApplicationTest {
     @Test
     fun testV1() = testApplication {
+        application {
+            main()
+        }
         val response = client.get("/v1")
         assertEquals(HttpStatusCode.OK, response.status)
         assertEquals(
@@ -31,6 +34,9 @@ class JacksonApplicationTest {
 
     @Test
     fun testV1ItemKey() = testApplication {
+        application {
+            main()
+        }
         val response = client.get("/v1/item/B")
         assertEquals(HttpStatusCode.OK, response.status)
         assertEquals(

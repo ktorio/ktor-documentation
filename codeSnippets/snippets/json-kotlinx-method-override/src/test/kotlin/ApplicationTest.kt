@@ -8,6 +8,9 @@ import kotlin.test.*
 class CustomerTests {
     @Test
     fun testDeleteCustomer() = testApplication {
+        application {
+            main()
+        }
         val response = client.post("/customer/3") {
             header(HttpHeaders.XHttpMethodOverride, "DELETE")
         }

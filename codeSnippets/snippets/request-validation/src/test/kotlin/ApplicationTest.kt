@@ -10,7 +10,10 @@ import kotlin.test.*
 
 class ApplicationTest {
     @Test
-    fun testStringValidation () = testApplication {
+    fun testStringValidation() = testApplication {
+        application {
+            module()
+        }
         val response = client.post("/text") {
             contentType(ContentType.Text.Plain)
             setBody("Some text")
@@ -21,6 +24,9 @@ class ApplicationTest {
 
     @Test
     fun testJsonValidation() = testApplication {
+        application {
+            module()
+        }
         val client = createClient {
             install(ContentNegotiation) {
                 json()
@@ -35,7 +41,10 @@ class ApplicationTest {
     }
 
     @Test
-    fun testByteArrayValidation () = testApplication {
+    fun testByteArrayValidation() = testApplication {
+        application {
+            module()
+        }
         val response = client.post("/array") {
             contentType(ContentType.Text.Plain)
             setBody("-1")

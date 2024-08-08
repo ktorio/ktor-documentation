@@ -24,6 +24,6 @@ dependencies {
     implementation("io.ktor:ktor-server-jte:$ktor_version")
     implementation("gg.jte:jte-kotlin:$jte_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
-    testImplementation("io.ktor:ktor-server-test-host:$ktor_version")
+    testImplementation("io.ktor:ktor-server-test-host-jvm:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }

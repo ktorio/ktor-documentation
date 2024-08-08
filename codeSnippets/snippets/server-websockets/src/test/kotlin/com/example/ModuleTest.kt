@@ -10,6 +10,9 @@ class ModuleTest {
     @Test
     fun testConversation() {
         testApplication {
+            application {
+                module()
+            }
             val client = createClient {
                 install(WebSockets)
             }

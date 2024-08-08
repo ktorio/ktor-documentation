@@ -1,3 +1,5 @@
+package com.example
+
 import com.example.plugins.*
 import io.ktor.client.request.*
 import io.ktor.server.application.*
@@ -8,6 +10,7 @@ class CustomHeaderPluginConfigurableTest {
     @Test
     fun testRoot() = testApplication {
         application {
+            module()
             install(CustomHeaderPluginConfigurable)
         }
         client.get("/").apply {

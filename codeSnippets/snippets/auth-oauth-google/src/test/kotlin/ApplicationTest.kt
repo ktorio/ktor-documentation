@@ -19,6 +19,9 @@ class ApplicationTest {
         environment {
             config = ApplicationConfig("application-custom.conf")
         }
+        application {
+            main()
+        }
         val testHttpClient = createClient {
             install(HttpCookies)
             install(ContentNegotiation) {

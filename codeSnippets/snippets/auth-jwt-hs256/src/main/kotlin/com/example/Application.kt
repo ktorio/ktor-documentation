@@ -29,10 +29,10 @@ fun Application.main() {
         jwt("auth-jwt") {
             realm = myRealm
             verifier(JWT
-                .require(Algorithm.HMAC256(secret))
-                .withAudience(audience)
-                .withIssuer(issuer)
-                .build())
+                    .require(Algorithm.HMAC256(secret))
+                    .withAudience(audience)
+                    .withIssuer(issuer)
+                    .build())
             validate { credential ->
                 if (credential.payload.getClaim("username").asString() != "") {
                     JWTPrincipal(credential.payload)

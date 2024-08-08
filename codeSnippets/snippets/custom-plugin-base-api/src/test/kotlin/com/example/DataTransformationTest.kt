@@ -8,6 +8,9 @@ import kotlin.test.*
 class DataTransformationTest {
     @Test
     fun testTransformData() = testApplication {
+        application {
+            main()
+        }
         val response = client.post("/transform-data") {
             setBody("10")
         }

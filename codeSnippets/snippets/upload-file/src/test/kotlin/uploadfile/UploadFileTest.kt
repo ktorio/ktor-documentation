@@ -8,7 +8,6 @@ import io.ktor.http.content.*
 import io.ktor.server.application.*
 import io.ktor.server.testing.*
 import io.ktor.utils.io.*
-import io.ktor.utils.io.streams.*
 import org.junit.*
 import java.io.*
 import kotlin.test.*
@@ -17,6 +16,9 @@ import kotlin.test.Test
 class ApplicationTest {
     @Test
     fun testUpload() = testApplication {
+        application {
+            main()
+        }
         val boundary = "WebAppBoundary"
         val response = client.post("/upload") {
             setBody(
@@ -45,11 +47,11 @@ class ApplicationTest {
             addHeader(HttpHeaders.ContentType, ContentType.MultiPart.FormData.withParameter("boundary", boundary).toString())
             setBody(boundary, listOf(
                 PartData.FormItem("Ktor logo", { }, headersOf(
-                    HttpHeaders.ContentDisposition,
-                    ContentDisposition.Inline
-                        .withParameter(ContentDisposition.Parameters.Name, "description")
-                        .toString()
-                )),
+                        HttpHeaders.ContentDisposition,
+                        ContentDisposition.Inline
+                            .withParameter(ContentDisposition.Parameters.Name, "description")
+                            .toString()
+                    )),
                 //TODO: document this change
                 PartData.FileItem({ ByteReadChannel(fileBytes) }, {}, headersOf(
                     HttpHeaders.ContentDisposition,

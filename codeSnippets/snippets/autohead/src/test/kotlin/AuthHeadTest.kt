@@ -8,6 +8,9 @@ import kotlin.test.*
 class AuthHeadTest {
     @Test
     fun respondsSuccessfullyForHeadRequest() = testApplication {
+        application {
+            main()
+        }
         val headResponse = client.head("/home")
         assertEquals(HttpStatusCode.OK, headResponse.status)
     }

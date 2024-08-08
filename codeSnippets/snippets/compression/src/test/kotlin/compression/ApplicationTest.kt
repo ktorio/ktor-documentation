@@ -8,6 +8,9 @@ import kotlin.test.*
 class ApplicationTest {
     @Test
     fun testRoot() = testApplication {
+        application {
+            module()
+        }
         val response = client.get("/") {
             header(HttpHeaders.AcceptEncoding, "gzip, deflate")
         }
