@@ -173,7 +173,7 @@ To sign a session, pass a sign key to the `SessionTransportTransformerMessageAut
 ```
 {src="snippets/session-cookie-server/src/main/kotlin/com/example/Application.kt" include-lines="12-18"}
 
-`SessionTransportTransformerMessageAuthentication` uses `HmacSHA265` as the default authentication algorithm, which can be changed. 
+`SessionTransportTransformerMessageAuthentication` uses `HmacSHA256` as the default authentication algorithm, which can be changed. 
 
 ### Sign and encrypt session data {id="sign_encrypt_session"}
 
