@@ -118,6 +118,16 @@ function.
 For more details about the model change,
 see [issue KTOR-3857 on YouTrack](https://youtrack.jetbrains.com/issue/KTOR-3857/Environment-Engine-Application-Design).
 
+### `CallLogging` plugin package has been renamed
+
+The [`CallLogging`](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-call-logging/io.ktor.server.plugins.calllogging/index.html)
+plugin package has been renamed due to a typo.
+
+| 2.x.x                               | 3.0.x                                |
+|-------------------------------------|--------------------------------------|
+| `io.ktor.server.plugins.callloging` | `io.ktor.server.plugins.calllogging` |
+
+
 ### `ktor-server-host-common` module has been removed
 
 Due to `Application` requiring knowledge of `ApplicationEngine`, the contents of `ktor-server-host-common` module have
