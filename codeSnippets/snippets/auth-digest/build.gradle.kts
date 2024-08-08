@@ -26,3 +26,7 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test")
     testImplementation("io.ktor:ktor-client-auth:$ktor_version")
 }
+
+kotlin {
+    jvmToolchain(11)
+}

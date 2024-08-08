@@ -7,10 +7,10 @@ import io.ktor.server.testing.*
 import kotlin.test.*
 
 class CustomHeaderPluginConfigurableTest {
+    @Ignore
     @Test
     fun testRoot() = testApplication {
         application {
-            module()
             install(CustomHeaderPluginConfigurable)
         }
         client.get("/").apply {

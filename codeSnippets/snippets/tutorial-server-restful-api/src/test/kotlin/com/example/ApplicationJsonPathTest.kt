@@ -14,6 +14,9 @@ import kotlin.test.*
 class ApplicationJsonPathTest {
     @Test
     fun tasksCanBeFound() = testApplication {
+        application {
+            module()
+        }
         val jsonDoc = client.getAsJsonPath("/tasks")
 
         val result: List<String> = jsonDoc.read("$[*].name")
@@ -24,6 +27,9 @@ class ApplicationJsonPathTest {
 
     @Test
     fun tasksCanBeFoundByPriority() = testApplication {
+        application {
+            module()
+        }
         val priority = Priority.Medium
         val jsonDoc = client.getAsJsonPath("/tasks/byPriority/$priority")
 

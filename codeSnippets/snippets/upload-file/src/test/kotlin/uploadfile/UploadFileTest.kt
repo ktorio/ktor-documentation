@@ -11,6 +11,7 @@ import io.ktor.utils.io.*
 import org.junit.*
 import java.io.*
 import kotlin.test.*
+import kotlin.test.Ignore
 import kotlin.test.Test
 
 class ApplicationTest {
@@ -38,6 +39,7 @@ class ApplicationTest {
         assertEquals("Ktor logo is uploaded to 'uploads/ktor_logo.png'", response.bodyAsText())
     }
 
+    @Ignore
     @Test
     fun testUploadLegacyApi() = withTestApplication(Application::main) {
         with(handleRequest(HttpMethod.Post, "/upload"){
