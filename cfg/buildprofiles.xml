@@ -29,7 +29,7 @@
         <product-web-url>https://ktor.io/</product-web-url>
         <write-help-state-file>true</write-help-state-file>
         <og-twitter>@JetBrainsKtor</og-twitter>
-        <og-image>https://raw.githubusercontent.com/ktorio/ktor-documentation/main/preview.png</og-image>
+        <og-image>https://raw.githubusercontent.com/ktorio/ktor-documentation/main/preview.jpg</og-image>
 
         <config-algolia-api-key>8c2683cac2d71d547b55183297abb506</config-algolia-api-key>
         <config-algolia-id>OHIV241QET</config-algolia-id>
