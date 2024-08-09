@@ -33,8 +33,10 @@
     </p>
     <p>By the end of this tutorial, you’ll know how to do the following:</p>
     <list>
-        <li>Create full-stack applications using <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html">
-            Kotlin Multiplatform</a>.</li>
+        <li>Create full-stack applications using <a
+                href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html">
+            Kotlin Multiplatform</a>.
+        </li>
         <li>Understand the project created by the <a href="https://kmp.jetbrains.com/">Multiplatform Wizard</a>.</li>
         <li>Create <a href="https://www.jetbrains.com/lp/compose-multiplatform/">Compose Multiplatform</a> clients that
             call Ktor services.
@@ -795,9 +797,10 @@
         </p>
         <p>
             This kind of development inevitably requires knowledge of both client and server technologies. But you can
-            use Kotlin multiplatform libraries and Compose Multiplatform to minimize the amount of new material you need
-            to learn. Even if your focus is initially only on a single platform, you can easily add others as demand for
-            your application grows.
+            use <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html">Kotlin
+            Multiplatform</a> libraries and <a href="https://www.jetbrains.com/lp/compose-multiplatform/">
+            Compose Multiplatform</a> to minimize the amount of new material you need to learn. Even if your
+            focus is initially only on a single platform, you can easily add others as demand for your application grows.
         </p>
     </chapter>
 </topic>

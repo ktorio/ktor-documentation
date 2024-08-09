@@ -1,19 +1,34 @@
-This is a Kotlin Multiplatform project targeting Android, iOS, Desktop, Server.
+# Task Manager Application with Kotlin Multiplatform
 
-* `/composeApp` is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - `commonMain` is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    `iosMain` would be the right folder for such calls.
+An example Task Manager application built with Ktor and Kotlin Multiplatform
+by following the steps in the [Full-stack development with Kotlin Multiplatform
+](https://ktor.io/docs/full-stack-development-with-kotlin-multiplatform.html) tutorial.
 
-* `/iosApp` contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform, 
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+## Run the server
 
-* `/server` is for the Ktor server application.
+1. In a terminal window run the following command from the root directory to build an executable that includes both the
+   code and all the dependencies it requires:
 
-* `/shared` is for the code that will be shared between all targets in the project.
-  The most important subfolder is `commonMain`. If preferred, you can add code to the platform-specific folders here too.
+  ```shell
+  ./gradlew :server:runFatJar
+  ```
 
+2. Use the following command to start the server:
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+```shell
+./gradlew :server:run
+```
+
+3. Navigate to the following URLs:
+
+- [http://0.0.0.0:8080/tasks](http://0.0.0.0:8080/tasks) to see a complete list of tasks in JSON format.
+- [http://0.0.0.0:8080/tasks/byPriority/Medium](http://0.0.0.0:8080/tasks/byPriority/Medium) to see tasks filtered
+  by `Medium` priority.
+
+## Run the client
+
+In Android Studio, select and run the following configurations:
+
+- iOSApp to open the app on iOS
+- composeApp to open the app on Android
+- desktop to open the app on Desktop
