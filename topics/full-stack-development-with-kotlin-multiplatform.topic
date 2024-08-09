@@ -514,6 +514,7 @@
             <step>
                 <p>
                     Navigate to <a href="http://0.0.0.0:8080/tasks">http://0.0.0.0:8080/tasks</a>
+                    and <a href="http://0.0.0.0:8080/tasks/byPriority/Medium">http://0.0.0.0:8080/tasks/byPriority/Medium</a>
                     to see the server response of tasks in a JSON format.
                     <img style="block" src="full_stack_development_tutorial_run_server.gif"
                          width="707" border-effect="rounded" alt="Server response in browser"/>
