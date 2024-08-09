@@ -4,7 +4,7 @@
 <topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
        title="Full-stack development with Kotlin Multiplatform" id="full-stack-development-with-kotlin-multiplatform">
-
+    <show-structure for="chapter" depth="2"/>
     <web-summary>
         Learn how to develop a cross-platform full-stack application in Kotlin and Ktor. In this tutorial, you will
         discover how to use Kotlin Multiplatform to build for Android, iOS, and desktop, and handle data effortlessly
@@ -13,13 +13,28 @@
     <link-summary>
         Learn how to develop a cross-platform full-stack application in Kotlin and Ktor.
     </link-summary>
+    <card-summary>
+        Learn how to develop a cross-platform full-stack application in Kotlin and Ktor.
+    </card-summary>
+    <tldr>
+        <var name="example_name" value="tutorial-full-stack-task-manager"/>
+        <include from="lib.topic" element-id="download_example"/>
+        <p>
+            <b>Used plugins</b>: <a href="server-routing.md">Routing</a>,
+            <a href="https://kotlinlang.org/api/kotlinx.serialization/">kotlinx.serialization</a>,
+            <a href="server-serialization.md">Content Negotiation</a>,
+            <a href="https://www.jetbrains.com/lp/compose-multiplatform/">Compose Multiplatform</a>,
+            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html">Kotlin Multiplatform</a>
+        </p>
+    </tldr>
     <p>
         In this article, you will learn how to develop a full-stack application in Kotlin that runs on Android, iOS,
         and desktop platforms, all while leveraging Ktor for seamless data handling.
     </p>
     <p>By the end of this tutorial, you’ll know how to do the following:</p>
     <list>
-        <li>Create full-stack applications using Kotlin Multiplatform.</li>
+        <li>Create full-stack applications using <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html">
+            Kotlin Multiplatform</a>.</li>
         <li>Understand the project created by the <a href="https://kmp.jetbrains.com/">Multiplatform Wizard</a>.</li>
         <li>Create <a href="https://www.jetbrains.com/lp/compose-multiplatform/">Compose Multiplatform</a> clients that
             call Ktor services.
