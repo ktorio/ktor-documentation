@@ -6,8 +6,8 @@ by following the steps in the [Full-stack development with Kotlin Multiplatform
 
 ## Run the server
 
-1. In a terminal window run the following command from the root directory to build an executable that includes both the
-   code and all the dependencies it requires:
+1. In a terminal window, run the following command from the root directory to build a combined JAR of the
+   project and all the dependencies it requires, and run it:
 
   ```shell
   ./gradlew :server:runFatJar
