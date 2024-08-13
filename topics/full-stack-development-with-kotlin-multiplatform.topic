@@ -60,9 +60,10 @@
     <chapter title="Prerequisites" id="prerequisites">
         <p>
             In previous articles, IntelliJ IDEA was used as the IDE. In this case, because you will be working with
-            mobile applications, Android Studio will be used instead. You will need to install and configure Android
-            Studio <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-setup.html">as
-            described in the Kotlin Multiplatform documentation</a>.
+            mobile applications, <a href="https://www.jetbrains.com/fleet/">Fleet</a> will be used instead.
+            To learn how to install and configure your environment,
+            see <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/fleet.html">
+            the Fleet for Multiplatform development tutorial</a>.
         </p>
         <p>
             If this is the first time you use Compose Multiplatform we recommend that you complete the
@@ -123,7 +124,7 @@
     <chapter title="Examine the project" id="examine-project">
         <procedure id="open-project">
             <step>
-                Launch Android Studio.
+                Launch <a href="https://www.jetbrains.com/fleet/">Fleet</a>.
             </step>
             <step>
                 <p>
@@ -141,73 +142,79 @@
             </step>
             <step>
                 <p>
-                    Once the project has been loaded, it will be displayed in the
-                    <ui-path>Android View</ui-path>
-                    by default. Using the
-                    dropdown at the top left of the window switch from the
-                    <ui-path>Android View</ui-path>
-                    to the
-                    <ui-path>Project View</ui-path>
+                    When opening a folder with a build file, Fleet gives you the option to enable
+                    <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/fleet.html#prepare-your-development-environment">
+                        Smart Mode</a>
+                    . Click
+                    <control>Trust and Open</control>
                     .
-                    <img style="block" src="android_studio_view_switch_dropdown.png"
-                         alt="View dropdown in Android Studio" width="300" border-effect="line"/>
+                    <img style="block" src="full_stack_development_tutorial_trust_and_open_project.png"
+                         alt="Trust and Open Project in Fleet" width="706" border-effect="rounded"/>
                 </p>
             </step>
             <step>
+                Wait until the project has been fully imported and indexed.
+            </step>
+            <step>
                 In the
-                <ui-path>Project View</ui-path>
-                , navigate to
+                <ui-path>Files</ui-path>
+                panel, navigate to
                 <path>server/src/main/kotlin/org/example/ktor</path>
                 and open the
                 <path>Application.kt</path>
                 file.
-            </step>
-            <step>
+                <img style="block" src="full_stack_development_tutorial_IDE_layout.png"
+                     alt="Project layout in Fleet" width="706" border-effect="rounded"/>
                 <p>
-                    In the
-                    <ui-path>Gradle View</ui-path>
-                    on the right side of the IDE, navigate to
-                    <path>server/tasks/application</path>
-                    and find the
-                    <control>run</control>
-                    task. Your IDE should look like the image below.
-                    <img style="block" src="full_stack_development_tutorial_IDE_layout.png"
-                         alt="Extended project layout in Android Studio" width="706" border-effect="rounded"/>
+                    It isn't immediately clear by looking at the project structure, but the
+                    <path>server</path>
+                    folder is one of three Kotlin modules in the project. The other two are
+                    <path>shared</path>
+                    and
+                    <path>composeApp</path>
+                    .
                 </p>
+                <p>
+                    The structure of the
+                    <path>server</path>
+                    module is very similar to that produced by the <a href="https://start.ktor.io/">Ktor Project
+                    Generator</a>.
+                    You have a dedicated build file to
+                    declare plugins and dependencies, and a source set containing the code to build and launch a Ktor
+                    service:
+                </p>
+                <img src="full_stack_development_tutorial_server_folder.png"
+                     alt="Contents of the server folder in a Kotlin Multiplatform project" width="300"
+                     border-effect="line"/>
             </step>
         </procedure>
-        <p>
-            If you look at the project structure you will see that the
-            <path>server</path>
-            folder is one of three Kotlin modules in the project. The other two are
-            <path>shared</path>
-            and
-            <path>composeApp</path>
-            .
-        </p>
-        <p>
-            The structure of the
-            <path>server</path>
-            module is very similar to that produced by the <a href="https://start.ktor.io/">Ktor Project Generator</a>.
-            You have a dedicated build file to
-            declare plugins and dependencies, and a source set containing the code to build and launch a Ktor service:
-        </p>
-        <img src="full_stack_development_tutorial_server_folder.png"
-             alt="Contents of the server folder in a Kotlin Multiplatform project" width="300" border-effect="line"/>
         <procedure title="Run the service" id="run-service">
             <p>
                 You can run this service by executing the
-                <ui-path>run</ui-path>
-                task of the Gradle application plugin.
+                <a href="https://www.jetbrains.com/help/fleet/run-configs.html">run configuration</a>
+                for the target.
             </p>
             <step>
-                From the extended project layout, double-click on the
-                <ui-path>run</ui-path>
-                task within the
-                <path>server</path>
-                subsection of the
-                <ui-path>Gradle View</ui-path>
-                to run the Ktor service.
+                Press
+                <shortcut>⌘Cmd+R</shortcut>
+                or select
+                <ui-path> Run | Run &amp; Debug</ui-path>
+                from the main menu to access the run configurations. A new popup window will open
+                displaying a list of available configurations.
+                <img src="full_stack_development_tutorial_run_configurations.png"
+                     alt="Run &amp; Debug window in Fleet" width="706"
+                     border-effect="rounded" style="block"/>
+
+            </step>
+            <step>
+                Click
+                <control>Run</control>
+                for the
+                <ui-path>server</ui-path>
+                configuration. The service will start in
+                a new
+                <ui-path>Terminal</ui-path>
+                panel at the bottom of the IDE.
             </step>
             <step>
                 <p>
@@ -243,7 +250,7 @@
             <path>shared</path>
             module:
             <img src="full_stack_development_tutorial_shared_module.png"
-                 alt="Greeting.kt and Platform.kt opened in Android Studio" width="706"
+                 alt="Greeting.kt and Platform.kt opened in Fleet" width="706"
                  border-effect="rounded" style="block"/>
         </p>
         <p>
@@ -281,7 +288,7 @@
         <tabs>
             <tab title="commonMain/Platform.kt" id="commonMain">
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/shared/src/commonMain/kotlin/Platform.kt"
+                            src="snippets/tutorial-full-stack-task-manager/shared/src/commonMain/kotlin/org/example/ktor/Platform.kt"
                 />
             </tab>
         </tabs>
@@ -291,17 +298,17 @@
         <tabs>
             <tab title="Platform.ios.kt" id="iosMain">
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/shared/src/iosMain/kotlin/Platform.ios.kt"
+                            src="snippets/tutorial-full-stack-task-manager/shared/src/iosMain/kotlin/org/example/ktor/Platform.ios.kt"
                 />
             </tab>
             <tab title="Platform.android.kt" id="androidMain">
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/shared/src/androidMain/kotlin/Platform.android.kt"
+                            src="snippets/tutorial-full-stack-task-manager/shared/src/androidMain/kotlin/org/example/ktor/Platform.android.kt"
                 />
             </tab>
             <tab title="Platform.jvm.kt" id="jvmMain">
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/shared/src/jvmMain/kotlin/Platform.jvm.kt"
+                            src="snippets/tutorial-full-stack-task-manager/shared/src/jvmMain/kotlin/org/example/ktor/Platform.jvm.kt"
                 />
             </tab>
         </tabs>
@@ -371,8 +378,8 @@
         <procedure id="add-model-types-procedure">
             <step>
                 Navigate to
-                <path>shared/src/commonMain/kotlin</path>
-                and create a package called
+                <path>shared/src/commonMain/kotlin/org/example/ktor</path>
+                and create a new package called
                 <path>model</path>
                 .
             </step>
@@ -390,7 +397,7 @@
                     library:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/shared/src/commonMain/kotlin/model/Task.kt"
+                            src="snippets/tutorial-full-stack-task-manager/shared/src/commonMain/kotlin/org/example/ktor/model/Task.kt"
                 />
                 <p>
                     You will notice that neither the import nor the annotation compiles. This is because the <code>kotlinx.serialization</code>
@@ -420,9 +427,10 @@
                 />
             </step>
             <step>
-                In Android studio, click on
-                <ui-path>Sync now</ui-path>
-                to sync the build file. You should now find that your
+                In Fleet, click the
+                <ui-path>Gradle</ui-path>
+                icon on the top right of the panel
+                to sync the build file. Once loading has finished, you should find that your
                 <path>Task.kt</path>
                 file compiles successfully.
             </step>
@@ -521,32 +529,6 @@
                 </p>
             </step>
         </procedure>
-        <p>
-            Before moving on to the client there are two things to note regarding running the server:
-        </p>
-        <list>
-            <li>
-                <p>
-                    If you execute the
-                    <ui-path>run</ui-path>
-                    configuration for the Server in Android Studio, the IDE will be blocked from building and running
-                    your clients. Instead, open a terminal window and invoke it directly with the following command:
-                </p>
-                <code-block lang="console">
-                    ./gradlew :server:run
-                </code-block>
-            </li>
-            <li>
-                <p>
-                    To ensure that the types required by the <code>kotlinx.serialization</code> library have been
-                    generated, you should build an executable that includes both your code and all the dependencies it
-                    requires. To do this, use the following command:
-                </p>
-                <code-block lang="console">
-                    ./gradlew :server:runFatJar
-                </code-block>
-            </li>
-        </list>
     </chapter>
     <chapter title="Create the client" id="create-client">
         <p>
@@ -565,7 +547,7 @@
                 and add the following dependencies:
                 <code-block lang="kotlin"
                             src="snippets/tutorial-full-stack-task-manager/composeApp/build.gradle.kts"
-                            include-lines="33-37,40-43,51-56,58-64"
+                            include-lines="33-37,40-43,53-58,61-66"
                 />
                 <p>
                     Once this is done you can add a <code>TaskApi</code> type for your clients to act as a thin wrapper
@@ -573,13 +555,13 @@
                 </p>
             </step>
             <step>
-                Click
-                <ui-path>Sync now</ui-path>
-                to sync the changes in the build file.
+                Click the
+                <ui-path>Gradle</ui-path>
+                icon in the top right corner to load the changes in the build file.
             </step>
             <step>
                 Navigate to
-                <path>composeApp/src/commonMain/kotlin</path>
+                <path>composeApp/src/commonMain/kotlin/org/example/ktor</path>
                 and create a new package called
                 <path>network</path>
                 .
@@ -591,7 +573,7 @@
                     file with the following implementation:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/network/TaskApi.kt"
+                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/org/example/ktor/network/TaskApi.kt"
                 />
                 <p>
                     Note you should replace <code>1.2.3.4</code> with the IP address of your current machine. You will
@@ -607,7 +589,8 @@
                     and replace the App composable with the implementation below:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/App1.kt"
+                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/org/example/ktor/App1.kt"
+                            include-lines="2,4-42"
                 />
                 <p>
                     This will use the <code>TaskApi</code> type to retrieve the list of tasks from the server, and then
@@ -629,7 +612,7 @@
                 <p>
                     In the case of the desktop client, you need to assign dimensions and a title to the containing
                     window. Open the file
-                    <path>composeApp/src/desktopMain/kotlin/main.kt</path>
+                    <path>composeApp/src/desktopMain/kotlin/org/example/ktor/main.kt</path>
                     .
                     You should see the following piece of code:
                 </p>
@@ -648,7 +631,7 @@
                     below:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/desktopMain/kotlin/main.kt"
+                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/desktopMain/kotlin/org/example/ktor/main.kt"
                 />
             </step>
             <step>
@@ -701,12 +684,12 @@
                     Open the
                     <path>App.kt</path>
                     file located in
-                    <path>composeApp/src/commonMain/kotlin</path>
+                    <path>composeApp/src/commonMain/kotlin/org/example/ktor</path>
                     and replace the existing <code>App</code> with the <code>App</code> and <code>TaskCard</code>
                     composables below:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/App.kt"
+                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/org/example/ktor/App.kt"
                             include-lines="1-32,34-38,52-62,64-105"
                 />
                 <p>
@@ -737,14 +720,18 @@
         </p>
         <procedure id="add-update-func-procedure">
             <step>
+                Navigate to the
+                <path>App.kt</path> file in
+                <path>composeApp/commonMain/kotlin/org/example/ktor</path>
+                .
+            </step>
+            <step>
                 <p>
-                    Include the <code>UpdateTaskDialog</code> composable below in
-                    <path>composeApp/commonMain/kotlin</path>
-                    :
+                    Include the <code>UpdateTaskDialog</code> composable below:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/App.kt"
-                            include-lines="107-155"
+                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/org/example/ktor/App.kt"
+                            include-lines="112-160"
                 />
                 <p>
                     This is a composable that displays the details of a <code>Task</code> with a dialog box. The <code>description</code>
@@ -757,8 +744,8 @@
                     Navigate back to the <code>App</code> composable and update the code as shown below:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/App.kt"
-                            include-lines="27-69"
+                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/org/example/ktor/App.kt"
+                            include-lines="32-74"
                 />
                 <p>
                     You are storing an additional piece of state, which is the current task selected. If this value is
@@ -770,12 +757,12 @@
                     Finally, when you are creating the <code>TaskCard</code> composables, you use the
                     <code>onUpdate()</code> callback to set the <code>currentTask</code> state variable.
                 </p>
-                <p>
-                    Once you have made these changes you should be able to update the details of each task by using the
-                    buttons:
-                    <img style="block" src="full_stack_development_tutorial_delete_task.gif"
-                         alt="Deleting tasks on Android" width="350" border-effect="rounded"/>
-                </p>
+            </step>
+            <step>
+                Re-run the client applciation. You should now be able to update the details of each task by using the
+                buttons.
+                <img style="block" src="full_stack_development_tutorial_delete_task.gif"
+                     alt="Deleting tasks on Android" width="350" border-effect="rounded"/>
             </step>
         </procedure>
     </chapter>

@@ -1,7 +1,6 @@
 package org.example.ktor
 
 import InMemoryTaskRepository
-import SERVER_PORT
 import Task
 import io.ktor.http.HttpStatusCode
 import io.ktor.serialization.JsonConvertException

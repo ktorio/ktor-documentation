@@ -47,6 +47,8 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+            implementation(libs.androidx.lifecycle.viewmodel)
+            implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(projects.shared)
             implementation("io.ktor:ktor-client-core:2.3.12")
             implementation("io.ktor:ktor-client-content-negotiation:2.3.12")
@@ -55,9 +57,9 @@ kotlin {
         desktopMain.dependencies {
             //...
             implementation(compose.desktop.currentOs)
+            implementation(libs.kotlinx.coroutines.swing)
             implementation("io.ktor:ktor-client-cio:2.3.12")
         }
-
         iosMain.dependencies {
             implementation("io.ktor:ktor-client-darwin:2.3.12")
         }
@@ -103,7 +105,7 @@ android {
 
 compose.desktop {
     application {
-        mainClass = "MainKt"
+        mainClass = "org.example.ktor.MainKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)

@@ -1,3 +1,5 @@
+package org.example.ktor
+
 import platform.UIKit.UIDevice
 
 class IOSPlatform: Platform {

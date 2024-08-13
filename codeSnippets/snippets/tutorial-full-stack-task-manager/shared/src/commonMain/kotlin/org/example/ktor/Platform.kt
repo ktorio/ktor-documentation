@@ -1,3 +1,5 @@
+package org.example.ktor
+
 interface Platform {
     val name: String
 }
