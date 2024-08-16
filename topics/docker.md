@@ -161,12 +161,33 @@ In the root folder of the project, create a file named `Dockerfile` with the fol
 <tab title="Gradle" group-key="kotlin">
 
 ```Docker
-FROM gradle:7-jdk11 AS build
+# Stage 1: Cache Dependencies
+# 
+# This stage is entirely optional, but helps to 
+# speed up the build process for container.
+FROM gradle:latest as cache
+# Create a directory for Gradle cache
+RUN mkdir -p /home/gradle/cache_home
+ENV GRADLE_USER_HOME /home/gradle/cache_home
+# Only dependency-related files are copied, and 
+# this stage is cached as long as build files are not changed.
+COPY build.gradle.* gradle.properties /home/gradle/java-code/
+WORKDIR /home/gradle/java-code
+RUN gradle clean build -i --stacktrace
+
+# Stage 2: Build Application
+FROM gradle:latest AS build
+COPY --from=cache /home/gradle/cache_home /home/gradle/.gradle
+COPY . /usr/src/java-code/
+WORKDIR /usr/src/java-code
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
+# Build the fat JAR, Gradle also supports shadow 
+# and boot JAR by default.
 RUN gradle buildFatJar --no-daemon
 
-FROM openjdk:11
+# Stage 3: Create the Runtime Image
+FROM openjdk:22 AS runtime
 EXPOSE 8080:8080
 RUN mkdir /app
 COPY --from=build /home/gradle/src/build/libs/*.jar /app/ktor-docker-sample.jar
@@ -176,13 +197,14 @@ ENTRYPOINT ["java","-jar","/app/ktor-docker-sample.jar"]
 </tab>
 <tab title="Maven" group-key="maven">
 
+
 ```Docker
 FROM maven:3-openjdk-11 AS build
 COPY . /home/maven/src
 WORKDIR /home/maven/src
 RUN mvn package
 
-FROM openjdk:11
+FROM openjdk:23
 EXPOSE 8080:8080
 RUN mkdir /app
 COPY --from=build /home/maven/src/target/*-with-dependencies.jar /app/ktor-docker-sample.jar
@@ -195,7 +217,15 @@ ENTRYPOINT ["java","-jar","/app/ktor-docker-sample.jar"]
 
 The second stage of the build works in the following way:
 
-* Indicates what image is going to be used (`openjdk` in this case).
+* Indicates what image is going to be used.
+  * Official Maven image for Docker is no longer supporting OpenJDK,
+    and for build and run stages, using OpenJDK is strongly disrecommended.
+  * After initial testing, it is highly recommended to replace OpenJDK with a suitable replacement, some examples of other official JDK's:
+    * [Amazon Corretto](https://hub.docker.com/_/amazoncorretto)
+    * [Eclipse Temurin](https://hub.docker.com/_/eclipse-temurin)
+    * [IBM Semeru](https://hub.docker.com/_/ibm-semeru-runtimes)
+    * [IBM Java](https://hub.docker.com/_/ibmjava)
+    * [SAP Machine JDK](https://hub.docker.com/_/sapmachine)
 * Specifies the exposed port (this does not automatically expose the port, which is done when running the container).
 * Copies the contents from the build output to the folder.
 * Runs the application (`ENTRYPOINT`).

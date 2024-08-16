@@ -116,6 +116,10 @@
                 To learn how to use multi-stage builds to generate an application distribution using Docker, see
                 <a href="docker.md" anchor="prepare-docker"/>.
             </tip>
+            <tip>
+                OpenJDK is deprecated and disrecommended to use, refer to <a href="docker.md" anchor="prepare-docker"/>
+                for finding a suitable replacement.
+            </tip>
         </chapter>
         <chapter title="Configure Docker Compose" id="configure-docker-compose">
             <p>In the root directory of the project, create a new
