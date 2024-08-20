@@ -107,13 +107,10 @@
             </p>
             <code-block lang="Docker" src="snippets/tutorial-server-docker-compose/Dockerfile"/>
             <tip>
-                To learn how to use multi-stage builds to generate an application distribution using Docker, see
-                <a href="docker.md" anchor="prepare-docker"/>.
+                For more information on how this multi-stage build works, see <a href="docker.md"
+                                                                                 anchor="prepare-docker"/>.
             </tip>
-            <tip>
-                OpenJDK is deprecated and disrecommended to use, refer to <a href="docker.md" anchor="prepare-docker"/>
-                for finding a suitable replacement.
-            </tip>
+            <include from="docker.md" element-id="openjdk_deprecation_warning"/>
         </chapter>
         <chapter title="Configure Docker Compose" id="configure-docker-compose">
             <p>In the root directory of the project, create a new
@@ -155,8 +152,8 @@
             </step>
             <step>
                 <p>
-                    Navigate to <a href="http://localhost:8080/">http://localhost:8080/</a> to
-                    open the web application. You should see the Task Manager Client page displaying three forms for
+                    Navigate to <a href="http://localhost:8080/static/index.html">http://localhost:8080/static/index.html</a>
+                    to open the web application. You should see the Task Manager Client page displaying three forms for
                     filtering and adding new tasks,as well as a table of tasks.
                 </p>
                 <img src="tutorial_server_db_integration_manual_test.gif"
