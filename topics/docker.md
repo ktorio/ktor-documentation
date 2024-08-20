@@ -157,15 +157,25 @@ To dockerize the application, we'll use [multi-stage builds](https://docs.docker
 
 In the root folder of the project, create a file named `Dockerfile` with the following contents:
 
+
 <tabs group="languages">
 <tab title="Gradle" group-key="kotlin">
 
+<tip>
+First stage of Dockerfile is optional, but recommended due to
+improvement for overall build speed.
+
+If first stage is not used, or dependencies are not cached in other stages,
+dependencies declared in ``build.gradle.kts`` will be installed in every build.
+
+If first stage is used, dependencies will be re-downloaded only when there is a change to
+build related files, such as ``gradle.properties``, ``build.gradle.kts``, and so on.
+</tip>
+
+
 ```Docker
-# Stage 1: Cache Dependencies
-# 
-# This stage is entirely optional, but helps to 
-# speed up the build process for container.
-FROM gradle:latest as cache
+# Stage 1: Cache Maven dependencies
+FROM gradle:latest AS cache
 # Create a directory for Gradle cache
 RUN mkdir -p /home/gradle/cache_home
 ENV GRADLE_USER_HOME /home/gradle/cache_home
@@ -197,18 +207,43 @@ ENTRYPOINT ["java","-jar","/app/ktor-docker-sample.jar"]
 </tab>
 <tab title="Maven" group-key="maven">
 
+<tip>
+First stage of Dockerfile is optional, but recommended due to
+improvement for overall build speed.
+
+If first stage is not used, or dependencies are not cached in other stages,
+dependencies declared in ``pom.xml`` will be installed in every build.
+
+If first stage is used, dependencies will be re-downloaded only when there is a change to
+``pom.xml``.
+</tip>
+
+<warning>
+OpenJDK version in build stage is 18, and official Maven image dropped support for
+OpenJDK after version 18. Please refer to the information below the Dockerfile for replacements
+to OpenJDK.
+</warning>
 
 ```Docker
-FROM maven:3-openjdk-11 AS build
-COPY . /home/maven/src
-WORKDIR /home/maven/src
-RUN mvn package
+# Stage 1: Cache Maven dependencies
+FROM maven:3.8-openjdk-18 AS cache
+WORKDIR /app
+COPY pom.xml .
+RUN mvn dependency:go-offline
 
-FROM openjdk:23
-EXPOSE 8080:8080
-RUN mkdir /app
-COPY --from=build /home/maven/src/target/*-with-dependencies.jar /app/ktor-docker-sample.jar
-ENTRYPOINT ["java","-jar","/app/ktor-docker-sample.jar"]
+# Stage 2: Build Application
+FROM maven:3.8-openjdk-18 AS build
+WORKDIR /app
+COPY --from=cache /root/.m2 /root/.m2
+COPY . .
+RUN mvn clean package
+
+# Stage 3: Create the Runtime Image
+FROM openjdk:22-slim AS runtime
+EXPOSE 8080
+WORKDIR /app
+COPY --from=build /app/target/*-with-dependencies.jar app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
 ```
 
 </tab>
