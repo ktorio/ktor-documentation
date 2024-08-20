@@ -161,7 +161,6 @@ In the root folder of the project, create a file named `Dockerfile` with the fol
 <tabs group="languages">
 <tab title="Gradle" group-key="kotlin">
 
-<tip>
 First stage of Dockerfile is optional, but recommended due to
 improvement for overall build speed.
 
@@ -170,17 +169,13 @@ dependencies declared in ``build.gradle.kts`` will be installed in every build.
 
 If first stage is used, dependencies will be re-downloaded only when there is a change to
 build related files, such as ``gradle.properties``, ``build.gradle.kts``, and so on.
-</tip>
 
 
 ```Docker
-# Stage 1: Cache Maven dependencies
+# Stage 1: Cache Gradle dependencies
 FROM gradle:latest AS cache
-# Create a directory for Gradle cache
 RUN mkdir -p /home/gradle/cache_home
 ENV GRADLE_USER_HOME /home/gradle/cache_home
-# Only dependency-related files are copied, and 
-# this stage is cached as long as build files are not changed.
 COPY build.gradle.* gradle.properties /home/gradle/java-code/
 WORKDIR /home/gradle/java-code
 RUN gradle clean build -i --stacktrace
@@ -207,7 +202,6 @@ ENTRYPOINT ["java","-jar","/app/ktor-docker-sample.jar"]
 </tab>
 <tab title="Maven" group-key="maven">
 
-<tip>
 First stage of Dockerfile is optional, but recommended due to
 improvement for overall build speed.
 
@@ -216,7 +210,6 @@ dependencies declared in ``pom.xml`` will be installed in every build.
 
 If first stage is used, dependencies will be re-downloaded only when there is a change to
 ``pom.xml``.
-</tip>
 
 <warning>
 OpenJDK version in build stage is 18, and official Maven image dropped support for

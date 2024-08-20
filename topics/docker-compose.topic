@@ -106,12 +106,6 @@
                 the following content:
             </p>
             <code-block lang="Docker" src="snippets/tutorial-server-docker-compose/Dockerfile"/>
-            <p>
-                Note that this
-                <path>Dockerfile</path>
-                requires creating a fat JAR before running <code>docker compose
-                up</code>.
-            </p>
             <tip>
                 To learn how to use multi-stage builds to generate an application distribution using Docker, see
                 <a href="docker.md" anchor="prepare-docker"/>.
