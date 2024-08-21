@@ -4,7 +4,6 @@ import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.server.testing.*
-import io.ktor.util.cio.*
 import org.junit.After
 import java.io.*
 import kotlin.test.*
@@ -52,7 +51,7 @@ class ApplicationTest {
             main()
         }
         val response = client.post("/upload") {
-            setBody(File("ktor_logo.png").readChannel())
+            setBody(File("ktor_logo.png").readBytes())
         }
         assertEquals("A file is uploaded", response.bodyAsText())
     }

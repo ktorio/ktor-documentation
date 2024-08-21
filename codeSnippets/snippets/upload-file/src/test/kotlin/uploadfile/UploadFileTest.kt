@@ -26,7 +26,7 @@ class ApplicationTest {
                 MultiPartFormDataContent(
                     formData {
                         append("description", "Ktor logo")
-                        append("image", File("ktor_logo.png").readBytes(), Headers.build {
+                        append("image", File("ktor_logo.png").readBytes().toString(), Headers.build {
                             append(HttpHeaders.ContentType, "image/png")
                             append(HttpHeaders.ContentDisposition, "filename=\"ktor_logo.png\"")
                         })
@@ -36,7 +36,7 @@ class ApplicationTest {
                 )
             )
         }
-        assertEquals("Ktor logo is uploaded to 'uploads/ktor_logo.png'", response.bodyAsText())
+        assertEquals("Ktor logo is uploaded to 'uploads/ktor_logo.png'", response.bodyAsText(Charsets.UTF_8))
     }
 
     @Ignore
