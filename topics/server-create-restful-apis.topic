@@ -738,7 +738,7 @@
                     val ktor_version: String by project
 
                     //...
-                    testImplementation("io.ktor:ktor-server-test-host:$ktor_version")
+                    testImplementation("io.ktor:ktor-server-test-host-jvm:$ktor_version")
                     testImplementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
                 </code-block>
             </step>

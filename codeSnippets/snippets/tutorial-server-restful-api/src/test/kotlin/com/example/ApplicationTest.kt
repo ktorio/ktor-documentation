@@ -13,6 +13,9 @@ import kotlin.test.*
 class ApplicationTest {
     @Test
     fun tasksCanBeFoundByPriority() = testApplication {
+        application {
+            module()
+        }
         val client = createClient {
             install(ContentNegotiation) {
                 json()
@@ -31,6 +34,9 @@ class ApplicationTest {
 
     @Test
     fun invalidPriorityProduces400() = testApplication {
+        application {
+            module()
+        }
         val response = client.get("/tasks/byPriority/Invalid")
         assertEquals(HttpStatusCode.BadRequest, response.status)
     }
@@ -38,12 +44,18 @@ class ApplicationTest {
 
     @Test
     fun unusedPriorityProduces404() = testApplication {
+        application {
+            module()
+        }
         val response = client.get("/tasks/byPriority/Vital")
         assertEquals(HttpStatusCode.NotFound, response.status)
     }
 
     @Test
     fun newTasksCanBeAdded() = testApplication {
+        application {
+            module()
+        }
         val client = createClient {
             install(ContentNegotiation) {
                 json()

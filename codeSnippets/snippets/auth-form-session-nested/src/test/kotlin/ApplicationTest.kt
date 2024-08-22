@@ -11,6 +11,9 @@ import kotlin.test.*
 class ApplicationTest {
     @Test
     fun testLoginProcess() = testApplication {
+        application {
+            main()
+        }
         val loginClient = createClient {
             install(HttpCookies)
         }

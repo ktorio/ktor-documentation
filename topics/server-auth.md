@@ -193,7 +193,7 @@ If you use [session authentication](server-session-auth.md), a principal might b
 
 ```kotlin
 ```
-{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="75-77,80-81"}
+{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="77-79,82-83"}
 
 In the case of [nested authentication providers](#authenticate-route), 
 you can pass a [provider name](#provider-name) to `call.principal` to get a principal for the desired provider.
@@ -201,7 +201,7 @@ In the example below, the _auth-session_ value is passed to get a principal for 
 
 ```kotlin
 ```
-{src="snippets/auth-form-session-nested/src/main/kotlin/com/example/Application.kt" include-lines="85,91-93,95-97"}
+{src="snippets/auth-form-session-nested/src/main/kotlin/com/example/Application.kt" include-lines="87,93-95,97-99"}
 
 
 

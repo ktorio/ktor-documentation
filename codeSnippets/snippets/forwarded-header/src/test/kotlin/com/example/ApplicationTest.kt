@@ -8,6 +8,9 @@ import kotlin.test.*
 class ApplicationTest {
     @Test
     fun testXForwardedValue() = testApplication {
+        application {
+            module()
+        }
         client.get("/hello") {
             header("X-Forwarded-For", "10.0.0.123, proxy-1, proxy-2, proxy-3")
         }.apply {

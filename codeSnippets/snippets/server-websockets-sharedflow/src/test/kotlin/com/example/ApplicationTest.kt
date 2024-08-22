@@ -12,6 +12,9 @@ class ApplicationTest {
     @Test
     fun testConversation() {
         testApplication {
+            application {
+                module()
+            }
             coroutineScope {
                 val client1 = createClient {
                     install(WebSockets)

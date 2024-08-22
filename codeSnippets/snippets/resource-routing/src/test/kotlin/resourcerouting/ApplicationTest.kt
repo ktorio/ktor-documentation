@@ -10,18 +10,27 @@ import kotlin.test.*
 class ApplicationTest {
     @Test
     fun testGetAllArticles() = testApplication {
+        application {
+            module()
+        }
         val response = client.get("/articles?sort=old")
         assertEquals("List of articles sorted starting from old", response.bodyAsText())
     }
 
     @Test
     fun testGetArticle() = testApplication {
+        application {
+            module()
+        }
         val response = client.get("/articles/12")
         assertEquals("An article with id 12", response.bodyAsText())
     }
 
     @Test
     fun testPostArticle() = testApplication {
+        application {
+            module()
+        }
         val response = client.post("/articles")
         assertEquals(HttpStatusCode.Created, response.status)
         assertEquals("An article is saved", response.bodyAsText())
@@ -30,6 +39,7 @@ class ApplicationTest {
     @Test
     fun testHrefGenerationFromResource() = testApplication {
         application {
+            module()
             assertEquals("/articles?sort=new", href(Articles()))
             assertEquals("/articles?sort=old", href(Articles(sort = "old")))
             assertEquals("/articles", href(Articles(sort = null)))

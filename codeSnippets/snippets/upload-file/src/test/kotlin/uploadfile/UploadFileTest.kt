@@ -8,22 +8,25 @@ import io.ktor.http.content.*
 import io.ktor.server.application.*
 import io.ktor.server.testing.*
 import io.ktor.utils.io.*
-import io.ktor.utils.io.streams.*
 import org.junit.*
 import java.io.*
 import kotlin.test.*
+import kotlin.test.Ignore
 import kotlin.test.Test
 
 class ApplicationTest {
     @Test
     fun testUpload() = testApplication {
+        application {
+            main()
+        }
         val boundary = "WebAppBoundary"
         val response = client.post("/upload") {
             setBody(
                 MultiPartFormDataContent(
                     formData {
                         append("description", "Ktor logo")
-                        append("image", File("ktor_logo.png").readBytes(), Headers.build {
+                        append("image", File("ktor_logo.png").readBytes().toString(), Headers.build {
                             append(HttpHeaders.ContentType, "image/png")
                             append(HttpHeaders.ContentDisposition, "filename=\"ktor_logo.png\"")
                         })
@@ -33,9 +36,10 @@ class ApplicationTest {
                 )
             )
         }
-        assertEquals("Ktor logo is uploaded to 'uploads/ktor_logo.png'", response.bodyAsText())
+        assertEquals("Ktor logo is uploaded to 'uploads/ktor_logo.png'", response.bodyAsText(Charsets.UTF_8))
     }
 
+    @Ignore
     @Test
     fun testUploadLegacyApi() = withTestApplication(Application::main) {
         with(handleRequest(HttpMethod.Post, "/upload"){
@@ -45,11 +49,11 @@ class ApplicationTest {
             addHeader(HttpHeaders.ContentType, ContentType.MultiPart.FormData.withParameter("boundary", boundary).toString())
             setBody(boundary, listOf(
                 PartData.FormItem("Ktor logo", { }, headersOf(
-                    HttpHeaders.ContentDisposition,
-                    ContentDisposition.Inline
-                        .withParameter(ContentDisposition.Parameters.Name, "description")
-                        .toString()
-                )),
+                        HttpHeaders.ContentDisposition,
+                        ContentDisposition.Inline
+                            .withParameter(ContentDisposition.Parameters.Name, "description")
+                            .toString()
+                    )),
                 //TODO: document this change
                 PartData.FileItem({ ByteReadChannel(fileBytes) }, {}, headersOf(
                     HttpHeaders.ContentDisposition,

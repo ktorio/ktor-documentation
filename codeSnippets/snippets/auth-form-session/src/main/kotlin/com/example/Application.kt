@@ -7,7 +7,9 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.sessions.*
 import kotlinx.html.*
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class UserSession(val name: String, val count: Int) : Principal
 
 fun Application.main() {

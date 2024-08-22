@@ -10,6 +10,9 @@ import kotlin.test.*
 class ApplicationTest {
     @Test
     fun testAuthRoute() = testApplication {
+        application {
+            main()
+        }
         val client = createClient {
             install(Auth) {
                 digest {

@@ -9,6 +9,9 @@ import kotlin.test.*
 class ApplicationTest {
     @Test
     fun testFiles() = testApplication {
+        application {
+            module()
+        }
         val response = client.get("/files")
         assertEquals(HttpStatusCode.OK, response.status)
     }

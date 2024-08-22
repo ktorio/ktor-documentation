@@ -9,6 +9,9 @@ import kotlin.test.*
 class HtmlTest {
     @Test
     fun testRoot() = testApplication {
+        application {
+            module()
+        }
         val response = client.get("/")
         assertEquals(
             """

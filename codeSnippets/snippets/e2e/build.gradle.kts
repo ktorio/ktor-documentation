@@ -15,3 +15,7 @@ dependencies {
     api("io.ktor:ktor-server-core:$ktor_version")
     api("io.ktor:ktor-server-cio:$ktor_version")
 }
+
+kotlin {
+    jvmToolchain(11)
+}

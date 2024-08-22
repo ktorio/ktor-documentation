@@ -6,6 +6,7 @@ import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
+import io.ktor.server.config.*
 import io.ktor.server.testing.*
 import kotlinx.serialization.*
 import kotlin.test.*
@@ -13,6 +14,9 @@ import kotlin.test.*
 class ApplicationTest {
     @Test
     fun testHello() = testApplication {
+        environment {
+            config = ApplicationConfig("application-custom.conf")
+        }
         val client = createClient {
             install(ContentNegotiation) {
                 json()

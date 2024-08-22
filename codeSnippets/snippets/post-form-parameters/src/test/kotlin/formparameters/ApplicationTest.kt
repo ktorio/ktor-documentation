@@ -10,6 +10,9 @@ import kotlin.test.*
 class ApplicationTest {
     @Test
     fun testPost() = testApplication {
+        application {
+            main()
+        }
         val response = client.post("/signup") {
             header(HttpHeaders.ContentType, ContentType.Application.FormUrlEncoded.toString())
             setBody(listOf("username" to "JetBrains", "email" to "example@jetbrains.com", "password" to "foobar", "confirmation" to "foobar").formUrlEncode())

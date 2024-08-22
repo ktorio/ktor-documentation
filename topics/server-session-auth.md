@@ -64,14 +64,14 @@ First, you need to create a data class for storing session data. Note that this 
 
 ```kotlin
 ```
-{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="11"}
+{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="12-13"}
 
 ### Step 2: Install and configure a session {id="install-session"}
 After creating a data class, you need to install and configure the `Sessions` plugin. A code snippet below shows how to install and configure a cookie session with the specified cookie path and expiration time.
 
 ```kotlin
 ```
-{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="14-19"}
+{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="17-21"}
 
 You can learn more about configuring sessions from [](server-sessions.md#configuration_overview).
 
@@ -84,7 +84,7 @@ The `session` authentication provider exposes its settings via the [SessionAuthe
 
 ```kotlin
 ```
-{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="20,32-44"}
+{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="22,34-46"}
 
 
 ### Step 4: Save user data in a session {id="save-session"}
@@ -95,7 +95,7 @@ For more information on how to define it, please refer to the [Form-based authen
 
 ```kotlin
 ```
-{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="67-73"}
+{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="69-75"}
 
 ### Step 5: Protect specific resources {id="authenticate-route"}
 
@@ -103,6 +103,6 @@ After configuring the `session` provider, you can protect specific resources in 
 
 ```kotlin
 ```
-{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="75-81"}
+{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="77-83"}
 
 You can find the full example here: [auth-form-session](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-form-session).

@@ -37,6 +37,9 @@ class ApplicationTest {
 
     @Test
     fun invalidPriorityProduces400() = testApplication {
+        application {
+            module()
+        }
         val response = client.get("/tasks/byPriority/Invalid")
         assertEquals(HttpStatusCode.BadRequest, response.status)
     }
@@ -44,7 +47,9 @@ class ApplicationTest {
     @Test
     fun unusedPriorityProduces404() = testApplication {
         application {
-            module()
+            val repository = FakeTaskRepository()
+            configureSerialization(repository)
+            configureRouting()
         }
 
         val response = client.get("/tasks/byPriority/Vital")
@@ -54,7 +59,9 @@ class ApplicationTest {
     @Test
     fun newTasksCanBeAdded() = testApplication {
         application {
-            module()
+            val repository = FakeTaskRepository()
+            configureSerialization(repository)
+            configureRouting()
         }
 
         val client = createClient {

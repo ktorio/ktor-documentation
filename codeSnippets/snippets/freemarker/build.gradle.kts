@@ -25,5 +25,5 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:$logback_version")
 
     testImplementation("junit:junit:$junit_version")
-    testImplementation("io.ktor:ktor-server-test-host:$ktor_version")
+    testImplementation("io.ktor:ktor-server-test-host-jvm:$ktor_version")
 }

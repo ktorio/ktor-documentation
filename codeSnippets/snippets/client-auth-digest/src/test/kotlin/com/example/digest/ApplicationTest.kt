@@ -1,4 +1,4 @@
-package com.example
+package com.example.digest
 
 import e2e.*
 import kotlinx.coroutines.*

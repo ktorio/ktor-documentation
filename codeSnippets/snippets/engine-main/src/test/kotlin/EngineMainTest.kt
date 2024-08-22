@@ -10,6 +10,9 @@ import kotlin.test.*
 class ApplicationTest {
     @Test
     fun testRoot() = testApplication {
+        application {
+            module()
+        }
         val response = client.get("/")
         assertEquals(HttpStatusCode.OK, response.status)
         assertEquals("Hello, world!", response.bodyAsText())

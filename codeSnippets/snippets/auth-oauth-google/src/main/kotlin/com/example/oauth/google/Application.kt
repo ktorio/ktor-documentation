@@ -1,4 +1,4 @@
-package com.example
+package com.example.oauth.google
 
 import io.ktor.client.*
 import io.ktor.client.call.*
@@ -125,6 +125,7 @@ private suspend fun getSession(
     return userSession
 }
 
+@Serializable
 data class UserSession(val state: String, val token: String)
 
 @Serializable

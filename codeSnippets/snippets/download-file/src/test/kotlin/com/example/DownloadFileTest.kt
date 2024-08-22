@@ -10,6 +10,9 @@ import org.junit.Assert.*
 class DownloadFileTest {
     @Test
     fun respondWithPNGFileAndContentDispositionHeader() = testApplication {
+        application {
+            main()
+        }
         val response = client.get("/download")
         val content = response.readBytes(4)
         assertPNG(content)
@@ -21,6 +24,9 @@ class DownloadFileTest {
 
     @Test
     fun respondWithTxtFileFromPath() = testApplication {
+        application {
+            main()
+        }
         val response = client.get("/downloadFromPath")
         assertEquals("Just a simple text file.", response.bodyAsText().trim())
     }

@@ -8,6 +8,9 @@ import kotlin.test.*
 class ApplicationTest {
     @Test
     fun testRateLimits() = testApplication {
+        application {
+            module()
+        }
         repeat(5) {
             client.get("/").let {
                 assertEquals(HttpStatusCode.OK, it.status)
