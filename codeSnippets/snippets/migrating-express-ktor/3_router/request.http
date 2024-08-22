@@ -1,16 +1,32 @@
 GET http://0.0.0.0:8080/book
 Content-Type: text/plain
 
+Get a random book
+
 ###
 
 POST http://0.0.0.0:8080/book
 Content-Type: text/plain
 
-Hello, world!
+Add a book
 
 ###
 
 PUT http://0.0.0.0:8080/book
 Content-Type: text/plain
 
-Hello, world!
+Update a book
+
+###
+
+GET http://0.0.0.0:8080/birds
+Content-Type: text/plain
+
+Birds home page
+
+###
+
+GET http://0.0.0.0:8080/birds/about
+Content-Type: text/plain
+
+About birds
