@@ -120,7 +120,7 @@
             <tabs group="config">
                 <tab title="application.conf" group-key="hocon">
                     <code-block
-                            src="snippets/auth-jwt-hs256/src/main/resources/application.conf"/>
+                            src="snippets/auth-jwt-hs256/src/main/resources/application-custom.conf"/>
                 </tab>
                 <tab title="application.yaml" group-key="yaml">
                     <code-block
