@@ -8,7 +8,7 @@ A sample Ktor project showing how to create a [WebSocket chat client](https://kt
 Before running this sample, start a [Ktor server](../tutorial-websockets-server) first:
 
 ```bash
-./gradlew :tutorial-websockets-server:run
+./gradlew :tutorial-server-websockets:run
 ```
 
 Then, execute the following command to run a client sample:
