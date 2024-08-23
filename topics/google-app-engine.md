@@ -67,14 +67,15 @@ The [Google App Engine Gradle plugin](https://github.com/GoogleCloudPlatform/app
 
 ### Step 3: Configure App Engine settings {id="configure-app-engine-settings"}
 You configure App Engine settings for your application in the [app.yaml](https://cloud.google.com/appengine/docs/standard/python/config/appref) file:
-1. Create the `appengine` directory inside `src/main/appengine`.
-2. Inside this directory, create the `app.yaml` file and add the following content:
+1. Create the `appengine` directory inside `src/main`.
+2. Inside this directory, create the `app.yaml` file and add the following content (replace `google-appengine-standard` with your project's name):
    ```yaml
    ```
    {src="snippets/google-appengine-standard/src/main/appengine/app.yaml"}
    
    The `entrypoint` option contains a command used to run a fat JAR generated for the application.
 
+   Further documentation on supported configuration options can be found from the [Google AppEngine documentation](https://cloud.google.com/appengine/docs/standard/reference/app-yaml?tab=java).
 
 ## Deploy an application {id="deploy-app"}
 

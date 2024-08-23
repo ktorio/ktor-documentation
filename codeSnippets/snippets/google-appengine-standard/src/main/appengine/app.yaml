@@ -1,2 +1,2 @@
-runtime: java11
+runtime: java21
 entrypoint: 'java -jar google-appengine-standard-1.0-SNAPSHOT-all.jar'
