@@ -173,58 +173,34 @@ use [multi-stage builds](https://docs.docker.com/develop/develop-images/multista
 1. First, we'll set up caching for Gradle/Maven dependencies. This step is optional, but recommended as it improves the
    overall build speed.
 2. Then, we'll use the `gradle`/`maven` image to generate a fat JAR with the application.
-3. Finally, the generated distribution will be run in the environment created based on the `openjdk` image.
+3. Finally, the generated distribution will be run in the environment created based on the JDK image.
 
 In the root folder of the project, create a file named `Dockerfile` with the following contents:
 
 <tabs group="languages">
 <tab title="Gradle" group-key="kotlin">
 
-```Docker
-# Stage 1: Cache Gradle dependencies
-FROM gradle:latest AS cache
-RUN mkdir -p /home/gradle/cache_home
-ENV GRADLE_USER_HOME /home/gradle/cache_home
-COPY build.gradle.* gradle.properties /home/gradle/java-code/
-WORKDIR /home/gradle/java-code
-RUN gradle clean build -i --stacktrace
-
-# Stage 2: Build Application
-FROM gradle:latest AS build
-COPY --from=cache /home/gradle/cache_home /home/gradle/.gradle
-COPY . /usr/src/java-code/
-WORKDIR /usr/src/java-code
-COPY --chown=gradle:gradle . /home/gradle/src
-WORKDIR /home/gradle/src
-RUN gradle buildFatJar --no-daemon
-
-# Stage 3: Create the Runtime Image
-FROM openjdk:22 AS runtime
-EXPOSE 8080:8080
-RUN mkdir /app
-COPY --from=build /home/gradle/src/build/libs/*.jar /app/ktor-docker-sample.jar
-ENTRYPOINT ["java","-jar","/app/ktor-docker-sample.jar"]
-```
+<code-block lang="Docker" src="snippets/tutorial-server-docker-compose/Dockerfile"/>
 
 </tab>
 <tab title="Maven" group-key="maven">
 
 ```Docker
 # Stage 1: Cache Maven dependencies
-FROM maven:3.8-openjdk-18 AS cache
+FROM maven:3.8-amazoncorretto-21 AS cache
 WORKDIR /app
 COPY pom.xml .
 RUN mvn dependency:go-offline
 
 # Stage 2: Build Application
-FROM maven:3.8-openjdk-18 AS build
+FROM maven:3.8-amazoncorretto-21 AS build
 WORKDIR /app
 COPY --from=cache /root/.m2 /root/.m2
 COPY . .
 RUN mvn clean package
 
 # Stage 3: Create the Runtime Image
-FROM openjdk:22-slim AS runtime
+FROM amazoncorretto:21-slim AS runtime
 EXPOSE 8080
 WORKDIR /app
 COPY --from=build /app/target/*-with-dependencies.jar app.jar
@@ -247,19 +223,17 @@ The third stage of the build works in the following way:
 * Copies the contents from the build output to the folder.
 * Runs the application (`ENTRYPOINT`).
 
-<warning id="openjdk_deprecation_warning">
+<tip id="jdk_image_replacement_tip">
   <p>
-   The OpenJDK Docker Image is <a href="https://hub.docker.com/_/openjdk">officially deprecated</a>.
-  We highly recommend replacing OpenJDK with a suitable alternative, such as one of the follwing:
+   This example uses the Amazon Corretto Docker Image, but you can substitute it with any other suitable alternative, such as the following:
   </p>
   <list>
-    <li><a href="https://hub.docker.com/_/amazoncorretto">Amazon Corretto</a></li>
     <li><a href="https://hub.docker.com/_/eclipse-temurin">Eclipse Temurin</a></li>
     <li><a href="https://hub.docker.com/_/ibm-semeru-runtimes">IBM Semeru</a></li>
     <li><a href="https://hub.docker.com/_/ibmjava">IBM Java</a></li>
     <li><a href="https://hub.docker.com/_/sapmachine">SAP Machine JDK</a></li>
   </list>
-</warning>
+</tip>
 
 ### Build and run the Docker image {id="build-run"}
 

@@ -110,7 +110,7 @@
                 For more information on how this multi-stage build works, see <a href="docker.md"
                                                                                  anchor="prepare-docker"/>.
             </tip>
-            <include from="docker.md" element-id="openjdk_deprecation_warning"/>
+            <include from="docker.md" element-id="jdk_image_replacement_tip"/>
         </chapter>
         <chapter title="Configure Docker Compose" id="configure-docker-compose">
             <p>In the root directory of the project, create a new
