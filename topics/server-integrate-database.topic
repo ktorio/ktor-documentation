@@ -202,7 +202,7 @@
             <procedure>
                 <step>
                     Navigate to
-                    <path>src/main/kotlin/com/example</path>
+                    <path>src/main/kotlin/example/com</path>
                     and create a subpackage called
                     <path>model</path>
                     .
@@ -221,7 +221,7 @@
                         and add an <code>enum</code> to represent priorities and a <code>class</code> to represent
                         tasks.
                     </p>
-                    <code-block src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/model/Task.kt"
+                    <code-block src="snippets/tutorial-server-db-integration/src/main/kotlin/example/com/model/Task.kt"
                                 lang="kotlin"/>
                     <p>
                         The <code>Task</code> class is annotated with the <code>Serializable</code> type from the <a
@@ -311,7 +311,7 @@
                     Open the
                     <path>Serialization.kt</path>
                     file in
-                    <path>src/main/kotlin/com/example/plugins</path>
+                    <path>src/main/kotlin/example/com/plugins</path>
                     .
                 </step>
                 <step>
@@ -320,7 +320,7 @@
                         implementation below:
                     </p>
                     <code-block
-                            src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/plugins/Serialization.kt"
+                            src="snippets/tutorial-server-db-integration/src/main/kotlin/example/com/plugins/Serialization.kt"
                             lang="kotlin"/>
                     <p>
                         This is the same routing that you implemented in the <a href="server-create-restful-apis.topic">Create
@@ -338,7 +338,7 @@
                     Open the
                     <path>Application.kt</path>
                     file within
-                    <path>src/main/kotlin/com/example</path>
+                    <path>src/main/kotlin/example/com</path>
                     .
                 </step>
                 <step>
@@ -430,11 +430,11 @@
                         Open
                         <path>ApplicationTest.kt</path>
                         in
-                        <path>src/test/kotlin/com/example</path>
+                        <path>src/test/kotlin/example/com</path>
                         and add the following tests:
                     </p>
                     <code-block
-                            src="snippets/tutorial-server-db-integration/src/test/kotlin/com/example/ApplicationTest.kt"
+                            src="snippets/tutorial-server-db-integration/src/test/kotlin/example/com/ApplicationTest.kt"
                             lang="kotlin"/>
                     <p>
                         For these tests to compile and run, you will need to add a dependency on the <a
@@ -565,7 +565,7 @@
                         Open the
                         <path>TaskRepository.kt</path>
                         file in
-                        <path>src/main/kotlin/com/example/model</path>
+                        <path>src/main/kotlin/example/com/model</path>
                         .
                     </p>
                 </step>
@@ -635,7 +635,7 @@
                     Open the
                     <path>Databases.kt</path>
                     file in
-                    <path>src/main/kotlin/com/example/plugins</path>
+                    <path>src/main/kotlin/example/com/plugins</path>
                     .
                 </step>
                 <step>
@@ -674,7 +674,7 @@
             <procedure>
                 <step>
                     Navigate to
-                    <path>scr/main/kotlin/com/example</path>
+                    <path>scr/main/kotlin/example/com</path>
                     and create a new package called
                     <path>db</path>
                     .
@@ -693,7 +693,7 @@
                         and add the types <code>TaskTable</code> and <code>TaskDAO</code>:
                     </p>
                     <code-block
-                            src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/db/mapping.kt"
+                            src="snippets/tutorial-server-db-integration/src/main/kotlin/example/com/db/mapping.kt"
                             include-lines="1-2,5-8,11-24"
                             lang="kotlin"/>
                     <p>
@@ -746,7 +746,7 @@
                         file and add the following two helper functions:
                     </p>
                     <code-block
-                            src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/db/mapping.kt"
+                            src="snippets/tutorial-server-db-integration/src/main/kotlin/example/com/db/mapping.kt"
                             include-lines="26-34"
                             lang="kotlin"/>
                     <p>
@@ -764,7 +764,7 @@
                         Add the following missing imports:
                     </p>
                     <code-block
-                            src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/db/mapping.kt"
+                            src="snippets/tutorial-server-db-integration/src/main/kotlin/example/com/db/mapping.kt"
                             include-lines="3-4,9-10"
                             lang="kotlin"/>
                 </step>
@@ -775,7 +775,7 @@
                 <p>You now have all the resources needed to create a database-specific repository.</p>
                 <step>
                     Navigate to
-                    <path>src/main/kotlin/com/example/model</path>
+                    <path>src/main/kotlin/example/com/model</path>
                     and create a new
                     <path>PostgresTaskRepository.kt</path>
                     file.
@@ -787,7 +787,7 @@
                         file and create a new type with the following implementation:
                     </p>
                     <code-block
-                            src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/model/PostgresTaskRepository.kt"
+                            src="snippets/tutorial-server-db-integration/src/main/kotlin/example/com/model/PostgresTaskRepository.kt"
                             lang="kotlin"/>
                     <p>
                         In this implementation, you use the helper methods of the <code>TaskDAO</code> and
@@ -804,7 +804,7 @@
                     Open the
                     <path>Application.kt</path>
                     file in
-                    <path>src/main/kotlin/com/example</path>
+                    <path>src/main/kotlin/example/com</path>
                     .
                 </step>
                 <step>
@@ -872,7 +872,7 @@
         <p>
             The <code>FakeTaskRepository</code> type is no longer needed in production code, but is still valuable for
             testing. Therefore, you can move it to the testing source set, in
-            <path>src/test/com/example</path>
+            <path>src/test/example/com</path>
             .
         </p>
         <p>
