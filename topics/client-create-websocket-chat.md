@@ -24,7 +24,7 @@ users, and read messages from users in the terminal.
 
 * To test the client, you will need a running server application. Follow the preceding tutorial
   for [](server-create-websocket-application.topic) or download the code
-  example [tutorial-websockets-server](https://github.com/ktorio/ktor-documentation/tree/2.3.4/codeSnippets/snippets/tutorial-websockets-server).
+  example [tutorial-server-websockets](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-server-websockets).
 
 ## Create a new project {id="new-project"}
 
