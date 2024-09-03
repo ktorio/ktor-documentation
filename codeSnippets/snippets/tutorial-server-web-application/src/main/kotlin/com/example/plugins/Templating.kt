@@ -27,7 +27,7 @@ fun Application.configureTemplating() {
                 )
             }
             get("/byName") {
-                val name = call.request.queryParameters["taskName"]
+                val name = call.request.queryParameters["name"]
                 if (name == null) {
                     call.respond(HttpStatusCode.BadRequest)
                     return@get

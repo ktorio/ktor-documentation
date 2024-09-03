@@ -7,7 +7,7 @@ val gce_logback_version: String by project
 plugins {
     application
     kotlin("jvm")
-    id("com.google.cloud.tools.appengine") version "2.4.2"
+    id("com.google.cloud.tools.appengine") version "2.8.0"
     id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 

@@ -1,4 +1,4 @@
-FROM openjdk:11.0.16
+FROM amazoncorretto:22
 EXPOSE 8080:8080
 RUN mkdir /app
 COPY ./build/libs/*-all.jar /app/ktor-docker-sample.jar
