@@ -13,7 +13,7 @@
             <a href="server-serialization.md">Content Negotiation</a>, <a href="server-status-pages.md"/>,
             <a href="server-serialization.md">kotlinx.serialization</a>,
             <a href="https://github.com/ktorio/ktor-plugin-registry/blob/main/plugins/server/org.jetbrains/exposed/2.2/documentation.md">Exposed</a>,
-            <a href="https://github.com/ktorio/ktor-plugin-registry/blob/main/plugins/server/org.postgresql/postgres/2.2/documentation.md">Postgres</a>
+            <a href="https://github.com/ktorio/ktor-plugin-registry/blob/main/plugins/server/org.jetbrains/postgres/2.2/documentation.md">Postgres</a>
         </p>
     </tldr>
     <card-summary>
