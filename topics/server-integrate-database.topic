@@ -345,7 +345,7 @@
                         Replace the <code>module()</code> function with the implementation below:
                     </p>
                     <code-block lang="kotlin"><![CDATA[
-                    import com.example.model.FakeTaskRepository
+                    import com.example.FakeTaskRepository
                     //...
 
                     fun Application.module() {
@@ -357,7 +357,7 @@
                     }
                 ]]></code-block>
                     <p>
-                        You are now injecting an instance of your <code>com.example.model.FakeTaskRepository</code> into
+                        You are now injecting an instance of your <code>FakeTaskRepository</code> into
                         <code>configureSerialization()</code>.
                         The long-term goal is to be able to replace this with a <code>PostgresTaskRepository</code>.
                     </p>
@@ -435,6 +435,7 @@
                     <code-block
                             src="snippets/tutorial-server-db-integration/src/test/kotlin/com/example/ApplicationTest.kt"
                             lang="kotlin"
+                            include-lines="1-4,7-11,13-18,28-45,55-60,70-75,85-111"
                     />
                     <p>
                         For these tests to compile and run, you will need to add a dependency on the <a
@@ -809,7 +810,7 @@
                 </step>
                 <step>
                     <p>
-                        In the <code>Application.module()</code> function, replace the <code>com.example.model.FakeTaskRepository</code>
+                        In the <code>Application.module()</code> function, replace <code>FakeTaskRepository</code>
                         with <code>PostgresTaskRepository</code>:
                     </p>
                     <code-block lang="kotlin"><![CDATA[
@@ -867,14 +868,36 @@
             </procedure>
         </chapter>
         <p>
-            With this, you have successfully completed integrating a database into your application, however you will
-            find that the automated tests no longer work as expected.
+            With this, you have successfully completed integrating a database into your application. However, if you
+            run the tests, you will find that they are now failing.
         </p>
-        <p>
-            The <code>FakeTaskRepository</code> type is no longer needed in production code, but is still valuable for
-            testing. To use this repository in tests, you need to configure the testing module.
-        </p>
-</chapter>
+        <procedure title="Configure the test module">
+            <step>
+                For each test in the
+                <path>ApplicationTest.kt</path>
+                file, use the <code>MapApplicationConfig()</code> function to override the default application
+                configuration and use a custom module:
+                <code-block
+                        src="snippets/tutorial-server-db-integration/src/test/kotlin/com/example/ApplicationTest.kt"
+                        lang="kotlin"/>
+            </step>
+            <step>
+                <p>
+                    As the <code>FakeTaskRepository</code> type is no longer needed in production code, you can move
+                    it to the testing source set, in
+                    <path>src/test/com/example</path>
+                    .
+                </p>
+                <p>
+                    The final project structure should look something like this:
+                </p>
+                <img src="tutorial_server_db_integration_src_folder.png"
+                     alt="The src folder shown within the Project View in intelliJ IDEA"
+                     border-effect="line"
+                     width="400"/>
+            </step>
+        </procedure>
+    </chapter>
     <chapter title="Next steps" id="next-steps">
         <p>
             You now have an application communicating with a Ktor RESTful service. This in turn uses a
