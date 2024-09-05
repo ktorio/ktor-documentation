@@ -16,7 +16,6 @@ fun Application.configureDatabases() {
         password = "password"
     )
 }
-
 /**
  * Makes a connection to a Postgres database.
  *

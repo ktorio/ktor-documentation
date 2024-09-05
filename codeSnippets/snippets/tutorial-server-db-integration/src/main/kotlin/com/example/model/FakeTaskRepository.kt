@@ -1,8 +1,4 @@
-package com.example
-
-import Priority
-import Task
-import com.example.model.TaskRepository
+package com.example.model
 
 class FakeTaskRepository : TaskRepository {
     private val tasks = mutableListOf(
@@ -12,24 +8,24 @@ class FakeTaskRepository : TaskRepository {
         Task("painting", "Paint the fence", Priority.Medium)
     )
 
-    override fun allTasks(): List<Task> = tasks
+    override suspend fun allTasks(): List<Task> = tasks
 
-    override fun tasksByPriority(priority: Priority) = tasks.filter {
+    override suspend fun tasksByPriority(priority: Priority) = tasks.filter {
         it.priority == priority
     }
 
-    override fun taskByName(name: String) = tasks.find {
+    override suspend fun taskByName(name: String) = tasks.find {
         it.name.equals(name, ignoreCase = true)
     }
 
-    override fun addTask(task: Task) {
+    override suspend fun addTask(task: Task) {
         if (taskByName(task.name) != null) {
             throw IllegalStateException("Cannot duplicate task names!")
         }
         tasks.add(task)
     }
 
-    override fun removeTask(name: String): Boolean {
+    override suspend fun removeTask(name: String): Boolean {
         return tasks.removeIf { it.name == name }
     }
 }

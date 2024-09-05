@@ -248,9 +248,6 @@
                     <code-block lang="kotlin"><![CDATA[
                         package com.example.model
 
-                        import Priority
-                        import Task
-
                         interface TaskRepository {
                             fun allTasks(): List<Task>
                             fun tasksByPriority(priority: Priority): List<Task>
@@ -272,6 +269,8 @@
                         and add the following <code>class</code>:
                     </p>
                     <code-block lang="kotlin"><![CDATA[
+                        package com.example.model
+
                         class FakeTaskRepository : TaskRepository {
                             private val tasks = mutableListOf(
                                 Task("cleaning", "Clean the house", Priority.Low),
@@ -346,11 +345,11 @@
                         Replace the <code>module()</code> function with the implementation below:
                     </p>
                     <code-block lang="kotlin"><![CDATA[
-                    import com.example.FakeTaskRepository
+                    import com.example.model.FakeTaskRepository
                     //...
 
                     fun Application.module() {
-                        val repository = com.example.FakeTaskRepository()
+                        val repository = FakeTaskRepository()
 
                         configureSerialization(repository)
                         configureDatabases()
@@ -358,7 +357,7 @@
                     }
                 ]]></code-block>
                     <p>
-                        You are now injecting an instance of your <code>com.example.FakeTaskRepository</code> into
+                        You are now injecting an instance of your <code>com.example.model.FakeTaskRepository</code> into
                         <code>configureSerialization()</code>.
                         The long-term goal is to be able to replace this with a <code>PostgresTaskRepository</code>.
                     </p>
@@ -435,7 +434,8 @@
                     </p>
                     <code-block
                             src="snippets/tutorial-server-db-integration/src/test/kotlin/com/example/ApplicationTest.kt"
-                            lang="kotlin"/>
+                            lang="kotlin"
+                    />
                     <p>
                         For these tests to compile and run, you will need to add a dependency on the <a
                             href="https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-content-negotiation/io.ktor.server.plugins.contentnegotiation/-content-negotiation.html">Content
@@ -450,7 +450,7 @@
                         and add the following dependency:
                     </p>
                     <code-block lang="kotlin">
-                        testImplementation("io.ktor:ktor-client-content-negotiation-jvm:$ktor_version")
+                        testImplementation("io.ktor:ktor-client-content-negotiation-jvm")
                     </code-block>
                 </step>
                 <step>
@@ -587,18 +587,18 @@
                         Coroutine Dispatcher.
                     </p>
                     <p>
-                        You now need to adjust the methods of the <code>com.example.FakeTaskRepository</code> to match,
-                        although you do not need to switch Dispatcher in that implementation.
+                        You now need to adjust the methods of the <code>FakeTaskRepository</code> to
+                        match, although you do not need to switch Dispatcher in that implementation.
                     </p>
                 </step>
                 <step>
                     <p>
                         Open the
-                        <path>com.example.FakeTaskRepository.kt</path>
+                        <path>FakeTaskRepository.kt</path>
                         file and add the <code>suspend</code> keyword to all methods:
                     </p>
                     <code-block lang="kotlin"><![CDATA[
-                    class com.example.FakeTaskRepository : TaskRepository {
+                    class FakeTaskRepository : TaskRepository {
                         private val tasks = mutableListOf(
                             ...
                         )
@@ -694,7 +694,7 @@
                     </p>
                     <code-block
                             src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/db/mapping.kt"
-                            include-lines="1-2,5-8,11-24"
+                            include-lines="1-2,5-9,12-25"
                             lang="kotlin"/>
                     <p>
                         These types use the Exposed library to map the properties in the <code>Task</code> type to the
@@ -765,7 +765,7 @@
                     </p>
                     <code-block
                             src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/db/mapping.kt"
-                            include-lines="3-4,9-10"
+                            include-lines="3-4,10-11"
                             lang="kotlin"/>
                 </step>
             </procedure>
@@ -809,7 +809,7 @@
                 </step>
                 <step>
                     <p>
-                        In the <code>Application.module()</code> function, replace the <code>com.example.FakeTaskRepository</code>
+                        In the <code>Application.module()</code> function, replace the <code>com.example.model.FakeTaskRepository</code>
                         with <code>PostgresTaskRepository</code>:
                     </p>
                     <code-block lang="kotlin"><![CDATA[
@@ -867,22 +867,14 @@
             </procedure>
         </chapter>
         <p>
-            With this, you have successfully completed integrating a database into your application.
+            With this, you have successfully completed integrating a database into your application, however you will
+            find that the automated tests no longer work as expected.
         </p>
         <p>
             The <code>FakeTaskRepository</code> type is no longer needed in production code, but is still valuable for
-            testing. Therefore, you can move it to the testing source set, in
-            <path>src/test/com/example</path>
-            .
+            testing. To use this repository in tests, you need to configure the testing module.
         </p>
-        <p>
-            The final project structure should look something like this:
-        </p>
-        <img src="tutorial_server_db_integration_src_folder.png"
-             alt="The src folder shown within the Project View in intelliJ IDEA"
-             border-effect="line"
-             width="400"/>
-    </chapter>
+</chapter>
     <chapter title="Next steps" id="next-steps">
         <p>
             You now have an application communicating with a Ktor RESTful service. This in turn uses a
