@@ -1,7 +1,7 @@
 package com.example
 
-import Priority
-import Task
+import com.example.model.Priority
+import com.example.model.Task
 import com.example.model.TaskRepository
 
 class FakeTaskRepository : TaskRepository {

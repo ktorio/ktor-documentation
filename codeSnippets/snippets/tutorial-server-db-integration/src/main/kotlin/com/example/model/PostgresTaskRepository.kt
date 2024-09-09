@@ -1,7 +1,5 @@
 package com.example.model
 
-import Priority
-import Task
 import com.example.db.TaskDAO
 import com.example.db.TaskTable
 import com.example.db.daoToModel
