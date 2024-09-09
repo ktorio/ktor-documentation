@@ -379,7 +379,7 @@
                 </p>
                 <code-block src="snippets/tutorial-server-websockets/src/main/kotlin/com/example/plugins/Sockets.kt"
                             lang="kotlin"
-                            include-lines="16-46"
+                            include-lines="16-53"
                 />
                 <p>With this code you have done the following:</p>
                 <list>
