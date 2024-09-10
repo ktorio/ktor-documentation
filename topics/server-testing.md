@@ -47,7 +47,7 @@ The code below demonstrates how to test the most simple Ktor application that ac
 
 ```kotlin
 ```
-{src="snippets/engine-main/src/test/kotlin/EngineMainTest.kt" include-lines="3-16,27"}
+{src="snippets/engine-main/src/test/kotlin/EngineMainTest.kt" include-lines="3-19,30"}
 
 </tab>
 
@@ -78,23 +78,16 @@ A configuration of test applications might include the following steps:
 > This might be useful if you need to test your application's [lifecycle events](server-events.md#predefined-events).
 
 #### Add application modules {id="add-modules"}
-To test an application, its [modules](server-modules.md) should be loaded to `testApplication`.
-Loading modules to `testApplication` depends on the way used to [create a server](server-create-and-configure.topic): by using a [configuration file](server-configuration-file.topic) or in code using the `embeddedServer` function.
 
-##### Add modules automatically {id="auto"}
+To test an application, its [modules](server-modules.md) should be loaded to `testApplication`. If you have the `application.conf` 
+or `application.yaml` configuration file in the `resources` folder,
+you can load the modules by [configuring the test environment](#environment).
 
-If you have the `application.conf` or `application.yaml` configuration file in the `resources` folder, `testApplication` loads all modules and properties specified in the configuration file automatically. To disable the automatic loading of specific modules, you need to:
+To add modules to a test application manually, use the `application` function:
 
-1. Provide a [custom configuration file](#environment) for tests.
-2. Use the [ktor.application.modules](server-configuration-file.topic#configuration-file-overview) configuration property to specify modules to load.
-
-
-##### Add modules manually {id="manual"}
-If you use `embeddedServer`, you can add modules to a test application manually using the `application` function:
 ```kotlin
 ```
 {src="snippets/embedded-server-modules/src/test/kotlin/EmbeddedServerTest.kt" include-lines="11-15,19"}
-
 
 
 > You can also access the `Application` instance inside the `application` block.
@@ -103,7 +96,7 @@ If you use `embeddedServer`, you can add modules to a test application manually 
 
 You can add routes to your test application using the `routing` function.
 This might be convenient for the following use-cases:
-- Instead of [adding modules](#manual) to a test application, you can add [specific routes](server-routing.md#route_extension_function) that should be tested. 
+- Instead of [adding modules](#add-modules) to a test application, you can add [specific routes](server-routing.md#route_extension_function) that should be tested. 
 - You can add routes required only in a test application. The example below shows how to add the `/login-test` endpoint used to initialize a user [session](server-sessions.md) in tests:
    ```kotlin
    ```
@@ -114,7 +107,8 @@ This might be convenient for the following use-cases:
 #### Customize environment {id="environment"}
 
 To build a custom environment for a test application, use the `environment` function.
-For example, to use a custom configuration for tests, you can create a custom configuration file in the `test/resources` folder and load it using the `config` property:
+For example, to use a custom configuration for tests, you can create a configuration file in the `test/resources`
+folder and load it using the `config` property:
 
 ```kotlin
 ```
@@ -148,7 +142,7 @@ The `testApplication` provides access to an HTTP client with default configurati
 If you need to customize the client and install additional plugins, you can use the `createClient` function. For example, to [send JSON data](#json-data) in a test POST/PUT request, you can install the [ContentNegotiation](client-serialization.md) plugin:
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="32-37,44"}
+{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="33-43,50"}
 
 
 ### Step 3: Make a request {id="make-request"}
@@ -157,7 +151,7 @@ To test your application, use the [configured client](#configure-client) to make
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="32-41,44"}
+{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="33-47,50"}
 
 
 
@@ -167,10 +161,7 @@ After receiving a [response](#make-request), you can verify the results by makin
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="32-44"}
-
-
-
+{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="33-50"}
 
 
 ## Test POST/PUT requests {id="test-post-put"}
@@ -189,7 +180,7 @@ A test below from the [post-form-parameters](https://github.com/ktorio/ktor-docu
 
 ```kotlin
 ```
-{src="snippets/post-form-parameters/src/test/kotlin/formparameters/ApplicationTest.kt" include-lines="3-18,29"}
+{src="snippets/post-form-parameters/src/test/kotlin/formparameters/ApplicationTest.kt" include-lines="3-21,32"}
 
 </tab>
 
@@ -197,7 +188,7 @@ A test below from the [post-form-parameters](https://github.com/ktorio/ktor-docu
 
 ```kotlin
 ```
-{src="snippets/post-form-parameters/src/main/kotlin/formparameters/Application.kt" include-lines="3-16,45-46"}
+{src="snippets/post-form-parameters/src/main/kotlin/formparameters/Application.kt" include-lines="3-19,48-49"}
 
 </tab>
 </tabs>
@@ -212,7 +203,7 @@ The code below demonstrates how to build `multipart/form-data` and test file upl
 
 ```kotlin
 ```
-{src="snippets/upload-file/src/test/kotlin/uploadfile/UploadFileTest.kt" include-lines="3-36,69"}
+{src="snippets/upload-file/src/test/kotlin/uploadfile/UploadFileTest.kt" include-lines="3-40,75"}
 
 </tab>
 
@@ -220,7 +211,7 @@ The code below demonstrates how to build `multipart/form-data` and test file upl
 
 ```kotlin
 ```
-{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="3-38"}
+{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="3-40"}
 
 </tab>
 </tabs>
@@ -235,7 +226,7 @@ To send JSON data in a test POST/PUT request, you need to create a new client an
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="3-14,31-44,56"}
+{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="3-14,34-50,62"}
 
 </tab>
 
@@ -260,7 +251,7 @@ If you need to preserve cookies between requests when testing, you need to creat
 
 ```kotlin
 ```
-{src="snippets/session-cookie-client/src/test/kotlin/cookieclient/ApplicationTest.kt" include-lines="3-27,47"}
+{src="snippets/session-cookie-client/src/test/kotlin/cookieclient/ApplicationTest.kt" include-lines="3-30,50"}
 
 </tab>
 
@@ -280,7 +271,7 @@ If you need to test an [HTTPS endpoint](server-ssl.md), change the protocol used
 
 ```kotlin
 ```
-{src="snippets/ssl-engine-main/src/test/kotlin/ApplicationTest.kt" include-lines="10-18"}
+{src="snippets/ssl-engine-main/src/test/kotlin/ApplicationTest.kt" include-lines="3-22"}
 
 You can find the full example here: [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/ssl-engine-main).
 
@@ -291,11 +282,7 @@ You can test [WebSocket conversations](server-websockets.md) by using the [WebSo
 
 ```kotlin
 ```
-{src="snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt" include-lines="3-26,41"}
-
-
-
-
+{src="snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt" include-lines="3-29,44"}
 
 
 ## End-to-end testing with HttpClient {id="end-to-end"}
