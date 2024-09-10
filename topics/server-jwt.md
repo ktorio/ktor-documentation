@@ -113,7 +113,7 @@ To configure JWT-related settings, you can create a custom `jwt` group in a [con
 
 ```
 ```
-{style="block" src="snippets/auth-jwt-hs256/src/main/resources/application.conf" include-lines="11-16"}
+{style="block" src="snippets/auth-jwt-hs256/src/main/resources/application-custom.conf" include-lines="11-16"}
 
 </tab>
 <tab title="RS256" group-key="rs256">
