@@ -14,6 +14,6 @@
     <var name="shadow_version" value="7.1.2"/>
     <var name="bootstrap_version" value="5.2.3"/>
     <var name="swagger_codegen_version" value="1.0.36"/>
-    <var name="exposed_version" value="0.41.1"/>
+    <var name="exposed_version" value="0.53.0"/>
 
 </vars>

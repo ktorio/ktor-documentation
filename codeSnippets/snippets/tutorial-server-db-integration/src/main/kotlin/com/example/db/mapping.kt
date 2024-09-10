@@ -1,6 +1,7 @@
 package com.example.db
 
-import Task
+import com.example.model.Priority
+import com.example.model.Task
 import kotlinx.coroutines.Dispatchers
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
@@ -25,7 +26,6 @@ class TaskDAO(id: EntityID<Int>) : IntEntity(id) {
 
 suspend fun <T> suspendTransaction(block: Transaction.() -> T): T =
     newSuspendedTransaction(Dispatchers.IO, statement = block)
-
 
 fun daoToModel(dao: TaskDAO) = Task(
     dao.name,
