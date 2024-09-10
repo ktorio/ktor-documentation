@@ -118,6 +118,65 @@ function.
 For more details about the model change,
 see [issue KTOR-3857 on YouTrack](https://youtrack.jetbrains.com/issue/KTOR-3857/Environment-Engine-Application-Design).
 
+### `TestApplication` explicit loading of modules
+
+`TestApplication` no longer automatically loads modules from a configuration file (
+e.g. `application.conf`).
+Instead, modules must now be explicitly loaded using the `application` function within `testApplication`.
+
+<compare first-title="2.2.x" second-title="3.0.x">
+
+```kotlin
+import io.ktor.client.request.*
+import io.ktor.client.statement.*
+import io.ktor.http.*
+import io.ktor.server.testing.*
+import kotlin.test.*
+
+
+class ApplicationTest {
+  @Test
+  fun testRoot() = testApplication {
+    client.get("/").apply {
+      assertEquals(HttpStatusCode.OK, status)
+      assertEquals("Hello World!", bodyAsText())
+    }
+  }
+}
+```
+{validate="false" noinject}
+
+```kotlin
+import com.example.plugins.*
+import io.ktor.client.request.*
+import io.ktor.client.statement.*
+import io.ktor.http.*
+import io.ktor.server.testing.*
+import kotlin.test.*
+
+
+class ApplicationTest {
+  @Test
+  fun testRoot() = testApplication {
+    application {
+      configureRouting()
+    }
+    client.get("/").apply {
+      assertEquals(HttpStatusCode.OK, status)
+      assertEquals("Hello World!", bodyAsText())
+    }
+  }
+}
+
+```
+{validate="false" noinject}
+
+
+</compare>
+
+This change provides greater control over the modules used during testing. For more information on how to configure a test
+application, see the [](server-testing.md) section.
+
 ### `CallLogging` plugin package has been renamed
 
 The [`CallLogging`](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-call-logging/io.ktor.server.plugins.calllogging/index.html)
