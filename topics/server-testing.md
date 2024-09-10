@@ -188,7 +188,7 @@ A test below from the [post-form-parameters](https://github.com/ktorio/ktor-docu
 
 ```kotlin
 ```
-{src="snippets/post-form-parameters/src/main/kotlin/formparameters/Application.kt" include-lines="3-19,48-49"}
+{src="snippets/post-form-parameters/src/main/kotlin/formparameters/Application.kt" include-lines="3-16,45-46"}
 
 </tab>
 </tabs>
