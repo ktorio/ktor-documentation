@@ -16,7 +16,7 @@ class ApplicationTest {
         engine {
             envConfig()
         }
-        testApplicationProperties { module {
+        serverConfig { module {
                 frontendModule()
                 backendModule()
             }

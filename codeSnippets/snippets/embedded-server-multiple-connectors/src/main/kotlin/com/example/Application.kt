@@ -7,7 +7,7 @@ import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 
 fun main() {
-    val appProperties = applicationProperties {
+    val appProperties = serverConfig {
         module { module() }
     }
     embeddedServer(Netty, appProperties) {

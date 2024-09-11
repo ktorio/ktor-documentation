@@ -21,7 +21,7 @@ import java.io.*
 data class Customer(val id: Int, val firstName: String, val lastName: String)
 
 fun main() {
-    val appProperties = applicationProperties {
+    val appProperties = serverConfig {
         module {
             backendModule()
             frontendModule()

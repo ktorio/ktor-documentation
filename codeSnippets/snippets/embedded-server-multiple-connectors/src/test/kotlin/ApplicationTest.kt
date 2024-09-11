@@ -11,7 +11,7 @@ import kotlin.test.*
 class ApplicationTest {
     @Test
     fun testApi(): Unit = testApplication {
-        testApplicationProperties {
+        serverConfig {
             module { module() }
         }
         engine {
