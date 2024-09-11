@@ -79,9 +79,10 @@ A configuration of test applications might include the following steps:
 
 #### Add application modules {id="add-modules"}
 
-To test an application, its [modules](server-modules.md) should be loaded to `testApplication`. If you have the `application.conf` 
-or `application.yaml` configuration file in the `resources` folder,
-you can load the modules by [configuring the test environment](#environment).
+To test an application, its [modules](server-modules.md) should be loaded to `testApplication`. To do that, you must either [explicitly
+load your modules](#explicit-module-loading) or [configure the environment](#configure-env) to load them from a configuration file.
+
+##### Explicit loading of modules {id="explicit-module-loading"}
 
 To add modules to a test application manually, use the `application` function:
 
@@ -89,6 +90,16 @@ To add modules to a test application manually, use the `application` function:
 ```
 {src="snippets/embedded-server-modules/src/test/kotlin/EmbeddedServerTest.kt" include-lines="11-15,19"}
 
+#### Load modules from a configuration file {id="configure-env"}
+
+If you want to load modules from a configuration file, use the `environment` function to specify the configuration
+file for your test:
+
+```kotlin
+```
+{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="17-21,51"}
+
+This method is useful when you need to mimic different environments or use custom configuration settings during testing.
 
 > You can also access the `Application` instance inside the `application` block.
 

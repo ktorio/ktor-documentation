@@ -121,8 +121,13 @@ see [issue KTOR-3857 on YouTrack](https://youtrack.jetbrains.com/issue/KTOR-3857
 ### `TestApplication` explicit loading of modules
 
 `TestApplication` no longer automatically loads modules from a configuration file (
-e.g. `application.conf`).
-Instead, modules must now be explicitly loaded using the `application` function within `testApplication`.
+e.g. `application.conf`). Instead, you must [explicitly load your modules](#explicit-module-loading) within the
+`testApplication` function or [load the configuration file](#configure-env) manually.
+
+#### Explicit module loading {id="explicit-module-loading"}
+
+To explicitly load modules, use the `application` function within `testApplication`. This approach allows you to
+manually specify which modules to load, providing greater control over your test setup.
 
 <compare first-title="2.2.x" second-title="3.0.x">
 
@@ -174,8 +179,16 @@ class ApplicationTest {
 
 </compare>
 
-This change provides greater control over the modules used during testing. For more information on how to configure a test
-application, see the [](server-testing.md) section.
+#### Load modules from a configuration file {id="configure-env"}
+
+If you want to load modules from a configuration file, use the `environment` function to specify the configuration
+file for your test.
+
+```kotlin
+```
+{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="17-21,51"}
+
+For more information on configuring the test application, see the [](server-testing.md) section.
 
 ### `CallLogging` plugin package has been renamed
 
