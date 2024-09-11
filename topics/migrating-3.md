@@ -118,6 +118,78 @@ function.
 For more details about the model change,
 see [issue KTOR-3857 on YouTrack](https://youtrack.jetbrains.com/issue/KTOR-3857/Environment-Engine-Application-Design).
 
+### `TestApplication` explicit loading of modules
+
+`TestApplication` no longer automatically loads modules from a configuration file (
+e.g. `application.conf`). Instead, you must [explicitly load your modules](#explicit-module-loading) within the
+`testApplication` function or [load the configuration file](#configure-env) manually.
+
+#### Explicit module loading {id="explicit-module-loading"}
+
+To explicitly load modules, use the `application` function within `testApplication`. This approach allows you to
+manually specify which modules to load, providing greater control over your test setup.
+
+<compare first-title="2.2.x" second-title="3.0.x">
+
+```kotlin
+import io.ktor.client.request.*
+import io.ktor.client.statement.*
+import io.ktor.http.*
+import io.ktor.server.testing.*
+import kotlin.test.*
+
+
+class ApplicationTest {
+  @Test
+  fun testRoot() = testApplication {
+    client.get("/").apply {
+      assertEquals(HttpStatusCode.OK, status)
+      assertEquals("Hello World!", bodyAsText())
+    }
+  }
+}
+```
+{validate="false" noinject}
+
+```kotlin
+import com.example.plugins.*
+import io.ktor.client.request.*
+import io.ktor.client.statement.*
+import io.ktor.http.*
+import io.ktor.server.testing.*
+import kotlin.test.*
+
+
+class ApplicationTest {
+  @Test
+  fun testRoot() = testApplication {
+    application {
+      configureRouting()
+    }
+    client.get("/").apply {
+      assertEquals(HttpStatusCode.OK, status)
+      assertEquals("Hello World!", bodyAsText())
+    }
+  }
+}
+
+```
+{validate="false" noinject}
+
+
+</compare>
+
+#### Load modules from a configuration file {id="configure-env"}
+
+If you want to load modules from a configuration file, use the `environment` function to specify the configuration
+file for your test.
+
+```kotlin
+```
+{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="17-21,51"}
+
+For more information on configuring the test application, see the [](server-testing.md) section.
+
 ### `CallLogging` plugin package has been renamed
 
 The [`CallLogging`](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-call-logging/io.ktor.server.plugins.calllogging/index.html)
