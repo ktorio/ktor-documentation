@@ -12,7 +12,7 @@
         <feedbackRequireEmail>false</feedbackRequireEmail>
         <feedback-url>https://forms-service.jetbrains.com/feedback</feedback-url>
         <feedback-widget>true</feedback-widget>
-        <versions-switcher>https://raw.githubusercontent.com/ktorio/ktor-documentation/main/help-versions.json</versions-switcher>
+        <versions-switcher>https://raw.githubusercontent.com/ktorio/ktor-documentation/3.0.0-rc-1/help-versions.json</versions-switcher>
         <webmaster>webmaster@jetbrains.com</webmaster>
         <feedback-support>https://www.jetbrains.com/support/</feedback-support>
         <sideblocks>true</sideblocks>
