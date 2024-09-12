@@ -1,6 +1,6 @@
 [//]: # (title: Migrating from 2.2.x to 3.0.x)
 
-<show-structure for="chapter" depth="2"/>
+<show-structure for="chapter" depth="3"/>
 
 This guide provides instructions on how to migrate your Ktor application from the 2.2.x version to 3.0.x.
 
