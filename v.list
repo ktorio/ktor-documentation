@@ -5,7 +5,7 @@
 <vars>
 
     <var name="ktor_version" value="3.0.0-rc-1"/>
-    <var name="kotlin_version" value="2.0.0"/>
+    <var name="kotlin_version" value="2.0.20"/>
     <var name="coroutines_version" value="2.0.0"/>
     <var name="kotlin_css_version" value="1.0.0-pre.625"/>
     <var name="logback_version" value="1.5.6"/>
