@@ -18,17 +18,17 @@ both `ApplicationEngine` and `ApplicationEnvironment`.
 
 This restructuring comes with the following set of breaking changes:
 
-- [`ApplicationEngineEnvironmentBuilder` and `applicationEngineEnvironment` classes are renamed.](#renamed-classes).
+- [`ApplicationEngineEnvironmentBuilder` and `applicationEngineEnvironment` classes are renamed](#renamed-classes).
 - [`start()` and `stop()` methods are removed from `ApplicationEngineEnvironment`](#ApplicationEnvironment).
-- [Introduction of `ApplicationPropertiesBuilder`](#ApplicationPropertiesBuilder).
+- [Introduction of `ServerConfigBuilder`](#ServerConfigBuilder).
 - [`embeddedServer()` returns`EmbeddedServer`](#EmbeddedServer) instead of `ApplicationEngine`.
 
 These changes will impact existing code that relies on the previous model.
 
 #### Renamed classes {id="renamed-classes"}
 
-| Package                    | 2.x.x                                 | 3.0.x                           |
-|----------------------------|---------------------------------------|---------------------------------|
+| Package                   | 2.x.x                                 | 3.0.x                           |
+|---------------------------|---------------------------------------|---------------------------------|
 | `io.ktor:ktor-server-core` | `ApplicationEngineEnvironmentBuilder` | `ApplicationEnvironmentBuilder` |
 | `io.ktor:ktor-server-core` | `applicationEngineEnvironment`        | `applicationEnvironment`        |
 
@@ -100,13 +100,22 @@ fun defaultServer(module: Application.() -> Unit) =
 
 </compare>
 
-#### Introduction of `ApplicationPropertiesBuilder` {id="ApplicationPropertiesBuilder"}
+#### Introduction of `ServerConfigBuilder` {id="ServerConfigBuilder"}
 
 A new
-entity,[`ApplicationPropertiesBuilder`](https://api.ktor.io/older/3.0.0-beta-1/ktor-server/ktor-server-core/io.ktor.server.application/-application-properties-builder/index.html),
-is introduced for configuring `Application` properties represented by
-the [`ApplicationProperties`](https://api.ktor.io/older/3.0.0-beta-1/ktor-server/ktor-server-core/io.ktor.server.application/-application-properties/index.html)
-class. The class contains properties, previously available in `ApplicationEnvironment`.
+entity,[`ServerConfigBuilder`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-server-config-builder/index.html),
+has been introduced for configuring server properties and replaces the previous configration mechanism of `ApplicationPropertiesBuilder`.
+`ServerConfigBuilder` is used to build instances of the
+[`ServerConfig`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-server-config/index.html)
+class, which now holds modules, paths, and environment details previously managed by `ApplicationProperties`.
+
+Additionally, in the `embeddedServer()` function, the `applicationProperties` attribute has been renamed to `rootConfig`
+to reflect this new configuration approach.
+
+| Package                    | 2.x.x                          | 3.0.x                 |
+|----------------------------|--------------------------------|-----------------------|
+| `io.ktor:ktor-server-core` | `ApplicationProperties`        | `ServerConfig`        |
+| `io.ktor:ktor-server-core` | `ApplciationPropertiesBuilder` | `ServerConfigBuilder` |
 
 #### Introduction of `EmbeddedServer` {id="EmbeddedServer"}
 
