@@ -36,6 +36,7 @@ The following table lists details of the latest Ktor releases.
 <tr><td>3.0.0-rc-1</td><td>September 9, 2024</td><td><p>
 A major release candidate containing significant improvements and bug fixes. This update enhances backward compatibility
 and features extended <code>staticZip</code> support.
+For more information on breaking changes, see <a href="https://ktor.io/docs/eap/migrating-3.html">the migration guide</a>.
 </p>
 <var name="version" value="3.0.0-rc-1"/>
 <include from="lib.topic" element-id="release_details_link"/>
