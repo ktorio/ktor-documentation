@@ -93,7 +93,7 @@
                 file.
             </p>
             <code-block lang="kotlin" src="snippets/tutorial-server-docker-compose/build.gradle.kts"
-                        include-lines="5-10">
+                        include-lines="8-13">
             </code-block>
         </chapter>
     </chapter>
