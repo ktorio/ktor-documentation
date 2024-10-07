@@ -4,8 +4,8 @@ import io.ktor.network.selector.*
 import io.ktor.network.sockets.*
 import io.ktor.network.tls.*
 import io.ktor.utils.io.*
-import io.ktor.utils.io.core.*
 import kotlinx.coroutines.*
+import kotlinx.io.readByteArray
 import java.security.cert.*
 import javax.net.ssl.*
 
@@ -23,6 +23,6 @@ fun main() {
         val EOL = "\r\n"
         sendChannel.writeStringUtf8("GET / HTTP/1.1${EOL}Host: youtrack.jetbrains.com${EOL}Connection: close${EOL}${EOL}")
         sendChannel.flush()
-        println(socket.openReadChannel().readRemaining().readBytes().toString(Charsets.UTF_8))
+        println(socket.openReadChannel().readRemaining().readByteArray().toString(Charsets.UTF_8))
     }
 }

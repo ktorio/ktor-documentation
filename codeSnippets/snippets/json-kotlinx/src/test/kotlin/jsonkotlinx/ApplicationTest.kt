@@ -48,15 +48,4 @@ class CustomerTests {
         assertEquals("Customer stored correctly", response.bodyAsText())
         assertEquals(HttpStatusCode.Created, response.status)
     }
-
-    @Test
-    fun testPostCustomerLegacyApi() = withTestApplication(Application::main) {
-        with(handleRequest(HttpMethod.Post, "/customer"){
-            addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
-            setBody(Json.encodeToString(Customer(3, "Jet", "Brains")))
-        }) {
-            assertEquals("Customer stored correctly", response.content)
-            assertEquals(HttpStatusCode.Created, response.status())
-        }
-    }
 }

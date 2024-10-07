@@ -39,35 +39,6 @@ class ApplicationTest {
         assertEquals("Ktor logo is uploaded to 'uploads/ktor_logo.png'", response.bodyAsText(Charsets.UTF_8))
     }
 
-    @Ignore
-    @Test
-    fun testUploadLegacyApi() = withTestApplication(Application::main) {
-        with(handleRequest(HttpMethod.Post, "/upload"){
-            val boundary = "WebAppBoundary"
-            val fileBytes = File("ktor_logo.png").readBytes()
-
-            addHeader(HttpHeaders.ContentType, ContentType.MultiPart.FormData.withParameter("boundary", boundary).toString())
-            setBody(boundary, listOf(
-                PartData.FormItem("Ktor logo", { }, headersOf(
-                        HttpHeaders.ContentDisposition,
-                        ContentDisposition.Inline
-                            .withParameter(ContentDisposition.Parameters.Name, "description")
-                            .toString()
-                    )),
-                //TODO: document this change
-                PartData.FileItem({ ByteReadChannel(fileBytes) }, {}, headersOf(
-                    HttpHeaders.ContentDisposition,
-                    ContentDisposition.File
-                        .withParameter(ContentDisposition.Parameters.Name, "image")
-                        .withParameter(ContentDisposition.Parameters.FileName, "ktor_logo.png")
-                        .toString()
-                ))
-            ))
-        }) {
-            assertEquals("Ktor logo is uploaded to 'uploads/ktor_logo.png'", response.content)
-        }
-    }
-
     @After
     fun deleteUploadedFile() {
         File("uploads/ktor_logo.png").delete()

@@ -17,14 +17,4 @@ class ApplicationTest {
         assertEquals(HttpStatusCode.OK, response.status)
         assertEquals("Hello, world!", response.bodyAsText())
     }
-
-    @Test
-    fun testRootLegacyApi() {
-        withTestApplication(Application::module) {
-            handleRequest(HttpMethod.Get, "/").apply {
-                assertEquals(HttpStatusCode.OK, response.status())
-                assertEquals("Hello, world!", response.content)
-            }
-        }
-    }
 }
