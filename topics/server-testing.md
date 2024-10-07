@@ -47,7 +47,7 @@ The code below demonstrates how to test the most simple Ktor application that ac
 
 ```kotlin
 ```
-{src="snippets/engine-main/src/test/kotlin/EngineMainTest.kt" include-lines="3-19,30"}
+{src="snippets/engine-main/src/test/kotlin/EngineMainTest.kt"}
 
 </tab>
 
@@ -55,7 +55,7 @@ The code below demonstrates how to test the most simple Ktor application that ac
 
 ```kotlin
 ```
-{src="snippets/engine-main/src/main/kotlin/com/example/Application.kt" include-lines="3-15"}
+{src="snippets/engine-main/src/main/kotlin/com/example/Application.kt"}
 
 </tab>
 </tabs>
@@ -88,7 +88,7 @@ To add modules to a test application manually, use the `application` function:
 
 ```kotlin
 ```
-{src="snippets/embedded-server-modules/src/test/kotlin/EmbeddedServerTest.kt" include-lines="11-15,19"}
+{src="snippets/embedded-server-modules/src/test/kotlin/EmbeddedServerTest.kt" include-symbol="testModule1"}
 
 #### Load modules from a configuration file {id="configure-env"}
 
@@ -153,7 +153,7 @@ The `testApplication` provides access to an HTTP client with default configurati
 If you need to customize the client and install additional plugins, you can use the `createClient` function. For example, to [send JSON data](#json-data) in a test POST/PUT request, you can install the [ContentNegotiation](client-serialization.md) plugin:
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="33-43,50"}
+{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="31-40,48"}
 
 
 ### Step 3: Make a request {id="make-request"}
@@ -162,7 +162,7 @@ To test your application, use the [configured client](#configure-client) to make
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="33-47,50"}
+{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="31-44,48"}
 
 
 
@@ -172,7 +172,7 @@ After receiving a [response](#make-request), you can verify the results by makin
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="33-50"}
+{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="31-48"}
 
 
 ## Test POST/PUT requests {id="test-post-put"}
@@ -191,7 +191,7 @@ A test below from the [post-form-parameters](https://github.com/ktorio/ktor-docu
 
 ```kotlin
 ```
-{src="snippets/post-form-parameters/src/test/kotlin/formparameters/ApplicationTest.kt" include-lines="3-21,32"}
+{src="snippets/post-form-parameters/src/test/kotlin/formparameters/ApplicationTest.kt"}
 
 </tab>
 
@@ -214,7 +214,7 @@ The code below demonstrates how to build `multipart/form-data` and test file upl
 
 ```kotlin
 ```
-{src="snippets/upload-file/src/test/kotlin/uploadfile/UploadFileTest.kt" include-lines="3-40,75"}
+{src="snippets/upload-file/src/test/kotlin/uploadfile/UploadFileTest.kt"}
 
 </tab>
 
@@ -222,7 +222,7 @@ The code below demonstrates how to build `multipart/form-data` and test file upl
 
 ```kotlin
 ```
-{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="3-40"}
+{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt"}
 
 </tab>
 </tabs>
@@ -237,7 +237,7 @@ To send JSON data in a test POST/PUT request, you need to create a new client an
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="3-14,34-50,62"}
+{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="3-11,31-48"}
 
 </tab>
 
@@ -262,7 +262,7 @@ If you need to preserve cookies between requests when testing, you need to creat
 
 ```kotlin
 ```
-{src="snippets/session-cookie-client/src/test/kotlin/cookieclient/ApplicationTest.kt" include-lines="3-30,50"}
+{src="snippets/session-cookie-client/src/test/kotlin/cookieclient/ApplicationTest.kt"}
 
 </tab>
 
@@ -293,7 +293,7 @@ You can test [WebSocket conversations](server-websockets.md) by using the [WebSo
 
 ```kotlin
 ```
-{src="snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt" include-lines="3-29,44"}
+{src="snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt"}
 
 
 ## End-to-end testing with HttpClient {id="end-to-end"}

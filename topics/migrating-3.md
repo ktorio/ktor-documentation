@@ -127,13 +127,41 @@ function.
 For more details about the model change,
 see [issue KTOR-3857 on YouTrack](https://youtrack.jetbrains.com/issue/KTOR-3857/Environment-Engine-Application-Design).
 
-### `TestApplication` explicit loading of modules
+### Testing
+
+##### `withTestApplication` and `withApplication` have been removed
+
+The `withTestApplication` and `withApplication` functions, [previously deprecated in the
+`2.0.0` release](migration-to-20x.md#testing-api), have now been removed from the `ktor-server-test-host` package.
+
+Instead, use the `testApplication` function with the existing [Ktor client](client-create-and-configure.md)
+instance to make requests to your server and verify the results.
+
+In the test below, the `handleRequest` function is replaced with the `client.get` request:
+
+<compare first-title="1.x.x" second-title="3.0.x">
+
+```kotlin
+```
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/engine-main/src/test/kotlin/EngineMainTest.kt"
+include-lines="18-26"}
+
+```kotlin
+```
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/engine-main/src/test/kotlin/EngineMainTest.kt"
+include-lines="11-16"}
+
+</compare>
+
+For more information, see [](server-testing.md).
+
+#### `TestApplication` module loading {id="test-module-loading"}
 
 `TestApplication` no longer automatically loads modules from a configuration file (
 e.g. `application.conf`). Instead, you must [explicitly load your modules](#explicit-module-loading) within the
 `testApplication` function or [load the configuration file](#configure-env) manually.
 
-#### Explicit module loading {id="explicit-module-loading"}
+##### Explicit module loading {id="explicit-module-loading"}
 
 To explicitly load modules, use the `application` function within `testApplication`. This approach allows you to
 manually specify which modules to load, providing greater control over your test setup.
@@ -188,7 +216,7 @@ class ApplicationTest {
 
 </compare>
 
-#### Load modules from a configuration file {id="configure-env"}
+##### Load modules from a configuration file {id="configure-env"}
 
 If you want to load modules from a configuration file, use the `environment` function to specify the configuration
 file for your test.
