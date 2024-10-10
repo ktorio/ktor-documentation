@@ -3,7 +3,7 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 <instance-profile id="ktor"
                   name="Ktor"
-                  status="release"
+                  status="deprecated"
                   start-page="welcome.topic">
 
     <toc-element topic="welcome.topic"
