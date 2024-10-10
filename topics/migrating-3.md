@@ -305,6 +305,47 @@ fun Application.module() {
 
 For more information on working with `Resources`, refer to [](server-resources.md).
 
+### Replacement of `java.time` in WebSockets configuration
+
+The [WebSockets](server-websockets.md) plugin configuration has been updated to use
+Kotlin’s [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/) for the `pingPeriod` and
+`timeout` properties. This replaces the previous use of `java.time.Duration` for a more
+idiomatic Kotlin experience.
+
+To migrate existing code to the new format, use the extension functions and properties from the `kotlin.time.Duration`
+class to construct durations. In the following example, `Duration.ofSeconds()` is replaced with Kotlin’s `seconds`
+extension:
+
+<compare first-title="2.x.x" second-title="3.0.x">
+
+<code-block lang="kotlin" show-white-spaces="true">
+<![CDATA[
+  import java.time.Duration
+  
+  install(WebSockets) {
+    pingPeriod = Duration.ofSeconds(15)
+    timeout = Duration.ofSeconds(15)
+    //..
+  }
+]]>
+</code-block>
+
+<code-block lang="kotlin" show-white-spaces="true">
+<![CDATA[
+import kotlin.time.Duration.Companion.seconds
+
+install(WebSockets) {
+  pingPeriod = 15.seconds
+  timeout = 15.seconds
+  //..
+}]]>
+</code-block>
+</compare>
+
+You can use similar Kotlin duration extensions (`minutes`, `hours`, etc.) as needed for other duration configurations.
+For more information, see the [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/)
+documentation.
+
 ### Session encryption method update
 
 The encryption method offered by the `Sessions` plugin has been updated to enhance

@@ -121,7 +121,7 @@
                     <a href="client-content-encoding.md"/>
                     <a href="bom-remover.md"/>
                     <a href="client-caching.md"/>
-                    <a href="client-websockets.md"/>
+                    <a href="client-websockets.topic"/>
                     <a href="sse_client.md"/>
                     <a href="client-custom-plugins.md"/>
                 </group>

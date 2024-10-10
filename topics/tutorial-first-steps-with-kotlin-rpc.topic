@@ -246,7 +246,7 @@
             </tip>
             <p>
                 Next, you create an instance of the Ktor client in the standard way. <code>kotlinx.rpc</code> uses
-                the <a href="client-websockets.md">WebSockets</a> plugin under the hood to transfer information. You
+                the <a href="client-websockets.topic">WebSockets</a> plugin under the hood to transfer information. You
                 only need to ensure that it is loaded by using the <code>installRPC()</code> function:
             </p>
             <code-block lang="kotlin"

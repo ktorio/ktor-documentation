@@ -308,7 +308,7 @@ In v1.6.x, `cookiesSession` is used to preserve cookies between requests when te
 
 #### WebSockets {id="testing-ws"}
 
-In the old API, `handleWebSocketConversation` is used to test [WebSocket conversations](server-websockets.md). With v2.0.0, you can test WebSocket conversations by using the [WebSockets](client-websockets.md) plugin provided by the client:
+In the old API, `handleWebSocketConversation` is used to test [WebSocket conversations](server-websockets.md). With v2.0.0, you can test WebSocket conversations by using the [WebSockets](client-websockets.topic) plugin provided by the client:
 
 <tabs group="ktor_versions">
 <tab title="1.6.x" group-key="1_6">
@@ -821,7 +821,7 @@ import io.ktor.client.plugins.auth.providers.*
 </tr>
 
 <tr>
-<td><a href="client-websockets.md">WebSockets</a></td>
+<td><a href="client-websockets.topic">WebSockets</a></td>
 <td><code>import io.ktor.client.features.websocket.*</code></td>
 <td><code>import io.ktor.client.plugins.websocket.*</code></td>
 </tr>

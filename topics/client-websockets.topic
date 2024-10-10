@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       id="client-websockets" title="WebSockets">
+
+    <show-structure for="chapter" depth="3"/>
+    <var name="example_name" value="client-websockets"/>
+    <var name="artifact_name" value="ktor-client-websockets"/>
+    <tldr>
+        <p>
+            <b>Required dependencies</b>: <code>io.ktor:ktor-client-websockets</code>
+        </p>
+        <include from="lib.topic" element-id="download_example"/>
+    </tldr>
+    <link-summary>
+        The Websockets plugin allows you to create a multi-way communication session between a server and a client.
+    </link-summary>
+    <include from="server-websockets.md" element-id="websockets-description"/>
+    <p>The Websockets plugin for the client allows you to handle a WebSocket session for exchanging messages with a
+        server.</p>
+    <note>
+        <p>Not all engines support WebSockets. For an overview of the supported engines, refer
+            to <a href="client-engines.md" anchor="limitations"/>.</p>
+    </note>
+    <tip>
+        <p>To learn about WebSocket support on the server-side, see <a href="server-websockets.md"/>.</p>
+    </tip>
+    <chapter title="Add dependencies" id="add_dependencies">
+        <p>To use <code>WebSockets</code>, you need to include the <code>%artifact_name%</code> artifact in the build
+            script:</p>
+        <include from="lib.topic" element-id="add_ktor_artifact"/>
+        <include from="lib.topic" element-id="add_ktor_client_artifact_tip"/>
+    </chapter>
+    <chapter title="Install WebSockets" id="install_plugin">
+        <p>To install the <code>WebSockets</code> plugin, pass it to the <code>install</code> function inside
+            a <a href="client-create-and-configure.md" anchor="configure-client">client configuration block</a>:</p>
+
+        <code-block lang="kotlin">
+            import io.ktor.client.*
+            import io.ktor.client.engine.cio.*
+            import io.ktor.client.plugins.websocket.*
+
+            //...
+            val client = HttpClient(CIO) {
+                install(WebSockets)
+            }
+        </code-block>
+    </chapter>
+    <chapter title="Configuration" id="configure_plugin">
+        <p>Optionally, you can configure the plugin inside the <code>install</code> block by passing the supported
+            properties of
+            the
+            <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.websocket/-web-sockets/-config/index.html">WebSockets.Config</a>.
+        </p>
+        <deflist>
+            <def id="maxFrameSize">
+                <title><code>maxFrameSize</code></title>
+                Set a maximum <code>Frame</code> size that could be received or sent.
+            </def>
+            <def id="contentConverter">
+                <title><code>contentConverter</code></title>
+                Set a converter for serialization/deserialization.
+            </def>
+            <def id="pingIntervalMillis">
+                <title><code>pingIntervalMillis</code></title>
+                Specify the duration between pings in a <code>Long</code> format.
+            </def>
+            <def id="pingInterval">
+                <title><code>pingInterval</code></title>
+                Specify the duration between pings in a <code>Duration</code> format.
+            </def>
+        </deflist>
+        <warning>
+            <p>The <code>pingInterval</code> and <code>pingIntervalMillis</code> properties are not applicable for the
+                OkHttp engine. To set the ping interval for OkHttp, you can use the
+                <a href="client-engines.md" anchor="okhttp">engine configuration</a>:
+            </p>
+            <code-block lang="kotlin">
+                import io.ktor.client.engine.okhttp.OkHttp
+
+                val client = HttpClient(OkHttp) {
+                    engine {
+                        preconfigured = OkHttpClient.Builder()
+                            .pingInterval(20, TimeUnit.SECONDS)
+                            .build()
+                    }
+                }
+            </code-block>
+        </warning>
+        <p>
+            In the following example, the WebSockets plugin is configured with a ping interval of 20 seconds
+            (<code>20_000</code> milliseconds) to automatically send ping frames and keep the WebSocket
+            connection alive:
+        </p>
+        <code-block lang="kotlin" src="snippets/client-websockets/src/main/kotlin/com/example/Application.kt"
+                    include-lines="12-16"/>
+    </chapter>
+    <chapter title="Working with WebSocket sessions" id="working-wtih-session">
+        <p>A client's WebSocket session is represented by
+            the
+            <a href="https://api.ktor.io/ktor-shared/ktor-websockets/io.ktor.websocket/-default-web-socket-session/index.html">DefaultClientWebSocketSession</a>
+            interface. This interface exposes the API that allows you to send and receive WebSocket frames, and close a
+            session.
+        </p>
+        <chapter title="Access a WebSocket session" id="access-session">
+            <p>
+                <code>HttpClient</code> provides two primary ways to access a WebSocket session:
+            </p>
+            <list>
+                <li>
+                    <p>The <a
+                            href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.websocket/web-socket.html">webSocket()</a>
+                        function accepts <code>DefaultClientWebSocketSession</code> as a block argument.</p>
+
+                    <code-block lang="kotlin">
+                        runBlocking {
+                            client.webSocket(
+                                method = HttpMethod.Get,
+                                host = "127.0.0.1",
+                                port = 8080,
+                                path = "/echo"
+                            ) {
+                                // this: DefaultClientWebSocketSession
+                            }
+                        }
+                    </code-block>
+                </li>
+                <li>
+                    The <a
+                        href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.websocket/web-socket-session.html">webSocketSession()</a>
+                    function returns the <code>DefaultClientWebSocketSession</code> instance and allows you to access a
+                    session outside
+                    the <code>runBlocking</code> or <code>launch</code> scope.
+                </li>
+            </list>
+        </chapter>
+
+        <chapter title="Handle WebSocket sessions" id="handle-session">
+            <p>Within the function block, you define the handler for the specified path. The following functions and
+                properties are available within the block:</p>
+            <deflist>
+                <def id="send">
+                    <title><code>send()</code></title>
+                    Use the <code>send()</code> function to send text content to the server.
+                </def>
+                <def id="outgoing">
+                    <title><code>outgoing</code></title>
+                    Use the <code>outgoing</code> property to access the channels for sending WebSocket frames. A
+                    frame is represented by the <code>Frame</code> class.
+                </def>
+                <def id="incoming">
+                    <title><code>incoming</code></title>
+                    Use the <code>incoming</code> property to access the channels for receiving WebSocket frames. A
+                    frame is represented by the <code>Frame</code> class.
+                </def>
+                <def id="close">
+                    <title><code>close()</code></title>
+                    Use the <code>close()</code> function to send a close frame with the specified reason.
+                </def>
+            </deflist>
+        </chapter>
+
+        <chapter title="Frame types" id="frame-types">
+            <p>
+                You can inspect the type of WebSocket frame and handle it accordingly. Some common frame types are:
+            </p>
+            <list>
+                <li><code>Frame.Text</code> represents a text frame. Use
+                    <code>Frame.Text.readText()</code> to read its content.
+                </li>
+                <li><code>Frame.Binary</code> represents a binary frame. Use <code>Frame.Binary.readBytes()</code>
+                    to read its content.
+                </li>
+                <li><code>Frame.Close</code> represents a closing frame. Use <code>Frame.Close.readReason()</code>
+                    to get the reason for the session's closure.
+                </li>
+            </list>
+        </chapter>
+
+        <chapter title="Example" id="example">
+            <p>The example below creates the <code>echo</code> WebSocket endpoint and shows how to send and receive a
+                message to and from a
+                server.</p>
+
+            <code-block lang="kotlin" src="snippets/client-websockets/src/main/kotlin/com/example/Application.kt"
+                        include-symbol="main">
+            </code-block>
+            <p>For the full example,
+                see
+                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-websockets">client-websockets</a>.
+            </p>
+        </chapter>
+    </chapter>
+
+</topic>

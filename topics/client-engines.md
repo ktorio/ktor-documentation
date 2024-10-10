@@ -47,7 +47,7 @@ _* To use the CIO engine on older Android versions, you need to enable [Java 8 A
 
 ### Limitations {id="limitations"}
 
-The table below shows whether a specific engine supports HTTP/2 and [WebSockets](client-websockets.md):
+The table below shows whether a specific engine supports HTTP/2 and [WebSockets](client-websockets.topic):
 
 | Engine  | HTTP/2             | WebSockets |
 |---------|--------------------|------------|
