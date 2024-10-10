@@ -6,12 +6,12 @@
   },
   {
     "version": "2.3.12",
-    "url": "/docs/",
+    "url": "/docs/2.3.12/",
     "isCurrent": false
   },
   {
-    "version": "3.0.0-rc-1",
-    "url": "/docs/eap/",
+    "version": "3.0.0",
+    "url": "/docs/",
     "isCurrent": true
   }
 ]
