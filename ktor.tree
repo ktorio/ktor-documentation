@@ -65,9 +65,7 @@
                 <toc-element topic="server-routing.md"
                              accepts-web-file-names="routing.html,tracing-routes.html,resolution-algorithms.html,routing-in-ktor.html"/>
                 <toc-element topic="server-resources.md"
-                             accepts-web-file-names="type-safe-routing.html"/>
-                <toc-element topic="server-locations.md"
-                             accepts-web-file-names="features-locations.html,locations.html"/>
+                             accepts-web-file-names="type-safe-routing.html, features-locations.html,locations.html, server-locations.html"/>
                 <toc-element topic="server-application-structure.md"
                              accepts-web-file-names="structure.html,structuring-applications.html"/>
                 <toc-element topic="server-autoheadresponse.md"
@@ -188,6 +186,7 @@
                 <toc-element topic="server-websocket-extensions.md"
                              accepts-web-file-names="websocket-extensions-api.html"/>
             </toc-element>
+            <toc-element topic="sse_server.md"/>
 
             <toc-element topic="server-sockets.md"
                          accepts-web-file-names="servers-raw-sockets.html"/>
@@ -315,6 +314,7 @@
                          accepts-web-file-names="http-cookies.html"/>
             <toc-element topic="client-content-encoding.md"
                          accepts-web-file-names="content-encoding.html"/>
+            <toc-element topic="bom-remover.md"/>
             <toc-element topic="client-caching.md"/>
             <toc-element topic="client-text-and-charsets.md"
                          accepts-web-file-names="http-plain-text.html"/>
@@ -322,10 +322,14 @@
                          accepts-web-file-names="timeout.html"/>
             <toc-element topic="client-logging.md"
                          accepts-web-file-names="features-logging.html"/>
-            <toc-element topic="client-websockets.md"
+            <toc-element topic="client-websockets.topic"
                          accepts-web-file-names="websocket-client.html,http-client-features-websockets.html,clients-websockets.html">
                 <toc-element topic="client-websocket-serialization.md"
                              accepts-web-file-names="websocket-client-serialization.html"/>
+            </toc-element>
+            <toc-element topic="sse_client.md"/>
+            <toc-element toc-title="Monitoring">
+                <toc-element topic="client_call_id.md"/>
             </toc-element>
             <toc-element topic="client-custom-plugins.md"/>
         </toc-element>
@@ -345,6 +349,7 @@
                      accepts-web-file-names="migrating-2.html"/>
         <toc-element topic="migration-to-22x.md"
                      accepts-web-file-names="migrating-2-2.html"/>
+        <toc-element topic="migrating-3.md"/>
     </toc-element>
 
     <toc-element toc-title="Migrating from other frameworks">
@@ -359,15 +364,15 @@
     </toc-element>
     <toc-element hidden="true" accepts-web-file-names="generator.html"
                  target-for-accept-web-file-names="https://start.ktor.io/"/>
-    <toc-element hidden="true" accepts-web-file-names-ref="samples"
+    <toc-element hidden="true" toc-title="samples" accepts-web-file-names-ref="samples"
                  target-for-accept-web-file-names="https://ktor.io/learn/"/>
-    <toc-element hidden="true"
+    <toc-element hidden="true" toc-title="bug-report"
                  accepts-web-file-names="bug-report.html"
                  target-for-accept-web-file-names="https://ktor.io/support/"/>
-    <toc-element hidden="true"
+    <toc-element hidden="true" toc-title="code-style"
                  accepts-web-file-names="code-style.html"
                  target-for-accept-web-file-names="https://github.com/ktorio/ktor/blob/main/CONTRIBUTING.md#style-guides"/>
-    <toc-element hidden="true"
+    <toc-element hidden="true" toc-title="build-from-source"
                  accepts-web-file-names="build-from-source.html"
                  target-for-accept-web-file-names="https://github.com/ktorio/ktor/blob/main/CONTRIBUTING.md#building-the-project"/>
 </instance-profile>

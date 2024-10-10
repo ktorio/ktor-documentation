@@ -5,7 +5,9 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.sessions.*
 import io.ktor.util.*
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class CartSession(val userID: String, val productIDs: MutableList<Int>)
 
 fun Application.main() {

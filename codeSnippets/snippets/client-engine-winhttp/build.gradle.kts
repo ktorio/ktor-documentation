@@ -4,7 +4,7 @@ val logback_version: String by project
 
 plugins {
     application
-    kotlin("multiplatform")
+    kotlin("multiplatform") version "2.0.0"
 }
 
 repositories {

@@ -24,6 +24,6 @@ dependencies {
     implementation("io.ktor:ktor-server-webjars:$ktor_version")
     implementation("org.webjars:bootstrap:$bootstrap_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
-    testImplementation("io.ktor:ktor-server-test-host:$ktor_version")
+    testImplementation("io.ktor:ktor-server-test-host-jvm:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }

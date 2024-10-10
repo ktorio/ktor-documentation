@@ -1,4 +1,4 @@
-package com.example
+package com.example.oauth.google
 
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.plugins.cookies.*

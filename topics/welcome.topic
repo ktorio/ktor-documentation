@@ -62,6 +62,7 @@
                     <a href="server-auth.md"/>
                     <a href="server-sessions.md"/>
                     <a href="server-websockets.md"/>
+                    <a href="sse_server.md"/>
                     <a href="server-swagger-ui.md"/> / <a href="server-openapi.md"/>
                     <a href="server-custom-plugins.md"/>
                 </group>
@@ -118,8 +119,10 @@
                     <a href="client-auth.md"/>
                     <a href="client-cookies.md"/>
                     <a href="client-content-encoding.md"/>
+                    <a href="bom-remover.md"/>
                     <a href="client-caching.md"/>
-                    <a href="client-websockets.md"/>
+                    <a href="client-websockets.topic"/>
+                    <a href="sse_client.md"/>
                     <a href="client-custom-plugins.md"/>
                 </group>
                 <group>

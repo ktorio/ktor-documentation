@@ -9,15 +9,15 @@ import kotlinx.coroutines.delay
 import kotlinx.serialization.json.Json
 import model.Task
 import model.TaskRepository
-import java.time.Duration
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.time.Duration.Companion.seconds
 
 fun Application.configureSockets() {
     install(WebSockets) {
         contentConverter = KotlinxWebsocketSerializationConverter(Json)
-        pingPeriod = Duration.ofSeconds(15)
-        timeout = Duration.ofSeconds(15)
+        pingPeriod = 15.seconds
+        timeout = 15.seconds
         maxFrameSize = Long.MAX_VALUE
         masking = false
     }

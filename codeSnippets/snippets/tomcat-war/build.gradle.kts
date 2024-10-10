@@ -23,7 +23,7 @@ repositories {
 dependencies {
     implementation("io.ktor:ktor-server-servlet-jakarta:$ktor_version")
     implementation("org.slf4j:slf4j-jdk14:$slf4j_version")
-    testImplementation("io.ktor:ktor-server-test-host:$ktor_version")
+    testImplementation("io.ktor:ktor-server-test-host-jvm:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }
 

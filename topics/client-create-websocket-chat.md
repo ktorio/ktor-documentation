@@ -6,7 +6,7 @@
 <var name="example_name" value="tutorial-websockets-client"/>
 <include from="lib.topic" element-id="download_example"/>
 <p>
-<b>Used plugins</b>: <a href="client-websockets.md">WebSockets</a>
+<b>Used plugins</b>: <a href="client-websockets.topic">WebSockets</a>
 </p>
 </tldr>
 
@@ -15,7 +15,7 @@ Learn how to create a client chat application that uses WebSockets.
 </link-summary>
 
 In this section, you will learn how to create a Ktor client chat application that
-uses [WebSockets](client-websockets.md). The application will allow users to join a common chat server, send messages to
+uses [WebSockets](client-websockets.topic). The application will allow users to join a common chat server, send messages to
 users, and read messages from users in the terminal.
 
 ## Prerequisites {id="prerequisites"}

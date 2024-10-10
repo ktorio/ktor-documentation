@@ -12,7 +12,7 @@ This means that you need to update [dependencies](#server-package-dependencies) 
 #### Dependencies {id="server-package-dependencies"}
 | Subsystem                                           |               1.6.x               |                                                                                2.0.0 |
 |:----------------------------------------------------|:---------------------------------:|-------------------------------------------------------------------------------------:|
-| [Locations](server-locations.md)                    |     `io.ktor:ktor-locations`      |                                                      `io.ktor:ktor-server-locations` |
+| [Locations](https://ktor.io/docs/server-locations.html)                    |     `io.ktor:ktor-locations`      |                                                      `io.ktor:ktor-server-locations` |
 | [Webjars](server-webjars.md)                        |      `io.ktor:ktor-webjars`       |                                                        `io.ktor:ktor-server-webjars` |
 | [AutoHeadResponse](server-autoheadresponse.md)      |    `io.ktor:ktor-server-core`     |                                             `io.ktor:ktor-server-auto-head-response` |
 | [StatusPages](server-status-pages.md)               |    `io.ktor:ktor-server-core`     |                                                   `io.ktor:ktor-server-status-pages` |
@@ -62,7 +62,7 @@ This means that you need to update [dependencies](#server-package-dependencies) 
 | [Requests](server-requests.md)                      |      `import io.ktor.request.*`       |                    `import io.ktor.server.request.*` |
 | [Responses](server-responses.md)                    |      `import io.ktor.response.*`      |                   `import io.ktor.server.response.*` |
 | [Plugins](#feature-plugin)                          |      `import io.ktor.features.*`      |                    `import io.ktor.server.plugins.*` |
-| [Locations](server-locations.md)                    |     `import io.ktor.locations.*`      |                  `import io.ktor.server.locations.*` |
+| [Locations](https://ktor.io/docs/server-locations.html)                    |     `import io.ktor.locations.*`      |                  `import io.ktor.server.locations.*` |
 | [Static content](server-static-content.md)          |    `import io.ktor.http.content.*`    |               `import io.ktor.server.http.content.*` |
 | [HTML DSL](server-html-dsl.md)                      |        `import io.ktor.html.*`        |                       `import io.ktor.server.html.*` |
 | [FreeMarker](server-freemarker.md)                  |     `import io.ktor.freemarker.*`     |                 `import io.ktor.server.freemarker.*` |
@@ -197,14 +197,16 @@ In the test below, the `handleRequest` function is replaced with the `client.get
 
 ```kotlin
 ```
-{src="snippets/engine-main/src/test/kotlin/EngineMainTest.kt" include-lines="18-26"}
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/engine-main/src/test/kotlin/EngineMainTest.kt"
+include-lines="18-26"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/engine-main/src/test/kotlin/EngineMainTest.kt" include-lines="11-16"}
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/engine-main/src/test/kotlin/EngineMainTest.kt"
+include-lines="11-16"}
 
 </tab>
 </tabs>
@@ -219,14 +221,16 @@ In the test below, the `handleRequest` function is replaced with the `client.pos
 
 ```kotlin
 ```
-{src="snippets/post-form-parameters/src/test/kotlin/formparameters/ApplicationTest.kt" include-lines="20-28"}
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/post-form-parameters/src/test/kotlin/formparameters/ApplicationTest.kt"
+include-lines="20-28"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/post-form-parameters/src/test/kotlin/formparameters/ApplicationTest.kt" include-lines="11-18"}
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/post-form-parameters/src/test/kotlin/formparameters/ApplicationTest.kt"
+include-lines="11-18"}
 
 </tab>
 </tabs>
@@ -242,14 +246,14 @@ To build `multipart/form-data` in v2.0.0, you need to pass `MultiPartFormDataCon
 
 ```kotlin
 ```
-{src="snippets/upload-file/src/test/kotlin/uploadfile/UploadFileTest.kt" include-lines="38-63"}
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/upload-file/src/test/kotlin/uploadfile/UploadFileTest.kt" include-lines="38-63"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/upload-file/src/test/kotlin/uploadfile/UploadFileTest.kt" include-lines="17-36"}
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/upload-file/src/test/kotlin/uploadfile/UploadFileTest.kt" include-lines="17-36"}
 
 </tab>
 </tabs>
@@ -266,14 +270,16 @@ With v2.0.0, you need to create a new client instance and install the [ContentNe
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="46-55"}
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt"
+include-lines="46-55"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="31-44"}
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt"
+include-lines="31-44"}
 
 </tab>
 </tabs>
@@ -288,35 +294,37 @@ In v1.6.x, `cookiesSession` is used to preserve cookies between requests when te
 
 ```kotlin
 ```
-{src="snippets/session-cookie-client/src/test/kotlin/cookieclient/ApplicationTest.kt" include-lines="29-46"}
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/session-cookie-client/src/test/kotlin/cookieclient/ApplicationTest.kt" include-lines="29-46"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/session-cookie-client/src/test/kotlin/cookieclient/ApplicationTest.kt" include-lines="12-27"}
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/session-cookie-client/src/test/kotlin/cookieclient/ApplicationTest.kt" include-lines="12-27"}
 
 </tab>
 </tabs>
 
 #### WebSockets {id="testing-ws"}
 
-In the old API, `handleWebSocketConversation` is used to test [WebSocket conversations](server-websockets.md). With v2.0.0, you can test WebSocket conversations by using the [WebSockets](client-websockets.md) plugin provided by the client:
+In the old API, `handleWebSocketConversation` is used to test [WebSocket conversations](server-websockets.md). With v2.0.0, you can test WebSocket conversations by using the [WebSockets](client-websockets.topic) plugin provided by the client:
 
 <tabs group="ktor_versions">
 <tab title="1.6.x" group-key="1_6">
 
 ```kotlin
 ```
-{src="snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt" include-lines="28-40"}
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt"
+include-lines="28-40"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt" include-lines="10-26"}
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt"
+include-lines="10-26"}
 
 </tab>
 </tabs>
@@ -813,7 +821,7 @@ import io.ktor.client.plugins.auth.providers.*
 </tr>
 
 <tr>
-<td><a href="client-websockets.md">WebSockets</a></td>
+<td><a href="client-websockets.topic">WebSockets</a></td>
 <td><code>import io.ktor.client.features.websocket.*</code></td>
 <td><code>import io.ktor.client.plugins.websocket.*</code></td>
 </tr>

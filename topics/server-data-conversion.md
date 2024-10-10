@@ -22,13 +22,6 @@ allows you to serialize and deserialize a list of values. By default, Ktor handl
 [DefaultConversionService](https://api.ktor.io/ktor-utils/io.ktor.util.converters/-default-conversion-service/index.html).
 You can extend this service to handle additional types by installing and configuring the `%plugin_name%` plugin.
 
-If you are using the [Locations plugin](server-locations.md) and want to support
-custom types in the `Location` class parameters, you can utilize the `%plugin_name%` plugin to handle those types.
-
-> Note that the `Locations` plugin is experimental and will be removed in the future. For type-safe routing, we suggest
-> to use the [Resources](server-resources.md) plugin instead,
-> which supports serialization under the hood.
-
 ## Add dependencies {id="add_dependencies"}
 
 <include from="lib.topic" element-id="add_ktor_artifact_intro"/>
@@ -90,27 +83,14 @@ When the `decode` function is called, the service will format the date as a `Loc
 ```kotlin
 ```
 
-{src="snippets/data-conversion/src/main/kotlin/dataconversion/Application.kt" include-lines="27-42,49"}
+{src="snippets/data-conversion/src/main/kotlin/dataconversion/Application.kt" include-lines="18-34"}
 
 The conversion service can then be called manually to retrieve the encoded and decoded values:
 
 ```kotlin
 ```
 
-{src="snippets/data-conversion/src/main/kotlin/dataconversion/Application.kt" include-lines="56-57"}
-
-### Customize enum serialization with Locations
-
-Another potential use case is to customize how a specific `enum` is serialized.
-By default, enums are serialized and deserialized using their `name` attribute in a case-sensitive fashion.
-But you can, for example, serialize them as lower case and deserialize
-them as case-insensitive, as seen in the following example:
-
-```kotlin
-```
-
-{src="snippets/data-conversion/src/main/kotlin/dataconversion/Application.kt"
-include-lines="16-22,25-27,43-49,51-54,61"}
+{src="snippets/data-conversion/src/main/kotlin/dataconversion/Application.kt" include-lines="38-39"}
 
 For the full example,
 see [%example_name%](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/%example_name%)

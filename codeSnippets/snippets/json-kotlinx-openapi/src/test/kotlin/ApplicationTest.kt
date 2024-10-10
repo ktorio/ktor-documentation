@@ -14,18 +14,27 @@ import kotlin.test.Test
 class CustomerTests {
     @Test
     fun testSwaggerUIStatus() = testApplication {
+        application {
+            main()
+        }
         val response = client.get("/swagger")
         assertEquals(HttpStatusCode.OK, response.status)
     }
 
     @Test
     fun testOpenApiStatus() = testApplication {
+        application {
+            main()
+        }
         val response = client.get("/openapi")
         assertEquals(HttpStatusCode.OK, response.status)
     }
 
     @Test
     fun testGetCustomer() = testApplication {
+        application {
+            main()
+        }
         val response = client.get("/customer/1")
         assertEquals(
             """
@@ -42,6 +51,9 @@ class CustomerTests {
 
     @Test
     fun testPostCustomer() = testApplication {
+        application {
+            main()
+        }
         val client = createClient {
             install(ContentNegotiation) {
                 json()

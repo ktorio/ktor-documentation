@@ -9,6 +9,7 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.util.cio.*
 import io.ktor.utils.io.*
+import kotlinx.io.readByteArray
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.*
 import java.io.*
@@ -57,12 +58,13 @@ fun Application.module() {
 
                     is PartData.FileItem -> {
                         fileName = part.originalFileName as String
-                        var fileBytes = part.streamProvider().readBytes()
+                        val fileBytes = part.provider().readRemaining().readByteArray()
                         File("uploads/$fileName").writeBytes(fileBytes)
                     }
 
                     else -> {}
                 }
+                part.dispose()
             }
             call.respondText("$fileDescription is uploaded to 'uploads/$fileName'")
         }

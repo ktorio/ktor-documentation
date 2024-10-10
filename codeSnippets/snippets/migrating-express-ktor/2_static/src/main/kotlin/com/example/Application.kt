@@ -10,10 +10,6 @@ fun main(args: Array<String>): Unit =
 
 fun Application.module() {
     routing {
-        static("/") {
-            staticRootFolder = File("public")
-            files(".")
-            default("index.html")
-        }
+        staticFiles("", File("public"), "index.html")
     }
 }

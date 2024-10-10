@@ -25,5 +25,5 @@ dependencies {
     implementation("io.ktor:ktor-server-config-yaml:$ktor_version")
     testImplementation("junit:junit:$junit_version")
     testImplementation("com.typesafe:config:1.4.3")
-    testImplementation("io.ktor:ktor-server-test-host:$ktor_version")
+    testImplementation("io.ktor:ktor-server-test-host-jvm:$ktor_version")
 }

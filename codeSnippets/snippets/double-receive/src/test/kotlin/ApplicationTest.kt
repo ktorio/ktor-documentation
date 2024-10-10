@@ -8,6 +8,9 @@ import kotlin.test.*
 class ApplicationTest {
     @Test
     fun testDoubleReceive() = testApplication {
+        application {
+            module()
+        }
         val response = client.post("/") {
             setBody("Hello, world!")
         }

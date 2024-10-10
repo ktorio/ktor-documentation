@@ -52,12 +52,12 @@ First, you need to specify a port used to listen for incoming requests. Elastic 
 This tutorial shows how to deploy the application to Elastic Beanstalk using a [fat JAR](server-fatjar.md). To generate fat JARs, you need to apply the Ktor plugin. Open the `build.gradle.kts` file and add the plugin to the `plugins` block:
 ```groovy
 ```
-{src="snippets/aws-elastic-beanstalk/build.gradle.kts" include-lines="5,8-9"}
+{src="snippets/aws-elastic-beanstalk/build.gradle.kts" include-lines="3,6-7"}
 
 Then, make sure that the [main application class](server-dependencies.topic#create-entry-point) is configured:
 ```kotlin
 ```
-{src="snippets/aws-elastic-beanstalk/build.gradle.kts" include-lines="11-13"}
+{src="snippets/aws-elastic-beanstalk/build.gradle.kts" include-lines="9-11"}
 
 
 ## Build a Fat JAR {id="build"}

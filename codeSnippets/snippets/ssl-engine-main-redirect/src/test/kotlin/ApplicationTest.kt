@@ -10,6 +10,9 @@ import kotlin.test.assertEquals
 class ApplicationTest {
     @Test
     fun testRedirectHttps() = testApplication {
+        application {
+            module()
+        }
         val response = client.get("/") {
             url { protocol = URLProtocol.HTTPS }
         }

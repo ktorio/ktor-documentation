@@ -21,17 +21,18 @@ import java.io.*
 data class Customer(val id: Int, val firstName: String, val lastName: String)
 
 fun main() {
-    val env = applicationEngineEnvironment {
-        envConfig()
+    val appProperties = serverConfig {
+        module {
+            backendModule()
+            frontendModule()
+        }
     }
-    embeddedServer(Netty, env).start(true)
+    embeddedServer(Netty, appProperties) {
+        envConfig()
+    }.start(true)
 }
 
-fun ApplicationEngineEnvironmentBuilder.envConfig() {
-    module {
-        backendModule()
-        frontendModule()
-    }
+fun ApplicationEngine.Configuration.envConfig() {
     connector {
         host = "0.0.0.0"
         port = 8080
@@ -78,10 +79,7 @@ fun Application.frontendModule() {
                     }
                 }
             }
-            static("static") {
-                staticRootFolder = File("files")
-                files("js")
-            }
+            staticFiles("static", File("files"), "js/script.js")
         }
     }
 }

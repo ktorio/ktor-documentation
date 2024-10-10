@@ -11,7 +11,7 @@ import java.util.*
 fun main() {
     val client = HttpClient(CIO) {
         install(WebSockets) {
-            pingInterval = 20_000
+            pingIntervalMillis = 20_000
         }
     }
     runBlocking {

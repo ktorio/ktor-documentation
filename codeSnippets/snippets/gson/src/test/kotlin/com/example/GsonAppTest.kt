@@ -10,6 +10,9 @@ class GsonAppTest {
     @Ignore
     @Test
     fun testV1() = testApplication {
+        application {
+            main()
+        }
         val response = client.get("/v1")
         assertEquals(HttpStatusCode.OK, response.status)
         assertEquals(

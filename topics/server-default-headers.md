@@ -11,7 +11,7 @@
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
-<include from="lib.topic" element-id="native_server_not_supported"/>
+<include from="lib.topic" element-id="native_server_supported"/>
 </tldr>
 
 The [%plugin_name%](%plugin_api_link%) plugin adds the standard `Server` and `Date` headers into each response. Moreover, you can provide additional default headers and override the `Server` header.

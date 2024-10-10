@@ -12,6 +12,9 @@ import kotlin.test.assertEquals
 class ApplicationTest {
     @Test
     fun testAuthRoute() = testApplication {
+        application {
+            main()
+        }
         val client = createClient {
             defaultRequest {
                 val credentials = Base64.getEncoder().encodeToString("admin:password".toByteArray())

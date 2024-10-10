@@ -63,7 +63,6 @@ class ApplicationTest {
         }
         application {
             val repository = FakeTaskRepository()
-
             configureSerialization(repository)
             configureRouting()
         }
@@ -82,6 +81,7 @@ class ApplicationTest {
             configureSerialization(repository)
             configureRouting()
         }
+
         val client = createClient {
             install(ContentNegotiation) {
                 json()

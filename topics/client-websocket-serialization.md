@@ -20,7 +20,7 @@ Similar to the [ContentNegotiation](client-serialization.md) plugin, WebSockets 
 <tabs group="json-libraries">
 <tab title="kotlinx.serialization" group-key="kotlinx">
 
-To register the JSON serializer in the WebSockets [configuration](client-websockets.md#install_plugin), create a `KotlinxWebsocketSerializationConverter` instance with the `Json` parameter and assign this instance to the `contentConverter` property:
+To register the JSON serializer in the WebSockets [configuration](client-websockets.topic#install_plugin), create a `KotlinxWebsocketSerializationConverter` instance with the `Json` parameter and assign this instance to the `contentConverter` property:
 
 ```kotlin
 import io.ktor.serialization.kotlinx.*
@@ -65,7 +65,7 @@ install(WebSockets) {
 
 ### XML serializer {id="register_xml"}
 
-To register the XML serializer in the WebSockets [configuration](client-websockets.md#install_plugin), create a `KotlinxWebsocketSerializationConverter` instance with the `XML` parameter and assign this instance to the `contentConverter` property:
+To register the XML serializer in the WebSockets [configuration](client-websockets.topic#install_plugin), create a `KotlinxWebsocketSerializationConverter` instance with the `XML` parameter and assign this instance to the `contentConverter` property:
 
 ```kotlin
 import nl.adaptivity.xmlutil.serialization.*
@@ -76,7 +76,7 @@ install(WebSockets) {
 ```
 
 ### CBOR serializer {id="register_cbor"}
-To register the CBOR serializer in the WebSockets [configuration](client-websockets.md#install_plugin), create a `KotlinxWebsocketSerializationConverter` instance with the `Cbor` parameter and assign this instance to the `contentConverter` property:
+To register the CBOR serializer in the WebSockets [configuration](client-websockets.topic#install_plugin), create a `KotlinxWebsocketSerializationConverter` instance with the `Cbor` parameter and assign this instance to the `contentConverter` property:
 
 ```kotlin
 import io.ktor.serialization.kotlinx.cbor.*
@@ -87,7 +87,7 @@ install(WebSockets) {
 ```
 
 ### ProtoBuf serializer {id="register_protobuf"}
-To register the ProtoBuf serializer in the WebSockets [configuration](client-websockets.md#install_plugin), create a `KotlinxWebsocketSerializationConverter` instance with the `ProtoBuf` parameter and assign this instance to the `contentConverter` property:
+To register the ProtoBuf serializer in the WebSockets [configuration](client-websockets.topic#install_plugin), create a `KotlinxWebsocketSerializationConverter` instance with the `ProtoBuf` parameter and assign this instance to the `contentConverter` property:
 
 ```kotlin
 import io.ktor.serialization.kotlinx.protobuf.*
@@ -131,6 +131,6 @@ To receive and convert a content of a text frame, call the `receiveDeserialized`
 ```
 {src="snippets/client-websockets-serialization/src/main/kotlin/com/example/Application.kt" include-lines="22-25"}
 
-To receive deserialized frames from the [incoming](client-websockets.md#api-overview) channel, use the [WebsocketContentConverter.deserialize](https://api.ktor.io/ktor-shared/ktor-serialization/io.ktor.serialization/-websocket-content-converter/deserialize.html) function. `WebsocketContentConverter` is available via the `DefaultClientWebSocketSession.converter` property.
+To receive deserialized frames from the [incoming](client-websockets.topic#incoming) channel, use the [WebsocketContentConverter.deserialize](https://api.ktor.io/ktor-shared/ktor-serialization/io.ktor.serialization/-websocket-content-converter/deserialize.html) function. `WebsocketContentConverter` is available via the `DefaultClientWebSocketSession.converter` property.
 
 > You can find the full example here: [client-websockets-serialization](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-websockets-serialization).

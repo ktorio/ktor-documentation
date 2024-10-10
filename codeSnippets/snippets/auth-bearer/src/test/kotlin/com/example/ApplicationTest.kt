@@ -9,6 +9,9 @@ import kotlin.test.*
 class ApplicationTest {
     @Test
     fun testAuthRoute() = testApplication {
+        application {
+            main()
+        }
         val response = client.get("/") {
             header(HttpHeaders.Authorization, "Bearer abc123")
         }

@@ -9,6 +9,9 @@ import kotlin.test.*
 class ApplicationTest {
     @Test
     fun testRequests() = testApplication {
+        application {
+            main()
+        }
         val client = createClient {
             install(HttpCookies)
         }

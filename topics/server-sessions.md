@@ -57,7 +57,7 @@ For example, the `UserSession` class below will be used to store the session ID 
 
 ```kotlin
 ```
-{src="snippets/session-cookie-client/src/main/kotlin/cookieclient/Application.kt" include-lines="9"}
+{src="snippets/session-cookie-client/src/main/kotlin/cookieclient/Application.kt" include-lines="10-11"}
 
 You need to create several data classes if you are going to use several sessions.
 
@@ -76,7 +76,7 @@ In the example above, session data will be passed to the client using the `user_
 
 ```kotlin
 ```
-{src="snippets/session-cookie-client/src/main/kotlin/cookieclient/Application.kt" include-lines="12,15-17,19-20"}
+{src="snippets/session-cookie-client/src/main/kotlin/cookieclient/Application.kt" include-lines="14,17-19,21-22"}
 
 If the required attribute is not exposed explicitly, use the `extensions` property. For example, you can pass the `SameSite`attribute in the following way:
 ```kotlin
@@ -134,7 +134,7 @@ Ktor allows you to store session data [on the server](#client_server) and pass o
 
 ```kotlin
 ```
-{src="snippets/session-cookie-server/src/main/kotlin/com/example/Application.kt" include-lines="14,17"}
+{src="snippets/session-cookie-server/src/main/kotlin/com/example/Application.kt" include-lines="16,19"}
 
 You can find the full example here: [session-cookie-server](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/session-cookie-server).
 
@@ -145,7 +145,7 @@ You can find the full example here: [session-cookie-server](https://github.com/k
 [directorySessionStorage](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-sessions/io.ktor.server.sessions/directory-session-storage.html) can be used to store a session's data in a file under the specified directory. For example, to store session data in a file under the `build/.sessions` directory, create the `directorySessionStorage` in this way:
 ```kotlin
 ```
-{src="snippets/session-header-server/src/main/kotlin/com/example/Application.kt" include-lines="15,17"}
+{src="snippets/session-header-server/src/main/kotlin/com/example/Application.kt" include-lines="17,19"}
 
 You can find the full example here: [session-header-server](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/session-header-server).
 
@@ -171,7 +171,7 @@ To sign a session, pass a sign key to the `SessionTransportTransformerMessageAut
 
 ```kotlin
 ```
-{src="snippets/session-cookie-server/src/main/kotlin/com/example/Application.kt" include-lines="12-18"}
+{src="snippets/session-cookie-server/src/main/kotlin/com/example/Application.kt" include-lines="14-20"}
 
 `SessionTransportTransformerMessageAuthentication` uses `HmacSHA256` as the default authentication algorithm, which can be changed. 
 
@@ -182,7 +182,14 @@ To sign and encrypt a session, pass a sign/encrypt keys to the `SessionTransport
 
 ```kotlin
 ```
-{src="snippets/session-cookie-client/src/main/kotlin/cookieclient/Application.kt" include-lines="12-20"}
+
+{src="snippets/session-cookie-client/src/main/kotlin/cookieclient/Application.kt" include-lines="14-22"}
+
+> Note that the [encryption method has been updated](migrating-3.md#session-encryption-method-update) in Ktor
+> version `3.0.0`. If you are migrating from an earlier version, use the `backwardCompatibleRead` property in the
+> constructor of `SessionTransportTransformerEncrypt` to ensure compatibility with existing sessions.
+>
+{style="note"}
 
 By default, `SessionTransportTransformerEncrypt` uses the `AES` and `HmacSHA256` algorithms, which can be changed. 
 
@@ -197,25 +204,25 @@ To set the session content for a specific [route](server-routing.md), use the `c
 
 ```kotlin
 ```
-{src="snippets/session-cookie-client/src/main/kotlin/cookieclient/Application.kt" include-lines="22-25"}
+{src="snippets/session-cookie-client/src/main/kotlin/cookieclient/Application.kt" include-lines="24-27"}
 
 To get the session content, you can call `get` receiving one of the registered session types as type parameter:
 
 ```kotlin
 ```
-{src="snippets/session-cookie-client/src/main/kotlin/cookieclient/Application.kt" include-lines="27-28,35"}
+{src="snippets/session-cookie-client/src/main/kotlin/cookieclient/Application.kt" include-lines="29-31,37"}
 
 To modify a session, for example, to increment a counter, you need to call the `copy` method of the data class:
 
 ```kotlin
 ```
-{src="snippets/session-cookie-client/src/main/kotlin/cookieclient/Application.kt" include-lines="27-35"}
+{src="snippets/session-cookie-client/src/main/kotlin/cookieclient/Application.kt" include-lines="29-37"}
 
 When you need to clear a session for any reason (for example, when a user logs out), call the `clear` function:
 
 ```kotlin
 ```
-{src="snippets/session-cookie-client/src/main/kotlin/cookieclient/Application.kt" include-lines="37-40"}
+{src="snippets/session-cookie-client/src/main/kotlin/cookieclient/Application.kt" include-lines="39-42"}
 
 You can find the full example here: [session-cookie-client](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/session-cookie-client).
 

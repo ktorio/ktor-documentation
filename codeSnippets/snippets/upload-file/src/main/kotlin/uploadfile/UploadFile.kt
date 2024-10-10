@@ -5,6 +5,8 @@ import io.ktor.http.content.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import io.ktor.utils.io.*
+import kotlinx.io.readByteArray
 import java.io.File
 
 fun Application.main() {
@@ -23,7 +25,7 @@ fun Application.main() {
 
                     is PartData.FileItem -> {
                         fileName = part.originalFileName as String
-                        val fileBytes = part.streamProvider().readBytes()
+                        val fileBytes = part.provider().readRemaining().readByteArray()
                         File("uploads/$fileName").writeBytes(fileBytes)
                     }
 

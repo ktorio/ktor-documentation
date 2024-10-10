@@ -9,6 +9,9 @@ import kotlin.test.*
 class ApplicationTest {
     @Test
     fun testStatic() = testApplication {
+        application {
+            module()
+        }
         val response = client.get("/static/aboutme.html")
         assertEquals(HttpStatusCode.OK, response.status)
         assertEquals(

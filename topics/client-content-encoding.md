@@ -14,11 +14,11 @@
 The ContentEncoding plugin allows you to enable specified compression algorithms (such as 'gzip' and 'deflate') and configure their settings.
 </link-summary>
 
-The Ktor client provides
-the [ContentEncoding](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-encoding/io.ktor.client.plugins.compression/-content-encoding)
-plugin that allows you to enable specified compression algorithms (such as `gzip` and `deflate`) and configure their
-settings. This plugin serves two primary purposes:
+The Ktor client provides the [ContentEncoding](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-encoding/io.ktor.client.plugins.compression/-content-encoding) 
+plugin that allows you to enable specified compression algorithms (such as `gzip` and `deflate`) and configure their settings. 
+This plugin serves three primary purposes:
 * Sets the `Accept-Encoding` header with the specified quality value.
+* Optionally encodes request body.
 * Decodes [content received from a server](client-responses.md#body) to obtain the original payload.
 
 
@@ -45,6 +45,22 @@ The [example](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/c
 
 ```kotlin
 ```
-{src="snippets/client-content-encoding/src/main/kotlin/com/example/Application.kt" include-lines="17-22"}
+{src="snippets/client-content-encoding/src/main/kotlin/com/example/Application.kt" include-lines="16-21"}
 
 If required, you can implement the `ContentEncoder` interface to create a custom encoder and pass it to the `customEncoder` function.
+
+## Encode request body {id="encode_request_body"}
+To encode the request body, use the `compress()` function inside the [HttpRequestBuilder](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/-http-request-builder/index.html) block.
+```kotlin
+import io.ktor.client.*
+import io.ktor.client.engine.cio.*
+import io.ktor.client.plugins.compression.*
+//...
+val client = HttpClient(CIO) {
+    install(ContentEncoding)
+}
+client.post("/upload") {
+    compress("gzip")
+    setBody(someLongBody)
+}
+```

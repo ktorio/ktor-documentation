@@ -9,6 +9,9 @@ import kotlin.test.*
 class ApplicationTest {
     @Test
     fun testPath1() = testApplication {
+        application {
+            main()
+        }
         val requestTime = LocalTime.now()
         client.get("/path1")
         val responseTime = LocalTime.now()

@@ -7,6 +7,9 @@ import kotlin.test.*
 class CustomHeaderTest {
     @Test
     fun testCustomHeader() = testApplication {
+        application {
+            main()
+        }
         val response = client.get("/")
         assertEquals("Hello, world!", response.headers["X-Custom-Header"])
     }
