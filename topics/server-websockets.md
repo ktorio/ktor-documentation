@@ -36,7 +36,7 @@ Ktor allows you to:
 * Add WebSocket extensions. For example, you can use the [Deflate](server-websocket-deflate.md) extension or
   implement a [custom extension](server-websocket-extensions.md).
 
-> To learn about WebSocket support on the client-side, see the [WebSockets client plugin](client-websockets.md).
+> To learn about WebSocket support on the client-side, see the [WebSockets client plugin](client-websockets.topic).
 
 > For one-way communication sessions, consider using [Server-Sent Events (SSE)](sse_server.md). SSE is
 particularly useful in cases where the server needs to send event-based updates to a client.

@@ -289,7 +289,7 @@ You can find the full example here: [ssl-engine-main](https://github.com/ktorio/
 
 ## Test WebSockets {id="testing-ws"}
 
-You can test [WebSocket conversations](server-websockets.md) by using the [WebSockets](client-websockets.md) plugin provided by the client:
+You can test [WebSocket conversations](server-websockets.md) by using the [WebSockets](client-websockets.topic) plugin provided by the client:
 
 ```kotlin
 ```
