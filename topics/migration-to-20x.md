@@ -197,14 +197,16 @@ In the test below, the `handleRequest` function is replaced with the `client.get
 
 ```kotlin
 ```
-{src="snippets/engine-main/src/test/kotlin/EngineMainTest.kt" include-lines="18-26"}
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/engine-main/src/test/kotlin/EngineMainTest.kt"
+include-lines="18-26"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/engine-main/src/test/kotlin/EngineMainTest.kt" include-lines="11-16"}
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/engine-main/src/test/kotlin/EngineMainTest.kt"
+include-lines="11-16"}
 
 </tab>
 </tabs>
@@ -219,14 +221,16 @@ In the test below, the `handleRequest` function is replaced with the `client.pos
 
 ```kotlin
 ```
-{src="snippets/post-form-parameters/src/test/kotlin/formparameters/ApplicationTest.kt" include-lines="20-28"}
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/post-form-parameters/src/test/kotlin/formparameters/ApplicationTest.kt"
+include-lines="20-28"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/post-form-parameters/src/test/kotlin/formparameters/ApplicationTest.kt" include-lines="11-18"}
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/post-form-parameters/src/test/kotlin/formparameters/ApplicationTest.kt"
+include-lines="11-18"}
 
 </tab>
 </tabs>
@@ -242,14 +246,14 @@ To build `multipart/form-data` in v2.0.0, you need to pass `MultiPartFormDataCon
 
 ```kotlin
 ```
-{src="snippets/upload-file/src/test/kotlin/uploadfile/UploadFileTest.kt" include-lines="38-63"}
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/upload-file/src/test/kotlin/uploadfile/UploadFileTest.kt" include-lines="38-63"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/upload-file/src/test/kotlin/uploadfile/UploadFileTest.kt" include-lines="17-36"}
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/upload-file/src/test/kotlin/uploadfile/UploadFileTest.kt" include-lines="17-36"}
 
 </tab>
 </tabs>
@@ -266,14 +270,16 @@ With v2.0.0, you need to create a new client instance and install the [ContentNe
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="46-55"}
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt"
+include-lines="46-55"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="31-44"}
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt"
+include-lines="31-44"}
 
 </tab>
 </tabs>
@@ -288,14 +294,14 @@ In v1.6.x, `cookiesSession` is used to preserve cookies between requests when te
 
 ```kotlin
 ```
-{src="snippets/session-cookie-client/src/test/kotlin/cookieclient/ApplicationTest.kt" include-lines="29-46"}
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/session-cookie-client/src/test/kotlin/cookieclient/ApplicationTest.kt" include-lines="29-46"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/session-cookie-client/src/test/kotlin/cookieclient/ApplicationTest.kt" include-lines="12-27"}
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/session-cookie-client/src/test/kotlin/cookieclient/ApplicationTest.kt" include-lines="12-27"}
 
 </tab>
 </tabs>
@@ -309,14 +315,16 @@ In the old API, `handleWebSocketConversation` is used to test [WebSocket convers
 
 ```kotlin
 ```
-{src="snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt" include-lines="28-40"}
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt"
+include-lines="28-40"}
 
 </tab>
 <tab title="2.0.0" group-key="2_0">
 
 ```kotlin
 ```
-{src="snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt" include-lines="10-26"}
+{src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt"
+include-lines="10-26"}
 
 </tab>
 </tabs>
