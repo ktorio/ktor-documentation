@@ -4,9 +4,7 @@ import io.ktor.client.*
 import io.ktor.client.plugins.sse.*
 import kotlinx.coroutines.*
 
-
 fun main() {
-
     val client = HttpClient {
         install(SSE) {
             showCommentEvents()
