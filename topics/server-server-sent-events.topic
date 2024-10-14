@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       id="server-server-sent-events" title="Server-Sent Events" help-id="sse_server">
+
+    <show-structure for="chapter" depth="2"/>
+    <var name="plugin_name" value="SSE"/>
+    <var name="example_name" value="server-sse"/>
+    <var name="package_name" value="io.ktor.server.sse"/>
+    <var name="artifact_name" value="ktor-server-sse"/>
+    <tldr>
+        <p>
+            <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
+        </p>
+        <include from="lib.topic" element-id="download_example"/>
+    </tldr>
+    <link-summary>
+        The SSE plugin allows a server to send event-based updates to a client over an HTTP connection.
+    </link-summary>
+    <snippet id="sse-description">
+        <p>
+            Server-Sent Events (SSE) is a technology that allows a server to continuously push events to a client over an
+            HTTP connection. It's particularly useful in cases where the server needs to send event-based updates
+            without requiring the client torepeatedly poll the server.
+        </p>
+        <p>
+            The SSE plugins supported by Ktor provide a straightforward method for creating a one-way connection between
+            the server and the client.
+        </p>
+    </snippet>
+    <tip>
+        <p>To learn more about the SSE plugin for client-side support, see the
+            <a href="client-server-sent-events.topic">SSE client plugin</a>
+            .
+        </p>
+    </tip>
+    <note>
+        <p>
+            For multi-way communication, consider using <a href="server-websockets.md">WebSockets</a>. They provide a
+            full-duplex communication between the server and the client using the Websocket protocol.
+        </p>
+    </note>
+    <chapter title="Limitations" id="limitations">
+        <p>
+            Ktor does not provide support for data compression of SSE responses.
+            If you use the <a href="server-compression.md">Compression</a> plugin, it will skip compression for SSE
+            responses by default.
+        </p>
+    </chapter>
+    <chapter title="Add dependencies" id="add_dependencies">
+        <include from="lib.topic" element-id="add_ktor_artifact_intro"/>
+        <include from="lib.topic" element-id="add_ktor_artifact"/>
+    </chapter>
+    <chapter title="Install SSE" id="install_plugin">
+        <include from="lib.topic" element-id="install_plugin"/>
+    </chapter>
+    <chapter title="Handle SSE sessions" id="handle-sessions">
+        <p>
+            Once you have installed the <code>SSE</code> plugin, you can add a route to handle an SSE session.
+            To do that, call the <code>sse()</code> function inside the
+            <a href="server-routing.md" anchor="define_route">routing</a>
+            block. There are two ways to set up an SSE route:
+        </p>
+        <list type="decimal">
+            <li>
+                <p>With a specific path:</p>
+                <code-block lang="kotlin">
+                    routing {
+                        sse(&quot;/events&quot;) {
+                            // send events to clients
+                        }
+                    }
+                </code-block>
+            </li>
+            <li>
+                <p>
+                    Without a path (default route):
+                </p>
+                <code-block lang="kotlin">
+                    routing {
+                        sse {
+                            // send events to clients
+                        }
+                    }
+                </code-block>
+            </li>
+        </list>
+        <chapter title="SSE session block" id="session-block">
+            <p>
+                Within the <code>sse</code> block, you define the handler for the specified path, represented by the
+                <a href="https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-sse/io.ktor.server.sse/-server-s-s-e-session/index.html">ServerSSESession</a>
+                class. The following functions and properties are available within the block:</p>
+            <deflist>
+                <def id="send">
+                    <title><code>send()</code></title>
+                    Creates and sends a <code>ServerSentEvent</code> to the client.
+                </def>
+                <def id="call">
+                    <title><code>call</code></title>
+                    The associated received <code>ApplicationCall</code> that originated the session.
+                </def>
+                <def id="close">
+                    <title><code>close()</code></title>
+                    Closes the session and terminates the connection with the client. The <code>close()</code> method is
+                    called automatically when all <code>send()</code> operations are completed.
+                    <note>
+                        Closing the session using the <code>close()</code> function does not send a termination event
+                        to the client. To indicate the end of the SSE stream before closing the session, use the
+                        <code>send()</code> function to send a specific event.
+                    </note>
+                </def>
+            </deflist>
+        </chapter>
+        <chapter title="Example: Handling a single session" id="handle-single-session">
+            <p>
+                The example below demonstrates how to set up an SSE session on the <code>/events</code> endpoint,
+                sending 6 separate events over the SSE channel with a 1-second (1000ms) delay between each:
+            </p>
+
+            <code-block lang="kotlin" src="snippets/server-sse/src/main/kotlin/com/example/Application.kt"
+                        include-lines="14-21"/>
+            <p>For the full example, see
+                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/server-sse">server-sse</a>.
+            </p>
+        </chapter>
+    </chapter>
+
+</topic>

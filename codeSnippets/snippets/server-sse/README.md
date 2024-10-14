@@ -1,6 +1,6 @@
 # Server SSE
 
-A sample Ktor project showing how to create a server using [SSE](https://ktor.io/docs/sse_server.html).
+A sample Ktor project showing how to create a server using [SSE](https://ktor.io/docs/server-server-sent-events.html).
 > This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Running

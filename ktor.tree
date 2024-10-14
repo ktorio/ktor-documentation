@@ -186,7 +186,7 @@
                 <toc-element topic="server-websocket-extensions.md"
                              accepts-web-file-names="websocket-extensions-api.html"/>
             </toc-element>
-            <toc-element topic="sse_server.md"/>
+            <toc-element topic="server-server-sent-events.topic" accepts-web-file-names="sse-server.html"/>
 
             <toc-element topic="server-sockets.md"
                          accepts-web-file-names="servers-raw-sockets.html"/>
@@ -327,7 +327,7 @@
                 <toc-element topic="client-websocket-serialization.md"
                              accepts-web-file-names="websocket-client-serialization.html"/>
             </toc-element>
-            <toc-element topic="sse_client.md"/>
+            <toc-element topic="client-server-sent-events.topic" accepts-web-file-names="sse-client.html"/>
             <toc-element toc-title="Monitoring">
                 <toc-element topic="client_call_id.md"/>
             </toc-element>
