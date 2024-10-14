@@ -68,9 +68,9 @@
             that only contain comments and those that contain only the <code>retry</code> field in the incoming flow:
         </p>
         <code-block lang="kotlin" src="snippets/client-sse/src/main/kotlin/com.example/Application.kt"
-                    include-lines="10-15"/>
+                    include-lines="8-13"/>
     </chapter>
-    <chapter title="Working with SSE sessions" id="working-with-sse-sessions">
+    <chapter title="Handle SSE sessions" id="handle-sse-sessions">
         <p>
             A client's SSE session is represented by the
             <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.sse/-default-client-s-s-e-session/index.html">DefaultClientSSESession</a>
@@ -121,12 +121,24 @@
                 </def>
             </deflist>
         </chapter>
-        <chapter title="Handle an SSE session" id="handle-sse-session">
+        <chapter title="SSE session block" id="sse-session-block">
             <p>
                 Within the lambda argument, you have access to the
                 <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.sse/-client-s-s-e-session/index.html"><code>ClientSSESession</code></a>
-                context. Use the <code>incoming</code> property to access the channel for receiving events.
+                context. The following properties are available within the block:
             </p>
+            <deflist>
+                <def id="call">
+                    <title><code>call</code></title>
+                    The associated <code>HttpClientCall</code> that originated the session.
+                </def>
+                <def id="incoming">
+                    <title><code>incoming</code></title>
+                    An incoming server-sent events flow.
+                </def>
+            </deflist>
+        </chapter>
+        <chapter title="Example" id="example">
             <p>
                 The example below creates a new SSE session with the <code>events</code> endpoint,
                 reads events through the <code>incoming</code> property and prints the received
