@@ -22,7 +22,7 @@
         <p>
             Server-Sent Events (SSE) is a technology that allows a server to continuously push events to a client over an
             HTTP connection. It's particularly useful in cases where the server needs to send event-based updates
-            without requiring the client torepeatedly poll the server.
+            without requiring the client to repeatedly poll the server.
         </p>
         <p>
             The SSE plugins supported by Ktor provide a straightforward method for creating a one-way connection between
@@ -64,7 +64,7 @@
         </p>
         <list type="decimal">
             <li>
-                <p>With a specific path:</p>
+                <p>With a specific URL path:</p>
                 <code-block lang="kotlin">
                     routing {
                         sse(&quot;/events&quot;) {
@@ -75,7 +75,7 @@
             </li>
             <li>
                 <p>
-                    Without a path (default route):
+                    Without a path:
                 </p>
                 <code-block lang="kotlin">
                     routing {
