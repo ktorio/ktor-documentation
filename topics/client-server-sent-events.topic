@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       id="client-server-sent-events" title="Server-Sent Events" help-id="sse_client">
+
+    <show-structure for="chapter" depth="2"/>
+    <tldr>
+        <var name="example_name" value="client-sse"/>
+        <include from="lib.topic" element-id="download_example"/>
+    </tldr>
+    <link-summary>
+        The SSE plugin allows a client to receive event-based updates from a server over an HTTP connection.
+    </link-summary>
+    <include from="server-server-sent-events.topic" element-id="sse-description"/>
+    <tip>
+        <p>To learn more about the SSE plugin for server-side support, see the
+            <a href="server-server-sent-events.topic">SSE server plugin</a>
+            .
+        </p>
+    </tip>
+    <chapter title="Add dependencies" id="add_dependencies">
+        <p>
+            <code>SSE</code> only requires the <a href="client-dependencies.md">ktor-client-core</a> artifact and
+            doesn't need any specific dependencies.
+        </p>
+    </chapter>
+    <chapter title="Install SSE" id="install_plugin">
+        <p>
+            To install the <code>SSE</code> plugin, pass it to the <code>install</code> function inside
+            a <a href="client-create-and-configure.md" anchor="configure-client">client configuration block</a>:
+        </p>
+        <code-block lang="kotlin">
+            import io.ktor.client.*
+            import io.ktor.client.engine.cio.*
+            import io.ktor.client.plugins.sse.*
+
+            //...
+            val client = HttpClient(CIO) {
+                install(SSE)
+            }
+        </code-block>
+    </chapter>
+    <chapter title="Configure the SSE plugin" id="configure">
+        <p>
+            You can optionally configure the SSE plugin within the <code>install</code> block by setting the supported
+            properties of the
+            <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.sse/-s-s-e-config/index.html">SSEConfig</a>
+            class:
+        </p>
+        <deflist>
+            <def id="reconnectionTime">
+                <title><code>reconnectionTime</code></title>
+                Sets the reconnection delay. If the connection to the server is lost, the
+                client will wait for the specified time before attempting to reconnect.
+            </def>
+            <def id="showCommentEvents">
+                <title><code>showCommentEvents()</code></title>
+                Adds events that contain only comments in the incoming flow.
+            </def>
+            <def id="showRetryEvents">
+                <title><code>showRetryEvents()</code></title>
+                Adds events that contain only the <code>retry</code> field in the incoming flow.
+            </def>
+        </deflist>
+        <p>
+            In the following example, the SSE plugin is installed into the HTTP client and configured to include events
+            that only contain comments and those that contain only the <code>retry</code> field in the incoming flow:
+        </p>
+        <code-block lang="kotlin" src="snippets/client-sse/src/main/kotlin/com.example/Application.kt"
+                    include-lines="8-13"/>
+    </chapter>
+    <chapter title="Handle SSE sessions" id="handle-sse-sessions">
+        <p>
+            A client's SSE session is represented by the
+            <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.sse/-default-client-s-s-e-session/index.html">DefaultClientSSESession</a>
+            interface. This interface exposes the API that allows you to receive server-sent events from a server.
+        </p>
+        <chapter title="Access an SSE session" id="access-sse-session">
+            <p>The <code>HttpClient</code> allows you to get access to an SSE session in one of the following ways:</p>
+            <list>
+                <li>The <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.sse/sse.html">sse()</a>
+                    function creates the SSE session and allows you to act on it.
+                </li>
+                <li>The
+                    <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.sse/sse-session.html">sseSession()</a>
+                    function allows you to open an SSE session.
+                </li>
+            </list>
+            <p>The following parameters are available to both functions. To specify the URL endpoint, choose from two
+                options:</p>
+            <list>
+                <li>Use the <code>urlString</code> parameter to specify the whole URL as a string.</li>
+                <li>Use the <code>schema</code>, <code>host</code>, <code>port</code>, and <code>path</code> parameters
+                    to specify the protocol scheme, domain name, port number and
+                    path name
+                    respectively.
+                </li>
+            </list>
+            <code-block lang="kotlin">
+                runBlocking {
+                    client.sse(host = &quot;127.0.0.1&quot;, port = 8080, path = &quot;/events&quot;) {
+                        // this: ClientSSESession
+                    }
+                }
+            </code-block>
+            <p>Optionally, the following parameters are available to configure the connection:</p>
+            <deflist>
+                <def id="reconnectionTime-param">
+                    <title><code>reconnectionTime</code></title>
+                    Sets the reconnection delay.
+                </def>
+                <def id="showCommentEvents-param">
+                    <title><code>showCommentEvents</code></title>
+                    Specifies whether to show events that contain only comments in the incoming flow.
+                </def>
+                <def id="showRetryEvents-param">
+                    <title><code>showRetryEvents</code></title>
+                    Specifies whether to show events that contain only the <code>retry</code> field in the incoming
+                    flow.
+                </def>
+            </deflist>
+        </chapter>
+        <chapter title="SSE session block" id="sse-session-block">
+            <p>
+                Within the lambda argument, you have access to the
+                <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.sse/-client-s-s-e-session/index.html"><code>ClientSSESession</code></a>
+                context. The following properties are available within the block:
+            </p>
+            <deflist>
+                <def id="call">
+                    <title><code>call</code></title>
+                    The associated <code>HttpClientCall</code> that originated the session.
+                </def>
+                <def id="incoming">
+                    <title><code>incoming</code></title>
+                    An incoming server-sent events flow.
+                </def>
+            </deflist>
+        </chapter>
+        <chapter title="Example" id="example">
+            <p>
+                The example below creates a new SSE session with the <code>events</code> endpoint,
+                reads events through the <code>incoming</code> property and prints the received
+                <a href="https://api.ktor.io/ktor-shared/ktor-sse/io.ktor.sse/-server-sent-event/index.html"><code>ServerSentEvent</code></a>
+                .
+            </p>
+            <code-block lang="kotlin" src="snippets/client-sse/src/main/kotlin/com.example/Application.kt"
+                        include-symbol="main"/>
+            <p>For the full example, see
+                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-sse">client-sse</a>.
+            </p>
+        </chapter>
+    </chapter>
+
+</topic>

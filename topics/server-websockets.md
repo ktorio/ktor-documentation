@@ -38,7 +38,7 @@ Ktor allows you to:
 
 > To learn about WebSocket support on the client-side, see the [WebSockets client plugin](client-websockets.topic).
 
-> For one-way communication sessions, consider using [Server-Sent Events (SSE)](sse_server.md). SSE is
+> For one-way communication sessions, consider using [Server-Sent Events (SSE)](server-server-sent-events.topic). SSE is
 particularly useful in cases where the server needs to send event-based updates to a client.
 >
 {style="note"}
