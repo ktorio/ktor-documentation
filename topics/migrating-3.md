@@ -50,7 +50,7 @@ and their current corresponding ownership:
 
 | 2.x.x                                           | 3.0.x                                        |
 |-------------------------------------------------|----------------------------------------------|
-| `ApplicationEngineEnvironment.connectors`       | `ApplciationEngine.Configuration.connectors` |
+| `ApplicationEngineEnvironment.connectors`       | `ApplicationEngine.Configuration.connectors` |
 | `ApplicationEnvironment.developmentMode`        | `Application.developmentMode`                |
 | `ApplicationEnvironment.monitor`                | `Application.monitor`                        |
 | `ApplicationEnvironment.parentCoroutineContext` | `Application.parentCoroutineContext`         |
