@@ -24,8 +24,9 @@ With Ktor, you can serve content from [folders](#folders),[ZIP files](#zipped)
 
 ## Folders {id="folders"}
 
-To serve static files from a local filesystem, use the `staticFiles()` function. In this case, relative paths are
-resolved using the current working directory.
+To serve static files from a local filesystem, use the
+[`staticFiles()`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.http.content/static-files.html)
+function. In this case, relative paths are resolved using the current working directory.
 
  ```kotlin
  ```
@@ -41,22 +42,31 @@ see [static-files](https://github.com/ktorio/ktor-documentation/tree/%ktor_versi
 
 ## ZIP files {id="zipped"}
 
-To serve static content from a ZIP file, Ktor provides the `staticZip()` function.
+To serve static content from a ZIP file, Ktor provides the [
+`staticZip()`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.http.content/static-zip.html) function.
+This allows you to map requests directly to the contents of a ZIP archive, as shown in the example below:
 
  ```kotlin
  ```
 
 {src="snippets/static-zip/src/main/kotlin/com/example/Application.kt" include-lines="10,12,20"}
 
-Similarly to serving folders, the above function maps any request from the root URL `/` directly to the contents of the
-zip file specified.
+In this example, any request from the root URL `/` is mapped directly to the contents of the ZIP file `text-files.zip`.
+
+### Auto-reloading support {id="zip-auto-reload"}
+
+The `staticZip()` function also supports automatic reloading. If any changes are detected in the ZIP file's parent
+directory, the ZIP file system is reloaded on the next request. This ensures that the served content remains
+up-to-date without requiring a server restart.
 
 For the full example,
 see [static-zip](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/static-zip).
 
 ## Resources {id="resources"}
 
-To serve content from the classpath, use the `staticResources()` function.
+To serve content from the classpath, use the
+[`staticResources()`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.http.content/static-resources.html)
+function.
 
 ```kotlin
 ```
