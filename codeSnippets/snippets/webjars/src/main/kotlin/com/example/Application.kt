@@ -12,8 +12,6 @@ fun Application.module() {
         path = "assets"
     }
     routing {
-        static("/static") {
-            resources("files")
-        }
+        staticResources("/static", "files")
     }
 }

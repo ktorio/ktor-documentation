@@ -79,9 +79,6 @@ fun Application.main() {
                 call.respondText("Hello, $username! Token is expired at $expiresAt ms.")
             }
         }
-        static(".well-known") {
-            staticRootFolder = File("certs")
-            file("jwks.json")
-        }
+        staticFiles(".well-known", File("certs"), "jwks.json")
     }
 }
