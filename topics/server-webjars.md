@@ -46,7 +46,7 @@ By default, `%plugin_name%` serves WebJars assets on the `/webjars` path. The ex
 
 ```kotlin
 ```
-{src="snippets/webjars/src/main/kotlin/com/example/Application.kt" include-lines="3,6-7,10-13,19"}
+{src="snippets/webjars/src/main/kotlin/com/example/Application.kt" include-lines="3,6-7,10-13,17"}
 
 For instance, if you've installed the `org.webjars:bootstrap` dependency, you can add `bootstrap.css` as follows:
 
