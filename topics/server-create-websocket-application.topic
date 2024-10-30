@@ -474,7 +474,7 @@
                 </p>
                 <code-block src="snippets/tutorial-server-websockets/build.gradle.kts"
                             lang="kotlin"
-                            include-lines="30"
+                            include-lines="35"
                 />
             </step>
             <step>
