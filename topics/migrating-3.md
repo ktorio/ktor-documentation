@@ -346,6 +346,26 @@ You can use similar Kotlin duration extensions (`minutes`, `hours`, etc.) as nee
 For more information, see the [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/)
 documentation.
 
+### Server socket `.bind()` is now suspending
+
+To support asynchronous operations in JS and WasmJS environments, the `.bind()` function for server sockets in both
+[`TCPSocketBuilder`](https://api.ktor.io/ktor-network/io.ktor.network.sockets/-tcp-socket-builder/index.html) and
+[`UDPSocketBuilder`](https://api.ktor.io/ktor-network/io.ktor.network.sockets/-u-d-p-socket-builder/index.html) has been
+updated to a suspending function. This means any calls to `.bind()` must now be made within a coroutine.
+
+To migrate, ensure `.bind()` is only called within a coroutine or suspending function. Here's an example of using
+`runBlocking`:
+
+```kotlin
+  runBlocking {
+    val selectorManager = SelectorManager(Dispatchers.IO)
+    val serverSocket = aSocket(selectorManager).tcp().bind("127.0.0.1", 9002)
+    //...
+}
+```
+
+For more information on working with sockets, see the [Sockets documentation](server-sockets.md).
+
 ### Session encryption method update
 
 The encryption method offered by the `Sessions` plugin has been updated to enhance
