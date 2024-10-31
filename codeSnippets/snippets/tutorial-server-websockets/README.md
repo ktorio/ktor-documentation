@@ -1,7 +1,7 @@
 # Ktor WebSockets Task Application
 
 A Task Application built with Ktor by following the steps explained in
-the [Create a WebSocket application](https://ktor.io/docs/server-working-with-websockets.html) tutorial.
+the [Create a WebSocket application](https://ktor.io/docs/server-create-websocket-application.html) tutorial.
 > This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Run
