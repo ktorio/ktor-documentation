@@ -33,6 +33,12 @@ The following table lists details of the latest Ktor releases.
 
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
+<tr><td>3.0.1</td><td>October 29, 2024</td><td><p>
+A patch release including improvements in client and server logging, and various bug fixes.  
+</p>
+<var name="version" value="3.0.1"/>
+<include from="lib.topic" element-id="release_details_link"/>
+</td></tr>
 <tr><td>3.0.0</td><td>October 9, 2024</td><td><p>
 A major release containing improvements and bug fixes, including added support for Android Native targets.
 For more information on breaking changes, see <a href="https://ktor.io/docs/migrating-3.html">the migration guide</a>.
