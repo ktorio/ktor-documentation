@@ -13,8 +13,8 @@
     <images dir="images" web-path="images/"/>
     <categories src="c.list"/>
     <instance src="ktor.tree"
-              web-path="/docs/2.3.12"
-              version="2.3.12"
+              web-path="/docs/2.3.13"
+              version="2.3.13"
               id="docs"
               keymaps-mode="none"/>
 

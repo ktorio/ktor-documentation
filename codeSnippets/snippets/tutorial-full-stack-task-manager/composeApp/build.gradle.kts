@@ -37,7 +37,7 @@ kotlin {
             //...
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
-            implementation("io.ktor:ktor-client-android:2.3.12")
+            implementation("io.ktor:ktor-client-android:2.3.13")
         }
         commonMain.dependencies {
             //...
@@ -50,18 +50,18 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(projects.shared)
-            implementation("io.ktor:ktor-client-core:2.3.12")
-            implementation("io.ktor:ktor-client-content-negotiation:2.3.12")
-            implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.12")
+            implementation("io.ktor:ktor-client-core:2.3.13")
+            implementation("io.ktor:ktor-client-content-negotiation:2.3.13")
+            implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.13")
         }
         desktopMain.dependencies {
             //...
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
-            implementation("io.ktor:ktor-client-cio:2.3.12")
+            implementation("io.ktor:ktor-client-cio:2.3.13")
         }
         iosMain.dependencies {
-            implementation("io.ktor:ktor-client-darwin:2.3.12")
+            implementation("io.ktor:ktor-client-darwin:2.3.13")
         }
     }
 }
