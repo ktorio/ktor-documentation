@@ -5,13 +5,13 @@
     "isCurrent": false
   },
   {
-    "version": "2.3.12",
-    "url": "/docs/",
+    "version": "2.3.13",
+    "url": "/docs/2.3.13/",
     "isCurrent": false
   },
   {
-    "version": "3.0.0-rc-1",
-    "url": "/docs/eap/",
+    "version": "3.0.1",
+    "url": "/docs/",
     "isCurrent": true
   }
 ]
