@@ -120,4 +120,4 @@ status code for a resource.
    ```
    {src="snippets/events/src/main/kotlin/com/example/Application.kt" include-lines="11-12,22-24,30"}
 
-For the full exmaple, see [events](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/events).
+For the full example, see [events](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/events).
