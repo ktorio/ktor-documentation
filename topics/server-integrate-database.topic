@@ -105,7 +105,7 @@
             <p>
                 To create a new project with the Ktor Project Generator, follow the steps below:
             </p>
-            <procedure>
+            <procedure id="create-project-procedure">
                 <step>
                     <include from="lib.topic" element-id="generate_project_step_1"/>
                 </step>
@@ -172,7 +172,7 @@
                 <step>
                     <p>
                         Navigate to
-                        <path>src/main/kotlin/plugins</path>
+                        <path>src/main/kotlin/com/example</path>
                         and delete the files
                         <path>CitySchema.kt</path>
                         and
@@ -199,7 +199,7 @@
             </procedure>
         </chapter>
         <chapter title="Add starter code" id="add-starter-code">
-            <procedure>
+            <procedure id="add-starrter-code-procedure">
                 <step>
                     Navigate to
                     <path>src/main/kotlin/com/example</path>
@@ -305,12 +305,12 @@
             </procedure>
         </chapter>
         <chapter title="Add routes" id="add-routes">
-            <procedure>
+            <procedure id="add-routes-procedure">
                 <step>
                     Open the
                     <path>Serialization.kt</path>
                     file in
-                    <path>src/main/kotlin/com/example/plugins</path>
+                    <path>src/main/kotlin/com/example</path>
                     .
                 </step>
                 <step>
@@ -319,7 +319,7 @@
                         implementation below:
                     </p>
                     <code-block
-                            src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/plugins/Serialization.kt"
+                            src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/Serialization.kt"
                             lang="kotlin"/>
                     <p>
                         This is the same routing that you implemented in the <a href="server-create-restful-apis.topic">Create
@@ -345,7 +345,7 @@
                         Replace the <code>module()</code> function with the implementation below:
                     </p>
                     <code-block lang="kotlin"><![CDATA[
-                    import com.example.FakeTaskRepository
+                    import com.example.model.FakeTaskRepository
                     //...
 
                     fun Application.module() {
@@ -365,7 +365,7 @@
             </procedure>
         </chapter>
         <chapter title="Add a client page" id="add-client-page">
-            <procedure>
+            <procedure id="add-client-page-procedure">
                 <step>
                     Open the
                     <path>index.html</path>
@@ -389,7 +389,21 @@
             </procedure>
         </chapter>
         <chapter title="Test the application manually" id="test-manually">
-            <procedure>
+            <procedure id="test-manually-procedure">
+                <p>
+                    Because this first iteration is using an in-memory repository instead of connecting to a database,
+                    you need to ensure the application is properly configured.
+                </p>
+                <step>
+                    <p>
+                        Navigate to
+                        <path>src/main/resources/application.yaml</path>
+                        and remove the <code>postgres</code> configuration.
+                    </p>
+                    <code-block
+                            src="snippets/tutorial-server-db-integration/src/main/resources/application.yaml"
+                            lang="yaml"/>
+                </step>
                 <step>
                     <include from="lib.topic" element-id="intellij_idea_start_application"/>
                 </step>
@@ -423,7 +437,7 @@
             </procedure>
         </chapter>
         <chapter title="Add automated unit tests" id="add-automated-tests">
-            <procedure>
+            <procedure id="add-automated-tests-procedure">
                 <step>
                     <p>
                         Open
@@ -433,9 +447,8 @@
                         and add the following tests:
                     </p>
                     <code-block
-                            src="snippets/tutorial-server-db-integration/src/test/kotlin/com/example/ApplicationTest.kt"
+                            src="snippets/tutorial-server-db-integration/src/test/kotlin/com/example/firstiteration/ApplicationTest.kt"
                             lang="kotlin"
-                            include-lines="1-4,7-11,13-18,28-45,55-60,70-75,85-111"
                     />
                     <p>
                         For these tests to compile and run, you will need to add a dependency on the <a
@@ -447,11 +460,26 @@
                 <step>
                     <p>
                         Open the
+                        <path>gradle/libs.versions.toml</path>
+                        file and specify the following library:
+                    </p>
+                    <code-block lang="toml">
+                        [libraries]
+                        #...
+                        ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation-jvm", version.ref = "ktor-version" }
+                    </code-block>
+                </step>
+                <step>
+                    <p>
+                        Open the
                         <path>build.gradle.kts</path>
                         and add the following dependency:
                     </p>
                     <code-block lang="kotlin">
-                        testImplementation("io.ktor:ktor-client-content-negotiation-jvm")
+                        dependencies {
+                            //...
+                            testImplementation(libs.ktor.client.content.negotiation)
+                        }
                     </code-block>
                 </step>
                 <step>
@@ -488,7 +516,7 @@
             <li><a anchor="switch-repo">Switch to this new repository in the startup code.</a></li>
         </list>
         <chapter title="Create the database schema" id="create-schema">
-            <procedure>
+            <procedure id="create-schema-procedure">
                 <step>
                     <p>
                         Using your database management tool of choice, create a new database within PostgreSQL.
@@ -555,7 +583,7 @@
             </procedure>
         </chapter>
         <chapter title="Adapt the existing repository" id="adapt-repo">
-            <procedure>
+            <procedure id="adapt-repo-procedure">
                 <p>
                     When executing queries against the database, it's preferable for them to run asynchronously to avoid
                     blocking the thread handling the HTTP request. In Kotlin, this is best managed through <a
@@ -600,19 +628,25 @@
                     </p>
                     <code-block lang="kotlin"><![CDATA[
                     class FakeTaskRepository : TaskRepository {
-                        private val tasks = mutableListOf(
-                            ...
-                        )
+                        //...
 
                         override suspend fun allTasks(): List<Task> = tasks
 
-                        override suspend fun tasksByPriority(priority: Priority) = tasks.filter { ... }
+                        override suspend fun tasksByPriority(priority: Priority) = tasks.filter {
+                            //...
+                        }
 
-                        override suspend fun taskByName(name: String) = tasks.find { ... }
+                        override suspend fun taskByName(name: String) = tasks.find {
+                            //...
+                        }
 
-                        override suspend fun addTask(task: Task) { ... }
+                        override suspend fun addTask(task: Task) {
+                            //...
+                        }
 
-                        override suspend fun removeTask(name: String): Boolean { ... }
+                        override suspend fun removeTask(name: String): Boolean {
+                            //...
+                        }
                     }
                 ]]></code-block>
                     <p>
@@ -624,19 +658,19 @@
             </procedure>
         </chapter>
         <chapter title="Configure the database connection" id="config-db-connection">
-            <procedure>
+            <procedure id="config-db-connection-procedure">
                 <p>
                     In <a anchor="delete-function">the first part of this tutorial</a> , you deleted the sample code in
                     the
                     <code>configureDatabases()</code> method, found within
                     <path>Databases.kt</path>
-                    . You are now ready to add in our own implementation.
+                    . You are now ready to add in your own implementation.
                 </p>
                 <step>
                     Open the
                     <path>Databases.kt</path>
                     file in
-                    <path>src/main/kotlin/com/example/plugins</path>
+                    <path>src/main/kotlin/com/example</path>
                     .
                 </step>
                 <step>
@@ -672,7 +706,7 @@
             </procedure>
         </chapter>
         <chapter title="Create the Object / Relational mapping" id="create-mapping">
-            <procedure>
+            <procedure id="create-mapping-procedure">
                 <step>
                     Navigate to
                     <path>scr/main/kotlin/com/example</path>
@@ -712,30 +746,27 @@
                 <step>
                     <p>
                         Open the
-                        <path>gradle.build.kts</path>
-                        file and add the following dependency:
+                        <path>gradle/libs.versions.toml</path>
+                        file and specify the following library:
                     </p>
-                    <code-block lang="kotlin"><![CDATA[
-                        //...
-                        val exposed_version: String by project
-
-                        //..
-
-                        dependencies {
-                            //...
-                            implementation("org.jetbrains.exposed:exposed-dao:$exposed_version")
-                        }
-                    ]]></code-block>
+                    <code-block lang="toml">
+                       [libraries]
+                       #...
+                       exposed-dao = { module = "org.jetbrains.exposed:exposed-dao", version.ref = "exposed-version" }
+                    </code-block>
                 </step>
                 <step>
                     <p>
                         Open the
-                        <path>gradle.properties</path>
-                        file located in the project's root directory and add a new property for the Exposed version:
+                        <path>build.gradle.kts</path>
+                        file and add the following dependency:
                     </p>
-                    <code-block lang="kotlin">
-                        exposed_version=%exposed_version%
-                    </code-block>
+                    <code-block lang="kotlin"><![CDATA[
+                        dependencies {
+                            //...
+                            implementation(libs.exposed.dao)
+                        }
+                    ]]></code-block>
                 </step>
                 <step>
                     <include from="lib.topic" element-id="intellij_idea_load_gradle_changes"/>
@@ -772,7 +803,7 @@
             </procedure>
         </chapter>
         <chapter title="Write the New Repository" id="create-new-repo">
-            <procedure>
+            <procedure id="create-new-repo-procedure">
                 <p>You now have all the resources needed to create a database-specific repository.</p>
                 <step>
                     Navigate to
@@ -799,7 +830,7 @@
             </procedure>
         </chapter>
         <chapter title="Switch to the new repository" id="switch-repo">
-            <procedure>
+            <procedure id="switch-repo-procedure">
                 <p>To switch to an external database, you simply need to change the repository type.</p>
                 <step>
                     Open the
@@ -871,7 +902,7 @@
             With this, you have successfully completed integrating a database into your application. However, if you
             run the tests, you will find that they are now failing.
         </p>
-        <procedure title="Configure the test module">
+        <procedure title="Configure the test module" id="config-test-module-procedure">
             <step>
                 For each test in the
                 <path>ApplicationTest.kt</path>

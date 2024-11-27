@@ -2,8 +2,6 @@ package com.example
 
 import com.example.model.Priority
 import com.example.model.Task
-import com.example.plugins.configureRouting
-import com.example.plugins.configureSerialization
 import io.ktor.client.call.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.request.*
@@ -21,10 +19,10 @@ class ApplicationTest {
         }
         application {
             val repository = FakeTaskRepository()
-
             configureSerialization(repository)
             configureRouting()
         }
+
         val client = createClient {
             install(ContentNegotiation) {
                 json()
@@ -48,7 +46,6 @@ class ApplicationTest {
         }
         application {
             val repository = FakeTaskRepository()
-
             configureSerialization(repository)
             configureRouting()
         }
@@ -66,6 +63,7 @@ class ApplicationTest {
             configureSerialization(repository)
             configureRouting()
         }
+
         val response = client.get("/tasks/byPriority/Vital")
         assertEquals(HttpStatusCode.NotFound, response.status)
     }
@@ -77,7 +75,6 @@ class ApplicationTest {
         }
         application {
             val repository = FakeTaskRepository()
-
             configureSerialization(repository)
             configureRouting()
         }
