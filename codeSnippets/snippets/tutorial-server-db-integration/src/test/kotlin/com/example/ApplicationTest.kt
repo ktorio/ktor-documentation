@@ -7,16 +7,12 @@ import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.request.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
-import io.ktor.server.config.*
 import io.ktor.server.testing.*
 import kotlin.test.*
 
 class ApplicationTest {
     @Test
     fun tasksCanBeFoundByPriority() = testApplication {
-        environment {
-            config = MapApplicationConfig()
-        }
         application {
             val repository = FakeTaskRepository()
             configureSerialization(repository)
@@ -41,9 +37,6 @@ class ApplicationTest {
 
     @Test
     fun invalidPriorityProduces400() = testApplication {
-        environment {
-            config = MapApplicationConfig()
-        }
         application {
             val repository = FakeTaskRepository()
             configureSerialization(repository)
@@ -55,9 +48,6 @@ class ApplicationTest {
 
     @Test
     fun unusedPriorityProduces404() = testApplication {
-        environment {
-            config = MapApplicationConfig()
-        }
         application {
             val repository = FakeTaskRepository()
             configureSerialization(repository)
@@ -70,9 +60,6 @@ class ApplicationTest {
 
     @Test
     fun newTasksCanBeAdded() = testApplication {
-        environment {
-            config = MapApplicationConfig()
-        }
         application {
             val repository = FakeTaskRepository()
             configureSerialization(repository)

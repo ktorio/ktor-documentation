@@ -447,7 +447,7 @@
                         and add the following tests:
                     </p>
                     <code-block
-                            src="snippets/tutorial-server-db-integration/src/test/kotlin/com/example/firstiteration/ApplicationTest.kt"
+                            src="snippets/tutorial-server-db-integration/src/test/kotlin/com/example/ApplicationTest.kt"
                             lang="kotlin"
                     />
                     <p>
@@ -463,7 +463,7 @@
                         <path>gradle/libs.versions.toml</path>
                         file and specify the following library:
                     </p>
-                    <code-block lang="toml">
+                    <code-block lang="kotlin">
                         [libraries]
                         #...
                         ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation-jvm", version.ref = "ktor-version" }
@@ -749,7 +749,7 @@
                         <path>gradle/libs.versions.toml</path>
                         file and specify the following library:
                     </p>
-                    <code-block lang="toml">
+                    <code-block lang="kotlin">
                        [libraries]
                        #...
                        exposed-dao = { module = "org.jetbrains.exposed:exposed-dao", version.ref = "exposed-version" }
@@ -899,35 +899,21 @@
             </procedure>
         </chapter>
         <p>
-            With this, you have successfully completed integrating a database into your application. However, if you
-            run the tests, you will find that they are now failing.
+            With this, you have successfully completed integrating a database into your application.
         </p>
-        <procedure title="Configure the test module" id="config-test-module-procedure">
-            <step>
-                For each test in the
-                <path>ApplicationTest.kt</path>
-                file, use the <code>MapApplicationConfig()</code> function to override the default application
-                configuration and use a custom module:
-                <code-block
-                        src="snippets/tutorial-server-db-integration/src/test/kotlin/com/example/ApplicationTest.kt"
-                        lang="kotlin"/>
-            </step>
-            <step>
-                <p>
-                    As the <code>FakeTaskRepository</code> type is no longer needed in production code, you can move
-                    it to the testing source set, in
-                    <path>src/test/com/example</path>
-                    .
-                </p>
-                <p>
-                    The final project structure should look something like this:
-                </p>
-                <img src="tutorial_server_db_integration_src_folder.png"
-                     alt="The src folder shown within the Project View in intelliJ IDEA"
-                     border-effect="line"
-                     width="400"/>
-            </step>
-        </procedure>
+        <p>
+            As the <code>FakeTaskRepository</code> type is no longer needed in production code, you can move
+            it to the testing source set, in
+            <path>src/test/com/example</path>
+            .
+        </p>
+        <p>
+            The final project structure should look something like this:
+        </p>
+        <img src="tutorial_server_db_integration_src_folder.png"
+             alt="The src folder shown within the Project View in intelliJ IDEA"
+             border-effect="line"
+             width="400"/>
     </chapter>
     <chapter title="Next steps" id="next-steps">
         <p>
