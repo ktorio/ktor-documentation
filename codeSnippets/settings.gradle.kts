@@ -161,7 +161,6 @@ module("snippets", "client-call-id")
 module("snippets", "tutorial-server-routing-and-requests")
 module("snippets", "tutorial-server-restful-api")
 module("snippets", "tutorial-server-websockets")
-module("snippets", "tutorial-server-db-integration")
 module("snippets", "tutorial-server-docker-compose")
 
 if(!System.getProperty("os.name").startsWith("Windows")) {

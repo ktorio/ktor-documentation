@@ -1,4 +1,4 @@
-package com.example.plugins
+package com.example
 
 import com.example.model.Priority
 import com.example.model.Task
