@@ -2,6 +2,8 @@
 package org.example.ktor
 */
 
+import Task
+import TaskApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Button
@@ -13,14 +15,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import io.ktor.client.HttpClient
 import kotlinx.coroutines.launch
-import org.example.ktor.network.httpClient
-import org.jetbrains.compose.resources.ExperimentalResourceApi
+import org.example.ktor.core.extension.configuredForApi
 
 @Composable
 fun App() {
     MaterialTheme {
-        val client = remember { TaskApi(httpClient) }
+        val httpClient = HttpClient().configuredForApi()
+        val taskApi = remember { TaskApi(httpClient) }
         val tasks = remember { mutableStateOf(emptyList<Task>()) }
         val scope = rememberCoroutineScope()
 
@@ -30,7 +33,7 @@ fun App() {
         ) {
             Button(onClick = {
                 scope.launch {
-                    tasks.value = client.getAllTasks()
+                    tasks.value = taskApi.getAllTasks()
                 }
             }) {
                 Text("Fetch Tasks")

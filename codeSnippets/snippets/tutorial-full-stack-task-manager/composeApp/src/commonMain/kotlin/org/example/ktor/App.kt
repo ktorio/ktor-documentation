@@ -33,19 +33,22 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
+import io.ktor.client.HttpClient
 import kotlinx.coroutines.launch
-import org.example.ktor.network.httpClient
+import org.example.ktor.core.extension.configuredForApi
 
 @Composable
 fun App() {
+
     MaterialTheme {
-        val client = remember { TaskApi(httpClient) }
+        val httpClient = HttpClient().configuredForApi()
+        val taskApi = remember { TaskApi(httpClient) }
         var tasks by remember { mutableStateOf(emptyList<Task>()) }
         val scope = rememberCoroutineScope()
         var currentTask by remember { mutableStateOf<Task?>(null) }
 
         LaunchedEffect(Unit) {
-            tasks = client.getAllTasks()
+            tasks = taskApi.getAllTasks()
         }
 
         if (currentTask != null) {
@@ -53,8 +56,8 @@ fun App() {
                 currentTask!!,
                 onConfirm = {
                     scope.launch {
-                        client.updateTask(it)
-                        tasks = client.getAllTasks()
+                        taskApi.updateTask(it)
+                        tasks = taskApi.getAllTasks()
                     }
                     currentTask = null
                 }
@@ -67,8 +70,8 @@ fun App() {
                     task,
                     onDelete = {
                         scope.launch {
-                            client.removeTask(it)
-                            tasks = client.getAllTasks()
+                            taskApi.removeTask(it)
+                            tasks = taskApi.getAllTasks()
                         }
                     },
                     onUpdate = {
