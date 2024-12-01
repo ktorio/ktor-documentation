@@ -1,13 +1,9 @@
-package org.example.ktor
-
-import Task
-import TaskApi
-import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
-import io.ktor.serialization.kotlinx.json.json
+import core.extension.createConfiguredClient
 import io.ktor.server.testing.testApplication
-import kotlinx.serialization.json.Json
+import org.example.ktor.module
 import kotlin.test.Test
 import kotlin.test.assertTrue
+
 
 class IntegrationTest {
 
@@ -16,18 +12,7 @@ class IntegrationTest {
      */
     @Test
     fun testAddNewTask() = testApplication {
-        val client = createClient {
-            install(ContentNegotiation) {
-                json(
-                    Json {
-                        encodeDefaults = true
-                        isLenient = true
-                        coerceInputValues = true
-                        ignoreUnknownKeys = true
-                    }
-                )
-            }
-        }
+        val client = createConfiguredClient()
 
         val taskApi = TaskApi(client)
         application { module() }
@@ -43,18 +28,7 @@ class IntegrationTest {
      */
     @Test
     fun testDeleteTask() = testApplication {
-        val client = createClient {
-            install(ContentNegotiation) {
-                json(
-                    Json {
-                        encodeDefaults = true
-                        isLenient = true
-                        coerceInputValues = true
-                        ignoreUnknownKeys = true
-                    }
-                )
-            }
-        }
+        val client = createConfiguredClient()
 
         val taskApi = TaskApi(client)
         application { module() }
