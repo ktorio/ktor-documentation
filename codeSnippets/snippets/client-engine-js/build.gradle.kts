@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
 val ktor_version: String by project
 val kotlinx_html_version: String by project
 

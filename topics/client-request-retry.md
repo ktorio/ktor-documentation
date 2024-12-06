@@ -50,7 +50,7 @@ A [runnable example](https://github.com/ktorio/ktor-documentation/tree/%ktor_ver
 * `exponentialDelay` specifies an exponential delay between retries, which is calculated using the Exponential backoff algorithm.
 
 You can learn more about supported configuration options
-from [HttpRequestRetry.Configuration](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-request-retry/-configuration).
+from [HttpRequestRetryConfig](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-request-retry-config).
 
 ### Configure retry conditions {id="conditions"}
 
