@@ -33,6 +33,13 @@ The following table lists details of the latest Ktor releases.
 
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
+<tr><td>3.0.2</td><td>December 4, 2024</td><td><p>
+A patch release addressing multiple bug fixes related to response corruption, truncated bodies, connection handling, 
+and incorrect headers, along with extended binary encoding support and performance enhancements for Android. 
+</p>
+<var name="version" value="3.0.2"/>
+<include from="lib.topic" element-id="release_details_link"/>
+</td></tr>
 <tr><td>2.3.13</td><td>November 20, 2024</td><td><p>
 A patch release with bug fixes, security patches, and improvements, including added support for the
 <code>watchosDeviceArm64</code> target.  
