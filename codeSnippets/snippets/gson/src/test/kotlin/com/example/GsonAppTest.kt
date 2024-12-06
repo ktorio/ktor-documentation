@@ -80,8 +80,7 @@ class GsonAppTest {
         val response = client.get("/v1")
         val responseModel = response.body<Model>()
         assertEquals(HttpStatusCode.OK, response.status)
+        assertNotNull(responseModel.date)
         assertEquals(model, responseModel)
-
-
     }
 }
