@@ -5,7 +5,7 @@ val kotlinx_html_version: String by project
 
 plugins {
     kotlin("multiplatform")
-    kotlin("plugin.serialization").version("2.0.0")
+    kotlin("plugin.serialization").version("2.1.0")
 }
 
 repositories {
