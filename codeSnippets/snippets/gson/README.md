@@ -32,11 +32,7 @@ A server should respond with something like this:
       "value": "Bing"
     }
   ],
-  "date": {
-    "year": 2018,
-    "month": 3,
-    "day": 2
-  }
+  "date": "2018-04-13"
 }
 ```
 
