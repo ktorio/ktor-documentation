@@ -9,7 +9,7 @@ dependencies {
     implementation(projects.server)
     implementation(projects.composeApp)
 
-    implementation(libs.ktor.server.content.negotiation.jvm)
+    implementation(libs.ktor.server.content.negotiation)
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.serialization.kotlinx.json)
     implementation(libs.androidx.core.ktx)
