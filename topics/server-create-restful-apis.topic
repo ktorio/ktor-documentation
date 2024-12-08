@@ -730,16 +730,23 @@
             </step>
             <step>
                 <p>
-                    Add the following dependencies into your
+                    Add the following dependency into your version catalog located in
+                    <path>gradle/libs.versions.toml</path>
+                </p>
+                <code-block lang="toml">
+                    [libraries]
+                    # ...
+                    ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor-version" }
+                </code-block>
+            </step>
+            <step>
+                <p>
+                    Add the new dependency into your
                     <path>build.gradle.kts</path>
                     file:
                 </p>
                 <code-block lang="kotlin">
-                    val ktor_version: String by project
-
-                    //...
-                    testImplementation("io.ktor:ktor-server-test-host-jvm:$ktor_version")
-                    testImplementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
+                    testImplementation(libs.ktor.client.content.negotiation)
                 </code-block>
             </step>
         </procedure>
