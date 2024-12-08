@@ -160,7 +160,7 @@
                     implementation below:
                 </p>
                 <code-block lang="kotlin">
-                    package com.example.plugins
+                    package com.example
 
                     import com.example.model.*
                     import io.ktor.server.application.*
@@ -235,11 +235,11 @@
                 inside the generated code in the project you will find a file called
                 <path>Serialization.kt</path>
                 inside
-                <path>src/kotlin/main/com/example/plugins</path>
+                <path>src/kotlin/main/com/example</path>
                 , which includes the following:
             </p>
             <code-block lang="kotlin"
-                        src="snippets/tutorial-server-restful-api/src/main/kotlin/com/example/plugins/Serialization.kt"
+                        src="snippets/tutorial-server-restful-api/src/main/kotlin/com/example/Serialization.kt"
                         include-lines="10-12"/>
             <p>
                 This code installs the <code>ContentNegotiation</code> plugin, and also configures the <code>kotlinx.serialization</code>
@@ -335,7 +335,7 @@
                         Navigate to the
                         <path>Routing.kt</path>
                         file in
-                        <path>src/main/kotlin/com/example/plugins</path>
+                        <path>src/main/kotlin/com/example</path>
                         .
                     </p>
                 </step>
@@ -345,7 +345,7 @@
                         <code>Application.configureRouting()</code> function with the following implementation:
                     </p>
                     <code-block lang="kotlin"><![CDATA[
-                    package example.com.plugins
+                    package com.example
 
                     import com.example.model.Priority
                     import com.example.model.TaskRepository
@@ -516,7 +516,7 @@
                     Open the
                     <path>Routing.kt</path>
                     file inside
-                    <path>src/main/kotlin/com/example/plugins</path>
+                    <path>src/main/kotlin/com/example</path>
                     .
                 </p>
             </step>
@@ -539,7 +539,7 @@
                                     try {
                                         val task = call.receive<Task>()
                                         TaskRepository.addTask(task)
-                                        call.respond(HttpStatusCode.NoContent)
+                                        call.respond(HttpStatusCode.Created)
                                     } catch (ex: IllegalStateException) {
                                         call.respond(HttpStatusCode.BadRequest)
                                     } catch (ex: JsonConvertException) {
@@ -730,16 +730,23 @@
             </step>
             <step>
                 <p>
-                    Add the following dependencies into your
+                    Add the following dependency into your version catalog located in
+                    <path>gradle/libs.versions.toml</path>
+                </p>
+                <code-block lang="toml">
+                    [libraries]
+                    # ...
+                    ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor-version" }
+                </code-block>
+            </step>
+            <step>
+                <p>
+                    Add the new dependency into your
                     <path>build.gradle.kts</path>
                     file:
                 </p>
                 <code-block lang="kotlin">
-                    val ktor_version: String by project
-
-                    //...
-                    testImplementation("io.ktor:ktor-server-test-host-jvm:$ktor_version")
-                    testImplementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
+                    testImplementation(libs.ktor.client.content.negotiation)
                 </code-block>
             </step>
         </procedure>
