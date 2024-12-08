@@ -32,7 +32,6 @@ android {
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
     }
-    sourceSets["test"].java.srcDirs("src/test/kotlin")
 
     kotlinOptions {
         jvmTarget = "11"
