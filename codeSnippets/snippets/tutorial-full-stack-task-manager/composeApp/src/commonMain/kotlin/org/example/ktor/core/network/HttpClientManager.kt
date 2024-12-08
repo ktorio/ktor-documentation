@@ -1,4 +1,4 @@
-package org.example.ktor.core.extension
+package org.example.ktor.core.network
 
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -6,7 +6,7 @@ import io.ktor.client.plugins.defaultRequest
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
-fun HttpClient.configuredForApi() = config {
+fun createHttpClient() = HttpClient {
     install(ContentNegotiation) {
         json(Json {
             encodeDefaults = true

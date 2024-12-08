@@ -33,15 +33,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
-import io.ktor.client.HttpClient
 import kotlinx.coroutines.launch
-import org.example.ktor.core.extension.configuredForApi
+import org.example.ktor.core.network.createHttpClient
 
 @Composable
 fun App() {
 
     MaterialTheme {
-        val httpClient = HttpClient().configuredForApi()
+        val httpClient = createHttpClient()
         val taskApi = remember { TaskApi(httpClient) }
         var tasks by remember { mutableStateOf(emptyList<Task>()) }
         val scope = rememberCoroutineScope()
