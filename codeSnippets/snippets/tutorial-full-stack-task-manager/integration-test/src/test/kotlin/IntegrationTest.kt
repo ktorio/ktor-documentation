@@ -1,6 +1,10 @@
+package org.example.ktor
+
+import Priority
+import Task
+import TaskApi
 import core.extension.createConfiguredClient
 import io.ktor.server.testing.testApplication
-import org.example.ktor.module
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
