@@ -23,7 +23,7 @@ dependencies {
 }
 
 android {
-    namespace = "io.github.kez_lab.multipatform.full.integrationtest"
+    namespace = "org.example.ktor.integrationtest"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
