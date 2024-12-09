@@ -23,7 +23,8 @@ fun Application.main() {
     install(CallLogging)
     install(ContentNegotiation) {
         gson {
-            setDateFormat(DateFormat.LONG)
+            registerTypeAdapter(LocalDate::class.java, LocalDateAdapter())
+            setDateFormat(DateFormat.LONG, DateFormat.SHORT)
             setPrettyPrinting()
         }
     }
