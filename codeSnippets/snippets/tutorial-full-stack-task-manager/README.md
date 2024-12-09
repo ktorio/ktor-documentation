@@ -33,3 +33,11 @@ In Fleet, press `Cmd + R` to open the run configurations popup window and choose
 - `iOSApp` to run the app on iOS
 - `composeApp` to run the app on Android
 - `composeApp [desktop]` to run the app on Desktop
+
+## Test the application
+
+To run all integration tests in the `integration-test` module, use the following command:
+
+```shell
+./gradlew :integration-test:test
+```
