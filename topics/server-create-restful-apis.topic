@@ -731,9 +731,9 @@
             <step>
                 <p>
                     Add the following dependency into your version catalog located in
-                    <path>gradle/libs.versions.toml</path>
+                    <path>gradle/libs.versions.toml</path>:
                 </p>
-                <code-block lang="toml">
+                <code-block lang="yaml">
                     [libraries]
                     # ...
                     ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor-version" }
