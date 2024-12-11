@@ -13,21 +13,39 @@
     </link-summary>
 
     <p>
-        Ktor allows you to configure various server parameters, such as a host address and port, <a href="server-modules.md">modules</a> to load, and so on.
-        The configuration depends on the way you used to create a server - <a href="server-create-and-configure.topic">embeddedServer or EngineMain</a>.
+        Ktor allows you to configure various server parameters, such as a host address and port,
+        <a href="server-modules.md">modules</a>
+        to load, and so on.
+        The configuration depends on the way you used to create a server -
+        <a href="server-create-and-configure.topic">
+            embeddedServer or EngineMain
+        </a>
+        .
     </p>
     <p>
-        For <code>EngineMain</code>, Ktor loads its configuration from a configuration file that uses the <a href="https://github.com/lightbend/config/blob/master/HOCON.md">HOCON</a> or YAML format.
-        This way provides more flexibility to configure a server and allows you to change a configuration without recompiling your application.
-        Moreover, you can run your application from a command line and override the required server parameters by passing corresponding <a anchor="command-line">command-line</a> arguments.
+        For <code>EngineMain</code>, Ktor loads its configuration from a configuration file that uses the
+        <a href="https://github.com/lightbend/config/blob/master/HOCON.md">
+            HOCON
+        </a>
+        or YAML format. This way provides more flexibility to configure a server and allows you to change a
+        configuration without recompiling your application. Moreover, you can run your application from a command line
+        and override the required server parameters by passing corresponding
+        <a anchor="command-line">
+            command-line
+        </a>
+        arguments.
     </p>
-
-
-
     <chapter title="Overview" id="configuration-file-overview">
         <p>
-            If you use <a href="server-create-and-configure.topic" anchor="engine-main">EngineMain</a> to start a server, Ktor loads configuration settings automatically from a file named <path>application.*</path> located in the <path>resources</path> directory.
-            Two configuration formats are supported:
+            If you use
+            <a href="server-create-and-configure.topic" anchor="engine-main">
+                EngineMain
+            </a>
+            to start a server, Ktor loads configuration settings automatically from a file named
+            <path>application.*</path>
+            located in the
+            <path>resources</path>
+            directory. Two configuration formats are supported:
         </p>
         <list>
             <li>
@@ -41,16 +59,22 @@
                 </p>
                 <note>
                     <p>
-                        To use a YAML configuration file, you need to add the <code>ktor-server-config-yaml</code> <a href="server-dependencies.topic">dependency</a>.
+                        To use a YAML configuration file, you need to add the <code>ktor-server-config-yaml</code>
+                        <a href="server-dependencies.topic">
+                            dependency
+                        </a>
+                        .
                     </p>
                 </note>
             </li>
         </list>
-
         <p>
-            A configuration file should contain at least <a href="server-modules.md">modules to load</a> specified using the <code>ktor.application.modules</code> property, for example:
+            A configuration file should contain at least
+            <a href="server-modules.md">
+                modules to load
+            </a>
+            specified using the <code>ktor.application.modules</code> property, for example:
         </p>
-
         <tabs group="config">
             <tab title="application.conf" group-key="hocon">
                 <code-block
@@ -92,6 +116,68 @@
                             src="snippets/engine-main-yaml/src/main/resources/application.yaml"/>
                 </tab>
             </tabs>
+        </chapter>
+        <chapter title="Engine configuration" id="config-engine">
+           <snippet id="engine-main-configuration">
+               <p>
+                   If you use <code>EngineMain</code>, you can specify options common for all engines within the
+                   <code>ktor.deployment</code> group.
+               </p>
+               <tabs group="config">
+                   <tab title="application.conf" group-key="hocon">
+                       <code-block lang="shell">
+                           ktor {
+                               deployment {
+                                   connectionGroupSize = 2
+                                   workerGroupSize = 5
+                                   callGroupSize = 10
+                                   shutdownGracePeriod = 2000
+                                   shutdownTimeout = 3000
+                               }
+                           }
+                       </code-block>
+                   </tab>
+                   <tab title="application.yaml" group-key="yaml">
+                       <code-block lang="yaml">
+                           ktor:
+                               deployment:
+                                   connectionGroupSize: 2
+                                   workerGroupSize: 5
+                                   callGroupSize: 10
+                                   shutdownGracePeriod: 2000
+                                   shutdownTimeout: 3000
+                       </code-block>
+                   </tab>
+               </tabs>
+               <chapter title="Netty" id="netty-file">
+                   <p>
+                       You can also configure Netty-specific options in a configuration file within the
+                       <code>ktor.deployment</code> group:
+                   </p>
+                   <tabs group="config">
+                       <tab title="application.conf" group-key="hocon">
+                           <code-block lang="shell">
+                               ktor {
+                                   deployment {
+                                       maxInitialLineLength = 2048
+                                       maxHeaderSize = 1024
+                                       maxChunkSize = 42
+                                   }
+                               }
+                           </code-block>
+                       </tab>
+                       <tab title="application.yaml" group-key="yaml">
+                           <code-block lang="yaml">
+                               ktor:
+                                   deployment:
+                                       maxInitialLineLength: 2048
+                                       maxHeaderSize: 1024
+                                       maxChunkSize: 42
+                           </code-block>
+                       </tab>
+                   </tabs>
+               </chapter>
+           </snippet>
         </chapter>
 
         <chapter title="SSL configuration" id="config-ssl">
