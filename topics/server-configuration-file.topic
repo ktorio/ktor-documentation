@@ -50,12 +50,16 @@
         <list>
             <li>
                 <p>
-                    HOCON (<path>application.conf</path>)
+                    HOCON (
+                    <path>application.conf</path>
+                    )
                 </p>
             </li>
             <li>
                 <p>
-                    YAML (<path>application.yaml</path>)
+                    YAML (
+                    <path>application.yaml</path>
+                    )
                 </p>
                 <note>
                     <p>
@@ -76,12 +80,13 @@
             specified using the <code>ktor.application.modules</code> property, for example:
         </p>
         <tabs group="config">
-            <tab title="application.conf" group-key="hocon">
+            <tab title="application.conf" group-key="hocon" id="application-conf-2">
                 <code-block
+                        lang="shell"
                         src="snippets/engine-main/src/main/resources/application.conf"
                         include-lines="1,5-8"/>
             </tab>
-            <tab title="application.yaml" group-key="yaml">
+            <tab title="application.yaml" group-key="yaml" id="application-yaml-2">
                 <code-block
                         lang="yaml"
                         src="snippets/engine-main-yaml/src/main/resources/application.yaml"
@@ -90,27 +95,33 @@
         </tabs>
 
         <p>
-            In this case, Ktor calls the <code>Application.module</code> function in the <path>Application.kt</path> file below:
+            In this case, Ktor calls the <code>Application.module</code> function in the
+            <path>Application.kt</path>
+            file below:
         </p>
         <code-block
                 lang="kotlin"
                 src="snippets/engine-main/src/main/kotlin/com/example/Application.kt">
         </code-block>
         <p>
-            Besides modules to load, you can configure various server settings, including <a anchor="predefined-properties">predefined</a> (such as a port or host, SSL settings, etc.) and custom ones.
+            Besides modules to load, you can configure various server settings, including
+            <a anchor="predefined-properties">predefined</a>
+            (such as a port or host, SSL settings, etc.) and custom ones.
             Let's take a look at several examples.
         </p>
 
         <chapter title="Basic configuration" id="config-basic">
             <p>
-                In the example below, a server listening port is set to <code>8080</code> using the <code>ktor.deployment.port</code> property.
+                In the example below, a server listening port is set to <code>8080</code> using the
+                <code>ktor.deployment.port</code> property.
             </p>
             <tabs group="config">
-                <tab title="application.conf" group-key="hocon">
+                <tab title="application.conf" group-key="hocon" id="application-conf-3">
                     <code-block
+                            lang="shell"
                             src="snippets/engine-main/src/main/resources/application.conf"/>
                 </tab>
-                <tab title="application.yaml" group-key="yaml">
+                <tab title="application.yaml" group-key="yaml" id="application-yaml-3">
                     <code-block
                             lang="yaml"
                             src="snippets/engine-main-yaml/src/main/resources/application.yaml"/>
@@ -118,27 +129,27 @@
             </tabs>
         </chapter>
         <chapter title="Engine configuration" id="config-engine">
-           <snippet id="engine-main-configuration">
-               <p>
-                   If you use <code>EngineMain</code>, you can specify options common for all engines within the
-                   <code>ktor.deployment</code> group.
-               </p>
-               <tabs group="config">
-                   <tab title="application.conf" group-key="hocon">
-                       <code-block lang="shell">
-                           ktor {
-                               deployment {
-                                   connectionGroupSize = 2
-                                   workerGroupSize = 5
-                                   callGroupSize = 10
-                                   shutdownGracePeriod = 2000
-                                   shutdownTimeout = 3000
-                               }
-                           }
-                       </code-block>
-                   </tab>
-                   <tab title="application.yaml" group-key="yaml">
-                       <code-block lang="yaml">
+            <snippet id="engine-main-configuration">
+                <p>
+                    If you use <code>EngineMain</code>, you can specify options common for all engines within the
+                    <code>ktor.deployment</code> group.
+                </p>
+                <tabs group="config">
+                    <tab title="application.conf" group-key="hocon" id="engine-main-conf">
+                        <code-block lang="shell"><![CDATA[
+                            ktor {
+                                deployment {
+                                    connectionGroupSize = 2
+                                    workerGroupSize = 5
+                                    callGroupSize = 10
+                                    shutdownGracePeriod = 2000
+                                    shutdownTimeout = 3000
+                                }
+                            }
+                        ]]></code-block>
+                    </tab>
+                    <tab title="application.yaml" group-key="yaml" id="engine-main-yaml">
+                        <code-block lang="yaml"><![CDATA[
                            ktor:
                                deployment:
                                    connectionGroupSize: 2
@@ -146,17 +157,17 @@
                                    callGroupSize: 10
                                    shutdownGracePeriod: 2000
                                    shutdownTimeout: 3000
-                       </code-block>
-                   </tab>
-               </tabs>
-               <chapter title="Netty" id="netty-file">
-                   <p>
-                       You can also configure Netty-specific options in a configuration file within the
-                       <code>ktor.deployment</code> group:
-                   </p>
-                   <tabs group="config">
-                       <tab title="application.conf" group-key="hocon">
-                           <code-block lang="shell">
+                       ]]></code-block>
+                    </tab>
+                </tabs>
+                <chapter title="Netty" id="netty-file">
+                    <p>
+                        You can also configure Netty-specific options in a configuration file within the
+                        <code>ktor.deployment</code> group:
+                    </p>
+                    <tabs group="config">
+                        <tab title="application.conf" group-key="hocon" id="application-conf-1">
+                            <code-block lang="shell"><![CDATA[
                                ktor {
                                    deployment {
                                        maxInitialLineLength = 2048
@@ -164,32 +175,37 @@
                                        maxChunkSize = 42
                                    }
                                }
-                           </code-block>
-                       </tab>
-                       <tab title="application.yaml" group-key="yaml">
-                           <code-block lang="yaml">
+                           ]]></code-block>
+                        </tab>
+                        <tab title="application.yaml" group-key="yaml" id="application-yaml-1">
+                            <code-block lang="yaml"><![CDATA[
                                ktor:
                                    deployment:
                                        maxInitialLineLength: 2048
                                        maxHeaderSize: 1024
                                        maxChunkSize: 42
-                           </code-block>
-                       </tab>
-                   </tabs>
-               </chapter>
-           </snippet>
+                           ]]></code-block>
+                        </tab>
+                    </tabs>
+                </chapter>
+            </snippet>
         </chapter>
 
         <chapter title="SSL configuration" id="config-ssl">
             <p>
-                The example below enables Ktor to listen on the <code>8443</code> SSL port and specifies the required <a href="server-ssl.md">SSL settings</a> in a separate <code>security</code> block.
+                The example below enables Ktor to listen on the <code>8443</code> SSL port and specifies the required
+                <a href="server-ssl.md">
+                    SSL settings
+                </a>
+                in a separate <code>security</code> block.
             </p>
             <tabs group="config">
-                <tab title="application.conf" group-key="hocon">
+                <tab title="application.conf" group-key="hocon" id="application-conf">
                     <code-block
+                            lang="shell"
                             src="snippets/ssl-engine-main/src/main/resources/application.conf"/>
                 </tab>
-                <tab title="application.yaml" group-key="yaml">
+                <tab title="application.yaml" group-key="yaml" id="application-yaml">
                     <code-block
                             lang="yaml"
                             src="snippets/ssl-engine-main/src/main/resources/_application.yaml"/>
@@ -201,14 +217,17 @@
             <p>
                 Apart from specifying the <a anchor="predefined-properties">predefined properties</a>,
                 Ktor allows you to keep custom settings in the configuration file.
-                The configuration files below contain a custom <code>jwt</code> group used to keep <a href="server-jwt.md" anchor="jwt-settings">JWT</a> settings.
+                The configuration files below contain a custom <code>jwt</code> group used to keep
+                <a href="server-jwt.md" anchor="jwt-settings">JWT</a>
+                settings.
             </p>
             <tabs group="config">
-                <tab title="application.conf" group-key="hocon">
+                <tab title="application.conf" group-key="hocon" id="application-conf-4">
                     <code-block
+                            lang="shell"
                             src="snippets/auth-jwt-hs256/src/main/resources/application-custom.conf"/>
                 </tab>
-                <tab title="application.yaml" group-key="yaml">
+                <tab title="application.yaml" group-key="yaml" id="application-yaml-4">
                     <code-block
                             lang="yaml"
                             src="snippets/auth-jwt-hs256/src/main/resources/_application.yaml"/>
@@ -219,42 +238,52 @@
             </p>
             <warning>
                 <p>
-                    Note that sensitive data (like secret keys, database connection settings, and so on) should not be stored in the configuration file as plain text.
-                    Consider using <a anchor="environment-variables">environment variables</a> to specify such parameters.
+                    Note that sensitive data (like secret keys, database connection settings, and so on) should not be
+                    stored in the configuration file as plain text. Consider using
+                    <a anchor="environment-variables">
+                        environment variables
+                    </a>
+                    to specify such parameters.
                 </p>
             </warning>
         </chapter>
     </chapter>
 
 
-
     <chapter title="Predefined properties" id="predefined-properties">
         <p>
-            Below is a list of predefined settings that you can use inside a <a anchor="configuration-file-overview">configuration file</a>.
+            Below is a list of predefined settings that you can use inside a
+            <a anchor="configuration-file-overview">
+                configuration file
+            </a>.
         </p>
-        <deflist style="wide">
-            <def title="ktor.deployment.host">
+        <deflist type="wide">
+            <def title="ktor.deployment.host" id="ktor-deployment-host">
                 <p>
                     A host address.
                 </p>
                 <p>
-                    <emphasis>Example</emphasis>: <code>0.0.0.0</code>
+                    <emphasis>Example</emphasis>
+                    : <code>0.0.0.0</code>
                 </p>
             </def>
-            <def title="ktor.deployment.port">
+            <def title="ktor.deployment.port" id="ktor-deployment-port">
                 <p>
                     A listening port. You can set this property to <code>0</code> to run the server on a random port.
                 </p>
                 <p>
-                    <emphasis>Example</emphasis>: <code>8080</code>, <code>0</code>
+                    <emphasis>Example</emphasis>
+                    : <code>8080</code>, <code>0</code>
                 </p>
             </def>
-            <def title="ktor.deployment.sslPort">
+            <def title="ktor.deployment.sslPort" id="ktor-deployment-ssl-port">
                 <p>
-                    A listening SSL port. You can set this property to <code>0</code> to run the server on a random port.
+                    A listening SSL port. You can set this property to <code>0</code> to run the server on a random
+                    port.
                 </p>
                 <p>
-                    <emphasis>Example</emphasis>: <code>8443</code>, <code>0</code>
+                    <emphasis>Example</emphasis>
+                    : <code>8443</code>, <code>0</code>
                 </p>
                 <note>
                     <p>
@@ -262,131 +291,136 @@
                     </p>
                 </note>
             </def>
-            <def title="ktor.deployment.watch">
+            <def title="ktor.deployment.watch" id="ktor-deployment-watch">
                 <p>
                     Watch paths used for <a href="server-auto-reload.topic" anchor="watch-paths">auto-reloading</a>.
                 </p>
             </def>
-            <def title="ktor.deployment.rootPath">
+            <def title="ktor.deployment.rootPath" id="ktor-deployment-root-path">
                 <p>
                     A <a href="server-war.md">servlet</a> context path.
                 </p>
                 <p>
-                    <emphasis>Example</emphasis>: <code>/</code>
+                    <emphasis>Example</emphasis>
+                    : <code>/</code>
                 </p>
             </def>
-            <def title="ktor.deployment.shutdown.url">
+            <def title="ktor.deployment.shutdown.url" id="ktor-deployment-shutdown-url">
                 <p>
                     A shutdown URL.
                     Note that this option uses the <a href="server-shutdown-url.md"/> plugin.
                 </p>
             </def>
-            <def title="ktor.deployment.shutdownGracePeriod">
+            <def title="ktor.deployment.shutdownGracePeriod" id="ktor-deployment-shutdown-grace-period">
                 <p>
                     A maximum time in milliseconds for a server to stop accepting new requests.
                 </p>
             </def>
-            <def title="ktor.deployment.shutdownTimeout">
+            <def title="ktor.deployment.shutdownTimeout" id="ktor-deployment-shutdown-timeout">
                 <p>
                     A maximum time in milliseconds to wait until the server stops completely.
                 </p>
             </def>
-            <def title="ktor.deployment.callGroupSize">
+            <def title="ktor.deployment.callGroupSize" id="ktor-deployment-call-group-size">
                 <p>
                     A minimum size of a thread pool used to process application calls.
                 </p>
             </def>
-            <def title="ktor.deployment.connectionGroupSize">
+            <def title="ktor.deployment.connectionGroupSize" id="ktor-deployment-connection-group-size">
                 <p>
                     A count of threads used to accept new connections and start call processing.
                 </p>
             </def>
-            <def title="ktor.deployment.workerGroupSize">
+            <def title="ktor.deployment.workerGroupSize" id="ktor-deployment-worker-group-size">
                 <p>
-                    A size of the event group for processing connections, parsing messages, and doing the engine's internal work.
+                    A size of the event group for processing connections, parsing messages, and doing the engine's
+                    internal work.
                 </p>
             </def>
         </deflist>
         <p id="ssl">
-            If you've set <code>ktor.deployment.sslPort</code>, you need to specify the following <a href="server-ssl.md">SSL-specific</a> properties:
+            If you've set <code>ktor.deployment.sslPort</code>, you need to specify the following
+            <a href="server-ssl.md">
+                SSL-specific
+            </a>
+            properties:
         </p>
-        <deflist style="wide">
-            <def title="ktor.security.ssl.keyStore">
+        <deflist type="wide">
+            <def title="ktor.security.ssl.keyStore" id="ktor-security-ssl-keystore">
                 <p>
                     An SSL key store.
                 </p>
             </def>
-            <def title="ktor.security.ssl.keyAlias">
+            <def title="ktor.security.ssl.keyAlias" id="ktor-security-ssl-key-alias">
                 <p>
                     An alias for the SSL key store.
                 </p>
             </def>
-            <def title="ktor.security.ssl.keyStorePassword">
+            <def title="ktor.security.ssl.keyStorePassword" id="ktor-security-ssl-keystore-password">
                 <p>
                     A password for the SSL key store.
                 </p>
             </def>
-            <def title="ktor.security.ssl.privateKeyPassword">
+            <def title="ktor.security.ssl.privateKeyPassword" id="ktor-security-ssl-private-key-password">
                 <p>
                     A password for the SSL private key.
                 </p>
             </def>
         </deflist>
-
     </chapter>
-
 
 
     <chapter title="Environment variables" id="environment-variables">
         <p>
-            In a configuration file, you can substitute parameters with environment variables by using the <code>${ENV}</code> / <code>$ENV</code> syntax.
-            For example, you can assign the <code>PORT</code> environment variable to the <code>ktor.deployment.port</code> property in the following way:
+            In a configuration file, you can substitute parameters with environment variables by using the
+            <code>${ENV}</code> / <code>$ENV</code> syntax.
+            For example, you can assign the <code>PORT</code> environment variable to the
+            <code>ktor.deployment.port</code> property in the following way:
         </p>
         <tabs group="config">
-            <tab title="application.conf" group-key="hocon">
-                <code-block>
+            <tab title="application.conf" group-key="hocon" id="env-var-conf">
+                <code-block lang="shell"><![CDATA[
                     ktor {
                         deployment {
                             port = ${PORT}
                         }
                     }
-                </code-block>
+                ]]></code-block>
             </tab>
-            <tab title="application.yaml" group-key="yaml">
-                <code-block lang="yaml">
+            <tab title="application.yaml" group-key="yaml" id="env-var-yaml">
+                <code-block lang="yaml"><![CDATA[
                     ktor:
                         deployment:
                             port: $PORT
-                </code-block>
+                ]]></code-block>
             </tab>
         </tabs>
 
         <p>
             In this case, an environment variable value will be used to specify a listening port.
-            If the <code>PORT</code> environment variable variable doesn't exist at runtime, you can provide a default port value as follows:
+            If the <code>PORT</code> environment variable variable doesn't exist at runtime, you can provide a default
+            port value as follows:
         </p>
         <tabs group="config">
-            <tab title="application.conf" group-key="hocon">
-                <code-block>
+            <tab title="application.conf" group-key="hocon" id="config-conf">
+                <code-block lang="shell"><![CDATA[
                     ktor {
                         deployment {
                             port = 8080
                             port = ${?PORT}
                         }
                     }
-                </code-block>
+                ]]></code-block>
             </tab>
-            <tab title="application.yaml" group-key="yaml">
-                <code-block lang="yaml">
+            <tab title="application.yaml" group-key="yaml" id="config-yaml">
+                <code-block lang="yaml"><![CDATA[
                     ktor:
                         deployment:
                             port: "$PORT:8080"
-                </code-block>
+                ]]></code-block>
             </tab>
         </tabs>
     </chapter>
-
-
     <chapter title="Read configuration in code" id="read-configuration-in-code">
         <p>
             Ktor allows you to access property values specified inside a configuration file in code.
@@ -394,28 +428,32 @@
         </p>
 
         <tabs group="config">
-            <tab title="application.conf" group-key="hocon">
-                <code-block>
+            <tab title="application.conf" group-key="hocon" id="config-conf-1">
+                <code-block lang="shell"><![CDATA[
                     ktor {
                         deployment {
                             port = 8080
                         }
                     }
-                </code-block>
+                ]]></code-block>
             </tab>
-            <tab title="application.yaml" group-key="yaml">
-                <code-block lang="yaml">
+            <tab title="application.yaml" group-key="yaml" id="config-yaml-1">
+                <code-block lang="yaml"><![CDATA[
                     ktor:
                         deployment:
                             port: 8080
-                </code-block>
+                ]]></code-block>
             </tab>
         </tabs>
 
         <p>
-            ... you can access the application's configuration using <a href="https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-environment/config.html">ApplicationEnvironment.config</a> and get the required property value in the following way:
+            ... you can access the application's configuration using
+            <a href="https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-environment/config.html">
+                ApplicationEnvironment.config
+            </a>
+            and get the required property value in the following way:
         </p>
-        <code-block lang="kotlin">
+        <code-block lang="kotlin"><![CDATA[
             import io.ktor.server.application.*
             import io.ktor.server.response.*
             import io.ktor.server.routing.*
@@ -428,15 +466,19 @@
                     }
                 }
             }
-        </code-block>
+        ]]></code-block>
         <p>
-            This is especially useful when you keep <a anchor="custom-property">custom settings</a> in a configuration file and need to access its values.
+            This is especially useful when you keep <a anchor="custom-property">custom settings</a> in a configuration
+            file and need to access its values.
         </p>
     </chapter>
 
     <chapter title="Command line" id="command-line">
         <p>
-            If you use <a href="server-create-and-configure.topic" anchor="engine-main">EngineMain</a> to create a server, you can run a <a href="server-fatjar.md">packaged application</a> from a command line and override the required server parameters by passing corresponding command-line arguments. For example, you can override a port specified in a configuration file in the following way:
+            If you use <a href="server-create-and-configure.topic" anchor="engine-main">EngineMain</a> to create a
+            server, you can run a <a href="server-fatjar.md">packaged application</a> from a command line and override
+            the required server parameters by passing corresponding command-line arguments. For example, you can
+            override a port specified in a configuration file in the following way:
         </p>
         <code-block>
             java -jar sample-app.jar -port=8080
@@ -444,35 +486,43 @@
         <p>
             The available command-line options are listed below:
         </p>
-        <deflist style="narrow">
-            <def title="-jar">
+        <deflist type="narrow">
+            <def title="-jar" id="jar">
                 <p>
                     A path to JAR file.
                 </p>
             </def>
-            <def title="-config">
+            <def title="-config" id="config">
                 <p>
-                    A path to a custom configuration file used instead of <path>application.conf</path> / <path>application.yaml</path> from resources.
+                    A path to a custom configuration file used instead of
+                    <path>application.conf</path>
+                    /
+                    <path>application.yaml</path>
+                    from resources.
                 </p>
                 <p>
-                    <emphasis>Example</emphasis>: <code>java -jar sample-app.jar -config=anotherfile.conf</code>
+                    <emphasis>Example</emphasis>
+                    : <code>java -jar sample-app.jar -config=anotherfile.conf</code>
                 </p>
                 <p>
-                    <emphasis>Note</emphasis>: You can pass multiple values. <code>java -jar sample-app.jar -config=config-base.conf -config=config-dev.conf</code>. In this case all configs will be merged, where values from configs on the right will have priority.
+                    <emphasis>Note</emphasis>
+                    : You can pass multiple values. <code>java -jar sample-app.jar -config=config-base.conf
+                    -config=config-dev.conf</code>. In this case all configs will be merged, where values from configs
+                    on the right will have priority.
                 </p>
 
             </def>
-            <def title="-host">
+            <def title="-host" id="host">
                 <p>
                     A host address.
                 </p>
             </def>
-            <def title="-port">
+            <def title="-port" id="port">
                 <p>
                     A listening port.
                 </p>
             </def>
-            <def title="-watch">
+            <def title="-watch" id="watch">
                 <p>
                     Watch paths used for <a href="server-auto-reload.topic" anchor="watch-paths">auto-reloading</a>.
                 </p>
@@ -481,13 +531,13 @@
         <p>
             <a href="server-ssl.md">SSL-specific</a> options:
         </p>
-        <deflist style="narrow">
-            <def title="-sslPort">
+        <deflist type="narrow">
+            <def title="-sslPort" id="ssl-port">
                 <p>
                     A listening SSL port.
                 </p>
             </def>
-            <def title="-sslKeyStore">
+            <def title="-sslKeyStore" id="ssl-keystore">
                 <p>
                     An SSL key store.
                 </p>
@@ -508,25 +558,43 @@
 
     <chapter title="Example: How to specify an environment using a custom property" id="custom-property">
         <p>
-            You might want to do different things depending on whether a server is running locally or on a production machine.
-            To achieve this, you can add a custom property in <path>application.conf</path> / <path>application.yaml</path> and initialize it with a dedicated <a anchor="environment-variables">environment variable</a> whose value depends on whether a server is running locally or on production. In the example below, the <code>KTOR_ENV</code> environment variable is assigned to a custom <code>ktor.environment</code> property.
+            You might want to do different things depending on whether a server is running locally or on a production
+            machine. To achieve this, you can add a custom property in
+            <path>application.conf</path>
+            /
+            <path>application.yaml</path>
+            and initialize it with a dedicated <a anchor="environment-variables">environment variable</a> whose value
+            depends on whether a server is running locally or on production. In the example below, the
+            <code>KTOR_ENV</code> environment variable is assigned to a custom <code>ktor.environment</code> property.
         </p>
 
         <tabs group="config">
-            <tab title="application.conf" group-key="hocon">
-                <code-block src="snippets/engine-main-custom-environment/src/main/resources/application.conf" include-lines="1-2,9"/>
+            <tab title="application.conf" group-key="hocon" id="application-conf-5">
+                <code-block src="snippets/engine-main-custom-environment/src/main/resources/application.conf"
+                            include-lines="1-2,9"/>
             </tab>
-            <tab title="application.yaml" group-key="yaml">
-                <code-block lang="yaml" src="snippets/engine-main-custom-environment/src/main/resources/application.yaml" include-lines="1-2"/>
+            <tab title="application.yaml" group-key="yaml" id="application-yaml-5">
+                <code-block lang="yaml"
+                            src="snippets/engine-main-custom-environment/src/main/resources/application.yaml"
+                            include-lines="1-2"/>
             </tab>
         </tabs>
 
         <p>
-            You can access the <code>ktor.environment</code> value at runtime by <a anchor="read-configuration-in-code">reading configuration in code</a> and perform the required actions:
+            You can access the <code>ktor.environment</code> value at runtime by
+            <a anchor="read-configuration-in-code">
+                reading configuration in code
+            </a>
+            and perform the required actions:
         </p>
-        <code-block lang="kotlin" src="snippets/engine-main-custom-environment/src/main/kotlin/com/example/Application.kt" include-lines="3-6,9-20"/>
+        <code-block lang="kotlin"
+                    src="snippets/engine-main-custom-environment/src/main/kotlin/com/example/Application.kt"
+                    include-lines="3-6,9-20"/>
         <p>
-            You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main-custom-environment">engine-main-custom-environment</a>.
+            You can find the full example here:
+            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main-custom-environment">
+                engine-main-custom-environment
+            </a>.
         </p>
     </chapter>
 

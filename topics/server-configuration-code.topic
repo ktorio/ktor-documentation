@@ -56,7 +56,8 @@
         <snippet id="embedded-engine-configuration">
             <p>
                 The <code>embeddedServer</code> function allows you to pass engine-specific options using the
-                <code>configure</code> parameter. This parameter includes options common for all engines and exposed by the
+                <code>configure</code> parameter. This parameter includes options common for all engines and exposed by
+                the
                 <a href="https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/-application-engine/-configuration/index.html">
                     ApplicationEngine.Configuration
                 </a>
@@ -73,7 +74,8 @@
                     include-lines="3-7,14,39-56"
             />
             <p>
-                The <code>connectors.add()</code> method defines a connector with the specified host (<code>127.0.0.1</code>)
+                The <code>connectors.add()</code> method defines a connector with the specified host
+                (<code>127.0.0.1</code>)
                 and port (<code>8080</code>).
             </p>
             <p>In addition to these options, you can configure other engine-specific properties.</p>
@@ -85,7 +87,7 @@
                     </a>
                     class.
                 </p>
-                <code-block lang="kotlin">
+                <code-block lang="kotlin"><![CDATA[
                     import io.ktor.server.engine.*
                     import io.ktor.server.netty.*
 
@@ -101,7 +103,7 @@
                             // ...
                         }.start(true)
                     }
-                </code-block>
+                ]]></code-block>
             </chapter>
             <chapter title="Jetty" id="jetty-code">
                 <p>
@@ -120,10 +122,10 @@
                     instance.
                 </p>
                 <p>
-                    Use the <code>idleTimeout</code> property to specify the duration of time a connection can be idle before
-                    it gets closed.
+                    Use the <code>idleTimeout</code> property to specify the duration of time a connection can be idle
+                    before it gets closed.
                 </p>
-                <code-block lang="kotlin">
+                <code-block lang="kotlin"><![CDATA[
                     import io.ktor.server.engine.*
                     import io.ktor.server.jetty.*
 
@@ -137,7 +139,7 @@
                             // ...
                         }.start(true)
                     }
-                </code-block>
+                ]]></code-block>
             </chapter>
             <chapter title="CIO" id="cio-code">
                 <p>CIO-specific options are exposed by the
@@ -146,7 +148,7 @@
                     </a>
                     class.
                 </p>
-                <code-block lang="kotlin">
+                <code-block lang="kotlin"><![CDATA[
                     import io.ktor.server.engine.*
                     import io.ktor.server.cio.*
 
@@ -157,7 +159,7 @@
                             // ...
                         }.start(true)
                     }
-                </code-block>
+                ]]></code-block>
             </chapter>
             <chapter title="Tomcat" id="tomcat-code">
                 <p>If you use Tomcat as the engine, you can configure it using the
@@ -168,7 +170,7 @@
                     <a href="https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/startup/Tomcat.html">Tomcat</a>
                     instance.
                 </p>
-                <code-block lang="kotlin">
+                <code-block lang="kotlin"><![CDATA[
                     import io.ktor.server.engine.*
                     import io.ktor.server.tomcat.*
 
@@ -181,7 +183,7 @@
                             // ...
                         }.start(true)
                     }
-                </code-block>
+                ]]></code-block>
             </chapter>
         </snippet>
     </chapter>
