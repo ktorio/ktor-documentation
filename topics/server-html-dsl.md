@@ -98,6 +98,10 @@ Let's see on the [example](https://github.com/ktorio/ktor-documentation/tree/%kt
 <article>
     <h2>Hello from Ktor!</h2>
     <p>Kotlin Framework for creating connected systems.</p>
+    <ul>
+       <li><b>One</b></li>
+       <li>Two</li>
+    </ul>
 </article>
 </body>
 ```
@@ -120,7 +124,7 @@ Let's implement these layouts step-by-step:
 2. A root layout template will look in the following way:
    ```kotlin
    ```
-   {src="snippets/html-templates/src/main/kotlin/com/example/Application.kt" include-lines="30-41"}
+   {src="snippets/html-templates/src/main/kotlin/com/example/Application.kt" include-lines="34-45"}
 
    The class exposes two properties:
    * The `header` property specifies a content inserted within the `h1` tag.
@@ -129,13 +133,21 @@ Let's implement these layouts step-by-step:
 3. A child template will look as follows:
    ```kotlin
    ```
-   {src="snippets/html-templates/src/main/kotlin/com/example/Application.kt" include-lines="43-56"}
+   {src="snippets/html-templates/src/main/kotlin/com/example/Application.kt" include-lines="47-62"}
 
-   This template exposes the `articleTitle` and `articleText` properties, whose values will be inserted inside the `article`.
+   This template exposes the `articleTitle`, `articleText` and `list` properties, whose values will be inserted inside the `article`.
 
-4. Now we are ready to send HTML built using the specified property values:
+4. To provide list values as the template we need another class: 
    ```kotlin
    ```
-   {src="snippets/html-templates/src/main/kotlin/com/example/Application.kt" include-lines="12-26"}
+   {src="snippets/html-templates/src/main/kotlin/com/example/Application.kt" include-lines="64-83"}
+
+   This template uses `PlaceholderList` class to build unordered list (`UL`) from provided items.
+   It surrounds first item in the list with `<b>` element.
+
+5. Now we are ready to send HTML built using the specified property values:
+   ```kotlin
+   ```
+   {src="snippets/html-templates/src/main/kotlin/com/example/Application.kt" include-lines="12-30"}
 
 You can find the full example here: [html-templates](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/html-templates).
