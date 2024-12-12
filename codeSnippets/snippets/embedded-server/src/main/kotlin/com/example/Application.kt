@@ -6,11 +6,10 @@ import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 
 /*
-   Important: This contents of this file are referenced by line number in `server-configuration-code.topic`
+   Important: The contents of this file are referenced by line number in `server-configuration-code.topic`
     and `server-engines.md`. If you add, remove, or modify any lines, ensure you update the corresponding
     line numbers in the `code-block` element of the referenced file.
 */
-
 fun main(args: Array<String>) {
     if (args.isEmpty()) {
         println("Running basic server...")

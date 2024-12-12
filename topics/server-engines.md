@@ -55,7 +55,7 @@ server with the Netty engine and listen on the `8080` port:
 ```kotlin
 ```
 
-{src="snippets/embedded-server/src/main/kotlin/com/example/Application.kt" include-lines="3-7,14,29-36"}
+{src="snippets/embedded-server/src/main/kotlin/com/example/Application.kt" include-lines="3-7,13,28-35"}
 
 ### EngineMain {id="EngineMain"}
 
