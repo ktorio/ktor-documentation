@@ -6,8 +6,8 @@ import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 
 /*
-   Important: The contents of this file are referenced by line number in `server-configuration-code.topic`
-    and `server-engines.md`. If you add, remove, or modify any lines, ensure you update the corresponding
+   Important: The contents of this file are referenced by line number in `server-configuration-code.topic`,
+   `server-engines.md` and `migrating-3.md`. If you add, remove, or modify any lines, ensure you update the corresponding
     line numbers in the `code-block` element of the referenced file.
 */
 fun main(args: Array<String>) {
@@ -20,7 +20,7 @@ fun main(args: Array<String>) {
     when (args[0]) {
         "basic" -> runBasicServer()
         "configured" -> runConfiguredServer()
-        else -> println("Unknown argument: ${args[0]}. Use 'basic' or 'configured'.")
+        else -> runServerWithCommandLineConfig(args)
     }
 }
 
@@ -46,6 +46,23 @@ fun runConfiguredServer() {
         shutdownGracePeriod = 2000
         shutdownTimeout = 3000
     }) {
+        routing {
+            get("/") {
+                call.respondText("Hello, world!")
+            }
+        }
+    }.start(wait = true)
+}
+
+fun runServerWithCommandLineConfig(args: Array<String>) {
+    embeddedServer(
+        factory = Netty,
+        configure = {
+            val cliConfig = CommandLineConfig(args)
+            takeFrom(cliConfig.engineConfig)
+            loadCommonConfiguration(cliConfig.rootConfig.environment.config)
+        }
+    ) {
         routing {
             get("/") {
                 call.respondText("Hello, world!")

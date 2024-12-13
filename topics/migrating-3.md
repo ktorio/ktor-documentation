@@ -20,6 +20,7 @@ This restructuring comes with the following set of breaking changes:
 
 - [`ApplicationEngineEnvironmentBuilder` and `applicationEngineEnvironment` classes are renamed](#renamed-classes).
 - [`start()` and `stop()` methods are removed from `ApplicationEngineEnvironment`](#ApplicationEnvironment).
+- [`commandLineEnvironment()` is removed.](#CommandLineConfig).
 - [Introduction of `ServerConfigBuilder`](#ServerConfigBuilder).
 - [`embeddedServer()` returns`EmbeddedServer`](#EmbeddedServer) instead of `ApplicationEngine`.
 
@@ -99,6 +100,46 @@ fun defaultServer(module: Application.() -> Unit) =
 ```
 
 </compare>
+
+#### `commandLineEnvironment()` is removed {id="CommandLineConfig"}
+
+The `commandLineEnvironment()` function, used to create an `ApplicationEngineEnvironment` instance from command line
+arguments has been removed in Ktor `3.0.0`. Instead, you can use the
+[`CommandLineConfig`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/-command-line-config.html)
+function to parse command-line arguments into a configuration object.
+
+To migrate your application from `commandLineEnvironment` to `CommandLineConfig`, replace `commandLineEnvironment()`
+with a `configure` block as shown below.
+
+<compare first-title="2.2.x" second-title="3.0.x">
+
+```kotlin
+fun main(args: Array<String>) {
+    embeddedServer(Netty, commandLineEnvironment(args) {
+        connector { port = 8080 }
+        module {
+            routing {
+                get("/") {
+                    call.respondText("Hello, world!")
+                }
+            }
+        }
+    }) {
+        requestReadTimeoutSeconds = 5
+        responseWriteTimeoutSeconds = 5
+    }.start(wait = true)
+}
+```
+
+```kotlin
+```
+
+{src="snippets/embedded-server/src/main/kotlin/com/example/Application.kt" include-lines="13,58-72"}
+
+</compare>
+
+For more information on command-line configuration with `embeddedServer`, see the
+[Configuration in code](server-configuration-code.topic#command-line) topic.
 
 #### Introduction of `ServerConfigBuilder` {id="ServerConfigBuilder"}
 
