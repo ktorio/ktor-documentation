@@ -5,7 +5,7 @@ A sample Ktor project showing how to enable and configure [Micrometer metrics](h
 
 ## Running a sample
 
-To run a sample, execute the following command in a repository's root directory:
+To run a sample, execute the following command in the `codeSnippets` directory:
 
 ```bash
 ./gradlew :micrometer-metrics:run
