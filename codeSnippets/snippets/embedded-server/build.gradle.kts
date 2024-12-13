@@ -12,6 +12,14 @@ application {
     mainClass.set("com.example.ApplicationKt")
 }
 
+tasks.register<JavaExec>("runConfiguredServer") {
+    group = "application"
+    description = "Run the configured server on port 8080"
+    classpath = sourceSets["main"].runtimeClasspath
+    mainClass.set("com.example.ApplicationKt")
+    args("configured")
+}
+
 repositories {
     mavenCentral()
     maven { url = uri("https://maven.pkg.jetbrains.space/public/p/ktor/eap") }

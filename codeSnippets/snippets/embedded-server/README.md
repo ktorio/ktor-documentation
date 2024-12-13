@@ -5,7 +5,14 @@ A sample Ktor project showing how to create a server using the [embeddedServer](
 
 ## Running
 
-To run a sample, execute the following command in a repository's root directory:
+To run the basic sample, execute the following command from the `codeSnippets` directory:
+
 ```bash
 ./gradlew :embedded-server:run
+```
+
+To run the configured server, execute the following command from the `codeSnippets` directory:
+
+```bash
+./gradlew :embedded-server:runConfiguredServer
 ```
