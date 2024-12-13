@@ -35,10 +35,10 @@ These changes will impact existing code that relies on the previous model.
 #### `start()` and `stop()` methods are removed from `ApplicationEngineEnvironment` {id="ApplicationEnvironment"}
 
 With the merge of `AplicationEngineEnvironment`
-to [`ApplicationEnvironment`](https://api.ktor.io/older/3.0.0-beta-1/ktor-server/ktor-server-core/io.ktor.server.application/-application-environment/index.html),
+to [`ApplicationEnvironment`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-environment/index.html),
 the `start()` and `stop()` methods are now
 only accessible
-through [`ApplicationEngine`](https://api.ktor.io/older/3.0.0-beta-1/ktor-server/ktor-server-core/io.ktor.server.engine/-application-engine/index.html).
+through [`ApplicationEngine`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/-application-engine/index.html).
 
 | 2.x.x                                                 | 3.0.x                                |
 |-------------------------------------------------------|--------------------------------------|
@@ -120,7 +120,7 @@ to reflect this new configuration approach.
 #### Introduction of `EmbeddedServer` {id="EmbeddedServer"}
 
 The
-class [`EmbeddedServer`](https://api.ktor.io/older/3.0.0-beta-1/ktor-server/ktor-server-core/io.ktor.server.engine/-embedded-server/index.html)
+class [`EmbeddedServer`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/-embedded-server/index.html)
 is introduced and used to replace `ApplicationEngine` as a return type of the `embeddedServer()`
 function.
 
@@ -241,7 +241,7 @@ plugin package has been renamed due to a typo.
 
 Due to `Application` requiring knowledge of `ApplicationEngine`, the contents of `ktor-server-host-common` module have
 been merged into `ktor-server-core`, namely
-the [`io.ktor.server.engine`](https://api.ktor.io/older/3.0.0-beta-1/ktor-server/ktor-server-core/io.ktor.server.engine/index.html)
+the [`io.ktor.server.engine`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/index.html)
 package.
 
 Ensure that your dependencies are updated accordingly. In most cases, you can simply remove
