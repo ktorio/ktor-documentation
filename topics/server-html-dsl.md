@@ -143,7 +143,7 @@ Let's implement these layouts step-by-step:
    {src="snippets/html-templates/src/main/kotlin/com/example/Application.kt" include-lines="64-83"}
 
    This template uses the `PlaceholderList` class to generate an unordered list (`UL`) from the provided items.
-   It surrounds first item in the list with `<b>` element.
+   It also wraps the first item in a `<b>` element for emphasis.
 
 5. Now we are ready to send HTML built using the specified property values:
    ```kotlin
