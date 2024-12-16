@@ -137,7 +137,7 @@ Let's implement these layouts step-by-step:
 
    This template exposes the `articleTitle`, `articleText` and `list` properties, whose values will be inserted inside the `article`.
 
-4. To provide list values as the template we need another class: 
+4. To provide a list of values as the template, create the following new class: 
    ```kotlin
    ```
    {src="snippets/html-templates/src/main/kotlin/com/example/Application.kt" include-lines="64-83"}
