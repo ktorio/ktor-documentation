@@ -122,7 +122,6 @@ A patch release including bug fixes in ContentNegotiation, WebSockets, and the m
 <tr><td>3.0.0-beta-1</td><td>November 23, 2023</td><td>
 <p>
 A major pre-release version with various improvements and bug fixes, including client and server SSE support.
-For more information on breaking changes, see <a href="https://ktor.io/docs/3.0.0-beta-1/migrating-3.html">the migration guide</a>.
 </p>
 <var name="version" value="3.0.0-beta-1"/>
 <include from="lib.topic" element-id="release_details_link"/>
