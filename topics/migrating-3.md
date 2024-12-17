@@ -35,7 +35,7 @@ These changes will impact existing code that relies on the previous model.
 
 #### `start()` and `stop()` methods are removed from `ApplicationEngineEnvironment` {id="ApplicationEnvironment"}
 
-With the merge of `AplicationEngineEnvironment`
+With the merge of `ApplicationEngineEnvironment`
 to [`ApplicationEnvironment`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-environment/index.html),
 the `start()` and `stop()` methods are now
 only accessible
@@ -435,6 +435,7 @@ install(Sessions) {
 ```
 
 For more information on session encryption in Ktor, see [](server-sessions.md#sign_encrypt_session).
+
 
 ## Ktor Client
 
