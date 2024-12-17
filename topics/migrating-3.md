@@ -435,3 +435,13 @@ install(Sessions) {
 ```
 
 For more information on session encryption in Ktor, see [](server-sessions.md#sign_encrypt_session).
+
+
+## Ktor Client
+
+### Renaming of `HttpResponse`'s `content` property
+
+Prior to Ktor 3.0.0, the `content` property of
+[`HttpResponse`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/index.html)
+provided a raw `ByteReadChannel` to the response content as it is read from the network. Starting with Ktor 3.0.0, the
+`content` property has been renamed to `rawContent` to better reflect its purpose.
