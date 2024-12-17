@@ -21,6 +21,10 @@ fun Application.module() {
                     articleText {
                         +"Kotlin Framework for creating connected systems."
                     }
+                    list {
+                        item { +"One" }
+                        item { +"Two" }
+                    }
                 }
             }
         }
@@ -29,20 +33,21 @@ fun Application.module() {
 
 class LayoutTemplate: Template<HTML> {
     val header = Placeholder<FlowContent>()
-    val content = TemplatePlaceholder<ContentTemplate>()
+    val content = TemplatePlaceholder<ArticleTemplate>()
     override fun HTML.apply() {
         body {
             h1 {
                 insert(header)
             }
-            insert(ContentTemplate(), content)
+            insert(ArticleTemplate(), content)
         }
     }
 }
 
-class ContentTemplate: Template<FlowContent> {
+class ArticleTemplate : Template<FlowContent> {
     val articleTitle = Placeholder<FlowContent>()
     val articleText = Placeholder<FlowContent>()
+    val list = TemplatePlaceholder<ListTemplate>()
     override fun FlowContent.apply() {
         article {
             h2 {
@@ -50,6 +55,28 @@ class ContentTemplate: Template<FlowContent> {
             }
             p {
                 insert(articleText)
+            }
+            insert(ListTemplate(), list)
+        }
+    }
+}
+
+class ListTemplate : Template<FlowContent> {
+    val item = PlaceholderList<UL, FlowContent>()
+    override fun FlowContent.apply() {
+        if (!item.isEmpty()) {
+            ul {
+                each(item) {
+                    li {
+                        if (it.first) {
+                            b {
+                                insert(it)
+                            }
+                        } else {
+                            insert(it)
+                        }
+                    }
+                }
             }
         }
     }
