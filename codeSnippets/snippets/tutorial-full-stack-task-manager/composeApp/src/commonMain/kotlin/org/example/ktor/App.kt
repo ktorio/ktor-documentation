@@ -20,7 +20,13 @@ import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
@@ -28,17 +34,20 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import kotlinx.coroutines.launch
+import org.example.ktor.network.createHttpClient
 
 @Composable
 fun App() {
+
     MaterialTheme {
-        val client = remember { TaskApi() }
+        val httpClient = createHttpClient()
+        val taskApi = remember { TaskApi(httpClient) }
         var tasks by remember { mutableStateOf(emptyList<Task>()) }
         val scope = rememberCoroutineScope()
         var currentTask by remember { mutableStateOf<Task?>(null) }
 
         LaunchedEffect(Unit) {
-            tasks = client.getAllTasks()
+            tasks = taskApi.getAllTasks()
         }
 
         if (currentTask != null) {
@@ -46,8 +55,8 @@ fun App() {
                 currentTask!!,
                 onConfirm = {
                     scope.launch {
-                        client.updateTask(it)
-                        tasks = client.getAllTasks()
+                        taskApi.updateTask(it)
+                        tasks = taskApi.getAllTasks()
                     }
                     currentTask = null
                 }
@@ -60,8 +69,8 @@ fun App() {
                     task,
                     onDelete = {
                         scope.launch {
-                            client.removeTask(it)
-                            tasks = client.getAllTasks()
+                            taskApi.removeTask(it)
+                            tasks = taskApi.getAllTasks()
                         }
                     },
                     onUpdate = {
