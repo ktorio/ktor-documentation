@@ -569,11 +569,11 @@
             <step>
                 <p>
                     Inside the new package, create a new
-                    <path>TaskApi.kt</path>
-                    file with the following implementation:
+                    <path>HttpClientManager.kt</path>
+                    for the client configuration:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/org/example/ktor/network/TaskApi.kt"
+                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/org/example/ktor/core/network/HttpClientManager.kt"
                 />
                 <p>
                     Note you should replace <code>1.2.3.4</code> with the IP address of your current machine. You will
@@ -584,13 +584,25 @@
             </step>
             <step>
                 <p>
+                    In the same
+                    <path>network</path>
+                    package, create a new
+                    <path>TaskApi.kt</path>
+                    file with the following implementation:
+                </p>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/org/example/ktor/network/TaskApi.kt"
+                />
+            </step>
+            <step>
+                <p>
                     Navigate to
                     <path>App.kt</path>
                     and replace the App composable with the implementation below:
                 </p>
                 <code-block lang="kotlin"
                             src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/org/example/ktor/App1.kt"
-                            include-lines="2,4-42"
+                            include-lines="2,4-43"
                 />
                 <p>
                     This will use the <code>TaskApi</code> type to retrieve the list of tasks from the server, and then
@@ -690,7 +702,7 @@
                 </p>
                 <code-block lang="kotlin"
                             src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/org/example/ktor/App.kt"
-                            include-lines="1-32,34-38,52-62,64-105"
+                            include-lines="1-36,38-52,66-76,78-119"
                 />
                 <p>
                     With this implementation, your client now has some basic functionality.
@@ -731,7 +743,7 @@
                 </p>
                 <code-block lang="kotlin"
                             src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/org/example/ktor/App.kt"
-                            include-lines="112-160"
+                            include-lines="121-169"
                 />
                 <p>
                     This is a composable that displays the details of a <code>Task</code> with a dialog box. The <code>description</code>
@@ -745,7 +757,7 @@
                 </p>
                 <code-block lang="kotlin"
                             src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/org/example/ktor/App.kt"
-                            include-lines="32-74"
+                            include-lines="39-83"
                 />
                 <p>
                     You are storing an additional piece of state, which is the current task selected. If this value is

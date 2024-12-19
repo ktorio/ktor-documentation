@@ -14,7 +14,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import kotlinx.coroutines.launch
-import org.example.ktor.core.network.createHttpClient
+import org.example.ktor.network.createHttpClient
 
 @Composable
 fun App() {

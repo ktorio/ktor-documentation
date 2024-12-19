@@ -34,7 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import kotlinx.coroutines.launch
-import org.example.ktor.core.network.createHttpClient
+import org.example.ktor.network.createHttpClient
 
 @Composable
 fun App() {
