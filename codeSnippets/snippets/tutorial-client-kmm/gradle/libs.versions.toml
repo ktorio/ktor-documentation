@@ -1,6 +1,6 @@
 [versions]
 agp = "8.3.1"
-kotlin = "2.0.0"
+kotlin = "2.1.20-rigel-310"
 coroutines = "1.9.0"
 ktor = "3.0.2"
 compose = "1.6.8"

@@ -2,7 +2,7 @@
 [versions]
 exposed-version = "0.56.0"
 h2-version = "2.3.232"
-kotlin-version = "2.0.21"
+kotlin-version = "2.1.20-rigel-310"
 ktor-version = "3.0.2"
 logback-version = "1.4.14"
 postgres-version = "42.7.4"
@@ -28,4 +28,4 @@ ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negoti
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-version" }
 ktor = { id = "io.ktor.plugin", version.ref = "ktor-version" }
-kotlin-plugin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version = "2.0.21" }
+kotlin-plugin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version = "2.1.0" }

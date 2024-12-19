@@ -6,7 +6,7 @@ val junit_version: String by project
 plugins {
     application
     kotlin("jvm")
-    kotlin("plugin.serialization").version("2.0.0")
+    kotlin("plugin.serialization").version("2.1.0")
 }
 
 application {
