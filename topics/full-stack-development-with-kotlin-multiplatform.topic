@@ -573,7 +573,7 @@
                     for the client configuration:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/org/example/ktor/core/network/HttpClientManager.kt"
+                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/org/example/ktor/network/HttpClientManager.kt"
                 />
                 <p>
                     Note you should replace <code>1.2.3.4</code> with the IP address of your current machine. You will
