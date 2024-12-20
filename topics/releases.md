@@ -33,6 +33,14 @@ The following table lists details of the latest Ktor releases.
 
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
+<tr><td>3.0.3</td><td>December 18, 2024</td><td><p>
+A patch release with various bug fixes, including fixing build errors in <code>browserProductionWebpack</code>,
+gzipped content handling, and <code>FormFieldLimit</code> configuration overwrites. This release also includes core 
+performance improvements and proper test application shutdown.
+</p>
+<var name="version" value="3.0.3"/>
+<include from="lib.topic" element-id="release_details_link"/>
+</td></tr>
 <tr><td>3.0.2</td><td>December 4, 2024</td><td><p>
 A patch release addressing multiple bug fixes related to response corruption, truncated bodies, connection handling, 
 and incorrect headers, along with extended binary encoding support and performance enhancements for Android. 
