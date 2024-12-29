@@ -9,7 +9,7 @@
     <var name="artifact_name" value="ktor-client-websockets"/>
     <tldr>
         <p>
-            <b>Required dependencies</b>: <code>io.ktor:ktor-client-websockets</code>
+            <b>Required dependencies</b>: <code>io.ktor:ktor-client-websockets</code> <code>io.ktor:ktor-client-cio</code>
         </p>
         <include from="lib.topic" element-id="download_example"/>
     </tldr>
