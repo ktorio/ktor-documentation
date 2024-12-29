@@ -63,7 +63,7 @@
                 </p>
                 <note>
                     <p>
-                        To use a YAML configuration file, you need to add the <code>ktor-server-config-yaml</code>
+                        To use a YAML configuration file, you need to add the <code>ktor-server-config-yaml-jvm</code>
                         <a href="server-dependencies.topic">
                             dependency
                         </a>
