@@ -58,7 +58,7 @@ fun Application.configureRouting() {
                 try {
                     val task = call.receive<Task>()
                     TaskRepository.addTask(task)
-                    call.respond(HttpStatusCode.NoContent)
+                    call.respond(HttpStatusCode.Created)
                 } catch (ex: IllegalStateException) {
                     call.respond(HttpStatusCode.BadRequest)
                 } catch (ex: JsonConvertException) {
