@@ -430,6 +430,65 @@ To migrate, ensure `.bind()` is only called within a coroutine or suspending fun
 
 For more information on working with sockets, see the [Sockets documentation](server-sockets.md).
 
+### `PartData.FileItem.streamProvider()` is deprecated
+
+In previous versions of Ktor, the `.streamProvider()` function in `PartData.FileItem` was used to provide a file
+item's content as an `InputStream`. Starting with Ktor 3.0.0, this function has been deprecated.
+
+To migrate your application, replace `.streamProvider()` with the
+[`.provider()`](https://api.ktor.io/ktor-http/io.ktor.http.content/-part-data/-file-item/provider.html)
+function. The `.provider()` function returns a `ByteReadChannel`, which allows you to read data incrementally.
+You can then stream data directly from the channel to the file output, using the
+[`.copyTo()`](https://api.ktor.io/ktor-io/io.ktor.utils.io/copy-to.html) or 
+[`.copyAndClose()`](https://api.ktor.io/ktor-io/io.ktor.utils.io/copy-and-close.html)
+methods provided by `ByteReadChannel`.
+
+In the example below the `.copyAndClose()` method is used to transfer data from the `ByteReadChannel`
+to a file's `WritableByteChannel`.
+
+<compare first-title="2.x.x" second-title="3.0.x">
+
+```kotlin
+fun Application.main() {
+    routing {
+        post("/upload") {
+            val multipart = call.receiveMultipart()
+            multipart.forEachPart { partData ->
+                if (partData is PartData.FileItem) {
+                    var fileName = partData.originalFileName as String
+                    val file = File("uploads/$fileName")
+                    file.writeBytes(partData.streamProvider().readBytes())
+                }
+                // ...
+            }
+        }
+    }
+}
+```
+
+```kotlin
+fun Application.main() {
+    routing {
+        post("/upload") {
+            val multipart = call.receiveMultipart()
+            multipart.forEachPart { partData ->
+                if (partData is PartData.FileItem) {
+                    var fileName = partData.originalFileName as String
+                    val file = File("uploads/$fileName")
+                    partData.provider().copyAndClose(file.writeChannel())
+                }
+                // ...
+            }
+        }
+    }
+}
+```
+{show-white-spaces="true"}
+</compare>
+
+For the full example and more information on working with multipart form data,
+see the [](server-requests.md#form_data) documentation.
+
 ### Session encryption method update
 
 The encryption method offered by the `Sessions` plugin has been updated to enhance
