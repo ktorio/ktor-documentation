@@ -120,7 +120,7 @@ If you need to receive a file sent as a part of a multipart request, call
 the [.receiveMultipart()](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/receive-multipart.html)
 function and then loop over each part as required.
 
-The example below demonstrates how to receive a file and save it to disk:
+The example below demonstrates how to receive a file and save it to file system:
 
 ```kotlin
 ```
@@ -129,7 +129,7 @@ The example below demonstrates how to receive a file and save it to disk:
 
 #### Form fields
 
-`PartData.FormItem` is used to extract standard form field values through the `value` property.
+`PartData.FormItem` is used to hold the standard form field values, which can be accessed through the `value` property.
 
 ```kotlin
 ```

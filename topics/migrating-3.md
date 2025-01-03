@@ -414,9 +414,10 @@ item's content as an `InputStream`. Starting with Ktor 3.0.0, this function has 
 
 To migrate your application, replace `.streamProvider()` with the
 [`.provider()`](https://api.ktor.io/ktor-http/io.ktor.http.content/-part-data/-file-item/provider.html)
-function. The `.provider()` function returns a `ByteReadChannel`, which allows you to read data incrementally.
+function. The `.provider()` function returns a `ByteReadChannel`, which is a coroutine-friendly, non-blocking
+abstraction for reading streams of bytes incrementally.
 You can then stream data directly from the channel to the file output, using the
-[`.copyTo()`](https://api.ktor.io/ktor-io/io.ktor.utils.io/copy-to.html) or 
+[`.copyTo()`](https://api.ktor.io/ktor-io/io.ktor.utils.io/copy-to.html) or
 [`.copyAndClose()`](https://api.ktor.io/ktor-io/io.ktor.utils.io/copy-and-close.html)
 methods provided by `ByteReadChannel`.
 
@@ -464,7 +465,7 @@ fun Application.main() {
 </compare>
 
 For the full example and more information on working with multipart form data,
-see the [](server-requests.md#form_data) documentation.
+see [Request handling of multipart form data](server-requests.md#form_data).
 
 ### Session encryption method update
 
