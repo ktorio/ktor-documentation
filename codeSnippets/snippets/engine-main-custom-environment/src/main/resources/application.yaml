@@ -1,5 +1,5 @@
 ktor:
-    environment: $KTOR_ENV
+    environment: $?KTOR_ENV
     deployment:
         port: 8080
     application:
