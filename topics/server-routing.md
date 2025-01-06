@@ -97,7 +97,7 @@ Below are several path examples:
 * `/user/{param...}`  
   A path containing a [path parameter with tailcard](#path_parameter_tailcard).
 * `Regex("/.+/hello")`  
-  A path containing a [regular expression](#regular_expression) that matches path segments up to and including the first occurrence of the `/hello`.
+  A path containing a [regular expression](#regular_expression) that matches path segments up to and including the last occurrence of the `/hello`.
 
 
 ### Wildcard {id="wildcard"}
