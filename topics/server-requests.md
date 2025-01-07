@@ -120,6 +120,10 @@ If you need to receive a file sent as a part of a multipart request, call
 the [.receiveMultipart()](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/receive-multipart.html)
 function and then loop over each part as required.
 
+Because the data in a multipart request is processed in order, you can’t directly access a specific part without going
+through the parts sequentially. Moreover, a multipart request can contain various parts of different types, such as form
+fields, files, or binary data, which need to be handled differently.
+
 The example below demonstrates how to receive a file and save it to file system:
 
 ```kotlin
