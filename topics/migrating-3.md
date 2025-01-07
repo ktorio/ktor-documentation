@@ -144,19 +144,42 @@ For more information on command-line configuration with `embeddedServer`, see th
 #### Introduction of `ServerConfigBuilder` {id="ServerConfigBuilder"}
 
 A new
-entity,[`ServerConfigBuilder`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-server-config-builder/index.html),
-has been introduced for configuring server properties and replaces the previous configration mechanism of `ApplicationPropertiesBuilder`.
+entity,[
+`ServerConfigBuilder`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-server-config-builder/index.html),
+has been introduced for configuring server properties and replaces the previous configuration mechanism of
+`ApplicationPropertiesBuilder`.
 `ServerConfigBuilder` is used to build instances of the
 [`ServerConfig`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-server-config/index.html)
 class, which now holds modules, paths, and environment details previously managed by `ApplicationProperties`.
 
-Additionally, in the `embeddedServer()` function, the `applicationProperties` attribute has been renamed to `rootConfig`
-to reflect this new configuration approach.
+The following table summarizes the key changes:
 
 | Package                    | 2.x.x                          | 3.0.x                 |
 |----------------------------|--------------------------------|-----------------------|
 | `io.ktor:ktor-server-core` | `ApplicationProperties`        | `ServerConfig`        |
 | `io.ktor:ktor-server-core` | `ApplciationPropertiesBuilder` | `ServerConfigBuilder` |
+
+Additionally, in the `embeddedServer()` function, the `applicationProperties` attribute has been renamed to `rootConfig`
+to reflect this new configuration approach.
+
+When using `embeddedServer()`, replace the `applicationProperties` attribute with
+`rootConfig`.
+Here's an example of using the `serverConfig` block to configure a server with `developmentMode` explicitly set to
+`true`:
+
+```kotlin
+fun main(args: Array<String>) {
+    embeddedServer(Netty,
+        serverConfig {
+            developmentMode = true
+            module(Application::module)
+        },
+        configure = {
+            connector { port = 12345 }
+        }
+    ).start(wait = true)
+}
+```
 
 #### Introduction of `EmbeddedServer` {id="EmbeddedServer"}
 
