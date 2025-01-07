@@ -133,7 +133,7 @@ The example below demonstrates how to receive a file and save it to file system:
 
 #### Form fields
 
-`PartData.FormItem` is used to hold the standard form field values, which can be accessed through the `value` property.
+`PartData.FormItem` represents a form field, which values can be accessed through the `value` property.
 
 ```kotlin
 ```
@@ -142,7 +142,7 @@ The example below demonstrates how to receive a file and save it to file system:
 
 #### File uploads
 
-`PartData.FileItem` allows you to handle file uploads as byte streams.
+`PartData.FileItem` represents a file item. Ktor allows you to handle file uploads as byte streams.
 
 ```kotlin
 ```
