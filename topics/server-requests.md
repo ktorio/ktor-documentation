@@ -116,15 +116,15 @@ You can find the full example here: [post-form-parameters](https://github.com/kt
 
 ### Multipart form data {id="form_data"}
 
-If you need to receive a file sent as a part of a multipart request, call
+To receive a file sent as a part of a multipart request, call
 the [.receiveMultipart()](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/receive-multipart.html)
 function and then loop over each part as required.
 
-Because the data in a multipart request is processed in order, you can’t directly access a specific part without going
-through the parts sequentially. Moreover, a multipart request can contain various parts of different types, such as form
-fields, files, or binary data, which need to be handled differently.
+Multipart request data is processed sequentially, so you can't directly access a specific part of it. Additionally,
+these requests can contain different types of parts, such as form fields, files, or binary data, which need to
+be handled differently.
 
-The example below demonstrates how to receive a file and save it to file system:
+The example demonstrates how to receive a file and save it to file system:
 
 ```kotlin
 ```
@@ -133,7 +133,7 @@ The example below demonstrates how to receive a file and save it to file system:
 
 #### Form fields
 
-`PartData.FormItem` represents a form field, which values can be accessed through the `value` property.
+`PartData.FormItem` represents a form field, which values can be accessed through the `value` property:
 
 ```kotlin
 ```
@@ -142,7 +142,7 @@ The example below demonstrates how to receive a file and save it to file system:
 
 #### File uploads
 
-`PartData.FileItem` represents a file item. Ktor allows you to handle file uploads as byte streams.
+`PartData.FileItem` represents a file item. You can handle file uploads as byte streams:
 
 ```kotlin
 ```

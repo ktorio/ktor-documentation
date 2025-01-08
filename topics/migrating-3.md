@@ -432,7 +432,7 @@ For more information on working with sockets, see the [Sockets documentation](se
 
 ### `PartData.FileItem.streamProvider()` is deprecated
 
-In previous versions of Ktor, the `.streamProvider()` function in `PartData.FileItem` was used to provide a file
+In previous versions of Ktor, the `.streamProvider()` function in `PartData.FileItem` was used to access a file
 item's content as an `InputStream`. Starting with Ktor 3.0.0, this function has been deprecated.
 
 To migrate your application, replace `.streamProvider()` with the
@@ -444,7 +444,7 @@ You can then stream data directly from the channel to the file output, using the
 [`.copyAndClose()`](https://api.ktor.io/ktor-io/io.ktor.utils.io/copy-and-close.html)
 methods provided by `ByteReadChannel`.
 
-In the example below the `.copyAndClose()` method is used to transfer data from the `ByteReadChannel`
+In the example the `.copyAndClose()` method transfers data from the `ByteReadChannel`
 to a file's `WritableByteChannel`.
 
 <compare first-title="2.x.x" second-title="3.0.x">
