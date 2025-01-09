@@ -1,6 +1,6 @@
 [//]: # (title: Handling requests)
 
-<show-structure for="chapter" depth="2"/>
+<show-structure for="chapter" depth="3"/>
 
 <link-summary>Learn how to handle incoming requests inside route handlers.</link-summary>
 
@@ -114,19 +114,63 @@ You can obtain parameter values in code as follows:
 
 You can find the full example here: [post-form-parameters](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/post-form-parameters).
 
-
 ### Multipart form data {id="form_data"}
-If you need to receive a file sent as a part of a multipart request, call the [receiveMultipart](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/receive-multipart.html) function and then loop over each part as required. In the example below, `PartData.FileItem` is used to receive a file as a byte stream.
+
+To receive a file sent as a part of a multipart request, call
+the [.receiveMultipart()](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/receive-multipart.html)
+function and then loop over each part as required.
+
+Multipart request data is processed sequentially, so you can't directly access a specific part of it. Additionally,
+these requests can contain different types of parts, such as form fields, files, or binary data, which need to
+be handled differently.
+
+The example demonstrates how to receive a file and save it to file system:
+
 ```kotlin
 ```
-{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="3-38"}
 
-Learn how to run this sample from [upload-file](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/upload-file).
+{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="3-40"}
+
+#### Form fields
+
+`PartData.FormItem` represents a form field, which values can be accessed through the `value` property:
+
+```kotlin
+```
+
+{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="21-24,33"}
+
+#### File uploads
+
+`PartData.FileItem` represents a file item. You can handle file uploads as byte streams:
+
+```kotlin
+```
+
+{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="21,26-30,33"}
+
+The [`.provider()`](https://api.ktor.io/ktor-http/io.ktor.http.content/-part-data/-file-item/provider.html)
+function returns a `ByteReadChannel`, which allows you to read data incrementally.
+Using the `.copyAndClose()` function, you then write the file content to the specified destination
+while ensuring proper resource cleanup.
 
 To determine the uploaded file size, you can get the `Content-Length` [header value](#request_information) inside the `post` handler:
+
 ```kotlin
 post("/upload") {
     val contentLength = call.request.header(HttpHeaders.ContentLength)
     // ...
 }
 ```
+
+#### Resource cleanup
+
+Once the form processing is complete, each part is disposed of using the `.dispose()` function to free resources.
+
+```kotlin
+```
+
+{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="34"}
+
+To learn how to run this sample, see
+[upload-file](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/upload-file).
