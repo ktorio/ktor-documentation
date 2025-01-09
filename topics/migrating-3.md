@@ -20,7 +20,7 @@ This restructuring comes with the following set of breaking changes:
 
 - [`ApplicationEngineEnvironmentBuilder` and `applicationEngineEnvironment` classes are renamed](#renamed-classes).
 - [`start()` and `stop()` methods are removed from `ApplicationEngineEnvironment`](#ApplicationEnvironment).
-- [`commandLineEnvironment()` is removed.](#CommandLineConfig).
+- [`commandLineEnvironment()` is removed](#CommandLineConfig).
 - [Introduction of `ServerConfigBuilder`](#ServerConfigBuilder).
 - [`embeddedServer()` returns`EmbeddedServer`](#EmbeddedServer) instead of `ApplicationEngine`.
 
@@ -28,18 +28,18 @@ These changes will impact existing code that relies on the previous model.
 
 #### Renamed classes {id="renamed-classes"}
 
-| Package                   | 2.x.x                                 | 3.0.x                           |
-|---------------------------|---------------------------------------|---------------------------------|
+| Package                    | 2.x.x                                 | 3.0.x                           |
+|----------------------------|---------------------------------------|---------------------------------|
 | `io.ktor:ktor-server-core` | `ApplicationEngineEnvironmentBuilder` | `ApplicationEnvironmentBuilder` |
 | `io.ktor:ktor-server-core` | `applicationEngineEnvironment`        | `applicationEnvironment`        |
 
 #### `start()` and `stop()` methods are removed from `ApplicationEngineEnvironment` {id="ApplicationEnvironment"}
 
-With the merge of `ApplicationEngineEnvironment`
-to [`ApplicationEnvironment`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-environment/index.html),
+With the merge of `ApplicationEngineEnvironment` to [
+`ApplicationEnvironment`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-environment/index.html),
 the `start()` and `stop()` methods are now
-only accessible
-through [`ApplicationEngine`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/-application-engine/index.html).
+only accessible through [
+`ApplicationEngine`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/-application-engine/index.html).
 
 | 2.x.x                                                 | 3.0.x                                |
 |-------------------------------------------------------|--------------------------------------|
@@ -79,7 +79,7 @@ fun defaultServer(module: Application.() -> Unit) =
   )
 ```
 
-{validate="false" noinject}
+{validate="false"}
 
 ```kotlin
 import io.ktor.server.application.*
@@ -183,10 +183,9 @@ fun main(args: Array<String>) {
 
 #### Introduction of `EmbeddedServer` {id="EmbeddedServer"}
 
-The
-class [`EmbeddedServer`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/-embedded-server/index.html)
-is introduced and used to replace `ApplicationEngine` as a return type of the `embeddedServer()`
-function.
+The class
+[`EmbeddedServer`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/-embedded-server/index.html)
+is introduced and used to replace `ApplicationEngine` as a return type of the `embeddedServer()` function.
 
 For more details about the model change,
 see [issue KTOR-3857 on YouTrack](https://youtrack.jetbrains.com/issue/KTOR-3857/Environment-Engine-Application-Design).
@@ -207,11 +206,13 @@ In the test below, the `handleRequest` function is replaced with the `client.get
 
 ```kotlin
 ```
+
 {src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/engine-main/src/test/kotlin/EngineMainTest.kt"
 include-lines="18-26"}
 
 ```kotlin
 ```
+
 {src="https://raw.githubusercontent.com/ktorio/ktor-documentation/refs/heads/2.3.12/codeSnippets/snippets/engine-main/src/test/kotlin/EngineMainTest.kt"
 include-lines="11-16"}
 
@@ -250,7 +251,8 @@ class ApplicationTest {
   }
 }
 ```
-{validate="false" noinject}
+
+{validate="false"}
 
 ```kotlin
 import com.example.plugins.*
@@ -275,7 +277,8 @@ class ApplicationTest {
 }
 
 ```
-{validate="false" noinject}
+
+{validate="false"}
 
 
 </compare>
@@ -287,19 +290,20 @@ file for your test.
 
 ```kotlin
 ```
+
 {src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="17-21,51"}
 
 For more information on configuring the test application, see the [](server-testing.md) section.
 
 ### `CallLogging` plugin package has been renamed
 
-The [`CallLogging`](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-call-logging/io.ktor.server.plugins.calllogging/index.html)
+The [
+`CallLogging`](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-call-logging/io.ktor.server.plugins.calllogging/index.html)
 plugin package has been renamed due to a typo.
 
 | 2.x.x                               | 3.0.x                                |
 |-------------------------------------|--------------------------------------|
 | `io.ktor.server.plugins.callloging` | `io.ktor.server.plugins.calllogging` |
-
 
 ### `ktor-server-host-common` module has been removed
 
@@ -318,9 +322,8 @@ the [Resources plugin](server-resources.md) instead. This requires the following
 
 * Replace the `io.ktor:ktor-server-locations` artifact with `io.ktor:ktor-server-resources`.
 
-* The `Resources` plugin depends on the Kotlin
-  serialization plugin. To add the serialization plugin, see the
-  [kotlinx.serialization setup](https://github.com/Kotlin/kotlinx.serialization#setup).
+* The `Resources` plugin depends on the Kotlin serialization plugin. To add the serialization plugin, see the
+* [kotlinx.serialization setup](https://github.com/Kotlin/kotlinx.serialization#setup).
 
 * Update the plugin import from `io.ktor.server.locations.*` to `io.ktor.server.resources.*`.
 
@@ -382,28 +385,26 @@ extension:
 
 <compare first-title="2.x.x" second-title="3.0.x">
 
-<code-block lang="kotlin" show-white-spaces="true">
-<![CDATA[
-  import java.time.Duration
+```kotlin
+import java.time.Duration
   
-  install(WebSockets) {
+install(WebSockets) {
     pingPeriod = Duration.ofSeconds(15)
     timeout = Duration.ofSeconds(15)
     //..
-  }
-]]>
-</code-block>
+}
+```
 
-<code-block lang="kotlin" show-white-spaces="true">
-<![CDATA[
+```kotlin
 import kotlin.time.Duration.Companion.seconds
 
 install(WebSockets) {
-  pingPeriod = 15.seconds
-  timeout = 15.seconds
-  //..
-}]]>
-</code-block>
+    pingPeriod = 15.seconds
+    timeout = 15.seconds
+    //..
+}
+```
+
 </compare>
 
 You can use similar Kotlin duration extensions (`minutes`, `hours`, etc.) as needed for other duration configurations.
@@ -484,7 +485,7 @@ fun Application.main() {
     }
 }
 ```
-{show-white-spaces="true"}
+
 </compare>
 
 For the full example and more information on working with multipart form data,
@@ -518,7 +519,6 @@ install(Sessions) {
 ```
 
 For more information on session encryption in Ktor, see [](server-sessions.md#sign_encrypt_session).
-
 
 ## Ktor Client
 
