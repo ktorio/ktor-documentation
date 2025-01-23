@@ -141,7 +141,7 @@ install(Compression) {
 ## Implement custom encoder {id="custom_encoder"}
 
 If necessary, you can provide your own encoder by implementing
-the [ContentEncoder](https://api.ktor.io/ktor-utils/ktor-server-compression/io.ktor.util/-content-encoder)
+the [ContentEncoder](https://api.ktor.io/ktor-utils/io.ktor.util/-content-encoder/index.html)
 interface.
 See [GzipEncoder](https://github.com/ktorio/ktor/blob/b5b59ca3ae61601e6175f334e6a1252609638e61/ktor-server/ktor-server-plugins/ktor-server-compression/jvm/src/io/ktor/server/plugins/compression/Encoders.kt#L41)
 as an example of implementation.
