@@ -412,7 +412,7 @@
                                 )
                             } catch(ex: IllegalArgumentException) {
                                 call.respond(HttpStatusCode.BadRequest)
-                        }
+                            }
                     }
                 }
             </code-block>
