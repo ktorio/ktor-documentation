@@ -8,7 +8,7 @@ plugins {
 }
 
 application {
-    mainClass.set("io.ktor.server.jetty.EngineMain")
+    mainClass.set("io.ktor.server.jetty.jakarta.EngineMain")
 }
 
 repositories {
@@ -19,7 +19,7 @@ repositories {
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
     implementation("io.ktor:ktor-server-core:$ktor_version")
-    implementation("io.ktor:ktor-server-jetty:$ktor_version")
+    implementation("io.ktor:ktor-server-jetty-jakarta:$ktor_version")
     implementation("io.ktor:ktor-server-html-builder:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
 }

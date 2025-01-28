@@ -108,13 +108,13 @@
             <chapter title="Jetty" id="jetty-code">
                 <p>
                     Jetty-specific options are exposed by the
-                    <a href="https://api.ktor.io/ktor-server/ktor-server-jetty/io.ktor.server.jetty/-jetty-application-engine-base/-configuration/index.html">
+                    <a href="https://api.ktor.io/ktor-server/ktor-server-jetty-jakarta/io.ktor.server.jetty.jakarta/-jetty-application-engine-base/-configuration/index.html">
                         JettyApplicationEngineBase.Configuration
                     </a>
                     class.
                 </p>
                 <p>You can configure the Jetty server inside the
-                    <a href="https://api.ktor.io/ktor-server/ktor-server-jetty/io.ktor.server.jetty/-jetty-application-engine-base/-configuration/configure-server.html">
+                    <a href="https://api.ktor.io/ktor-server/ktor-server-jetty-jakarta/io.ktor.server.jetty.jakarta/-jetty-application-engine-base/-configuration/configure-server.html">
                         configureServer
                     </a>
                     block, which provides access to a
@@ -127,7 +127,7 @@
                 </p>
                 <code-block lang="kotlin"><![CDATA[
                     import io.ktor.server.engine.*
-                    import io.ktor.server.jetty.*
+                    import io.ktor.server.jetty.jakarta.*
 
                     fun main() {
                         embeddedServer(Jetty, configure = {
