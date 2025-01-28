@@ -5,7 +5,7 @@ import io.ktor.client.engine.android.*
 import io.ktor.client.engine.apache5.*
 import io.ktor.client.engine.cio.*
 import io.ktor.client.engine.java.*
-import io.ktor.client.engine.jetty.*
+import io.ktor.client.engine.jetty.jakarta.*
 import io.ktor.client.engine.okhttp.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
