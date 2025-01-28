@@ -32,7 +32,7 @@ your [build script](server-dependencies.topic):
 
 * `ktor-server-netty`
 * `ktor-server-jetty-jakarta`
-* `ktor-server-tomcat`
+* `ktor-server-tomcat-jakarta`
 * `ktor-server-cio`
 
 Below are examples of adding a dependency for Netty:
@@ -63,7 +63,7 @@ server with the Netty engine and listen on the `8080` port:
 
 * `io.ktor.server.netty.EngineMain`
 * `io.ktor.server.jetty.jakarta.EngineMain`
-* `io.ktor.server.tomcat.EngineMain`
+* `io.ktor.server.tomcat.jakarta.EngineMain`
 * `io.ktor.server.cio.EngineMain`
 
 The `EngineMain.main` function is used to start a server with the selected engine and loads

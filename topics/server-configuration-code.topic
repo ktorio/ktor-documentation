@@ -163,16 +163,16 @@
             </chapter>
             <chapter title="Tomcat" id="tomcat-code">
                 <p>If you use Tomcat as the engine, you can configure it using the
-                    <a href="https://api.ktor.io/ktor-server/ktor-server-tomcat/io.ktor.server.tomcat/-tomcat-application-engine/-configuration/configure-tomcat.html">
+                    <a href="https://api.ktor.io/ktor-server/ktor-server-tomcat-jakarta/io.ktor.server.tomcat.jakarta/-tomcat-application-engine/-configuration/configure-tomcat.html">
                         configureTomcat
                     </a>
                     property, which provides access to a
-                    <a href="https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/startup/Tomcat.html">Tomcat</a>
+                    <a href="https://tomcat.apache.org/tomcat-10.1-doc/api/org/apache/catalina/startup/Tomcat.html">Tomcat</a>
                     instance.
                 </p>
                 <code-block lang="kotlin"><![CDATA[
                     import io.ktor.server.engine.*
-                    import io.ktor.server.tomcat.*
+                    import io.ktor.server.tomcat.jakarta.*
 
                     fun main() {
                         embeddedServer(Tomcat, configure = {
