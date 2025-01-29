@@ -722,7 +722,8 @@
                         fun Application.configureRouting() {
                             routing {
                                 get("/") {
-                                call.respondText("Hello World!")
+                                    call.respondText("Hello World!")
+                                }
                             }
                         }
                     </code-block>
@@ -735,11 +736,12 @@
                     <code-block lang="kotlin">
                         fun Application.configureRouting() {
                             routing {
-                            // Add the line below
-                            staticResources("/content", "mycontent")
+                                // Add the line below
+                                staticResources("/content", "mycontent")
 
-                            get("/") {
-                                call.respondText("Hello World!")
+                                get("/") {
+                                    call.respondText("Hello World!")
+                                }
                             }
                         }
                     </code-block>
