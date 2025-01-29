@@ -1,5 +1,7 @@
 [//]: # (title: OpenAPI)
 
+<primary-label ref="server-plugin"/>
+
 <var name="artifact_name" value="ktor-server-openapi"/>
 <var name="package_name" value="io.ktor.server.plugins.openapi"/>
 <var name="plugin_api_link" value="https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-openapi/io.ktor.server.plugins.openapi/open-a-p-i.html"/>

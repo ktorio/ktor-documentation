@@ -1,4 +1,4 @@
-[//]: # (title: Basic authentication)
+[//]: # (title: Basic authentication in Ktor Client)
 
 <tldr>
 <var name="example_name" value="client-auth-basic"/>

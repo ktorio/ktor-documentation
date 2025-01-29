@@ -1,5 +1,7 @@
 [//]: # (title: DoubleReceive)
 
+<primary-label ref="server-plugin"/>
+
 <var name="plugin_name" value="DoubleReceive"/>
 <var name="package_name" value="io.ktor.server.plugins.doublereceive"/>
 <var name="artifact_name" value="ktor-server-double-receive"/>

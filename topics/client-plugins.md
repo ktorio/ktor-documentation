@@ -1,4 +1,4 @@
-[//]: # (title: Plugins)
+[//]: # (title: Client plugins)
 
 <link-summary>
 Get acquainted with plugins that provide common functionality, for example, logging, serialization, authorization, etc.

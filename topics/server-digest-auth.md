@@ -1,4 +1,4 @@
-[//]: # (title: Digest authentication)
+[//]: # (title: Digest authentication in Ktor Server)
 
 <show-structure for="chapter" depth="2"/>
 

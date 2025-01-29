@@ -1,5 +1,7 @@
 [//]: # (title: Webjars)
 
+<primary-label ref="server-plugin"/>
+
 <var name="plugin_name" value="Webjars"/>
 <var name="package_name" value="io.ktor.server.webjars"/>
 <var name="artifact_name" value="ktor-server-webjars"/>

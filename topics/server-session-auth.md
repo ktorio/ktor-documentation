@@ -1,4 +1,4 @@
-[//]: # (title: Session authentication)
+[//]: # (title: Session authentication in Ktor Server)
 
 <show-structure for="chapter" depth="2"/>
 

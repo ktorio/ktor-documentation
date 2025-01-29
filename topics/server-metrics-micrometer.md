@@ -1,6 +1,7 @@
 [//]: # (title: Micrometer metrics)
 
 <show-structure for="chapter" depth="2"/>
+<primary-label ref="server-plugin"/>
 
 [micrometer_jvm_metrics]: https://micrometer.io/docs/ref/jvm
 

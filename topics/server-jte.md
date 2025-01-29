@@ -1,6 +1,7 @@
 [//]: # (title: JTE)
 
 <show-structure for="chapter" depth="2"/>
+<primary-label ref="server-plugin"/>
 
 <var name="plugin_name" value="Jte"/>
 <var name="package_name" value="io.ktor.server.jte"/>

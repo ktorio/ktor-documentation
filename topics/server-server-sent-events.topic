@@ -2,9 +2,11 @@
 <!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
 <topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-       id="server-server-sent-events" title="Server-Sent Events" help-id="sse_server">
+       id="server-server-sent-events" title="Server-Sent Events in Ktor Server" help-id="sse_server">
 
     <show-structure for="chapter" depth="2"/>
+    <primary-label ref="server-plugin"/>
+
     <var name="plugin_name" value="SSE"/>
     <var name="example_name" value="server-sse"/>
     <var name="package_name" value="io.ktor.server.sse"/>

@@ -1,6 +1,7 @@
 [//]: # (title: Default request)
 
 <show-structure for="chapter" depth="2"/>
+<primary-label ref="client-plugin"/>
 
 <tldr>
 <var name="example_name" value="client-default-request"/>
