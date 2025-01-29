@@ -69,7 +69,6 @@ You also need to consider the following limitations that affect general client c
 - Some engines don't support [proxy](client-proxy.md#supported_engines).
 - The [Logging](client-logging.md) plugin provides different logger types for different platforms.
 - The [HttpTimeout](client-timeout.md#limitations) plugin has some limitations for specific engines.
-- The [XML serializer](client-serialization.md#register_xml) is supported on JVM only.
 
 
 ## Add an engine dependency {id="dependencies"}
