@@ -31,8 +31,8 @@ Before using the desired engine, you need to add the corresponding dependency to
 your [build script](server-dependencies.topic):
 
 * `ktor-server-netty`
-* `ktor-server-jetty`
-* `ktor-server-tomcat`
+* `ktor-server-jetty-jakarta`
+* `ktor-server-tomcat-jakarta`
 * `ktor-server-cio`
 
 Below are examples of adding a dependency for Netty:
@@ -62,8 +62,8 @@ server with the Netty engine and listen on the `8080` port:
 `EngineMain` represents an engine for running a server. You can use the following engines:
 
 * `io.ktor.server.netty.EngineMain`
-* `io.ktor.server.jetty.EngineMain`
-* `io.ktor.server.tomcat.EngineMain`
+* `io.ktor.server.jetty.jakarta.EngineMain`
+* `io.ktor.server.tomcat.jakarta.EngineMain`
 * `io.ktor.server.cio.EngineMain`
 
 The `EngineMain.main` function is used to start a server with the selected engine and loads

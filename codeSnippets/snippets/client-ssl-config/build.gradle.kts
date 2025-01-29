@@ -21,7 +21,7 @@ dependencies {
     implementation("io.ktor:ktor-client-core:$ktor_version")
     implementation("io.ktor:ktor-client-apache5:$ktor_version")
     implementation("io.ktor:ktor-client-java:$ktor_version")
-    implementation("io.ktor:ktor-client-jetty:$ktor_version")
+    implementation("io.ktor:ktor-client-jetty-jakarta:$ktor_version")
     implementation("org.eclipse.jetty:jetty-alpn-java-client:11.0.20")
     implementation("io.ktor:ktor-client-cio:$ktor_version")
     implementation("io.ktor:ktor-client-android:$ktor_version")

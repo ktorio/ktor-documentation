@@ -37,7 +37,7 @@ Client engines targeting JVM or both JVM and Android support the following Andro
 |---------|-------------------|--------------|
 | Apache  |                   | 8+           |
 | Java    |                   | 11+          |
-| Jetty   |                   | 8+           |
+| Jetty   |                   | 11+          |
 | CIO     | 7.0+ <sup>*</sup> | 8+           |
 | Android | 1.x+              | 8+           |
 | OkHttp  | 5.0+              | 8+           |
@@ -176,15 +176,15 @@ The `Java` engine uses the [Java HTTP Client](https://openjdk.java.net/groups/ne
 
 ### Jetty {id="jetty"}
 The `Jetty` engine supports only HTTP/2 and can be configured in the following way:
-1. Add the `ktor-client-jetty` dependency:
+1. Add the `ktor-client-jetty-jakarta` dependency:
 
-   <var name="artifact_name" value="ktor-client-jetty"/>
+   <var name="artifact_name" value="ktor-client-jetty-jakarta"/>
    <include from="lib.topic" element-id="add_ktor_artifact"/>
-2. Pass the [Jetty](https://api.ktor.io/ktor-client/ktor-client-jetty/io.ktor.client.engine.jetty/-jetty/index.html) class as an argument to the `HttpClient` constructor:
+2. Pass the [Jetty](https://api.ktor.io/ktor-client/ktor-client-jetty-jakarta/io.ktor.client.engine.jetty.jakarta/-jetty/index.html) class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
    {src="snippets/_misc_client/JettyCreate.kt"}
-3. To configure an engine, pass settings exposed by [JettyEngineConfig](https://api.ktor.io/ktor-client/ktor-client-jetty/io.ktor.client.engine.jetty/-jetty-engine-config/index.html) to the `engine` method:
+3. To configure an engine, pass settings exposed by [JettyEngineConfig](https://api.ktor.io/ktor-client/ktor-client-jetty-jakarta/io.ktor.client.engine.jetty.jakarta/-jetty-engine-config/index.html) to the `engine` method:
    ```kotlin
    ```
    {src="snippets/_misc_client/JettyConfig.kt" interpolate-variables="true" disable-links="false"}
