@@ -15,12 +15,12 @@ The Routing plugin can be installed in the following way:
 ```Kotlin
 import io.ktor.server.routing.*
 
-install(Routing) {
+install(RoutingRoot) {
     // ...
 }
 ```
 
-Given the `Routing` plugin is so common in any application, there is a convenient `routing` function that makes it simpler to install routing. In the code snippet below, `install(Routing)` is replaced with the `routing` function:
+Given the Routing plugin is so common in any application, there is a convenient `routing` function that makes it simpler to install routing. In the code snippet below, `install(RoutingRoot)` is replaced with the `routing` function:
 
 ```kotlin
 import io.ktor.server.routing.*
