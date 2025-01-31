@@ -10,7 +10,7 @@
     <properties>
         <ktor_version>3.0.0-beta-1</ktor_version>
         <kotlin.code.style>official</kotlin.code.style>
-        <kotlin_version>1.9.22</kotlin_version>
+        <kotlin_version>1.9.25</kotlin_version>
         <logback_version>1.5.6</logback_version>
         <slf4j_version>2.0.12</slf4j_version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
