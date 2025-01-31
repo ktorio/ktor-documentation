@@ -27,7 +27,7 @@
         </dependency>
         <dependency>
             <groupId>io.ktor</groupId>
-            <artifactId>ktor-server-netty</artifactId>
+            <artifactId>ktor-server-netty-jvm</artifactId>
             <version>${ktor_version}</version>
         </dependency>
         <dependency>
@@ -42,7 +42,7 @@
         </dependency>
         <dependency>
             <groupId>io.ktor</groupId>
-            <artifactId>ktor-server-tests-jvm</artifactId>
+            <artifactId>ktor-server-test-host-jvm</artifactId>
             <version>${ktor_version}</version>
             <scope>test</scope>
         </dependency>
