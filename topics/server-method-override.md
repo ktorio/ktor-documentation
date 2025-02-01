@@ -1,5 +1,7 @@
 [//]: # (title: XHttpMethodOverride)
 
+<primary-label ref="server-plugin"/>
+
 <var name="plugin_name" value="XHttpMethodOverride"/>
 <var name="package_name" value="io.ktor.server.plugins.methodoverride"/>
 <var name="artifact_name" value="ktor-server-method-override"/>

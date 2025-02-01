@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE labels SYSTEM "https://resources.jetbrains.com/writerside/1.0/labels-list.dtd">
+<labels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/labels.xsd">
+    <primary-label id="client-plugin" short-name="C" name="Client Plugin" color="strawberry">
+        Client Plugin
+    </primary-label>
+
+    <primary-label id="server-plugin" short-name="S" name="Server Plugin" color="purple">
+        Server Plugin
+    </primary-label>
+
+    <secondary-label id="wip" name="WIP" color="purple">Work in progress</secondary-label>
+    <secondary-label id="beta" name="β" color="tangerine">Beta</secondary-label>
+
+    <secondary-label id="experimental" name="Experimental" color="purple">This is an experimental feature</secondary-label>
+    <secondary-label id="2023.3" name="2023.3" color="blue">New in version 2023.3</secondary-label>
+</labels>

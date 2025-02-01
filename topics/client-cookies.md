@@ -1,5 +1,7 @@
 [//]: # (title: Cookies)
 
+<primary-label ref="client-plugin"/>
+
 <tldr>
 <var name="example_name" value="client-cookies"/>
 <include from="lib.topic" element-id="download_example"/>

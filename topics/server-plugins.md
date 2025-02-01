@@ -1,4 +1,4 @@
-[//]: # (title: Plugins)
+[//]: # (title: Server plugins)
 
 <show-structure for="chapter" depth="2"/>
 

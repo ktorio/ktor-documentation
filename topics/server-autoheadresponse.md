@@ -2,6 +2,7 @@
 
 <var name="plugin_name" value="AutoHeadResponse"/>
 <var name="artifact_name" value="ktor-server-auto-head-response"/>
+<primary-label ref="server-plugin"/>
 
 <tldr>
 <p>

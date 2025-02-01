@@ -1,5 +1,7 @@
 [//]: # (title: Content encoding)
 
+<primary-label ref="client-plugin"/>
+
 <var name="artifact_name" value="ktor-client-encoding"/>
 
 <tldr>

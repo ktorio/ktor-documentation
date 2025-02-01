@@ -3,7 +3,7 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/ihp.dtd">
 <ihp version="2.0">
     <settings>
-        <wrs-supernova use-version="2.1.1738-p5259"/>
+        <wrs-supernova use-version="243.22562"/>
     </settings>
 
     <module name="ktor"/>

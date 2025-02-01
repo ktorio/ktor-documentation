@@ -1,6 +1,7 @@
 [//]: # (title: FreeMarker)
 
 <show-structure for="chapter" depth="2"/>
+<primary-label ref="server-plugin"/>
 
 [freemarker_template_loading]: https://freemarker.apache.org/docs/pgui_config_templateloading.html
 

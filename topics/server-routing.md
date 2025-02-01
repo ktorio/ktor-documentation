@@ -1,6 +1,7 @@
 [//]: # (title: Routing)
 
 <show-structure for="chapter" depth="2"/>
+<primary-label ref="server-plugin"/>
 
 <link-summary>
 Routing is a core plugin for handling incoming requests in a server application.

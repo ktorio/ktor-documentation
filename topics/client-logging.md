@@ -1,6 +1,7 @@
-[//]: # (title: Logging)
+[//]: # (title: Logging in Ktor Client)
 
 <show-structure for="chapter" depth="2"/>
+<primary-label ref="client-plugin"/>
 
 <tldr>
 <p>
@@ -17,6 +18,9 @@ Ktor provides the capability to log HTTP calls using
 the [Logging](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-logging/io.ktor.client.plugins.logging/-logging)
 plugin.
 This plugin provides different logger types for different platforms.
+
+> On the server, Ktor provides the [Logging](server-logging.md) plugin for application logging and
+> the [CallLogging](server-call-logging.md) plugin for logging client requests.
 
 ## JVM
 

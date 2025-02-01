@@ -3,15 +3,16 @@
 
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       title="Adding Ktor dependencies"
+       title="Adding server dependencies"
        id="server-dependencies" help-id="Gradle">
 
     <show-structure for="chapter" depth="2"/>
 
-    <link-summary>Learn how to add Ktor dependencies to an existing Gradle/Maven project.</link-summary>
+    <link-summary>Learn how to add Ktor Server dependencies to an existing Gradle/Maven project.</link-summary>
 
     <p>
-        In this topic, we'll show you how to add dependencies required for Ktor to the existing Gradle/Maven project.
+        In this topic, we'll show you how to add dependencies required for Ktor Server to an existing
+        Gradle/Maven project.
     </p>
 
     <chapter title="Configure the repositories" id="repositories">
@@ -131,8 +132,7 @@
     </chapter>
 
 
-
-    <chapter title="Add Ktor dependencies" id="add-ktor-dependencies">
+    <chapter title="Add dependencies" id="add-ktor-dependencies">
         <chapter title="Core dependencies" id="core-dependencies">
             <p>
                 Every Ktor application requires at least the following dependencies:

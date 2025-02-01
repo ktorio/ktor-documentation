@@ -119,7 +119,7 @@
                     <a href="client-auth.md"/>
                     <a href="client-cookies.md"/>
                     <a href="client-content-encoding.md"/>
-                    <a href="bom-remover.md"/>
+                    <a href="client-bom-remover.md"/>
                     <a href="client-caching.md"/>
                     <a href="client-websockets.topic"/>
                     <a href="client-server-sent-events.topic"/>

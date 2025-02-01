@@ -1,6 +1,7 @@
 [//]: # (title: Dropwizard metrics)
 
 <show-structure for="chapter" depth="2"/>
+<primary-label ref="server-plugin"/>
 
 <var name="plugin_name" value="DropwizardMetrics"/>
 <var name="package_name" value="io.ktor.server.metrics.dropwizard"/>

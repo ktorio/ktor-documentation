@@ -1,6 +1,7 @@
 [//]: # (title: Status pages)
 
 <show-structure for="chapter" depth="2"/>
+<primary-label ref="server-plugin"/>
 
 <var name="plugin_name" value="StatusPages"/>
 <var name="package_name" value="io.ktor.server.plugins.statuspages"/>

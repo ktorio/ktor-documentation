@@ -1,6 +1,7 @@
-[//]: # (title: Authentication and authorization)
+[//]: # (title: Authentication and authorization in Ktor Server)
 
 <show-structure for="chapter" depth="2"/>
+<primary-label ref="server-plugin"/>
 
 <var name="plugin_name" value="Authentication"/>
 <var name="package_name" value="io.ktor.server.auth"/>
@@ -16,7 +17,14 @@
 The Authentication plugin handles authentication and authorization in Ktor.
 </link-summary>
 
-Ktor provides the [Authentication](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-authentication/index.html) plugin to handle authentication and authorization. Typical usage scenarios include logging in users, granting access to specific resources, and securely transmitting information between parties. You can also use `Authentication` with [Sessions](server-sessions.md) to keep a user's information between requests.
+Ktor provides
+the [Authentication](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-authentication/index.html)
+plugin to handle authentication and authorization. Typical usage scenarios include logging in users, granting access to
+specific resources, and securely transmitting information between parties. You can also use `Authentication`
+with [Sessions](server-sessions.md) to keep a user's information between requests.
+
+> On the client, Ktor provides the [Authentication](client-auth.md) plugin for handling authentication and
+> authorization.
 
 ## Supported authentication types {id="supported"}
 Ktor supports the following authentication and authorization schemes:

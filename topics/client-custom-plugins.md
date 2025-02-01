@@ -1,4 +1,4 @@
-[//]: # (title: Custom plugins)
+[//]: # (title: Custom client plugins)
 
 <show-structure for="chapter" depth="2"/>
 

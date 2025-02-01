@@ -1,4 +1,4 @@
-[//]: # (title: Digest authentication)
+[//]: # (title: Digest authentication in Ktor Client)
 
 <tldr>
 <var name="example_name" value="client-auth-digest"/>

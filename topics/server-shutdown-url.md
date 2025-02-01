@@ -1,5 +1,7 @@
 [//]: # (title: Shutdown URL)
 
+<primary-label ref="server-plugin"/>
+
 <tldr>
 <var name="example_name" value="shutdown-url"/>
 <include from="lib.topic" element-id="download_example"/>

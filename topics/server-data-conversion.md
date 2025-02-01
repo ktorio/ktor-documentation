@@ -1,5 +1,7 @@
 [//]: # (title: Data conversion)
 
+<primary-label ref="server-plugin"/>
+
 <var name="artifact_name" value="ktor-server-data-conversion"/>
 <var name="package_name" value="io.ktor.server.plugins.dataconversion"/>
 <var name="plugin_name" value="DataConversion"/>

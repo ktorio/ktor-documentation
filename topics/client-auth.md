@@ -1,6 +1,7 @@
-[//]: # (title: Authentication and authorization)
+[//]: # (title: Authentication and authorization in Ktor Client)
 
 <show-structure for="chapter" depth="2"/>
+<primary-label ref="client-plugin"/>
 
 <tldr>
 <p>
@@ -16,6 +17,9 @@ Ktor provides
 the [Auth](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-auth/io.ktor.client.plugins.auth/-auth)
 plugin to handle authentication and authorization in your client application.
 Typical usage scenarios include logging in users and gaining access to specific resources.
+
+> On the server, Ktor provides the [Authentication](server-auth.md) plugin for handling authentication and
+> authorization.
 
 ## Supported authentication types {id="supported"}
 

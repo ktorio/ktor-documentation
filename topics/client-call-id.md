@@ -1,6 +1,7 @@
-[//]: # (title: CallId)
+[//]: # (title: Tracing requests in Ktor Client)
 
 <show-structure for="chapter" depth="2"/>
+<primary-label ref="client-plugin"/>
 
 <var name="artifact_name" value="ktor-client-call-id"/>
 <var name="package_name" value="io.ktor.client.plugins.callid"/>
@@ -38,7 +39,9 @@ call ID.
 
 ## Configure %plugin_name% {id="configure"}
 
-The %plugin_name% plugin configuration, provided by the [CallIdConfig]() class, allows you to generate a call ID and add
+The %plugin_name% plugin configuration, provided by
+the [CallIdConfig](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-call-id/io.ktor.client.plugins.callid/-call-id-config/index.html)
+class, allows you to generate a call ID and add
 it to the call context.
 
 ### Generate a call ID
@@ -69,7 +72,7 @@ You can use multiple methods to generate a call ID. In this way, the first non-n
 
 After you retrieve a call ID, you have the following options available to add it to the request:
 
-* The `intercept()` function allows you to add a call ID to the request by using the [CallIdInterceptor]().
+* The `intercept()` function allows you to add a call ID to the request by using the `CallIdInterceptor`.
 
  ```kotlin
  ```

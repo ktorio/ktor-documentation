@@ -1,6 +1,7 @@
-[//]: # (title: SSL)
+[//]: # (title: SSL in Ktor Client)
 
 <show-structure for="chapter" depth="3"/>
+<primary-label ref="client-plugin"/>
 
 <tldr>
 <var name="example_name" value="client-ssl-config"/>
