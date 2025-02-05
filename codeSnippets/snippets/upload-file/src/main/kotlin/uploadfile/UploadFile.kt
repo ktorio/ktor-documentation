@@ -15,7 +15,7 @@ fun Application.main() {
         var fileName = ""
 
         post("/upload") {
-            val multipartData = call.receiveMultipart()
+            val multipartData = call.receiveMultipart(formFieldLimit = 1024 * 1024 * 100)
 
             multipartData.forEachPart { part ->
                 when (part) {

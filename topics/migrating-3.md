@@ -431,6 +431,27 @@ To migrate, ensure `.bind()` is only called within a coroutine or suspending fun
 
 For more information on working with sockets, see the [Sockets documentation](server-sockets.md).
 
+## Multipart form data
+
+### New default limit for binary and file items
+
+In Ktor 3.0.0, a default limit of 50MB has been introduced for receiving binary and file items using
+[`ApplicationCall.receiveMultipart()`](https://api.ktor.io/older/3.0.0/ktor-server/ktor-server-core/io.ktor.server.request/receive-multipart.html).
+If a received file or binary item exceeds the 50MB limit, an `IOException` is thrown.
+
+#### Override the default limit
+
+If your application previously relied on handling files larger than 50MB without explicit configuration,
+you will need to update your code to avoid unexpected behaviour.
+
+To override the default limit, pass the `formFieldLimit` parameter when calling `.receiveMultipart()`:
+
+```kotlin
+```
+
+{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="18"}
+
+
 ### `PartData.FileItem.streamProvider()` is deprecated
 
 In previous versions of Ktor, the `.streamProvider()` function in `PartData.FileItem` was used to access a file
