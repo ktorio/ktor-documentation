@@ -190,6 +190,7 @@
             </toc-element>
 
             <toc-element topic="server-websockets.md"
+                         toc-title="WebSockets"
                          accepts-web-file-names="servers-features-websockets.html,websocket.html">
                 <toc-element topic="server-websocket-serialization.md"
                              accepts-web-file-names="websocket-serialization.html"/>
