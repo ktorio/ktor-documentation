@@ -1,6 +1,7 @@
-[//]: # (title: Content negotiation and serialization)
+[//]: # (title: Content negotiation and serialization in Ktor Server)
 
 <show-structure for="chapter" depth="2"/>
+<primary-label ref="server-plugin"/>
 
 <var name="plugin_name" value="ContentNegotiation"/>
 <var name="package_name" value="io.ktor.server.plugins.contentnegotiation"/>
@@ -24,6 +25,8 @@ The [ContentNegotiation](https://api.ktor.io/ktor-server/ktor-server-plugins/kto
 * Negotiating media types between the client and server. For this, it uses the `Accept` and `Content-Type` headers.
 * Serializing/deserializing the content in a specific format. Ktor supports the following formats out-of-the-box: JSON, XML, CBOR, and ProtoBuf.
 
+> On the client, Ktor provides the [ContentNegotiation](client-serialization.md) plugin for serializing/deserializing
+content.
 
 ## Add dependencies {id="add_dependencies"}
 

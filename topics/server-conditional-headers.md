@@ -1,5 +1,7 @@
 [//]: # (title: Conditional headers)
 
+<primary-label ref="server-plugin"/>
+
 <var name="artifact_name" value="ktor-server-conditional-headers"/>
 <var name="package_name" value="io.ktor.server.plugins.conditionalheaders"/>
 <var name="plugin_name" value="ConditionalHeaders"/>

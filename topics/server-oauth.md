@@ -1,6 +1,7 @@
 [//]: # (title: OAuth)
 
 <show-structure for="chapter" depth="2"/>
+<primary-label ref="server-plugin"/>
 
 <var name="plugin_name" value="OAuth"/>
 <var name="artifact_name" value="ktor-server-auth"/>

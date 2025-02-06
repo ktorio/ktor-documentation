@@ -1,4 +1,4 @@
-[//]: # (title: Bearer authentication)
+[//]: # (title: Bearer authentication in Ktor Client)
 
 <show-structure for="chapter" depth="2"/>
 

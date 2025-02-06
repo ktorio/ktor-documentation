@@ -1,4 +1,4 @@
-[//]: # (title: Logging)
+[//]: # (title: Logging in Ktor Server)
 
 
 <show-structure for="chapter" depth="2"/>

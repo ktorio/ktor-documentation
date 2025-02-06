@@ -1,6 +1,7 @@
-[//]: # (title: Content negotiation and serialization)
+[//]: # (title: Content negotiation and serialization in Ktor Client)
 
 <show-structure for="chapter" depth="2"/>
+<primary-label ref="client-plugin"/>
 
 <var name="plugin_name" value="ContentNegotiation"/>
 <var name="artifact_name" value="ktor-client-content-negotiation"/>

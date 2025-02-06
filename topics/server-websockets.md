@@ -1,6 +1,7 @@
-[//]: # (title: WebSockets)
+[//]: # (title: WebSockets in Ktor Server)
 
 <show-structure for="chapter" depth="2"/>
+<primary-label ref="server-plugin"/>
 
 <var name="plugin_name" value="WebSockets"/>
 <var name="package_name" value="io.ktor.server.websocket"/>

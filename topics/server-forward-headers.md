@@ -1,6 +1,7 @@
 [//]: # (title: Forwarded headers)
 
 <show-structure for="chapter" depth="2"/>
+<primary-label ref="server-plugin"/>
 
 <var name="artifact_name" value="ktor-server-forwarded-header"/>
 <var name="package_name" value="io.ktor.server.plugins.forwardedheaders"/>

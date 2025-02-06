@@ -1,4 +1,4 @@
-[//]: # (title: WebSockets serialization)
+[//]: # (title: WebSockets serialization in Ktor Client)
 
 <show-structure for="chapter" depth="2"/>
 

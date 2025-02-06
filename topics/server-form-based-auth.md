@@ -1,4 +1,4 @@
-[//]: # (title: Form-based authentication)
+[//]: # (title: Form-based authentication in Ktor Server)
 
 <show-structure for="chapter" depth="2"/>
 

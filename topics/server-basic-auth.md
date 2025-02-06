@@ -1,4 +1,4 @@
-[//]: # (title: Basic authentication)
+[//]: # (title: Basic authentication in Ktor Server)
 
 <show-structure for="chapter" depth="2"/>
 
