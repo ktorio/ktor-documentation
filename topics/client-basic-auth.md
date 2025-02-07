@@ -1,12 +1,16 @@
 [//]: # (title: Basic authentication in Ktor Client)
 
 <tldr>
+<p>
+<b>Required dependencies</b>: <code>io.ktor:ktor-client-auth</code>
+</p>
 <var name="example_name" value="client-auth-basic"/>
 <include from="lib.topic" element-id="download_example"/>
 </tldr>
 
 The Basic [authentication scheme](client-auth.md) can be used for logging in users. In this scheme, user credentials are transmitted as username/password pairs encoded using Base64. 
 
+> On the server, Ktor provides the [Authentication](server-basic-auth.md) plugin for handling basic authentication.
 
 ## Basic authentication flow {id="flow"}
 

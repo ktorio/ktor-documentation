@@ -3,12 +3,20 @@
 <show-structure for="chapter" depth="2"/>
 
 <tldr>
+<p>
+<b>Required dependencies</b>: <code>io.ktor:ktor-client-auth</code>
+</p>
 <var name="example_name" value="client-auth-oauth-google"/>
 <include from="lib.topic" element-id="download_example"/>
 </tldr>
 
 
-Bearer authentication involves security tokens called bearer tokens. As an example, these tokens can be used as a part of OAuth flow to authorize users of your application by using external providers, such as Google, Facebook, Twitter, and so on. You can learn how the OAuth flow might look from the [OAuth authorization flow](server-oauth.md#flow) section for a Ktor server.
+Bearer authentication involves security tokens called bearer tokens. As an example, these tokens can be used as a part
+of OAuth flow to authorize users of your application by using external providers, such as Google, Facebook, Twitter, and
+so on. You can learn how the OAuth flow might look from the [OAuth authorization flow](server-oauth.md#flow) section for
+a Ktor server.
+
+> On the server, Ktor provides the [Authentication](server-bearer-auth.md) plugin for handling bearer authentication.
 
 ## Configure bearer authentication {id="configure"}
 

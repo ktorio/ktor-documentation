@@ -133,6 +133,7 @@
             </toc-element>
 
             <toc-element topic="server-auth.md"
+                         toc-title="Authentication and authorization"
                          accepts-web-file-names="features-authentication.html,authentication.html">
                 <toc-element topic="server-basic-auth.md"
                              toc-title="Basic authentication"
@@ -193,6 +194,7 @@
                          toc-title="WebSockets"
                          accepts-web-file-names="servers-features-websockets.html,websocket.html">
                 <toc-element topic="server-websocket-serialization.md"
+                             toc-title="WebSockets serialization"
                              accepts-web-file-names="websocket-serialization.html"/>
                 <toc-element topic="server-websocket-deflate.md"
                              accepts-web-file-names="websocket-deflate-extension.html"/>
@@ -284,7 +286,7 @@
         <toc-element toc-title="Developing applications">
             <toc-element toc-title="Setting up a client">
                 <toc-element topic="client-supported-platforms.md"/>
-                <toc-element topic="client-dependencies.md"/>
+                <toc-element topic="client-dependencies.md" toc-title="Adding dependencies"/>
                 <toc-element topic="client-create-and-configure.md"
                              accepts-web-file-names="client.html,clients-index.html,quick-start.html,create-client.html"/>
                 <toc-element topic="client-engines.md"
