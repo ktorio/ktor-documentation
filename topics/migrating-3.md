@@ -549,3 +549,23 @@ Prior to Ktor 3.0.0, the `content` property of
 [`HttpResponse`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/index.html)
 provided a raw `ByteReadChannel` to the response content as it is read from the network. Starting with Ktor 3.0.0, the
 `content` property has been renamed to `rawContent` to better reflect its purpose.
+
+## Shared modules
+
+### Attribute keys now require exact type matching
+
+In Ktor 3.0.0, [`AttributeKey`](https://api.ktor.io/older/3.0.0/ktor-utils/io.ktor.util/-attribute-key.html)
+instances are now compared by identity and require exact type matching when storing
+and retrieving values. This ensures type-safety and prevents unintended behaviour caused by mismatched types.
+
+Previously, it was possible to retrieve an attribute with a different generic type than it was stored with, such as
+using `getOrNull<Any>()` to fetch an `AttributeKey<Boolean>`.
+
+To migrate your application, ensure the retrieval type matches the stored type exactly:
+
+```kotlin
+val attrs = Attributes()
+
+attrs.put(AttributeKey<Boolean>("key"), true)
+attrs.getOrNull<Boolean>("key")
+```
