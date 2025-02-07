@@ -8,6 +8,7 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.rpc.client.withService
 import kotlinx.rpc.serialization.json
 import kotlinx.rpc.transport.ktor.client.installRPC
+import kotlinx.rpc.transport.ktor.client.KtorRPCClient
 import kotlinx.rpc.transport.ktor.client.rpc
 import kotlinx.rpc.transport.ktor.client.rpcConfig
 import kotlinx.rpc.streamScoped
