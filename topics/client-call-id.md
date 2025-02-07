@@ -28,6 +28,8 @@ to retrieve a call ID and adds it to the context of the specific call using the 
 Additionally, if a scope comes without a call ID, you can [configure the plugin](#configure) to generate and apply a new
 call ID.
 
+> On the server, Ktor provides the [CallId](server-call-id.md) plugin for tracing client requests.
+
 ## Add dependencies {id="add_dependencies"}
 
 <include from="lib.topic" element-id="add_ktor_artifact_intro"/>

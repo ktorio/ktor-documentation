@@ -1,11 +1,17 @@
 [//]: # (title: Digest authentication in Ktor Client)
 
 <tldr>
+<p>
+<b>Required dependencies</b>: <code>io.ktor:ktor-client-auth</code>
+</p>
 <var name="example_name" value="client-auth-digest"/>
 <include from="lib.topic" element-id="download_example"/>
 </tldr>
 
-In the Digest authentication scheme, a hash function is applied to a username and password before sending them over the network. 
+In the Digest authentication scheme, a hash function is applied to a username and password before sending them over the
+network.
+
+> On the server, Ktor provides the [Authentication](server-digest-auth.md) plugin for handling digest authentication.
 
 ## Digest authentication flow {id="flow"}
 

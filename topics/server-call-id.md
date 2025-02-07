@@ -29,6 +29,7 @@ The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-ser
 
 Using `%plugin_name%` along with [CallLogging](server-call-logging.md) helps you troubleshoot calls by [putting a call ID](#put-call-id-mdc) in the MDC context and configuring a logger to show a call ID for each request.
 
+> On the client, Ktor provides the [CallId](client-call-id.md) plugin for tracing client requests.
 
 ## Add dependencies {id="add_dependencies"}
 
