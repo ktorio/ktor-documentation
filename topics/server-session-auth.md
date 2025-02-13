@@ -57,30 +57,47 @@ install(Authentication) {
 ```
 
 ## Configure session authentication {id="configure"}
-This section demonstrates how to authenticate a user with a [form-based authentication](server-form-based-auth.md), save information about this user to a cookie session, and then authorize this user on subsequent requests using the `session` provider. You can find the complete example here: [auth-form-session](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-form-session).
+
+This section demonstrates how to authenticate a user with a [form-based authentication](server-form-based-auth.md), save
+information about this user to a cookie session, and then authorize this user on subsequent requests using the `session`
+provider.
+
+> For the complete example, see
+> [auth-form-session](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-form-session).
 
 ### Step 1: Create a data class {id="data-class"}
-First, you need to create a data class for storing session data. Note that this class should inherit [Principal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-principal/index.html) since the [validate](#configure-session-auth) function should return a `Principal` in the case of successful authentication.
+
+First, you need to create a data class for storing session data:
 
 ```kotlin
 ```
 {src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="12-13"}
 
 ### Step 2: Install and configure a session {id="install-session"}
-After creating a data class, you need to install and configure the `Sessions` plugin. A code snippet below shows how to install and configure a cookie session with the specified cookie path and expiration time.
+
+After creating a data class, you need to install and configure the `Sessions` plugin. The example below
+installs and configures a cookie session with a specified cookie path and expiration time.
 
 ```kotlin
 ```
+
 {src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="17-21"}
 
-You can learn more about configuring sessions from [](server-sessions.md#configuration_overview).
+> To learn more about configuring sessions, see [](server-sessions.md#configuration_overview).
 
 
 ### Step 3: Configure session authentication {id="configure-session-auth"}
 
-The `session` authentication provider exposes its settings via the [SessionAuthenticationProvider.Config](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-session-authentication-provider/-config/index.html) class. In the example below, the following settings are specified:
-* The `validate` function checks the [session instance](#data-class) and returns `Principal` in the case of successful authentication.
-* The `challenge` function specifies an action performed if authentication fails. For instance, you can redirect back to a login page or send [UnauthorizedResponse](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-unauthorized-response/index.html).
+The `session` authentication provider exposes its settings via
+the [
+`SessionAuthenticationProvider.Config`](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-session-authentication-provider/-config/index.html)
+class. In the example below, the following settings are specified:
+
+* The `validate()` function checks the [session instance](#data-class) and returns a principal of type `Any` in the case
+  of successful authentication.
+* The `challenge()` function specifies an action performed if authentication fails. For instance, you can redirect back
+  to a login page or send an [
+  `UnauthorizedResponse`](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-unauthorized-response/index.html).
 
 ```kotlin
 ```
@@ -89,20 +106,33 @@ The `session` authentication provider exposes its settings via the [SessionAuthe
 
 ### Step 4: Save user data in a session {id="save-session"}
 
-To save information about a logged-in user to a session, use the [call.sessions.set](server-sessions.md#use_sessions) function.
-> This example shows a simple authentication flow using a web form.
-For more information on how to define it, please refer to the [Form-based authentication](server-form-based-auth.md) documentation.
+To save information about a logged-in user to a session, use the [
+`call.sessions.set()`](server-sessions.md#use_sessions)
+function.
+
+The following example shows a simple authentication flow using a web form:
 
 ```kotlin
 ```
+
 {src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="69-75"}
+
+> For more details on the form-based authentication flow, refer to
+the [Form-based authentication](server-form-based-auth.md) documentation.
 
 ### Step 5: Protect specific resources {id="authenticate-route"}
 
-After configuring the `session` provider, you can protect specific resources in our application using the **[authenticate](server-auth.md#authenticate-route)** function. In the case of successful authentication, you can retrieve an authenticated `Principal` (the [UserSession](#data-class) instance) inside a route handler using the `call.principal` function and information about a user.
+After configuring the `session` provider, you can protect specific resources in your application with the
+[`authenticate()`](server-auth.md#authenticate-route) function.
+
+Upon successful authentication, you can
+retrieve an authenticated principal (in this case, the [`UserSession`](#data-class) instance) by
+using the `call.principal()` function inside a route handler:
 
 ```kotlin
 ```
+
 {src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="77-83"}
 
-You can find the full example here: [auth-form-session](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-form-session).
+> For the full example, see
+> [auth-form-session](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-form-session).

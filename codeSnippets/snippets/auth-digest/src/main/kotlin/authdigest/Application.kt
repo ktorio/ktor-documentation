@@ -2,7 +2,6 @@ package authdigest
 
 import io.ktor.server.application.*
 import io.ktor.server.auth.*
-import io.ktor.server.auth.Principal
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import java.security.*
@@ -41,4 +40,4 @@ fun Application.main() {
     }
 }
 
-data class CustomPrincipal(val userName: String, val realm: String) : Principal
+data class CustomPrincipal(val userName: String, val realm: String)
