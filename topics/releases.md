@@ -33,6 +33,14 @@ The following table lists details of the latest Ktor releases.
 
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
+<tr><td>3.1.0</td><td>February 11, 2025</td><td><p>
+A minor release introducing various SSE features and extended CIO engine and WebSocket support. It enhances platform
+compatibility, logging, and authentication while fixing critical bugs related to byte channel handling,
+HTTP request failures, and concurrency issues.
+</p>
+<var name="version" value="3.0.3"/>
+<include from="lib.topic" element-id="release_details_link"/>
+</td></tr>
 <tr><td>3.0.3</td><td>December 18, 2024</td><td><p>
 A patch release with various bug fixes, including fixing build errors in <code>browserProductionWebpack</code>,
 gzipped content handling, and <code>FormFieldLimit</code> configuration overwrites. This release also includes core 
