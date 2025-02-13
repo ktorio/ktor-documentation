@@ -62,8 +62,6 @@ For example, the `UserSession` class below will be used to store the session ID 
 
 You need to create several data classes if you are going to use several sessions.
 
-> You can optionally inherit your data class from [Principal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-principal/index.html) to use a session for [](server-auth.md). Learn more from [](server-session-auth.md).
-
 ## Pass session data: Cookie vs Header {id="cookie_header"}
 
 ### Cookie {id="cookie"}
