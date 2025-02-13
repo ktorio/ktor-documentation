@@ -12,7 +12,7 @@ class ApplicationTest {
         val output = runGradleAppWaiting().inputStream.readString()
 
         assertThat(output, containsString("REQUEST: https://ktor.io/"))
-        assertThat(output, containsString("METHOD: HttpMethod(value=GET)"))
+        assertThat(output, containsString("METHOD: GET"))
         assertThat(output, containsString("CONTENT HEADERS"))
         assertThat(output, containsString("COMMON HEADERS"))
     }
