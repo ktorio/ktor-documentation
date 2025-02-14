@@ -550,6 +550,24 @@ Prior to Ktor 3.0.0, the `content` property of
 provided a raw `ByteReadChannel` to the response content as it is read from the network. Starting with Ktor 3.0.0, the
 `content` property has been renamed to `rawContent` to better reflect its purpose.
 
+### `SocketTimeoutException` is now a typealias
+
+[`SocketTimeoutException`](https://api.ktor.io/older/3.0.0/ktor-client/ktor-client-core/io.ktor.client.network.sockets/-socket-timeout-exception/index.html)
+from the `io.ktor.client.network.sockets` package has been converted from a Kotlin class to an alias for a Java class.
+This change may cause a `NoClassDefFoundError` in certain cases and may require updates to existing code.
+
+To migrate your application, ensure your code is not referencing the old class and is compiled with the latest Ktor
+version. Here's how to update exception checks:
+
+<compare type="top-bottom" first-title="2.x.x" second-title="3.0.x">
+    <code-block lang="kotlin">
+    if (exception is io.ktor.client.network.sockets.SocketTimeoutException) { ... }
+    </code-block>
+    <code-block lang="kotlin">
+    if (exception is java.net.SocketTimeoutException) { ... }
+    </code-block>
+</compare>
+
 ## Shared modules
 
 ### Attribute keys now require exact type matching
