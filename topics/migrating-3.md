@@ -587,3 +587,11 @@ val attrs = Attributes()
 attrs.put(AttributeKey<Boolean>("key"), true)
 attrs.getOrNull<Boolean>("key")
 ```
+
+### Removal of empty artifact
+
+Since Ktor 1.0.0, the empty artifact `io.ktor:ktor` was published
+to [Maven](https://repo1.maven.org/maven2/io/ktor/ktor/) by mistake. This artifact has been removed starting with 
+Ktor 3.0.0.
+
+If your project includes this artifact as a dependency, you can safely remove it.
