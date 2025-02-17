@@ -334,7 +334,6 @@
             :
         </p>
         <code-block lang="kotlin"><![CDATA[
-            @OptIn(ExperimentalResourceApi::class)
             @Composable
             fun App() {
                 MaterialTheme {
@@ -352,7 +351,7 @@
                         }
                         AnimatedVisibility(showImage) {
                             Image(
-                                painterResource("compose-multiplatform.xml"),
+                                painterResource(Res.drawable.compose_multiplatform),
                                 null
                             )
                         }
