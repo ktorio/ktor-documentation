@@ -1,4 +1,3 @@
-version: '3'
 services:
   ldap_server:
     build: .
