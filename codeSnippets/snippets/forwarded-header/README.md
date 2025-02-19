@@ -10,7 +10,7 @@ To run this application under Docker Compose, follow the steps below:
    ```Bash
    ./gradlew :forwarded-header:buildFatJar
    ```
-2. Run the `docker-compose up` command:
+2. Run the `docker compose up` command:
    ```Bash
    docker compose --project-directory snippets/forwarded-header up
    ```

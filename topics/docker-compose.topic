@@ -44,7 +44,7 @@
                                 src="snippets/tutorial-server-docker-compose/src/main/resources/application.yaml"/>
                     <p>These settings will be configured later in the <a
                             anchor="configure-docker">
-                        <path>docker-compose.yml</path>
+                        <path>compose.yml</path>
                     </a> file.
                     </p>
                 </step>
@@ -114,10 +114,10 @@
         </chapter>
         <chapter title="Configure Docker Compose" id="configure-docker-compose">
             <p>In the root directory of the project, create a new
-                <path>docker-compose.yml</path>
+                <path>compose.yml</path>
                 file and add the following content:
             </p>
-            <code-block lang="yaml" src="snippets/tutorial-server-docker-compose/docker-compose.yml"/>
+            <code-block lang="yaml" src="snippets/tutorial-server-docker-compose/compose.yml"/>
             <list>
                 <li>The <code>web</code> service is used to run the Ktor application packaged inside the <a
                         anchor="prepare-docker-image">image</a>.
