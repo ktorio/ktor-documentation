@@ -2,9 +2,11 @@ package com.example.model
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.serialization.Serializable
-import kotlinx.rpc.RPC
+import kotlinx.rpc.RemoteService
+import kotlinx.rpc.annotations.Rpc
 
-interface PizzaShop : RPC {
+@Rpc
+interface PizzaShop : RemoteService {
     /*
     suspend fun orderPizza(pizza: Pizza): Receipt
     */
