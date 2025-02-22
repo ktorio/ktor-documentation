@@ -5,7 +5,7 @@ A sample project demonstrating how to use [LDAP authentication](https://ktor.io/
 ## Running an LDAP server
 To run an LDAP server, execute the following command in a project directory:
 ```bash
-docker-compose up
+docker compose up
 ```
 Wait until Docker Compose pulls/builds the images and starts containers.
 

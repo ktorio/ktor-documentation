@@ -12,7 +12,7 @@ To run this application under Docker Compose, follow the steps below:
    ```Bash
     ./gradlew :tutorial-server-docker-compose:buildFatJar
    ```
-2. Run the `docker-compose up` command:
+2. Run the `docker compose up` command:
    ```Bash
    docker compose --project-directory snippets/tutorial-server-docker-compose up
    ```
