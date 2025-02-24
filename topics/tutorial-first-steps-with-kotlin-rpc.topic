@@ -190,10 +190,11 @@
                     file with the following implementation:
                     <code-block lang="kotlin"
                                 src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/model/PizzaShop.kt"
-                                include-lines="1-7,9,13-19"
+                                include-lines="1-9,11,15-21"
                     />
                     <p>
-                        The interface needs to extend the <code>RPC</code> type from the <code>kotlinx.rpc</code> library. The
+                        The interface needs to extend the <code>RemoteService</code> type from the
+                        <code>kotlinx.rpc</code> library. The
                         reason for this will be explained later.
                     </p>
                     <p>
@@ -247,14 +248,14 @@
             <p>
                 Next, you create an instance of the Ktor client in the standard way. <code>kotlinx.rpc</code> uses
                 the <a href="client-websockets.topic">WebSockets</a> plugin under the hood to transfer information. You
-                only need to ensure that it is loaded by using the <code>installRPC()</code> function:
+                only need to ensure that it is loaded by using the <code>installKrpc()</code> function:
             </p>
             <code-block lang="kotlin"
                         src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
                         include-lines="17-21"
             />
             <p>
-                Having created this Ktor client, you then create a <code>KtorRPCClient</code> object for invoking remote
+                Having created this Ktor client, you then create a <code>KtorRpcClient</code> object for invoking remote
                 procedures. You will need to configure the location of the server and the mechanism being used to
                 transfer information:
             </p>
@@ -468,7 +469,7 @@
                 <code>viewOrders</code> method that returns all the pending orders for a specified client:
                 <code-block lang="kotlin"
                             src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/model/PizzaShop.kt"
-                            include-lines="1-7,11-13"
+                            include-lines="1-9,13-15"
                 />
                 <p>
                     You can take advantage of the coroutines library by returning a <code>Flow</code> rather than a
