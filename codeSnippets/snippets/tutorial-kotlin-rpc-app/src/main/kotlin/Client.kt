@@ -5,21 +5,22 @@ import com.example.model.PizzaShop
 import io.ktor.client.*
 import io.ktor.http.*
 import kotlinx.coroutines.runBlocking
-import kotlinx.rpc.client.withService
-import kotlinx.rpc.serialization.json
-import kotlinx.rpc.transport.ktor.client.installRPC
-import kotlinx.rpc.transport.ktor.client.rpc
-import kotlinx.rpc.transport.ktor.client.rpcConfig
-import kotlinx.rpc.streamScoped
+import kotlinx.rpc.withService
+import kotlinx.rpc.krpc.serialization.json.json
+import kotlinx.rpc.krpc.ktor.client.KtorRpcClient
+import kotlinx.rpc.krpc.ktor.client.installKrpc
+import kotlinx.rpc.krpc.ktor.client.rpc
+import kotlinx.rpc.krpc.ktor.client.rpcConfig
+import kotlinx.rpc.krpc.streamScoped
 
 fun main() = runBlocking {
     val ktorClient = HttpClient {
-        installRPC {
+        installKrpc {
             waitForServices = true
         }
     }
 
-    val client: KtorRPCClient = ktorClient.rpc {
+    val client: KtorRpcClient = ktorClient.rpc {
         url {
             host = "localhost"
             port = 8080
