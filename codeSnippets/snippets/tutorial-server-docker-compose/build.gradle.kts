@@ -9,7 +9,7 @@ plugins {
     application
     kotlin("jvm")
     id("io.ktor.plugin") version "3.1.1"
-    id("org.jetbrains.kotlin.plugin.serialization") version "2.0.0"
+    id("org.jetbrains.kotlin.plugin.serialization") version "2.1.10"
 }
 
 group = "com.example"
