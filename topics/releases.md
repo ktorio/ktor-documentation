@@ -34,7 +34,7 @@ The following table lists details of the latest Ktor releases.
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
 <tr><td>3.1.1</td><td>February 24, 2025</td><td><p>
-A patch release improving logging and WebSocket timeout handling. It fixes multiple bugs, including HTTP cache 
+A patch release improving logging and fixing WebSocket timeout handling. It fixes multiple bugs, including HTTP cache 
 inconsistencies, form data copying errors, gzip handling crashes, and concurrency issues causing segment pool corruption.
 </p>
 <var name="version" value="3.1.1"/>
