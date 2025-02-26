@@ -8,7 +8,7 @@ plugins {
     application
     kotlin("jvm")
     id("com.google.cloud.tools.appengine") version "2.8.0"
-    id("com.gradleup.shadow") version "8.3.1"
+    id("com.gradleup.shadow") version "8.3.6"
 }
 
 application {
