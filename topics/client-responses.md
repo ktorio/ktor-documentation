@@ -75,10 +75,19 @@ Note: there are ContentNegotiation plugins for both client and server, make sure
 
 ### Streaming data {id="streaming"}
 
-When you call the `HttpResponse.body` function to get a body, Ktor processes a response in memory and returns a full response body. If you need to get chunks of a response sequentially instead of waiting for the entire response, use `HttpStatement` with scoped [execute](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-statement/execute.html) block. A [runnable example](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-download-streaming) below shows how to receive a response content in chunks (byte packets) and save them in a file:
+When you call the `HttpResponse.body` function to get a body, Ktor processes a response in memory and returns a full
+response body. If you need to get chunks of a response sequentially instead of waiting for the entire response, use
+`HttpStatement` with
+scoped [execute](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-statement/execute.html)
+block.
+A [runnable example](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-download-streaming)
+below shows how to receive a response content in chunks (byte packets) and save them in a file:
 
 ```kotlin
 ```
-{src="snippets/client-download-streaming/src/main/kotlin/com/example/Application.kt" include-lines="15-31"}
+{src="snippets/client-download-streaming/src/main/kotlin/com/example/Application.kt" include-lines="15-36"}
 
-In this example, [ByteReadChannel](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) is used to read data asynchronously using byte packets ([ByteReadPacket](https://api.ktor.io/ktor-io/io.ktor.utils.io.core/-byte-read-packet/index.html)) and append the content of these packets to the content of a file.
+In this example, [`ByteReadChannel`](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) is used
+to read data asynchronously. Using `ByteReadChannel.readRemaning()` retrieves all available bytes in the channel, while
+`Source.transferTo()` directly writes the data to the file, reducing unnecessary allocations.
+

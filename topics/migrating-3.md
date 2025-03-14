@@ -570,6 +570,81 @@ version. Here's how to update exception checks:
 
 ## Shared modules
 
+### Migration to `kotlinx-io`
+
+With the 3.0.0 release, Ktor has transitioned to using the `kotlinx-io` library, which provides a standardized and
+efficient I/O API across Kotlin libraries. This change improves performance, reduces memory allocations, and simplifies
+I/O handling. If your project interacts with Ktor's low-level I/O APIs, you may need to update your code to ensure
+compatibility.
+
+This impacts many classes, such as
+[`ByteReadChannel`](https://api.ktor.io/older/3.0.0/ktor-io/io.ktor.utils.io/-byte-read-channel.html)
+and
+[`ByteWriteChannel`](https://api.ktor.io/older/3.0.0/ktor-io/io.ktor.utils.io/-byte-write-channel/index.html)
+. Additionally, the following Ktor classes
+are now backed by `kotlinx-io`, and their previous implementations are deprecated:
+
+| Ktor 2.x                                  | Ktor 3.x                  |
+|-------------------------------------------|---------------------------|
+| `io.ktor.utils.io.core.Buffer`            | `kotlinx.io.Buffer`       |
+| `io.ktor.utils.io.core.BytePacketBuilder` | `kotlinx.io.Sink`         |
+| `io.ktor.utils.io.core.ByteReadPacket`    | `kotlinx.io.Source`       |
+| `io.ktor.utils.io.core.Input`             | `kotlinx.io.Source`       |
+| `io.ktor.utils.io.core.Output`            | `kotlinx.io.Sink`         |
+| `io.ktor.utils.io.core.Sink`              | `kotlinx.io.Buffer`       |
+| `io.ktor.utils.io.errors.EOFException`    | `kotlinx.io.EOFException` |
+| `io.ktor.utils.io.errors.IOException`     | `kotlinx.io.IOException`  |
+
+
+The deprecated APIs will be supported until Ktor 4.0, but we recommend migrating as soon as possible. To migrate your
+application, update your code to utilize the corresponding methods from `kotlinx-io`.
+
+#### Example: Streaming I/O
+
+If you are handling large file downloads and need an efficient streaming solution, you can replace manual byte array
+handling with `kotlinx-io`'s optimized streaming APIs.
+
+In Ktor 2.x, handling large file downloads typically involved manually reading available bytes using
+`ByteReadChannel.readRemaining()` and writing them to a file using `File.appendBytes()`:
+
+```Kotlin
+val client = HttpClient(CIO)
+val file = File.createTempFile("files", "index")
+
+runBlocking {
+    client.prepareGet("https://ktor.io/").execute { httpResponse ->
+        val channel: ByteReadChannel = httpResponse.body()
+        while (!channel.isClosedForRead) {
+            val packet = channel.readRemaining(DEFAULT_BUFFER_SIZE.toLong())
+            while (!packet.isEmpty) {
+                val bytes = packet.readBytes()
+                file.appendBytes(bytes)
+                println("Received ${file.length()} bytes from ${httpResponse.contentLength()}")
+            }
+        }
+        println("A file saved to ${file.path}")
+    }
+}
+```
+
+This approach involved multiple memory allocations and redundant data copies.
+
+In Ktor 3.x, `ByteReadChannel.readRemaining()` now returns a `Source`, enabling streaming of data using
+`Source.transferTo()`:
+
+```Kotlin
+```
+{src="snippets/client-download-streaming/src/main/kotlin/com/example/Application.kt" include-lines="15-36"}
+
+This approach transfers data directly from the channel to the file's sink, minimizing memory
+allocations and improving performance.
+
+For the full example,
+see [client-download-streaming](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-download-streaming).
+
+> For more details on API replacements, refer to the
+> [`kotlinx-io` documentation](https://kotlinlang.org/api/kotlinx-io/).
+
 ### Attribute keys now require exact type matching
 
 In Ktor 3.0.0, [`AttributeKey`](https://api.ktor.io/older/3.0.0/ktor-utils/io.ktor.util/-attribute-key.html)
