@@ -175,7 +175,11 @@ With the enabled [ContentNegotiation](client-serialization.md) plugin, you can s
 You can learn more from the [](client-serialization.md) help section.
 
 ### Form parameters {id="form_parameters"}
-The Ktor client provides the [submitForm](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/submit-form.html) function for sending form parameters using both `x-www-form-urlencoded` and `multipart/form-data` types. The example below shows how to send form parameters encoded as `multipart/form-data`:
+
+The Ktor client provides the [`submitForm()`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/submit-form.html)
+function for sending form parameters with the `application/x-www-form-urlencoded` type. The following example
+demonstrates its usage:
+
 * `url` specifies a URL for making a request.
 * `formParameters` a set of form parameters built using `parameters`.
 
