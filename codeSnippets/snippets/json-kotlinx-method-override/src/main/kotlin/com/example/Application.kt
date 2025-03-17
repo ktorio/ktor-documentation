@@ -29,13 +29,13 @@ fun Application.main() {
     }
     routing {
         get("/customer/{id}") {
-            val id = call.parameters["id"]
+            val id: Int by call.parameters
             val customer: Customer = customerStorage.find { it.id == id!!.toInt() }!!
             call.respond(customer)
         }
 
         delete("/customer/{id}") {
-            val id = call.parameters["id"]
+            val id: Int by call.parameters
             customerStorage.removeIf { it.id == id!!.toInt() }
             call.respondText("Customer is removed", status = HttpStatusCode.NoContent)
         }
