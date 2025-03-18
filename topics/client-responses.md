@@ -6,7 +6,14 @@
 Learn how to receive responses, get a response body and obtain response parameters.
 </link-summary>
 
-All functions used to [make an HTTP request](client-requests.md) (`request`, `get`, `post`, etc.) allow you to receive a response as an [HttpResponse](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/index.html) object. `HttpResponse` exposes the API required to get a [response body](#body) in various ways (raw bytes, JSON objects, etc.) and obtain [response parameters](#parameters), such as a status code, content type, headers, and so on. For example, you can receive `HttpResponse` for a `GET` request without parameters as follows:
+All functions used to [make an HTTP request](client-requests.md) (`request`, `get`, `post`, etc.) allow you to receive a
+response as
+an [`HttpResponse`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/index.html)
+object.
+
+`HttpResponse` exposes the API required to get a [response body](#body) in various ways (raw bytes, JSON
+objects, etc.) and obtain [response parameters](#parameters), such as a status code, content type, and headers.
+For example, you can receive `HttpResponse` for a `GET` request without parameters in the following way:
 
 ```kotlin
 ```
@@ -14,19 +21,29 @@ All functions used to [make an HTTP request](client-requests.md) (`request`, `ge
 
 ## Receive response parameters {id="parameters"}
 
-The [HttpResponse](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/index.html) class allows you to get various response parameters, such as a status code, headers, HTTP version, and so on.
+The [
+`HttpResponse`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/index.html)
+class allows you to get various response parameters, such as a status code, headers, HTTP version, and more.
 
 ### Status code {id="status"}
 
-To get the status code of a response, use the [HttpResponse.status](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/status.html) property, for example:
+To get the status code of a response, use
+the [
+`HttpResponse.status`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/status.html)
+property:
 
 ```kotlin
 ```
+
 {src="snippets/_misc_client/ResponseTypes.kt" include-lines="1-4,9,11,15-17"}
 
-
 ### Headers {id="headers"}
-The [HttpResponse.headers](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/index.html) property allows you to get a [Headers](https://api.ktor.io/ktor-http/io.ktor.http/-headers/index.html) map containing all response headers. `HttpResponse` also exposes a bunch of specific functions for receiving specific header values, for example:
+
+The [
+`HttpResponse.headers`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/index.html)
+property allows you to get a [Headers](https://api.ktor.io/ktor-http/io.ktor.http/-headers/index.html) map containing
+all response headers. Additionally, `HttpResponse` exposes the following functions for receiving specific header values:
+
 * `contentType` for the `Content-Type` header value
 * `charset` for a charset from the `Content-Type` header value.
 * `etag` for the `E-Tag` header value.
@@ -34,36 +51,40 @@ The [HttpResponse.headers](https://api.ktor.io/ktor-client/ktor-client-core/io.k
   > Ktor also provides the [HttpCookies](client-cookies.md) plugin that allows you to keep cookies between calls.
 
 
-
-
-
-
 ## Receive response body {id="body"}
 
 ### Raw body {id="raw"}
 
-To receive a raw body of a response, call the `body` function and pass the required type as a parameter. The code snippet below shows how to receive a raw body as [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/):
+To receive a raw body of a response, call the `body` function and pass the required type as a parameter. The code
+snippet below shows how to receive a raw body as a [`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/):
 
 ```kotlin
 ```
 {src="snippets/_misc_client/ResponseTypes.kt" include-lines="11,12"}
 
-Similarly, you can get a body as [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/):
+Similarly, you can get a body as a [`ByteArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/):
 
 ```kotlin
 ```
 {src="snippets/_misc_client/ResponseTypes.kt" include-lines="11,13"}
 
-A [runnable example](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-download-file) below shows how to get a response as a byte array and save it to a file:
+A [runnable example](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-download-file)
+below shows how to get a response as a `ByteArray` and save it to a file:
+
 ```kotlin
 ```
 {src="snippets/client-download-file/src/main/kotlin/com/example/Downloader.kt" include-lines="12-24"}
 
-> The [onDownload](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/on-download.html) extension function in the example above is used to display download progress.
+The [`onDownload()`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/on-download.html) extension
+function in the example above is used to display download progress.
+
+This approach loads the entire response into memory at once, which can be problematic for large files. To reduce memory
+usage, consider [streaming the data](#streaming) in chunks.
 
 ### JSON object {id="json"}
 
-With the [ContentNegotiation](client-serialization.md) plugin installed, you can deserialize JSON data into a data class when receiving responses, for example:
+With the [ContentNegotiation](client-serialization.md) plugin installed, you can deserialize JSON data into a data class
+when receiving responses:
 
 ```kotlin
 ```
@@ -71,7 +92,8 @@ With the [ContentNegotiation](client-serialization.md) plugin installed, you can
 
 To learn more, see [](client-serialization.md#receive_send_data).
 
-Note: there are ContentNegotiation plugins for both client and server, make sure to use proper one (client in this case).
+> The ContentNegotiation plugin is available for both the [client](client-serialization.md) and
+> the [server](server-serialization.md). Ensure to use proper one for your case.
 
 ### Streaming data {id="streaming"}
 
@@ -91,3 +113,13 @@ In this example, [`ByteReadChannel`](https://api.ktor.io/ktor-io/io.ktor.utils.i
 to read data asynchronously. Using `ByteReadChannel.readRemaning()` retrieves all available bytes in the channel, while
 `Source.transferTo()` directly writes the data to the file, reducing unnecessary allocations.
 
+If you don't need to manually handle the stream, you can use the
+[`ByteReadChannel.copyAndClose()`](https://api.ktor.io/ktor-io/io.ktor.utils.io/copy-and-close.html) function instead:
+
+```Kotlin
+client.prepareGet("https://httpbin.org/bytes/$fileSize").execute { httpResponse ->
+    val channel: ByteReadChannel = httpResponse.body()
+    channel.copyAndClose(file.writeChannel())
+    println("A file saved to ${file.path}")
+}
+```
