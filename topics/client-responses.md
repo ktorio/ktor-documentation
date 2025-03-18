@@ -113,7 +113,7 @@ In this example, [`ByteReadChannel`](https://api.ktor.io/ktor-io/io.ktor.utils.i
 to read data asynchronously. Using `ByteReadChannel.readRemaning()` retrieves all available bytes in the channel, while
 `Source.transferTo()` directly writes the data to the file, reducing unnecessary allocations.
 
-If you don't need to manually handle the stream, you can use the
+To save a response body to a file without extra processing, you can use the
 [`ByteReadChannel.copyAndClose()`](https://api.ktor.io/ktor-io/io.ktor.utils.io/copy-and-close.html) function instead:
 
 ```Kotlin
