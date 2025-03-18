@@ -21,15 +21,13 @@ For example, you can receive `HttpResponse` for a `GET` request without paramete
 
 ## Receive response parameters {id="parameters"}
 
-The [
-`HttpResponse`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/index.html)
+The [`HttpResponse`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/index.html)
 class allows you to get various response parameters, such as a status code, headers, HTTP version, and more.
 
 ### Status code {id="status"}
 
-To get the status code of a response, use
-the [
-`HttpResponse.status`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/status.html)
+To get the status code of a response, use the
+[`HttpResponse.status`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/status.html)
 property:
 
 ```kotlin
@@ -93,7 +91,7 @@ when receiving responses:
 To learn more, see [](client-serialization.md#receive_send_data).
 
 > The ContentNegotiation plugin is available for both the [client](client-serialization.md) and
-> the [server](server-serialization.md). Ensure to use proper one for your case.
+> the [server](server-serialization.md). Ensure to use the proper one for your case.
 
 ### Streaming data {id="streaming"}
 
@@ -110,7 +108,7 @@ below shows how to receive a response content in chunks (byte packets) and save 
 {src="snippets/client-download-streaming/src/main/kotlin/com/example/Application.kt" include-lines="15-36"}
 
 In this example, [`ByteReadChannel`](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) is used
-to read data asynchronously. Using `ByteReadChannel.readRemaning()` retrieves all available bytes in the channel, while
+to read data asynchronously. Using `ByteReadChannel.readRemaining()` retrieves all available bytes in the channel, while
 `Source.transferTo()` directly writes the data to the file, reducing unnecessary allocations.
 
 To save a response body to a file without extra processing, you can use the
