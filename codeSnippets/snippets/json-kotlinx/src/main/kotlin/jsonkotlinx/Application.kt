@@ -31,7 +31,7 @@ fun Application.main() {
     routing {
         get("/customer/{id}") {
             val id: Int by call.parameters
-            val customer: Customer = customerStorage.find { it.id == id!!.toInt() }!!
+            val customer: Customer = customerStorage.find { it.id == id }!!
             call.respond(customer)
         }
 
