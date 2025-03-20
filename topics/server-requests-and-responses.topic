@@ -320,9 +320,19 @@
                     file and replace the existing <code>Application.configureRouting()</code> function with the
                     implementation below:
                 </p>
-                <code-block lang="kotlin"
-                            src="snippets/tutorial-server-routing-and-requests/src/main/kotlin/com/example/plugins/Routing.kt"
-                            include-lines="11-12,16-22,90-91"/>
+                <code-block lang="Kotlin">
+                    fun Application.configureRouting() {
+                        routing {
+                            get("/tasks") {
+                                val tasks = TaskRepository.allTasks()
+                                call.respondText(
+                                    contentType = ContentType.parse("text/html"),
+                                    text = tasks.tasksAsTable()
+                                )
+                            }
+                        }
+                    }
+                </code-block>
                 <p>
                     When a request arrives, the repository is used to fetch the current list of tasks. Then, an
                     HTTP response is built containing these tasks.
