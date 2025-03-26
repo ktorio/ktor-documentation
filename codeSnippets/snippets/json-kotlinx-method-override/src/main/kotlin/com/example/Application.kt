@@ -11,7 +11,6 @@ import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 import io.ktor.server.util.getValue
 
-
 @Serializable
 data class Customer(val id: Int, val firstName: String, val lastName: String)
 
