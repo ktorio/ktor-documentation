@@ -9,6 +9,7 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
+import io.ktor.server.util.getValue
 
 @Serializable
 data class Customer(val id: Int, val firstName: String, val lastName: String)
@@ -29,14 +30,14 @@ fun Application.main() {
     }
     routing {
         get("/customer/{id}") {
-            val id = call.parameters["id"]
-            val customer: Customer = customerStorage.find { it.id == id!!.toInt() }!!
+            val id: Int by call.parameters
+            val customer: Customer = customerStorage.find { it.id == id }!!
             call.respond(customer)
         }
 
         delete("/customer/{id}") {
-            val id = call.parameters["id"]
-            customerStorage.removeIf { it.id == id!!.toInt() }
+            val id: Int by call.parameters
+            customerStorage.removeIf { it.id == id }
             call.respondText("Customer is removed", status = HttpStatusCode.NoContent)
         }
     }

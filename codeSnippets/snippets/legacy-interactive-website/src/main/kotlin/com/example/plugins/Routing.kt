@@ -8,6 +8,7 @@ import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.util.*
+import io.ktor.server.util.getValue
 
 fun Application.configureRouting() {
     routing {
@@ -34,15 +35,15 @@ fun Application.configureRouting() {
                 call.respondRedirect("/articles/${newEntry.id}")
             }
             get("{id}") {
-                val id = call.parameters.getOrFail<Int>("id").toInt()
+                val id: Int by call.parameters
                 call.respond(FreeMarkerContent("show.ftl", mapOf("article" to articles.find { it.id == id })))
             }
             get("{id}/edit") {
-                val id = call.parameters.getOrFail<Int>("id").toInt()
+                val id: Int by call.parameters
                 call.respond(FreeMarkerContent("edit.ftl", mapOf("article" to articles.find { it.id == id })))
             }
             post("{id}") {
-                val id = call.parameters.getOrFail<Int>("id").toInt()
+                val id: Int by call.parameters
                 val formParameters = call.receiveParameters()
                 when (formParameters.getOrFail("_action")) {
                     "update" -> {
