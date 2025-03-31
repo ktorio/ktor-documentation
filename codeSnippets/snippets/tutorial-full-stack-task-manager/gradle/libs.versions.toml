@@ -16,7 +16,7 @@ junit = "4.13.2"
 kotlin = "2.1.20"
 kotlinx-coroutines = "1.8.1"
 ktor = "2.3.12"
-logback = "1.5.6"
+logback = "1.5.18"
 junitJupiterApi = "5.11.0"
 junitJupiterEngine = "5.10.3"
 
