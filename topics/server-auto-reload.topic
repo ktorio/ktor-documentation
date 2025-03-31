@@ -132,11 +132,18 @@
             </li>
             <li>
                 <p>
-                    If you are using <code>embeddedServer</code>, pass a watch path as the <code>watchPaths</code> parameter:
+                    If you are using <code>embeddedServer</code>, pass a watch path as the <code>watchPaths</code>
+                    parameter:
                 </p>
-                <code-block lang="Kotlin" src="snippets/autoreload-embedded-server/src/main/kotlin/com/example/Application.kt" include-lines="10-16"/>
+                <code-block lang="Kotlin"
+                            src="snippets/autoreload-embedded-server/src/main/kotlin/com/example/Application.kt"
+                            include-lines="9-20"/>
                 <p>
-                    You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/autoreload-embedded-server">autoreload-embedded-server</a>.
+                    For the full example, see
+                    <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/autoreload-embedded-server">
+                        autoreload-embedded-server
+                    </a>
+                    .
                 </p>
             </li>
         </list>
