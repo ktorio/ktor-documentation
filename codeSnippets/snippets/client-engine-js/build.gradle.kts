@@ -1,11 +1,9 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-
 val ktor_version: String by project
 val kotlinx_html_version: String by project
 
 plugins {
     kotlin("multiplatform")
-    kotlin("plugin.serialization").version("2.1.10")
+    kotlin("plugin.serialization").version("2.1.20")
 }
 
 repositories {
