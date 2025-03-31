@@ -34,8 +34,8 @@ The following table lists details of the latest Ktor releases.
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
 <tr><td>3.1.2</td><td>March 27, 2025</td><td><p>
-A patch release that updates Kotlin to 2.1.20 and removes empty artifacts. It also fixes various issues, including Base64 
-decoding, auth token clearing, Android server startup errors, WebSocket header formatting, and SSE session cancellation. 
+A patch release that updates Kotlin to 2.1.20 and fixes various issues, including Base64 decoding, auth token clearing,
+Android server startup errors, WebSocket header formatting, and SSE session cancellation. 
 </p>
 <var name="version" value="3.1.2"/>
 <include from="lib.topic" element-id="release_details_link"/>
