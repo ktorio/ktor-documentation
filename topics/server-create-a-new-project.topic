@@ -321,7 +321,7 @@
                     to generate the project.
                     <p>
                         Alternatively, you can generate the project by selecting
-                        <control>CREATE PROJECT (CTR+G)</control>
+                        <control>CREATE PROJECT (CTRL+G)</control>
                         and pressing
                         <shortcut>Enter</shortcut>
                         .
