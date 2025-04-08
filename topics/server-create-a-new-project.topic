@@ -262,12 +262,12 @@
                 .
             </p>
             <p>
-                To create a new Ktor project, open a command line tool of your choice and
+                To create a new Ktor project, open a terminal of your choice and
                 follow the steps:
             </p>
             <procedure>
                 <step>
-                    Install the CLI tool by using one of the following commands:
+                    Install the Ktor CLI tool by using one of the following commands:
                     <tabs>
                         <tab title="MacOS/Linux" id="macos-linux">
                             <code-block lang="console">
@@ -319,6 +319,13 @@
                     Press
                     <shortcut>CTRL+G</shortcut>
                     to generate the project.
+                    <p>
+                        Alternatively, you can generate the project by selecting
+                        <control>CREATE PROJECT (CTR+G)</control>
+                        and pressing
+                        <shortcut>Enter</shortcut>
+                        .
+                    </p>
                 </step>
             </procedure>
         </chapter>
