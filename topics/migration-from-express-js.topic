@@ -49,38 +49,42 @@
                     <list>
                         <li>
                             <p>
-                                A <a href="https://www.npmjs.com/package/generator-ktor">Yeoman generator</a>
-                            </p>
-                            <p>
-                                This generator allows you to specify project settings interactively and
-                                choose a set of required plugins.
-                                Alternatively, you can pass the necessary options to
-                                the <code>yo ktor</code> command (see <code>yo ktor --help</code>).
+                                <a href="https://start.ktor.io/">Ktor Project Generator</a> — Use the
+                                web-based generator.
                             </p>
                         </li>
                         <li>
                             <p>
-                                <a href="https://start.ktor.io/">Web-based generator</a>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <a href="https://github.com/ktorio/ktor-cli">Native Command Line Tool</a> (beta)
-                            </p>
-                            <p>
-                                To create a new Ktor project, you need to pass a project name to the <code>ktor
-                                generate</code> command:
+                                <a href="https://github.com/ktorio/ktor-cli">
+                                    Ktor CLI tool
+                                </a> — Generate a Ktor project through the command line interface with the
+                                <code>ktor new</code> command:
                             </p>
                             <code-block lang="shell">
-                                ktor generate ktor-sample
+                                ktor new ktor-sample
                             </code-block>
                         </li>
                         <li>
                             <p>
-                                <a href="https://ktor.io/idea/">IntelliJ IDEA Ultimate</a>
+                                <a href="https://www.npmjs.com/package/generator-ktor">
+                                    Yeoman generator
+                                </a>
+                                — Configure project settings interactively and select required plugins:
+                            </p>
+                            <code-block lang="shell">
+                                yo ktor
+                            </code-block>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="https://ktor.io/idea/">IntelliJ IDEA Ultimate</a> — Use the built-in Ktor
+                                project wizard.
                             </p>
                         </li>
                     </list>
+                    <p>
+                        For detailed instructions, see the <a href="server-create-a-new-project.topic"/> tutorial.
+                    </p>
                 </td>
             </tr>
         </table>

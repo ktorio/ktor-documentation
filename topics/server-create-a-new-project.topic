@@ -44,9 +44,13 @@
                 anchor="create-project-with-the-ktor-project-generator">using the
             web-based Ktor project generator</a>.
         </p>
-        <p>Alternatively, if you have intelliJ IDEA Ultimate installed, you can <a
-                anchor="create_project_with_intellij">use the dedicated Ktor plugin to create
-            a new project</a>.</p>
+        <p>
+            Alternatively, you can generate a project
+            <a anchor="create_project_with_intellij">using the dedicated Ktor plugin for IntelliJ IDEA Ultimate</a>
+            or the
+            <a anchor="create_project_with_ktor_cli_tool">Ktor CLI tool</a>
+            .
+        </p>
 
         <chapter title="Use the Ktor project generator"
                  id="create-project-with-the-ktor-project-generator">
@@ -112,8 +116,7 @@
                         such as authentication, serialization and content encoding, compression, cookie support, and
                         more.
                     </p>
-                    <p>For the sake of this tutorial, no plugins need to be added to the project
-                        at this stage. </p>
+                    <p>For the sake of this tutorial, you don’t need to add any plugins at this stage.</p>
                 </step>
                 <step>
                     <p>
@@ -132,7 +135,7 @@
             <p>Now that you have generated a new project, continue to <a anchor="unpacking">unpack and run your Ktor
                 project</a>.</p>
         </chapter>
-        <chapter title="Use the Ktor plugin for intelliJ IDEA Ultimate" id="create_project_with_intellij"
+        <chapter title="Use the Ktor plugin for IntelliJ IDEA Ultimate" id="create_project_with_intellij"
                  collapsible="true">
             <p>
                 This section describes project setup using the <a
@@ -232,8 +235,7 @@
                         authentication, serialization and content encoding, compression, cookie support, and so on.
                     </p>
 
-                    <p>For the sake of this tutorial, no plugins need to be added to the project
-                        at this stage. </p>
+                    <p>For the sake of this tutorial, you don’t need to add any plugins at this stage.</p>
                 </step>
                 <step>
                     <p>
@@ -249,6 +251,85 @@
                 explore and run</a>
                 the application.
             </p>
+        </chapter>
+        <chapter title="Use the Ktor CLI tool" id="create_project_with_ktor_cli_tool"
+                 collapsible="true">
+            <p>
+                This section describes project setup using the
+                <a href="https://github.com/ktorio/ktor-cli">Ktor CLI tool</a>
+                .
+            </p>
+            <p>
+                To create a new Ktor project, open a terminal of your choice and
+                follow these steps:
+            </p>
+            <procedure>
+                <step>
+                    Install the Ktor CLI tool using one of the following commands:
+                    <tabs>
+                        <tab title="macOS/Linux" id="macos-linux">
+                            <code-block lang="console">
+                                brew install ktor
+                            </code-block>
+                        </tab>
+                        <tab title="Windows" id="windows">
+                            <code-block lang="console">
+                                winget install JetBrains.KtorCLI
+                            </code-block>
+                        </tab>
+                    </tabs>
+                </step>
+                <step>
+                    To generate a new project in interactive mode, use the following command:
+                    <code-block lang="console">
+                      ktor new
+                    </code-block>
+                </step>
+                <step>
+                    Enter
+                    <path>ktor-sample-app</path>
+                    as the name of your project:
+                    <img src="server_create_cli_tool_name_dark.png"
+                         alt="Using the Ktor CLI tool in interactive mode"
+                         border-effect="rounded"
+                         style="block"
+                         width="706"/>
+                    <p>
+                        (Optional) You can also change the location where the project will be saved by editing the
+                        <ui-path>Location</ui-path>
+                        path below the project name.
+                    </p>
+                </step>
+                <step>
+                    Press
+                    <shortcut>Enter</shortcut>
+                    to continue.
+                </step>
+                <step>
+                    In the next step, you can search for and add <a href="server-plugins.md">plugins</a> to your
+                    project. Plugins are building blocks that provide common functionality in a Ktor application,
+                    such as authentication, serialization and content encoding, compression, cookie support, and
+                    more.
+                    <img src="server_create_cli_tool_add_plugins_dark.png"
+                         alt="Add plugins to a project using the Ktor CLI tool"
+                         border-effect="rounded"
+                         style="block"
+                         width="706"/>
+                    <p>For the sake of this tutorial, you don’t need to add any plugins at this stage.</p>
+                </step>
+                <step>
+                    Press
+                    <shortcut>CTRL+G</shortcut>
+                    to generate the project.
+                    <p>
+                        Alternatively, you can generate the project by selecting
+                        <control>CREATE PROJECT (CTRL+G)</control>
+                        and pressing
+                        <shortcut>Enter</shortcut>
+                        .
+                    </p>
+                </step>
+            </procedure>
         </chapter>
     </chapter>
     <chapter title="Unpack and run your Ktor project" id="unpacking">
@@ -655,7 +736,7 @@
                     </p>
                 </step>
                 <step>
-                    <p>In intelliJ IDEA, navigate to the <code>configureRouting()</code> function by placing the caret
+                    <p>In IntelliJ IDEA, navigate to the <code>configureRouting()</code> function by placing the caret
                         over the function name
                         and pressing
                         <shortcut>⌘Cmd+B</shortcut>
