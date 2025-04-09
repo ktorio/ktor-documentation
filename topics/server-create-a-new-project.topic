@@ -46,7 +46,7 @@
         </p>
         <p>
             Alternatively, you can generate a project
-            <a anchor="create_project_with_intellij">using the dedicated Ktor plugin for intelliJ IDEA Ultimate</a>
+            <a anchor="create_project_with_intellij">using the dedicated Ktor plugin for IntelliJ IDEA Ultimate</a>
             or the
             <a anchor="create_project_with_ktor_cli_tool">Ktor CLI tool</a>
             .
@@ -135,7 +135,7 @@
             <p>Now that you have generated a new project, continue to <a anchor="unpacking">unpack and run your Ktor
                 project</a>.</p>
         </chapter>
-        <chapter title="Use the Ktor plugin for intelliJ IDEA Ultimate" id="create_project_with_intellij"
+        <chapter title="Use the Ktor plugin for IntelliJ IDEA Ultimate" id="create_project_with_intellij"
                  collapsible="true">
             <p>
                 This section describes project setup using the <a
@@ -736,7 +736,7 @@
                     </p>
                 </step>
                 <step>
-                    <p>In intelliJ IDEA, navigate to the <code>configureRouting()</code> function by placing the caret
+                    <p>In IntelliJ IDEA, navigate to the <code>configureRouting()</code> function by placing the caret
                         over the function name
                         and pressing
                         <shortcut>⌘Cmd+B</shortcut>
