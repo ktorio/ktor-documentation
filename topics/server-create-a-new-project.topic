@@ -116,8 +116,7 @@
                         such as authentication, serialization and content encoding, compression, cookie support, and
                         more.
                     </p>
-                    <p>For the sake of this tutorial, no plugins need to be added to the project
-                        at this stage. </p>
+                    <p>For the sake of this tutorial, you don’t need to add any plugins at this stage.</p>
                 </step>
                 <step>
                     <p>
@@ -236,8 +235,7 @@
                         authentication, serialization and content encoding, compression, cookie support, and so on.
                     </p>
 
-                    <p>For the sake of this tutorial, no plugins need to be added to the project
-                        at this stage. </p>
+                    <p>For the sake of this tutorial, you don’t need to add any plugins at this stage.</p>
                 </step>
                 <step>
                     <p>
@@ -263,13 +261,13 @@
             </p>
             <p>
                 To create a new Ktor project, open a terminal of your choice and
-                follow the steps:
+                follow these steps:
             </p>
             <procedure>
                 <step>
-                    Install the Ktor CLI tool by using one of the following commands:
+                    Install the Ktor CLI tool using one of the following commands:
                     <tabs>
-                        <tab title="MacOS/Linux" id="macos-linux">
+                        <tab title="macOS/Linux" id="macos-linux">
                             <code-block lang="console">
                                 brew install ktor
                             </code-block>
@@ -296,6 +294,11 @@
                          border-effect="rounded"
                          style="block"
                          width="706"/>
+                    <p>
+                        (Optional) You can also change the location where the project will be saved by editing the
+                        <ui-path>Location</ui-path>
+                        path below the project name.
+                    </p>
                 </step>
                 <step>
                     Press
@@ -312,8 +315,7 @@
                          border-effect="rounded"
                          style="block"
                          width="706"/>
-                    <p>For the sake of this tutorial, no plugins need to be added to the project
-                        at this stage.</p>
+                    <p>For the sake of this tutorial, you don’t need to add any plugins at this stage.</p>
                 </step>
                 <step>
                     Press

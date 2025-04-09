@@ -49,7 +49,7 @@
                     <list>
                         <li>
                             <p>
-                                <a href="https://start.ktor.io/">Ktor Project Generator</a> - Use the
+                                <a href="https://start.ktor.io/">Ktor Project Generator</a> — Use the
                                 web-based generator.
                             </p>
                         </li>
@@ -57,7 +57,7 @@
                             <p>
                                 <a href="https://github.com/ktorio/ktor-cli">
                                     Ktor CLI tool
-                                </a> - Generate a Ktor project through the command line interface with the
+                                </a> — Generate a Ktor project through the command line interface with the
                                 <code>ktor new</code> command:
                             </p>
                             <code-block lang="shell">
@@ -69,7 +69,7 @@
                                 <a href="https://www.npmjs.com/package/generator-ktor">
                                     Yeoman generator
                                 </a>
-                                - Configure project settings interactively and select required plugins:
+                                — Configure project settings interactively and select required plugins:
                             </p>
                             <code-block lang="shell">
                                 yo ktor
@@ -77,12 +77,14 @@
                         </li>
                         <li>
                             <p>
-                                <a href="https://ktor.io/idea/">IntelliJ IDEA Ultimate</a> - Use the built-in Ktor
+                                <a href="https://ktor.io/idea/">IntelliJ IDEA Ultimate</a> — Use the built-in Ktor
                                 project wizard.
                             </p>
                         </li>
                     </list>
-                    For detailed instructions, see the <a href="server-create-a-new-project.topic"/> tutorial.
+                    <p>
+                        For detailed instructions, see the <a href="server-create-a-new-project.topic"/> tutorial.
+                    </p>
                 </td>
             </tr>
         </table>
