@@ -47,7 +47,7 @@
     <build-profile instance="ktor"/>
 
     <footer>
-        <copyright>2000-2024 JetBrains s.r.o.</copyright>
+        <copyright>2000-2025 JetBrains s.r.o.</copyright>
         <social type="twitter" href="https://twitter.com/jetbrainsktor"/>
         <link href="https://github.com/ktorio/ktor/blob/main/CONTRIBUTING.md">Contribute to Ktor</link>
         <link href="https://ktor.io/eap/">Early Access Program</link>
