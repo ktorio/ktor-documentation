@@ -47,29 +47,37 @@
             You can optionally configure the SSE plugin within the <code>install</code> block by setting the supported
             properties of the
             <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.sse/-s-s-e-config/index.html">SSEConfig</a>
-            class:
+            class.
         </p>
-        <deflist>
-            <def id="reconnectionTime">
-                <title><code>reconnectionTime</code></title>
-                Sets the reconnection delay. If the connection to the server is lost, the
-                client will wait for the specified time before attempting to reconnect.
-            </def>
-            <def id="showCommentEvents">
-                <title><code>showCommentEvents()</code></title>
-                Adds events that contain only comments in the incoming flow.
-            </def>
-            <def id="showRetryEvents">
-                <title><code>showRetryEvents()</code></title>
-                Adds events that contain only the <code>retry</code> field in the incoming flow.
-            </def>
-        </deflist>
-        <p>
-            In the following example, the SSE plugin is installed into the HTTP client and configured to include events
-            that only contain comments and those that contain only the <code>retry</code> field in the incoming flow:
-        </p>
-        <code-block lang="kotlin" src="snippets/client-sse/src/main/kotlin/com.example/Application.kt"
-                    include-lines="8-13"/>
+        <chapter title="SSE reconnect" id="sse-reconnect">
+            <tldr>
+                <p>Limitations: not supported with the <code>OkHttp</code> engine.</p>
+            </tldr>
+            <p>
+                To enable automatic reconnection with supported engines, set
+                <code>maxReconnectionAttempts</code> to a value greater than <code>0</code>. You can also configure the
+                delay between attempts using <code>reconnectionTime</code>:
+            </p>
+            <code-block lang="kotlin">
+                install(SSE) {
+                    maxReconnectionAttempts = 4
+                    reconnectionTime = 2.seconds
+                }
+            </code-block>
+            <p>
+                If the connection to the server is lost, the client will wait for the specified
+                <code>reconnectionTime</code> before attempting to reconnect. It will make up to
+                the specified number of <code>maxReconnectionAttempts</code> attempts to reestablish the connection.
+            </p>
+        </chapter>
+        <chapter title="Filter events" id="filter-events">
+            <p>
+                In the following example, the SSE plugin is installed into the HTTP client and configured to include events
+                that only contain comments and those that contain only the <code>retry</code> field in the incoming flow:
+            </p>
+            <code-block lang="kotlin" src="snippets/client-sse/src/main/kotlin/com.example/Application.kt"
+                        include-lines="8-13"/>
+        </chapter>
     </chapter>
     <chapter title="Handle SSE sessions" id="handle-sse-sessions">
         <p>
