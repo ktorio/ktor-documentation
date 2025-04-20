@@ -8,6 +8,7 @@ import kotlinx.coroutines.*
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.serializer
+import kotlin.time.Duration.Companion.milliseconds
 
 @Serializable
 data class Customer(val id: Int, val firstName: String, val lastName: String)
@@ -35,6 +36,19 @@ fun Application.module() {
         }) {
             send(Customer(0, "Jet", "Brains"))
             send(Product(0, listOf(100, 200)))
+        }
+
+        // example with heartbeat
+        sse("/heartbeat") {
+            heartbeat {
+                period = 10.milliseconds
+                event = ServerSentEvent("heartbeat")
+            }
+            // ...
+            repeat(4) {
+                send(ServerSentEvent("Hello"))
+                delay(10.milliseconds)
+            }
         }
     }
 }
