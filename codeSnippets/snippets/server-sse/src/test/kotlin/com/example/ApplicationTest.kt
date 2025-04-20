@@ -25,4 +25,26 @@ class ApplicationTest {
             }
         }
     }
+
+    @Test
+    fun testJsonEvents() {
+        testApplication {
+            application {
+                module()
+            }
+
+            val client = createClient {
+                install(SSE)
+            }
+
+            client.sse("/json") {
+                incoming.collectIndexed { i, event ->
+                    when (i) {
+                        0 -> assertEquals("""{"id":0,"firstName":"Jet","lastName":"Brains"}""", event.data)
+                        1 -> assertEquals("""{"id":0,"prices":[100,200]}""", event.data)
+                    }
+                }
+            }
+        }
+    }
 }

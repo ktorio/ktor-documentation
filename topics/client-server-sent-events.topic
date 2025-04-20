@@ -51,7 +51,7 @@
         </p>
         <chapter title="SSE reconnect" id="sse-reconnect">
             <tldr>
-                <p>Limitations: not supported with the <code>OkHttp</code> engine.</p>
+                <p>️️Not supported on: <code>OkHttp</code></p>
             </tldr>
             <p>
                 To enable automatic reconnection with supported engines, set
@@ -76,28 +76,34 @@
                 that only contain comments and those that contain only the <code>retry</code> field in the incoming flow:
             </p>
             <code-block lang="kotlin" src="snippets/client-sse/src/main/kotlin/com.example/Application.kt"
-                        include-lines="8-13"/>
+                        include-lines="20-23"/>
         </chapter>
     </chapter>
     <chapter title="Handle SSE sessions" id="handle-sse-sessions">
         <p>
             A client's SSE session is represented by the
-            <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.sse/-default-client-s-s-e-session/index.html">DefaultClientSSESession</a>
+            <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.sse/-client-s-s-e-session/index.html">
+                <code>ClientSSESession</code>
+            </a>
             interface. This interface exposes the API that allows you to receive server-sent events from a server.
         </p>
         <chapter title="Access an SSE session" id="access-sse-session">
             <p>The <code>HttpClient</code> allows you to get access to an SSE session in one of the following ways:</p>
             <list>
-                <li>The <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.sse/sse.html">sse()</a>
+                <li>The
+                    <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.sse/sse.html">
+                        <code>sse()</code>
+                    </a>
                     function creates the SSE session and allows you to act on it.
                 </li>
                 <li>The
-                    <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.sse/sse-session.html">sseSession()</a>
+                    <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.sse/sse-session.html">
+                        <code>sseSession()</code>
+                    </a>
                     function allows you to open an SSE session.
                 </li>
             </list>
-            <p>The following parameters are available to both functions. To specify the URL endpoint, choose from two
-                options:</p>
+            <p>To specify the URL endpoint, you can choose from two options:</p>
             <list>
                 <li>Use the <code>urlString</code> parameter to specify the whole URL as a string.</li>
                 <li>Use the <code>schema</code>, <code>host</code>, <code>port</code>, and <code>path</code> parameters
@@ -146,8 +152,6 @@
                     An incoming server-sent events flow.
                 </def>
             </deflist>
-        </chapter>
-        <chapter title="Example" id="example">
             <p>
                 The example below creates a new SSE session with the <code>events</code> endpoint,
                 reads events through the <code>incoming</code> property and prints the received
@@ -155,11 +159,32 @@
                 .
             </p>
             <code-block lang="kotlin" src="snippets/client-sse/src/main/kotlin/com.example/Application.kt"
-                        include-symbol="main"/>
+                        include-lines="18-33,55-56"/>
+            <p>For the full example, see
+                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-sse">client-sse</a>.
+            </p>
+        </chapter>
+        <chapter title="Deserialization" id="deserialization">
+            <p>
+                The SSE plugin supports deserialization of server-sent events into type-safe Kotlin objects. This
+                feature is particularly useful when working with structured data from the server.
+            </p>
+            <p>
+                To enable deserialization, provide a custom deserialization function using the <code>deserialize</code>
+                parameter on an SSE access function and use the
+                <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.sse/-client-s-s-e-session-with-deserialization/index.html">
+                    <code>ClientSSESessionWithDeserialization</code>
+                </a>
+                class to handle the deserialized events.
+            </p>
+            <p>
+                Here's an example using <code>kotlinx.serialization</code> to deserialize JSON data:
+            </p>
+            <code-block lang="Kotlin" src="snippets/client-sse/src/main/kotlin/com.example/Application.kt"
+                        include-lines="36-53"/>
             <p>For the full example, see
                 <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-sse">client-sse</a>.
             </p>
         </chapter>
     </chapter>
-
 </topic>
