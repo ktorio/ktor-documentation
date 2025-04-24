@@ -91,7 +91,9 @@
         <chapter title="SSE session block" id="session-block">
             <p>
                 Within the <code>sse</code> block, you define the handler for the specified path, represented by the
-                <a href="https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-sse/io.ktor.server.sse/-server-s-s-e-session/index.html">ServerSSESession</a>
+                <a href="https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-sse/io.ktor.server.sse/-server-s-s-e-session/index.html">
+                    <code>ServerSSESession</code>
+                </a>
                 class. The following functions and properties are available within the block:</p>
             <deflist>
                 <def id="send">
@@ -121,7 +123,46 @@
             </p>
 
             <code-block lang="kotlin" src="snippets/server-sse/src/main/kotlin/com/example/Application.kt"
-                        include-lines="14-21"/>
+                        include-lines="23-30,53"/>
+            <p>For the full example, see
+                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/server-sse">server-sse</a>.
+            </p>
+        </chapter>
+        <chapter title="SSE Heartbeat" id="heartbeat">
+            <p>
+                Heartbeats ensure the SSE connection stays active during periods of inactivity by periodically sending
+                events. As long as the session remains active, the server will send the specified event at the
+                configured interval.
+            </p>
+            <p>
+                To enable and configure a heartbeat, use the
+                <a href="https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-sse/io.ktor.server.sse/heartbeat.html">
+                    <code>.heartbeat()</code>
+                </a>
+                function within an SSE route handler:
+            </p>
+            <code-block lang="kotlin" src="snippets/server-sse/src/main/kotlin/com/example/Application.kt"
+                        include-lines="24,42-47,52-53"/>
+            <p>
+                In this example, a heartbeat event is sent every 10 milliseconds to maintain the
+                connection.
+            </p>
+        </chapter>
+        <chapter title="Serialization" id="serialization">
+            <p>
+                To enable serialization, provide a custom serialization function using the <code>serialize</code>
+                parameter on an SSE route. Inside the handler, you can use the
+                <a href="https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-sse/io.ktor.server.sse/-server-s-s-e-session-with-serialization/index.html">
+                    <code>ServerSSESessionWithSerialization</code>
+                </a>
+                class to send serialized events:
+            </p>
+            <code-block lang="kotlin" src="snippets/server-sse/src/main/kotlin/com/example/Application.kt"
+                        include-lines="12-17,20-24,32-39,53-54"/>
+            <p>
+                The <code>serialize</code> function in this example is responsible for converting data objects into JSON, which is then
+                placed in the <code>data</code> field of a <code>ServerSentEvent</code>.
+            </p>
             <p>For the full example, see
                 <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/server-sse">server-sse</a>.
             </p>
