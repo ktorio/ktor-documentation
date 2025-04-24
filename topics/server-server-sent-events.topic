@@ -160,7 +160,7 @@
             <code-block lang="kotlin" src="snippets/server-sse/src/main/kotlin/com/example/Application.kt"
                         include-lines="12-17,20-24,32-39,53-54"/>
             <p>
-                The <code>serialize</code> function is responsible for converting data objects into JSON, which is then
+                The <code>serialize</code> function in this example is responsible for converting data objects into JSON, which is then
                 placed in the <code>data</code> field of a <code>ServerSentEvent</code>.
             </p>
             <p>For the full example, see
