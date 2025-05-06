@@ -11,10 +11,9 @@ import java.io.File
 
 fun Application.main() {
     routing {
-        var fileDescription = ""
-        var fileName = ""
-
         post("/upload") {
+            var fileDescription = ""
+            var fileName = ""
             val multipartData = call.receiveMultipart(formFieldLimit = 1024 * 1024 * 100)
 
             multipartData.forEachPart { part ->
