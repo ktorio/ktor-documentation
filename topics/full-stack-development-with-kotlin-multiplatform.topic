@@ -4,7 +4,7 @@
 <topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
        title="Full-stack development with Kotlin Multiplatform" id="full-stack-development-with-kotlin-multiplatform">
-    <show-structure for="chapter" depth="2"/>
+    <show-structure for="chapter, procedure" depth="2"/>
     <web-summary>
         Learn how to develop a cross-platform full-stack application in Kotlin and Ktor. In this tutorial, you will
         discover how to use Kotlin Multiplatform to build for Android, iOS, and desktop, and handle data effortlessly
@@ -37,7 +37,7 @@
                 href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html">
             Kotlin Multiplatform</a>.
         </li>
-        <li>Understand the project created by the <a href="https://kmp.jetbrains.com/">Multiplatform Wizard</a>.</li>
+        <li>Understand the project generated with IntelliJ IDEA.</li>
         <li>Create <a href="https://www.jetbrains.com/lp/compose-multiplatform/">Compose Multiplatform</a> clients that
             call Ktor services.
         </li>
@@ -59,14 +59,12 @@
     </p>
     <chapter title="Prerequisites" id="prerequisites">
         <p>
-            In previous articles, IntelliJ IDEA was used as the IDE. In this case, because you will be working with
-            mobile applications, <a href="https://www.jetbrains.com/fleet/">Fleet</a> will be used instead.
-            To learn how to install and configure your environment,
-            see <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/fleet.html">
-            the Fleet for Multiplatform development tutorial</a>.
+            As in previous articles, you will use IntelliJ IDEA as the IDE. To learn how to install and configure your
+            environment, see
+            <a href="">the Kotlin Multiplatform quickstart guide</a>.
         </p>
         <p>
-            If this is the first time you use Compose Multiplatform we recommend that you complete the
+            If this is the first time you use Compose Multiplatform, we recommend that you complete the
             <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-getting-started.html">Get
                 started with Compose Multiplatform tutorial</a> before starting this one. To reduce the complexity of
             the task, you can focus on a single client platform. For example, if you have never used iOS, it might be
@@ -76,133 +74,86 @@
     <chapter title="Create a new project" id="create-project">
         <p>
             Instead of choosing the <a href="https://start.ktor.io/">Ktor Project Generator</a> to create the initial
-            project, you will use the <a href="https://kmp.jetbrains.com/">Kotlin Multiplatform Wizard</a>. This will
-            create a project to which you can add clients and services. The clients can either use a native UI library,
-            such as SwiftUI, or share the same UI
+            project, you will use the IntelliJ IDEA project wizard. This will create a project to which you can add
+            clients and services. The clients can either use a native UI library, such as SwiftUI, or share the same UI
             by using <a href="https://www.jetbrains.com/lp/compose-multiplatform/">Compose Multiplatform</a>.
         </p>
         <procedure id="generate-project">
             <step>
-                Open the <a href="https://kmp.jetbrains.com/">Kotlin Multiplatform Wizard</a>.
+                Launch IntelliJ IDEA.
             </step>
             <step>
-                <p>
-                    Enter
-                    <path>full-stack-task-manager</path>
-                    as the name of the project, and
-                    <path>org.example.ktor</path>
-                    as the project ID.
-                </p>
+                In IntelliJ IDEA, select
+                <ui-path>File | New | Project</ui-path>
+                .
+            </step>
+            <step>
+                In the panel on the left, select
+                <ui-path>Kotlin Multiplatform</ui-path>
+                .
+            </step>
+            <step>
+                Specify the following fields in the
+                <ui-path>New Project</ui-path>
+                window:
+                <list>
+                    <li>
+                        <ui-path>Name</ui-path>
+                        : full-stack-task-manager
+                    </li>
+                    <li>
+                        <ui-path>Group</ui-path>
+                        : org.example.ktor
+                    </li>
+                </list>
             </step>
             <step>
                 <p>
                     Select
                     <ui-path>Android</ui-path>
                     ,
-                    <ui-path>iOS</ui-path>
-                    ,
                     <ui-path>Desktop</ui-path>
                     , and
                     <ui-path>Server</ui-path>
                     as the targeted platforms.
-                    <img style="block" src="full_stack_development_tutorial_wizard_settings.png"
-                         alt="Kotlin Multiplatform wizard settings" width="450" border-effect="line"/>
+                </p>
+                <p>
+                    If you're using a Mac, select
+                    <ui-path>iOS</ui-path>
+                    as well. Make sure that the
+                    <ui-path>Share UI</ui-path>
+                    option is selected.
+                    <img style="block" src="full_stack_development_tutorial_create_project.png"
+                         alt="Kotlin Multiplatform wizard settings" width="450" border-effect="rounded"/>
                 </p>
             </step>
             <step>
                 <p>
                     Click the
-                    <control>Download</control>
-                    button to download the project.
+                    <control>Create</control>
+                    button and wait for the IDE to generate and import the project.
                 </p>
-            </step>
-            <step>
-                Unpack the resulting ZIP file into a folder of your choice.
             </step>
         </procedure>
     </chapter>
-    <chapter title="Examine the project" id="examine-project">
-        <procedure id="open-project">
-            <step>
-                Launch <a href="https://www.jetbrains.com/fleet/">Fleet</a>.
-            </step>
-            <step>
-                <p>
-                    On the Welcome screen, click
-                    <control>Open</control>
-                    , or select
-                    <control>File | Open</control>
-                    in the editor.
-                </p>
-            </step>
-            <step>
-                Navigate to the unpacked project folder and then click
-                <control>Open</control>
-                .
-            </step>
-            <step>
-                <p>
-                    When opening a folder with a build file, Fleet gives you the option to enable
-                    <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/fleet.html#prepare-your-development-environment">
-                        Smart Mode</a>
-                    . Click
-                    <control>Trust and Open</control>
-                    .
-                    <img style="block" src="full_stack_development_tutorial_trust_and_open_project.png"
-                         alt="Trust and Open Project in Fleet" width="706" border-effect="rounded"/>
-                </p>
-            </step>
-            <step>
-                Wait until the project has been fully imported and indexed.
-            </step>
-            <step>
-                In the
-                <ui-path>Files</ui-path>
-                panel, navigate to
-                <path>server/src/main/kotlin/org/example/ktor</path>
-                and open the
-                <path>Application.kt</path>
-                file.
-                <img style="block" src="full_stack_development_tutorial_IDE_layout.png"
-                     alt="Project layout in Fleet" width="706" border-effect="rounded"/>
-                <p>
-                    It isn't immediately clear by looking at the project structure, but the
-                    <path>server</path>
-                    folder is one of three Kotlin modules in the project. The other two are
-                    <path>shared</path>
-                    and
-                    <path>composeApp</path>
-                    .
-                </p>
-                <p>
-                    The structure of the
-                    <path>server</path>
-                    module is very similar to that produced by the <a href="https://start.ktor.io/">Ktor Project
-                    Generator</a>.
-                    You have a dedicated build file to
-                    declare plugins and dependencies, and a source set containing the code to build and launch a Ktor
-                    service:
-                </p>
-                <img src="full_stack_development_tutorial_server_folder.png"
-                     alt="Contents of the server folder in a Kotlin Multiplatform project" width="300"
-                     border-effect="line"/>
-            </step>
-        </procedure>
-        <procedure title="Run the service" id="run-service">
-            <p>
-                You can run this service by executing the
-                <a href="https://www.jetbrains.com/help/fleet/run-configs.html">run configuration</a>
-                for the target.
-            </p>
+    <chapter title="Run the service" id="run-service">
+        <p>
+            You can run this service by executing the
+            <a href="https://www.jetbrains.com/help/idea/run-debug-configuration.html#launch-run-configuration">
+                run configuration
+            </a>
+            for the target.
+        </p>
+        <procedure id="run-service-procedure">
             <step>
                 Press
-                <shortcut>⌘Cmd+R</shortcut>
-                or select
-                <ui-path> Run | Run &amp; Debug</ui-path>
-                from the main menu to access the run configurations. A new popup window will open
+                <shortcut>^Ctrl+Option+R</shortcut>
+                or select the
+                <ui-path> Run / Debug configurations</ui-path>
+                dropdown menu to access the run configurations. A new popup window will open
                 displaying a list of available configurations.
                 <img src="full_stack_development_tutorial_run_configurations.png"
-                     alt="Run &amp; Debug window in Fleet" width="706"
+                     alt="Run &amp; Debug window" width="706"
                      border-effect="rounded" style="block"/>
 
             </step>
@@ -210,7 +161,7 @@
                 Click
                 <control>Run</control>
                 for the
-                <ui-path>server</ui-path>
+                <ui-path>Application.kt</ui-path>
                 configuration. The service will start in
                 a new
                 <ui-path>Terminal</ui-path>
@@ -226,6 +177,38 @@
                 </p>
             </step>
         </procedure>
+    </chapter>
+    <chapter title="Examine the project" id="examine-project">
+        <p>
+            In the
+            <ui-path>Files</ui-path>
+            panel, navigate to
+            <path>server/src/main/kotlin/org/example/ktor/full_stack_task_manager</path>
+            and open the
+            <path>Application.kt</path>
+            file.
+        </p>
+        <p>
+            It isn't immediately clear by looking at the project structure, but the
+            <path>server</path>
+            folder is one of three Kotlin modules in the project. The other two are
+            <path>shared</path>
+            and
+            <path>composeApp</path>
+            .
+        </p>
+        <p>
+            The structure of the
+            <path>server</path>
+            module is very similar to that produced by the <a href="https://start.ktor.io/">Ktor Project
+            Generator</a>.
+            You have a dedicated build file to
+            declare plugins and dependencies, and a source set containing the code to build and launch a Ktor
+            service:
+        </p>
+        <img src="full_stack_development_tutorial_server_folder.png"
+             alt="Contents of the server folder in a Kotlin Multiplatform project" width="300"
+             border-effect="line"/>
         <p>
             If you look at the routing instructions in the
             <path>Application.kt</path>
@@ -250,8 +233,8 @@
             <path>shared</path>
             module:
             <img src="full_stack_development_tutorial_shared_module.png"
-                 alt="Greeting.kt and Platform.kt opened in Fleet" width="706"
-                 border-effect="rounded" style="block"/>
+                 alt="Greeting.kt and Platform.kt opened in IntelliJ IDEA" width="706"
+                 border-effect="line" style="block"/>
         </p>
         <p>
             The
@@ -426,7 +409,7 @@
                 />
             </step>
             <step>
-                In Fleet, click the
+                In IntelliJ IDEA, click the
                 <ui-path>Gradle</ui-path>
                 icon on the top right of the panel
                 to sync the build file. Once loading has finished, you should find that your
@@ -456,7 +439,7 @@
             <step>
                 Navigate to the
                 <path>server/src/main/kotlin/org/example/ktor</path>
-                folder and create a sub-package called
+                folder and create a subpackage called
                 <path>model</path>
                 .
             </step>
@@ -531,7 +514,7 @@
     </chapter>
     <chapter title="Create the client" id="create-client">
         <p>
-            For your clients to be able to access the server you need to include the Ktor Client. There are three types
+            For your clients to be able to access the server, you need to include the Ktor Client. There are three types
             of dependency involved in this:
         </p>
         <list>
@@ -654,7 +637,7 @@
             </step>
             <step>
                 <p>
-                    On the Android platform, you need to explicitly give the application networking permissions, and
+                    On the Android platform, you need to explicitly give the application networking permissions and
                     allow it to send and receive data in cleartext. To enable these permissions open
                     <path>composeApp/src/androidMain/AndroidManifest.xml</path>
                     and add the following settings:
@@ -732,7 +715,8 @@
         <procedure id="add-update-func-procedure">
             <step>
                 Navigate to the
-                <path>App.kt</path> file in
+                <path>App.kt</path>
+                file in
                 <path>composeApp/commonMain/kotlin/org/example/ktor</path>
                 .
             </step>
@@ -770,7 +754,7 @@
                 </p>
             </step>
             <step>
-                Re-run the client applciation. You should now be able to update the details of each task by using the
+                Re-run the client application. You should now be able to update the details of each task by using the
                 buttons.
                 <img style="block" src="full_stack_development_tutorial_delete_task.gif"
                      alt="Deleting tasks on Android" width="350" border-effect="rounded"/>
