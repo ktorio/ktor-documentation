@@ -18,13 +18,6 @@
 
 Ktor provides the capability to compress [outgoing content](server-responses.md) by using the [Compression](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-compression/io.ktor.server.plugins.compression/-compression.html) plugin. You can use different compression algorithms, including `gzip` and `deflate`, 
 specify the required conditions for compressing data (such as a content type or response size), or even compress data based on specific request parameters.
-Ktor provides the capability to compress response body and decompress request body
-by using
-the [Compression](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-compression/io.ktor.server.plugins.compression/-compression.html)
-plugin.
-You can use different compression algorithms, including `gzip` and `deflate`,
-specify the required conditions for compressing data (such as a content type or response size),
-or even compress data based on specific request parameters.
 
 > Note that the `%plugin_name%` plugin does not currently support `SSE` responses.
 >
