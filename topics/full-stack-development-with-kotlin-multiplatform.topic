@@ -17,7 +17,7 @@
         Learn how to develop a cross-platform full-stack application in Kotlin and Ktor.
     </card-summary>
     <tldr>
-        <var name="example_name" value="tutorial-full-stack-task-manager"/>
+        <var name="example_name" value="full-stack-task-manager"/>
         <include from="lib.topic" element-id="download_example"/>
         <p>
             <b>Used plugins</b>: <a href="server-routing.md">Routing</a>,
@@ -61,12 +61,14 @@
         <p>
             As in previous articles, you will use IntelliJ IDEA as the IDE. To learn how to install and configure your
             environment, see
-            <a href="">the Kotlin Multiplatform quickstart guide</a>.
+            the Kotlin Multiplatform quickstart guide.
         </p>
         <p>
             If this is the first time you use Compose Multiplatform, we recommend that you complete the
-            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-getting-started.html">Get
-                started with Compose Multiplatform tutorial</a> before starting this one. To reduce the complexity of
+            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-getting-started.html">
+                Get started with Compose Multiplatform tutorial
+            </a>
+            before starting this one. To reduce the complexity of
             the task, you can focus on a single client platform. For example, if you have never used iOS, it might be
             wise to focus on desktop or Android development.
         </p>
@@ -80,7 +82,7 @@
         </p>
         <procedure id="generate-project">
             <step>
-                Launch IntelliJ IDEA.
+                Launch <a href="https://www.jetbrains.com/idea/download/">IntelliJ IDEA</a>.
             </step>
             <step>
                 In IntelliJ IDEA, select
@@ -103,7 +105,7 @@
                     </li>
                     <li>
                         <ui-path>Group</ui-path>
-                        : org.example.ktor
+                        : com.example.ktor
                     </li>
                 </list>
             </step>
@@ -117,6 +119,8 @@
                     <ui-path>Server</ui-path>
                     as the targeted platforms.
                 </p>
+            </step>
+            <step>
                 <p>
                     If you're using a Mac, select
                     <ui-path>iOS</ui-path>
@@ -124,7 +128,7 @@
                     <ui-path>Share UI</ui-path>
                     option is selected.
                     <img style="block" src="full_stack_development_tutorial_create_project.png"
-                         alt="Kotlin Multiplatform wizard settings" width="450" border-effect="rounded"/>
+                         alt="Kotlin Multiplatform wizard settings" width="706" border-effect="rounded"/>
                 </p>
             </step>
             <step>
@@ -137,35 +141,29 @@
         </procedure>
     </chapter>
     <chapter title="Run the service" id="run-service">
-        <p>
-            You can run this service by executing the
-            <a href="https://www.jetbrains.com/help/idea/run-debug-configuration.html#launch-run-configuration">
-                run configuration
-            </a>
-            for the target.
-        </p>
         <procedure id="run-service-procedure">
             <step>
-                Press
-                <shortcut>^Ctrl+Option+R</shortcut>
-                or select the
-                <ui-path> Run / Debug configurations</ui-path>
-                dropdown menu to access the run configurations. A new popup window will open
-                displaying a list of available configurations.
-                <img src="full_stack_development_tutorial_run_configurations.png"
-                     alt="Run &amp; Debug window" width="706"
-                     border-effect="rounded" style="block"/>
-
+                In the
+                <ui-path>Files</ui-path>
+                panel, navigate to
+                <path>server/src/main/kotlin/org/example/ktor/full_stack_task_manager</path>
+                and open the
+                <path>Application.kt</path>
+                file.
             </step>
             <step>
-                Click
-                <control>Run</control>
-                for the
-                <ui-path>Application.kt</ui-path>
-                configuration. The service will start in
-                a new
-                <ui-path>Terminal</ui-path>
-                panel at the bottom of the IDE.
+                Click on the
+                <ui-path>Run</ui-path>
+                button
+                (<img src="intellij_idea_gutter_icon.svg"
+                      style="inline" height="16" width="16"
+                      alt="IntelliJ IDEA run icon"/>)
+                next to the <code>main()</code> function to start the application.
+                <p>
+                    The service will start in a new
+                    <ui-path>Terminal</ui-path>
+                    panel at the bottom of the IDE.
+                </p>
             </step>
             <step>
                 <p>
@@ -179,15 +177,6 @@
         </procedure>
     </chapter>
     <chapter title="Examine the project" id="examine-project">
-        <p>
-            In the
-            <ui-path>Files</ui-path>
-            panel, navigate to
-            <path>server/src/main/kotlin/org/example/ktor/full_stack_task_manager</path>
-            and open the
-            <path>Application.kt</path>
-            file.
-        </p>
         <p>
             It isn't immediately clear by looking at the project structure, but the
             <path>server</path>
@@ -256,7 +245,7 @@
             types declared within
             <path>commonMain</path>
             may require functionality that varies by target platform. In the case of
-            the <code>Greeting</code> type, you want to obtain the name of the current platform. This is achieved
+            the <code>Greeting</code> type, you want to get the name of the current platform. This is achieved
             through <a
                 href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-connect-to-apis.html">expected
             and actual declarations</a>.
@@ -271,7 +260,7 @@
         <tabs>
             <tab title="commonMain/Platform.kt" id="commonMain">
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/shared/src/commonMain/kotlin/org/example/ktor/Platform.kt"
+                            src="snippets/full-stack-task-manager/shared/src/commonMain/kotlin/com/example/ktor/full_stack_task_manager/Platform.kt"
                 />
             </tab>
         </tabs>
@@ -281,17 +270,17 @@
         <tabs>
             <tab title="Platform.ios.kt" id="iosMain">
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/shared/src/iosMain/kotlin/org/example/ktor/Platform.ios.kt"
+                            src="snippets/full-stack-task-manager/shared/src/iosMain/kotlin/com/example/ktor/full_stack_task_manager/Platform.ios.kt"
                 />
             </tab>
             <tab title="Platform.android.kt" id="androidMain">
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/shared/src/androidMain/kotlin/org/example/ktor/Platform.android.kt"
+                            src="snippets/full-stack-task-manager/shared/src/androidMain/kotlin/com/example/ktor/full_stack_task_manager/Platform.android.kt"
                 />
             </tab>
             <tab title="Platform.jvm.kt" id="jvmMain">
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/shared/src/jvmMain/kotlin/org/example/ktor/Platform.jvm.kt"
+                            src="snippets/full-stack-task-manager/shared/src/jvmMain/kotlin/com/example/ktor/full_stack_task_manager/Platform.jvm.kt"
                 />
             </tab>
         </tabs>
@@ -304,19 +293,48 @@
         </p>
         <p>
             These clients are not linked to the Ktor service at the moment, but they do use the shared
-            <code>Greeting</code> class. For example, if you execute the
-            <ui-path>iosApp</ui-path>
-            run configuration, a client will start
-            in the iOS Simulator:
-            <img style="block" src="full_stack_development_tutorial_run_android.gif"
-                 alt="Running the app in the Android Simulator" width="300" border-effect="rounded"/>
-            This shows a screen with a single button placed on the top. Pressing the button shows and hides an image.
-            When the button is pressed for the first time, the details of the current platform are added to its text.
-            The code to achieve this is found in
-            <path>composeApp/src/commonMain/kotlin/App.kt</path>
-            :
+            <code>Greeting</code> class.
         </p>
-        <code-block lang="kotlin"><![CDATA[
+    </chapter>
+    <chapter title="Run the client application" id="run-client-app">
+        <p>
+            You can run the client application by executing the
+            <a href="https://www.jetbrains.com/help/idea/run-debug-configuration.html#launch-run-configuration">
+                run configuration
+            </a>
+            for the target. To run the application on an iOS simulator, follow the steps below:
+        </p>
+        <procedure id="run-ios-app-procedure">
+            <step>
+                In IntelliJ IDEA, select the
+                <path>iosApp</path>
+                run configuration and a simulated device.
+                <img src="full_stack_development_tutorial_run_configurations.png"
+                     alt="Run &amp; Debug window" width="400"
+                     border-effect="line" style="block"/>
+            </step>
+            <step>
+                Click on the
+                <ui-path>Run</ui-path>
+                button
+                (<img src="intellij_idea_run_icon.svg"
+                      style="inline" height="16" width="16"
+                      alt="IntelliJ IDEA run icon"/>)
+                to run the configuration.
+            </step>
+            <step>
+                <p>
+                    When you run the iOS app, it is built with Xcode under the hood and launched in the iOS Simulator.
+                    This shows a screen with a single button placed on the top. Pressing the button shows and hides an
+                    image.
+                    <img style="block" src="full_stack_development_tutorial_run_ios.gif"
+                         alt="Running the app in the iOS Simulator" width="300" border-effect="rounded"/>
+                    When the button is pressed for the first time, the details of the current platform are added
+                    to its text. The code to achieve this is found in
+                    <path>composeApp/src/commonMain/kotlin/com/example/ktor/full_stack_task_manager/App.kt</path>
+                    :
+                </p>
+                <code-block lang="kotlin"><![CDATA[
             @Composable
             fun App() {
                 MaterialTheme {
@@ -342,11 +360,13 @@
                 }
             }
         ]]></code-block>
-        <p>
-            This is a composable function, which you will modify later in this article. For the moment all that is
-            important is that it displays a UI and makes use of the <code>Greeting</code> type, which in turn uses the
-            platform-specific <code>Platform</code> type.
-        </p>
+                <p>
+                    This is a composable function, which you will modify later in this article. For the moment all that
+                    is important is that it displays a UI and makes use of the <code>Greeting</code> type, which in turn
+                    uses the platform-specific <code>Platform</code> type.
+                </p>
+            </step>
+        </procedure>
         <p>
             Now that you understand the structure of the generated project, you can incrementally include the task
             manager functionality from previous articles.
@@ -360,7 +380,7 @@
         <procedure id="add-model-types-procedure">
             <step>
                 Navigate to
-                <path>shared/src/commonMain/kotlin/org/example/ktor</path>
+                <path>shared/src/commonMain/kotlin/com/example/ktor/full_stack_task_manager</path>
                 and create a new package called
                 <path>model</path>
                 .
@@ -379,7 +399,7 @@
                     library:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/shared/src/commonMain/kotlin/org/example/ktor/model/Task.kt"
+                            src="snippets/full-stack-task-manager/shared/src/commonMain/kotlin/com/example/ktor/full_stack_task_manager/model/Task.kt"
                 />
                 <p>
                     You will notice that neither the import nor the annotation compiles. This is because the <code>kotlinx.serialization</code>
@@ -393,7 +413,7 @@
                     and add the serialization plugin:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/shared/build.gradle.kts"
+                            src="snippets/full-stack-task-manager/shared/build.gradle.kts"
                             include-lines="4-5,8-9"
                 />
             </step>
@@ -404,8 +424,17 @@
                     source set:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/shared/build.gradle.kts"
-                            include-lines="25-30"
+                            src="snippets/full-stack-task-manager/shared/build.gradle.kts"
+                            include-lines="25-30,35"
+                />
+            </step>
+            <step>
+                Navigate to
+                <path>gradle/libs.versions.toml</path>
+                and define the following:
+                <code-block lang="toml"
+                            src="snippets/full-stack-task-manager/gradle/libs.versions.toml"
+                            include-lines="1,18,21-22,35"
                 />
             </step>
             <step>
@@ -438,7 +467,7 @@
         <procedure id="create-server-procedure">
             <step>
                 Navigate to the
-                <path>server/src/main/kotlin/org/example/ktor</path>
+                <path>server/src/main/kotlin/com/example/ktor/full_stack_task_manager</path>
                 folder and create a subpackage called
                 <path>model</path>
                 .
@@ -450,7 +479,7 @@
                     file and add the following interface for our repository:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/server/src/main/kotlin/org/example/ktor/model/TaskRepository.kt"
+                            src="snippets/full-stack-task-manager/server/src/main/kotlin/com/example/ktor/full_stack_task_manager/model/TaskRepository.kt"
                 />
             </step>
             <step>
@@ -460,7 +489,7 @@
                     containing the following class:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/server/src/main/kotlin/org/example/ktor/model/InMemoryTaskRepository.kt"
+                            src="snippets/full-stack-task-manager/server/src/main/kotlin/com/example/ktor/full_stack_task_manager/model/InMemoryTaskRepository.kt"
                 />
             </step>
             <step>
@@ -470,7 +499,7 @@
                     and replace the existing code with the implementation below:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/server/src/main/kotlin/org/example/ktor/Application.kt"
+                            src="snippets/full-stack-task-manager/server/src/main/kotlin/com/example/ktor/full_stack_task_manager/Application.kt"
                 />
                 <p>
                     This implementation is very similar to that in previous tutorials with the exception that now you
@@ -484,14 +513,23 @@
                 </p>
             </step>
             <step>
+                Open the
+                <path>gradle/libs.versions.toml</path>
+                file and define the following libraries:
+                <code-block lang="toml"
+                            src="snippets/full-stack-task-manager/gradle/libs.versions.toml"
+                            include-lines="22,42-43"
+                />
+            </step>
+            <step>
                 <p>
                     Open the server-side build file inside
                     <path>server/build.gradle.kts</path>
                     and add the following dependencies:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/server/build.gradle.kts"
-                            include-lines="14-15,20-21,24"
+                            src="snippets/full-stack-task-manager/server/build.gradle.kts"
+                            include-lines="16-17,22-23,26"
                 />
             </step>
             <step>
@@ -524,12 +562,21 @@
         </list>
         <procedure id="create-client-procedure">
             <step>
+                In the
+                <path>gradle/libs.versions.toml</path>
+                file add the following libraries:
+                <code-block lang="toml"
+                            src="snippets/full-stack-task-manager/gradle/libs.versions.toml"
+                            include-lines="22,36-41"
+                />
+            </step>
+            <step>
                 Navigate to
                 <path>composeApp/build.gradle.kts</path>
                 and add the following dependencies:
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/composeApp/build.gradle.kts"
-                            include-lines="33-37,40-43,53-58,61-66"
+                            src="snippets/full-stack-task-manager/composeApp/build.gradle.kts"
+                            include-lines="34-38,41-44,54-57,61-62,65-70"
                 />
                 <p>
                     Once this is done you can add a <code>TaskApi</code> type for your clients to act as a thin wrapper
@@ -543,7 +590,7 @@
             </step>
             <step>
                 Navigate to
-                <path>composeApp/src/commonMain/kotlin/org/example/ktor</path>
+                <path>composeApp/src/commonMain/kotlin/com/example/ktor/full_stack_task_manager</path>
                 and create a new package called
                 <path>network</path>
                 .
@@ -555,7 +602,7 @@
                     for the client configuration:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/org/example/ktor/network/HttpClientManager.kt"
+                            src="snippets/full-stack-task-manager/composeApp/src/commonMain/kotlin/com/example/ktor/full_stack_task_manager/network/HttpClientManager.kt"
                 />
                 <p>
                     Note you should replace <code>1.2.3.4</code> with the IP address of your current machine. You will
@@ -573,7 +620,7 @@
                     file with the following implementation:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/org/example/ktor/network/TaskApi.kt"
+                            src="snippets/full-stack-task-manager/composeApp/src/commonMain/kotlin/com/example/ktor/full_stack_task_manager/network/TaskApi.kt"
                 />
             </step>
             <step>
@@ -583,8 +630,7 @@
                     and replace the App composable with the implementation below:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/org/example/ktor/App1.kt"
-                            include-lines="2,4-43"
+                            src="https://raw.githubusercontent.com/ktorio/ktor-documentation/25ac0cd40623de7edebc3297154cdd8a2aa4cb51/codeSnippets/snippets/full-stack-task-manager/composeApp/src/commonMain/kotlin/com/example/ktor/full_stack_task_manager/App.kt"
                 />
                 <p>
                     This will use the <code>TaskApi</code> type to retrieve the list of tasks from the server, and then
@@ -593,46 +639,11 @@
             </step>
             <step>
                 <p>
-                    Test the application by running the iOS and desktop clients. Click on the
+                    Test the application by running the iOS client. Click on the
                     <control>Fetch Tasks</control>
                     button to display the list of tasks:
                     <img style="block" src="full_stack_development_tutorial_run_iOS.png"
                          alt="App running on iOS" width="363" border-effect="rounded"/>
-                    <img style="block" src="full_stack_development_tutorial_run_desktop.png"
-                         alt="App running on desktop" width="707" border-effect="rounded"/>
-                </p>
-            </step>
-            <step>
-                <p>
-                    In the case of the desktop client, you need to assign dimensions and a title to the containing
-                    window. Open the file
-                    <path>composeApp/src/desktopMain/kotlin/org/example/ktor/main.kt</path>
-                    .
-                    You should see the following piece of code:
-                </p>
-                <code-block lang="kotlin"><![CDATA[
-                    fun main() = application {
-                        Window(
-                            onCloseRequest = ::exitApplication,
-                            title = "full-stack-task-manager",
-                        ) {
-                            App()
-                        }
-                    }
-                ]]></code-block>
-                <p>
-                    Modify this code to change the <code>title</code> and set the <code>state</code> property, as shown
-                    below:
-                </p>
-                <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/desktopMain/kotlin/org/example/ktor/main.kt"
-                />
-            </step>
-            <step>
-                <p>
-                    Run the application. The desktop client should now reflect the changes:
-                    <img style="block" src="full_stack_development_tutorial_run_desktop_resized.png"
-                         alt="App running on desktop" width="400" border-effect="rounded"/>
                 </p>
             </step>
             <step>
@@ -644,10 +655,10 @@
                 </p>
                 <code-block lang="xml"><![CDATA[
                     <manifest>
-                        ...>
+                        ...
                         <application
                                 android:usesCleartextTraffic="true">
-                        ...>
+                        ...
                         ...
                         </application>
                         <uses-permission android:name="android.permission.INTERNET"/>
@@ -666,6 +677,24 @@
                     to avoid sending unencrypted data over the network.
                 </note>
             </step>
+            <step>
+                <p>
+                    In the case of the desktop client, you need to assign dimensions and a title to the containing
+                    window. Open the file
+                    <path>composeApp/src/desktopMain/kotlin/com/example/ktor/full_stack_task_manager/main.kt</path>
+                    and modify the code by changing the <code>title</code> and setting the <code>state</code> property:
+                </p>
+                <code-block lang="kotlin"
+                            src="snippets/full-stack-task-manager/composeApp/src/desktopMain/kotlin/com/example/ktor/full_stack_task_manager/main.kt"
+                />
+            </step>
+            <step>
+                <p>
+                    Run the application. The desktop client should now reflect the changes:
+                    <img style="block" src="full_stack_development_tutorial_run_desktop_resized.png"
+                         alt="App running on desktop" width="400" border-effect="rounded"/>
+                </p>
+            </step>
         </procedure>
     </chapter>
     <chapter title="Improve the UI" id="improve-ui">
@@ -678,13 +707,12 @@
                     Open the
                     <path>App.kt</path>
                     file located in
-                    <path>composeApp/src/commonMain/kotlin/org/example/ktor</path>
+                    <path>composeApp/src/commonMain/kotlin/com/example/ktor/full_stack_task_manager</path>
                     and replace the existing <code>App</code> with the <code>App</code> and <code>TaskCard</code>
                     composables below:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/org/example/ktor/App.kt"
-                            include-lines="1-36,38-52,66-76,78-119"
+                            src="https://raw.githubusercontent.com/ktorio/ktor-documentation/3c29191a1499ad339acab171fc50ca95fa3e9071/codeSnippets/snippets/full-stack-task-manager/composeApp/src/commonMain/kotlin/com/example/ktor/full_stack_task_manager/App.kt"
                 />
                 <p>
                     With this implementation, your client now has some basic functionality.
@@ -717,7 +745,7 @@
                 Navigate to the
                 <path>App.kt</path>
                 file in
-                <path>composeApp/commonMain/kotlin/org/example/ktor</path>
+                <path>composeApp/src/commonMain/kotlin/com/example/ktor/full_stack_task_manager</path>
                 .
             </step>
             <step>
@@ -725,8 +753,8 @@
                     Include the <code>UpdateTaskDialog</code> composable below:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/org/example/ktor/App.kt"
-                            include-lines="121-169"
+                            src="snippets/full-stack-task-manager/composeApp/src/commonMain/kotlin/com/example/ktor/full_stack_task_manager/App.kt"
+                            include-lines="114-162"
                 />
                 <p>
                     This is a composable that displays the details of a <code>Task</code> with a dialog box. The <code>description</code>
@@ -739,8 +767,8 @@
                     Navigate back to the <code>App</code> composable and update the code as shown below:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-full-stack-task-manager/composeApp/src/commonMain/kotlin/org/example/ktor/App.kt"
-                            include-lines="39-83"
+                            src="snippets/full-stack-task-manager/composeApp/src/commonMain/kotlin/com/example/ktor/full_stack_task_manager/App.kt"
+                            include-lines="33-76"
                 />
                 <p>
                     You are storing an additional piece of state, which is the current task selected. If this value is
@@ -756,7 +784,7 @@
             <step>
                 Re-run the client application. You should now be able to update the details of each task by using the
                 buttons.
-                <img style="block" src="full_stack_development_tutorial_delete_task.gif"
+                <img style="block" src="full_stack_development_tutorial_update_task.gif"
                      alt="Deleting tasks on Android" width="350" border-effect="rounded"/>
             </step>
         </procedure>
@@ -783,7 +811,8 @@
             use <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html">Kotlin
             Multiplatform</a> libraries and <a href="https://www.jetbrains.com/lp/compose-multiplatform/">
             Compose Multiplatform</a> to minimize the amount of new material you need to learn. Even if your
-            focus is initially only on a single platform, you can easily add others as demand for your application grows.
+            focus is initially only on a single platform, you can easily add others as demand for your application
+            grows.
         </p>
     </chapter>
 </topic>
