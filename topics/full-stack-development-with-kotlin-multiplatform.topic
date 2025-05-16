@@ -3,7 +3,7 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
 <topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-       title="Build a Full-stack application with Kotlin Multiplatform" id="full-stack-development-with-kotlin-multiplatform">
+       title="Build a full-stack application with Kotlin Multiplatform" id="full-stack-development-with-kotlin-multiplatform">
     <show-structure for="chapter, procedure" depth="2"/>
     <web-summary>
         Learn how to develop a cross-platform full-stack application in Kotlin and Ktor. In this tutorial, you will
@@ -61,7 +61,11 @@
         <p>
             As in previous articles, you will use IntelliJ IDEA as the IDE. To learn how to install and configure your
             environment, see
-            the Kotlin Multiplatform quickstart guide.
+            the
+            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/quickstart.html">
+                Kotlin Multiplatform quickstart guide
+            </a>
+            .
         </p>
         <p>
             If this is the first time you use Compose Multiplatform, we recommend that you complete the
@@ -76,13 +80,13 @@
     <chapter title="Create a new project" id="create-project">
         <p>
             Instead of choosing the <a href="https://start.ktor.io/">Ktor Project Generator</a> to create the initial
-            project, you will use the IntelliJ IDEA project wizard. This will create a project to which you can add
+            project, you will use the IntelliJ IDEA project wizard. It will create a project to which you can add
             clients and services. The clients can either use a native UI library, such as SwiftUI, or share the same UI
             by using <a href="https://www.jetbrains.com/lp/compose-multiplatform/">Compose Multiplatform</a>.
         </p>
         <procedure id="generate-project">
             <step>
-                Launch <a href="https://www.jetbrains.com/idea/download/">IntelliJ IDEA</a>.
+                Launch IntelliJ IDEA.
             </step>
             <step>
                 In IntelliJ IDEA, select
@@ -146,7 +150,7 @@
                 In the
                 <ui-path>Files</ui-path>
                 panel, navigate to
-                <path>server/src/main/kotlin/org/example/ktor/full_stack_task_manager</path>
+                <path>server/src/main/kotlin/com/example/ktor/full_stack_task_manager</path>
                 and open the
                 <path>Application.kt</path>
                 file.
@@ -162,7 +166,7 @@
                 <p>
                     The service will start in a new
                     <ui-path>Terminal</ui-path>
-                    panel at the bottom of the IDE.
+                    tool window at the bottom of the IDE.
                 </p>
             </step>
             <step>
@@ -178,7 +182,7 @@
     </chapter>
     <chapter title="Examine the project" id="examine-project">
         <p>
-            It isn't immediately clear by looking at the project structure, but the
+            The
             <path>server</path>
             folder is one of three Kotlin modules in the project. The other two are
             <path>shared</path>
@@ -298,11 +302,8 @@
     </chapter>
     <chapter title="Run the client application" id="run-client-app">
         <p>
-            You can run the client application by executing the
-            <a href="https://www.jetbrains.com/help/idea/run-debug-configuration.html#launch-run-configuration">
-                run configuration
-            </a>
-            for the target. To run the application on an iOS simulator, follow the steps below:
+            You can run the client application by executing the run configuration for the target. To run the
+            application on an iOS simulator, follow the steps below:
         </p>
         <procedure id="run-ios-app-procedure">
             <step>
@@ -325,10 +326,11 @@
             <step>
                 <p>
                     When you run the iOS app, it is built with Xcode under the hood and launched in the iOS Simulator.
-                    This shows a screen with a single button placed on the top. Pressing the button shows and hides an
-                    image.
+                    The app displays a button that toggles an image on click.
                     <img style="block" src="full_stack_development_tutorial_run_ios.gif"
                          alt="Running the app in the iOS Simulator" width="300" border-effect="rounded"/>
+                </p>
+                <p>
                     When the button is pressed for the first time, the details of the current platform are added
                     to its text. The code to achieve this is found in
                     <path>composeApp/src/commonMain/kotlin/com/example/ktor/full_stack_task_manager/App.kt</path>
@@ -523,9 +525,9 @@
             </step>
             <step>
                 <p>
-                    Open the server-side build file inside
+                    Open the server-side build file (
                     <path>server/build.gradle.kts</path>
-                    and add the following dependencies:
+                    ) and add the following dependencies:
                 </p>
                 <code-block lang="kotlin"
                             src="snippets/full-stack-task-manager/server/build.gradle.kts"
@@ -564,7 +566,7 @@
             <step>
                 In the
                 <path>gradle/libs.versions.toml</path>
-                file add the following libraries:
+                file, add the following libraries:
                 <code-block lang="toml"
                             src="snippets/full-stack-task-manager/gradle/libs.versions.toml"
                             include-lines="22,36-41"
