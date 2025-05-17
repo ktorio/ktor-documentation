@@ -161,7 +161,7 @@ In this example, the new limit is set to 100MB.
 ```kotlin
 ```
 
-{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="21,26-30,33"}
+{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="25,26-30,33"}
 
 The [`.provider()`](https://api.ktor.io/ktor-http/io.ktor.http.content/-part-data/-file-item/provider.html)
 function returns a `ByteReadChannel`, which allows you to read data incrementally.
