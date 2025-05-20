@@ -449,7 +449,7 @@ To override the default limit, pass the `formFieldLimit` parameter when calling 
 ```kotlin
 ```
 
-{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="18"}
+{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="17"}
 
 
 ### `PartData.FileItem.streamProvider()` is deprecated
