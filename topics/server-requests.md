@@ -129,7 +129,7 @@ The example demonstrates how to receive a file and save it to file system:
 ```kotlin
 ```
 
-{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="3-40"}
+{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="3-39"}
 
 #### Default file size limit
 
@@ -141,7 +141,7 @@ To override the default form field limit, pass the `formFieldLimit` parameter wh
 ```kotlin
 ```
 
-{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="18"}
+{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="17"}
 
 In this example, the new limit is set to 100MB.
 
@@ -152,7 +152,7 @@ In this example, the new limit is set to 100MB.
 ```kotlin
 ```
 
-{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="21-24,33"}
+{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="20-23,32"}
 
 #### File uploads
 
@@ -161,7 +161,7 @@ In this example, the new limit is set to 100MB.
 ```kotlin
 ```
 
-{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="21,26-30,33"}
+{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="20,25-29,32"}
 
 The [`.provider()`](https://api.ktor.io/ktor-http/io.ktor.http.content/-part-data/-file-item/provider.html)
 function returns a `ByteReadChannel`, which allows you to read data incrementally.
@@ -184,7 +184,7 @@ Once the form processing is complete, each part is disposed of using the `.dispo
 ```kotlin
 ```
 
-{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="34"}
+{src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="33"}
 
 To learn how to run this sample, see
 [upload-file](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/upload-file).
