@@ -14,7 +14,7 @@ Learn how to make requests and specify various request parameters: a request URL
 </link-summary>
 
 After [setting up the client](client-create-and-configure.md), you can make HTTP requests. The main way of making HTTP requests is the [request](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/request.html) function that can take a URL as a parameter. Inside this function, you can configure various request parameters: 
-* Specify an HTTP method, such as `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, or `PATCH`.
+* Specify an HTTP method, such as `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, or `PATCH`.
 * Specify a URL as a string or configure URL components (a domain, a path, query parameters, etc.) separately.
 * Add headers and cookies.
 * Set the body of a request, for example, a plain text, a data object, or form parameters.
@@ -181,7 +181,7 @@ function for sending form parameters with the `application/x-www-form-urlencoded
 demonstrates its usage:
 
 * `url` specifies a URL for making a request.
-* `formParameters` a set of form parameters built using `parameters`.
+* `formParameters` is a set of form parameters built using `parameters`.
 
 ```kotlin
 ```
