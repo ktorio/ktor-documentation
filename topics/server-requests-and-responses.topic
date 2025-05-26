@@ -371,9 +371,10 @@
         </list>
         <p>
             The route you would add is
-            <code>/tasks/byPriority/{priority}</code>
-            where <code>{priority}</code> represents a query parameter that you will need to extract at runtime. The
-            query parameter can have any name you like, but <code>priority</code> seems the obvious choice.
+            <code>/tasks/byPriority/{priority?}</code>
+            where <code>{priority?}</code> represents a query parameter that you will need to extract at runtime,
+            and the question mark is used to indicate that a parameter is optional. The query parameter can have
+            any name you like, but <code>priority</code> seems the obvious choice.
         </p>
         <p>
             The process to handle the request can be summarized as follows:
