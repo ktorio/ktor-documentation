@@ -12,29 +12,28 @@
         </description>
 
         <spotlight>
-            <a href="server-create-a-new-project.topic" type="server"
-               summary="Learn how to create, run and test a server application with Ktor.">
+            <card href="server-create-a-new-project.topic" badge="server"
+                  summary="Learn how to create, run and test a server application with Ktor.">
                 Get started with Ktor Server
-            </a>
-            <a href="client-create-new-application.topic" type="cross-platform"
-               summary="Learn how to create, run and test a client application with Ktor.">
+            </card>
+            <card href="client-create-new-application.topic" badge="cross-platform"
+                  summary="Learn how to create, run and test a client application with Ktor.">
                 Get started with Ktor Client
-            </a>
+            </card>
         </spotlight>
 
         <primary>
             <title>Ktor Server</title>
-            <a href="server-requests-and-responses.topic">
+            <card href="server-requests-and-responses.topic">
                 Handle requests and generate responses
-            </a>
-            <a href="server-create-restful-apis.topic">Create a RESTful API</a>
-            <a href="server-create-website.topic">Create a website</a>
-            <a href="server-create-websocket-application.topic">
+            </card>
+            <card href="server-create-restful-apis.topic">Create a RESTful API</card>
+            <card href="server-create-website.topic">Create a website</card>
+            <card href="server-create-websocket-application.topic">
                 Create a WebSocket application
-            </a>
-            <a href="server-integrate-database.topic">Integrate a database</a>
+            </card>
+            <card href="server-integrate-database.topic">Integrate a database</card>
         </primary>
-        <secondary></secondary>
         <misc>
             <links narrow="true">
                 <group>
@@ -84,14 +83,14 @@
             </links>
             <cards>
                 <title>Ktor Client</title>
-                <a href="client-create-new-application.topic"
-                   summary="Create a client application with Ktor.">
+                <card href="client-create-new-application.topic"
+                      summary="Create a client application with Ktor.">
                     Create a client application
-                </a>
-                <a href="client-create-multiplatform-application.md"
-                   summary="Create a Kotlin Multiplatform Mobile application and learn how to make requests and receive responses with the Ktor Client.">
+                </card>
+                <card href="client-create-multiplatform-application.md"
+                      summary="Create a Kotlin Multiplatform Mobile application and learn how to make requests and receive responses with the Ktor Client.">
                     Create a cross-platform mobile application
-                </a>
+                </card>
             </cards>
             <links narrow="true">
                 <group>
@@ -132,8 +131,8 @@
             </links>
             <cards>
                 <title>Integrations</title>
-                <a href="full-stack-development-with-kotlin-multiplatform.topic"/>
-                <a href="tutorial-first-steps-with-kotlin-rpc.topic"/>
+                <card href="full-stack-development-with-kotlin-multiplatform.topic"/>
+                <card href="tutorial-first-steps-with-kotlin-rpc.topic"/>
             </cards>
         </misc>
 
