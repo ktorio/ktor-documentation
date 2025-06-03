@@ -138,7 +138,7 @@ see [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_ve
 ### embeddedServer {id="embedded-server"}
 
 If you use the `embeddedServer` function to run your server, you need to configure
-a [custom environment](server-configuration-code.topic#embedded-custom) in
+a [custom environment](server-engines.md#configure-engine) in
 the [ApplicationEngine.Configuration](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/-application-engine/-configuration/index.html)
 and provide
 SSL settings there

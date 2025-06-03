@@ -90,7 +90,7 @@
         <chapter title="Configuration in code" id="embedded-server">
             <p>
                 The <code>embeddedServer</code> function is a simple way to configure server parameters in
-                <a href="server-configuration-code.topic">code</a>
+                <a href="server-configuration.md">code</a>
                 and quickly run an application. In the code snippet below, it accepts an
                 <a href="server-engines.md">engine</a>
                 and port as parameters to start a server. In the example below, we run a server with the

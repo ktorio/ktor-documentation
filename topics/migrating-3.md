@@ -139,7 +139,7 @@ fun main(args: Array<String>) {
 </compare>
 
 For more information on command-line configuration with `embeddedServer`, see the
-[Configuration in code](server-configuration-code.topic#command-line) topic.
+[Configuration in code](server-engines.md#configure-engine) topic.
 
 #### Introduction of `ServerConfigBuilder` {id="ServerConfigBuilder"}
 

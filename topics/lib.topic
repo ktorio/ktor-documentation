@@ -357,8 +357,8 @@
             <control>Configuration</control>
             :
             Choose whether
-            to specify server parameters <a href="server-configuration-file.topic">in a YAML or HOCON file</a>, or
-            <a href="server-configuration-code.topic">in code</a>.
+            to specify server parameters <a href="server-configuration.md">in a YAML or HOCON file</a>, or
+            <a href="server-configuration.md">in code</a>.
         </p>
     </snippet>
 

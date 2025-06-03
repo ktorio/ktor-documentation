@@ -42,8 +42,7 @@
                     <a href="server-create-a-new-project.topic"/>
                     <a href="server-dependencies.topic"/>
                     <a href="server-create-and-configure.topic"/>
-                    <a href="server-configuration-code.topic"/>
-                    <a href="server-configuration-file.topic"/>
+                    <a href="server-configuration.md"/>
                     <a href="server-plugins.md"/>
                 </group>
                 <group>

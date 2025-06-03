@@ -136,10 +136,179 @@ mainClassName = "io.ktor.server.netty.EngineMain"
 
 In this section, we'll take a look at how to specify various engine-specific options.
 
-### In code {id="embedded-server-configure"}
+### Common Configuration
 
-<include from="server-configuration-code.topic" element-id="embedded-engine-configuration"/>
+Depending on how you [create your server](#choose-create-server) you can pass engine-specific options.
+This can be done through the `configure` DSL for `embeddedServer`, which includes common options for all engines exposed by the [ApplicationEngine.Configuration](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/-application-engine/-configuration/index.html) class.
+`EngineMain` defines its configuration in `application.yaml` as shown below.
 
-### In a configuration file {id="engine-main-configure"}
+<tabs group="config">
+<tab title="Application.kt" group-key="embeddedServer">
 
-<include from="server-configuration-file.topic" element-id="engine-main-configuration"/>
+```kotlin
+```
+
+{src="snippets/embedded-server/src/main/kotlin/com/example/Application.kt" include-lines="75-88"}
+
+</tab>
+<tab title="application.conf" group-key="hocon">
+
+```
+ktor {
+    deployment {
+        port = 8080
+        connectionGroupSize = 2
+        workerGroupSize = 5
+        callGroupSize = 10
+        shutdownGracePeriod = 2000
+        shutdownTimeout = 3000
+    }
+    application {
+        modules = [ com.example.ApplicationKt.module ]
+    }
+}
+```
+
+</tab>
+<tab title="application.yaml" group-key="yaml">
+
+```yaml
+ktor:
+  deployment:
+    port: 8080
+    connectionGroupSize: 2
+    workerGroupSize: 5
+    callGroupSize: 10
+    shutdownGracePeriod: 2000
+    shutdownTimeout: 3000
+  application:
+    modules:
+      - com.example.ApplicationKt.module
+```
+
+</tab>
+</tabs>
+
+In addition to these options, you can configure other engine-specific properties.
+
+### Netty {id="netty-code"}
+
+Netty-specific options are exposed by the [NettyApplicationEngine.Configuration](https://api.ktor.io/ktor-server/ktor-server-netty/io.ktor.server.netty/-netty-application-engine/-configuration/index.html) class.
+The [NettyApplicationEngine.Configuration](https://api.ktor.io/ktor-server/ktor-server-netty/io.ktor.server.netty/-netty-application-engine/-configuration/index.html) properties are also available under `ktor.deployment` for file-based configuration.
+
+<tabs group="config">
+<tab title="Application.kt" group-key="embeddedServer">
+
+```kotlin
+```
+
+{src="snippets/embedded-server/src/main/kotlin/com/example/Application.kt" include-lines="99-116"}
+
+</tab>
+<tab title="application.conf" group-key="hocon">
+
+```
+ktor {
+    deployment {
+        host = "0.0.0.0"
+        port = 8080
+        runningLimit = 16
+        shareWorkGroup = false
+        responseWriteTimeoutSeconds = 10
+        requestReadTimeoutSeconds = 0
+        tcpKeepAlive = false
+        maxInitialLineLength = 4096
+        maxHeaderSize = 8192
+        maxChunkSize = 8192
+    }
+    application {
+        modules = [ com.example.ApplicationKt.module ]
+    }
+}
+```
+
+</tab>
+<tab title="application.yaml" group-key="yaml">
+
+```yaml
+ktor:
+  application.modules:
+    - org.jetbrains.Application.module
+  deployment:
+    host: 0.0.0.0
+    port: 8080
+    runningLimit: 16
+    shareWorkGroup: false
+    responseWriteTimeoutSeconds: 10
+    requestReadTimeoutSeconds: 0
+    tcpKeepAlive: false
+    maxInitialLineLength: 4096
+    maxHeaderSize: 8192
+    maxChunkSize: 8192
+```
+</tab>
+</tabs>
+
+### CIO {id="cio-code"}
+
+CIO-specific options are exposed by the [CIOApplicationEngine.Configuration](https://api.ktor.io/ktor-server/ktor-server-cio/io.ktor.server.cio/-c-i-o-application-engine/-configuration/index.html) class.
+The [CIOApplicationEngine.Configuration](https://api.ktor.io/ktor-server/ktor-server-cio/io.ktor.server.cio/-c-i-o-application-engine/-configuration/index.html) properties are also available under `ktor.deployment` for file-based configuration.
+
+<tabs group="config">
+<tab title="Application.kt" group-key="embeddedServer">
+
+```kotlin
+```
+{src="snippets/embedded-server/src/main/kotlin/com/example/CIO.kt" include-lines="7-12"}
+
+</tab>
+<tab title="application.conf" group-key="hocon">
+
+```
+ktor {
+    deployment {
+        host = "0.0.0.0"
+        port = 8080
+        connectionIdleTimeoutSeconds: 45
+    }
+    application {
+        modules = [ com.example.ApplicationKt.module ]
+    }
+}
+```
+
+</tab>
+<tab title="application.yaml" group-key="yaml">
+
+```yaml
+ktor:
+  application.modules:
+    - org.jetbrains.Application.module
+  deployment:
+    host: 0.0.0.0
+    port: 8080
+    connectionIdleTimeoutSeconds: 45
+```
+</tab>
+</tabs>
+
+### Jetty {id="jetty-code"}
+
+Jetty-specific options are exposed by the [JettyApplicationEngineBase.Configuration](https://api.ktor.io/ktor-server/ktor-server-jetty-jakarta/io.ktor.server.jetty.jakarta/-jetty-application-engine-base/-configuration/index.html) class.
+You can configure the Jetty server inside the [configureServer](https://api.ktor.io/ktor-server/ktor-server-jetty-jakarta/io.ktor.server.jetty.jakarta/-jetty-application-engine-base/-configuration/configure-server.html) block, which provides access to a [Server](https://www.eclipse.org/jetty/javadoc/jetty-11/org/eclipse/jetty/server/Server.html) instance.
+Use the `idleTimeout` property to specify the duration of time a connection can be idle before it gets closed.
+
+There is no special support for configuring Jetty from file-based configurations.
+
+```kotlin
+```
+{src="snippets/embedded-server/src/main/kotlin/com/example/Jetty.kt" include-lines="9-16"}
+
+### Tomcat {id="tomcat-code"}
+
+If you use Tomcat as the engine, you can configure it using the [configureTomcat](https://api.ktor.io/ktor-server/ktor-server-tomcat-jakarta/io.ktor.server.tomcat.jakarta/-tomcat-application-engine/-configuration/configure-tomcat.html) property, which provides access to a [Tomcat](https://tomcat.apache.org/tomcat-10.1-doc/api/org/apache/catalina/startup/Tomcat.html) instance.
+There is no special support for configuring Tomcat from file-based configurations.
+
+```kotlin
+```
+{src="snippets/embedded-server/src/main/kotlin/com/example/Tomcat.kt" include-lines="7-16"}
