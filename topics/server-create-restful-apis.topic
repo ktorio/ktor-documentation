@@ -616,7 +616,7 @@
     <chapter title="Add support for removals" id="remove-tasks">
         <p>
             You have almost finished adding the basic operations to your service. These are often summarized as the CRUD
-            operations - short for Create, Read, Update, and Delete. The only operation you are missing is the Delete.
+            operations - short for Create, Read, Update, and Delete. Now You are going to implement the Delete operation.
         </p>
         <procedure>
             <step>
