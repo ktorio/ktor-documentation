@@ -6,39 +6,29 @@
 Learn about engines that process network requests.
 </link-summary>
 
-To run a Ktor server application, you need to [create](server-create-and-configure.topic) and configure a server first.
-Server configuration includes different settings:
-- an [engine](#supported-engines) for processing network requests;
-- host and port values used to access a server;
-- SSL settings;
-- ... and so on.
-
-## Supported engines {id="supported-engines"}
-
-The table below lists engines supported by Ktor, along with the supported platforms:
-
-| Engine                                  | Platforms                                            | HTTP/2 |
-|-----------------------------------------|------------------------------------------------------|--------|
-| `Netty`                                 | JVM                                                  | ✅      |
-| `Jetty`                                 | JVM                                                  | ✅      |
-| `Tomcat`                                | JVM                                                  | ✅      |
-| `CIO` (Coroutine-based I/O)             | JVM, [Native](server-native.md), [GraalVM](graalvm.md) | ✖️     |
-| [ServletApplicationEngine](server-war.md) | JVM                                                  | ✅      |
-
 ## Add dependencies {id="dependencies"}
 
-Before using the desired engine, you need to add the corresponding dependency to
-your [build script](server-dependencies.topic):
+Before using the desired engine, you need to add the corresponding dependency to your [build script](server-dependencies.topic):
 
 * `ktor-server-netty`
 * `ktor-server-jetty-jakarta`
 * `ktor-server-tomcat-jakarta`
 * `ktor-server-cio`
 
+<tip>
 Below are examples of adding a dependency for Netty:
+Which is the most popular engine, and recommended JVM engine for Ktor.
+</tip>
 
 <var name="artifact_name" value="ktor-server-netty"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
+
+To run a Ktor server application, you need to [create](server-create-and-configure.topic) and configure a server first.
+Server configuration includes different settings:
+- an [engine](#supported-engines) for processing network requests;
+- host and port values used to access a server;
+- SSL settings;
+- ... and so on.
 
 ## Choose how to create a server {id="choose-create-server"}
 A Ktor server application can be [created and run in two ways](server-create-and-configure.topic#embedded): using
@@ -312,3 +302,16 @@ There is no special support for configuring Tomcat from file-based configuration
 ```kotlin
 ```
 {src="snippets/embedded-server/src/main/kotlin/com/example/Tomcat.kt" include-lines="7-16"}
+
+## Supported engines {id="supported-engines"}
+
+The table below lists engines supported by Ktor, along with the supported platforms:
+
+| Engine                                  | Platforms                                            | HTTP/2 |
+|-----------------------------------------|------------------------------------------------------|--------|
+| `Netty`                                 | JVM                                                  | ✅      |
+| `Jetty`                                 | JVM                                                  | ✅      |
+| `Tomcat`                                | JVM                                                  | ✅      |
+| `CIO` (Coroutine-based I/O)             | JVM, [Native](server-native.md), [GraalVM](graalvm.md) | ✖️     |
+| [ServletApplicationEngine](server-war.md) | JVM                                                  | ✅      |
+
