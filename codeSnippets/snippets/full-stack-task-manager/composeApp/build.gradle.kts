@@ -67,6 +67,9 @@ kotlin {
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
         }
+        wasmJsMain.dependencies {
+            implementation(libs.ktor.client.wasm)
+        }
     }
 }
 
