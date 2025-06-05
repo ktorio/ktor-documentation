@@ -6,39 +6,29 @@
 Learn about engines that process network requests.
 </link-summary>
 
-To run a Ktor server application, you need to [create](server-create-and-configure.topic) and configure a server first.
-Server configuration includes different settings:
-- an [engine](#supported-engines) for processing network requests;
-- host and port values used to access a server;
-- SSL settings;
-- ... and so on.
-
-## Supported engines {id="supported-engines"}
-
-The table below lists engines supported by Ktor, along with the supported platforms:
-
-| Engine                                  | Platforms                                            | HTTP/2 |
-|-----------------------------------------|------------------------------------------------------|--------|
-| `Netty`                                 | JVM                                                  | ✅      |
-| `Jetty`                                 | JVM                                                  | ✅      |
-| `Tomcat`                                | JVM                                                  | ✅      |
-| `CIO` (Coroutine-based I/O)             | JVM, [Native](server-native.md), [GraalVM](graalvm.md) | ✖️     |
-| [ServletApplicationEngine](server-war.md) | JVM                                                  | ✅      |
-
 ## Add dependencies {id="dependencies"}
 
-Before using the desired engine, you need to add the corresponding dependency to
-your [build script](server-dependencies.topic):
+Before using the desired engine, you need to add the corresponding dependency to your [build script](server-dependencies.topic):
 
 * `ktor-server-netty`
 * `ktor-server-jetty-jakarta`
 * `ktor-server-tomcat-jakarta`
 * `ktor-server-cio`
 
+<tip>
 Below are examples of adding a dependency for Netty:
+Which is the most popular engine, and recommended JVM engine for Ktor.
+</tip>
 
 <var name="artifact_name" value="ktor-server-netty"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
+
+To run a Ktor server application, you need to [create](server-create-and-configure.topic) and configure a server first.
+Server configuration includes different settings:
+- an [engine](#supported-engines) for processing network requests;
+- host and port values used to access a server;
+- SSL settings;
+- ... and so on.
 
 ## Choose how to create a server {id="choose-create-server"}
 A Ktor server application can be [created and run in two ways](server-create-and-configure.topic#embedded): using
@@ -136,10 +126,192 @@ mainClassName = "io.ktor.server.netty.EngineMain"
 
 In this section, we'll take a look at how to specify various engine-specific options.
 
-### In code {id="embedded-server-configure"}
+### Common Configuration
 
-<include from="server-configuration-code.topic" element-id="embedded-engine-configuration"/>
+Depending on how you [create your server](#choose-create-server) you can pass engine-specific options.
+This can be done through the `configure` DSL for `embeddedServer`, which includes common options for all engines exposed by the [ApplicationEngine.Configuration](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/-application-engine/-configuration/index.html) class.
+`EngineMain` defines its configuration in `application.yaml` as shown below.
 
-### In a configuration file {id="engine-main-configure"}
+<tabs group="config">
+<tab title="Application.kt" group-key="embeddedServer">
 
-<include from="server-configuration-file.topic" element-id="engine-main-configuration"/>
+```kotlin
+```
+
+{src="snippets/embedded-server/src/main/kotlin/com/example/Application.kt" include-lines="75-88"}
+
+</tab>
+<tab title="application.conf" group-key="hocon">
+
+```
+ktor {
+    deployment {
+        port = 8080
+        connectionGroupSize = 2
+        workerGroupSize = 5
+        callGroupSize = 10
+        shutdownGracePeriod = 2000
+        shutdownTimeout = 3000
+    }
+    application {
+        modules = [ com.example.ApplicationKt.module ]
+    }
+}
+```
+
+</tab>
+<tab title="application.yaml" group-key="yaml">
+
+```yaml
+ktor:
+  deployment:
+    port: 8080
+    connectionGroupSize: 2
+    workerGroupSize: 5
+    callGroupSize: 10
+    shutdownGracePeriod: 2000
+    shutdownTimeout: 3000
+  application:
+    modules:
+      - com.example.ApplicationKt.module
+```
+
+</tab>
+</tabs>
+
+In addition to these options, you can configure other engine-specific properties.
+
+### Netty {id="netty-code"}
+
+Netty-specific options are exposed by the [NettyApplicationEngine.Configuration](https://api.ktor.io/ktor-server/ktor-server-netty/io.ktor.server.netty/-netty-application-engine/-configuration/index.html) class.
+The [NettyApplicationEngine.Configuration](https://api.ktor.io/ktor-server/ktor-server-netty/io.ktor.server.netty/-netty-application-engine/-configuration/index.html) properties are also available under `ktor.deployment` for file-based configuration.
+
+<tabs group="config">
+<tab title="Application.kt" group-key="embeddedServer">
+
+```kotlin
+```
+
+{src="snippets/embedded-server/src/main/kotlin/com/example/Application.kt" include-lines="99-116"}
+
+</tab>
+<tab title="application.conf" group-key="hocon">
+
+```
+ktor {
+    deployment {
+        host = "0.0.0.0"
+        port = 8080
+        runningLimit = 16
+        shareWorkGroup = false
+        responseWriteTimeoutSeconds = 10
+        requestReadTimeoutSeconds = 0
+        tcpKeepAlive = false
+        maxInitialLineLength = 4096
+        maxHeaderSize = 8192
+        maxChunkSize = 8192
+    }
+    application {
+        modules = [ com.example.ApplicationKt.module ]
+    }
+}
+```
+
+</tab>
+<tab title="application.yaml" group-key="yaml">
+
+```yaml
+ktor:
+  application.modules:
+    - org.jetbrains.Application.module
+  deployment:
+    host: 0.0.0.0
+    port: 8080
+    runningLimit: 16
+    shareWorkGroup: false
+    responseWriteTimeoutSeconds: 10
+    requestReadTimeoutSeconds: 0
+    tcpKeepAlive: false
+    maxInitialLineLength: 4096
+    maxHeaderSize: 8192
+    maxChunkSize: 8192
+```
+</tab>
+</tabs>
+
+### CIO {id="cio-code"}
+
+CIO-specific options are exposed by the [CIOApplicationEngine.Configuration](https://api.ktor.io/ktor-server/ktor-server-cio/io.ktor.server.cio/-c-i-o-application-engine/-configuration/index.html) class.
+The [CIOApplicationEngine.Configuration](https://api.ktor.io/ktor-server/ktor-server-cio/io.ktor.server.cio/-c-i-o-application-engine/-configuration/index.html) properties are also available under `ktor.deployment` for file-based configuration.
+
+<tabs group="config">
+<tab title="Application.kt" group-key="embeddedServer">
+
+```kotlin
+```
+{src="snippets/embedded-server/src/main/kotlin/com/example/CIO.kt" include-lines="7-12"}
+
+</tab>
+<tab title="application.conf" group-key="hocon">
+
+```
+ktor {
+    deployment {
+        host = "0.0.0.0"
+        port = 8080
+        connectionIdleTimeoutSeconds: 45
+    }
+    application {
+        modules = [ com.example.ApplicationKt.module ]
+    }
+}
+```
+
+</tab>
+<tab title="application.yaml" group-key="yaml">
+
+```yaml
+ktor:
+  application.modules:
+    - org.jetbrains.Application.module
+  deployment:
+    host: 0.0.0.0
+    port: 8080
+    connectionIdleTimeoutSeconds: 45
+```
+</tab>
+</tabs>
+
+### Jetty {id="jetty-code"}
+
+Jetty-specific options are exposed by the [JettyApplicationEngineBase.Configuration](https://api.ktor.io/ktor-server/ktor-server-jetty-jakarta/io.ktor.server.jetty.jakarta/-jetty-application-engine-base/-configuration/index.html) class.
+You can configure the Jetty server inside the [configureServer](https://api.ktor.io/ktor-server/ktor-server-jetty-jakarta/io.ktor.server.jetty.jakarta/-jetty-application-engine-base/-configuration/configure-server.html) block, which provides access to a [Server](https://www.eclipse.org/jetty/javadoc/jetty-11/org/eclipse/jetty/server/Server.html) instance.
+Use the `idleTimeout` property to specify the duration of time a connection can be idle before it gets closed.
+
+There is no special support for configuring Jetty from file-based configurations.
+
+```kotlin
+```
+{src="snippets/embedded-server/src/main/kotlin/com/example/Jetty.kt" include-lines="9-16"}
+
+### Tomcat {id="tomcat-code"}
+
+If you use Tomcat as the engine, you can configure it using the [configureTomcat](https://api.ktor.io/ktor-server/ktor-server-tomcat-jakarta/io.ktor.server.tomcat.jakarta/-tomcat-application-engine/-configuration/configure-tomcat.html) property, which provides access to a [Tomcat](https://tomcat.apache.org/tomcat-10.1-doc/api/org/apache/catalina/startup/Tomcat.html) instance.
+There is no special support for configuring Tomcat from file-based configurations.
+
+```kotlin
+```
+{src="snippets/embedded-server/src/main/kotlin/com/example/Tomcat.kt" include-lines="7-16"}
+
+## Supported engines {id="supported-engines"}
+
+The table below lists engines supported by Ktor, along with the supported platforms:
+
+| Engine                                  | Platforms                                            | HTTP/2 |
+|-----------------------------------------|------------------------------------------------------|--------|
+| `Netty`                                 | JVM                                                  | ✅      |
+| `Jetty`                                 | JVM                                                  | ✅      |
+| `Tomcat`                                | JVM                                                  | ✅      |
+| `CIO` (Coroutine-based I/O)             | JVM, [Native](server-native.md), [GraalVM](graalvm.md) | ✖️     |
+| [ServletApplicationEngine](server-war.md) | JVM                                                  | ✅      |
+

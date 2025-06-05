@@ -47,10 +47,9 @@
                 <toc-element topic="server-engines.md"
                              toc-title="Engines"
                              accepts-web-file-names="custom-engines.html,engines.html"/>
-                <toc-element topic="server-configuration-code.topic"
-                             accepts-web-file-names="configuration-code.html"/>
-                <toc-element topic="server-configuration-file.topic"
-                             accepts-web-file-names="configuration.html,configurations.html,environments.html,configuration-file.html"/>
+                <toc-element topic="server-configuration.md"
+                             toc-title="Server Configuration"
+                             accepts-web-file-names="configuration.html,configurations.html,environments.html,configuration-file.html, configuration-code.html" />
                 <toc-element topic="server-modules.md"
                              accepts-web-file-names="modules.html"/>
                 <toc-element topic="server-plugins.md"

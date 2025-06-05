@@ -70,3 +70,48 @@ fun runServerWithCommandLineConfig(args: Array<String>) {
         }
     }.start(wait = true)
 }
+
+fun runConfiguredCommonProperties() {
+    embeddedServer(Netty, configure = {
+        connector {
+            host = "0.0.0.0"
+            port = 8080
+        }
+        connectionGroupSize = 2
+        workerGroupSize = 5
+        callGroupSize = 10
+        shutdownGracePeriod = 2000
+        shutdownTimeout = 3000
+    }) {
+        module()
+    }.start(wait = true)
+}
+
+fun io.ktor.server.application.Application.module() {
+    routing {
+        get("/") {
+            call.respondText("Hello, world!")
+        }
+    }
+}
+
+fun runConfiguredNettyProperties() {
+    embeddedServer(Netty, configure = {
+        runningLimit = 16
+        shareWorkGroup = false
+        configureBootstrap = {
+            // ...
+        }
+        channelPipelineConfig = {
+            //
+        }
+        responseWriteTimeoutSeconds = 10
+        requestReadTimeoutSeconds = 0 // infinite
+        tcpKeepAlive = false
+        maxInitialLineLength = 4096
+        maxHeaderSize = 8192
+        maxChunkSize = 8192
+    }) {
+        module()
+    }.start(true)
+}

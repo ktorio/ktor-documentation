@@ -29,6 +29,9 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
     implementation("io.ktor:ktor-server-core:$ktor_version")
     implementation("io.ktor:ktor-server-netty:$ktor_version")
+    implementation("io.ktor:ktor-server-jetty-jakarta:$ktor_version")
+    implementation("io.ktor:ktor-server-cio:$ktor_version")
+    implementation("io.ktor:ktor-server-tomcat-jakarta:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
 
     testImplementation("junit:junit:$junit_version")
