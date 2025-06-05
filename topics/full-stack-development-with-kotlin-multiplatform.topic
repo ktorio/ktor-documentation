@@ -159,7 +159,7 @@
                 Click on the
                 <ui-path>Run</ui-path>
                 button
-                (<img src="intellij_idea_gutter_icon.svg"
+                (<img src="intellij_idea_run_icon.svg"
                       style="inline" height="16" width="16"
                       alt="IntelliJ IDEA run icon"/>)
                 next to the <code>main()</code> function to start the application.
@@ -225,6 +225,8 @@
             within the
             <path>shared</path>
             module:
+            <!-- maybe instead of "you won't be able to find it" ask users to do "Go to definition"
+            and see where it leads -->
             <img src="full_stack_development_tutorial_shared_module.png"
                  alt="Greeting.kt and Platform.kt opened in IntelliJ IDEA" width="706"
                  border-effect="line" style="block"/>
@@ -239,7 +241,8 @@
             <path>commonMain</path>
             source set holds types that will be used on all platforms. As you can see this is where the
             <code>Greeting</code> type
-            lives. This is where you will put the common code that you want to share between client and server, and also
+            lives. <!-- "lives" is an anthropomorphism that we try to avoid -->
+            This is where you will put the common code that you want to share between client and server, and also
             between different client platforms.
         </p>
         <p>
@@ -291,18 +294,21 @@
         <p>
             There is one additional module in the project, the
             <path>composeApp</path>
-            module. This is where the Android, iOS, and Desktop clients live. You can run these as specified in
-            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-create-first-app.html#run-your-application">the
-                ‘Run your application’ step</a> of the Compose Multiplatform tutorial.
+            module.
+            It contains the code for the Android, iOS, desktop, and web apps. You can run these as specified in
+            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/quickstart.html#run-the-sample-apps">the
+                "Run the sample apps" step</a> of the Koltin Multiplatform quickstart.
+            <!-- Do we need an external link here? In the very next section we're talking about running an app
+             I think it's enough to illustrate a statement like "use run configurations" -->
         </p>
         <p>
-            These clients are not linked to the Ktor service at the moment, but they do use the shared
+            These apps are not linked to the Ktor service at the moment, but they do use the shared
             <code>Greeting</code> class.
         </p>
     </chapter>
-    <chapter title="Run the client application" id="run-client-app">
+    <chapter title="Run a client application" id="run-client-app">
         <p>
-            You can run the client application by executing the run configuration for the target. To run the
+            You can run a client application by executing the run configuration for the target. To run the
             application on an iOS simulator, follow the steps below:
         </p>
         <procedure id="run-ios-app-procedure">
@@ -315,7 +321,7 @@
                      border-effect="line" style="block"/>
             </step>
             <step>
-                Click on the
+                Click the
                 <ui-path>Run</ui-path>
                 button
                 (<img src="intellij_idea_run_icon.svg"
@@ -365,7 +371,7 @@
                 <p>
                     This is a composable function, which you will modify later in this article. For the moment all that
                     is important is that it displays a UI and makes use of the <code>Greeting</code> type, which in turn
-                    uses the platform-specific <code>Platform</code> type.
+                    uses the platform-specific classes implementing the common <code>Platform</code> interface.
                 </p>
             </step>
         </procedure>
@@ -376,7 +382,7 @@
     </chapter>
     <chapter title="Add the model types" id="add-model-types">
         <p>
-            First, you will add the model types and make sure that they are accessible on both the client and the
+            First, you will add the model types and make sure that they are accessible for both the client and the
             server.
         </p>
         <procedure id="add-model-types-procedure">
@@ -404,8 +410,8 @@
                             src="snippets/full-stack-task-manager/shared/src/commonMain/kotlin/com/example/ktor/full_stack_task_manager/model/Task.kt"
                 />
                 <p>
-                    You will notice that neither the import nor the annotation compiles. This is because the <code>kotlinx.serialization</code>
-                    library has not been included for us by the wizard.
+                    You will notice that neither the import nor the annotation compiles. This is because the project doesn't have
+                    a dependency on the <code>kotlinx.serialization</code> library yet.
                 </p>
             </step>
             <step>
@@ -439,6 +445,7 @@
                             include-lines="1,18,21-22,35"
                 />
             </step>
+            <!-- the plugin version can also be set in the version catalog -->
             <step>
                 In IntelliJ IDEA, click the
                 <ui-path>Gradle</ui-path>
@@ -453,6 +460,8 @@
             required to serialize <code>Task</code> objects across the network would not have been produced. This would
             lead to runtime errors when attempting to invoke the service.
         </p>
+        <!-- This seems like a lot of nuance to cover for this tutorial :)
+         At this point it's enough to know that the serialization library requires a Gradle plugin. -->
         <p>
             Placing the serialization plugin in another module (such as
             <path>server</path>
@@ -504,6 +513,14 @@
                             src="snippets/full-stack-task-manager/server/src/main/kotlin/com/example/ktor/full_stack_task_manager/Application.kt"
                 />
                 <p>
+                    <!-- Probably because these are different packages short imports didn't work for me, IDE
+                    suggested this:
+
+                    import com.example.ktor.full_stack_task_manager.model.InMemoryTaskRepository
+                    import com.example.ktor.full_stack_task_manager.model.Priority
+                    import com.example.ktor.full_stack_task_manager.model.Task
+
+                    -->
                     This implementation is very similar to that in previous tutorials with the exception that now you
                     have placed all the routing code within the <code>Application.module()</code> function for
                     simplicity.
@@ -569,7 +586,7 @@
                 file, add the following libraries:
                 <code-block lang="toml"
                             src="snippets/full-stack-task-manager/gradle/libs.versions.toml"
-                            include-lines="22,36-41"
+                            include-lines="22,36-42"
                 />
             </step>
             <step>
@@ -611,6 +628,7 @@
                     not be able to make calls to <code>0.0.0.0</code> or <code>localhost</code> from code running on an
                     Android Virtual Device or
                     the iPhone simulator.
+                    <!-- should we include instructions on learning the IP address? -->
                 </p>
             </step>
             <step>
@@ -631,6 +649,7 @@
                     <path>App.kt</path>
                     and replace the App composable with the implementation below:
                 </p>
+                <!-- we should change this to a snippet probably because the imports don't work as advertised-->
                 <code-block lang="kotlin"
                             src="https://raw.githubusercontent.com/ktorio/ktor-documentation/25ac0cd40623de7edebc3297154cdd8a2aa4cb51/codeSnippets/snippets/full-stack-task-manager/composeApp/src/commonMain/kotlin/com/example/ktor/full_stack_task_manager/App.kt"
                 />
@@ -641,6 +660,7 @@
             </step>
             <step>
                 <p>
+                    <!-- we probably should remind the user to keep the server part running -->
                     Test the application by running the iOS client. Click on the
                     <control>Fetch Tasks</control>
                     button to display the list of tasks:
@@ -675,6 +695,8 @@
                          alt="App running on Android" width="350" border-effect="rounded"/>
                 </p>
                 <note>
+                    <!-- this notice should probably go before the iOS client starts sending unencrypted data?
+                     it's just not clear why this is a comment on the Android screenshot -->
                     In this demo, we are simplifying the process for clarity. In real-world applications, it is crucial
                     to avoid sending unencrypted data over the network.
                 </note>
@@ -731,7 +753,8 @@
             </step>
             <step>
                 <p>
-                    Rerun the application. You can now scroll through tasks, view their details, and delete them:
+                    Rerun the Android application, for example.
+                    You can now scroll through tasks, view their details, and delete them:
                     <img style="block" src="full_stack_development_tutorial_improved_ui.gif"
                          alt="App running on Android with improved UI" width="350" border-effect="rounded"/>
                 </p>
@@ -784,7 +807,10 @@
                 </p>
             </step>
             <step>
-                Re-run the client application. You should now be able to update the details of each task by using the
+                Import all the missing dependencies as suggested by the IDE.
+            </step>
+            <step>
+                Rerun the client application. You should now be able to update the details of each task by using the
                 buttons.
                 <img style="block" src="full_stack_development_tutorial_update_task.gif"
                      alt="Deleting tasks on Android" width="350" border-effect="rounded"/>
