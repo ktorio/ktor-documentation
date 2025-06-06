@@ -19,7 +19,9 @@ without caching the body, use a streaming approach instead.
 <compare first-title="Before" second-title="After">
 
 ```kotlin
-val file = client.get("/some-file").bodyAsChannel()
+val file = client.get("/some-file") {
+    skipSavingBody()
+}.bodyAsChannel()
 saveFile(file)
 ```
 ```kotlin
