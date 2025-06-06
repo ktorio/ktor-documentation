@@ -76,8 +76,8 @@ below shows how to get a response as a `ByteArray` and save it to a file:
 The [`onDownload()`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/on-download.html) extension
 function in the example above is used to display download progress.
 
-For non-streaming requests, calling `.body()` loads and caches the full response body in memory, allowing repeated 
-access. While this is efficient for small payloads, it may lead to high memory usage with large responses.
+For non-streaming requests, the response body is automatically loaded and cached in memory, allowing repeated access.
+While this is efficient for small payloads, it may lead to high memory usage with large responses.
 
 To handle large responses efficiently, use a [streaming approach](#streaming),
 which processes the response incrementally without saving it in memory.
