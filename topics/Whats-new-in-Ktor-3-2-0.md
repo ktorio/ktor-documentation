@@ -33,3 +33,42 @@ client.prepareGet("/some-file").execute { response ->
 </compare>
 
 This approach streams the response directly, preventing the body from being saved in memory.
+
+## Infrastructure
+
+### Published version catalog
+
+With this release, you can now use an official
+[published version catalog](server-dependencies.topic#using-version-catalog)
+to manage all Ktor dependencies from a single source. This eliminates the need to manually declare Ktor versions in 
+your dependencies.
+
+To add the catalog to your project, configure Gradle’s version catalog in **settings.gradle.kts**, then reference it in
+your module’s **build.gradle.kts** file:
+
+<tabs>
+<tab title="settings.gradle.kts">
+
+```kotlin
+dependencyResolutionManagement {
+    versionCatalogs {
+        create("ktorLibs") {
+            from("io.ktor:ktor-version-catalog:%ktor_version%")
+        }
+    }
+}
+```
+
+</tab>
+<tab title="build.gradle.kts">
+
+```kotlin
+dependencies {
+    implementation(ktorLibs.client.core)
+    implementation(ktorLibs.client.cio)
+    // ...
+}
+```
+
+</tab>
+</tabs>
