@@ -105,3 +105,9 @@ which dependencies you need from a topic for a required plugin.
 
 > For a multiplatform project, a plugin dependency should be added to the `commonMain` source set. Note that some
 plugins might have  [limitations](client-engines.md#limitations) for specific platforms.
+
+## Ensure Ktor version consistency
+
+<var name="target_module" value="client"/>
+<include from="server-dependencies.topic" element-id="using-gradle-plugin"/>
+<include from="server-dependencies.topic" element-id="using-version-catalog"/>
