@@ -77,26 +77,12 @@
                 </li>
                 <li>
                     <p>
-                        If you run your application using a <a href="server-dependencies.topic">Gradle</a> task, you can pass
-                        <code>io.ktor.development</code> to the
-                        <code>applicationDefaultJvmArgs</code> property in a <path>build.gradle(.kts)</path> file:
+                        If you run your application using a <a href="server-dependencies.topic">Gradle</a> task,
+                        you can use a Gradle CLI flag:
                     </p>
-                    <tabs group="languages">
-                        <tab title="Gradle (Kotlin)" group-key="kotlin">
-                            <code-block lang="Kotlin">
-                                application {
-                                    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=true")
-                                }
-                            </code-block>
-                        </tab>
-                        <tab title="Gradle (Groovy)" group-key="groovy">
-                            <code-block lang="Groovy">
-                                application {
-                                    applicationDefaultJvmArgs = ["-Dio.ktor.development=true"]
-                                }
-                            </code-block>
-                        </tab>
-                    </tabs>
+                    <code-block>
+                        ./gradlew run -Pio.ktor.development=true
+                    </code-block>
                 </li>
             </list>
             <tip>
