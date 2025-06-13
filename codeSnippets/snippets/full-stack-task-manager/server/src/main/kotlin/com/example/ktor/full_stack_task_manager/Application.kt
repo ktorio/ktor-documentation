@@ -26,6 +26,7 @@ fun Application.module() {
     }
     install(CORS) {
         allowHeader(HttpHeaders.ContentType)
+        allowMethod(HttpMethod.Delete)
         // For ease of demonstration we allow any connections.
         // Don't do this in production.
         anyHost()
