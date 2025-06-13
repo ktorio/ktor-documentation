@@ -41,14 +41,18 @@ are deprecated in favor of the new `.replaceResponse()` function.
 
 The `.wrapWithContent()` and `.wrap()` functions replace the original response body with a `ByteReadChannel` that can only be read once.
 If the same channel instance is passed directly instead of a function that returns a new one, reading the body multiple times fails.
-This can break compatibility with [`SaveBodyPlugin`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-save-body-plugin.html?query=val%20SaveBodyPlugin:%20ClientPlugin%3CSaveBodyPluginConfig%3E),
-which relies on reading the response multiple times:
+This can break compatibility between different plugins accessing the response body, because the first plugin to read it consumes the body:
 
 ```kotlin
 // Replaces the body with a channel decoded once from rawContent
-val decodedResponse = decode(response.rawContent)
-call.wrapWithContent(decodedResponse)
-// This fails on subsequent accesses
+val decodedBody = decode(response.rawContent)
+val decodedResponse = call.wrapWithContent(decodedBody).response
+
+// The first call returns the body
+decodedResponse.bodyAsText()
+
+// Subsequent calls return an empty string
+decodedResponse.bodyAsText() 
 ```
 
 To avoid this issue, use the `.replaceResponse()` function instead.
