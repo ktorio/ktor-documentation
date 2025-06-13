@@ -27,7 +27,7 @@ fun Application.module() {
     install(CORS) {
         allowHeader(HttpHeaders.ContentType)
         // For ease of demonstration we allow any connections.
-        // Don't do this in production if possible.
+        // Don't do this in production.
         anyHost()
     }
     val repository = InMemoryTaskRepository()
