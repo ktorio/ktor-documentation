@@ -199,7 +199,7 @@
             </procedure>
         </chapter>
         <chapter title="Add starter code" id="add-starter-code">
-            <procedure id="add-starrter-code-procedure">
+            <procedure id="add-starter-code-procedure">
                 <step>
                     Navigate to
                     <path>src/main/kotlin/com/example</path>
@@ -466,7 +466,7 @@
                     <code-block lang="kotlin">
                         [libraries]
                         #...
-                        ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation-jvm", version.ref = "ktor-version" }
+                        ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor-version" }
                     </code-block>
                 </step>
                 <step>
@@ -709,7 +709,7 @@
             <procedure id="create-mapping-procedure">
                 <step>
                     Navigate to
-                    <path>scr/main/kotlin/com/example</path>
+                    <path>src/main/kotlin/com/example</path>
                     and create a new package called
                     <path>db</path>
                     .

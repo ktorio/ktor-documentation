@@ -1021,7 +1021,7 @@
             <procedure title="Add a new dependency" id="add-dependency">
                 <p>In the
                     <control>Project</control>
-                    tool window, navigate to the <code>src/test/kotlin</code> folder and follow the steps:
+                    tool window, navigate to the project root folder and follow the steps:
                 </p>
                 <step>
                     <p>Open the <code>build.gradle.kts</code> file.</p>

@@ -480,7 +480,7 @@
             the required server parameters by passing corresponding command-line arguments. For example, you can
             override a port specified in a configuration file in the following way:
         </p>
-        <code-block>
+        <code-block lang="shell">
             java -jar sample-app.jar -port=8080
         </code-block>
         <p>

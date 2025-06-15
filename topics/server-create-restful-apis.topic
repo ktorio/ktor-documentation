@@ -235,7 +235,7 @@
                 inside the generated code in the project you will find a file called
                 <path>Serialization.kt</path>
                 inside
-                <path>src/kotlin/main/com/example</path>
+                <path>src/main/kotlin/com/example</path>
                 , which includes the following:
             </p>
             <code-block lang="kotlin"
@@ -542,7 +542,7 @@
                                         call.respond(HttpStatusCode.Created)
                                     } catch (ex: IllegalStateException) {
                                         call.respond(HttpStatusCode.BadRequest)
-                                    } catch (ex: JsonConvertException) {
+                                    } catch (ex: SerializationException) {
                                         call.respond(HttpStatusCode.BadRequest)
                                     }
                                 }
