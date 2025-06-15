@@ -298,7 +298,7 @@ fun Application.configureTemplating() {
                     Open the
                     <path>index.html</path>
                     file within
-                    <path>src/resources/static</path>
+                    <path>src/main/resources/static</path>
                     and replace its contents with the implementation below:
                 </p>
                 <code-block lang="html"
