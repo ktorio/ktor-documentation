@@ -34,7 +34,7 @@ client.prepareGet("/some-file").execute { response ->
 
 This approach streams the response directly, preventing the body from being saved in memory.
 
-### The .wrapWithContent() and .wrap() extension functions are deprecated
+### The `.wrapWithContent()` and `.wrap()` extension functions are deprecated
 
 In Ktor 3.2.0, the [`.wrapWithContent()`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.observer/wrap-with-content.html) and [`.wrap()`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.observer/wrap.html) extension functions
 are deprecated in favor of the new `.replaceResponse()` function.
