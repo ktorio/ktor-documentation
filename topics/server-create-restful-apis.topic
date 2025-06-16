@@ -563,7 +563,7 @@
                     When a POST request is sent to <code>/tasks</code> the <code>kotlinx.serialization</code> framework
                     is used to convert the body of the request into a <code>Task</code> object. If this succeeds, the
                     task will be added to the repository. If the deserialization process fails the server will need to
-                    handle a <code>JsonConvertException</code>, whereas if the task is a duplicate it will need to
+                    handle a <code>SerializationException</code>, whereas if the task is a duplicate it will need to
                     handle an <code>IllegalStateException</code>.
                 </p>
             </step>
