@@ -398,7 +398,7 @@
     <toc-element toc-title="Other Resources">
         <toc-element toc-title="Community Resources" href="https://github.com/mjovanc/awesome-ktor"/>
     </toc-element>
-    <toc-element hidden="true" accepts-web-file-names="generator.html"
+    <toc-element hidden="true" accepts-web-file-names="generator.html" toc-title="geenrator"
                  target-for-accept-web-file-names="https://start.ktor.io/"/>
     <toc-element hidden="true" toc-title="samples" accepts-web-file-names-ref="samples"
                  target-for-accept-web-file-names="https://ktor.io/learn/"/>
