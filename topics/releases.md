@@ -33,6 +33,14 @@ The following table lists details of the latest Ktor releases.
 
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
+<tr><td>3.2.0</td><td>June 12, 2025</td><td>
+<p>
+A minor release that introduces typed configuration deserialization, new dependency injection and HTMX modules, Gradle
+version catalog support, and suspend module support.
+</p>
+<var name="version" value="3.2.0"/>
+<include from="lib.topic" element-id="release_details_link"/>
+</td></tr>
 <tr><td>3.1.3</td><td>May 5, 2025</td><td><p>
 A patch release including performance improvements like faster
 <a href="https://youtrack.jetbrains.com/issue/KTOR-8412">
