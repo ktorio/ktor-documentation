@@ -193,9 +193,9 @@
             The example below shows how to run a server with multiple connector endpoints
             using a custom configuration represented by the
             <a href="https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/-application-engine/-configuration/index.html">
-                ApplicationEngine
+                ApplicationEngine.Configuration
             </a>
-            interface.
+            class.
         </p>
         <code-block
                 lang="kotlin"

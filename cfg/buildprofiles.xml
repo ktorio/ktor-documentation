@@ -48,10 +48,11 @@
 
     <footer>
         <copyright>2000-2025 JetBrains s.r.o.</copyright>
-        <social type="twitter" href="https://twitter.com/jetbrainsktor"/>
+        <social type="twitter" href="https://x.com/jetbrainsktor">Ktor on X</social>
+        <social type="github" href="https://github.com/ktorio">Ktor on GitHub</social>
+        <social type="slack" href="https://app.slack.com/client/T09229ZC6/C0A974TJ9">Slack Community</social>
         <link href="https://github.com/ktorio/ktor/blob/main/CONTRIBUTING.md">Contribute to Ktor</link>
         <link href="https://ktor.io/eap/">Early Access Program</link>
         <link href="https://api.ktor.io/">API Documentation</link>
-        <link href="https://app.slack.com/client/T09229ZC6/C0A974TJ9">Slack Community</link>
     </footer>
 </buildprofiles>

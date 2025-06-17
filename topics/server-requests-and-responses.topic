@@ -372,7 +372,7 @@
         <p>
             The route you would add is
             <code>/tasks/byPriority/{priority?}</code>
-            where <code>{priority?}</code> represents a query parameter that you will need to extract at runtime,
+            where <code>{priority?}</code> represents a path parameter that you will need to extract at runtime,
             and the question mark is used to indicate that a parameter is optional. The query parameter can have
             any name you like, but <code>priority</code> seems the obvious choice.
         </p>
@@ -380,7 +380,7 @@
             The process to handle the request can be summarized as follows:
         </p>
         <list type="decimal">
-            <li>Extract a query parameter called <code>priority</code> from the request.</li>
+            <li>Extract a path parameter called <code>priority</code> from the request.</li>
             <li>If this parameter is absent, return a <code>400</code> status (Bad Request).</li>
             <li>Convert the text value of the parameter into a <code>Priority</code> enum value.</li>
             <li>If this fails, return a response with a <code>400</code> status code.</li>
@@ -432,12 +432,12 @@
                 <code>/tasks/byPriority/{priority?}</code>
                 . The symbol
                 <code>priority</code>
-                represents the query parameter that the user has added. Unfortunately, on the server there's
+                represents the path parameter that the user has added. Unfortunately, on the server there's
                 no way of guaranteeing that this is one of the four values in the corresponding Kotlin enumeration,
                 so it must be checked manually.
             </p>
             <p>
-                If the query parameter is absent, the server returns a <code>400</code> status code to the client.
+                If the path parameter is absent, the server returns a <code>400</code> status code to the client.
                 Otherwise, it extracts the
                 value of the parameter and tries to convert it to a member of the enumeration. Should this fail, an
                 exception will be thrown, which the server catches and returns a <code>400</code> status code.

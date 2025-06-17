@@ -27,7 +27,7 @@ To enable `digest` authentication, you need to include the `%artifact_name%` art
 The digest authentication flow looks as follows:
 
 1. A client makes a request without the `Authorization` header to a specific [route](server-routing.md) in a server application.
-1. A server responds to a client with a `401` (Unauthorized) response status and uses a `WWW-Authenticate` response header to provide information that the digest authentication scheme is used to protect a route. A typical `WWW-Authenticate` header looks like this:
+2. A server responds to a client with a `401` (Unauthorized) response status and uses a `WWW-Authenticate` response header to provide information that the digest authentication scheme is used to protect a route. A typical `WWW-Authenticate` header looks like this:
 
    ```
    WWW-Authenticate: Digest
@@ -39,7 +39,7 @@ The digest authentication flow looks as follows:
 
    In Ktor, you can specify the realm and the way of generating a nonce value when [configuring](#configure-provider) the `digest` authentication provider.
 
-1. Usually a client displays a login dialog where a user can enter credentials. Then, a client makes a request with the following `Authorization` header:
+3. Usually a client displays a login dialog where a user can enter credentials. Then, a client makes a request with the following `Authorization` header:
 
    ```
    Authorization: Digest username="jetbrains",
@@ -60,7 +60,7 @@ The digest authentication flow looks as follows:
    
    c. `response = MD5(HA1:nonce:HA2)`
 
-1. A server [validates](#configure-provider) credentials sent by a client and responds with the requested content.
+4. A server [validates](#configure-provider) credentials sent by a client and responds with the requested content.
 
 
 ## Install digest authentication {id="install"}
