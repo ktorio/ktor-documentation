@@ -113,7 +113,7 @@ plugins might have  [limitations](client-engines.md#limitations) for specific pl
 The Ktor BOM allows you to ensure that all Ktor modules use the same consistent version without specifying
 the version for each dependency individually.
 
-To add the Ktor BOM dependency,declare it in your build script as follows:
+To add the Ktor BOM dependency, declare it in your build script as follows:
 
 <tabs group="languages">
     <tab title="Gradle (Kotlin)" group-key="kotlin">
