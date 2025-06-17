@@ -83,11 +83,13 @@ val rawAddress = address.resolveAddress()
 ```
 
 It returns the resolved IP address as a `ByteArray`, or `null` if the address cannot be resolved.
+The size of the returned `ByteArray` depends on the IP version: it will contain 4 bytes for IPv4 addresses and 
+16 bytes for IPv6 addresses.
 On JS and Wasm platforms, `resolveAddress()` will always return `null`.
 
 ## Gradle plugin
 
-### Enabling development mode via the command line
+### Enabling development mode
 
 Ktor 3.2.0 simplifies enabling development mode. Previously, enabling development mode required explicit 
 configuration in the `application` block. Now, you can use the `ktor.development` property to enable it,
