@@ -371,9 +371,10 @@
         </list>
         <p>
             The route you would add is
-            <code>/tasks/byPriority/{priority}</code>
-            where <code>{priority}</code> represents a path parameter that you will need to extract at runtime. The
-            parameter can have any name you like, but <code>priority</code> seems the obvious choice.
+            <code>/tasks/byPriority/{priority?}</code>
+            where <code>{priority?}</code> represents a path parameter that you will need to extract at runtime,
+            and the question mark is used to indicate that a parameter is optional. The query parameter can have
+            any name you like, but <code>priority</code> seems the obvious choice.
         </p>
         <p>
             The process to handle the request can be summarized as follows:
@@ -400,7 +401,7 @@
                     get("/tasks") { ... }
 
                     //add the following route
-                    get("/tasks/byPriority/{priority}") {
+                    get("/tasks/byPriority/{priority?}") {
                         val priorityAsText = call.parameters["priority"]
                         if (priorityAsText == null) {
                             call.respond(HttpStatusCode.BadRequest)
@@ -428,7 +429,7 @@
             </code-block>
             <p>
                 As summarized above, you have written a handler for the URL
-                <code>/tasks/byPriority/{priority}</code>
+                <code>/tasks/byPriority/{priority?}</code>
                 . The symbol
                 <code>priority</code>
                 represents the path parameter that the user has added. Unfortunately, on the server there's
@@ -709,7 +710,7 @@
 
                             get("/tasks") { ... }
 
-                            get("/tasks/byPriority/{priority}") { … }
+                            get("/tasks/byPriority/{priority?}") { … }
                         }
                     }
                 </code-block>
@@ -897,7 +898,7 @@
                             //Code remains the same
                         }
 
-                        get("/byPriority/{priority}") {
+                        get("/byPriority/{priority?}") {
                             //Code remains the same
                         }
 
@@ -943,7 +944,7 @@
                             )
                         }
 
-                        get("/byPriority/{priority}") {
+                        get("/byPriority/{priority?}") {
                             //Code remains the same
                         }
 
