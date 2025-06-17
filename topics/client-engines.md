@@ -60,7 +60,7 @@ The table below shows whether a specific engine supports HTTP/2 and [WebSockets]
 | Js      | ✅                  | ✅          |
 | Darwin  | ✅                  | ✅          |
 | WinHttp | ✅                  | ✅          |
-| Curl    | ✅                  | ✖️         |
+| Curl    | ✅                  | ✅         |
 
 
 You also need to consider the following limitations that affect general client configuration and using of specific plugins:

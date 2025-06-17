@@ -2,6 +2,7 @@
 
 # What's new in Ktor 3.2.0
 
+<<<<<<< KTOR-8542-access-resolved-ip-address
 Here are the highlights for this feature release:
 
 * Version Catalog
@@ -9,6 +10,8 @@ Here are the highlights for this feature release:
 * First-class HTMX support
 * Suspendable module methods
 
+=======
+>>>>>>> 3.2.0
 ## Ktor Client
 
 ### `SaveBodyPlugin` and `HttpRequestBuilder.skipSavingBody()` are deprecated
@@ -71,6 +74,7 @@ call.replaceResponse {
     decode(response.rawContent)
 }
 ```
+<<<<<<< KTOR-8542-access-resolved-ip-address
 
 ### Access resolved IP address
 
@@ -116,3 +120,5 @@ directly using a Gradle CLI flag:
 ```bash
 ./gradlew run -Pio.ktor.development=true
 ```
+=======
+>>>>>>> 3.2.0
