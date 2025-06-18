@@ -376,6 +376,7 @@
 
     <toc-element toc-title="Integrations">
         <toc-element topic="full-stack-development-with-kotlin-multiplatform.topic"/>
+        <toc-element topic="htmx-integration.md"/>
         <toc-element topic="tutorial-first-steps-with-kotlin-rpc.topic"/>
     </toc-element>
 
