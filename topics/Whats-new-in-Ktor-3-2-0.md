@@ -2,7 +2,6 @@
 
 # What's new in Ktor 3.2.0
 
-<<<<<<< KTOR-8542-access-resolved-ip-address
 Here are the highlights for this feature release:
 
 * Version Catalog
@@ -10,8 +9,6 @@ Here are the highlights for this feature release:
 * First-class HTMX support
 * Suspendable module methods
 
-=======
->>>>>>> 3.2.0
 ## Ktor Client
 
 ### `SaveBodyPlugin` and `HttpRequestBuilder.skipSavingBody()` are deprecated
@@ -74,11 +71,10 @@ call.replaceResponse {
     decode(response.rawContent)
 }
 ```
-<<<<<<< KTOR-8542-access-resolved-ip-address
 
 ### Access resolved IP address
 
-You can now use the new `resolveAddress()` function on `io.ktor.network.sockets.InetSocketAddress` instances.
+You can now use the new `.resolveAddress()` function on `io.ktor.network.sockets.InetSocketAddress` instances.
 This function allows you to obtain the raw resolved IP address of the associated host:
 
 ```kotlin
@@ -89,7 +85,7 @@ val rawAddress = address.resolveAddress()
 It returns the resolved IP address as a `ByteArray`, or `null` if the address cannot be resolved.
 The size of the returned `ByteArray` depends on the IP version: it will contain 4 bytes for IPv4 addresses and 
 16 bytes for IPv6 addresses.
-On JS and Wasm platforms, `resolveAddress()` will always return `null`.
+On JS and Wasm platforms, `.resolveAddress()` will always return `null`.
 
 ## Gradle plugin
 
@@ -120,5 +116,3 @@ directly using a Gradle CLI flag:
 ```bash
 ./gradlew run -Pio.ktor.development=true
 ```
-=======
->>>>>>> 3.2.0

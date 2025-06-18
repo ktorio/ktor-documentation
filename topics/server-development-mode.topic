@@ -78,7 +78,7 @@
                 <li>
                     <p>
                         If you run your application using a <a href="server-dependencies.topic">Gradle</a> task,
-                        you can use a Gradle CLI flag:
+                        you can enable development mode for the current run using the Gradle CLI flag:
                     </p>
                     <code-block>
                         ./gradlew run -Pio.ktor.development=true
