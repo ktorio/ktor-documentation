@@ -87,6 +87,45 @@ The size of the returned `ByteArray` depends on the IP version: it will contain 
 16 bytes for IPv6 addresses.
 On JS and Wasm platforms, `.resolveAddress()` will always return `null`.
 
+## Infrastructure
+
+### Published version catalog
+
+With this release, you can now use an official
+[published version catalog](server-dependencies.topic#using-version-catalog)
+to manage all Ktor dependencies from a single source. This eliminates the need to manually declare Ktor versions in
+your dependencies.
+
+To add the catalog to your project, configure Gradle’s version catalog in **settings.gradle.kts**, then reference it in
+your module’s **build.gradle.kts** file:
+
+<tabs>
+<tab title="settings.gradle.kts">
+
+```kotlin
+dependencyResolutionManagement {
+    versionCatalogs {
+        create("ktorLibs") {
+            from("io.ktor:ktor-version-catalog:%ktor_version%")
+        }
+    }
+}
+```
+
+</tab>
+<tab title="build.gradle.kts">
+
+```kotlin
+dependencies {
+    implementation(ktorLibs.client.core)
+    implementation(ktorLibs.client.cio)
+    // ...
+}
+```
+
+</tab>
+</tabs>
+
 ## Gradle plugin
 
 ### Enabling development mode
