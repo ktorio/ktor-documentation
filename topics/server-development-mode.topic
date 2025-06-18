@@ -61,30 +61,43 @@
 
         <chapter title="The 'io.ktor.development' system property" id="system-property">
             <p>
-                The <control>io.ktor.development</control> <a href="https://docs.oracle.com/javase/tutorial/essential/environment/sysprop.html">system property</a>
-                allows you to enable development mode when running your application:
+                The <control>io.ktor.development</control>
+                <a href="https://docs.oracle.com/javase/tutorial/essential/environment/sysprop.html">system property</a>
+                allows you to enable development mode when running your application.
+            </p>
+            <p>
+                To run an application in development mode using IntelliJ IDEA,
+                pass <code>io.ktor.development</code> with the <code>-D</code> flag to
+                <a href="https://www.jetbrains.com/help/idea/run-debug-configuration-kotlin.html#1">VM options</a>:
+            </p>
+            <code-block>
+                -Dio.ktor.development=true
+            </code-block>
+            <p>
+                If you run your application using a <a href="server-dependencies.topic">Gradle</a> task,
+                you can enable development mode in one of two ways:
             </p>
             <list>
                 <li>
                     <p>
-                        To run an application in development mode using IntelliJ IDEA,
-                        pass <code>io.ktor.development</code> with the <code>-D</code> flag to
-                        <a href="https://www.jetbrains.com/help/idea/run-debug-configuration-kotlin.html#1">VM options</a>:
+                        Configure the <code>ktor</code> block in your <path>build.gradle.kts</path> file:
                     </p>
-                    <code-block>
-                        -Dio.ktor.development=true
+                    <code-block lang="Kotlin">
+                        ktor {
+                            development = true
+                        }
                     </code-block>
                 </li>
                 <li>
                     <p>
-                        If you run your application using a <a href="server-dependencies.topic">Gradle</a> task,
-                        you can enable development mode for the current run using the Gradle CLI flag:
+                        Enable development mode for a single run by passing a Gradle CLI flag:
                     </p>
-                    <code-block>
-                        ./gradlew run -Pio.ktor.development=true
+                    <code-block lang="bash">
+                          ./gradlew run -Pio.ktor.development=true
                     </code-block>
                 </li>
             </list>
+
             <tip>
                 <p>
                     You can also use the <code>-ea</code> flag to enable development mode.
