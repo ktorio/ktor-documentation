@@ -68,6 +68,41 @@ fun Application.module() {
 This feature supports both HOCON and YAML configuration formats and uses `kotlinx.serialization` for
 deserialization.
 
+### `ApplicationTestBuilder` has a configurable `client`
+
+Starting with Ktor 3.2.0, the `client` property in the `ApplicationTestBuilder` class is mutable. Previously, it was read-only.
+This change lets you configure your own test client and reuse it wherever the `ApplicationTestBuilder` class
+is available. For example, you can access the client from within extension functions:
+
+```kotlin
+@Test
+fun testRouteAfterAuthorization() = testApplication {
+    // Pre-configure the client
+    client = createClient {
+        install(ContentNegotiation) {
+            json()
+        }
+            
+        defaultRequest { 
+            contentType(ContentType.Application.Json)
+        }
+    }
+
+    // Reusable test step extracted into an extension-function
+    auth(token = AuthToken("swordfish"))
+
+    val response = client.get("/route")
+    assertEquals(OK, response.status)
+}
+
+private fun ApplicationTestBuilder.auth(token: AuthToken) {
+    val response = client.post("/auth") {
+        setBody(token)
+    }
+    assertEquals(OK, response.status)
+}
+```
+
 ## Ktor Client
 
 ### `SaveBodyPlugin` and `HttpRequestBuilder.skipSavingBody()` are deprecated
