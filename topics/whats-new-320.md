@@ -11,6 +11,15 @@ Here are the highlights for this feature release:
 * First-class HTMX support
 * Suspendable module methods
 
+## Ktor Server
+
+### `ApplicationTestBuilder` has a configurable `client`
+
+Starting with Ktor 3.2.0, the `client` property in the `ApplicationTestBuilder` class is mutable. Previously it was read-only.
+This small change means you can configure your own test client.
+
+<!-- Add code sample -->
+
 ## Ktor Client
 
 ### `SaveBodyPlugin` and `HttpRequestBuilder.skipSavingBody()` are deprecated
