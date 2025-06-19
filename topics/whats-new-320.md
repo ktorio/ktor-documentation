@@ -9,7 +9,38 @@ Here are the highlights for this feature release:
 * Version Catalog
 * Dependency Injection
 * First-class HTMX support
-* Suspendable module methods
+* Suspendable module functions
+
+## Ktor Server
+
+### Suspendable module functions
+
+Starting with Ktor 3.2.0, [application modules](server-modules.md) have support for suspendable functions.
+
+Previously, adding asynchronous functions inside Ktor modules required the `runBlocking` block that could lead to a
+deadlock on the server creation:
+
+```kotlin
+fun Application.installEvents() {
+    val kubernetesConnection = runBlocking {
+        connect(property<KubernetesConfig>("app.events"))
+    }
+}
+```
+
+You can now use the `suspend` keyword, allowing asynchronous code on the application startup:
+
+```kotlin
+suspend fun Application.installEvents() {
+    val kubernetesConnection = connect(property<KubernetesConfig>("app.events"))
+}
+```
+
+You can also opt into concurrent module loading by adding the `ktor.application.startup = concurrent` property.
+It launches all application modules independently, so when one suspends, the others are not blocked. 
+This allows for non-sequential loading for dependency injection, and, in some cases, faster loading.
+
+For more information, see [Concurrent module loading](server-modules.md#concurrent-module-loading).
 
 ## Ktor Client
 
@@ -85,7 +116,7 @@ val rawAddress = address.resolveAddress()
 ```
 
 It returns the resolved IP address as a `ByteArray`, or `null` if the address cannot be resolved.
-The size of the returned `ByteArray` depends on the IP version: it will contain 4 bytes for IPv4 addresses and 
+The size of the returned `ByteArray` depends on the IP version: it will contain 4 bytes for IPv4 addresses and
 16 bytes for IPv6 addresses.
 On JS and Wasm platforms, `.resolveAddress()` will always return `null`.
 
@@ -132,7 +163,7 @@ dependencies {
 
 ### Enabling development mode
 
-Ktor 3.2.0 simplifies enabling development mode. Previously, enabling development mode required explicit 
+Ktor 3.2.0 simplifies enabling development mode. Previously, enabling development mode required explicit
 configuration in the `application` block. Now, you can use the `ktor.development` property to enable it,
 either dynamically or explicitly:
 
@@ -150,7 +181,7 @@ either dynamically or explicitly:
     }
     ```
 
-By default, the `ktor.development` value is automatically resolved from the Gradle project property or 
+By default, the `ktor.development` value is automatically resolved from the Gradle project property or
 the system property `io.ktor.development` if either is defined. This allows you to enable development mode
 directly using a Gradle CLI flag:
 
