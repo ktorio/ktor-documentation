@@ -1,6 +1,8 @@
+[//]: # (title: What's new in Ktor 3.2.0)
+
 <show-structure for="chapter,procedure" depth="2"/>
 
-# What's new in Ktor 3.2.0
+_[Released: June 12, 2025](releases.md#release-details)_
 
 Here are the highlights for this feature release:
 

@@ -381,7 +381,7 @@
 
     <toc-element toc-title="Releases">
         <toc-element topic="releases.md"/>
-        <toc-element topic="Whats-new-in-Ktor-3-2-0.md"/>
+        <toc-element topic="whats-new-320.md"/>
         <toc-element topic="migration-to-20x.md"
                      accepts-web-file-names="migrating-2.html"/>
         <toc-element topic="migration-to-22x.md"
