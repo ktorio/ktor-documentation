@@ -2,6 +2,13 @@
 
 # What's new in Ktor 3.2.0
 
+Here are the highlights for this feature release:
+
+* Version Catalog
+* Dependency Injection
+* First-class HTMX support
+* Suspendable module methods
+
 ## Ktor Client
 
 ### `SaveBodyPlugin` and `HttpRequestBuilder.skipSavingBody()` are deprecated
@@ -65,6 +72,21 @@ call.replaceResponse {
 }
 ```
 
+### Access resolved IP address
+
+You can now use the new `.resolveAddress()` function on `io.ktor.network.sockets.InetSocketAddress` instances.
+This function allows you to obtain the raw resolved IP address of the associated host:
+
+```kotlin
+val address = InetSocketAddress("sample-proxy-server", 1080)
+val rawAddress = address.resolveAddress()
+```
+
+It returns the resolved IP address as a `ByteArray`, or `null` if the address cannot be resolved.
+The size of the returned `ByteArray` depends on the IP version: it will contain 4 bytes for IPv4 addresses and 
+16 bytes for IPv6 addresses.
+On JS and Wasm platforms, `.resolveAddress()` will always return `null`.
+
 ## Infrastructure
 
 ### Published version catalog
@@ -103,3 +125,33 @@ dependencies {
 
 </tab>
 </tabs>
+
+## Gradle plugin
+
+### Enabling development mode
+
+Ktor 3.2.0 simplifies enabling development mode. Previously, enabling development mode required explicit 
+configuration in the `application` block. Now, you can use the `ktor.development` property to enable it,
+either dynamically or explicitly:
+
+* Dynamically enable development mode based on a project property.
+  ```kotlin
+    ktor {
+        development = project.ext.has("development")
+    }
+  ```
+* Explicitly set development mode to true.
+
+    ```kotlin
+    ktor {
+        development = true
+    }
+    ```
+
+By default, the `ktor.development` value is automatically resolved from the Gradle project property or 
+the system property `io.ktor.development` if either is defined. This allows you to enable development mode
+directly using a Gradle CLI flag:
+
+```bash
+./gradlew run -Pio.ktor.development=true
+```
