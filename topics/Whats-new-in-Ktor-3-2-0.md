@@ -71,7 +71,7 @@ call.replaceResponse {
 
 <primary-label ref="experimental"/>
 
-Ktor 3.2.0 introduces experimental support for HTMX, a modern JavaScript library that enables dynamic interactions via
+Ktor 3.2.0 introduces experimental support for [HTMX](https://htmx.org/) a modern JavaScript library that enables dynamic interactions via
 HTML attributes like `hx-get` and `hx-swap`. Ktor’s HTMX integration provides:
 
 - HTMX-aware routing for handling HTMX requests based on headers.

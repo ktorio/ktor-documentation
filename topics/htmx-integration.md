@@ -12,7 +12,7 @@
 <include from="lib.topic" element-id="download_example"/>
 </tldr>
 
-HTMX is a lightweight JavaScript library that enables dynamic client-side behavior using HTML attributes. It supports
+[HTMX](https://htmx.org/) is a lightweight JavaScript library that enables dynamic client-side behavior using HTML attributes. It supports
 features such as AJAX, CSS transitions, WebSockets, and Server-Sent Events — without writing JavaScript.
 
 Ktor provides experimental, first-class support for HTMX through a set of shared modules that simplify integration in
