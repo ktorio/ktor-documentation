@@ -82,17 +82,8 @@ You can find the full example here: [engine-main-modules](https://github.com/kto
 
 ## Concurrent module loading
 
-You can launch all application modules independently, so when one is suspended, the others are not blocked.
-This allows for non-sequential loading for dependency injection and, in some cases, faster loading.
-
-To opt into concurrent module loading, add the following property:
-
-```none
-ktor.application.startup = concurrent
-```
-
-Then, you can use the `suspend` keyword when writing application modules. It allows events to run asynchronously when
-starting the application:
+You can use suspendable functions when creating application modules. They allow events to run asynchronously when
+starting the application. To do that, add the `suspend` keyword:
 
 ```kotlin
 suspend fun Application.installEvents() {
@@ -100,15 +91,25 @@ suspend fun Application.installEvents() {
 }
 ```
 
+You can also launch all application modules independently, so when one is suspended, the others are not blocked.
+This allows for non-sequential loading for dependency injection and, in some cases, faster loading.
+
+To opt into concurrent module loading, add the following property to your `gradle.properties` file:
+
+```none
+ktor.application.startup = concurrent
+```
+
 For dependency injection, you can load the following modules in order of appearance without issues:
 
 ```kotlin
 suspend fun Application.installEvents() {
-    val kubernetesConnection = dependencies.resolve() // suspends until provided
+    // Suspends until provided
+    val kubernetesConnection = dependencies.resolve<KubernetesConnection>()
 }
 
 suspend fun Application.loadEventsConnection() {
-    dependencies.provide {
+    dependencies.provide<KubernetesConnection> {
         connect(property<KubernetesConfig>("app.events"))
     }
 }

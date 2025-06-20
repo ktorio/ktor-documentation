@@ -36,7 +36,7 @@ suspend fun Application.installEvents() {
 }
 ```
 
-You can also opt into concurrent module loading by adding the `ktor.application.startup = concurrent` property.
+You can also opt into concurrent module loading by adding the `ktor.application.startup = concurrent` Gradle property.
 It launches all application modules independently, so when one suspends, the others are not blocked. 
 This allows for non-sequential loading for dependency injection, and, in some cases, faster loading.
 
