@@ -102,25 +102,15 @@ defaultRequest {
 
 ### Unix domain sockets
 
-Unix domain sockets are supported in the CIO engine, for Ktor server as well as Ktor client.
+> Unix domain sockets are supported only in the CIO engine, for Ktor server as well as Ktor client.
+>
+{style="note"}
 
-To use a Unix socket, [configure the server](server-configuration-code.topic#cio-code)
-by adding a `unixConnector` specifying the path to the socket, for example:
+You can [build individual requests with Unix domain sockets](client-requests.md#specify-a-unix-domain-socket),
+but you can also configure a default request with a socket parameter.
 
-```kotlin
-val server = embeddedServer(CIO, configure = {
-    unixConnector("/tmp/test-unix-socket-ktor.sock")
-}) {
-    routing {
-        get("/") {
-            call.respondText("Hello, Unix socket world!")
-        }
-    }
-}
-```
-
-To set up a Ktor client to communicate to a Ktor server listening to Unix domain sockets,
-connect to the same Unix domain socket file using the `unixSocket` function:
+To do that, pass a `unixSocket` call with the path to the socket to the `defaultRequest` function,
+for example:
 
 ```kotlin
 val response = HttpClient(CIO) {
