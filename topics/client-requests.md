@@ -120,7 +120,7 @@ You can configure a URL fragment using the `fragment` property.
 Note that `fragment` [encodes][percent_encoding] a URL fragment.
 To disable encoding, use `encodedFragment`.
 
-## Specify a unix domain socket
+## Specify a Unix domain socket
 
 > Unix domain sockets are supported only in the CIO engine, for Ktor server as well as Ktor client.
 > 
