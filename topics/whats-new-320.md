@@ -21,6 +21,15 @@ can now deserialize structured configuration sections directly into Kotlin data 
 This feature simplifies how you access configuration values and significantly reduces boilerplate when working with
 nested or grouped settings.
 
+Consider the following **application.yaml** file:
+
+```yaml
+database:
+   url: "$DATABASE_URL:jdbc:postgresql://localhost:5432/postgres"
+   username: "$DATABASE_USER:ktor_admin"
+   password: "$DATABASE_PASSWORD:ktor123!"
+```
+
 Previously, you had to retrieve each configuration value individually. With the new `.property()` extension, you can
 load the entire configuration section at once:
 
