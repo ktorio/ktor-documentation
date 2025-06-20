@@ -185,8 +185,8 @@ On JS and Wasm platforms, `.resolveAddress()` will always return `null`.
 
 ### HTMX Integration
 
-Ktor 3.2.0 introduces experimental support for HTMX, a modern JavaScript library that enables dynamic interactions via
-HTML attributes like `hx-get` and `hx-swap`. Ktor’s HTMX integration provides:
+Ktor 3.2.0 introduces experimental support for [HTMX](https://htmx.org/), a modern JavaScript library that enables 
+dynamic interactions via HTML attributes like `hx-get` and `hx-swap`. Ktor’s HTMX integration provides:
 
 - HTMX-aware routing for handling HTMX requests based on headers.
 - HTML DSL extensions to generate HTMX attributes in Kotlin.
