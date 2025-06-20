@@ -22,7 +22,8 @@ The [DefaultRequest](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.cl
 
 ## Install DefaultRequest {id="install_plugin"}
 
-To install `DefaultRequest`, pass it to the `install` function inside a [client configuration block](client-create-and-configure.md#configure-client) ...
+To install `DefaultRequest`, pass it to the `install` function inside a [client configuration block](client-create-and-configure.md#configure-client):
+
 ```kotlin
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
@@ -33,7 +34,7 @@ val client = HttpClient(CIO) {
 }
 ```
 
-... or call the `defaultRequest` function and [configure](#configure) required request parameters:
+Or call the `defaultRequest` function and [configure](#configure) required request parameters:
 
 ```kotlin
 import io.ktor.client.*
@@ -97,6 +98,36 @@ To avoid duplicating headers, you can use the `appendIfNameAbsent`, `appendIfNam
 defaultRequest {
     headers.appendIfNameAbsent("X-Custom-Header", "Hello")
 }
+```
+
+### Unix domain sockets
+
+Unix domain sockets are supported in the CIO engine, for Ktor server as well as Ktor client.
+
+To use a Unix socket, [configure the server](server-configuration-code.topic#cio-code)
+by adding a `unixConnector` specifying the path to the socket, for example:
+
+```kotlin
+val server = embeddedServer(CIO, configure = {
+    unixConnector("/tmp/test-unix-socket-ktor.sock")
+}) {
+    routing {
+        get("/") {
+            call.respondText("Hello, Unix socket world!")
+        }
+    }
+}
+```
+
+To set up a Ktor client to communicate to a Ktor server listening to Unix domain sockets,
+connect to the same Unix domain socket file using the `unixSocket` function:
+
+```kotlin
+val response = HttpClient(CIO) {
+    defaultRequest {
+        unixSocket("/tmp/test-unix-socket-ktor.sock")
+    }
+}.get("/")
 ```
 
 ## Example {id="example"}
