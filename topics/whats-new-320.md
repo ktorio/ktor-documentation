@@ -11,6 +11,63 @@ Here are the highlights for this feature release:
 * First-class HTMX support
 * Suspendable module methods
 
+## Ktor Server
+
+### Configuration file deserialization
+
+Ktor 3.2.0 introduces typed configuration loading with a new `.property()` extension on the `Application` class. You
+can now deserialize structured configuration sections directly into Kotlin data classes.
+
+This feature simplifies how you access configuration values and significantly reduces boilerplate when working with
+nested or grouped settings.
+
+Consider the following **application.yaml** file:
+
+```yaml
+database:
+   url: "$DATABASE_URL:jdbc:postgresql://localhost:5432/postgres"
+   username: "$DATABASE_USER:ktor_admin"
+   password: "$DATABASE_PASSWORD:ktor123!"
+```
+
+Previously, you had to retrieve each configuration value individually. With the new `.property()` extension, you can
+load the entire configuration section at once:
+
+<compare>
+<code-block lang="kotlin">
+data class DatabaseConfig(
+    val url: String,
+    val username: String,
+    val password: String? = null,
+)
+
+fun Application.module() {
+  val databaseConfig = DatabaseConfig(
+    url = environment.config.property("database.url").getString(),
+    username = environment.config.property("database.username").getString(),
+    password = environment.config.property("database.password").getString(),
+  )
+  // use configuration
+}
+</code-block>
+<code-block lang="kotlin">
+@Serializable 
+data class DatabaseConfig(
+    val url: String,
+    val username: String,
+    val password: String? = null,
+)
+
+fun Application.module() {
+  val databaseConfig: DatabaseConfig = property("database")
+  // use configuration
+}
+</code-block>
+</compare>
+
+This feature supports both HOCON and YAML configuration formats and uses `kotlinx.serialization` for
+deserialization.
+
 ## Ktor Client
 
 ### `SaveBodyPlugin` and `HttpRequestBuilder.skipSavingBody()` are deprecated
