@@ -47,6 +47,15 @@ plugins {
 </tab>
 </tabs>
 
+> The Docker integration is automatically disabled if you apply the Ktor Gradle plugin along with the Kotlin Multiplatform Gradle plugin.
+> To be able to use them together:
+> 1. Create a JVM-only project with the Ktor Gradle plugin applied as shown above.
+> 2. Add the Kotlin Multiplatform project as a dependency to that JVM-only project.
+>
+> If this workaround does not solve the problem for you, let us know by leaving a comment in [KTOR-8464](https://youtrack.jetbrains.com/issue/KTOR-8464).
+>
+{style="warning"}
+
 ## Plugin tasks {id="tasks"}
 
 After [installing](#install-plugin) the plugin, the following tasks are available for packaging, running, and deploying
