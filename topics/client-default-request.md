@@ -113,13 +113,21 @@ To do that, pass a `unixSocket` call with the path to the socket to the `default
 for example:
 
 ```kotlin
-val client = HttpClient(CIO) {
+val client = HttpClient(CIO)
+
+// Sending a single request to a Unix domain socket
+val response: HttpResponse = client.get("/") {
+    unixSocket("/tmp/test-unix-socket-ktor.sock")
+}
+
+// Setting up the socket for all requests from that client
+val clientDefault = HttpClient(CIO) {
     defaultRequest {
         unixSocket("/tmp/test-unix-socket-ktor.sock")
     }    
 }
 
-val response: HttpResponse = client.get("/")
+val response: HttpResponse = clientDefault.get("/")
 ```
 
 ## Example {id="example"}
