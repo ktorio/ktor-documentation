@@ -145,7 +145,9 @@ Then you can make requests to a server listening to that socket by calling the `
 for a CIO client:
 
 ```kotlin
-val response: HttpResponse = HttpClient(CIO).request {
+val client = HttpClient(CIO)
+
+val response: HttpResponse = client.get("/") {
     unixSocket("/tmp/test-unix-socket-ktor.sock")
 }
 ```
