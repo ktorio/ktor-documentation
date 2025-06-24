@@ -25,7 +25,7 @@ fun Application.configureHtmx() {
             call.respondHtml {
                 head {
                     // Include HTMX library
-                    LinkAs.script(src = "https://unpkg.com/htmx.org@1.9.10") {}
+                    script(src = "https://unpkg.com/htmx.org@1.9.10") {}
                 }
                 body {
                     div {
