@@ -201,7 +201,7 @@ Ktor’s HTMX support is available across three experimental modules:
 | `ktor-server-htmx` | Routing support for HTMX-specific requests |
 
 All APIs are marked with `@ExperimentalKtorApi` and require opt-in via `@OptIn(ExperimentalKtorApi::class)`.
-For more information, see []().
+For more information, see [](htmx-integration.md).
 
 ## Infrastructure
 
