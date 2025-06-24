@@ -102,7 +102,7 @@ defaultRequest {
 
 ### Unix domain sockets
 
-> Unix domain sockets are supported only in the CIO engine, for Ktor server as well as Ktor client.
+> Unix domain sockets are supported only in the CIO engine.
 >
 {style="note"}
 
