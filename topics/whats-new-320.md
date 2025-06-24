@@ -181,6 +181,28 @@ The size of the returned `ByteArray` depends on the IP version: it will contain 
 16 bytes for IPv6 addresses.
 On JS and Wasm platforms, `.resolveAddress()` will always return `null`.
 
+## Shared
+
+### HTMX Integration
+
+Ktor 3.2.0 introduces experimental support for [HTMX](https://htmx.org/), a modern JavaScript library that enables 
+dynamic interactions via HTML attributes like `hx-get` and `hx-swap`. Ktor’s HTMX integration provides:
+
+- HTMX-aware routing for handling HTMX requests based on headers.
+- HTML DSL extensions to generate HTMX attributes in Kotlin.
+- HTMX header constants and values to eliminate string literals.
+
+Ktor’s HTMX support is available across three experimental modules:
+
+| Module             | Description                                |
+|--------------------|--------------------------------------------|
+| `ktor-htmx`        | Core definitions and header constants      |
+| `ktor-htmx-html`   | Integration with the Kotlin HTML DSL       |
+| `ktor-server-htmx` | Routing support for HTMX-specific requests |
+
+All APIs are marked with `@ExperimentalKtorApi` and require opt-in via `@OptIn(ExperimentalKtorApi::class)`.
+For more information, see [](htmx-integration.md).
+
 ## Infrastructure
 
 ### Published version catalog
