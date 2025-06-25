@@ -18,7 +18,7 @@ Here are the highlights for this feature release:
 Starting with Ktor 3.2.0, [application modules](server-modules.md) have support for suspendable functions.
 
 Previously, adding asynchronous functions inside Ktor modules required the `runBlocking` block that could lead to a
-deadlock on the server creation:
+deadlock on server creation:
 
 ```kotlin
 fun Application.installEvents() {
@@ -28,7 +28,7 @@ fun Application.installEvents() {
 }
 ```
 
-You can now use the `suspend` keyword, allowing asynchronous code on the application startup:
+You can now use the `suspend` keyword, allowing asynchronous code on application startup:
 
 ```kotlin
 suspend fun Application.installEvents() {

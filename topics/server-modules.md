@@ -115,7 +115,7 @@ suspend fun Application.loadEventsConnection() {
 }
 ```
 
-> The concurrent module loading is a single-threaded process. It helps avoid threading problems with unsafe collections
+> Concurrent module loading is a single-threaded process. It helps avoid threading problems with unsafe collections
 > in the application's internal shared state.
 >
 {style="note"}
