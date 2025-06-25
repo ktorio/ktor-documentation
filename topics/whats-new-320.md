@@ -206,7 +206,7 @@ For more information, see [](htmx-integration.md).
 ## Unix domain sockets
 
 With 3.2.0, you can set up Ktor clients to connect to Unix domain sockets and Ktor servers to listen to such sockets.
-Right now, Unix domain sockets are only supported in the CIO engine.
+Currently, Unix domain sockets are only supported in the CIO engine.
 
 Example of a server configuration:
 
