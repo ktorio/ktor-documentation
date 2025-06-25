@@ -115,7 +115,7 @@ private suspend fun getSession(
     val userSession: UserSession? = call.sessions.get()
     //if there is no session, redirect to login
     if (userSession == null) {
-        val redirectUrl = URLBuilder("http://0.0.0.0:8080/login").run {
+        val redirectUrl = URLBuilder("http://localhost:8080/login").run {
             parameters.append("redirectUrl", call.request.uri)
             build()
         }
@@ -133,7 +133,5 @@ data class UserInfo(
     val id: String,
     val name: String,
     @SerialName("given_name") val givenName: String,
-    @SerialName("family_name") val familyName: String,
     val picture: String,
-    val locale: String
 )
