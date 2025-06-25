@@ -203,6 +203,37 @@ Ktor’s HTMX support is available across three experimental modules:
 All APIs are marked with `@ExperimentalKtorApi` and require opt-in via `@OptIn(ExperimentalKtorApi::class)`.
 For more information, see [](htmx-integration.md).
 
+## Unix domain sockets
+
+With 3.2.0, you can set up Ktor clients to connect to Unix domain sockets and Ktor servers to listen to such sockets.
+Right now, Unix domain sockets are only supported in the CIO engine.
+
+Example of a server configuration:
+
+```kotlin
+val server = embeddedServer(CIO, configure = {
+    unixConnector("/tmp/test-unix-socket-ktor.sock")
+}) {
+    routing {
+        get("/") {
+            call.respondText("Hello, Unix socket world!")
+        }
+    }
+}
+```
+
+Connecting to that socket using a Ktor client:
+
+```kotlin
+val client = HttpClient(CIO)
+
+val response: HttpResponse = client.get("/") {
+    unixSocket("/tmp/test-unix-socket-ktor.sock")
+}
+```
+
+You can also use a Unix domain socket in a [default request](client-default-request.md#unix-domain-sockets).
+
 ## Infrastructure
 
 ### Published version catalog
