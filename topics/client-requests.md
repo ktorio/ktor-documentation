@@ -122,26 +122,12 @@ To disable encoding, use `encodedFragment`.
 
 ## Specify a Unix domain socket
 
-> Unix domain sockets are supported only in the CIO engine, for Ktor server as well as Ktor client.
+> Unix domain sockets are supported only in the CIO engine.
+> To use a Unix socket with a Ktor server, [configure the server](server-configuration-code.topic#cio-code) accordingly.
 > 
 {style="note"}
 
-To use a Unix socket, [configure the server](server-configuration-code.topic#cio-code)
-by adding a `unixConnector` with the path to the socket, for example:
-
-```kotlin
-val server = embeddedServer(CIO, configure = {
-    unixConnector("/tmp/test-unix-socket-ktor.sock")
-}) {
-    routing {
-        get("/") {
-            call.respondText("Hello, Unix socket world!")
-        }
-    }
-}
-```
-
-Then you can make requests to a server listening to that socket by calling the `unixSocket` function
+You can make requests to a server listening to a Unix domain socket by calling the `unixSocket` function
 for a CIO client:
 
 ```kotlin
@@ -153,7 +139,6 @@ val response: HttpResponse = client.get("/") {
 ```
 
 You can also set up a Unix domain socket as a part of a [default request](client-default-request.md#unix-domain-sockets). 
-
 
 ## Set request parameters {id="parameters"}
 In this section, we'll see how to specify various request parameters, including an HTTP method, headers, and cookies. If you need to configure some default parameters for all requests of a specific client, use the [DefaultRequest](client-default-request.md) plugin.
