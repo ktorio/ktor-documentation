@@ -190,12 +190,11 @@
                     file with the following implementation:
                     <code-block lang="kotlin"
                                 src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/model/PizzaShop.kt"
-                                include-lines="1-9,11,15-21"
+                                include-lines="1-8,10,14-20"
                     />
                     <p>
-                        The interface needs to extend the <code>RemoteService</code> type from the
-                        <code>kotlinx.rpc</code> library. The
-                        reason for this will be explained later.
+                        The interface needs to have the <code>@Rpc</code> annotation from the
+                        <code>kotlinx.rpc</code> library.
                     </p>
                     <p>
                         Because you are using <a href="https://github.com/Kotlin/kotlinx.serialization"><code>kotlinx.serialization</code></a>
@@ -220,7 +219,7 @@
                     and add the following implementation:
                     <code-block lang="kotlin"
                                 src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
-                                include-lines="1-13,15-38,40-41,61-63"
+                                include-lines="1-13,14-37,39-40,59-60"
                     />
                 </step>
             </procedure>
@@ -240,7 +239,7 @@
             </p>
             <code-block lang="kotlin"
                         src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
-                        include-lines="16,63"
+                        include-lines="15,60"
             />
             <tip>
                 Note that <code>runBlocking</code> is designed for spikes and tests, rather than production code.
@@ -252,7 +251,7 @@
             </p>
             <code-block lang="kotlin"
                         src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
-                        include-lines="17-21"
+                        include-lines="16-20"
             />
             <p>
                 Having created this Ktor client, you then create a <code>KtorRpcClient</code> object for invoking remote
@@ -261,7 +260,7 @@
             </p>
             <code-block lang="kotlin"
                         src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
-                        include-lines="23-35"
+                        include-lines="22-34"
             />
             <p>
                 At this point, the standard setup has been completed, and you are ready to use the functionality
@@ -277,7 +276,7 @@
             </p>
             <code-block lang="kotlin"
                         src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
-                        include-lines="40-41"
+                        include-lines="39-40"
             />
             <p>
                 Note that a tremendous amount of work is being done for you at this point. The details of the call and
@@ -289,7 +288,7 @@
             </p>
             <code-block lang="kotlin"
                         src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
-                        include-lines="62"
+                        include-lines="59"
             />
         </chapter>
         <chapter title="Implement the server" id="server-implementation">
@@ -311,13 +310,11 @@
                     and add the following interface:
                     <code-block lang="kotlin"
                                 src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Server.kt"
-                                include-lines="1-4,15-18,20-22,47"
+                                include-lines="1-4,15-16,18-20,45"
                     />
                     <p>
                         Obviously, this is not a real-world implementation, but it is enough to get our demo up and
-                        running. Note that we are required to accept a <code>CoroutineContext</code> in the constructor
-                        because our interface extends <code>RPC</code>, which extends <code>CoroutineScope</code>, which
-                        declares a <code>coroutineContext</code> property.
+                        running.
                     </p>
                     <p>
                         The second part of the implementation builds on Ktor.
@@ -329,7 +326,7 @@
                     </p>
                     <code-block lang="kotlin"
                                 src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Server.kt"
-                                include-lines="49-70"
+                                include-lines="47-68"
                     />
                     <p>Here's the breakdown:</p>
                     <p>
@@ -338,7 +335,7 @@
                     </p>
                     <code-block lang="kotlin"
                                 src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Server.kt"
-                                include-lines="50-53"
+                                include-lines="48-51"
                     />
                     <p>
                         Then, you declare a setup function that extends the Ktor Application type. This installs the
@@ -346,7 +343,7 @@
                     </p>
                     <code-block lang="kotlin"
                                 src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Server.kt"
-                                include-lines="56-59,69-70"
+                                include-lines="54-57,67-68"
                     />
                     <p>
                         Inside the routing section, you use <code>kotlinx.rpc</code> extensions to the Ktor Routing DSL
@@ -355,7 +352,7 @@
                     </p>
                     <code-block lang="kotlin"
                                 src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Server.kt"
-                                include-lines="60-68"
+                                include-lines="58-66"
                     />
                     <p>
                         Note that you use <code>registerService</code> to provide the implementation of your interface
@@ -368,8 +365,10 @@
         <chapter title="Add dependencies" id="add-dependencies">
             <p>
                 You now have all the code necessary to run the application, but at the moment, it would not even
-                compile, never mind execute. At present, there is no wizard to create a <code>kotlinx.rpc</code> project
-                for us, so you need to configure the build file manually. Fortunately, this is not too complex.
+                compile, never mind execute.
+                You can use Ktor Project Generator with the <a href="https://start.ktor.io/p/kotlinx-rpc">kotlinx.rpc</a> plugin,
+                or you can configure the build file manually.
+                And this is not too complex either.
             </p>
             <procedure id="configure-build-files">
                 <step>
@@ -393,10 +392,7 @@
                             The Ktor plugin is used to build fat JARs that bundle the app with all its dependencies.
                         </li>
                         <li>
-                            KSP is the Kotlin Symbol Processing API used to develop the <code>kotlinx.rpc</code> plugin.
-                        </li>
-                        <li>
-                            The RPC plugin is needed to create the stubs for the client-side.
+                            The RPC plugin is needed to generate the stubs for the client-side.
                         </li>
                     </list>
                 </step>
@@ -469,7 +465,7 @@
                 <code>viewOrders</code> method that returns all the pending orders for a specified client:
                 <code-block lang="kotlin"
                             src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/model/PizzaShop.kt"
-                            include-lines="1-9,13-15"
+                            include-lines="1-8,12-14"
                 />
                 <p>
                     You can take advantage of the coroutines library by returning a <code>Flow</code> rather than a
@@ -483,13 +479,13 @@
                 file and implement this functionality by storing the current orders in a map of lists:
                 <code-block lang="kotlin"
                             src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Server.kt"
-                            include-lines="16-18,24-47"
+                            include-lines="16,22-45"
                 />
                 <p>
-                    Note that a new instance of <code>PizzaShopImpl</code> is created for each client service instance.
+                    Note that a new instance of <code>PizzaShopImpl</code> is created for each client instance.
                     This avoids conflicts between clients by isolating their state. However, it does not address thread
                     safety within a single server's instance, particularly if the same instance is accessed concurrently
-                    by multiple coroutines.
+                    by multiple services.
                 </p>
             </step>
             <step>
@@ -498,15 +494,15 @@
                 file, submit multiple orders using two different client IDs:
                 <code-block lang="kotlin"
                             src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
-                            include-lines="37,43-50"
+                            include-lines="36,42-49"
                 />
                 <p>
                     Then you iterate over the results, using the <code>Coroutines</code> library and
-                    <code>streamScoped</code> method:
+                    <code>collect</code> method:
                 </p>
                 <code-block lang="kotlin"
                             src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
-                            include-lines="52-60"
+                            include-lines="51-57"
                 />
             </step>
             <step>

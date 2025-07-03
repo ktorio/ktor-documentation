@@ -11,7 +11,6 @@ import kotlinx.rpc.krpc.ktor.client.KtorRpcClient
 import kotlinx.rpc.krpc.ktor.client.installKrpc
 import kotlinx.rpc.krpc.ktor.client.rpc
 import kotlinx.rpc.krpc.ktor.client.rpcConfig
-import kotlinx.rpc.krpc.streamScoped
 
 fun main() = runBlocking {
     val ktorClient = HttpClient {
@@ -49,14 +48,12 @@ fun main() = runBlocking {
     pizzaShop.orderPizza("CD34", Pizza("Sicilian"))
     pizzaShop.orderPizza("CD34", Pizza("California"))
 
-    streamScoped {
-        pizzaShop.viewOrders("AB12").collect {
-            println("AB12 ordered ${it.name}")
-        }
+    pizzaShop.viewOrders("AB12").collect {
+        println("AB12 ordered ${it.name}")
+    }
 
-        pizzaShop.viewOrders("CD34").collect {
-            println("CD34 ordered ${it.name}")
-        }
+    pizzaShop.viewOrders("CD34").collect {
+        println("CD34 ordered ${it.name}")
     }
 
     ktorClient.close()
