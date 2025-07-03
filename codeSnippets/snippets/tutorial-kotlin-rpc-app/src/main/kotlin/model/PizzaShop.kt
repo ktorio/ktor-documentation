@@ -2,16 +2,15 @@ package com.example.model
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.serialization.Serializable
-import kotlinx.rpc.RemoteService
 import kotlinx.rpc.annotations.Rpc
 
 @Rpc
-interface PizzaShop : RemoteService {
+interface PizzaShop {
     /*
     suspend fun orderPizza(pizza: Pizza): Receipt
     */
     suspend fun orderPizza(clientID: String, pizza: Pizza): Receipt
-    suspend fun viewOrders(clientID: String): Flow<Pizza>
+    fun viewOrders(clientID: String): Flow<Pizza>
 }
 
 @Serializable

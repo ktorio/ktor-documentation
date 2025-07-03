@@ -13,9 +13,7 @@ import kotlinx.rpc.krpc.serialization.json.json
 import kotlinx.rpc.krpc.ktor.server.rpc
 import kotlin.coroutines.CoroutineContext
 
-class PizzaShopImpl(
-    override val coroutineContext: CoroutineContext
-) : PizzaShop {
+class PizzaShopImpl : PizzaShop {
     /*
     override suspend fun orderPizza(pizza: Pizza): Receipt {
         return Receipt(7.89)
@@ -32,7 +30,7 @@ class PizzaShopImpl(
         return Receipt(3.45)
     }
 
-    override suspend fun viewOrders(clientID: String): Flow<Pizza> {
+    override fun viewOrders(clientID: String): Flow<Pizza> {
         val orders = openOrders[clientID]
         if (orders != null) {
             return flow {
@@ -64,7 +62,7 @@ fun Application.module() {
                 }
             }
 
-            registerService<PizzaShop> { ctx -> PizzaShopImpl(ctx) }
+            registerService<PizzaShop> { PizzaShopImpl() }
         }
     }
 }

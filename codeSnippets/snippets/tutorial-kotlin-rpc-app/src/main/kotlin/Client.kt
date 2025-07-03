@@ -49,14 +49,12 @@ fun main() = runBlocking {
     pizzaShop.orderPizza("CD34", Pizza("Sicilian"))
     pizzaShop.orderPizza("CD34", Pizza("California"))
 
-    streamScoped {
-        pizzaShop.viewOrders("AB12").collect {
-            println("AB12 ordered ${it.name}")
-        }
+    pizzaShop.viewOrders("AB12").collect {
+        println("AB12 ordered ${it.name}")
+    }
 
-        pizzaShop.viewOrders("CD34").collect {
-            println("CD34 ordered ${it.name}")
-        }
+    pizzaShop.viewOrders("CD34").collect {
+        println("CD34 ordered ${it.name}")
     }
 
     ktorClient.close()
