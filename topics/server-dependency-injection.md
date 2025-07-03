@@ -32,8 +32,8 @@ dependencies {
 
     // Function references
     provide<GreetingService>(::GreetingServiceImpl)
-    provide<BankService>(::BankServiceImpl)
-    provide(::BankTeller)
+    provide(BankServiceImpl::class)
+    provide(::createBankTeller)
 
     // Registering a lambda as a dependency
     provide<() -> GreetingService> { { GreetingServiceImpl() } }
@@ -66,7 +66,9 @@ class UserRepository(val db: Database) {
 }
 ```
 
-Arguments are resolved automatically through annotations like `@Property` and `@Named`.
+Ktor resolves constructor and function parameters automatically using the DI container. You can use annotations like
+`@Property` or `@Named` to override or explicitly bind parameters in special cases, such as when the type alone is not
+enough to distinguish a value. If omitted, Ktor will attempt to resolve parameters by type using the DI container.
 
 ## Dependency resolution and injection
 
@@ -88,7 +90,7 @@ To support asynchronous loading, you can use suspending functions:
 
 ```kotlin
 suspend fun Application.installEvents() {
-  val kubernetesConnection = dependencies.resolve() // suspends until provided
+  val kubernetesConnection: EventsConnection = dependencies.resolve() // suspends until provided
 }
 
 suspend fun Application.loadEventsConnection() {
@@ -102,22 +104,32 @@ The DI plugin will automatically suspend `resolve()` calls until all dependencie
 
 ### Injecting into application modules
 
-You can inject dependencies directly into application modules by specifying module parameters. Ktor will resolve them
-from the DI container:
+You can inject dependencies directly into application modules by specifying parameters in the module function. Ktor 
+will resolve these dependencies from the DI container based on type matching.
+
+First, register your dependency providers in the `dependencies` section of the config:
 
 ```yaml
 ktor:
   application:
     dependencies:
-      - com.example.PrintStreamProviderKt
+      - com.example.PrintStreamProviderKt.stdout
     modules:
       - com.example.LoggingKt.logging
 ```
 
+Here’s what the dependency provider and module function look like:
+
 ```kotlin
+// com.example.PrintStreamProvider.kt
+fun stdout(): () -> PrintStream = { System.out }
+```
+
+```kotlin
+// com.example.Logging.kt
 fun Application.logging(printStreamProvider: () -> PrintStream) {
     dependencies {
-        provide<Logger> { SimpleLogger(printSreamProvider()) }
+        provide<Logger> { SimpleLogger(printStreamProvider()) }
     }
 }
 ```
@@ -142,7 +154,7 @@ connection:
 ```
 
 ```kotlin
-val connection: Connection by application.property("connection")
+val connection: Connection = application.property("connection")
 ```
 
 This simplifies working with structured configuration and supports automatic parsing of primitive types.
@@ -163,7 +175,8 @@ val config = dependencies.resolve<Config?>()
 
 ### Covariant generics
 
-The DI system supports type covariance, allowing you to inject supertypes of registered generics:
+Ktor's DI system supports type covariance, which allows injecting a value as one of its supertypes when the type
+parameter is covariant. This is especially useful for collections and interfaces that work with subtypes.
 
 ```kotlin
 dependencies {
@@ -174,6 +187,34 @@ dependencies {
 val stringList: List<CharSequence> by dependencies
 // This will also work
 val stringCollection: Collection<CharSequence> by dependencies
+```
+
+Covariance also works with non-generic supertypes:
+
+```kotlin
+dependencies {
+    provide<BufferedOutputStream> { BufferedOutputStream(System.out) }
+}
+
+// This works because BufferedOutputStream is a subtype of OutputStream
+val outputStream: OutputStream by dependencies
+```
+
+#### Limitations
+
+While the DI system supports covariance for generic types, it currently does not support resolving parameterized types
+across type argument subtypes. That means you cannot retrieve a dependency using a type that is more specific or more
+general than what was registered.
+
+For example, the following code will not resolve:
+
+```kotlin
+dependencies {
+    provide<Sink<CharSequence>> { CsqSink() }
+}
+
+// Will not resolve
+val charSequenceSink: Sink<String> by dependencies
 ```
 
 ## Resource lifecycle management
