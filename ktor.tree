@@ -53,6 +53,7 @@
                              accepts-web-file-names="configuration.html,configurations.html,environments.html,configuration-file.html"/>
                 <toc-element topic="server-modules.md"
                              accepts-web-file-names="modules.html"/>
+                <toc-element topic="server-dependency-injection.md"/>
                 <toc-element topic="server-plugins.md"
                              toc-title="Plugins"
                              accepts-web-file-names="zfeatures.html,features.html,plugins.html"/>

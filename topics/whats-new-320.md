@@ -134,6 +134,148 @@ private fun ApplicationTestBuilder.auth(token: AuthToken) {
 }
 ```
 
+## Ktor Server
+
+### Dependency injection
+
+Ktor 3.2.0 introduces Dependency Injection (DI) support, making it easier to manage and wire dependencies directly
+from your configuration files and application code. The new DI plugin simplifies dependency resolution, supports async
+loading, provides automatic cleanup, and integrates smoothly with testing.
+
+<var name="artifact_name" value="ktor-server-di" />
+
+To use DI, include the `%artifact_name%` artifact in your build script:
+
+<include from="lib.topic" element-id="add_ktor_artifact"/>
+
+#### Basic dependency registration
+
+You can register dependencies using lambdas, function references, or constructor references:
+
+```kotlin
+dependencies {
+    // Lambda-based
+    provide<GreetingService> { GreetingServiceImpl() }
+
+    // Function references
+    provide<GreetingService>(::GreetingServiceImpl)
+    provide<BankService>(::BankServiceImpl)
+    provide(::BankTeller)
+
+    // Registering a lambda as a dependency
+    provide<() -> GreetingService> { { GreetingServiceImpl() } }
+}
+```
+
+#### Configuration-based dependency registration
+
+You can configure dependencies declaratively using classpath references in your configuration file. This supports
+both function and class references:
+
+```yaml
+# application.yaml
+ktor:
+  application:
+    dependencies:
+      - com.example.RepositoriesKt.provideDatabase
+      - com.example.UserRepository
+database:
+  connectionUrl: postgres://localhost:3037/admin
+```
+
+```kotlin
+// Repositories.kt
+fun provideDatabase(@Property("database.connectionUrl") connectionUrl: String): Database =
+  PostgresDatabase(connectionUrl)
+
+class UserRepository(val db: Database) {
+  // implementation 
+}
+```
+
+Arguments are resolved automatically through annotations like `@Property` and `@Named`.
+
+#### Dependency resolution and injection
+
+##### Resolving dependencies
+
+To resolve dependencies, you can use property delegation or direct resolution:
+
+```kotlin
+// Using property delegation
+val service: GreetingService by dependencies
+
+// Direct resolution
+val service = dependencies.resolve<GreetingService>()
+```
+
+##### Asynchronous dependency resolution
+
+To support asynchronous loading, you can use suspending functions:
+
+```kotlin
+suspend fun Application.installEvents() {
+  val kubernetesConnection = dependencies.resolve() // suspends until provided
+}
+
+suspend fun Application.loadEventsConnection() {
+  dependencies.provide {
+    connect(property<KubernetesConfig>("app.events"))
+  }
+}
+```
+
+The DI plugin will automatically suspend `resolve()` calls until all dependencies are ready.
+
+##### Injecting into application modules
+
+You can inject dependencies directly into application modules by specifying module parameters. Ktor will resolve them
+from the DI container:
+
+```yaml
+ktor:
+  application:
+    dependencies:
+      - com.example.PrintStreamProviderKt
+    modules:
+      - com.example.LoggingKt.logging
+```
+
+```kotlin
+fun Application.logging(printStreamProvider: () -> PrintStream) {
+    dependencies {
+        provide<Logger> { SimpleLogger(printSreamProvider()) }
+    }
+}
+```
+
+Use `@Named` for injecting specifically keyed dependencies:
+
+```kotlin
+fun Application.userRepository(@Named("mongo") database: Database) {
+    // Uses the dependency named "mongo"
+}
+```
+
+##### Property and configuration injection
+
+Use `@Property` to inject configuration values directly:
+
+```yaml
+connection:
+  domain: api.example.com
+  path: /v1
+  protocol: https
+```
+
+```kotlin
+val connection: Connection by application.property("connection")
+```
+
+This simplifies working with structured configuration and supports automatic parsing of primitive types.
+
+For more information and advanced usage, see [](server-dependency-injection.md).
+
 ## Ktor Client
 
 ### `SaveBodyPlugin` and `HttpRequestBuilder.skipSavingBody()` are deprecated
