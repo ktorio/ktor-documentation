@@ -22,7 +22,8 @@ The [DefaultRequest](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.cl
 
 ## Install DefaultRequest {id="install_plugin"}
 
-To install `DefaultRequest`, pass it to the `install` function inside a [client configuration block](client-create-and-configure.md#configure-client) ...
+To install `DefaultRequest`, pass it to the `install` function inside a [client configuration block](client-create-and-configure.md#configure-client):
+
 ```kotlin
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
@@ -33,7 +34,7 @@ val client = HttpClient(CIO) {
 }
 ```
 
-... or call the `defaultRequest` function and [configure](#configure) required request parameters:
+Or call the `defaultRequest` function and [configure](#configure) required request parameters:
 
 ```kotlin
 import io.ktor.client.*
@@ -97,6 +98,36 @@ To avoid duplicating headers, you can use the `appendIfNameAbsent`, `appendIfNam
 defaultRequest {
     headers.appendIfNameAbsent("X-Custom-Header", "Hello")
 }
+```
+
+### Unix domain sockets
+
+> Unix domain sockets are supported only in the CIO engine.
+>
+{style="note"}
+
+You can [build individual requests with Unix domain sockets](client-requests.md#specify-a-unix-domain-socket),
+but you can also configure a default request with a socket parameter.
+
+To do that, pass a `unixSocket` call with the path to the socket to the `defaultRequest` function,
+for example:
+
+```kotlin
+val client = HttpClient(CIO)
+
+// Sending a single request to a Unix domain socket
+val response: HttpResponse = client.get("/") {
+    unixSocket("/tmp/test-unix-socket-ktor.sock")
+}
+
+// Setting up the socket for all requests from that client
+val clientDefault = HttpClient(CIO) {
+    defaultRequest {
+        unixSocket("/tmp/test-unix-socket-ktor.sock")
+    }    
+}
+
+val response: HttpResponse = clientDefault.get("/")
 ```
 
 ## Example {id="example"}

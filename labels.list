@@ -9,6 +9,9 @@
     <primary-label id="server-plugin" short-name="S" name="Server Plugin" color="purple">
         Server Plugin
     </primary-label>
+    <primary-label id="experimental" name="Experimental" short-name="" color="tangerine">
+        This feature is experimental. It may be dropped or changed at any time. Opt-in is required (see details below).
+    </primary-label>
 
     <secondary-label id="wip" name="WIP" color="purple">Work in progress</secondary-label>
     <secondary-label id="beta" name="β" color="tangerine">Beta</secondary-label>

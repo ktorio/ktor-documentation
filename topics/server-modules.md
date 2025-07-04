@@ -79,3 +79,43 @@ A fully qualified module name includes a fully qualified name of the class and a
 </tabs>
 
 You can find the full example here: [engine-main-modules](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main-modules).
+
+## Concurrent module loading
+
+You can use suspendable functions when creating application modules. They allow events to run asynchronously when
+starting the application. To do that, add the `suspend` keyword:
+
+```kotlin
+suspend fun Application.installEvents() {
+    val kubernetesConnection = connect(property<KubernetesConfig>("app.events"))
+}
+```
+
+You can also launch all application modules independently, so when one is suspended, the others are not blocked.
+This allows for non-sequential loading for dependency injection and, in some cases, faster loading.
+
+To opt into concurrent module loading, add the following property to your `gradle.properties` file:
+
+```none
+ktor.application.startup = concurrent
+```
+
+For dependency injection, you can load the following modules in order of appearance without issues:
+
+```kotlin
+suspend fun Application.installEvents() {
+    // Suspends until provided
+    val kubernetesConnection = dependencies.resolve<KubernetesConnection>()
+}
+
+suspend fun Application.loadEventsConnection() {
+    dependencies.provide<KubernetesConnection> {
+        connect(property<KubernetesConfig>("app.events"))
+    }
+}
+```
+
+> Concurrent module loading is a single-threaded process. It helps avoid threading problems with unsafe collections
+> in the application's internal shared state.
+>
+{style="note"}

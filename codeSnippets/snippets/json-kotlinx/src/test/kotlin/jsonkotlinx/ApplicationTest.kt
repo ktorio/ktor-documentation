@@ -33,7 +33,7 @@ class CustomerTests {
         application {
             main()
         }
-        val client = createClient {
+        client = createClient {
             install(ContentNegotiation) {
                 json()
             }

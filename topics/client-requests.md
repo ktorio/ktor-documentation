@@ -16,6 +16,7 @@ Learn how to make requests and specify various request parameters: a request URL
 After [setting up the client](client-create-and-configure.md), you can make HTTP requests. The main way of making HTTP requests is the [request](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/request.html) function that can take a URL as a parameter. Inside this function, you can configure various request parameters: 
 * Specify an HTTP method, such as `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, or `PATCH`.
 * Specify a URL as a string or configure URL components (a domain, a path, query parameters, etc.) separately.
+* Specify a Unix domain socket.
 * Add headers and cookies.
 * Set the body of a request, for example, a plain text, a data object, or form parameters.
 
@@ -119,6 +120,25 @@ You can configure a URL fragment using the `fragment` property.
 Note that `fragment` [encodes][percent_encoding] a URL fragment.
 To disable encoding, use `encodedFragment`.
 
+## Specify a Unix domain socket
+
+> Unix domain sockets are supported only in the CIO engine.
+> To use a Unix socket with a Ktor server, [configure the server](server-configuration-code.topic#cio-code) accordingly.
+> 
+{style="note"}
+
+You can make requests to a server listening to a Unix domain socket by calling the `unixSocket` function
+for a CIO client:
+
+```kotlin
+val client = HttpClient(CIO)
+
+val response: HttpResponse = client.get("/") {
+    unixSocket("/tmp/test-unix-socket-ktor.sock")
+}
+```
+
+You can also set up a Unix domain socket as a part of a [default request](client-default-request.md#unix-domain-sockets). 
 
 ## Set request parameters {id="parameters"}
 In this section, we'll see how to specify various request parameters, including an HTTP method, headers, and cookies. If you need to configure some default parameters for all requests of a specific client, use the [DefaultRequest](client-default-request.md) plugin.
@@ -134,8 +154,7 @@ To add headers to the request, you can use the following ways:
 - The [header](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/header.html) function allows you to append a single header.
 - The `basicAuth` and `bearerAuth` functions add the `Authorization` header with a corresponding HTTP scheme.
    > For advanced authentication configuration, refer to [](client-auth.md).
-
-
+  
 
 ### Cookies {id="cookies"}
 To send cookies, use the [cookie](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/cookie.html) function:
@@ -145,7 +164,6 @@ To send cookies, use the [cookie](https://api.ktor.io/ktor-client/ktor-client-co
 {src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="55-64"}
 
 Ktor also provides the [HttpCookies](client-cookies.md) plugin that allows you to keep cookies between calls. If this plugin is installed, cookies added using the `cookie` function are ignored.
-
 
 
 ## Set request body {id="body"}
