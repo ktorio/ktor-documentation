@@ -42,8 +42,6 @@ This allows for non-sequential loading for dependency injection, and, in some ca
 
 For more information, see [Concurrent module loading](server-modules.md#concurrent-module-loading).
 
-## Ktor Server
-
 ### Configuration file deserialization
 
 Ktor 3.2.0 introduces typed configuration loading with a new `.property()` extension on the `Application` class. You
@@ -134,8 +132,6 @@ private fun ApplicationTestBuilder.auth(token: AuthToken) {
 }
 ```
 
-## Ktor Server
-
 ### Dependency injection
 
 Ktor 3.2.0 introduces Dependency Injection (DI) support, making it easier to manage and wire dependencies directly
@@ -154,16 +150,16 @@ You can register dependencies using lambdas, function references, or constructor
 
 ```kotlin
 dependencies {
-    // Lambda-based
-    provide<GreetingService> { GreetingServiceImpl() }
+  // Lambda-based
+  provide<GreetingService> { GreetingServiceImpl() }
 
-    // Function references
-    provide<GreetingService>(::GreetingServiceImpl)
-    provide<BankService>(::BankServiceImpl)
-    provide(::BankTeller)
+  // Function references
+  provide<GreetingService>(::GreetingServiceImpl)
+  provide(BankServiceImpl::class)
+  provide(::createBankTeller)
 
-    // Registering a lambda as a dependency
-    provide<() -> GreetingService> { { GreetingServiceImpl() } }
+  // Registering a lambda as a dependency
+  provide<() -> GreetingService> { { GreetingServiceImpl() } }
 }
 ```
 
@@ -244,7 +240,7 @@ ktor:
 ```kotlin
 fun Application.logging(printStreamProvider: () -> PrintStream) {
     dependencies {
-        provide<Logger> { SimpleLogger(printSreamProvider()) }
+        provide<Logger> { SimpleLogger(printStreamProvider()) }
     }
 }
 ```
@@ -269,7 +265,7 @@ connection:
 ```
 
 ```kotlin
-val connection: Connection by application.property("connection")
+val connection: Connection = application.property("connection")
 ```
 
 This simplifies working with structured configuration and supports automatic parsing of primitive types.
