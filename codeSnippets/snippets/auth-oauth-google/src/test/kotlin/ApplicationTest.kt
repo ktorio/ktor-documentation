@@ -40,7 +40,7 @@ class ApplicationTest {
                 }
                 routing {
                     get("oauth2/v2/userinfo") {
-                        call.respond(UserInfo("1", "JetBrains", "", "", "", ""))
+                        call.respond(UserInfo("1", "JetBrains", "", ""))
                     }
                 }
             }

@@ -33,6 +33,14 @@ The following table lists details of the latest Ktor releases.
 
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
+<tr><td>3.2.1</td><td>July 4, 2025</td><td>
+<p>
+A patch release that includes improvements to time APIs, templating, and publishing, along with critical bug fixes for
+plugin behavior, Netty, OkHttp, and startup issues introduced in 3.2.0.
+</p>
+<var name="version" value="3.2.1"/>
+<include from="lib.topic" element-id="release_details_link"/>
+</td></tr>
 <tr><td>3.2.0</td><td>June 12, 2025</td><td>
 <p>
 A minor release that introduces typed configuration deserialization, new dependency injection and HTMX modules, Gradle
