@@ -94,6 +94,17 @@ suspend fun Application.installEvents() {
 You can also launch all application modules independently, so when one is suspended, the others are not blocked.
 This allows for non-sequential loading for dependency injection and, in some cases, faster loading.
 
+### Configuration options
+
+The following Gradle configuration properties are available:
+
+| Property                                | Type                        | Description                                              | Default      |
+|-----------------------------------------|-----------------------------|----------------------------------------------------------|--------------|
+| `ktor.application.startup`              | `sequential` / `concurrent` | Defines how application modules are loaded               | `sequential` |
+| `ktor.application.startupTimeoutMillis` | `Long`                      | Timeout for application module loading (in milliseconds) | `100000`     |
+
+### Enable concurrent module loading
+
 To opt into concurrent module loading, add the following property to your `gradle.properties` file:
 
 ```none
