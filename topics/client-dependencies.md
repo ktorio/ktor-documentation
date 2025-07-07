@@ -105,3 +105,46 @@ which dependencies you need from a topic for a required plugin.
 
 > For a multiplatform project, a plugin dependency should be added to the `commonMain` source set. Note that some
 plugins might have  [limitations](client-engines.md#limitations) for specific platforms.
+
+## Ensure Ktor version consistency
+
+<chapter title="Using the Ktor BOM dependency">
+
+The Ktor BOM allows you to ensure that all Ktor modules use the same consistent version without specifying
+the version for each dependency individually.
+
+To add the Ktor BOM dependency, declare it in your build script as follows:
+
+<tabs group="languages">
+    <tab title="Gradle (Kotlin)" group-key="kotlin">
+        <code-block lang="Kotlin">
+            implementation(platform("io.ktor:ktor-bom:$ktor_version"))
+        </code-block>
+    </tab>
+    <tab title="Gradle (Groovy)" group-key="groovy">
+        <code-block lang="Groovy">
+            implementation platform "io.ktor:ktor-bom:$ktor_version"
+        </code-block>
+    </tab>
+    <tab title="Maven" group-key="maven">
+        <code-block lang="XML">
+        <![CDATA[
+            <dependencyManagement>
+              <dependencies>
+                  <dependency>
+                      <groupId>io.ktor</groupId>
+                      <artifactId>ktor-bom</artifactId>
+                      <version>%ktor_version%</version>
+                      <type>pom</type>
+                      <scope>import</scope>
+                  </dependency>
+              </dependencies>
+          </dependencyManagement>
+        ]]>
+      </code-block>
+    </tab>
+</tabs>
+</chapter>
+
+<var name="target_module" value="client"/>
+<include from="server-dependencies.topic" element-id="using-version-catalog"/>
