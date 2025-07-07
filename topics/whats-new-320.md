@@ -6,10 +6,10 @@ _[Released: June 12, 2025](releases.md#release-details)_
 
 Here are the highlights for this feature release:
 
-* Version Catalog
-* Dependency Injection
-* First-class HTMX support
-* Suspendable module functions
+* [Version Catalog](#published-version-catalog)
+* [Dependency Injection](#dependency-injection)
+* [First-class HTMX support](#htmx-integration)
+* [Suspendable module functions](#suspendable-module-functions)
 
 ## Ktor Server
 
