@@ -4,7 +4,7 @@ val logback_version: String by project
 
 plugins {
     kotlin("jvm")
-    id("io.ktor.plugin") version "3.2.0"
+    id("io.ktor.plugin") version "3.2.1"
 }
 
 group = "com.example"
