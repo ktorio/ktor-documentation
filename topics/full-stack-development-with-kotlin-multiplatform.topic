@@ -580,7 +580,7 @@
                 and add the following dependencies:
                 <code-block lang="kotlin"
                             src="snippets/full-stack-task-manager/composeApp/build.gradle.kts"
-                            include-lines="13,34-39,42-45,55-58,62-63,66-75"
+                            include-lines="13,33-39,42-45,55-58,62-63,66-73,81-82"
                 />
                 <p>
                     Once this is done you can add a <code>TaskApi</code> type for your clients to act as a thin wrapper

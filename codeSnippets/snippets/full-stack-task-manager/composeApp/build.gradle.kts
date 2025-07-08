@@ -28,7 +28,7 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     jvm("desktop")
 
     //...
@@ -71,7 +71,34 @@ kotlin {
         wasmJsMain.dependencies {
             implementation(libs.ktor.client.wasm)
         }
+
+        commonMain {
+            // Excludes App_ files with intermediary implementations used in the tutorial
+            kotlin {
+                exclude("**/App_*")
+            }
+        }
     }
+}
+
+@OptIn(ExperimentalWasmDsl::class)
+wasmJs {
+    outputModuleName.set("composeApp")
+    browser {
+        val rootDirPath = project.rootDir.path
+        val projectDirPath = project.projectDir.path
+        commonWebpackConfig {
+            outputFileName = "composeApp.js"
+            devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
+                static = (static ?: mutableListOf()).apply {
+                    // Serve sources to debug inside browser
+                    add(rootDirPath)
+                    add(projectDirPath)
+                }
+            }
+        }
+    }
+    binaries.executable()
 }
 
 android {
