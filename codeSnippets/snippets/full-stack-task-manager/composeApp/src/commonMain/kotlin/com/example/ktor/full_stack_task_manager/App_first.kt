@@ -1,6 +1,7 @@
 package com.example.ktor.full_stack_task_manager
 
-import TaskApi
+import com.example.ktor.full_stack_task_manager.network.TaskApi
+import com.example.ktor.full_stack_task_manager.network.createHttpClient
 import com.example.ktor.full_stack_task_manager.model.Task
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,7 +12,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.example.ktor.full_stack_task_manager.network.createHttpClient
 import kotlinx.coroutines.launch
 
 @Composable

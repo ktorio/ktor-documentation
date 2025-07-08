@@ -59,29 +59,28 @@
     </p>
     <chapter title="Prerequisites" id="prerequisites">
         <p>
-            As in previous articles, you will use IntelliJ IDEA as the IDE. To learn how to install and configure your
-            environment, see
-            the
+            As in previous articles, you will use IntelliJ IDEA as the IDE. To install and configure your
+            environment, see the
             <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/quickstart.html">
-                Kotlin Multiplatform quickstart guide
-            </a>
-            .
+                Kotlin Multiplatform quickstart
+            </a> guide.
         </p>
         <p>
             If this is the first time you use Compose Multiplatform, we recommend that you complete the
             <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-getting-started.html">
-                Get started with Compose Multiplatform tutorial
+                Get started with Compose Multiplatform
             </a>
-            before starting this one. To reduce the complexity of
+            tutorial before starting this one. To reduce the complexity of
             the task, you can focus on a single client platform. For example, if you have never used iOS, it might be
             wise to focus on desktop or Android development.
         </p>
     </chapter>
     <chapter title="Create a new project" id="create-project">
         <p>
-            Instead of choosing the <a href="https://start.ktor.io/">Ktor Project Generator</a> to create the initial
-            project, you will use the IntelliJ IDEA project wizard. It will create a project to which you can add
-            clients and services. The clients can either use a native UI library, such as SwiftUI, or share the same UI
+            Instead of the Ktor project generator, use the Kotlin Multiplatform project wizard in IntelliJ IDEA.
+            It will create a basic multiplatform project which you can expand with
+            clients and services. The clients can either use a native UI library, such as SwiftUI, but in this tutorial
+            you will create a shared UI for all platforms
             by using <a href="https://www.jetbrains.com/lp/compose-multiplatform/">Compose Multiplatform</a>.
         </p>
         <procedure id="generate-project">
@@ -164,9 +163,9 @@
                       alt="IntelliJ IDEA run icon"/>)
                 next to the <code>main()</code> function to start the application.
                 <p>
-                    A new
+                    A new tab in the
                     <ui-path>Run</ui-path>
-                    tool window will open in the IDE with the message "Responding at http://0.0.0.0:8080".
+                    tool window will open with the log ending with the message "Responding at http://0.0.0.0:8080".
                 </p>
             </step>
             <step>
@@ -205,8 +204,7 @@
         <p>
             If you look at the routing instructions in the
             <path>Application.kt</path>
-            file, you will see an extra feature, which is not present in the ‘Hello World’ code created by the Ktor
-            Project Generator:
+            file, you will see a call of the <code>greet()</code> function:
         </p>
         <code-block lang="kotlin"><![CDATA[
             fun Application.module() {
@@ -218,15 +216,8 @@
             }
         ]]></code-block>
         <p>
-            This creates an instance of the <code>Greeting</code> type and invokes its <code>greet()</code> method. If
-            you look for this type in the
-            <path>server</path>
-            module you will not be able to find it. Instead, you will find it
-            within the
-            <path>shared</path>
-            module:
-            <!-- maybe instead of "you won't be able to find it" ask users to do "Go to definition"
-            and see where it leads -->
+            This creates an instance of the <code>Greeting</code> type and invokes its <code>greet()</code> method.
+            The <code>Greeting</code> class is defined in the <path>shared</path> module:
             <img src="full_stack_development_tutorial_shared_module.png"
                  alt="Greeting.kt and Platform.kt opened in IntelliJ IDEA" width="706"
                  border-effect="line" style="block"/>
@@ -239,11 +230,10 @@
         <p>
             The
             <path>commonMain</path>
-            source set holds types that will be used on all platforms. As you can see this is where the
-            <code>Greeting</code> type
-            lives. <!-- "lives" is an anthropomorphism that we try to avoid -->
-            This is where you will put the common code that you want to share between client and server, and also
-            between different client platforms.
+            source in the <path>shared</path> module set holds types that will be used on all platforms.
+            As you can see this is where the <code>Greeting</code> type is defined.
+            This is also where you will put the common code to be shared between the server and all of
+            the different client platforms.
         </p>
         <p>
             The
@@ -252,8 +242,8 @@
             types declared within
             <path>commonMain</path>
             may require functionality that varies by target platform. In the case of
-            the <code>Greeting</code> type, you want to get the name of the current platform. This is achieved
-            through <a
+            the <code>Greeting</code> type, you want to get the name of the current platform using platform-specific API.
+            This is achieved through <a
                 href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-connect-to-apis.html">expected
             and actual declarations</a>.
         </p>
@@ -262,7 +252,7 @@
             <path>commonMain</path>
             source set of the
             <path>shared</path>
-            module you declare a <code>getPlatform()</code> function with the <code>expect</code> keyword.
+            module you declare a <code>getPlatform()</code> function with the <code>expect</code> keyword:
         </p>
         <tabs>
             <tab title="commonMain/Platform.kt" id="commonMain">
@@ -290,18 +280,17 @@
                             src="snippets/full-stack-task-manager/shared/src/jvmMain/kotlin/com/example/ktor/full_stack_task_manager/Platform.jvm.kt"
                 />
             </tab>
+            <tab title="Platform.wasmJs.kt" id="wasmJsMain">
+                <code-block lang="kotlin"
+                            src="snippets/full-stack-task-manager/shared/src/wasmJsMain/kotlin/com/example/ktor/full_stack_task_manager/Platform.wasmJs.kt"
+                />
+            </tab>
         </tabs>
         <p>
             There is one additional module in the project, the
             <path>composeApp</path>
             module.
-            It contains the code for the Android, iOS, desktop, and web apps. You can run these as specified in
-            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/quickstart.html#run-the-sample-apps">the
-                "Run the sample apps" step</a> of the Koltin Multiplatform quickstart.
-            <!-- Do we need an external link here? In the very next section we're talking about running an app
-             I think it's enough to illustrate a statement like "use run configurations" -->
-        </p>
-        <p>
+            It contains the code for the Android, iOS, desktop, and web client apps.
             These apps are not linked to the Ktor service at the moment, but they do use the shared
             <code>Greeting</code> class.
         </p>
@@ -370,19 +359,19 @@
         ]]></code-block>
                 <p>
                     This is a composable function, which you will modify later in this article. For the moment all that
-                    is important is that it displays a UI and makes use of the <code>Greeting</code> type, which in turn
+                    is important is that it displays a UI and makes use of the shared <code>Greeting</code> type, which in turn
                     uses the platform-specific classes implementing the common <code>Platform</code> interface.
                 </p>
             </step>
         </procedure>
         <p>
-            Now that you understand the structure of the generated project, you can incrementally include the task
+            Now that you understand the structure of the generated project, you can incrementally add the task
             manager functionality.
         </p>
     </chapter>
     <chapter title="Add the model types" id="add-model-types">
         <p>
-            First, you will add the model types and make sure that they are accessible for both the client and the
+            First, add the model types and make sure that they are accessible for both the client and the
             server.
         </p>
         <procedure id="add-model-types-procedure">
@@ -509,21 +498,13 @@
             <step>
                 <p>
                     Navigate to
-                    <path>Application.kt</path>
+                    <path>server/src/main/kotlin/.../Application.kt</path>
                     and replace the existing code with the implementation below:
                 </p>
                 <code-block lang="kotlin"
                             src="snippets/full-stack-task-manager/server/src/main/kotlin/com/example/ktor/full_stack_task_manager/Application.kt"
                 />
                 <p>
-                    <!-- Probably because these are different packages short imports didn't work for me, IDE
-                    suggested this:
-
-                    import com.example.ktor.full_stack_task_manager.model.InMemoryTaskRepository
-                    import com.example.ktor.full_stack_task_manager.model.Priority
-                    import com.example.ktor.full_stack_task_manager.model.Task
-
-                    -->
                     This implementation is very similar to that in previous tutorials with the exception that now you
                     have placed all the routing code within the <code>Application.module()</code> function for
                     simplicity.
@@ -555,8 +536,9 @@
                 />
             </step>
             <step>
-                Re-sync the build file. You should find that you can now import the <code>ContentNegotiation</code> type
-                and <code>json()</code> function.
+                Once again, <ui-path>Build | Sync Project with Gradle Files</ui-path> in the main menu.
+                After the import finishes, you should find that the imports for the <code>ContentNegotiation</code> type
+                and <code>json()</code> function work correctly.
             </step>
             <step>
                 Rerun the server. You should find that the routes are reachable from the browser.
@@ -598,7 +580,7 @@
                 and add the following dependencies:
                 <code-block lang="kotlin"
                             src="snippets/full-stack-task-manager/composeApp/build.gradle.kts"
-                            include-lines="34-38,41-44,54-57,61-62,65-72"
+                            include-lines="13,34-39,42-45,55-58,62-63,66-75"
                 />
                 <p>
                     Once this is done you can add a <code>TaskApi</code> type for your clients to act as a thin wrapper
@@ -630,15 +612,15 @@
                     Note you should replace <code>1.2.3.4</code> with the IP address of your current machine. You will
                     not be able to make calls to <code>0.0.0.0</code> or <code>localhost</code> from code running on an
                     Android Virtual Device or
-                    the iPhone simulator.
-                    <!-- should we include instructions on learning the IP address?
+                    the iOS Simulator.
+                    <!-- should we include instructions on finding out the IP address?
                          `ipconfig getifaddr en0`or something -->
                 </p>
             </step>
             <step>
                 <p>
                     In the same
-                    <path>network</path>
+                    <path>composeApp/.../full_stack_task_manager/network</path>
                     package, create a new
                     <path>TaskApi.kt</path>
                     file with the following implementation:
@@ -650,7 +632,7 @@
             <step>
                 <p>
                     Navigate to
-                    <path>App.kt</path>
+                    <path>commonMain/.../App.kt</path>
                     and replace the App composable with the implementation below.
                     This will use the <code>TaskApi</code> type to retrieve the list of tasks from the server, and then
                     display the name of each one in a column:
@@ -661,14 +643,21 @@
             </step>
             <step>
                 <p>
-                    Test the application by running the iOS client using the <ui-path>iosApp</ui-path> run configuration
-                    (remember to keep the server is running as well).
+                    While the server is running, test the iOS application by running the <ui-path>iosApp</ui-path> run configuration.
+                </p>
+            </step>
+            <step>
+                <p>
                     Click the
                     <control>Fetch Tasks</control>
                     button to display the list of tasks:
                     <img style="block" src="full_stack_development_tutorial_run_iOS.png"
                          alt="App running on iOS" width="363" border-effect="rounded"/>
                 </p>
+                <note>
+                    In this demo, we are simplifying the process for clarity. In real-world applications, it is crucial
+                    to avoid sending unencrypted data over the network.
+                </note>
             </step>
             <step>
                 <p>
@@ -692,24 +681,18 @@
             </step>
             <step>
                 <p>
-                    Run the application using the <ui-path>composeApp</ui-path> run configuration.
+                    Run the Android application using the <ui-path>composeApp</ui-path> run configuration.
                     You should now find that your Android client will run as well:
                     <img style="block" src="full_stack_development_tutorial_run_android.png"
                          alt="App running on Android" width="350" border-effect="rounded"/>
                 </p>
-                <note>
-                    <!-- this notice should probably go before the iOS client starts sending unencrypted data?
-                     it's just not clear why this is a comment on the Android screenshot -->
-                    In this demo, we are simplifying the process for clarity. In real-world applications, it is crucial
-                    to avoid sending unencrypted data over the network.
-                </note>
             </step>
             <step>
                 <p>
                     For the desktop client, you should assign dimensions and a title to the containing
                     window.
                     Open the file
-                    <path>composeApp/src/desktopMain/kotlin/com/example/ktor/full_stack_task_manager/main.kt</path>
+                    <path>composeApp/src/desktopMain/.../main.kt</path>
                     and modify the code by changing the <code>title</code> and setting the <code>state</code> property:
                 </p>
                 <code-block lang="kotlin"
@@ -742,7 +725,7 @@
                     Open the
                     <path>App.kt</path>
                     file located in
-                    <path>composeApp/src/commonMain/kotlin/com/example/ktor/full_stack_task_manager</path>
+                    <path>composeApp/src/commonMain/.../full_stack_task_manager</path>
                     and replace the existing <code>App</code> with the <code>App</code> and <code>TaskCard</code>
                     composables below:
                 </p>
@@ -764,7 +747,7 @@
             </step>
             <step>
                 <p>
-                    Rerun the Android application, for example.
+                    Rerun the client application — for example, the Android app.
                     You can now scroll through tasks, view their details, and delete them:
                     <img style="block" src="full_stack_development_tutorial_improved_ui.gif"
                          alt="App running on Android with improved UI" width="350" border-effect="rounded"/>
@@ -774,24 +757,23 @@
     </chapter>
     <chapter title="Add update functionality" id="add-update-functionality">
         <p>
-            To complete the client, you need to incorporate the functionality to update tasks.
+            To complete the client, incorporate the functionality that would allow updating task details.
         </p>
         <procedure id="add-update-func-procedure">
             <step>
                 Navigate to the
                 <path>App.kt</path>
                 file in
-                <path>composeApp/src/commonMain/kotlin/com/example/ktor/full_stack_task_manager</path>
+                <path>composeApp/src/commonMain/.../full_stack_task_manager</path>
                 .
             </step>
             <step>
                 <p>
-                    Include the <code>UpdateTaskDialog</code> composable below and import all missing dependencies
-                    as the IDE suggests:
+                    Add the <code>UpdateTaskDialog</code> composable and necessary imports as shown below:
                 </p>
                 <code-block lang="kotlin"
                             src="snippets/full-stack-task-manager/composeApp/src/commonMain/kotlin/com/example/ktor/full_stack_task_manager/App.kt"
-                            include-lines="118-166"
+                            include-lines="29-32,117-166"
                 />
                 <p>
                     This is a composable that displays the details of a <code>Task</code> with a dialog box. The <code>description</code>
@@ -801,7 +783,7 @@
             </step>
             <step>
                 <p>
-                    Navigate back to the <code>App</code> composable and update the code as shown below:
+                    Update the <code>App</code> composable in the same file:
                 </p>
                 <code-block lang="kotlin"
                             src="snippets/full-stack-task-manager/composeApp/src/commonMain/kotlin/com/example/ktor/full_stack_task_manager/App.kt"
@@ -817,9 +799,6 @@
                     Finally, when you are creating the <code>TaskCard</code> composables, you use the
                     <code>onUpdate()</code> callback to set the <code>currentTask</code> state variable.
                 </p>
-            </step>
-            <step>
-                Import all the missing dependencies as suggested by the IDE.
             </step>
             <step>
                 Rerun the client application. You should now be able to update the details of each task by using the

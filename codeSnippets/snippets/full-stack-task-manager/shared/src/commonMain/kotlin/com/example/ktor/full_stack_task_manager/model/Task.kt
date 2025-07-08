@@ -1,3 +1,5 @@
+package com.example.ktor.full_stack_task_manager.model
+
 import kotlinx.serialization.Serializable
 
 enum class Priority {

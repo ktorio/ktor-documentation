@@ -1,3 +1,5 @@
+package com.example.ktor.full_stack_task_manager.model
+
 interface TaskRepository {
     fun allTasks(): List<Task>
     fun tasksByPriority(priority: Priority): List<Task>
