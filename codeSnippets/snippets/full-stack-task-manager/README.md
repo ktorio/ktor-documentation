@@ -1,19 +1,36 @@
-This is a Kotlin Multiplatform project targeting Android, iOS, Desktop, Server.
+# Task manager application with Kotlin Multiplatform
 
-* `/composeApp` is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - `commonMain` is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    `iosMain` would be the right folder for such calls.
+A task manager application built with Ktor and Kotlin Multiplatform
+by following the steps in the [Full-stack development with Kotlin Multiplatform
+](https://ktor.io/docs/full-stack-development-with-kotlin-multiplatform.html) tutorial.
 
-* `/iosApp` contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform, 
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+## Set the localhost IP address
 
-* `/server` is for the Ktor server application.
+Because it's not possible to make calls to `0.0.0.0` or `localhost` from code running on an Android Virtual Device or the
+iPhone simulator, you need to specify a host address for the HTTP client.
 
-* `/shared` is for the code that will be shared between all targets in the project.
-  The most important subfolder is `commonMain`. If preferred, you can add code to the platform-specific folders here too.
+1. Navigate to the `HttpClientManager.kt` file in `composeApp/src/commonMain/kotlin/com/example/ktor/full_stack_task_manager/network`.
+2. In the `defaultRequest` function replace the value of the `host` property with the IP address of your machine.
 
+## Run the server
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+Use the following command to start the server:
+
+```shell
+./gradlew :server:run
+```
+
+The server will then run at [http://0.0.0.0:8080/](). To test the endpoints, navigate to the following URLs:
+
+- [http://0.0.0.0:8080/tasks](http://0.0.0.0:8080/tasks) to see a complete list of tasks in JSON format.
+- [http://0.0.0.0:8080/tasks/byPriority/Medium](http://0.0.0.0:8080/tasks/byPriority/Medium) to see tasks filtered
+  by `Medium` priority.
+
+## Run the client
+
+In IntelliJ IDEA, choose from the following run configurations:
+
+- `iOSApp` to run the app on iOS
+- `composeApp` to run the app on Android
+- `composeApp [desktop]` to run the app on Desktop
+- `composeApp [wasmJs]` to run the app on Web
