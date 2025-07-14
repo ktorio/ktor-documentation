@@ -33,6 +33,15 @@ The following table lists details of the latest Ktor releases.
 
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
+<tr><td>3.2.2</td><td>July 14, 2025</td><td>
+<p>
+A patch release that improves SSE field serialization order and resolves several issues including CORS preflight
+handling, test application streaming, configuration deserialization bugs, and missing headers across platforms - 
+including regressions from 3.2.1 affecting JS/WASM and Darwin targets.
+</p>
+<var name="version" value="3.2.2"/>
+<include from="lib.topic" element-id="release_details_link"/>
+</td></tr>
 <tr><td>3.2.1</td><td>July 4, 2025</td><td>
 <p>
 A patch release that includes improvements to time APIs, templating, and publishing, along with critical bug fixes for
