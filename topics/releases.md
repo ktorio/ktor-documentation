@@ -33,6 +33,15 @@ The following table lists details of the latest Ktor releases.
 
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
+<tr><td>3.2.2</td><td>July 14, 2025</td><td>
+<p>
+A patch release that improves SSE field serialization order and resolves several issues including CORS preflight
+handling, test application streaming, configuration deserialization bugs, and missing headers across platforms - 
+including regressions from 3.2.1 affecting wasmJs and Darwin targets.
+</p>
+<var name="version" value="3.2.2"/>
+<include from="lib.topic" element-id="release_details_link"/>
+</td></tr>
 <tr><td>3.2.1</td><td>July 4, 2025</td><td>
 <p>
 A patch release that includes improvements to time APIs, templating, and publishing, along with critical bug fixes for
@@ -44,36 +53,15 @@ plugin behavior, Netty, OkHttp, and startup issues introduced in 3.2.0.
 <tr><td>3.2.0</td><td>June 12, 2025</td><td>
 <p>
 A minor release that introduces typed configuration deserialization, new dependency injection and HTMX modules, Gradle
-version catalog support, and suspend module support.
+version catalog support, and suspend module support. For more information, see <a href="whats-new-320.md" />.
 </p>
 <var name="version" value="3.2.0"/>
 <include from="lib.topic" element-id="release_details_link"/>
 </td></tr>
 <tr><td>3.1.3</td><td>May 5, 2025</td><td><p>
-A patch release including performance improvements like faster
-<a href="https://youtrack.jetbrains.com/issue/KTOR-8412">
-byte operations
-</a>
-and
-<a href="https://youtrack.jetbrains.com/issue/KTOR-8407">
-multipart handling
-</a>
-, and
-<a href="https://youtrack.jetbrains.com/issue/KTOR-8107">
-safer token refresh handling
-</a>
-. It also fixes 
-<a href="https://youtrack.jetbrains.com/issue/KTOR-8276">
-memory issues in metrics
-</a>
-,
-<a href="https://youtrack.jetbrains.com/issue/KTOR-8326">
-improves header behavior
-</a>
-, and resolves bugs across WebSockets, OkHttp, Apache5, and Netty, plus 
-<a href="https://youtrack.jetbrains.com/issue/KTOR-8030">
-updates JTE for Kotlin 2.1.0 support
-</a>.
+A patch release including performance improvements like faster byte operations and multipart handling, and safer token
+refresh handling. It also fixes memory issues in metrics, improves header behavior, and resolves bugs across WebSockets,
+OkHttp, Apache5, and Netty, plus updates JTE for Kotlin 2.1.0 support.
 </p>
 <var name="version" value="3.1.3"/>
 <include from="lib.topic" element-id="release_details_link"/>
@@ -130,7 +118,7 @@ A patch release including improvements in client and server logging, and various
 </td></tr>
 <tr><td>3.0.0</td><td>October 9, 2024</td><td><p>
 A major release containing improvements and bug fixes, including added support for Android Native targets.
-For more information on breaking changes, see <a href="https://ktor.io/docs/migrating-3.html">the migration guide</a>.
+For more information on breaking changes, see <a href="migrating-3.md">the migration guide</a>.
 </p>
 <var name="version" value="3.0.0"/>
 <include from="lib.topic" element-id="release_details_link"/>
@@ -145,14 +133,13 @@ multiplatform support for XML.
 <tr><td>3.0.0-rc-1</td><td>September 9, 2024</td><td><p>
 A major release candidate containing significant improvements and bug fixes. This update enhances backward compatibility
 and features extended <code>staticZip</code> support.
-For more information on breaking changes, see <a href="https://ktor.io/docs/eap/migrating-3.html">the migration guide</a>.
 </p>
 <var name="version" value="3.0.0-rc-1"/>
 <include from="lib.topic" element-id="release_details_link"/>
 </td></tr>
 <tr><td>3.0.0-beta-2</td><td>July 15, 2024</td><td><p>
-A major pre-release version with various improvements and bug fixes, including SSE support improvements and a Ktor client for Kotlin/Wasm.
-For more information on breaking changes, see <a href="https://ktor.io/docs/3.0.0-beta-2/migrating-3.html">the migration guide</a>.
+A major pre-release version with various improvements and bug fixes, including SSE support improvements and a Ktor
+client for Kotlin/Wasm.
 </p>
 <var name="version" value="3.0.0-beta-2"/>
 <include from="lib.topic" element-id="release_details_link"/>
@@ -203,7 +190,7 @@ A major pre-release version with various improvements and bug fixes, including c
 </td></tr>
 <tr><td>2.3.6</td><td>November 7, 2023</td><td>
 <p>
-A patch release, including a fix for a breaking change in <code>2.3.5</code> and various other bug fixes.
+A patch release, including a fix for a breaking change in 2.3.5 and various other bug fixes.
 </p>
 <var name="version" value="2.3.6"/>
 <include from="lib.topic" element-id="release_details_link"/>
@@ -281,7 +268,7 @@ A patch release for the <code>java.lang.NoClassDefFoundError: kotlinx/atomicfu/A
 <tr><td>2.2.0</td><td>December 7, 2022</td><td>
 <p>
 A multiple feature release, including Swagger UI hosting, new plugins API, multiplatform support for Sessions, and more.
-For more information, see the <a href="migration-to-22x.md">Migrating from 2.0.x to 2.2.x</a> guide.
+For more information, see the <a href="migration-to-22x.md"/> guide.
 </p>
 <var name="version" value="2.2.0"/>
 <include from="lib.topic" element-id="release_details_link"/>
@@ -297,7 +284,7 @@ A patch release with various bug fixes.
 <p>
 A patch release that includes bug fixes in Routing, Testing engine, and Ktor client.
 </p>
-<var name="version" value="2.1.3"/>
+<var name="version" value="2.1.2"/>
 <include from="lib.topic" element-id="release_details_link"/>
 </td></tr>
 <tr><td>2.1.1</td><td>September 6, 2022</td><td>
