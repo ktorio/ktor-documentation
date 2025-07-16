@@ -225,6 +225,17 @@ When you need to clear a session for any reason (for example, when a user logs o
 
 You can find the full example here: [session-cookie-client](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/session-cookie-client).
 
+## Deferred session retrieval
+
+By default, Ktor attempts to read the session from storage for every request that includes a session, regardless
+of whether the route actually needs it. This behavior could cause unnecessary overhead — especially in applications
+using custom session storage.
+
+You can defer session loading by enabling the `io.ktor.server.sessions.deferred` system property:
+
+```kotlin
+System.setProperty("io.ktor.server.sessions.deferred", "true")
+```
 
 ## Examples {id="examples"}
 
