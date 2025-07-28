@@ -1,4 +1,4 @@
-# A simple Ktor applciation using Kotlin RPC
+# A simple Ktor application using Kotlin RPC
 
 A sample project created in
 the [First steps with Kotlin RPC](https://ktor.io/docs/tutorial-first-steps-with-kotlin-rpc.html)
