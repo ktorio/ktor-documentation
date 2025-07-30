@@ -214,41 +214,42 @@ You can find the full example here: [client-submit-form](https://github.com/ktor
 
 If you need to send a file with a form, you can use the following approaches:
 
-- Use the [submitFormWithBinaryData](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/submit-form-with-binary-data.html) function. In this case, a boundary will be generated automatically.
-- Call the `post` function and pass the [MultiPartFormDataContent](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/-multi-part-form-data-content/index.html) instance to the `setBody` function. Note that the `MultiPartFormDataContent` constructor also allows you to pass a boundary value.
+- Use the
+[`.submitFormWithBinaryData()`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/submit-form-with-binary-data.html)
+function. In this case, a boundary will be generated automatically.
+- Call the `post` function and pass the
+[`MultiPartFormDataContent`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/-multi-part-form-data-content/index.html)
+instance to the `setBody` function. The `MultiPartFormDataContent` constructor also allows you to pass a boundary value.
 
-For both approaches, you need to build form data using the [formData](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/form-data.html) function.
+For both approaches, you need to build form data using the
+[`formData`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/form-data.html) function.
 
-<tabs>
 
-<tab title="submitFormWithBinaryData">
+#### Using `submitFormWithBinaryData`
 
 ```kotlin
 ```
 {src="snippets/client-upload/src/main/kotlin/com/example/Application.kt" include-lines="13-24"}
 
-</tab>
+For the full example, see [client-upload](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-upload).
 
-<tab title="MultiPartFormDataContent">
-
-```kotlin
-```
-{src="snippets/client-upload-progress/src/main/kotlin/com/example/Application.kt" include-lines="16-33"}
-
-</tab>
-
-</tabs>
-
-`MultiPartFormDataContent` also allows you to override a boundary and content type as follows:
+#### Using `MultiPartFormDataContent`
 
 ```kotlin
 ```
-{src="snippets/client-upload-progress/src/main/kotlin/com/example/Application.kt" include-lines="39-43"}
+{src="snippets/client-upload-progress/src/main/kotlin/com/example/Application.kt" include-lines="24-48"}
 
-You can find the full examples here:
-- [client-upload](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-upload)
-- [client-upload-progress](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-upload-progress)
+This approach is more memory-efficient than reading the entire file into a `ByteArray`, and it allows progress
+monitoring through the `onUpload` callback.
 
+You can also construct a `MultiPartFormDataContent` with a custom boundary and content type manually:
+
+```kotlin
+```
+{src="snippets/client-upload-progress/src/main/kotlin/com/example/Application.kt" include-lines="54-58"}
+
+For the full example, see
+[client-upload-progress](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-upload-progress).
 
 ### Binary data {id="binary"}
 
