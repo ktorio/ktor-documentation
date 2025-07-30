@@ -157,7 +157,7 @@ The following table summarizes the key changes:
 | Package                    | 2.x.x                          | 3.0.x                 |
 |----------------------------|--------------------------------|-----------------------|
 | `io.ktor:ktor-server-core` | `ApplicationProperties`        | `ServerConfig`        |
-| `io.ktor:ktor-server-core` | `ApplciationPropertiesBuilder` | `ServerConfigBuilder` |
+| `io.ktor:ktor-server-core` | `ApplicationPropertiesBuilder` | `ServerConfigBuilder` |
 
 Additionally, in the `embeddedServer()` function, the `applicationProperties` attribute has been renamed to `rootConfig`
 to reflect this new configuration approach.
