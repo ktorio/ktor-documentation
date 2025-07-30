@@ -33,6 +33,15 @@ The following table lists details of the latest Ktor releases.
 
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
+<tr><td>3.2.3</td><td>July 29, 2025</td><td>
+<p>
+A patch release that introduces improvements to YAML config handling, DI resolution, and Wasm/JS stability, along with
+fixes for multipart parsing, CIO <code>100 Continue</code> response formatting, an infinite read loop in
+<code>ByteReadChannel</code>, and server shutdown issues.
+</p>
+<var name="version" value="3.2.3"/>
+<include from="lib.topic" element-id="release_details_link"/>
+</td></tr>
 <tr><td>3.2.2</td><td>July 14, 2025</td><td>
 <p>
 A patch release that improves SSE field serialization order and resolves several issues including CORS preflight
