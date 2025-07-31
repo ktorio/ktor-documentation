@@ -278,7 +278,10 @@ If you need to send a file with a form, you can use the following approaches:
 For both approaches, you need to build form data using the
 [`formData {}`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/form-data.html) function.
 
-#### Using `submitFormWithBinaryData`
+#### Using `.submitFormWithBinaryData()`
+
+The `.submitFormWithBinaryData()` function automatically generates a boundary and is suitable for simple use cases where
+the file content is small enough to be safely read into memory using `.readBytes()`.
 
 ```kotlin
 ```
@@ -290,13 +293,15 @@ see [client-upload](https://github.com/ktorio/ktor-documentation/tree/%ktor_vers
 
 #### Using `MultiPartFormDataContent`
 
+To stream large or dynamic content efficiently, you can use `MultiPartFormDataContent` with an `InputProvider`.
+`InputProvider` allows you to supply file data as a buffered stream rather than loading it entirely into memory, making
+it well-suited for large files. With `MultiPartFormDataContent`, you can also monitor upload progress using the
+`onUpload` callback.
+
 ```kotlin
 ```
 
 {src="snippets/client-upload-progress/src/main/kotlin/com/example/Application.kt" include-lines="24-48"}
-
-This approach is more memory-efficient than reading the entire file into a `ByteArray`, and it allows progress
-monitoring through the `onUpload` callback.
 
 You can also construct a `MultiPartFormDataContent` with a custom boundary and content type manually:
 
