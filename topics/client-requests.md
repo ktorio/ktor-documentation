@@ -20,14 +20,13 @@ do this is by using the
 function that accepts a URL as a parameter. Inside this function, you can configure various request parameters:
 
 * Specify an HTTP method, such as `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, or `PATCH`.
-* Specify a URL as a string or configure its components (such as domain,path, and query parameters) separately.
-* Specify a Unix domain socket.
+* Configure a URL as a string or configure its components (such as domain,path, and query parameters) separately.
+* Use a Unix domain socket.
 * Add headers and cookies.
-* Set the request body – for example, plain text, a data object, or form parameters.
+* Include a request body – for example, plain text, a data object, or form parameters.
 
 These parameters are exposed by the
-[
-`HttpRequestBuilder`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/-http-request-builder/index.html)
+[`HttpRequestBuilder`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/-http-request-builder/index.html)
 class.
 
 ```kotlin
@@ -209,8 +208,7 @@ plugin is installed, cookies added using the `cookie()` function are ignored.
 ## Set request body {id="body"}
 
 To set the request body, call the `setBody()` function provided by
-[
-`HttpRequestBuilder`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/-http-request-builder/index.html).
+[`HttpRequestBuilder`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/-http-request-builder/index.html).
 This function accepts different types of payloads, including plain text, arbitrary class instances, form data, and byte
 arrays.
 
@@ -253,8 +251,8 @@ demonstrates its usage:
 
 {src="snippets/client-submit-form/src/main/kotlin/com/example/Application.kt" include-lines="16-25"}
 
-- `url` specifies a URL for making a request.
-- `formParameters` is a set of form parameters built using `parameters`.
+* `url` specifies a URL for making a request.
+* `formParameters` is a set of form parameters built using `parameters`.
 
 For the full example, see [client-submit-form](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-submit-form).
 
@@ -265,13 +263,11 @@ For the full example, see [client-submit-form](https://github.com/ktorio/ktor-do
 
 If you need to send a file with a form, you can use the following approaches:
 
-- Use the
-  [
-  `.submitFormWithBinaryData()`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/submit-form-with-binary-data.html)
+* Use the
+  [`.submitFormWithBinaryData()`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/submit-form-with-binary-data.html)
   function. In this case, a boundary will be generated automatically.
-- Call the `post` function and pass the
-  [
-  `MultiPartFormDataContent`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/-multi-part-form-data-content/index.html)
+* Call the `post` function and pass the
+  [`MultiPartFormDataContent`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request.forms/-multi-part-form-data-content/index.html)
   instance to the `setBody` function. The `MultiPartFormDataContent` constructor also allows you to pass a boundary
   value.
 
