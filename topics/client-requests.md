@@ -303,6 +303,12 @@ it well-suited for large files. With `MultiPartFormDataContent`, you can also mo
 
 {src="snippets/client-upload-progress/src/main/kotlin/com/example/Application.kt" include-lines="24-48"}
 
+In multiplatform projects, you can use `SystemFileSystem.source()` with `InputProvider`:
+
+```kotlin
+InputProvider { SystemFileSystem.source(Path("ktor_logo.png")).buffered() }
+```
+
 You can also construct a `MultiPartFormDataContent` with a custom boundary and content type manually:
 
 ```kotlin
