@@ -6,10 +6,10 @@ import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.async
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.coroutineScope
 
-fun main() {
-    runBlocking {
+suspend fun main() {
+    coroutineScope {
         val client = HttpClient(CIO)
 
         // Sequential requests
