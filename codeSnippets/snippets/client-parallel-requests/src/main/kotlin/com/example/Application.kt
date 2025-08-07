@@ -13,8 +13,8 @@ suspend fun main() {
         val client = HttpClient(CIO)
 
         // Sequential requests
-/*        val firstRequestContent: String = client.get("http://localhost:8080/path1")
-        val secondRequestContent: String = client.get("http://localhost:8080/path2")*/
+/*        val firstRequestContent: String = client.get("http://localhost:8080/path1").bodyAsText()
+        val secondRequestContent: String = client.get("http://localhost:8080/path2").bodyAsText()*/
 
         // Parallel requests
         val firstRequest: Deferred<String> = async { client.get("http://localhost:8080/path1").bodyAsText() }
