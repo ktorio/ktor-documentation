@@ -1,4 +1,4 @@
-[//]: # (title: OpenTelemetry tracing in Ktor Server)
+[//]: # (title: Distributed tracing with OpenTelemetry in Ktor Server)
 
 <show-structure for="chapter" depth="2"/>
 <primary-label ref="server-plugin"/>
