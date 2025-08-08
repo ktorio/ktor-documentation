@@ -22,12 +22,12 @@ own OpenTelemetry configuration.
 > incoming HTTP requests to your server.
 
 <include from="server-opentelemetry.md" element-id="add_dependencies"/>
+<include from="server-opentelemetry.md" element-id="configure-otel"/>
 
 ## Install %plugin_name% {id="install_plugin"}
 
 To install the `%plugin_name%` plugin, pass it to the `install` function inside a
-[client configuration block](client-create-and-configure.md#configure-client) and provide an `OpenTelemetry` instance.
-This enables automatic span creation for outgoing requests:
+[client configuration block](client-create-and-configure.md#configure-client) and set the [configured `OpenTelemetry` instance](#configure-otel):
 
 ```kotlin
 import io.ktor.client.*
@@ -44,7 +44,7 @@ val client = HttpClient(CIO) {
 }
 ```
 
-## Configure instrumentation
+## Configure tracing
 
 You can customize how the Ktor client records and exports OpenTelemetry spans for outgoing HTTP calls. The options below
 allow you to adjust which requests are traced, how spans are named, what attributes they contain, which headers are

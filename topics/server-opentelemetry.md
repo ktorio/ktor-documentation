@@ -59,10 +59,28 @@ from incoming request headers, and allows customization of span names, attribute
     </tab>
 </tabs>
 
+## Configure OpenTelemetry {id="configure-otel"}
+
+Before installing the `%plugin_name%` plugin in your Ktor application, you need to configure and initialize an
+`OpenTelemetry` instance. This instance is responsible for managing telemetry data, including traces and metrics.
+
+### Using `AutoConfiguredOpenTelemetrySdk`
+
+A common approach is to use `AutoConfiguredOpenTelemetrySdk` from the OpenTelemetry SDK, which simplifies setup by
+automatically configuring exporters and resources based on system properties and environment variables.
+
+Here is an example of a reusable function that configures OpenTelemetry with a custom service name and disables
+metrics exporting (useful when the target backend does not support metrics, such as the Jaeger all-in-one image):
+
+```kotlin
+```
+
+{src="snippets/opentelemetry/core/src/main/kotlin/OpenTelemetry.kt"}
+
 ## Install %plugin_name% {id="install_plugin"}
 
 To [install](server-plugins.md#install) the `%plugin_name%` plugin to the application, pass it to the `install` function
-in the specified [module](server-modules.md) and configure an OpenTelemetry instance.
+in the specified [module](server-modules.md) and set the [configured `OpenTelemetry` instance](#configure-otel):
 
 <tabs>
 <tab title="embeddedServer">
@@ -109,7 +127,8 @@ in the specified [module](server-modules.md) and configure an OpenTelemetry inst
 > 
 {style="note"}
 
-## Configure instrumentation {id="configuration"}
+
+## Configure tracing {id="configuration"}
 
 You can customize how the Ktor server records and exports OpenTelemetry spans. The options below allow you to adjust
 which requests are traced, how spans are named, what attributes they contain, and how span kinds are determined.
@@ -181,4 +200,39 @@ install(%plugin_name%) {
 To fine-tune tracing behavior across your application, you can also configure additional OpenTelemetry properties
 like propagators, attribute limits, and enabling/disabling instrumentation. For more details, see the
 [OpenTelemetry Java configuration guide](https://opentelemetry.io/docs/languages/java/configuration/).
+
+## Verify telemetry data with Jaeger
+
+To visualize and verify your telemetry data, you can export traces to a distributed tracing backend, such as Jaeger.
+
+### Using Docker Compose
+
+Create a **docker-compose.yml** file with the following content:
+
+```yaml
+```
+{src="snippets/opentelemetry/docker/docker-compose.yml"}
+
+To start the Jaeger all-in-one container, run the following command:
+
+```shell
+docker-compose up -d
+```
+
+### Using Docker CLI
+
+Alternatively, you can run Jaeger directly using the Docker command line:
+
+```shell
+docker run -d --name jaeger_instance \
+    -p 4317:4317 \
+    -p 16686:16686 \
+    jaegertracing/all-in-one:latest
+```
+
+### Accessing Jaeger UI
+
+Once running, the Jaeger UI will be available at [](http://localhost:16686/search).
+From here, you can search for traces by your service name (configured in your OpenTelemetry setup) and inspect
+detailed trace information.
 
