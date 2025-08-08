@@ -1,5 +1,6 @@
 [//]: # (title: OpenTelemetry tracing in Ktor Client)
 
+<show-structure for="chapter" depth="2"/>
 <primary-label ref="client-plugin"/>
 <var name="plugin_name" value="KtorClientTelemetry"/>
 
@@ -14,11 +15,11 @@
 <include from="server-opentelemetry.md" element-id="opentelemetry-description"/>
 
 The `%plugin_name%` plugin allows you to automatically trace outgoing HTTP requests. It captures metadata like method,
-URL, and status code, and propagates trace context across services. You can also customize span attributes or use your
+URL, and status code and propagates trace context across services. You can also customize span attributes or use your
 own OpenTelemetry configuration.
 
-> On the server, OpenTelemetry provides the [KtorServerTelemetry](server-opentelemetry.md) plugin for monitoring
-> incoming HTTP requests.
+> On the server, OpenTelemetry provides the [KtorServerTelemetry](server-opentelemetry.md) plugin for instrumenting
+> incoming HTTP requests to your server.
 
 <include from="server-opentelemetry.md" element-id="add_dependencies"/>
 
@@ -42,32 +43,18 @@ val client = HttpClient(CIO) {
     }
 }
 ```
-## Configuration
 
-You can fine-tune how Ktor client emits OpenTelemetry spans. Below are common configuration options.
+## Configure instrumentation
 
+You can customize how the Ktor client records and exports OpenTelemetry spans for outgoing HTTP calls. The options below
+allow you to adjust which requests are traced, how spans are named, what attributes they contain, which headers are
+captured, and how span kinds are determined.
 
-### Trace custom and known HTTP methods
+> For more information on these concepts, see the
+> [OpenTelemetry tracing documentation](https://opentelemetry.io/docs/concepts/signals/traces/).
 
-By default, common HTTP methods are traced. You can extend this list to include custom methods used by your API.
-
-```kotlin
-install(%plugin_name%) {
-    // ...
-    knownMethods(HttpMethod.DefaultMethods + CUSTOM_METHOD)
-}
-```
-
-### Capture request headers
-
-To capture specific HTTP request headers as span attributes, use the `capturedRequestHeaders` property:
-
-```kotlin
-install(%plugin_name%) {
-    // ...
-    capturedRequestHeaders(HttpHeaders.Accept)
-}
-```
+<include from="server-opentelemetry.md" element-id="config-known-methods"/>
+<include from="server-opentelemetry.md" element-id="config-request-headers"/>
 
 ### Capture response headers
 
@@ -80,20 +67,11 @@ install(%plugin_name%) {
 }
 ```
 
-### Add custom attributes
+<include from="server-opentelemetry.md" element-id="config-custom-attributes"/>
 
-Add custom attributes at span start/end or adjust how status is determined. 
+## Next steps
 
-```kotlin
-install(%plugin_name%) {
-    // ...
-    attributesExtractor {
-        onStart {
-            attributes.put("start-time", System.currentTimeMillis())
-        }
-        onEnd {
-            attributes.put("end-time", System.currentTimeMillis())
-        }
-    }
-}
-```
+Once you have %plugin_name% installed and configured, you can verify that spans are being created and propagated by
+sending requests to a service that also has telemetry enabled—such as one using
+[`KtorServerTelemetry`](server-opentelemetry.md). Viewing both sides of the trace in an observability backend like
+Jaeger, Zipkin, or Grafana Tempo will confirm that distributed tracing is working end-to-end.

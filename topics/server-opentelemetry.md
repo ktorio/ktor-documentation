@@ -1,5 +1,6 @@
 [//]: # (title: OpenTelemetry tracing in Ktor Server)
 
+<show-structure for="chapter" depth="2"/>
 <primary-label ref="server-plugin"/>
 <var name="plugin_name" value="KtorServerTelemetry"/>
 <var name="package_name" value="io.opentelemetry.instrumentation"/>
@@ -21,11 +22,12 @@ to monitoring and observability tools like Jaeger or Prometheus.
 
 </snippet>
 
-The `%plugin_name%` plugin allows you to trace incoming HTTP requests. It creates spans with route and status
-information, extracts trace context from headers, and supports customization of span names and attributes.
+The `%plugin_name%` plugin enables distributed tracing of incoming HTTP requests in a Ktor server application.  It
+automatically creates spans containing route, HTTP method, and status code information, extracts existing trace context
+from incoming request headers, and allows customization of span names, attributes, and span kinds.
 
-> On the client, OpenTelemetry provides the [KtorClientTelemetry](client-opentelemetry.md) plugin for tracing outgoing
-> HTTP calls to external services.
+> On the client, OpenTelemetry provides the [KtorClientTelemetry](client-opentelemetry.md) plugin, which instruments
+> outgoing HTTP calls to external services.
 
 ## Add dependencies {id="add_dependencies"}
 
@@ -60,7 +62,7 @@ information, extracts trace context from headers, and supports customization of 
 ## Install %plugin_name% {id="install_plugin"}
 
 To [install](server-plugins.md#install) the `%plugin_name%` plugin to the application, pass it to the `install` function
-in the specified [module](server-modules.md).
+in the specified [module](server-modules.md) and configure an OpenTelemetry instance.
 
 <tabs>
 <tab title="embeddedServer">
@@ -103,13 +105,22 @@ in the specified [module](server-modules.md).
 </tab>
 </tabs>
 
-Make sure that no other logging plugin is installed before this.
+> Ensure that %plugin_name% is installed before any other logging or telemetry-related plugins.
+> 
+{style="note"}
 
-## Configuration {id="configuration"}
+## Configure instrumentation {id="configuration"}
+
+You can customize how the Ktor server records and exports OpenTelemetry spans. The options below allow you to adjust
+which requests are traced, how spans are named, what attributes they contain, and how span kinds are determined.
+
+> For more information on these concepts, see the
+> [OpenTelemetry tracing documentation](https://opentelemetry.io/docs/concepts/signals/traces/).
 
 ### Trace additional HTTP methods {id="config-known-methods"}
 
-By default, standard HTTP methods are traced. To extend this list with custom methods, use the `knownMethods` property:
+By default, the plugin traces standard HTTP methods (`GET`, `POST`, `PUT`, etc.). To trace additional or custom methods,
+configure the `knownMethods` property:
 
 ```kotlin
 install(%plugin_name%) {
@@ -118,9 +129,9 @@ install(%plugin_name%) {
 }
 ```
 
-### Capture headers {id="config-headers"}
+### Capture headers {id="config-request-headers"}
 
-To capture specific HTTP request headers as span attributes, use the `capturedRequestHeaders` property:
+To include specific HTTP request headers as span attributes, use the `capturedRequestHeaders` property:
 
 ```kotlin
 install(%plugin_name%) {
@@ -131,7 +142,7 @@ install(%plugin_name%) {
 
 ### Select span kind {id="config-span-kind"}
 
-You can override the span kind depending on request characteristics to reflect producer/consumer semantics. To do that,
+To override the span kind (such as `SERVER`, `CLIENT`, `PRODUCER`, `CONSUMER`) based on request characteristics,
 use the `spanKindExtractor` property:
 
 ```kotlin
@@ -147,9 +158,9 @@ install(%plugin_name%) {
 }
 ```
 
-### Add custom attributes {id="config-attributes"}
+### Add custom attributes {id="config-custom-attributes"}
 
-To add custom attributes when a span starts and when it ends, use `attributesExtractor`:
+To attach custom attributes at the start and end of a span, use the `attributesExtractor` property:
 
 ```kotlin
 install(%plugin_name%) {
@@ -164,4 +175,10 @@ install(%plugin_name%) {
     }
 }
 ```
+
+### Additional properties {id="additional-properties"}
+
+To fine-tune tracing behavior across your application, you can also configure additional OpenTelemetry properties
+like propagators, attribute limits, and enabling/disabling instrumentation. For more details, see the
+[OpenTelemetry Java configuration guide](https://opentelemetry.io/docs/languages/java/configuration/).
 

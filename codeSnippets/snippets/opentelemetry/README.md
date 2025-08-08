@@ -1,10 +1,12 @@
-# ktor-opentelemetry
+# opentelemetry
 
-Ktor sample demonstrating basic server routes instrumented with OpenTelemetry and a Jaeger backend via Docker.
+A standalone sample project demonstrating basic server routes instrumented with OpenTelemetry and a Jaeger backend
+via Docker. The contents of this project are referenced in the [](server-opentelemetry.md)
+and [](client-opentelemetry.md) topics.
 
 ## Prerequisites
 
-You need to have Docker installed to run Jaeger a view traces.
+You need to have [Docker](https://docs.docker.com/desktop/) installed to run Jaeger and view traces.
 
 To verify Docker, use the following command:
 
@@ -14,21 +16,21 @@ docker --version
 
 ## Run the server with Jaeger (Docker)
 
-If you want to see traces in Jaeger, use the helper Gradle task. It will:
-1. Start the Jaeger all-in-one container via docker-compose.
-2. Start the Ktor server configured to export spans to OTLP gRPC at `http://localhost:4317`.
+1. To see traces in Jaeger, use the helper Gradle task:
 
-```shell
-./gradlew runWithDocker
-```
+  ```shell
+  ./gradlew runWithDocker
+  ```
+  This will:
+  - Start the Jaeger all-in-one container via docker-compose.
+  - Start the Ktor server configured to export spans to OTLP gRPC at `http://localhost:4317`.
 
-Jaeger UI will be available at: http://localhost:16686
+2. Access Jaeger UI at http://localhost:16686.
+3. Select the service `opentelemetry-ktor-sample-server` in the dropdown to explore traces.
 
-- Select the service `opentelemetry-ktor-sample-server` in the dropdown to explore traces.
+### Stop Docker services
 
-### Stopping Docker services
-
-To stop and remove containers, use the following command:
+To stop and remove containers, use the `composeDown` command:
 
 ```shell
 ./gradlew composeDown
