@@ -120,6 +120,9 @@ The following [targets](https://kotlinlang.org/docs/multiplatform-dsl-reference.
             <li>
                 <code>linuxX64</code>
             </li>
+            <li>
+                <code>linuxArm64</code>
+            </li>
         </list>
     </td>
 </tr>
