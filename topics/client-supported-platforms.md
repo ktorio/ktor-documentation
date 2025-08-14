@@ -148,6 +148,9 @@ You can use it in [multiplatform projects](https://kotlinlang.org/docs/multiplat
             <li>
                 <code>linuxX64</code>
             </li>
+            <li>
+                <code>linuxArm64</code>
+            </li>
         </list>
     </td>
 </tr>
