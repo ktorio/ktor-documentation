@@ -6,6 +6,7 @@ The Ktor HTTP client can be used on different platforms supported by Kotlin:
 - [Native](https://kotlinlang.org/docs/native-overview.html)
    <include from="client-engines.md" element-id="newmm-note"/>
 - [JavaScript](https://kotlinlang.org/docs/js-overview.html)
+- [WasmJs](https://kotlinlang.org/docs/wasm-overview.html)
 
 You can use it in [multiplatform projects](https://kotlinlang.org/docs/multiplatform.html), be it a multiplatform mobile or a full-stack web application. The following [targets](https://kotlinlang.org/docs/multiplatform-dsl-reference.html#targets) are supported for multiplatform projects:
 
@@ -39,6 +40,19 @@ You can use it in [multiplatform projects](https://kotlinlang.org/docs/multiplat
         <list>
             <li>
                 <code>js</code>
+            </li>
+        </list>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        Kotlin/Wasm
+    </td>
+    <td>
+        <list>
+            <li>
+                <code>wasmJs</code>
             </li>
         </list>
     </td>
