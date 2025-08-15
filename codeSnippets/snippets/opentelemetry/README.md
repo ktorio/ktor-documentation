@@ -1,6 +1,6 @@
 # opentelemetry
 
-A standalone sample project demonstrating basic server routes instrumented with OpenTelemetry and a Jaeger backend
+A standalone sample project demonstrating basic server routes instrumented with [OpenTelemetry](https://opentelemetry.io/) and a [Jaeger](https://www.jaegertracing.io/) backend
 via Docker. The contents of this project are referenced in the [server-opentelemetry.md](server-opentelemetry.md)
 and [client-opentelemetry.md](client-opentelemetry.md) topics.
 

@@ -70,7 +70,8 @@ A common approach is to use `AutoConfiguredOpenTelemetrySdk` from the OpenTeleme
 automatically configuring exporters and resources based on system properties and environment variables.
 
 Here is an example of a reusable function that configures OpenTelemetry with a custom service name and disables
-metrics exporting (useful when the target backend does not support metrics, such as the Jaeger all-in-one image):
+metrics exporting (useful when the target backend does not support metrics, such as the
+[Jaeger](https://www.jaegertracing.io/) all-in-one image):
 
 ```kotlin
 ```
