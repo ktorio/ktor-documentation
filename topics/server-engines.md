@@ -17,13 +17,13 @@ Server configuration includes different settings:
 
 The table below lists engines supported by Ktor, along with the supported platforms:
 
-| Engine                                  | Platforms                                            | HTTP/2 |
-|-----------------------------------------|------------------------------------------------------|--------|
-| `Netty`                                 | JVM                                                  | ✅      |
-| `Jetty`                                 | JVM                                                  | ✅      |
-| `Tomcat`                                | JVM                                                  | ✅      |
-| `CIO` (Coroutine-based I/O)             | JVM, [Native](server-native.md), [GraalVM](graalvm.md) | ✖️     |
-| [ServletApplicationEngine](server-war.md) | JVM                                                  | ✅      |
+| Engine                                    | Platforms                                                                  | HTTP/2 |
+|-------------------------------------------|----------------------------------------------------------------------------|--------|
+| `Netty`                                   | JVM                                                                        | ✅      |
+| `Jetty`                                   | JVM                                                                        | ✅      |
+| `Tomcat`                                  | JVM                                                                        | ✅      |
+| `CIO` (Coroutine-based I/O)               | JVM, [Native](server-native.md), [GraalVM](graalvm.md), JavaScript, WasmJs | ✖️     |
+| [ServletApplicationEngine](server-war.md) | JVM                                                                        | ✅      |
 
 ## Add dependencies {id="dependencies"}
 
