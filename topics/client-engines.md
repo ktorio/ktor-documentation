@@ -16,18 +16,18 @@ For example, you can use `Apache` or `Jetty`for JVM applications, `OkHttp` or `A
 
 The table below lists [platforms](client-supported-platforms.md) supported by each engine:
 
-| Engine  | Platforms                                               |
-|---------|---------------------------------------------------------|
-| Apache  | [JVM](#jvm)                                             |
-| Java    | [JVM](#jvm)                                             |
-| Jetty   | [JVM](#jvm)                                             |
-| Android | [JVM](#jvm), [Android](#jvm-android)                    |
-| OkHttp  | [JVM](#jvm), [Android](#jvm-android)                    |
-| Darwin  | [Native](#native)                                       |
-| WinHttp | [Native](#native)                                       |
-| Curl    | [Native](#native)                                       |
-| CIO     | [JVM](#jvm), [Android](#jvm-android), [Native](#native) |
-| Js      | [JavaScript](#js)                                       |
+| Engine  | Platforms                                                                                     |
+|---------|-----------------------------------------------------------------------------------------------|
+| Apache  | [JVM](#jvm)                                                                                   |
+| Java    | [JVM](#jvm)                                                                                   |
+| Jetty   | [JVM](#jvm)                                                                                   |
+| Android | [JVM](#jvm), [Android](#jvm-android)                                                          |
+| OkHttp  | [JVM](#jvm), [Android](#jvm-android)                                                          |
+| Darwin  | [Native](#native)                                                                             |
+| WinHttp | [Native](#native)                                                                             |
+| Curl    | [Native](#native)                                                                             |
+| CIO     | [JVM](#jvm), [Android](#jvm-android), [Native](#native), [JavaScript](#js), [WasmJS](#jvm-android-native-wasm-js) |
+| Js      | [JavaScript](#js)                                                                             |
 
 ### Supported Android/Java versions {id="minimal-version"}
 
@@ -319,10 +319,13 @@ For desktop platforms, Ktor also provides the `Curl` engine. This engine is supp
    You can find the full example here: [client-engine-curl](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-engine-curl).
 
 
-## JVM, Android, and Native {id="jvm-android-native"}
+## JVM, Android, Native, JS and WasmJS {id="jvm-android-native-wasm-js"}
 
 ### CIO {id="cio"}
-CIO is a fully asynchronous coroutine-based engine that can be used on JVM, Android, and Native platforms. It supports only HTTP/1.x for now. To use it, follow the steps below:
+
+CIO is a fully asynchronous coroutine-based engine that can be used on JVM, Android, Native, JavaScript and WebAssembly
+JavaScript (WasmJs) platforms. It supports only HTTP/1.x for now. To use it, follow the steps below:
+
 1. Add the `ktor-client-cio` dependency:
 
    <var name="artifact_name" value="ktor-client-cio"/>
