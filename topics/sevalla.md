@@ -88,8 +88,11 @@ To deploy the application, sign in to [Sevalla](https://sevalla.com/) and follow
 2. Choose your Git repository and select the appropriate branch (usually `main` or `master`)  
 3. Set the **application name**, select a **region**, and choose your **pod size** (you can start with 0.5 CPU / 1GB RAM)  
 4. Click **Create**, but skip the deploy step for now  
+  ![Sevalla create app](../images/sevalla-deployment-create-app.png)
 5. Go to **Settings** \> **Build** and click **Update Settings** under the **Build environment** card  
+  ![Sevalla update build settings](../images/sevalla-deployment-update-build-settings.png)
 6. Set the build method to **Dockerfile**  
+  ![Sevalla Dockerfile settings](../images/sevalla-deployment-docker-settings.png)
 7. Confirm the **Dockerfile path** is `Dockerfile` and the **Context** is `.`  
 8. Return to your application's **Deployment** tab and click **Deploy**
 
