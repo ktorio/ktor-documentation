@@ -18,74 +18,34 @@ configuration, so you can choose the one that best meets your platform and use-c
 
 The table below lists the [platforms](client-supported-platforms.md) supported by each engine:
 
-| Engine  | Platforms                                                                                                         |
-|---------|-------------------------------------------------------------------------------------------------------------------|
-| Apache  | [JVM](#jvm)                                                                                                       |
-| Java    | [JVM](#jvm)                                                                                                       |
-| Jetty   | [JVM](#jvm)                                                                                                       |
-| Android | [JVM](#jvm), [Android](#jvm-android)                                                                              |
-| OkHttp  | [JVM](#jvm), [Android](#jvm-android)                                                                              |
-| Darwin  | [Native](#native)                                                                                                 |
-| WinHttp | [Native](#native)                                                                                                 |
-| Curl    | [Native](#native)                                                                                                 |
-| CIO     | [JVM](#jvm), [Android](#jvm-android), [Native](#native), [JavaScript](#js), [WasmJS](#jvm-android-native-wasm-js) |
-| Js      | [JavaScript](#js)                                                                                                 |
+| Engine    | Platforms                                                                                                         |
+|-----------|-------------------------------------------------------------------------------------------------------------------|
+| `Apache5` | [JVM](#jvm)                                                                                                       |
+| `Java`    | [JVM](#jvm)                                                                                                       |
+| `Jetty`   | [JVM](#jvm)                                                                                                       |
+| `Android` | [JVM](#jvm), [Android](#jvm-android)                                                                              |
+| `OkHttp`  | [JVM](#jvm), [Android](#jvm-android)                                                                              |
+| `Darwin`  | [Native](#native)                                                                                                 |
+| `WinHttp` | [Native](#native)                                                                                                 |
+| `Curl`    | [Native](#native)                                                                                                 |
+| `CIO`     | [JVM](#jvm), [Android](#jvm-android), [Native](#native), [JavaScript](#js), [WasmJs](#jvm-android-native-wasm-js) |
+| `Js`      | [JavaScript](#js)                                                                                                 |
 
 ## Supported Android/Java versions {id="minimum-version"}
 
 Client engines targeting JVM or both JVM and Android support the following Android/Java versions:
 
-| Engine  | Android version   | Java version |
-|---------|-------------------|--------------|
-| Apache  |                   | 8+           |
-| Java    |                   | 11+          |
-| Jetty   |                   | 11+          |
-| CIO     | 7.0+ <sup>*</sup> | 8+           |
-| Android | 1.x+              | 8+           |
-| OkHttp  | 5.0+              | 8+           |
+| Engine    | Android version   | Java version |
+|-----------|-------------------|--------------|
+| `Apache5` |                   | 8+           |
+| `Java`    |                   | 11+          |
+| `Jetty`   |                   | 11+          |
+| `CIO`     | 7.0+ <sup>*</sup> | 8+           |
+| `Android` | 1.x+              | 8+           |
+| `OkHttp`  | 5.0+              | 8+           |
 
 _* To use the CIO engine on older Android versions, you need to
 enable [Java 8 API desugaring](https://developer.android.com/studio/write/java8-support)._
-
-## Limitations {id="limitations"}
-
-### HTTP/2 and WebSockets
-
-Not all engines support the HTTP/2 protocol. If an engine supports HTTP/2, you can enable it in the
-engine's configuration. For example, with the [Java](#java) engine.
-
-The table below shows whether a specific engine supports HTTP/2 and [WebSockets](client-websockets.topic):
-
-| Engine  | HTTP/2             | WebSockets |
-|---------|--------------------|------------|
-| Apache  | ✅️ _(for Apache5)_ | ✖️         |
-| Java    | ✅                  | ✅️         |
-| Jetty   | ✅                  | ✖️         |
-| CIO     | ✖️                 | ✅          |
-| Android | ✖️                 | ✖️         |
-| OkHttp  | ✅                  | ✅          |
-| Js      | ✅                  | ✅          |
-| Darwin  | ✅                  | ✅          |
-| WinHttp | ✅                  | ✅          |
-| Curl    | ✅                  | ✅          |
-
-### Security
-
-[SSL](client-ssl.md) must be configured per engine. Each engine provides its own SSL configuration options.
-
-### Proxy support
-
-Some engines don't support proxies. For the complete list, see the
-[proxy documentation](client-proxy.md#supported_engines).
-
-### Logging
-
-The [Logging](client-logging.md) plugin provides different logger types depending on the target platforms.
-
-### Timeout
-
-The [HttpTimeout](client-timeout.md) plugin has some limitations on certain engines. For the complete list,
-see [Timeout limitations](client-timeout.md#limitations).
 
 ## Add an engine dependency {id="dependencies"}
 
@@ -244,7 +204,7 @@ The `Android` engine targets Android and can be configured in the following way:
 
 ### OkHttp {id="okhttp"}
 
-The `OkHttp` engine is based on OkHttp can be configured in the following way:
+The `OkHttp` engine is based on OkHttp and can be configured in the following way:
 
 1. Add the `ktor-client-okhttp` dependency:
 
@@ -360,13 +320,12 @@ For desktop platforms, Ktor provides the `Curl` engine. It is supported on `linu
    For the full example,
    see [client-engine-curl](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-engine-curl).
 
-## JVM, Android, Native, JS and WasmJS {id="jvm-android-native-wasm-js"}
+## JVM, Android, Native, JS and WasmJs {id="jvm-android-native-wasm-js"}
 
 ### CIO {id="cio"}
 
-The CIO engine is a fully asynchronous coroutine-based engine available on JVM, Android, Native, JavaScript and
-WebAssembly
-JavaScript (WasmJs) platforms. It currently supports HTTP/1.x only. To use it, follow the steps below:
+The CIO engine is a fully asynchronous coroutine-based engine available on JVM, Android, Native, JavaScript, and
+WebAssembly JavaScript (WasmJs) platforms. It currently supports HTTP/1.x only. To use it, follow the steps below:
 
 1. Add the `ktor-client-cio` dependency:
 
@@ -414,6 +373,47 @@ for Node.js. To use it, follow the steps below:
 
 For the full example,
 see [client-engine-js](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-engine-js).
+
+## Limitations {id="limitations"}
+
+### HTTP/2 and WebSockets
+
+Not all engines support the HTTP/2 protocol. If an engine supports HTTP/2, you can enable it in the
+engine's configuration. For example, with the [Java](#java) engine.
+
+The table below shows whether a specific engine supports HTTP/2 and [WebSockets](client-websockets.topic):
+
+| Engine    | HTTP/2 | WebSockets |
+|-----------|--------|------------|
+| `Apache5` | ✅️     | ✖️         |
+| `Java`    | ✅      | ✅️         |
+| `Jetty`   | ✅      | ✖️         |
+| `CIO`     | ✖️     | ✅          |
+| `Android` | ✖️     | ✖️         |
+| `OkHttp`  | ✅      | ✅          |
+| `Js`      | ✅      | ✅          |
+| `Darwin`  | ✅      | ✅          |
+| `WinHttp` | ✅      | ✅          |
+| `Curl`    | ✅      | ✅          |
+
+### Security
+
+[SSL](client-ssl.md) must be configured per engine. Each engine provides its own SSL configuration options.
+
+### Proxy support
+
+Some engines don't support proxies. For the complete list, see the
+[proxy documentation](client-proxy.md#supported_engines).
+
+### Logging
+
+The [Logging](client-logging.md) plugin provides different logger types depending on the target platforms.
+
+### Timeout
+
+The [HttpTimeout](client-timeout.md) plugin has some limitations on certain engines. For the complete list,
+see [Timeout limitations](client-timeout.md#limitations).
+
 
 ## Example: How to configure an engine in a multiplatform mobile project {id="mpp-config"}
 
