@@ -8,22 +8,22 @@ Learn about engines that process network requests.
 
 To run a Ktor server application, you need to [create](server-create-and-configure.topic) and configure a server first.
 Server configuration includes different settings:
-- an [engine](#supported-engines) for processing network requests;
-- host and port values used to access a server;
-- SSL settings;
-- ... and so on.
 
-## Supported engines {id="supported-engines"}
+- An [engine](#supported-engines) for processing network requests.
+- Host and port values used to access a server.
+- SSL settings.
 
-The table below lists engines supported by Ktor, along with the supported platforms:
+## Supported platforms {id="supported-engines"}
 
-| Engine                                  | Platforms                                            | HTTP/2 |
-|-----------------------------------------|------------------------------------------------------|--------|
-| `Netty`                                 | JVM                                                  | ✅      |
-| `Jetty`                                 | JVM                                                  | ✅      |
-| `Tomcat`                                | JVM                                                  | ✅      |
-| `CIO` (Coroutine-based I/O)             | JVM, [Native](server-native.md), [GraalVM](graalvm.md) | ✖️     |
-| [ServletApplicationEngine](server-war.md) | JVM                                                  | ✅      |
+The table below lists the platforms supported by each engine:
+
+| Engine                                    | Platforms                                                                  | HTTP/2 |
+|-------------------------------------------|----------------------------------------------------------------------------|--------|
+| `Netty`                                   | JVM                                                                        | ✅      |
+| `Jetty`                                   | JVM                                                                        | ✅      |
+| `Tomcat`                                  | JVM                                                                        | ✅      |
+| `CIO` (Coroutine-based I/O)               | JVM, [Native](server-native.md), [GraalVM](graalvm.md), JavaScript, WasmJs | ✖️     |
+| [`ServletApplicationEngine`](server-war.md) | JVM                                                                        | ✅      |
 
 ## Add dependencies {id="dependencies"}
 
@@ -41,15 +41,16 @@ Below are examples of adding a dependency for Netty:
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 ## Choose how to create a server {id="choose-create-server"}
+
 A Ktor server application can be [created and run in two ways](server-create-and-configure.topic#embedded): using
 the [embeddedServer](#embeddedServer) to quickly pass server parameters in code, or using [EngineMain](#EngineMain) to
 load the configuration from the external `application.conf` or `application.yaml` file.
 
 ### embeddedServer {id="embeddedServer"}
 
-The [embeddedServer](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/embedded-server.html)
+The [`embeddedServer()`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/embedded-server.html)
 function accepts an engine factory used to create an engine of a specific type. In the example below, we pass
-the [Netty](https://api.ktor.io/ktor-server/ktor-server-netty/io.ktor.server.netty/-netty/index.html) factory to run a
+the [`Netty`](https://api.ktor.io/ktor-server/ktor-server-netty/io.ktor.server.netty/-netty/index.html) factory to run a
 server with the Netty engine and listen on the `8080` port:
 
 ```kotlin
