@@ -15,5 +15,6 @@
     <var name="bootstrap_version" value="5.2.3"/>
     <var name="swagger_codegen_version" value="1.0.36"/>
     <var name="exposed_version" value="0.53.0"/>
+    <var name="opentelemetry_version" value="2.18.1-alpha"/>
 
 </vars>
