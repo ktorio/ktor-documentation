@@ -76,7 +76,7 @@ metrics exporting (useful when the target backend does not support metrics, such
 ```kotlin
 ```
 
-{src="snippets/opentelemetry/core/src/main/kotlin/OpenTelemetry.kt"}
+{src="snippets/opentelemetry/core/src/main/kotlin/com/example/OpenTelemetry.kt"}
 
 ## Install %plugin_name% {id="install_plugin"}
 
