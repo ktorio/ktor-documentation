@@ -144,34 +144,18 @@ In the next sections, you can learn how to configure specific engines for differ
 
 ## JVM {id="jvm"}
 
-The JVM target supports several engines: [`Apache`](#apache), [`Apache5`](#apache5), [`Java`](#java), and
-[`Jetty`](#jetty).
-
-### Apache {id="apache"}
-
-The `Apache` engine supports HTTP/1.1 and provides multiple configuration options.
-If you need HTTP/2 support, use the [`Apache5` engine](#apache5), which enables it by default.
-
-1. Add the `ktor-client-apache` dependency:
-
-   <var name="artifact_name" value="ktor-client-apache"/>
-   <include from="lib.topic" element-id="add_ktor_artifact"/>
-
-2. Pass the `Apache` class as an argument to the `HttpClient` constructor:
-
-   ```kotlin
-   ```
-   {src="snippets/_misc_client/ApacheCreate.kt"}
-
-3. Use the engine block to access and set properties from `ApacheEngineConfig`:
-
-   ```kotlin
-   ```
-   {src="snippets/_misc_client/ApacheConfig.kt" interpolate-variables="true" disable-links="false"}
+The JVM target supports the [`Apache5`](#apache5), [`Java`](#java), and
+[`Jetty`](#jetty) engines.
 
 ### Apache5 {id="apache5"}
 
-The `Apache5` engine supports HTTP/2 and enables it by default.
+The `Apache5` engine supports both HTTP/1.1 and HTTP/2, with HTTP/2 enabled by default.
+This is the recommended Apache-based engine for new projects.
+
+> The older `Apache` engine depends on Apache HttpClient 4, which is deprecated.
+> It is kept only for backward compatibility. For all new projects, use `Apache5`.
+>
+{style="note"}
 
 1. Add the `ktor-client-apache5` dependency:
 
