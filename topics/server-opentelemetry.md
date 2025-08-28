@@ -138,7 +138,7 @@ in the specified [module](server-modules.md) and set the [configured `OpenTeleme
 
     fun main() {
         embeddedServer(Netty, port = 8080) {
-            val openTelemetry = getOpenTelemetry(serviceName = "opentelemetry-ktor-server")
+            val openTelemetry = getOpenTelemetry(serviceName = "opentelemetry-ktor-sample-server")
 
             install(%plugin_name%){
                 setOpenTelemetry(openTelemetry)
@@ -157,7 +157,7 @@ in the specified [module](server-modules.md) and set the [configured `OpenTeleme
     // ...
 
     fun Application.module() {
-        val openTelemetry = getOpenTelemetry(serviceName = "opentelemetry-ktor-server")
+        val openTelemetry = getOpenTelemetry(serviceName = "opentelemetry-ktor-sample-server")
 
         install(%plugin_name%){
             setOpenTelemetry(openTelemetry)
@@ -264,7 +264,7 @@ Create a **docker-compose.yml** file with the following content:
 To start the Grafana LGTM all-in-one container, run the following command:
 
 ```shell
-docker-compose up -d
+docker compose up -d
 ```
 
 ### Using Docker CLI
@@ -280,14 +280,22 @@ docker run -d --name grafana_lgtm \
     -e GF_SECURITY_ADMIN_PASSWORD=admin \
     grafana/otel-lgtm:latest
 ```
+
 ### Application export configuration
 
-Configure your Ktor application to send telemetry to the OTLP gRPC endpoint (`localhost:4317`). If you use the
-`getOpenTelemetry` helper, set the following system properties before building the SDK:
+To send telemetry from your Ktor application to an OTLP endpoint, configure the OpenTelemetry SDK to use the gRPC
+protocol. You can set these values via environment variables before building the SDK:
 
-```kotlin
-System.setProperty("otel.exporter.otlp.endpoint", "http://localhost:4317")
-System.setProperty("otel.traces.exporter", "otlp")
+```shell
+export OTEL_TRACES_EXPORTER=otlp
+export OTEL_EXPORTER_OTLP_PROTOCOL=grpc
+export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317
+```
+
+Or use JVM flags:
+
+```text
+-Dotel.traces.exporter=otlp -Dotel.exporter.otlp.protocol=grpc -Dotel.exporter.otlp.endpoint=http://localhost:4317
 ```
 
 ### Accessing Grafana UI

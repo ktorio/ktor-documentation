@@ -41,5 +41,6 @@ To stop and remove containers, use the `composeDown` command:
 - The project uses OpenTelemetry autoconfiguration with a service name set in code.
 - When running via Gradle JavaExec tasks, these environment variables are set automatically (see root `build.gradle.kts`):
   - `OTEL_METRICS_EXPORTER=otlp`
+  - `OTEL_EXPORTER_OTLP_PROTOCOL=grpc`
   - `OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317/`
 

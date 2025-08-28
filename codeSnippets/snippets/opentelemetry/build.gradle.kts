@@ -25,6 +25,7 @@ project(":client").setEnvironmentVariablesForOpenTelemetry()
 fun Project.setEnvironmentVariablesForOpenTelemetry() {
     tasks.withType<JavaExec> {
         environment("OTEL_METRICS_EXPORTER", "otlp")
+        environment("OTEL_EXPORTER_OTLP_PROTOCOL", "grpc")
         environment("OTEL_EXPORTER_OTLP_ENDPOINT", "http://localhost:4317/")
     }
 }
