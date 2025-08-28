@@ -6,7 +6,7 @@ and [client-opentelemetry.md](client-opentelemetry.md) topics.
 
 ## Prerequisites
 
-You need to have [Docker](https://docs.docker.com/desktop/) installed to run Jaeger and view traces.
+You need to have [Docker](https://docs.docker.com/desktop/) installed to run Grafana and view traces.
 
 To verify Docker, use the following command:
 
@@ -26,7 +26,7 @@ docker --version
   - Start the Ktor server configured to export spans to OTLP gRPC at `http://localhost:4317`.
 
 2. Access Grafana UI at http://localhost:3000.
-3. Select the service `opentelemetry-ktor-sample-server` in the dropdown to explore traces.
+3. In the left-hand navigation menu, go to Drilldown / Traces  to explore traces.
 
 ### Stop Docker services
 
