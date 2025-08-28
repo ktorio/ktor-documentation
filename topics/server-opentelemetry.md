@@ -64,17 +64,63 @@ from incoming request headers, and allows customization of span names, attribute
 Before installing the `%plugin_name%` plugin in your Ktor application, you need to configure and initialize an
 `OpenTelemetry` instance. This instance is responsible for managing telemetry data, including traces and metrics.
 
-### Using `AutoConfiguredOpenTelemetrySdk`
+### Automatic configuration
 
-A common approach is to use `AutoConfiguredOpenTelemetrySdk` from the OpenTelemetry SDK, which simplifies setup by
-automatically configuring exporters and resources based on system properties and environment variables.
+A common way to configure OpenTelemetry is to use
+[`AutoConfiguredOpenTelemetrySdk`](https://javadoc.io/doc/io.opentelemetry/opentelemetry-sdk-extension-autoconfigure/latest/io/opentelemetry/sdk/autoconfigure/AutoConfiguredOpenTelemetrySdk.html).
+This approach simplifies setup by automatically configuring exporters and resources based on system properties and
+environment variables.
 
-Here is an example of a reusable function that configures OpenTelemetry with a custom service name:
+You can still customize the automatically detected configuration — for example, to add a `service.name` resource
+attribute:
 
 ```kotlin
 ```
 
 {src="snippets/opentelemetry/core/src/main/kotlin/com/example/OpenTelemetry.kt"}
+
+### Programmatic configuration
+
+If you need more control, you can configure OpenTelemetry programmatically using
+[OpenTelemetrySdk](https://javadoc.io/doc/io.opentelemetry/opentelemetry-sdk/latest/io/opentelemetry/sdk/OpenTelemetrySdk.html).
+This approach allows you to define exporters, processors, and propagators in code, instead of relying on
+environment-based configuration.
+
+The following example shows how to configure OpenTelemetry manually with an OTLP exporter, a span processor, and a trace
+context propagator:
+
+```kotlin
+import io.opentelemetry.api.OpenTelemetry
+import io.opentelemetry.api.trace.propagation.W3CTraceContextPropagator
+import io.opentelemetry.context.propagation.ContextPropagators
+import io.opentelemetry.exporter.otlp.trace.OtlpGrpcSpanExporter
+import io.opentelemetry.sdk.OpenTelemetrySdk
+import io.opentelemetry.sdk.trace.SdkTracerProvider
+import io.opentelemetry.sdk.trace.export.BatchSpanProcessor
+
+fun configureOpenTelemetry(): OpenTelemetry {
+    val spanExporter = OtlpGrpcSpanExporter.builder()
+        .setEndpoint("http://localhost:4317")
+        .build()
+
+    val tracerProvider = SdkTracerProvider.builder()
+        .addSpanProcessor(BatchSpanProcessor.builder(spanExporter).build())
+        .build()
+
+    return OpenTelemetrySdk.builder()
+        .setTracerProvider(tracerProvider)
+        .setPropagators(ContextPropagators.create(W3CTraceContextPropagator.getInstance()))
+        .buildAndRegisterGlobal()
+}
+```
+
+Use this approach if you require full control over telemetry setup, or when your deployment environment cannot rely on
+automatic configuration.
+
+> For more information, see the
+> [OpenTelemetry SDK components documentation](https://opentelemetry.io/docs/languages/java/sdk/#sdk-components).
+>
+{style="tip"}
 
 ## Install %plugin_name% {id="install_plugin"}
 
