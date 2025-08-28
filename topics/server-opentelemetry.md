@@ -18,11 +18,11 @@
 
 Ktor integrates with [OpenTelemetry](https://opentelemetry.io/) — an open-source observability framework for collecting
 telemetry data such as traces, metrics, and logs. It provides a standard way to instrument applications and export data
-to monitoring and observability tools like Jaeger or Prometheus.
+to monitoring and observability tools like Grafana or Jaeger.
 
 </snippet>
 
-The `%plugin_name%` plugin enables distributed tracing of incoming HTTP requests in a Ktor server application.  It
+The `%plugin_name%` plugin enables distributed tracing of incoming HTTP requests in a Ktor server application. It
 automatically creates spans containing route, HTTP method, and status code information, extracts existing trace context
 from incoming request headers, and allows customization of span names, attributes, and span kinds.
 
@@ -69,9 +69,7 @@ Before installing the `%plugin_name%` plugin in your Ktor application, you need 
 A common approach is to use `AutoConfiguredOpenTelemetrySdk` from the OpenTelemetry SDK, which simplifies setup by
 automatically configuring exporters and resources based on system properties and environment variables.
 
-Here is an example of a reusable function that configures OpenTelemetry with a custom service name and disables
-metrics exporting (useful when the target backend does not support metrics, such as the
-[Jaeger](https://www.jaegertracing.io/) all-in-one image):
+Here is an example of a reusable function that configures OpenTelemetry with a custom service name:
 
 ```kotlin
 ```
@@ -125,7 +123,7 @@ in the specified [module](server-modules.md) and set the [configured `OpenTeleme
 </tabs>
 
 > Ensure that %plugin_name% is installed before any other logging or telemetry-related plugins.
-> 
+>
 {style="note"}
 
 
@@ -202,9 +200,12 @@ To fine-tune tracing behavior across your application, you can also configure ad
 like propagators, attribute limits, and enabling/disabling instrumentation. For more details, see the
 [OpenTelemetry Java configuration guide](https://opentelemetry.io/docs/languages/java/configuration/).
 
-## Verify telemetry data with Jaeger
+## Verify telemetry data with Grafana LGTM
 
-To visualize and verify your telemetry data, you can export traces to a distributed tracing backend, such as Jaeger.
+To visualize and verify your telemetry data, you can export traces, metrics, and logs to a distributed tracing backend,
+such as Grafana. The `grafana/otel-lgtm` all-in-one image bundles [Grafana](https://grafana.com/),
+[Tempo](https://grafana.com/oss/tempo/) (traces), [Loki](https://grafana.com/oss/loki/) (logs), and
+[Mimir](https://grafana.com/oss/mimir/) (metrics).
 
 ### Using Docker Compose
 
@@ -214,7 +215,7 @@ Create a **docker-compose.yml** file with the following content:
 ```
 {src="snippets/opentelemetry/docker/docker-compose.yml"}
 
-To start the Jaeger all-in-one container, run the following command:
+To start the Grafana LGTM all-in-one container, run the following command:
 
 ```shell
 docker-compose up -d
@@ -222,18 +223,51 @@ docker-compose up -d
 
 ### Using Docker CLI
 
-Alternatively, you can run Jaeger directly using the Docker command line:
+Alternatively, you can run Grafana directly using the Docker command line:
 
 ```shell
-docker run -d --name jaeger_instance \
-    -p 4317:4317 \
-    -p 16686:16686 \
-    jaegertracing/all-in-one:latest
+docker run -d --name grafana_lgtm \
+    -p 4317:4317 \   # OTLP gRPC receiver (traces, metrics, logs)
+    -p 4318:4318 \   # OTLP HTTP receiver
+    -p 3000:3000 \   # Grafana UI
+    -e GF_SECURITY_ADMIN_USER=admin \
+    -e GF_SECURITY_ADMIN_PASSWORD=admin \
+    grafana/otel-lgtm:latest
+```
+### Application export configuration
+
+Configure your Ktor application to send telemetry to the OTLP gRPC endpoint (`localhost:4317`). If you use the
+`getOpenTelemetry` helper, set the following system properties before building the SDK:
+
+```kotlin
+System.setProperty("otel.exporter.otlp.endpoint", "http://localhost:4317")
+System.setProperty("otel.traces.exporter", "otlp")
 ```
 
-### Accessing Jaeger UI
+### Accessing Grafana UI
 
-Once running, the Jaeger UI will be available at [](http://localhost:16686/search).
-From here, you can search for traces by your service name (configured in your OpenTelemetry setup) and inspect
-detailed trace information.
+Once running, the Grafana UI will be available at [http://127.0.0.1:3000/](http://127.0.0.1:3000/).
+
+<procedure>
+    <step>
+        Open the Grafana UI at <a href="http://127.0.0.1:3000/">http://127.0.0.1:3000/</a>.
+    </step>
+    <step>
+        Login with the default credentials:
+        <list>
+            <li><ui-path>User:</ui-path><code>admin</code></li>
+            <li><ui-path>Password:</ui-path><code>admin</code></li>
+        </list>
+    </step>
+    <step>
+        In the left-hand navigation menu, go to <ui-path>Drilldown → Traces</ui-path>:
+        <img src="opentelemetry-grafana-ui.png" alt="Grafana UI Drilldown traces view" width="706" corners="rounded"/>
+        Once in the <ui-path>Traces</ui-path> view, you can:
+        <list>
+            <li>Select Rate, Errors, or Duration metrics.</li>
+            <li>Apply span filters (e.g., by service name or span name) to narrow down your data.</li>
+            <li>View traces, inspect details, and interact with span timelines.</li>
+        </list>
+    </step>
+</procedure>
 

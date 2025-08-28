@@ -1,7 +1,11 @@
-# This file is used to start the Jaeger all-in-one container
 services:
-  jaeger:
-    image: jaegertracing/all-in-one:latest
+  grafana-lgtm:
+    image: grafana/otel-lgtm:latest
     ports:
-      - "4317:4317"   # OTLP gRPC receiver
-      - "16686:16686" # Jaeger UI
+      - "4317:4317"   # OTLP gRPC receiver (traces, metrics, logs)
+      - "4318:4318"   # OTLP HTTP receiver
+      - "3000:3000"   # Grafana UI
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    restart: unless-stopped

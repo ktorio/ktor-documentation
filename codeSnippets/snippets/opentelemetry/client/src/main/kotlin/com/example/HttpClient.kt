@@ -1,6 +1,5 @@
 package com.example
 
-import com.example.com.example.com.example.getOpenTelemetry
 import io.ktor.client.*
 import io.ktor.client.engine.cio.CIOEngineConfig
 import io.ktor.http.*

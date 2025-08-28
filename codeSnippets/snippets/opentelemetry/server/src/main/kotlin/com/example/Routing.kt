@@ -1,44 +1,19 @@
 package com.example
 
-import io.ktor.http.*
 import io.ktor.server.application.*
-import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import io.ktor.server.websocket.WebSockets
 import io.ktor.server.websocket.webSocket
 import io.ktor.websocket.Frame
 import io.opentelemetry.api.trace.Span
-import io.opentelemetry.api.trace.SpanKind
-import io.opentelemetry.instrumentation.ktor.v3_0.KtorServerTelemetry
 import kotlinx.coroutines.delay
 
 
-fun Application.configureMonitoring() {
-    val serviceName = "opentelemetry-ktor-sample-server"
-    val openTelemetry = getOpenTelemetry(serviceName)
-    
-    install(KtorServerTelemetry) {
-        setOpenTelemetry(openTelemetry)
-    
-        capturedRequestHeaders(HttpHeaders.UserAgent)
-    
-        spanKindExtractor {
-            if (httpMethod == HttpMethod.Post) {
-                SpanKind.PRODUCER
-            } else {
-                SpanKind.CLIENT
-            }
-        }
-    
-        attributesExtractor {
-            onStart {
-                attributes.put("start-time", System.currentTimeMillis())
-            }
-            onEnd {
-                attributes.put("end-time", System.currentTimeMillis())
-            }
-        }
-    }
+fun Application.configureRouting() {
+    install(WebSockets)
+    val openTelemetry = setupServerTelemetry()
+
     routing {
         get("/") {
             call.respondText("Hello World!")

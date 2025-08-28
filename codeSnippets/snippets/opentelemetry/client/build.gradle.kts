@@ -4,7 +4,7 @@ plugins {
 }
 
 application {
-    mainClass.set("opentelemetry.ktor.example.ClientKt")
+    mainClass.set("com.example.ClientKt")
 }
 
 dependencies {
