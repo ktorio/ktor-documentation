@@ -14,6 +14,8 @@ To verify Docker, use the following command:
 docker --version
 ```
 
+Make sure Docker is running before continuing.
+
 ## Run the server with Grafana (Docker)
 
 1. To see traces in Grafana, use the helper Gradle task:
@@ -25,8 +27,12 @@ docker --version
   - Start the Grafana all-in-one container via docker-compose.
   - Start the Ktor server configured to export spans to OTLP gRPC at `http://localhost:4317`.
 
-2. Access Grafana UI at http://localhost:3000.
-3. In the left-hand navigation menu, go to Drilldown / Traces  to explore traces.
+2. Run the client application to perform requests to the server:
+```shell
+./gradlew :client:run
+```
+3. Access Grafana UI at http://localhost:3000.
+4. In the left-hand navigation menu, go to Drilldown / Traces  to explore traces.
 
 ### Stop Docker services
 

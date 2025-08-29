@@ -74,4 +74,5 @@ install(%plugin_name%) {
 Once you have %plugin_name% installed and configured, you can verify that spans are being created and propagated by
 sending requests to a service that also has telemetry enabled—such as one using
 [`KtorServerTelemetry`](server-opentelemetry.md). Viewing both sides of the trace in an observability backend like
-Jaeger, Zipkin, or Grafana Tempo will confirm that distributed tracing is working end-to-end.
+[Jaeger](https://www.jaegertracing.io/), [Zipkin](https://zipkin.io/), or [Grafana Tempo](https://grafana.com/oss/tempo/)
+will confirm that distributed tracing is working end-to-end.

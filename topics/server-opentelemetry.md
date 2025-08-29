@@ -82,7 +82,7 @@ attribute:
 ### Programmatic configuration
 
 If you need more control, you can configure OpenTelemetry programmatically using
-[OpenTelemetrySdk](https://javadoc.io/doc/io.opentelemetry/opentelemetry-sdk/latest/io/opentelemetry/sdk/OpenTelemetrySdk.html).
+[`OpenTelemetrySdk`](https://javadoc.io/doc/io.opentelemetry/opentelemetry-sdk/latest/io/opentelemetry/sdk/OpenTelemetrySdk.html).
 This approach allows you to define exporters, processors, and propagators in code, instead of relying on
 environment-based configuration.
 
