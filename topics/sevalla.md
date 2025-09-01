@@ -18,9 +18,9 @@ Before starting this tutorial, you need to [create a Sevalla account](https://se
 
 To open a sample application, follow the steps below:
 
-* Clone the Ktor documentation repository and open the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets) project.
-
-* Open the [embedded-server](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/embedded-server) or [engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main) sample, which demonstrates two different approaches to setting up a Ktor server — either by configuring it directly in code or through an external configuration file. The only difference in deploying these projects is how to specify a port used to listen for incoming requests.
+1. Clone the [Ktor documentation repository](https://github.com/ktorio/ktor-documentation).
+2. Open the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets) project.
+3. Open the [embedded-server](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/embedded-server) or [engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main) sample, which demonstrates two different approaches to setting up a Ktor server — either by configuring it directly in code or through an external configuration file. The only difference in deploying these projects is how to specify a port used to listen for incoming requests.
 
 ## Prepare the application {id="prepare-app"}
 
@@ -41,7 +41,7 @@ fun main() {
 
 If you've chosen the [engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main) sample with server configuration specified in the <path>application.conf</path> file, you can assign the environment variable to the port parameter by using the `${ENV}` syntax. Open the <path>application.conf</path> file placed in <path>src/main/resources</path> and update it as shown below:
 
-```
+```hocon
 ktor {
   deployment {
     port = 5000
@@ -80,11 +80,12 @@ rootProject.name = "ktor-app"
 
 ## Deploy the application {id="deploy-app"}
 
-Sevalla builds and deploys your application directly from a connected Git repository. This can be hosted on platforms like GitHub, GitLab, Bitbucket, or any supported Git provider. To deploy successfully, ensure your project is committed and pushed, and includes all necessary files (such as your Dockerfile, `build.gradle.kts`, and source code).
+Sevalla builds and deploys your application directly from a connected Git repository. This can be hosted on platforms like GitHub, GitLab, Bitbucket, or any supported Git provider. To deploy successfully, ensure your project is committed and pushed, and includes all necessary files (such as your Dockerfile, <path>build.gradle.kts</path>, and source code).
 
 To deploy the application, sign in to [Sevalla](https://sevalla.com/) and follow the steps below:
 
-1. Click **New Application**  
+1. Click **Applications -> Create an app**
+  ![Sevalla add app](../images/sevalla-add-app.jpg)
 2. Choose your Git repository and select the appropriate branch (usually `main` or `master`).
 3. Set the **application name**, select a **region**, and choose your **pod size** (you can start with 0.5 CPU / 1GB RAM).
 4. Click **Create**, but skip the deploy step for now  
