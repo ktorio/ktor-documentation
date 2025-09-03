@@ -13,7 +13,7 @@ Unlike `default()`, which always serves the same fallback file, `fallback()` giv
 path and the current `ApplicationCall`. You can use this to redirect, return custom status codes, or serve different
 files dynamically.
 
-To define custom fallback behaviour, use the `fallback()` function within `staticFiles()`, `staticResources()`, or
+To define custom fallback behaviour, use the `fallback()` function within `staticFiles()`, `staticResources()`, `staticZip()`, or
 `staticFileSystem()`:
 
 ```kotlin
