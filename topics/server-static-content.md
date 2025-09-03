@@ -31,7 +31,7 @@ function. In this case, relative paths are resolved using the current working di
  ```kotlin
  ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="10-11,35"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="13-14,46"}
 
 In the example above, any request from `/resources` is mapped to the `files` physical folder in the current working
 directory.
@@ -104,7 +104,7 @@ To use this functionality, define the `preCompressed()` function inside a block 
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="12,14,18"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="15,17,21"}
 
 In this example, for a request made to `/js/script.js`, Ktor can serve `/js/script.js.br` or `/js/script.js.gz`.
 
@@ -126,7 +126,7 @@ corresponding file.
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="12-13,18"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="15-16,21"}
 
 In this example when the client requests a resource that doesn't exist, the `index.html` file will
 be served as a response.
@@ -139,9 +139,9 @@ the `contentType()` function to set the `Content-Type` header explicitly.
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="19,22-27,34"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="22,33-38,45"}
 
-In this example, the response for file `html-file.txt` will have `Content-Type: text/html` header and for every other
+In this example, the response for file `html-file.txt` will have `Content-Type: text/html` header, and for every other
 file default behaviour will be applied.
 
 ### Caching {id="caching"}
@@ -151,7 +151,7 @@ The `cacheControl()` function allows you to configure the `Cache-Control` header
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="9-10,19,28-36,38-40"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="12-13,22,39-44,46-51"}
 
 > For more information on caching in Ktor, see [Caching headers](server-caching-headers.md).
 >
@@ -165,7 +165,7 @@ the server will respond with a `403 Forbidden` status code.
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="19,21,34"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="22,24,45"}
 
 ### File extensions fallbacks {id="extensions"}
 
@@ -178,6 +178,22 @@ When a requested file is not found, Ktor can add the given extensions to the fil
 
 In this example, when `/index` is requested, Ktor will search for `/index.html` and serve the found content.
 
+### Custom fallback
+
+To configure custom fallback behavior when a requested static resource is not found, use the `fallback()` function.
+With `fallback()`, you can inspect the requested path and and decide how to respond. For example, you might redirect to
+another resource, return a specific HTTP status, or serve an alternative file.
+
+You can add `fallback()` inside `staticFiles()`, `staticResources()`, `staticZip()`, or `staticFileSystem()`. The callback provides
+the requested path and the current `ApplicationCall`.
+
+The example below shows how to redirect certain extensions, return a custom status, or fall back to `index.html`:
+
+```kotlin
+```
+
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="22,25-32,45"}
+
 ### Custom modifications {id="modify"}
 
 The `modify()` function allows you to apply custom modification to a resulting response.
@@ -185,7 +201,7 @@ The `modify()` function allows you to apply custom modification to a resulting r
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="12,15-18"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="15,18-21"}
 
 ## Handle errors {id="errors"}
 
