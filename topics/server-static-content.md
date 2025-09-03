@@ -184,7 +184,7 @@ To configure custom fallback behavior when a requested static resource is not fo
 With `fallback()`, you can inspect the requested path and and decide how to respond. For example, you might redirect to
 another resource, return a specific HTTP status, or serve an alternative file.
 
-You can add `fallback()` inside `staticFiles()`, `staticResources()`, or `staticFileSystem()`. The callback provides
+You can add `fallback()` inside `staticFiles()`, `staticResources()`, `staticZip()`, or `staticFileSystem()`. The callback provides
 the requested path and the current `ApplicationCall`.
 
 The example below shows how to redirect certain extensions, return a custom status, or fall back to `index.html`:
