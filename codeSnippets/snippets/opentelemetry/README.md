@@ -8,13 +8,24 @@ and [client-opentelemetry.md](client-opentelemetry.md) topics.
 
 You need to have [Docker](https://docs.docker.com/desktop/) installed to run Grafana and view traces.
 
-To verify Docker, use the following command:
+To verify Docker installation, use the following command:
 
 ```shell
 docker --version
 ```
 
-Make sure Docker is running before continuing.
+To start Docker:
+- **On macOS / Windows**: Make sure Docker Desktop is running.
+- **On Linux**: Start the Docker service with the following command:
+  ```shell
+  sudo systemctl start docker
+  ```
+
+To ensure Docker is running, use the following command:
+
+```shell
+docker ps
+```
 
 ## Run the server with Grafana (Docker)
 
@@ -31,7 +42,7 @@ Make sure Docker is running before continuing.
 ```shell
 ./gradlew :client:run
 ```
-3. Access Grafana UI at http://localhost:3000.
+3. Access Grafana UI at http://localhost:3000/.
 4. In the left-hand navigation menu, go to Drilldown / Traces  to explore traces.
 
 ### Stop Docker services

@@ -23,11 +23,12 @@ to monitoring and observability tools like Grafana or Jaeger.
 </snippet>
 
 The `%plugin_name%` plugin enables distributed tracing of incoming HTTP requests in a Ktor server application. It
-automatically creates spans containing route, HTTP method, and status code information, extracts existing trace context
-from incoming request headers, and allows customization of span names, attributes, and span kinds.
+automatically creates [spans](https://opentelemetry.io/docs/concepts/signals/traces/#spans) containing route, HTTP
+method, and status code information, extracts existing trace context from incoming request headers, and allows
+customizing span names, attributes, and span kinds.
 
-> On the client, OpenTelemetry provides the [KtorClientTelemetry](client-opentelemetry.md) plugin, which instruments
-> outgoing HTTP calls to external services.
+> On the client, OpenTelemetry provides the [KtorClientTelemetry](client-opentelemetry.md) plugin, which collects traces
+> for outgoing HTTP calls to external services.
 
 ## Add dependencies {id="add_dependencies"}
 
@@ -68,7 +69,7 @@ Before installing the `%plugin_name%` plugin in your Ktor application, you need 
 
 A common way to configure OpenTelemetry is to use
 [`AutoConfiguredOpenTelemetrySdk`](https://javadoc.io/doc/io.opentelemetry/opentelemetry-sdk-extension-autoconfigure/latest/io/opentelemetry/sdk/autoconfigure/AutoConfiguredOpenTelemetrySdk.html).
-This approach simplifies setup by automatically configuring exporters and resources based on system properties and
+This simplifies setup by automatically configuring exporters and resources based on system properties and
 environment variables.
 
 You can still customize the automatically detected configuration — for example, to add a `service.name` resource
@@ -81,13 +82,11 @@ attribute:
 
 ### Programmatic configuration
 
-If you need more control, you can configure OpenTelemetry programmatically using
-[`OpenTelemetrySdk`](https://javadoc.io/doc/io.opentelemetry/opentelemetry-sdk/latest/io/opentelemetry/sdk/OpenTelemetrySdk.html).
-This approach allows you to define exporters, processors, and propagators in code, instead of relying on
-environment-based configuration.
+To define exporters, processors, and propagators in code, instead of relying on environment-based configuration, you can
+use [`OpenTelemetrySdk`](https://javadoc.io/doc/io.opentelemetry/opentelemetry-sdk/latest/io/opentelemetry/sdk/OpenTelemetrySdk.html).
 
-The following example shows how to configure OpenTelemetry manually with an OTLP exporter, a span processor, and a trace
-context propagator:
+The following example shows how to configure OpenTelemetry programmatically with an OTLP exporter, a span processor, 
+and a trace context propagator:
 
 ```kotlin
 import io.opentelemetry.api.OpenTelemetry
@@ -224,7 +223,7 @@ install(%plugin_name%) {
 
 ### Add custom attributes {id="config-custom-attributes"}
 
-To attach custom attributes at the start and end of a span, use the `attributesExtractor` property:
+To attach custom attributes at the start or end of a span, use the `attributesExtractor` property:
 
 ```kotlin
 install(%plugin_name%) {
@@ -300,11 +299,11 @@ Or use JVM flags:
 
 ### Accessing Grafana UI
 
-Once running, the Grafana UI will be available at [http://127.0.0.1:3000/](http://127.0.0.1:3000/).
+Once running, the Grafana UI will be available at [http://localhost:3000/](http://localhost:3000/).
 
 <procedure>
     <step>
-        Open the Grafana UI at <a href="http://127.0.0.1:3000/">http://127.0.0.1:3000/</a>.
+        Open the Grafana UI at <a href="http://localhost:3000/">http://localhost:3000/</a>.
     </step>
     <step>
         Login with the default credentials:
