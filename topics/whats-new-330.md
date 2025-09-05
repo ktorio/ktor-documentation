@@ -20,3 +20,12 @@ To define custom fallback behaviour, use the `fallback()` function within `stati
 ```
 
 {src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="22,25-32,45"}
+
+
+## Ktor Client
+
+### Updated OkHttp version
+
+In Ktor 3.3.0, the Ktor client's `OkHttp` engine has been upgraded to use OkHttp 5.1.0 (previously 4.12.0). This major
+version bump may introduce API changes for projects that interact directly with OkHttp. Such projects should verify
+compatibility.
