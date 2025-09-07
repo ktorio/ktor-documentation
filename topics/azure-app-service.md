@@ -23,11 +23,12 @@ Create a sample application as described in [](server-create-a-new-project.topic
 
 Here we'll specify the port number where to listen for requests. In Azure App Service, the environment variable `PORT` contains the port number open for incoming requests. Depending on how you created the app in [configure a Ktor server](server-create-and-configure.topic), you'll need to change your code to read this environment variable in one of two places:
 
-* If you used the example with port configuration **in code**, the `PORT` environment variable can be read with `System.getenv` and then parsed to an integer with `.toInt()`. Open the file `Application.kt` and change the port number to the expression shown below:
+* If you used the example with port configuration **in code**, the `PORT` environment variable can be read with `System.getenv` and then attempt to parse it to an integer with `.toIntOrNull()`. Open the file `Application.kt` and change the port number as shown below:
 
    ```kotlin
    fun runBasicServer() {
-      embeddedServer(Netty, port = System.getenv("PORT").toInt()) {
+      val port = System.getenv("PORT")?.toIntOrNull() ?: 8080
+      embeddedServer(Netty, port = port) {
           // ...
       }.start(wait = true)
    }
@@ -37,8 +38,7 @@ Here we'll specify the port number where to listen for requests. In Azure App Se
    ```
    ktor {
        deployment {
-           port = 8080
-           port = ${?PORT}
+           port = ${PORT:8080}
        }
    }
    ```
@@ -50,7 +50,7 @@ Open the `build.gradle.kts` file and add the following lines to the `plugins` se
 plugins {
     application
     kotlin("jvm")
-    id("io.ktor.plugin") version "3.2.3" // ADDED
+    id("io.ktor.plugin") version "%ktor_version%" // ADDED
     id("com.microsoft.azure.azurewebapp") version "1.10.0" // ADDED
 }
 ```
@@ -171,7 +171,7 @@ This command will upload the JAR file and restart your web app. After a while, y
 ```
 Deployment type: jar. To override deployment type, please specify the --type parameter. Possible values: war, jar, ear, zip, startup, script, static
 Initiating deployment
-Deploying from local path: ./snippets/embedded-server/build/libs/embedded-server-all.jar
+Deploying from local path: ./snippets/embedded-server/build/libs/embedded-server.jar
 Warming up Kudu before deployment.
 Warmed up Kudu instance successfully.
 Polling the status of sync deployment. Start Time: 2025-09-07 00:07:14.729383+00:00 UTC
