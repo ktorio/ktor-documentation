@@ -258,6 +258,7 @@
                 <toc-element topic="docker-compose.topic"/>
             </toc-element>
             <toc-element toc-title="Publishing">
+                <toc-element topic="azure-app-service.md"/>
                 <toc-element topic="google-app-engine.md"
                              accepts-web-file-names="hosting.html"/>
                 <toc-element topic="heroku.md"/>
