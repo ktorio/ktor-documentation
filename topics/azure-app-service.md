@@ -21,7 +21,7 @@ Create a sample application as described in [](server-create-a-new-project.topic
 
 ### Step 1: Set up the port {id="port"}
 
-Here we'll specify the port number where to listen for requests. In Azure App Service, the environment variable `PORT` contains the port number open for incoming requests. Depending on how you created the app in [configure a Ktor server](server-create-and-configure.topic), you'll need to change your code to read this environment variable in one of two places:
+In Azure App Service, the environment variable `PORT` contains the port number open for incoming requests. Depending on how you created the app in [configure a Ktor server](server-create-and-configure.topic), you'll need to change your code to read this environment variable in one of two places:
 
 * If you used the example with port configuration **in code**, the `PORT` environment variable can be read with `System.getenv` and then attempt to parse it to an integer with `.toIntOrNull()`. Open the file `Application.kt` and change the port number as shown below:
 
@@ -71,7 +71,7 @@ If you already created a Java web app in App Service that you want to deploy to,
 
 Otherwise, add the following entries to `build.gradle.kts` at the end of the file so that the Azure Webapp Plugin creates one for you:
 
-```
+```kotlin
  // Rename the fat JAR to the name that the deploy task expects
 ktor {
     fatJar {
@@ -80,7 +80,7 @@ ktor {
 }
 
 // Disable the `jar` task that Azure Plugin would normally run
-// to deploy the archive created by the `farJar` task instead
+// to deploy the archive created by the `fatJar` task instead
 tasks.named("jar") {
     enabled = false
 }
@@ -110,7 +110,7 @@ The configuration of most values in the `azurewebapp` section is self-explanator
 
 ## Build the fat JAR {id="build"}
 
-First, to build the fat JAR, execute the `buildFatJar` task provided by the [Ktor plugin](#plugins) running the command below:
+First, to build the fat JAR, execute the `buildFatJar` task provided by the [Ktor plugin](#plugins):
 
 <tabs group="os">
 <tab title="Linux/macOS" group-key="unix">
@@ -140,7 +140,7 @@ Finally, deploy the application running the `azureWebAppDeploy` task:
 
 This task will take care of the creation of the resource group, plan, web app and finally deploy the fat JAR. When the deployment succeeds, you should see a message like the following:
 
-```
+```text
 > Task: :embedded-server:azureWebAppDeploy
 Auth type: AZURE_CLI
 Username: some.username@example.com
@@ -162,13 +162,13 @@ When the deployment completes, you should be able to see your new web app runnin
 
 If you had an existing Java web app in Azure App Service, deploy the fat JAR created earlier using the following command of the Azure CLI:
 
-```
+```bash
 az webapp deploy -g RESOURCE-GROUP-NAME -n WEBAPP-NAME --src-path ./path/to/embedded-server.jar --restart true
 ```
 
 This command will upload the JAR file and restart your web app. After a while, you should see the result of the deployment:
 
-```
+```text
 Deployment type: jar. To override deployment type, please specify the --type parameter. Possible values: war, jar, ear, zip, startup, script, static
 Initiating deployment
 Deploying from local path: ./snippets/embedded-server/build/libs/embedded-server.jar
