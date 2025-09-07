@@ -9,7 +9,7 @@ This tutorial shows how to build, configure and deploy your Ktor application to 
 ## Prerequisites {id="prerequisites"}
 Before starting this tutorial, you will need the following:
 * An Azure account ([Free trial here](https://azure.microsoft.com/en-us/free/)).
-* The [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) installed in your machine.
+* The [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) installed in your machine.
 
 ## Create a sample application {id="create-sample-app"}
 
@@ -64,6 +64,14 @@ application {
     mainClass.set("com.example.ApplicationKt")
 }
 ```
+If you created the project with the `engine-main` template, the main class will be like the following:
+
+```kotlin
+application {
+    mainClass.set("io.ktor.server.netty.EngineMain")
+}
+```
+
 
 ### Step 3: Configuration {id="configuration"}
 
@@ -83,6 +91,11 @@ ktor {
 // to deploy the archive created by the `fatJar` task instead
 tasks.named("jar") {
     enabled = false
+}
+
+// Ensure the deploy task builds the fat JAR first
+tasks.named("azureWebAppDeploy") {
+    dependsOn("buildFatJar")
 }
 
 // Azure Webapp Plugin configuration
@@ -108,26 +121,13 @@ The configuration of most values in the `azurewebapp` section is self-explanator
 * The values for `pricingTier` (Service Plan) can be found here [for Linux](https://azure.microsoft.com/en-us/pricing/details/app-service/linux/) and [for Windows](https://azure.microsoft.com/en-us/pricing/details/app-service/windows/).
 * The list of values for `region` can be obtained with the following Azure CLI command: `az account list-locations --query "[].name" --output tsv` or search "App Service" in [this page](https://go.microsoft.com/fwlink/?linkid=2300348&clcid=0x409).
 
-## Build the fat JAR {id="build"}
-
-First, to build the fat JAR, execute the `buildFatJar` task provided by the [Ktor plugin](#plugins):
-
-<tabs group="os">
-<tab title="Linux/macOS" group-key="unix">
-<code-block>./gradlew :embedded-server:buildFatJar</code-block>
-</tab>
-<tab title="Windows" group-key="windows">
-<code-block>gradlew.bat :embedded-server:buildFatJar</code-block>
-</tab>
-</tabs>
-
 ## Deploy the application {id="deploy-app"}
 
 ### To a new web app
 
 The authentication method used by the Azure Web App Deploy plugin used in the configuration added earlier will use the Azure CLI. If you haven't done so, log in once with `az login` and follow the instructions.
 
-Finally, deploy the application running the `azureWebAppDeploy` task:
+Finally, deploy the application running the `azureWebAppDeploy` task, which is set to build the fat JAR first and then deploy:
 
 <tabs group="os">
 <tab title="Linux/macOS" group-key="unix">
@@ -160,7 +160,18 @@ When the deployment completes, you should be able to see your new web app runnin
 
 ### To an existing web app
 
-If you had an existing Java web app in Azure App Service, deploy the fat JAR created earlier using the following command of the Azure CLI:
+If you had an existing Java web app in Azure App Service build the fat JAR, executing the `buildFatJar` task provided by the [Ktor plugin](#plugins):
+
+<tabs group="os">
+<tab title="Linux/macOS" group-key="unix">
+<code-block>./gradlew :embedded-server:buildFatJar</code-block>
+</tab>
+<tab title="Windows" group-key="windows">
+<code-block>gradlew.bat :embedded-server:buildFatJar</code-block>
+</tab>
+</tabs>
+
+Then, deploy the fat JAR created earlier using the following command of the Azure CLI:
 
 ```bash
 az webapp deploy -g RESOURCE-GROUP-NAME -n WEBAPP-NAME --src-path ./path/to/embedded-server.jar --restart true
