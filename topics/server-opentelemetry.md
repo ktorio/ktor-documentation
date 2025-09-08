@@ -72,7 +72,7 @@ A common way to configure OpenTelemetry is to use
 This simplifies setup by automatically configuring exporters and resources based on system properties and
 environment variables.
 
-You can still customize the automatically detected configuration — for example, to add a `service.name` resource
+You can still customize the automatically detected configuration — for example, by adding a `service.name` resource
 attribute:
 
 ```kotlin
