@@ -217,6 +217,8 @@
                              accepts-web-file-names="call-id.html"/>
                 <toc-element topic="server-metrics-micrometer.md"
                              accepts-web-file-names="metrics-micrometer.html,micrometer-metrics.html"/>
+                <toc-element topic="server-opentelemetry.md"
+                             toc-title="Distributed tracing with OpenTelemetry"/>
                 <toc-element topic="server-metrics-dropwizard.md"
                              accepts-web-file-names="features-metrics.html,dropwizard-metrics.html"/>
             </toc-element>
@@ -366,6 +368,8 @@
             <toc-element toc-title="Monitoring">
                 <toc-element topic="client-call-id.md"
                              toc-title="Tracing requests"/>
+                <toc-element topic="client-opentelemetry.md"
+                             toc-title="Distributed tracing with OpenTelemetry"/>
             </toc-element>
             <toc-element topic="client-custom-plugins.md"
                          toc-title="Custom plugins"/>
