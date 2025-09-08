@@ -9,7 +9,7 @@ This tutorial shows how to build, configure and deploy your Ktor application to 
 ## Prerequisites {id="prerequisites"}
 Before starting this tutorial, you will need the following:
 * An Azure account ([Free trial here](https://azure.microsoft.com/en-us/free/)).
-* The [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) installed in your machine.
+* The [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) installed on your machine.
 
 ## Create a sample application {id="create-sample-app"}
 
