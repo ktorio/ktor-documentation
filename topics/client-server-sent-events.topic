@@ -81,7 +81,9 @@
         <chapter title="Response buffering" id="response-buffering">
             <p>
                 SSE responses are streaming by nature, which makes capturing the full body impractical. You can enable
-                a diagnostic buffer to safely retrieve the response body when an SSE stream fails.
+                a diagnostic buffer to safely retrieve the response body when an SSE stream fails. The buffer only
+                contains data that has already been processed (no re-reading from the network) and is intended for
+                logging and error analysis in case of failures.
             </p>
             <code-block lang="kotlin">
                 install(SSE) {
@@ -124,11 +126,12 @@
                     <def id="buffer-all">
                         <title><code>All</code></title>
                         Keeps all processed events so far.
+                        <note>Use with caution for long-lived streams.</note>
                     </def>
                 </deflist>
                 <p>
-                    On failure, the buffered snapshot is wrapped into a <code>SavedHttpResponse</code>. This allows safe
-                    logging using <code>response?.bodyAsText()</code> without re-reading from the network.
+                    On failure, you can access the buffer by using <code>response?.bodyAsText()</code> without
+                    re-reading from the network.
                 </p>
             </chapter>
         </chapter>

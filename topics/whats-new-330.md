@@ -47,9 +47,9 @@ client.sse(url, { bufferPolicy(SSEBufferPolicy.All) }) {
 }
 ```
 
-As the SSE stream is consumed, the client maintains a snapshot of the processed data in an in-memory buffer (without 
-re-reading from the network). If an error occurs, this snapshot is used to build a replayable response (`SavedHttpCall`
-/ `SavedHttpResponse`), allowing you to safely call `response?.bodyAsText()` for logging or diagnostics.
+As the SSE stream is consumed, the client maintains a snapshot of the processed data in an in-memory buffer (without
+re-reading from the network). If an error occurs, you can safely call `response?.bodyAsText()` for logging or
+diagnostics.
 
 For more information, see [Response buffering](client-server-sent-events.topic#response-buffering).
 
