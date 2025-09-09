@@ -78,6 +78,60 @@
             <code-block lang="kotlin" src="snippets/client-sse/src/main/kotlin/com.example/Application.kt"
                         include-lines="20-23"/>
         </chapter>
+        <chapter title="Response buffering" id="response-buffering">
+            <p>
+                SSE responses are streaming by nature, which makes capturing the full body impractical. You can enable
+                a diagnostic buffer to safely retrieve the response body when an SSE stream fails.
+            </p>
+            <code-block lang="kotlin">
+                install(SSE) {
+                    bufferPolicy = SSEBufferPolicy.LastEvents(10)
+                }
+            </code-block>
+            <p>
+                You can also configure the buffer per call:
+            </p>
+            <code-block lang="kotlin">
+                client.sse(url, {
+                    bufferPolicy(SSEBufferPolicy.All)
+                }) {
+                    // ...
+                }
+            </code-block>
+            <chapter title="Buffer policies" id="buffer-policies">
+                <p>
+                    The <code>SSEBufferPolicy</code> type provides several strategies for storing processed SSE data.
+                    These policies control how much of the stream is retained in memory and made available in case of
+                    errors.
+                </p>
+                <deflist>
+                    <def id="buffer-off">
+                        <title><code>Off</code> (default)</title>
+                        No buffering.
+                    </def>
+                    <def id="buffer-lastlines">
+                        <title><code>LastLines(n)</code></title>
+                        Keeps the last n lines.
+                    </def>
+                    <def id="buffer-lastevent">
+                        <title><code>LastEvent</code></title>
+                        Keeps the last completed SSE event.
+                    </def>
+                    <def id="buffer-lastevents">
+                        <title><code>LastEvents(n)</code></title>
+                        Keeps the last n completed SSE events.
+                    </def>
+                    <def id="buffer-all">
+                        <title><code>All</code></title>
+                        Keeps all processed events so far.
+                    </def>
+                </deflist>
+                <p>
+                    On failure, the buffered snapshot is wrapped into a <code>SavedHttpResponse</code>. This allows safe
+                    logging using <code>response?.bodyAsText()</code> without re-reading from the network.
+                </p>
+            </chapter>
+        </chapter>
     </chapter>
     <chapter title="Handle SSE sessions" id="handle-sse-sessions">
         <p>
