@@ -29,3 +29,13 @@ To define custom fallback behaviour, use the `fallback()` function within `stati
 In Ktor 3.3.0, the Ktor client's `OkHttp` engine has been upgraded to use OkHttp 5.1.0 (previously 4.12.0). This major
 version bump may introduce API changes for projects that interact directly with OkHttp. Such projects should verify
 compatibility.
+
+## Shared
+
+### Updated Jetty version
+
+The Jetty server and client engines have been upgraded to use Jetty 12. For most applications, this upgrade is fully
+backward-compatible, but client and server code now leverage the updated Jetty APIs internally.
+
+If your project uses Jetty APIs directly, be aware that there are breaking changes. For more details, refer to
+[the official Jetty migration guide](https://jetty.org/docs/jetty/12.1/programming-guide/migration/11-to-12.html).
