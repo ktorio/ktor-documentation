@@ -40,7 +40,58 @@
             </p>
         </li>
     </list>
+    <chapter title="Limitations" id="limitations">
+        Auto-reload works only for specific module declarations. The following table shows support across versions:
+        <table>
+            <tr>
+                <td>Module type</td>
+                <td>&lt;= 3.2</td>
+                <td>&gt; 3.2</td>
+            </tr>
+            <tr>
+                <td>Lambda initializer</td>
+                <td>❌ Not supported</td>
+                <td>❌ Not supported</td>
+            </tr>
+            <tr>
+                <td>Blocking function reference</td>
+                <td>❌ Not supported</td>
+                <td>✅ Supported</td>
+            </tr>
+            <tr>
+                <td>Suspend function reference</td>
+                <td>✅ Supported</td>
+                <td>❌ Not supported</td>
+            </tr>
+            <tr>
+                <td>Config reference</td>
+                <td>✅ Supported</td>
+                <td>✅ Supported</td>
+            </tr>
+        </table>
+        <chapter title="Supported" id="supported">
+            <code-block lang="kotlin">
+                // Suspend function reference
+                embeddedServer(Netty, port = 8080, module = Application::mySuspendModule)
 
+                // Configuration reference
+                ktor {
+                    application {
+                        modules = [ com.example.ApplicationKt.mySuspendModule ]
+                    }
+                }
+            </code-block>
+        </chapter>
+        <chapter title="Not supported" id="not-supported">
+            <code-block lang="kotlin">
+                // Lambda
+                embeddedServer(Netty, port = 8080) { configureServer() }
+
+                // Blocking function reference
+                embeddedServer(Netty, port = 8080, module = Application::myBlockingModule)
+            </code-block>
+        </chapter>
+    </chapter>
     <chapter title="Enable the development mode" id="enable">
         <p>
             To use Auto-reload, you need to enable the
@@ -57,7 +108,7 @@
             <li>
                 <p>
                     If you run a server using <code>embeddedServer</code>, you can use the
-                    <a href="server-development-mode.topic" anchor="system-property">io.ktor.development</a>
+                    <a href="server-development-mode.topic" anchor="system-property"><code>io.ktor.development</code></a>
                     system property.
                 </p>
             </li>
@@ -68,7 +119,6 @@
             <a anchor="watch-paths">watch paths</a>.
         </p>
     </chapter>
-
 
     <chapter title="Configure watch paths" id="watch-paths">
         <p>
