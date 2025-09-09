@@ -85,6 +85,75 @@ compatibility.
 
 ## Shared
 
+### OpenAPI specification generation
+<secondary-label ref="experimental"/>
+
+Ktor 3.3.0 introduces an experimental OpenAPI generation feature via the Gradle plugin and a compiler plugin. This
+allows you to generate OpenAPI specifications directly from your application code at build time.
+
+It provides the following capabilities:
+- Analyze Ktor route definitions and merge nested routes, local extensions, and resource paths.
+- Parse preceding KDoc annotations to supply OpenAPI metadata, including:
+    - Path, query, header, cookie, and body parameters
+    - Response codes and types
+    - Security, descriptions, deprecations, and external documentation links
+- Infer request and response bodies from `call.receive()` and `call.respond()`.
+
+#### Annotating routes
+
+KDoc tags are used to describe endpoints:
+
+```kotlin
+/**
+ * Get a single user.
+ *
+ * @path id The ID of the user
+ * @response 404 The user was not found
+ * @response 200 [User] The user.
+ */
+get("/api/users/{id}") {
+    val user = repository.get(call.parameters["id"]!!)
+        ?: return@get call.respond(HttpStatusCode.NotFound)
+    call.respond(user)
+}
+
+```
+Supported KDoc tags include `@path`, `@query`, `@header`, `@cookie`, `@body`, `@response`, `@deprecated`,
+` @description`, `@security`, `@externalDocs`, and `@ignore`.
+
+#### Configuring the Gradle plugin
+
+```kotlin
+import io.ktor.plugin.*
+
+plugins {
+    alias(libs.plugins.ktor)
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.kotlinx.serialization)
+}
+
+application.mainClass = "io.ktor.samples.openapi.ApplicationKt"
+
+ktor {
+    @OptIn(OpenApiPreview::class)
+    openApi {
+        title = "OpenAPI example"
+        version = "2.1"
+        summary = "This is a sample API"
+    }
+}
+```
+
+#### Generating the OpenAPI specification
+
+To generate the OpenAPI specification file (for example, at
+<path>openapi/generated.json</path>
+) from your Ktor routes and KDoc annotations, use the following command:
+
+```shell
+./gradlew buildOpenApi
+```
+
 ### Updated Jetty version
 
 The Jetty server and client engines have been upgraded to use Jetty 12. For most applications, this upgrade is fully
