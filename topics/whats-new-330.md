@@ -21,6 +21,30 @@ To define custom fallback behaviour, use the `fallback()` function within `stati
 
 {src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="22,25-32,45"}
 
+### Development mode auto-reload limitations
+
+In Ktor 3.2.0, the introduced [support for suspend module functions](whats-new-320.md#suspendable-module-functions)
+caused a regression where auto-reload stopped working for applications that use blocking module references.
+
+This regression remains in 3.3.0 and auto-reload continues to work only with `suspend` function modules and
+configuration references.
+
+Examples of supported module declarations:
+
+```kotlin
+// Supported — suspend function reference
+embeddedServer(Netty, port = 8080, module = Application::mySuspendModule)
+
+// Supported — configuration reference (application.conf / application.yaml)
+ktor {
+    application {
+        modules = [ com.example.ApplicationKt.mySuspendModule ]
+    }
+}
+```
+
+We plan to restore support for blocking function references in a future release. Until then, prefer a `suspend` module
+or configuration reference in `development` mode.
 
 ## Ktor Client
 
