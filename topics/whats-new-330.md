@@ -24,6 +24,35 @@ To define custom fallback behaviour, use the `fallback()` function within `stati
 
 ## Ktor Client
 
+### SSE response body buffer
+
+Until now, attempting to call `response.bodyAsText()` after an SSE error failed due to double-consume issues.
+
+Ktor 3.3.0 introduces a configurable diagnostic buffer that allows you to capture already-processed SSE data for
+debugging and error handling.
+
+You can configure the buffer globally when installing the [SSE plugin](client-server-sent-events.topic):
+
+```kotlin
+install(SSE) {
+    bufferPolicy = SSEBufferPolicy.LastEvents(10)
+}
+```
+
+Or per call:
+
+```kotlin
+client.sse(url, { bufferPolicy(SSEBufferPolicy.All) }) {
+    // …
+}
+```
+
+As the SSE stream is consumed, the client maintains a snapshot of the processed data in an in-memory buffer (without
+re-reading from the network). If an error occurs, you can safely call `response?.bodyAsText()` for logging or
+diagnostics.
+
+For more information, see [Response buffering](client-server-sent-events.topic#response-buffering).
+
 ### Updated OkHttp version
 
 In Ktor 3.3.0, the Ktor client's `OkHttp` engine has been upgraded to use OkHttp 5.1.0 (previously 4.12.0). This major
