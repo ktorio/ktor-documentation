@@ -125,7 +125,7 @@ To use coroutines in [Android code](#android-activity), you need to add `kotlinx
 ```kotlin
 ```
 
-{src="snippets/tutorial-client-kmm/androidApp/build.gradle.kts" include-lines="41,47,49"}
+{src="snippets/tutorial-client-kmm/androidApp/build.gradle.kts" include-lines="39,45,47"}
 
 Click **Sync Now** in the top right corner of the `gradle.properties` file to install the added dependencies.
 
