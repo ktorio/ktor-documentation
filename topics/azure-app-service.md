@@ -64,7 +64,7 @@ application {
     mainClass.set("com.example.ApplicationKt")
 }
 ```
-If you created the project with the `engine-main` template, the main class will be like the following:
+If you created the project with the `engine-main` template, the main class will look like the following:
 
 ```kotlin
 application {
