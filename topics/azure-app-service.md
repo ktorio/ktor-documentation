@@ -116,7 +116,7 @@ azurewebapp {
 }
 ```
 
-The configuration of most values in the `azurewebapp` section is self-explanatory. For more details see [this document](https://github.com/microsoft/azure-gradle-plugins/wiki/Webapp-Configuration).
+For detailed descriptions of the available configuration properties, see [the Webapp Configuration documentation](https://github.com/microsoft/azure-gradle-plugins/wiki/Webapp-Configuration).
 
 * The values for `pricingTier` (Service Plan) can be found here [for Linux](https://azure.microsoft.com/en-us/pricing/details/app-service/linux/) and [for Windows](https://azure.microsoft.com/en-us/pricing/details/app-service/windows/).
 * The list of values for `region` can be obtained with the following Azure CLI command: `az account list-locations --query "[].name" --output tsv` or search "App Service" in [this page](https://go.microsoft.com/fwlink/?linkid=2300348&clcid=0x409).
