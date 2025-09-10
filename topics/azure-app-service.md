@@ -2,9 +2,9 @@
 
 <show-structure for="chapter" depth="2"/>
 
-<link-summary>This tutorial shows how to build, configure and deploy your Ktor application to Azure App Service.</link-summary>
+<link-summary>This tutorial shows how to build, configure and deploy your Ktor application to [Azure App Service](https://azure.microsoft.com/products/app-service/).</link-summary>
 
-This tutorial shows how to build, configure and deploy your Ktor application to Azure App Service.
+This tutorial shows how to build, configure and deploy your Ktor application to [Azure App Service](https://azure.microsoft.com/products/app-service/).
 
 ## Prerequisites {id="prerequisites"}
 Before starting this tutorial, you will need the following:
