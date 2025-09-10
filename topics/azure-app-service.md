@@ -23,7 +23,7 @@ Create a sample application as described in [](server-create-a-new-project.topic
 
 In Azure App Service, the environment variable `PORT` contains the port number open for incoming requests. Depending on how you created the app in [configure a Ktor server](server-create-and-configure.topic), you'll need to update your code to read this environment variable in one of two places:
 
-* If you used the example with port configuration **in code**, the `PORT` environment variable can be read with `System.getenv` and then attempt to parse it to an integer with `.toIntOrNull()`. Open the file `Application.kt` and change the port number as shown below:
+* If you used the example with port configuration **in code**, the `PORT` environment variable can be read with `System.getenv()` and parsed to an integer with `.toIntOrNull()`. Open the file `Application.kt` and change the port number as shown below:
 
    ```kotlin
    fun runBasicServer() {
