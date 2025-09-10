@@ -156,7 +156,7 @@ Deploying (C:\docs\ktor-documentation\codeSnippets\snippets\embedded-server\buil
 Application url: https://your-webapp-name.azurewebsites.net
 ```
 
-When the deployment completes, you should be able to see your new web app running in the location shown above.
+When the deployment completes, you should be able to see your new web app running at the URL shown above.
 
 ### To an existing web app
 
