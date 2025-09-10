@@ -127,7 +127,7 @@ For detailed descriptions of the available configuration properties, see [the We
 
 The authentication method used by the Azure Web App Deploy plugin uses the Azure CLI. If you haven't already, log in once with `az login` and follow the instructions.
 
-Finally, deploy the application running the `azureWebAppDeploy` task, which is set to build the fat JAR first and then deploy:
+Finally, deploy the application by running the `azureWebAppDeploy` task, which is set to build the fat JAR first and then deploy:
 
 <tabs group="os">
 <tab title="Linux/macOS" group-key="unix">
