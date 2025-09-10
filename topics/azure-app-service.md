@@ -160,7 +160,7 @@ When the deployment completes, you should be able to see your new web app runnin
 
 ### To an existing web app
 
-If you had an existing Java web app in Azure App Service build the fat JAR, executing the `buildFatJar` task provided by the [Ktor plugin](#plugins):
+If you already have an existing Java web app in Azure App Service, first build the fat JAR by executing the `buildFatJar` task provided by the [Ktor plugin](#plugins):
 
 <tabs group="os">
 <tab title="Linux/macOS" group-key="unix">
