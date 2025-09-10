@@ -125,7 +125,7 @@ For detailed descriptions of the available configuration properties, see [the We
 
 ### To a new web app
 
-The authentication method used by the Azure Web App Deploy plugin used in the configuration added earlier will use the Azure CLI. If you haven't done so, log in once with `az login` and follow the instructions.
+The authentication method used by the Azure Web App Deploy plugin uses the Azure CLI. If you haven't already, log in once with `az login` and follow the instructions.
 
 Finally, deploy the application running the `azureWebAppDeploy` task, which is set to build the fat JAR first and then deploy:
 
