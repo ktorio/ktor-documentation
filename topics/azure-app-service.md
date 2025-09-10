@@ -138,7 +138,7 @@ Finally, deploy the application by running the `azureWebAppDeploy` task, which i
 </tab>
 </tabs>
 
-This task will take care of the creation of the resource group, plan, web app and finally deploy the fat JAR. When the deployment succeeds, you should see a message like the following:
+This task will create the resource group, plan, and web app, and then deploy the fat JAR. When the deployment succeeds, you should see output like the following:
 
 ```text
 > Task: :embedded-server:azureWebAppDeploy
