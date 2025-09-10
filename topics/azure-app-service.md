@@ -13,7 +13,7 @@ Before starting this tutorial, you will need the following:
 
 ## Create a sample application {id="create-sample-app"}
 
-Create a sample application as described in [](server-create-a-new-project.topic). This example will show code and commands based on the following projects: [embedded-server](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/embedded-server) and [engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main).
+Create a sample application as described in [](server-create-a-new-project.topic). This example shows code and commands based on the following projects: [embedded-server](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/embedded-server) and [engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main).
 
 > The tutorial above offers two options related to the configuration: either as values directly in the code or by using a configuration file. In either case, the relevant configuration is the port used to listen for incoming requests.
 
