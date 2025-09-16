@@ -48,10 +48,31 @@ ktor {
 }
 ```
 
+## Routing API introspection
+
+The plugin can analyze your server routing DSL to infer basic path information, such as:
+
+- The merged path (`/api/v1/users/{id}`).
+- Path parameters.
+- HTTP methods (such as `GET` and `POST`).
+
+```kotlin
+routing {
+    route("/api/v1") {
+        get("/users") { }
+        get("/users/{id}") { }
+        post("/users") { }
+    }
+}
+```
+
+Because request parameters and responses are handled inside route lambdas, the plugin cannot infer detailed
+request/response schemas automatically. To generate a complete and useful specification, you can use annotations.
+
 ## Annotate routes
 
-The plugin can infer the structure of your API, but to generate a complete and useful specification, you should annotate
-routes with KDoc tags. These annotations provide details such as parameters, responses, and descriptions:
+To enrich the specification, Ktor uses a KDoc-like annotation API. Annotations provide metadata that cannot be inferred
+from code and integrate seamlessly with existing routes.
 
 ```kotlin
 /**
@@ -68,8 +89,22 @@ get("/api/users/{id}") {
 }
 
 ```
-Supported KDoc tags include `@path`, `@query`, `@header`, `@cookie`, `@body`, `@response`, `@deprecated`,
-` @description`, `@security`, `@externalDocs`, and `@ignore`.
+
+### Supported KDoc fields
+
+| Tag             | Format                                          | Description                                     |
+|-----------------|-------------------------------------------------|-------------------------------------------------|
+| `@tags`         | `@tags *name`                                   | Associates the endpoint with a tag for grouping |
+| `@path`         | `@path [Type] name description`                 | Describes a path parameter                      |
+| `@query`        | `@query [Type] name description`                | Query parameter                                 |
+| `@header`       | `@header [Type] name description`               | Header parameter                                |
+| `@cookie`       | `@cookie [Type] name description`               | Cookie parameter                                |
+| `@body`         | `@body contentType [Type] description`          | Request body                                    |
+| `@response`     | `@response code contentType [Type] description` | Response with optional type                     |
+| `@deprecated`   | `@deprecated reason`                            | Marks endpoint deprecated                       |
+| `@description`  | `@description text`                             | Extended description                            |
+| `@security`     | `@security scheme`                              | Security requirements                           |
+| `@externalDocs` | `@external href`                                | External documentation links                    |
 
 
 ## Generate the specification
