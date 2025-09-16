@@ -83,7 +83,7 @@ In Ktor 3.3.0, the Ktor client's `OkHttp` engine has been upgraded to use OkHttp
 version bump may introduce API changes for projects that interact directly with OkHttp. Such projects should verify
 compatibility.
 
-## Shared
+## Gradle plugin
 
 ### OpenAPI specification generation
 <secondary-label ref="experimental"/>
@@ -99,60 +99,31 @@ It provides the following capabilities:
     - Security, descriptions, deprecations, and external documentation links
 - Infer request and response bodies from `call.receive()` and `call.respond()`.
 
-#### Annotating routes
 
-KDoc tags are used to describe endpoints:
+<include from="openapi-spec-generation.md" element-id="configure-the-extension"></include>
 
-```kotlin
-/**
- * Get a single user.
- *
- * @path id The ID of the user
- * @response 404 The user was not found
- * @response 200 [User] The user.
- */
-get("/api/users/{id}") {
-    val user = repository.get(call.parameters["id"]!!)
-        ?: return@get call.respond(HttpStatusCode.NotFound)
-    call.respond(user)
-}
+#### Generate the OpenAPI specification
 
-```
-Supported KDoc tags include `@path`, `@query`, `@header`, `@cookie`, `@body`, `@response`, `@deprecated`,
-` @description`, `@security`, `@externalDocs`, and `@ignore`.
-
-#### Configuring the Gradle plugin
-
-```kotlin
-import io.ktor.plugin.*
-
-plugins {
-    alias(libs.plugins.ktor)
-    alias(libs.plugins.kotlin.jvm)
-    alias(libs.plugins.kotlinx.serialization)
-}
-
-application.mainClass = "io.ktor.samples.openapi.ApplicationKt"
-
-ktor {
-    @OptIn(OpenApiPreview::class)
-    openApi {
-        title = "OpenAPI example"
-        version = "2.1"
-        summary = "This is a sample API"
-    }
-}
-```
-
-#### Generating the OpenAPI specification
-
-To generate the OpenAPI specification file (for example, at
-<path>openapi/generated.json</path>
-) from your Ktor routes and KDoc annotations, use the following command:
+To generate the OpenAPI specification file from your Ktor routes and KDoc annotations, use the following command:
 
 ```shell
 ./gradlew buildOpenApi
 ```
+
+#### Serve the specification
+
+To make the generated specification available at runtime, you can then use the [OpenAPI](server-openapi.md)
+or [SwaggerUI](server-swagger-ui.md) plugins.
+
+The following example serves the generated specification file at an OpenAPI endpoint:
+
+```kotlin
+routing {
+    openAPI("/docs", swaggerFile = "openapi/generated.json")
+}
+```
+
+## Shared
 
 ### Updated Jetty version
 
