@@ -123,6 +123,8 @@ routing {
 }
 ```
 
+For more details about this feature, see [OpenAPI specification generation](openapi-spec-generation.md).
+
 ## Shared
 
 ### Updated Jetty version
