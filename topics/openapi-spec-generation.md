@@ -8,7 +8,7 @@ Ktor provides experimental support for generating OpenAPI specifications directl
 This functionality is available via the Ktor Gradle plugin and can be combined with the [OpenAPI](server-openapi.md)
 and [SwaggerUI](server-swagger-ui.md) plugins to serve interactive API documentation.
 
-> The OpenAPI Gradle extension requires Kotlin 2.2.20. Using earlier versions may result in compilation
+> The OpenAPI Gradle extension requires Kotlin 2.2.20. Using other versions may result in compilation
 > errors.
 >
 {style="note"}
