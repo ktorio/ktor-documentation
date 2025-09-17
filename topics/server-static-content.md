@@ -19,8 +19,8 @@ stylesheets, scripts, or images.
 While it is certainly possible with Ktor to load the contents of a file and [send it in a response](server-responses.md)
 to a client, Ktor simplifies this process by providing additional functions for serving static content.
 
-With Ktor, you can serve content from [folders](#folders),[ZIP files](#zipped)
-, and [embedded application resources](#resources).
+With Ktor, you can serve content from [folders](#folders), [ZIP files](#zipped),
+and [embedded application resources](#resources).
 
 ## Folders {id="folders"}
 
@@ -31,7 +31,7 @@ function. In this case, relative paths are resolved using the current working di
  ```kotlin
  ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="13-14,46"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="15-16,57"}
 
 In the example above, any request from `/resources` is mapped to the `files` physical folder in the current working
 directory.
@@ -57,7 +57,7 @@ In this example, any request from the root URL `/` is mapped directly to the con
 
 The `staticZip()` function also supports automatic reloading. If any changes are detected in the ZIP file's parent
 directory, the ZIP file system is reloaded on the next request. This ensures that the served content remains
-up-to-date without requiring a server restart.
+up to date without requiring a server restart.
 
 For the full example,
 see [static-zip](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/static-zip).
@@ -74,7 +74,7 @@ function.
 {src="snippets/static-resources/src/main/kotlin/com/example/Application.kt" include-lines="8,9,17"}
 
 This maps any request from `/resources` to the `static` package in application resources.
-In this case, Ktor recursively serves up any file from the `static` package as long as a URL path and a path to resource
+In this case, Ktor recursively serves up any file from the `static` package as long as a URL path and a path-to-resource
 match.
 
 For the full example,
@@ -104,7 +104,7 @@ To use this functionality, define the `preCompressed()` function inside a block 
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="15,17,21"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="17,19,23"}
 
 In this example, for a request made to `/js/script.js`, Ktor can serve `/js/script.js.br` or `/js/script.js.gz`.
 
@@ -120,29 +120,29 @@ static route that has a `GET` defined.
 
 ### Default file response {id="default-file"}
 
-The `default()` function provides the ability to reply with a file for any request inside static route that has no
+The `default()` function provides the ability to reply with a file for any request inside a static route that has no
 corresponding file.
 
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="15-16,21"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="17-18,23"}
 
 In this example when the client requests a resource that doesn't exist, the `index.html` file will
 be served as a response.
 
 ### Content type {id="content-type"}
 
-By default, Ktor tries to guess value of the `Content-Type` header from the file extension. You can use
+By default, Ktor tries to guess the value of the `Content-Type` header from the file extension. You can use
 the `contentType()` function to set the `Content-Type` header explicitly.
 
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="22,33-38,45"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="24,35-40,47"}
 
-In this example, the response for file `html-file.txt` will have `Content-Type: text/html` header, and for every other
-file default behaviour will be applied.
+In this example, the response for the file `html-file.txt` will have the `Content-Type: text/html` header, and for every
+other file the default behavior will be applied.
 
 ### Caching {id="caching"}
 
@@ -151,7 +151,27 @@ The `cacheControl()` function allows you to configure the `Cache-Control` header
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="12-13,22,39-44,46-51"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="14-15,24,41-47,57-58,60-62"}
+
+When both the [`CachingHeaders`](server-caching-headers.md) and [`ConditionalHeaders`](server-conditional-headers.md)
+plugins are installed, Ktor can serve static resources with automatic caching headers, including `etag` and `lastModified`:
+
+```kotlin
+```
+
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="49-52"}
+
+In this example, `etag` and `lastModified` values are calculated dynamically based on each resource and applied to the response.
+
+To simplify ETag generation, you can also use a predefined ETag provider:
+
+```kotlin
+```
+
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="54-56"}
+
+In this example, a strong `etag` is generated using the SHA‑256 hash of the resource content.
+If an I/O error occurs, no ETag is generated.
 
 > For more information on caching in Ktor, see [Caching headers](server-caching-headers.md).
 >
@@ -165,7 +185,7 @@ the server will respond with a `403 Forbidden` status code.
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="22,24,45"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="24,26,47"}
 
 ### File extensions fallbacks {id="extensions"}
 
@@ -181,7 +201,7 @@ In this example, when `/index` is requested, Ktor will search for `/index.html` 
 ### Custom fallback
 
 To configure custom fallback behavior when a requested static resource is not found, use the `fallback()` function.
-With `fallback()`, you can inspect the requested path and and decide how to respond. For example, you might redirect to
+With `fallback()`, you can inspect the requested path and decide how to respond. For example, you might redirect to
 another resource, return a specific HTTP status, or serve an alternative file.
 
 You can add `fallback()` inside `staticFiles()`, `staticResources()`, `staticZip()`, or `staticFileSystem()`. The callback provides
@@ -192,7 +212,7 @@ The example below shows how to redirect certain extensions, return a custom stat
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="22,25-32,45"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="24,27-34,47"}
 
 ### Custom modifications {id="modify"}
 
@@ -201,7 +221,7 @@ The `modify()` function allows you to apply custom modification to a resulting r
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="15,18-21"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="17,20-23"}
 
 ## Handle errors {id="errors"}
 
