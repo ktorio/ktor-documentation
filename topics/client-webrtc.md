@@ -32,18 +32,19 @@ build features such as:
 
 ## Add dependencies {id="add-dependencies"}
 
-To use `WebRTClient`, you need to include the `%artifact_name%` artifact in the build script:
+To use `WebRtclient`, you need to include the `%artifact_name%` artifact in the build script:
 
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 ## Create a client
 
-When creating a `WebRtcClient`, you need to choose an engine depending on your platform:
+When creating a `WebRtcClient`, choose an engine based on your target platform:
 
-- JS/Wasm: `JsWebRtc` (uses browser `RTCPeerConnection` and media devices)
-- Android: `AndroidWebRtc` (uses `PeerConnectionFactory` and Android media APIs)
+- JS/Wasm: `JsWebRtc` – uses browser `RTCPeerConnection` and media devices.
+- Android: `AndroidWebRtc` – uses `PeerConnectionFactory` and Android media APIs.
 
-You can then add platform-specific configuration similar to `HttpClient`:
+You can then provide platform-specific configuration similar to `HttpClient`. STUN/TURN servers are required for
+[ICE](#ice) to work correctly. You can use existing solutions such as [coturn](https://github.com/coturn/coturn):
 
 <tabs group="platform" id="create-webrtc-client">
 <tab title="JS/Wasm" group-key="js-wasm">
@@ -104,10 +105,11 @@ caller.setRemoteDescription(
 )
 ```
 
-## Exchange ICE candidates
+## Exchange ICE candidates {id="ice"}
 
-Once SDP negotiation is complete, peers still need to discover how to connect across networks. Interactive Connectivity
-Establishment (ICE) allows peers to find network paths to each other.
+Once SDP negotiation is complete, peers still need to discover how to connect across networks. [Interactive Connectivity
+Establishment (ICE)](https://en.wikipedia.org/wiki/Interactive_Connectivity_Establishment) allows peers to find network
+paths to each other.
 
 - Each peer gathers its own ICE candidates.
 - These candidates must be sent to the other peer through your chosen signaling channel.
@@ -210,4 +212,13 @@ scope.launch {
 
 ## Limitations
 
-Ktor does not bundle signaling. You must implement your own mechanism (e.g., WebSocket or HTTP).
+The WebRTC client is experimental and has the following limitations:
+
+- Signaling is not included. You need to implement your own signaling (for example, with WebSockets or HTTP).
+- Supported platforms are JavaScript/Wasm and Android. iOS, JVM desktop, and Kotlin/Native support are planned in future
+  releases.
+- Permissions must be handled by your application. Browsers prompt users for microphone and camera access, while
+  Android requires runtime permission requests.
+- Only basic audio and video tracks are supported. Screen sharing, device selection, simulcast, and advanced RTP
+  features are not yet available.
+- Connection statistics are available but differ across platforms and do not follow a unified schema.
