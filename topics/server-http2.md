@@ -49,9 +49,6 @@ The next step is configuring Ktor to use your keystore. See the example `applica
 </tab>
 </tabs>
 
-
-
-
 ## ALPN implementation {id="apln_implementation"}
 
 HTTP/2 requires ALPN ([Application-Layer Protocol Negotiation](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation)) to be enabled. The first option is to use an external ALPN implementation that needs to be added to the boot classpath.
@@ -78,3 +75,17 @@ The example below shows how to add a native implementation (statically linked Bo
 
 `tc.native.classifier` should be one of the following: `linux-x86_64`, `osx-x86_64`, or `windows-x86_64`. 
 The [http2-netty](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/http2-netty) runnable example demonstrates how to enable HTTP/2 support for Netty.
+
+#### HTTP/2 without TLS
+
+The Netty engine also supports [HTTP/2 over cleartext (h2c)](https://httpwg.org/specs/rfc7540.html#discover-http).
+This allows HTTP/2 communication without TLS, typically within private networks where encryption is not required. 
+Clients can initiate communication with an HTTP/1.1 request and then upgrade to HTTP/2.
+
+To enable h2c, set the `enableH2c` flag to `true` in the engine configuration:
+
+```kotlin
+```
+{src="snippets/http2-netty/src/main/kotlin/com/example/Application.kt" include-lines="9-12"}
+
+Note that h2c requires `enableHttp2 = true` and cannot be used if an SSL connector is configured on the server.

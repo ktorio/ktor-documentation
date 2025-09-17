@@ -46,6 +46,15 @@ ktor {
 We plan to restore support for blocking function references in a future release. Until then, prefer a `suspend` module
 or configuration reference in `development` mode.
 
+### HTTP/2 cleartext (h2c) support
+
+Ktor 3.3.0 introduces support for HTTP/2 over cleartext (h2c) for the Netty engine,
+which allows HTTP/2 communication without TLS encryption. 
+This setup is typically used in trusted environments, such as local testing or private networks.
+
+To enable h2c, set the `enableH2c` flag to true in the engine configuration.
+For more information, see [HTTP/2 without TLS](server-http2.md#http-2-without-tls).
+
 ## Ktor Client
 
 ### SSE response body buffer
