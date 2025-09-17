@@ -77,6 +77,49 @@ diagnostics.
 
 For more information, see [Response buffering](client-server-sent-events.topic#response-buffering).
 
+### WebRTC client
+
+This release introduces experimental WebRTC client support for peer-to-peer real-time communication in multiplatform
+projects.
+
+WebRTC enables applications such as video calls, multiplayer gaming, and collaborative tools. With this release, you
+can now use a unified Kotlin API to establish peer connections and exchange data channels across JavaScript/Wasm and
+Android targets. Additional targets such as iOS, JVM desktop, and Native are planned for future releases.
+
+You can create a `WebRtcClient` by selecting an engine for your platform and providing configuration, similar to
+`HttpClient`:
+
+<include from="client-webrtc.md" element-id="create-webrtc-client"/>
+
+Once created, the client can establish peer-to-peer connections using Interactive Connectivity Establishment (ICE).
+After negotiation completes, peers can open data channels and exchange messages.
+
+```kotlin
+val connection = client.createPeerConnection()
+
+// Add a remote ICE candidate (received via your signaling channel)
+connection.addIceCandidate(WebRtc.IceCandidate(candidateString, sdpMid, sdpMLineIndex))
+
+// Wait until all local candidates are gathered
+connection.awaitIceGatheringComplete()
+
+// Listen for incoming data channel events
+connection.dataChannelEvents.collect { event ->
+   when (event) {
+     is Open -> println("Another peer opened a chanel: ${event.channel}")
+     is Closed -> println("Data channel is closed")
+     is Closing, is BufferedAmountLow, is Error -> println(event)
+   }
+}
+
+// Create a channel and send/receive messages
+val channel = connection.createDataChannel("chat")
+channel.send("hello")
+val answer = channel.receiveText()
+```
+
+For more details on usage and limitations, see the [WebRTC client](client-webrtc.md) documentation.
+
 ### Updated OkHttp version
 
 In Ktor 3.3.0, the Ktor client's `OkHttp` engine has been upgraded to use OkHttp 5.1.0 (previously 4.12.0). This major
