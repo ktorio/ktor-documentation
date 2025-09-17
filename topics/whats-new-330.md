@@ -83,6 +83,48 @@ In Ktor 3.3.0, the Ktor client's `OkHttp` engine has been upgraded to use OkHttp
 version bump may introduce API changes for projects that interact directly with OkHttp. Such projects should verify
 compatibility.
 
+## Gradle plugin
+
+### OpenAPI specification generation
+<secondary-label ref="experimental"/>
+
+Ktor 3.3.0 introduces an experimental OpenAPI generation feature via the Gradle plugin and a compiler plugin. This
+allows you to generate OpenAPI specifications directly from your application code at build time.
+
+It provides the following capabilities:
+- Analyze Ktor route definitions and merge nested routes, local extensions, and resource paths.
+- Parse preceding KDoc annotations to supply OpenAPI metadata, including:
+    - Path, query, header, cookie, and body parameters
+    - Response codes and types
+    - Security, descriptions, deprecations, and external documentation links
+- Infer request and response bodies from `call.receive()` and `call.respond()`.
+
+
+<include from="openapi-spec-generation.md" element-id="configure-the-extension"></include>
+
+#### Generate the OpenAPI specification
+
+To generate the OpenAPI specification file from your Ktor routes and KDoc annotations, use the following command:
+
+```shell
+./gradlew buildOpenApi
+```
+
+#### Serve the specification
+
+To make the generated specification available at runtime, you can then use the [OpenAPI](server-openapi.md)
+or [SwaggerUI](server-swagger-ui.md) plugins.
+
+The following example serves the generated specification file at an OpenAPI endpoint:
+
+```kotlin
+routing {
+    openAPI("/docs", swaggerFile = "openapi/generated.json")
+}
+```
+
+For more details about this feature, see [OpenAPI specification generation](openapi-spec-generation.md).
+
 ## Shared
 
 ### Updated Jetty version

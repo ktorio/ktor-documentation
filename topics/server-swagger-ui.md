@@ -20,14 +20,8 @@ The SwaggerUI plugin allows you to generate Swagger UI for your project.
 </link-summary>
 
 Ktor allows you to generate and serve Swagger UI for your project based on the existing OpenAPI specification.
-With Swagger UI, you can visualize and interact with the API resources. 
-
-> The following tools are available for generating OpenAPI definitions from code and vice versa:
-> - The [Ktor plugin](https://www.jetbrains.com/help/idea/ktor.html#openapi) for IntelliJ IDEA provides the ability to generate OpenAPI documentation for server-side Ktor applications.
-> - The [OpenAPI generator](https://github.com/OpenAPITools/openapi-generator) allows you to create a Ktor project from your API definitions by using the [kotlin-server](https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/kotlin-server.md) generator. Alternatively, you can use IntelliJ IDEA's [functionality](https://www.jetbrains.com/help/idea/openapi.html#codegen).
-> 
-{id="open-api-note"}
-
+With Swagger UI, you can visualize and interact with the API resources. You can serve an existing YAML or JSON 
+specification, or generate one using the [OpenAPI extension](openapi-spec-generation.md) of the Ktor Gradle plugin.
 
 ## Add dependencies {id="add_dependencies"}
 
