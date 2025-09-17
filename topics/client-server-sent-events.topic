@@ -51,7 +51,7 @@
         </p>
         <chapter title="SSE reconnect" id="sse-reconnect">
             <p>
-                To enable automatic reconnection with supported engines, set
+                To enable automatic reconnection, set
                 <code>maxReconnectionAttempts</code> to a value greater than <code>0</code>. You can also configure the
                 delay between attempts using <code>reconnectionTime</code>:
             </p>
