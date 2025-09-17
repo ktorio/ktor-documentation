@@ -83,6 +83,13 @@ In Ktor 3.3.0, the Ktor client's `OkHttp` engine has been upgraded to use OkHttp
 version bump may introduce API changes for projects that interact directly with OkHttp. Such projects should verify
 compatibility.
 
+### Unified OkHttp SSE session
+
+The OkHttp engine now uses the standard API for Server-Sent Events (SSE), 
+replacing the previously introduced `OkHttpSSESession`.
+This change unifies SSE handling across all client engines and addresses the limitations of the OkHttp-specific implementation.
+
+
 ## Gradle plugin
 
 ### OpenAPI specification generation
@@ -124,6 +131,7 @@ routing {
 ```
 
 For more details about this feature, see [OpenAPI specification generation](openapi-spec-generation.md).
+
 
 ## Shared
 
