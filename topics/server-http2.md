@@ -85,7 +85,14 @@ Clients can initiate communication with an HTTP/1.1 request and then upgrade to 
 To enable h2c, set the `enableH2c` flag to `true` in the engine configuration:
 
 ```kotlin
+embeddedServer(Netty, configure = {
+    connector {
+        port = 8080
+    }
+    enableHttp2 = true
+    enableH2c = true
+})
 ```
-{src="snippets/http2-netty/src/main/kotlin/com/example/Application.kt" include-lines="9-12"}
+
 
 Note that h2c requires `enableHttp2 = true` and cannot be used if an SSL connector is configured on the server.
