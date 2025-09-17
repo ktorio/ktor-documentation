@@ -184,8 +184,15 @@ such as video calls or screen sharing.
 You can request audio or video tracks from local devices (microphone, camera):
 
 ```kotlin
-val audio = jsClient.createAudioTrack { echoCancellation = true }
-val video = jsClient.createVideoTrack { width = 1280; height = 720 }
+val audioConstraints = WebRtcMedia.AudioTrackConstraints(
+  echoCancellation = true
+)
+val videoConstraints = WebRtcMedia.VideoTrackConstraints(
+  width = 1280,
+  height = 720
+)
+val audio = rtcClient.createAudioTrack(audioConstraints)
+val video = rtcClient.createVideoTrack(videoConstraints)
 
 val pc = jsClient.createPeerConnection()
 pc.addTrack(audio)
