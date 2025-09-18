@@ -4,6 +4,13 @@
 <primary-label ref="experimental"/>
 <secondary-label ref="server-feature"/>
 
+<tldr>
+<p>
+<b>Code example</b>: 
+<a href="https://github.com/ktorio/ktor-samples/tree/main/openapi">openapi</a>
+</p>
+</tldr>
+
 Ktor provides experimental support for generating OpenAPI specifications directly from your Kotlin code.
 This functionality is available via the Ktor Gradle plugin and can be combined with the [OpenAPI](server-openapi.md)
 and [SwaggerUI](server-swagger-ui.md) plugins to serve interactive API documentation.
