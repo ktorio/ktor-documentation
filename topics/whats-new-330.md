@@ -2,9 +2,19 @@
 
 <show-structure for="chapter,procedure" depth="2"/>
 
+_[Released: September 11, 2025](releases.md#release-details)_
+
+Ktor 3.3.0 delivers new capabilities across server, client, and tooling. Here are the highlights for this feature
+release:
+
+* [Custom fallback mechanism for static resources](#custom-fallback)
+* [OpenAPI specification generation](#openapi-spec-gen)
+* [HTTP/2 cleartext (h2c) support](#http2-h2c-support)
+* [Experimental WebRTC client](#webrtc-client)
+
 ## Ktor Server
 
-### Custom fallback for static resources
+### Custom fallback for static resources {id="custom-fallback"}
 
 Ktor 3.3.0 introduces a new `fallback()` function for static content, allowing you to define custom
 behavior when a requested resource is not found.
@@ -46,7 +56,7 @@ ktor {
 We plan to restore support for blocking function references in a future release. Until then, prefer a `suspend` module
 or configuration reference in `development` mode.
 
-### HTTP/2 cleartext (h2c) support
+### HTTP/2 cleartext (h2c) support {id="http2-h2c-support"}
 
 Ktor 3.3.0 introduces support for HTTP/2 over cleartext (h2c) for the Netty engine,
 which allows HTTP/2 communication without TLS encryption. 
@@ -86,7 +96,7 @@ diagnostics.
 
 For more information, see [Response buffering](client-server-sent-events.topic#response-buffering).
 
-### WebRTC client
+### WebRTC client {id="webrtc-client"}
 
 This release introduces experimental WebRTC client support for peer-to-peer real-time communication in multiplatform
 projects.
@@ -144,7 +154,7 @@ This change unifies SSE handling across all client engines and addresses the lim
 
 ## Gradle plugin
 
-### OpenAPI specification generation
+### OpenAPI specification generation {id="openapi-spec-gen"}
 <secondary-label ref="experimental"/>
 
 Ktor 3.3.0 introduces an experimental OpenAPI generation feature via the Gradle plugin and a compiler plugin. This

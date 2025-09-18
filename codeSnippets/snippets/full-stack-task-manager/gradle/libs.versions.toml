@@ -16,7 +16,7 @@ junit = "4.13.2"
 kotlin = "2.2.0"
 kotlinx-coroutines = "1.10.2"
 kotlinxSerializationJson = "1.8.1"
-ktor = "3.2.3"
+ktor = "3.3.0"
 logback = "1.5.18"
 
 [libraries]
