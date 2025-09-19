@@ -154,7 +154,7 @@ The `cacheControl()` function allows you to configure the `Cache-Control` header
 {src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="14-15,24,41-47,57-58,60-62"}
 
 When both the [`CachingHeaders`](server-caching-headers.md) and [`ConditionalHeaders`](server-conditional-headers.md)
-plugins are installed, Ktor can serve static resources with automatic caching headers, including `etag` and `lastModified`:
+plugin is installed, Ktor can serve static resources with `ETag` and `LastModified` headers and process conditional headers to avoid sending the body of content if it has not changed since the last request.:
 
 ```kotlin
 ```

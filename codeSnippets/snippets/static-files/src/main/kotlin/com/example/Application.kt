@@ -46,12 +46,12 @@ fun Application.module() {
             }
         }
 
-        staticFiles("/static", filesDir) {
+        staticFiles("/filesWithEtagAndLastModified", filesDir) {
             etag { resource -> EntityTagVersion("etag") }
             lastModified { resource -> GMTDate() }
         }
 
-        staticFiles("/static", filesDir) {
+        staticFiles("/filesWithStrongGeneratedEtag", filesDir) {
             etag(ETagProvider.StrongSha256)
         }
     }
