@@ -47,7 +47,6 @@ ktor {
         termsOfService = "https://example.com/terms/"
         contact = "contact@example.com"
         license = "Apache/1.0"
-        version = "0.1"
 
         // Location of the generated specification (defaults to openapi/generated.json)
         target = project.layout.buildDirectory.file("open-api.json")
