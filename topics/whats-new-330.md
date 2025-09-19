@@ -29,7 +29,27 @@ To define custom fallback behaviour, use the `fallback()` function within `stati
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="22,25-32,45"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="24,27-34,47"}
+
+### LastModified and Etag headers for static content
+
+Ktor 3.3.0 introduces support for `ETag` and `LastModified` headers for static resources. When the [`ConditionalHeaders`](server-conditional-headers.md)
+plugin is installed, you can process conditional headers to avoid sending the body of content if it hasn't changed since
+the last request:
+
+```kotlin
+```
+
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="49-52"}
+
+The values are calculated dynamically based on each resource and applied to the response. 
+
+You can also use a predefined provider, for example to generate a strong `ETag` using the SHA‑256 hash of the resource content:
+
+```kotlin
+```
+
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="54-56"}
 
 ### Development mode auto-reload limitations
 
