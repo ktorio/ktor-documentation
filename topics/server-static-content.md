@@ -162,7 +162,7 @@ since the last request:
 
 {src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="49-52"}
 
-In this example, `etag` and `lastModified` values are calculated dynamically based on each resource and applied to the response.
+In this example, the `etag` and `lastModified` values are calculated dynamically based on each resource and applied to the response.
 
 To simplify `ETag` generation, you can also use a predefined provider:
 
