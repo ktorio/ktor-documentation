@@ -23,8 +23,9 @@ To define custom fallback behaviour, use the `fallback()` function within `stati
 
 ### LastModified and Etag headers for static content
 
-Ktor 3.3.0 introduces support for automatic caching headers for static resources. When both the [`CachingHeaders`](server-caching-headers.md)
-and [`ConditionalHeaders`](server-conditional-headers.md) plugins are installed, you can configure `etag` and `lastModified` headers:
+Ktor 3.3.0 introduces support for `ETag` and `LastModified` headers for static resources. When the [`ConditionalHeaders`](server-conditional-headers.md)
+plugin is installed, you can process conditional headers to avoid sending the body of content if it hasn't changed since
+the last request:
 
 ```kotlin
 ```
@@ -33,7 +34,7 @@ and [`ConditionalHeaders`](server-conditional-headers.md) plugins are installed,
 
 The values are calculated dynamically based on each resource and applied to the response. 
 
-You can also use a predefined ETag provider, for example to generate a strong `etag` using the SHA‑256 hash of the resource content:
+You can also use a predefined provider, for example to generate a strong `ETag` using the SHA‑256 hash of the resource content:
 
 ```kotlin
 ```

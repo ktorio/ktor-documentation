@@ -153,8 +153,9 @@ The `cacheControl()` function allows you to configure the `Cache-Control` header
 
 {src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="14-15,24,41-47,57-58,60-62"}
 
-When both the [`CachingHeaders`](server-caching-headers.md) and [`ConditionalHeaders`](server-conditional-headers.md)
-plugin is installed, Ktor can serve static resources with `ETag` and `LastModified` headers and process conditional headers to avoid sending the body of content if it has not changed since the last request.:
+When the [`ConditionalHeaders`](server-conditional-headers.md) plugin is installed, Ktor can serve static resources with 
+`ETag` and `LastModified` headers and process conditional headers to avoid sending the body of content if it hasn't changed
+since the last request:
 
 ```kotlin
 ```
@@ -163,15 +164,15 @@ plugin is installed, Ktor can serve static resources with `ETag` and `LastModifi
 
 In this example, `etag` and `lastModified` values are calculated dynamically based on each resource and applied to the response.
 
-To simplify ETag generation, you can also use a predefined ETag provider:
+To simplify `ETag` generation, you can also use a predefined provider:
 
 ```kotlin
 ```
 
 {src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="54-56"}
 
-In this example, a strong `etag` is generated using the SHA‑256 hash of the resource content.
-If an I/O error occurs, no ETag is generated.
+In this example, a strong `ETag` is generated using the SHA‑256 hash of the resource content.
+If an I/O error occurs, no `ETag` is generated.
 
 > For more information on caching in Ktor, see [Caching headers](server-caching-headers.md).
 >
