@@ -4,6 +4,8 @@ The Ktor server can be used on the following platforms supported by Kotlin:
 - JVM
 - [Native](server-native.md)
    <include from="client-engines.md" element-id="newmm-note"/>
+- [JavaScript](https://kotlinlang.org/docs/js-overview.html)
+- [WasmJs](https://kotlinlang.org/docs/wasm-overview.html)
 
 The following [targets](https://kotlinlang.org/docs/multiplatform-dsl-reference.html#targets) are supported:
 
@@ -24,6 +26,32 @@ The following [targets](https://kotlinlang.org/docs/multiplatform-dsl-reference.
         <list>
             <li>
                 <code>jvm</code>
+            </li>
+        </list>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        Kotlin/Wasm
+    </td>
+    <td>
+        <list>
+            <li>
+                <code>wasmJs</code>
+            </li>
+        </list>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        Kotlin/JS
+    </td>
+    <td>
+        <list>
+            <li>
+                <code>js</code>
             </li>
         </list>
     </td>
@@ -119,6 +147,9 @@ The following [targets](https://kotlinlang.org/docs/multiplatform-dsl-reference.
         <list>
             <li>
                 <code>linuxX64</code>
+            </li>
+            <li>
+                <code>linuxArm64</code>
             </li>
         </list>
     </td>

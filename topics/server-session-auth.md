@@ -81,7 +81,7 @@ installs and configures a cookie session with a specified cookie path and expira
 ```kotlin
 ```
 
-{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="17-21"}
+{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="16-21"}
 
 > To learn more about configuring sessions, see [](server-sessions.md#configuration_overview).
 
