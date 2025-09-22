@@ -27,7 +27,7 @@ First, you need to specify a port used to listen for incoming requests. Since He
 * If server configuration is specified in code, you can obtain the environment variable value using `System.getenv`. Open the `Application.kt` file placed in the `src/main/kotlin/com/example` folder and change the `port` parameter value of the `embeddedServer` function as shown below:
    ```kotlin
    fun main() {
-      embeddedServer(Netty, port = System.getenv("PORT").toInt()) {
+      embeddedServer(Netty, port = System.getenv("PORT")?.toIntOrNull() ?: 8080) {
           // ...
       }.start(wait = true)
    }

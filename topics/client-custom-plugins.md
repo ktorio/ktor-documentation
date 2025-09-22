@@ -63,7 +63,7 @@ The [previous section](#first-plugin) demonstrates how to create a plugin that a
    ```
    {src="snippets/client-custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderConfigurable.kt" include-lines="14-17"}
 
-2. To use this configuration in a plugin, pass a configuration class reference to `createApplicationPlugin`:
+2. To use this configuration in a plugin, pass a configuration class reference to `createClientPlugin`:
 
    ```kotlin
    ```

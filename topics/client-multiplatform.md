@@ -22,7 +22,7 @@ To use the Ktor HTTP client in your project, you need to add at least two depend
    <var name="platform_name" value="common"/>
    <var name="artifact_name" value="ktor-client-core"/>
    <include from="lib.topic" element-id="add_ktor_artifact_multiplatform"/>
-1. Add an [engine dependency](client-engines.md#dependencies) for the required platform to the corresponding source set. For Android, you can add the [Android](client-engines.md#android) engine dependency to the `androidMain` source set:
+2. Add an [engine dependency](client-engines.md#dependencies) for the required platform to the corresponding source set. For Android, you can add the [Android](client-engines.md#android) engine dependency to the `androidMain` source set:
    <var name="platform_name" value="android"/>
    <var name="artifact_name" value="ktor-client-android"/>
    <include from="lib.topic" element-id="add_ktor_artifact_multiplatform"/>
