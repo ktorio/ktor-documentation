@@ -33,6 +33,15 @@ The following table lists details of the latest Ktor releases.
 
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
+<tr><td>3.3.0</td><td>September 11, 2025</td><td>
+<p>
+A minor release that introduces major features like experimental OpenAPI generation preview, improved static content
+handling, WebRTC client for Android and JS/Wasm, and upgrades to Jetty, OkHttp, and Kotlin 2.2. For more information,
+see <a href="whats-new-330.md" />.
+</p>
+<var name="version" value="3.3.0"/>
+<include from="lib.topic" element-id="release_details_link"/>
+</td></tr>
 <tr><td>3.2.3</td><td>July 29, 2025</td><td>
 <p>
 A patch release that introduces improvements to YAML config handling, DI resolution, and Wasm/JS stability, along with

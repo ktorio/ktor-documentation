@@ -90,6 +90,11 @@ Then, configure the URL pattern for this servlet:
 
 ## Configure Gretty {id="configure-gretty"}
 
+> Ktor 3.3.0 requires Jetty 12, which is not yet supported by Gretty. If you rely on Gretty for development or
+> deployment, use Ktor 3.2.3 instead until Gretty adds Jetty 12 support.
+>
+{style="warning"}
+
 The [Gretty](https://plugins.gradle.org/plugin/org.gretty) plugin allows you to [run](#run) a servlet application on Jetty and Tomcat. To install this plugin, open the `build.gradle.kts` file and add the following code to the `plugins` block:
 
 ```groovy

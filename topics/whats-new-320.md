@@ -17,6 +17,11 @@ Here are the highlights for this feature release:
 
 Starting with Ktor 3.2.0, [application modules](server-modules.md) have support for suspendable functions.
 
+> With the introduction of suspend module support, auto-reload in development mode no longer works with blocking
+> function references. For more information, see [](#regression).
+>
+{style="warning"}
+
 Previously, adding asynchronous functions inside Ktor modules required the `runBlocking` block that could lead to a
 deadlock on server creation:
 
@@ -273,6 +278,26 @@ val connection: Connection = application.property("connection")
 This simplifies working with structured configuration and supports automatic parsing of primitive types.
 
 For more information and advanced usage, see [](server-dependency-injection.md).
+
+### Development mode auto-reload regression {id="regression"}
+
+As a side effect to the support of suspending functions, blocking function references (`Application::myModule`) are now
+wrapped into anonymous inner classes during casting. This breaks auto-reload, because the function name is no longer
+retained as a stable reference.
+
+This means that auto-reload in `development` mode only works with suspend function modules and configuration references:
+
+```kotlin
+// Suspend function reference
+embeddedServer(Netty, port = 8080, module = Application::mySuspendModule)
+
+// Configuration reference
+ktor {
+    application {
+        modules = [ com.example.ApplicationKt.mySuspendModule ]
+    }
+}
+```
 
 ## Ktor Client
 

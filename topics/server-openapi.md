@@ -19,10 +19,9 @@
 The OpenAPI plugin allows you to generate OpenAPI documentation for your project.
 </link-summary>
 
-Ktor allows you to generate and serve OpenAPI documentation for your project based on the existing OpenAPI specification.
-
-<include from="server-swagger-ui.md" element-id="open-api-note"/>
-
+Ktor allows you to generate and serve OpenAPI documentation for your project based on an existing OpenAPI specification.
+You can serve an existing YAML or JSON specification, or generate one using the
+[OpenAPI extension](openapi-spec-generation.md) of the Ktor Gradle plugin.
 
 ## Add dependencies {id="add_dependencies"}
 
