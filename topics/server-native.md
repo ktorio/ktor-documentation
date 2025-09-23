@@ -13,7 +13,6 @@ Ktor supports [Kotlin/Native](https://kotlinlang.org/docs/native-overview.html) 
 * a [server should be created](server-create-and-configure.topic) using `embeddedServer`
 * only the [CIO engine](server-engines.md) is supported
 * [HTTPS](server-ssl.md) without a reverse proxy is not supported
-* Windows [target](server-platforms.md) is not supported
 
 <include from="client-engines.md" element-id="newmm-note"/>
 

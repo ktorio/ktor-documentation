@@ -19,7 +19,8 @@ kotlin {
         hostOs == "Mac OS X" && arch == "aarch64" -> macosArm64("native")
         hostOs == "Linux" && arch == "x86_64" -> linuxX64("native")
         hostOs == "Linux" && arch == "aarch64" -> linuxArm64("native")
-        // Other supported targets are listed here: https://ktor.io/docs/native-server.html#targets
+        hostOs.startsWith("Windows") -> mingwX64("native")
+        // Other supported targets are listed here: https://ktor.io/docs/server-native.html#targets
         else -> throw GradleException("Host OS is not supported in Kotlin/Native.")
     }
 
