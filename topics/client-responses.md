@@ -96,6 +96,47 @@ To learn more, see [](client-serialization.md#receive_send_data).
 > The ContentNegotiation plugin is available for both the [client](client-serialization.md) and
 > the [server](server-serialization.md). Ensure to use the proper one for your case.
 
+### Multipart form data {id="multipart"}
+
+When receiving a response that contains multipart form data, you can read its body as a
+[`MultiPartData`](https://api.ktor.io/ktor-http/io.ktor.http.content/-multi-part-data/index.html) instance.
+This allows you to process form fields and files included in the response.
+
+The example below demonstrates how to handle both text form fields and file uploads from a multipart response:
+
+```kotlin
+```
+
+{src="snippets/_misc_client/ResponseTypes.kt" include-lines="20-39"}
+
+#### Form fields
+
+`PartData.FormItem` represents a form field, which values can be accessed through the value property:
+
+```kotlin
+```
+
+{src="snippets/_misc_client/ResponseTypes.kt" include-lines="25-30,37"}
+
+#### File uploads
+
+`PartData.FileItem` represents a file item. You can handle file uploads as byte streams:
+
+
+```kotlin
+```
+
+{src="snippets/_misc_client/ResponseTypes.kt" include-lines="25,31-37"}
+
+#### Resource cleanup
+
+Once the form processing is complete, each part is disposed of using the `.dispose()` function to free resources.
+
+```kotlin
+```
+
+{src="snippets/_misc_client/ResponseTypes.kt" include-lines="38"}
+
 ### Streaming data {id="streaming"}
 
 When you call the `HttpResponse.body` function to get a body, Ktor processes a response in memory and returns a full
