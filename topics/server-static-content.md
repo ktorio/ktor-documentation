@@ -31,7 +31,7 @@ function. In this case, relative paths are resolved using the current working di
  ```kotlin
  ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="15-16,57"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="17-18,59"}
 
 In the example above, any request from `/resources` is mapped to the `files` physical folder in the current working
 directory.
@@ -104,7 +104,7 @@ To use this functionality, define the `preCompressed()` function inside a block 
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="17,19,23"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="19,21,25"}
 
 In this example, for a request made to `/js/script.js`, Ktor can serve `/js/script.js.br` or `/js/script.js.gz`.
 
@@ -126,7 +126,7 @@ corresponding file.
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="17-18,23"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="19-20,25"}
 
 In this example when the client requests a resource that doesn't exist, the `index.html` file will
 be served as a response.
@@ -139,7 +139,7 @@ the `contentType()` function to set the `Content-Type` header explicitly.
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="24,35-40,47"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="26,37-42,49"}
 
 In this example, the response for the file `html-file.txt` will have the `Content-Type: text/html` header, and for every
 other file the default behavior will be applied.
@@ -151,7 +151,7 @@ The `cacheControl()` function allows you to configure the `Cache-Control` header
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="14-15,24,41-47,57-58,60-62"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="16-17,26,43-49,59-60,62-64"}
 
 When the [`ConditionalHeaders`](server-conditional-headers.md) plugin is installed, Ktor can serve static resources with 
 `ETag` and `LastModified` headers and process conditional headers to avoid sending the body of content if it hasn't changed
@@ -160,7 +160,7 @@ since the last request:
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="49-52"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="51-54"}
 
 In this example, the `etag` and `lastModified` values are calculated dynamically based on each resource and applied to the response.
 
@@ -169,7 +169,7 @@ To simplify `ETag` generation, you can also use a predefined provider:
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="54-56"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="56-58"}
 
 In this example, a strong `ETag` is generated using the SHA‑256 hash of the resource content.
 If an I/O error occurs, no `ETag` is generated.
@@ -186,7 +186,7 @@ the server will respond with a `403 Forbidden` status code.
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="24,26,47"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="26,28,49"}
 
 ### File extensions fallbacks {id="extensions"}
 
@@ -213,7 +213,7 @@ The example below shows how to redirect certain extensions, return a custom stat
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="24,27-34,47"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="26,29-36,49"}
 
 ### Custom modifications {id="modify"}
 
@@ -222,7 +222,7 @@ The `modify()` function allows you to apply custom modification to a resulting r
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="17,20-23"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="19,22-25"}
 
 ## Handle errors {id="errors"}
 
