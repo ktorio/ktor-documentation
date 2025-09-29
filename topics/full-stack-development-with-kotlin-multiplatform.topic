@@ -618,7 +618,7 @@
                     <p><b>Finding your IP address:</b></p>
                     <p>
                         Since mobile simulators cannot reach <code>localhost</code>, you need your machine's actual IP address.
-                        Use these commands to find it:
+                        To find your IP address, run one of the following commands:
                     </p>
                     <list>
                         <li><b>macOS:</b> <code>ifconfig | grep "inet " | grep -v 127.0.0.1</code></li>
