@@ -50,7 +50,7 @@ This tutorial shows how to deploy the application to Google App Engine using a [
 The [Google App Engine Gradle plugin](https://github.com/GoogleCloudPlatform/app-gradle-plugin) provides tasks to build and deploy Google App Engine applications. To use this plugin, follow the steps below:
 
 1. Open the `settings.gradle.kts` file and insert the following code to reference a plugin from the Central Maven repository:
-   ```groovy
+   ```kotlin
    ```
    {src="settings.gradle.kts" include-lines="1-14"}
 
