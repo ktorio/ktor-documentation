@@ -29,7 +29,7 @@ To define custom fallback behaviour, use the `fallback()` function within `stati
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="24,27-34,47"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="26,29-36,49"}
 
 ### LastModified and Etag headers for static content
 
@@ -40,16 +40,17 @@ the last request:
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="49-52"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="51-54"}
 
-The values are calculated dynamically based on each resource and applied to the response. 
+The values are calculated dynamically based on each resource and applied to the response.
 
-You can also use a predefined provider, for example to generate a strong `ETag` using the SHA‑256 hash of the resource content:
+You can also use a predefined provider, for example to generate a strong `ETag` using the SHA‑256 hash of the resource
+content:
 
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="54-56"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="56-58"}
 
 ### Development mode auto-reload limitations
 

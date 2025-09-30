@@ -1,6 +1,7 @@
 package com.example
 
 import io.ktor.http.*
+import io.ktor.http.content.EntityTagVersion
 import io.ktor.server.application.*
 import io.ktor.server.http.content.*
 import io.ktor.server.plugins.conditionalheaders.*
@@ -12,6 +13,7 @@ import io.ktor.util.date.GMTDate
 import java.io.*
 
 fun Application.module() {
+    install(ConditionalHeaders)
     routing {
         staticFiles("/resources", File("files"))
         staticFiles("/", File("files")) {
@@ -46,12 +48,12 @@ fun Application.module() {
             }
         }
 
-        staticFiles("/filesWithEtagAndLastModified", filesDir) {
+        staticFiles("/filesWithEtagAndLastModified", File("files")) {
             etag { resource -> EntityTagVersion("etag") }
             lastModified { resource -> GMTDate() }
         }
 
-        staticFiles("/filesWithStrongGeneratedEtag", filesDir) {
+        staticFiles("/filesWithStrongGeneratedEtag", File("files")) {
             etag(ETagProvider.StrongSha256)
         }
     }
