@@ -613,9 +613,19 @@
                     not be able to make calls to <code>0.0.0.0</code> or <code>localhost</code> from code running on an
                     Android Virtual Device or
                     the iOS Simulator.
-                    <!-- should we include instructions on finding out the IP address?
-                         `ipconfig getifaddr en0`or something -->
                 </p>
+                <tip>
+                    <p><b>Finding your IP address:</b></p>
+                    <p>
+                        Since mobile simulators cannot reach <code>localhost</code>, you need your machine's actual IP address.
+                        To find your IP address, run one of the following commands:
+                    </p>
+                    <list>
+                        <li><b>macOS:</b> <code>ifconfig | grep "inet " | grep -v 127.0.0.1</code></li>
+                        <li><b>Linux:</b> <code>hostname -I | awk '{print $1}'</code></li>
+                        <li><b>Windows:</b> <code>ipconfig</code> and look for "IPv4 Address"</li>
+                    </list>
+                </tip>
             </step>
             <step>
                 <p>
