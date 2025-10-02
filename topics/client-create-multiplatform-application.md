@@ -154,23 +154,15 @@ function is called, its result is assigned to `text`, and any exceptions are cau
 
 ### iOS code {id="ios-view"}
 
-1. Open the
-   <path>iosApp/iosApp/iOSApp.swift<path>
-   file and update the entry point for the application:
+Open the
+<path>iosApp/iosApp/ContentView.swift</path>
+file and update the code in the following way:
 
-   ```Swift
-   ```
-   {src="snippets/tutorial-client-kmm/iosApp/iosApp/iOSApp.swift"}
+```Swift
+```
+{src="snippets/tutorial-client-kmm/iosApp/iosApp/ContentView.swift"}
 
-2. Open the
-   <path>iosApp/iosApp/ContentView.swift</path>
-   file and update `ContentView` code in the following way:
-
-   ```Swift
-   ```
-   {src="snippets/tutorial-client-kmm/iosApp/iosApp/ContentView.swift"}
-
-   On iOS, the `greet()` suspending function is available as a function with a callback.
+On iOS, the `greet()` suspending function is available as a function with a callback.
 
 ## Enable internet access on Android {id="android-internet"}
 
