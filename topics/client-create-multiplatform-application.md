@@ -68,7 +68,9 @@ Then, define the Ktor client and engine libraries:
 
 {src="snippets/tutorial-client-kmm/gradle/libs.versions.toml" include-lines="18,29-31"}
 
-To add the dependencies, open the `shared/build.gradle.kts` file and follow the steps below:
+To add the dependencies, open the
+<path>shared/build.gradle.kts</path>
+file and follow the steps below:
 
 1. To use the Ktor client in common code, add the dependency `ktor-client-core` to the `commonMain` source set:
    ```kotlin
@@ -107,8 +109,9 @@ To use coroutines in [Android code](#android-activity), you need to add `kotlinx
     ```
    {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="25-29,39"}
 
-3. Then, open the `composeApp/build.gradle.kts` and add the `kotlinx-coroutines-android` dependency to the `androidMain`
-source set:
+3. Then, open the
+   <path>composeApp/build.gradle.kts</path>
+   file and add the `kotlinx-coroutines-android` dependency to the `androidMain` source set:
 
    ```kotlin
    ```
@@ -129,32 +132,40 @@ file and add the following code to the `Greeting` class:
 
 {src="snippets/tutorial-client-kmm/shared/src/commonMain/kotlin/com/example/ktor/kmmktor/Greeting.kt"}
 
-- To create the HTTP client, the `HttpClient` constructor is called.
+- The `HttpClient` constructor is used to create the HTTP client.
 - The suspending `greet()` function is used to make a [request](client-requests.md) and receive the body of
   a [response](client-responses.md) as a string value.
 
 ### Android code {id="android-activity"}
 
-To call the suspending `greet()` function from the Android code, you can use [`rememberCoroutineScope`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#rememberCoroutineScope(kotlin.Function0)).
+To call the suspending `greet()` function from Android code, you can use [`rememberCoroutineScope`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#rememberCoroutineScope(kotlin.Function0)).
 
-Open the `composeApp/src/androidMain/kotlin/com/example/ktor/kmmktor/MainActivity.kt` file and update `MainActivity` code as
-follows:
+Open the
+<path>composeApp/src/androidMain/kotlin/com/example/ktor/kmmktor/App.kt</path>
+file and update the code as follows:
 
 ```kotlin
 ```
 
-{src="snippets/tutorial-client-kmm/composeApp/src/androidMain/kotlin/com/example/ktor/kmmktor/MainActivity.kt"}
+{src="snippets/tutorial-client-kmm/composeApp/src/androidMain/kotlin/com/example/ktor/kmmktor/App.kt"}
 
-Inside the created scope, you call the shared `greet()` function and handle possible exceptions.
+`LaunchedEffect()` launches a coroutine tied to the composable’s lifecycle. Within this coroutine, the shared `greet()`
+function is called, its result is assigned to `text`, and any exceptions are caught and handled.
 
 ### iOS code {id="ios-view"}
 
-1. Open the `iosApp/iosApp/iOSApp.swift` file and update the entry point for the application:
+1. Open the
+   <path>iosApp/iosApp/iOSApp.swift<path>
+   file and update the entry point for the application:
+
    ```Swift
    ```
    {src="snippets/tutorial-client-kmm/iosApp/iosApp/iOSApp.swift"}
 
-2. Open the `iosApp/iosApp/ContentView.swift` file and update `ContentView` code in the following way:
+2. Open the
+   <path>iosApp/iosApp/ContentView.swift</path>
+   file and update `ContentView` code in the following way:
+
    ```Swift
    ```
    {src="snippets/tutorial-client-kmm/iosApp/iosApp/ContentView.swift"}
@@ -164,8 +175,9 @@ Inside the created scope, you call the shared `greet()` function and handle poss
 ## Enable internet access on Android {id="android-internet"}
 
 The final thing you need to do is to enable internet access for the Android application.
-Open the `composeApp/src/androidMain/AndroidManifest.xml` file and enable the required permission using the
-`uses-permission` element:
+Open the
+<path>composeApp/src/androidMain/AndroidManifest.xml</path>
+file and enable the required permission using the `&lt;uses-permission&gt;` element:
 
 ```xml
 <manifest>
@@ -181,7 +193,9 @@ Open the `composeApp/src/androidMain/AndroidManifest.xml` file and enable the re
 1. In IntelliJ IDEA, select **composeApp** in the list of run configurations.
 2. Choose an Android virtual device next to the list of configurations and click **Run**.
    ![composeApp selected with Pixel 8 API device](kmm_tutorial_run_android.png){width="381" style="block"}
-   If you don't have a device in the list, create a [new Android virtual device](https://developer.android.com/studio/run/managing-avds#createavd).
+
+   If you don't have a device in the list, create
+   a [new Android virtual device](https://developer.android.com/studio/run/managing-avds#createavd).
 3. Once loaded, the simulator should display the received HTML document as plain text.
    ![Android simulator](tutorial_client_kmm_android.png){width="381" style="block"}
 
@@ -191,7 +205,9 @@ Open the `composeApp/src/androidMain/AndroidManifest.xml` file and enable the re
 2. In IntelliJ IDEA, select **iosApp** in the list of run configurations.
 3. Choose an iOS simulated device next to the list of configurations and click **Run**.
    ![iOsApp selected with iPhone 16 device](kmm_tutorial_run_ios.png){width="381" style="block"}
-   If you don't have an available iOS configuration in the list, add a [new run configuration](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html#run-on-a-new-ios-simulated-device).
+
+   If you don't have an available iOS configuration in the list, add a
+   [new run configuration](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html#run-on-a-new-ios-simulated-device).
 4. Once loaded, the simulator should display the received HTML document as plain text.
    ![iOS simulator](tutorial_client_kmm_ios.png){width="381" style="block"}
 

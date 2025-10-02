@@ -1,31 +1,33 @@
 package com.example.ktor.kmmktor
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.safeContentPadding
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import org.jetbrains.compose.ui.tooling.preview.Preview
-import kotlinx.coroutines.launch
 
 @Composable
 @Preview
 fun App() {
     MaterialTheme {
-        Surface(
-            modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colorScheme.background
+        Column(
+            modifier = Modifier
+                .background(MaterialTheme.colorScheme.primaryContainer)
+                .safeContentPadding()
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            val scope = rememberCoroutineScope()
             var text by remember { mutableStateOf("Loading") }
             LaunchedEffect(true) {
-                scope.launch {
-                    text = try {
-                        Greeting().greet()
-                    } catch (e: Exception) {
-                        e.message ?: "error"
-                    }
+                text = try {
+                    Greeting().greet()
+                } catch (e: Exception) {
+                    e.message ?: "error"
                 }
             }
             GreetingView(text)
