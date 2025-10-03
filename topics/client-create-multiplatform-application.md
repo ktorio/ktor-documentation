@@ -8,7 +8,7 @@
 </tldr>
 
 <link-summary>
-Learn how to use Ktor client in a Kotlin Multiplatform Mobile application.
+Learn how to use the Ktor client in a Kotlin Multiplatform Mobile application.
 </link-summary>
 
 The Ktor HTTP client can be used in multiplatform projects. In this tutorial, we'll create a simple Kotlin Multiplatform
@@ -21,7 +21,7 @@ suitable operating system. Learn how to do this from
 the [Set up an environment](https://kotlinlang.org/docs/multiplatform-mobile-setup.html) section.
 
 > You will need a Mac with macOS to complete certain steps in this tutorial, which include writing iOS-specific code and
-running an iOS application.
+> running an iOS application.
 >
 {style="note"}
 
@@ -50,44 +50,39 @@ multiplatform project which you can expand with clients and services.
 ### Add Ktor dependencies {id="ktor-dependencies"}
 
 To use the Ktor HTTP client in your project, you need to add at least two dependencies: a client dependency and an
-engine dependency.
+[engine](client-engines.md) dependency.
 
-In the
-<path>gradle/libs.versions.toml</path>
-file add the Ktor version:
+1. Open the
+    <path>gradle/libs.versions.toml</path>
+    file add the Ktor version:
+    
+    ```kotlin
+    ```
+    
+    {src="snippets/tutorial-client-kmm/gradle/libs.versions.toml" include-lines="1,15"}
 
-```kotlin
-```
+2. In the same
+    <path>gradle/libs.versions.toml</path>
+    define the Ktor client and engine libraries:
+    
+    ```kotlin
+    ```
+    
+    {src="snippets/tutorial-client-kmm/gradle/libs.versions.toml" include-lines="18,29-31"}
 
-{src="snippets/tutorial-client-kmm/gradle/libs.versions.toml" include-lines="1,15"}
-
-Then, define the Ktor client and engine libraries:
-
-```kotlin
-```
-
-{src="snippets/tutorial-client-kmm/gradle/libs.versions.toml" include-lines="18,29-31"}
-
-To add the dependencies, open the
-<path>shared/build.gradle.kts</path>
-file and follow the steps below:
-
-1. To use the Ktor client in common code, add the dependency `ktor-client-core` to the `commonMain` source set:
-   ```kotlin
-   ```
-   {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="25-27,29,39"}
-
-2. Add an [engine dependency](client-engines.md) for each required platform to the corresponding source set:
-    - For Android, add the `ktor-client-okhttp` dependency to the `androidMain` source set:
-      ```kotlin
-      ```
-      {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="30-32"}
-
-      For Android, you can also use [other engine types](client-engines.md#jvm-android).
-    - For iOS, add the `ktor-client-darwin` dependency to `iosMain`:
-      ```kotlin
-      ```
-      {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="33-35"}
+3. Open the
+    <path>shared/build.gradle.kts</path>
+    file and add the following dependencies:
+    
+    ```kotlin
+    ```
+    
+    {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="25-27,29-35,39"}
+    
+    - Add the `ktor-client-core` to the `commonMain` source set to enable Ktor client functionality in shared code.
+    - In the `androidMain` source set, include the `ktor-client-okhttp` dependency to use the `OkHttp` engine on Android.
+      Alternatively, you can choose from [other available Android/JVM engines](client-engines.md#jvm-android).
+    - In the `iosMain` source set, add the `ktor-client-darwin` dependency to use the Darwin engine on iOS.
 
 ### Add coroutines {id="coroutines"}
 
@@ -102,7 +97,7 @@ To use coroutines in [Android code](#android-activity), you need to add `kotlinx
    {src="snippets/tutorial-client-kmm/gradle/libs.versions.toml" include-lines="1,16-18,32-33"}
 
 2. Open the
-   <path>build.gradle.kts</path>
+   <path>shared/build.gradle.kts</path>
    file and add the `kotlinx-coroutines-core` dependency to the `commonMain` source set:
 
     ```kotlin
@@ -138,8 +133,6 @@ file and add the following code to the `Greeting` class:
 
 ### Android code {id="android-activity"}
 
-To call the suspending `greet()` function from Android code, you can use [`rememberCoroutineScope`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#rememberCoroutineScope(kotlin.Function0)).
-
 Open the
 <path>composeApp/src/androidMain/kotlin/com/example/ktor/kmmktor/App.kt</path>
 file and update the code as follows:
@@ -160,6 +153,7 @@ file and update the code in the following way:
 
 ```Swift
 ```
+
 {src="snippets/tutorial-client-kmm/iosApp/iosApp/ContentView.swift"}
 
 On iOS, the `greet()` suspending function is available as a function with a callback.
@@ -184,7 +178,7 @@ file and enable the required permission using the `&lt;uses-permission&gt;` elem
 
 1. In IntelliJ IDEA, select **composeApp** in the list of run configurations.
 2. Choose an Android virtual device next to the list of configurations and click **Run**.
-   ![composeApp selected with Pixel 8 API device](kmm_tutorial_run_android.png){width="381" style="block"}
+   ![composeApp selected with a Pixel 8 API device](kmm_tutorial_run_android.png){width="381" style="block"}
 
    If you don't have a device in the list, create
    a [new Android virtual device](https://developer.android.com/studio/run/managing-avds#createavd).
