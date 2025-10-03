@@ -1,8 +1,8 @@
 import SwiftUI
-import shared
+import Shared
 
 struct ContentView: View {
-    @ObservedObject private(set) var viewModel: ViewModel
+    @StateObject private var viewModel = ViewModel()
 
     var body: some View {
         Text(viewModel.text)
@@ -10,16 +10,15 @@ struct ContentView: View {
 }
 
 extension ContentView {
+    @MainActor
     class ViewModel: ObservableObject {
         @Published var text = "Loading..."
         init() {
-            Greeting().greeting { greeting, error in
-                DispatchQueue.main.async {
-                    if let greeting = greeting {
-                        self.text = greeting
-                    } else {
-                        self.text = error?.localizedDescription ?? "error"
-                    }
+            Greeting().greet { greeting, error in
+                if let greeting = greeting {
+                    self.text = greeting
+                } else {
+                    self.text = error?.localizedDescription ?? "error"
                 }
             }
         }
