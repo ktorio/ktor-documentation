@@ -29,7 +29,7 @@
 
     <p>
         In this article, you will learn how to integrate your Ktor services with relational databases using <a
-            href="https://github.com/JetBrains/Exposed">Exposed</a>, the
+            href="https://www.jetbrains.com/exposed/">Exposed</a>, the
         SQL library for Kotlin.
     </p>
     <p>By the end of this tutorial, you’ll learn how to do the following:</p>
@@ -47,7 +47,7 @@
         <a href="server-create-website.topic">building Web Apps with Thymeleaf templates</a>.
         While those tutorials focused on front-end functionality using a simple in-memory <code>TaskRepository</code>,
         this guide shifts focus to show how your Ktor services can interact with relational databases through the
-        <a href="https://github.com/JetBrains/Exposed">Exposed SQL Library</a>.
+        Exposed SQL Library.
     </p>
     <p>
         Even though this guide is longer and more complex, you’ll still produce working code quickly and gradually
@@ -699,8 +699,8 @@
                     </list>
                     <tip>
                         For more information, see
-                        <a href="https://jetbrains.github.io/Exposed/database-and-datasource.html">
-                            working with Database and DataSource in Exposed</a>.
+                        <a href="https://www.jetbrains.com/help/exposed/working-with-database.html">
+                            Working with Databases in Exposed</a>.
                     </tip>
                 </step>
             </procedure>
