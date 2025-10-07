@@ -219,7 +219,7 @@
                     and add the following implementation:
                     <code-block lang="kotlin"
                                 src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
-                                include-lines="1-13,14-37,39-40,59-60"
+                                include-lines="1-14,15-38,40-41,60-61"
                     />
                 </step>
             </procedure>
@@ -239,7 +239,7 @@
             </p>
             <code-block lang="kotlin"
                         src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
-                        include-lines="15,60"
+                        include-lines="16,61"
             />
             <tip>
                 Note that <code>runBlocking</code> is designed for spikes and tests, rather than production code.
@@ -251,7 +251,7 @@
             </p>
             <code-block lang="kotlin"
                         src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
-                        include-lines="16-20"
+                        include-lines="17-21"
             />
             <p>
                 Having created this Ktor client, you then create a <code>KtorRpcClient</code> object for invoking remote
@@ -260,7 +260,7 @@
             </p>
             <code-block lang="kotlin"
                         src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
-                        include-lines="22-34"
+                        include-lines="23-35"
             />
             <p>
                 At this point, the standard setup has been completed, and you are ready to use the functionality
@@ -276,7 +276,7 @@
             </p>
             <code-block lang="kotlin"
                         src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
-                        include-lines="39-40"
+                        include-lines="40-41"
             />
             <p>
                 Note that a tremendous amount of work is being done for you at this point. The details of the call and
@@ -288,7 +288,7 @@
             </p>
             <code-block lang="kotlin"
                         src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
-                        include-lines="59"
+                        include-lines="60"
             />
         </chapter>
         <chapter title="Implement the server" id="server-implementation">
@@ -494,7 +494,7 @@
                 file, submit multiple orders using two different client IDs:
                 <code-block lang="kotlin"
                             src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
-                            include-lines="36,42-49"
+                            include-lines="37,43-50"
                 />
                 <p>
                     Then you iterate over the results, using the <code>Coroutines</code> library and
@@ -502,7 +502,7 @@
                 </p>
                 <code-block lang="kotlin"
                             src="snippets/tutorial-kotlin-rpc-app/src/main/kotlin/Client.kt"
-                            include-lines="51-57"
+                            include-lines="52-58"
                 />
             </step>
             <step>
