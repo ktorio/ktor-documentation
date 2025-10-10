@@ -185,16 +185,21 @@ file and enable the required permission using the `&lt;uses-permission&gt;` elem
 3. Once loaded, the simulator should display the received HTML document as plain text.
    ![Android simulator](tutorial_client_kmp_android.png){width="381" style="block"}
 
+> If your Android emulator cannot connect to the internet, try performing a cold boot.
+> In the **Device Manager** tool window, click the **⋮** (three dots) next to a stopped device and select **Cold Boot**
+> from the menu. This often helps clear corrupted emulator caches that can cause connectivity issues.
+>
+{style="tip"}
+
 ## Run your application on iOS {id="run-ios"}
 
-1. Ensure that Xcode is running.
-2. In IntelliJ IDEA, select **iosApp** in the list of run configurations.
-3. Choose an iOS simulated device next to the list of configurations and click **Run**.
+1. In IntelliJ IDEA, select **iosApp** in the list of run configurations.
+2. Choose an iOS simulated device next to the list of configurations and click **Run**.
    ![iOsApp selected with iPhone 16 device](tutorial_client_kmp_run_ios.png){width="381" style="block"}
 
    If you don't have an available iOS configuration in the list, add a
    [new run configuration](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html#run-on-a-new-ios-simulated-device).
-4. Once loaded, the simulator should display the received HTML document as plain text.
+3. Once loaded, the simulator should display the received HTML document as plain text.
    ![iOS simulator](tutorial_client_kmp_ios.png){width="381" style="block"}
 
 
