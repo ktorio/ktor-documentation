@@ -33,6 +33,15 @@ The following table lists details of the latest Ktor releases.
 
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
+<tr><td>3.3.1</td><td>October 8, 2025</td><td>
+<p>
+A patch release that updates Kotlin to 2.2.20, and fixes several issues including Content-Length parsing errors, missing
+serializers for <code>ClientSSESession</code>, Netty configuration and shutdown bugs, and adds support for serving static 
+resources within bootJar.
+</p>
+<var name="version" value="3.3.1"/>
+<include from="lib.topic" element-id="release_details_link"/>
+</td></tr>
 <tr><td>3.3.0</td><td>September 11, 2025</td><td>
 <p>
 A minor release that introduces major features like experimental OpenAPI generation preview, improved static content

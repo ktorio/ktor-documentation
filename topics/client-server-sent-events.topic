@@ -173,6 +173,11 @@
                     }
                 }
             </code-block>
+            <note>
+                The <code>ClientSSESession</code> and <code>ClientSSESessionWithDeserialization</code> instances are
+                valid only for the duration of the session. Their scope is automatically canceled when the
+                <code>serverSentEvents { ... }</code> block completes or the connection is closed.
+            </note>
             <p>Optionally, the following parameters are available to configure the connection:</p>
             <deflist>
                 <def id="reconnectionTime-param">
