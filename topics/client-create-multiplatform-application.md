@@ -3,7 +3,7 @@
 <show-structure for="chapter" depth="2"/>
 
 <tldr>
-<var name="example_name" value="tutorial-client-kmm"/>
+<var name="example_name" value="tutorial-client-kmp"/>
 <include from="lib.topic" element-id="download_example"/>
 </tldr>
 
@@ -36,9 +36,9 @@ multiplatform project which you can expand with clients and services.
 2. In IntelliJ IDEA, select **File | New | Project**.
 3. In the panel on the left, select **Kotlin Multiplatform**.
 4. Specify the following fields in the **New Project** window:
-    * **Name**: KmmKtor
+    * **Name**: KmpKtor
     * **Group**: com.example.ktor
-      ![Kotlin Multiplatform wizard settings](kmm_tutorial_create_project.png){ width="450" width="706" border-effect="rounded" style="block" }
+      ![Kotlin Multiplatform wizard settings](tutorial_client_kmp_create_project.png){ width="450" width="706" border-effect="rounded" style="block" }
 5. Select **Android** and **iOS** targets.
 6. For iOS, select the **Do not share UI** option to keep the UI native.
 7. Click the **Create** button and wait for the IDE to generate and import the project.
@@ -112,7 +112,7 @@ To use coroutines in [Android code](#android-activity), you need to add `kotlinx
    ```
    {src="snippets/tutorial-client-kmm/composeApp/build.gradle.kts" include-lines="18-19,22-24,39"}
 
-Select **Build | Sync Project with Gradle Files** to install the added dependencies.
+4. Select **Build | Sync Project with Gradle Files** to install the added dependencies.
 
 ## Update your application {id="code"}
 
@@ -127,8 +127,8 @@ file and add the following code to the `Greeting` class:
 
 {src="snippets/tutorial-client-kmm/shared/src/commonMain/kotlin/com/example/ktor/kmmktor/Greeting.kt"}
 
-- The `HttpClient` constructor is used to create the HTTP client.
-- The suspending `greet()` function is used to make a [request](client-requests.md) and receive the body of
+- The `HttpClient` constructor creates the HTTP client.
+- The suspending `greet()` function makes a [request](client-requests.md) and receives the body of
   a [response](client-responses.md) as a string value.
 
 ### Android code {id="android-activity"}
@@ -160,7 +160,7 @@ On iOS, the `greet()` suspending function is available as a function with a call
 
 ## Enable internet access on Android {id="android-internet"}
 
-The final thing you need to do is to enable internet access for the Android application.
+The final step is to enable internet access for the Android application.
 Open the
 <path>composeApp/src/androidMain/AndroidManifest.xml</path>
 file and enable the required permission using the `&lt;uses-permission&gt;` element:
@@ -178,24 +178,24 @@ file and enable the required permission using the `&lt;uses-permission&gt;` elem
 
 1. In IntelliJ IDEA, select **composeApp** in the list of run configurations.
 2. Choose an Android virtual device next to the list of configurations and click **Run**.
-   ![composeApp selected with a Pixel 8 API device](kmm_tutorial_run_android.png){width="381" style="block"}
+   ![composeApp selected with a Pixel 8 API device](tutorial_client_kmp_run_android.png){width="381" style="block"}
 
    If you don't have a device in the list, create
    a [new Android virtual device](https://developer.android.com/studio/run/managing-avds#createavd).
 3. Once loaded, the simulator should display the received HTML document as plain text.
-   ![Android simulator](tutorial_client_kmm_android.png){width="381" style="block"}
+   ![Android simulator](tutorial_client_kmp_android.png){width="381" style="block"}
 
 ## Run your application on iOS {id="run-ios"}
 
 1. Ensure that Xcode is running.
 2. In IntelliJ IDEA, select **iosApp** in the list of run configurations.
 3. Choose an iOS simulated device next to the list of configurations and click **Run**.
-   ![iOsApp selected with iPhone 16 device](kmm_tutorial_run_ios.png){width="381" style="block"}
+   ![iOsApp selected with iPhone 16 device](tutorial_client_kmp_run_ios.png){width="381" style="block"}
 
    If you don't have an available iOS configuration in the list, add a
    [new run configuration](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html#run-on-a-new-ios-simulated-device).
 4. Once loaded, the simulator should display the received HTML document as plain text.
-   ![iOS simulator](tutorial_client_kmm_ios.png){width="381" style="block"}
+   ![iOS simulator](tutorial_client_kmp_ios.png){width="381" style="block"}
 
 
 
