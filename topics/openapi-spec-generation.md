@@ -100,7 +100,7 @@ get("/api/users/{id}") {
 
 | Tag             | Format                                          | Description                                     |
 |-----------------|-------------------------------------------------|-------------------------------------------------|
-| `@tags`         | `@tags *name`                                   | Associates the endpoint with a tag for grouping |
+| `@tag`          | `@tag *name`                                    | Associates the endpoint with a tag for grouping |
 | `@path`         | `@path [Type] name description`                 | Describes a path parameter                      |
 | `@query`        | `@query [Type] name description`                | Query parameter                                 |
 | `@header`       | `@header [Type] name description`               | Header parameter                                |
