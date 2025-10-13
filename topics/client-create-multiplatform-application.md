@@ -59,7 +59,7 @@ To use the Ktor HTTP client in your project, you need to add at least two depend
     ```kotlin
     ```
     
-    {src="snippets/tutorial-client-kmm/gradle/libs.versions.toml" include-lines="1,15"}
+    {src="snippets/tutorial-client-kmp/gradle/libs.versions.toml" include-lines="1,15"}
 
 2. In the same
     <path>gradle/libs.versions.toml</path>
@@ -68,7 +68,7 @@ To use the Ktor HTTP client in your project, you need to add at least two depend
     ```kotlin
     ```
     
-    {src="snippets/tutorial-client-kmm/gradle/libs.versions.toml" include-lines="18,29-31"}
+    {src="snippets/tutorial-client-kmp/gradle/libs.versions.toml" include-lines="18,29-31"}
 
 3. Open the
     <path>shared/build.gradle.kts</path>
@@ -77,7 +77,7 @@ To use the Ktor HTTP client in your project, you need to add at least two depend
     ```kotlin
     ```
     
-    {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="25-27,29-35,39"}
+    {src="snippets/tutorial-client-kmp/shared/build.gradle.kts" include-lines="25-27,29-35,39"}
     
     - Add the `ktor-client-core` to the `commonMain` source set to enable Ktor client functionality in shared code.
     - In the `androidMain` source set, include the `ktor-client-okhttp` dependency to use the `OkHttp` engine on Android.
@@ -94,7 +94,7 @@ To use coroutines in [Android code](#android-activity), you need to add `kotlinx
 
     ```kotlin
     ```
-   {src="snippets/tutorial-client-kmm/gradle/libs.versions.toml" include-lines="1,16-18,32-33"}
+   {src="snippets/tutorial-client-kmp/gradle/libs.versions.toml" include-lines="1,16-18,32-33"}
 
 2. Open the
    <path>shared/build.gradle.kts</path>
@@ -102,7 +102,7 @@ To use coroutines in [Android code](#android-activity), you need to add `kotlinx
 
     ```kotlin
     ```
-   {src="snippets/tutorial-client-kmm/shared/build.gradle.kts" include-lines="25-29,39"}
+   {src="snippets/tutorial-client-kmp/shared/build.gradle.kts" include-lines="25-29,39"}
 
 3. Then, open the
    <path>composeApp/build.gradle.kts</path>
@@ -110,7 +110,7 @@ To use coroutines in [Android code](#android-activity), you need to add `kotlinx
 
    ```kotlin
    ```
-   {src="snippets/tutorial-client-kmm/composeApp/build.gradle.kts" include-lines="18-19,22-24,39"}
+   {src="snippets/tutorial-client-kmp/composeApp/build.gradle.kts" include-lines="18-19,22-24,39"}
 
 4. Select **Build | Sync Project with Gradle Files** to install the added dependencies.
 
@@ -125,7 +125,7 @@ file and add the following code to the `Greeting` class:
 ```kotlin
 ```
 
-{src="snippets/tutorial-client-kmm/shared/src/commonMain/kotlin/com/example/ktor/kmmktor/Greeting.kt"}
+{src="snippets/tutorial-client-kmp/shared/src/commonMain/kotlin/com/example/ktor/kmpktor/Greeting.kt"}
 
 - The `HttpClient` constructor creates the HTTP client.
 - The suspending `greet()` function makes a [request](client-requests.md) and receives the body of
@@ -140,7 +140,7 @@ file and update the code as follows:
 ```kotlin
 ```
 
-{src="snippets/tutorial-client-kmm/composeApp/src/androidMain/kotlin/com/example/ktor/kmmktor/App.kt"}
+{src="snippets/tutorial-client-kmp/composeApp/src/androidMain/kotlin/com/example/ktor/kmpktor/App.kt"}
 
 `LaunchedEffect()` launches a coroutine tied to the composable’s lifecycle. Within this coroutine, the shared `greet()`
 function is called, its result is assigned to `text`, and any exceptions are caught and handled.
@@ -154,7 +154,7 @@ file and update the code in the following way:
 ```Swift
 ```
 
-{src="snippets/tutorial-client-kmm/iosApp/iosApp/ContentView.swift"}
+{src="snippets/tutorial-client-kmp/iosApp/iosApp/ContentView.swift"}
 
 On iOS, the `greet()` suspending function is available as a function with a callback.
 
