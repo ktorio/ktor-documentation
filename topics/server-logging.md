@@ -71,13 +71,13 @@ that helps you determine why some routes are not being executed.
 
 
 ## Access logger in code {id="access_logger"}
-The Logger instance is represented by a class that implements the [Logger](https://api.ktor.io/ktor-utils/io.ktor.util.logging/-logger/index.html) interface. You can access the Logger instance inside the `Application` using the [Application.log](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/log.html) property. For example, the code snippet below shows how to add a message to a log inside the [module](server-modules.md).
+The Logger instance is represented by a class that implements the [Logger](https://api.ktor.io/ktor-utils/io.ktor.util.logging/-logger/index.html) interface. You can access the Logger instance inside the `Application` using the [Application.log](https://api.ktor.io/ktor-server-core/io.ktor.server.application/log.html) property. For example, the code snippet below shows how to add a message to a log inside the [module](server-modules.md).
 
 ```kotlin
 ```
 {src="snippets/logging/src/main/kotlin/com/example/Application.kt" include-lines="3,11-13,35"}
 
-You can also access the Logger from [ApplicationCall](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-call/index.html) using the `call.application.environment.log` property.
+You can also access the Logger from [ApplicationCall](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-application-call/index.html) using the `call.application.environment.log` property.
 
 ```kotlin
 ```

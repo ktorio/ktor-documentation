@@ -33,7 +33,7 @@ routing {
 
 ## Define a route handler {id="define_route"}
 
-After [installing](#install_plugin) the Routing plugin, you can call the [route](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.routing/route.html) function inside `routing` to define a route:
+After [installing](#install_plugin) the Routing plugin, you can call the [route](https://api.ktor.io/ktor-server-core/io.ktor.server.routing/route.html) function inside `routing` to define a route:
 ```kotlin
 import io.ktor.server.routing.*
 import io.ktor.http.*
@@ -48,7 +48,7 @@ routing {
 }
 ```
 
-Ktor also provides a series of functions that make defining route handlers much easier and more concise. For example, you can replace the previous code with a [get](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.routing/get.html) function that now only needs to take the URL and the code to handle the request:
+Ktor also provides a series of functions that make defining route handlers much easier and more concise. For example, you can replace the previous code with a [get](https://api.ktor.io/ktor-server-core/io.ktor.server.routing/get.html) function that now only needs to take the URL and the code to handle the request:
 
 ```kotlin
 import io.ktor.server.routing.*

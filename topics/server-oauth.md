@@ -70,7 +70,7 @@ The OAuth authorization flow in a Ktor application might look as follows:
 ## Install OAuth {id="install"}
 
 To install the `oauth` authentication provider, call
-the [oauth](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/oauth.html)
+the [oauth](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/oauth.html)
 function inside the `install` block. Optionally, you can [specify a provider name](server-auth.md#provider-name).
 For example, to install an `oauth` provider with the name "auth-oauth-google" it would look like the following:
 
@@ -133,7 +133,7 @@ The code snippet below shows how to create and configure the `oauth` provider wi
 * The `urlProvider` specifies a [redirect route](#redirect-route) that will be invoked when authorization is completed.
   > Make sure that this route is added to a list of [**Authorised redirect URIs**](#authorization-credentials).
 * `providerLookup` allows you to specify OAuth settings for a required provider. These settings are represented by
-  the [OAuthServerSettings](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-o-auth-server-settings/index.html)
+  the [OAuthServerSettings](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-o-auth-server-settings/index.html)
   class and allow Ktor to make automatic requests to the OAuth server.
 * The `client` property specifies the [HttpClient](#create-http-client) used by Ktor to make requests to the OAuth
   server.
@@ -160,7 +160,7 @@ Apart from the login route, you need to create the redirect route for the `urlPr
 in [](#configure-oauth-provider).
 
 Inside this route you can retrieve
-the [OAuthAccessTokenResponse](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-o-auth-access-token-response/index.html)
+the [OAuthAccessTokenResponse](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-o-auth-access-token-response/index.html)
 object using the `call.principal` function. `OAuthAccessTokenResponse` allows you to access a token and other parameters
 returned by the OAuth server.
 

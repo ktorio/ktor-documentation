@@ -24,7 +24,7 @@ presence of BOM is optional, and it may cause problems when it's read by softwar
 that does not know how to handle the BOM.
 
 The Ktor client provides
-the [BOMRemover](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-bom-remover/io.ktor.client.plugins.bomremover/index.html)
+the [BOMRemover](https://api.ktor.io/ktor-client-bom-remover/io.ktor.client.plugins.bomremover/index.html)
 plugin that removes BOM from the response body in the UTF-8, UTF-16 (BE), UTF-16 (LE), UTF-32 (BE) and UTF-32 (LE)
 encodings.
 

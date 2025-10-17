@@ -16,7 +16,7 @@
 <include from="lib.topic" element-id="native_server_not_supported"/>
 </tldr>
 
-Ktor allows you to use [Thymeleaf templates](https://www.thymeleaf.org/) as views within your application by installing the [Thymeleaf](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-thymeleaf/io.ktor.server.thymeleaf/-thymeleaf) plugin.
+Ktor allows you to use [Thymeleaf templates](https://www.thymeleaf.org/) as views within your application by installing the [Thymeleaf](https://api.ktor.io/ktor-server-thymeleaf/io.ktor.server.thymeleaf/-thymeleaf) plugin.
 
 
 ## Add dependencies {id="add_dependencies"}
@@ -48,7 +48,7 @@ A data model for a user looks as follows:
 ```
 {src="snippets/thymeleaf/src/main/kotlin/com/example/Application.kt" include-lines="27"}
 
-To use the template for the specified [route](server-routing.md), pass [ThymeleafContent](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-thymeleaf/io.ktor.server.thymeleaf/-thymeleaf-content/index.html) to the `call.respond` method in the following way:
+To use the template for the specified [route](server-routing.md), pass [ThymeleafContent](https://api.ktor.io/ktor-server-thymeleaf/io.ktor.server.thymeleaf/-thymeleaf-content/index.html) to the `call.respond` method in the following way:
 ```kotlin
 ```
 {src="snippets/thymeleaf/src/main/kotlin/com/example/Application.kt" include-lines="20-23"}

@@ -52,7 +52,7 @@
         <p>Optionally, you can configure the plugin inside the <code>install</code> block by passing the supported
             properties of
             the
-            <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.websocket/-web-sockets/-config/index.html">WebSockets.Config</a>.
+            <a href="https://api.ktor.io/ktor-client-core/io.ktor.client.plugins.websocket/-web-sockets/-config/index.html">WebSockets.Config</a>.
         </p>
         <deflist>
             <def id="maxFrameSize">
@@ -100,7 +100,7 @@
     <chapter title="Working with WebSocket sessions" id="working-wtih-session">
         <p>A client's WebSocket session is represented by
             the
-            <a href="https://api.ktor.io/ktor-shared/ktor-websockets/io.ktor.websocket/-default-web-socket-session/index.html">DefaultClientWebSocketSession</a>
+            <a href="https://api.ktor.io/ktor-websockets/io.ktor.websocket/-default-web-socket-session/index.html">DefaultClientWebSocketSession</a>
             interface. This interface exposes the API that allows you to send and receive WebSocket frames, and close a
             session.
         </p>
@@ -111,7 +111,7 @@
             <list>
                 <li>
                     <p>The <a
-                            href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.websocket/web-socket.html">webSocket()</a>
+                            href="https://api.ktor.io/ktor-client-core/io.ktor.client.plugins.websocket/web-socket.html">webSocket()</a>
                         function accepts <code>DefaultClientWebSocketSession</code> as a block argument.</p>
 
                     <code-block lang="kotlin">
@@ -129,7 +129,7 @@
                 </li>
                 <li>
                     The <a
-                        href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.websocket/web-socket-session.html">webSocketSession()</a>
+                        href="https://api.ktor.io/ktor-client-core/io.ktor.client.plugins.websocket/web-socket-session.html">webSocketSession()</a>
                     function returns the <code>DefaultClientWebSocketSession</code> instance and allows you to access a
                     session outside
                     the <code>runBlocking</code> or <code>launch</code> scope.

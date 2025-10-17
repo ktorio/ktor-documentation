@@ -21,7 +21,7 @@ The ContentNegotiation plugin serves two primary purposes: negotiating media typ
 </link-summary>
 
 
-The [ContentNegotiation](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-content-negotiation/io.ktor.server.plugins.contentnegotiation/-content-negotiation.html) plugin serves two primary purposes:
+The [ContentNegotiation](https://api.ktor.io/ktor-server-content-negotiation/io.ktor.server.plugins.contentnegotiation/-content-negotiation.html) plugin serves two primary purposes:
 * Negotiating media types between the client and server. For this, it uses the `Accept` and `Content-Type` headers.
 * Serializing/deserializing the content in a specific format. Ktor supports the following formats out-of-the-box: JSON, XML, CBOR, and ProtoBuf.
 
@@ -334,7 +334,7 @@ In this case, Ktor uses the `Accept` header to choose the required [serializer](
 
 ## Implement a custom serializer {id="implement_custom_serializer"}
 
-In Ktor, you can write your own [serializer](#configure_serializer) for serializing/deserializing data. To do this, you need to implement the [ContentConverter](https://api.ktor.io/ktor-shared/ktor-serialization/io.ktor.serialization/-content-converter/index.html) interface:
+In Ktor, you can write your own [serializer](#configure_serializer) for serializing/deserializing data. To do this, you need to implement the [ContentConverter](https://api.ktor.io/ktor-serialization/io.ktor.serialization/-content-converter/index.html) interface:
 ```kotlin
 interface ContentConverter {
     suspend fun serialize(contentType: ContentType, charset: Charset, typeInfo: TypeInfo, value: Any): OutgoingContent?

@@ -25,7 +25,7 @@ and [embedded application resources](#resources).
 ## Folders {id="folders"}
 
 To serve static files from a local filesystem, use the
-[`staticFiles()`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.http.content/static-files.html)
+[`staticFiles()`](https://api.ktor.io/ktor-server-core/io.ktor.server.http.content/static-files.html)
 function. In this case, relative paths are resolved using the current working directory.
 
  ```kotlin
@@ -43,7 +43,7 @@ see [static-files](https://github.com/ktorio/ktor-documentation/tree/%ktor_versi
 ## ZIP files {id="zipped"}
 
 To serve static content from a ZIP file, Ktor provides the [
-`staticZip()`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.http.content/static-zip.html) function.
+`staticZip()`](https://api.ktor.io/ktor-server-core/io.ktor.server.http.content/static-zip.html) function.
 This allows you to map requests directly to the contents of a ZIP archive, as shown in the example below:
 
  ```kotlin
@@ -65,7 +65,7 @@ see [static-zip](https://github.com/ktorio/ktor-documentation/tree/%ktor_version
 ## Resources {id="resources"}
 
 To serve content from the classpath, use the
-[`staticResources()`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.http.content/static-resources.html)
+[`staticResources()`](https://api.ktor.io/ktor-server-core/io.ktor.server.http.content/static-resources.html)
 function.
 
 ```kotlin

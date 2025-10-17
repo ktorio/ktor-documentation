@@ -18,7 +18,7 @@
 <include from="lib.topic" element-id="native_server_not_supported"/>
 </tldr>
 
-Ktor allows you to use [FreeMarker templates](https://freemarker.apache.org/) as views within your application by installing the [FreeMarker](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-freemarker/io.ktor.server.freemarker/-free-marker) plugin.
+Ktor allows you to use [FreeMarker templates](https://freemarker.apache.org/) as views within your application by installing the [FreeMarker](https://api.ktor.io/ktor-server-freemarker/io.ktor.server.freemarker/-free-marker) plugin.
 
 
 ## Add dependencies {id="add_dependencies"}

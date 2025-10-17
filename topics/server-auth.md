@@ -18,7 +18,7 @@ The Authentication plugin handles authentication and authorization in Ktor.
 </link-summary>
 
 Ktor provides
-the [Authentication](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-authentication/index.html)
+the [Authentication](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-authentication/index.html)
 plugin to handle authentication and authorization. Typical usage scenarios include logging in users, granting access to
 specific resources, and securely transmitting information between parties. You can also use `Authentication`
 with [Sessions](server-sessions.md) to keep a user's information between requests.
@@ -46,7 +46,7 @@ HTTP provides a [general framework](https://developer.mozilla.org/en-US/docs/Web
 
 
 ### LDAP {id="ldap"}
-[LDAP](server-ldap.md) is an open and cross-platform protocol used for directory services authentication. Ktor provides the [ldapAuthenticate](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth-ldap/io.ktor.server.auth.ldap/ldap-authenticate.html) function to authenticate user credentials against a specified LDAP server.
+[LDAP](server-ldap.md) is an open and cross-platform protocol used for directory services authentication. Ktor provides the [ldapAuthenticate](https://api.ktor.io/ktor-server-auth-ldap/io.ktor.server.auth.ldap/ldap-authenticate.html) function to authenticate user credentials against a specified LDAP server.
 
 ### OAuth {id="oauth"}
 [OAuth](server-oauth.md) is an open standard for securing access to APIs. The `oauth` provider in Ktor allows you to implement authentication using external providers such as Google, Facebook, Twitter, and so on.
@@ -83,7 +83,7 @@ To use a specific authentication
 provider, such as [basic](server-basic-auth.md), [digest](server-digest-auth.md), or [form](server-form-based-auth.md),
 you need to call the corresponding function inside the `install` block. For example, to use basic authentication,
 call the [
-`.basic()`](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/basic.html)
+`.basic()`](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/basic.html)
 function:
 
 ```kotlin
@@ -103,8 +103,8 @@ Inside this function, you can [configure](#configure-provider) settings specific
 
 A function for [using a specific provider](#choose-provider) optionally allows you to specify a provider name. A code
 sample below installs
-the [basic](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/basic.html)
-and [form](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/form.html) providers
+the [basic](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/basic.html)
+and [form](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/form.html) providers
 with the `"auth-basic"` and `"auth-form"` names, respectively:
 
 ```kotlin
@@ -128,11 +128,11 @@ These names can be used later to [authenticate different routes](#authenticate-r
 ### Step 3: Configure a provider {id="configure-provider"}
 
 Each [provider type](#choose-provider) has its own configuration. For example,
-the [`BasicAuthenticationProvider.Config`](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-basic-authentication-provider/-config/index.html)
+the [`BasicAuthenticationProvider.Config`](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-basic-authentication-provider/-config/index.html)
 class provides options for the
-[`.basic()`](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/basic.html)
+[`.basic()`](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/basic.html)
 function. The key function in this class
-is [`validate()`](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-basic-authentication-provider/-config/validate.html)
+is [`validate()`](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-basic-authentication-provider/-config/validate.html)
 , which is responsible for validating a username and password. The following code example demonstrates its usage:
 
 ```kotlin
@@ -143,9 +143,9 @@ To understand how the `validate()` function works, we need to introduce two term
 
 * A _principal_ is an entity that can be authenticated: a user, a computer, a service, etc. In Ktor, various
   authentication providers might use different principals. For example, the `basic`, `digest`, and `form` providers
-  authenticate [`UserIdPrincipal`](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html)
+  authenticate [`UserIdPrincipal`](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html)
   while the `jwt` provider
-  verifies [`JWTPrincipal`](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-principal/index.html).
+  verifies [`JWTPrincipal`](https://api.ktor.io/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-principal/index.html).
   > You can also create a custom principal. This might be useful in the following cases:
   > - Mapping the credentials to a custom principal allows you to have additional information about the authenticated
       principal inside a [route handler](#get-principal).
@@ -154,16 +154,16 @@ To understand how the `validate()` function works, we need to introduce two term
 * A _credential_ is a set of properties for a server to authenticate a principal: a user/password pair, an API key, and
   so on. For instance, the `basic` and `form` providers
   use [
-  `UserPasswordCredential`](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-user-password-credential/index.html)
+  `UserPasswordCredential`](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-user-password-credential/index.html)
   to validate a username and password while `jwt`
   validates [
-  `JWTCredential`](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-credential/index.html).
+  `JWTCredential`](https://api.ktor.io/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-credential/index.html).
 
 So, the `validate()` function checks a specified credential and returns a principal `Any` in the case of successful
 authentication or `null` if authentication fails.
 
 > To skip authentication based on specific criteria,
-> use [`skipWhen()`](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-authentication-provider/-config/skip-when.html).
+> use [`skipWhen()`](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-authentication-provider/-config/skip-when.html).
 > For example, you can skip `basic` authentication if a [session](server-sessions.md) already exists:
 > ```kotlin
 > basic {
@@ -174,7 +174,7 @@ authentication or `null` if authentication fails.
 ### Step 4: Protect specific resources {id="authenticate-route"}
 
 The final step is to protect specific resources in your application. You can do this by using the
-[`authenticate()`](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/authenticate.html)
+[`authenticate()`](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/authenticate.html)
 function. This function accepts two optional parameters:
 
 - A [name of a provider](#provider-name) used to authenticate nested routes.
@@ -196,7 +196,7 @@ function. This function accepts two optional parameters:
    ```
 - A strategy used to resolve nested authentication providers.
   This strategy is represented by the
-  [`AuthenticationStrategy`](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-authentication-strategy/index.html)
+  [`AuthenticationStrategy`](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-authentication-strategy/index.html)
   enumeration value.
 
   For example, the client should provide authentication data for all providers registered

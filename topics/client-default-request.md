@@ -12,7 +12,7 @@
 The DefaultRequest plugin allows you to configure default parameters for all requests.
 </link-summary>
 
-The [DefaultRequest](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-default-request/index.html) plugin allows you to configure default parameters for all [requests](client-requests.md): specify a base URL, add headers, configure query parameters, and so on.
+The [DefaultRequest](https://api.ktor.io/ktor-client-core/io.ktor.client.plugins/-default-request/index.html) plugin allows you to configure default parameters for all [requests](client-requests.md): specify a base URL, add headers, configure query parameters, and so on.
 
 
 ## Add dependencies {id="add_dependencies"}
@@ -68,7 +68,7 @@ If you make the following request using the client with the above configuration,
 {src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" include-lines="25"}
 
 ... the resulting URL will be the following: `https://ktor.io/docs/welcome.html`.
-To learn how base and request URLs are merged, see [DefaultRequest](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-default-request/index.html).
+To learn how base and request URLs are merged, see [DefaultRequest](https://api.ktor.io/ktor-client-core/io.ktor.client.plugins/-default-request/index.html).
 
 
 ### URL parameters {id="url-params"}

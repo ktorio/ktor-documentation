@@ -4,13 +4,13 @@
 
 <link-summary>Learn how to create and configure a Ktor client.</link-summary>
 
-After adding the [client dependencies](client-dependencies.md), you can instantiate the client by creating the [HttpClient](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client/-http-client/index.html) class instance and passing an [engine](client-engines.md) as a parameter:
+After adding the [client dependencies](client-dependencies.md), you can instantiate the client by creating the [HttpClient](https://api.ktor.io/ktor-client-core/io.ktor.client/-http-client/index.html) class instance and passing an [engine](client-engines.md) as a parameter:
 
 ```kotlin
 ```
 {src="snippets/_misc_client/CioCreate.kt"}
 
-In this example, we use the [CIO](https://api.ktor.io/ktor-client/ktor-client-cio/io.ktor.client.engine.cio/-c-i-o/index.html) engine.
+In this example, we use the [CIO](https://api.ktor.io/ktor-client-cio/io.ktor.client.engine.cio/-c-i-o/index.html) engine.
 You can also omit an engine:
 
 ```kotlin
@@ -24,7 +24,7 @@ In this case, the client will choose an engine automatically depending on the ar
 ### Basic configuration {id="basic-config"}
 
 To configure the client, you can pass an additional functional parameter to the client constructor. 
-The [HttpClientConfig](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client/-http-client-config/index.html) class is a base class for configuring the client. 
+The [HttpClientConfig](https://api.ktor.io/ktor-client-core/io.ktor.client/-http-client-config/index.html) class is a base class for configuring the client. 
 For instance, you can enable [response validation](client-response-validation.md) using the `expectSuccess` property:
 
 ```kotlin

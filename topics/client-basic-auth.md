@@ -40,8 +40,8 @@ The basic authentication flow looks as follows:
 
 To send user credentials in the `Authorization` header using the `Basic` scheme, you need to configure the `basic` authentication provider as follows:
 
-1. Call the [basic](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-auth/io.ktor.client.plugins.auth.providers/basic.html) function inside the `install` block.
-2. Provide the required credentials using [BasicAuthCredentials](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-auth/io.ktor.client.plugins.auth.providers/-basic-auth-credentials/index.html) and pass this object to the [credentials](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-auth/io.ktor.client.plugins.auth.providers/-basic-auth-config/credentials.html) function.
+1. Call the [basic](https://api.ktor.io/ktor-client-auth/io.ktor.client.plugins.auth.providers/basic.html) function inside the `install` block.
+2. Provide the required credentials using [BasicAuthCredentials](https://api.ktor.io/ktor-client-auth/io.ktor.client.plugins.auth.providers/-basic-auth-credentials/index.html) and pass this object to the [credentials](https://api.ktor.io/ktor-client-auth/io.ktor.client.plugins.auth.providers/-basic-auth-config/credentials.html) function.
 3. Configure the realm using the `realm` property.
 
    ```kotlin

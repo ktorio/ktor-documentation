@@ -32,7 +32,7 @@ supported by Ktor.
 ### Generate a certificate in code {id="self-signed-code"}
 
 Ktor provides the ability to generate self-signed certificates for testing purposes by calling
-the [buildKeyStore](https://api.ktor.io/ktor-network/ktor-network-tls/ktor-network-tls-certificates/io.ktor.network.tls.certificates/build-key-store.html)
+the [buildKeyStore](https://api.ktor.io/ktor-network-tls-certificates/io.ktor.network.tls.certificates/build-key-store.html)
 function, which returns
 a [KeyStore](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/security/KeyStore.html) instance.
 To use this function, you need to add the `ktor-network-tls-certificates` artifact in the build script:
@@ -139,10 +139,10 @@ see [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_ve
 
 If you use the `embeddedServer` function to run your server, you need to configure
 a [custom environment](server-configuration-code.topic#embedded-custom) in
-the [ApplicationEngine.Configuration](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/-application-engine/-configuration/index.html)
+the [ApplicationEngine.Configuration](https://api.ktor.io/ktor-server-core/io.ktor.server.engine/-application-engine/-configuration/index.html)
 and provide
 SSL settings there
-using [sslConnector](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/ssl-connector.html):
+using [sslConnector](https://api.ktor.io/ktor-server-core/io.ktor.server.engine/ssl-connector.html):
 
 ```kotlin
 ```

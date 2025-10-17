@@ -18,7 +18,7 @@
 The ContentNegotiation plugin serves two primary purposes: negotiating media types between the client and server and serializing/deserializing the content in a specific format when sending requests and receiving responses.
 </link-summary>
 
-The [ContentNegotiation](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-content-negotiation/io.ktor.client.plugins.contentnegotiation/-content-negotiation)
+The [ContentNegotiation](https://api.ktor.io/ktor-client-content-negotiation/io.ktor.client.plugins.contentnegotiation/-content-negotiation)
 plugin serves two primary purposes:
 * Negotiating media types between the client and server. For this, it uses the `Accept` and `Content-Type` headers.
 * Serializing/deserializing the content in a specific format when sending [requests](client-requests.md) and receiving [responses](client-responses.md). Ktor supports the following formats out-of-the-box: JSON, XML, CBOR, and ProtoBuf.
@@ -137,7 +137,7 @@ You can find the full example here: [client-json-kotlinx](https://github.com/kto
 </tab>
 <tab title="Gson" group-key="gson">
 
-To register the Gson serializer in your application, call the [gson](https://api.ktor.io/ktor-shared/ktor-serialization/ktor-serialization-gson/io.ktor.serialization.gson/gson.html) method:
+To register the Gson serializer in your application, call the [gson](https://api.ktor.io/ktor-serialization-gson/io.ktor.serialization.gson/gson.html) method:
 ```kotlin
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.serialization.gson.*
@@ -154,7 +154,7 @@ The `gson` method also allows you to adjust serialization settings provided by [
 </tab>
 <tab title="Jackson" group-key="jackson">
 
-To register the Jackson serializer in your application, call the [jackson](https://api.ktor.io/ktor-shared/ktor-serialization/ktor-serialization-jackson/io.ktor.serialization.jackson/jackson.html) method:
+To register the Jackson serializer in your application, call the [jackson](https://api.ktor.io/ktor-serialization-jackson/io.ktor.serialization.jackson/jackson.html) method:
 
 ```kotlin
 import io.ktor.client.plugins.contentnegotiation.*

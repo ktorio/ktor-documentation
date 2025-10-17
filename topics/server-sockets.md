@@ -136,7 +136,7 @@ val selectorManager = SelectorManager(Dispatchers.IO)
 val socket = aSocket(selectorManager).tcp().connect("127.0.0.1", 8443).tls()
 ```
 
-The `tls` function allows you to adjust TLS parameters provided by [TLSConfigBuilder](https://api.ktor.io/ktor-network/ktor-network-tls/io.ktor.network.tls/-t-l-s-config-builder/index.html):
+The `tls` function allows you to adjust TLS parameters provided by [TLSConfigBuilder](https://api.ktor.io/ktor-network-tls/io.ktor.network.tls/-t-l-s-config-builder/index.html):
 
 ```kotlin
 ```
