@@ -9,10 +9,10 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.util.cio.*
 import io.ktor.utils.io.*
-import kotlinx.io.readByteArray
+import kotlinx.io.files.Path
+import kotlinx.io.files.SystemFileSystem
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.*
-import java.io.*
 
 fun main(args: Array<String>): Unit =
     io.ktor.server.netty.EngineMain.main(args)
@@ -58,8 +58,13 @@ fun Application.module() {
 
                     is PartData.FileItem -> {
                         fileName = part.originalFileName as String
-                        val fileBytes = part.provider().readRemaining().readByteArray()
-                        File("uploads/$fileName").writeBytes(fileBytes)
+                        val channel = part.provider()
+                        SystemFileSystem.sink(Path("uploads/$fileName")).use { sink ->
+                            while (!channel.exhausted()) {
+                                channel.readBuffer().transferTo(sink)
+                                sink.flush()
+                            }
+                        }
                     }
 
                     else -> {}

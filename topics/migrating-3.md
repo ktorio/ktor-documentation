@@ -634,7 +634,7 @@ In Ktor 3.x, `ByteReadChannel.readRemaining()` now returns a `Source`, enabling 
 
 ```Kotlin
 ```
-{src="snippets/client-download-streaming/src/main/kotlin/com/example/Application.kt" include-lines="15-36"}
+{src="snippets/client-download-streaming/src/main/kotlin/com/example/Application.kt" include-lines="15-37"}
 
 This approach transfers data directly from the channel to the file's sink, minimizing memory
 allocations and improving performance.
