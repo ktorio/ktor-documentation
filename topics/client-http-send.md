@@ -8,7 +8,7 @@
 </tldr>
 
 
-The [HttpSend](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-http-send/index.html) plugin allows you to monitor and retry HTTP calls depending on a response. For instance, you can implement call logging or retry a request if a server returns an error response (with the 4xx or 5xx status code).
+The [HttpSend](https://api.ktor.io/ktor-client-core/io.ktor.client.plugins/-http-send/index.html) plugin allows you to monitor and retry HTTP calls depending on a response. For instance, you can implement call logging or retry a request if a server returns an error response (with the 4xx or 5xx status code).
 
 The `HttpSend` plugin doesn't require installation. To use it, pass `HttpSend` to the `HttpClient.plugin` function and call the `intercept` method. The example below shows how to retry a request depending on the response status code:
 

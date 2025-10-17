@@ -64,7 +64,7 @@ The digest authentication flow looks as follows:
 
 
 ## Install digest authentication {id="install"}
-To install the `digest` authentication provider, call the [digest](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/digest.html) function inside the `install` block:
+To install the `digest` authentication provider, call the [digest](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/digest.html) function inside the `install` block:
 
 ```kotlin
 import io.ktor.server.application.*
@@ -93,7 +93,7 @@ The `digest` authentication provider validates user credentials using the `HA1` 
 
 ### Step 2: Configure a digest provider {id="configure-provider"}
 
-The `digest` authentication provider exposes its settings via the [DigestAuthenticationProvider.Config](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-digest-authentication-provider/-config/index.html) class. In the example below, the following settings are specified:
+The `digest` authentication provider exposes its settings via the [DigestAuthenticationProvider.Config](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-digest-authentication-provider/-config/index.html) class. In the example below, the following settings are specified:
 * The `realm` property sets the realm to be passed in the `WWW-Authenticate` header.
 * The `digestProvider` function fetches the `HA1` part of digest for a specified username.
 * (Optional) The `validate` function allows you to map the credentials to a custom principal.
@@ -102,12 +102,12 @@ The `digest` authentication provider exposes its settings via the [DigestAuthent
 ```
 {src="snippets/auth-digest/src/main/kotlin/authdigest/Application.kt" include-lines="18-33,41-43"}
 
-You can also use the [nonceManager](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-digest-authentication-provider/-config/nonce-manager.html) property to specify how to generate nonce values.
+You can also use the [nonceManager](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-digest-authentication-provider/-config/nonce-manager.html) property to specify how to generate nonce values.
 
 
 ### Step 3: Protect specific resources {id="authenticate-route"}
 
-After configuring the `digest` provider, you can protect specific resources in our application using the **[authenticate](server-auth.md#authenticate-route)** function. In the case of successful authentication, you can retrieve an authenticated [Principal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-principal/index.html) inside a route handler using the `call.principal` function and get a name of an authenticated user.
+After configuring the `digest` provider, you can protect specific resources in our application using the **[authenticate](server-auth.md#authenticate-route)** function. In the case of successful authentication, you can retrieve an authenticated [Principal](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-principal/index.html) inside a route handler using the `call.principal` function and get a name of an authenticated user.
 
 ```kotlin
 ```

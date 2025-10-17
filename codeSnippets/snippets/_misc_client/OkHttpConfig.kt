@@ -3,7 +3,7 @@ import io.ktor.client.engine.okhttp.*
 
 val client = HttpClient(OkHttp) {
     engine {
-        // this: [[[OkHttpConfig|https://api.ktor.io/ktor-client/ktor-client-okhttp/io.ktor.client.engine.okhttp/-ok-http-config/index.html]]]
+        // this: [[[OkHttpConfig|https://api.ktor.io/ktor-client-okhttp/io.ktor.client.engine.okhttp/-ok-http-config/index.html]]]
         config {
             // this: OkHttpClient.Builder
             followRedirects(true)

@@ -15,7 +15,7 @@ Logging is a way to keep track of what your program is doing and diagnose proble
 errors, or informational messages.
 
 Ktor provides the capability to log HTTP calls using
-the [Logging](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-logging/io.ktor.client.plugins.logging/-logging)
+the [Logging](https://api.ktor.io/ktor-client-logging/io.ktor.client.plugins.logging/-logging)
 plugin.
 This plugin provides different logger types for different platforms.
 
@@ -103,7 +103,7 @@ val client = HttpClient(CIO) {
 ## Configure Logging {id="configure_plugin"}
 
 The `Logging` plugin configuration is provided by
-the [Logging.Config](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-logging/io.ktor.client.plugins.logging/-logging-config)
+the [Logging.Config](https://api.ktor.io/ktor-client-logging/io.ktor.client.plugins.logging/-logging-config)
 class. The example below shows a sample configuration:
 
 `logger`

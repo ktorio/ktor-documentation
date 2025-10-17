@@ -33,7 +33,7 @@ To configure the proxy in the client, you don't need to add a specific dependenc
 ## Configure proxy {id="configure_proxy"}
 
 To configure proxy settings, call the `engine` function inside a [client configuration block](client-create-and-configure.md#configure-client) and then use the `proxy` property.
-This property accepts the `ProxyConfig` instance that can be created using the [ProxyBuilder](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.engine/-proxy-builder/index.html) factory.
+This property accepts the `ProxyConfig` instance that can be created using the [ProxyBuilder](https://api.ktor.io/ktor-client-core/io.ktor.client.engine/-proxy-builder/index.html) factory.
 
 ```kotlin
 val client = HttpClient() {

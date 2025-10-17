@@ -46,7 +46,7 @@ The form-based authentication flow might look as follows:
 
 
 ## Install form authentication {id="install"}
-To install the `form` authentication provider, call the [form](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/form.html) function inside the `install` block:
+To install the `form` authentication provider, call the [form](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/form.html) function inside the `install` block:
 
 ```kotlin
 import io.ktor.server.application.*
@@ -64,11 +64,11 @@ You can optionally specify a [provider name](server-auth.md#provider-name) that 
 ## Configure form authentication {id="configure"}
 
 ### Step 1: Configure a form provider {id="configure-provider"}
-The `form` authentication provider exposes its settings via the [FormAuthenticationProvider.Config](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-form-authentication-provider/-config/index.html) class. In the example below, the following settings are specified:
+The `form` authentication provider exposes its settings via the [FormAuthenticationProvider.Config](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-form-authentication-provider/-config/index.html) class. In the example below, the following settings are specified:
 * The `userParamName` and `passwordParamName` properties specify parameter names used to fetch a username and password.
 * The `validate` function validates a username and password.
   The `validate` function checks `UserPasswordCredential` and returns a `UserIdPrincipal` in the case of successful authentication or `null` if authentication fails.
-* The `challenge` function specifies an action performed if authentication fails. For instance, you can redirect back to a login page or send [UnauthorizedResponse](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-unauthorized-response/index.html).
+* The `challenge` function specifies an action performed if authentication fails. For instance, you can redirect back to a login page or send [UnauthorizedResponse](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-unauthorized-response/index.html).
 
 ```kotlin
 ```
@@ -82,7 +82,7 @@ The `form` authentication provider exposes its settings via the [FormAuthenticat
 
 After configuring the `form` provider, you need to define a `post` route where the data gets sent.
 Then, add this route inside the **[authenticate](server-auth.md#authenticate-route)** function.
-In the case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html) inside a route handler using the `call.principal` function and get a name of an authenticated user.
+In the case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html) inside a route handler using the `call.principal` function and get a name of an authenticated user.
 
 ```kotlin
 ```

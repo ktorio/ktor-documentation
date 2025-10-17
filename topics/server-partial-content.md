@@ -19,7 +19,7 @@
 <include from="lib.topic" element-id="native_server_supported"/>
 </tldr>
 
-The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-partial-content/io.ktor.server.plugins.partialcontent/-partial-content.html) plugin adds support for handling [HTTP range requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests) used to send only a portion of an HTTP message back to a client. This plugin is useful for streaming content or resuming partial downloads.
+The [%plugin_name%](https://api.ktor.io/ktor-server-partial-content/io.ktor.server.plugins.partialcontent/-partial-content.html) plugin adds support for handling [HTTP range requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests) used to send only a portion of an HTTP message back to a client. This plugin is useful for streaming content or resuming partial downloads.
 
 `%plugin_name%` has the following limitations:
 - Works only for `HEAD` and `GET` requests and returns `405 Method Not Allowed` if the client tries to use the `Range` header with other methods.

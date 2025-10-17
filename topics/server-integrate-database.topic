@@ -452,7 +452,7 @@
                     />
                     <p>
                         For these tests to compile and run, you will need to add a dependency on the <a
-                            href="https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-content-negotiation/io.ktor.server.plugins.contentnegotiation/-content-negotiation.html">Content
+                            href="https://api.ktor.io/ktor-server-content-negotiation/io.ktor.server.plugins.contentnegotiation/-content-negotiation.html">Content
                         Negotiation</a>
                         plugin for the Ktor Client.
                     </p>

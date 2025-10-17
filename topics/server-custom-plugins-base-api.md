@@ -19,8 +19,8 @@ For example, you can intercept the `Monitoring` phase to log incoming requests o
 To create a custom plugin, follow the steps below:
 
 1. Create a plugin class and [declare a companion object](#create-companion) that implements one of the following interfaces:
-   - [BaseApplicationPlugin](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-base-application-plugin/index.html) if a plugin should work on an application level.
-   - [BaseRouteScopedPlugin](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-base-route-scoped-plugin/index.html) if a plugin can be [installed to a specific route](server-plugins.md#install-route).
+   - [BaseApplicationPlugin](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-base-application-plugin/index.html) if a plugin should work on an application level.
+   - [BaseRouteScopedPlugin](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-base-route-scoped-plugin/index.html) if a plugin can be [installed to a specific route](server-plugins.md#install-route).
 2. [Implement](#implement) the `key` and `install` members of this companion object.
 3. Provide a [plugin configuration](#plugin-configuration).
 4. [Handle calls](#call-handling) by intercepting the required pipeline phases. 
@@ -159,7 +159,7 @@ The example below shows how to:
 
 A [Pipeline](https://api.ktor.io/ktor-utils/io.ktor.util.pipeline/-pipeline/index.html) in Ktor is a collection of interceptors, grouped in one or more ordered phases. Each interceptor can perform custom logic before and after processing a request.
 
-[ApplicationCallPipeline](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-call-pipeline/index.html) is a pipeline for executing application calls. This pipeline defines 5 phases:
+[ApplicationCallPipeline](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-application-call-pipeline/index.html) is a pipeline for executing application calls. This pipeline defines 5 phases:
 
 - `Setup`: a phase used for preparing a call and its attributes for processing.
 - `Monitoring`: a phase for tracing calls. It might be useful for request logging, collecting metrics, error handling, and so on.

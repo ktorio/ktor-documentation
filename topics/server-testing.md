@@ -37,7 +37,7 @@ To test a server Ktor application, you need to include the following artifacts i
 
 To use a testing engine, follow the steps below:
 1. Create a JUnit test class and a test function.
-2. Use the [testApplication](https://api.ktor.io/ktor-server/ktor-server-test-host/io.ktor.server.testing/test-application.html) function to set up a configured instance of a test application running locally.
+2. Use the [testApplication](https://api.ktor.io/ktor-server-test-host/io.ktor.server.testing/test-application.html) function to set up a configured instance of a test application running locally.
 3. Use the [Ktor HTTP client](client-create-and-configure.md) instance inside a test application to make a request to your server, receive a response, and make assertions.
 
 The code below demonstrates how to test the most simple Ktor application that accepts GET requests made to the `/` path and responds with a plain text response.
@@ -125,7 +125,7 @@ folder and load it using the `config` property:
 ```
 {src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="17-21,51"}
 
-Another way to specify configuration properties is using [MapApplicationConfig](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.config/-map-application-config/index.html). This might be useful if you want to access application configuration before the application starts. The example below shows how to pass `MapApplicationConfig` to the `testApplication` function using the `config` property:
+Another way to specify configuration properties is using [MapApplicationConfig](https://api.ktor.io/ktor-server-core/io.ktor.server.config/-map-application-config/index.html). This might be useful if you want to access application configuration before the application starts. The example below shows how to pass `MapApplicationConfig` to the `testApplication` function using the `config` property:
 
 ```kotlin
 ```

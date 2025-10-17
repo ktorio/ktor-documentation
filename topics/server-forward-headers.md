@@ -15,7 +15,7 @@
 <include from="lib.topic" element-id="native_server_supported"/>
 </tldr>
 
-The [ForwardedHeaders](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-forwarded-header/io.ktor.server.plugins.forwardedheaders/-forwarded-headers.html) and [XForwardedHeaders](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-forwarded-header/io.ktor.server.plugins.forwardedheaders/-x-forwarded-headers.html) plugins allow you to handle reverse proxy headers to get information about the original [request](server-requests.md) when a Ktor server is placed behind a reverse proxy. This might be useful for [logging](server-logging.md) purposes.
+The [ForwardedHeaders](https://api.ktor.io/ktor-server-forwarded-header/io.ktor.server.plugins.forwardedheaders/-forwarded-headers.html) and [XForwardedHeaders](https://api.ktor.io/ktor-server-forwarded-header/io.ktor.server.plugins.forwardedheaders/-x-forwarded-headers.html) plugins allow you to handle reverse proxy headers to get information about the original [request](server-requests.md) when a Ktor server is placed behind a reverse proxy. This might be useful for [logging](server-logging.md) purposes.
 
 * `ForwardedHeaders` handles the `Forwarded` header ([RFC 7239](https://tools.ietf.org/html/rfc7239))
 * `XForwardedHeaders` handles the following `X-Forwarded-` headers:
@@ -63,7 +63,7 @@ After installing `ForwardedHeaders`/`XForwardedHeaders`, you can get information
 
 ### Proxy request information {id="proxy_request_info"}
 
-To get information about the proxy request, use the [call.request.local](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.request/-application-request/local.html) property inside the [route handler](server-routing.md#define_route).
+To get information about the proxy request, use the [call.request.local](https://api.ktor.io/ktor-server-core/io.ktor.server.request/-application-request/local.html) property inside the [route handler](server-routing.md#define_route).
 The code snippet below shows how to obtain information about the proxy address and the host to which the request was made:
 
 ```kotlin
@@ -74,7 +74,7 @@ The code snippet below shows how to obtain information about the proxy address a
 
 ### Original request information {id="original-request-information"}
 
-To read information about the original request, use the [call.request.origin](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.plugins/origin.html) property:
+To read information about the original request, use the [call.request.origin](https://api.ktor.io/ktor-server-core/io.ktor.server.plugins/origin.html) property:
 
 ```kotlin
 ```
@@ -107,7 +107,7 @@ X-Forwarded-For: <client>, <proxy1>, <proxy2>
 
 By default, `XForwardedHeader` assigns the first entry in `X-Forwarded-For` to the `call.request.origin.remoteHost` property.
 You can also supply custom logic for [selecting an IP address](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For#selecting_an_ip_address). 
-[XForwardedHeadersConfig](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-forwarded-header/io.ktor.server.plugins.forwardedheaders/-x-forwarded-headers-config/index.html) exposes the following API for this:
+[XForwardedHeadersConfig](https://api.ktor.io/ktor-server-forwarded-header/io.ktor.server.plugins.forwardedheaders/-x-forwarded-headers-config/index.html) exposes the following API for this:
 
 - `useFirstProxy` and `useLastProxy` allow you to take the first or last value from the list of IP addresses, respectively.
 - `skipLastProxies` skips the specified number of entries starting from the right and takes the next entry.

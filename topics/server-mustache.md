@@ -18,7 +18,7 @@
 <include from="lib.topic" element-id="native_server_not_supported"/>
 </tldr>
 
-Ktor allows you to use [Mustache templates](https://github.com/spullara/mustache.java) as views within your application by installing the [Mustache](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-mustache/io.ktor.server.mustache/-mustache) plugin.
+Ktor allows you to use [Mustache templates](https://github.com/spullara/mustache.java) as views within your application by installing the [Mustache](https://api.ktor.io/ktor-server-mustache/io.ktor.server.mustache/-mustache) plugin.
 
 
 ## Add dependencies {id="add_dependencies"}
