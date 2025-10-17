@@ -847,7 +847,7 @@
                         </p>
                         <code-block lang="kotlin"
                                     src="snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt"
-                                    include-lines="30-33"/>
+                                    include-lines="31-34"/>
                         <p>
                             For the full example, see the
                             <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt">7_receive_request</a>
@@ -896,19 +896,19 @@
                         </p>
                         <code-block lang="kotlin"
                                     src="snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt"
-                                    include-lines="23-28"/>
+                                    include-lines="24-29"/>
                         <p>
                             To deserialize received data into an object, you need to create a data class:
                         </p>
                         <code-block lang="kotlin"
                                     src="snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt"
-                                    include-lines="19-20"/>
+                                    include-lines="20-21"/>
                         <p>
                             Then, use the <code>receive</code> method that accepts this data class as a parameter:
                         </p>
                         <code-block lang="kotlin"
                                     src="snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt"
-                                    include-lines="34-37"/>
+                                    include-lines="35-38"/>
                         <p>
                             For the full example, see the
                             <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt">7_receive_request</a>
@@ -957,7 +957,7 @@
                         </p>
                         <code-block lang="kotlin"
                                     src="snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt"
-                                    include-lines="38-42"/>
+                                    include-lines="39-43"/>
                         <p>
                             For the full example, see the
                             <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt">7_receive_request</a>
@@ -1006,7 +1006,7 @@
                         </p>
                         <code-block lang="kotlin"
                                     src="snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt"
-                                    include-lines="43-47"/>
+                                    include-lines="44-48"/>
                         <p>
                             For the full example, see the
                             <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt">7_receive
@@ -1063,7 +1063,7 @@
                         </p>
                         <code-block lang="kotlin"
                                     src="snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt"
-                                    include-lines="48-68"/>
+                                    include-lines="49-75"/>
                         <p>
                             For the full example, see the
                             <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt">7_receive_request</a>

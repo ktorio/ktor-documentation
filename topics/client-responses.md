@@ -149,7 +149,7 @@ below shows how to receive a response content in chunks (byte packets) and save 
 
 ```kotlin
 ```
-{src="snippets/client-download-streaming/src/main/kotlin/com/example/Application.kt" include-lines="15-36"}
+{src="snippets/client-download-streaming/src/main/kotlin/com/example/Application.kt" include-lines="15-37"}
 
 In this example, [`ByteReadChannel`](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) is used
 to read data asynchronously. Using `ByteReadChannel.readRemaining()` retrieves all available bytes in the channel, while
