@@ -48,9 +48,9 @@ load the configuration from the external `application.conf` or `application.yaml
 
 ### embeddedServer {id="embeddedServer"}
 
-The [`embeddedServer()`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/embedded-server.html)
+The [`embeddedServer()`](https://api.ktor.io/ktor-server-core/io.ktor.server.engine/embedded-server.html)
 function accepts an engine factory used to create an engine of a specific type. In the example below, we pass
-the [`Netty`](https://api.ktor.io/ktor-server/ktor-server-netty/io.ktor.server.netty/-netty/index.html) factory to run a
+the [`Netty`](https://api.ktor.io/ktor-server-netty/io.ktor.server.netty/-netty/index.html) factory to run a
 server with the Netty engine and listen on the `8080` port:
 
 ```kotlin

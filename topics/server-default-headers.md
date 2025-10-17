@@ -6,7 +6,7 @@
 <var name="artifact_name" value="ktor-server-default-headers"/>
 <var name="package_name" value="io.ktor.server.plugins.defaultheaders"/>
 <var name="plugin_name" value="DefaultHeaders"/>
-<var name="plugin_api_link" value="https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-default-headers/io.ktor.server.plugins.defaultheaders/-default-headers.html"/>
+<var name="plugin_api_link" value="https://api.ktor.io/ktor-server-default-headers/io.ktor.server.plugins.defaultheaders/-default-headers.html"/>
 
 <tldr>
 <p>

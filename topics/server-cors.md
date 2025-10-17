@@ -18,7 +18,7 @@
 
 If your server is supposed to handle [cross-origin requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS),
 you need to install and configure
-the [CORS](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-cors/io.ktor.server.plugins.cors.routing/-c-o-r-s.html)
+the [CORS](https://api.ktor.io/ktor-server-cors/io.ktor.server.plugins.cors.routing/-c-o-r-s.html)
 Ktor plugin. This plugin allows you to configure allowed hosts, HTTP methods, headers set by the client, and so on.
 
 ## Add dependencies {id="add_dependencies"}
@@ -38,7 +38,7 @@ preflight request.
 ## Configure CORS {id="configure"}
 
 CORS-specific configuration settings are exposed by
-the [CORSConfig](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-cors/io.ktor.server.plugins.cors/-c-o-r-s-config/index.html)
+the [CORSConfig](https://api.ktor.io/ktor-server-cors/io.ktor.server.plugins.cors/-c-o-r-s-config/index.html)
 class. Let's see how to configure these settings.
 
 ### Overview {id="overview"}
@@ -126,7 +126,7 @@ install(CORS) {
 ```
 
 > Note that `allowHeaders` or `allowHeadersPrefixed` require setting
-the [allowNonSimpleContentTypes](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-cors/io.ktor.server.plugins.cors/-c-o-r-s-config/allow-non-simple-content-types.html)
+the [allowNonSimpleContentTypes](https://api.ktor.io/ktor-server-cors/io.ktor.server.plugins.cors/-c-o-r-s-config/allow-non-simple-content-types.html)
 property to `true` for non-simple content types.
 
 ### Expose headers {id="expose-headers"}
@@ -168,4 +168,4 @@ install(CORS) {
 ```
 
 You can learn about other configuration options
-from [CORSConfig](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-cors/io.ktor.server.plugins.cors/-c-o-r-s-config/index.html).
+from [CORSConfig](https://api.ktor.io/ktor-server-cors/io.ktor.server.plugins.cors/-c-o-r-s-config/index.html).

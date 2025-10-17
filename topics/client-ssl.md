@@ -65,7 +65,7 @@ For Jetty, you need to create an instance of `SslContextFactory` and pass `SSLCo
 #### CIO {id="cio"}
 
 The CIO engine allows you to configure HTTPS settings inside the `https` block.
-Inside this block, you can access TLS parameters provided by [TLSConfigBuilder](https://api.ktor.io/ktor-network/ktor-network-tls/io.ktor.network.tls/-t-l-s-config-builder/index.html).
+Inside this block, you can access TLS parameters provided by [TLSConfigBuilder](https://api.ktor.io/ktor-network-tls/io.ktor.network.tls/-t-l-s-config-builder/index.html).
 In our example, a `TrustManager` instance is used to configure a certificate:
 
 ```kotlin
@@ -96,4 +96,4 @@ To configure OkHttp for using SSL, you need to pass `SSLSocketFactory` and `X509
 
 ### Darwin {id="darwin"}
 
-To configure trusted certificates for the Darwin engine, use [CertificatePinner](https://api.ktor.io/ktor-client/ktor-client-darwin/io.ktor.client.engine.darwin.certificates/-certificate-pinner/index.html).
+To configure trusted certificates for the Darwin engine, use [CertificatePinner](https://api.ktor.io/ktor-client-darwin/io.ktor.client.engine.darwin.certificates/-certificate-pinner/index.html).

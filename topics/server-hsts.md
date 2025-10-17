@@ -15,7 +15,7 @@
 <include from="lib.topic" element-id="native_server_supported"/>
 </tldr>
 
-The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-hsts/io.ktor.server.plugins.hsts/-h-s-t-s.html) plugin adds the required _HTTP Strict Transport Security_ headers to the request according to the [RFC 6797](https://tools.ietf.org/html/rfc6797). When the browser receives HSTS policy headers, it no longer attempts to connect to the server with insecure connections for a given period.
+The [%plugin_name%](https://api.ktor.io/ktor-server-hsts/io.ktor.server.plugins.hsts/-h-s-t-s.html) plugin adds the required _HTTP Strict Transport Security_ headers to the request according to the [RFC 6797](https://tools.ietf.org/html/rfc6797). When the browser receives HSTS policy headers, it no longer attempts to connect to the server with insecure connections for a given period.
 
 > Note that HSTS policy headers are ignored over an insecure HTTP connection. For HSTS to take effect, it should be served over a [secure](server-ssl.md) connection.
 
@@ -33,7 +33,7 @@ The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-ser
 
 ## Configure %plugin_name% {id="configure"}
 
-`%plugin_name%` exposes its settings via [HSTSConfig](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-hsts/io.ktor.server.plugins.hsts/-h-s-t-s-config/index.html). The example below shows how to use the `maxAgeInSeconds` property to specify how long the client should keep the host in a list of known HSTS hosts:
+`%plugin_name%` exposes its settings via [HSTSConfig](https://api.ktor.io/ktor-server-hsts/io.ktor.server.plugins.hsts/-h-s-t-s-config/index.html). The example below shows how to use the `maxAgeInSeconds` property to specify how long the client should keep the host in a list of known HSTS hosts:
 
 ```kotlin
 ```

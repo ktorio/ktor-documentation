@@ -34,7 +34,7 @@ The `%plugin_name%` plugin allows you to log incoming client requests.
 
 You can configure `%plugin_name%` in multiple ways: specify a logging level, filter requests based on a specified
 condition, customize log messages, and so on. You can see the available configuration settings
-at [CallLoggingConfig](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-call-logging/io.ktor.server.plugins.calllogging/-call-logging-config/index.html).
+at [CallLoggingConfig](https://api.ktor.io/ktor-server-call-logging/io.ktor.server.plugins.calllogging/-call-logging-config/index.html).
 
 ### Set the logging level {id="logging_level"}
 

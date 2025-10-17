@@ -18,7 +18,7 @@
 
 <link-summary>The %plugin_name% plugin lets you configure the Metrics library to get useful information about the server and incoming requests.</link-summary>
 
-The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-metrics/io.ktor.server.metrics.dropwizard/-dropwizard-metrics.html) plugin lets you configure the [Metrics](http://metrics.dropwizard.io/) library to get useful information about the server and incoming requests.
+The [%plugin_name%](https://api.ktor.io/ktor-server-metrics/io.ktor.server.metrics.dropwizard/-dropwizard-metrics.html) plugin lets you configure the [Metrics](http://metrics.dropwizard.io/) library to get useful information about the server and incoming requests.
 
 ## Add dependencies {id="add_dependencies"}
 To enable `%plugin_name%`, you need to include the following artifacts in the build script:

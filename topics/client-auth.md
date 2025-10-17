@@ -14,7 +14,7 @@ The Auth plugin handles authentication and authorization in your client applicat
 </link-summary>
 
 Ktor provides
-the [Auth](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-auth/io.ktor.client.plugins.auth/-auth)
+the [Auth](https://api.ktor.io/ktor-client-auth/io.ktor.client.plugins.auth/-auth)
 plugin to handle authentication and authorization in your client application.
 Typical usage scenarios include logging in users and gaining access to specific resources.
 
@@ -60,7 +60,7 @@ Now you can [configure](#configure_authentication) the required authentication p
 
 ### Step 1: Choose an authentication provider {id="choose-provider"}
 
-To use a specific authentication provider ([basic](client-basic-auth.md), [digest](client-digest-auth.md), or [bearer](client-bearer-auth.md)), you need to call the corresponding function inside the `install` block. For example, to use the `basic` authentication, call the [basic](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-auth/io.ktor.client.plugins.auth.providers/basic.html) function:
+To use a specific authentication provider ([basic](client-basic-auth.md), [digest](client-digest-auth.md), or [bearer](client-bearer-auth.md)), you need to call the corresponding function inside the `install` block. For example, to use the `basic` authentication, call the [basic](https://api.ktor.io/ktor-client-auth/io.ktor.client.plugins.auth.providers/basic.html) function:
 
 ```kotlin
 install(Auth) {

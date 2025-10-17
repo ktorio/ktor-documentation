@@ -15,7 +15,7 @@ the [MonitoringEvent](server-custom-plugins.md#handle-app-events) hook.
 ## Event definition {id="event-definition"}
 
 Each event is represented by
-the [EventDefinition](https://api.ktor.io/ktor-shared/ktor-events/io.ktor.events/-event-definition/index.html) class
+the [EventDefinition](https://api.ktor.io/ktor-events/io.ktor.events/-event-definition/index.html) class
 instance. This class has a `T` type parameter specifying the type of value passed to the event. This value can be
 accessed in the [event handler](#handle-events-application) as a lambda argument. For example, most of
 the [predefined events](#predefined-events) accept `Application` as a parameter allowing you to access application
@@ -36,12 +36,12 @@ the `404 Not Found` status code for a resource.
 
 Ktor provides the following predefined events related to an application's lifecycle:
 
-- [ApplicationStarting](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-starting.html)
-- [ApplicationStarted](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-started.html)
-- [ServerReady](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-server-ready.html)
-- [ApplicationStopPreparing](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-stop-preparing.html)
-- [ApplicationStopping](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-stopping.html)
-- [ApplicationStopped](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-stopped.html)
+- [ApplicationStarting](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-application-starting.html)
+- [ApplicationStarted](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-application-started.html)
+- [ServerReady](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-server-ready.html)
+- [ApplicationStopPreparing](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-application-stop-preparing.html)
+- [ApplicationStopping](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-application-stopping.html)
+- [ApplicationStopped](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-application-stopped.html)
 
 For example, you can subscribe to the `ApplicationStopped` event to release application resources.
 
@@ -49,7 +49,7 @@ For example, you can subscribe to the `ApplicationStopped` event to release appl
 
 To handle events for the specified `Application` instance, use the `monitor` property.
 This property provides access to
-the [Events](https://api.ktor.io/ktor-shared/ktor-events/io.ktor.events/-events/index.html) instance that exposes the
+the [Events](https://api.ktor.io/ktor-events/io.ktor.events/-events/index.html) instance that exposes the
 following functions allowing you to handle application events:
 
 - `subscribe`: subscribes to an event specified by [EventDefinition](#event-definition).

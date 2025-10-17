@@ -20,7 +20,7 @@
 %plugin_name% provides the ability to validate a body of incoming requests.
 </link-summary>
 
-The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-request-validation/io.ktor.server.plugins.requestvalidation/-request-validation.html) plugin provides the ability to validate a body of incoming requests. You can validate a raw request body or specified request object properties if the `ContentNegotiation` plugin with a [serializer](server-serialization.md#configure_serializer) is installed. If a request body validation fails, the plugin raises `RequestValidationException`, which can be handled using the [StatusPages](server-status-pages.md) plugin.
+The [%plugin_name%](https://api.ktor.io/ktor-server-request-validation/io.ktor.server.plugins.requestvalidation/-request-validation.html) plugin provides the ability to validate a body of incoming requests. You can validate a raw request body or specified request object properties if the `ContentNegotiation` plugin with a [serializer](server-serialization.md#configure_serializer) is installed. If a request body validation fails, the plugin raises `RequestValidationException`, which can be handled using the [StatusPages](server-status-pages.md) plugin.
 
 
 

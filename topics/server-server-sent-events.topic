@@ -91,7 +91,7 @@
         <chapter title="SSE session block" id="session-block">
             <p>
                 Within the <code>sse</code> block, you define the handler for the specified path, represented by the
-                <a href="https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-sse/io.ktor.server.sse/-server-s-s-e-session/index.html">
+                <a href="https://api.ktor.io/ktor-server-sse/io.ktor.server.sse/-server-s-s-e-session/index.html">
                     <code>ServerSSESession</code>
                 </a>
                 class. The following functions and properties are available within the block:</p>
@@ -136,7 +136,7 @@
             </p>
             <p>
                 To enable and configure a heartbeat, use the
-                <a href="https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-sse/io.ktor.server.sse/heartbeat.html">
+                <a href="https://api.ktor.io/ktor-server-sse/io.ktor.server.sse/heartbeat.html">
                     <code>.heartbeat()</code>
                 </a>
                 function within an SSE route handler:
@@ -152,7 +152,7 @@
             <p>
                 To enable serialization, provide a custom serialization function using the <code>serialize</code>
                 parameter on an SSE route. Inside the handler, you can use the
-                <a href="https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-sse/io.ktor.server.sse/-server-s-s-e-session-with-serialization/index.html">
+                <a href="https://api.ktor.io/ktor-server-sse/io.ktor.server.sse/-server-s-s-e-session-with-serialization/index.html">
                     <code>ServerSSESessionWithSerialization</code>
                 </a>
                 class to send serialized events:

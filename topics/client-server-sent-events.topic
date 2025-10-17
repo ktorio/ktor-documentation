@@ -46,7 +46,7 @@
         <p>
             You can optionally configure the SSE plugin within the <code>install</code> block by setting the supported
             properties of the
-            <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.sse/-s-s-e-config/index.html">SSEConfig</a>
+            <a href="https://api.ktor.io/ktor-client-core/io.ktor.client.plugins.sse/-s-s-e-config/index.html">SSEConfig</a>
             class.
         </p>
         <chapter title="SSE reconnect" id="sse-reconnect">
@@ -136,7 +136,7 @@
     <chapter title="Handle SSE sessions" id="handle-sse-sessions">
         <p>
             A client's SSE session is represented by the
-            <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.sse/-client-s-s-e-session/index.html">
+            <a href="https://api.ktor.io/ktor-client-core/io.ktor.client.plugins.sse/-client-s-s-e-session/index.html">
                 <code>ClientSSESession</code>
             </a>
             interface. This interface exposes the API that allows you to receive server-sent events from a server.
@@ -145,13 +145,13 @@
             <p>The <code>HttpClient</code> allows you to get access to an SSE session in one of the following ways:</p>
             <list>
                 <li>The
-                    <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.sse/sse.html">
+                    <a href="https://api.ktor.io/ktor-client-core/io.ktor.client.plugins.sse/sse.html">
                         <code>sse()</code>
                     </a>
                     function creates the SSE session and allows you to act on it.
                 </li>
                 <li>The
-                    <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.sse/sse-session.html">
+                    <a href="https://api.ktor.io/ktor-client-core/io.ktor.client.plugins.sse/sse-session.html">
                         <code>sseSession()</code>
                     </a>
                     function allows you to open an SSE session.
@@ -204,7 +204,7 @@
         <chapter title="SSE session block" id="sse-session-block">
             <p>
                 Within the lambda argument, you have access to the
-                <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.sse/-client-s-s-e-session/index.html"><code>ClientSSESession</code></a>
+                <a href="https://api.ktor.io/ktor-client-core/io.ktor.client.plugins.sse/-client-s-s-e-session/index.html"><code>ClientSSESession</code></a>
                 context. The following properties are available within the block:
             </p>
             <deflist>
@@ -220,7 +220,7 @@
             <p>
                 The example below creates a new SSE session with the <code>events</code> endpoint,
                 reads events through the <code>incoming</code> property and prints the received
-                <a href="https://api.ktor.io/ktor-shared/ktor-sse/io.ktor.sse/-server-sent-event/index.html"><code>ServerSentEvent</code></a>
+                <a href="https://api.ktor.io/ktor-sse/io.ktor.sse/-server-sent-event/index.html"><code>ServerSentEvent</code></a>
                 .
             </p>
             <code-block lang="kotlin" src="snippets/client-sse/src/main/kotlin/com.example/Application.kt"
@@ -237,7 +237,7 @@
             <p>
                 To enable deserialization, provide a custom deserialization function using the <code>deserialize</code>
                 parameter on an SSE access function and use the
-                <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.sse/-client-s-s-e-session-with-deserialization/index.html">
+                <a href="https://api.ktor.io/ktor-client-core/io.ktor.client.plugins.sse/-client-s-s-e-session-with-deserialization/index.html">
                     <code>ClientSSESessionWithDeserialization</code>
                 </a>
                 class to handle the deserialized events.

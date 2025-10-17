@@ -18,7 +18,7 @@
 
 <link-summary>The MicrometerMetrics plugin enables Micrometer metrics in your Ktor server application and allows you to choose the required monitoring system, such as Prometheus, JMX, Elastic, and so on.</link-summary>
 
-The [MicrometerMetrics](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-metrics-micrometer/io.ktor.server.metrics.micrometer/-micrometer-metrics) plugin enables [Micrometer](https://micrometer.io/docs) metrics in your Ktor server application and allows you to choose the required monitoring system, such as Prometheus, JMX, Elastic, and so on. By default, Ktor exposes metrics for monitoring HTTP requests and a set of low-level metrics for [monitoring the JVM][micrometer_jvm_metrics]. You can customize these metrics or create new ones.
+The [MicrometerMetrics](https://api.ktor.io/ktor-server-metrics-micrometer/io.ktor.server.metrics.micrometer/-micrometer-metrics) plugin enables [Micrometer](https://micrometer.io/docs) metrics in your Ktor server application and allows you to choose the required monitoring system, such as Prometheus, JMX, Elastic, and so on. By default, Ktor exposes metrics for monitoring HTTP requests and a set of low-level metrics for [monitoring the JVM][micrometer_jvm_metrics]. You can customize these metrics or create new ones.
 
 ## Add dependencies {id="add_dependencies"}
 To enable `MicrometerMetrics`, you need to include the following artifacts in the build script:
@@ -64,7 +64,7 @@ After installing `MicrometerMetrics`, you need to create a [registry for your mo
 
 ## Configure metrics {id="configure_metrics"}
 
-The `MicrometerMetrics` plugin provides various configuration options that can be accessed using [MicrometerMetricsConfig](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-metrics-micrometer/io.ktor.server.metrics.micrometer/-micrometer-metrics-config/index.html).
+The `MicrometerMetrics` plugin provides various configuration options that can be accessed using [MicrometerMetricsConfig](https://api.ktor.io/ktor-server-metrics-micrometer/io.ktor.server.metrics.micrometer/-micrometer-metrics-config/index.html).
 
 ### Timers {id="timers"}
 To customize tags for each timer, you can use the `timers` function that is called for each request:

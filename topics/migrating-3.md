@@ -36,10 +36,10 @@ These changes will impact existing code that relies on the previous model.
 #### `start()` and `stop()` methods are removed from `ApplicationEngineEnvironment` {id="ApplicationEnvironment"}
 
 With the merge of `ApplicationEngineEnvironment` to [
-`ApplicationEnvironment`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-environment/index.html),
+`ApplicationEnvironment`](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-application-environment/index.html),
 the `start()` and `stop()` methods are now
 only accessible through [
-`ApplicationEngine`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/-application-engine/index.html).
+`ApplicationEngine`](https://api.ktor.io/ktor-server-core/io.ktor.server.engine/-application-engine/index.html).
 
 | 2.x.x                                                 | 3.0.x                                |
 |-------------------------------------------------------|--------------------------------------|
@@ -105,7 +105,7 @@ fun defaultServer(module: Application.() -> Unit) =
 
 The `commandLineEnvironment()` function, used to create an `ApplicationEngineEnvironment` instance from command line
 arguments has been removed in Ktor `3.0.0`. Instead, you can use the
-[`CommandLineConfig`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/-command-line-config.html)
+[`CommandLineConfig`](https://api.ktor.io/ktor-server-core/io.ktor.server.engine/-command-line-config.html)
 function to parse command-line arguments into a configuration object.
 
 To migrate your application from `commandLineEnvironment` to `CommandLineConfig`, replace `commandLineEnvironment()`
@@ -145,11 +145,11 @@ For more information on command-line configuration with `embeddedServer`, see th
 
 A new
 entity,[
-`ServerConfigBuilder`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-server-config-builder/index.html),
+`ServerConfigBuilder`](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-server-config-builder/index.html),
 has been introduced for configuring server properties and replaces the previous configuration mechanism of
 `ApplicationPropertiesBuilder`.
 `ServerConfigBuilder` is used to build instances of the
-[`ServerConfig`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-server-config/index.html)
+[`ServerConfig`](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-server-config/index.html)
 class, which now holds modules, paths, and environment details previously managed by `ApplicationProperties`.
 
 The following table summarizes the key changes:
@@ -184,7 +184,7 @@ fun main(args: Array<String>) {
 #### Introduction of `EmbeddedServer` {id="EmbeddedServer"}
 
 The class
-[`EmbeddedServer`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/-embedded-server/index.html)
+[`EmbeddedServer`](https://api.ktor.io/ktor-server-core/io.ktor.server.engine/-embedded-server/index.html)
 is introduced and used to replace `ApplicationEngine` as a return type of the `embeddedServer()` function.
 
 For more details about the model change,
@@ -298,7 +298,7 @@ For more information on configuring the test application, see the [](server-test
 ### `CallLogging` plugin package has been renamed
 
 The [
-`CallLogging`](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-call-logging/io.ktor.server.plugins.calllogging/index.html)
+`CallLogging`](https://api.ktor.io/ktor-server-call-logging/io.ktor.server.plugins.calllogging/index.html)
 plugin package has been renamed due to a typo.
 
 | 2.x.x                               | 3.0.x                                |
@@ -309,7 +309,7 @@ plugin package has been renamed due to a typo.
 
 Due to `Application` requiring knowledge of `ApplicationEngine`, the contents of `ktor-server-host-common` module have
 been merged into `ktor-server-core`, namely
-the [`io.ktor.server.engine`](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/index.html)
+the [`io.ktor.server.engine`](https://api.ktor.io/ktor-server-core/io.ktor.server.engine/index.html)
 package.
 
 Ensure that your dependencies are updated accordingly. In most cases, you can simply remove
@@ -436,7 +436,7 @@ For more information on working with sockets, see the [Sockets documentation](se
 ### New default limit for binary and file items
 
 In Ktor 3.0.0, a default limit of 50MB has been introduced for receiving binary and file items using
-[`ApplicationCall.receiveMultipart()`](https://api.ktor.io/older/3.0.0/ktor-server/ktor-server-core/io.ktor.server.request/receive-multipart.html).
+[`ApplicationCall.receiveMultipart()`](https://api.ktor.io/3.0.x/ktor-server-core/io.ktor.server.request/receive-multipart.html).
 If a received file or binary item exceeds the 50MB limit, an `IOException` is thrown.
 
 #### Override the default limit
@@ -546,13 +546,13 @@ For more information on session encryption in Ktor, see [](server-sessions.md#si
 ### Renaming of `HttpResponse`'s `content` property
 
 Prior to Ktor 3.0.0, the `content` property of
-[`HttpResponse`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/index.html)
+[`HttpResponse`](https://api.ktor.io/ktor-client-core/io.ktor.client.statement/-http-response/index.html)
 provided a raw `ByteReadChannel` to the response content as it is read from the network. Starting with Ktor 3.0.0, the
 `content` property has been renamed to `rawContent` to better reflect its purpose.
 
 ### `SocketTimeoutException` is now a typealias
 
-[`SocketTimeoutException`](https://api.ktor.io/older/3.0.0/ktor-client/ktor-client-core/io.ktor.client.network.sockets/-socket-timeout-exception/index.html)
+[`SocketTimeoutException`](https://api.ktor.io/3.0.x/ktor-client-core/io.ktor.client.network.sockets/-socket-timeout-exception/index.html)
 from the `io.ktor.client.network.sockets` package has been converted from a Kotlin class to an alias for a Java class.
 This change may cause a `NoClassDefFoundError` in certain cases and may require updates to existing code.
 
@@ -578,9 +578,9 @@ I/O handling. If your project interacts with Ktor's low-level I/O APIs, you may 
 compatibility.
 
 This impacts many classes, such as
-[`ByteReadChannel`](https://api.ktor.io/older/3.0.0/ktor-io/io.ktor.utils.io/-byte-read-channel.html)
+[`ByteReadChannel`](https://api.ktor.io/3.0.x/ktor-io/io.ktor.utils.io/-byte-read-channel.html)
 and
-[`ByteWriteChannel`](https://api.ktor.io/older/3.0.0/ktor-io/io.ktor.utils.io/-byte-write-channel/index.html)
+[`ByteWriteChannel`](https://api.ktor.io/3.0.x/ktor-io/io.ktor.utils.io/-byte-write-channel/index.html)
 . Additionally, the following Ktor classes
 are now backed by `kotlinx-io`, and their previous implementations are deprecated:
 
@@ -647,7 +647,7 @@ see [client-download-streaming](https://github.com/ktorio/ktor-documentation/tre
 
 ### Attribute keys now require exact type matching
 
-In Ktor 3.0.0, [`AttributeKey`](https://api.ktor.io/older/3.0.0/ktor-utils/io.ktor.util/-attribute-key.html)
+In Ktor 3.0.0, [`AttributeKey`](https://api.ktor.io/3.0.x/ktor-utils/io.ktor.util/-attribute-key.html)
 instances are now compared by identity and require exact type matching when storing
 and retrieving values. This ensures type-safety and prevents unintended behaviour caused by mismatched types.
 
