@@ -42,9 +42,11 @@ Below are examples of adding a dependency for Netty:
 
 ## Choose how to create a server {id="choose-create-server"}
 
-A Ktor server application can be [created and run in two ways](server-create-and-configure.topic#embedded): using
-the [embeddedServer](#embeddedServer) to quickly pass server parameters in code, or using [EngineMain](#EngineMain) to
-load the configuration from the external `application.conf` or `application.yaml` file.
+A Ktor server application can be [created and run in two ways](server-create-and-configure.topic#embedded):
+
+* Using [`embeddedServer`](#embeddedServer) to quickly pass server parameters in code
+* Using [`EngineMain`](#EngineMain) to load configuration from an external 
+<path>application.conf</path> or <path>application.yaml</path> file.
 
 ### embeddedServer {id="embeddedServer"}
 
@@ -67,9 +69,11 @@ server with the Netty engine and listen on the `8080` port:
 * `io.ktor.server.tomcat.jakarta.EngineMain`
 * `io.ktor.server.cio.EngineMain`
 
-The `EngineMain.main` function is used to start a server with the selected engine and loads
+#### Creating and starting the server
+
+The `EngineMain.main()` function is used to start a server with the selected engine and loads
 the [application module](server-modules.md) specified in the external [configuration file](server-configuration-file.topic). In the
-example below, we start a server from the application's `main` function:
+example below, the application's `main` function starts a server:
 
 <tabs>
 <tab title="Application.kt">
@@ -133,6 +137,20 @@ mainClassName = "io.ktor.server.netty.EngineMain"
 </tab>
 </tabs>
 
+#### Creating the server instance without starting it {id="createServer"}
+
+In addition to directly invoking `EngineMain.main()` to start the server immediately, you can instead call 
+`EngineMain.createServer()` which returns an `EmbeddedServer` instance without starting it.
+
+This approach gives you control over when to call `.start()`, `.stop()`, or perform any operations with the server
+before it begins accepting requests.
+
+```Kotlin
+// Example using Netty
+val server = io.ktor.server.netty.EngineMain.createServer(args)
+// perform additional initialization, logging, instrumentation, etc.
+server.start(wait = true)
+```
 ## Configure an engine {id="configure-engine"}
 
 In this section, we'll take a look at how to specify various engine-specific options.
