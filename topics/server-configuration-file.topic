@@ -372,8 +372,18 @@
 
     <chapter title="Environment variables" id="environment-variables">
         <p>
-            In a configuration file, you can substitute parameters with environment variables by using the
-            <code>${ENV}</code> / <code>$ENV</code> syntax.
+            In a configuration file, you can substitute parameters with environment variables.
+        </p>
+        <list>
+            <li>
+                In HOCON (<path>application.conf</path>), only the <code>${ENV}</code> syntax is supported.
+            </li>
+            <li>
+                In YAML (<path>application.yaml</path>), both <code>${ENV}</code> and <code>$ENV</code> syntaxes
+                are supported.
+            </li>
+        </list>
+        <p>
             For example, you can assign the <code>PORT</code> environment variable to the
             <code>ktor.deployment.port</code> property in the following way:
         </p>
@@ -391,7 +401,7 @@
                 <code-block lang="yaml"><![CDATA[
                     ktor:
                         deployment:
-                            port: $PORT
+                            port: ${PORT} # or $PORT
                 ]]></code-block>
             </tab>
         </tabs>
@@ -416,7 +426,7 @@
                 <code-block lang="yaml"><![CDATA[
                     ktor:
                         deployment:
-                            port: "$PORT:8080"
+                            port: ${PORT:8080} # or "$PORT:8080"
                 ]]></code-block>
             </tab>
         </tabs>
