@@ -8,7 +8,7 @@ Learn how to receive responses, get a response body and obtain response paramete
 
 All functions used to [make an HTTP request](client-requests.md) (`request`, `get`, `post`, etc.) allow you to receive a
 response as
-an [`HttpResponse`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/index.html)
+an [`HttpResponse`](https://api.ktor.io/ktor-client-core/io.ktor.client.statement/-http-response/index.html)
 object.
 
 `HttpResponse` exposes the API required to get a [response body](#body) in various ways (raw bytes, JSON
@@ -21,13 +21,13 @@ For example, you can receive `HttpResponse` for a `GET` request without paramete
 
 ## Receive response parameters {id="parameters"}
 
-The [`HttpResponse`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/index.html)
+The [`HttpResponse`](https://api.ktor.io/ktor-client-core/io.ktor.client.statement/-http-response/index.html)
 class allows you to get various response parameters, such as a status code, headers, HTTP version, and more.
 
 ### Status code {id="status"}
 
 To get the status code of a response, use the
-[`HttpResponse.status`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/status.html)
+[`HttpResponse.status`](https://api.ktor.io/ktor-client-core/io.ktor.client.statement/-http-response/status.html)
 property:
 
 ```kotlin
@@ -38,7 +38,7 @@ property:
 ### Headers {id="headers"}
 
 The [
-`HttpResponse.headers`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-response/index.html)
+`HttpResponse.headers`](https://api.ktor.io/ktor-client-core/io.ktor.client.statement/-http-response/index.html)
 property allows you to get a [Headers](https://api.ktor.io/ktor-http/io.ktor.http/-headers/index.html) map containing
 all response headers. Additionally, `HttpResponse` exposes the following functions for receiving specific header values:
 
@@ -73,7 +73,7 @@ below shows how to get a response as a `ByteArray` and save it to a file:
 ```
 {src="snippets/client-download-file/src/main/kotlin/com/example/Downloader.kt" include-lines="12-24"}
 
-The [`onDownload()`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/on-download.html) extension
+The [`onDownload()`](https://api.ktor.io/ktor-client-core/io.ktor.client.plugins/on-download.html) extension
 function in the example above is used to display download progress.
 
 For non-streaming requests, the response body is automatically loaded and cached in memory, allowing repeated access.
@@ -142,7 +142,7 @@ Once the form processing is complete, each part is disposed of using the `.dispo
 When you call the `HttpResponse.body` function to get a body, Ktor processes a response in memory and returns a full
 response body. If you need to get chunks of a response sequentially instead of waiting for the entire response, use
 `HttpStatement` with
-scoped [execute](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.statement/-http-statement/execute.html)
+scoped [execute](https://api.ktor.io/ktor-client-core/io.ktor.client.statement/-http-statement/execute.html)
 block.
 A [runnable example](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-download-streaming)
 below shows how to receive a response content in chunks (byte packets) and save them in a file:

@@ -458,7 +458,7 @@
 
         <p>
             ... you can access the application's configuration using
-            <a href="https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/-application-environment/config.html">
+            <a href="https://api.ktor.io/ktor-server-core/io.ktor.server.application/-application-environment/config.html">
                 ApplicationEnvironment.config
             </a>
             and get the required property value in the following way:

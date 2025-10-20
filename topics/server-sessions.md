@@ -23,7 +23,7 @@
 The Sessions plugin provides a mechanism to persist data between different HTTP requests.
 </link-summary>
 
-The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-sessions/io.ktor.server.sessions/-sessions.html) plugin provides a mechanism to persist data between different HTTP requests. Typical use cases include storing a logged-in user's ID, the contents of a shopping basket, or keeping user preferences on the client. In Ktor, you can implement sessions by using cookies or custom headers, choose whether to store session data on the server or pass it to the client, sign and encrypt session data and more.
+The [%plugin_name%](https://api.ktor.io/ktor-server-sessions/io.ktor.server.sessions/-sessions.html) plugin provides a mechanism to persist data between different HTTP requests. Typical use cases include storing a logged-in user's ID, the contents of a shopping basket, or keeping user preferences on the client. In Ktor, you can implement sessions by using cookies or custom headers, choose whether to store session data on the server or pass it to the client, sign and encrypt session data and more.
 
 In this topic, we'll look at how to install the `%plugin_name%` plugin, configure it, and access session data inside [route handlers](server-routing.md#define_route).
 
@@ -85,7 +85,7 @@ install(Sessions) {
     }
 }
 ```
-To learn more about available configurations settings, see [CookieConfiguration](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-sessions/io.ktor.server.sessions/-cookie-configuration/index.html).
+To learn more about available configurations settings, see [CookieConfiguration](https://api.ktor.io/ktor-server-sessions/io.ktor.server.sessions/-cookie-configuration/index.html).
 
 > Before [deploying](server-deployment.md) your application to production, make sure the `secure` property is set to `true`. This enables transferring cookies via a [secure connection](server-ssl.md) only and protects session data from HTTPS downgrade attacks.
 >
@@ -129,7 +129,7 @@ In Ktor, you can manage the session data in two ways:
 Ktor allows you to store session data [on the server](#client_server) and pass only a session ID between the server and the client. In this case, you can choose where to keep the payload on the server.
 
 ### In-memory storage {id="in_memory_storage"}
-[SessionStorageMemory](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-sessions/io.ktor.server.sessions/-session-storage-memory/index.html) enables storing a session's content in memory. This storage keeps data while the server is running and discards information once the server stops. For example, you can store cookies in the server memory as follows:
+[SessionStorageMemory](https://api.ktor.io/ktor-server-sessions/io.ktor.server.sessions/-session-storage-memory/index.html) enables storing a session's content in memory. This storage keeps data while the server is running and discards information once the server stops. For example, you can store cookies in the server memory as follows:
 
 ```kotlin
 ```
@@ -141,7 +141,7 @@ You can find the full example here: [session-cookie-server](https://github.com/k
 
 ### Directory storage {id="directory_storage"}
 
-[directorySessionStorage](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-sessions/io.ktor.server.sessions/directory-session-storage.html) can be used to store a session's data in a file under the specified directory. For example, to store session data in a file under the `build/.sessions` directory, create the `directorySessionStorage` in this way:
+[directorySessionStorage](https://api.ktor.io/ktor-server-sessions/io.ktor.server.sessions/directory-session-storage.html) can be used to store a session's data in a file under the specified directory. For example, to store session data in a file under the `build/.sessions` directory, create the `directorySessionStorage` in this way:
 ```kotlin
 ```
 {src="snippets/session-header-server/src/main/kotlin/com/example/Application.kt" include-lines="17,19"}
@@ -150,7 +150,7 @@ You can find the full example here: [session-header-server](https://github.com/k
 
 ### Custom storage {id="custom_storage"}
 
-Ktor provides the [SessionStorage](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-sessions/io.ktor.server.sessions/-session-storage/index.html) interface that allows you to implement a custom storage.
+Ktor provides the [SessionStorage](https://api.ktor.io/ktor-server-sessions/io.ktor.server.sessions/-session-storage/index.html) interface that allows you to implement a custom storage.
 ```kotlin
 interface SessionStorage {
     suspend fun invalidate(id: String)

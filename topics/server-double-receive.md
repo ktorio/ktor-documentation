@@ -15,7 +15,7 @@
 <include from="lib.topic" element-id="native_server_supported"/>
 </tldr>
 
-The [%plugin_name%](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-double-receive/io.ktor.server.plugins.doublereceive/-double-receive.html) plugin provides the ability to [receive a request body](server-requests.md#body_contents) several times with no `RequestAlreadyConsumedException` exception.
+The [%plugin_name%](https://api.ktor.io/ktor-server-double-receive/io.ktor.server.plugins.doublereceive/-double-receive.html) plugin provides the ability to [receive a request body](server-requests.md#body_contents) several times with no `RequestAlreadyConsumedException` exception.
 This might be useful if a [plugin](server-plugins.md) is already consumed a request body, so you cannot receive it inside a route handler.
 For example, you can use `%plugin_name%` to log a request body using the [CallLogging](server-call-logging.md) plugin and then receive a body one more time inside the `post` [route handler](server-routing.md#define_route).
 

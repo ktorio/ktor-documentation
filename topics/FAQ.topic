@@ -178,7 +178,7 @@
 
     <chapter title="How to resolve 'NoTransformationFoundException'?" id="no-transformation-found-exception">
         <p>
-            <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.call/-no-transformation-found-exception/index.html">NoTransformationFoundException</a>
+            <a href="https://api.ktor.io/ktor-client-core/io.ktor.client.call/-no-transformation-found-exception/index.html">NoTransformationFoundException</a>
             represents the inability to find a suitable transformation for the <i>received body</i> from
             <b>resulted</b> type to <b>expected</b> by the client type.
         </p>

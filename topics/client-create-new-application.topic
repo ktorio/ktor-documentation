@@ -186,13 +186,13 @@
                 ]]></code-block>
                 <p>
                     In Ktor, a client is represented by the <a
-                        href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client/-http-client/index.html">HttpClient</a>
+                        href="https://api.ktor.io/ktor-client-core/io.ktor.client/-http-client/index.html">HttpClient</a>
                     class.
                 </p>
             </step>
             <step>
                 <p>
-                    Use the <a href="https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/get.html"><code>HttpClient.get()</code></a> method to <a href="client-requests.md">make a GET request</a>.
+                    Use the <a href="https://api.ktor.io/ktor-client-core/io.ktor.client.request/get.html"><code>HttpClient.get()</code></a> method to <a href="client-requests.md">make a GET request</a>.
                     A <a href="client-responses.md">response</a> will be received as a <code>HttpResponse</code> class
                     object.
                 </p>

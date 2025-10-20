@@ -42,7 +42,7 @@ The authentication flow with sessions might vary and depends on how users are au
 
 
 ## Install session authentication {id="install"}
-To install the `session` authentication provider, call the [session](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/session.html) function with the required session type inside the `install` block:
+To install the `session` authentication provider, call the [session](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/session.html) function with the required session type inside the `install` block:
 
 ```kotlin
 import io.ktor.server.application.*
@@ -90,14 +90,14 @@ installs and configures a cookie session with a specified cookie path and expira
 
 The `session` authentication provider exposes its settings via
 the [
-`SessionAuthenticationProvider.Config`](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-session-authentication-provider/-config/index.html)
+`SessionAuthenticationProvider.Config`](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-session-authentication-provider/-config/index.html)
 class. In the example below, the following settings are specified:
 
 * The `validate()` function checks the [session instance](#data-class) and returns a principal of type `Any` in the case
   of successful authentication.
 * The `challenge()` function specifies an action performed if authentication fails. For instance, you can redirect back
   to a login page or send an [
-  `UnauthorizedResponse`](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-unauthorized-response/index.html).
+  `UnauthorizedResponse`](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-unauthorized-response/index.html).
 
 ```kotlin
 ```
