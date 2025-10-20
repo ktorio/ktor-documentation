@@ -16,10 +16,13 @@ import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.request.*
 import kotlinx.html.*
 import kotlinx.serialization.*
+import kotlinx.serialization.json.Json
 
 val applicationHttpClient = HttpClient(CIO) {
     install(ContentNegotiation) {
-        json()
+        json(Json {
+            ignoreUnknownKeys = true
+        })
     }
 }
 
