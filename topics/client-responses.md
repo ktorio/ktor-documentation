@@ -151,6 +151,11 @@ below shows how to receive a response content in chunks (byte packets) and save 
 ```
 {src="snippets/client-download-streaming/src/main/kotlin/com/example/Application.kt" include-lines="15-37"}
 
+> To convert between Ktor channels and types like `RawSink`, `RawSource`, or `OutputStream`, see
+> [I/O interoperability](io-interoperability.md).
+>
+{style="tip"}
+
 In this example, [`ByteReadChannel`](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) is used
 to read data asynchronously. Using `ByteReadChannel.readRemaining()` retrieves all available bytes in the channel, while
 `Source.transferTo()` directly writes the data to the file, reducing unnecessary allocations.
