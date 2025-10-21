@@ -329,7 +329,7 @@ audio.enable(false)
 ```
 
 
-> These snippets can be used inside of Compose Multiplatform, but don't account it's Lifecycle. See Ktor Chat example for more details.
+> These snippets can be used inside Compose Multiplatform, but don't account for it's lifecycle. See Ktor Chat example for more details.
 {style="note"}
 
 ## Limitations
