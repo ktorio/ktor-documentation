@@ -111,19 +111,19 @@
 
         <chapter title="Configuration in a file" id="engine-main">
             <p>
-                <code>EngineMain</code> starts a server with the selected engine and loads the <a
-                    href="server-modules.md">application modules</a> specified in the external <a
-                    href="server-configuration-file.topic">configuration file</a> placed in the
-                <path>resources</path>
-                directory:
+                <code>EngineMain</code> starts a server with the selected engine and loads <a
+                    href="server-modules.md">application modules</a> from an external <a
+                    href="server-configuration-file.topic">configuration file</a> – either
                 <path>application.conf</path>
                 or
                 <path>application.yaml</path>
-                .
-                Besides modules to load, a configuration file can include various server parameters (the
-                <code>8080</code> port in the example below).
+                , typically located in the <path>resource</path> directory.
             </p>
-
+            <p>
+                In addition to specifying which modules to load, the configuration file can include various server
+                parameters such as the port, host, and SSL settings. For example, the configuration below sets the
+                server port to <code>8080</code>.
+            </p>
             <tabs>
                 <tab title="Application.kt" id="application-kt">
                     <code-block lang="kotlin"
@@ -137,6 +137,10 @@
                                 src="snippets/engine-main-yaml/src/main/resources/application.yaml"/>
                 </tab>
             </tabs>
+            <note>
+                Instead of starting the server immediately with <code>EngineMain.main()</code>, you can use <code>EngineMain.createServer()</code>
+                to create the server instance manually. For more information, see <a href="server-engines.md" anchor="createServer"></a>.
+            </note>
             <p>
                 For the full examples, see
                 <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main">
