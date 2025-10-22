@@ -90,6 +90,11 @@ You can receive the body of this request as an object of the specified type in o
    ```
    {src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="29-33"}
 
+> For converting between Ktor channels and types like `RawSink`, `RawSource`, or `OutputStream`, see
+> [I/O interoperability](io-interoperability.md).
+>
+{style="tip"}
+
 You can find the full example here: [post-raw-data](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/post-raw-data).
 
 

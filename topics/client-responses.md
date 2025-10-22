@@ -151,7 +151,7 @@ below shows how to receive a response content in chunks (byte packets) and save 
 ```
 {src="snippets/client-download-streaming/src/main/kotlin/com/example/Application.kt" include-lines="15-37"}
 
-> To convert between Ktor channels and types like `RawSink`, `RawSource`, or `OutputStream`, see
+> For converting between Ktor channels and types like `RawSink`, `RawSource`, or `OutputStream`, see
 > [I/O interoperability](io-interoperability.md).
 >
 {style="tip"}
