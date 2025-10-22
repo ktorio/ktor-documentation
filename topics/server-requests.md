@@ -97,24 +97,24 @@ You can receive the body of this request as an object of the specified type in o
    You can also use [`.receiveText()`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/receive-text.html) to achieve the same result:
    ```kotlin
    ```
-   {src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="13-16"}
+   {src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="14-17"}
 - **ByteArray**
 
    To receive the body of a request as a byte array, call `call.receive<ByteArray>()`:
    ```kotlin
    ```
-   {src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="18-22"}
+   {src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="19-23"}
 - **ByteReadChannel**
 
    You can use `call.receive<ByteReadChannel>()` or [`.receiveChannel()`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/receive-channel.html) to receive [`ByteReadChannel`](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) that enables asynchronous reading of byte sequences:
    ```kotlin
    ```
-   {src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="23-27"}
+   {src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="24-28"}
 
    The sample below shows how to use `ByteReadChannel` to upload a file:
    ```kotlin
    ```
-   {src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="29-33"}
+   {src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="30-34"}
 
 > For converting between Ktor channels and types like `RawSink`, `RawSource`, or `OutputStream`, see
 > [I/O interoperability](io-interoperability.md).
@@ -135,7 +135,7 @@ accepts a data class as a parameter:
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/main/kotlin/jsonkotlinx/Application.kt" include-lines="38-42"}
+{src="snippets/json-kotlinx/src/main/kotlin/jsonkotlinx/Application.kt" include-lines="39-43"}
 
 > For more information, see [](server-serialization.md).
 
