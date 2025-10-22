@@ -7,7 +7,7 @@ Learn how to use Ktor's I/O primitives with external types.
 </link-summary>
 
 Ktor supports non-blocking, asynchronous I/O built on top of [`kotlinx-io`](https://github.com/Kotlin/kotlinx-io), a
-a multiplatform Kotlin library providing basic I/O primitives. This allows you to stream HTTP request and response bodies,
+multiplatform Kotlin library providing basic I/O primitives. This allows you to stream HTTP request and response bodies,
 read or write files, and process data incrementally without loading it all into memory.
 
 If you're working with external libraries or platforms that use different I/O models, you can use a set of adapters to
