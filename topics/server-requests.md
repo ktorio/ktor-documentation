@@ -224,5 +224,5 @@ Once the form processing is complete, each part is disposed of using the `.dispo
 
 {src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="33"}
 
-To learn how to run this sample, see
-[upload-file](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/upload-file).
+> To learn how to run this sample, see
+> [upload-file](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/upload-file).
