@@ -28,7 +28,7 @@ To build an assembly, you need to configure the Assembly plugin first:
 2. Add the `maven-assembly-plugin` to the `plugins` block as follows:
    ```xml
    ```
-   {src="snippets/tutorial-server-get-started-maven/pom.xml" include-lines="111-135"}
+   {src="snippets/tutorial-server-get-started-maven/pom.xml" include-lines="121-144"}
 
 ## Build an assembly {id="build"}
 

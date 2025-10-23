@@ -494,15 +494,9 @@
                 <path>settings-gradle.kts</path>
                 with the following contents:
             </p>
-            <code-block lang="kotlin">
-                rootProject.name = "ktor-sample"
-
-                dependencyResolutionManagement {
-                    repositories {
-                        mavenCentral()
-                    }
-                }
-            </code-block>
+            <code-block lang="kotlin"
+                        src="snippets/tutorial-server-get-started/settings.gradle.kts"
+            />
             <p>
                 Configuration files, and other kinds of content, live within the
                 <path>src/main/resources</path>
@@ -609,27 +603,14 @@
                     ). It should look like the following:
                     <tabs>
                         <tab title="application.yaml (YAML)" group-key="yaml">
-                    <code-block lang="yaml">
-                        ktor:
-                            application:
-                                modules:
-                                    - com.example.ApplicationKt.module
-                            deployment:
-                                port: 8080
-                    </code-block>
+                            <code-block lang="yaml"
+                                        src="snippets/tutorial-server-get-started/src/main/resources/application.yaml"
+                            />
                         </tab>
                         <tab title="application.conf (HOCON)" group-key="hocon">
-                    <code-block lang="generic">
-                        ktor {
-                            deployment {
-                                port = 8080
-                                port = ${?PORT}
-                            }
-                            application {
-                                modules = [ com.example.ApplicationKt.module ]
-                            }
-                        }
-                    </code-block>
+                            <code-block lang="generic"
+                                        src="snippets/tutorial-server-get-started-maven/src/main/resources/application.conf"
+                            />
                         </tab>
                     </tabs>
                 </step>
@@ -750,10 +731,10 @@
                     </code-block>
                 </step>
                 <step>
-                    <p>To create a new endpoint, insert the additional five lines of code shown below:</p>
+                    <p>To create a new endpoint, insert the additional route as shown below:</p>
                     <code-block lang="kotlin"
-                                src="snippets/tutorial-server-get-started/src/main/kotlin/com/example/plugins/Routing.kt"
-                                include-lines="11,17,20-28,32-33"/>
+                                src="snippets/tutorial-server-get-started/src/main/kotlin/Routing.kt"
+                                include-lines="10,16,23-29,34-35"/>
                     <p>Note that you can change the <code>/test1</code> URL to be whatever you like.</p>
                 </step>
                 <step>
@@ -810,19 +791,10 @@
                             endpoint</a>.</p>
                 </step>
                 <step>
-                    <p>Add the following line to the routing section:</p>
-                    <code-block lang="kotlin">
-                        fun Application.configureRouting() {
-                            routing {
-                                // Add the line below
-                                staticResources("/content", "mycontent")
-
-                                get("/") {
-                                    call.respondText("Hello World!")
-                                }
-                            }
-                        }
-                    </code-block>
+                    <p>Add the following route to the routing section:</p>
+                    <code-block lang="kotlin"
+                                src="snippets/tutorial-server-get-started/src/main/kotlin/Routing.kt"
+                                include-lines="10,16-17,23,34-35"/>
                     <p>The meaning of this line is as follows:</p>
                     <list type="bullet">
                         <li>Invoking <code>staticResources()</code> tells Ktor that we want our application to be able
@@ -880,7 +852,7 @@
                     <p>Populate the newly created file page with valid HTML, for example:</p>
                     <code-block lang="html"
                                 src="snippets/tutorial-server-get-started/src/main/resources/mycontent/sample.html"
-                                include-lines="1-14"/>
+                                />
                 </step>
                 <step>
                     <p>Click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
@@ -918,21 +890,10 @@
                 </step>
                 <step>
                     <p>Open the <path>ApplicationTest.kt</path> file and add the code below:</p>
-                    <code-block lang="kotlin">
-                        class ApplicationTest {
-
-                            @Test
-                            fun testRoot() = testApplication {
-                                application {
-                                    module()
-                                }
-                                val response = client.get("/")
-
-                                assertEquals(HttpStatusCode.OK, response.status)
-                                assertEquals("Hello World!", response.bodyAsText())
-                            }
-                        }
-                    </code-block>
+                    <code-block lang="kotlin"
+                                src="snippets/tutorial-server-get-started/src/test/kotlin/ApplicationTest.kt"
+                                include-lines="12-23,37"
+                    />
                     <p>The <code>testApplication()</code> method creates a new instance of Ktor. This instance is
                         running inside a test environment, as
                         opposed to a server such as Netty.</p>
@@ -966,20 +927,10 @@
                 you should be able to
                 add this additional test:
             </p>
-            <code-block lang="Kotlin">
-                @Test
-                fun testNewEndpoint() = testApplication {
-                    application {
-                        module()
-                    }
-
-                    val response = client.get("/test1")
-
-                    assertEquals(HttpStatusCode.OK, response.status)
-                    assertEquals("html", response.contentType()?.contentSubtype)
-                    assertContains(response.bodyAsText(), "Hello From Ktor")
-                }
-            </code-block>
+            <code-block lang="kotlin"
+                        src="snippets/tutorial-server-get-started/src/test/kotlin/ApplicationTest.kt"
+                        include-lines="25-36"
+            />
             <p>The following additional import is required:</p>
             <code-block lang="Kotlin">
                 import kotlin.test.assertContains
@@ -1023,20 +974,10 @@
                 </step>
                 <step>
                     <p>Open the <path>build.gradle.kts</path> file and add the new dependency as shown below:</p>
-                    <code-block lang="kotlin">
-                        dependencies {
-                            // The new dependency to be added
-                            implementation(libs.ktor.server.status.pages)
-                            // Existing dependencies
-                            implementation(libs.ktor.server.core)
-                            implementation(libs.ktor.server.netty)
-                            implementation(libs.logback.classic)
-                            implementation(libs.ktor.server.core)
-                            implementation(libs.ktor.server.config.yaml)
-                            testImplementation(libs.ktor.server.test.host)
-                            testImplementation(libs.kotlin.test.junit)
-                        }
-                    </code-block>
+                    <code-block lang="kotlin"
+                                src="snippets/tutorial-server-get-started/build.gradle.kts"
+                                include-lines="13-24"
+                    />
                     <p>When you have done this, you will need to reload the project to pick up this new dependency.</p>
                 </step>
                 <step>
@@ -1052,8 +993,8 @@
                     <p>Navigate to the <code>.configureRouting()</code> method in <path>Routing.kt</path> and add the
                         following lines of code:</p>
                     <code-block lang="kotlin"
-                                src="snippets/tutorial-server-get-started/src/main/kotlin/com/example/plugins/Routing.kt"
-                                include-lines="11-17,20-22,32-33"/>
+                                src="snippets/tutorial-server-get-started/src/main/kotlin/Routing.kt"
+                                include-lines="10-16,23,34-35"/>
                     <p>These lines install the <code>StatusPages</code> plugin and specify what actions to take
                         when an exception of type <code>IllegalStateException</code> is thrown.</p>
                 </step>
@@ -1073,8 +1014,8 @@
                     <p>Staying within the <code>configureRouting()</code> method, add the additional route as shown
                         below:</p>
                     <code-block lang="kotlin"
-                                src="snippets/tutorial-server-get-started/src/main/kotlin/com/example/plugins/Routing.kt"
-                                include-lines="11-17,20-22,29-33"/>
+                                src="snippets/tutorial-server-get-started/src/main/kotlin/Routing.kt"
+                                include-lines="10-16,23,30-35"/>
                     <p>You have now added an endpoint with the URL <code>/error-test</code>. When this endpoint is
                         triggered, an
                         exception will be thrown with the type used in the handler.</p>
