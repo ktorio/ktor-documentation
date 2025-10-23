@@ -55,13 +55,13 @@
             </tr>
             <tr>
                 <td>Blocking function reference</td>
-                <td>❌ Not supported</td>
                 <td>✅ Supported</td>
+                <td>❌ Not supported</td>
             </tr>
             <tr>
                 <td>Suspend function reference</td>
-                <td>✅ Supported</td>
                 <td>❌ Not supported</td>
+                <td>✅ Supported</td>
             </tr>
             <tr>
                 <td>Config reference</td>
