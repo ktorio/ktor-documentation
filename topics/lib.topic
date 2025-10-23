@@ -369,6 +369,9 @@
             to specify server parameters <a href="server-configuration-file.topic">in a YAML or HOCON file</a>, or
             <a href="server-configuration-code.topic">in code</a>.
         </p>
+        <warning>
+            YAML configuration is currently not supported for Maven-based Ktor projects.
+        </warning>
     </snippet>
 
     <snippet id="generator_project_settings_sample_code">

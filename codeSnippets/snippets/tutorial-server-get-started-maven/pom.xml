@@ -42,7 +42,7 @@
         </dependency>
         <dependency>
             <groupId>io.ktor</groupId>
-            <artifactId>ktor-server-status-pages</artifactId>
+            <artifactId>ktor-server-status-pages-jvm</artifactId>
             <version>${ktor_version}</version>
         </dependency>
         <dependency>

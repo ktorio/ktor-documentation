@@ -342,7 +342,7 @@
             assume that:
         </p>
         <list type="bullet">
-            <li>You have created and downloaded a project called
+            <li>You have created and downloaded a Gradle project called
                 <path>ktor-sample</path>
                 .
             </li>
@@ -355,7 +355,7 @@
         <p>Open a command line tool of your choice and follow the steps:</p>
         <procedure>
             <step>
-                <p>In a terminal, navigate to the folder where you downloaded the project:</p>
+                <p>In a terminal window, navigate to the folder where you downloaded the project:</p>
                 <code-block lang="console">
                     cd ~/myprojects
                 </code-block>
