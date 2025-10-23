@@ -3,7 +3,7 @@
 
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       title="Create, open and run a new Ktor project"
+       title="Create, open, and run a new Ktor project"
        id="server-create-a-new-project"
        help-id="server_create_a_new_project">
     <show-structure for="chapter" depth="2"/>
@@ -31,7 +31,7 @@
         however, we strongly recommend that you follow the suggested order:
     </p>
     <list type="decimal">
-        <li>Create, open and run a new Ktor project.</li>
+        <li>Create, open, and run a new Ktor project.</li>
         <li><a href="server-requests-and-responses.topic">Handle requests and generate responses</a>.</li>
         <li><a href="server-create-restful-apis.topic">Create a RESTful API that generates JSON</a>.</li>
         <li><a href="server-create-website.topic">Create a website using Thymeleaf templates</a>.</li>
@@ -65,16 +65,16 @@
                     <p>In the
                         <control>Project artifact</control>
                         field, enter
-                        <path>com.example.ktor-sample-app</path>
+                        <path>com.example.ktor-sample</path>
                         as the name of your project artifact.
                         <img src="ktor_project_generator_new_project_artifact_name.png"
-                             alt="Ktor Project Generator with Project Artifact Name org.example.ktor-sample-app"
+                             alt="Ktor Project Generator with Project Artifact Name org.example.ktor-sample"
                              border-effect="line"
                              style="block"
                              width="706"/>
                     </p>
                 </step>
-                <step>
+                <step id="configure-project-step">
                     <p>Click
                         <control>Configure</control>
                         to open the settings dropdown menu:
@@ -88,6 +88,9 @@
                     <list>
                         <li>
                             <include from="lib.topic" element-id="generator_project_settings_build_system"/>
+                        </li>
+                        <li>
+                            <include from="lib.topic" element-id="generator_project_settings_use_version_catalog"/>
                         </li>
                         <li>
                             <include from="lib.topic" element-id="generator_project_settings_ktor_version"/>
@@ -171,7 +174,7 @@
                                 <control>Name</control>
                                 :
                                 Specify a project name. Enter
-                                <path>ktor-sample-app</path>
+                                <path>ktor-sample</path>
                                 as the name of your project.
                             </p>
                         </li>
@@ -287,7 +290,7 @@
                 </step>
                 <step>
                     Enter
-                    <path>ktor-sample-app</path>
+                    <path>ktor-sample</path>
                     as the name of your project:
                     <img src="server_create_cli_tool_name_dark.png"
                          alt="Using the Ktor CLI tool in interactive mode"
@@ -340,7 +343,7 @@
         </p>
         <list type="bullet">
             <li>You have created and downloaded a project called
-                <path>ktor-sample-app</path>
+                <path>ktor-sample</path>
                 .
             </li>
             <li>This has been placed in a folder called
@@ -362,12 +365,12 @@
                 <tabs>
                     <tab title="macOS" group-key="macOS">
                         <code-block lang="console">
-                            unzip ktor-sample-app.zip -d ktor-sample-app
+                            unzip ktor-sample.zip -d ktor-sample
                         </code-block>
                     </tab>
                     <tab title="Windows" group-key="windows">
                         <code-block lang="console">
-                            tar -xf ktor-sample-app.zip
+                            tar -xf ktor-sample.zip
                         </code-block>
                     </tab>
                 </tabs>
@@ -376,7 +379,7 @@
             <step>
                 <p>From the directory, navigate into the newly created folder:</p>
                 <code-block lang="console">
-                    cd ktor-sample-app
+                    cd ktor-sample
                 </code-block>
             </step>
             <step>
@@ -437,7 +440,7 @@
             to terminate the application.
         </p>
     </chapter>
-    <chapter title="Open, explore and run your Ktor project in IntelliJ IDEA" id="open-explore-run">
+    <chapter title="Open, explore, and run your Ktor project in IntelliJ IDEA" id="open-explore-run">
         <chapter title="Open the project" id="open">
             <p>If you have <a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a> installed, you can easily open
                 the project from the command
@@ -452,7 +455,7 @@
                 idea .
             </code-block>
             <p>
-                Alternatively, to open the project manually launch IntelliJ IDEA.
+                Alternatively, to open the project manually, launch IntelliJ IDEA.
             </p>
             <p>
                 If the Welcome screen opens, click
@@ -461,7 +464,7 @@
                 <ui-path>File | Open</ui-path>
                 in the main menu and select
                 the
-                <path>ktor-sample-app</path>
+                <path>ktor-sample</path>
                 folder to open it.
             </p>
             <tip>
@@ -474,23 +477,14 @@
             <p>Whichever option you choose, the project should open as shown below:</p>
             <img src="server_get_started_idea_project_view.png" alt="Generated Ktor project view in IDE" width="706"/>
             <p>
-                In order to explain the project layout we have expanded the structure in the
+                In order to explain the project layout, we have expanded the structure in the
                 <control>Project</control>
-                view and selected the
-                file
-                <path>settings-gradle.kts</path>
-                .
+                view.
             </p>
             <p>
-                You will see that the code to run your application lives in packages under
+                You will see that the code to run your application lives under
                 <path>src/main/kotlin</path>
-                . The default package is
-                called
-                <path>com.example</path>
-                and contains a subpackage called
-                <path>plugins</path>
-                .
-                Two files have been created within these packages, named
+                . Two files have been created, named
                 <path>Application.kt</path>
                 and
                 <path>Routing.kt</path>
@@ -498,9 +492,17 @@
             <img src="server_get_started_idea_main_folder.png" alt="Ktor project src folder structure" width="400"/>
             <p>The name of the project is configured in
                 <path>settings-gradle.kts</path>
-                .
+                with the following contents:
             </p>
-            <img src="server_get_started_idea_settings_file.png" alt="Contents of settings.gradle.kt" width="706"/>
+            <code-block lang="kotlin">
+                rootProject.name = "ktor-sample"
+
+                dependencyResolutionManagement {
+                    repositories {
+                        mavenCentral()
+                    }
+                }
+            </code-block>
             <p>
                 Configuration files, and other kinds of content, live within the
                 <path>src/main/resources</path>
@@ -508,12 +510,6 @@
             </p>
             <img src="server_get_started_idea_resources_folder.png" alt="Ktor project resources folder structure"
                  width="400"/>
-            <p>
-                A skeleton test has been created in a package under
-                <path>src/test/kotlin</path>
-                .
-            </p>
-            <img src="server_get_started_idea_test_folder.png" alt="Ktor project test folder structure" width="400"/>
         </chapter>
         <chapter title="Run the project" id="run">
             <procedure>
@@ -524,11 +520,9 @@
                         by clicking the Gradle icon (<img alt="intelliJ IDEA gradle icon"
                                                           src="intellij_idea_gradle_icon.svg" width="16" height="26"/>)
                         on the right sidebar.</p>
-                    <img src="server_get_started_idea_gradle_tab.png" alt="Gradle tab in IntelliJ IDEA"
-                         border-effect="line" width="706"/>
                 </step>
                 <step>
-                    <p>Within this tool window navigate to
+                    <p>Within this tool window, navigate to
                         <ui-path>Tasks | application</ui-path>
                         and double-click on the
                         <control>run</control>
@@ -564,12 +558,12 @@
                 <li>
                     To terminate the application, click the stop button <img src="intellij_idea_terminate_icon.svg"
                                                                              style="inline" height="16" width="16"
-                                                                             alt="intelliJ IDEA terminate icon"/>
+                                                                             alt="intelliJ IDEA terminate icon"/>.
                 </li>
                 <li>
                     To restart the process, click the rerun button <img src="intellij_idea_rerun_icon.svg"
                                                                         style="inline" height="16" width="16"
-                                                                        alt="intelliJ IDEA rerun icon"/>
+                                                                        alt="intelliJ IDEA rerun icon"/>.
                 </li>
             </list>
             <p>
@@ -590,27 +584,87 @@
             <li><a anchor="register-error-handlers">Register error handlers.</a></li>
         </list>
         <p>
-            These tasks do not depend on one another, but gradually increase in complexity. Attempting them in the order
-            declared is
-            the easiest way to learn incrementally. For simplicity, and to avoid duplication, the descriptions below
-            assume you are
-            attempting the tasks in order.
+            These tasks do not depend on one another but gradually increase in complexity. Attempting them in the order
+            declared is the easiest way to learn incrementally. For simplicity and to avoid duplication, the
+            descriptions below assume you are attempting the tasks in order.
         </p>
         <p>
-            Where coding is required we have specified both the code and the corresponding imports. The IDE may add
-            these imports
-            for you automatically.
+            Where coding is required, we have specified both the code and the corresponding imports. The IDE may add
+            these imports for you automatically.
         </p>
-        <chapter title="Change the default port" id="change-the-default-port">
+        <chapter title="Change the default port" id="change-the-port-via-yaml">
             <p>
-                In the
+                If you had chosen to store configuration externally, within a YAML or a HOCON file, in the
+                <ui-path>Project</ui-path>
+                view navigate to the
+                <path>src/main/resources</path>
+                folder and follow the steps:
+            </p>
+            <procedure id="change-default-port-yaml-procedure">
+                <step>
+                    Open your configuration file (
+                    <path>application.yaml</path>
+                    or
+                    <path>application.conf</path>
+                    ). It should look like the following:
+                    <tabs>
+                        <tab title="application.yaml (YAML)" group-key="yaml">
+                    <code-block lang="yaml">
+                        ktor:
+                            application:
+                                modules:
+                                    - com.example.ApplicationKt.module
+                            deployment:
+                                port: 8080
+                    </code-block>
+                        </tab>
+                        <tab title="application.conf (HOCON)" group-key="hocon">
+                    <code-block lang="generic">
+                        ktor {
+                            deployment {
+                                port = 8080
+                                port = ${?PORT}
+                            }
+                            application {
+                                modules = [ com.example.ApplicationKt.module ]
+                            }
+                        }
+                    </code-block>
+                        </tab>
+                    </tabs>
+                </step>
+                <step>
+                    Change the <code>port</code> value in the file to another number of your choosing, such as
+                    <code>9292</code>.
+                </step>
+                <step>
+                    <p>Click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
+                                                       src="intellij_idea_rerun_icon.svg" height="16" width="16"/>)
+                        to restart the application.</p>
+                </step>
+                <step>
+                    <p>To verify that your application is running under the new port number, you can open your browser
+                        at the new URL (<a href="http://0.0.0.0:9292">http://0.0.0.0:9292</a>), or
+                        <a href="https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html#creating-http-request-files">create
+                            a new HTTP Request file in IntelliJ IDEA</a>:</p>
+                    <img src="server_get_started_port_change.png"
+                         alt="Testing port change with an HTTP request file in IntelliJ IDEA" width="706"/>
+                </step>
+            </procedure>
+        </chapter>
+        <chapter title="Change the default port in code" id="change-the-default-port">
+            <p>
+                <a anchor="configure-project-step">When creating a new Ktor project</a>, you have the option to store
+                configuration in code or externally, within a YAML or a HOCON file.
+            </p>
+            <p>
+                If you have the chosen the option to store configuration in code, in the
                 <ui-path>Project</ui-path>
                 view navigate to the
                 <path>src/main/kotlin</path>
-                folder and then into the single package that has been created
-                for you and follow the steps:
+                folder and follow the steps:
             </p>
-            <procedure>
+            <procedure id="change-the-default-port-code-procedure">
                 <step>
                     <p>Open the
                         <path>Application.kt</path>
@@ -633,7 +687,7 @@
                 </step>
                 <step>
                     <p>In the <code>embeddedServer()</code> function, change the <code>port</code> parameter
-                        to another number of your choosing, such as "9292".</p>
+                        to another number of your choosing, such as <code>9292</code>.</p>
                     <code-block lang="kotlin">
                         fun main() {
                             embeddedServer(
@@ -660,89 +714,30 @@
                 </step>
             </procedure>
         </chapter>
-        <chapter title="Change the port via YAML" id="change-the-port-via-yaml">
-            <p>
-                When creating a new Ktor project, you have the option to store configuration externally, within either a
-                YAML or
-                a HOCON file:
-            </p>
-            <img src="ktor_project_generator_configuration_options.png" width="400"
-                 alt="Ktor project generator configuration options"/>
-            <p>
-                If you had chosen to store configuration externally then this would be the code in
-                <path>Application.kt</path>
-                :
-            </p>
-            <code-block lang="kotlin"><![CDATA[
-                fun main(args: Array<String>): Unit =
-                    io.ktor.server.netty.EngineMain.main(args)
 
-                @Suppress("unused")
-                fun Application.module() {
-                    configureRouting()
-                }
-            ]]></code-block>
-            <p>
-                These would be the values stored in the configuration file within
-                <path>src/main/resources/</path>
-                :
-            </p>
-            <tabs>
-                <tab title="application.yaml (YAML)" group-key="yaml">
-                    <code-block lang="yaml">
-                        ktor:
-                            application:
-                                modules:
-                                    - com.example.ApplicationKt.module
-                            deployment:
-                                port: 8080
-                    </code-block>
-                </tab>
-                <tab title="application.conf (HOCON)" group-key="hocon">
-                    <code-block lang="json">
-                        ktor {
-                            deployment {
-                                port = 8080
-                                port = ${?PORT}
-                            }
-                            application {
-                                modules = [ com.example.ApplicationKt.module ]
-                            }
-                        }
-                    </code-block>
-                </tab>
-            </tabs>
-            <p>
-                In this case you do not need to alter any code to change the port number. Simply alter the value in the
-                YAML or HOCON
-                file and restart the application. The change can be verified in the same way as
-                with <a anchor="change-the-default-port">the default port</a> above.
-            </p>
-        </chapter>
         <chapter title="Add a new HTTP endpoint" id="add-a-new-http-endpoint">
             <p>Next, you will create a new HTTP endpoint that will respond to a GET request.</p>
             <p>
                 In the
                 <ui-path>Project</ui-path>
                 tool window, navigate to the
-                <path>src/main/kotlin/com/example</path>
+                <path>src/main/kotlin</path>
                 folder and follow the steps:
             </p>
             <procedure>
                 <step>
                     <p>Open the
                         <path>Application.kt</path>
-                        file and find the <code>configureRouting()</code> function.
+                        file and find the <code>.configureRouting()</code> function.
                     </p>
                 </step>
                 <step>
-                    <p>In IntelliJ IDEA, navigate to the <code>configureRouting()</code> function by placing the caret
-                        over the function name
-                        and pressing
-                        <shortcut>⌘Cmd+B</shortcut>
-                        .
+                    <p>In IntelliJ IDEA, hold <shortcut>Ctrl</shortcut> (Windows/Linux) or
+                        <shortcut>⌘Cmd</shortcut> (macOS) and click <code>.configureRouting()</code> to navigate to its
+                        definition.
                     </p>
-                    <p>Alternatively, you can navigate to the function by opening the <code>Routing.kt</code> file.</p>
+                    <p>Alternatively, you can navigate to the function definition by opening the <path>Routing.kt</path>
+                        file.</p>
                     <p>This is the code you should see:</p>
                     <code-block lang="Kotlin" validate="true">
                         fun Application.configureRouting() {
@@ -762,9 +757,10 @@
                     <p>Note that you can change the <code>/test1</code> URL to be whatever you like.</p>
                 </step>
                 <step>
-                    <p>In order to make use of <code>ContentType</code>, add the following import:</p>
+                    <p>In order to make use of <code>ContentType</code>, the following import should be added
+                        automatically by de IDE:</p>
                     <code-block lang="kotlin">
-                        import io.ktor.http.*
+                        import io.ktor.http.ContentType
                     </code-block>
                 </step>
                 <step>
@@ -784,7 +780,8 @@
                     <p>If you have created an HTTP Request File you can also verify the new endpoint there:</p>
                     <img src="server_get_started_add_new_http_endpoint.png" alt="An HTTP request file in intelliJ IDEA"
                          width="450"/>
-                    <p>Note that a line containing three hashes (###) is needed to separate different requests.</p>
+                    <p>Note that a line containing three hashes (<code>###</code>) is needed to separate different
+                        requests.</p>
                 </step>
             </procedure>
         </chapter>
@@ -792,13 +789,13 @@
             <p>In the
                 <ui-path>Project</ui-path>
                 tool window, navigate to the
-                <path>src/main/kotlin/com/example/plugins</path>
+                <path>src/main/kotlin</path>
                 folder and follow the steps:
             </p>
             <procedure>
                 <step>
-                    <p>Open the <code>Routing.kt</code> file.</p>
-                    <p>Once again this should be the default content:</p>
+                    <p>Open the <path>Routing.kt</path> file.</p>
+                    <p>Once again, this should be the default content:</p>
                     <code-block lang="kotlin">
                         fun Application.configureRouting() {
                             routing {
@@ -829,10 +826,9 @@
                     <p>The meaning of this line is as follows:</p>
                     <list type="bullet">
                         <li>Invoking <code>staticResources()</code> tells Ktor that we want our application to be able
-                            to provide standard website content, such
-                            as HTML and JavaScript files. Although this content may be executed within the browser, it
-                            is considered static from
-                            the server's point of view.
+                            to provide standard website content, such as HTML and JavaScript files. Although this
+                            content may be executed within the browser, it is considered static from the server's point
+                            of view.
                         </li>
                         <li>The URL <code>/content</code> specifies the path that should be used to fetch this content.
                         </li>
@@ -843,21 +839,21 @@
                     </list>
                 </step>
                 <step>
-                    <p>Add the following import:</p>
+                    <p>The following import should be added automatically by the IDE:</p>
                     <code-block lang="kotlin">
-                        import io.ktor.server.http.content.*
+                        import io.ktor.server.http.content.staticResources
                     </code-block>
                 </step>
                 <step>
                     <p>In the
                         <control>Project</control>
-                        tool window, right-click the <code>src/main/resources</code> folder and select
+                        tool window, right-click the <path>src/main/resources</path> folder and select
                         <control>New | Directory</control>
                         .
                     </p>
-                    <p>Alternatively, select the <code>src/main/resources</code> folder, press
-                        <shortcut>⌘Сmd+N</shortcut>
-                        , and click
+                    <p>Alternatively, select the <path>src/main/resources</path> folder, press
+                        <shortcut>⌘Сmd+N</shortcut> (macOS) or <shortcut>Ctrl+N</shortcut> (Windows/Linux)
+                        and click
                         <control>Directory</control>
                         .
                     </p>
@@ -875,7 +871,7 @@
                     </p>
                 </step>
                 <step>
-                    <p>Name the new file "sample.html" and press
+                    <p>Name the new file <path>sample.html</path> and press
                         <shortcut>↩Enter</shortcut>
                         .
                     </p>
@@ -908,26 +904,20 @@
             <procedure>
                 <step>
                     <p>
-                        Create a new directory under
+                        Create a new subdirectory under
                         <path>src</path>
-                        called "test" and a subdirectory called "kotlin".
-                    </p>
-                </step>
-                <step>
-                    <p>Create a new package inside
-                        <path>src/test/kotlin</path>
-                        called "com.example".
+                        called <path>test/kotlin</path>.
                     </p>
                 </step>
                 <step>
                     <p>
                         Within
-                        <path>src/test/kotlin/com.example</path>
-                        create a new file called "ApplicationTest.kt".
+                        <path>src/test/kotlin</path>
+                        create a new <path>ApplicationTest.kt</path> file.
                     </p>
                 </step>
                 <step>
-                    <p>Open the <code>ApplicationTest.kt</code> file and add the code below:</p>
+                    <p>Open the <path>ApplicationTest.kt</path> file and add the code below:</p>
                     <code-block lang="kotlin">
                         class ApplicationTest {
 
@@ -955,12 +945,12 @@
                 <step>
                     <p>Add the following required imports:</p>
                     <code-block lang="kotlin">
-                        import io.ktor.client.request.*
-                        import io.ktor.client.statement.*
-                        import io.ktor.http.*
-                        import io.ktor.server.testing.*
-                        import org.junit.Assert.assertEquals
-                        import org.junit.Test
+                        import io.ktor.client.request.get
+                        import io.ktor.client.statement.bodyAsText
+                        import io.ktor.http.HttpStatusCode
+                        import io.ktor.server.testing.testApplication
+                        import kotlin.test.Test
+                        import kotlin.test.assertEquals
                     </code-block>
                 </step>
             </procedure>
@@ -969,7 +959,7 @@
                 you are running
                 a new instance of Ktor, the success or failure of the test does not depend on whether your application
                 is running at
-                0.0.0.0.
+                <code>0.0.0.0.</code>
             </p>
             <p>
                 If you have successfully completed <a anchor="add-a-new-http-endpoint">adding a new HTTP endpoint</a>,
@@ -1024,37 +1014,42 @@
                     tool window, navigate to the project root folder and follow the steps:
                 </p>
                 <step>
-                    <p>Open the <code>build.gradle.kts</code> file.</p>
+                    <p>Open the <path>gradle/libs.versions.toml</path> file and add the following new library:</p>
+                    <code-block lang="toml">
+                    [libraries]
+                    #...
+                    ktor-server-static-pages = { module = "io.ktor:ktor-server-static-pages", version.ref = "ktor" }
+                    </code-block>
                 </step>
                 <step>
-                    <p>In the dependencies section add the extra dependency as shown below:</p>
+                    <p>Open the <path>build.gradle.kts</path> file and add the new dependency as shown below:</p>
                     <code-block lang="kotlin">
                         dependencies {
                             // The new dependency to be added
-                            implementation("io.ktor:ktor-server-status-pages:$ktor_version")
-                            // The existing dependencies
-                            implementation("io.ktor:ktor-server-core-jvm:$ktor_version")
-                            implementation("io.ktor:ktor-server-netty-jvm:$ktor_version")
-                            implementation("ch.qos.logback:logback-classic:$logback_version")
-                            testImplementation("io.ktor:ktor-server-test-host-jvm:$ktor_version")
-                            testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
+                            implementation(libs.ktor.server.status.pages)
+                            // Existing dependencies
+                            implementation(libs.ktor.server.core)
+                            implementation(libs.ktor.server.netty)
+                            implementation(libs.logback.classic)
+                            implementation(libs.ktor.server.core)
+                            implementation(libs.ktor.server.config.yaml)
+                            testImplementation(libs.ktor.server.test.host)
+                            testImplementation(libs.kotlin.test.junit)
                         }
                     </code-block>
-                    <p>When you have done this you will need to reload the project to pick up this new dependency.</p>
+                    <p>When you have done this, you will need to reload the project to pick up this new dependency.</p>
                 </step>
                 <step>
                     <p>Reload the project by pressing
-                        <shortcut>Shift+⌘Cmd+I</shortcut>
-                        on macOS or
-                        <shortcut>Ctrl+Shift+O</shortcut>
-                        on Windows.
+                        <shortcut>Shift+⌘Cmd+I</shortcut> (macOS) or
+                        <shortcut>Ctrl+Shift+O</shortcut> (Windows/Linux).
                     </p>
                 </step>
             </procedure>
             <procedure title="Install the plugin and specify an exception handler"
                        id="install-plugin-and-specify-handler">
                 <step>
-                    <p>Navigate to the <code>configureRouting()</code> method in <code>Routing.kt</code> and add the
+                    <p>Navigate to the <code>.configureRouting()</code> method in <path>Routing.kt</path> and add the
                         following lines of code:</p>
                     <code-block lang="kotlin"
                                 src="snippets/tutorial-server-get-started/src/main/kotlin/com/example/plugins/Routing.kt"
@@ -1065,7 +1060,7 @@
                 <step>
                     <p>Add the following import:</p>
                     <code-block lang="kotlin">
-                        import io.ktor.server.plugins.statuspages.*
+                        import io.ktor.server.plugins.statuspages.StatusPages
                     </code-block>
                 </step>
             </procedure>
@@ -1075,7 +1070,7 @@
             </p>
             <procedure title="Write sample code to trigger the handler" id="write-sample-code">
                 <step>
-                    <p>Staying within the <code>configureRouting()</code> method, add the additional lines as shown
+                    <p>Staying within the <code>configureRouting()</code> method, add the additional route as shown
                         below:</p>
                     <code-block lang="kotlin"
                                 src="snippets/tutorial-server-get-started/src/main/kotlin/com/example/plugins/Routing.kt"
