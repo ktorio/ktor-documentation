@@ -1018,7 +1018,7 @@
                     <code-block lang="toml">
                     [libraries]
                     #...
-                    ktor-server-static-pages = { module = "io.ktor:ktor-server-static-pages", version.ref = "ktor" }
+                    ktor-server-status-pages = { module = "io.ktor:ktor-server-status-pages", version.ref = "ktor" }
                     </code-block>
                 </step>
                 <step>
