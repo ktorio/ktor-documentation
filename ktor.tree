@@ -388,6 +388,7 @@
         <toc-element topic="openapi-spec-generation.md"/>
         <toc-element topic="tutorial-first-steps-with-kotlin-rpc.topic"/>
     </toc-element>
+    <toc-element topic="io-interoperability.md"/>
 
     <toc-element toc-title="Releases">
         <toc-element topic="releases.md"/>
