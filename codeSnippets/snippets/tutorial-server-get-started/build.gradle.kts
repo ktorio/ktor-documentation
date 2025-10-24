@@ -1,28 +1,23 @@
-val ktor_version: String by project
-val kotlin_version: String by project
-val logback_version: String by project
-
 plugins {
-    application
-    kotlin("jvm")
-    id("io.ktor.plugin") version "3.3.1"
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.ktor)
 }
+
+group = "com.example"
+version = "0.0.1"
 
 application {
-    mainClass.set("io.ktor.server.netty.EngineMain")
-}
-
-repositories {
-    mavenCentral()
-    maven { url = uri("https://maven.pkg.jetbrains.space/public/p/ktor/eap") }
+    mainClass = "io.ktor.server.netty.EngineMain"
 }
 
 dependencies {
-    implementation("io.ktor:ktor-server-status-pages:$ktor_version")
-    implementation("io.ktor:ktor-server-core-jvm")
-    implementation("io.ktor:ktor-server-netty-jvm")
-    implementation("ch.qos.logback:logback-classic:$logback_version")
-    implementation("io.ktor:ktor-server-config-yaml:$ktor_version")
-    testImplementation("io.ktor:ktor-server-test-host-jvm:$ktor_version")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
+    // Added new dependency
+    implementation(libs.ktor.server.status.pages)
+    // Existing dependencies
+    implementation(libs.ktor.server.core)
+    implementation(libs.ktor.server.netty)
+    implementation(libs.logback.classic)
+    implementation(libs.ktor.server.config.yFaml)
+    testImplementation(libs.ktor.server.test.host)
+    testImplementation(libs.kotlin.test.junit)
 }
