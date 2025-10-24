@@ -68,7 +68,7 @@
                         <path>com.example.ktor-sample</path>
                         as the name of your project artifact.
                         <img src="ktor_project_generator_new_project_artifact_name.png"
-                             alt="Ktor Project Generator with Project Artifact Name org.example.ktor-sample"
+                             alt="Ktor Project Generator with Project Artifact Name com.example.ktor-sample"
                              border-effect="line"
                              style="block"
                              width="706"/>
@@ -142,11 +142,11 @@
                  collapsible="true">
             <p>
                 This section describes project setup using the <a
-                    href="https://plugins.jetbrains.com/plugin/16008-ktor">Ktor plugin</a> for Intellij IDEA Ultimate.
+                    href="https://plugins.jetbrains.com/plugin/16008-ktor">Ktor plugin</a> for IntelliJ IDEA Ultimate.
             </p>
             <p>
                 To create a new Ktor project,
-                <a href="https://www.jetbrains.com/help/idea/run-for-the-first-time.html">open IntelliJ IDEA</a>, and
+                <a href="https://www.jetbrains.com/help/idea/run-for-the-first-time.html">open IntelliJ IDEA</a> and
                 follow the steps below:
             </p>
             <procedure>
@@ -171,18 +171,14 @@
                     <list>
                         <li>
                             <p>
-                                <control>Name</control>
-                                :
-                                Specify a project name. Enter
+                                <control>Name</control>: Specify a project name. Enter
                                 <path>ktor-sample</path>
                                 as the name of your project.
                             </p>
                         </li>
                         <li>
                             <p>
-                                <control>Location</control>
-                                :
-                                Specify a directory for your project.
+                                <control>Location</control>: Specify a directory for your project.
                             </p>
                         </li>
                         <li>
@@ -407,7 +403,7 @@
                         </code-block>
                     </tab>
                 </tabs>
-                <p>If you see that your build has been successful you can execute the project, again via Gradle.</p>
+                <p>If you see that your build has been successful, you can execute the project, again via Gradle.</p>
             </step>
             <step>
                 <p>To run the project, use the following command:</p>
@@ -428,7 +424,7 @@
                 <p>To verify the project is running, open a browser at the URL mentioned in the output (<a
                         href="http://0.0.0.0:8080">http://0.0.0.0:8080</a>).
                     You should see the message "Hello World!" displayed on the screen:</p>
-                <img src="server_get_started_ktor_sample_app_output.png" alt="Output of generated ktor project"
+                <img src="server_get_started_ktor_sample_app_output.png" alt="Output of the generated ktor project"
                      border-effect="line" width="706"/>
             </step>
         </procedure>
@@ -529,7 +525,7 @@
                     <p>Your Ktor application will start in the <a
                             href="https://www.jetbrains.com/help/idea/run-tool-window.html">Run tool window</a> at
                         the bottom of the IDE:</p>
-                    <img src="server_get_started_idea_run_terminal.png" alt="Project running in terminal" width="706"/>
+                    <img src="server_get_started_idea_run_terminal.png" alt="Project running in the terminal" width="706"/>
                     <p>The same messages that were previously displayed on the command line will now be visible in the
                         <ui-path>Run</ui-path>
                         tool window.
@@ -625,7 +621,7 @@
                 </step>
                 <step>
                     <p>To verify that your application is running under the new port number, you can open your browser
-                        at the new URL (<a href="http://0.0.0.0:9292">http://0.0.0.0:9292</a>), or
+                        at the new URL (<a href="http://0.0.0.0:9292">http://0.0.0.0:9292</a>) or
                         <a href="https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html#creating-http-request-files">create
                             a new HTTP Request file in IntelliJ IDEA</a>:</p>
                     <img src="server_get_started_port_change.png"
@@ -655,7 +651,7 @@
                         fun main() {
                             embeddedServer(
                                 Netty,
-                                port = 8080, // This is the port on which Ktor is listening
+                                port = 8080, // This is the port to which Ktor is listening
                                 host = "0.0.0.0",
                                 module = Application::module
                             ).start(wait = true)
@@ -739,7 +735,7 @@
                 </step>
                 <step>
                     <p>In order to make use of <code>ContentType</code>, the following import should be added
-                        automatically by de IDE:</p>
+                        automatically by the IDE:</p>
                     <code-block lang="kotlin">
                         import io.ktor.http.ContentType
                     </code-block>
