@@ -326,7 +326,7 @@
             <control>Use version catalog</control>
             :
             Select this option to use a version catalog (<path>libs.versions.toml</path>) for managing dependency
-            versions in Gradle and Amper projects.
+            versions in Gradle and Amper projects. Requires Gradle 7 or later.
         </p>
     </snippet>
     <snippet id="generator_project_settings_website">

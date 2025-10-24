@@ -491,7 +491,7 @@
             </p>
             <img src="server_get_started_idea_main_folder.png" alt="Ktor project src folder structure" width="400"/>
             <p>The name of the project is configured in
-                <path>settings-gradle.kts</path>
+                <path>settings.gradle.kts</path>
                 with the following contents:
             </p>
             <code-block lang="kotlin"
@@ -824,7 +824,7 @@
                         .
                     </p>
                     <p>Alternatively, select the <path>src/main/resources</path> folder, press
-                        <shortcut>⌘Сmd+N</shortcut> (macOS) or <shortcut>Ctrl+N</shortcut> (Windows/Linux)
+                        <shortcut>⌘Cmd+N</shortcut> (macOS) or <shortcut>Ctrl+N</shortcut> (Windows/Linux)
                         and click
                         <control>Directory</control>
                         .
@@ -931,8 +931,9 @@
                         src="snippets/tutorial-server-get-started/src/test/kotlin/ApplicationTest.kt"
                         include-lines="25-36"
             />
-            <p>The following additional import is required:</p>
+            <p>The following additional imports are required:</p>
             <code-block lang="Kotlin">
+                import io.ktor.http.contentType
                 import kotlin.test.assertContains
             </code-block>
         </chapter>
@@ -976,7 +977,7 @@
                     <p>Open the <path>build.gradle.kts</path> file and add the new dependency as shown below:</p>
                     <code-block lang="kotlin"
                                 src="snippets/tutorial-server-get-started/build.gradle.kts"
-                                include-lines="13-24"
+                                include-lines="13-23"
                     />
                     <p>When you have done this, you will need to reload the project to pick up this new dependency.</p>
                 </step>
