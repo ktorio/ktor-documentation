@@ -635,7 +635,7 @@
                 configuration in code or externally, within a YAML or a HOCON file.
             </p>
             <p>
-                If you have the chosen the option to store configuration in code, in the
+                If you have chosen the option to store configuration in code, in the
                 <ui-path>Project</ui-path>
                 view navigate to the
                 <path>src/main/kotlin</path>
@@ -916,7 +916,7 @@
                 you are running
                 a new instance of Ktor, the success or failure of the test does not depend on whether your application
                 is running at
-                <code>0.0.0.0.</code>
+                <code>0.0.0.0</code>
             </p>
             <p>
                 If you have successfully completed <a anchor="add-a-new-http-endpoint">adding a new HTTP endpoint</a>,
