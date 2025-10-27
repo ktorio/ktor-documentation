@@ -40,8 +40,9 @@ To use `WebRtcClient`, you need to include the `%artifact_name%` artifact in the
 
 When creating a `WebRtcClient`, choose an engine based on your target platform:
 
-- JS/Wasm: `JsWebRtc` – uses WebRTC, Media Capture and Streams browser APIs.
-- Android: `AndroidWebRtc` – uses pre-compiled WebRTC library for Android by [Stream](https://github.com/GetStream/webrtc-android) and Android media APIs.
+- JS/Wasm: `JsWebRtc` – uses [WebRTC](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API), 
+[Media Capture and Streams](https://developer.mozilla.org/en-US/docs/Web/API/Media_Capture_and_Streams_API) browser APIs.
+- Android: `AndroidWebRtc` – uses a pre-compiled WebRTC library for Android by [Stream](https://github.com/GetStream/webrtc-android) and Android media APIs.
 - iOS: `IosWebRtc` - uses [WebRTC SDK](https://github.com/webrtc-sdk) for iOS and native [AVFoundation](https://developer.apple.com/documentation/avfoundation) framework.
 
 You can then provide platform-specific configuration similar to `HttpClient`. STUN/TURN servers are required for
@@ -210,10 +211,10 @@ pc.addTrack(video)
 
 On the web, this uses `navigator.mediaDevices.getUserMedia`. On Android, it uses the Camera2 API and you must request
 microphone/camera permissions manually. On iOS, it uses AVFoundation API and you should also request any permissions manually.
-The client will try to find the most suitable media device according to specified constraints or throw `WebRtcMedia.DeviceException`.
+The client will try to find the most suitable media device according to the specified constraints or throw `WebRtcMedia.DeviceException`.
 
 > `WebRtcClient`, `WebRtcPeerConnection`, `WebRtcMedia.Track` and other interfaces are `AutoCloseable`.
-> Don't forget to call `close()` method when you are done with an object.
+> Make sure to call the `close()` method to free resources when no longer needed.
 {style="note"}
 
 
@@ -234,9 +235,9 @@ scope.launch {
 
 ## Platform-specific logic
 
-This API provides a high-level abstractions, but there are use-cases that require accessing platform-specific APIs.
-There are `getNative()` extensions that allow you to retrieve the implementations used under the hood.
-Platform-specific libraries are exposed as transitive libraries, except of `WebRTC-SDK` CocoaPod for iOS.
+This API provides high-level abstractions, but there are use-cases that may require accessing platform-specific APIs.
+You can use the `.getNative()` extension functions to retrieve the underlying implementations.
+Platform-specific libraries are exposed as transitive libraries, except for `WebRTC-SDK` CocoaPod on iOS.
 
 <tabs group="platform" id="platform-specific-logic">
 <tab title="JS/Wasm" group-key="js-wasm">
@@ -298,7 +299,7 @@ nativeTrack.addRenderer(videoView)
 nativeTrack.removeRenderer(videoView)
 ```
 
-To use API from `WebRTC-SDK`, you would need to install it manually.
+To use the `WebRTC-SDK` API, you need to install it manually:
 
 ```kotlin
 // build.gradle.kts
@@ -329,7 +330,7 @@ audio.enable(false)
 ```
 
 
-> These snippets can be used inside Compose Multiplatform, but don't account for it's lifecycle. See Ktor Chat example for more details.
+> These snippets can be used with Compose Multiplatform, but don't account for its lifecycle. For a complete integration, see the [Ktor Chat](https://github.com/ktorio/ktor-chat) example.
 {style="note"}
 
 ## Limitations
