@@ -70,6 +70,9 @@
                         .
                     </p>
                 </note>
+                <warning>
+                    YAML configuration is currently not supported for Maven-based Ktor projects.
+                </warning>
             </li>
         </list>
         <p>

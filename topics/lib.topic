@@ -314,10 +314,19 @@
             :
             Choose the desired <a href="server-dependencies.topic">build system</a>.
             This can be
-            <emphasis>Gradle</emphasis>
-            with Kotlin or Groovy DSL, or
-            <emphasis>Maven</emphasis>
+            <emphasis>Gradle Kotlin</emphasis>,
+            <emphasis>Gradle Groovy</emphasis>,
+            <emphasis>Maven</emphasis>, or <emphasis>Amper</emphasis>
             .
+        </p>
+    </snippet>
+
+    <snippet id="generator_project_settings_use_version_catalog">
+        <p>
+            <control>Use version catalog</control>
+            :
+            Select this option to use a version catalog (<path>libs.versions.toml</path>) for managing dependency
+            versions in Gradle and Amper projects. Requires Gradle 7 or later.
         </p>
     </snippet>
     <snippet id="generator_project_settings_website">
@@ -360,6 +369,9 @@
             to specify server parameters <a href="server-configuration-file.topic">in a YAML or HOCON file</a>, or
             <a href="server-configuration-code.topic">in code</a>.
         </p>
+        <warning>
+            YAML configuration is currently not supported for Maven-based Ktor projects.
+        </warning>
     </snippet>
 
     <snippet id="generator_project_settings_sample_code">

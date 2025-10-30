@@ -21,14 +21,14 @@ To build an assembly, you need to configure the Assembly plugin first:
    ```
    {src="snippets/tutorial-server-get-started-maven/pom.xml" include-lines="10,18-19"}
 
-   > If you use [EngineMain](server-create-and-configure.topic#engine-main) without the explicit `main()` function, the application's
-   > main class depends on the used engine and might look as follows: `io.ktor.server.netty.EngineMain`.
-   {style="tip"}
+    In this example `EngineMain` is used to create a server, so the application's main class depends on
+    the used engine. If you use [embeddedServer](server-create-and-configure.topic#embedded-server), the application's
+    main class is: `com.example.ApplicationKt`.
 
-2. Add the `maven-assembly-plugin` to the `plugins` block as follows:
+2. Add the `maven-assembly-plugin` to the `plugins` block:
    ```xml
    ```
-   {src="snippets/tutorial-server-get-started-maven/pom.xml" include-lines="111-135"}
+   {src="snippets/tutorial-server-get-started-maven/pom.xml" include-lines="116-140"}
 
 ## Build an assembly {id="build"}
 
