@@ -58,7 +58,7 @@
             </p>
             <procedure>
                 <step>
-                    <p>Navigate to the <a href="https://start.ktor.io/">Ktor Project Generator</a>.</p>
+                    <p>Navigate to the <a href="https://start.ktor.io/">Ktor project generator</a>.</p>
                 </step>
                 <step>
                     <p>In the
@@ -67,7 +67,7 @@
                         <path>com.example.ktor-sample</path>
                         as the name of your project artifact.
                         <img src="ktor_project_generator_new_project_artifact_name.png"
-                             alt="Ktor Project Generator with Project Artifact Name com.example.ktor-sample"
+                             alt="Ktor project generator with Project Artifact Name com.example.ktor-sample"
                              border-effect="line"
                              style="block"
                              width="706"/>
@@ -126,7 +126,7 @@
                         <control>Download</control>
                         button to generate and download your Ktor project.
                         <img src="ktor_project_generator_new_project_download.png"
-                             alt="Ktor Project Generator download button"
+                             alt="Ktor project generator download button"
                              border-effect="line"
                              style="block"
                              width="706"/>
