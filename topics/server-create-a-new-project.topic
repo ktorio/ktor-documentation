@@ -741,19 +741,17 @@
                         to restart the application.</p>
                 </step>
                 <step>
-                    <p>Request the new URL in the browser (<a
-                            href="http://0.0.0.0:9292/test1">http://0.0.0.0:9292/test1</a>). The
-                        port number you should use will depend on whether you have attempted the first task (<a
-                                href="#change-the-default-port">Changing the default port</a>). You should see the
-                        output displayed
-                        below:</p>
+                    <p>Request the new URL in the browser (<a href="http://0.0.0.0:9292/test1">http://0.0.0.0:9292/test1</a>).
+                        The port number depends on whether you completed the
+                        <a anchor="change-the-default-port">Change the default port</a> task. You should see the
+                        output displayed below:</p>
                     <img src="server_get_started_add_new_http_endpoint_output.png"
                          alt="A browser screen displaying Hello from Ktor" width="706"/>
-                    <p>If you have created an HTTP Request File you can also verify the new endpoint there:</p>
+                    <p>If you have created an HTTP request file, you can also verify the new endpoint there:</p>
                     <img src="server_get_started_add_new_http_endpoint.png" alt="An HTTP request file in intelliJ IDEA"
                          width="450"/>
-                    <p>Note that a line containing three hashes (<code>###</code>) is needed to separate different
-                        requests.</p>
+                    <note>Note that a line containing three hashes (<code>###</code>) is needed to separate different
+                        requests.</note>
                 </step>
             </procedure>
         </chapter>
