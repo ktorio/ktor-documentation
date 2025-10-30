@@ -23,7 +23,7 @@ To build an assembly, you need to configure the Assembly plugin first:
 
     In this example `EngineMain` is used to create a server, so the application's main class depends on
     the used engine. If you use [embeddedServer](server-create-and-configure.topic#embedded-server), the application's
-    main class will look as follows: `com.example.ApplicationKt`.
+    main class is: `com.example.ApplicationKt`.
 
 2. Add the `maven-assembly-plugin` to the `plugins` block:
    ```xml

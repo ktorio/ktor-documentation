@@ -316,7 +316,7 @@
             This can be
             <emphasis>Gradle Kotlin</emphasis>,
             <emphasis>Gradle Groovy</emphasis>,
-            <emphasis>Maven</emphasis> or <emphasis>Amper</emphasis>
+            <emphasis>Maven</emphasis>, or <emphasis>Amper</emphasis>
             .
         </p>
     </snippet>

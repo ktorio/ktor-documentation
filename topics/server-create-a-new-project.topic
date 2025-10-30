@@ -21,9 +21,8 @@
     </web-summary>
     <p>
         In this tutorial, you will learn how to create, open and run
-        your first Ktor server project. Once you get up and running, you can attempt a series of tasks to familiarize
-        yourself
-        with Ktor.
+        your first Ktor server project. Once you get up and running, you can complete a series of tasks to familiarize
+        yourself with Ktor.
     </p>
     <p>
         This is the first of a series of tutorials to get you started with
@@ -105,7 +104,7 @@
                             <include from="lib.topic" element-id="generator_project_settings_sample_code"/>
                         </li>
                     </list>
-                    <p>For this tutorial you can leave the default values for these settings.</p>
+                    <p>For this tutorial, you can leave the default values for these settings.</p>
                 </step>
                 <step>
                     <p>Click
@@ -333,22 +332,21 @@
     </chapter>
     <chapter title="Unpack and run your Ktor project" id="unpacking">
         <p>
-            In this section you will learn how to unpack, build and run the project from the command line. The
-            descriptions below
-            assume that:
+            In this section you will learn how to unpack, build, and run the project from the command line. The
+            steps below assume that:
         </p>
         <list type="bullet">
             <li>You have created and downloaded a Gradle project called
                 <path>ktor-sample</path>
                 .
             </li>
-            <li>This has been placed in a folder called
+            <li>This project is located in a folder called
                 <path>myprojects</path>
                 in your home directory.
             </li>
         </list>
         <p>If necessary, alter the names and paths to match your own setup.</p>
-        <p>Open a command line tool of your choice and follow the steps:</p>
+        <p>Open a command-line tool of your choice and follow the steps:</p>
         <procedure>
             <step>
                 <p>In a terminal window, navigate to the folder where you downloaded the project:</p>
@@ -379,8 +377,8 @@
                 </code-block>
             </step>
             <step>
-                <p>On macOS/UNIX systems, you will need to make the gradlew Gradle helper script executable. To do that,
-                    use the <code>chmod</code> command:</p>
+                <p>On macOS and UNIX systems, you must make the Gradle helper script executable, so the system
+                    recognizes it as a runnable command. To do that, use the <code>chmod</code> command:</p>
                 <tabs>
                     <tab title="macOS" group-key="macOS">
                         <code-block lang="console">
@@ -403,7 +401,7 @@
                         </code-block>
                     </tab>
                 </tabs>
-                <p>If you see that your build has been successful, you can execute the project, again via Gradle.</p>
+                <p>When the build succeeds, continue to the next step to run the project.</p>
             </step>
             <step>
                 <p>To run the project, use the following command:</p>
@@ -421,20 +419,20 @@
                 </tabs>
             </step>
             <step>
-                <p>To verify the project is running, open a browser at the URL mentioned in the output (<a
+                <p>To verify that the project is running, open a browser at the URL shown in the terminal output (<a
                         href="http://0.0.0.0:8080">http://0.0.0.0:8080</a>).
-                    You should see the message "Hello World!" displayed on the screen:</p>
+                    You should see the message "Hello World!" displayed in your browser:</p>
                 <img src="server_get_started_ktor_sample_app_output.png" alt="Output of the generated ktor project"
                      border-effect="line" width="706"/>
             </step>
         </procedure>
         <p>Congratulations! You have successfully started your Ktor project.</p>
-        <p>Note that the command line is unresponsive because the underlying process is busy running the Ktor
-            application. You can
-            press
+        <note>
+            Note that the command line is unresponsive because the underlying process is busy running the Ktor
+            application. You can press
             <shortcut>CTRL+C</shortcut>
             to terminate the application.
-        </p>
+        </note>
     </chapter>
     <chapter title="Open, explore, and run your Ktor project in IntelliJ IDEA" id="open-explore-run">
         <chapter title="Open the project" id="open">
@@ -470,17 +468,16 @@
             </tip>
         </chapter>
         <chapter title="Explore the project" id="explore">
-            <p>Whichever option you choose, the project should open as shown below:</p>
+            <p>After opening the project, you can see the following structure:</p>
             <img src="server_get_started_idea_project_view.png" alt="Generated Ktor project view in IDE" width="706"/>
             <p>
-                In order to explain the project layout, we have expanded the structure in the
-                <control>Project</control>
-                view.
+                To view the full layout, expand the folders in the <control>Project</control> view by clicking the
+                expand arrows next to each folder.
             </p>
             <p>
-                You will see that the code to run your application lives under
+                The application source code is located under
                 <path>src/main/kotlin</path>
-                . Two files have been created, named
+                . Two files are created by default, named
                 <path>Application.kt</path>
                 and
                 <path>Routing.kt</path>
@@ -522,7 +519,7 @@
                          border-effect="line" width="450"/>
                 </step>
                 <step>
-                    <p>Your Ktor application will start in the <a
+                    <p>Your Ktor application starts in the <a
                             href="https://www.jetbrains.com/help/idea/run-tool-window.html">Run tool window</a> at
                         the bottom of the IDE:</p>
                     <img src="server_get_started_idea_run_terminal.png" alt="Project running in the terminal" width="706"/>
@@ -563,15 +560,14 @@
             </p>
         </chapter>
     </chapter>
-    <chapter title="Additional Tasks To Attempt" id="additional-tasks">
+    <chapter title="Additional tasks to attempt" id="additional-tasks">
         <p>Here are some additional tasks you may wish to try:</p>
         <list type="decimal">
-            <li><a anchor="change-the-default-port">Change the default port.</a></li>
-            <li><a anchor="change-the-port-via-yaml">Change the port via YAML.</a></li>
-            <li><a anchor="add-a-new-http-endpoint">Add a new HTTP endpoint.</a></li>
-            <li><a anchor="configure-static-content">Configure static content.</a></li>
-            <li><a anchor="write-an-integration-test">Write an integration test.</a></li>
-            <li><a anchor="register-error-handlers">Register error handlers.</a></li>
+            <li><a anchor="change-the-default-port">Change the default port</a></li>
+            <li><a anchor="add-a-new-http-endpoint">Add a new HTTP endpoint</a></li>
+            <li><a anchor="configure-static-content">Configure static content</a></li>
+            <li><a anchor="write-an-integration-test">Write an integration test</a></li>
+            <li><a anchor="register-error-handlers">Register error handlers</a></li>
         </list>
         <p>
             These tasks do not depend on one another but gradually increase in complexity. Attempting them in the order
@@ -582,118 +578,118 @@
             Where coding is required, we have specified both the code and the corresponding imports. The IDE may add
             these imports for you automatically.
         </p>
-        <chapter title="Change the default port" id="change-the-port-via-yaml">
-            <p>
-                If you had chosen to store configuration externally, within a YAML or a HOCON file, in the
-                <ui-path>Project</ui-path>
-                view navigate to the
-                <path>src/main/resources</path>
-                folder and follow the steps:
-            </p>
-            <procedure id="change-default-port-yaml-procedure">
-                <step>
-                    Open your configuration file (
-                    <path>application.yaml</path>
-                    or
-                    <path>application.conf</path>
-                    ). It should look like the following:
-                    <tabs>
-                        <tab title="application.yaml (YAML)" group-key="yaml">
-                            <code-block lang="yaml"
-                                        src="snippets/tutorial-server-get-started/src/main/resources/application.yaml"
-                            />
-                        </tab>
-                        <tab title="application.conf (HOCON)" group-key="hocon">
-                            <code-block lang="generic"
-                                        src="snippets/tutorial-server-get-started-maven/src/main/resources/application.conf"
-                            />
-                        </tab>
-                    </tabs>
-                </step>
-                <step>
-                    Change the <code>port</code> value in the file to another number of your choosing, such as
-                    <code>9292</code>.
-                </step>
-                <step>
-                    <p>Click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
-                                                       src="intellij_idea_rerun_icon.svg" height="16" width="16"/>)
-                        to restart the application.</p>
-                </step>
-                <step>
-                    <p>To verify that your application is running under the new port number, you can open your browser
-                        at the new URL (<a href="http://0.0.0.0:9292">http://0.0.0.0:9292</a>) or
-                        <a href="https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html#creating-http-request-files">create
-                            a new HTTP Request file in IntelliJ IDEA</a>:</p>
-                    <img src="server_get_started_port_change.png"
-                         alt="Testing port change with an HTTP request file in IntelliJ IDEA" width="706"/>
-                </step>
-            </procedure>
-        </chapter>
-        <chapter title="Change the default port in code" id="change-the-default-port">
-            <p>
-                <a anchor="configure-project-step">When creating a new Ktor project</a>, you have the option to store
-                configuration in code or externally, within a YAML or a HOCON file.
-            </p>
-            <p>
-                If you have chosen the option to store configuration in code, in the
-                <ui-path>Project</ui-path>
-                view navigate to the
-                <path>src/main/kotlin</path>
-                folder and follow the steps:
-            </p>
-            <procedure id="change-the-default-port-code-procedure">
-                <step>
-                    <p>Open the
-                        <path>Application.kt</path>
-                        file. You should find code similar to the following:
-                    </p>
-                    <code-block lang="kotlin">
-                        fun main() {
-                            embeddedServer(
-                                Netty,
-                                port = 8080, // This is the port to which Ktor is listening
-                                host = "0.0.0.0",
-                                module = Application::module
-                            ).start(wait = true)
-                        }
+        <chapter title="Change the default port" id="change-the-default-port">
+            <chapter title="Change the port in a configuration file" id="change-the-port-in-config">
+                <p>
+                    If you had chosen to store configuration externally, within a YAML or a HOCON file, in the
+                    <ui-path>Project</ui-path>
+                    view navigate to the
+                    <path>src/main/resources</path>
+                    folder and follow the steps:
+                </p>
+                <procedure id="change-default-port-yaml-procedure">
+                    <step>
+                        Open your configuration file (
+                        <path>application.yaml</path>
+                        or
+                        <path>application.conf</path>
+                        ). It should look like the following:
+                        <tabs>
+                            <tab title="application.yaml (YAML)" group-key="yaml">
+                                <code-block lang="yaml"
+                                            src="snippets/tutorial-server-get-started/src/main/resources/application.yaml"
+                                />
+                            </tab>
+                            <tab title="application.conf (HOCON)" group-key="hocon">
+                                <code-block lang="generic"
+                                            src="snippets/tutorial-server-get-started-maven/src/main/resources/application.conf"
+                                />
+                            </tab>
+                        </tabs>
+                    </step>
+                    <step>
+                        Change the <code>port</code> value in the file to another number of your choosing, such as
+                        <code>9292</code>.
+                    </step>
+                    <step>
+                        <p>Click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
+                                                           src="intellij_idea_rerun_icon.svg" height="16" width="16"/>)
+                            to restart the application.</p>
+                    </step>
+                    <step>
+                        <p>To verify that your application is running under the new port number, you can open your browser
+                            at the new URL (<a href="http://0.0.0.0:9292">http://0.0.0.0:9292</a>) or
+                            <a href="https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html#creating-http-request-files">create
+                                a new HTTP Request file in IntelliJ IDEA</a>:</p>
+                        <img src="server_get_started_port_change.png"
+                             alt="Testing port change with an HTTP request file in IntelliJ IDEA" width="706"/>
+                    </step>
+                </procedure>
+            </chapter>
+            <chapter title="Change the port in code" id="change-the-port-in-code">
+                <p>
+                    <a anchor="configure-project-step">When creating a new Ktor project</a>, you have the option to store
+                    configuration in code or externally, within a YAML or a HOCON file.
+                </p>
+                <p>
+                    If you have chosen the option to store configuration in code, in the
+                    <ui-path>Project</ui-path>
+                    view navigate to the
+                    <path>src/main/kotlin</path>
+                    folder and follow the steps:
+                </p>
+                <procedure id="change-the-default-port-code-procedure">
+                    <step>
+                        <p>Open the
+                            <path>Application.kt</path>
+                            file. You should find code similar to the following:
+                        </p>
+                        <code-block lang="kotlin">
+                            fun main() {
+                                embeddedServer(
+                                    Netty,
+                                    port = 8080, // This is the port to which Ktor is listening
+                                    host = "0.0.0.0",
+                                    module = Application::module
+                                ).start(wait = true)
+                            }
 
-                        fun Application.module() {
-                            configureRouting()
-                        }
-                    </code-block>
-                </step>
-                <step>
-                    <p>In the <code>embeddedServer()</code> function, change the <code>port</code> parameter
-                        to another number of your choosing, such as <code>9292</code>.</p>
-                    <code-block lang="kotlin">
-                        fun main() {
-                            embeddedServer(
-                                Netty,
-                                port = 9292,
-                                host = "0.0.0.0",
-                                module = Application::module
-                            ).start(wait = true)
-                        }
-                    </code-block>
-                </step>
-                <step>
-                    <p>Click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
-                                                       src="intellij_idea_rerun_icon.svg" height="16" width="16"/>)
-                        to restart the application.</p>
-                </step>
-                <step>
-                    <p>To verify that your application is running under the new port number, you can open your browser
-                        at the new URL (<a href="http://0.0.0.0:9292">http://0.0.0.0:9292</a>), or
-                        <a href="https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html#creating-http-request-files">create
-                            a new HTTP Request file in IntelliJ IDEA</a>:</p>
-                    <img src="server_get_started_port_change.png"
-                         alt="Testing port change with an HTTP request file in IntelliJ IDEA" width="706"/>
-                </step>
-            </procedure>
+                            fun Application.module() {
+                                configureRouting()
+                            }
+                        </code-block>
+                    </step>
+                    <step>
+                        <p>In the <code>embeddedServer()</code> function, change the <code>port</code> parameter
+                            to another number of your choosing, such as <code>9292</code>.</p>
+                        <code-block lang="kotlin">
+                            fun main() {
+                                embeddedServer(
+                                    Netty,
+                                    port = 9292,
+                                    host = "0.0.0.0",
+                                    module = Application::module
+                                ).start(wait = true)
+                            }
+                        </code-block>
+                    </step>
+                    <step>
+                        <p>Click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
+                                                           src="intellij_idea_rerun_icon.svg" height="16" width="16"/>)
+                            to restart the application.</p>
+                    </step>
+                    <step>
+                        <p>To verify that your application is running under the new port number, you can open your browser
+                            at the new URL (<a href="http://0.0.0.0:9292">http://0.0.0.0:9292</a>), or
+                            <a href="https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html#creating-http-request-files">create
+                                a new HTTP Request file in IntelliJ IDEA</a>:</p>
+                        <img src="server_get_started_port_change.png"
+                             alt="Testing port change with an HTTP request file in IntelliJ IDEA" width="706"/>
+                    </step>
+                </procedure>
+            </chapter>
         </chapter>
-
         <chapter title="Add a new HTTP endpoint" id="add-a-new-http-endpoint">
-            <p>Next, you will create a new HTTP endpoint that will respond to a GET request.</p>
             <p>
                 In the
                 <ui-path>Project</ui-path>
@@ -731,11 +727,10 @@
                     <code-block lang="kotlin"
                                 src="snippets/tutorial-server-get-started/src/main/kotlin/Routing.kt"
                                 include-lines="10,16,23-29,34-35"/>
-                    <p>Note that you can change the <code>/test1</code> URL to be whatever you like.</p>
+                    <note>Note that you can change the <code>/test1</code> URL to be whatever you like.</note>
                 </step>
                 <step>
-                    <p>In order to make use of <code>ContentType</code>, the following import should be added
-                        automatically by the IDE:</p>
+                    <p>The IDE automatically adds the import for <code>ContentType</code>:</p>
                     <code-block lang="kotlin">
                         import io.ktor.http.ContentType
                     </code-block>
@@ -771,34 +766,18 @@
             </p>
             <procedure>
                 <step>
-                    <p>Open the <path>Routing.kt</path> file.</p>
-                    <p>Once again, this should be the default content:</p>
-                    <code-block lang="kotlin">
-                        fun Application.configureRouting() {
-                            routing {
-                                get("/") {
-                                    call.respondText("Hello World!")
-                                }
-                            }
-                        }
-                    </code-block>
-                    <p>For this task it does not matter whether you have inserted the
-                        content for the extra endpoint specified in <a href="#add-a-new-http-endpoint">Adding a new HTTP
-                            endpoint</a>.</p>
-                </step>
-                <step>
-                    <p>Add the following route to the routing section:</p>
+                    <p>Open the <path>Routing.kt</path> file and add the following route to the routing section:</p>
                     <code-block lang="kotlin"
                                 src="snippets/tutorial-server-get-started/src/main/kotlin/Routing.kt"
                                 include-lines="10,16-17,23,34-35"/>
                     <p>The meaning of this line is as follows:</p>
                     <list type="bullet">
-                        <li>Invoking <code>staticResources()</code> tells Ktor that we want our application to be able
+                        <li>Invoking <code>staticResources()</code> enables your application
                             to provide standard website content, such as HTML and JavaScript files. Although this
-                            content may be executed within the browser, it is considered static from the server's point
+                            content can be executed within the browser, it is considered static from the server's point
                             of view.
                         </li>
-                        <li>The URL <code>/content</code> specifies the path that should be used to fetch this content.
+                        <li>The URL <code>/content</code> specifies the path used to fetch this content.
                         </li>
                         <li>The path <code>mycontent</code> is the name of the folder within which the static content
                             will live. Ktor will look for this
@@ -807,7 +786,7 @@
                     </list>
                 </step>
                 <step>
-                    <p>The following import should be added automatically by the IDE:</p>
+                    <p>Add the following import if the IDE doesn’t add it automatically.</p>
                     <code-block lang="kotlin">
                         import io.ktor.server.http.content.staticResources
                     </code-block>
@@ -912,7 +891,7 @@
                 </step>
             </procedure>
             <p>
-                The test can be run in any of the standard ways for executing tests in IntelliJ IDEA. Note that, because
+                You can run the test in any of the standard ways for executing tests in IntelliJ IDEA. Note that, because
                 you are running
                 a new instance of Ktor, the success or failure of the test does not depend on whether your application
                 is running at
@@ -920,14 +899,13 @@
             </p>
             <p>
                 If you have successfully completed <a anchor="add-a-new-http-endpoint">adding a new HTTP endpoint</a>,
-                you should be able to
                 add this additional test:
             </p>
             <code-block lang="kotlin"
                         src="snippets/tutorial-server-get-started/src/test/kotlin/ApplicationTest.kt"
                         include-lines="25-36"
             />
-            <p>The following additional imports are required:</p>
+            <p>Add the following additional imports:</p>
             <code-block lang="Kotlin">
                 import io.ktor.http.contentType
                 import kotlin.test.assertContains
@@ -935,19 +913,18 @@
         </chapter>
         <chapter title="Register error handlers" id="register-error-handlers">
             <p>
-                You can handle errors in your Ktor application by using the <a href="server-status-pages.md">StatusPages
+                You can handle errors in your Ktor application using the <a href="server-status-pages.md">StatusPages
                 plugin</a>.
             </p>
-            <p>
-                This plugin is not included in your project by default. You could have added it to your project via the
+            <tip>
+                This plugin is not included in your project by default. You can add it to your project via the
                 <ui-path>Plugins</ui-path>
-                section in the Ktor
-                Project Generator, or the Project Wizard in IntelliJ IDEA. Since you've already created your project, in
-                the next steps
-                you will learn how to add and configure the plugin manually.
-            </p>
+                section while creating a project with the Ktor project generator, or the Project Wizard in
+                IntelliJ IDEA.
+            </tip>
             <p>
-                There are four steps to achieving this:
+                In the next steps you will learn how to add and configure the plugin manually. There are four steps to
+                achieving this:
             </p>
             <list type="decimal">
                 <li><a anchor="add-dependency">Add a new dependency in the Gradle build file.</a></li>
@@ -975,7 +952,6 @@
                                 src="snippets/tutorial-server-get-started/build.gradle.kts"
                                 include-lines="13-23"
                     />
-                    <p>When you have done this, you will need to reload the project to pick up this new dependency.</p>
                 </step>
                 <step>
                     <p>Reload the project by pressing
@@ -1014,8 +990,7 @@
                                 src="snippets/tutorial-server-get-started/src/main/kotlin/Routing.kt"
                                 include-lines="10-16,23,30-35"/>
                     <p>You have now added an endpoint with the URL <code>/error-test</code>. When this endpoint is
-                        triggered, an
-                        exception will be thrown with the type used in the handler.</p>
+                        triggered, an exception is thrown with the type used in the handler.</p>
                 </step>
             </procedure>
 
