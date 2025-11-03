@@ -25,7 +25,7 @@ In this section, we'll demonstrate how to create and install your first plugin.
 You can use an application created in the [](server-create-a-new-project.topic) tutorial as a starting project.
 
 1. To create a plugin, call
-   the [createApplicationPlugin](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/create-application-plugin.html)
+   the [createApplicationPlugin](https://api.ktor.io/ktor-server-core/io.ktor.server.application/create-application-plugin.html)
    function and pass a plugin name:
    ```kotlin
    ```
@@ -33,7 +33,7 @@ You can use an application created in the [](server-create-a-new-project.topic) 
 
    This function returns the `ApplicationPlugin` instance that will be used in the next step to install a plugin.
    > There is also
-   the [createRouteScopedPlugin](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.application/create-route-scoped-plugin.html)
+   the [createRouteScopedPlugin](https://api.ktor.io/ktor-server-core/io.ktor.server.application/create-route-scoped-plugin.html)
    function allowing you to create plugins that can be [installed to a specific route](server-plugins.md#install-route).
 2. To [install a plugin](server-plugins.md#install), pass the created `ApplicationPlugin` instance to the `install` function in
    the application's initialization code:
@@ -181,7 +181,7 @@ These hooks include:
 - `ResponseBodyReadyForSend` is invoked when a response body comes through all transformations and is ready to be sent.
 - `ResponseSent` is invoked when a response is successfully sent to a client.
 - `CallFailed` is invoked when a call fails with an exception.
-- [AuthenticationChecked](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-authentication-checked/index.html)
+- [AuthenticationChecked](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-authentication-checked/index.html)
   is executed after [authentication](server-auth.md) credentials are checked. The following example shows how to use
   this hook to implement
   authorization: [custom-plugin-authorization](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/custom-plugin-authorization).
@@ -321,7 +321,7 @@ here: [CustomHeaderPluginConfigurable.kt](https://github.com/ktorio/ktor-documen
 ### Configuration {id="config"}
 
 You can access your server configuration using the `applicationConfig` property, which returns
-the [ApplicationConfig](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.config/-application-config/index.html)
+the [ApplicationConfig](https://api.ktor.io/ktor-server-core/io.ktor.server.config/-application-config/index.html)
 instance. The example below shows how to get a host and port used by the server:
 
 ```kotlin

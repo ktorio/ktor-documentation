@@ -42,7 +42,7 @@ call ID.
 ## Configure %plugin_name% {id="configure"}
 
 The %plugin_name% plugin configuration, provided by
-the [CallIdConfig](https://api.ktor.io/ktor-client/ktor-client-plugins/ktor-client-call-id/io.ktor.client.plugins.callid/-call-id-config/index.html)
+the [CallIdConfig](https://api.ktor.io/ktor-client-call-id/io.ktor.client.plugins.callid/-call-id-config/index.html)
 class, allows you to generate a call ID and add
 it to the call context.
 

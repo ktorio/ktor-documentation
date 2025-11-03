@@ -20,7 +20,7 @@ Instead, you have access to different stages of [handling requests and responses
 In this section, we'll demonstrate how to create and install your first plugin that adds a custom header 
 to each [request](client-requests.md):
 
-1. To create a plugin, call the [createClientPlugin](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.api/create-client-plugin.html) function and pass a plugin name as an argument:
+1. To create a plugin, call the [createClientPlugin](https://api.ktor.io/ktor-client-core/io.ktor.client.plugins.api/create-client-plugin.html) function and pass a plugin name as an argument:
    ```kotlin
    package com.example.plugins
    
@@ -304,7 +304,7 @@ You can find the full example here: [ResponseTime.kt](https://github.com/ktorio/
 
 ## Access client configuration {id="client-config"}
 
-You can access your client configuration using the `client` property, which returns the [HttpClient](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client/-http-client/index.html) instance.
+You can access your client configuration using the `client` property, which returns the [HttpClient](https://api.ktor.io/ktor-client-core/io.ktor.client/-http-client/index.html) instance.
 The example below shows how to get the [proxy address](client-proxy.md) used by the client:
 
 ```kotlin

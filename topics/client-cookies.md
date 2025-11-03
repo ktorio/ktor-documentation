@@ -15,7 +15,7 @@ The Ktor client allows you to handle cookies manually in the following ways:
 * The `cookie` function allows you to append a cookie to a [specific request](client-requests.md#cookies).
 * The `setCookie` function enables you to parse the `Set-Cookie` header value received in a [response](client-responses.md#headers).
 
-The [HttpCookies](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.cookies/-http-cookies/index.html) plugin handles cookies automatically and keeps them between calls in storage. 
+The [HttpCookies](https://api.ktor.io/ktor-client-core/io.ktor.client.plugins.cookies/-http-cookies/index.html) plugin handles cookies automatically and keeps them between calls in storage. 
 By default, it uses an in-memory storage, but you can also implement a persistent storage using [CookiesStorage](#custom_storage).
 
 ## Add dependencies {id="add_dependencies"}
@@ -51,7 +51,7 @@ client.cookies("http://0.0.0.0:8080/")
 
 ## Custom cookie storage {id="custom_storage"}
 
-If required, you can create a custom cookie storage by implementing the [CookiesStorage](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins.cookies/-cookies-storage/index.html) interface:
+If required, you can create a custom cookie storage by implementing the [CookiesStorage](https://api.ktor.io/ktor-client-core/io.ktor.client.plugins.cookies/-cookies-storage/index.html) interface:
 
 ```kotlin
 val client = HttpClient(CIO) {

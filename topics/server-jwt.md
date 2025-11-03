@@ -82,7 +82,7 @@ The JWT authorization flow in Ktor might look as follows:
 
 
 ## Install JWT {id="install"}
-To install the `jwt` authentication provider, call the [jwt](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth-jwt/io.ktor.server.auth.jwt/jwt.html) function inside the `install` block:
+To install the `jwt` authentication provider, call the [jwt](https://api.ktor.io/ktor-server-auth-jwt/io.ktor.server.auth.jwt/jwt.html) function inside the `install` block:
 
 ```kotlin
 import io.ktor.server.application.*
@@ -216,12 +216,12 @@ The `verifier` function allows you to verify a token format and its signature:
 
 ### Step 5: Validate JWT payload {id="validate-payload"}
 
-1. The `validate` function allows you to perform additional validations on the JWT payload. Check the `credential` parameter, which represents a [JWTCredential](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-credential/index.html) object and contains the JWT payload. In the example below, the value of a custom `username` claim is checked.
+1. The `validate` function allows you to perform additional validations on the JWT payload. Check the `credential` parameter, which represents a [JWTCredential](https://api.ktor.io/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-credential/index.html) object and contains the JWT payload. In the example below, the value of a custom `username` claim is checked.
    ```kotlin
    ```
    {style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="28-29,36-42,46-47"}
    
-   In the case of successful authentication, return [JWTPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-principal/index.html). 
+   In the case of successful authentication, return [JWTPrincipal](https://api.ktor.io/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-principal/index.html). 
 2. The `challenge` function allows you to configure a response to be sent if authentication fails.
    ```kotlin
    ```
@@ -235,7 +235,7 @@ The `verifier` function allows you to verify a token format and its signature:
 
 ### Step 6: Protect specific resources {id="authenticate-route"}
 
-After configuring the `jwt` provider, you can protect specific resources in our application using the **[authenticate](server-auth.md#authenticate-route)** function. In the case of successful authentication, you can retrieve an authenticated [JWTPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-principal/index.html) inside a route handler using the `call.principal` function and get the JWT payload. In the example below, the value of a custom `username` claim and a token expiration time are retrieved.
+After configuring the `jwt` provider, you can protect specific resources in our application using the **[authenticate](server-auth.md#authenticate-route)** function. In the case of successful authentication, you can retrieve an authenticated [JWTPrincipal](https://api.ktor.io/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-principal/index.html) inside a route handler using the `call.principal` function and get the JWT payload. In the example below, the value of a custom `username` claim and a token expiration time are retrieved.
 
 ```kotlin
 ```

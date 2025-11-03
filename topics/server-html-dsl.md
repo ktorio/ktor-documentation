@@ -20,7 +20,7 @@ HTML DSL doesn't need [installation](server-plugins.md#install) but requires the
   
 
 ## Send HTML in response {id="html_response"}
-To send an HTML response, call the [respondHtml](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-html-builder/io.ktor.server.html/respond-html.html) method inside the required [route](server-routing.md).
+To send an HTML response, call the [respondHtml](https://api.ktor.io/ktor-server-html-builder/io.ktor.server.html/respond-html.html) method inside the required [route](server-routing.md).
 The example below shows a sample HTML DSL and a corresponding HTML to be sent to the client:
 
 <tabs>
@@ -83,11 +83,11 @@ You can learn how to receive form parameters on the server side from [](server-r
 
 In addition to generating plain HTML, Ktor provides a template engine that can be used to build complex layouts. You can create a hierarchy of templates for different parts of an HTML page, for example, a root template for the entire page, child templates for a page header and footer, and so on. Ktor exposes the following API for working with templates:
 
-1. To respond with an HTML built based on a specified template, call the [respondHtmlTemplate](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-html-builder/io.ktor.server.html/respond-html-template.html) method.
-2. To create a template, you need to implement the [Template](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-html-builder/io.ktor.server.html/-template/index.html) interface and override the `Template.apply` method providing HTML.
+1. To respond with an HTML built based on a specified template, call the [respondHtmlTemplate](https://api.ktor.io/ktor-server-html-builder/io.ktor.server.html/respond-html-template.html) method.
+2. To create a template, you need to implement the [Template](https://api.ktor.io/ktor-server-html-builder/io.ktor.server.html/-template/index.html) interface and override the `Template.apply` method providing HTML.
 3. Inside a created template class, you can define placeholders for different content types:
-    * [Placeholder](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-html-builder/io.ktor.server.html/-placeholder/index.html) is used to insert the content. [PlaceholderList](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-html-builder/io.ktor.server.html/-placeholder-list/index.html) can be used to insert the content that appears multiple times (for example, list items).
-    * [TemplatePlaceholder](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-html-builder/io.ktor.server.html/-template-placeholder/index.html) can be used to insert child templates and create nested layouts.
+    * [Placeholder](https://api.ktor.io/ktor-server-html-builder/io.ktor.server.html/-placeholder/index.html) is used to insert the content. [PlaceholderList](https://api.ktor.io/ktor-server-html-builder/io.ktor.server.html/-placeholder-list/index.html) can be used to insert the content that appears multiple times (for example, list items).
+    * [TemplatePlaceholder](https://api.ktor.io/ktor-server-html-builder/io.ktor.server.html/-template-placeholder/index.html) can be used to insert child templates and create nested layouts.
     
 
 ### Example {id="example"}

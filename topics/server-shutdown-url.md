@@ -7,7 +7,7 @@
 <include from="lib.topic" element-id="download_example"/>
 </tldr>
 
-The [ShutDownUrl](https://api.ktor.io/ktor-server/ktor-server-core/io.ktor.server.engine/-shut-down-url/index.html)
+The [ShutDownUrl](https://api.ktor.io/ktor-server-core/io.ktor.server.engine/-shut-down-url/index.html)
 plugin allows you to configure a URL used to shut down the server.
 There are two ways to enable this plugin:
 

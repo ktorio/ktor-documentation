@@ -40,7 +40,7 @@ In general, the Bearer authentication flow might look as follows:
 
 
 ## Install bearer authentication {id="install"}
-To install the `bearer` authentication provider, call the [bearer](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/bearer.html) function inside the `install` block:
+To install the `bearer` authentication provider, call the [bearer](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/bearer.html) function inside the `install` block:
 
 ```kotlin
 import io.ktor.server.application.*
@@ -61,7 +61,7 @@ To get a general idea of how to configure different authentication providers in 
 
 ### Step 1: Configure a bearer provider {id="configure-provider"}
 
-The `bearer` authentication provider exposes its settings via the [BearerAuthenticationProvider.Configuration](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-bearer-authentication-provider/-config/index.html) class. In the example below, the following settings are specified:
+The `bearer` authentication provider exposes its settings via the [BearerAuthenticationProvider.Configuration](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-bearer-authentication-provider/-config/index.html) class. In the example below, the following settings are specified:
 * The `realm` property sets the realm to be passed in the `WWW-Authenticate` header.
 * The `authenticate` function checks the token sent by the client and returns a `UserIdPrincipal` in the case of successful authentication or `null` if authentication fails.
 
@@ -72,7 +72,7 @@ The `bearer` authentication provider exposes its settings via the [BearerAuthent
 
 ### Step 2: Protect specific resources {id="authenticate-route"}
 
-After configuring the `bearer` provider, you can protect specific resources in our application using the **[authenticate](server-auth.md#authenticate-route)** function. In the case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html) inside a route handler using the `call.principal` function and get a name of an authenticated user.
+After configuring the `bearer` provider, you can protect specific resources in our application using the **[authenticate](server-auth.md#authenticate-route)** function. In the case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html) inside a route handler using the `call.principal` function and get a name of an authenticated user.
 
 ```kotlin
 ```

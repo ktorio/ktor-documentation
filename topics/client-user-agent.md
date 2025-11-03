@@ -2,7 +2,7 @@
 
 <primary-label ref="client-plugin"/>
 
-The [UserAgent](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.plugins/-user-agent) plugin adds a `User-Agent` header to all [requests](client-requests.md).
+The [UserAgent](https://api.ktor.io/ktor-client-core/io.ktor.client.plugins/-user-agent) plugin adds a `User-Agent` header to all [requests](client-requests.md).
 
 ## Add dependencies {id="add_dependencies"}
 

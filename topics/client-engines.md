@@ -66,7 +66,7 @@ specific engine. Each supported platform has a set of available engines, describ
 ## Specify an engine {id="create"}
 
 To use a specific engine, pass the engine class to the [
-`HttpClient`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client/-http-client/index.html) constructor. The
+`HttpClient`](https://api.ktor.io/ktor-client-core/io.ktor.client/-http-client/index.html) constructor. The
 following example creates a client with the `CIO` engine:
 
 ```kotlin
@@ -93,7 +93,7 @@ engine is selected at run time upon `HttpClient` creation.
 
 To configure an engine, use the `engine {}` function. All engines can be configured using the common options from
 [
-`HttpClientEngineConfig`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.engine/-http-client-engine-config/index.html):
+`HttpClientEngineConfig`](https://api.ktor.io/ktor-client-core/io.ktor.client.engine/-http-client-engine-config/index.html):
 
 ```kotlin
 ```
@@ -143,13 +143,13 @@ Java 11. To use it, follow the steps below:
 
    <var name="artifact_name" value="ktor-client-java"/>
    <include from="lib.topic" element-id="add_ktor_artifact"/>
-2. Pass the [Java](https://api.ktor.io/ktor-client/ktor-client-java/io.ktor.client.engine.java/-java/index.html) class
+2. Pass the [Java](https://api.ktor.io/ktor-client-java/io.ktor.client.engine.java/-java/index.html) class
    as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
    {src="snippets/_misc_client/JavaCreate.kt"}
 3. To configure the engine, set properties from [
-   `JavaHttpConfig`](https://api.ktor.io/ktor-client/ktor-client-java/io.ktor.client.engine.java/-java-http-config/index.html)
+   `JavaHttpConfig`](https://api.ktor.io/ktor-client-java/io.ktor.client.engine.java/-java-http-config/index.html)
    in the `engine {}` block:
    ```kotlin
    ```
@@ -164,13 +164,13 @@ The `Jetty` engine supports only HTTP/2 and can be configured in the following w
    <var name="artifact_name" value="ktor-client-jetty-jakarta"/>
    <include from="lib.topic" element-id="add_ktor_artifact"/>
 2. Pass the
-   [`Jetty`](https://api.ktor.io/ktor-client/ktor-client-jetty-jakarta/io.ktor.client.engine.jetty.jakarta/-jetty/index.html)
+   [`Jetty`](https://api.ktor.io/ktor-client-jetty-jakarta/io.ktor.client.engine.jetty.jakarta/-jetty/index.html)
    class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
    {src="snippets/_misc_client/JettyCreate.kt"}
 3. To configure the engine, set properties from
-   [`JettyEngineConfig`](https://api.ktor.io/ktor-client/ktor-client-jetty-jakarta/io.ktor.client.engine.jetty.jakarta/-jetty-engine-config/index.html)
+   [`JettyEngineConfig`](https://api.ktor.io/ktor-client-jetty-jakarta/io.ktor.client.engine.jetty.jakarta/-jetty-engine-config/index.html)
    in the `engine {}` block:
    ```kotlin
    ```
@@ -189,14 +189,14 @@ The `Android` engine targets Android and can be configured in the following way:
    <var name="artifact_name" value="ktor-client-android"/>
    <include from="lib.topic" element-id="add_ktor_artifact"/>
 2. Pass the
-   [`Android`](https://api.ktor.io/ktor-client/ktor-client-android/io.ktor.client.engine.android/-android/index.html)
+   [`Android`](https://api.ktor.io/ktor-client-android/io.ktor.client.engine.android/-android/index.html)
    class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
    {src="snippets/_misc_client/AndroidCreate.kt"}
 3. To configure an engine, set properties from
    [
-   `AndroidEngineConfig`](https://api.ktor.io/ktor-client/ktor-client-android/io.ktor.client.engine.android/-android-engine-config/index.html)
+   `AndroidEngineConfig`](https://api.ktor.io/ktor-client-android/io.ktor.client.engine.android/-android-engine-config/index.html)
    in the `engine {}` block:
    ```kotlin
    ```
@@ -211,14 +211,14 @@ The `OkHttp` engine is based on OkHttp and can be configured in the following wa
    <var name="artifact_name" value="ktor-client-okhttp"/>
    <include from="lib.topic" element-id="add_ktor_artifact"/>
 2. Pass
-   the [`OkHttp`](https://api.ktor.io/ktor-client/ktor-client-okhttp/io.ktor.client.engine.okhttp/-ok-http/index.html)
+   the [`OkHttp`](https://api.ktor.io/ktor-client-okhttp/io.ktor.client.engine.okhttp/-ok-http/index.html)
    class as an argument to the `HttpClient` constructor:
    ```kotlin
    ```
    {src="snippets/_misc_client/OkHttpCreate.kt"}
 3. To configure an engine, set properties from
    [
-   `OkHttpConfig`](https://api.ktor.io/ktor-client/ktor-client-okhttp/io.ktor.client.engine.okhttp/-ok-http-config/index.html)
+   `OkHttpConfig`](https://api.ktor.io/ktor-client-okhttp/io.ktor.client.engine.okhttp/-ok-http-config/index.html)
    in the `engine {}` block:
    ```kotlin
    ```
@@ -256,7 +256,7 @@ uses [`NSURLSession`](https://developer.apple.com/documentation/foundation/nsurl
    ```
 3. Configure the engine in the `engine {}` block using
    [
-   `DarwinClientEngineConfig`](https://api.ktor.io/ktor-client/ktor-client-darwin/io.ktor.client.engine.darwin/-darwin-client-engine-config/index.html).
+   `DarwinClientEngineConfig`](https://api.ktor.io/ktor-client-darwin/io.ktor.client.engine.darwin/-darwin-client-engine-config/index.html).
    For example, you can customize requests with `configureRequest` or sessions with `configureSession`:
    ```kotlin
    ```
@@ -284,7 +284,7 @@ To use the `WinHttp` engine, follow the steps below:
    ```
 3. Configure the engine in the `engine {}` block using
    [
-   `WinHttpClientEngineConfig`](https://api.ktor.io/ktor-client/ktor-client-winhttp/io.ktor.client.engine.winhttp/-winhttp-client-engine-config/index.html).
+   `WinHttpClientEngineConfig`](https://api.ktor.io/ktor-client-winhttp/io.ktor.client.engine.winhttp/-winhttp-client-engine-config/index.html).
    For example, you can use the `protocolVersion` property to change the HTTP version:
    ```kotlin
    ```
@@ -331,7 +331,7 @@ WebAssembly JavaScript (WasmJs) platforms. It currently supports HTTP/1.x only. 
 
    <var name="artifact_name" value="ktor-client-cio"/>
    <include from="lib.topic" element-id="add_ktor_artifact"/>
-2. Pass the [`CIO`](https://api.ktor.io/ktor-client/ktor-client-cio/io.ktor.client.engine.cio/-c-i-o/index.html) class
+2. Pass the [`CIO`](https://api.ktor.io/ktor-client-cio/io.ktor.client.engine.cio/-c-i-o/index.html) class
    as
    an argument to the `HttpClient` constructor:
    ```kotlin
@@ -340,7 +340,7 @@ WebAssembly JavaScript (WasmJs) platforms. It currently supports HTTP/1.x only. 
 
 3. Configure the engine in the `engine {}` block using
    [
-   `CIOEngineConfig`](https://api.ktor.io/ktor-client/ktor-client-cio/io.ktor.client.engine.cio/-c-i-o-engine-config/index.html):
+   `CIOEngineConfig`](https://api.ktor.io/ktor-client-cio/io.ktor.client.engine.cio/-c-i-o-engine-config/index.html):
    ```kotlin
    ```
    {src="snippets/_misc_client/CioConfig.kt" interpolate-variables="true" disable-links="false"}
@@ -426,13 +426,13 @@ tutorial:
 
 <procedure>
 
-1. Open the **shared/src/commonMain/kotlin/com/example/kmmktor/Platform.kt**
+1. Open the **shared/src/commonMain/kotlin/com/example/kmpktor/Platform.kt**
    file and add a top-level `httpClient()` function that accepts a configuration block and returns an `HttpClient`:
    ```kotlin
    expect fun httpClient(config: HttpClientConfig<*>.() -> Unit = {}): HttpClient
    ```
 
-2. Open **shared/src/androidMain/kotlin/com/example/kmmktor/Platform.kt**
+2. Open **shared/src/androidMain/kotlin/com/example/kmpktor/Platform.kt**
    and add an actual declaration of the `httpClient()` function for the Android module:
    ```kotlin
    import io.ktor.client.*
@@ -456,7 +456,7 @@ tutorial:
    >
    {style="tip"}
 
-3. Open **shared/src/iosMain/kotlin/com/example/kmmktor/Platform.kt** and add an actual declaration of the `httpClient()`
+3. Open **shared/src/iosMain/kotlin/com/example/kmpktor/Platform.kt** and add an actual declaration of the `httpClient()`
    function for the iOS module:
    ```kotlin
    import io.ktor.client.*
@@ -473,7 +473,7 @@ tutorial:
    ```
    You can now call `httpClient()` in shared code without worrying about which engine is used.
 
-4. To use the client in shared code, open **shared/src/commonMain/kotlin/com/example/kmmktor/Greeting.kt** and replace
+4. To use the client in shared code, open **shared/src/commonMain/kotlin/com/example/kmpktor/Greeting.kt** and replace
    the `HttpClient()` constructor with the `httpClient()` function call:
    ```kotlin
    private val client = httpClient()

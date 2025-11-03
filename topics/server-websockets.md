@@ -56,7 +56,7 @@ particularly useful in cases where the server needs to send event-based updates 
 ## Configure WebSockets {id="configure"}
 
 Optionally, you can configure the plugin inside the `install` block by
-passing [WebSocketOptions](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-websockets/io.ktor.server.websocket/-web-sockets/-web-socket-options/index.html):
+passing [WebSocketOptions](https://api.ktor.io/ktor-server-websockets/io.ktor.server.websocket/-web-sockets/-web-socket-options/index.html):
 
 * Use the `pingPeriod` property to specify the duration between pings.
 * Use the `timeout` property to set a timeout after which the connection to be closed.
@@ -89,7 +89,7 @@ In this example, the server accepts WebSocket requests to `ws://localhost:8080/e
 a [default configuration](server-configuration-file.topic) is used.
 
 Inside the `webSocket` block, you define the handler for the WebSocket session, which is represented by
-the [DefaultWebSocketServerSession](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-websockets/io.ktor.server.websocket/-default-web-socket-server-session/index.html)
+the [DefaultWebSocketServerSession](https://api.ktor.io/ktor-server-websockets/io.ktor.server.websocket/-default-web-socket-server-session/index.html)
 class.
 The following functions and properties are available within the block:
 
@@ -105,7 +105,7 @@ When handling a session, you can check a frame type, for example:
 
 > Note that the `incoming` channel doesn't contain control frames such as the ping/pong or close frames.
 > To handle control frames and reassemble fragmented frames, use
-the [webSocketRaw](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-websockets/io.ktor.server.websocket/web-socket-raw.html)
+the [webSocketRaw](https://api.ktor.io/ktor-server-websockets/io.ktor.server.websocket/web-socket-raw.html)
 function to handle a WebSocket session.
 >
 {style="note"}

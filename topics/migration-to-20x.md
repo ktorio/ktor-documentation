@@ -448,7 +448,7 @@ In v2.0.0, API used to make requests and receive responses is updated to make it
 
 #### Request functions {id="request-overloads"}
 
-[Request functions](client-requests.md) with multiple parameters are deprecated. For example, the `port` and `path` parameters need to be replaced with a the `url` parameter exposed by [HttpRequestBuilder](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client.request/-http-request-builder/index.html):
+[Request functions](client-requests.md) with multiple parameters are deprecated. For example, the `port` and `path` parameters need to be replaced with a the `url` parameter exposed by [HttpRequestBuilder](https://api.ktor.io/ktor-client-core/io.ktor.client.request/-http-request-builder/index.html):
 
 <tabs group="ktor_versions">
 <tab title="1.6.x" group-key="1_6">

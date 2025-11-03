@@ -6,6 +6,7 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.util.cio.*
 import io.ktor.utils.io.*
+import kotlinx.io.readString
 import java.io.*
 
 fun Application.main() {
@@ -22,7 +23,7 @@ fun Application.main() {
 
         post("/channel") {
             val readChannel = call.receiveChannel()
-            val text = readChannel.readRemaining().readText()
+            val text = readChannel.readRemaining().readString()
             call.respondText(text)
         }
 

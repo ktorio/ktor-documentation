@@ -18,7 +18,7 @@
 
 <link-summary>The Resources plugin allows you to implement type-safe routing.</link-summary>
 
-Ktor provides the [Resources](https://api.ktor.io/ktor-shared/ktor-resources/io.ktor.resources/-resources/index.html) plugin that allows you to implement type-safe [routing](server-routing.md). To accomplish this, you need to create a class that should act as a typed route and then annotate this class using the `@Resource` keyword. Note that the `@Resource` annotation has `@Serializable` behavior provided by the kotlinx.serialization library.
+Ktor provides the [Resources](https://api.ktor.io/ktor-resources/io.ktor.resources/-resources/index.html) plugin that allows you to implement type-safe [routing](server-routing.md). To accomplish this, you need to create a class that should act as a typed route and then annotate this class using the `@Resource` keyword. Note that the `@Resource` annotation has `@Serializable` behavior provided by the kotlinx.serialization library.
 
 > The Ktor client provides the capability to make [typed requests](client-resources.md) to a server.
 
@@ -176,7 +176,7 @@ This is sometimes called _reverse routing_.
 Building links from resources might be helpful if you need to add these links to 
 an HTML document created with [HTML DSL](server-html-dsl.md) or if you need to generate a [redirection response](server-responses.md#redirect).
 
-The `Resources` plugin extends `Application` with the overloaded [href](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-resources/io.ktor.server.resources/href.html) method, which allows you to generate a link from a `Resource`. For instance, the code snippet below creates a link for the `Edit` resource [defined above](#example_crud):
+The `Resources` plugin extends `Application` with the overloaded [href](https://api.ktor.io/ktor-server-resources/io.ktor.server.resources/href.html) method, which allows you to generate a link from a `Resource`. For instance, the code snippet below creates a link for the `Edit` resource [defined above](#example_crud):
 
 ```kotlin
 ```
