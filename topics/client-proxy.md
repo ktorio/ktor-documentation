@@ -11,15 +11,15 @@ The table below shows supported proxy types for specific [engines](client-engine
 
 | Engine     | HTTP proxy | SOCKS proxy |
 |------------|------------|-------------|
-| Apache     | ✅          |   ✖️         |
-| Java       | ✅          |   ✖️         |
-| Jetty      | ✖️          |   ✖️         |
-| CIO        | ✅          |   ✖️         |
-| Android    | ✅          |   ✅         |
-| OkHttp     | ✅          |   ✅         |
-| JavaScript | ✖️          |   ✖️         |
-| Darwin     | ✅          |   ✖️          |
-| Curl       | ✅          |   ✅         |
+| Apache     | ✅          | ✖️          |
+| Java       | ✅          | ✖️          |
+| Jetty      | ✖️         | ✖️          |
+| CIO        | ✅          | ✖️          |
+| Android    | ✅          | ✅           |
+| OkHttp     | ✅          | ✅           |
+| JavaScript | ✖️         | ✖️          |
+| Darwin     | ✅          | ✅           |
+| Curl       | ✅          | ✅           |
 
 > Note that HTTPS requests are currently not supported with the HTTP proxy for the Darwin engine.
 
