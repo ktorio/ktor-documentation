@@ -426,13 +426,13 @@ tutorial:
 
 <procedure>
 
-1. Open the **shared/src/commonMain/kotlin/com/example/kmmktor/Platform.kt**
+1. Open the **shared/src/commonMain/kotlin/com/example/kmpktor/Platform.kt**
    file and add a top-level `httpClient()` function that accepts a configuration block and returns an `HttpClient`:
    ```kotlin
    expect fun httpClient(config: HttpClientConfig<*>.() -> Unit = {}): HttpClient
    ```
 
-2. Open **shared/src/androidMain/kotlin/com/example/kmmktor/Platform.kt**
+2. Open **shared/src/androidMain/kotlin/com/example/kmpktor/Platform.kt**
    and add an actual declaration of the `httpClient()` function for the Android module:
    ```kotlin
    import io.ktor.client.*
@@ -456,7 +456,7 @@ tutorial:
    >
    {style="tip"}
 
-3. Open **shared/src/iosMain/kotlin/com/example/kmmktor/Platform.kt** and add an actual declaration of the `httpClient()`
+3. Open **shared/src/iosMain/kotlin/com/example/kmpktor/Platform.kt** and add an actual declaration of the `httpClient()`
    function for the iOS module:
    ```kotlin
    import io.ktor.client.*
@@ -473,7 +473,7 @@ tutorial:
    ```
    You can now call `httpClient()` in shared code without worrying about which engine is used.
 
-4. To use the client in shared code, open **shared/src/commonMain/kotlin/com/example/kmmktor/Greeting.kt** and replace
+4. To use the client in shared code, open **shared/src/commonMain/kotlin/com/example/kmpktor/Greeting.kt** and replace
    the `HttpClient()` constructor with the `httpClient()` function call:
    ```kotlin
    private val client = httpClient()

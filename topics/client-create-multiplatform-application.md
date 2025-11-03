@@ -119,7 +119,7 @@ To use coroutines in [Android code](#android-activity), you need to add `kotlinx
 ### Shared code {id="shared-code"}
 
 To update the code shared between Android and iOS, open the
-<path>shared/src/commonMain/kotlin/com/example/ktor/kmmktor/Greeting.kt</path>
+<path>shared/src/commonMain/kotlin/com/example/ktor/kmpktor/Greeting.kt</path>
 file and add the following code to the `Greeting` class:
 
 ```kotlin
@@ -134,7 +134,7 @@ file and add the following code to the `Greeting` class:
 ### Android code {id="android-activity"}
 
 Open the
-<path>composeApp/src/androidMain/kotlin/com/example/ktor/kmmktor/App.kt</path>
+<path>composeApp/src/androidMain/kotlin/com/example/ktor/kmpktor/App.kt</path>
 file and update the code as follows:
 
 ```kotlin
