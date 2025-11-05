@@ -377,6 +377,17 @@ The size of the returned `ByteArray` depends on the IP version: it will contain 
 16 bytes for IPv6 addresses.
 On JS and Wasm platforms, `.resolveAddress()` will always return `null`.
 
+### HTTP cache clearing
+
+You can now use new methods on [`CacheStorage`](https://api.ktor.io/ktor-client-core/io.ktor.client.plugins.cache.storage/-cache-storage/index.html)
+to clear cached HTTP responses when needed.
+
+- `.removeAll(url)` removes all cache entries that match the specified URL.
+- `.remove(url, varyKeys)` removes a specific cache entry that matches the given URL and `Vary` keys.
+
+These methods provide you with more control over cache invalidation and how you manage outdated or specific cached
+responses.
+
 ## Shared
 
 ### HTMX Integration
