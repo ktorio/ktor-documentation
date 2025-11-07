@@ -33,6 +33,14 @@ The following table lists details of the latest Ktor releases.
 
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
+<tr><td>3.3.2</td><td>November 5, 2025</td><td>
+<p>
+A patch release that adds SOCKS proxy support for Darwin, refines WebRTC client targets and Java proxy handling, and
+fixes multiple issues in HTTP retries, OpenAPI, caching, and Netty on Android.
+</p>
+<var name="version" value="3.3.2"/>
+<include from="lib.topic" element-id="release_details_link"/>
+</td></tr>
 <tr><td>3.3.1</td><td>October 8, 2025</td><td>
 <p>
 A patch release that updates Kotlin to 2.2.20, and fixes several issues including Content-Length parsing errors, missing

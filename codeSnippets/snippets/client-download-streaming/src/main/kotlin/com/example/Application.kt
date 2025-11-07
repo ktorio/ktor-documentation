@@ -16,7 +16,7 @@ fun main() {
     val file = File.createTempFile("files", "index")
     val stream = file.outputStream().asSink()
     val fileSize = 100 * 1024 * 1024
-    val bufferSize = 1024 * 1024
+    val bufferSize: Long = 1024 * 1024
 
     runBlocking {
         client.prepareGet("https://httpbin.org/bytes/$fileSize").execute { httpResponse ->

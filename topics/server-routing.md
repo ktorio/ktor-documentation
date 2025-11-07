@@ -310,7 +310,7 @@ the application's output might look as follows:
 TRACE Application - Trace for [missing-page]
 /, segment:0 -> SUCCESS @ /
   /, segment:0 -> SUCCESS @ /
-    /(method:GET), segment:0 -> FAILURE "Not all segments matched" @ /(method:GET)
+    / [(method:GET)], segment:0 -> FAILURE "Not all segments matched" @ / [(method:GET)]
 Matched routes:
   No results
 Route resolve result:
