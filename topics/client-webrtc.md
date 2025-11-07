@@ -76,7 +76,7 @@ val androidClient = WebRtcClient(AndroidWebRtc) {
 <tab title="iOS" group-key="ios">
 
 ```kotlin
-val iosClient = WebRtcClient(WebRtc) {
+val iosClient = WebRtcClient(IosWebRtc) {
     // the same configuration, no extra context needed
 }
 ```
@@ -264,7 +264,7 @@ videoElement.srcObject = null
 <tab title="Android" group-key="android">
 
 ```kotlin
-val egbBase = org.webrtc.EglBase.create() // should be unique in the app
+val eglBase = org.webrtc.EglBase.create() // should be unique in the app
 
 val videoTrack = rtcClient.createVideoTrack()
 val nativeTrack: org.webrtc.VideoTrack = videoTrack.getNative()
