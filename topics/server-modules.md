@@ -96,19 +96,25 @@ This allows for non-sequential loading for dependency injection and, in some cas
 
 ### Configuration options
 
-The following Gradle configuration properties are available:
+The following configuration properties are available:
 
 | Property                                | Type                        | Description                                              | Default      |
 |-----------------------------------------|-----------------------------|----------------------------------------------------------|--------------|
 | `ktor.application.startup`              | `sequential` / `concurrent` | Defines how application modules are loaded               | `sequential` |
-| `ktor.application.startupTimeoutMillis` | `Long`                      | Timeout for application module loading (in milliseconds) | `100000`     |
+| `ktor.application.startupTimeoutMillis` | `Long`                      | Timeout for application module loading (in milliseconds) | `10000`      |
 
 ### Enable concurrent module loading
 
-To opt into concurrent module loading, add the following property to your `gradle.properties` file:
+To opt into concurrent module loading, add the following to your server configuration file:
 
-```none
-ktor.application.startup = concurrent
+```yaml
+# application.conf
+
+ktor {
+    application {
+        startup = concurrent
+    }
+}
 ```
 
 For dependency injection, you can load the following modules in order of appearance without issues:
