@@ -86,7 +86,7 @@ see [download-file](https://github.com/ktorio/ktor-documentation/tree/%ktor_vers
 ### Resource
 
 A single resource from the classpath (a list of locations where JVM looks for user classes and resources) can be served with the [call.respondResource](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond-resource.html) utility method.
-This method accepts a path to locate the resource and returns `OutgoingContent`, an object representing the response from the server.
+This method, given a path to the resource, sends a relevant response taking into account the meta information, like "file" extension and the size.
 Route handler is a usual place to call this method from, as the following example shows:
 
 ```kotlin
@@ -97,7 +97,8 @@ routing {
 }
 ```
 
-In the example above, a client requesting the `GET /resource` endpoint will get a response with body filled with the `public/index.html` resource contents and the `Content-Type` header auto-determined by the "file" extension, `text/html` here.
+--- In the example above for the `/resource` endpoint, the contents of the `public/index.html` resource is a source for the response body the server responds with the body of the `public/index.html` resource contents
+--- In the example above, a client accessing the `GET /resource` endpoint will get a response with body filled with the `public/index.html` resource contents and the `Content-Type` header auto-determined by the "file" extension, `text/html` here.
 
 For convenience, components of the resource location, namely relative resource path and resource package, can be provided separately by the first and the second parameters respectively.
 In the next example, a request target is mapped to the resource path under the `assets` package. 
