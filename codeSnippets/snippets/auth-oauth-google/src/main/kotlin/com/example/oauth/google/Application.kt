@@ -14,6 +14,7 @@ import io.ktor.server.routing.*
 import io.ktor.server.sessions.*
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.request.*
+import io.ktor.util.collections.ConcurrentMap
 import kotlinx.html.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.Json
@@ -30,7 +31,7 @@ fun Application.main(httpClient: HttpClient = applicationHttpClient) {
     install(Sessions) {
         cookie<UserSession>("user_session")
     }
-    val redirects = mutableMapOf<String, String>()
+    val redirects = ConcurrentMap<String, String>()
     install(Authentication) {
         oauth("auth-oauth-google") {
             // Configure oauth authentication
@@ -68,7 +69,7 @@ fun Application.main(httpClient: HttpClient = applicationHttpClient) {
                 currentPrincipal?.let { principal ->
                     principal.state?.let { state ->
                         call.sessions.set(UserSession(state, principal.accessToken))
-                        redirects[state]?.let { redirect ->
+                        redirects.remove(state)?.let { redirect ->
                             call.respondRedirect(redirect)
                             return@get
                         }
