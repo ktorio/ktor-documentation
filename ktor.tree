@@ -392,6 +392,7 @@
 
     <toc-element toc-title="Releases">
         <toc-element topic="releases.md"/>
+        <toc-element topic="whats-new-340.md"/>
         <toc-element topic="whats-new-330.md"/>
         <toc-element topic="whats-new-320.md"/>
         <toc-element topic="migration-to-20x.md"
