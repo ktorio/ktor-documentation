@@ -73,7 +73,7 @@
                              accepts-web-file-names="routing.html,tracing-routes.html,resolution-algorithms.html,routing-in-ktor.html"/>
                 <toc-element topic="server-resources.md"
                              accepts-web-file-names="type-safe-routing.html, features-locations.html,locations.html, server-locations.html"/>
-                <toc-element topic="server-application-structure.md"
+                <toc-element topic="server-routing-organization.md"
                              accepts-web-file-names="structure.html,structuring-applications.html"/>
                 <toc-element topic="server-autoheadresponse.md"
                              accepts-web-file-names="autoheadresponse.html"/>
