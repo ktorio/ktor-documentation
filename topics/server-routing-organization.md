@@ -106,9 +106,8 @@ fun Route.customerRoutes(service: CustomerService) {
 </tab>
 </tabs>
 
-This structure works well with Ktor’s modular design and is ideal for large applications, such as APIs with many
-endpoints. Each file remains minimal, domain packages stay cohesive, and dependencies (such as services) can be injected
-per route module.
+This structure keeps each route definition small and easy to navigate as the number of endpoints increases. Therefore,
+it is ideal for large applications, such as APIs with many endpoints.
 
 ## Group routes by path and nest resources {id="group_by_path"}
 
@@ -136,7 +135,6 @@ HTTP API standpoint.
 ## Group by feature or domain {id="group_by_feature"}
 
 As your application grows, grouping by domain or feature becomes more scalable.
-Each feature gets its own package containing routes and related logic such as DTOs, services, and business rules:
 
 ```generic
 routes/
@@ -149,7 +147,7 @@ routes/
         Shipment.kt
 ```
 
-Each file contains a small, focused piece of routing logic, and the package acts as a self-contained domain module.
+Each feature has its own package containing only the routing code relevant to that domain.
 
 For example, the `CustomerRoutes` file from the above example structure may contain the following route definitions:
 
@@ -163,7 +161,5 @@ fun Route.customerRoutes(
     }
 }
 ```
-
-Feature-based organization keeps all functionality for a domain area in one place and makes it easy to inject 
-dependencies such as services or repositories into each domain module. It also scales well as your application grows,
-including multi-module Ktor applications.
+This pattern keeps feature boundaries clear and prevents routing files from growing too large, especially when each
+domain area contains many endpoints.

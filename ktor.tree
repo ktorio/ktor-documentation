@@ -33,6 +33,7 @@
         </toc-element>
 
         <toc-element toc-title="Developing applications">
+            <toc-element topic="server-application-structure.md" />
             <toc-element toc-title="Creating and configuring a server">
                 <toc-element topic="server-platforms.md"
                              accepts-web-file-names="supported-platforms.html"/>
