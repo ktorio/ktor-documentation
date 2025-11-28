@@ -33,6 +33,14 @@ The following table lists details of the latest Ktor releases.
 
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
+<tr><td>3.3.3</td><td>November 26, 2025</td><td>
+<p>
+A patch release that adds HTTP/2 over cleartext (h2c) support on Jetty Client, improves logging and OpenAPI generation,
+and fixes bugs in engines, SSE handling, double responses, HTTP/2 headers, and client caching.
+</p>
+<var name="version" value="3.3.3"/>
+<include from="lib.topic" element-id="release_details_link"/>
+</td></tr>
 <tr><td>3.3.2</td><td>November 5, 2025</td><td>
 <p>
 A patch release that adds SOCKS proxy support for Darwin, refines WebRTC client targets and Java proxy handling, and
