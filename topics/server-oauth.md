@@ -135,7 +135,7 @@ The code snippet below shows how to create and configure the `oauth` provider wi
 * `providerLookup` allows you to specify OAuth settings for a required provider. These settings are represented by
   the [OAuthServerSettings](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-o-auth-server-settings/index.html)
   class and allow Ktor to make automatic requests to the OAuth server.
-* The `fallback` property handles OAuth flow errors by responding with a redirect or custom status.
+* The `fallback` property handles OAuth flow errors by responding with a redirect or custom response.
 * The `client` property specifies the [HttpClient](#create-http-client) used by Ktor to make requests to the OAuth
   server.
 
