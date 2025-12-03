@@ -57,7 +57,7 @@ val splitValues = headers.getSplitValues("X-Multi-Header")!!
 // ["1", "2", "3"]
 ```
 By default, separators inside double-quoted strings are ignored, but this can be changed by setting 
-`splitInsideQuotes = true`.
+`splitInsideQuotes = true`:
 
 ```kotlin
 val headers = headers {

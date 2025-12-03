@@ -39,15 +39,37 @@ property:
 
 The [
 `HttpResponse.headers`](https://api.ktor.io/ktor-client-core/io.ktor.client.statement/-http-response/index.html)
-property allows you to get a [Headers](https://api.ktor.io/ktor-http/io.ktor.http/-headers/index.html) map containing
-all response headers. Additionally, `HttpResponse` exposes the following functions for receiving specific header values:
+property allows you to get a [`Headers`](https://api.ktor.io/ktor-http/io.ktor.http/-headers/index.html) map containing
+all response headers.
 
-* `contentType` for the `Content-Type` header value
+Additionally, `HttpResponse` exposes the following functions for receiving specific header values:
+
+* `contentType` for the `Content-Type` header value.
 * `charset` for a charset from the `Content-Type` header value.
 * `etag` for the `E-Tag` header value.
 * `setCookie` for the `Set-Cookie` header value.
   > Ktor also provides the [HttpCookies](client-cookies.md) plugin that allows you to keep cookies between calls.
 
+
+#### Splitting header values
+
+If a header can contain multiple comma- or semicolon-separated values, you can use the `.getSplitValues()` function to
+retrieve all split values from a header:
+
+```kotlin
+val httpResponse: HttpResponse = client.get("https://ktor.io/")
+val headers: Headers = httpResponse.headers
+
+val splitValues = headers.getSplitValues("X-Multi-Header")!!
+// ["1", "2", "3"]
+```
+
+Using the usual `get` operator returns values without splitting:
+
+```kotlin
+val values = headers["X-Multi-Header"]!!
+// ["1, 2", "3"]
+```
 
 ## Receive response body {id="body"}
 
