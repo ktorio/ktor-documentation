@@ -62,4 +62,5 @@
     <category id="rails" name="Rails Support" order="2"/>
     <category id="ruby" name="Ruby Support" order="0"/>
     <category id="testing" name="Testing" order="22"/>
+    <category id="related" name="Related topics" order="1" />
 </categories>
