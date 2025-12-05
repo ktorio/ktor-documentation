@@ -98,13 +98,14 @@ A Ktor client allows you to configure a token to be sent in the `Authorization` 
 Let's take a look at how to use bearer authentication to access Google APIs, which use the [OAuth 2.0 protocol](https://developers.google.com/identity/protocols/oauth2) for authentication and authorization. We'll investigate the [client-auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-auth-oauth-google) console application that gets Google's profile information. 
 
 ### Obtain client credentials {id="google-client-credentials"}
-As the first step, we need to obtain client credentials required for accessing Google APIs:
-1. Create a Google account.
-2. Open the [Google Cloud Console](https://console.cloud.google.com/apis/credentials) and create the `OAuth client ID` credentials with the `Android` application type. This client ID will be used to obtain an [authorization grant](#step1).
+To access Google APIs, you first need OAuth client credentials:
+1. Create or sign in to a Google account.
+2. Open the [Google Cloud Console](https://console.cloud.google.com/apis/credentials) and create an `OAuth client ID` with the `Android` application type. This client
+ID will be used to obtain an [authorization grant](#step1).
 
 ### OAuth authorization flow {id="oauth-flow"}
 
-The OAuth authorization flow for our application looks as follows:
+The OAuth authorization flow looks as follows:
 
 ```Console
 (1)  --> [[[Authorization request|#step1]]]                Resource owner
@@ -123,28 +124,30 @@ The OAuth authorization flow for our application looks as follows:
 ```
 {disable-links="false"}
 
-Let's investigate how each step is implemented and how the `Bearer` authentication provider helps us access the API.
+The next sections explain how each step is implemented and how the `Bearer` authentication provider assissts in
+accessing the API.
 
 ### (1) -> Authorization request {id="step1"}
 
-As the first step, we need to build the authorization link that is used to request the desired permissions. To do this, we need to append specified query parameters to the URL:
+The first step is to construct the authorization URL used to request the necessary permissions. This is done by appending
+the required query parameters:
 
 ```kotlin
 ```
 {src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="23-31"}
 
-- `client_id`: a client ID [obtained earlier](#google-client-credentials) is used to access Google APIs.
-- `scope`: scopes of resources required for a Ktor application. In our case, the application requests information about a user's profile.
-- `response_type`: a grant type used to get an access token. In our case, we need to obtain an authorization code.
+- `client_id`: the client ID [obtained earlier](#google-client-credentials) used to access the Google APIs.
+- `scope`: the scopes of resources required for a Ktor application. In this case, the application requests information about a user's profile.
+- `response_type`: a grant type used to get an access token. In this case, it is set to `"code"` to obtain an authorization code.
 - `redirect_uri`: the `http://127.0.0.1:8080` value indicates that the _Loopback IP address_ flow is used to get the authorization code.
    > To receive the authorization code using this URL, your application must be listening on the local web server.
    > For example, you can use a [Ktor server](server-create-and-configure.topic) to get the authorization code as a query parameter.
-- `access_type`: The access type is set to `offline` since our console application needs to refresh access tokens when the user is not present at the browser.
+- `access_type`: set to `offline` so that the application can refresh access tokens when the user is not present at the browser.
 
 
 ### (2)  <- Authorization grant (code) {id="step2"}
 
-At this step, we copy the authorization code from the browser, paste it in a console, and save it in a variable:
+Copy the authorization code from the browser, paste it in a console, and save it in a variable:
 
 ```kotlin
 ```
@@ -152,19 +155,23 @@ At this step, we copy the authorization code from the browser, paste it in a con
 
 ### (3)  -> Authorization grant (code) {id="step3"}
 
-Now we are ready to exchange the authorization code for tokens. To do this, we need to create a client and install the [ContentNegotiation](client-serialization.md) plugin with the `json` serializer. This serializer is required to deserialize tokens received from the Google OAuth token endpoint.
+Next, exchange the authorization code for tokens. To do this, you need to create a client and install the
+[ContentNegotiation](client-serialization.md) plugin with the `json` serializer. This serializer is required to deserialize tokens received
+from the Google OAuth token endpoint.
 
 ```kotlin
 ```
 {src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="38-41,65"}
 
-Using the created client, we can securely pass the authorization code and other necessary options to the token endpoint as [form parameters](client-requests.md#form_parameters):
+Using the created client, you can securely pass the authorization code and other necessary options to the token
+endpoint as [form parameters](client-requests.md#form_parameters):
 
 ```kotlin
 ```
 {src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="68-77"}
 
-As a result, the token endpoint sends tokens in a JSON object, which is deserialized to a `TokenInfo` class instance using the installed `json` serializer. The `TokenInfo` class looks as follows:
+As a result, the token endpoint sends tokens in a JSON object, which is deserialized to a `TokenInfo` class instance
+using the installed `json` serializer. The `TokenInfo` class looks as follows:
 
 ```kotlin
 ```
@@ -172,7 +179,8 @@ As a result, the token endpoint sends tokens in a JSON object, which is deserial
 
 ### (4)  <- Access and refresh tokens {id="step4"}
 
-When tokens are received, we can save them in a storage. In our example, a storage is a mutable list of `BearerTokens` instances. This means that we can pass its elements to the `loadTokens` and `refreshTokens` callbacks.
+Once the tokens are received, store them so they can be supplied to the `loadTokens` and `refreshTokens` callbacks. In
+this example, the storage is a mutable list of `BearerTokens`:
 
 ```kotlin
 ```
@@ -183,7 +191,10 @@ When tokens are received, we can save them in a storage. In our example, a stora
 
 ### (5)  -> Request with valid token {id="step5"}
 
-Now we have valid tokens, so we can make a request to the protected Google API and get information about a user. First, we need to adjust the client [configuration](#step3):
+Now that valid tokens are available, the client can make a request to the protected Google API and retrieve user
+information.
+
+Before doing that, you need to adjust the client [configuration](#step3):
 
 ```kotlin
 ```
@@ -191,22 +202,25 @@ Now we have valid tokens, so we can make a request to the protected Google API a
 
 The following settings are specified: 
 
-- The already installed [ContentNegotiation](client-serialization.md) plugin with the `json` serializer is required to deserialize user information received from a resource server in a JSON format.
+- The already installed [ContentNegotiation](client-serialization.md) plugin with the `json` serializer is required to deserialize user
+information received from a resource server in a JSON format.
 
 - The [Auth](client-auth.md) plugin with the `bearer` provider is configured as follows:
    * The `loadTokens` callback loads tokens from the [storage](#step4).
-   * The `sendWithoutRequest` callback is configured to send credentials without waiting for the `401` (Unauthorized) response only to a host providing access to protected resources.
+   * The `sendWithoutRequest` callback sends the access token without waiting for the `401 Unauthorized` response
+     when accessing Google's protected API.
 
-This client can be used to make a request to the protected resource:
+With this client, you can now make a request to the protected resource:
 
 ```kotlin
 ```
-{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="81"}
+{src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="81-96"}
 
 
 ### (6)  <- Protected resource {id="step6"}
 
-The resource server returns information about a user in a JSON format. We can deserialize the response into the `UserInfo` class instance and show a personal greeting:
+The resource server returns information about a user in a JSON format. You can deserialize the response into the
+`UserInfo` class instance and display a personal greeting:
 
 ```kotlin
 ```
@@ -222,30 +236,35 @@ The `UserInfo` class looks as follows:
 
 ### (7)  -> Request with expired token {id="step7"}
 
-At some point, the client makes a request as in [Step 5](#step5) but with the expired access token.
+At some point, the client repeats the request from [Step 5](#step5), but with an expired access token.
 
 ### (8)  <- 401 Unauthorized response {id="step8"}
 
-The resource server returns the `401` unauthorized response, so the client should invoke the `refreshTokens` callback. 
-> Note that the `401` response returns JSON data with error details, and we need to [handle this case](#step12) when receiving a response.
+When the token is no longer valid, the resource server returns a `401 Unauthorized` response. The client then invokes
+the `refreshTokens` callback, which is responsible for obtaining new tokens.
+
+> The `401` response returns JSON data with error details. This needs to be [handled when receiving a response](#step12).
 
 ### (9)  -> Authorization grant (refresh token) {id="step9"}
 
-To obtain a new access token, we need to configure `refreshTokens` and make another request to the token endpoint. This time, we use the `refresh_token` grant type instead of `authorization_code`:
+To obtain a new access token, you need to configure `refreshTokens` to make another request to the token endpoint. This
+time, the `refresh_token` grant type is used instead of `authorization_code`:
 
 ```kotlin
 ```
 {src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="43-44,48-56,59,63-64"}
 
-Note that the `refreshTokens` callback uses `RefreshTokensParams` as a receiver and allows you to access the following settings:
-- The `client` instance. In the code snippet above, we use it to submit form parameters.
+The `refreshTokens` callback uses `RefreshTokensParams` as a receiver and allows you to access the following settings:
+- The `client` instance, which can be used to submit form parameters.
 - The `oldTokens` property is used to access the refresh token and send it to the token endpoint.
 
-> The `markAsRefreshTokenRequest` function exposed by `HttpRequestBuilder` enables special handling of requests used to obtain a refresh token.
+> The `markAsRefreshTokenRequest` function exposed by `HttpRequestBuilder` enables special handling of requests used 
+> to obtain a refresh token.
 
 ### (10) <- Access and refresh tokens {id="step10"}
 
-After receiving new tokens, we can save them in the [storage](#step4), so `refreshTokens` looks as follows:
+After receiving new tokens, they need to be saved in the [token storage](#step4). With this, the `refreshTokens` callback
+looks as follows:
 
 ```kotlin
 ```
@@ -254,27 +273,27 @@ After receiving new tokens, we can save them in the [storage](#step4), so `refre
 
 ### (11) -> Request with new token {id="step11"}
 
-At this step, the request to the protected resource contains a new token and should work fine.
-
+With the refreshed access token stored, the next request to the protected resource should succeed:
 ```kotlin
 ```
 {src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="85"}
 
 ### (12) <-- Protected resource {id="step12"}
 
-Given that the [401 response](#step8) returns JSON data with error details, we need to update our sample to receive the information about an error as a `ErrorInfo` object:
+Given that the [401 response](#step8) returns JSON data with error details, update the example to read error responses
+as an `ErrorInfo` object:
 
 ```kotlin
 ```
 {src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="85-92"}
 
-The `ErrorInfo` class looks as follows:
+The `ErrorInfo` class is defined as follows:
 
 ```kotlin
 ```
 {src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/models/ErrorInfo.kt" include-lines="3-13"}
 
-You can find the full example here: [client-auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-auth-oauth-google).
+For the full example, see [client-auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-auth-oauth-google).
 
 
 
