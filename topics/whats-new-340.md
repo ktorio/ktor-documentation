@@ -37,3 +37,33 @@ install(Authentication) {
     }
 }
 ```
+
+## Core
+
+### Multiple header parsing
+
+A new function, `Headers.getSplitValues()`, has been added to simplify working with headers that contain multiple values
+in a single line.
+
+`getSplitValues()` returns all values for the given header and splits them using the specified separator (`,` by default):
+
+```kotlin
+val headers = headers {
+    append("X-Multi-Header", "1, 2")
+    append("X-Multi-Header", "3")
+}
+
+val splitValues = headers.getSplitValues("X-Multi-Header")!!
+// ["1", "2", "3"]
+```
+By default, separators inside double-quoted strings are ignored, but this can be changed by setting 
+`splitInsideQuotes = true`:
+
+```kotlin
+val headers = headers {
+    append("X-Multi-Header", """a,"b,c",d""")
+}
+
+val forceSplit = headers.getSplitValues("X-Quoted", splitInsideQuotes = true)
+// ["a", "\"b", "c\"", "d"]
+```
