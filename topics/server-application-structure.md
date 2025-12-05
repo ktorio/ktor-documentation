@@ -7,8 +7,8 @@ Learn how to organize your Ktor application for maintainability, modularity, and
 <show-structure for="chapter" depth="2"/>
 
 Ktor applications can be organized in several ways depending on project size, domain complexity, and deployment
-environment. Because Ktor applications run inside an embedded engine, a single process can host one or multiple
-independent applications, giving you flexibility in how you structure and deploy your code.
+environment. While Ktor is intentionally unopinionated, there are common patterns and best practices that help keep your
+application modular, testable, and easy to extend.
 
 This topic describes common structures used in Ktor projects and provides practical recommendations for choosing and
 applying one.
@@ -16,6 +16,29 @@ applying one.
 > This page focuses on application-level structure. For more information on structuring routes, see
 > [](server-routing-organization.md).
 >
+
+## Default project structure
+
+When you generate a Ktor project using [the Ktor project generator](https://start.ktor.io/), the resulting project uses
+a single-module structure. This layout is minimal and intended to get you up and running quickly with a working Ktor
+application.
+
+```
+project/
+└─ src/
+   ├─ main/
+   │  ├─ kotlin/
+   │  │  └─ Application.kt   // Application entry point
+   │  └─ resources/
+   │     └─ application.conf  // Application configuration
+   └─ test/
+      └─ kotlin/             // Unit and integration tests
+├─ build.gradle.kts       // Gradle build file
+└─ settings.gradle.kts    // Gradle settings file
+```
+
+Although suitable for small applications, this structure does not scale well as the project grows. For larger projects,
+it is recommended to organize functionality into logical packages and modules, as described in the following sections.
 
 ## Choosing an application structure {id="choosing_structure"}
 
@@ -33,6 +56,23 @@ It’s worth noting that these structures are not mutually exclusive. You can co
 using a feature-based organization within a domain-driven architecture, or applying modularity in a microservice-oriented
 system.
 
+## Layered structure {id="layered_structure"}
+
+A layered architecture separates your application into distinct responsibilities: configuration, plugins, routes,
+business logic, persistence, domain models, and data transfer objects (DTOs). This approach is common in enterprise 
+applications and provides a clear starting point for maintainable code.
+
+```
+src/main/kotlin/com/example/app/
+├─ config/            // Application configuration and environment setup
+├─ plugins/           // Ktor plugins (authentication, serialization, monitoring)
+├─ controller/        // Routes or API endpoints
+├─ service/           // Business logic
+├─ repository/        // Data access or persistence
+├─ domain/            // Domain models and aggregates
+└─ dto/               // Data transfer objects
+```
+
 ## Modular architecture {id="modular_architecture"}
 
 Ktor encourages modular design by allowing you to define multiple application modules. A module is a function extending
@@ -47,6 +87,16 @@ fun Application.customerModule() {
 Each module can install plugins, configure routes, register services, or integrate infrastructure components. Modules 
 can depend on each other or remain fully independent, which makes this structure flexible for both monoliths and
 microservices.
+
+Dependencies are typically injected at module boundaries:
+
+```kotlin
+fun Application.customerModule(customerService: CustomerService) {
+    routing {
+        customerRoutes(customerService)
+    }
+}
+```
 
 ### Why modularize?
 
@@ -67,16 +117,16 @@ A modular structure helps you:
 Feature-based organization groups code by feature or vertical slice. Each feature becomes a
 self-contained module, containing its routes, services, data transfer objects (DTOs) and domain logic.
 
-```generic
+```
 app/
-    customer/
-        CustomerRoutes.kt
-        CustomerService.kt
-        CustomerDto.kt
-    order/
-        OrderRoutes.kt
-        OrderService.kt
-        OrderDto.kt
+├─ customer/
+│  ├─ CustomerRoutes.kt     // Routing for customer endpoints
+│  ├─ CustomerService.kt    // Business logic for customer feature
+│  └─ CustomerDto.kt        // Data transfer objects for customer feature
+└─ order/
+   ├─ OrderRoutes.kt        // Routing for order endpoints
+   ├─ OrderService.kt       // Business logic for order feature
+   └─ OrderDto.kt           // Data transfer objects for order feature
 ```
 
 This structure scales well in medium-to-large monoliths or when splitting individual features into microservices later.
@@ -106,46 +156,44 @@ A domain-driven structure organizes your application around the core business ca
 projects with complex business rules, it is helpful to separate domain logic from transport, persistence, and
 infrastructure concerns:
 
-```Generic
-domain/
-    customer/
-        Customer.kt
-        CustomerService.kt
-        CustomerRepository.kt
-        CustomerRoutes.kt
-    order/
-        Order.kt
-        OrderService.kt
-        OrderRepository.kt
-        OrderRoutes.kt
-events/ 
-        DomainEvents.kt
-        EventPublisher.kt 
-infrastructure/
-    persistence/
-        ExposedCustomerRepository.kt
-        ExposedOrderRepository.kt
-    messaging/
-    config/
 ```
-### Domain model
+domain/
+├─ customer/
+│  ├─ Customer.kt           // Domain entity
+│  ├─ CustomerService.kt    // Domain service
+│  ├─ CustomerRepository.kt // Domain repository interface
+│  └─ CustomerRoutes.kt     // Feature routes exposing domain functionality
+├─ order/
+│  ├─ Order.kt
+│  ├─ OrderService.kt
+│  └─ OrderRepository.kt
+infrastructure/
+├─ persistence/
+│  ├─ ExposedCustomerRepository.kt // Concrete persistence implementation
+│  └─ ExposedOrderRepository.kt
+├─ messaging/                    // Event messaging infrastructure
+└─ config/                       // Application configuration for infrastructure
+events/
+├─ DomainEvents.kt               // Domain event definitions
+└─ EventPublisher.kt             // Event publishing utilities
+```
+### Domain layer
 
-The domain layer remains independent of Ktor. It defines the business rules through entities, value objects, and
-aggregates to model real-world concepts effectively.
+The domain layer remains independent of Ktor. It defines the business rules through the following elements:
 
-- Entities represent identifiable domain objects:
+- _Entities_ represent identifiable domain objects:
 ```kotlin
 data class Customer(
     val id: CustomerId,
     val contacts: List<Contact>
 )
 ```
-- Value objects express immutable concepts such as identifiers or validated fields:
+- _Value objects_ express immutable concepts such as identifiers or validated fields:
 ```kotlin
 @JvmInline
 value class CustomerId(val value: Long)
 ```
-- Aggregates group related entities under a single consistency boundary:
+- _Aggregates_ group related entities under a single consistency boundary:
 ```kotlin
 class CustomerAggregate(private val customer: Customer) {
 
@@ -154,13 +202,7 @@ class CustomerAggregate(private val customer: Customer) {
 }
 ```
 
-These types do not depend on routing, plugins, JSON serialization, or persistence.
-
-### Domain behaviors
-
-More complex business workflows often require dedicated components inside the domain layer:
-
-- Repositories abstract persistence and expose operations for retrieving or saving aggregates. Their implementations
+- _Repositories_ abstract persistence and expose operations for retrieving or saving aggregates. Their implementations
 live in the infrastructure layer, but the interfaces belong to the domain.
 ```kotlin
 interface CustomerRepository {
@@ -168,7 +210,7 @@ interface CustomerRepository {
     suspend fun save(customer: Customer)
 }
 ```
-- Domain services coordinate business logic that spans multiple aggregates or does not naturally belong to a single
+- _Domain services_ coordinate business logic that spans multiple aggregates or does not naturally belong to a single
 entity.
 ```kotlin
 class CustomerService(
@@ -184,7 +226,7 @@ class CustomerService(
     }
 }
 ```
-- Domain events represent meaningful business changes. They allow other parts of the system to react to these events
+- _Domain events_ represent meaningful business changes. They allow other parts of the system to react to these events
 without directly coupling to the service that produced them.
 ```kotlin
 interface DomainEvent
@@ -198,24 +240,43 @@ These elements together support a rich domain model while keeping infrastructure
 
 ### Application and routing layer
 
-You can expose each domain through its own route file or module function:
+You expose each domain through its own route file or module function, injecting services that manage both logic and
+state:
 
 ```kotlin
 // domain/customer/CustomerRoutes.kt
-fun Application.customerRoutes() {
-    routing {
-        val repository = InMemoryCustomerRepository()
-        val events = EventPublisherImpl()
-        val service = CustomerService(repository, events)
-
-        route("/customers") {
-            post("/{id}/contacts") {
-                val id = call.parameters["id"]!!.toLong()
-                val contact = call.receive<Contact>()
-                val updated = service.addContact(CustomerId(id), contact)
-                call.respond(updated ?: HttpStatusCode.NotFound)
-            }
+fun Application.customerRoutes(service: CustomerService) {
+    route("/customers") {
+        post("/{id}/contacts") {
+            val id = call.parameters["id"]!!.toLong()
+            val contact = call.receive<Contact>()
+            val updated = service.addContact(CustomerId(id), contact)
+            call.respond(updated ?: HttpStatusCode.NotFound)
         }
+
+        get("/{id}") {
+            val id = call.parameters["id"]!!.toLong()
+            val customer = service.findById(CustomerId(id))
+            call.respond(customer ?: HttpStatusCode.NotFound)
+        }
+    }
+}
+```
+
+```kotlin
+// Application.kt
+fun Application.module() {
+    install(ContentNegotiation) {
+        json()
+    }
+
+    val customerRepository: CustomerRepository = ExposedCustomerRepository()
+    val eventPublisher: EventPublisher = EventPublisherImpl()
+
+    val customerService = CustomerService(customerRepository, eventPublisher)
+
+    routing {
+        customerRoutes(customerService)
     }
 }
 ```
@@ -230,21 +291,24 @@ independently.
 Microservice repositories often use a hybrid of modular architecture, DDD for domain isolation and Gradle multi-module
 builds for infrastructure isolation.
 
-```generic
+```
 service-customer/
-  src/main/kotlin/
-    com.example.customer/
-      Application.kt
-      domain/
-      api/
-  build.gradle.kts
+├─ domain/        // Domain models and aggregates
+├─ repository/    // Persistence layer for customer service
+├─ service/       // Business logic
+├─ dto/           // Data transfer objects
+├─ controller/    // Routes or API endpoints
+├─ plugins/       // Ktor plugin installation for this service
+└─ Application.kt // Entry point for the service
+
 service-order/
-  src/main/kotlin/
-    com.example.order/
-      Application.kt
-      domain/
-      api/
-  build.gradle.kts
+├─ domain/        // Domain models and aggregates
+├─ repository/    // Persistence layer for order service
+├─ service/       // Business logic
+├─ dto/           // Data transfer objects
+├─ controller/    // Routes or API endpoints
+├─ plugins/       // Ktor plugin installation for this service
+└─ Application.kt // Entry point for the service
 ```
 
 In this structure, each service owns an isolated domain slice and remains modular internally, integrating with service
