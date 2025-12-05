@@ -98,8 +98,6 @@ fun Application.customerModule(customerService: CustomerService) {
 }
 ```
 
-### Why modularize?
-
 A modular structure helps you:
 
 - Separate concerns and isolate feature logic
@@ -107,6 +105,41 @@ A modular structure helps you:
 - Improve testability by instantiating modules in isolation
 - Support microservice-friendly or plugin-friendly code organization
 - Introduce dependency injection at module boundaries
+
+A typical multi-module structure might look like this:
+
+```
+db/
+├─ core/        // Database abstractions (interfaces, factories)
+├─ postgres/    // Postgres implementation (JDBC, exposed)
+└─ mongo/       // MongoDB implementation
+
+server/
+├─ core/        // Shared server utilities and common modules
+├─ admin/       // Admin-facing domain and routes
+└─ banking/     // Banking domain and routes
+```
+
+Below is an example <path>build.gradle.kts</path> file for the `server/banking` module:
+
+```kotlin
+plugins {
+    id("io.ktor.plugin") version "3.3.3"
+}
+
+dependencies {
+    implementation(project(":server:core"))
+    implementation(project(":db:core"))
+
+    // Storage implementations are loaded at runtime
+    runtimeOnly(project(":db:postgres"))
+    runtimeOnly(project(":db:mongo"))
+}
+```
+
+In this structure, the banking module does not compile against any database implementation. It only depends on
+`db/core`, keeping the domain separate from infrastructure details.
+
 
 > For a full example of a modular, layered Ktor server application, see the [Ktor Chat](https://github.com/ktorio/ktor-chat)
 > sample project. It demonstrates a modular architecture with separate domain, application, and infrastructure layers,
