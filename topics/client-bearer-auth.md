@@ -124,7 +124,7 @@ The OAuth authorization flow looks as follows:
 ```
 {disable-links="false"}
 
-The next sections explain how each step is implemented and how the `Bearer` authentication provider assissts in
+The next sections explain how each step is implemented and how the `Bearer` authentication provider assists in
 accessing the API.
 
 ### (1) -> Authorization request {id="step1"}
@@ -206,9 +206,9 @@ The following settings are specified:
 information received from a resource server in a JSON format.
 
 - The [Auth](client-auth.md) plugin with the `bearer` provider is configured as follows:
-   * The `loadTokens` callback loads tokens from the [storage](#step4).
-   * The `sendWithoutRequest` callback sends the access token without waiting for the `401 Unauthorized` response
-     when accessing Google's protected API.
+  * The `loadTokens` callback loads tokens from the [storage](#step4).
+  * The `sendWithoutRequest` callback sends the access token without waiting for the `401 Unauthorized` response when
+  accessing Google's protected API.
 
 With this client, you can now make a request to the protected resource:
 
