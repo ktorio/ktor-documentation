@@ -17,7 +17,7 @@
 </tldr>
 
 Ktor provides the capability to compress response body and decompress request body by using the [Compression](https://api.ktor.io/ktor-server-compression/io.ktor.server.plugins.compression/-compression.html) plugin.
-You can use different compression algorithms, including `gzip` and `deflate`, specify the required conditions for compressing data (such as a content type or response size), or even compress data based on specific request parameters.
+You can use different compression algorithms, including `gzip`, `ztsd` and `deflate`, specify the required conditions for compressing data (such as a content type or response size), or even compress data based on specific request parameters.
 
 > Note that the `%plugin_name%` plugin does not currently support `SSE` responses.
 >
@@ -51,6 +51,7 @@ To enable only specific encoders, call the corresponding extension functions, fo
 install(Compression) {
     gzip()
     deflate()
+    ztsd()
 }
 ```
 
@@ -64,10 +65,13 @@ install(Compression) {
     deflate {
         priority = 1.0
     }
+    ztsd {
+        priority = 0.8
+    }
 }
 ```
 
-In the example above, `deflate` has a higher priority value and takes precedence over `gzip`. Note that the server first
+In the example above, `deflate` has a higher priority value and takes precedence over `gzip` and `ztsd`. Note that the server first
 looks at the [quality](https://developer.mozilla.org/en-US/docs/Glossary/Quality_Values) values within
 the [Accept-Encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding) header and then takes
 into account the specified priorities.
@@ -94,10 +98,10 @@ value. To do this, pass the desired value (in bytes) to the `minimumSize` functi
 
 ```kotlin
     install(Compression) {
-        deflate {
-            minimumSize(1024)
-        }
+    deflate {
+        minimumSize(1024)
     }
+}
 
 ```
 
@@ -128,6 +132,19 @@ install(Compression) {
         condition {
             request.headers[HttpHeaders.Referrer]?.startsWith("https://my.domain/") == true
         }
+    }
+}
+```
+
+## Compression Level {id="compression_level"}
+
+`Ztsd` comes with configurable compression level. By default, it is set to `3`, and can be configured by assigning the
+desired level to the `compressionLevel` property.
+
+```kotlin
+install(Compression) {
+    zstd {
+        compressionLevel = 3
     }
 }
 ```
