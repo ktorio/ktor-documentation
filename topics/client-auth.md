@@ -109,3 +109,74 @@ To learn how to configure settings for a specific [provider](#supported), see a 
 * [](client-basic-auth.md)
 * [](client-digest-auth.md)
 * [](client-bearer-auth.md)
+
+## Token caching and cache control {id="token-caching"}
+
+The Basic and Bearer authentication providers maintain an internal credential or token cache. This cache allows the
+client to reuse previously loaded authentication data instead of reloading it for each request, improving performance
+while still allowing full control when credentials change.
+
+### Accessing authentication providers
+
+When the authentication state needs to be updated dynamically during the client session, you can access a specific 
+provider using the `authProvider` extension:
+
+```kotlin
+val provider = client.authProvider<BearerAuthProvider>()
+```
+
+To retrieve all installed providers, use the `authProviders` property:
+
+```kotlin
+val providers = client.authProviders
+```
+These utilities allow you to inspect providers or clear cached tokens programmatically.
+
+### Clearing cached tokens
+
+To clear cached credentials for a single provider, use the `clearToken()` function:
+
+```kotlin
+val provider = client.authProvider<BasicAuthProvider>()
+provider?.clearToken()
+``` 
+
+To clear cached tokens across all authentication providers that support cache clearing, use the `clearAuthTokens()`
+function:
+
+```kotlin
+client.clearAuthTokens()
+```
+
+Clearing cached tokens is typically used in the following scenarios:
+
+- When the user logs out.
+- When credentials or tokens stored by your application change.
+- When you need to force providers to reload the authentication state on the next request.
+
+Here's an example for clearing cached tokens when the user logs out:
+```kotlin
+fun logout() {
+    client.clearAuthTokens()
+    storage.deleteCredentials()
+}
+```
+
+### Controlling caching behavior
+
+Both Basic and Bearer authentication providers allow you to control whether tokens or credentials are cached between
+requests using the `cacheTokens` option.
+
+For example, you can disable caching when credentials are dynamically provided:
+
+```kotlin
+basic {
+    cacheTokens = false   // Reload credentials for every request
+    credentials {
+        loadCurrentCredentials()
+    }
+}
+```
+
+Disabling token caching is especially useful when authentication data changes frequently or must always reflect the most
+recent state.
