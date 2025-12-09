@@ -38,6 +38,22 @@ install(Authentication) {
 }
 ```
 
+### Zstd compression support
+
+[Ztsd](https://github.com/facebook/zstd) compression is now supported by the [Compression](server-compression.md) plugin.
+`Zstd` is a fast compression algorithm that offers high compression ratios and low compression times, and has a
+configurable compression level. To enable it, specify the `zstd` block inside the `compression` block with the desired
+configuration:
+
+```kotlin
+install(Compression) {
+    zstd {
+        compressionLevel = 3
+        ...
+    }
+}
+```
+
 ## Core
 
 ### Multiple header parsing
