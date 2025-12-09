@@ -155,7 +155,7 @@ Copy the authorization code from the browser, paste it in a console, and save it
 
 ### (3)  -> Authorization grant (code) {id="step3"}
 
-Next, exchange the authorization code for tokens. To do this, you need to create a client and install the
+Next, exchange the authorization code for tokens. To do this, create a client and install the
 [ContentNegotiation](client-serialization.md) plugin with the `json` serializer. This serializer is required to deserialize tokens received
 from the Google OAuth token endpoint.
 
