@@ -25,5 +25,12 @@ fun Application.module() {
                 }
             }
         }
+        get("/fragment") {
+            call.respondHtmlFragment(HttpStatusCode.Created) {
+                div("fragment") {
+                    span { +"Created!" }
+                }
+            }
+        }
     }
 }

@@ -80,6 +80,26 @@ ktor {
 - `trustStorePassword` – password for the trust store.
 - `enabledProtocols` – a list of allowed TLS protocols.
 
+### HTML fragments for partial responses
+
+Ktor now provides a new `.respondHtmlFragment()` function for sending partial HTML responses.
+This is useful when generating markup that does not require a full `<html>` document, such as dynamic UI updates with
+tools like HTMX.
+
+The new API is part of the [HTML DSL](server-html-dsl.md) plugin and allows you to return HTML rooted in any element:
+
+```kotlin
+get("/books.html") {
+    call.respondHtmlFragment {
+        div("books") {
+            for (book in library.books()) {
+                bookItem()
+            }
+        }
+    }
+}
+```
+
 ## Core
 
 ### Multiple header parsing
