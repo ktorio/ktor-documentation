@@ -54,6 +54,32 @@ install(Compression) {
 }
 ```
 
+### SSL trust store settings in a configuration file
+
+Ktor now allows you to configure additional [SSL settings](server-ssl.md#config-file) for the server using the 
+application configuration file. You can specify a trust store, its corresponding password, and the list of enabled TLS
+protocols directly in your configuration.
+
+You define these settings under the `ktor.security.ssl` section:
+
+```kotlin
+// application.conf
+ktor {
+    security {
+        ssl {
+            // ...
+            trustStore = truststore.jks
+            trustStorePassword = foobar
+            enabledProtocols = ["TLSv1.2", "TLSv1.3"]
+        }
+    }
+}
+```
+
+- `trustStore` – the path to the trust store file containing trusted certificates.
+- `trustStorePassword` – password for the trust store.
+- `enabledProtocols` – a list of allowed TLS protocols.
+
 ## Core
 
 ### Multiple header parsing
