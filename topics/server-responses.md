@@ -27,17 +27,26 @@ Ktor provides two main ways to send HTML responses to a client:
 * By building HTML using Kotlin HTML DSL.
 * By using JVM template engines, such as FreeMarker, Velocity, and so on.
 
-To send HTML build using Kotlin DSL, use the [call.respondHtml](https://api.ktor.io/ktor-server-html-builder/io.ktor.server.html/respond-html.html) function:
+To send HTML built using Kotlin DSL, use the [`call.respondHtml()`](https://api.ktor.io/ktor-server-html-builder/io.ktor.server.html/respond-html.html) function:
+
 ```kotlin
 ```
-{src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="12-28"}
+{src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="13-27"}
 
-To send a template in a response, call the [call.respond](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond.html) function with a specific content ...
+If you need to return only a fragment of HTML, without wrapping it in `<html>`, `<head>`, or `<body>`, you can use
+`call.respondHtmlFragment()`:
+
+```kotlin
+```
+{src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="28-35"}
+
+
+To send a template in a response, use the [`call.respond()`](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond.html) function with a specific content:
 ```kotlin
 ```
 {src="snippets/freemarker/src/main/kotlin/com/example/Application.kt" include-lines="16-19"}
 
-... or use an appropriate [call.respondTemplate](https://api.ktor.io/ktor-server-freemarker/io.ktor.server.freemarker/respond-template.html) function: 
+You can also use the [`call.respondTemplate()`](https://api.ktor.io/ktor-server-freemarker/io.ktor.server.freemarker/respond-template.html) function:
 ```kotlin
 get("/index") {
     val sampleUser = User(1, "John")
