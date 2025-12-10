@@ -148,3 +148,23 @@ basic {
 
 Disabling caching is especially useful when authentication data changes frequently or must always reflect the most
 recent state.
+
+### Duplex streaming for OkHttp
+
+The OkHttp client engine now supports duplex streaming, enabling clients to send request body data and receive response
+data simultaneously. Unlike regular HTTP calls where the request body must be fully sent before the response begins, 
+duplex mode supports bidirectional streaming, allowing the client to send and receive data concurrently.
+
+Duplex streaming is available for HTTP/2 connections and can be enabled using the new `duplexStreamingEnabled` property
+in `OkHttpConfig`:
+
+```kotlin
+val client = HttpClient(OkHttp) {
+    engine {
+        duplexStreamingEnabled = true
+        config {
+            protocols(listOf(Protocol.H2_PRIOR_KNOWLEDGE))
+        }
+    }
+}
+```
