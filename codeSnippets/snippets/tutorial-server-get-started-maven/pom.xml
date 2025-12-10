@@ -10,7 +10,7 @@
     <properties>
         <kotlin.code.style>official</kotlin.code.style>
         <kotlin_version>2.2.20</kotlin_version>
-        <ktor_version>3.3.2</ktor_version>
+        <ktor_version>3.3.3</ktor_version>
         <logback_version>1.4.14</logback_version>
         <slf4j_version>2.0.9</slf4j_version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

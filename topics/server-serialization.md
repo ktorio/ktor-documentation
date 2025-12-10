@@ -276,12 +276,12 @@ install(ContentNegotiation) {
 To deserialize received data into an object, you need to create a data class, for example:
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/main/kotlin/jsonkotlinx/Application.kt" include-lines="14"}
+{src="snippets/json-kotlinx/src/main/kotlin/jsonkotlinx/Application.kt" include-lines="15"}
 
 If you use kotlinx.serialization, make sure that this class has the `@Serializable` annotation:
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/main/kotlin/jsonkotlinx/Application.kt" include-lines="10,12-14"}
+{src="snippets/json-kotlinx/src/main/kotlin/jsonkotlinx/Application.kt" include-lines="10,14-15"}
 
 <snippet id="serialization_types">
 
