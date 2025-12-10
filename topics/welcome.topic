@@ -49,7 +49,7 @@
                     <title>Routing</title>
                     <a href="server-routing.md"/>
                     <a href="server-resources.md"/>
-                    <a href="server-application-structure.md"/>
+                    <a href="server-routing-organization.md"/>
                     <a href="server-requests.md"/>
                     <a href="server-responses.md"/>
                     <a href="server-static-content.md"/>

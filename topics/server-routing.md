@@ -297,7 +297,7 @@ fun Route.totalizeOrderRoute() {
 For the full example demonstrating this approach,
 see [legacy-interactive-website](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/legacy-interactive-website).
 
-> For our application to scale when it comes to maintainability, it is recommended to follow certain [structuring patterns](server-application-structure.md).
+> For our application to scale when it comes to maintainability, it is recommended to follow certain [structuring patterns](server-routing-organization.md).
 
 
 ## Trace routes {id="trace_routes"}
