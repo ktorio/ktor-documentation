@@ -79,7 +79,7 @@ A Ktor client allows you to configure a token to be sent in the `Authorization` 
 
    c. The client makes one more request to a protected resource automatically using a new token this time.
 
-4. Optionally, specify a condition for sending credentials without waiting for the `401` (Unauthorized) response. For example, you can check whether a request is made to a specified host.
+4. (Optional) Specify a condition for sending credentials without waiting for the `401` (Unauthorized) response. For example, you can check whether a request is made to a specified host.
 
    ```kotlin
    install(Auth) {
@@ -92,6 +92,22 @@ A Ktor client allows you to configure a token to be sent in the `Authorization` 
    }
    ```
 
+5. (Optional) Use the `cacheTokens` option to control whether bearer tokens are cached between requests. Disabling
+   caching forces the client to reload tokens for every request, which can be useful when tokens change frequently:
+   
+    ```kotlin
+   install(Auth) {
+        bearer {
+            cacheTokens = false   // Reload tokens for every request
+            loadTokens {
+                loadDynamicTokens()
+            }
+        }
+    }
+    ```
+   
+    > For details on clearing cached credentials programmatically, see the general [Token caching and cache control](client-auth.md#token-caching)
+    > section.
 
 ## Example: Using Bearer authentication to access Google API {id="example-oauth-google"}
 
