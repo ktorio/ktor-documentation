@@ -37,7 +37,7 @@ The API Key authentication flow looks as follows:
    specific [route](server-routing.md) in a server application.
 2. The server validates the API key using custom validation logic.
 3. If the key is valid, the server responds with the requested content. If the key is invalid or missing, the server
-   responds with a `401` (Unauthorized) status.
+   responds with a `401 Unauthorized` status.
 
 ## Install API Key authentication {id="install"}
 
