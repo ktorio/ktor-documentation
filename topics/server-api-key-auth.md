@@ -93,7 +93,7 @@ successful authentication or `null` if authentication fails.
 
 #### Customize key location {id="key-location"}
 
-By default, the `apiKey` provider looks for the API key in the `X-API-Key` header:
+By default, the `apiKey` provider looks for the API key in the `X-API-Key` header.
 
 You can use `headerName` to specify a custom header:
 
