@@ -145,6 +145,9 @@
                 <toc-element topic="server-bearer-auth.md"
                              toc-title="Bearer authentication"
                              accepts-web-file-names="bearer.html"/>
+                <toc-element topic="server-api-key-auth.md"
+                             toc-title="API Key authentication"
+                             accepts-web-file-names="api-key.html"/>
                 <toc-element topic="server-form-based-auth.md"
                              toc-title="Form-based authentication"
                              accepts-web-file-names="form.html"/>
