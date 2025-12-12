@@ -42,7 +42,8 @@ The API Key authentication flow looks as follows:
 ## Install API Key authentication {id="install"}
 
 To install the `apiKey` authentication provider, call
-the [`apiKey`](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/api-key.html) function inside the `install(Authentication)` block:
+the [`apiKey`](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/api-key.html) function inside the
+`install(Authentication)` block:
 
 ```kotlin
 import io.ktor.server.application.*
@@ -69,7 +70,8 @@ The `apiKey` authentication provider exposes its settings via
 the [ApiKeyAuthenticationProvider.Config](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-api-key-authentication-provider/-config/index.html)
 class. In the example below, the following settings are specified:
 
-* The `validate` function validates the API key and returns a principal if authentication succeeds.
+* The `validate` function receives the API key extracted from the request and returns a `Principal` in the case of
+  successful authentication or `null` if authentication fails.
 
 Here's a minimal example:
 
@@ -87,9 +89,6 @@ install(Authentication) {
     }
 }
 ```
-
-The `validate` function receives the API key extracted from the request and returns a `Principal` in the case of
-successful authentication or `null` if authentication fails.
 
 #### Customize key location {id="key-location"}
 
