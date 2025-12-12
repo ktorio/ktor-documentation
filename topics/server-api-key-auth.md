@@ -25,7 +25,7 @@ Ktor allows you to use API Key authentication for securing [routes](server-routi
 
 ## Add dependencies {id="add_dependencies"}
 
-To enable `apiKey` authentication, you need to include the `%artifact_name%` artifact in the build script:
+To enable API Key authentication, you need to include the `%artifact_name%` artifact in the build script:
 
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
