@@ -35,7 +35,7 @@ The API Key authentication flow looks as follows:
 
 1. A client makes a request with an API key included in a header (typically `X-API-Key`) to a
    specific [route](server-routing.md) in a server application.
-2. A server validates the API key using custom validation logic.
+2. The server validates the API key using custom validation logic.
 3. If the key is valid, the server responds with the requested content. If the key is invalid or missing, the server
    responds with a `401` (Unauthorized) status.
 
