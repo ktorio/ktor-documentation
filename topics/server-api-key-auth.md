@@ -42,7 +42,7 @@ The API Key authentication flow looks as follows:
 ## Install API Key authentication {id="install"}
 
 To install the `apiKey` authentication provider, call
-the [apiKey](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/api-key.html) function inside the `install` block:
+the [`apiKey`](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/api-key.html) function inside the `install(Authentication)` block:
 
 ```kotlin
 import io.ktor.server.application.*
