@@ -15,7 +15,8 @@ API Key authentication is a simple authentication method where clients pass a se
 typically in a header. This key serves as both the identifier and the authentication mechanism.
 
 Ktor allows you to use API Key authentication for securing [routes](server-routing.md) and validating client requests.
-You can get general information about authentication in Ktor in the [](server-auth.md) section.
+
+> You can get general information about authentication in Ktor in the [](server-auth.md) section.
 
 > API Keys should be kept secret and transmitted securely. It's recommended to use [HTTPS/TLS](server-ssl.md) to protect
 > API keys in transit.
