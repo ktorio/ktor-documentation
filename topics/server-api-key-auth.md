@@ -6,7 +6,7 @@
 
 <tldr>
 <p>
-<b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
+<b>Required dependencies</b>: <code>io.ktor:ktor-server-auth</code>, <code>io.ktor:%artifact_name%</code>
 </p>
 <include from="lib.topic" element-id="native_server_supported"/>
 </tldr>
