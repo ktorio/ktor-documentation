@@ -55,10 +55,10 @@ install(Compression) {
 }
 ```
 
-### Http Request Lifecycle
+### HTTP request lifecycle
 
 The _new_ `HttpRequestLifecycle` plugin allows you to cancel inflight HTTP requests when the client disconnects.
-On rare occasions you might need to cancel an inflight HTTP request for a long-running or resource-intensive request
+This is useful when you need to cancel an inflight HTTP request for a long-running or resource-intensive request
 when the client disconnects. This can be enabled by installing the `HttpRequestLifecycle` plugin and setting
 `cancelCallOnClose = true`:
 
@@ -82,8 +82,8 @@ routing {
 }
 ```
 
-When the client disconnects, the coroutine handling the request is canceled, and Structured Concurrency handles cleaning
-all resources. I.e. any `launch` or `async` coroutines started by the request are also canceled.
+When the client disconnects, the coroutine handling the request is canceled, and structured concurrency handles cleaning
+all resources. Any `launch` or `async` coroutines started by the request are also canceled.
 This is currently only supported for the `Netty`, and `CIO` engine.
 
 ## Core
