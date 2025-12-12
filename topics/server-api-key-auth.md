@@ -20,6 +20,8 @@ Ktor allows you to use API Key authentication for securing [routes](server-routi
 
 > API Keys should be kept secret and transmitted securely. It's recommended to use [HTTPS/TLS](server-ssl.md) to protect
 > API keys in transit.
+>
+{style="note"}
 
 ## Add dependencies {id="add_dependencies"}
 
