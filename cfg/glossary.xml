@@ -4,4 +4,7 @@
     <term name="query_string">
         A part of a URL that assigns values to specified parameters and starts with the ? character.
     </term>
+    <term name="classpath">
+        A list of locations where the JVM looks for user classes and resources
+    </term>
 </terms>
