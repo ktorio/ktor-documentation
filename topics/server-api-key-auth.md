@@ -185,7 +185,7 @@ apiKey {
 
 ### Step 4: Protect specific resources {id="authenticate-route"}
 
-After configuring the `apiKey` provider, you can protect specific resources in your application using the *
+After configuring the `apiKey` provider, you can protect specific resources in your application using the
 *[authenticate](server-auth.md#authenticate-route)** function. In the case of successful authentication, you can
 retrieve an authenticated principal inside a route handler using the `call.principal` function.
 
