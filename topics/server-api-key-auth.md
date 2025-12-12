@@ -126,6 +126,8 @@ apiKey {
 ```
 
 > Store sensitive API keys in configuration files or environment variables, not in source code.
+>
+{style="note"}
 
 #### Database lookup {id="database-lookup"}
 
