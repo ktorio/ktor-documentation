@@ -95,7 +95,7 @@ successful authentication or `null` if authentication fails.
 
 By default, the `apiKey` provider looks for the API key in the `X-API-Key` header:
 
-**From a custom header:**
+You can use `headerName` to specify a custom header:
 
 ```kotlin
 apiKey("api-key-header") {
