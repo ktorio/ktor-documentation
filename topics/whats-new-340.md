@@ -40,7 +40,8 @@ install(Authentication) {
 
 ### Zstd compression support
 
-[Ztsd](https://github.com/facebook/zstd) compression is now supported by the [Compression](server-compression.md) plugin.
+[Ztsd](https://github.com/facebook/zstd) compression is now supported by the [Compression](server-compression.md)
+plugin.
 `Zstd` is a fast compression algorithm that offers high compression ratios and low compression times, and has a
 configurable compression level. To enable it, specify the `zstd` block inside the `compression` block with the desired
 configuration:
@@ -99,6 +100,37 @@ get("/books.html") {
     }
 }
 ```
+
+### HTTP request lifecycle
+
+The new [`HttpRequestLifecycle` plugin](server-http-request-lifecycle.md) allows you to cancel inflight HTTP requests when the client disconnects.
+This is useful when you need to cancel an inflight HTTP request for a long-running or resource-intensive request
+when the client disconnects. This can be enabled by installing the `HttpRequestLifecycle` plugin and setting
+`cancelCallOnClose = true`:
+
+```kotlin
+install(HttpRequestLifecycle) {
+    cancelCallOnClose = true
+}
+
+routing {
+    get("/long-process") {
+        try {
+            while (isActive) {
+                delay(10_000)
+                logger.info("Very important work.")
+            }
+            call.respond("Completed")
+        } catch (e: CancellationException) {
+            logger.info("Cleaning up resources.")
+        }
+    }
+}
+```
+
+When the client disconnects, the coroutine handling the request is canceled, and structured concurrency handles cleaning
+all resources. Any `launch` or `async` coroutines started by the request are also canceled.
+This is currently only supported for the `Netty`, and `CIO` engine.
 
 ## Core
 
