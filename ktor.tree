@@ -88,6 +88,7 @@
                              accepts-web-file-names="request-validation.html"/>
                 <toc-element topic="server-rate-limit.md"
                              accepts-web-file-names="rate-limit.html"/>
+                <toc-element topic="server-http-request-lifecycle.md"/>
                 <toc-element topic="server-double-receive.md"
                              accepts-web-file-names="double-receive.html"/>
             </toc-element>

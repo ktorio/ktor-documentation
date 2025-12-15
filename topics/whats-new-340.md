@@ -103,7 +103,7 @@ get("/books.html") {
 
 ### HTTP request lifecycle
 
-The new `HttpRequestLifecycle` plugin allows you to cancel inflight HTTP requests when the client disconnects.
+The new [`HttpRequestLifecycle` plugin](server-http-request-lifecycle.md) allows you to cancel inflight HTTP requests when the client disconnects.
 This is useful when you need to cancel an inflight HTTP request for a long-running or resource-intensive request
 when the client disconnects. This can be enabled by installing the `HttpRequestLifecycle` plugin and setting
 `cancelCallOnClose = true`:
