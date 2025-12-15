@@ -25,7 +25,8 @@ Ktor allows you to use API Key authentication for securing [routes](server-routi
 
 ## Add dependencies {id="add_dependencies"}
 
-To enable API Key authentication, you need to include the `%artifact_name%` artifact in the build script:
+To enable API Key authentication, add the `io.ktor:ktor-server-auth` and `%artifact_name%` artifacts in
+the build script:
 
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
@@ -98,7 +99,7 @@ You can use `headerName` to specify a custom header:
 
 ```kotlin
 apiKey("api-key-header") {
-    headerName = "X-API-Key"
+    headerName = "X-Secret-Key"
     validate { key ->
         // Validate and return principal
     }
