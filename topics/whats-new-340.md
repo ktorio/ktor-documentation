@@ -132,6 +132,12 @@ When the client disconnects, the coroutine handling the request is canceled, and
 all resources. Any `launch` or `async` coroutines started by the request are also canceled.
 This is currently only supported for the `Netty` and `CIO` engine.
 
+### A new utility method to respond with a resource
+
+The new [call.respondResource](server-responses.md#resource) method works in the same spirit as the [call.respondFile](server-responses.md#file), 
+but accepts a resource instead of a file to respond with.
+
+
 ## Core
 
 ### Multiple header parsing
