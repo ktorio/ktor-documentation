@@ -130,7 +130,7 @@ routing {
 
 When the client disconnects, the coroutine handling the request is canceled, and structured concurrency handles cleaning
 all resources. Any `launch` or `async` coroutines started by the request are also canceled.
-This is currently only supported for the `Netty`, and `CIO` engine.
+This is currently only supported for the `Netty` and `CIO` engine.
 
 ## Core
 
