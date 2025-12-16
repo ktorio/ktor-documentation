@@ -288,3 +288,39 @@ val client = HttpClient(Apache5) {
 
 The new `configureConnectionManager {}` function keeps Ktor in control while allowing you to adjust parameters such as 
 maximum connections per route (`maxConnPerRoute`) and total maximum connections (`maxConnTotal`).
+
+
+### Plugin and default request configuration replacement
+
+Ktor client configuration now provides more control over replacing existing settings at runtime.
+
+#### Replace plugin configuration
+
+The new `installOrReplace()` function installs a client plugin or replaces its existing configuration if the plugin is
+already installed. This is useful when you need to reconfigure a plugin without manually removing it first.
+
+```kotlin
+val client = HttpClient {
+    installOrReplace(ContentNegotiation) {
+        json()
+    }
+}
+```
+
+In the above example, if `ContentNegotiation` is already installed, its configuration is replaced with the new one
+provided in the block.
+
+#### Replace default request configuration
+
+The `defaultRequest()` function now accepts an optional `replace` parameter (default is false). When set to `true`,
+the new configuration replaces any previously defined default request settings instead of being merged with them.
+
+```kotlin
+val client = HttpClient {
+    defaultRequest(replace = true) {
+        // Configure default request parameters
+    }
+}
+```
+
+This allows you to explicitly override earlier default request configuration when composing or reusing client setups.
