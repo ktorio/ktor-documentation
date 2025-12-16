@@ -246,3 +246,45 @@ val client = HttpClient(OkHttp) {
     }
 }
 ```
+
+### Apache5 connection manager configuration
+
+The Apache5 engine now supports configuring the connection manager directly using the new `configureConnectionManager {}`
+function.
+
+This approach is recommended over the previous method using `customizeClient { setConnectionManager(...) }`. Using
+`customizeClient` would replace the Ktor-managed connection manager, potentially bypassing engine settings, timeouts,
+and other internal configuration.
+
+<compare>
+
+```kotlin
+val client = HttpClient(Apache5) {
+    engine {
+        customizeClient {
+            setConnectionManager(
+                PoolingAsyncClientConnectionManagerBuilder.create()
+                    .setMaxConnTotal(10_000)
+                    .setMaxConnPerRoute(1_000)
+                    .build()
+            )
+        }
+    }
+}
+```
+
+```kotlin
+val client = HttpClient(Apache5) {
+    engine {
+        configureConnectionManager {
+            setMaxConnTotal(10_000)
+            setMaxConnPerRoute(1_000)
+        }
+    }
+}
+```
+
+</compare>
+
+The new `configureConnectionManager {}` function keeps Ktor in control while allowing you to adjust parameters such as 
+maximum connections per route (`maxConnPerRoute`) and total maximum connections (`maxConnTotal`).
