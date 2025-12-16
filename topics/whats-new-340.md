@@ -277,8 +277,8 @@ val client = HttpClient(Apache5) {
 val client = HttpClient(Apache5) {
     engine {
         configureConnectionManager {
+            setMaxConnTotal(10_000)
             setMaxConnPerRoute(1_000)
-            setMaxConnTotal(2_000)
         }
     }
 }
