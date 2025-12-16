@@ -134,8 +134,8 @@ This is the recommended Apache-based engine for new projects.
    ```
    {src="snippets/_misc_client/Apache5Create.kt" include-lines="1-4,7-33"}
 
-   - Use `configureConnectionManager` to set maximum connections. This preserves Ktor-managed engine behavior and
-   ensures proper timeout mapping.
+   - Use `configureConnectionManager` for connection manager settings, such as maximum connections. This preserves
+   Ktor-managed engine behavior.
    - Use `customizeClient` only for settings unrelated to the connection manager, such as proxy, interceptors, or
    logging.
 
