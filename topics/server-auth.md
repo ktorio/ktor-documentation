@@ -33,8 +33,9 @@ Ktor supports the following authentication and authorization schemes:
 HTTP provides a [general framework](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) for access control and authentication. In Ktor, you can use the following HTTP authentication schemes:
 * [Basic](server-basic-auth.md) - uses `Base64` encoding to provide a username and password. Generally is not recommended if not used in combination with HTTPS.
 * [Digest](server-digest-auth.md) - an authentication method that communicates user credentials in an encrypted form by applying a hash function to the username and password.
-* [Bearer](server-bearer-auth.md) - an authentication scheme that involves security tokens called bearer tokens. 
+* [Bearer](server-bearer-auth.md) - an authentication scheme that involves security tokens called bearer tokens.
   The Bearer authentication scheme is used as part of [OAuth](server-oauth.md) or [JWT](server-jwt.md), but you can also provide custom logic for authorizing bearer tokens.
+* [API Key](server-api-key-auth.md) - a simple authentication method where clients pass a secret key in a header.
 
 
 ### Form-based authentication {id="form-auth"}
