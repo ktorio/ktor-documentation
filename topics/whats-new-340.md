@@ -147,6 +147,40 @@ routing {
 }
 ```
 
+### API Key authentication
+
+The new [API Key authentication plugin](server-api-key-auth.md) allows you to secure server routes using a shared secret
+passed with each request, typically in an HTTP header.
+
+The `apiKey` provider integrates with Ktor’s [Authentication plugin](server-auth.md) and lets you validate incoming API
+keys using custom logic, customize the header name, and protect specific routes with standard `authenticate` blocks:
+
+```kotlin
+install(Authentication) {
+    apiKey("my-api-key") {
+        validate { apiKey ->
+            if (apiKey == "secret-key") {
+                UserIdPrincipal(apiKey)
+            } else {
+                null
+            }
+        }
+    }
+}
+
+routing {
+    authenticate {
+        get("/") {
+            val principal = call.principal<UserIdPrincipal>()!!
+            call.respondText("Key: ${principal.key}")
+        }
+    }
+}
+```
+API Key authentication can be used for service-to-service communication and other scenarios where a lightweight
+authentication mechanism is sufficient.
+
+For more details and configuration options, see [](server-api-key-auth.md).
 
 ## Core
 

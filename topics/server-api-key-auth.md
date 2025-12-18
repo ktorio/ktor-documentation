@@ -27,7 +27,40 @@ Ktor allows you to use API Key authentication for securing [routes](server-routi
 
 To enable API Key authentication, add the `ktor-server-auth` and `%artifact_name%` artifacts in the build script:
 
-<include from="lib.topic" element-id="add_ktor_artifact"/>
+<tabs group="languages">
+    <tab title="Gradle (Kotlin)" group-key="kotlin">
+
+```kotlin
+implementation("io.ktor:%artifact_name%:$ktor_version")
+implementation("io.ktor:ktor-server-auth:$ktor_version")
+```
+</tab>
+<tab title="Gradle (Groovy)" group-key="groovy">
+
+```Groovy
+implementation "io.ktor:%artifact_name%:$ktor_version"
+implementation "io.ktor:ktor-server-auth:$ktor_version"
+
+```
+</tab>
+
+<tab title="Maven" group-key="maven">
+
+```xml
+<dependency>
+    <groupId>io.ktor</groupId>
+    <artifactId>%artifact_name%-jvm</artifactId>
+    <version>${ktor_version}</version>
+</dependency>
+<dependency>
+    <groupId>io.ktor</groupId>
+    <artifactId>ktor-server-auth</artifactId>
+    <version>${ktor_version}</version>
+</dependency>
+```
+
+</tab>
+</tabs>
 
 ## API Key authentication flow {id="flow"}
 
