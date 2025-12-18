@@ -84,11 +84,11 @@ For the full example, see [json-kotlinx](https://github.com/ktorio/ktor-document
 
 To respond to a client with the content of a file, you have two options:
 
-- For `File` resources, use
-  the [`call.respondFile()`](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond-file.html)
+- For a file represented as a `File` object, use
+  the [call.respondFile](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond-file.html)
   function.
-- For `Path` resources, use the `call.respond()` function with
-  the [`LocalPathContent`](https://api.ktor.io/ktor-server-core/io.ktor.server.http.content/-local-path-content/index.html)
+- For a file pointed by the given `Path` object, use the `call.respond()` function with
+  the [LocalPathContent](https://api.ktor.io/ktor-server-core/io.ktor.server.http.content/-local-path-content/index.html)
   class.
 
 The example below shows how to send a file and make it downloadable by adding the `Content-Disposition` [header](#headers):
@@ -103,6 +103,46 @@ Note that this sample uses two plugins:
 
 For the full code sample,
 see [download-file](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/download-file).
+
+### Resource
+
+You can serve a single resource from the <tooltip term="classpath">classpath</tooltip> with the [`call.respondResource()`](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond-resource.html) method.
+This method accepts the path to the resource and sends a response constructed in the following way:
+it reads the response body from the resource stream, and derives the `Content-Type` header from the file extension.
+
+The following example shows the method call in a route handler:
+
+```kotlin
+routing {
+    get("/resource") {
+        call.respondResource("public/index.html")
+    }
+}
+```
+
+In the example above, since the resource extension is `.html`, the response will include the `Content-Type: text/html` header.
+For convenience, you can pass components of the resource location, namely relative path and package, separately through the first and second parameters.
+The following example resolves resources under the `assets` package based on the requested path:
+
+```kotlin
+get("/assets/{rest-path...}") {
+    var path = call.parameters["rest-path"]
+    if (path.isNullOrEmpty()) {
+        path = "index.html"
+    }
+
+    try {
+        call.respondResource(path, "assets") {
+            application.log.info(this.contentType.toString())
+        }
+    } catch (_: IllegalArgumentException) {
+        call.respond(HttpStatusCode.NotFound)
+    }
+}
+```
+
+If the requested path after the `/assets` prefix is empty or `/`, the handler will use the default `index.html` resource to respond. If no resource is found at the given path, `IllegalArgumentException` will be thrown.
+The previous code snippet mimics a more general solution — serving resources from a package with the [`staticResources()`](server-static-content.md#resources) method.
 
 
 ### Raw payload {id="raw"}

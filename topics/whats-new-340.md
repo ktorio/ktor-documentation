@@ -132,6 +132,22 @@ When the client disconnects, the coroutine handling the request is canceled, and
 all resources. Any `launch` or `async` coroutines started by the request are also canceled.
 This is currently only supported for the `Netty` and `CIO` engine.
 
+### A method to respond with a resource
+
+The new [`call.respondResource()`](server-responses.md#resource) method works in a similar way to [`call.respondFile()`](server-responses.md#file), 
+but accepts a resource instead of a file to respond with.
+
+To serve a single resource from the classpath, use `call.respondResource()` and specify the resource path:
+
+```kotlin
+routing {
+    get("/resource") {
+        call.respondResource("public/index.html")
+    }
+}
+```
+
+
 ## Core
 
 ### Multiple header parsing
