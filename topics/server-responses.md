@@ -106,7 +106,7 @@ see [download-file](https://github.com/ktorio/ktor-documentation/tree/%ktor_vers
 
 ### Resource
 
-You can serve a single resource from the <tooltip term="classpath">classpath</tooltip> with the [call.respondResource](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond-resource.html) method.
+You can serve a single resource from the <tooltip term="classpath">classpath</tooltip> with the [`call.respondResource()`](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond-resource.html) method.
 This method accepts the path to the resource and sends a response constructed in the following way:
 it reads the response body from the resource stream, and derives the `Content-Type` header from the file extension.
 
@@ -121,7 +121,7 @@ routing {
 ```
 
 In the example above, since the resource extension is `.html`, the response will include the `Content-Type: text/html` header.
-For convenience, you can pass components of the resource location, namely relative path and package, separately through the first and the second parameters.
+For convenience, you can pass components of the resource location, namely relative path and package, separately through the first and second parameters.
 The following example resolves resources under the `assets` package based on the requested path:
 
 ```kotlin
@@ -142,7 +142,7 @@ get("/assets/{rest-path...}") {
 ```
 
 If the requested path after the `/assets` prefix is empty or `/`, the handler will use the default `index.html` resource to respond. If no resource is found at the given path, `IllegalArgumentException` will be thrown.
-The previous code snippet mimics a more general solution — serving resources from a package with the [staticResources](server-static-content.md#resources) method.
+The previous code snippet mimics a more general solution — serving resources from a package with the [`staticResources()`](server-static-content.md#resources) method.
 
 
 ### Raw payload {id="raw"}
