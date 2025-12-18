@@ -339,6 +339,24 @@ val client = HttpClient(Apache5) {
 The new `configureConnectionManager {}` function keeps Ktor in control while allowing you to adjust parameters such as 
 maximum connections per route (`maxConnPerRoute`) and total maximum connections (`maxConnTotal`).
 
+### Dispatcher configuration for native client engines
+
+Native HTTP client engines (`Curl`, `Darwin`, and `WinHttp`) now respect the configured engine dispatcher and use
+`Dispatchers.IO` by default.
+
+The `dispatcher` property has always been available on client engine configurations, but native engines previously
+ignored it and always used `Dispatchers.Unconfined`. With this change, native engines use the configured dispatcher and
+default to `Dispatchers.IO` when none is specified, aligning their behavior with other Ktor client engines.
+
+You can explicitly configure the dispatcher as follows:
+
+```kotlin
+val client = HttpClient(Curl) {
+    engine {
+        dispatcher = Dispatchers.IO
+    }
+}
+```
 
 ### Plugin and default request configuration replacement
 
