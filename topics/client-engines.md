@@ -289,7 +289,7 @@ To use the `WinHttp` engine, follow the steps below:
    ```
 3. Configure the engine in the `engine {}` block using
    [
-   `WinHttpClientEngineConfig`](https://api.ktor.io/ktor-client-winhttp/io.ktor.client.engine.winhttp/-winhttp-client-engine-config/index.html).
+   `WinHttpClientEngineConfig`](https://api.ktor.io/ktor-client-winhttp/io.ktor.client.engine.winhttp/-win-http-client-engine-config/index.html).
    For example, you can use the `protocolVersion` property to change the HTTP version:
    ```kotlin
    ```
@@ -316,7 +316,7 @@ For desktop platforms, Ktor provides the `Curl` engine. It is supported on `linu
    val client = HttpClient(Curl)
    ```
 
-3. Configure the engine in the `engine {}` block using `CurlClientEngineConfig`.
+3. Configure the engine in the `engine {}` block using [`CurlClientEngineConfig`](https://api.ktor.io/ktor-client-curl/io.ktor.client.engine.curl/-curl-client-engine-config/index.html).
    For example, disable SSL verification for testing purposes:
    ```kotlin
    ```
