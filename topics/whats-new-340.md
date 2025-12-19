@@ -2,6 +2,8 @@
 
 <show-structure for="chapter,procedure" depth="2"/>
 
+[//]: # (TODO: Change date)
+
 _[Released: December XX, 2025](releases.md#release-details)_
 
 ## Ktor Server
@@ -43,8 +45,8 @@ install(Authentication) {
 [Ztsd](https://github.com/facebook/zstd) compression is now supported by the [Compression](server-compression.md)
 plugin.
 `Zstd` is a fast compression algorithm that offers high compression ratios and low compression times, and has a
-configurable compression level. To enable it, specify the `zstd` block inside the `compression` block with the desired
-configuration:
+configurable compression level. To enable it, specify the `zstd {}` block inside the `install(Compression) {}` block 
+with the desired configuration:
 
 ```kotlin
 install(Compression) {
@@ -77,6 +79,7 @@ ktor {
 }
 ```
 
+From the code above:
 - `trustStore` – the path to the trust store file containing trusted certificates.
 - `trustStorePassword` – password for the trust store.
 - `enabledProtocols` – a list of allowed TLS protocols.
@@ -105,8 +108,9 @@ get("/books.html") {
 
 The new [`HttpRequestLifecycle` plugin](server-http-request-lifecycle.md) allows you to cancel inflight HTTP requests when the client disconnects.
 This is useful when you need to cancel an inflight HTTP request for a long-running or resource-intensive request
-when the client disconnects. This can be enabled by installing the `HttpRequestLifecycle` plugin and setting
-`cancelCallOnClose = true`:
+when the client disconnects. 
+
+Enable this feature by installing the `HttpRequestLifecycle` plugin and setting `cancelCallOnClose = true`:
 
 ```kotlin
 install(HttpRequestLifecycle) {
@@ -132,7 +136,7 @@ When the client disconnects, the coroutine handling the request is canceled, and
 all resources. Any `launch` or `async` coroutines started by the request are also canceled.
 This is currently only supported for the `Netty` and `CIO` engine.
 
-### A method to respond with a resource
+### New method to respond with a resource
 
 The new [`call.respondResource()`](server-responses.md#resource) method works in a similar way to [`call.respondFile()`](server-responses.md#file), 
 but accepts a resource instead of a file to respond with.
@@ -186,10 +190,11 @@ For more details and configuration options, see [](server-api-key-auth.md).
 
 ### Multiple header parsing
 
-A new function, `Headers.getSplitValues()`, has been added to simplify working with headers that contain multiple values
+The new `Headers.getSplitValues()` function simplifies working with headers that contain multiple values
 in a single line.
 
-`getSplitValues()` returns all values for the given header and splits them using the specified separator (`,` by default):
+The `getSplitValues()` function returns all values for the given header and splits them using the specified separator
+(`,` by default):
 
 ```kotlin
 val headers = headers {
@@ -200,7 +205,7 @@ val headers = headers {
 val splitValues = headers.getSplitValues("X-Multi-Header")!!
 // ["1", "2", "3"]
 ```
-By default, separators inside double-quoted strings are ignored, but this can be changed by setting 
+By default, separators inside double-quoted strings are ignored, but you can change this by setting 
 `splitInsideQuotes = true`:
 
 ```kotlin
@@ -219,7 +224,8 @@ val forceSplit = headers.getSplitValues("X-Quoted", splitInsideQuotes = true)
 Prior to Ktor 3.4.0, applications using [Basic](client-basic-auth.md) and [Bearer authentication](client-bearer-auth.md)
 providers could continue sending outdated tokens or credentials after a user logged out or updated their authentication
 data. This happened because each provider internally caches the result of the `loadTokens()` function through
-`AuthTokenHolder`, and this cache remained active until manually cleared.
+an internal component responsible for storing loaded authentication tokens, and this cache remained active until
+manually cleared.
 
 Ktor 3.4.0 introduces new functions and configuration options that give you explicit and convenient control over token
 caching behavior.
@@ -242,19 +248,19 @@ val providers = client.authProviders
 ```
 
 To clear cached tokens from all providers that support token clearing (currently Basic and Bearer), use
-`HttpClient.clearAuthTokens()`:
+the `HttpClient.clearAuthTokens()` function:
 
 ```kotlin
- // Clear all cached auth tokens on logout
+ // Clears all cached auth tokens on logout
 fun logout() {
     client.clearAuthTokens()
     storage.deleteTokens()
 }
 
-// Clear cached auth tokens when credentials are updated
+// Clears cached auth tokens when credentials are updated
 fun updateCredentials(new: Credentials) {
     storage.save(new)
-    client.clearAuthTokens()  // Force reload
+    client.clearAuthTokens()  // Forces reload
 }
 ```
 
@@ -267,7 +273,7 @@ For example, you can disable caching when credentials are dynamically provided:
 
 ```kotlin
 basic {
-    cacheTokens = false  // Load credentials on every request
+    cacheTokens = false  // Loads credentials on every request
     credentials {
         getCurrentUserCredentials()
     }
@@ -280,8 +286,10 @@ recent state.
 ### Duplex streaming for OkHttp
 
 The OkHttp client engine now supports duplex streaming, enabling clients to send request body data and receive response
-data simultaneously. Unlike regular HTTP calls where the request body must be fully sent before the response begins, 
-duplex mode supports bidirectional streaming, allowing the client to send and receive data concurrently.
+data simultaneously.
+
+Unlike regular HTTP calls where the request body must be fully sent before the response begins, duplex mode
+supports bidirectional streaming, allowing the client to send and receive data concurrently.
 
 Duplex streaming is available for HTTP/2 connections and can be enabled using the new `duplexStreamingEnabled` property
 in `OkHttpConfig`:
@@ -408,8 +416,8 @@ provided in the block.
 
 #### Replace default request configuration
 
-The `defaultRequest()` function now accepts an optional `replace` parameter (default is false). When set to `true`,
-the new configuration replaces any previously defined default request settings instead of being merged with them.
+The `defaultRequest()` function now accepts an optional `replace` parameter (default is `false`). When set to `true`,
+the new configuration replaces any previously defined default request settings instead of merging with them.
 
 ```kotlin
 val client = HttpClient {

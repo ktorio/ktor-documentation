@@ -94,13 +94,14 @@ to [authenticate a specified route](#authenticate-route).
 
 ## Configure API Key authentication {id="configure"}
 
-To get a general idea of how to configure different authentication providers in Ktor, see [](server-auth.md#configure).
 In this section, we'll see the configuration specifics of the `apiKey` authentication provider.
+
+> To learn how to configure different authentication providers in Ktor, see [](server-auth.md#configure).
 
 ### Step 1: Configure an API Key provider {id="configure-provider"}
 
 The `apiKey` authentication provider exposes its settings via
-the [ApiKeyAuthenticationProvider.Config](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-api-key-authentication-provider/-config/index.html)
+the [`ApiKeyAuthenticationProvider.Config`](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-api-key-authentication-provider/-config/index.html)
 class. In the example below, the following settings are specified:
 
 * The `validate` function receives the API key extracted from the request and returns a `Principal` in the case of
@@ -133,7 +134,7 @@ You can use `headerName` to specify a custom header:
 apiKey("api-key-header") {
     headerName = "X-Secret-Key"
     validate { key ->
-        // Validate and return principal
+        // ...
     }
 }
 ```
@@ -168,7 +169,7 @@ For multiple API keys, validate against a database:
 ```kotlin
 apiKey {
     validate { keyFromHeader ->
-        // Look up the key in database
+        // Looks up the key in the database
         val user = database.findUserByApiKey(keyFromHeader)
         user?.let { UserIdPrincipal(it.username) }
     }
@@ -184,7 +185,7 @@ apiKey {
     validate { keyFromHeader ->
         val apiKey = database.findApiKey(keyFromHeader)
 
-        // Check if key exists, is active, and not expired
+        // Checks if the key exists, is active, and not expired
         if (apiKey != null &&
             apiKey.isActive &&
             apiKey.expiresAt > Clock.System.now()
@@ -232,7 +233,7 @@ routing {
 }
 ```
 
-## Complete example {id="complete-example"}
+## API Key authentication example {id="complete-example"}
 
 Here's a complete minimal example of API Key authentication:
 
@@ -278,6 +279,7 @@ When implementing API Key authentication, consider the following best practices:
 3. **Key rotation**: Implement a mechanism for rotating API keys periodically.
 4. **Rate limiting**: Combine API Key authentication with rate limiting to prevent abuse.
 5. **Logging**: Log authentication failures for security monitoring, but never log the actual API keys.
-6. **Key format**: Use cryptographically secure random strings for API keys (e.g., UUID, base64-encoded random bytes).
+6. **Key format**: Use cryptographically secure random strings for API keys (for example, UUID or base64-encoded random
+   bytes).
 7. **Multiple keys**: Consider supporting multiple API keys per user for different applications or purposes.
 8. **Expiration**: Implement key expiration for enhanced security.

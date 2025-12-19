@@ -16,8 +16,13 @@
 <include from="lib.topic" element-id="native_server_not_supported"/>
 </tldr>
 
-Ktor provides the capability to compress response body and decompress request body by using the [Compression](https://api.ktor.io/ktor-server-compression/io.ktor.server.plugins.compression/-compression.html) plugin.
-You can use different compression algorithms, including `gzip`, `ztsd` and `deflate`, specify the required conditions for compressing data (such as a content type or response size), or even compress data based on specific request parameters.
+Ktor provides the capability to compress response body and decompress request body by using the [`Compression`](https://api.ktor.io/ktor-server-compression/io.ktor.server.plugins.compression/-compression.html)
+plugin.
+
+With the `Compression` plugin, you can:
+- Use different compression algorithms, including `gzip`, `ztsd` and `deflate`.
+- Specify the required conditions for compressing data, such as a content type or response size.
+- Compress data based on specific request parameters.
 
 > Note that the `%plugin_name%` plugin does not currently support `SSE` responses.
 >
@@ -138,8 +143,8 @@ install(Compression) {
 
 ## Compression Level {id="compression_level"}
 
-`Ztsd` comes with configurable compression level. By default, it is set to `3`, and can be configured by assigning the
-desired level to the `compressionLevel` property.
+`Ztsd` comes with a configurable compression level. By default, it is set to `3`, and you can configure it using
+the `compressionLevel` property.
 
 ```kotlin
 install(Compression) {

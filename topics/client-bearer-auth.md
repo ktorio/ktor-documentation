@@ -98,7 +98,7 @@ A Ktor client allows you to configure a token to be sent in the `Authorization` 
     ```kotlin
    install(Auth) {
         bearer {
-            cacheTokens = false   // Reload tokens for every request
+            cacheTokens = false   // Reloads tokens for every request
             loadTokens {
                 loadDynamicTokens()
             }

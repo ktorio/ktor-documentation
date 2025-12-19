@@ -42,19 +42,19 @@ The [
 property allows you to get a [`Headers`](https://api.ktor.io/ktor-http/io.ktor.http/-headers/index.html) map containing
 all response headers.
 
-Additionally, `HttpResponse` exposes the following functions for receiving specific header values:
+Additionally, the `HttpResponse` class exposes the following functions for receiving specific header values:
 
-* `contentType` for the `Content-Type` header value.
-* `charset` for a charset from the `Content-Type` header value.
-* `etag` for the `E-Tag` header value.
-* `setCookie` for the `Set-Cookie` header value.
-  > Ktor also provides the [HttpCookies](client-cookies.md) plugin that allows you to keep cookies between calls.
+* `contentType()` for the `Content-Type` header value.
+* `charset()` for a charset from the `Content-Type` header value.
+* `etag()` for the `E-Tag` header value.
+* `setCookie()` for the `Set-Cookie` header value.
+  > Ktor also provides the [`HttpCookies`](client-cookies.md) plugin that allows you to keep cookies between calls.
 
 
-#### Splitting header values
+#### Split header values
 
-If a header can contain multiple comma- or semicolon-separated values, you can use the `.getSplitValues()` function to
-retrieve all split values from a header:
+If a header can contain multiple comma — or semicolon — separated values, you can use the `.getSplitValues()` function
+to retrieve all split values from a header:
 
 ```kotlin
 val httpResponse: HttpResponse = client.get("https://ktor.io/")

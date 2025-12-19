@@ -71,16 +71,16 @@ authentication provider:
 
     ```kotlin
     basic {
-        cacheTokens = false   // Reload credentials for every request
+        cacheTokens = false   // Reloads credentials for every request
         // ...
     }
     ```
-    Disabling caching is useful when credentials may change during the client session or must always reflect the latest 
+    Disabling caching is useful when credentials may change during the client session or must reflect the latest 
     stored state.
 
     > For details on clearing cached credentials programmatically, see the general [Token caching and cache control](client-auth.md#token-caching)
     > section.
 
-> For the full example, see [client-auth-basic](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-auth-basic).
+> For a full example of basic authentication in Ktor Client, see [client-auth-basic](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-auth-basic).
 
 

@@ -30,11 +30,11 @@ get("/") {
 
 Ktor provides two main mechanisms for generating HTML responses:
 * Building HTML using the Kotlin HTML DSL.
-* Rendering templates using JVM template engines such as FreeMarker or Velocity.
+* Rendering templates using JVM template engines such as [FreeMarker](https://freemarker.apache.org/) or [Velocity](https://velocity.apache.org/engine/).
 
 #### Full HTML documents
 
-To send HTML built using Kotlin DSL, use the [`call.respondHtml()`](https://api.ktor.io/ktor-server-html-builder/io.ktor.server.html/respond-html.html) function:
+To send full HTML documents built with Kotlin DSL, use the [`call.respondHtml()`](https://api.ktor.io/ktor-server-html-builder/io.ktor.server.html/respond-html.html) function:
 
 ```kotlin
 ```
@@ -85,10 +85,10 @@ For the full example, see [json-kotlinx](https://github.com/ktorio/ktor-document
 To respond to a client with the content of a file, you have two options:
 
 - For a file represented as a `File` object, use
-  the [call.respondFile](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond-file.html)
+  the [`call.respondFile()`](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond-file.html)
   function.
 - For a file pointed by the given `Path` object, use the `call.respond()` function with
-  the [LocalPathContent](https://api.ktor.io/ktor-server-core/io.ktor.server.http.content/-local-path-content/index.html)
+  the [`LocalPathContent`](https://api.ktor.io/ktor-server-core/io.ktor.server.http.content/-local-path-content/index.html)
   class.
 
 The example below shows how to send a file and make it downloadable by adding the `Content-Disposition` [header](#headers):
@@ -98,8 +98,8 @@ The example below shows how to send a file and make it downloadable by adding th
 {src="snippets/download-file/src/main/kotlin/com/example/DownloadFile.kt" include-lines="3-35"}
 
 Note that this sample uses two plugins:
-- [PartialContent](server-partial-content.md) enables the server to respond to requests with the `Range` header and send only a portion of content.
-- [AutoHeadResponse](server-autoheadresponse.md) provides the ability to automatically respond to a ` HEAD ` request for every route that has a `GET` defined. This allows the client application to determine the file size by reading the `Content-Length` header value.
+- [`PartialContent`](server-partial-content.md) enables the server to respond to requests with the `Range` header and send only a portion of content.
+- [`AutoHeadResponse`](server-autoheadresponse.md) provides the ability to automatically respond to a ` HEAD ` request for every route that has a `GET` defined. This allows the client application to determine the file size by reading the `Content-Length` header value.
 
 For the full code sample,
 see [download-file](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/download-file).
@@ -141,7 +141,8 @@ get("/assets/{rest-path...}") {
 }
 ```
 
-If the requested path after the `/assets` prefix is empty or `/`, the handler will use the default `index.html` resource to respond. If no resource is found at the given path, `IllegalArgumentException` will be thrown.
+If the requested path after the `/assets` prefix is empty or `/`, the handler uses the default `index.html` resource to
+respond. If no resource is found at the given path, `IllegalArgumentException` is thrown.
 The previous code snippet mimics a more general solution — serving resources from a package with the [`staticResources()`](server-static-content.md#resources) method.
 
 
@@ -154,7 +155,8 @@ To send the raw body payload, use the [`call.respondBytes()`](https://api.ktor.i
 
 ### Status code {id="status"}
 
-To set a status code for a response, call [`ApplicationResponse.status()`](https://api.ktor.io/ktor-server-core/io.ktor.server.response/-application-response/status.html) with a predefined status code value:
+To set a status code for a response, call the [`ApplicationResponse.status()`](https://api.ktor.io/ktor-server-core/io.ktor.server.response/-application-response/status.html)
+function with a predefined status code value:
 
 ```kotlin
 get("/") {

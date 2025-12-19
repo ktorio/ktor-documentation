@@ -26,7 +26,7 @@ class ApplicationTest {
         }
 
         delay(300)
-        job.cancelAndJoin() // simulate client disconnect
+        job.cancelAndJoin() // Simulate client disconnect
 
         server.stop()
     }

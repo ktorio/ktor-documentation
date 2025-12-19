@@ -8,7 +8,7 @@ Many applications require common functionality that is not part of the core appl
 [logging](client-logging.md), [serialization](client-serialization.md), or [authorization](client-auth.md). In Ktor,
 this functionality is provided by client _plugins_.
 
-## Add plugin dependency {id="plugin-dependency"}
+## Add plugin dependencies {id="plugin-dependency"}
 
 Some plugins require an additional [dependency](client-dependencies.md). For example, to use the [Logging](client-logging.md) plugin, you need to add the
 `ktor-client-logging` artifact in your build script:
@@ -20,7 +20,7 @@ Each plugin’s documentation specifies any required dependencies.
 
 ## Install a plugin {id="install"}
 
-To install a plugin, pass it to the `install` function inside a [client configuration block](client-create-and-configure.md#configure-client).
+To install a plugin, pass it to the `install()` function inside a [client configuration block](client-create-and-configure.md#configure-client).
 
 For example, installing the `Logging` plugin looks as follows:
 
@@ -31,7 +31,7 @@ For example, installing the `Logging` plugin looks as follows:
 ### Install or replace a plugin {id="install_or_replace"}
 
 In some cases, a plugin may already be installed — for example, by shared client configuration code. In such cases, you
-can replace its configuration using `installOrReplace()`:
+can replace its configuration using the `installOrReplace()` function:
 
 ```kotlin
 ```
@@ -44,7 +44,7 @@ installed.
 
 Most plugins expose configuration options that can be set inside the `install` block.
 
-For example, the [Logging](client-logging.md) plugin allows you to specify the logger, logging level, and condition for filtering log
+For example, the [`Logging`](client-logging.md) plugin allows you to specify the logger, logging level, and condition for filtering log
 messages:
 
 ```kotlin

@@ -1,9 +1,9 @@
 package com.example
 
 /*
-    Important: The contents of this file are referenced by line number in `server-http-request-lifecycle.md`.
+    Important: The contents of this file are referenced by line numbers in `server-http-request-lifecycle.md`.
     If you add, remove, or modify any lines, ensure you update the corresponding
-    line numbers in the `code-block` element of the referenced file.
+    line numbers in the code-block element of the referenced file.
 */
 
 import io.ktor.server.application.*
