@@ -12,7 +12,7 @@
 The DefaultRequest plugin allows you to configure default parameters for all requests.
 </link-summary>
 
-The [DefaultRequest](https://api.ktor.io/ktor-client-core/io.ktor.client.plugins/-default-request/index.html) plugin allows you to configure default parameters for all [requests](client-requests.md): specify a base URL, add headers, configure query parameters, and so on.
+The [`DefaultRequest`](https://api.ktor.io/ktor-client-core/io.ktor.client.plugins/-default-request/index.html) plugin allows you to configure default parameters for all [requests](client-requests.md): specify a base URL, add headers, configure query parameters, and so on.
 
 
 ## Add dependencies {id="add_dependencies"}
@@ -34,7 +34,7 @@ val client = HttpClient(CIO) {
 }
 ```
 
-Or call the `defaultRequest` function and [configure](#configure) required request parameters:
+Or call the `defaultRequest()` function and [configure](#configure) required request parameters:
 
 ```kotlin
 import io.ktor.client.*
@@ -43,6 +43,30 @@ import io.ktor.client.plugins.*
 //...
 val client = HttpClient(CIO) {
     defaultRequest {
+        // this: DefaultRequestBuilder
+    }
+}
+```
+
+### Replace existing configuration {id="default_request_replace"}
+
+If the `DefaultRequest` plugin has already been installed, you can replace its existing configuration in one of the following ways:
+
+- Use the `replace` parameter of the `defaultRequest()` function:
+
+```kotlin
+val client = HttpClient(CIO) {
+    defaultRequest(replace = true) {
+        // this: DefaultRequestBuilder
+    }
+}
+```
+
+- Use the generic `installOrReplace()` function:
+
+```kotlin
+val client = HttpClient(CIO) {
+    installOrReplace(DefaultRequest) {
         // this: DefaultRequestBuilder
     }
 }

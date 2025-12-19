@@ -28,7 +28,7 @@ The example below shows a sample HTML DSL and a corresponding HTML to be sent to
 
 ```kotlin
 ```
-{src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="3-8,11-29"}
+{src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="3-8,11-27,35-36"}
 
 </tab>
 <tab title="HTML">
@@ -47,7 +47,7 @@ The example below shows a sample HTML DSL and a corresponding HTML to be sent to
 </tab>
 </tabs>
 
-The following [example](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-form-html-dsl) shows how to respond with an HTML form used to collect [credential information](server-form-based-auth.md) from a user:
+The following example shows how to respond with an HTML form used to collect [credential information](server-form-based-auth.md) from a user:
 
 <tabs>
 <tab title="Kotlin">
@@ -74,10 +74,44 @@ The following [example](https://github.com/ktorio/ktor-documentation/tree/%ktor_
 </tab>
 </tabs>
 
-You can learn how to receive form parameters on the server side from [](server-requests.md#form_parameters).
+For the full example, see [auth-form-html-dsl](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-form-html-dsl).
 
+> To learn more about receiving form parameters on the server side, see [](server-requests.md#form_parameters).
+> 
 > To learn more about generating HTML using kotlinx.html, see the [kotlinx.html wiki](https://github.com/Kotlin/kotlinx.html/wiki).
 
+## Send partial HTML {id="html_fragments"}
+
+In addition to generating full HTML documents, you can also respond with HTML fragments using the `.respondHtmlFragment()`
+function.
+
+HTML fragments are useful when returning partial markup that does not require a full `<html>` document, such as dynamic
+updates used by libraries like HTMX.
+
+<tabs>
+<tab title="Kotlin">
+
+```kotlin
+```
+{src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="3-8,11-12,28-36"}
+
+</tab>
+<tab title="HTML">
+
+```html
+<div class="fragment">
+    <span>
+        Created!
+    </span>
+</div>
+
+```
+
+</tab>
+</tabs>
+
+This function works similarly to `.respondHtml()`, but it renders only the content you define inside the builder,
+without adding root HTML elements.
 
 ## Templates {id="templates"}
 
