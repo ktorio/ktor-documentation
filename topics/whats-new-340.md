@@ -357,6 +357,34 @@ val client = HttpClient(Curl) {
     }
 }
 ```
+### HttpStatement execution using the engine dispatcher
+
+The `HttpStatement.execute {}` and `HttpStatement.body {}` blocks now run on the HTTP engine’s dispatcher
+instead of the caller’s coroutine context. This prevents accidental blocking when these blocks are invoked from the 
+main thread.
+
+Previously, users had to manually switch dispatchers using `withContext` to avoid freezing the UI during I/O operations,
+such as writing a streaming response to a file. With this change, Ktor automatically dispatches these blocks to the
+engine’s coroutine context:
+
+<compare>
+
+```kotlin
+client.prepareGet("https://httpbin.org/bytes/$fileSize").execute { httpResponse ->
+    withContext(Dispatchers.IO) {
+        val channel: ByteReadChannel = httpResponse.body()
+        // Process and write data
+    }
+}
+```
+
+```kotlin
+client.prepareGet("https://httpbin.org/bytes/$fileSize").execute { httpResponse ->
+    val channel: ByteReadChannel = httpResponse.body()
+    // Process and write data
+}
+```
+</compare>
 
 ### Plugin and default request configuration replacement
 
