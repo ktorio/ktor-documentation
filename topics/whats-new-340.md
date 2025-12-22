@@ -151,6 +151,41 @@ routing {
 }
 ```
 
+### Runtime route annotations
+
+You can now describe OpenAPI metadata directly on routes using runtime annotations. These annotations attach to the
+route at runtime and become part of the routing tree. The [OpenAPI](server-openapi.md) and
+[SwaggerUI](server-swagger-ui.md) plugins read this metadata when building the OpenAPI specification.
+
+To add metadata to a route at runtime, use the `.annotate {}` DSL:
+
+```kotlin
+get("/messages") {
+    val query = call.parameters["q"]?.let(::parseQuery)
+    call.respond(messageRepository.getMessages(query))
+}.annotate {
+    parameters {
+        query("q") {
+            description = "An encoded query"
+            required = false
+        }
+    }
+    responses {
+        HttpStatusCode.OK {
+            description = "A list of messages"
+            schema = jsonSchema<List<Message>>()
+            extension("x-sample-message", testMessage)
+        }
+        HttpStatusCode.BadRequest {
+            description = "Invalid query"
+            ContentType.Text.Plain()
+        }
+    }
+    summary = "get messages"
+    description = "Retrieves a list of messages."
+}
+```
+
 ### API Key authentication
 
 The new [API Key authentication plugin](server-api-key-auth.md) allows you to secure server routes using a shared secret
@@ -456,5 +491,44 @@ println("A file saved to ${file.path}")
 
 ```
 
+## Gradle plugin
 
+### OpenAPI compiler extension
 
+In Ktor 3.4.0, the OpenAPI compiler extension of the Gradle plugin no longer generates a static OpenAPI file. Instead,
+it generates metadata that can be accessed at runtime.
+
+Configuration is still done using the `openApi` block inside the `ktor` extension. However, properties such as `title`,
+`version`, `description`, and `target` have been deprecated and are ignored. Global OpenAPI metadata is now provided
+at runtime.
+
+<compare>
+
+```kotlin
+// build.gradle.kts
+ktor {
+    @OptIn(OpenApiPreview::class)
+    openApi {
+        target = project.layout.projectDirectory.file("api.json")
+        title = "OpenAPI example"
+        version = "2.1"
+        summary = "This is a sample API"
+    }
+}
+```
+
+```kotlin
+// build.gradle.kts
+ktor {
+    openApi {
+        // Global control for the compiler plugin
+        enabled = true
+        // Enables / disables inferring details from call handler code
+        codeInferenceEnabled = true
+        // Toggles whether analysis should be applied to all routes or only those which are commented
+        onlyCommented = false
+    }
+}
+```
+
+</compare>
