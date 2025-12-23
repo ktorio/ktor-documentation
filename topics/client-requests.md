@@ -72,7 +72,7 @@ The example above can be simplified using the `.get()` function:
 ```kotlin
 ```
 
-{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="21"}
+{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="22"}
 
 In both examples, a request URL is specified as a string. You can also configure URL components separately using
 [`HttpRequestBuilder`](#url).
@@ -86,14 +86,14 @@ The Ktor client allows you to configure a request URL in multiple ways:
 ```kotlin
 ```
 
-{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="21"}
+{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="22"}
 
 ### Configure URL components separately
 
 ```kotlin
 ```
 
-{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="22-28"}
+{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="23-29"}
 
 In this case, the `url` parameter provided by `HttpRequestBuilder` is used. It accepts an instance of
 [`URLBuilder`](https://api.ktor.io/ktor-http/io.ktor.http/-u-r-l-builder/index.html), offering more flexibility for
@@ -109,7 +109,7 @@ Alternatively, you can pass individual path segments using the `appendPathSegmen
 ```kotlin
 ```
 
-{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="29-33"}
+{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="30-34"}
 
 By default, `appendPathSegments` [encodes][percent_encoding] path segments.
 To disable encoding, use `appendEncodedPathSegments()` instead.
@@ -121,7 +121,7 @@ To add <emphasis tooltip="query_string">query string</emphasis> parameters, use 
 ```kotlin
 ```
 
-{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="34-38"}
+{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="35-39"}
 
 By default, `parameters` [encodes][percent_encoding] query parameters.
 To disable encoding, use `encodedParameters()` instead.
@@ -136,7 +136,7 @@ You can configure a URL fragment using the `fragment` property.
 ```kotlin
 ```
 
-{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="39-43"}
+{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="40-44"}
 
 By default, `fragment` [encodes][percent_encoding] a URL fragment.
 To disable encoding, use `encodedFragment()` instead.
@@ -179,7 +179,14 @@ you to add several headers at once:
 ```kotlin
 ```
 
-{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="46-52"}
+{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="47-53"}
+
+You can also use the `appendAll()` function with a `Map` or `vararg Pair` to add multiple headers conveniently:
+
+```kotlin
+```
+
+{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="56-71"}
 
 #### Add a single header
 
@@ -200,7 +207,7 @@ To send cookies, use the
 ```kotlin
 ```
 
-{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="55-64"}
+{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="74-83"}
 
 Ktor also provides the [`HttpCookies`](client-cookies.md) plugin that allows you to keep cookies between calls. If this
 plugin is installed, cookies added using the `cookie()` function are ignored.

@@ -6,6 +6,7 @@ import io.ktor.client.plugins.logging.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
+import io.ktor.util.appendAll
 import io.ktor.util.date.*
 import kotlinx.coroutines.*
 
@@ -48,6 +49,24 @@ fun main() {
                 append(HttpHeaders.Accept, "text/html")
                 append(HttpHeaders.Authorization, "abc123")
                 append(HttpHeaders.UserAgent, "ktor client")
+            }
+        }
+
+        // Add multiple headers
+        client.get("https://ktor.io") {
+            headers {
+                // Using vararg Pairs
+                appendAll(
+                    HttpHeaders.Accept to "text/html",
+                    HttpHeaders.Authorization to "abc123"
+                )
+
+                // Using a Map
+                appendAll(mapOf("foo" to "bar", "baz" to "qux"))
+                appendAll(mapOf("test" to listOf("1", "2", "3")))
+
+                // Using a custom header with multiple values
+                appendAll("X-Custom-Header" to listOf("val1", "val2"))
             }
         }
 

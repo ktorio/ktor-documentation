@@ -410,7 +410,7 @@ Ktor’s HTMX support is available across three experimental modules:
 All APIs are marked with `@ExperimentalKtorApi` and require opt-in via `@OptIn(ExperimentalKtorApi::class)`.
 For more information, see [](htmx-integration.md).
 
-## Unix domain sockets
+### Unix domain sockets
 
 With 3.2.0, you can set up Ktor clients to connect to Unix domain sockets and Ktor servers to listen to such sockets.
 Currently, Unix domain sockets are only supported in the CIO engine.
@@ -440,6 +440,26 @@ val response: HttpResponse = client.get("/") {
 ```
 
 You can also use a Unix domain socket in a [default request](client-default-request.md#unix-domain-sockets).
+
+### New `.appendAll()` overloads for building headers and parameters
+
+The [`StringValuesBuilder.appendAll()`](https://api.ktor.io/ktor-utils/io.ktor.util/append-all.html) function has new
+overloads that accept a `Map` or `vararg Pair`. This allows you to append multiple values in a single call, simplifying
+the construction of headers, URL parameters, and other `StringValues`-based collections.
+
+The following example shows how to use these new overloads:
+
+```kotlin
+val headers = buildHeaders {
+    // Using Map
+    appendAll(mapOf("foo" to "bar", "baz" to "qux"))
+    appendAll(mapOf("test" to listOf("1", "2", "3")))
+
+    // Using vararg Pair
+    appendAll("foo" to "bar", "baz" to "qux")
+    appendAll("test" to listOf("1", "2", "3"))
+}
+```
 
 ## Infrastructure
 
