@@ -3,7 +3,13 @@
 <show-structure for="chapter" depth="2"/>
 <secondary-label ref="server-feature"/>
 
+<var name="artifact_name" value="ktor-server-routing-annotate"/>
+<var name="package_name" value="io.ktor.server.routing.annotate"/>
+
 <tldr>
+<p>
+<b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
+</p>
 <p>
 <b>Code example</b>: 
 <a href="https://github.com/ktorio/ktor-samples/tree/main/openapi">openapi</a>
@@ -14,7 +20,7 @@ Ktor provides support for building OpenAPI specifications at runtime from one or
 
 This functionality is available through:
 - The OpenAPI compiler extension (included in the Ktor Gradle plugin), which analyzes routing code at compile time and
-contributes metadata.
+generates metadata.
 - The routing annotation runtime API, which assembles a complete OpenAPI specification from the running application.
 
 You can use one, or both, and combine them with the [OpenAPI](server-openapi.md)
@@ -25,9 +31,9 @@ and [SwaggerUI](server-swagger-ui.md) plugins to serve interactive API documenta
 >
 {style="note"}
 
-## Add the Gradle plugin
+## Add dependencies
 
-To enable specification generation, apply the Ktor Gradle plugin to your project:
+* To enable specification generation, apply the Ktor Gradle plugin to your project:
 
 ```kotlin
 plugins {
@@ -35,12 +41,17 @@ plugins {
 }
 ```
 
+* To use runtime route annotations, add the `%artifact_name%` artifact in your build script:
+
+  <include from="lib.topic" element-id="add_ktor_artifact"/>
+
 ## Configure the extension
 
-To configure the extension, use the `openApi` block inside the `ktor` extension in your
+To configure the plugin extension, use the `openApi` block inside the `ktor` extension in your
 <path>build.gradle.kts</path>
 file:
 
+[//]: # (TODO: reference line numbers from example project)
 ```kotlin
 ktor {
     openApi {
@@ -58,7 +69,7 @@ ktor {
 
 ## Routing API introspection
 
-The plugin analyzes your server routing DSL to infer basic path information, such as:
+The Ktor compiler plugin analyzes your server routing DSL to infer basic path information, such as:
 
 - Merged paths (for example, `/api/v1/users/{id}`).
 - HTTP methods (such as `GET` and `POST`).
@@ -92,20 +103,8 @@ routes.
 You can attach them directly to route declarations:
 
 ```kotlin
-/**
- * Get a single user.
- *
- * @path id The ID of the user
- * @response 404 The user was not found
- * @response 200 [User] The user.
- */
-get("/api/users/{id}") {
-    val user = repository.get(call.parameters["id"]!!)
-        ?: return@get call.respond(HttpStatusCode.NotFound)
-    call.respond(user)
-}
-
 ```
+{src="snippets/openapi-spec-gen/src/main/kotlin/com/example/Application.kt" include-lines="37-51"}
 
 #### Supported KDoc fields
 
@@ -130,55 +129,24 @@ For cases where compile-time analysis is insufficient – such as dynamic routin
 you can attach OpenAPI metadata directly to a route using the `.annotate {}` DSL:
 
 ```kotlin
-get("/messages") {
-    val query = call.parameters["q"]?.let(::parseQuery)
-    call.respond(messageRepository.getMessages(query))
-}.annotate {
-    parameters {
-        query("q") {
-            description = "An encoded query"
-            required = false
-        }
-    }
-    responses {
-        HttpStatusCode.OK {
-            description = "A list of messages"
-            schema = jsonSchema<List<Message>>()
-            extension("x-sample-message", testMessage)
-        }
-        HttpStatusCode.BadRequest {
-            description = "Invalid query"
-            ContentType.Text.Plain()
-        }
-    }
-    summary = "get messages"
-    description = "Retrieves a list of messages."
-}
 ```
+{src="snippets/openapi-spec-gen/src/main/kotlin/com/example/Application.kt" include-lines="58-86"}
 
 When both KDoc annotations and runtime annotations are present, runtime annotations take precedence.
 
 ## Generate the specification
 
-To generate the OpenAPI specification, use `generateOpenApiSpec` from your application:
+To generate the OpenAPI specification, use the `generateOpenApiDoc()` function:
 
+[//]: # (TODO: reference line numbers from example project)
 ```kotlin
-val spec = generateOpenApiSpec(
-    info = OpenApiInfo(
-        title = "Example API",
-        version = "2.1",
-        description = "This is a sample API"
-    ),
-    route = application.routingRoot
+val doc = generateOpenApiDoc(
+    base = ...
+    routes = ...
 )
-
 ```
 
-This function assembles a complete OpenAPI document using:
-
-- Compiler-generated metadata.
-- Runtime route annotations.
-- Schema inference via `kotlinx.serialization`.
+This function assembles a complete OpenAPI document using the compiler-generated metadata and runtime route annotations.
 
 ## Serve the specification
 
