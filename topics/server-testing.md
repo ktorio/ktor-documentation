@@ -101,7 +101,29 @@ file for your test:
 
 This method is useful when you need to mimic different environments or use custom configuration settings during testing.
 
-> You can also access the `Application` instance inside the `application` block.
+#### Access the application instance {id="access-application"}
+
+Inside the `application {}` block, you can access the `Application` instance being configured:
+
+```kotlin
+testApplication {
+    application {
+        val app: Application = this
+        // Interact with the application instance here
+    }
+}
+```
+Additionally, the `testApplication` scope exposes the `application` property, which returns the same `Application`
+instance used by the test. This allows you to inspect or interact with the application directly from your test code.
+
+```kotlin
+```
+{src="snippets/embedded-server-modules/src/test/kotlin/EmbeddedServerTest.kt" include-symbol="testAccessApplicationInstance"}
+
+> Accessing the `application` property before calling `startApplication()` or making the first client request returns
+> the `Application` instance, but it may not have been started yet.
+> 
+{style="note"}
 
 #### Add routes {id="add-routing"}
 
