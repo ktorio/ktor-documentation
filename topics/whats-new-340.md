@@ -422,7 +422,7 @@ the new configuration replaces any previously defined default request settings i
 ```kotlin
 val client = HttpClient {
     defaultRequest(replace = true) {
-        // Configure default request parameters
+        // ...
     }
 }
 ```
