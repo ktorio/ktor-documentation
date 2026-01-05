@@ -428,3 +428,33 @@ val client = HttpClient {
 ```
 
 This allows you to explicitly override earlier default request configuration when composing or reusing client setups.
+
+## I/O
+
+### Stream bytes from a `ByteReadChannel` to a `RawSink`
+
+You can now use the new `ByteReadChannel.readTo()` function to read bytes from a channel and write them directly to a
+specified `RawSink`. This function simplifies handling large responses or file downloads without intermediate buffers or
+manual copying.
+
+The following example downloads a file and writes it to a new local file:
+
+```kotlin
+val client = HttpClient(CIO)
+val file = File.createTempFile("files", "index")
+val stream = file.outputStream().asSink()
+val fileSize = 100 * 1024 * 1024
+
+runBlocking {
+    client.prepareGet("https://httpbin.org/bytes/$fileSize").execute { httpResponse ->
+        val channel: ByteReadChannel = httpResponse.body()
+        channel.readTo(stream)
+    }
+}
+
+println("A file saved to ${file.path}")
+
+```
+
+
+

@@ -1,6 +1,6 @@
 [//]: # (title: Receiving responses)
 
-<show-structure for="chapter" depth="2"/>
+<show-structure for="chapter" depth="3"/>
 
 <link-summary>
 Learn how to receive responses, get a response body and obtain response parameters.
@@ -161,29 +161,41 @@ Once the form processing is complete, each part is disposed of using the `.dispo
 
 ### Streaming data {id="streaming"}
 
-When you call the `HttpResponse.body` function to get a body, Ktor processes a response in memory and returns a full
-response body. If you need to get chunks of a response sequentially instead of waiting for the entire response, use
-`HttpStatement` with
-scoped [execute](https://api.ktor.io/ktor-client-core/io.ktor.client.statement/-http-statement/execute.html)
+By default, calling `HttpResponse.body()` loads the full response into memory. For large responses or file downloads,
+it’s often better to process data in chunks without waiting for the full body.
+
+Ktor provides several ways to do this using [`ByteReadChannel`](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html)
+and I/O utilities.
+
+#### Sequential chunk processing
+
+To process the response sequentially in chunks, use `HttpStatement` with
+a scoped [`execute`](https://api.ktor.io/ktor-client-core/io.ktor.client.statement/-http-statement/execute.html)
 block.
-A [runnable example](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-download-streaming)
-below shows how to receive a response content in chunks (byte packets) and save them in a file:
+
+The following example demonstrates reading a response in chunks and saving it to a file:
 
 ```kotlin
 ```
 {src="snippets/client-download-streaming/src/main/kotlin/com/example/Application.kt" include-lines="15-37"}
 
-> For converting between Ktor channels and types like `RawSink`, `RawSource`, or `OutputStream`, see
-> [I/O interoperability](io-interoperability.md).
->
-{style="tip"}
-
-In this example, [`ByteReadChannel`](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) is used
-to read data asynchronously. Using `ByteReadChannel.readRemaining()` retrieves all available bytes in the channel, while
+Using `ByteReadChannel.readRemaining()` retrieves all available bytes in the channel, while
 `Source.transferTo()` directly writes the data to the file, reducing unnecessary allocations.
 
-To save a response body to a file without extra processing, you can use the
-[`ByteReadChannel.copyAndClose()`](https://api.ktor.io/ktor-io/io.ktor.utils.io/copy-and-close.html) function instead:
+> For the full streaming example, see
+> [client-download-streaming](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-download-streaming).
+
+#### Writing the response directly to a file
+
+For simple downloads where chunk-by-chunk processing is not needed, you can choose one of the following approaches:
+
+- [Copy all bytes to a `ByteWriteChannel` and close](#copyAndClose).
+- [Copy to a `RawSink`](#readTo).
+
+##### Copy all bytes to a `ByteWriteChannel` and close {id="copyAndClose"}
+
+The [`ByteReadChannel.copyAndClose()`](https://api.ktor.io/ktor-io/io.ktor.utils.io/copy-and-close.html) function
+copies all remaining bytes from a `ByteReadChannel` to a `ByteWriteChannel` and then closes both channels automatically:
 
 ```Kotlin
 client.prepareGet("https://httpbin.org/bytes/$fileSize").execute { httpResponse ->
@@ -192,3 +204,33 @@ client.prepareGet("https://httpbin.org/bytes/$fileSize").execute { httpResponse 
     println("A file saved to ${file.path}")
 }
 ```
+
+This is convenient for full file downloads where you don’t need to manually manage channels.
+
+##### Copy to a `RawSink` {id="readTo"}
+
+[//]: # (TODO: Add API link)
+
+The [`ByteReadChannel.readTo()`]()
+function writes bytes directly to a `RawSink` without intermediate buffers:
+
+```kotlin
+val file = File.createTempFile("files", "index")
+val stream = file.outputStream().asSink()
+
+client.prepareGet(url).execute { httpResponse ->
+    val channel: ByteReadChannel = httpResponse.body()
+    channel.readTo(stream)
+}
+println("A file saved to ${file.path}")
+
+```
+
+Unlike `.copyAndClose()`, the sink remains open after writing and it is only closed automatically if an error occurs
+during the transfer.
+
+
+> For converting between Ktor channels and types like `RawSink`, `RawSource`, or `OutputStream`, see
+> [I/O interoperability](io-interoperability.md).
+>
+{style="tip"}
