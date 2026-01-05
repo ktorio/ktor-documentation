@@ -161,7 +161,7 @@ Once the form processing is complete, each part is disposed of using the `.dispo
 
 ### Streaming data {id="streaming"}
 
-By default, calling `HttpResponse.body()` loads the full response into memory.For large responses or file downloads,
+By default, calling `HttpResponse.body()` loads the full response into memory. For large responses or file downloads,
 it’s often better to process data in chunks without waiting for the full body.
 
 Ktor provides several ways to do this using [`ByteReadChannel`](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html)
