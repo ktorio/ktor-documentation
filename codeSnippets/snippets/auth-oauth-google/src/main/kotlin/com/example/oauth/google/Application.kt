@@ -54,6 +54,13 @@ fun Application.main(httpClient: HttpClient = applicationHttpClient) {
                     }
                 )
             }
+            fallback = { cause ->
+                if (cause is OAuth2RedirectError) {
+                    respondRedirect("/login-after-fallback")
+                } else {
+                    respond(HttpStatusCode.Forbidden, cause.message)
+                }
+            }
             client = httpClient
         }
     }
@@ -100,6 +107,9 @@ fun Application.main(httpClient: HttpClient = applicationHttpClient) {
                 val userInfo: UserInfo = getPersonalGreeting(httpClient, userSession)
                 call.respondText("Hello, ${userInfo.name}!")
             }
+        }
+        get("/login-after-fallback") {
+            call.respondText("Redirected after fallback")
         }
     }
 }

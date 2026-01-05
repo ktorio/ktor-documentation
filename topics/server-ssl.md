@@ -101,7 +101,7 @@ following [properties](server-configuration-file.topic#predefined-properties):
 
    ```shell
    ```
-   {style="block" src="snippets/ssl-engine-main/src/main/resources/application.conf" include-lines="1-2,4-5,18"}
+   {style="block" src="snippets/ssl-engine-main/src/main/resources/application.conf" include-lines="1-2,4-5,21"}
 
    </tab>
    <tab title="application.yaml" group-key="yaml">
@@ -120,14 +120,14 @@ following [properties](server-configuration-file.topic#predefined-properties):
 
    ```shell
    ```
-   {style="block" src="snippets/ssl-engine-main/src/main/resources/application.conf" include-lines="1,10-18"}
+   {style="block" src="snippets/ssl-engine-main/src/main/resources/application.conf" include-lines="1,10-21"}
 
    </tab>
    <tab title="application.yaml" group-key="yaml">
 
    ```yaml
    ```
-   {style="block" src="snippets/ssl-engine-main/src/main/resources/_application.yaml" include-lines="1,9-14"}
+   {style="block" src="snippets/ssl-engine-main/src/main/resources/_application.yaml" include-lines="1,9-17"}
 
    </tab>
    </tabs>
