@@ -45,9 +45,15 @@ plugins {
 
   <include from="lib.topic" element-id="add_ktor_artifact"/>
 
-## Configure the extension
+## Configure the OpenAPI compiler extension
 
-To configure the plugin extension, use the `openApi` block inside the `ktor` extension in your
+The OpenAPI compiler extension controls how routing metadata is collected and generated at compile time.
+It does not define the final OpenAPI document itself.
+
+General OpenAPI information—such as the API title, version, servers, security schemes, and detailed schemas—is supplied
+at runtime [when the specification is generated](#generate-and-serve-the-specification).
+
+To configure the compiler plugin extension, use the `openApi` block inside the `ktor` extension in your
 <path>build.gradle.kts</path>
 file:
 
@@ -55,17 +61,30 @@ file:
 ```kotlin
 ktor {
     openApi {
-        // Global control for the compiler plugin
         enabled = true
-        
-        // Enables / disables inferring details from call handler code
         codeInferenceEnabled = true
-        
-        // Toggles whether analysis should be applied to all routes or only those which are commented
         onlyCommented = false
     }
 }
 ```
+
+### Configuration options
+
+<deflist>
+<def>
+<title><code>enabled</code></title>
+Enables or disables generation of OpenAPI metadata during compilation.
+</def>
+<def>
+<title><code>codeInferenceEnabled</code></title>
+Controls whether the compiler attempts to infer OpenAPI metadata from routing code. Disable this option if inference
+produces incorrect results or if you prefer to define metadata exclusively through annotations.
+</def>
+<def>
+<title><code>onlyCommented</code></title>
+Limits processing to routes that contain KDoc comments. By default, all routes are analyzed.
+</def>
+</deflist>
 
 ## Routing API introspection
 
@@ -93,7 +112,9 @@ request/response schemas automatically. To generate a complete and useful specif
 To enrich the specification, Ktor supports two ways of annotating routes:
 
 - [KDoc-based annotations](#kdoc-annotations), analyzed by the compiler plugin.
-- [Runtime route annotations](#runtime-route-annotations) using the `.annotate {}` DSL.
+- [Runtime route annotations](#runtime-route-annotations), defined using the `.annotate {}` DSL.
+
+You can use either approach or combine both.
 
 ### KDoc annotations {id="kdoc-annotations"}
 
@@ -102,25 +123,41 @@ routes.
 
 You can attach them directly to route declarations:
 
+[//]: # (TODO: reference line numbers from example project)
+
 ```kotlin
+/**
+ * Get a single user by ID.
+ *
+ * @path id [ULong] the ID of the user
+ * @response 400 The ID parameter is malformatted or missing.
+ * @response 404 The user for the given ID does not exist.
+ * @response 200 [User] The user found with the given ID.
+*/
+get("/{id}") {
+    val id = call.parameters["id"]?.toULongOrNull()
+        ?: return@get call.respond(HttpStatusCode.BadRequest)
+    val user = list.find { it.id == id }
+        ?: return@get call.respond(HttpStatusCode.NotFound)
+    call.respond(user)
+}
 ```
-{src="snippets/openapi-spec-gen/src/main/kotlin/com/example/Application.kt" include-lines="37-51"}
 
 #### Supported KDoc fields
 
-| Tag             | Format                                          | Description                                     |
-|-----------------|-------------------------------------------------|-------------------------------------------------|
-| `@tag`          | `@tag *name`                                    | Associates the endpoint with a tag for grouping |
-| `@path`         | `@path [Type] name description`                 | Describes a path parameter                      |
-| `@query`        | `@query [Type] name description`                | Query parameter                                 |
-| `@header`       | `@header [Type] name description`               | Header parameter                                |
-| `@cookie`       | `@cookie [Type] name description`               | Cookie parameter                                |
-| `@body`         | `@body contentType [Type] description`          | Request body                                    |
-| `@response`     | `@response code contentType [Type] description` | Response with optional type                     |
-| `@deprecated`   | `@deprecated reason`                            | Marks endpoint deprecated                       |
-| `@description`  | `@description text`                             | Extended description                            |
-| `@security`     | `@security scheme`                              | Security requirements                           |
-| `@externalDocs` | `@external href`                                | External documentation links                    |
+| Tag             | Format                                          | Description                      |
+|-----------------|-------------------------------------------------|----------------------------------|
+| `@tag`          | `@tag *name`                                    | Groups the endpoint under a tag  |
+| `@path`         | `@path [Type] name description`                 | Path parameter                   |
+| `@query`        | `@query [Type] name description`                | Query parameter                  |
+| `@header`       | `@header [Type] name description`               | Header parameter                 |
+| `@cookie`       | `@cookie [Type] name description`               | Cookie parameter                 |
+| `@body`         | `@body contentType [Type] description`          | Request body                     |
+| `@response`     | `@response code contentType [Type] description` | Response definition              |
+| `@deprecated`   | `@deprecated reason`                            | Marks the endpoint as deprecated |
+| `@description`  | `@description text`                             | Extended description             |
+| `@security`     | `@security scheme`                              | Security requirements            |
+| `@externalDocs` | `@external href`                                | External documentation link      |
 
 
 ### Runtime route annotations {id="runtime-route-annotations"}
@@ -128,35 +165,79 @@ You can attach them directly to route declarations:
 For cases where compile-time analysis is insufficient – such as dynamic routing, interceptors, or conditional logic –
 you can attach OpenAPI metadata directly to a route using the `.annotate {}` DSL:
 
+[//]: # (TODO: reference line numbers from example project)
+
 ```kotlin
+get("/users") {
+    val query = call.parameters["q"]
+    val result = if (query != null) {
+        list.filter {it.name.contains(query, ignoreCase = true)  }
+    } else {
+        list
+    }
+
+    call.respond(result)
+}.annotate {
+    summary = "Get users"
+    description = "Retrieves a list of users."
+    parameters {
+        query("q") {
+            description = "An encoded query"
+            required = false
+        }
+    }
+    responses {
+        HttpStatusCode.OK {
+            description = "A list of users"
+            schema = jsonSchema<List<User>>()
+        }
+        HttpStatusCode.BadRequest {
+            description = "Invalid query"
+            ContentType.Text.Plain()
+        }
+    }
+}
 ```
-{src="snippets/openapi-spec-gen/src/main/kotlin/com/example/Application.kt" include-lines="58-86"}
 
 When both KDoc annotations and runtime annotations are present, runtime annotations take precedence.
 
-## Generate the specification
+## Generate and serve the specification
 
-To generate the OpenAPI specification, use the `generateOpenApiDoc()` function:
+To generate and serve the OpenAPI specification, you have the following options:
+
+- Use the `generateOpenApiDoc()` function to serve the generated specification file.
+- Use the [OpenAPI](server-openapi.md) or [SwaggerUI](server-swagger-ui.md) plugins to serve interactive API documentation.
+
+### Generate and serve the specification file
+
+To assemble a complete OpenAPI document using the compiler-generated metadata and runtime route annotations, use the
+`generateOpenApiDoc()` function directly in your route:
 
 [//]: # (TODO: reference line numbers from example project)
 ```kotlin
-val doc = generateOpenApiDoc(
-    base = ...
-    routes = ...
-)
+get("/docs.json") {
+    val docs = generateOpenApiDoc(
+        OpenApiDoc(info = OpenApiInfo("My API", "1.0")),
+        apiRoute.descendants()
+    )
+    call.respond(docs)
+}
 ```
 
-This function assembles a complete OpenAPI document using the compiler-generated metadata and runtime route annotations.
+### Serve interactive specification
 
-## Serve the specification
-
-To make the generated specification available at runtime, you can use the [OpenAPI](server-openapi.md)
-or [SwaggerUI](server-swagger-ui.md) plugins.
-
-The following example serves the generated specification file at an OpenAPI endpoint:
+To expose the specification using a UI, use the [OpenAPI](server-openapi.md)
+and [SwaggerUI](server-swagger-ui.md) plugins:
 
 ```kotlin
-routing {
-    openAPI("/docs", swaggerFile = "openapi/generated.json")
+// Serves the OpenAPI UI
+openAPI("/openApi")
+
+// Serves the Swagger UI
+swaggerUI("/swaggerUI") {
+    info = OpenApiInfo("My API", "1.0")
+    source = OpenApiDocSource.RoutingSource(ContentType.Application.Json) {
+        apiRoute.descendants()
+    }
 }
 ```
