@@ -16,7 +16,7 @@ buildscript {
         }
         repositories {
             mavenLocal()
-            maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+            maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
         }
 
         configurations.classpath {
@@ -70,14 +70,14 @@ allprojects {
         kotlin_version = rootProject.properties['kotlin_snapshot_version']
         repositories {
             mavenLocal()
-            maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+            maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
         }
     }
 
     repositories {
         mavenCentral()
         maven {
-            url "https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev"
+            url = uri("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev")
         }
     }
 }
@@ -89,7 +89,7 @@ def ktorRepositoryDir = file("$buildDir/m2")
 if (ktorRepositoryDir.exists()) {
     allprojects {
         repositories {
-            maven { url ktorRepositoryDir.absolutePath }
+            maven { url = uri(ktorRepositoryDir.absolutePath) }
         }
     }
 } else {
