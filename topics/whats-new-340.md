@@ -153,11 +153,12 @@ routing {
 
 ### Runtime route annotations
 
-You can now describe OpenAPI metadata directly on routes using runtime annotations. These annotations attach to the
-route at runtime and become part of the routing tree. The [OpenAPI](server-openapi.md) and
-[SwaggerUI](server-swagger-ui.md) plugins read this metadata when building the OpenAPI specification.
+Ktor 3.4.0 introduces the `ktor-server-routing-annotate` module, which allows you to attach OpenAPI metadata directly
+to routes using runtime annotations.
+These annotations are applied to routes at runtime and become part of the routing tree, making them available to
+OpenAPI-related tooling.
 
-To add metadata to a route at runtime, use the `.annotate {}` DSL:
+To add metadata to a route at runtime, use the `.annotate {}` extension function:
 
 ```kotlin
 get("/messages") {
@@ -185,6 +186,12 @@ get("/messages") {
     description = "Retrieves a list of messages."
 }
 ```
+
+This API can be used as a standalone extension or in conjunction with Ktor's OpenAPI compiler plugin for the automatic
+generation of these calls. The [OpenAPI](server-openapi.md) and
+[SwaggerUI](server-swagger-ui.md) plugins also read this metadata when building the OpenAPI specification.
+
+For more details and examples, see [](openapi-spec-generation.md#runtime-route-annotations).
 
 ### API Key authentication
 
@@ -495,12 +502,26 @@ println("A file saved to ${file.path}")
 
 ### OpenAPI compiler extension
 
-In Ktor 3.4.0, the OpenAPI compiler extension of the Gradle plugin no longer generates a static OpenAPI file. Instead,
-it generates metadata that can be accessed at runtime.
+In Ktor 3.3.0, the OpenAPI compiler plugin generated a complete, static OpenAPI document at build time. In 3.4.0, it
+instead generates code that provides OpenAPI metadata at runtime, which is consumed by the [OpenAPI](server-openapi.md)
+and [Swagger UI](server-swagger-ui.md) plugins when serving the specification.
 
-Configuration is still done using the `openApi` block inside the `ktor` extension. However, properties such as `title`,
-`version`, `description`, and `target` have been deprecated and are ignored. Global OpenAPI metadata is now provided
-at runtime.
+The dedicated `buildOpenApi` Gradle task has been removed. The compiler plugin is now automatically applied during
+regular builds, and changes to routes or annotations are reflected in the running server without requiring any
+additional generation steps.
+
+
+#### Configuration
+
+Configuration is still done using the `openApi {}` block inside the `ktor` Gradle extension. However, properties used
+to define global OpenAPI metadata such as `title`, `version`, `description`, and `target` have been deprecated and are
+ignored.
+
+Global OpenAPI metadata is now defined and resolved at runtime rather than during compilation.
+
+The compiler extension configuration is now limited to feature flags that control how metadata is inferred and collected.
+
+For users migrating from the experimental preview in Ktor 3.3.0, the configuration has changed as follows:
 
 <compare>
 
