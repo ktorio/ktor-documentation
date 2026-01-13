@@ -5,14 +5,6 @@ extension of the Ktor Gradle plugin.
 
 > This sample is a part of the [`codeSnippets`](../../README.md) Gradle project.
 
-## Generate the OpenAPI specification
-
-```bash
-./gradlew :openapi-spec-gen:buildOpenApi
-```
-
-The generated OpenAPI specification is located in `build/ktor/openapi/generated.json`.
-
 ## Run the application
 
 To run the application, execute the following command in the repository's root directory:
@@ -21,4 +13,8 @@ To run the application, execute the following command in the repository's root d
 ./gradlew :openapi-spec-gen:run
 ```
 
-Navigate to [http://0.0.0.0:8080/docs](http://0.0.0.0:8080/docs) to access the OpenAPI documentation.
+To view the OpenAPI documentation, navigate to the following URLs:
+
+- [http://0.0.0.0:8080/docs.json](http://0.0.0.0:8080/docs.json) to view a JSON document of the API spec.
+- [http://0.0.0.0:8080/openApi](http://0.0.0.0:8080/openApi) to view the OpenAPI UI for the API spec.
+- [http://0.0.0.0:8080/swaggerUI](http://0.0.0.0:8080/swaggerUI) to view the Swagger UI for the API spec.

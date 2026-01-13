@@ -76,17 +76,19 @@ ktor {
 <deflist>
 <def>
 <title><code>enabled</code></title>
-Enables or disables OpenAPI metadata generation during compilation.
+Enables or disables OpenAPI route annotation code generation. Defaults to <code>false</code>.
 </def>
 <def>
 <title><code>codeInferenceEnabled</code></title>
-Controls whether the compiler attempts to infer OpenAPI metadata from routing code. Disable this option if inference
-produces incorrect results or if you prefer to define metadata explicitly using annotations.
-For more details, see <a href="#code-inference">Code inference rules</a>.
+Controls whether the compiler attempts to infer OpenAPI metadata from routing code. Defaults to <code>true</code>. 
+Disable this option if inference produces incorrect results or if you prefer to define metadata explicitly using
+annotations.
+For more details, see <a href="#code-inference">the code inference rules</a>.
 </def>
 <def>
 <title><code>onlyCommented</code></title>
-Limits metadata generation to routes that contain comment annotations. By default, all routes are processed.
+Limits metadata generation to routes that contain comment annotations. Defaults to <code>false</code>, meaning all
+routing calls are processed except those explicitly marked with <code>@ignore</code>.
 </def>
 </deflist>
 
@@ -95,7 +97,7 @@ Limits metadata generation to routes that contain comment annotations. By defaul
 The Ktor compiler plugin analyzes your server routing DSL to determine the structural shape of your API. This analysis
 is based solely on route declarations and does not inspect the contents of route handlers.
 
-From routing declarations, the compiler determines:
+The following is automatically inferred from the selectors in the routing API tree:
 - Merged paths (for example, `/api/v1/users/{id}`).
 - HTTP methods (such as `GET` and `POST`).
 - Path parameters.

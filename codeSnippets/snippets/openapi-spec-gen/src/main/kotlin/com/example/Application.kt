@@ -1,46 +1,91 @@
 package com.example
 
+import io.ktor.annotate.OpenApiDocSource
 import io.ktor.annotate.annotate
+import io.ktor.annotate.generateOpenApiDoc
 import io.ktor.http.*
+import io.ktor.openapi.OpenApiDoc
+import io.ktor.openapi.OpenApiInfo
 import io.ktor.openapi.jsonSchema
+import io.ktor.serialization.kotlinx.json.json
 import io.ktor.server.application.*
+import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.plugins.openapi.*
+import io.ktor.server.plugins.swagger.swaggerUI
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
 fun Application.module() {
+    install(ContentNegotiation) {
+        json()
+        json(Json {
+            encodeDefaults = false
+        })
+    }
     routing {
-        /**
-         * Hello, world.
-         *
-         * @response 200 text/plaintext Hello
-         */
-        get("/hello") {
-            call.respondText("Hello")
+        // Main page for marketing
+        get("/") {
+            call.respondText("<html><body><h1>Hello, World</h1></body></html>", ContentType.Text.Html)
         }
 
         /**
-         * Data back-end.
+         * API endpoints for users.
+         *
+         * These will appear in the resulting OpenAPI document.
          */
-        route("/data") {
+        val apiRoute = userCrud()
 
-            /**
-             * Users endpoint.
-             */
-            route("/users") {
+        get("/docs.json") {
+            val docs = generateOpenApiDoc(
+                OpenApiDoc(info = OpenApiInfo("My API", "1.0")),
+                apiRoute.descendants()
+            )
+            call.respond(docs)
+        }
+
+        /**
+         * View the generated UI for the API spec.
+         */
+        openAPI("/openApi"){
+            outputPath = "docs/routes"
+            // title, version, etc.
+            info = OpenApiInfo("My API from routes", "1.0.0")
+            // which routes to read from to build the model
+            // by default, it will check for `openapi/documentation.yaml` then use the routing root as a fallback
+            source = OpenApiDocSource.RoutingSource(ContentType.Application.Json) {
+                apiRoute.descendants()
+            }
+        }
+
+        /**
+         * View the Swagger flavor of the UI for the API spec.
+         */
+        swaggerUI("/swaggerUI") {
+            info = OpenApiInfo("My API", "1.0")
+            source = OpenApiDocSource.RoutingSource(ContentType.Application.Json) {
+                apiRoute.descendants()
+            }
+        }
+    }
+}
+
+fun Routing.userCrud(): Route =
+    route("/api") {
+        route("/users") {
                 val list = mutableListOf<User>()
 
                 /**
                  * Get a single user by ID.
                  *
-                 * @path id [ULong] the ID of the user
-                 * @response 400 The ID parameter is malformatted or missing.
-                 * @response 404 The user for the given ID does not exist.
-                 * @response 200 [User] The user found with the given ID.
+                 * – Path: id [ULong] the ID of the user
+                 * – Response: 400 The ID parameter is malformatted or missing.
+                 * – Response: 404 The user for the given ID does not exist.
+                 * – Response: 200 [User] The user found with the given ID.
                  */
                 get("/{id}") {
                     val id = call.parameters["id"]?.toULongOrNull()
@@ -53,7 +98,7 @@ fun Application.module() {
                 /**
                  * Get a list of users.
                  *
-                 * @response 200 The list of items.
+                 * – Response: 200 The list of items.
                  */
                 get("/users") {
                     val query = call.parameters["q"]
@@ -88,7 +133,7 @@ fun Application.module() {
                 /**
                  * Save a new user.
                  *
-                 * @response 204 The new user was saved.
+                 * – Response: 204 The new user was saved.
                  */
                 post {
                     list += call.receive<User>()
@@ -98,10 +143,10 @@ fun Application.module() {
                 /**
                  * Delete the user with the given ID.
                  *
-                 * @path id [ULong] the ID of the user to remove
-                 * @response 400 The ID parameter is malformatted or missing.
-                 * @response 404 The user for the given ID does not exist.
-                 * @response 204 The user was deleted.
+                 * – Path id [ULong] the ID of the user to remove
+                 * – Response: 400 The ID parameter is malformatted or missing.
+                 * – Response: 404 The user for the given ID does not exist.
+                 * – Response: 204 The user was deleted.
                  */
                 delete("/{id}") {
                     val id = call.parameters["id"]?.toULongOrNull()
@@ -111,13 +156,7 @@ fun Application.module() {
                     call.respond(HttpStatusCode.NoContent)
                 }
 
-            }
         }
-        openAPI(
-            path = "/docs",
-            swaggerFile = "openapi/generated.json"
-        )
-    }
 }
 
 @Serializable
