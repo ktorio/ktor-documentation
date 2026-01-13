@@ -351,10 +351,13 @@ generation step.
 ### Serve interactive documentation
 
 To expose the OpenAPI specification through an interactive UI, use the [OpenAPI](server-openapi.md)
-and [SwaggerUI](server-swagger-ui.md) plugins.
+and [Swagger UI](server-swagger-ui.md) plugins.
 
-These plugins assemble the specification at runtime and can be configured to read metadata directly from the routing
-tree:
+Both plugins assemble the specification at runtime and can read metadata directly from the routing tree.
+They differ in how the documentation is rendered:
+- The OpenAPI plugin renders documentation on the server and serves pre-generated HTML.
+- The Swagger UI plugin serves the OpenAPI specification as JSON or YAML and renders the UI in the browser using
+Swagger UI.
 
 ```kotlin
 // Serves the OpenAPI UI
