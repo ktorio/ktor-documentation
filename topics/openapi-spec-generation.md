@@ -3,8 +3,8 @@
 <show-structure for="chapter" depth="2"/>
 <secondary-label ref="server-feature"/>
 
-<var name="artifact_name" value="ktor-server-routing-annotate"/>
-<var name="package_name" value="io.ktor.server.routing.annotate"/>
+<var name="artifact_name" value="ktor-server-routing-openapi"/>
+<var name="package_name" value="io.ktor.server.routing.openapi"/>
 
 <tldr>
 <p>
@@ -19,11 +19,11 @@
 Ktor provides support for building OpenAPI specifications at runtime from one or more documentation sources.
 
 This functionality is available through:
-- The OpenAPI compiler extension (included in the Ktor Gradle plugin), which analyzes routing code at compile time and
+* The OpenAPI compiler extension (included in the Ktor Gradle plugin), which analyzes routing code at compile time and
 generates Kotlin code that registers OpenAPI metadata at runtime.
-- The routing annotation runtime API, which attaches OpenAPI metadata directly to routes in the running application.
+* The routing annotation runtime API, which attaches OpenAPI metadata directly to routes in the running application.
 
-You can use one, or both, and combine them with the [OpenAPI](server-openapi.md)
+You can use one or both and combine them with the [OpenAPI](server-openapi.md)
 and [SwaggerUI](server-swagger-ui.md) plugins to serve interactive API documentation.
 
 > The OpenAPI Gradle extension requires Kotlin 2.2.20. Using other versions may result in compilation
@@ -41,11 +41,11 @@ plugins {
 }
 ```
 
-* To use runtime route annotations, add the `%artifact_name%` artifact in your build script:
+* To use runtime route annotations, add the `%artifact_name%` artifact to your build script:
 
   <include from="lib.topic" element-id="add_ktor_artifact"/>
 
-## Configure the OpenAPI compiler extension
+## Configure the OpenAPI compiler extension {id="configure-the-extension"}
 
 The OpenAPI compiler extension controls how routing metadata is collected at compile time.
 It does not define the final OpenAPI document itself.
@@ -56,20 +56,13 @@ from routing declarations, code patterns, and comments.
 General OpenAPI information — such as the API title, version, servers, security schemes, and detailed schemas — is supplied
 at runtime [when the specification is generated](#generate-and-serve-the-specification).
 
-To configure the compiler plugin extension, use the `openApi` block inside the `ktor` extension in your
+To configure the compiler plugin extension, use the `openApi {}` block inside the `ktor` extension in your
 <path>build.gradle.kts</path>
 file:
 
-[//]: # (TODO: reference line numbers from example project)
 ```kotlin
-ktor {
-    openApi {
-        enabled = true
-        codeInferenceEnabled = true
-        onlyCommented = false
-    }
-}
 ```
+{src="snippets/openapi-spec-gen/build.gradle.kts" include-lines="20-26"}
 
 ### Configuration options
 
@@ -81,9 +74,9 @@ Enables or disables OpenAPI route annotation code generation. Defaults to <code>
 <def>
 <title><code>codeInferenceEnabled</code></title>
 Controls whether the compiler attempts to infer OpenAPI metadata from routing code. Defaults to <code>true</code>. 
-Disable this option if inference produces incorrect results or if you prefer to define metadata explicitly using
+Disable this option if inference produces incorrect results, or you prefer to define metadata explicitly using
 annotations.
-For more details, see <a href="#code-inference">the code inference rules</a>.
+For more details, see <a href="#code-inference">code inference rules</a>.
 </def>
 <def>
 <title><code>onlyCommented</code></title>
@@ -92,7 +85,7 @@ routing calls are processed except those explicitly marked with <code>@ignore</c
 </def>
 </deflist>
 
-## Routing structure analysis
+### Routing structure analysis
 
 The Ktor compiler plugin analyzes your server routing DSL to determine the structural shape of your API. This analysis
 is based solely on route declarations and does not inspect the contents of route handlers.
@@ -116,7 +109,7 @@ Because request parameters, bodies, and responses are handled inside route lambd
 OpenAPI description from the routing structure alone. To enrich the generated metadata, Ktor supports
 [annotations](#annotate-routes) and [automatic inference](#code-inference) based on common request-handling patterns.
 
-## Code inference 
+### Code inference
 
 When code inference is enabled, the compiler plugin recognizes common Ktor usage patterns and generates
 equivalent runtime annotations automatically.
@@ -136,7 +129,7 @@ The following table summarizes the supported inference rules:
 Inference follows extracted functions where possible and attempts to generate consistent documentation for typical
 request and response flows.
 
-### Disabling inference
+#### Disable inference for an endpoint
 
 If inference produces incorrect metadata for a specific endpoint, you can exclude it by adding an `ignore` marker:
 
@@ -147,22 +140,12 @@ get("/comments") {
 }
 ```
 
-To disable inference globally, update your build configuration:
-
-```kotlin
-ktor {
-    openApi {
-        codeInferenceEnabled = false
-    }
-}
-```
-
-## Annotate routes
+## Annotate routes {id="annotate-routes"}
 
 To enrich the specification, Ktor supports two ways of annotating routes:
 
 - [Comment-based annotations](#comment-annotations), analyzed by the compiler plugin.
-- [Runtime route annotations](#runtime-route-annotations), defined using the `.annotate {}` DSL.
+- [Runtime route annotations](#runtime-route-annotations), defined using the `.describe {}` DSL.
 
 You can use either approach or combine both.
 
@@ -175,26 +158,10 @@ Metadata is defined by placing a keyword at the start of a line, followed by a c
 
 You can attach comments directly to route declarations:
 
-[//]: # (TODO: reference line numbers from example project)
-
 ```kotlin
-/**
- * Get a list of widgets.
- *
- * Tags:
- *   - widgets
- *   - admin
- *
- * Cookie: X-Analytics-Session some tracking cookie
- *
- * Responses:
- *   - 200 application/json [Widget]+ A list of widgets
- *   - 400 Invalid request
- */
-get("/widgets") {
-    call.respond(widgetService.list())
-}
 ```
+{src="snippets/openapi-spec-gen/src/main/kotlin/com/example/Application.kt" include-lines="79-95"}
+
 #### Formatting rules
 
 - Keywords must appear at the start of the line.
@@ -236,117 +203,92 @@ The following variants are equivalent:
 
 ### Runtime route annotations {id="runtime-route-annotations"}
 
-In cases where compile-time analysis is insufficient — such as when using dynamic routing, interceptors, or conditional
-logic — you can attach OpenAPI operation metadata directly to a route at runtime using the `.annotate { }` extension
+<primary-label ref="experimental"/>
+
+In cases where compile-time analysis is insufficient, such as when using dynamic routing, interceptors, or conditional
+logic, you can attach OpenAPI operation metadata directly to a route at runtime using the `.describe {}` extension
 function.
 
 Each annotated route defines an OpenAPI [Operation object](https://swagger.io/specification/#operation-object),
 which represents a single HTTP operation (for example, `GET /users`) in the generated OpenAPI specification.
 The metadata is attached to the routing tree at runtime and is consumed by the OpenAPI and Swagger UI plugins.
 
-The `.annotate { }` DSL maps directly to the OpenAPI Specification. Property names and structure correspond to the
+The `.describe {}` DSL maps directly to the OpenAPI specification. Property names and structure correspond to the
 fields defined for an Operation object, including parameters, request bodies, responses, security requirements,
 servers, callbacks, and specification extensions (`x-*`).
 
-[//]: # (TODO: reference line numbers from example project)
+The runtime route annotations API is experimental and requires opting in using `@OptIn(ExperimentalKtorApi::class)`:
 
 ```kotlin
-get("/users") {
-    val query = call.parameters["q"]
-    val result = if (query != null) {
-        list.filter {it.name.contains(query, ignoreCase = true)  }
-    } else {
-        list
-    }
-
-    call.respond(result)
-}.annotate {
-    summary = "Get users"
-    description = "Retrieves a list of users."
-    parameters {
-        query("q") {
-            description = "An encoded query"
-            required = false
-        }
-    }
-    responses {
-        HttpStatusCode.OK {
-            description = "A list of users"
-            schema = jsonSchema<List<User>>()
-        }
-        HttpStatusCode.BadRequest {
-            description = "Invalid query"
-            ContentType.Text.Plain()
-        }
-    }
-}
 ```
-> For a complete list of available fields, refer to [the OpenAPI Specification](https://swagger.io/specification/#operation-object).
+{src="snippets/openapi-spec-gen/src/main/kotlin/com/example/Application.kt" include-lines="102-131"}
+
+> For a complete list of available fields, refer to the [OpenAPI specification](https://swagger.io/specification/#operation-object).
+>
+{style="tip"}
 
 Runtime annotations are merged with compiler-generated and comment-based metadata.
 When the same OpenAPI field is defined by multiple sources, values provided by runtime annotations take [precedence](#metadata-precedence).
 
-## Metadata precedence
+## Hide routes from the OpenAPI specification
 
-The final OpenAPI specification is assembled at runtime by merging metadata contributed from multiple sources.
+To exclude a route and its children from the generated OpenAPI document, use the `Route.hide()` function:
 
-The following sources are applied, in order:
+```kotlin
+@OptIn(ExperimentalKtorApi::class)
+get("/routes") {
+    // ....
+}.hide()
+```
 
-1. Compiler-generated metadata, including:
-    - [Routing structure analysis](#routing-structure-analysis)
-    - [Code inference](#code-inference)
-2. [Comment-based route annotations](#comment-annotations)
-3. [Runtime route annotations](#runtime-route-annotations)
+This is useful for internal, administrative, or diagnostic endpoints that should not be published, including routes used
+to [generate the OpenAPI specification](#assemble-and-serve-the-specification) itself.
 
-When the same OpenAPI field is defined by multiple sources, values provided by runtime annotations
-take precedence over comment-based annotations and compiler-generated metadata.
-
-Metadata that is not explicitly overridden is preserved and merged into the final document.
+The OpenAPI and Swagger UI plugins call `.hide()` automatically, so their routes are excluded from the resulting
+document.
 
 ## Generate and serve the specification
 
-The OpenAPI specification is assembled at runtime using metadata generated by the compiler plugin together with runtime
-route annotations.
+The OpenAPI specification is assembled at runtime from runtime route annotations and metadata generated by the compiler
+plugin.
 
 You can expose the specification in the following ways:
 
-- [Assemble and serve the OpenAPI document manually using the `generateOpenApiDoc()` function](#assemble-and-serve-the-specification).
+- [Assemble and serve the OpenAPI document manually](#assemble-and-serve-the-specification).
 - Use the [OpenAPI](server-openapi.md) or [SwaggerUI](server-swagger-ui.md) plugins to serve the specification and 
 interactive documentation.
 
 ### Assemble and serve the specification
 
-To assemble a complete OpenAPI document at runtime, use the `generateOpenApiDoc()` function.
+To assemble a complete OpenAPI document at runtime, create an `OpenApiDoc` instance and provide the routes that should
+be included in the specification.
 
-This function combines compiler-generated metadata with runtime route annotations from the routing tree and returns an
-instance of `io.ktor.openapi.OpenApiDoc`.
+The document is assembled from compiler-generated metadata and runtime route annotations from the routing tree. The
+resulting `OpenApiDoc` instance always reflects the current state of the application.
 
-You typically call it from a route handler and provide the routes that should be included in the specification:
+You typically construct the document from a route handler and respond with it directly:
 
-[//]: # (TODO: reference line numbers from example project)
 ```kotlin
-get("/docs.json") {
-    val docs = generateOpenApiDoc(
-        OpenApiDoc(info = OpenApiInfo("My API", "1.0")),
-        apiRoute.descendants()
-    )
-    call.respond(docs)
-}
 ```
+{src="snippets/openapi-spec-gen/src/main/kotlin/com/example/Application.kt" include-lines="43-46"}
+
 In this example, the OpenAPI document is serialized using the [`ContentNegotiation`](server-serialization.md) plugin.
 This assumes that a JSON serializer (for example, `kotlinx.serialization`) is installed.
 
+No additional build or generation step is required. Changes to routes or annotations are reflected automatically the
+next time the specification is requested.
+
 > If you want to make serialization explicit or avoid relying on `ContentNegotiation`, you can encode the document
-> manually and respond with JSON:
+> manually and respond with a JSON:
+> 
 > ```kotlin
 > call.respondText(
 >   Json.encodeToString(docs),
 >   ContentType.Application.Json
 > )
 >```
-
-The returned document always reflects the current state of the application and does not require a separate build or
-generation step.
+>
+{style="note"}
 
 ### Serve interactive documentation
 
@@ -371,3 +313,20 @@ swaggerUI("/swaggerUI") {
     }
 }
 ```
+
+### Metadata precedence
+
+The final OpenAPI specification is assembled at runtime by merging metadata contributed from multiple sources.
+
+The following sources are applied, in order:
+
+1. Compiler-generated metadata, including:
+    - [Routing structure analysis](#routing-structure-analysis)
+    - [Code inference](#code-inference)
+2. [Comment-based route annotations](#comment-annotations)
+3. [Runtime route annotations](#runtime-route-annotations)
+
+When the same OpenAPI field is defined by multiple sources, values provided by runtime annotations
+take precedence over comment-based annotations and compiler-generated metadata.
+
+Metadata that is not explicitly overridden is preserved and merged into the final document.

@@ -23,8 +23,9 @@ Ktor allows you to generate and serve Swagger UI for your project based on an Op
 With Swagger UI, you can visualize and interact with your API endpoints directly from the browser. 
 
 You can provide the OpenAPI specification in one of the following ways:
-- [Serve an existing YAML or JSON file](#static-openapi-file).
-- [Generate the specification at runtime using the OpenAPI compiler extension and runtime APIs](#generate-runtime-openapi-metadata).
+
+* [Serve an existing YAML or JSON file](#static-openapi-file).
+* [Generate the specification at runtime using the OpenAPI compiler extension and runtime APIs](#generate-runtime-openapi-metadata).
 
 ## Add dependencies {id="add_dependencies"}
 
@@ -56,13 +57,13 @@ the file system using `java.io.File`.
 ## Generate runtime OpenAPI metadata
 
 Instead of relying on a static file, you can generate the OpenAPI specification at runtime using metadata produced
-by the OpenAPI compiler plugin and route annotations.
+by the OpenAPI compiler plugin and route annotations:
 
 ```kotlin
 swaggerUI("/swaggerUI") {
     info = OpenApiInfo("My API", "1.0")
-    source = OpenApiDocSource.RoutingSource(ContentType.Application.Json) {
-        apiRoute.descendants()
+    source = OpenApiDocSource.Routing(ContentType.Application.Json) {
+        routingRoot.descendants()
     }
 }
 ```
@@ -71,10 +72,12 @@ With this, you can access the generated OpenAPI documentation at the `/swaggerUI
 the application.
 
 > For more information on the OpenAPI compiler extension and runtime APIs, see [](openapi-spec-generation.md).
+>
+{style="tip"}
 
 ## Configure Swagger UI
 
-You can customize Swagger UI within the `swaggerUI() { }` block, for example, by specifying a custom Swagger UI version:
+You can customize Swagger UI within the `swaggerUI {}` block, for example, by specifying a custom Swagger UI version:
 
 ```kotlin
 ```
@@ -82,11 +85,12 @@ You can customize Swagger UI within the `swaggerUI() { }` block, for example, by
 
 ## Configure CORS {id="configure-cors"}
 
-To ensure Swagger UI can access your API endpoints correctly, you must configure [Cross-Origin Resource Sharing (CORS)](server-cors.md).
+To ensure Swagger UI can access your API endpoints correctly, you need to first configure [Cross-Origin Resource Sharing
+(CORS)](server-cors.md).
 
 The example below applies the following CORS configuration:
-- `anyHost` enables cross-origin requests from any host.
-- `allowHeader` allows the `Content-Type` client header used for [content negotiation](server-serialization.md).
+* `anyHost` enables cross-origin requests from any host.
+* `allowHeader` allows the `Content-Type` client header used for [content negotiation](server-serialization.md).
 
 ```kotlin
 ```

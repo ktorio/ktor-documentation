@@ -22,8 +22,9 @@ The OpenAPI plugin allows you to generate OpenAPI documentation for your project
 Ktor allows you to serve OpenAPI documentation based on an OpenAPI specification.
 
 You can provide the OpenAPI specification in one of the following ways:
-- [Serve an existing YAML or JSON file](#static-openapi-file).
-- [Generate the specification at runtime using the OpenAPI compiler extension and runtime APIs](#generate-runtime-openapi-metadata).
+
+* [Serve an existing YAML or JSON file](#static-openapi-file).
+* [Generate the specification at runtime using the OpenAPI compiler extension and runtime APIs](#generate-runtime-openapi-metadata).
 
 In both cases, the OpenAPI plugin assembles the specification on the server and renders the documentation as HTML.
 
@@ -74,8 +75,8 @@ In this mode, the OpenAPI plugin assembles the specification directly from the r
 ```kotlin
  openAPI(path = "openapi") {
     info = OpenApiInfo("My API", "1.0")
-    source = OpenApiDocSource.RoutingSource {
-        apiRoute.descendants()
+    source = OpenApiDocSource.Routing {
+        routingRoot.descendants()
     }
 }
 ```
@@ -84,10 +85,12 @@ With this, you can access the generated OpenAPI documentation at the `/openapi` 
 application.
 
 > For more information on the OpenAPI compiler extension and runtime APIs, see [](openapi-spec-generation.md).
+> 
+{style="tip"}
 
 ## Configure OpenAPI {id="configure-openapi"}
 
-By default, documentation is rendered using `StaticHtml2Codegen`. You can customize the renderer inside the `openAPI() { }`
+By default, documentation is rendered using `StaticHtml2Codegen`. You can customize the renderer inside the `openAPI {}`
 block:
 
 ```kotlin

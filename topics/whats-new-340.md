@@ -153,18 +153,22 @@ routing {
 
 ### Runtime route annotations
 
-Ktor 3.4.0 introduces the `ktor-server-routing-annotate` module, which allows you to attach OpenAPI metadata directly
-to routes using runtime annotations.
-These annotations are applied to routes at runtime and become part of the routing tree, making them available to
+<primary-label ref="experimental"/>
+
+Ktor 3.4.0 introduces the `ktor-server-routing-openapi` module, which allows you to attach OpenAPI metadata directly
+to routes using runtime annotations. These annotations are applied to routes at runtime and become part of the routing tree, making them available to
 OpenAPI-related tooling.
 
-To add metadata to a route at runtime, use the `.annotate {}` extension function:
+The API is experimental and requires opting in using `@OptIn(ExperimentalKtorApi::class)`.
+
+To add metadata to a route at runtime, use the `.describe {}` extension function:
 
 ```kotlin
+@OptIn(ExperimentalKtorApi::class)
 get("/messages") {
     val query = call.parameters["q"]?.let(::parseQuery)
     call.respond(messageRepository.getMessages(query))
-}.annotate {
+}.describe {
     parameters {
         query("q") {
             description = "An encoded query"
@@ -187,8 +191,8 @@ get("/messages") {
 }
 ```
 
-This API can be used as a standalone extension or in conjunction with Ktor's OpenAPI compiler plugin for the automatic
-generation of these calls. The [OpenAPI](server-openapi.md) and
+You can use this API as a standalone extension or in combination with Ktor's OpenAPI compiler plugin to automatically
+generate these calls. The [OpenAPI](server-openapi.md) and
 [SwaggerUI](server-swagger-ui.md) plugins also read this metadata when building the OpenAPI specification.
 
 For more details and examples, see [](openapi-spec-generation.md#runtime-route-annotations).
@@ -502,7 +506,7 @@ println("A file saved to ${file.path}")
 
 ### OpenAPI compiler extension
 
-In Ktor 3.3.0, the OpenAPI compiler plugin generated a complete, static OpenAPI document at build time. In 3.4.0, it
+Previously, the OpenAPI compiler plugin generated a complete, static OpenAPI document at build time. In Ktor 3.4.0, it
 instead generates code that provides OpenAPI metadata at runtime, which is consumed by the [OpenAPI](server-openapi.md)
 and [Swagger UI](server-swagger-ui.md) plugins when serving the specification.
 
@@ -510,16 +514,16 @@ The dedicated `buildOpenApi` Gradle task has been removed. The compiler plugin i
 regular builds, and changes to routes or annotations are reflected in the running server without requiring any
 additional generation steps.
 
-
 #### Configuration
 
 Configuration is still done using the `openApi {}` block inside the `ktor` Gradle extension. However, properties used
-to define global OpenAPI metadata such as `title`, `version`, `description`, and `target` have been deprecated and are
+to define global OpenAPI metadata, such as `title`, `version`, `description`, and `target`, have been deprecated and are
 ignored.
 
 Global OpenAPI metadata is now defined and resolved at runtime rather than during compilation.
 
-The compiler extension configuration is now limited to feature flags that control how metadata is inferred and collected.
+The compiler extension configuration is now limited to feature options that control how metadata is inferred and
+collected.
 
 For users migrating from the experimental preview in Ktor 3.3.0, the configuration has changed as follows:
 
@@ -544,9 +548,9 @@ ktor {
     openApi {
         // Global control for the compiler plugin
         enabled = true
-        // Enables / disables inferring details from call handler code
+        // Enables and disables inferring details from call handler code
         codeInferenceEnabled = true
-        // Toggles whether analysis should be applied to all routes or only those which are commented
+        // Toggles whether all routes should be analysed or only commented ones
         onlyCommented = false
     }
 }

@@ -1,4 +1,4 @@
-val ktor_version = "3.4.0-eap-1511"
+val ktor_version = "3.4.0-eap-1518"
 val kotlin_version: String by project
 val logback_version: String by project
 
@@ -28,7 +28,7 @@ ktor {
 
 dependencies {
     implementation("io.ktor:ktor-server-core:$ktor_version")
-    implementation("io.ktor:ktor-server-routing-annotate:$ktor_version")
+    implementation("io.ktor:ktor-server-routing-openapi:$ktor_version")
     implementation("io.ktor:ktor-server-openapi:$ktor_version")
     implementation("io.ktor:ktor-server-content-negotiation:${ktor_version}")
     implementation("io.ktor:ktor-serialization-kotlinx-json:${ktor_version}")

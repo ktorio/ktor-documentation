@@ -176,7 +176,7 @@ This change unifies SSE handling across all client engines and addresses the lim
 ## Gradle plugin
 
 ### OpenAPI specification generation {id="openapi-spec-gen"}
-<secondary-label ref="experimental"/>
+<primary-label ref="experimental"/>
 
 Ktor 3.3.0 introduces an experimental OpenAPI generation feature via the Gradle plugin and a compiler plugin. This
 allows you to generate OpenAPI specifications directly from your application code at build time.
@@ -188,9 +188,6 @@ It provides the following capabilities:
     - Response codes and types
     - Security, descriptions, deprecations, and external documentation links
 - Infer request and response bodies from `call.receive()` and `call.respond()`.
-
-
-<include from="openapi-spec-generation.md" element-id="configure-the-extension"></include>
 
 #### Generate the OpenAPI specification
 
