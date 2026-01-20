@@ -1,18 +1,29 @@
 [//]: # (title: OpenAPI specification generation)
 
 <show-structure for="chapter" depth="2"/>
-<primary-label ref="experimental"/>
 <secondary-label ref="server-feature"/>
 
+<var name="artifact_name" value="ktor-server-routing-openapi"/>
+<var name="package_name" value="io.ktor.server.routing.openapi"/>
+
 <tldr>
+<p>
+<b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
+</p>
 <p>
 <b>Code example</b>: 
 <a href="https://github.com/ktorio/ktor-samples/tree/main/openapi">openapi</a>
 </p>
 </tldr>
 
-Ktor provides experimental support for generating OpenAPI specifications directly from your Kotlin code.
-This functionality is available via the Ktor Gradle plugin and can be combined with the [OpenAPI](server-openapi.md)
+Ktor provides support for building OpenAPI specifications at runtime from one or more documentation sources.
+
+This functionality is available through:
+* The OpenAPI compiler extension (included in the Ktor Gradle plugin), which analyzes routing code at compile time and
+generates Kotlin code that registers OpenAPI metadata at runtime.
+* The routing annotation runtime API, which attaches OpenAPI metadata directly to routes in the running application.
+
+You can use one or both and combine them with the [OpenAPI](server-openapi.md)
 and [SwaggerUI](server-swagger-ui.md) plugins to serve interactive API documentation.
 
 > The OpenAPI Gradle extension requires Kotlin 2.2.20. Using other versions may result in compilation
@@ -20,9 +31,9 @@ and [SwaggerUI](server-swagger-ui.md) plugins to serve interactive API documenta
 >
 {style="note"}
 
-## Add the Gradle plugin
+## Add dependencies
 
-To enable specification generation, apply the Ktor Gradle plugin to your project:
+* To enable OpenAPI metadata generation, apply the Ktor Gradle plugin to your project:
 
 ```kotlin
 plugins {
@@ -30,37 +41,59 @@ plugins {
 }
 ```
 
-## Configure the extension
+* To use runtime route annotations, add the `%artifact_name%` artifact to your build script:
 
-To configure the extension, use the `openApi` block inside the `ktor` extension in your
+  <include from="lib.topic" element-id="add_ktor_artifact"/>
+
+## Configure the OpenAPI compiler extension {id="configure-the-extension"}
+
+The OpenAPI compiler extension controls how routing metadata is collected at compile time.
+It does not define the final OpenAPI document itself.
+
+During compilation, the plugin generates Kotlin code that uses the OpenAPI runtime API to register metadata derived
+from routing declarations, code patterns, and comments.
+
+General OpenAPI information — such as the API title, version, servers, security schemes, and detailed schemas — is supplied
+at runtime [when the specification is generated](#generate-and-serve-the-specification).
+
+To configure the compiler plugin extension, use the `openApi {}` block inside the `ktor` extension in your
 <path>build.gradle.kts</path>
-file. You can provide metadata such as title, description, license, and contact information:
+file:
 
 ```kotlin
-ktor {
-    @OptIn(OpenApiPreview::class)
-    openApi {
-        title = "OpenAPI example"
-        version = "2.1"
-        summary = "This is a sample API"
-        description = "This is a longer description"
-        termsOfService = "https://example.com/terms/"
-        contact = "contact@example.com"
-        license = "Apache/1.0"
-
-        // Location of the generated specification (defaults to openapi/generated.json)
-        target = project.layout.buildDirectory.file("open-api.json")
-    }
-}
 ```
+{src="snippets/openapi-spec-gen/build.gradle.kts" include-lines="20-26"}
 
-## Routing API introspection
+### Configuration options
 
-The plugin can analyze your server routing DSL to infer basic path information, such as:
+<deflist>
+<def>
+<title><code>enabled</code></title>
+Enables or disables OpenAPI route annotation code generation. Defaults to <code>false</code>.
+</def>
+<def>
+<title><code>codeInferenceEnabled</code></title>
+Controls whether the compiler attempts to infer OpenAPI metadata from routing code. Defaults to <code>true</code>. 
+Disable this option if inference produces incorrect results, or you prefer to define metadata explicitly using
+annotations.
+For more details, see <a href="#code-inference">code inference rules</a>.
+</def>
+<def>
+<title><code>onlyCommented</code></title>
+Limits metadata generation to routes that contain comment annotations. Defaults to <code>false</code>, meaning all
+routing calls are processed except those explicitly marked with <code>@ignore</code>.
+</def>
+</deflist>
 
-- The merged path (`/api/v1/users/{id}`).
-- Path parameters.
+### Routing structure analysis
+
+The Ktor compiler plugin analyzes your server routing DSL to determine the structural shape of your API. This analysis
+is based solely on route declarations and does not inspect the contents of route handlers.
+
+The following is automatically inferred from the selectors in the routing API tree:
+- Merged paths (for example, `/api/v1/users/{id}`).
 - HTTP methods (such as `GET` and `POST`).
+- Path parameters.
 
 ```kotlin
 routing {
@@ -72,72 +105,228 @@ routing {
 }
 ```
 
-Because request parameters and responses are handled inside route lambdas, the plugin cannot infer detailed
-request/response schemas automatically. To generate a complete and useful specification, you can use annotations.
+Because request parameters, bodies, and responses are handled inside route lambdas, the compiler cannot infer a complete
+OpenAPI description from the routing structure alone. To enrich the generated metadata, Ktor supports
+[annotations](#annotate-routes) and [automatic inference](#code-inference) based on common request-handling patterns.
 
-## Annotate routes
+### Code inference
 
-To enrich the specification, Ktor uses a KDoc-like annotation API. Annotations provide metadata that cannot be inferred
-from code and integrate seamlessly with existing routes.
+When code inference is enabled, the compiler plugin recognizes common Ktor usage patterns and generates
+equivalent runtime annotations automatically.
+
+The following table summarizes the supported inference rules:
+
+| Rule                | Description                                                    | Input                                                                      | Output (from annotate scope)                                             |
+|---------------------|----------------------------------------------------------------|----------------------------------------------------------------------------|--------------------------------------------------------------------------|
+| Request Body        | Provides request body schema from `ContentNegotiation` reads   | `call.receive<T>()`                                                        | `requestBody { schema = jsonSchema<T>() }`                               |
+| Response Body       | Provides response body schema from `ContentNegotiation` writes | `call.respond<T>()`                                                        | `responses { HttpStatusCode.OK { schema = jsonSchema<T>() } }`           |
+| Response Headers    | Includes custom headers for responses                          | `call.response.header("X-Foo", "Bar")`                                     | `responses { HttpStatusCode.OK { headers { header("X-Foo", "Bar") } } }` |
+| Path Parameters     | Finds path parameter references                                | `call.parameters["id"]`                                                    | `parameters { path("id") }`                                              |
+| Query Parameters    | Finds query parameter references                               | `call.queryParameters["name"]`                                             | `parameters { query("name") }`                                           |
+| Request Headers     | Finds request header references                                | `call.request.headers["X-Foo"]`                                            | `parameters { header("X-Foo") }`                                         |
+| Resource API routes | Infers call structure for the Resources routing API            | `call.get<List> { /**/ }; @Resource("/list") class List(val name: String)` | `parameters { query("name") }`                                           |
+
+Inference follows extracted functions where possible and attempts to generate consistent documentation for typical
+request and response flows.
+
+#### Disable inference for an endpoint
+
+If inference produces incorrect metadata for a specific endpoint, you can exclude it by adding an `ignore` marker:
+
+```kotlin
+// ignore!
+get("/comments") {
+    // ...
+}
+```
+
+## Annotate routes {id="annotate-routes"}
+
+To enrich the specification, Ktor supports two ways of annotating routes:
+
+- [Comment-based annotations](#comment-annotations), analyzed by the compiler plugin.
+- [Runtime route annotations](#runtime-route-annotations), defined using the `.describe {}` DSL.
+
+You can use either approach or combine both.
+
+### Comment-based route annotations {id="comment-annotations"}
+
+Comment-based annotations provide metadata that cannot be inferred from code and integrate seamlessly with existing
+routes.
+
+Metadata is defined by placing a keyword at the start of a line, followed by a colon (`:`) and its value.
+
+You can attach comments directly to route declarations:
+
+```kotlin
+```
+{src="snippets/openapi-spec-gen/src/main/kotlin/com/example/Application.kt" include-lines="79-95"}
+
+#### Formatting rules
+
+- Keywords must appear at the start of the line.
+- A colon (`:`) separates the keyword from its value.
+- Plural forms (for example, `Tags`, `Responses`) allow grouped definitions.
+- Singular forms (for example, `Tag`, `Response`) are also supported.
+- Top-level bullet points (`-`) are optional and only affect formatting.
+
+The following variants are equivalent:
 
 ```kotlin
 /**
- * Get a single user.
- *
- * @path id The ID of the user
- * @response 404 The user was not found
- * @response 200 [User] The user.
+ * Tag: widgets
+ * 
+ * Tags:
+ *   - widgets
+ * 
+ * - Tags:
+ *  - widgets
  */
-get("/api/users/{id}") {
-    val user = repository.get(call.parameters["id"]!!)
-        ?: return@get call.respond(HttpStatusCode.NotFound)
-    call.respond(user)
-}
-
 ```
 
-### Supported KDoc fields
+#### Supported comment fields
 
-| Tag             | Format                                          | Description                                     |
-|-----------------|-------------------------------------------------|-------------------------------------------------|
-| `@tag`          | `@tag *name`                                    | Associates the endpoint with a tag for grouping |
-| `@path`         | `@path [Type] name description`                 | Describes a path parameter                      |
-| `@query`        | `@query [Type] name description`                | Query parameter                                 |
-| `@header`       | `@header [Type] name description`               | Header parameter                                |
-| `@cookie`       | `@cookie [Type] name description`               | Cookie parameter                                |
-| `@body`         | `@body contentType [Type] description`          | Request body                                    |
-| `@response`     | `@response code contentType [Type] description` | Response with optional type                     |
-| `@deprecated`   | `@deprecated reason`                            | Marks endpoint deprecated                       |
-| `@description`  | `@description text`                             | Extended description                            |
-| `@security`     | `@security scheme`                              | Security requirements                           |
-| `@externalDocs` | `@external href`                                | External documentation links                    |
+| Tag            | Format                                          | Description                      |
+|----------------|-------------------------------------------------|----------------------------------|
+| `Tag`          | `Tag: name`                                     | Groups the endpoint under a tag  |
+| `Path`         | `Path: [Type] name description`                 | Path parameter                   |
+| `Query`        | `Query: [Type] name description`                | Query parameter                  |
+| `Header`       | `Header: [Type] name description`               | Header parameter                 |
+| `Cookie`       | `Cookie: [Type] name description`               | Cookie parameter                 |
+| `Body`         | `Body: contentType [Type] description`          | Request body                     |
+| `Response`     | `Response: code contentType [Type] description` | Response definition              |
+| `Deprecated`   | `Deprecated: reason`                            | Marks the endpoint as deprecated |
+| `Description`  | `Description: text`                             | Extended description             |
+| `Security`     | `Security: scheme`                              | Security requirements            |
+| `ExternalDocs` | `ExternalDocs: href`                            | External documentation link      |
 
 
-## Generate the specification
+### Runtime route annotations {id="runtime-route-annotations"}
 
-To generate the OpenAPI specification, run the following Gradle task:
+<primary-label ref="experimental"/>
 
-```shell
-./gradlew buildOpenApi
+In cases where compile-time analysis is insufficient, such as when using dynamic routing, interceptors, or conditional
+logic, you can attach OpenAPI operation metadata directly to a route at runtime using the `.describe {}` extension
+function.
+
+Each annotated route defines an OpenAPI [Operation object](https://swagger.io/specification/#operation-object),
+which represents a single HTTP operation (for example, `GET /users`) in the generated OpenAPI specification.
+The metadata is attached to the routing tree at runtime and is consumed by the OpenAPI and Swagger UI plugins.
+
+The `.describe {}` DSL maps directly to the OpenAPI specification. Property names and structure correspond to the
+fields defined for an Operation object, including parameters, request bodies, responses, security requirements,
+servers, callbacks, and specification extensions (`x-*`).
+
+The runtime route annotations API is experimental and requires opting in using `@OptIn(ExperimentalKtorApi::class)`:
+
+```kotlin
+```
+{src="snippets/openapi-spec-gen/src/main/kotlin/com/example/Application.kt" include-lines="102-131"}
+
+> For a complete list of available fields, refer to the [OpenAPI specification](https://swagger.io/specification/#operation-object).
+>
+{style="tip"}
+
+Runtime annotations are merged with compiler-generated and comment-based metadata.
+When the same OpenAPI field is defined by multiple sources, values provided by runtime annotations take [precedence](#metadata-precedence).
+
+## Hide routes from the OpenAPI specification
+
+To exclude a route and its children from the generated OpenAPI document, use the `Route.hide()` function:
+
+```kotlin
+@OptIn(ExperimentalKtorApi::class)
+get("/routes") {
+    // ....
+}.hide()
 ```
 
-This task runs the Kotlin compiler with a custom plugin that analyzes your routing code and produces a
-JSON specification.
+This is useful for internal, administrative, or diagnostic endpoints that should not be published, including routes used
+to [generate the OpenAPI specification](#assemble-and-serve-the-specification) itself.
 
-> Some constructs cannot be evaluated at compile time. The generated specification may be incomplete. Improvements are
-> planned for later Ktor releases.
+The OpenAPI and Swagger UI plugins call `.hide()` automatically, so their routes are excluded from the resulting
+document.
+
+## Generate and serve the specification
+
+The OpenAPI specification is assembled at runtime from runtime route annotations and metadata generated by the compiler
+plugin.
+
+You can expose the specification in the following ways:
+
+- [Assemble and serve the OpenAPI document manually](#assemble-and-serve-the-specification).
+- Use the [OpenAPI](server-openapi.md) or [SwaggerUI](server-swagger-ui.md) plugins to serve the specification and 
+interactive documentation.
+
+### Assemble and serve the specification
+
+To assemble a complete OpenAPI document at runtime, create an `OpenApiDoc` instance and provide the routes that should
+be included in the specification.
+
+The document is assembled from compiler-generated metadata and runtime route annotations from the routing tree. The
+resulting `OpenApiDoc` instance always reflects the current state of the application.
+
+You typically construct the document from a route handler and respond with it directly:
+
+```kotlin
+```
+{src="snippets/openapi-spec-gen/src/main/kotlin/com/example/Application.kt" include-lines="43-46"}
+
+In this example, the OpenAPI document is serialized using the [`ContentNegotiation`](server-serialization.md) plugin.
+This assumes that a JSON serializer (for example, `kotlinx.serialization`) is installed.
+
+No additional build or generation step is required. Changes to routes or annotations are reflected automatically the
+next time the specification is requested.
+
+> If you want to make serialization explicit or avoid relying on `ContentNegotiation`, you can encode the document
+> manually and respond with a JSON:
+> 
+> ```kotlin
+> call.respondText(
+>   Json.encodeToString(docs),
+>   ContentType.Application.Json
+> )
+>```
 >
 {style="note"}
 
-## Serve the specification
+### Serve interactive documentation
 
-To make the generated specification available at runtime, you can use the [OpenAPI](server-openapi.md)
-or [SwaggerUI](server-swagger-ui.md) plugins.
+To expose the OpenAPI specification through an interactive UI, use the [OpenAPI](server-openapi.md)
+and [Swagger UI](server-swagger-ui.md) plugins.
 
-The following example serves the generated specification file at an OpenAPI endpoint:
+Both plugins assemble the specification at runtime and can read metadata directly from the routing tree.
+They differ in how the documentation is rendered:
+- The OpenAPI plugin renders documentation on the server and serves pre-generated HTML.
+- The Swagger UI plugin serves the OpenAPI specification as JSON or YAML and renders the UI in the browser using
+Swagger UI.
 
 ```kotlin
-routing {
-    openAPI("/docs", swaggerFile = "openapi/generated.json")
+// Serves the OpenAPI UI
+openAPI("/openApi")
+
+// Serves the Swagger UI
+swaggerUI("/swaggerUI") {
+    info = OpenApiInfo("My API", "1.0")
+    source = OpenApiDocSource.RoutingSource(ContentType.Application.Json) {
+        apiRoute.descendants()
+    }
 }
 ```
+
+### Metadata precedence
+
+The final OpenAPI specification is assembled at runtime by merging metadata contributed from multiple sources.
+
+The following sources are applied, in order:
+
+1. Compiler-generated metadata, including:
+    - [Routing structure analysis](#routing-structure-analysis)
+    - [Code inference](#code-inference)
+2. [Comment-based route annotations](#comment-annotations)
+3. [Runtime route annotations](#runtime-route-annotations)
+
+When the same OpenAPI field is defined by multiple sources, values provided by runtime annotations
+take precedence over comment-based annotations and compiler-generated metadata.
+
+Metadata that is not explicitly overridden is preserved and merged into the final document.

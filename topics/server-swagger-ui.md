@@ -19,9 +19,13 @@
 The SwaggerUI plugin allows you to generate Swagger UI for your project.
 </link-summary>
 
-Ktor allows you to generate and serve Swagger UI for your project based on the existing OpenAPI specification.
-With Swagger UI, you can visualize and interact with the API resources. You can serve an existing YAML or JSON 
-specification, or generate one using the [OpenAPI extension](openapi-spec-generation.md) of the Ktor Gradle plugin.
+Ktor allows you to generate and serve Swagger UI for your project based on an OpenAPI specification.
+With Swagger UI, you can visualize and interact with your API endpoints directly from the browser. 
+
+You can provide the OpenAPI specification in one of the following ways:
+
+* [Serve an existing YAML or JSON file](#static-openapi-file).
+* [Generate the specification at runtime using the OpenAPI compiler extension and runtime APIs](#generate-runtime-openapi-metadata).
 
 ## Add dependencies {id="add_dependencies"}
 
@@ -30,10 +34,13 @@ Serving Swagger UI requires adding the `%artifact_name%` artifact in the build s
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 
-## Configure Swagger UI {id="configure-swagger"}
+## Use a static OpenAPI file {id="static-openapi-file"}
 
-To serve Swagger UI, you need to call the [swaggerUI](%plugin_api_link%) method that creates a `GET` endpoint with Swagger UI 
-at the `path` rendered from the OpenAPI specification placed at `swaggerFile`:
+To serve Swagger UI from an existing OpenAPI specification file, use the [`swaggerUI()`](%plugin_api_link%) function and
+specify the file location.
+
+The following example creates a `GET` endpoint at the `swagger` path and renders the Swagger UI from the provided
+OpenAPI specification file:
 
 ```kotlin
 import io.ktor.server.plugins.swagger.*
@@ -44,25 +51,46 @@ routing {
 }
 ```
 
-This method tries to look up the OpenAPI specification in the application resources.
-Otherwise, it tries to read the OpenAPI specification from the file system using `java.io.File`.
+The plugin first looks for the specification in the application resources. If not found, it attempts to load it from
+the file system using `java.io.File`.
 
-Optionally, you can customize Swagger UI inside the `swaggerUI` block.
-For example, you can use another Swagger UI version or apply a custom style.
+## Generate runtime OpenAPI metadata
+
+Instead of relying on a static file, you can generate the OpenAPI specification at runtime using metadata produced
+by the OpenAPI compiler plugin and route annotations:
+
+```kotlin
+swaggerUI("/swaggerUI") {
+    info = OpenApiInfo("My API", "1.0")
+    source = OpenApiDocSource.Routing(ContentType.Application.Json) {
+        routingRoot.descendants()
+    }
+}
+```
+
+With this, you can access the generated OpenAPI documentation at the `/swaggerUI` path, reflecting the current state of
+the application.
+
+> For more information on the OpenAPI compiler extension and runtime APIs, see [](openapi-spec-generation.md).
+>
+{style="tip"}
+
+## Configure Swagger UI
+
+You can customize Swagger UI within the `swaggerUI {}` block, for example, by specifying a custom Swagger UI version:
 
 ```kotlin
 ```
 {src="snippets/json-kotlinx-openapi/src/main/kotlin/com/example/Application.kt" include-lines="40,53-55,59"}
 
-You can now [run](server-run.md) the application and open the `/swagger` page to see the available endpoints, and test them.
-
-
 ## Configure CORS {id="configure-cors"}
 
-To make sure your API works nicely with Swagger UI, you need to set up a policy for [Cross-Origin Resource Sharing (CORS)](server-cors.md).
+To ensure Swagger UI can access your API endpoints correctly, you need to first configure [Cross-Origin Resource Sharing
+(CORS)](server-cors.md).
+
 The example below applies the following CORS configuration:
-- `anyHost` enables cross-origin requests from any host;
-- `allowHeader` allows the `Content-Type` client header used in [content negotiation](server-serialization.md).
+* `anyHost` enables cross-origin requests from any host.
+* `allowHeader` allows the `Content-Type` client header used for [content negotiation](server-serialization.md).
 
 ```kotlin
 ```
