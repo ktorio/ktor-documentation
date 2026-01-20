@@ -143,14 +143,23 @@ install(Compression) {
 
 ## Compression Level {id="compression_level"}
 
-`Ztsd` comes with a configurable compression level. By default, it is set to `3`, and you can configure it using
-the `compressionLevel` property.
+`Zstd` can be included in your compression suite by including the `ktor-server-compression-zstd` artifact in your build.
+
+You can configure the compression level for `Zstd` using the `level` parameter. The default compression level is `3`, but you can adjust it based on your needs.
 
 ```kotlin
 install(Compression) {
-    zstd {
-        compressionLevel = 3
-    }
+    // defaults to level = 3
+    zstd(level = 20)
+}
+```
+
+You can also call `zstdStandard()` to include all the default compression methods:
+
+```kotlin
+install(Compression) {
+    // equivalent to gzip(); deflate(); zstd(level = 7); identity()
+    zstdStandard(level = 7)
 }
 ```
 

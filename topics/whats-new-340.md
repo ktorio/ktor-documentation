@@ -44,16 +44,23 @@ install(Authentication) {
 
 [Ztsd](https://github.com/facebook/zstd) compression is now supported by the [Compression](server-compression.md)
 plugin.
+
 `Zstd` is a fast compression algorithm that offers high compression ratios and low compression times, and has a
-configurable compression level. To enable it, specify the `zstd {}` block inside the `install(Compression) {}` block 
-with the desired configuration:
+configurable compression level. 
+
+To enable it, include the `ktor-server-compression-zstd` dependency in your project:
+```kotlin
+implementation("io.ktor:ktor-server-compression-zstd:$ktor_version")
+```
+
+Then, include a `zstd()` inside the `install(Compression) {}` block with the desired configuration:
 
 ```kotlin
 install(Compression) {
-    zstd {
-        compressionLevel = 3
-        ...
-    }
+    gzip()
+    deflate()
+    zstd(level = 3)
+    identity()
 }
 ```
 
