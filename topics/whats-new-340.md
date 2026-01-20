@@ -429,6 +429,34 @@ val client = HttpClient {
 
 This allows you to explicitly override earlier default request configuration when composing or reusing client setups.
 
+### Shared source set support for `js` and `wasmJs` targets
+
+Ktor now supports [Kotlin’s shared `web` source set](https://kotlinlang.org/docs/whatsnew2220.html#shared-source-set-for-js-and-wasmjs-targets)
+in multiplatform projects, allowing you to share Ktor dependencies between `js` and `wasmJs` targets. This makes it
+easier to share web-specific client code, such as HTTP clients and engines, across JavaScript and Wasm/JS.
+
+In your
+<path>build.gradle.kts</path>
+file, you can declare Ktor dependencies in the `webMain` source set:
+
+```kotlin
+kotlin {
+    sourceSets {
+        webMain.dependencies {
+            implementation("io.ktor:ktor-client-js:%ktor_version%")
+        }
+    }
+}
+```
+
+You can then use APIs available to both `js` and `wasmJs` targets:
+
+```kotlin
+// src/webMain/kotlin/Main.kt
+
+actual fun createClient(): HttpClient = HttpClient(Js)
+```
+
 ## I/O
 
 ### Stream bytes from a `ByteReadChannel` to a `RawSink`
