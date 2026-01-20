@@ -279,6 +279,35 @@ This simplifies working with structured configuration and supports automatic par
 
 For more information and advanced usage, see [](server-dependency-injection.md).
 
+### Access the application instance in `testApplication`
+
+You can now access the running `Application` instance directly from the `testApplication {}` block using the
+`ApplicationTestBuilder.application` property.
+
+Previously, the `Application` instance was only available inside the nested `application {}` configuration block, which
+made it difficult to reference the application later in the test. The new `application` property exposes the same instance
+after configuration and startup.
+
+The following example uses the `application` property to assert that a plugin was installed:
+
+```kotlin
+@Test
+fun testAccessApplicationInstance() = testApplication {
+    // Configures the application
+    application {
+        install(CORS)
+    }
+
+    // Ensures the application is started
+    startApplication()
+
+    // Accesses the same Application instance from the test
+    val app: Application = application
+
+    assertTrue(app.pluginOrNull(CORS) != null)
+}
+```
+
 ### Development mode auto-reload regression {id="regression"}
 
 As a side effect to the support of suspending functions, blocking function references (`Application::myModule`) are now
