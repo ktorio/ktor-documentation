@@ -437,7 +437,7 @@ easier to share web-specific client code, such as HTTP clients and engines, acro
 
 In your
 <path>build.gradle.kts</path>
-file, you can declare Ktor dependencies in `webMain`:
+file, you can declare Ktor dependencies in the `webMain` source set:
 
 ```kotlin
 kotlin {
@@ -456,10 +456,6 @@ You can then use APIs available to both `js` and `wasmJs` targets:
 
 actual fun createClient(): HttpClient = HttpClient(Js)
 ```
-
-> Existing <path>.jsAndWasmShared.kt</path> source files continue to work without changes.
->
-{style="note"}
 
 ## I/O
 
