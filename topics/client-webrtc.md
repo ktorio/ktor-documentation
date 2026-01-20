@@ -40,8 +40,10 @@ To use `WebRtcClient`, you need to include the `%artifact_name%` artifact in the
 
 When creating a `WebRtcClient`, choose an engine based on your target platform:
 
-- JS/Wasm: `JsWebRtc` – uses browser `RTCPeerConnection` and media devices.
-- Android: `AndroidWebRtc` – uses `PeerConnectionFactory` and Android media APIs.
+- JS/Wasm: `JsWebRtc` – uses [WebRTC](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API), 
+[Media Capture and Streams](https://developer.mozilla.org/en-US/docs/Web/API/Media_Capture_and_Streams_API) browser APIs.
+- Android: `AndroidWebRtc` – uses a pre-compiled WebRTC library for Android by [Stream](https://github.com/GetStream/webrtc-android) and Android media APIs.
+- iOS: `IosWebRtc` - uses [WebRTC SDK](https://github.com/webrtc-sdk) for iOS and native [AVFoundation](https://developer.apple.com/documentation/avfoundation) framework.
 
 You can then provide platform-specific configuration similar to `HttpClient`. STUN/TURN servers are required for
 [ICE](#ice) to work correctly. You can use existing solutions such as [coturn](https://github.com/coturn/coturn):
@@ -66,6 +68,16 @@ val androidClient = WebRtcClient(AndroidWebRtc) {
     defaultConnectionConfig = {
         iceServers = listOf(WebRtc.IceServer("stun:stun.l.google.com:19302"))
     }
+}
+```
+
+</tab>
+
+<tab title="iOS" group-key="ios">
+
+```kotlin
+val iosClient = WebRtcClient(IosWebRtc) {
+    // the same configuration, no extra context needed
 }
 ```
 
@@ -221,15 +233,115 @@ scope.launch {
 }
 ```
 
+## Platform-specific logic
+
+This API provides high-level abstractions, but there are use-cases that may require accessing platform-specific APIs.
+You can use the `.getNative()` extension functions to retrieve the underlying implementations.
+Platform-specific libraries are exposed as transitive libraries, except for `WebRTC-SDK` CocoaPod on iOS.
+
+<tabs group="platform" id="platform-specific-logic">
+<tab title="JS/Wasm" group-key="js-wasm">
+
+```kotlin
+// DOM API is imported from `kotlin-wrappers`
+
+val videoTrack = rtcClient.createVideoTrack()
+val jsStream = MediaStream().apply {
+    val nativeTrack: MediaStreamTrack = videoTrack.getNative()
+    addTrack(nativeTrack)
+}
+
+// start rendering video
+val videoElement = document.createElement("video") as HTMLVideoElement
+videoElement.srcObject = jsStream
+videoElement.autoplay = true
+
+// stop rendering video
+videoElement.srcObject = null
+```
+
+</tab>
+<tab title="Android" group-key="android">
+
+```kotlin
+val eglBase = org.webrtc.EglBase.create() // should be unique in the app
+
+val videoTrack = rtcClient.createVideoTrack()
+val nativeTrack: org.webrtc.VideoTrack = videoTrack.getNative()
+
+// create a surface to render incoming video frames
+val renderer = org.webrtc.SurfaceViewRenderer()
+renderer.init(eglBase.eglBaseContext, null)
+
+// start rendering video
+videoTrack.addSink(renderer)
+
+// stop rendering video
+videoTrack.removeSink(renderer)
+renderer.release()
+```
+
+</tab>
+
+<tab title="iOS" group-key="ios">
+
+```kotlin
+val videoTrack = rtcClient.createVideoTrack()
+val nativeTrack: RTCVideoTrack = videoTrack.getNative()
+
+// create a surface to render incoming video frames
+val videoView = RTCMTLVideoView() // iOS UIKit View
+
+// start rendering video
+nativeTrack.addRenderer(videoView)
+
+// stop rendering video
+nativeTrack.removeRenderer(videoView)
+```
+
+To use the `WebRTC-SDK` API, you need to install it manually:
+
+```kotlin
+// build.gradle.kts
+kotlin {
+    cocoapods {
+        pod("WebRTC-SDK") {
+            version = "137.7151.04" // or newer
+            // Default module name is `WebRTC-SDK`, you can change it for convenience
+            moduleName = "WebRTC"
+            packageName = "WebRTC"
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+```kotlin
+// On Android and iOS, audio track playback can be started/stopped without using `getNative()`
+// In browser, you still should create an <audio/> element.
+
+val audio = rtcClient.createAudioTrack()
+// start playing audio
+audio.enable(true)
+// stop playing audio
+audio.enable(false)
+```
+
+
+> These snippets can be used with Compose Multiplatform, but don't account for its lifecycle. For a complete integration, see the [Ktor Chat](https://github.com/ktorio/ktor-chat) example.
+{style="note"}
+
 ## Limitations
 
 The WebRTC client is experimental and has the following limitations:
 
 - Signaling is not included. You need to implement your own signaling (for example, with WebSockets or HTTP).
-- Supported platforms are JavaScript/Wasm and Android. iOS, JVM desktop, and Kotlin/Native support are planned in future
+- Supported platforms are JavaScript/Wasm, Android and iOS. JVM desktop, and Kotlin/Native support are planned in future
   releases.
 - Permissions must be handled by your application. Browsers prompt users for microphone and camera access, while
-  Android requires runtime permission requests.
+  Android and iOS require runtime permission requests.
 - Only basic audio and video tracks are supported. Screen sharing, device selection, simulcast, and advanced RTP
   features are not yet available.
 - Connection statistics are available but differ across platforms and do not follow a unified schema.
