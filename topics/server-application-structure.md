@@ -355,7 +355,11 @@ Application modules can be defined in any source file and are loaded by the engi
 
 ### Modulith deployment
 
-Multiple services can share a single engine instance by loading multiple application modules through configuration:
+Instead of fully independent microservices, multiple Gradle modules representing services can be packaged independently
+but deployed together in a single Ktor application. This approach is commonly referred to as a modulith.
+
+Each Gradle module remains internally isolated and exposes an application module that can be loaded through
+configuration:
 
 ```yaml
 # application.yaml
@@ -369,4 +373,3 @@ ktor:
       - com.example.customer.customerModule
       - com.example.order.orderModule
 ```
-
