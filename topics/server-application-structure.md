@@ -169,7 +169,9 @@ Each feature can be migrated or versioned independently. A typical feature modul
 fun Application.customerModule(service: CustomerService) {
     routing {
         route("/customer") {
-            get("/{id}") { call.respond(service.get(call.parameters["id"]!!)) }
+            get("/{id}") { 
+                call.respond(service.get(call.parameters["id"]!!)) 
+            }
             post {
                 val dto = call.receive<CustomerDto>()
                 call.respond(service.create(dto))
@@ -195,20 +197,15 @@ domain/
 │  ├─ Customer.kt           // Domain entity
 │  ├─ CustomerService.kt    // Domain service
 │  ├─ CustomerRepository.kt // Domain repository interface
-│  └─ CustomerRoutes.kt     // Feature routes exposing domain functionality
 ├─ order/
 │  ├─ Order.kt
 │  ├─ OrderService.kt
 │  └─ OrderRepository.kt
-infrastructure/
-├─ persistence/
-│  ├─ ExposedCustomerRepository.kt // Concrete persistence implementation
-│  └─ ExposedOrderRepository.kt
-├─ messaging/                    // Event messaging infrastructure
-└─ config/                       // Application configuration for infrastructure
-events/
-├─ DomainEvents.kt               // Domain event definitions
-└─ EventPublisher.kt             // Event publishing utilities
+
+server/                               // Ktor server application (depends on domain and infrastructure)
+├─ Authentication.kt                  // Cross-cutting concerns as separate server modules
+├─ Customers.kt                       // Customer HTTP routes
+└─ Orders.kt                          // Order HTTP routes
 ```
 ### Domain layer
 
@@ -277,7 +274,7 @@ You expose each domain through its own route file or module function, injecting 
 state:
 
 ```kotlin
-// domain/customer/CustomerRoutes.kt
+// server/CustomerRoutes.kt
 fun Application.customerRoutes(service: CustomerService) {
     route("/customers") {
         post("/{id}/contacts") {
@@ -299,10 +296,6 @@ fun Application.customerRoutes(service: CustomerService) {
 ```kotlin
 // Application.kt
 fun Application.module() {
-    install(ContentNegotiation) {
-        json()
-    }
-
     val customerRepository: CustomerRepository = ExposedCustomerRepository()
     val eventPublisher: EventPublisher = EventPublisherImpl()
 
@@ -346,3 +339,38 @@ service-order/
 
 In this structure, each service owns an isolated domain slice and remains modular internally, integrating with service
 discovery, metrics, and external configuration.
+
+### Entry points
+
+Ktor provides ready-made engine entry points, such as:
+
+```kotlin
+io.ktor.server.cio.EngineMain
+```
+
+When using a canned engine `main` function, you do not need to define a custom `main()` method or a dedicated
+`Application.kt` entry-point file.
+
+Application modules can be defined in any source file and are loaded by the engine based on [configuration](server-configuration-file.topic).
+
+### Modulith deployment
+
+Multiple services can share a single engine instance by loading multiple application modules through configuration:
+
+```hocon
+# application.conf
+
+ktor {
+  deployment {
+    port = 8080
+  }
+
+  application {
+    modules = [
+      com.example.customer.customerModule,
+      com.example.order.orderModule
+    ]
+  }
+}
+```
+
