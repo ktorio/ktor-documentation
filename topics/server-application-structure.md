@@ -23,7 +23,7 @@ When you generate a Ktor project using [the Ktor project generator](https://star
 a single-module structure. This layout is minimal and intended to get you up and running quickly with a working Ktor
 application.
 
-```
+```text
 project/
 └─ src/
    ├─ main/
@@ -62,7 +62,7 @@ A layered architecture separates your application into distinct responsibilities
 business logic, persistence, domain models, and data transfer objects (DTOs). This approach is common in enterprise 
 applications and provides a clear starting point for maintainable code.
 
-```
+```text
 src/main/kotlin/com/example/app/
 ├─ config/            // Application configuration and environment setup
 ├─ plugins/           // Ktor plugins (authentication, serialization, monitoring)
@@ -108,7 +108,7 @@ A modular structure helps you:
 
 A typical multi-module structure might look like this:
 
-```
+```text
 db/
 ├─ core/        // Database abstractions (interfaces, factories)
 ├─ postgres/    // Postgres implementation (JDBC, exposed)
@@ -150,7 +150,7 @@ In this structure, the banking module does not compile against any database impl
 Feature-based organization groups code by feature or vertical slice. Each feature becomes a
 self-contained module, containing its routes, services, data transfer objects (DTOs) and domain logic.
 
-```
+```text
 app/
 ├─ customer/
 │  ├─ CustomerRoutes.kt     // Routing for customer endpoints
@@ -191,7 +191,7 @@ A domain-driven structure organizes your application around the core business ca
 projects with complex business rules, it is helpful to separate domain logic from transport, persistence, and
 infrastructure concerns:
 
-```
+```text
 domain/
 ├─ customer/
 │  ├─ Customer.kt           // Domain entity
@@ -309,7 +309,7 @@ fun Application.module() {
 
 > For a complete code example of a domain-driven application, see the [Ktor DDD example](https://github.com/antonarhipov/ktor-ddd-example/tree/main).
 
-## Microservice-oriented structure
+## Microservice-oriented structure {id="microservice-oriented-structure"}
 
 Ktor applications can be organized as microservices, where each service is a self-contained module that can be deployed
 independently.
@@ -317,7 +317,7 @@ independently.
 Microservice repositories often use a hybrid of modular architecture, DDD for domain isolation and Gradle multi-module
 builds for infrastructure isolation.
 
-```
+```text
 service-customer/
 ├─ domain/        // Domain models and aggregates
 ├─ repository/    // Persistence layer for customer service
@@ -357,20 +357,16 @@ Application modules can be defined in any source file and are loaded by the engi
 
 Multiple services can share a single engine instance by loading multiple application modules through configuration:
 
-```hocon
-# application.conf
+```yaml
+# application.yaml
 
-ktor {
-  deployment {
-    port = 8080
-  }
+ktor:
+  deployment:
+    port: 8080
 
-  application {
-    modules = [
-      com.example.customer.customerModule,
-      com.example.order.orderModule
-    ]
-  }
-}
+  application:
+    modules:
+      - com.example.customer.customerModule
+      - com.example.order.orderModule
 ```
 
