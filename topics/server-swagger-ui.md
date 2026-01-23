@@ -33,6 +33,11 @@ Serving Swagger UI requires adding the `%artifact_name%` artifact in the build s
 
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
+> In Ktor 3.4.0, the `SwaggerUI` plugin requires the `ktor-server-routing-openapi` dependency.
+> This was not an intentional breaking change and will be corrected in Ktor 3.4.1.
+> Add the dependency manually if you are using Ktor 3.4.0 to avoid runtime errors.
+> 
+{style="warning"}
 
 ## Use a static OpenAPI file {id="static-openapi-file"}
 
