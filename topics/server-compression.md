@@ -35,6 +35,11 @@ With the `Compression` plugin, you can:
 <include from="lib.topic" element-id="add_ktor_artifact_intro"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
+To include Zstandard compression, add the `ktor-server-compression-zstd` dependency:
+
+   <var name="artifact_name" value="ktor-server-compression-zstd"/>
+   <include from="lib.topic" element-id="add_ktor_artifact_testing"/>
+
 ## Install %plugin_name% {id="install_plugin"}
 
 <include from="lib.topic" element-id="install_plugin"/>
@@ -141,16 +146,14 @@ install(Compression) {
 }
 ```
 
-## Compression Level {id="compression_level"}
+## Zstandard compression Level {id="compression_level"}
 
-`Ztsd` comes with a configurable compression level. By default, it is set to `3`, and you can configure it using
-the `compressionLevel` property.
+You can configure the compression level for `zstd` using the `level` parameter. The default compression level is `3`, but you can adjust it based on your needs.
 
 ```kotlin
 install(Compression) {
-    zstd {
-        compressionLevel = 3
-    }
+    // Defaults to level = 3
+    zstd(level = 20)
 }
 ```
 
