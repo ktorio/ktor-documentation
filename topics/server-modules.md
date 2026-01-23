@@ -148,7 +148,7 @@ This creates loose coupling by avoiding direct references between modules.
 Ktor includes a [dependency injection (DI) plugin](server-dependency-injection.md), which allows you to declare and resolve dependencies
 directly inside your Ktor application using a lightweight container.
 
-## Concurrent modules
+## Concurrent modules {id="concurrent-modules"}
 
 You can use suspendable functions when creating application modules. They allow events to run asynchronously when
 starting the application. To do that, add the `suspend` keyword:

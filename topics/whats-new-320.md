@@ -47,7 +47,7 @@ You can also opt into concurrent module loading by adding the `ktor.application.
 It launches all application modules independently, so when one suspends, the others are not blocked.
 This allows for non-sequential loading for dependency injection, and, in some cases, faster loading.
 
-For more information, see [Concurrent module loading](server-modules.md#concurrent-module-loading).
+For more information, see [Concurrent modules](server-modules.md#concurrent-modules).
 
 ### Configuration file deserialization
 
