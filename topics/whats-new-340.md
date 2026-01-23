@@ -48,12 +48,12 @@ plugin.
 `Zstd` is a fast compression algorithm that offers high compression ratios and low compression times, and has a
 configurable compression level. 
 
-To enable it, include the `ktor-server-compression-zstd` dependency in your project:
+To enable it, add the `ktor-server-compression-zstd` dependency to your project:
 ```kotlin
 implementation("io.ktor:ktor-server-compression-zstd:$ktor_version")
 ```
 
-Then, include a `zstd()` inside the `install(Compression) {}` block with the desired configuration:
+Then, call the `zstd()` function inside the `install(Compression) {}` block with your desired configuration:
 
 ```kotlin
 install(Compression) {
