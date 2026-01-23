@@ -239,7 +239,7 @@ This API provides high-level abstractions, but there are use-cases that may requ
 You can use the `.getNative()` extension functions to retrieve the underlying implementations.
 Platform-specific libraries are exposed as transitive libraries, except for `WebRTC-SDK` CocoaPod on iOS.
 
-<tabs group="platform" id="platform-specific-logic">
+<tabs group="platform" id="platform-specific-logic-tabs">
 <tab title="JS/Wasm" group-key="js-wasm">
 
 ```kotlin
