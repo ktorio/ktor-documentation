@@ -16,8 +16,13 @@
 <include from="lib.topic" element-id="native_server_not_supported"/>
 </tldr>
 
-Ktor provides the capability to compress response body and decompress request body by using the [Compression](https://api.ktor.io/ktor-server-compression/io.ktor.server.plugins.compression/-compression.html) plugin.
-You can use different compression algorithms, including `gzip` and `deflate`, specify the required conditions for compressing data (such as a content type or response size), or even compress data based on specific request parameters.
+Ktor provides the capability to compress response body and decompress request body by using the [`Compression`](https://api.ktor.io/ktor-server-compression/io.ktor.server.plugins.compression/-compression.html)
+plugin.
+
+With the `Compression` plugin, you can:
+- Use different compression algorithms, including `gzip`, `ztsd` and `deflate`.
+- Specify the required conditions for compressing data, such as a content type or response size.
+- Compress data based on specific request parameters.
 
 > Note that the `%plugin_name%` plugin does not currently support `SSE` responses.
 >
@@ -29,6 +34,11 @@ You can use different compression algorithms, including `gzip` and `deflate`, sp
 
 <include from="lib.topic" element-id="add_ktor_artifact_intro"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
+
+To include Zstandard compression, add the `ktor-server-compression-zstd` dependency:
+
+   <var name="artifact_name" value="ktor-server-compression-zstd"/>
+   <include from="lib.topic" element-id="add_ktor_artifact_testing"/>
 
 ## Install %plugin_name% {id="install_plugin"}
 
@@ -51,6 +61,7 @@ To enable only specific encoders, call the corresponding extension functions, fo
 install(Compression) {
     gzip()
     deflate()
+    ztsd()
 }
 ```
 
@@ -64,10 +75,13 @@ install(Compression) {
     deflate {
         priority = 1.0
     }
+    ztsd {
+        priority = 0.8
+    }
 }
 ```
 
-In the example above, `deflate` has a higher priority value and takes precedence over `gzip`. Note that the server first
+In the example above, `deflate` has a higher priority value and takes precedence over `gzip` and `ztsd`. Note that the server first
 looks at the [quality](https://developer.mozilla.org/en-US/docs/Glossary/Quality_Values) values within
 the [Accept-Encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding) header and then takes
 into account the specified priorities.
@@ -94,10 +108,10 @@ value. To do this, pass the desired value (in bytes) to the `minimumSize` functi
 
 ```kotlin
     install(Compression) {
-        deflate {
-            minimumSize(1024)
-        }
+    deflate {
+        minimumSize(1024)
     }
+}
 
 ```
 
@@ -129,6 +143,17 @@ install(Compression) {
             request.headers[HttpHeaders.Referrer]?.startsWith("https://my.domain/") == true
         }
     }
+}
+```
+
+## Zstandard compression Level {id="compression_level"}
+
+You can configure the compression level for `zstd` using the `level` parameter. The default compression level is `3`, but you can adjust it based on your needs.
+
+```kotlin
+install(Compression) {
+    // Defaults to level = 3
+    zstd(level = 20)
 }
 ```
 

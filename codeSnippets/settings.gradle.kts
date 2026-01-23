@@ -161,6 +161,8 @@ module("snippets", "tutorial-server-restful-api")
 module("snippets", "tutorial-server-websockets")
 module("snippets", "tutorial-server-docker-compose")
 module("snippets", "htmx-integration")
+module("snippets", "server-http-request-lifecycle")
+module("snippets", "openapi-spec-gen")
 
 if(!System.getProperty("os.name").startsWith("Windows")) {
     module("snippets", "embedded-server-native")

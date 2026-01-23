@@ -14,11 +14,11 @@ The Auth plugin handles authentication and authorization in your client applicat
 </link-summary>
 
 Ktor provides
-the [Auth](https://api.ktor.io/ktor-client-auth/io.ktor.client.plugins.auth/-auth)
+the [`Auth`](https://api.ktor.io/ktor-client-auth/io.ktor.client.plugins.auth/-auth)
 plugin to handle authentication and authorization in your client application.
 Typical usage scenarios include logging in users and gaining access to specific resources.
 
-> On the server, Ktor provides the [Authentication](server-auth.md) plugin for handling authentication and
+> On the server, Ktor provides the [`Authentication`](server-auth.md) plugin for handling authentication and
 > authorization.
 
 ## Supported authentication types {id="supported"}
@@ -39,7 +39,7 @@ To enable authentication, you need to include the `ktor-client-auth` artifact in
 
 
 ## Install Auth {id="install_plugin"}
-To install the `Auth` plugin, pass it to the `install` function inside a [client configuration block](client-create-and-configure.md#configure-client):
+To install the `Auth` plugin, pass it to the `install()` function inside a [client configuration block](client-create-and-configure.md#configure-client):
 
 ```kotlin
 import io.ktor.client.*
@@ -60,7 +60,9 @@ Now you can [configure](#configure_authentication) the required authentication p
 
 ### Step 1: Choose an authentication provider {id="choose-provider"}
 
-To use a specific authentication provider ([basic](client-basic-auth.md), [digest](client-digest-auth.md), or [bearer](client-bearer-auth.md)), you need to call the corresponding function inside the `install` block. For example, to use the `basic` authentication, call the [basic](https://api.ktor.io/ktor-client-auth/io.ktor.client.plugins.auth.providers/basic.html) function:
+To use a specific authentication provider ([`basic`](client-basic-auth.md), [`digest`](client-digest-auth.md), or
+[`bearer`](client-bearer-auth.md)), you need to call the corresponding function inside the `install {}` block. For example,
+to use the `basic` authentication, call the [`basic {}`](https://api.ktor.io/ktor-client-auth/io.ktor.client.plugins.auth.providers/basic.html) function:
 
 ```kotlin
 install(Auth) {
@@ -109,3 +111,76 @@ To learn how to configure settings for a specific [provider](#supported), see a 
 * [](client-basic-auth.md)
 * [](client-digest-auth.md)
 * [](client-bearer-auth.md)
+
+## Token caching and cache control {id="token-caching"}
+
+The Basic and Bearer authentication providers maintain an internal credential or token cache. This cache allows the
+client to reuse previously loaded authentication data instead of reloading it for each request, improving performance
+while still allowing full control when credentials change.
+
+### Accessing authentication providers
+
+When the authentication state needs to be updated dynamically during the client session, you can access a specific 
+provider using the `authProvider` extension:
+
+```kotlin
+val provider = client.authProvider<BearerAuthProvider>()
+```
+
+To retrieve all installed providers, use the `authProviders` property:
+
+```kotlin
+val providers = client.authProviders
+```
+
+These utilities allow you to inspect providers or clear cached tokens programmatically.
+
+### Clearing cached tokens
+
+To clear cached credentials for a single provider, use the `clearToken()` function:
+
+```kotlin
+val provider = client.authProvider<BasicAuthProvider>()
+provider?.clearToken()
+``` 
+
+To clear cached tokens across all authentication providers that support cache clearing, use the `clearAuthTokens()`
+function:
+
+```kotlin
+client.clearAuthTokens()
+```
+
+Clearing cached tokens is typically used in the following scenarios:
+
+- When the user logs out.
+- When credentials or tokens stored by your application change.
+- When you need to force providers to reload the authentication state on the next request.
+
+Here's an example for clearing cached tokens when the user logs out:
+
+```kotlin
+fun logout() {
+    client.clearAuthTokens()
+    storage.deleteCredentials()
+}
+```
+
+### Controlling caching behavior
+
+Both Basic and Bearer authentication providers allow you to control whether tokens or credentials are cached between
+requests using the `cacheTokens` option.
+
+For example, you can disable caching when credentials are dynamically provided:
+
+```kotlin
+basic {
+    cacheTokens = false   // Reloads credentials for every request
+    credentials {
+        loadCurrentCredentials()
+    }
+}
+```
+
+Disabling token caching is especially useful when authentication data changes frequently or must reflect the most
+recent state.

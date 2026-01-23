@@ -8,7 +8,7 @@ val h2_version: String by project
 plugins {
     application
     kotlin("jvm")
-    id("io.ktor.plugin") version "3.3.3"
+    id("io.ktor.plugin") version "3.4.0"
     id("org.jetbrains.kotlin.plugin.serialization") version "2.2.20"
 }
 
@@ -39,6 +39,6 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:$logback_version")
     implementation("io.ktor:ktor-server-config-yaml:$ktor_version")
     testImplementation("io.ktor:ktor-server-test-host-jvm")
-    testImplementation("io.ktor:ktor-client-content-negotiation-jvm:$ktor_version")
+    testImplementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 }

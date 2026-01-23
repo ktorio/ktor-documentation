@@ -1,0 +1,609 @@
+[//]: # (title: What's new in Ktor 3.4.0)
+
+<show-structure for="chapter,procedure" depth="2"/>
+
+_[Released: January 23, 2026](releases.md#release-details)_
+
+Ktor 3.4.0 delivers a wide range of enhancements across server, client, and tooling. Here are the highlights for this
+feature release:
+
+* [Zstd compression support](#zstd-compression-support)
+* [Http request lifecycle](#http-request-lifecycle)
+* [Runtime OpenAPI route annotations](#runtime-openapi-route-annotations)
+* [Duplex streaming for OkHttp](#duplex-streaming-for-okhttp)
+
+## Ktor Server
+
+### OAuth fallback for error handling
+
+Ktor 3.4.0 introduces a new [`fallback()`](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-o-auth-authentication-provider/-config/fallback.html)
+function for the [OAuth](server-oauth.md) authentication provider.
+The fallback is invoked when the OAuth flow fails with `AuthenticationFailedCause.Error`, such as token exchange
+failures, network issues, or response parsing errors.
+
+Previously, you might have used `authenticate(optional = true)` on OAuth-protected routes to bypass OAuth failures.
+However, optional authentication only suppresses challenges when no credentials are provided and does not cover actual
+OAuth errors.
+
+The new `fallback()` function provides a dedicated mechanism for handling these scenarios. If the fallback does not
+handle the call, Ktor returns `401 Unauthorized`.
+
+To configure a fallback, define it inside the `oauth` block:
+
+```kotlin
+install(Authentication) {
+    oauth("login") {
+        client = ...
+        urlProvider = ...
+        providerLookup = { ... }
+        fallback = { cause ->
+            if (cause is OAuth2RedirectError) {
+                respondRedirect("/login-after-fallback")
+            } else {
+                respond(HttpStatusCode.Forbidden, cause.message)
+            }
+        }
+    }
+}
+```
+
+### Zstd compression support
+
+[Zstd](https://github.com/facebook/zstd) compression is now supported by the [Compression](server-compression.md)
+plugin.
+
+`Zstd` is a fast compression algorithm that offers high compression ratios and low compression times, and has a
+configurable compression level. 
+
+To enable it, add the `ktor-server-compression-zstd` dependency to your project:
+```kotlin
+implementation("io.ktor:ktor-server-compression-zstd:$ktor_version")
+```
+
+Then, call the `zstd()` function inside the `install(Compression) {}` block with your desired configuration:
+
+```kotlin
+install(Compression) {
+    gzip()
+    deflate()
+    zstd(level = 3)
+    identity()
+}
+```
+
+### SSL trust store settings in a configuration file
+
+Ktor now allows you to configure additional [SSL settings](server-ssl.md#config-file) for the server using the 
+application configuration file. You can specify a trust store, its corresponding password, and the list of enabled TLS
+protocols directly in your configuration.
+
+You define these settings under the `ktor.security.ssl` section:
+
+```kotlin
+// application.conf
+ktor {
+    security {
+        ssl {
+            // ...
+            trustStore = truststore.jks
+            trustStorePassword = foobar
+            enabledProtocols = ["TLSv1.2", "TLSv1.3"]
+        }
+    }
+}
+```
+
+From the code above:
+- `trustStore` – the path to the trust store file containing trusted certificates.
+- `trustStorePassword` – password for the trust store.
+- `enabledProtocols` – a list of allowed TLS protocols.
+
+### HTML fragments for partial responses
+
+Ktor now provides a new [`.respondHtmlFragment()`](https://api.ktor.io/ktor-server-html-builder/io.ktor.server.html/respond-html-fragment.html)
+function for sending partial HTML responses. This is useful when generating markup that does not require a full `<html>`
+document, such as dynamic UI updates with tools like HTMX.
+
+The new API is part of the [HTML DSL](server-html-dsl.md) plugin and allows you to return HTML rooted in any element:
+
+```kotlin
+get("/books.html") {
+    call.respondHtmlFragment {
+        div("books") {
+            for (book in library.books()) {
+                bookItem()
+            }
+        }
+    }
+}
+```
+
+### HTTP request lifecycle
+
+The new [`HttpRequestLifecycle` plugin](server-http-request-lifecycle.md) allows you to cancel inflight HTTP requests when the client disconnects.
+This is useful when you need to cancel an inflight HTTP request for a long-running or resource-intensive request
+when the client disconnects. 
+
+Enable this feature by installing the `HttpRequestLifecycle` plugin and setting `cancelCallOnClose = true`:
+
+```kotlin
+install(HttpRequestLifecycle) {
+    cancelCallOnClose = true
+}
+
+routing {
+    get("/long-process") {
+        try {
+            while (isActive) {
+                delay(10_000)
+                logger.info("Very important work.")
+            }
+            call.respond("Completed")
+        } catch (e: CancellationException) {
+            logger.info("Cleaning up resources.")
+        }
+    }
+}
+```
+
+When the client disconnects, the coroutine handling the request is canceled, and structured concurrency handles cleaning
+all resources. Any `launch` or `async` coroutines started by the request are also canceled.
+This is currently only supported for the `Netty` and `CIO` engine.
+
+### New method to respond with a resource
+
+The new [`call.respondResource()`](server-responses.md#resource) method works in a similar way to [`call.respondFile()`](server-responses.md#file), 
+but accepts a resource instead of a file to respond with.
+
+To serve a single resource from the classpath, use `call.respondResource()` and specify the resource path:
+
+```kotlin
+routing {
+    get("/resource") {
+        call.respondResource("public/index.html")
+    }
+}
+```
+
+### Runtime OpenAPI route annotations
+
+<primary-label ref="experimental"/>
+
+Ktor 3.4.0 introduces the `ktor-server-routing-openapi` module, which allows you to attach OpenAPI metadata directly
+to routes using runtime annotations. These annotations are applied to routes at runtime and become part of the routing tree, making them available to
+OpenAPI-related tooling.
+
+The API is experimental and requires opting in using `@OptIn(ExperimentalKtorApi::class)`.
+
+To add metadata to a route at runtime, use the `.describe {}` extension function:
+
+```kotlin
+@OptIn(ExperimentalKtorApi::class)
+get("/messages") {
+    val query = call.parameters["q"]?.let(::parseQuery)
+    call.respond(messageRepository.getMessages(query))
+}.describe {
+    parameters {
+        query("q") {
+            description = "An encoded query"
+            required = false
+        }
+    }
+    responses {
+        HttpStatusCode.OK {
+            description = "A list of messages"
+            schema = jsonSchema<List<Message>>()
+            extension("x-sample-message", testMessage)
+        }
+        HttpStatusCode.BadRequest {
+            description = "Invalid query"
+            ContentType.Text.Plain()
+        }
+    }
+    summary = "get messages"
+    description = "Retrieves a list of messages."
+}
+```
+
+You can use this API as a standalone extension or in combination with Ktor's OpenAPI compiler plugin to automatically
+generate these calls. The [OpenAPI](server-openapi.md) and
+[SwaggerUI](server-swagger-ui.md) plugins also read this metadata when building the OpenAPI specification.
+
+> In Ktor 3.4.0, the `SwaggerUI` and `OpenAPI` plugins now require the `ktor-server-routing-openapi` dependency.
+> This was not an intentional breaking change and will be fixed in the 3.4.1 release.
+> If you use either plugin, add the dependency manually to avoid runtime errors.
+> 
+{style="warning"}
+
+For more details and examples, see [](openapi-spec-generation.md#runtime-route-annotations).
+
+### API Key authentication
+
+The new [API Key authentication plugin](server-api-key-auth.md) allows you to secure server routes using a shared secret
+passed with each request, typically in an HTTP header.
+
+The `apiKey` provider integrates with Ktor’s [Authentication plugin](server-auth.md) and lets you validate incoming API
+keys using custom logic, customize the header name, and protect specific routes with standard `authenticate` blocks:
+
+```kotlin
+install(Authentication) {
+    apiKey("my-api-key") {
+        validate { apiKey ->
+            if (apiKey == "secret-key") {
+                UserIdPrincipal(apiKey)
+            } else {
+                null
+            }
+        }
+    }
+}
+
+routing {
+    authenticate {
+        get("/") {
+            val principal = call.principal<UserIdPrincipal>()!!
+            call.respondText("Key: ${principal.key}")
+        }
+    }
+}
+```
+API Key authentication can be used for service-to-service communication and other scenarios where a lightweight
+authentication mechanism is sufficient.
+
+For more details and configuration options, see [](server-api-key-auth.md).
+
+## Core
+
+### Multiple header parsing
+
+The new [`Headers.getSplitValues()`](https://api.ktor.io/ktor-http/io.ktor.http/get-split-values.html) function
+simplifies working with headers that contain multiple values in a single line.
+
+The `getSplitValues()` function returns all values for the given header and splits them using the specified separator
+(`,` by default):
+
+```kotlin
+val headers = headers {
+    append("X-Multi-Header", "1, 2")
+    append("X-Multi-Header", "3")
+}
+
+val splitValues = headers.getSplitValues("X-Multi-Header")!!
+// ["1", "2", "3"]
+```
+By default, separators inside double-quoted strings are ignored, but you can change this by setting 
+`splitInsideQuotes = true`:
+
+```kotlin
+val headers = headers {
+    append("X-Multi-Header", """a,"b,c",d""")
+}
+
+val forceSplit = headers.getSplitValues("X-Quoted", splitInsideQuotes = true)
+// ["a", "\"b", "c\"", "d"]
+```
+
+## Ktor Client
+
+### Authentication token cache control
+
+Prior to Ktor 3.4.0, applications using [Basic](client-basic-auth.md) and [Bearer authentication](client-bearer-auth.md)
+providers could continue sending outdated tokens or credentials after a user logged out or updated their authentication
+data. This happened because each provider internally caches the result of the `loadTokens()` function through
+an internal component responsible for storing loaded authentication tokens, and this cache remained active until
+manually cleared.
+
+Ktor 3.4.0 introduces new functions and configuration options that give you explicit and convenient control over token
+caching behavior.
+
+#### Accessing and clearing authentication tokens
+
+You can now access authentication providers directly from the client and clear their cached tokens when needed.
+
+To clear the token for a specific provider, use the `.clearToken()` function:
+
+```kotlin
+val provider = client.authProvider<BearerAuthProvider>()
+provider?.clearToken()
+```
+
+Retrieve all authentication providers:
+
+```kotlin
+val providers = client.authProviders
+```
+
+To clear cached tokens from all providers that support token clearing (currently Basic and Bearer), use
+the `HttpClient.clearAuthTokens()` function:
+
+```kotlin
+ // Clears all cached auth tokens on logout
+fun logout() {
+    client.clearAuthTokens()
+    storage.deleteTokens()
+}
+
+// Clears cached auth tokens when credentials are updated
+fun updateCredentials(new: Credentials) {
+    storage.save(new)
+    client.clearAuthTokens()  // Forces reload
+}
+```
+
+#### Configuring token cache behavior
+
+A new `cacheTokens` configuration option has been added to both Basic and Bearer authentication providers. This allows
+you to control whether tokens or credentials should be cached between requests.
+
+For example, you can disable caching when credentials are dynamically provided:
+
+```kotlin
+basic {
+    cacheTokens = false  // Loads credentials on every request
+    credentials {
+        getCurrentUserCredentials()
+    }
+}
+```
+
+Disabling caching is especially useful when authentication data changes frequently or must always reflect the most
+recent state.
+
+### Duplex streaming for OkHttp
+
+The OkHttp client engine now supports duplex streaming, enabling clients to send request body data and receive response
+data simultaneously.
+
+Unlike regular HTTP calls where the request body must be fully sent before the response begins, duplex mode
+supports bidirectional streaming, allowing the client to send and receive data concurrently.
+
+Duplex streaming is available for HTTP/2 connections and can be enabled using the new `duplexStreamingEnabled` property
+in `OkHttpConfig`:
+
+```kotlin
+val client = HttpClient(OkHttp) {
+    engine {
+        duplexStreamingEnabled = true
+        config {
+            protocols(listOf(Protocol.H2_PRIOR_KNOWLEDGE))
+        }
+    }
+}
+```
+
+### Apache5 connection manager configuration
+
+The Apache5 engine now supports configuring the connection manager directly using the new [`configureConnectionManager {}`](https://api.ktor.io/ktor-client-apache5/io.ktor.client.engine.apache5/-apache5-engine-config/configure-connection-manager.html)
+function.
+
+This approach is recommended over the previous method using `customizeClient { setConnectionManager(...) }`. Using
+`customizeClient` would replace the Ktor-managed connection manager, potentially bypassing engine settings, timeouts,
+and other internal configuration.
+
+<compare>
+
+```kotlin
+val client = HttpClient(Apache5) {
+    engine {
+        customizeClient {
+            setConnectionManager(
+                PoolingAsyncClientConnectionManagerBuilder.create()
+                    .setMaxConnTotal(10_000)
+                    .setMaxConnPerRoute(1_000)
+                    .build()
+            )
+        }
+    }
+}
+```
+
+```kotlin
+val client = HttpClient(Apache5) {
+    engine {
+        configureConnectionManager {
+            setMaxConnTotal(10_000)
+            setMaxConnPerRoute(1_000)
+        }
+    }
+}
+```
+
+</compare>
+
+The new `configureConnectionManager {}` function keeps Ktor in control while allowing you to adjust parameters such as 
+maximum connections per route (`maxConnPerRoute`) and total maximum connections (`maxConnTotal`).
+
+### Dispatcher configuration for native client engines
+
+Native HTTP client engines (`Curl`, `Darwin`, and `WinHttp`) now respect the configured engine dispatcher and use
+`Dispatchers.IO` by default.
+
+The `dispatcher` property has always been available on client engine configurations, but native engines previously
+ignored it and always used `Dispatchers.Unconfined`. With this change, native engines use the configured dispatcher and
+default to `Dispatchers.IO` when none is specified, aligning their behavior with other Ktor client engines.
+
+You can explicitly configure the dispatcher as follows:
+
+```kotlin
+val client = HttpClient(Curl) {
+    engine {
+        dispatcher = Dispatchers.IO
+    }
+}
+```
+### HttpStatement execution using the engine dispatcher
+
+The `HttpStatement.execute {}` and `HttpStatement.body {}` blocks now run on the HTTP engine’s dispatcher
+instead of the caller’s coroutine context. This prevents accidental blocking when these blocks are invoked from the 
+main thread.
+
+Previously, users had to manually switch dispatchers using `withContext` to avoid freezing the UI during I/O operations,
+such as writing a streaming response to a file. With this change, Ktor automatically dispatches these blocks to the
+engine’s coroutine context:
+
+<compare>
+
+```kotlin
+client.prepareGet("https://httpbin.org/bytes/$fileSize").execute { httpResponse ->
+    withContext(Dispatchers.IO) {
+        val channel: ByteReadChannel = httpResponse.body()
+        // Process and write data
+    }
+}
+```
+
+```kotlin
+client.prepareGet("https://httpbin.org/bytes/$fileSize").execute { httpResponse ->
+    val channel: ByteReadChannel = httpResponse.body()
+    // Process and write data
+}
+```
+</compare>
+
+### Plugin and default request configuration replacement
+
+Ktor client configuration now provides more control over replacing existing settings at runtime.
+
+#### Replace plugin configuration
+
+The new [`installOrReplace()`](https://api.ktor.io/ktor-client-core/io.ktor.client/-http-client-config/install-or-replace.html)
+function installs a client plugin or replaces its existing configuration if the plugin is already installed. This is
+useful when you need to reconfigure a plugin without manually removing it first.
+
+```kotlin
+val client = HttpClient {
+    installOrReplace(ContentNegotiation) {
+        json()
+    }
+}
+```
+
+In the above example, if `ContentNegotiation` is already installed, its configuration is replaced with the new one
+provided in the block.
+
+#### Replace default request configuration
+
+The [`defaultRequest()`](https://api.ktor.io/ktor-client-core/io.ktor.client.plugins/default-request.html) function now
+accepts an optional `replace` parameter (default is `false`). When set to `true`, the new configuration replaces any
+previously defined default request settings instead of merging with them.
+
+```kotlin
+val client = HttpClient {
+    defaultRequest(replace = true) {
+        // ...
+    }
+}
+```
+
+This allows you to explicitly override earlier default request configuration when composing or reusing client setups.
+
+### Shared source set support for `js` and `wasmJs` targets
+
+Ktor now supports [Kotlin’s shared `web` source set](https://kotlinlang.org/docs/whatsnew2220.html#shared-source-set-for-js-and-wasmjs-targets)
+in multiplatform projects, allowing you to share Ktor dependencies between `js` and `wasmJs` targets. This makes it
+easier to share web-specific client code, such as HTTP clients and engines, across JavaScript and Wasm/JS.
+
+In your
+<path>build.gradle.kts</path>
+file, you can declare Ktor dependencies in the `webMain` source set:
+
+```kotlin
+kotlin {
+    sourceSets {
+        webMain.dependencies {
+            implementation("io.ktor:ktor-client-js:%ktor_version%")
+        }
+    }
+}
+```
+
+You can then use APIs available to both `js` and `wasmJs` targets:
+
+```kotlin
+// src/webMain/kotlin/Main.kt
+
+actual fun createClient(): HttpClient = HttpClient(Js)
+```
+
+## I/O
+
+### Stream bytes from a `ByteReadChannel` to a `RawSink`
+
+You can now use the new [`ByteReadChannel.readTo()`](https://api.ktor.io/ktor-io/io.ktor.utils.io/read-to.html) function
+to read bytes from a channel and write them directly to a specified `RawSink`. This function simplifies handling large
+responses or file downloads without intermediate buffers or manual copying.
+
+The following example downloads a file and writes it to a new local file:
+
+```kotlin
+val client = HttpClient(CIO)
+val file = File.createTempFile("files", "index")
+val stream = file.outputStream().asSink()
+val fileSize = 100 * 1024 * 1024
+
+runBlocking {
+    client.prepareGet("https://httpbin.org/bytes/$fileSize").execute { httpResponse ->
+        val channel: ByteReadChannel = httpResponse.body()
+        channel.readTo(stream)
+    }
+}
+
+println("A file saved to ${file.path}")
+
+```
+
+## Gradle plugin
+
+### OpenAPI compiler extension
+
+Previously, the OpenAPI compiler plugin generated a complete, static OpenAPI document at build time. In Ktor 3.4.0, it
+instead generates code that provides OpenAPI metadata at runtime, which is consumed by the [OpenAPI](server-openapi.md)
+and [Swagger UI](server-swagger-ui.md) plugins when serving the specification.
+
+The dedicated `buildOpenApi` Gradle task has been removed. The compiler plugin is now automatically applied during
+regular builds, and changes to routes or annotations are reflected in the running server without requiring any
+additional generation steps.
+
+#### Configuration
+
+Configuration is still done using the `openApi {}` block inside the `ktor` Gradle extension. However, properties used
+to define global OpenAPI metadata, such as `title`, `version`, `description`, and `target`, have been deprecated and are
+ignored.
+
+Global OpenAPI metadata is now defined and resolved at runtime rather than during compilation.
+
+The compiler extension configuration is now limited to feature options that control how metadata is inferred and
+collected.
+
+For users migrating from the experimental preview in Ktor 3.3.0, the configuration has changed as follows:
+
+<compare>
+
+```kotlin
+// build.gradle.kts
+ktor {
+    @OptIn(OpenApiPreview::class)
+    openApi {
+        target = project.layout.projectDirectory.file("api.json")
+        title = "OpenAPI example"
+        version = "2.1"
+        summary = "This is a sample API"
+    }
+}
+```
+
+```kotlin
+// build.gradle.kts
+ktor {
+    openApi {
+        // Global control for the compiler plugin
+        enabled = true
+        // Enables and disables inferring details from call handler code
+        codeInferenceEnabled = true
+        // Toggles whether all routes should be analysed or only commented ones
+        onlyCommented = false
+    }
+}
+```
+
+</compare>

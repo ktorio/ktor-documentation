@@ -88,6 +88,7 @@
                              accepts-web-file-names="request-validation.html"/>
                 <toc-element topic="server-rate-limit.md"
                              accepts-web-file-names="rate-limit.html"/>
+                <toc-element topic="server-http-request-lifecycle.md"/>
                 <toc-element topic="server-double-receive.md"
                              accepts-web-file-names="double-receive.html"/>
             </toc-element>
@@ -145,6 +146,9 @@
                 <toc-element topic="server-bearer-auth.md"
                              toc-title="Bearer authentication"
                              accepts-web-file-names="bearer.html"/>
+                <toc-element topic="server-api-key-auth.md"
+                             toc-title="API Key authentication"
+                             accepts-web-file-names="api-key.html"/>
                 <toc-element topic="server-form-based-auth.md"
                              toc-title="Form-based authentication"
                              accepts-web-file-names="form.html"/>
@@ -392,6 +396,7 @@
 
     <toc-element toc-title="Releases">
         <toc-element topic="releases.md"/>
+        <toc-element topic="whats-new-340.md"/>
         <toc-element topic="whats-new-330.md"/>
         <toc-element topic="whats-new-320.md"/>
         <toc-element topic="migration-to-20x.md"

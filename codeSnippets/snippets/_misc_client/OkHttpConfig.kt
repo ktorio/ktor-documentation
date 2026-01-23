@@ -13,5 +13,6 @@ val client = HttpClient(OkHttp) {
         addNetworkInterceptor(interceptor)
 
         preconfigured = okHttpClientInstance
+        duplexStreamingEnabled = true // Only available for HTTP/2 connections
     }
 }
