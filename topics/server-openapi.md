@@ -44,6 +44,11 @@ In both cases, the OpenAPI plugin assembles the specification on the server and 
 
   You can replace `$swagger_codegen_version` with the required version of the `swagger-codegen-generators` artifact, for example, `%swagger_codegen_version%`.
 
+> In Ktor 3.4.0, the `OpenAPI` plugin requires the `ktor-server-routing-openapi` dependency.
+> This was not an intentional breaking change and will be corrected in Ktor 3.4.1.
+> Add the dependency manually if you are using Ktor 3.4.0 to avoid runtime errors.
+>
+{style="warning"}
 
 ## Use a static OpenAPI file {id="static-openapi-file"}
 

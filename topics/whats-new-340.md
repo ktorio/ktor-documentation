@@ -209,6 +209,12 @@ You can use this API as a standalone extension or in combination with Ktor's Ope
 generate these calls. The [OpenAPI](server-openapi.md) and
 [SwaggerUI](server-swagger-ui.md) plugins also read this metadata when building the OpenAPI specification.
 
+> In Ktor 3.4.0, the `SwaggerUI` and `OpenAPI` plugins now require the `ktor-server-routing-openapi` dependency.
+> This was not an intentional breaking change and will be fixed in the 3.4.1 release.
+> If you use either plugin, add the dependency manually to avoid runtime errors.
+> 
+{style="warning"}
+
 For more details and examples, see [](openapi-spec-generation.md#runtime-route-annotations).
 
 ### API Key authentication
