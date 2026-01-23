@@ -116,9 +116,12 @@ get("/") {
 There are several ways to send specific headers in a response:
 * Add a header to the [ApplicationResponse.headers](https://api.ktor.io/ktor-server-core/io.ktor.server.response/-application-response/headers.html) collection:
    ```kotlin
-   get("/") {
-       call.response.headers.append(HttpHeaders.ETag, "7c876b7e")
-   }
+    get("/") {
+        call.response.headers.append(HttpHeaders.ETag, "7c876b7e")
+        
+        // For multiple values for the same header 
+        call.response.headers.appendAll("X-Custom-Header" to listOf("value1", "value2"))
+    }
    ```
   
 * Call the [ApplicationResponse.header](https://api.ktor.io/ktor-server-core/io.ktor.server.response/header.html) function:

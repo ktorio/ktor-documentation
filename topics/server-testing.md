@@ -12,38 +12,43 @@
 Learn how to test your server application using a special testing engine.
 </link-summary>
 
-Ktor provides a special testing engine that doesn't create a web server, doesn't bind to sockets, and doesn't make any real HTTP requests. Instead, it hooks directly into internal mechanisms and processes an application call directly. This results in quicker tests execution compared to running a complete web server for testing. 
-
+Ktor provides a testing engine that runs application calls directly without starting a real web server or binding to
+sockets. Requests are processed internally, which makes tests faster and more reliable compared to running a
+full server.
 
 ## Add dependencies {id="add-dependencies"}
-To test a server Ktor application, you need to include the following artifacts in the build script:
-* Add the `ktor-server-test-host` dependency:
+
+To test a Ktor server application, include the following dependencies in your build script:
+
+* The `ktor-server-test-host` dependency provides the testing engine:
 
    <var name="artifact_name" value="ktor-server-test-host"/>
    <include from="lib.topic" element-id="add_ktor_artifact_testing"/>
 
-* Add the `kotlin-test` dependency providing a set of utility functions for performing assertions in tests:
+* The `kotlin-test` dependency provides a set of utility functions for performing assertions:
 
   <var name="group_id" value="org.jetbrains.kotlin"/>
   <var name="artifact_name" value="kotlin-test"/>
   <var name="version" value="kotlin_version"/>
   <include from="lib.topic" element-id="add_artifact_testing"/>
 
-> To test the [Native server](server-native.md#add-dependencies), add the testing artifacts to the `nativeTest` source set.
-
-  
+> For [Native server](server-native.md#add-dependencies) tests, add these artifacts to the `nativeTest` source set.
 
 ## Testing overview {id="overview"}
 
-To use a testing engine, follow the steps below:
-1. Create a JUnit test class and a test function.
-2. Use the [testApplication](https://api.ktor.io/ktor-server-test-host/io.ktor.server.testing/test-application.html) function to set up a configured instance of a test application running locally.
-3. Use the [Ktor HTTP client](client-create-and-configure.md) instance inside a test application to make a request to your server, receive a response, and make assertions.
+You can test a Ktor application using the [`testApplication {}`](https://api.ktor.io/ktor-server-test-host/io.ktor.server.testing/test-application.html)
+function and the provided [HTTP client](client-create-and-configure.md). A typical workflow includes the following steps:
 
-The code below demonstrates how to test the most simple Ktor application that accepts GET requests made to the `/` path and responds with a plain text response.
+1. [Define a test](#junit-test-class) using `testApplication {}`.
+2. [Configure and run a test instance](#configure-test-app) of your application.
+3. Optionally, [configure the HTTP client](#configure-client).
+4. Use the client to [make HTTP requests](#make-request) to your test application and receive responses.
+5. [Verify responses](#assert) using assertions from `kotlin.test`, including status codes, headers, and body content.
+
+The following example tests a simple Ktor application that responds to `GET /` requests with plain text:
 
 <tabs>
-<tab title="Test">
+<tab title="ApplicationTest.kt">
 
 ```kotlin
 ```
@@ -51,7 +56,7 @@ The code below demonstrates how to test the most simple Ktor application that ac
 
 </tab>
 
-<tab title="Application">
+<tab title="Application.kt">
 
 ```kotlin
 ```
@@ -60,31 +65,64 @@ The code below demonstrates how to test the most simple Ktor application that ac
 </tab>
 </tabs>
 
-The runnable code example is available here: [engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main).
+> For the complete code example, see [engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main).
 
+## Set up a JUnit test class {id="junit-test-class"}
 
-## Test an application {id="test-app"}
+Before writing tests for your Ktor application, create a test file and a JUnit test class.
 
-### Step 1: Configure a test application {id="configure-test-app"}
+<procedure>
 
-A configuration of test applications might include the following steps:
-- [Adding application modules](#add-modules)
-- [(Optional) Adding routes](#add-routing)
-- [(Optional) Customizing environment](#environment)
-- [(Optional) Mocking external services](#external-services)
+1. Locate or create the `src/test/kotlin` directory in your project.
+2. Create a new Kotlin file (for example, `ApplicationTest.kt`).
+3. Define a Kotlin class that will contain your tests:
+    ```kotlin 
+    class ApplicationTest {
+        // Test functions go here
+    }
+    ```
+4. Add a test function annotated with `@Test`. Inside the test, use the `testApplication {}` function to run your
+   application in a test environment:
+   ```kotlin 
+    class ApplicationTest {
+        @Test
+        fun testRoot() = testApplication {
+            // ...
+        }
+    }
+    ```
+</procedure>
+
+The `testApplication {}` function is the entry point for server testing in Ktor. It creates an isolated test
+environment, runs your application without starting a real web server, and provides a preconfigured HTTP client for
+making requests and asserting responses.
+
+Inside the `testApplication {}` block, you configure how the test application should behave, such as which modules to
+load, which routes to expose, how the environment is set up, or which external services are mocked.
+
+The following section describes the available configuration options.
+
+## Configure a test application {id="configure-test-app"}
+
+When configuring a test application, you can:
+
+- [Add application modules](#add-modules)
+- [Add routes](#add-routing)
+- [Customize the environment](#environment)
+- [Mock external services](#external-services)
 
 > By default, the configured test application starts on the [first client call](#make-request).
-> Optionally, you can call the `startApplication` function to start the application manually.
+> Optionally, you can call the `startApplication()` function to start the application manually.
 > This might be useful if you need to test your application's [lifecycle events](server-events.md#predefined-events).
 
-#### Add application modules {id="add-modules"}
+### Add application modules {id="add-modules"}
 
-To test an application, its [modules](server-modules.md) should be loaded to `testApplication`. To do that, you must either [explicitly
-load your modules](#explicit-module-loading) or [configure the environment](#configure-env) to load them from a configuration file.
+[Modules](server-modules.md) must be loaded to a test application either [by explicitly
+loading them](#explicit-module-loading) or [by configuring the environment](#configure-env).
 
-##### Explicit loading of modules {id="explicit-module-loading"}
+#### Explicit module loading {id="explicit-module-loading"}
 
-To add modules to a test application manually, use the `application` function:
+To add modules to a test application manually, use the `application {}` block:
 
 ```kotlin
 ```
@@ -92,7 +130,7 @@ To add modules to a test application manually, use the `application` function:
 
 #### Load modules from a configuration file {id="configure-env"}
 
-If you want to load modules from a configuration file, use the `environment` function to specify the configuration
+To load modules from a configuration file, use the `environment {}` block to specify the configuration
 file for your test:
 
 ```kotlin
@@ -101,93 +139,122 @@ file for your test:
 
 This method is useful when you need to mimic different environments or use custom configuration settings during testing.
 
-> You can also access the `Application` instance inside the `application` block.
+### Access the application instance {id="access-application"}
 
-#### Add routes {id="add-routing"}
+Inside the `application {}` block, you can access the `Application` instance being configured:
 
-You can add routes to your test application using the `routing` function.
-This might be convenient for the following use-cases:
-- Instead of [adding modules](#add-modules) to a test application, you can add [specific routes](server-routing.md#route_extension_function) that should be tested. 
-- You can add routes required only in a test application. The example below shows how to add the `/login-test` endpoint used to initialize a user [session](server-sessions.md) in tests:
-   ```kotlin
-   ```
-   {src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="18,31-35,51"}
+```kotlin
+testApplication {
+    application {
+        val app: Application = this
+        // Interact with the application instance here
+    }
+}
+```
+Additionally, the `testApplication` scope exposes the `application` property, which returns the same `Application`
+instance used by the test. This allows you to inspect or interact with the application directly from your test code.
+
+```kotlin
+```
+{src="snippets/embedded-server-modules/src/test/kotlin/EmbeddedServerTest.kt" include-symbol="testAccessApplicationInstance"}
+
+> Accessing the `application` property before calling `startApplication()` or making the first client request returns
+> the `Application` instance, but it may not have been started yet.
+> 
+{style="note"}
+
+### Add routes {id="add-routing"}
+
+You can add routes to your test application using the `routing {}` block. This approach is useful for testing routes
+without loading full modules or for adding test-specific endpoints.
+
+The following example adds the `/login-test` endpoint used to initialize a user session in tests:
+
+```kotlin
+```
+{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="18,31-35,51"}
    
-   You can find the full example with a test here: [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-oauth-google).
+> For a complete test example, see [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-oauth-google).
 
-#### Customize environment {id="environment"}
+### Customize the environment {id="environment"}
 
-To build a custom environment for a test application, use the `environment` function.
-For example, to use a custom configuration for tests, you can create a configuration file in the `test/resources`
-folder and load it using the `config` property:
+To configure a custom environment for your test application, use the `environment {}` function.
+
+For example, to load a configuration file from the `test/resources` folder:
 
 ```kotlin
 ```
 {src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="17-21,51"}
 
-Another way to specify configuration properties is using [MapApplicationConfig](https://api.ktor.io/ktor-server-core/io.ktor.server.config/-map-application-config/index.html). This might be useful if you want to access application configuration before the application starts. The example below shows how to pass `MapApplicationConfig` to the `testApplication` function using the `config` property:
+Alternatively, you can provide configuration properties programmatically using [`MapApplicationConfig`](https://api.ktor.io/ktor-server-core/io.ktor.server.config/-map-application-config/index.html).
+This is useful when you need access to application configuration before the application starts.
 
 ```kotlin
 ```
 {src="snippets/engine-main-custom-environment/src/test/kotlin/ApplicationTest.kt" include-lines="10-14,21"}
 
-#### Mock external services {id="external-services"}
+### Mock external services {id="external-services"}
 
-Ktor allows you to mock external services using the `externalServices` function.
-Inside this function, you need to call the `hosts` function that accepts two parameters:
-- The `hosts` parameter accepts URLs of external services.
-- The `block` parameter allows you to configure the `Application` that acts as a mock for an external service.
-   You can configure routing and install plugins for this `Application`.
+You can simulate external services using the `externalServices {}` function. Inside its block, use the `hosts() {}`
+function for each service you want to mock. Within the `hosts() {}` block, you can configure an `Application` that acts
+as the mock service by defining routes and installing plugins.
 
-The sample below shows how to use `externalServices` to simulate a JSON response returned by Google API:
+The following example simulates a JSON response from a Google API:
 
 ```kotlin
 ```
-{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="18,36-47,51"}
+{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="17-18,36-47,51"}
 
-You can find the full example with a test here: [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-oauth-google).
+> For the full test example, see [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-oauth-google).
 
-### Step 2: (Optional) Configure a client {id="configure-client"}
+## Configure a client {id="configure-client"}
 
-The `testApplication` provides access to an HTTP client with default configuration using the `client` property. 
-If you need to customize the client and install additional plugins, you can use the `createClient` function. For example, to [send JSON data](#json-data) in a test POST/PUT request, you can install the [ContentNegotiation](client-serialization.md) plugin:
-```kotlin
-```
-{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="31-40,48"}
+The `testApplication {}` function provides a configured HTTP client through the `client` property. 
+To customize the client and install additional plugins, use the `createClient {}` function.
 
-
-### Step 3: Make a request {id="make-request"}
-
-To test your application, use the [configured client](#configure-client) to make a [request](client-requests.md) and receive a [response](client-responses.md). The [example below](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/json-kotlinx) shows how to test the `/customer` endpoint that handles `POST` requests:
+For example, you can install the [`ContentNegotiation`](client-serialization.md) plugin to [send JSON data](#json-data)
+in a `POST/PUT` request:
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="31-44,48"}
+{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="31-40,47"}
 
+## Make a request {id="make-request"}
 
+Use the configured client to [make requests](client-requests.md) and [receive responses](client-responses.md).
 
-### Step 4: Assert results {id="assert"}
-
-After receiving a [response](#make-request), you can verify the results by making assertions provided by the [kotlin.test](https://kotlinlang.org/api/latest/kotlin.test/) library:
+The following example tests the `/customer` endpoint that handles `POST` requests:
 
 ```kotlin
 ```
-{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="31-48"}
+{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="31-44,47"}
+
+> For the complete test example, see [json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/json-kotlinx).
+
+## Assert results {id="assert"}
+
+After receiving a response, you can verify the results using assertions from the [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/) library:
+
+```kotlin
+```
+{src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="31-47"}
 
 
 ## Test POST/PUT requests {id="test-post-put"}
 
 ### Send form data {id="form-data"}
 
-To send form data in a test POST/PUT request, you need to set the `Content-Type` header and specify the request body. To do this, you can use 
- the [header](client-requests.md#headers) and [setBody](client-requests.md#body) functions, respectively. The examples below show how to send form data using both `x-www-form-urlencoded` and `multipart/form-data` types.
+To send form data in a test request, set the `Content-Type` header and the request body using the [`header()`](client-requests.md#headers)
+and [`setBody()`](client-requests.md#body) functions.
 
-#### x-www-form-urlencoded {id="x-www-form-urlencoded"}
+#### Key/value pairs {id="x-www-form-urlencoded"}
 
-A test below from the [post-form-parameters](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/post-form-parameters) example shows how to make a test request with form parameters sent using the `x-www-form-urlencoded` content type. Note that the [formUrlEncode](https://api.ktor.io/ktor-http/io.ktor.http/form-url-encode.html) function is used to encode form parameters from a list of key/value pairs.
+To send key/value form parameters in a POST request, set the `Content-Type` header to `application/x-www-form-urlencoded`
+and encode the parameters using the [`formUrlEncode()`](https://api.ktor.io/ktor-http/io.ktor.http/form-url-encode.html)
+function:
 
 <tabs>
-<tab title="Test">
+<tab title="ApplicationTest.kt">
 
 ```kotlin
 ```
@@ -195,7 +262,7 @@ A test below from the [post-form-parameters](https://github.com/ktorio/ktor-docu
 
 </tab>
 
-<tab title="Application">
+<tab title="Application.kt">
 
 ```kotlin
 ```
@@ -204,13 +271,14 @@ A test below from the [post-form-parameters](https://github.com/ktorio/ktor-docu
 </tab>
 </tabs>
 
+> For the full code example, see [post-form-parameters](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/post-form-parameters).
 
-#### multipart/form-data {id="multipart-form-data"}
+#### Multipart form data {id="multipart-form-data"}
 
-The code below demonstrates how to build `multipart/form-data` and test file uploading. You can find the full example here: [upload-file](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/upload-file).
+You can use the `multipart/form-data` content type to build multipart form data and test file uploads:
 
 <tabs>
-<tab title="Test">
+<tab title="ApplicationTest.kt">
 
 ```kotlin
 ```
@@ -218,7 +286,7 @@ The code below demonstrates how to build `multipart/form-data` and test file upl
 
 </tab>
 
-<tab title="Application">
+<tab title="Application.kt">
 
 ```kotlin
 ```
@@ -227,13 +295,18 @@ The code below demonstrates how to build `multipart/form-data` and test file upl
 </tab>
 </tabs>
 
+> For the full code example, see [upload-file](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/upload-file).
 
 ### Send JSON data {id="json-data"}
 
-To send JSON data in a test POST/PUT request, you need to create a new client and install the [ContentNegotiation](client-serialization.md) plugin that allows serializing/deserializing the content in a specific format. Inside a request, you can specify the `Content-Type` header using the `contentType` function and the request body using [setBody](client-requests.md#body). The [example below](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/json-kotlinx) shows how to test the `/customer` endpoint that handles `POST` requests.
+To serialize and deserialize JSON data in `POST/PUT` requests, install the [`ContentNegotiation`](client-serialization.md)
+plugin to a new client.
+
+Inside the request, you can specify the `Content-Type` header using the `contentType()` function and the request body
+using the `setBody()` function.
 
 <tabs>
-<tab title="Test">
+<tab title="ApplicationTest.kt">
 
 ```kotlin
 ```
@@ -241,7 +314,7 @@ To send JSON data in a test POST/PUT request, you need to create a new client an
 
 </tab>
 
-<tab title="Application">
+<tab title="Application.kt">
 
 ```kotlin
 ```
@@ -250,15 +323,17 @@ To send JSON data in a test POST/PUT request, you need to create a new client an
 </tab>
 </tabs>
 
-
+> For the full example, see [json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/json-kotlinx).
 
 ## Preserve cookies during testing {id="preserving-cookies"}
 
-If you need to preserve cookies between requests when testing, you need to create a new client and install the [HttpCookies](client-cookies.md) plugin. In a test below from the [session-cookie-client](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/session-cookie-client) example, reload count is increased after each request since cookies are preserved.
+To preserve cookies between requests, install the [`HttpCookies`](client-cookies.md) plugin to a new client.
+
+In the following example, the reload count increases after each request due to cookies being preserved:
 
 
 <tabs>
-<tab title="Test">
+<tab title="ApplicationTest.kt">
 
 ```kotlin
 ```
@@ -266,7 +341,7 @@ If you need to preserve cookies between requests when testing, you need to creat
 
 </tab>
 
-<tab title="Application">
+<tab title="Application.kt">
 
 ```kotlin
 ```
@@ -275,35 +350,36 @@ If you need to preserve cookies between requests when testing, you need to creat
 </tab>
 </tabs>
 
+> For the full example, see [session-cookie-client](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/session-cookie-client).
 
 ## Test HTTPS {id="https"}
 
-If you need to test an [HTTPS endpoint](server-ssl.md), change the protocol used to make a request using the [URLBuilder.protocol](client-requests.md#url) property:
+To test an [HTTPS endpoint](server-ssl.md), set the request protocol using the [`URLBuilder.protocol`](client-requests.md#url) property:
 
 ```kotlin
 ```
-{src="snippets/ssl-engine-main/src/test/kotlin/ApplicationTest.kt" include-lines="3-22"}
+{src="snippets/ssl-engine-main/src/test/kotlin/ApplicationTest.kt" include-symbol="testRoot"}
 
-You can find the full example here: [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/ssl-engine-main).
-
+> For the full example, see [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/ssl-engine-main).
 
 ## Test WebSockets {id="testing-ws"}
 
-You can test [WebSocket conversations](server-websockets.md) by using the [WebSockets](client-websockets.topic) plugin provided by the client:
+You can test [WebSocket conversations](server-websockets.md) by using the [`WebSockets`](client-websockets.topic)
+client plugin:
 
 ```kotlin
 ```
 {src="snippets/server-websockets/src/test/kotlin/com/example/ModuleTest.kt"}
 
-
 ## End-to-end testing with HttpClient {id="end-to-end"}
-Apart from a testing engine, you can use the [Ktor HTTP client](client-create-and-configure.md) for end-to-end testing of your server application.
+
+You can use the [Ktor HTTP client](client-create-and-configure.md) for a full end-to-end testing of your server application.
+
 In the example below, the HTTP client makes a test request to the `TestServer`:
 
 ```kotlin
 ```
 {src="snippets/embedded-server/src/test/kotlin/EmbeddedServerTest.kt"}
 
-For complete examples, refer to these samples:
-- [embedded-server](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/embedded-server): a sample server to be tested.
-- [e2e](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/e2e): contains helper classes and functions for setting up a test server.
+> For complete end-to-end testing examples, see [embedded-server](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/embedded-server)
+> and [e2e](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/e2e).
