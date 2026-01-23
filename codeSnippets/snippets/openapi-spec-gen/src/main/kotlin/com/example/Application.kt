@@ -14,6 +14,7 @@ import io.ktor.server.plugins.swagger.swaggerUI
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import io.ktor.server.routing.openapi.plus
 import io.ktor.utils.io.ExperimentalKtorApi
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
@@ -41,7 +42,7 @@ fun Application.module() {
         val apiRoute = userCrud()
 
         get("/docs.json") {
-            val doc = OpenApiDoc(info = OpenApiInfo("My API", "1.0") + apiRoute.descendants())
+            val doc = OpenApiDoc(info = OpenApiInfo("My API", "1.0")) + apiRoute.descendants()
             call.respond(doc)
         }
 

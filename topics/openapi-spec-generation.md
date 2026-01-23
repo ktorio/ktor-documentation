@@ -160,7 +160,7 @@ You can attach comments directly to route declarations:
 
 ```kotlin
 ```
-{src="snippets/openapi-spec-gen/src/main/kotlin/com/example/Application.kt" include-lines="79-95"}
+{src="snippets/openapi-spec-gen/src/main/kotlin/com/example/Application.kt" include-lines="80-96"}
 
 #### Formatting rules
 
@@ -221,7 +221,7 @@ The runtime route annotations API is experimental and requires opting in using `
 
 ```kotlin
 ```
-{src="snippets/openapi-spec-gen/src/main/kotlin/com/example/Application.kt" include-lines="102-131"}
+{src="snippets/openapi-spec-gen/src/main/kotlin/com/example/Application.kt" include-lines="103-132"}
 
 > For a complete list of available fields, refer to the [OpenAPI specification](https://swagger.io/specification/#operation-object).
 >
@@ -270,7 +270,7 @@ You typically construct the document from a route handler and respond with it di
 
 ```kotlin
 ```
-{src="snippets/openapi-spec-gen/src/main/kotlin/com/example/Application.kt" include-lines="43-46"}
+{src="snippets/openapi-spec-gen/src/main/kotlin/com/example/Application.kt" include-lines="44-47"}
 
 In this example, the OpenAPI document is serialized using the [`ContentNegotiation`](server-serialization.md) plugin.
 This assumes that a JSON serializer (for example, `kotlinx.serialization`) is installed.

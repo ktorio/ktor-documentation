@@ -209,9 +209,7 @@ This is convenient for full file downloads where you don’t need to manually ma
 
 ##### Copy to a `RawSink` {id="readTo"}
 
-[//]: # (TODO: Add API link)
-
-The [`ByteReadChannel.readTo()`]()
+The [`ByteReadChannel.readTo()`](https://api.ktor.io/ktor-io/io.ktor.utils.io/read-to.html)
 function writes bytes directly to a `RawSink` without intermediate buffers:
 
 ```kotlin

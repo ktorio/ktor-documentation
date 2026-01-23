@@ -2,15 +2,22 @@
 
 <show-structure for="chapter,procedure" depth="2"/>
 
-[//]: # (TODO: Change date)
+_[Released: January 23, 2026](releases.md#release-details)_
 
-_[Released: December XX, 2025](releases.md#release-details)_
+Ktor 3.4.0 delivers a wide range of enhancements across server, client, and tooling. Here are the highlights for this
+feature release:
+
+* [Zstd compression support](#zstd-compression-support)
+* [Http request lifecycle](#http-request-lifecycle)
+* [Runtime OpenAPI route annotations](#runtime-openapi-route-annotations)
+* [Duplex streaming for OkHttp](#duplex-streaming-for-okhttp)
 
 ## Ktor Server
 
 ### OAuth fallback for error handling
 
-Ktor 3.4.0 introduces a new `fallback()` function for the [OAuth](server-oauth.md) authentication provider.
+Ktor 3.4.0 introduces a new [`fallback()`](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-o-auth-authentication-provider/-config/fallback.html)
+function for the [OAuth](server-oauth.md) authentication provider.
 The fallback is invoked when the OAuth flow fails with `AuthenticationFailedCause.Error`, such as token exchange
 failures, network issues, or response parsing errors.
 
@@ -42,7 +49,7 @@ install(Authentication) {
 
 ### Zstd compression support
 
-[Ztsd](https://github.com/facebook/zstd) compression is now supported by the [Compression](server-compression.md)
+[Zstd](https://github.com/facebook/zstd) compression is now supported by the [Compression](server-compression.md)
 plugin.
 
 `Zstd` is a fast compression algorithm that offers high compression ratios and low compression times, and has a
@@ -93,9 +100,9 @@ From the code above:
 
 ### HTML fragments for partial responses
 
-Ktor now provides a new `.respondHtmlFragment()` function for sending partial HTML responses.
-This is useful when generating markup that does not require a full `<html>` document, such as dynamic UI updates with
-tools like HTMX.
+Ktor now provides a new [`.respondHtmlFragment()`](https://api.ktor.io/ktor-server-html-builder/io.ktor.server.html/respond-html-fragment.html)
+function for sending partial HTML responses. This is useful when generating markup that does not require a full `<html>`
+document, such as dynamic UI updates with tools like HTMX.
 
 The new API is part of the [HTML DSL](server-html-dsl.md) plugin and allows you to return HTML rooted in any element:
 
@@ -158,7 +165,7 @@ routing {
 }
 ```
 
-### Runtime route annotations
+### Runtime OpenAPI route annotations
 
 <primary-label ref="experimental"/>
 
@@ -243,8 +250,8 @@ For more details and configuration options, see [](server-api-key-auth.md).
 
 ### Multiple header parsing
 
-The new `Headers.getSplitValues()` function simplifies working with headers that contain multiple values
-in a single line.
+The new [`Headers.getSplitValues()`](https://api.ktor.io/ktor-http/io.ktor.http/get-split-values.html) function
+simplifies working with headers that contain multiple values in a single line.
 
 The `getSplitValues()` function returns all values for the given header and splits them using the specified separator
 (`,` by default):
@@ -360,7 +367,7 @@ val client = HttpClient(OkHttp) {
 
 ### Apache5 connection manager configuration
 
-The Apache5 engine now supports configuring the connection manager directly using the new `configureConnectionManager {}`
+The Apache5 engine now supports configuring the connection manager directly using the new [`configureConnectionManager {}`](https://api.ktor.io/ktor-client-apache5/io.ktor.client.engine.apache5/-apache5-engine-config/configure-connection-manager.html)
 function.
 
 This approach is recommended over the previous method using `customizeClient { setConnectionManager(...) }`. Using
@@ -453,8 +460,9 @@ Ktor client configuration now provides more control over replacing existing sett
 
 #### Replace plugin configuration
 
-The new `installOrReplace()` function installs a client plugin or replaces its existing configuration if the plugin is
-already installed. This is useful when you need to reconfigure a plugin without manually removing it first.
+The new [`installOrReplace()`](https://api.ktor.io/ktor-client-core/io.ktor.client/-http-client-config/install-or-replace.html)
+function installs a client plugin or replaces its existing configuration if the plugin is already installed. This is
+useful when you need to reconfigure a plugin without manually removing it first.
 
 ```kotlin
 val client = HttpClient {
@@ -469,8 +477,9 @@ provided in the block.
 
 #### Replace default request configuration
 
-The `defaultRequest()` function now accepts an optional `replace` parameter (default is `false`). When set to `true`,
-the new configuration replaces any previously defined default request settings instead of merging with them.
+The [`defaultRequest()`](https://api.ktor.io/ktor-client-core/io.ktor.client.plugins/default-request.html) function now
+accepts an optional `replace` parameter (default is `false`). When set to `true`, the new configuration replaces any
+previously defined default request settings instead of merging with them.
 
 ```kotlin
 val client = HttpClient {
@@ -514,9 +523,9 @@ actual fun createClient(): HttpClient = HttpClient(Js)
 
 ### Stream bytes from a `ByteReadChannel` to a `RawSink`
 
-You can now use the new `ByteReadChannel.readTo()` function to read bytes from a channel and write them directly to a
-specified `RawSink`. This function simplifies handling large responses or file downloads without intermediate buffers or
-manual copying.
+You can now use the new [`ByteReadChannel.readTo()`](https://api.ktor.io/ktor-io/io.ktor.utils.io/read-to.html) function
+to read bytes from a channel and write them directly to a specified `RawSink`. This function simplifies handling large
+responses or file downloads without intermediate buffers or manual copying.
 
 The following example downloads a file and writes it to a new local file:
 

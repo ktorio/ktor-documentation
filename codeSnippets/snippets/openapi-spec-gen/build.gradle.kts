@@ -1,11 +1,11 @@
-val ktor_version = "3.4.0-eap-1518"
-val kotlin_version: String by project
+val ktor_version: String by project
+val kotlin_version = "2.2.20"
 val logback_version: String by project
 
 plugins {
     application
     kotlin("jvm")
-    id("io.ktor.plugin") version "3.3.3"
+    id("io.ktor.plugin") version "3.4.0"
 }
 
 application {
