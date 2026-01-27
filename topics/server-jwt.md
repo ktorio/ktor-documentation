@@ -216,7 +216,7 @@ The `verifier` function allows you to verify a token format and its signature:
 
 ### Step 5: Validate JWT payload {id="validate-payload"}
 
-1. The `validate` function allows you to perform additional validations on the JWT payload. Check the `credential` parameter, which represents a [JWTCredential](https://api.ktor.io/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-credential/index.html) object and contains the JWT payload. In the example below, the value of a custom `username` claim is checked.
+1. The `validate` function allows you to perform validations on the JWT payload. This function is required: if you don't configure it, provider initialization throws an `IllegalArgumentException`. Check the `credential` parameter, which represents a [JWTCredential](https://api.ktor.io/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-credential/index.html) object and contains the JWT payload. In the example below, the value of a custom `username` claim is checked.
    ```kotlin
    ```
    {style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="28-29,36-42,46-47"}
