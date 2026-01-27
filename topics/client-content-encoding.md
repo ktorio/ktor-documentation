@@ -59,7 +59,10 @@ import io.ktor.client.engine.cio.*
 import io.ktor.client.plugins.compression.*
 //...
 val client = HttpClient(CIO) {
-    install(ContentEncoding)
+    install(ContentEncoding) {
+        mode = ContentEncodingConfig.Mode.CompressRequest
+        gzip()
+    }
 }
 client.post("/upload") {
     compress("gzip")
