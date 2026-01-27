@@ -14,6 +14,7 @@ import io.ktor.server.plugins.swagger.swaggerUI
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import io.ktor.server.routing.openapi.hide
 import io.ktor.server.routing.openapi.plus
 import io.ktor.utils.io.ExperimentalKtorApi
 import kotlinx.serialization.Serializable
@@ -29,52 +30,8 @@ fun Application.module() {
     }
     @OptIn(ExperimentalKtorApi::class)
     routing {
-        // Main page for marketing
-        get("/") {
-            call.respondText("<html><body><h1>Hello, World</h1></body></html>", ContentType.Text.Html)
-        }
-
-        /**
-         * API endpoints for users.
-         *
-         * These will appear in the resulting OpenAPI document.
-         */
-        val apiRoute = userCrud()
-
-        get("/docs.json") {
-            val doc = OpenApiDoc(info = OpenApiInfo("My API", "1.0")) + apiRoute.descendants()
-            call.respond(doc)
-        }
-
-        /**
-         * View the generated UI for the API spec.
-         */
-        openAPI("/openApi"){
-            outputPath = "docs/routes"
-            // title, version, etc.
-            info = OpenApiInfo("My API from routes", "1.0.0")
-            // which routes to read from to build the model
-            // by default, it checks for `openapi/documentation.yaml` then use the routing root as a fallback
-            source = OpenApiDocSource.Routing(ContentType.Application.Json) {
-                apiRoute.descendants()
-            }
-        }
-
-        /**
-         * View the Swagger flavor of the UI for the API spec.
-         */
-        swaggerUI("/swaggerUI") {
-            info = OpenApiInfo("My API", "1.0")
-            source = OpenApiDocSource.Routing(ContentType.Application.Json) {
-                apiRoute.descendants()
-            }
-        }
-    }
-}
-
-fun Routing.userCrud(): Route =
-    route("/api") {
-        route("/users") {
+        route("/api") {
+            route("/users") {
                 val list = mutableListOf<User>()
 
                 /**
@@ -157,7 +114,40 @@ fun Routing.userCrud(): Route =
                     call.respond(HttpStatusCode.NoContent)
                 }
 
+            }
         }
+        // Main page for marketing
+        get("/") {
+            call.respondText("<html><body><h1>Hello, World</h1></body></html>", ContentType.Text.Html)
+        }
+
+        get("/docs.json") {
+            val doc = OpenApiDoc(info = OpenApiInfo("My API", "1.0")) + call.application.routingRoot.descendants()
+            call.respond(doc)
+        }.hide()
+
+        /**
+         * View the generated UI for the API spec.
+         */
+        openAPI("/openApi"){
+            outputPath = "docs/routes"
+            // title, version, etc.
+            info = OpenApiInfo("My API from routes", "1.0.0")
+            // which routes to read from to build the model
+            // by default, it checks for `openapi/documentation.yaml` then use the routing root as a fallback
+            source = OpenApiDocSource.Routing(ContentType.Application.Json)
+        }
+
+        /**
+         * View the Swagger flavor of the UI for the API spec.
+         */
+        swaggerUI("/swaggerUI") {
+            info = OpenApiInfo("My API", "1.0")
+            source = OpenApiDocSource.Routing(
+                contentType = ContentType.Application.Json,
+            )
+        }
+    }
 }
 
 @Serializable
