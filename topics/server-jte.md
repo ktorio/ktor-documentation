@@ -24,7 +24,20 @@ Ktor allows you to use [JTE templates](https://github.com/casid/jte) as views wi
 <include from="lib.topic" element-id="add_ktor_artifact_intro"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
-> To handle `.kte` files, you need to add the `gg.jte:jte-kotlin` artifact to your project.
+To handle `.kte` files, add the `gg.jte:jte-kotlin` artifact to your project:
+
+<var name="group_id" value="gg.jte"/>
+<var name="artifact_name" value="jte-kotlin"/>
+<var name="version" value="jte_version" />
+<include from="lib.topic" element-id="add_artifact"/>
+
+> The current `jte‑kotlin` compiler plugin is not compatible with Kotlin 2.3.x.
+> Since Ktor 3.4.0 uses the Kotlin 2.3 toolchain, the Ktor JTE plugin cannot be used until the `jte‑kotlin`
+> plugin adds support for Kotlin 2.3.
+> 
+> If you rely on JTE, use Kotlin 2.2.x and a compatible Ktor version until `jte‑kotlin` is updated for Kotlin 2.3.
+> 
+{style="warning"}
 
 ## Install %plugin_name% {id="install_plugin"}
 
