@@ -6,7 +6,7 @@ plugins {
     application
     kotlin("jvm")
     id("io.ktor.plugin") version "3.4.0"
-    kotlin("plugin.serialization").version("2.2.20")
+    kotlin("plugin.serialization").version("2.3.0")
 }
 
 application {

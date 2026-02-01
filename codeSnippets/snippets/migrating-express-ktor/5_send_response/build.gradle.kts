@@ -4,8 +4,8 @@ val logback_version: String by project
 
 plugins {
     application
-    kotlin("jvm") version "2.2.20"
-    kotlin("plugin.serialization").version("2.2.20")
+    kotlin("jvm") version "2.3.0"
+    kotlin("plugin.serialization").version("2.3.0")
 }
 
 application {
