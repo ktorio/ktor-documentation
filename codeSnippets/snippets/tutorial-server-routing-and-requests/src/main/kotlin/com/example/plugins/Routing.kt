@@ -6,7 +6,7 @@ import io.ktor.server.http.content.staticResources
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import model.*
+import com.example.model.*
 
 fun Application.configureRouting() {
     routing {

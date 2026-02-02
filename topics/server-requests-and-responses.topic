@@ -264,7 +264,7 @@
             <step>
                 <p>Add the required import:</p>
                 <code-block lang="kotlin">
-                    import model.*
+                    import com.example.model.*
                 </code-block>
             </step>
         </procedure>
@@ -301,7 +301,7 @@
                     file and replace the existing list of tasks with the code below:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-server-routing-and-requests/src/main/kotlin/model/TaskRepository.kt"/>
+                            src="snippets/tutorial-server-routing-and-requests/src/main/kotlin/com/example/model/TaskRepository.kt"/>
                 <p>
                     This implements a very simple data store for tasks based on a list. For the purposes of the example,
                     the order in which the tasks are added will be preserved, but duplicates will be disallowed by
