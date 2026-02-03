@@ -10,7 +10,7 @@ import kotlin.test.*
 import kotlin.test.Test
 
 class ApplicationTest {
-    @Ignore
+    @Ignore("jte-kotlin doesn't support Kotlin 2.3.0")
     @Test
     fun testRoot() = testApplication {
         application {
