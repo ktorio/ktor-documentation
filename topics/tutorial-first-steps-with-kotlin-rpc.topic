@@ -33,7 +33,7 @@
     <p>
         The <code>kotlinx.rpc</code> library enables you to make procedure calls over network
         boundaries using nothing but regular Kotlin language constructs. As such, it provides an alternative to both
-        REST and Google RPC (gPRC).
+        REST and Google RPC (gRPC).
     </p>
     <p>
         In this article, we will introduce the core concepts of Kotlin RPC and build a simple application. You can then
