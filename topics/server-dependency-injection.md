@@ -8,12 +8,21 @@
 <p>
 <b>Required dependencies</b>: <code>io.ktor:ktor-server-di</code>
 </p>
+<var name="example_name" value="server-di"/>
+<include from="lib.topic" element-id="download_example" />
 </tldr>
 
-The Dependency Injection (DI) plugin allows you to register services and configuration objects once and inject them
-into your application modules, plugins, routes, and other components throughout your project. Ktor's DI is designed to
-integrate naturally with its existing application lifecycle, supporting scoping and structured configuration
-out of the box.
+[Dependency injection (DI)](https://en.wikipedia.org/wiki/Dependency_injection) is a design pattern that helps you
+supply components with the dependencies they require. Instead of creating concrete implementations directly, modules
+depend on abstractions, and a DI container is responsible for constructing and providing the appropriate instances at
+runtime. This separation reduces coupling, improves testability, and makes it easier to replace or reconfigure
+implementations without modifying existing code.
+
+Ktor provides a built‑in DI plugin that lets you register services and configuration objects once and access them
+throughout your application. You can inject these dependencies into modules, plugins, routes, and other Ktor components
+in a consistent, type‑safe way. The plugin integrates with the Ktor application lifecycle and supports scoping,
+structured configuration, and automatic resource management, making it easier to organize and maintain application‑level
+services.
 
 ## Add dependencies
 
