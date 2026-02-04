@@ -13,6 +13,8 @@ fun Application.module(
     userRepository: UserRepository,
 ) {
     routing {
+        val optional: OptionalConfig? by dependencies
+
         get("/greet/{name}") {
             val name = call.parameters["name"] ?: "World"
             call.respondText(greetingService.greet(name))
@@ -23,7 +25,6 @@ fun Application.module(
         }
 
         get("/optional") {
-            val optional: OptionalConfig? by dependencies
             call.respondText("Optional = $optional")
         }
     }
