@@ -30,120 +30,131 @@ To use DI, include the `%artifact_name%` artifact in your build script:
 
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
-## Basic dependency registration
+## Dependency registration
 
-You can register dependencies using lambdas, function references, or constructor references:
+Ktor’s DI container needs to know how to create objects that your application depends on. This process is called
+dependency registration.
+
+### Basic dependency registration
+
+Basic dependency registration is done in code using the `dependencies {}` block. You can register dependencies by
+providing [lambdas](#lambda-registration), [function references](#function-reference), [class references](#class-reference),
+or [constructor references](#constructor-reference):
+
+#### Use a lambda {id="lambda-registration"}
+
+Use a lambda when you want full control over how an instance is created:
 
 ```kotlin
 dependencies {
-    // Lambda-based
     provide<GreetingService> { GreetingServiceImpl() }
+}
+```
+This registers a provider for `GreetingService`. Whenever `GreetingService` is requested, the lambda is executed to
+create an instance.
 
-    // Function references
+#### Use a constructor reference {id="constructor-reference"}
+
+If a class can be created using its constructor and all constructor parameters are already registered in the DI
+container, you can use a constructor reference.
+
+```kotlin
+dependencies {
     provide<GreetingService>(::GreetingServiceImpl)
+}
+```
+This tells your application to use the constructor of `GreetingServiceImpl`, and let DI resolve its parameters.
+
+#### Use a class reference {id="class-reference"}
+
+You can register a concrete class without binding it to an interface:
+
+```kotlin
+dependencies {
     provide(BankServiceImpl::class)
+}
+```
+In this case, the dependency is resolved by its `BankServiceImpl` type.
+This is useful when the implementation type is injected directly and no abstraction is required.
+
+#### Use a function reference {id="function-reference"}
+
+You can register a function that creates and returns an instance:
+
+```kotlin
+dependencies {
     provide(::createBankTeller)
-
-    // Registering a lambda as a dependency
-    provide<() -> GreetingService> { { GreetingServiceImpl() } }
 }
 ```
 
-## Configuration-based dependency registration
+The DI container resolves the function parameters and uses the return value as the dependency instance.
 
-You can configure dependencies declaratively using classpath references in your configuration file. This supports
-both function and class references:
+#### Use a factory lambda {id="factory-lambda-registration"}
 
-```yaml
-# application.yaml
-ktor:
-  application:
-    dependencies:
-      - com.example.RepositoriesKt.provideDatabase
-      - com.example.UserRepository
-database:
-  connectionUrl: postgres://localhost:3037/admin
-```
+You can register a function itself as a dependency:
 
 ```kotlin
-// Repositories.kt
-fun provideDatabase(@Property("database.connectionUrl") connectionUrl: String): Database =
-  PostgresDatabase(connectionUrl)
-
-class UserRepository(val db: Database) {
-  // implementation 
-}
-```
-
-Ktor resolves constructor and function parameters automatically using the DI container. You can use annotations like
-`@Property` or `@Named` to override or explicitly bind parameters in special cases, such as when the type alone is not
-enough to distinguish a value. If omitted, Ktor will attempt to resolve parameters by type using the DI container.
-
-## Dependency resolution and injection
-
-### Resolving dependencies
-
-To resolve dependencies, you can use property delegation or direct resolution:
-
-```kotlin
-// Using property delegation
-val service: GreetingService by dependencies
-
-// Direct resolution
-val service = dependencies.resolve<GreetingService>()
-```
-
-### Asynchronous dependency resolution
-
-To support asynchronous loading, you can use suspending functions:
-
-```kotlin
-suspend fun Application.installEvents() {
-  val kubernetesConnection: EventsConnection = dependencies.resolve() // suspends until provided
-}
-
-suspend fun Application.loadEventsConnection() {
-  dependencies.provide {
-    connect(property<KubernetesConfig>("app.events"))
-  }
-}
-```
-
-The DI plugin will automatically suspend `resolve()` calls until all dependencies are ready.
-
-### Injecting into application modules
-
-You can inject dependencies directly into application modules by specifying parameters in the module function. Ktor 
-will resolve these dependencies from the DI container based on type matching.
-
-First, register your dependency providers in the `dependencies` section of the config:
-
-```yaml
-ktor:
-  application:
-    dependencies:
-      - com.example.PrintStreamProviderKt.stdout
-    modules:
-      - com.example.LoggingKt.logging
-```
-
-Here’s what the dependency provider and module function look like:
-
-```kotlin
-// com.example.PrintStreamProvider.kt
-fun stdout(): () -> PrintStream = { System.out }
-```
-
-```kotlin
-// com.example.Logging.kt
-fun Application.logging(printStreamProvider: () -> PrintStream) {
-    dependencies {
-        provide<Logger> { SimpleLogger(printStreamProvider()) }
+dependencies {
+    provide<() -> GreetingService> {
+        { GreetingServiceImpl() }
     }
 }
 ```
 
-Use `@Named` for injecting specifically keyed dependencies:
+This registers a function that can be injected and called manually to create new instances.
+
+### Configuration-based dependency registration
+
+You can configure dependencies declaratively using classpath references in your configuration file. You can list a
+function that returns an object, or a class with a resolvable constructor.
+
+List the dependencies under the `ktor.application.dependencies` group in your configuration file:
+
+<tabs>
+<tab title="application.yaml">
+
+```yaml
+```
+{src="snippets/server-di/src/main/resources/application.yaml" include-lines="1,4-7"}
+
+</tab>
+</tabs>
+
+Ktor resolves function and constructor parameters automatically using the DI container.
+
+## Dependency resolution
+
+After you register dependencies, you can resolve them from the DI container and inject them into application code.
+
+You can resolve dependencies explicitly from the DI container using either [property delegation](#property-delegation)
+or [direct resolution](#direct-resolution).
+
+### Use property delegation {id="property-delegation"}
+
+When using property delegation, the dependency is resolved lazily when the property is first accessed:
+
+```kotlin
+val service: GreetingService by dependencies
+```
+
+### Use direct resolution {id="direct-resolution"}
+
+Direct resolution returns the dependency immediately or suspends until it becomes available:
+
+```kotlin
+val service = dependencies.resolve<GreetingService>()
+```
+
+### Parameter resolution
+
+When resolving constructors or functions, Ktor resolves parameters using the DI container. Parameters are resolved by
+type by default.
+
+If type-based resolution is insufficient, you can use annotations to explicitly bind parameters.
+
+#### Use named dependencies
+
+Use the `@Named` annotation to resolve a dependency registered with the specified name:
 
 ```kotlin
 fun Application.userRepository(@Named("mongo") database: Database) {
@@ -151,22 +162,74 @@ fun Application.userRepository(@Named("mongo") database: Database) {
 }
 ```
 
-### Property and configuration injection
+#### Use configuration properties
 
-Use `@Property` to inject configuration values directly:
-
-```yaml
-connection:
-  domain: api.example.com
-  path: /v1
-  protocol: https
-```
+Use the `@Property` annotation to inject a value from the application configuration:
 
 ```kotlin
-val connection: Connection = application.property("connection")
 ```
+{src="snippets/server-di/src/main/kotlin/com.example/Repositories.kt" include-symbol="provideDatabase"}
 
-This simplifies working with structured configuration and supports automatic parsing of primitive types.
+
+In the above example, the `database.connectionUrl` property is resolved from the application configuration:
+
+<tabs>
+<tab title="application.yaml">
+
+```yaml
+```
+{src="snippets/server-di/src/main/resources/application.yaml" include-lines="1,4-6,13-14"}
+
+</tab>
+</tabs>
+
+### Asynchronous dependency resolution
+
+To support asynchronous loading, you can use suspending functions:
+
+```kotlin
+```
+{src="snippets/server-di/src/main/kotlin/com.example/AsyncDependencies.kt" include-lines="8-20"}
+
+The DI plugin will automatically suspend `resolve()` calls until all dependencies are ready.
+
+### Inject dependencies into application modules
+
+You can inject dependencies directly into application modules by specifying parameters in the module function. Ktor 
+will resolve these dependencies from the DI container based on type matching.
+
+First, register your dependency providers in the `ktor.application.dependencies` group in your configuration file:
+
+<tabs>
+<tab title="application.yaml">
+
+```yaml
+```
+{src="snippets/server-di/src/main/resources/application.yaml" include-lines="1,4-5,9-10,12"}
+
+</tab>
+</tabs>
+
+Define the dependency provider and module function with parameters for the dependencies you want injected:
+
+<tabs>
+<tab title="PrintStreamProvider.kt">
+
+```kotlin
+```
+{src="snippets/server-di/src/main/kotlin/com.example/PrintStreamProvider.kt"}
+
+</tab>
+<tab title="Logging.kt">
+
+```kotlin
+```
+{src="snippets/server-di/src/main/kotlin/com.example/Logging.kt"}
+
+</tab>
+</tabs>
+
+You can then use the injected dependencies directly within the module function.
 
 ## Advanced dependency features
 
@@ -175,10 +238,10 @@ This simplifies working with structured configuration and supports automatic par
 Use nullable types to handle optional dependencies gracefully:
 
 ```kotlin
-// Using property delegation
+// Uses property delegation
 val config: Config? by dependencies
 
-// Or direct resolution
+// Uses direct resolution
 val config = dependencies.resolve<Config?>()
 ```
 
