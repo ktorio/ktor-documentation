@@ -53,7 +53,14 @@
                              accepts-web-file-names="configuration.html,configurations.html,environments.html,configuration-file.html"/>
                 <toc-element topic="server-modules.md"
                              accepts-web-file-names="modules.html"/>
-                <toc-element topic="server-dependency-injection.md"/>
+                <toc-element toc-title="Dependency injection">
+                    <toc-element topic="server-dependency-injection.md" toc-title="Overview"/>
+                    <toc-element topic="server-di-configuration.md" toc-title="Configuration"/>
+                    <toc-element topic="server-di-dependency-registration.md"/>
+                    <toc-element topic="server-di-dependency-resolution.md"/>
+                    <toc-element topic="server-di-resource-lifecycle-management.md"/>
+                    <toc-element topic="server-di-testing.md" toc-title="Testing"/>
+                </toc-element>
                 <toc-element topic="server-plugins.md"
                              toc-title="Plugins"
                              accepts-web-file-names="zfeatures.html,features.html,plugins.html"/>
