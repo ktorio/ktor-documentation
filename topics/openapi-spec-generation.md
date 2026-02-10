@@ -255,7 +255,8 @@ allows most common data models to be documented without extra effort.
 
 ### Customize schemas with annotations
 
-You can override automatically generated JSON schema fields by adding annotations to your data classes:
+You can override automatically generated JSON schema fields by adding [`@JsonSchema`](https://api.ktor.io/ktor-openapi-schema/io.ktor.openapi/-json-schema/index.html)
+annotations to your data classes. This allows you to add descriptions, mark fields as required, and more:
 
 ```kotlin
 @JsonSchema.Description("Represents a news article")
