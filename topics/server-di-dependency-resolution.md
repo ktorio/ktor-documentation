@@ -2,6 +2,14 @@
 
 <show-structure for="chapter" depth="2"/>
 
+<tldr>
+<p>
+<b>Required dependencies</b>: <code>io.ktor:ktor-server-di</code>
+</p>
+<var name="example_name" value="server-di"/>
+<include from="lib.topic" element-id="download_example" />
+</tldr>
+
 After you [register dependencies](server-di-dependency-registration.md), you can resolve them from the dependency
 injection (DI) container and inject them into application code.
 
@@ -31,9 +39,9 @@ type by default.
 
 If type-based resolution is insufficient, you can use annotations to explicitly bind parameters.
 
-#### Use named dependencies
+#### Use named dependencies {id="resolve-named"}
 
-Use the `@Named` annotation to resolve a dependency registered with the specified name:
+Use the `@Named` annotation to resolve a dependency [registered with a specified name](server-di-dependency-registration.md#named-registration):
 
 ```kotlin
 fun Application.userRepository(@Named("mongo") database: Database) {

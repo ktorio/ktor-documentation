@@ -10,6 +10,8 @@ ktor:
     modules:
       - com.example.ApplicationKt.module
       - com.example.LoggingKt.logging
+      - com.example.PaymentServiceKt.configureExternalPaymentProvider
+      - com.example.PaymentServiceKt.paymentsHandling
 database:
   connectionUrl: postgres://localhost:3037/admin
 
@@ -17,3 +19,7 @@ connection:
   domain: api.example.com
   path: /v1
   protocol: https
+
+payments:
+  url: "http://localhost:8080"
+  clientKey: "super-secret-client-key"

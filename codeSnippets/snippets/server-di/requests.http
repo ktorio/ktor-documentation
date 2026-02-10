@@ -1,0 +1,22 @@
+@host = http://localhost:8080
+
+### Successful checkout using cookies and amount
+POST http://localhost:8080/checkout?amount=1500
+Content-Type: application/x-www-form-urlencoded
+Cookie: userId=alice; cartId=cart123
+
+###
+
+### Missing userId cookie
+POST http://localhost:8080/checkout?amount=1500
+Content-Type: application/x-www-form-urlencoded
+Cookie: cartId=cart-123
+
+###
+
+### Missing amount query parameter
+POST http://localhost:8080/checkout
+Content-Type: application/x-www-form-urlencoded
+Cookie: userId=alice; cartId=cart-123
+
+###

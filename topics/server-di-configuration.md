@@ -2,7 +2,15 @@
 
 <show-structure for="chapter" depth="2"/>
 
-You can configure the dependency injection (DI) plugin in your application configuration file. These settings affect 
+<tldr>
+<p>
+<b>Required dependencies</b>: <code>io.ktor:ktor-server-di</code>
+</p>
+<var name="example_name" value="server-di"/>
+<include from="lib.topic" element-id="download_example" />
+</tldr>
+
+You can configure the [dependency injection (DI) plugin](server-dependency-injection.md) in your application configuration file. These settings affect 
 the behavior of dependency resolution globally and apply to all registered dependencies.
 
 ### Dependency key mapping
@@ -61,7 +69,7 @@ ktor:
     keyMapping: Supertypes + (Nullables * RawTypes)
 ```
 
-It will not resolve as `Collection?`, because that combination is not included in the expression
+It will not resolve as `Collection?`, because that combination is not included in the expression.
 
 ### Conflict resolution policy
 

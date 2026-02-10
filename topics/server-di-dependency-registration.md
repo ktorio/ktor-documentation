@@ -2,12 +2,21 @@
 
 <show-structure for="chapter" depth="2"/>
 
-Ktor’s dependency injection (DI) container needs to know how to create objects that your application depends on. This
+<tldr>
+<p>
+<b>Required dependencies</b>: <code>io.ktor:ktor-server-di</code>
+</p>
+<var name="example_name" value="server-di"/>
+<include from="lib.topic" element-id="download_example" />
+</tldr>
+
+Ktor’s [dependency injection (DI)](server-dependency-injection.md) container needs to know how to create objects that your application depends on. This
 process is called dependency registration.
 
 ### Basic dependency registration
 
-Basic dependency registration is done in code using the `dependencies {}` block.
+Basic dependency registration is done in code, typically within an `Application` module using the `dependencies {}`
+block.
 
 You can register dependencies by providing [lambdas](#lambda-registration), [function references](#function-reference),
 [class references](#class-reference), or [constructor references](#constructor-reference):
@@ -73,6 +82,24 @@ dependencies {
 ```
 
 This registers a function that can be injected and called manually to create new instances.
+
+### Named dependency registration {id="named-registration"}
+
+You can assign a name to a dependency at registration time to distinguish multiple providers of the same type.
+
+This is useful when you need to register more than one implementation or instance for a single type and select between
+them explicitly during resolution.
+
+To assign a name to a dependency, pass the name as the first argument to the `provide()` function:
+
+```kotlin
+dependencies {
+    provide("default") { GreetingServiceImpl() }
+    provide("alternative") { AlternativeGreetingServiceImpl() }
+}
+```
+
+Named dependencies must be [resolved explicitly using the `@Named` annotation](server-di-dependency-resolution.md#resolve-named).
 
 ### Configuration-based dependency registration
 

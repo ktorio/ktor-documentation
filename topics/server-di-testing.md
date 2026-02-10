@@ -2,7 +2,15 @@
 
 <show-structure for="chapter" depth="2"/>
 
-The dependency injection (DI) plugin provides tooling to simplify testing.
+<tldr>
+<p>
+<b>Required dependencies</b>: <code>io.ktor:ktor-server-di</code>
+</p>
+<var name="example_name" value="server-di"/>
+<include from="lib.topic" element-id="download_example" />
+</tldr>
+
+The [dependency injection (DI) plugin](server-dependency-injection.md) provides tooling to simplify testing.
 
 You can override dependencies before loading your application modules:
 
