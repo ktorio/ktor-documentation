@@ -373,7 +373,7 @@ fun Application.configureTemplating() {
                     </li>
                     <li>
                         In a GET request to <code>/tasks/byName</code>, the server retrieves the parameter
-                        <code>taskName</code> from the <code>queryString</code>, finds the matching task, and uses the
+                        <code>name</code> from the <code>queryString</code>, finds the matching task, and uses the
                         <path>single-task</path>
                         template to generate the next view sent to the browser.
                     </li>
