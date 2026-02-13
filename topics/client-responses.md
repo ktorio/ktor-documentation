@@ -17,7 +17,7 @@ For example, you can receive `HttpResponse` for a `GET` request without paramete
 
 ```kotlin
 ```
-{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="21"}
+{src="snippets/client-configure-request/src/main/kotlin/com/example/Application.kt" include-lines="22"}
 
 ## Receive response parameters {id="parameters"}
 
