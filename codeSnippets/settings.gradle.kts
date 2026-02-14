@@ -22,8 +22,8 @@ fun module(group: String, name: String) {
 
 // ---------------------------
 
-//module("snippets", "jetty-war")
-//module("snippets", "tomcat-war")
+module("snippets", "jetty-war")
+module("snippets", "tomcat-war")
 module("snippets", "auth-basic")
 module("snippets", "auth-bearer")
 module("snippets", "auth-basic-hash-table")
@@ -133,7 +133,7 @@ module("snippets", "status-pages")
 module("snippets", "client-download-file-range")
 module("snippets", "shutdown-url")
 module("snippets", "double-receive")
-//module("snippets", "tomcat-war-ssl")
+module("snippets", "tomcat-war-ssl")
 module("snippets", "sockets-client")
 module("snippets", "sockets-client-tls")
 module("snippets", "sockets-server")
