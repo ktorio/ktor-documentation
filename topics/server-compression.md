@@ -38,7 +38,7 @@ With the `Compression` plugin, you can:
 To include Zstandard compression, add the `ktor-server-compression-zstd` dependency:
 
    <var name="artifact_name" value="ktor-server-compression-zstd"/>
-   <include from="lib.topic" element-id="add_ktor_artifact_testing"/>
+   <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 ## Install %plugin_name% {id="install_plugin"}
 
