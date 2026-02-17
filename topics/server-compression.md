@@ -20,7 +20,7 @@ Ktor provides the capability to compress response body and decompress request bo
 plugin.
 
 With the `Compression` plugin, you can:
-- Use different compression algorithms, including `gzip`, `ztsd` and `deflate`.
+- Use different compression algorithms, including `gzip`, `zstd` and `deflate`.
 - Specify the required conditions for compressing data, such as a content type or response size.
 - Compress data based on specific request parameters.
 
@@ -38,7 +38,7 @@ With the `Compression` plugin, you can:
 To include Zstandard compression, add the `ktor-server-compression-zstd` dependency:
 
    <var name="artifact_name" value="ktor-server-compression-zstd"/>
-   <include from="lib.topic" element-id="add_ktor_artifact_testing"/>
+   <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 ## Install %plugin_name% {id="install_plugin"}
 
@@ -61,7 +61,7 @@ To enable only specific encoders, call the corresponding extension functions, fo
 install(Compression) {
     gzip()
     deflate()
-    ztsd()
+    zstd()
 }
 ```
 
@@ -75,13 +75,13 @@ install(Compression) {
     deflate {
         priority = 1.0
     }
-    ztsd {
+    zstd {
         priority = 0.8
     }
 }
 ```
 
-In the example above, `deflate` has a higher priority value and takes precedence over `gzip` and `ztsd`. Note that the server first
+In the example above, `deflate` has a higher priority value and takes precedence over `gzip` and `zstd`. Note that the server first
 looks at the [quality](https://developer.mozilla.org/en-US/docs/Glossary/Quality_Values) values within
 the [Accept-Encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding) header and then takes
 into account the specified priorities.
