@@ -1,18 +1,21 @@
 package com.example
 
-import com.example.model.*
+import com.example.model.Priority
+import com.example.model.Task
+import com.example.model.TaskRepository
 import io.ktor.http.*
-import io.ktor.serialization.*
 import io.ktor.server.application.*
 import io.ktor.server.http.content.*
-import io.ktor.server.request.*
+import io.ktor.server.request.receive
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import kotlinx.serialization.SerializationException
 
 fun Application.configureRouting() {
     routing {
         staticResources("static", "static")
 
+        //updated implementation
         route("/tasks") {
             get {
                 val tasks = TaskRepository.allTasks()
@@ -33,7 +36,6 @@ fun Application.configureRouting() {
                 }
                 call.respond(task)
             }
-
             get("/byPriority/{priority}") {
                 val priorityAsText = call.parameters["priority"]
                 if (priorityAsText == null) {
@@ -53,7 +55,7 @@ fun Application.configureRouting() {
                     call.respond(HttpStatusCode.BadRequest)
                 }
             }
-
+            //add the following new route
             post {
                 try {
                     val task = call.receive<Task>()
@@ -61,7 +63,7 @@ fun Application.configureRouting() {
                     call.respond(HttpStatusCode.Created)
                 } catch (ex: IllegalStateException) {
                     call.respond(HttpStatusCode.BadRequest)
-                } catch (ex: JsonConvertException) {
+                } catch (ex: SerializationException) {
                     call.respond(HttpStatusCode.BadRequest)
                 }
             }
@@ -80,6 +82,5 @@ fun Application.configureRouting() {
                 }
             }
         }
-
     }
 }
