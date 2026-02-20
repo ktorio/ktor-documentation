@@ -167,7 +167,23 @@ val client = HttpClient(CIO) {
 }
 ```
 
-The `jackson` method also allows you to adjust serialization settings provided by [ObjectMapper](https://fasterxml.github.io/jackson-databind/javadoc/2.9/com/fasterxml/jackson/databind/ObjectMapper.html).
+The `jackson` method also allows you to adjust serialization settings provided by [ObjectMapper](https://fasterxml.github.io/jackson-databind/javadoc/2.17.2/com/fasterxml/jackson/databind/ObjectMapper.html), for example:
+
+```kotlin
+import io.ktor.client.plugins.contentnegotiation.*
+import io.ktor.serialization.jackson.*
+import com.fasterxml.jackson.databind.*
+import java.text.DateFormat
+
+val client = HttpClient(CIO) {
+    install(ContentNegotiation) {
+        jackson {
+            enable(SerializationFeature.INDENT_OUTPUT)
+            dateFormat = DateFormat.getDateInstance()
+        }
+    }
+}
+```
 
 </tab>
 </tabs>
