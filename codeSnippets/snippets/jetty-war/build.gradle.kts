@@ -5,14 +5,13 @@ val logback_version: String by project
 plugins {
     application
     kotlin("jvm")
-    id("org.gretty") version "4.1.7"
+    id("org.gretty") version "5.0.1"
     id("war")
 }
 
 gretty {
-    servletContainer = "jetty11"
+    servletContainer = "jetty12"
     contextPath = "/"
-    logbackConfigFile = "src/main/resources/logback.xml"
 }
 
 repositories {

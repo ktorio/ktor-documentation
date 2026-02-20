@@ -5,14 +5,13 @@ val slf4j_version: String by project
 plugins {
     application
     kotlin("jvm")
-    id("org.gretty") version "4.1.7"
+    id("org.gretty") version "5.0.1"
     id("war")
 }
 
 gretty {
     servletContainer = "tomcat10"
     contextPath = "/"
-    logbackConfigFile = "src/main/resources/logback.xml"
     httpsEnabled = true
 }
 
@@ -23,7 +22,7 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
-    implementation("io.ktor:ktor-server-servlet:$ktor_version")
+    implementation("io.ktor:ktor-server-servlet-jakarta:$ktor_version")
     implementation("org.slf4j:slf4j-jdk14:$slf4j_version")
 }
 
