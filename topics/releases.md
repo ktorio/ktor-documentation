@@ -38,7 +38,7 @@ The following table lists details of the latest Ktor releases.
 A minor release that introduces runtime‑generated OpenAPI specs, Zstd and Jackson 3 support, duplex streaming for
 OkHttp, and dozens of bug fixes that strengthen reliability throughout the framework.
 </p>
-<var name="version" value="3.3.3"/>
+<var name="version" value="3.4.0"/>
 <include from="lib.topic" element-id="release_details_link"/>
 </td></tr>
 <tr><td>3.3.3</td><td>November 26, 2025</td><td>
@@ -375,7 +375,7 @@ A patch release with various bug fixes and updated Kotlin version to <code>1.6.2
 </td></tr>
 <tr><td>2.0.0</td><td>April 11, 2022</td><td>
 <p>
-A major release with updated API docs and various new features. For more information on braking changes and how to
+A major release with updated API docs and various new features. For more information on breaking changes and how to
 migrate from <code>1.x.x</code>, see <a href="migration-to-20x.md">the migration guide</a>.
 </p>
 <var name="version" value="2.0.0"/>
