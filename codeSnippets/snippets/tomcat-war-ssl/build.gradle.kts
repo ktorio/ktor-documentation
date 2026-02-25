@@ -21,7 +21,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version")
     implementation("io.ktor:ktor-server-servlet-jakarta:$ktor_version")
     implementation("org.slf4j:slf4j-jdk14:$slf4j_version")
 }
