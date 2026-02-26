@@ -55,7 +55,7 @@ fun Application.paymentsHandling(
 
             payments.handlePayment(call, userId, cartId, amount)
         }
-        get("/paymment/{amount}") {
+        get("/payment/{amount}") {
             call.respondText("Payment for ${call.parameters["amount"]} is pending...")
         }
     }

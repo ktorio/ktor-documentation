@@ -25,6 +25,9 @@ fun test() = testApplication {
 }
 ```
 
+In the above example `loadServices()` is the function that bootstraps your application's modules — for example, the
+function that registers your routes and services, equivalent to what is listed under `modules` in your `application.yaml`.
+
 ### Loading configuration in tests
 
 Use `configure()` to load configuration files easily in your tests:

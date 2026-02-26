@@ -65,7 +65,7 @@ In the above example, the `database.connectionUrl` property is resolved from the
 
 ```yaml
 ```
-{src="snippets/server-di/src/main/resources/application.yaml" include-lines="1,4-6,13-14"}
+{src="snippets/server-di/src/main/resources/application.yaml" include-lines="15-16"}
 
 </tab>
 </tabs>

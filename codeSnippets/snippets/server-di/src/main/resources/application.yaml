@@ -13,7 +13,7 @@ ktor:
       - com.example.PaymentServiceKt.configureExternalPaymentProvider
       - com.example.PaymentServiceKt.paymentsHandling
 database:
-  connectionUrl: postgres://localhost:3037/admin
+  connectionUrl: postgres://localhost:5432/admin
 
 connection:
   domain: api.example.com

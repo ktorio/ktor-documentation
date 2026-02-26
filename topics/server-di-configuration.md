@@ -87,7 +87,7 @@ ktor:
 <deflist>
 <def>
 <title><code>Default</code></title>
-Throws an exception when a conflicting dependency is declared
+Throws an exception when a conflicting dependency is declared.
 </def>
 <def>
 <title><code>OverridePrevious</code></title>
