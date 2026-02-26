@@ -12,10 +12,11 @@ class PaymentTest {
     @Test
     fun testCheckoutRedirectViaExternalProcessor() = testApplication {
         application {
+            val mockProcessor = MockPaymentProcessor()
             dependencies {
-                provide<PaymentProcessor>("external") { MockPaymentProcessor() }
+                provide<PaymentProcessor>("external") { mockProcessor }
             }
-            paymentsHandling(MockPaymentProcessor())
+            paymentsHandling(mockProcessor)
         }
 
         val response = client.post("/checkout") {
