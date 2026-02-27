@@ -36,6 +36,16 @@ val client = HttpClient(CIO) {
 }
 ```
 
+If the `HttpTimeout` plugin is installed, `HttpRequestRetry` should be installed first to allow to configure retries on the timeouts:
+```kotlin
+val client = HttpClient(CIO) {
+    install(HttpRequestRetry) // should be installed before HttpTimeout
+    install(HttpTimeout) {
+       //...
+     }
+}
+```
+
 
 ## Configure HttpRequestRetry {id="configure_retry"}
 
