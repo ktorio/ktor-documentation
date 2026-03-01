@@ -149,7 +149,7 @@
                         Because you included the WebSockets plugin, a
                         <path>Sockets.kt</path>
                         file has been generated within
-                        <path>src/main/kotlin/com/example/plugins</path>
+                        <path>src/main/kotlin</path>
                         .
                     </p>
                 </step>

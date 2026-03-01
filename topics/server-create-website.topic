@@ -351,7 +351,7 @@ fun Application.configureTemplating() {
                 Navigate to the
                 <path>Templating.kt</path>
                 file in
-                <path>src/main/kotlin/com/example/plugins</path>
+                <path>src/main/kotlin</path>
                 .
             </step>
             <step>
@@ -437,7 +437,7 @@ fun Application.configureTemplating() {
                 Navigate to the
                 <path>Templating.kt</path>
                 file in
-                <path>src/main/kotlin/com/example/plugins</path>
+                <path>src/main/kotlin</path>
                 .
             </step>
             <step>
