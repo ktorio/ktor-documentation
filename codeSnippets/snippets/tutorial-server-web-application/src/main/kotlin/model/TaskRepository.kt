@@ -1,3 +1,5 @@
+package com.example.model
+
 object TaskRepository {
     private val tasks = mutableListOf(
         Task("cleaning", "Clean the house", Priority.Low),

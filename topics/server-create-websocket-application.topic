@@ -149,7 +149,7 @@
                         Because you included the WebSockets plugin, a
                         <path>Sockets.kt</path>
                         file has been generated within
-                        <path>src/main/kotlin/com/example/plugins</path>
+                        <path>src/main/kotlin</path>
                         .
                     </p>
                 </step>
@@ -329,9 +329,9 @@
                 <p>You might recall this code from the previous tutorials.</p>
             </step>
             <step>
-                Navigate to the
-                <path>plugins</path>
-                package and open the
+                Navigate to
+                <path>src/main/kotlin</path>
+                and open the
                 <path>Sockets.kt</path>
                 file.
             </step>
@@ -377,7 +377,7 @@
                     <path>Sockets.kt</path>
                     file, replace the current <code>configureSockets()</code> method with the implementation below:
                 </p>
-                <code-block src="snippets/tutorial-server-websockets/src/main/kotlin/com/example/plugins/Sockets.kt"
+                <code-block src="snippets/tutorial-server-websockets/src/main/kotlin/Sockets.kt"
                             lang="kotlin"
                             include-lines="16-53"
                 />
@@ -485,7 +485,7 @@
             <step>
                 <p>
                     Navigate to
-                    <path>src/test/kotlin/com/example</path>
+                    <path>src/test/kotlin</path>
                     and open the
                     <path>ApplicationTest.kt</path>
                     file.
@@ -495,7 +495,7 @@
                 <p>
                     Replace the generated test class with the implementation below:
                 </p>
-                <code-block src="snippets/tutorial-server-websockets/src/test/kotlin/com/example/ApplicationTest.kt"
+                <code-block src="snippets/tutorial-server-websockets/src/test/kotlin/ApplicationTest.kt"
                             lang="kotlin"
                 />
                 <p>

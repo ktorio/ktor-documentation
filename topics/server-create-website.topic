@@ -128,7 +128,7 @@
             </step>
             <step>
                 Navigate to
-                <path>src/main/kotlin/com/example</path>
+                <path>src/main/kotlin</path>
                 and create a subpackage called
                 <path>model</path>
                 .
@@ -148,7 +148,7 @@
                     tasks:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-server-web-application/src/main/kotlin/models/Task.kt"/>
+                            src="snippets/tutorial-server-web-application/src/main/kotlin/model/Task.kt"/>
                 <p>
                     Once again, we want to create <code>Task</code> objects and send them to clients in a form that can
                     be displayed.
@@ -176,9 +176,9 @@
             <step>
                 Open the
                 <path>Templating.kt</path>
-                file within the
-                <path>plugins</path>
-                package.
+                file in
+                <path>src/main/kotlin</path>
+                .
             </step>
             <step>
                 <p>
@@ -340,7 +340,7 @@ fun Application.configureTemplating() {
                 file and add the code below:
             </p>
             <code-block lang="kotlin"
-                        src="snippets/tutorial-server-web-application/src/main/kotlin/models/TaskRepository.kt"/>
+                        src="snippets/tutorial-server-web-application/src/main/kotlin/model/TaskRepository.kt"/>
         </procedure>
 
         <procedure title="Reuse routes for GET requests" id="reuse-routes">
@@ -351,7 +351,7 @@ fun Application.configureTemplating() {
                 Navigate to the
                 <path>Templating.kt</path>
                 file in
-                <path>src/main/kotlin/com/example/plugins</path>
+                <path>src/main/kotlin</path>
                 .
             </step>
             <step>
@@ -359,8 +359,8 @@ fun Application.configureTemplating() {
                     Replace the current version of <code>configureTemplating()</code> with the implementation below:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-server-web-application/src/main/kotlin/com/example/plugins/Templating.kt"
-                            include-lines="13-67,98-100"/>
+                            src="snippets/tutorial-server-web-application/src/main/kotlin/Templating.kt"
+                            include-lines="15-69,100-104"/>
                 <p>
                     The above code can be summarized as follows:
                 </p>
@@ -437,7 +437,7 @@ fun Application.configureTemplating() {
                 Navigate to the
                 <path>Templating.kt</path>
                 file in
-                <path>src/main/kotlin/com/example/plugins</path>
+                <path>src/main/kotlin</path>
                 .
             </step>
             <step>
@@ -446,8 +446,8 @@ fun Application.configureTemplating() {
                     method:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-server-web-application/src/main/kotlin/com/example/plugins/Templating.kt"
-                            include-lines="68-97"/>
+                            src="snippets/tutorial-server-web-application/src/main/kotlin/Templating.kt"
+                            include-lines="70-99"/>
             </step>
             <step>
                 <include from="lib.topic" element-id="intellij_idea_restart_application"/>
