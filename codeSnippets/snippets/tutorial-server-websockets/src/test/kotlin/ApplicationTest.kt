@@ -1,17 +1,22 @@
 package com.example
 
-import com.example.plugins.*
-import io.ktor.client.plugins.contentnegotiation.*
-import io.ktor.client.plugins.websocket.*
-import io.ktor.serialization.*
-import io.ktor.serialization.kotlinx.*
-import io.ktor.serialization.kotlinx.json.*
-import io.ktor.server.testing.*
-import kotlinx.coroutines.flow.*
+import com.example.model.Priority
+import com.example.model.Task
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.plugins.websocket.DefaultClientWebSocketSession
+import io.ktor.client.plugins.websocket.WebSockets
+import io.ktor.client.plugins.websocket.converter
+import io.ktor.client.plugins.websocket.webSocket
+import io.ktor.serialization.deserialize
+import io.ktor.serialization.kotlinx.KotlinxWebsocketSerializationConverter
+import io.ktor.serialization.kotlinx.json.json
+import io.ktor.server.testing.testApplication
+import kotlinx.coroutines.flow.consumeAsFlow
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.scan
 import kotlinx.serialization.json.Json
-import model.Priority
-import model.Task
-import kotlin.test.*
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class ApplicationTest {
     @Test
@@ -26,9 +31,9 @@ class ApplicationTest {
             install(ContentNegotiation) {
                 json()
             }
-            install(WebSockets) {
+            install(WebSockets.Plugin) {
                 contentConverter =
-                    KotlinxWebsocketSerializationConverter(Json)
+                    KotlinxWebsocketSerializationConverter(Json.Default)
             }
         }
 

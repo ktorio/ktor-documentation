@@ -1,4 +1,4 @@
-package com.example.plugins
+package com.example
 
 import io.ktor.serialization.kotlinx.*
 import io.ktor.server.application.*
@@ -7,8 +7,8 @@ import io.ktor.server.websocket.*
 import io.ktor.websocket.*
 import kotlinx.coroutines.delay
 import kotlinx.serialization.json.Json
-import model.Task
-import model.TaskRepository
+import com.example.model.Task
+import com.example.model.TaskRepository
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.time.Duration.Companion.seconds

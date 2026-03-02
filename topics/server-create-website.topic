@@ -128,7 +128,7 @@
             </step>
             <step>
                 Navigate to
-                <path>src/main/kotlin/com/example</path>
+                <path>src/main/kotlin</path>
                 and create a subpackage called
                 <path>model</path>
                 .
@@ -176,9 +176,9 @@
             <step>
                 Open the
                 <path>Templating.kt</path>
-                file within the
-                <path>plugins</path>
-                package.
+                file in
+                <path>src/main/kotlin</path>
+                .
             </step>
             <step>
                 <p>
@@ -359,8 +359,8 @@ fun Application.configureTemplating() {
                     Replace the current version of <code>configureTemplating()</code> with the implementation below:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-server-web-application/src/main/kotlin/com/example/plugins/Templating.kt"
-                            include-lines="13-67,98-100"/>
+                            src="snippets/tutorial-server-web-application/src/main/kotlin/Templating.kt"
+                            include-lines="12-66,97-101"/>
                 <p>
                     The above code can be summarized as follows:
                 </p>
@@ -446,8 +446,8 @@ fun Application.configureTemplating() {
                     method:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-server-web-application/src/main/kotlin/com/example/plugins/Templating.kt"
-                            include-lines="68-97"/>
+                            src="snippets/tutorial-server-web-application/src/main/kotlin/Templating.kt"
+                            include-lines="67-96"/>
             </step>
             <step>
                 <include from="lib.topic" element-id="intellij_idea_restart_application"/>
