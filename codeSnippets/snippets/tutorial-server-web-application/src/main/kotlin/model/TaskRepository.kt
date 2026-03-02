@@ -1,4 +1,4 @@
-package com.example
+package com.example.model
 
 object TaskRepository {
     private val tasks = mutableListOf(

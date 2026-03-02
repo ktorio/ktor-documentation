@@ -1,5 +1,8 @@
 package com.example
 
+import com.example.model.Priority
+import com.example.model.Task
+import com.example.model.TaskRepository
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*

@@ -1,4 +1,5 @@
-import com.example.configureRouting
+package com.example
+
 import io.ktor.client.request.get
 import io.ktor.client.statement.bodyAsText
 import io.ktor.http.HttpStatusCode

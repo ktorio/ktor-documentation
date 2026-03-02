@@ -148,7 +148,7 @@
                     tasks:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-server-web-application/src/main/kotlin/models/Task.kt"/>
+                            src="snippets/tutorial-server-web-application/src/main/kotlin/model/Task.kt"/>
                 <p>
                     Once again, we want to create <code>Task</code> objects and send them to clients in a form that can
                     be displayed.
@@ -340,7 +340,7 @@ fun Application.configureTemplating() {
                 file and add the code below:
             </p>
             <code-block lang="kotlin"
-                        src="snippets/tutorial-server-web-application/src/main/kotlin/models/TaskRepository.kt"/>
+                        src="snippets/tutorial-server-web-application/src/main/kotlin/model/TaskRepository.kt"/>
         </procedure>
 
         <procedure title="Reuse routes for GET requests" id="reuse-routes">
@@ -360,7 +360,7 @@ fun Application.configureTemplating() {
                 </p>
                 <code-block lang="kotlin"
                             src="snippets/tutorial-server-web-application/src/main/kotlin/Templating.kt"
-                            include-lines="12-66,97-101"/>
+                            include-lines="15-69,100-104"/>
                 <p>
                     The above code can be summarized as follows:
                 </p>
@@ -447,7 +447,7 @@ fun Application.configureTemplating() {
                 </p>
                 <code-block lang="kotlin"
                             src="snippets/tutorial-server-web-application/src/main/kotlin/Templating.kt"
-                            include-lines="67-96"/>
+                            include-lines="70-99"/>
             </step>
             <step>
                 <include from="lib.topic" element-id="intellij_idea_restart_application"/>

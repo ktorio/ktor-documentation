@@ -31,9 +31,9 @@ class ApplicationTest {
             install(ContentNegotiation) {
                 json()
             }
-            install(WebSockets.Plugin) {
+            install(WebSockets) {
                 contentConverter =
-                    KotlinxWebsocketSerializationConverter(Json.Default)
+                    KotlinxWebsocketSerializationConverter(Json)
             }
         }
 
