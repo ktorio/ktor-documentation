@@ -48,8 +48,8 @@
             IDEA</a>, but you could use another IDE of your choice.
         </p>
     </chapter>
-    <chapter title="Task Manager Application" id="sample-application">
-        <p>In this tutorial you will incrementally build a Task Manager application with the following
+    <chapter title="Task manager application" id="sample-application">
+        <p>In this tutorial you will incrementally build a task manager application with the following
             functionality:</p>
         <list type="bullet">
             <li>View all the available tasks as an HTML table.</li>
@@ -79,7 +79,7 @@
             <step>Open the
                 <path>Routing.kt</path>
                 file within the
-                <path>src/main/kotlin/com/example/plugins</path>
+                <path>src/main/kotlin</path>
                 folder.
             </step>
             <step>
@@ -122,7 +122,7 @@
                 </code-block>
             </step>
             <step>
-                <p>In Intellij IDEA, click on the run gutter icon (<img alt="intelliJ IDEA run application icon"
+                <p>In IntelliJ IDEA, click on the run gutter icon (<img alt="intelliJ IDEA run application icon"
                                                                         src="intellij_idea_gutter_icon.svg" height="16"
                                                                         width="16"/>) next to the <code>main()</code>
                     function in
@@ -142,7 +142,7 @@
             </step>
         </procedure>
     </chapter>
-    <chapter title="Implement a Task Model" id="implement-a-task-model">
+    <chapter title="Implement a task model" id="implement-a-task-model">
         <p>
             Now that you have created the project and set up basic routing, you will extend your application by doing
             the following:
@@ -156,7 +156,7 @@
         <procedure title="Create model types" id="create-model-types">
             <step>
                 <p>Inside
-                    <path>src/main/kotlin/com/example</path>
+                    <path>src/main/kotlin</path>
                     create a new subpackage called
                     <path>model</path>
                     .
@@ -176,20 +176,13 @@
                     file add the following <code>enum</code> to represent priorities and a <code>class</code> to
                     represent tasks:
                 </p>
-                <code-block lang="kotlin">
-                    enum class Priority {
-                        Low, Medium, High, Vital
-                    }
-                    data class Task(
-                        val name: String,
-                        val description: String,
-                        val priority: Priority
-                    )
-                </code-block>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-server-routing-and-requests/src/main/kotlin/model/Task.kt"
+                            include-symbol="Priority, Task"/>
             </step>
             <step>
-                <p>You will be sending task information to the client inside HTML tables, so also add the following
-                    extension functions:</p>
+                <p>You will be sending task information to the client inside HTML tables.
+                    In the same <path>Task.kt</path> file, add the following extension functions:</p>
                 <code-block lang="kotlin"><![CDATA[
                     fun Task.taskAsRow() = """
                         <tr>
@@ -205,11 +198,12 @@
                     )
                 ]]>
                 </code-block>
-                <p>
-                    The function <code>Task.taskAsRow()</code> enables <code>Task</code> objects to be rendered as table
-                    rows, whilst <code><![CDATA[List<Task>.tasksAsTable()]]></code>
-                    allows a list of tasks to be rendered as a table.
-                </p>
+                <list>
+                    <li>The <code>Task.taskAsRow()</code> function enables <code>Task</code> objects to be rendered as
+                        table rows.</li>
+                    <li>The <code><![CDATA[List<Task>.tasksAsTable()]]></code> function allows a list of tasks to be
+                        rendered as a table.</li>
+                </list>
             </step>
         </procedure>
         <procedure title="Create sample values" id="create-sample-values">
@@ -226,14 +220,9 @@
                     <path>TaskRepository.kt</path>
                     and add the following code to define a list of Tasks:
                 </p>
-                <code-block lang="kotlin">
-                    val tasks = mutableListOf(
-                        Task("cleaning", "Clean the house", Priority.Low),
-                        Task("gardening", "Mow the lawn", Priority.Medium),
-                        Task("shopping", "Buy the groceries", Priority.High),
-                        Task("painting", "Paint the fence", Priority.Medium)
-                    )
-                </code-block>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-server-routing-and-requests/src/main/kotlin/model/TaskRepository.kt"
+                            include-symbol="tasks"/>
             </step>
         </procedure>
         <procedure title="Add a new route" id="add-a-route">
@@ -270,7 +259,7 @@
         </procedure>
         <procedure title="Test the new feature" id="test">
             <step>
-                <p>In intelliJ IDEA, click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
+                <p>In IntelliJ IDEA, click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
                                                                      src="intellij_idea_rerun_icon.svg"
                                                                      height="16"
                                                                      width="16"/>)
@@ -301,7 +290,7 @@
                     file and replace the existing list of tasks with the code below:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-server-routing-and-requests/src/main/kotlin/com/example/model/TaskRepository.kt"/>
+                            src="snippets/tutorial-server-routing-and-requests/src/main/kotlin/model/TaskRepository.kt"/>
                 <p>
                     This implements a very simple data store for tasks based on a list. For the purposes of the example,
                     the order in which the tasks are added will be preserved, but duplicates will be disallowed by
@@ -341,7 +330,7 @@
         </procedure>
         <procedure title="Test the refactored code">
             <step>
-                <p>In intelliJ IDEA, click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
+                <p>In IntelliJ IDEA, click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
                                                                      src="intellij_idea_rerun_icon.svg" height="16"
                                                                      width="16"/>)
                     to restart the application.</p>
@@ -364,16 +353,16 @@
             allow GET requests to the following URLs:
         </p>
         <list type="bullet">
-            <li><a href="http://0.0.0.0:8080/tasks/byPriority/Low">/tasks/byPriority/Low</a></li>
-            <li><a href="http://0.0.0.0:8080/tasks/byPriority/Medium">/tasks/byPriority/Medium</a></li>
-            <li><a href="http://0.0.0.0:8080/tasks/byPriority/High">/tasks/byPriority/High</a></li>
-            <li><a href="http://0.0.0.0:8080/tasks/byPriority/Vital">/tasks/byPriority/Vital</a></li>
+            <li><a href="http://0.0.0.0:8080/tasks/byPriority/Low"><code>/tasks/byPriority/Low</code></a></li>
+            <li><a href="http://0.0.0.0:8080/tasks/byPriority/Medium"><code>/tasks/byPriority/Medium</code></a></li>
+            <li><a href="http://0.0.0.0:8080/tasks/byPriority/High"><code>/tasks/byPriority/High</code></a></li>
+            <li><a href="http://0.0.0.0:8080/tasks/byPriority/Vital"><code>/tasks/byPriority/Vital</code></a></li>
         </list>
         <p>
             The route you would add is
             <code>/tasks/byPriority/{priority?}</code>
             where <code>{priority?}</code> represents a path parameter that you will need to extract at runtime,
-            and the question mark is used to indicate that a parameter is optional. The query parameter can have
+            and the question mark is used to indicate that a parameter is optional. The path parameter can have
             any name you like, but <code>priority</code> seems the obvious choice.
         </p>
         <p>
@@ -560,54 +549,9 @@
                     <path>ApplicationTest.kt</path>
                     file and add the following code:
                 </p>
-                <code-block lang="kotlin">
-                    package com.example
-
-                    import io.ktor.client.request.*
-                    import io.ktor.client.statement.*
-                    import io.ktor.http.*
-                    import io.ktor.server.testing.*
-                    import org.junit.Test
-                    import kotlin.test.assertContains
-                    import kotlin.test.assertEquals
-
-
-                    class ApplicationTest {
-                        @Test
-                        fun tasksCanBeFoundByPriority() = testApplication {
-                            application {
-                                module()
-                            }
-
-                            val response = client.get("/tasks/byPriority/Medium")
-                            val body = response.bodyAsText()
-
-                            assertEquals(HttpStatusCode.OK, response.status)
-                            assertContains(body, "Mow the lawn")
-                            assertContains(body, "Paint the fence")
-                        }
-
-                        @Test
-                        fun invalidPriorityProduces400() = testApplication {
-                            application {
-                                module()
-                            }
-
-                            val response = client.get("/tasks/byPriority/Invalid")
-                            assertEquals(HttpStatusCode.BadRequest, response.status)
-                        }
-
-                        @Test
-                        fun unusedPriorityProduces404() = testApplication {
-                            application {
-                                module()
-                            }
-
-                            val response = client.get("/tasks/byPriority/Vital")
-                            assertEquals(HttpStatusCode.NotFound, response.status)
-                        }
-                    }
-                </code-block>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-server-routing-and-requests/src/test/kotlin/ApplicationTest.kt"
+                            include-lines="1-44,74"/>
                 <p>
                     In each of these tests a new instance of Ktor is created. This is running inside a test environment,
                     instead
@@ -621,13 +565,13 @@
                 </p>
             </step>
             <step>
-                <p>To run the tests within the IntelliJ IDE, click on the gutter icon (<img
+                <p>To run the tests within IntelliJ IDEA, click on the gutter icon (<img
                         alt="intelliJ IDEA gutter icon"
                         src="intellij_idea_gutter_icon.svg"
                         width="16" height="26"/>) next to
                     each test function.</p>
                 <tip>
-                    For more details on how to run unit tests in the IntelliJ IDE, see the <a
+                    For more details on how to run unit tests in IntelliJ IDEA, see the <a
                         href="https://www.jetbrains.com/help/idea/performing-tests.html">IntelliJ IDEA documentation</a>.
                 </tip>
             </step>
@@ -693,7 +637,7 @@
                     Navigate to the
                     <path>Routing.kt</path>
                     file within
-                    <path>src/main/kotlin/com/example/plugins</path>
+                    <path>src/main/kotlin</path>
                     .
                 </p>
             </step>
@@ -705,7 +649,7 @@
                 <code-block lang="kotlin">
                     fun Application.configureRouting() {
                         routing {
-                            //add the following line
+                            // Add the following line
                             staticResources("/task-ui", "task-ui")
 
                             get("/tasks") { ... }
@@ -714,7 +658,7 @@
                         }
                     }
                 </code-block>
-                <p>This will require the following import:</p>
+                <p>This requires the following import:</p>
                 <code-block lang="kotlin">
                     import io.ktor.server.http.content.staticResources
                 </code-block>
@@ -841,37 +785,9 @@
                 <p>
                     To validate the functionality, add the following test to <path>ApplicationTest.kt</path>:
                 </p>
-                <code-block lang="kotlin">
-                    @Test
-                    fun newTasksCanBeAdded() = testApplication {
-                        application {
-                            module()
-                        }
-
-                        val response1 = client.post("/tasks") {
-                            header(
-                                HttpHeaders.ContentType,
-                                ContentType.Application.FormUrlEncoded.toString()
-                            )
-                            setBody(
-                                listOf(
-                                    "name" to "swimming",
-                                    "description" to "Go to the beach",
-                                    "priority" to "Low"
-                                ).formUrlEncode()
-                            )
-                        }
-
-                        assertEquals(HttpStatusCode.NoContent, response1.status)
-
-                        val response2 = client.get("/tasks")
-                        assertEquals(HttpStatusCode.OK, response2.status)
-                        val body = response2.bodyAsText()
-
-                        assertContains(body, "swimming")
-                        assertContains(body, "Go to the beach")
-                    }
-                </code-block>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-server-routing-and-requests/src/test/kotlin/ApplicationTest.kt"
+                            include-symbol="newTasksCanBeAdded"/>
                 <p>
                     In this test two requests are sent to the server, a POST request to create a new task and a GET
                     request to confirm the new task has been added. When making the first request, the
@@ -923,7 +839,7 @@
 
                     route("/tasks") {
                         get {
-                            //Code remains the same
+                            // Code remains the same
                         }
                         get("/byName/{taskName}") {
                             val name = call.parameters["taskName"]
@@ -945,11 +861,11 @@
                         }
 
                         get("/byPriority/{priority?}") {
-                            //Code remains the same
+                            // Code remains the same
                         }
 
                         post {
-                            //Code remains the same
+                            // Code remains the same
                         }
                     }
                 }
