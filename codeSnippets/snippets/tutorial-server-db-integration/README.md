@@ -2,7 +2,7 @@
 
 A standalone sample project showing how to integrate a
 database intro a Ktor application using Exposed and PostgreSQL by following
-the tutorial [Integrate a Database](https://ktor.io/docs/server-integrate-database.html).
+the tutorial [Integrate a database](https://ktor.io/docs/server-integrate-database.html).
 
 ## Install PostgreSQL
 
@@ -13,10 +13,10 @@ To learn how to install PostgreSQL, see the [official documentation](https://www
 To create the `Task` table, follow the instructions
 in [the tutorial](https://ktor.io/docs/server-integrate-database.html#create-schema).
 
-## Setup the database connection
+## Set up the database connection
 
-1. Navigate to `src/main/kotlin/com/example/` and open the `Databases.kt` file.
-2. Replace the attributes in the `Database.connect()` function to correspond to your set-up:
+1. Navigate to `src/main/kotlin/` and open the `Databases.kt` file.
+2. Replace the attributes in the `Database.connect()` function to correspond to your setup:
 ```kotlin
 fun Application.configureDatabases() {
     Database.connect(
@@ -29,7 +29,7 @@ fun Application.configureDatabases() {
 
 ## Build
 
-To build the application, execute the following command from the project's root directory:
+To build the application, run the following command from the project's root directory:
 
 ```bash
 ./gradlew build
@@ -38,7 +38,7 @@ To build the application, execute the following command from the project's root 
 
 ## Run
 
-To run the application, execute the following command from the project's root directory:
+To run the application, run the following command from the project's root directory:
 
 ```bash
 ./gradlew run
