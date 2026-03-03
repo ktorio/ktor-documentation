@@ -173,6 +173,14 @@ To process the response sequentially in chunks, use `HttpStatement` with
 a scoped [`execute`](https://api.ktor.io/ktor-client-core/io.ktor.client.statement/-http-statement/execute.html)
 block.
 
+> Engine-dispatcher execution for `HttpStatement.execute {}` and `HttpStatement.body {}` is opt-in on JVM to preserve
+> backward compatibility.
+> To run these blocks on the engine dispatcher on JVM, set the
+> `io.ktor.client.statement.useEngineDispatcher` JVM system property to `true`
+> (for example, `-Dio.ktor.client.statement.useEngineDispatcher=true`).
+>
+{style="warning"}
+
 The following example demonstrates reading a response in chunks and saving it to a file:
 
 ```kotlin
