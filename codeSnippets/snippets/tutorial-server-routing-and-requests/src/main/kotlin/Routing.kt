@@ -39,7 +39,7 @@ fun Application.configureRouting() {
                     text = listOf(task).tasksAsTable()
                 )
             }
-            get("/byPriority/{priority}") {
+            get("/byPriority/{priority?}") {
                 val priorityAsText = call.parameters["priority"]
                 if (priorityAsText == null) {
                     call.respond(HttpStatusCode.BadRequest)

@@ -122,7 +122,7 @@
                 </code-block>
             </step>
             <step>
-                <p>In IntelliJ IDEA, click on the run gutter icon (<img alt="intelliJ IDEA run application icon"
+                <p>In IntelliJ IDEA, click on the run gutter icon (<img alt="IntelliJ IDEA run application icon"
                                                                         src="intellij_idea_gutter_icon.svg" height="16"
                                                                         width="16"/>) next to the <code>main()</code>
                     function in
@@ -259,7 +259,7 @@
         </procedure>
         <procedure title="Test the new feature" id="test">
             <step>
-                <p>In IntelliJ IDEA, click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
+                <p>In IntelliJ IDEA, click on the rerun button (<img alt="IntelliJ IDEA rerun button icon"
                                                                      src="intellij_idea_rerun_icon.svg"
                                                                      height="16"
                                                                      width="16"/>)
@@ -330,7 +330,7 @@
         </procedure>
         <procedure title="Test the refactored code">
             <step>
-                <p>In IntelliJ IDEA, click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
+                <p>In IntelliJ IDEA, click on the rerun button (<img alt="IntelliJ IDEA rerun button icon"
                                                                      src="intellij_idea_rerun_icon.svg" height="16"
                                                                      width="16"/>)
                     to restart the application.</p>
@@ -443,7 +443,7 @@
                 You can test this functionality in the browser by requesting the different URLs.
             </p>
             <step>
-                <p>In intelliJ IDEA, click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
+                <p>In IntelliJ IDEA, click on the rerun button (<img alt="IntelliJ IDEA rerun button icon"
                                                                      src="intellij_idea_rerun_icon.svg"
                                                                      height="16"
                                                                      width="16"/>)
@@ -566,7 +566,7 @@
             </step>
             <step>
                 <p>To run the tests within IntelliJ IDEA, click on the gutter icon (<img
-                        alt="intelliJ IDEA gutter icon"
+                        alt="IntelliJ IDEA gutter icon"
                         src="intellij_idea_gutter_icon.svg"
                         width="16" height="26"/>) next to
                     each test function.</p>
