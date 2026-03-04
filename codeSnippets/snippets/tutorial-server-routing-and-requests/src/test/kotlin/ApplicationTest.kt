@@ -8,7 +8,6 @@ import org.junit.Test
 import kotlin.test.assertContains
 import kotlin.test.assertEquals
 
-
 class ApplicationTest {
     @Test
     fun tasksCanBeFoundByPriority() = testApplication {

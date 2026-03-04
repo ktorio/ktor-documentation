@@ -8,7 +8,7 @@ object TaskRepository {
         Task("painting", "Paint the fence", Priority.Medium)
     )
 
-    fun allTasks(): List<Task> = tasks
+    fun allTasks(): List<Task> = tasks.toList()
 
     fun tasksByPriority(priority: Priority) = tasks.filter {
         it.priority == priority

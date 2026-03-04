@@ -1,4 +1,4 @@
-package com.example.plugins
+package com.example
 
 import io.ktor.http.*
 import io.ktor.server.application.*
@@ -6,7 +6,10 @@ import io.ktor.server.http.content.staticResources
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import com.example.model.*
+import com.example.model.Priority
+import com.example.model.Task
+import com.example.model.TaskRepository
+import com.example.model.tasksAsTable
 
 fun Application.configureRouting() {
     routing {
@@ -36,7 +39,7 @@ fun Application.configureRouting() {
                     text = listOf(task).tasksAsTable()
                 )
             }
-            get("/byPriority/{priority}") {
+            get("/byPriority/{priority?}") {
                 val priorityAsText = call.parameters["priority"]
                 if (priorityAsText == null) {
                     call.respond(HttpStatusCode.BadRequest)
