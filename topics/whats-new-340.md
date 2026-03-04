@@ -431,18 +431,20 @@ val client = HttpClient(Curl) {
     }
 }
 ```
-### HttpStatement execution using the engine dispatcher
+### HttpStatement execution using the engine dispatcher {id="use-engine-dispatcher"}
 
-> In Ktor 3.4.1, this is opt-in on JVM to preserve backward compatibility.
-> We received reports that making it default can break some libraries using Ktor under the hood.
+> In Ktor 3.4.1, this behavior is opt-in on JVM to preserve backward compatibility, as enabling it by default may break
+> some libraries that use Ktor internally.
 > To enable it, set the `io.ktor.client.statement.useEngineDispatcher` JVM system property to `true`
-> (for example, `-Dio.ktor.client.statement.useEngineDispatcher=true`).
-> It will become the default in future versions, so we recommend opting in early.
+>  ```shell
+>  -Dio.ktor.client.statement.useEngineDispatcher=true
+>  ```
+> This option will become the default in future releases, so we recommend opting in early.
 >
 {style="warning"}
 
 The `HttpStatement.execute {}` and `HttpStatement.body {}` blocks now run on the HTTP engine’s dispatcher
-instead of the caller’s coroutine context (on JVM, when `io.ktor.client.statement.useEngineDispatcher=true`).
+instead of the caller’s coroutine context.
 This prevents accidental blocking when these blocks are invoked from the main thread.
 
 Previously, users had to manually switch dispatchers using `withContext` to avoid freezing the UI during I/O operations,
