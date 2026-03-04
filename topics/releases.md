@@ -33,6 +33,15 @@ The following table lists details of the latest Ktor releases.
 
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
+<tr><td>3.4.1</td><td>March 4, 2026</td><td>
+<p>
+A patch release that includes important regression fixes, including resolving the Flow invariant error introduced in
+3.4.0 and a regression fix restoring proper <code>StreamResetException</code> propagation. It also includes performance
+improvements, OpenAPI enhancements, and multiple stability fixes across engines and platforms.
+</p>
+<var name="version" value="3.4.1"/>
+<include from="lib.topic" element-id="release_details_link"/>
+</td></tr>
 <tr><td>3.4.0</td><td>January 23, 2026</td><td>
 <p>
 A minor release that introduces runtime‑generated OpenAPI specs, Zstd and Jackson 3 support, duplex streaming for
