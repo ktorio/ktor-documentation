@@ -740,7 +740,7 @@
                     </p>
                     <code-block
                             src="snippets/tutorial-server-db-integration/src/main/kotlin/db/mapping.kt"
-                            include-lines="1-2,5-22"
+                            include-lines="1-2,7-10,13-26"
                             lang="kotlin"/>
                     <p>
                         These types use the Exposed library to map the properties in the <code>Task</code> type to the
@@ -790,12 +790,19 @@
                     </p>
                     <code-block
                             src="snippets/tutorial-server-db-integration/src/main/kotlin/db/mapping.kt"
-                            include-symbol="daoToModel"
+                            include-symbol="withTransaction, daoToModel"
                             lang="kotlin"/>
-                    <p>
-                        The <code>daoToModel()</code> function transforms an instance of the <code>TaskDAO</code> type
-                        to the<code>Task</code> object.
-                    </p>
+                    <list>
+                        <li>
+                            The <code>withTransaction()</code> function runs a suspending block within a new top-level
+                            database transaction. The coroutine context is switched to <code>Dispatchers.IO</code> so
+                            that blocking JDBC operations run on a thread pool optimized for IO tasks.
+                        </li>
+                        <li>
+                            The <code>daoToModel()</code> function transforms an instance of the <code>TaskDAO</code> type
+                            to the <code>Task</code> object.
+                        </li>
+                    </list>
                 </step>
                 <step>
                     <p>
@@ -803,7 +810,7 @@
                     </p>
                     <code-block
                             src="snippets/tutorial-server-db-integration/src/main/kotlin/db/mapping.kt"
-                            include-lines="3-4"
+                            include-lines="3-6,11-12"
                             lang="kotlin"/>
                 </step>
             </procedure>

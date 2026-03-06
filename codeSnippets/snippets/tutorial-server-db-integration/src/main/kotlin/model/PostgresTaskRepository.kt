@@ -3,22 +3,22 @@ package com.example.model
 import com.example.db.TaskDAO
 import com.example.db.TaskTable
 import com.example.db.daoToModel
+import com.example.db.withTransaction
 import org.jetbrains.exposed.v1.core.eq
 import org.jetbrains.exposed.v1.jdbc.deleteWhere
-import org.jetbrains.exposed.v1.jdbc.transactions.suspendTransaction
 
 class PostgresTaskRepository : TaskRepository {
-    override suspend fun allTasks(): List<Task> = suspendTransaction {
+    override suspend fun allTasks(): List<Task> = withTransaction {
         TaskDAO.all().map(::daoToModel)
     }
 
-    override suspend fun tasksByPriority(priority: Priority): List<Task> = suspendTransaction {
+    override suspend fun tasksByPriority(priority: Priority): List<Task> = withTransaction {
         TaskDAO
             .find { (TaskTable.priority eq priority.toString()) }
             .map(::daoToModel)
     }
 
-    override suspend fun taskByName(name: String): Task? = suspendTransaction {
+    override suspend fun taskByName(name: String): Task? = withTransaction {
         TaskDAO
             .find { (TaskTable.name eq name) }
             .limit(1)
@@ -26,7 +26,7 @@ class PostgresTaskRepository : TaskRepository {
             .firstOrNull()
     }
 
-    override suspend fun addTask(task: Task): Unit = suspendTransaction {
+    override suspend fun addTask(task: Task): Unit = withTransaction {
         TaskDAO.new {
             name = task.name
             description = task.description
@@ -34,7 +34,7 @@ class PostgresTaskRepository : TaskRepository {
         }
     }
 
-    override suspend fun removeTask(name: String): Boolean = suspendTransaction {
+    override suspend fun removeTask(name: String): Boolean = withTransaction {
         val rowsDeleted = TaskTable.deleteWhere {
             TaskTable.name eq name
         }
