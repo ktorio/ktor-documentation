@@ -37,23 +37,25 @@
         <li>Create RESTful services that use JSON serialization.</li>
         <li>Inject different repositories into these services.</li>
         <li>Create unit tests for your services using fake repositories.</li>
-        <li>Build working repositories using Exposed and Dependency Injection (DI).</li>
+        <li>Build working repositories using Exposed and dependency injection (DI).</li>
         <li>Deploy services that access external databases.</li>
     </list>
     <p>
-        In previous tutorials, we used the Task Manager example to cover basics, such as <a
+        In previous tutorials, we used the task manager example to cover basics, such as <a
             href="server-requests-and-responses.topic">handling requests</a>,
         <a href="server-create-restful-apis.topic">creating RESTful APIs</a> or
-        <a href="server-create-website.topic">building Web Apps with Thymeleaf templates</a>.
+        <a href="server-create-website.topic">building web apps with Thymeleaf templates</a>.
+    </p>
+    <p>
         While those tutorials focused on front-end functionality using a simple in-memory <code>TaskRepository</code>,
         this guide shifts focus to show how your Ktor services can interact with relational databases through the
-        Exposed SQL Library.
+        Exposed SQL library.
     </p>
     <p>
         Even though this guide is longer and more complex, you’ll still produce working code quickly and gradually
         introduce new features.
     </p>
-    <p>This guide will be broken down into two parts:</p>
+    <p>This guide consists of two parts:</p>
     <list type="decimal">
         <li>
             <a anchor="create-restful-service-and-repository">Creating your application with an in-memory
@@ -67,8 +69,8 @@
     <chapter title="Prerequisites" id="prerequisites">
         <p>
             You can do this tutorial independently, however, we recommend that you complete the <a
-                href="server-create-restful-apis.topic">Create RESTful APIs</a> tutorial to get familiar with Content
-            Negotiation and REST.
+                href="server-create-restful-apis.topic">Create RESTful APIs</a> tutorial to get familiar with content
+            negotiation and REST.
         </p>
         <p>We recommend that you install <a href="https://www.jetbrains.com/help/idea/installation-guide.html">IntelliJ
             IDEA</a>, but you could use another IDE of your choice.
@@ -77,7 +79,7 @@
 
     <chapter title="Create a RESTful service and an in-memory repository" id="create-restful-service-and-repository">
         <p>
-            First, you will recreate your Task Manager RESTful service. Initially, this will use an in-memory
+            First, you will recreate your task manager's RESTful service. Initially, you will use an in-memory
             repository, but you will structure a design that allows it to be substituted with minimal effort.
         </p>
         <p>You will do this in six stages:</p>
@@ -172,7 +174,7 @@
                 <step>
                     <p>
                         Navigate to
-                        <path>src/main/kotlin/com/example</path>
+                        <path>src/main/kotlin</path>
                         and delete the files
                         <path>CitySchema.kt</path>
                         and
@@ -196,13 +198,22 @@
                         requiring that sample code in this tutorial.
                     </p>
                 </step>
+                <step>
+                    Open the <path>gradle/libs.versions.toml</path> file and ensure the latest Exposed version is
+                    specified:
+                    <code-block lang="kotlin">
+                        [versions]
+                        #...
+                        exposed = %exposed_version%
+                    </code-block>
+                </step>
             </procedure>
         </chapter>
         <chapter title="Add starter code" id="add-starter-code">
             <procedure id="add-starter-code-procedure">
                 <step>
                     Navigate to
-                    <path>src/main/kotlin/com/example</path>
+                    <path>src/main/kotlin</path>
                     and create a subpackage called
                     <path>model</path>
                     .
@@ -221,11 +232,11 @@
                         and add an <code>enum</code> to represent priorities and a <code>class</code> to represent
                         tasks.
                     </p>
-                    <code-block src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/model/Task.kt"
+                    <code-block src="snippets/tutorial-server-db-integration/src/main/kotlin/model/Task.kt"
                                 lang="kotlin"/>
                     <p>
                         The <code>Task</code> class is annotated with the <code>Serializable</code> type from the <a
-                            href="server-serialization.md">kotlinx.serialization</a> library.
+                            href="server-serialization.md"><code>kotlinx.serialization</code></a> library.
                     </p>
                     <p>
                         As in previous tutorials, you will create an in-memory repository. However, this time the
@@ -310,7 +321,7 @@
                     Open the
                     <path>Serialization.kt</path>
                     file in
-                    <path>src/main/kotlin/com/example</path>
+                    <path>src/main/kotlin</path>
                     .
                 </step>
                 <step>
@@ -319,7 +330,7 @@
                         implementation below:
                     </p>
                     <code-block
-                            src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/Serialization.kt"
+                            src="snippets/tutorial-server-db-integration/src/main/kotlin/Serialization.kt"
                             lang="kotlin"/>
                     <p>
                         This is the same routing that you implemented in the <a href="server-create-restful-apis.topic">Create
@@ -337,12 +348,12 @@
                     Open the
                     <path>Application.kt</path>
                     file within
-                    <path>src/main/kotlin/com/example</path>
+                    <path>src/main/kotlin</path>
                     .
                 </step>
                 <step>
                     <p>
-                        Replace the <code>module()</code> function with the implementation below:
+                        Replace the <code>.module()</code> function with the implementation below:
                     </p>
                     <code-block lang="kotlin"><![CDATA[
                     import com.example.model.FakeTaskRepository
@@ -440,14 +451,14 @@
             <procedure id="add-automated-tests-procedure">
                 <step>
                     <p>
-                        Open
+                        Open the
                         <path>ApplicationTest.kt</path>
-                        in
-                        <path>src/test/kotlin/com/example</path>
+                        file in
+                        <path>src/test/kotlin</path>
                         and add the following tests:
                     </p>
                     <code-block
-                            src="snippets/tutorial-server-db-integration/src/test/kotlin/com/example/ApplicationTest.kt"
+                            src="snippets/tutorial-server-db-integration/src/test/kotlin/ApplicationTest.kt"
                             lang="kotlin"
                     />
                     <p>
@@ -465,8 +476,8 @@
                     </p>
                     <code-block lang="kotlin">
                         [libraries]
-                        #...
-                        ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor-version" }
+                        # ...
+                        ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
                     </code-block>
                 </step>
                 <step>
@@ -492,14 +503,14 @@
                         pane.
                     </p>
                     <img src="tutorial_server_db_integration_test_results.png"
-                         alt="Successful Test results show in the Run pane in intelliJ IDEA"
+                         alt="Successful Test results show in the Run pane in IntelliJ IDEA"
                          border-effect="line"
                          width="706"/>
                 </step>
             </procedure>
         </chapter>
     </chapter>
-    <chapter title="Add a PostgreSQL Repository" id="add-postgresql-repository">
+    <chapter title="Add a PostgreSQL repository" id="add-postgresql-repository">
         <p>
             Now that you have a working application that uses in-memory data, the next step is to externalize the data
             storage to a PostgreSQL database.
@@ -512,8 +523,8 @@
             <li><a anchor="adapt-repo">Adapt the <code>TaskRepository</code> for asynchronous access.</a></li>
             <li><a anchor="config-db-connection">Configure a database connection within the application.</a></li>
             <li><a anchor="create-mapping">Map the <code>Task</code> type to the associated database table.</a></li>
-            <li><a anchor="create-new-repo">Create a new repository based on this mapping.</a></li>
-            <li><a anchor="switch-repo">Switch to this new repository in the startup code.</a></li>
+            <li><a anchor="create-new-repo">Create a new repository based on the mapping.</a></li>
+            <li><a anchor="switch-repo">Switch to the new repository in the startup code.</a></li>
         </list>
         <chapter title="Create the database schema" id="create-schema">
             <procedure id="create-schema-procedure">
@@ -560,13 +571,13 @@
                     <list>
                         <li>
                             You are creating a single table called
-                            <path>task</path>
+                            <code>task</code>
                             , with columns for the
-                            <path>name</path>
+                            <code>name</code>
                             ,
-                            <path>description</path>
+                            <code>description</code>
                             , and
-                            <path>priority</path>
+                            <code>priority</code>
                             . These will need to be mapped to the properties of the <code>Task</code> class.
                         </li>
                         <li>
@@ -574,7 +585,7 @@
                         </li>
                         <li>
                             There is an additional column called
-                            <path>id</path>
+                            <code>id</code>
                             , which is of type <code>SERIAL</code>. This will be an integer value, used to give each row
                             its primary key. These values will be assigned by the database on your behalf.
                         </li>
@@ -594,7 +605,7 @@
                         Open the
                         <path>TaskRepository.kt</path>
                         file in
-                        <path>src/main/kotlin/com/example/model</path>
+                        <path>src/main/kotlin/model</path>
                         .
                     </p>
                 </step>
@@ -613,11 +624,11 @@
                 ]]></code-block>
                     <p>
                         This will allow implementations of the interface methods to start jobs of work on a different
-                        Coroutine Dispatcher.
+                        coroutine dispatcher.
                     </p>
                     <p>
                         You now need to adjust the methods of the <code>FakeTaskRepository</code> to
-                        match, although you do not need to switch Dispatcher in that implementation.
+                        match, although you do not need to switch dispatcher in that implementation.
                     </p>
                 </step>
                 <step>
@@ -670,7 +681,7 @@
                     Open the
                     <path>Databases.kt</path>
                     file in
-                    <path>src/main/kotlin/com/example</path>
+                    <path>src/main/kotlin</path>
                     .
                 </step>
                 <step>
@@ -705,11 +716,11 @@
                 </step>
             </procedure>
         </chapter>
-        <chapter title="Create the Object / Relational mapping" id="create-mapping">
+        <chapter title="Create the object / relational mapping" id="create-mapping">
             <procedure id="create-mapping-procedure">
                 <step>
                     Navigate to
-                    <path>src/main/kotlin/com/example</path>
+                    <path>src/main/kotlin</path>
                     and create a new package called
                     <path>db</path>
                     .
@@ -728,13 +739,13 @@
                         and add the types <code>TaskTable</code> and <code>TaskDAO</code>:
                     </p>
                     <code-block
-                            src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/db/mapping.kt"
-                            include-lines="1-2,5-9,12-25"
+                            src="snippets/tutorial-server-db-integration/src/main/kotlin/db/mapping.kt"
+                            include-lines="1-2,7-10,13-26"
                             lang="kotlin"/>
                     <p>
                         These types use the Exposed library to map the properties in the <code>Task</code> type to the
                         columns in the
-                        <path>task</path>
+                        <code>task</code>
                         table in the database. The <code>TaskTable</code> type defines the basic mapping, whilst the
                         <code>TaskDAO</code> type adds the helper methods to create, find, update, and delete tasks.
                     </p>
@@ -752,7 +763,7 @@
                     <code-block lang="kotlin">
                        [libraries]
                        #...
-                       exposed-dao = { module = "org.jetbrains.exposed:exposed-dao", version.ref = "exposed-version" }
+                       exposed-dao = { module = "org.jetbrains.exposed:exposed-dao", version.ref = "exposed" }
                     </code-block>
                 </step>
                 <step>
@@ -775,39 +786,41 @@
                     <p>
                         Navigate back to the
                         <path>mapping.kt</path>
-                        file and add the following two helper functions:
+                        file and add the following helper function:
                     </p>
                     <code-block
-                            src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/db/mapping.kt"
-                            include-lines="26-34"
+                            src="snippets/tutorial-server-db-integration/src/main/kotlin/db/mapping.kt"
+                            include-symbol="withTransaction, daoToModel"
                             lang="kotlin"/>
-                    <p>
-                        <code>suspendTransaction()</code> takes a block of code and runs it within a database
-                        transaction,
-                        through the IO Dispatcher. This is designed to offload blocking jobs of work onto a thread pool.
-                    </p>
-                    <p>
-                        <code>daoToModel()</code> transforms an instance of the <code>TaskDAO</code> type to the
-                        <code>Task</code> object.
-                    </p>
+                    <list>
+                        <li>
+                            The <code>withTransaction()</code> function runs a suspending block within a new top-level
+                            database transaction. The coroutine context is switched to <code>Dispatchers.IO</code> so
+                            that blocking JDBC operations run on a thread pool optimized for IO tasks.
+                        </li>
+                        <li>
+                            The <code>daoToModel()</code> function transforms an instance of the <code>TaskDAO</code> type
+                            to the <code>Task</code> object.
+                        </li>
+                    </list>
                 </step>
                 <step>
                     <p>
                         Add the following missing imports:
                     </p>
                     <code-block
-                            src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/db/mapping.kt"
-                            include-lines="3-4,10-11"
+                            src="snippets/tutorial-server-db-integration/src/main/kotlin/db/mapping.kt"
+                            include-lines="3-6,11-12"
                             lang="kotlin"/>
                 </step>
             </procedure>
         </chapter>
-        <chapter title="Write the New Repository" id="create-new-repo">
+        <chapter title="Write the new repository" id="create-new-repo">
             <procedure id="create-new-repo-procedure">
                 <p>You now have all the resources needed to create a database-specific repository.</p>
                 <step>
                     Navigate to
-                    <path>src/main/kotlin/com/example/model</path>
+                    <path>src/main/kotlin/model</path>
                     and create a new
                     <path>PostgresTaskRepository.kt</path>
                     file.
@@ -819,7 +832,7 @@
                         file and create a new type with the following implementation:
                     </p>
                     <code-block
-                            src="snippets/tutorial-server-db-integration/src/main/kotlin/com/example/model/PostgresTaskRepository.kt"
+                            src="snippets/tutorial-server-db-integration/src/main/kotlin/model/PostgresTaskRepository.kt"
                             lang="kotlin"/>
                     <p>
                         In this implementation, you use the helper methods of the <code>TaskDAO</code> and
@@ -836,7 +849,7 @@
                     Open the
                     <path>Application.kt</path>
                     file in
-                    <path>src/main/kotlin/com/example</path>
+                    <path>src/main/kotlin</path>
                     .
                 </step>
                 <step>
@@ -878,9 +891,9 @@
                     </p>
                     <tip>
                         <p>
-                            In intelliJ IDEA, you can use a
+                            In IntelliJ IDEA, you can use a
                             <a href="https://www.jetbrains.com/help/idea/query-consoles.html#create_console">Query
-                                Console</a> and the <code>SELECT</code> SQL statement to query table data:
+                                console</a> and the <code>SELECT</code> SQL statement to query table data:
                         </p>
                         <code-block lang="SQL">
                             SELECT * FROM task;
@@ -891,7 +904,7 @@
                             pane, including the new task:
                         </p>
                         <img src="tutorial_server_db_integration_task_table.png"
-                             alt="A table of tasks displayed in the Service pane in intelliJ IDEA"
+                             alt="A table of tasks displayed in the Service pane in IntelliJ IDEA"
                              border-effect="line"
                              width="706"/>
                     </tip>
@@ -904,14 +917,14 @@
         <p>
             As the <code>FakeTaskRepository</code> type is no longer needed in production code, you can move
             it to the testing source set, in
-            <path>src/test/com/example</path>
+            <path>src/test</path>
             .
         </p>
         <p>
             The final project structure should look something like this:
         </p>
         <img src="tutorial_server_db_integration_src_folder.png"
-             alt="The src folder shown within the Project View in intelliJ IDEA"
+             alt="The src folder shown within the Project View in IntelliJ IDEA"
              border-effect="line"
              width="400"/>
     </chapter>

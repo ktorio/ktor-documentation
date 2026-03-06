@@ -7,6 +7,7 @@ import io.ktor.server.plugins.statuspages.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
+
 fun Application.configureRouting() {
     install(StatusPages) {
         exception<Throwable> { call, cause ->

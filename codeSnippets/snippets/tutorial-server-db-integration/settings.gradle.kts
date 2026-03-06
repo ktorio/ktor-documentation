@@ -1,1 +1,7 @@
-rootProject.name = "tutorial-server-db-integration"
+rootProject.name = "ktor-exposed-task-app"
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+}
