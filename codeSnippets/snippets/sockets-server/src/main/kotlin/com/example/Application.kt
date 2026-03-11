@@ -12,7 +12,7 @@ fun main(args: Array<String>) {
         println("Server is listening at ${serverSocket.localAddress}")
         while (true) {
             val socket = serverSocket.accept()
-            println("Accepted $socket")
+            println("Accepted ${socket.remoteAddress}")
             launch {
                 val receiveChannel = socket.openReadChannel()
                 val sendChannel = socket.openWriteChannel(autoFlush = true)
