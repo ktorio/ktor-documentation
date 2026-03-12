@@ -75,7 +75,7 @@ Note that the `installDist` task comes with the Gradle [application plugin](http
 ### Step 3: Specify the Java version {id="java-version"}
 
 Create a `system.properties` file in the project root to pin the Java version:
-```
+```properties
 java.runtime.version=21
 ```
 
@@ -84,7 +84,7 @@ The version must match the JVM toolchain version specified in your `build.gradle
 ### Step 4: Create a Procfile {id="procfile"}
 
 Create a `Procfile` in the project root and add the following content:
-```
+```text
 web: ./build/install/<project-name>/bin/<project-name>
 ```
 {style="block"}
@@ -100,39 +100,39 @@ Replace `<project-name>` with your project name, which you can find by running:
 To deploy the application to Dokku using Git, open the terminal and follow the steps below:
 
 1. Commit changes made in the [previous section](#prepare-app) locally:
-   ```Bash
+   ```bash
    git add .
    git commit -m "Prepare app for deploying"
    ```
 2. SSH into your server and create a Dokku application.
    Replace `<app-name>` with a name for your application:
-   ```Bash
+   ```bash
    ssh <user>@<your-server> dokku apps:create <app-name>
    ```
 3. Add the Dokku server as a Git remote.
    Replace `<your-server>` with your server's hostname or IP address, and `<app-name>` with the name used in the previous step:
-   ```Bash
+   ```bash
    git remote add dokku dokku@<your-server>:<app-name>
    ```
 4. Push the code to Dokku to trigger a build and deployment:
-   ```Bash
+   ```bash
    git push dokku main
    ```
    > Replace `main` with your branch name if it differs.
 
    > If your Ktor application is in a subdirectory of the repository, use `git subtree push` instead:
-   > ```Bash
+   > ```bash
    > git subtree push --prefix=<subdir> dokku main
    > ```
    Wait until Dokku builds and starts the application:
-   ```
+   ```text
    ...
    =====> Application deployed:
           http://<app-name>.<your-server>
    ```
    {style="block"}
 5. Set a domain or IP address to make the application accessible:
-   ```Bash
+   ```bash
    ssh <user>@<your-server> dokku domains:set <app-name> <domain-or-ip>
    ```
    The application will be available at `http://<domain-or-ip>`.
