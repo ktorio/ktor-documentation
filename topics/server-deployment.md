@@ -60,6 +60,7 @@ After you package your application (for example, to an executable JVM applicatio
 Tutorials below show how to deploy a Ktor application to specific cloud providers:
 * [](google-app-engine.md)
 * [](heroku.md)
+* [](dokku.md)
 * [](elastic-beanstalk.md)
 
 ## SSL {id="ssl"}
