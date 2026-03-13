@@ -20,18 +20,25 @@ Typical usage scenarios include logging in users and gaining access to specific 
 
 > On the server, Ktor provides the [`Authentication`](server-auth.md) plugin for handling authentication and
 > authorization.
+> 
+{style="tip"}
 
 ## Supported authentication types {id="supported"}
 
-HTTP provides a [general framework](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) for access control and authentication. The Ktor client allows you to use the following HTTP authentication schemes:
+HTTP provides a [general framework](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) for access control and authentication. The Ktor client allows you to use the
+following HTTP authentication schemes:
 
-* [Basic](client-basic-auth.md) - uses `Base64` encoding to provide a username and password. Generally is not recommended if not used in combination with HTTPS.
-* [Digest](client-digest-auth.md) - an authentication method that communicates user credentials in an encrypted form by applying a hash function to the username and password.
-* [Bearer](client-bearer-auth.md) - an authentication scheme that involves security tokens called bearer tokens. For example, you can use this scheme as a part of OAuth flow to authorize users of your application by using external providers, such as Google, Facebook, Twitter, and so on.
+* [Basic](client-basic-auth.md) - uses `Base64` encoding to provide a username and password. Generally is not recommended if not used
+  in combination with HTTPS.
+* [Digest](client-digest-auth.md) - an authentication method that communicates user credentials in an encrypted form by applying a hash
+  function to the username and password.
+* [Bearer](client-bearer-auth.md) - an authentication scheme that involves security tokens called bearer tokens. For example, you can 
+  use this scheme as a part of OAuth flow to authorize users of your application by using external providers, such as
+  Google, Facebook, and X.
 
 ## Add dependencies {id="add_dependencies"}
 
-To enable authentication, you need to include the `ktor-client-auth` artifact in the build script:
+To enable authentication, include the `ktor-client-auth` artifact in the build script:
 
 <var name="artifact_name" value="ktor-client-auth"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
@@ -39,6 +46,7 @@ To enable authentication, you need to include the `ktor-client-auth` artifact in
 
 
 ## Install Auth {id="install_plugin"}
+
 To install the `Auth` plugin, pass it to the `install()` function inside a [client configuration block](client-create-and-configure.md#configure-client):
 
 ```kotlin
@@ -52,17 +60,16 @@ val client = HttpClient(CIO) {
     }
 }
 ```
-Now you can [configure](#configure_authentication) the required authentication provider.
-
-
 
 ## Configure authentication {id="configure_authentication"}
 
-### Step 1: Choose an authentication provider {id="choose-provider"}
+### Choose an authentication provider {id="choose-provider"}
 
 To use a specific authentication provider ([`basic`](client-basic-auth.md), [`digest`](client-digest-auth.md), or
-[`bearer`](client-bearer-auth.md)), you need to call the corresponding function inside the `install {}` block. For example,
-to use the `basic` authentication, call the [`basic {}`](https://api.ktor.io/ktor-client-auth/io.ktor.client.plugins.auth.providers/basic.html) function:
+[`bearer`](client-bearer-auth.md)), call the corresponding function inside the `install {}` block.
+
+For example, to configure basic authentication, use the [`basic {}`](https://api.ktor.io/ktor-client-auth/io.ktor.client.plugins.auth.providers/basic.html)
+function:
 
 ```kotlin
 install(Auth) {
@@ -71,10 +78,17 @@ install(Auth) {
     }
 }
 ```
+
 Inside the block, you can configure settings specific to this provider.
 
+> For provider-specific settings, see the corresponding topic:
+> * [Basic authentication](client-basic-auth.md)
+> * [Digest authentication](client-digest-auth.md)
+> * [Bearer authentication](client-bearer-auth.md)
+> 
+{style="tip"}
 
-### Step 2: (Optional) Configure the realm {id="realm"}
+### Configure the realm {id="realm"}
 
 Optionally, you can configure the realm using the `realm` property:
 
@@ -102,21 +116,25 @@ install(Auth) {
 }
 ```
 
-In this case, the client chooses the necessary provider based on the `WWW-Authenticate` response header, which contains the realm.
+In this case, the client chooses the necessary provider based on the `WWW-Authenticate` response header,
+which contains the realm.
 
+## Provider selection
 
-### Step 3: Configure a provider {id="configure-provider"}
+When a server returns `401 Unauthorized`, the client selects an authentication provider based on the `WWW-Authenticate`
+response header. This header specifies which authentication schemes the server accepts.
 
-To learn how to configure settings for a specific [provider](#supported), see a corresponding topic:
-* [](client-basic-auth.md)
-* [](client-digest-auth.md)
-* [](client-bearer-auth.md)
+If the client has only one authentication provider installed, the `Auth` plugin always attempts that provider when the
+server returns `401 Unauthorized`, even if the `WWW-Authenticate` header is missing or specifies a different scheme.
+
+If the client has multiple authentication providers installed, the client selects the provider based on the
+`WWW-Authenticate` header.
 
 ## Token caching and cache control {id="token-caching"}
 
-The Basic and Bearer authentication providers maintain an internal credential or token cache. This cache allows the
-client to reuse previously loaded authentication data instead of reloading it for each request, improving performance
-while still allowing full control when credentials change.
+The [basic](client-basic-auth.md) and [bearer](client-bearer-auth.md) authentication providers maintain an internal
+credential or token cache. This cache allows the client to reuse previously loaded authentication data instead of
+reloading it for each request, improving performance while still allowing full control when credentials change.
 
 ### Accessing authentication providers
 
@@ -137,14 +155,14 @@ These utilities allow you to inspect providers or clear cached tokens programmat
 
 ### Clearing cached tokens
 
-To clear cached credentials for a single provider, use the `clearToken()` function:
+To clear cached credentials for a single provider, use the `.clearToken()` function:
 
 ```kotlin
 val provider = client.authProvider<BasicAuthProvider>()
 provider?.clearToken()
 ``` 
 
-To clear cached tokens across all authentication providers that support cache clearing, use the `clearAuthTokens()`
+To clear cached tokens across all authentication providers that support cache clearing, use the `.clearAuthTokens()`
 function:
 
 ```kotlin
@@ -153,9 +171,9 @@ client.clearAuthTokens()
 
 Clearing cached tokens is typically used in the following scenarios:
 
-- When the user logs out.
-- When credentials or tokens stored by your application change.
-- When you need to force providers to reload the authentication state on the next request.
+* When the user logs out.
+* When credentials or tokens stored by your application change.
+* When you need to force providers to reload the authentication state on the next request.
 
 Here's an example for clearing cached tokens when the user logs out:
 

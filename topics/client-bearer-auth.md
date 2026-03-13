@@ -41,7 +41,7 @@ val client = HttpClient(CIO) {
 
 ### Load tokens
 
-Use the `loadTokens` callback to provide the initial access and refresh tokens. Typically, this callback loads cached
+Use the `loadTokens {}` callback to provide the initial access and refresh tokens. Typically, this callback loads cached
 tokens from local storage and returns them as a `BearerTokens` instance.
 
 ```kotlin
@@ -64,7 +64,7 @@ Authorization: Bearer abc123
 
 ### Refresh tokens
 
-Use the `refreshTokens` callback to define how the client obtains new tokens when the current access token becomes
+Use the `refreshTokens {}` callback to define how the client obtains new tokens when the current access token becomes
 invalid:
 
 ```kotlin
@@ -83,15 +83,20 @@ The refresh process works as follows:
    
 1. The client makes a request to a protected resource using an invalid access token.
 2. The resource server returns a `401 Unauthorized` response.
-   > If [several providers](client-auth.md#realm) are installed, a response should have the `WWW-Authenticate` header.
-3. The client automatically invokes `refreshTokens` to obtain new tokens.
+3. The client automatically invokes the `refreshTokens {}` callback to obtain new tokens.
 4. The client retries the request to a protected resource using the new token.
+
+> If [several providers](client-auth.md#realm) are installed, a response should have the `WWW-Authenticate` header.
+> If the client installs only one authentication provider, Ktor attempts that provider for `401 Unauthorized` responses
+> even when the `WWW-Authenticate` header is missing or specifies a different scheme.
+>
+{style="tip"}
 
 ### Send credentials without waiting for 401
 
 By default, the client sends credentials only after receiving a `401 Unauthorized` response.
 
-You can override this behavior using the `sendWithoutRequest` callback function. This callback determines whether the
+You can override this behavior using the `sendWithoutRequest {}` callback function. This callback determines whether the
 client should attach credentials before sending the request.
 
 For example, the following configuration always sends the token when accessing Google APIs:
@@ -219,7 +224,7 @@ class looks as follows:
 
 #### Store tokens {id="step4"}
 
-Once the tokens are received, store them so they can be supplied to the `loadTokens` and `refreshTokens` callbacks. In
+Once the tokens are received, store them so they can be supplied to the `loadTokens {}` and `refreshTokens {}` callbacks. In
 this example, the storage is a mutable list of `BearerTokens`:
 
 ```kotlin
@@ -245,7 +250,7 @@ Before doing that, configure the client to use bearer authentication:
 The following settings are specified: 
 
 * The `loadTokens` callback retrieves tokens from [storage](#step4).
-* The `sendWithoutRequest` callback sends the access token without waiting for the `401 Unauthorized` response when
+* The `sendWithoutRequest {}` callback sends the access token without waiting for the `401 Unauthorized` response when
   calling the Google API.
 
 With this client, you can now make a request to the protected resource:
@@ -279,29 +284,31 @@ At some point, the client repeats the request from [Step 5](#step5), but with an
 #### 401 Unauthorized response {id="step8"}
 
 When the token is no longer valid, the resource server returns a `401 Unauthorized` response. The client then invokes
-the `refreshTokens` callback, which is responsible for obtaining new tokens.
+the `refreshTokens {}` callback, which is responsible for obtaining new tokens.
 
-> The `401` response returns JSON data with error details. This needs to be [handled when receiving a response](#step12).
+> The `401 Unauthorized` response returns JSON data with error details. This needs to be [handled when receiving a response](#step12).
+>
+{style="tip"}
 
 #### Refresh the access token {id="step9"}
 
-To obtain a new access token, configure `refreshTokens` to make another request to the token endpoint. This
-time, use the `refresh_token` grant type instead of `authorization_code`:
+To obtain a new access token, configure the `refreshTokens {}` callback to make another request to the token endpoint.
+This time, use the `refresh_token` grant type instead of `authorization_code`:
 
 ```kotlin
 ```
 {src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="43-44,48-56,59,63-64"}
 
-The `refreshTokens` callback uses `RefreshTokensParams` as a receiver and allows you to access the following settings:
-- The `client` instance, which can be used to submit form parameters.
-- The `oldTokens` property is used to access the refresh token and send it to the token endpoint.
+The `refreshTokens {}` callback uses `RefreshTokensParams` as a receiver and allows you to access the following settings:
+* The `client` instance, which can be used to submit form parameters.
+* The `oldTokens` property is used to access the refresh token and send it to the token endpoint.
+* The `.markAsRefreshTokenRequest()` function exposed by `HttpRequestBuilder` marks the request for refreshing auth 
+  tokens, resulting in a special handling of it.
 
-> The `markAsRefreshTokenRequest` function exposed by `HttpRequestBuilder` enables special handling of requests used 
-> to obtain a refresh token.
 
 #### Save refreshed tokens {id="step10"}
 
-After receiving new tokens, save them in the [token storage](#step4). With this, the `refreshTokens` callback
+After receiving new tokens, save them in the [token storage](#step4). With this, the `refreshTokens {}` callback
 looks as follows:
 
 ```kotlin
@@ -318,8 +325,8 @@ With the refreshed access token stored, the next request to the protected resour
 
 #### Handle API errors {id="step12"}
 
-Given that the [`401` response](#step8) returns JSON data with error details, update the example to read error responses
-as an `ErrorInfo` object:
+Given that the [`401 Unauthorized` response](#step8) returns JSON data with error details, update the example to read
+error responses as an `ErrorInfo` object:
 
 ```kotlin
 ```
@@ -331,8 +338,9 @@ The `ErrorInfo` class is defined as follows:
 ```
 {src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/models/ErrorInfo.kt" include-lines="3-13"}
 
-For the full example, see [client-auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-auth-oauth-google).
-
+> For the full example, see [client-auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-auth-oauth-google).
+> 
+{style="tip"}
 
 
 
