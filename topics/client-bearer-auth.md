@@ -18,6 +18,8 @@ the Ktor server documentation](server-oauth.md#flow).
 
 > On the server, Ktor provides the [Authentication](server-bearer-auth.md) plugin for handling bearer authentication.
 
+<include from="client-auth.md" element-id="add_dependencies"/>
+
 ## Configure bearer authentication {id="configure"}
 
 A Ktor client allows you to send a token in the `Authorization` header using the `Bearer` scheme. You
