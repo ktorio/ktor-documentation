@@ -88,6 +88,10 @@ The refresh process works as follows:
 3. The client automatically invokes the `refreshTokens {}` callback to obtain new tokens.
 4. The client retries the request to a protected resource using the new token.
 
+When multiple requests fail with `401 Unauthorized` at the same time, the client performs the token refresh only once.
+The first request that receives the `401` response triggers the `refreshTokens {}` callback. Other requests wait for the
+refresh operation to complete and are then retried with the new token.
+
 > If [several providers](client-auth.md#realm) are installed, a response should have the `WWW-Authenticate` header.
 > If the client installs only one authentication provider, Ktor attempts that provider for `401 Unauthorized` responses
 > even when the `WWW-Authenticate` header is missing or specifies a different scheme.
