@@ -24,7 +24,7 @@ Before starting this tutorial, make sure that the following prerequisites are me
 
 ### Step 1: Configure a port {id="port"}
 
-First, you need to specify a port used to listen for incoming requests. Dokku dynamically assigns a port to each application and passes it using the `PORT` environment variable. Your application must read this variable at startup, otherwise it will listen on the wrong port and Dokku won't be able to route traffic to it. Depending on the way used to [configure a Ktor server](server-create-and-configure.topic), do one of the following:
+First, you need to specify a port used to listen for incoming requests. Dokku dynamically assigns a port to each application and passes it using the `PORT` environment variable. Your application must read this variable at startup, otherwise it may listen on the wrong port and Dokku won't be able to route traffic to it. Depending on how you [configure a Ktor server](server-create-and-configure.topic), do one of the following:
 * If your server configuration is specified in code, read the environment variable using the `System.getenv()` function and pass it to the `port` parameter of the `embeddedServer()` function:
    ```kotlin
    fun main() {
@@ -34,7 +34,7 @@ First, you need to specify a port used to listen for incoming requests. Dokku dy
    }
    ```
 
-* If your server configuration is specified in a configuration file, open your <path>application.conf</path> or <path>application.yaml</path> placed in `src/main/resources` and update the `port` property as shown below:
+* If your server configuration is specified in a configuration file, open your <path>application.conf</path> or <path>application.yaml</path> file placed in `src/main/resources` and update the `port` property as shown below:
 
    <tabs group="config">
    <tab title="application.conf" group-key="hocon">
@@ -71,7 +71,8 @@ tasks {
 }
 ```
 > The `installDist` task comes with the Gradle [application plugin](https://docs.gradle.org/current/userguide/application_plugin.html).
->{style="tip"}
+>
+{style="tip"}
 
 ### Step 3: Specify the Java version {id="java-version"}
 
@@ -90,22 +91,22 @@ web: ./build/install/<project-name>/bin/<project-name>
 ```
 {style="block"}
 
-This file tells Dokku how to start the application after it is built by the [stage](#stage) task.
-Replace `<project-name>` with your project name, which you can find by running:
+This file tells Dokku how to start the application after it is built by the [`stage`](#stage) task.
+Replace `<project-name>` with your project name. To find your project name, run the following command:
 ```bash
 ./gradlew properties -q | grep "^name:" | sed 's/name: //'
 ```
 
 ## Deploy an application {id="deploy-app"}
 
-To deploy the application to Dokku using Git, open the terminal and follow the steps below:
+To deploy the application to Dokku using Git, open a new terminal window and follow the steps below:
 
 1. Commit changes made in the [previous section](#prepare-app) locally:
    ```bash
    git add .
    git commit -m "Prepare app for deploying"
    ```
-2. SSH into your server and create a Dokku application.
+2. Connect to your server and create a Dokku application.
    Replace `<app-name>` with a name for your application:
    ```bash
    ssh <user>@<your-server> dokku apps:create <app-name>
@@ -119,21 +120,21 @@ To deploy the application to Dokku using Git, open the terminal and follow the s
    ```bash
    git push dokku main
    ```
-   > Replace `main` with your branch name if it differs.
+   Replace `main` with your branch name if it differs.
 
-   > If your Ktor application is in a subdirectory of the repository, use `git subtree push` instead:
-   > ```bash
-   > git subtree push --prefix=<subdir> dokku main
-   > ```
-   Wait until Dokku builds and starts the application:
+   If your Ktor application is located in a subdirectory, use `git subtree push` instead:
+    ```bash
+    git subtree push --prefix=<subdir> dokku main
+    ```
+5. Wait until Dokku builds and starts the application:
    ```text
    ...
    =====> Application deployed:
           http://<app-name>.<your-server>
    ```
    {style="block"}
-5. Set a domain or IP address to make the application accessible:
+6. Set a domain or IP address to make the application accessible:
    ```bash
    ssh <user>@<your-server> dokku domains:set <app-name> <domain-or-ip>
    ```
-   The application will be available at `http://<domain-or-ip>`.
+7. The application will be available at `http://<domain-or-ip>`.
