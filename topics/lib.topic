@@ -97,6 +97,40 @@
         </tabs>
     </snippet>
 
+    <snippet id="add_ktor_gradle_plugin">
+        <tabs group="languages">
+            <tab title="Gradle (Kotlin)" group-key="kotlin" id="add-ktor-plugin-gradle-kotlin">
+                <code-block lang="Kotlin">
+                    plugins {
+                        id("io.ktor.plugin") version "%ktor_version%"
+                    }
+                </code-block>
+            </tab>
+            <tab title="Gradle (Groovy)" group-key="groovy" id="add-ktor-plugin-gradle-groovy">
+                <code-block lang="Groovy">
+                    plugins {
+                        id 'io.ktor.plugin' version "%ktor_version%"
+                    }
+                </code-block>
+            </tab>
+            <tab title="Maven" group-key="maven" id="add-ktor-plugin-maven">
+                <code-block lang="XML">
+                    <![CDATA[
+                    <build>
+                        <plugins>
+                            <plugin>
+                                <groupId>io.ktor</groupId>
+                                <artifactId>ktor-maven-plugin</artifactId>
+                                <version>%ktor_version%</version>
+                            </plugin>
+                        </plugins>
+                    </build>
+                    ]]>
+                </code-block>
+            </tab>
+        </tabs>
+    </snippet>
+
     <snippet id="add_ktor_artifact_mpp">
         <tabs group="languages">
             <tab title="Gradle (Kotlin)" group-key="kotlin">

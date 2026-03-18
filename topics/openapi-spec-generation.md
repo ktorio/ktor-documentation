@@ -33,13 +33,137 @@ and [SwaggerUI](server-swagger-ui.md) plugins to serve interactive API documenta
 
 ## Add dependencies
 
-* To enable OpenAPI metadata generation, apply the Ktor Gradle plugin to your project:
+* To enable OpenAPI metadata generation, apply the Ktor compiler plugin to your project.
 
-```kotlin
-plugins {
-    id("io.ktor.plugin") version "%ktor_version%"
-}
-```
+  <tabs group="languages">
+    <tab title="Gradle (Kotlin)" group-key="kotlin" id="add-ktor-plugin-gradle-kotlin">
+  
+    ```kotlin
+      plugins {
+          id("io.ktor.plugin") version "%ktor_version%"
+      }
+     ```
+  
+    </tab>
+    <tab title="Gradle (Groovy)" group-key="groovy" id="add-ktor-plugin-gradle-groovy">
+      
+    ```groovy
+      plugins {
+          id 'io.ktor.plugin' version "%ktor_version%"
+      }
+    ```
+
+    </tab>
+    <tab title="Maven" group-key="maven" id="add-ktor-plugin-maven">
+
+    Unlike Gradle, Maven does not provide built-in integration for the Ktor compiler plugin. To enable OpenAPI 
+    specification generation, you need to configure the compiler plugin manually.
+
+    1. Apply the Ktor Maven plugin (required for running and packaging your application):
+       ```xml
+         <build>
+            <plugins>
+                <plugin>
+                    <groupId>io.ktor</groupId>
+                    <artifactId>ktor-maven-plugin</artifactId>
+                    <version>%ktor_version%</version>
+                </plugin>
+            </plugins>
+        </build>
+       ```
+    2. The compiler plugin must be available as a JAR file. Add the following configuration to automatically download and
+       copy it to a stable location:
+
+       ```xml
+         <plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-dependency-plugin</artifactId>
+           <version>3.9.0</version>
+           <executions>
+               <execution>
+                   <id>copy-ktor-compiler-plugin</id>
+                   <phase>generate-sources</phase>
+                   <goals>
+                       <goal>copy</goal>
+                   </goals>
+                   <configuration>
+                       <artifactItems>
+                           <artifactItem>
+                               <groupId>io.ktor</groupId>
+                               <artifactId>ktor-compiler-plugin</artifactId>
+                               <version>%ktor_version%</version>
+                               <outputDirectory>${project.build.directory}/kotlin-plugins</outputDirectory>
+                               <destFileName>ktor-compiler-plugin.jar</destFileName>
+                           </artifactItem>
+                       </artifactItems>
+                   </configuration>
+               </execution>
+           </executions>
+        </plugin>
+       ```
+  
+    3. Configure the Kotlin compiler:
+  
+        ```xml
+        <plugin>
+         <groupId>org.jetbrains.kotlin</groupId>
+         <artifactId>kotlin-maven-plugin</artifactId>
+         <version>%kotlin_version%</version>
+    
+        <configuration>
+            <jvmTarget>21</jvmTarget>
+    
+            <compilerPlugins>
+                <plugin>kotlinx-serialization</plugin>
+            </compilerPlugins>
+       
+            <args>
+                <arg>-Xplugin=${project.build.directory}/kotlin-plugins/ktor-compiler-plugin.jar</arg>
+    
+                <arg>-P</arg>
+                <arg>plugin:io.ktor.ktor-compiler-plugin:openApiEnabled=true</arg>
+    
+                <arg>-P</arg>
+                <arg>plugin:io.ktor.ktor-compiler-plugin:openApiCodeInference=true</arg>
+    
+                <arg>-P</arg>
+                <arg>plugin:io.ktor.ktor-compiler-plugin:openApiOnlyCommented=false</arg>
+            </args>
+        </configuration>
+    
+        <dependencies>
+            <dependency>
+                <groupId>io.ktor</groupId>
+                <artifactId>ktor-compiler-plugin</artifactId>
+                <version>%ktor_version%</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-maven-serialization</artifactId>
+                <version>${kotlin_version}</version>
+            </dependency>
+        </dependencies>
+        <executions>
+         <execution>
+            <id>compile</id>
+            <phase>compile</phase>
+            <goals>
+                <goal>compile</goal>
+            </goals>
+         </execution>
+         <execution>
+            <id>test-compile</id>
+            <phase>test-compile</phase>
+            <goals>
+                <goal>test-compile</goal>
+            </goals>
+         </execution>
+        </executions>
+       </plugin>
+       ```
+  
+   </tab>
+  </tabs>
 
 * To use runtime route annotations, add the `%artifact_name%` artifact to your build script:
 
