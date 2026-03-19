@@ -19,7 +19,7 @@ Ktor supports [RFC 7616](https://datatracker.ietf.org/doc/html/rfc7616) (HTTP Di
 
 Ktor allows you to use digest authentication for logging in users and protecting specific [routes](server-routing.md). You can get general information about authentication in Ktor in the [](server-auth.md) section.
 
-> Digest authentication provides stronger security than [Basic authentication](server-basic-auth.md) since passwords are never sent in clear text. However, you should still use [HTTPS/TLS](server-ssl.md) in production to protect against other attacks.
+> Digest authentication provides stronger security than [Basic authentication](server-basic-auth.md) since passwords are never sent in clear text. However, it is recommended to use [HTTPS/TLS](server-ssl.md) in production for added transport-level security.
 
 ## Add dependencies {id="add_dependencies"}
 To enable `digest` authentication, you need to include the `%artifact_name%` artifact in the build script:
@@ -61,14 +61,14 @@ The digest authentication flow looks as follows:
 
    The `response` value is generated in the following way:
 
-   a. `HA1 = H(username:realm:password)` where `H` is the configured hash algorithm (e.g., SHA-512-256)
+   * `HA1 = H(username:realm:password)` where `H` is the configured hash algorithm (e.g., SHA-512-256)
    > This part [is stored](#digest-table) on a server and can be used by Ktor to validate user credentials.
 
-   b. `HA2 = H(method:digestURI)` (for `qop=auth`) or `HA2 = H(method:digestURI:H(entityBody))` (for `qop=auth-int`)
+   * `HA2 = H(method:digestURI)` (for `qop=auth`) or `HA2 = H(method:digestURI:H(entityBody))` (for `qop=auth-int`)
 
-   c. `response = H(HA1:nonce:nc:cnonce:qop:HA2)`
+   * `response = H(HA1:nonce:nc:cnonce:qop:HA2)`
 
-4. A server [validates](#configure-provider) credentials sent by a client and responds with the requested content. On successful authentication with QoP, the server also returns an `Authentication-Info` header for mutual authentication.
+4. A server [validates](#configure-provider) the credentials sent by a client and responds with the requested content. On successful authentication with QoP, the server also returns an `Authentication-Info` header for mutual authentication.
 
 
 ## Install digest authentication {id="install"}
@@ -128,11 +128,11 @@ The `-sess` algorithm variants (e.g., `SHA-512-256-sess`, `SHA-256-sess`, `MD5-s
 **Drawback:**
 - The server must compute the hash for each authentication request (cannot use pre-computed values)
 
-For most applications, the standard (non-sess) algorithms are enough, especially when combined with strong hash functions like SHA-512-256.
+For most applications, the standard (non-session) algorithms are sufficient, especially when used with strong hash functions like SHA-512-256.
 
 ### Step 2: Provide a user table with digests {id="digest-table"}
 
-The `digest` authentication provider validates user credentials using the `HA1` part of a digest message. So, you can provide a user table that contains usernames and corresponding `HA1` hashes.
+The `digest` authentication provider validates user credentials using the `HA1` part of a digest message, so you can provide a user table that contains usernames and their corresponding `HA1` hashes.
 
 Since different algorithms produce different hash values, you need to store the appropriate hash for each algorithm you support or compute the hash dynamically based on the algorithm requested by the client:
 
@@ -151,7 +151,7 @@ The `digest` authentication provider exposes its settings via the [DigestAuthent
 
 ```kotlin
 ```
-{src="snippets/auth-digest/src/main/kotlin/authdigest/Application.kt" include-lines="20-40,50-52"}
+{src="snippets/auth-digest/src/main/kotlin/authdigest/Application.kt" include-lines="19-39,47-49"}
 
 The `digestProvider` function receives three parameters:
 - `userName` - the username from the client's request
@@ -239,12 +239,12 @@ install(Authentication) {
 ```
 
 Strict mode:
-- Removes MD5 algorithms (only allows SHA-256 and SHA-512-256)
+- Removes MD5 algorithms (only allows SHA-256, SHA-512-256, and their session variants)
 - Enforces UTF-8 charset
 
 ### UTF-8 charset support {id="charset"}
 
-The implementation supports UTF-8 charset for usernames and passwords containing international characters:
+The `digest` authentication provider supports UTF-8 charset for usernames and passwords containing non-ASCII characters:
 
 ```kotlin
 install(Authentication) {
@@ -279,45 +279,3 @@ This allows clients to verify the server's identity (mutual authentication).
 5. **Enable `userhash`** - For privacy protection of usernames.
 
 6. **Always use HTTPS** – Digest authentication alone doesn't encrypt traffic; always use TLS in production.
-
-
-## Migration from legacy digest auth {id="migration"}
-
-If you're upgrading from an older Ktor version (3.4.0 or older):
-
-### Before (Legacy)
-```kotlin
-install(Authentication) {
-    digest("auth") {
-        realm = "MyRealm"
-        algorithmName = "MD5"  // Deprecated property
-        digestProvider { userName, realm ->
-            // Old signature without algorithm parameter
-            getMd5Digest("$userName:$realm:$password")
-        }
-    }
-}
-```
-
-### After (RFC 7616)
-```kotlin
-install(Authentication) {
-    digest("auth") {
-        realm = "MyRealm"
-        // Support both modern and legacy clients
-        algorithms = listOf(DigestAlgorithm.SHA_512_256, DigestAlgorithm.MD5)
-        digestProvider { userName, realm, algorithm ->
-            // New signature receives the algorithm
-            val password = getPassword(userName) ?: return@digestProvider null
-            algorithm.toDigester().digest("$userName:$realm:$password".toByteArray())
-        }
-    }
-}
-```
-
-### Deprecation notes
-
-The following APIs are deprecated:
-- `algorithmName: String` property - Use `algorithms: List<DigestAlgorithm>` instead
-- Old `digestProvider { userName, realm -> }` signature - Still works but the new signature with algorithm parameter is preferred
-- `DigestAlgorithm.MD5` and `DigestAlgorithm.MD5_SESS` - Deprecated for security reasons, avoid it in production
