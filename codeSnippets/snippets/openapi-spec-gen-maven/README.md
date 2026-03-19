@@ -18,9 +18,9 @@ To build or run the project, use one of the following tasks from the project's r
 
 If the server starts successfully, you'll see the following output:
 
-```
-2024-12-04 14:32:45.584 [main] INFO  Application - Application started in 0.303 seconds.
-2024-12-04 14:32:45.682 [main] INFO  Application - Responding at http://0.0.0.0:8080
+```text
+2026-03-19 13:48:45.391 [com.example.ApplicationKt.main()] INFO  io.ktor.server.Application - Application started in 0.132 seconds.
+2026-03-19 13:48:45.400 [DefaultDispatcher-worker-2] INFO  io.ktor.server.Application - Responding at http://0.0.0.0:8080
 ```
 
 Navigate to `http://localhost:8080/swagger` to see the Swagger UI documentation.
