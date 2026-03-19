@@ -11,8 +11,13 @@
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
 </p>
 <p>
-<b>Code example</b>: 
-<a href="https://github.com/ktorio/ktor-samples/tree/main/openapi">openapi</a>
+<b>Code example</b>:
+<a href="https://github.com/ktorio/ktor-documentation/tree/codeSnippets/snippets/openapi-spec-gen">
+    openapi-spec-gen
+</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/codeSnippets/snippets/openapi-spec-gen-maven">
+    openapi-spec-gen-maven
+</a>
 </p>
 </tldr>
 

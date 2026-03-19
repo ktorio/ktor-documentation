@@ -91,7 +91,7 @@ fun Application.module() {
                 /**
                  * Save a new user.
                  *
-                 * – Response: 204 The new user was saved.
+                 * Response: 204 The new user was saved.
                  */
                 post {
                     list += call.receive<User>()
@@ -101,10 +101,11 @@ fun Application.module() {
                 /**
                  * Delete the user with the given ID.
                  *
-                 * – Path id [ULong] the ID of the user to remove
-                 * – Response: 400 The ID parameter is malformatted or missing.
-                 * – Response: 404 The user for the given ID does not exist.
-                 * – Response: 204 The user was deleted.
+                 * Path: id [ULong] the ID of the user to remove
+                 *
+                 * Response: 400 The ID parameter is malformatted or missing.
+                 * Response: 404 The user for the given ID does not exist.
+                 * Response: 204 The user was deleted.
                  */
                 delete("/{id}") {
                     val id = call.parameters["id"]?.toULongOrNull()
