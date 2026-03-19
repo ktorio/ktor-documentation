@@ -171,8 +171,8 @@ The example demonstrates how to receive a file and save it to a file system:
 
 #### Default file size limit
 
-By default, the allowed size for binary and file items that can be received is limited to 50MB. If a received file
-or binary item exceeds the 50MB limit, an `IOException` is thrown.
+By default, the allowed size for binary and file items that can be received is limited to 50MiB. If a received file
+or binary item exceeds the 50MiB limit, an `IOException` is thrown.
 
 To override the default form field limit, pass the `formFieldLimit` parameter when calling `.receiveMultipart()`:
 
@@ -181,7 +181,7 @@ To override the default form field limit, pass the `formFieldLimit` parameter wh
 
 {src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="17"}
 
-In this example, the new limit is set to 100MB.
+In this example, the new limit is set to 100MiB.
 
 #### Form fields
 
