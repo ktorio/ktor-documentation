@@ -42,20 +42,20 @@ and [SwaggerUI](server-swagger-ui.md) plugins to serve interactive API documenta
 
   <tabs group="languages">
     <tab title="Gradle (Kotlin)" group-key="kotlin" id="add-ktor-plugin-gradle-kotlin">
-  
+
     ```kotlin
-      plugins {
-          id("io.ktor.plugin") version "%ktor_version%"
-      }
-     ```
-  
+    plugins {
+        id("io.ktor.plugin") version "%ktor_version%"
+    }
+    ```
+
     </tab>
     <tab title="Gradle (Groovy)" group-key="groovy" id="add-ktor-plugin-gradle-groovy">
-      
+
     ```groovy
-      plugins {
-          id 'io.ktor.plugin' version "%ktor_version%"
-      }
+    plugins {
+        id 'io.ktor.plugin' version "%ktor_version%"
+    }
     ```
 
     </tab>
@@ -66,21 +66,21 @@ and [SwaggerUI](server-swagger-ui.md) plugins to serve interactive API documenta
 
     1. Apply the Ktor Maven plugin (required for running and packaging your application):
        ```xml
-         <build>
-            <plugins>
-                <plugin>
-                    <groupId>io.ktor</groupId>
-                    <artifactId>ktor-maven-plugin</artifactId>
-                    <version>%ktor_version%</version>
-                </plugin>
-            </plugins>
-        </build>
+       <build>
+           <plugins>
+               <plugin>
+                   <groupId>io.ktor</groupId>
+                   <artifactId>ktor-maven-plugin</artifactId>
+                   <version>%ktor_version%</version>
+               </plugin>
+           </plugins>
+       </build>
        ```
     2. The compiler plugin must be available as a JAR file. Add the following configuration to automatically download and
        copy it to a stable location:
 
        ```xml
-         <plugin>
+       <plugin>
            <groupId>org.apache.maven.plugins</groupId>
            <artifactId>maven-dependency-plugin</artifactId>
            <version>3.9.0</version>
@@ -104,66 +104,66 @@ and [SwaggerUI](server-swagger-ui.md) plugins to serve interactive API documenta
                    </configuration>
                </execution>
            </executions>
-        </plugin>
+       </plugin>
        ```
   
     3. Configure the Kotlin compiler:
-  
-        ```xml
-        <plugin>
-         <groupId>org.jetbrains.kotlin</groupId>
-         <artifactId>kotlin-maven-plugin</artifactId>
-         <version>%kotlin_version%</version>
-    
-        <configuration>
-            <jvmTarget>21</jvmTarget>
-    
-            <compilerPlugins>
-                <plugin>kotlinx-serialization</plugin>
-            </compilerPlugins>
-       
-            <args>
-                <arg>-Xplugin=${project.build.directory}/kotlin-plugins/ktor-compiler-plugin.jar</arg>
-    
-                <arg>-P</arg>
-                <arg>plugin:io.ktor.ktor-compiler-plugin:openApiEnabled=true</arg>
-    
-                <arg>-P</arg>
-                <arg>plugin:io.ktor.ktor-compiler-plugin:openApiCodeInference=true</arg>
-    
-                <arg>-P</arg>
-                <arg>plugin:io.ktor.ktor-compiler-plugin:openApiOnlyCommented=false</arg>
-            </args>
-        </configuration>
-    
-        <dependencies>
-            <dependency>
-                <groupId>io.ktor</groupId>
-                <artifactId>ktor-compiler-plugin</artifactId>
-                <version>%ktor_version%</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jetbrains.kotlin</groupId>
-                <artifactId>kotlin-maven-serialization</artifactId>
-                <version>${kotlin_version}</version>
-            </dependency>
-        </dependencies>
-        <executions>
-         <execution>
-            <id>compile</id>
-            <phase>compile</phase>
-            <goals>
-                <goal>compile</goal>
-            </goals>
-         </execution>
-         <execution>
-            <id>test-compile</id>
-            <phase>test-compile</phase>
-            <goals>
-                <goal>test-compile</goal>
-            </goals>
-         </execution>
-        </executions>
+
+       ```xml
+       <plugin>
+           <groupId>org.jetbrains.kotlin</groupId>
+           <artifactId>kotlin-maven-plugin</artifactId>
+           <version>%kotlin_version%</version>
+
+           <configuration>
+               <jvmTarget>21</jvmTarget>
+
+               <compilerPlugins>
+                   <plugin>kotlinx-serialization</plugin>
+               </compilerPlugins>
+
+               <args>
+                   <arg>-Xplugin=${project.build.directory}/kotlin-plugins/ktor-compiler-plugin.jar</arg>
+
+                   <arg>-P</arg>
+                   <arg>plugin:io.ktor.ktor-compiler-plugin:openApiEnabled=true</arg>
+
+                   <arg>-P</arg>
+                   <arg>plugin:io.ktor.ktor-compiler-plugin:openApiCodeInference=true</arg>
+
+                   <arg>-P</arg>
+                   <arg>plugin:io.ktor.ktor-compiler-plugin:openApiOnlyCommented=false</arg>
+               </args>
+           </configuration>
+
+           <dependencies>
+               <dependency>
+                   <groupId>io.ktor</groupId>
+                   <artifactId>ktor-compiler-plugin</artifactId>
+                   <version>%ktor_version%</version>
+               </dependency>
+               <dependency>
+                   <groupId>org.jetbrains.kotlin</groupId>
+                   <artifactId>kotlin-maven-serialization</artifactId>
+                   <version>${kotlin_version}</version>
+               </dependency>
+           </dependencies>
+           <executions>
+               <execution>
+                   <id>compile</id>
+                   <phase>compile</phase>
+                   <goals>
+                       <goal>compile</goal>
+                   </goals>
+               </execution>
+               <execution>
+                   <id>test-compile</id>
+                   <phase>test-compile</phase>
+                   <goals>
+                       <goal>test-compile</goal>
+                   </goals>
+               </execution>
+           </executions>
        </plugin>
        ```
   
