@@ -435,13 +435,13 @@ For more information on working with sockets, see the [Sockets documentation](se
 
 ### New default limit for binary and file items
 
-In Ktor 3.0.0, a default limit of 50MB has been introduced for receiving binary and file items using
+In Ktor 3.0.0, a default limit of 50MiB has been introduced for receiving binary and file items using
 [`ApplicationCall.receiveMultipart()`](https://api.ktor.io/3.0.x/ktor-server-core/io.ktor.server.request/receive-multipart.html).
-If a received file or binary item exceeds the 50MB limit, an `IOException` is thrown.
+If a received file or binary item exceeds the 50MiB limit, an `IOException` is thrown.
 
 #### Override the default limit
 
-If your application previously relied on handling files larger than 50MB without explicit configuration,
+If your application previously relied on handling files larger than 50MiB without explicit configuration,
 you will need to update your code to avoid unexpected behaviour.
 
 To override the default limit, pass the `formFieldLimit` parameter when calling `.receiveMultipart()`:
