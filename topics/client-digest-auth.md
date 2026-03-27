@@ -13,6 +13,8 @@ network.
 
 > On the server, Ktor provides the [Authentication](server-digest-auth.md) plugin for handling digest authentication.
 
+<include from="client-auth.md" element-id="add_dependencies"/>
+
 ## Digest authentication flow {id="flow"}
 
 The digest authentication flow looks as follows:
