@@ -33,6 +33,15 @@ The following table lists details of the latest Ktor releases.
 
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
+<tr><td>3.4.2</td><td>March 27, 2026</td><td>
+<p>
+A patch release that improves client and engine performance with allocation optimizations and WebSocket fixes, along 
+with a broad set of issues across OpenAPI, logging, GraalVM compatibility, Netty, Darwin, dependency injection, 
+compression, certificate pinning, and Kotlin/Native.
+</p>
+<var name="version" value="3.4.2"/>
+<include from="lib.topic" element-id="release_details_link"/>
+</td></tr>
 <tr><td>3.4.1</td><td>March 4, 2026</td><td>
 <p>
 A patch release that includes important regression fixes, including resolving the
