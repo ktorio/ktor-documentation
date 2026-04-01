@@ -1,5 +1,5 @@
 [versions]
-kotlin = "2.2.20"
+kotlin = "2.4.0-vega-85"
 ktor = "3.4.2"
 logback = "1.4.14"
 

@@ -1,12 +1,12 @@
 val ktor_version: String by project
-val kotlin_version = "2.2.20"
+val kotlin_version = "2.4.0-vega-85"
 val logback_version: String by project
 val swagger_codegen_version: String by project
 
 plugins {
     application
     kotlin("jvm")
-    kotlin("plugin.serialization").version("2.2.20")
+    kotlin("plugin.serialization").version("2.3.20")
 }
 
 application {
