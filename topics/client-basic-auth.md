@@ -8,9 +8,11 @@
 <include from="lib.topic" element-id="download_example"/>
 </tldr>
 
-The Basic [authentication scheme](client-auth.md) can be used for logging in users. In this scheme, user credentials are transmitted as username/password pairs encoded using Base64. 
+The basic [authentication scheme](client-auth.md) can be used for logging in users. In this scheme, user credentials are transmitted as username/password pairs encoded using Base64. 
 
 > On the server, Ktor provides the [Authentication](server-basic-auth.md) plugin for handling basic authentication.
+
+<include from="client-auth.md" element-id="add_dependencies"/>
 
 ## Basic authentication flow {id="flow"}
 
