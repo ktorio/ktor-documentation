@@ -306,10 +306,13 @@ This time, use the `refresh_token` grant type instead of `authorization_code`:
 {src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/Application.kt" include-lines="43-44,48-56,59,63-64"}
 
 The `refreshTokens {}` callback uses `RefreshTokensParams` as a receiver and allows you to access the following settings:
+
 * The `client` instance, which can be used to submit form parameters.
 * The `oldTokens` property is used to access the refresh token and send it to the token endpoint.
-* The `.markAsRefreshTokenRequest()` function exposed by `HttpRequestBuilder` marks the request for refreshing auth 
-  tokens, resulting in a special handling of it.
+* The `HttpRequestBuilder.markAsRefreshTokenRequest()` function marks a request as a token refresh request.
+  Requests marked this way are excluded from the authentication retry mechanism. This prevents the client from
+  attempting to refresh the token again if the refresh request itself fails with `401 Unauthorized`, avoiding infinite
+  refresh loops.
 
 
 #### Save refreshed tokens {id="step10"}
