@@ -414,6 +414,7 @@
                      accepts-web-file-names="migrating-2-2.html"/>
         <toc-element topic="migrating-3.md"/>
     </toc-element>
+    <toc-element topic="whats-new-350.md"/>
 
     <toc-element toc-title="Migrating from other frameworks">
         <toc-element topic="migration-from-express-js.topic"
