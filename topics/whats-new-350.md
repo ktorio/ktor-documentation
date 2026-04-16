@@ -62,3 +62,20 @@ Existing configurations continue to work without changes. However, for new appli
 * Avoid `MD5`-based algorithms unless required for legacy client compatibility.
 
 For a complete guide, see [](server-digest-auth.md).
+
+### Suspending `.authenticate()` overload in custom providers
+
+[Custom authentication providers](server-auth.md#custom-authentication-provider) can now implement a suspending version
+of the `DynamicProviderConfig.authenticate()` function. The `.authenticate()` function accepts a suspending lambda, so
+you can call coroutine APIs directly inside authentication:
+
+```kotlin
+install(Authentication) {
+    provider("custom") {
+        authenticate { context ->
+          delay(10.milliseconds)
+          context.principal(null)
+        }
+    }
+}
+```
