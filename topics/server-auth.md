@@ -56,9 +56,12 @@ HTTP provides a [general framework](https://developer.mozilla.org/en-US/docs/Web
 [Sessions](server-sessions.md) provide a mechanism to persist data between different HTTP requests. Typical use cases include storing a logged-in user's ID, the contents of a shopping basket, or keeping user preferences on the client. In Ktor, a user that already has an associated session can be authenticated using the `session` provider. Learn how to do this from [](server-session-auth.md).
 
 ### Custom {id="custom"}
-Ktor also provides an API for creating [custom plugins](server-custom-plugins.md), which can be used to implement your own plugin for handling authentication and authorization. 
-For example, the `AuthenticationChecked` [hook](server-custom-plugins.md#call-handling) is executed after authentication credentials are checked, and it allows you to implement authorization: [custom-plugin-authorization](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/custom-plugin-authorization).
 
+Ktor provides two ways to customize authentication and authorization behavior:
+
+* Use [custom authentication providers](#custom-authentication-provider).
+* Use [custom plugins](server-custom-plugins.md) to implement authorization logic. For example, you can use the `AuthenticationChecked` [hook](server-custom-plugins.md#call-handling)
+  to verify access. For more information, see the [custom-plugin-authorization](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/custom-plugin-authorization) example.
 
 ## Add dependencies {id="add_dependencies"}
 
@@ -99,6 +102,26 @@ install(Authentication) {
 ```
 
 Inside this function, you can [configure](#configure-provider) settings specific to this provider.
+
+#### Custom authentication provider
+
+Use the `provider()` function to implement custom authentication logic when built-in providers do not fit your
+requirements:
+
+```kotlin
+import io.ktor.server.application.*
+import io.ktor.server.auth.*
+// ...
+install(Authentication) {
+  provider("custom") {
+    // Configure custom authentication
+  }
+}
+```
+
+Inside the `provider()` function, you can configure authentication using options provided by the
+[`DynamicProviderConfig`](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-dynamic-provider-config/index.html)
+class.
 
 ### Step 2: Specify a provider name {id="provider-name"}
 
