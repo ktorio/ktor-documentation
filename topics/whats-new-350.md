@@ -107,3 +107,15 @@ val config = ApplicationConfig("application.yaml").getAs<Config>()
 ```
 
 </compare>
+
+### ES modules compatibility for `ktor-network`
+
+We’ve fixed issues that made it impossible to use `ktor-network` and all dependent modules when ES modules were enabled.
+
+To help prevent future regressions, our JavaScript test infrastructure now targets both ES2015 and ES modules by default.
+
+> For more information about Kotlin/JS module systems and ES2015 support, see:
+> * [JavaScript modules](https://kotlinlang.org/docs/js-modules.html)
+> * [Support for ES2015 features](https://kotlinlang.org/docs/js-project-setup.html#support-for-es2015-features)
+>
+{style="tip"}
