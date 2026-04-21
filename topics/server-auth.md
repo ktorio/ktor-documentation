@@ -59,7 +59,7 @@ HTTP provides a [general framework](https://developer.mozilla.org/en-US/docs/Web
 
 Ktor provides two ways to customize authentication and authorization behavior:
 
-* Use [custom authentication providers](#custom-authentication-provider).
+* Use [custom authentication providers](#custom-auth-provider).
 * Use [custom plugins](server-custom-plugins.md) to implement authorization logic. For example, you can use the `AuthenticationChecked` [hook](server-custom-plugins.md#call-handling)
   to verify access. For more information, see the [custom-plugin-authorization](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/custom-plugin-authorization) example.
 
@@ -103,25 +103,9 @@ install(Authentication) {
 
 Inside this function, you can [configure](#configure-provider) settings specific to this provider.
 
-#### Custom authentication provider
-
-Use the `provider()` function to implement custom authentication logic when built-in providers do not fit your
-requirements:
-
-```kotlin
-import io.ktor.server.application.*
-import io.ktor.server.auth.*
-// ...
-install(Authentication) {
-  provider("custom") {
-    // Configure custom authentication
-  }
-}
-```
-
-Inside the `provider()` function, you can configure authentication using options provided by the
-[`DynamicProviderConfig`](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-dynamic-provider-config/index.html)
-class.
+> If the built-in providers do not fit your requirements, you can implement a [custom authentication provider](#custom-auth-provider).
+> 
+{style="note"}
 
 ### Step 2: Specify a provider name {id="provider-name"}
 
@@ -275,6 +259,36 @@ In the example below, the `"auth-session"` value is passed to get a principal fo
 ```
 {src="snippets/auth-form-session-nested/src/main/kotlin/com/example/Application.kt" include-lines="87,93-95,97-99"}
 
+## Custom authentication provider {id="custom-auth-provider"}
+
+Use the [`provider()`](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-authentication-config/provider.html) 
+function to implement custom authentication logic when built-in providers do not fit your requirements:
+
+```kotlin
+provider("custom") {
+  authenticate { context ->
+    val exampleHeader = context.call.request.headers["Example-Header"]
+    if (exampleHeader == null) {
+      val cause = AuthenticationFailedCause.Error("No example header found")
+      context.challenge(key = this, cause) { challenge, call ->
+        call.respondText("Challenge")
+        challenge.complete()
+      }
+    }
+  }
+}
+```
+
+In the above example, the `provider("custom")` function registers a named authentication provider that can later be
+applied to routes using `authenticate("custom")`.
+
+Inside the provider, the `authenticate {}` block is executed for every incoming request and gives you full control over
+the authentication process through the context object. This includes access to the current call (`context.call`) and the
+ability to inspect headers, parameters, or other request data.
+
+You can configure additional provider behavior using options provided by the
+[`DynamicProviderConfig`](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-dynamic-provider-config/index.html)
+class.
 
 
 
