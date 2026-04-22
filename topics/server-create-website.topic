@@ -99,7 +99,6 @@
                     button:
                 </p>
                 <list>
-                    <li>Routing</li>
                     <li>Static Content</li>
                     <li>Thymeleaf</li>
                 </list>

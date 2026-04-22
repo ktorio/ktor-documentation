@@ -1,6 +1,6 @@
 [versions]
-exposed = "1.1.1"
-h2 = "2.3.232"
+exposed = "1.2.0"
+h2 = "2.4.240"
 kotlin = "2.3.0"
 ktor = "3.4.3"
 logback = "1.4.14"

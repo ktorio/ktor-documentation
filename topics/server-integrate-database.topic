@@ -131,13 +131,12 @@
                         button:
                     </p>
                     <list type="bullet">
-                        <li>Routing</li>
                         <li>Content Negotiation</li>
-                        <li>Kotlinx.serialization</li>
+                        <li>kotlinx.serialization</li>
                         <li>Static Content</li>
                         <li>Status Pages</li>
                         <li>Exposed</li>
-                        <li>Postgres</li>
+                        <li>PostgreSQL</li>
                     </list>
                     <p>
                         <img src="ktor_project_generator_add_plugins.gif"

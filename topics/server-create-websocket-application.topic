@@ -78,9 +78,8 @@
                         button:
                     </p>
                     <list type="bullet">
-                        <li>Routing</li>
                         <li>Content Negotiation</li>
-                        <li>Kotlinx.serialization</li>
+                        <li>kotlinx.serialization</li>
                         <li>WebSockets</li>
                         <li>Static Content</li>
                     </list>
