@@ -2,7 +2,7 @@
 exposed = "1.1.1"
 h2 = "2.3.232"
 kotlin = "2.3.0"
-ktor = "3.4.2"
+ktor = "3.4.3"
 logback = "1.4.14"
 postgres = "42.7.10"
 
