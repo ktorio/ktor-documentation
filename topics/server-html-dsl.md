@@ -74,7 +74,7 @@ The following example shows how to respond with an HTML form used to collect [cr
 </tab>
 </tabs>
 
-For the full example, see [auth-form-html-dsl](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-form-html-dsl).
+For the full example, see [auth-form-html-dsl](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-form-html-dsl).
 
 > To learn more about receiving form parameters on the server side, see [](server-requests.md#form_parameters).
 > 
@@ -125,7 +125,7 @@ In addition to generating plain HTML, Ktor provides a template engine that can b
     
 
 ### Example {id="example"}
-Let's see on the [example](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/html-templates) of how to create a hierarchical layout using templates. Imagine we have the following HTML:
+Let's see on the [example](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/html-templates) of how to create a hierarchical layout using templates. Imagine we have the following HTML:
 ```html
 <body>
 <h1>Ktor</h1>
@@ -184,4 +184,4 @@ Let's implement these layouts step-by-step:
    ```
    {src="snippets/html-templates/src/main/kotlin/com/example/Application.kt" include-lines="12-30"}
 
-You can find the full example here: [html-templates](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/html-templates).
+You can find the full example here: [html-templates](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/html-templates).

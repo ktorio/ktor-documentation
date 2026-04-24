@@ -41,7 +41,7 @@ Specify the required native targets and [declare a native binary](https://kotlin
 ```
 {src="snippets/embedded-server-native/build.gradle.kts" include-lines="16-32"}
 
-You can find the full example here: [embedded-server-native](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/embedded-server-native).
+You can find the full example here: [embedded-server-native](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server-native).
 
 ## Create a server {id="create-server"}
 

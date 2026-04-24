@@ -95,4 +95,4 @@ The conversion service can then be called manually to retrieve the encoded and d
 {src="snippets/data-conversion/src/main/kotlin/dataconversion/Application.kt" include-lines="38-39"}
 
 For the full example,
-see [%example_name%](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/%example_name%)
+see [%example_name%](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/%example_name%)

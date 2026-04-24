@@ -220,7 +220,7 @@ function. This function accepts two optional parameters:
    ```
 
 > For the full example, see
-> [auth-form-session-nested](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-form-session-nested).
+> [auth-form-session-nested](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-form-session-nested).
 
 
 

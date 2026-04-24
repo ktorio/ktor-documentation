@@ -6,9 +6,9 @@
 
 In this tutorial, you will learn how to prepare and deploy a Ktor application to [Sevalla](https://sevalla.com/). You can use one of the following initial projects, depending on the way used to [create a Ktor server](server-create-and-configure.topic):
 
-* [embedded-server](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/embedded-server)
+* [embedded-server](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server)
 
-* [Engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main)
+* [Engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main)
 
 ## Prerequisites {id="prerequisites"}
 
@@ -19,8 +19,8 @@ Before starting this tutorial, you need to [create a Sevalla account](https://se
 To open a sample application, follow the steps below:
 
 1. Clone the [Ktor documentation repository](https://github.com/ktorio/ktor-documentation).
-2. Open the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets) project.
-3. Open the [embedded-server](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/embedded-server) or [engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main) sample, which demonstrates two different approaches to setting up a Ktor server — either by configuring it directly in code or through an external configuration file. The only difference in deploying these projects is how to specify a port used to listen for incoming requests.
+2. Open the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets) project.
+3. Open the [embedded-server](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server) or [engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main) sample, which demonstrates two different approaches to setting up a Ktor server — either by configuring it directly in code or through an external configuration file. The only difference in deploying these projects is how to specify a port used to listen for incoming requests.
 
 ## Prepare the application {id="prepare-app"}
 
@@ -28,7 +28,7 @@ To open a sample application, follow the steps below:
 
 Sevalla injects a random port using the `PORT` environment variable. Your application must be configured to listen on that port.
 
-If you've chosen the [embedded-server](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/embedded-server) sample with server configuration specified in code, you can obtain the environment variable value using `System.getenv()`. Open the <path>Application.kt</path> file placed in the <path>src/main/kotlin/com/example</path> folder and change the port parameter value of the `embeddedServer()` function as shown below:
+If you've chosen the [embedded-server](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server) sample with server configuration specified in code, you can obtain the environment variable value using `System.getenv()`. Open the <path>Application.kt</path> file placed in the <path>src/main/kotlin/com/example</path> folder and change the port parameter value of the `embeddedServer()` function as shown below:
 
 ```kotlin
 fun main() {
@@ -39,7 +39,7 @@ fun main() {
 }
 ```
 
-If you've chosen the [engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main) sample with server configuration specified in the <path>application.conf</path> file, you can assign the environment variable to the port parameter by using the `${ENV}` syntax. Open the <path>application.conf</path> file placed in <path>src/main/resources</path> and update it as shown below:
+If you've chosen the [engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main) sample with server configuration specified in the <path>application.conf</path> file, you can assign the environment variable to the port parameter by using the `${ENV}` syntax. Open the <path>application.conf</path> file placed in <path>src/main/resources</path> and update it as shown below:
 
 ```hocon
 ktor {

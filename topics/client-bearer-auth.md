@@ -147,7 +147,7 @@ Disabling caching can be useful when tokens change frequently.
 This example demonstrates how to use bearer authentication with Google APIs, which use the [OAuth 2.0 protocol](https://developers.google.com/identity/protocols/oauth2)
 for authentication and authorization. 
 
-The example application [client-auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-auth-oauth-google) retrieves the user's Google profile information. 
+The example application [client-auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-auth-oauth-google) retrieves the user's Google profile information. 
 
 ### Obtain client credentials {id="google-client-credentials"}
 
@@ -344,7 +344,7 @@ The `ErrorInfo` class is defined as follows:
 ```
 {src="snippets/client-auth-oauth-google/src/main/kotlin/com/example/models/ErrorInfo.kt" include-lines="3-13"}
 
-> For the full example, see [client-auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-auth-oauth-google).
+> For the full example, see [client-auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-auth-oauth-google).
 > 
 {style="tip"}
 

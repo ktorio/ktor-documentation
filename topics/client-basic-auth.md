@@ -83,6 +83,6 @@ authentication provider:
     > For details on clearing cached credentials programmatically, see the general [Token caching and cache control](client-auth.md#token-caching)
     > section.
 
-> For a full example of basic authentication in Ktor Client, see [client-auth-basic](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-auth-basic).
+> For a full example of basic authentication in Ktor Client, see [client-auth-basic](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-auth-basic).
 
 

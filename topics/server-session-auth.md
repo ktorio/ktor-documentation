@@ -63,7 +63,7 @@ information about this user to a cookie session, and then authorize this user on
 provider.
 
 > For the complete example, see
-> [auth-form-session](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-form-session).
+> [auth-form-session](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-form-session).
 
 ### Step 1: Create a data class {id="data-class"}
 
@@ -135,4 +135,4 @@ using the `call.principal()` function inside a route handler:
 {src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="77-83"}
 
 > For the full example, see
-> [auth-form-session](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-form-session).
+> [auth-form-session](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-form-session).

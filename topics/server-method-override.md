@@ -53,5 +53,5 @@ To handle such requests using the `delete` [route handler](server-routing.md#def
 ```
 {src="snippets/json-kotlinx-method-override/src/main/kotlin/com/example/Application.kt"}
 
-You can find the full example here: [json-kotlinx-method-override](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/json-kotlinx-method-override).
+You can find the full example here: [json-kotlinx-method-override](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/json-kotlinx-method-override).
 

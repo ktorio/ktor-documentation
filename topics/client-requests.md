@@ -261,7 +261,7 @@ demonstrates its usage:
 * `url` specifies a URL for making a request.
 * `formParameters` is a set of form parameters built using `parameters`.
 
-For the full example, see [client-submit-form](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-submit-form).
+For the full example, see [client-submit-form](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-submit-form).
 
 > To send form parameters encoded in a URL, set `encodeInQuery` to `true`.
 
@@ -292,7 +292,7 @@ the file content is small enough to be safely read into memory using `.readBytes
 {src="snippets/client-upload/src/main/kotlin/com/example/Application.kt" include-lines="13-24"}
 
 For the full example,
-see [client-upload](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-upload).
+see [client-upload](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-upload).
 
 #### Using `MultiPartFormDataContent`
 
@@ -320,7 +320,7 @@ You can also construct a `MultiPartFormDataContent` with a custom boundary and c
 {src="snippets/client-upload-progress/src/main/kotlin/com/example/Application.kt" include-lines="54-58"}
 
 For the full example, see
-[client-upload-progress](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-upload-progress).
+[client-upload-progress](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-upload-progress).
 
 ### Binary data {id="binary"}
 
@@ -336,7 +336,7 @@ function to open a read channel for a file:
 {src="snippets/client-upload-binary-data/src/main/kotlin/com/example/Application.kt" include-lines="14-16"}
 
 For the full example, see
-[client-upload-binary-data](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-upload-binary-data).
+[client-upload-binary-data](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-upload-binary-data).
 
 ## Parallel requests {id="parallel_requests"}
 
@@ -352,7 +352,7 @@ functions. The following example demonstrates how to execute two requests in par
 {src="snippets/client-parallel-requests/src/main/kotlin/com/example/Application.kt" include-lines="12,19-23,28"}
 
 For the full example, see
-[client-parallel-requests](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-parallel-requests).
+[client-parallel-requests](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-parallel-requests).
 
 ## Cancel a request {id="cancel-request"}
 

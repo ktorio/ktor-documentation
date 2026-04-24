@@ -605,7 +605,7 @@
                     include-lines="3-6,9-20"/>
         <p>
             You can find the full example here:
-            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main-custom-environment">
+            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main-custom-environment">
                 engine-main-custom-environment
             </a>.
         </p>

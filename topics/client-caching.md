@@ -46,4 +46,4 @@ whether this storage is used as a shared or private cache.
 ```
 {src="snippets/client-caching/src/main/kotlin/com/example/Application.kt" include-lines="18-22,24"}
 
-> You can find the full example here: [client-caching](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-caching).
+> You can find the full example here: [client-caching](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-caching).

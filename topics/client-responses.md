@@ -88,7 +88,7 @@ Similarly, you can get a body as a [`ByteArray`](https://kotlinlang.org/api/late
 ```
 {src="snippets/_misc_client/ResponseTypes.kt" include-lines="11,13"}
 
-A [runnable example](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-download-file)
+A [runnable example](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-download-file)
 below shows how to get a response as a `ByteArray` and save it to a file:
 
 ```kotlin
@@ -191,7 +191,7 @@ Using `ByteReadChannel.readRemaining()` retrieves all available bytes in the cha
 `Source.transferTo()` directly writes the data to the file, reducing unnecessary allocations.
 
 > For the full streaming example, see
-> [client-download-streaming](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-download-streaming).
+> [client-download-streaming](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-download-streaming).
 
 #### Writing the response directly to a file
 

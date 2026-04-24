@@ -127,7 +127,7 @@ the example below, the `Authorization` header value will be replaced with '***' 
 {src="snippets/client-logging/src/main/kotlin/com/example/Application.kt"}
 
 For the full example,
-see [client-logging](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-logging).
+see [client-logging](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-logging).
 
 ### Provide a custom logger {id="custom_logger"}
 
@@ -141,4 +141,4 @@ The example below shows how to use the [Napier](https://github.com/AAkira/Napier
 {src="snippets/client-logging-napier/src/main/kotlin/com/example/Application.kt" include-symbol="main"}
 
 For the full example,
-see [client-logging-napier](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-logging-napier).
+see [client-logging-napier](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-logging-napier).

@@ -226,7 +226,7 @@
             <code-block lang="kotlin" src="snippets/client-sse/src/main/kotlin/com.example/Application.kt"
                         include-lines="18-33,55-56"/>
             <p>For the full example, see
-                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-sse">client-sse</a>.
+                <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-sse">client-sse</a>.
             </p>
         </chapter>
         <chapter title="Deserialization" id="deserialization">
@@ -248,7 +248,7 @@
             <code-block lang="Kotlin" src="snippets/client-sse/src/main/kotlin/com.example/Application.kt"
                         include-lines="36-53"/>
             <p>For the full example, see
-                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-sse">client-sse</a>.
+                <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-sse">client-sse</a>.
             </p>
         </chapter>
     </chapter>

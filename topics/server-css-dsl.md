@@ -51,4 +51,4 @@ Finally, you can use the specified CSS for an HTML document created with [HTML D
 ```
 {src="snippets/css-dsl/src/main/kotlin/com/example/Application.kt" include-lines="13-24"}
 
-You can find the full example here: [css-dsl](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/css-dsl).
+You can find the full example here: [css-dsl](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/css-dsl).

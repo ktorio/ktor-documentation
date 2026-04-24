@@ -66,4 +66,4 @@ To send user credentials in the `Authorization` header using the `Digest` scheme
 ```
 {src="snippets/client-auth-digest/src/main/kotlin/com/example/Application.kt" include-lines="17-26"}
 
-> You can find the full example here: [client-auth-digest](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-auth-digest).
+> You can find the full example here: [client-auth-digest](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-auth-digest).

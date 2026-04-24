@@ -9,8 +9,8 @@
     <tldr>
         <p>
             <b>Code examples</b>:
-            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/autoreload-engine-main">autoreload-engine-main</a>,
-            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/autoreload-embedded-server">autoreload-embedded-server</a>
+            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/autoreload-engine-main">autoreload-engine-main</a>,
+            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/autoreload-embedded-server">autoreload-embedded-server</a>
         </p>
     </tldr>
 
@@ -177,7 +177,7 @@
                 </tabs>
 
                 <p>
-                    You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/autoreload-engine-main">autoreload-engine-main</a>.
+                    You can find the full example here: <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/autoreload-engine-main">autoreload-engine-main</a>.
                 </p>
             </li>
             <li>
@@ -190,7 +190,7 @@
                             include-lines="9-20"/>
                 <p>
                     For the full example, see
-                    <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/autoreload-embedded-server">
+                    <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/autoreload-embedded-server">
                         autoreload-embedded-server
                     </a>
                     .

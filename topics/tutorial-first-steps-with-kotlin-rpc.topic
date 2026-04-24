@@ -23,7 +23,7 @@
         <p>
             <b>Used plugins</b>: <a href="server-routing.md">Routing</a>,
             <a href="https://kotlinlang.org/api/kotlinx.serialization/">kotlinx.serialization</a>,
-            <a href="https://github.com/Kotlin/kotlinx-rpc">kotlinx.rpc</a>
+            <a href="https://kotlin.github.io/kotlinx-rpc/get-started.html">kotlinx.rpc</a>
         </p>
     </tldr>
     <p>
@@ -366,7 +366,7 @@
             <p>
                 You now have all the code necessary to run the application, but at the moment, it would not even
                 compile, never mind execute.
-                You can use Ktor Project Generator with the <a href="https://start.ktor.io/p/kotlinx-rpc">kotlinx.rpc</a> plugin,
+                You can use Ktor Project Generator with the <a href="https://kotlin.github.io/kotlinx-rpc/get-started.html">kotlinx.rpc</a> plugin,
                 or you can configure the build file manually.
                 And this is not too complex either.
             </p>

@@ -132,7 +132,7 @@ In the `json` constructor, you can access the [JsonBuilder](https://kotlinlang.o
 ```
 {src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="24-31"}
 
-You can find the full example here: [client-json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-json-kotlinx).
+You can find the full example here: [client-json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-json-kotlinx).
 
 </tab>
 <tab title="Gson" group-key="gson">
@@ -311,4 +311,4 @@ When a server sends a [response](client-responses.md) with the `application/json
 ```
 {src="snippets/client-json-kotlinx/src/main/kotlin/com/example/Application.kt" include-lines="39"}
 
-You can find the full example here: [client-json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-json-kotlinx).
+You can find the full example here: [client-json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-json-kotlinx).

@@ -147,4 +147,4 @@ for which the `429 Too Many Requests` response was sent.
 {src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt"}
 
 
-You can find the full example here: [rate-limit](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/rate-limit).
+You can find the full example here: [rate-limit](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/rate-limit).

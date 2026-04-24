@@ -49,4 +49,4 @@ the `install` function and use the `shutDownUrl` property:
 {src="snippets/shutdown-url/src/main/kotlin/com/example/Application.kt" include-lines="11-14"}
 
 For the full example,
-see [shutdown-url](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/shutdown-url).
+see [shutdown-url](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/shutdown-url).

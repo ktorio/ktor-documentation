@@ -66,7 +66,7 @@ how to log a response status, a request HTTP method, and the `User-Agent` header
 {src="snippets/logging/src/main/kotlin/com/example/Application.kt" include-lines="14,19-25"}
 
 You can find the full example
-here: [logging](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/logging).
+here: [logging](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/logging).
 
 ### Put call parameters in MDC {id="mdc"}
 

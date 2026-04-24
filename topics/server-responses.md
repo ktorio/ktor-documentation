@@ -76,7 +76,7 @@ function to pass a data object in a response:
 ```
 {src="snippets/json-kotlinx/src/main/kotlin/jsonkotlinx/Application.kt" include-lines="32-36"}
 
-For the full example, see [json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/json-kotlinx).
+For the full example, see [json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/json-kotlinx).
 
 [//]: # (TODO: Check link for LocalPathFile)
 
@@ -102,7 +102,7 @@ Note that this sample uses two plugins:
 - [`AutoHeadResponse`](server-autoheadresponse.md) provides the ability to automatically respond to a ` HEAD ` request for every route that has a `GET` defined. This allows the client application to determine the file size by reading the `Content-Length` header value.
 
 For the full code sample,
-see [download-file](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/download-file).
+see [download-file](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/download-file).
 
 ### Resource
 

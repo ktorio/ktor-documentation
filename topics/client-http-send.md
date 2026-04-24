@@ -16,5 +16,5 @@ The `HttpSend` plugin doesn't require installation. To use it, pass `HttpSend` t
 ```
 {src="snippets/client-http-send/src/main/kotlin/com/example/Application.kt" include-lines="12-20"}
 
-You can find the full sample here: [client-http-send](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-http-send).
+You can find the full sample here: [client-http-send](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-http-send).
 

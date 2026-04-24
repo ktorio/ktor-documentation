@@ -108,6 +108,6 @@ After configuring LDAP, you can protect specific resources in our application us
 ```
 {src="snippets/auth-ldap/src/main/kotlin/com/example/Application.kt" include-lines="17-23"}
 
-You can find the complete runnable example here: [auth-ldap](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-ldap).
+You can find the complete runnable example here: [auth-ldap](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-ldap).
 
 > Bear in mind that current LDAP implementation is synchronous.

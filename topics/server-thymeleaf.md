@@ -62,6 +62,6 @@ The example below shows how to reload Thymeleaf templates automatically when [de
 ```
 {src="snippets/thymeleaf-auto-reload/src/main/kotlin/com/example/Application.kt"}
 
-You can find the complete example here: [thymeleaf-auto-reload](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/thymeleaf-auto-reload).
+You can find the complete example here: [thymeleaf-auto-reload](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/thymeleaf-auto-reload).
 
 

@@ -375,7 +375,7 @@ Shows how to transform request and response bodies using the `transformRequestBo
 </tab>
 </tabs>
 
-You can find the full example here: [client-custom-plugin-data-transformation](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-custom-plugin-data-transformation).
+You can find the full example here: [client-custom-plugin-data-transformation](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-custom-plugin-data-transformation).
 
 
 ### Authentication {id="authentication"}
@@ -399,4 +399,4 @@ A sample Ktor project showing how to use the `on(Send)` hook to add a bearer tok
 </tab>
 </tabs>
 
-You can find the full example here: [client-custom-plugin-auth](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-custom-plugin-auth).
+You can find the full example here: [client-custom-plugin-auth](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-custom-plugin-auth).

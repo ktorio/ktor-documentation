@@ -5,9 +5,9 @@
 <tldr>
 <p>
 <b>Code examples</b>: 
-<a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/jetty-war">jetty-war</a>, 
-<a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tomcat-war">tomcat-war</a>,
-<a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tomcat-war-ssl">tomcat-war-ssl</a>
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/jetty-war">jetty-war</a>, 
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/tomcat-war">tomcat-war</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/tomcat-war-ssl">tomcat-war-ssl</a>
 </p>
 </tldr>
 
@@ -36,7 +36,7 @@ engine, which delegates control of your application to the servlet container.
 > When running inside a servlet container, Ktor [connection and SSL settings defined in a configuration file](server-configuration-file.topic)
 > are not applied.
 > 
-> For configuring SSL in Tomcat, see the [tomcat-war-ssl](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tomcat-war-ssl) sample.
+> For configuring SSL in Tomcat, see the [tomcat-war-ssl](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/tomcat-war-ssl) sample.
 > 
 {style="note"}
 
@@ -136,7 +136,7 @@ To apply the plugin, open your <path>build.gradle.kts</path> file and add the fo
 ## Run the application {id="run"}
 
 You can run a servlet application with the [configured Gretty plugin](#configure-gretty) by using the `run` task. For example, to run
-the [`jetty-war`](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/jetty-war) sample project, run the following command:
+the [`jetty-war`](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/jetty-war) sample project, run the following command:
 
 ```Bash
 ./gradlew :jetty-war:run
@@ -144,7 +144,7 @@ the [`jetty-war`](https://github.com/ktorio/ktor-documentation/tree/%ktor_versio
 
 ## Generate and deploy a WAR archive {id="generate-war"}
 
-To generate a WAR archive using the [`War`](#configure-war) plugin, run the `war` task. For the [`jetty-war`](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/jetty-war) sample
+To generate a WAR archive using the [`War`](#configure-war) plugin, run the `war` task. For the [`jetty-war`](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/jetty-war) sample
 project, the command looks as follows:
 
 ```Bash
@@ -175,4 +175,4 @@ The following `Dockerfile` example shows how to run the generated WAR file insid
 </tab>
 </tabs>
 
-For the complete examples, see [jetty-war](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/jetty-war) and [tomcat-war](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tomcat-war).
+For the complete examples, see [jetty-war](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/jetty-war) and [tomcat-war](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/tomcat-war).

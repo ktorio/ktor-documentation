@@ -13,8 +13,8 @@
     <tldr>
         <p>
             <b>Code examples</b>:
-            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express">migrating-express</a>
-            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor">migrating-express-ktor</a>
+            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express">migrating-express</a>
+            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express-ktor">migrating-express-ktor</a>
         </p>
     </tldr>
     <p>
@@ -110,7 +110,7 @@
                     <code-block lang="javascript" src="snippets/migrating-express/1_hello/app.js"/>
                     <p>
                         For the full example, see the
-                        <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/1_hello/app.js">1_hello</a>
+                        <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express/1_hello/app.js">1_hello</a>
                         project.
                     </p>
                 </td>
@@ -129,7 +129,7 @@
                                 include-lines="3-17"/>
                     <p>
                         For the full example, see the
-                        <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/1_hello/src/main/kotlin/com/example/Application.kt">1_hello</a>
+                        <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express-ktor/1_hello/src/main/kotlin/com/example/Application.kt">1_hello</a>
                         project.
                     </p>
                     <p>
@@ -204,7 +204,7 @@
                     <code-block lang="javascript" src="snippets/migrating-express/2_static/app.js"/>
                     <p>
                         For the full example, see the
-                        <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/2_static/app.js">2_static</a>
+                        <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express/2_static/app.js">2_static</a>
                         project.
                     </p>
                 </td>
@@ -230,7 +230,7 @@
                                 include-lines="3-15"/>
                     <p>
                         For the full example, see the <a
-                            href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/2_static/src/main/kotlin/com/example/Application.kt">2_static</a>
+                            href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express-ktor/2_static/src/main/kotlin/com/example/Application.kt">2_static</a>
                         project.
                     </p>
                 </td>
@@ -294,7 +294,7 @@
                                 include-lines="7-13"/>
                     <p>
                         For the full example, see the
-                        <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/3_router/app.js">3_router</a>
+                        <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express/3_router/app.js">3_router</a>
                         project.
                     </p>
                 </td>
@@ -316,7 +316,7 @@
                     </tip>
                     <p>
                         For the full example, see the
-                        <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/3_router/src/main/kotlin/com/example/Application.kt">3_router</a>
+                        <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express-ktor/3_router/src/main/kotlin/com/example/Application.kt">3_router</a>
                         project.
                     </p>
                 </td>
@@ -342,7 +342,7 @@
                                 include-lines="16-25"/>
                     <p>
                         For the full example, see the
-                        <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/3_router/app.js">3_router</a>
+                        <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express/3_router/app.js">3_router</a>
                         project.
                     </p>
                 </td>
@@ -361,7 +361,7 @@
                                 include-lines="12,22-32,36"/>
                     <p>
                         For the full example, see the
-                        <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/3_router/src/main/kotlin/com/example/Application.kt">3_router</a>
+                        <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express-ktor/3_router/src/main/kotlin/com/example/Application.kt">3_router</a>
                         project.
                     </p>
                 </td>
@@ -397,7 +397,7 @@
                     </tabs>
                     <p>
                         For the full example, see the
-                        <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/3_router/app.js">3_router</a>
+                        <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express/3_router/app.js">3_router</a>
                         project.
                     </p>
                 </td>
@@ -432,7 +432,7 @@
                     </tabs>
                     <p>
                         For the full example, see the
-                        <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/3_router/src/main/kotlin/com/example/Application.kt">3_router</a>
+                        <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express-ktor/3_router/src/main/kotlin/com/example/Application.kt">3_router</a>
                         project.
                     </p>
                 </td>
@@ -472,7 +472,7 @@
                                 include-lines="6-12"/>
                     <p>
                         For the full example, see the
-                        <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/4_parameters/app.js">4_parameters</a>
+                        <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express/4_parameters/app.js">4_parameters</a>
                         project.
                     </p>
                 </td>
@@ -491,7 +491,7 @@
                                 include-lines="11-18,24"/>
                     <p>
                         For the full example, see the
-                        <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/4_parameters/src/main/kotlin/com/example/Application.kt">4_parameters</a>
+                        <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express-ktor/4_parameters/src/main/kotlin/com/example/Application.kt">4_parameters</a>
                         project.
                     </p>
                 </td>
@@ -521,7 +521,7 @@
                                 include-lines="14-18"/>
                     <p>
                         For the full example, see the
-                        <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/4_parameters/app.js">4_parameters</a>
+                        <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express/4_parameters/app.js">4_parameters</a>
                         project.
                     </p>
                 </td>
@@ -540,7 +540,7 @@
                                 include-lines="11,19-24"/>
                     <p>
                         For the full example, see the
-                        <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/4_parameters/src/main/kotlin/com/example/Application.kt">4_parameters</a>
+                        <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express-ktor/4_parameters/src/main/kotlin/com/example/Application.kt">4_parameters</a>
                         project.
                     </p>
                 </td>
@@ -570,7 +570,7 @@
                                     include-lines="6-9"/>
                         <p>
                             For the full example, see the
-                            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/5_send_response/app.js">5_send_response</a>
+                            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express/5_send_response/app.js">5_send_response</a>
                             project.
                         </p>
                     </td>
@@ -603,7 +603,7 @@
                                     include-lines="23-25"/>
                         <p>
                             For the full example, see the
-                            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/5_send_response/src/main/kotlin/com/example/Application.kt">5_send_response</a>
+                            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express-ktor/5_send_response/src/main/kotlin/com/example/Application.kt">5_send_response</a>
                             project.
                         </p>
                     </td>
@@ -625,7 +625,7 @@
                                     include-lines="2,10-13"/>
                         <p>
                             For the full example, see the
-                            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/5_send_response/app.js">5_send_response</a>
+                            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express/5_send_response/app.js">5_send_response</a>
                             project.
                         </p>
                     </td>
@@ -643,7 +643,7 @@
                                     include-lines="26-29"/>
                         <p>
                             For the full example, see the
-                            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/5_send_response/src/main/kotlin/com/example/Application.kt">5_send_response</a>
+                            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express-ktor/5_send_response/src/main/kotlin/com/example/Application.kt">5_send_response</a>
                             project.
                         </p>
                     </td>
@@ -676,7 +676,7 @@
                                     include-lines="15-17"/>
                         <p>
                             For the full example, see the
-                            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/5_send_response/app.js">5_send_response</a>
+                            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express/5_send_response/app.js">5_send_response</a>
                             project.
                         </p>
                     </td>
@@ -696,7 +696,7 @@
                                     include-lines="30-38"/>
                         <p>
                             For the full example, see the
-                            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/5_send_response/src/main/kotlin/com/example/Application.kt">5_send_response</a>
+                            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express-ktor/5_send_response/src/main/kotlin/com/example/Application.kt">5_send_response</a>
                             project.
                         </p>
                     </td>
@@ -718,7 +718,7 @@
                                     include-lines="19-25"/>
                         <p>
                             For the full example, see the
-                            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/5_send_response/app.js">5_send_response</a>
+                            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express/5_send_response/app.js">5_send_response</a>
                             project.
                         </p>
                     </td>
@@ -736,7 +736,7 @@
                                     include-lines="39-44"/>
                         <p>
                             For the full example, see the
-                            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/5_send_response/src/main/kotlin/com/example/Application.kt">5_send_response</a>
+                            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express-ktor/5_send_response/src/main/kotlin/com/example/Application.kt">5_send_response</a>
                             project.
                         </p>
                     </td>
@@ -769,7 +769,7 @@
                                 include-lines="5-10"/>
                     <p>
                         For the full example, see the
-                        <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/6_templates/app.js">6_templates</a>
+                        <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express/6_templates/app.js">6_templates</a>
                         project.
                     </p>
                 </td>
@@ -791,7 +791,7 @@
                                 include-lines="11-23"/>
                     <p>
                         For the full example, see the
-                        <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/6_templates/src/main/kotlin/com/example/Application.kt">6_templates</a>
+                        <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express-ktor/6_templates/src/main/kotlin/com/example/Application.kt">6_templates</a>
                         project.
                     </p>
                 </td>
@@ -832,7 +832,7 @@
                                     include-lines="8-11"/>
                         <p>
                             For the full example, see the
-                            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/7_receive_request/app.js">7_receive_request</a>
+                            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express/7_receive_request/app.js">7_receive_request</a>
                             project.
                         </p>
                     </td>
@@ -850,7 +850,7 @@
                                     include-lines="31-34"/>
                         <p>
                             For the full example, see the
-                            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt">7_receive_request</a>
+                            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt">7_receive_request</a>
                             project.
                         </p>
                     </td>
@@ -879,7 +879,7 @@
                                     include-lines="2,12-16"/>
                         <p>
                             For the full example, see the
-                            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/7_receive_request/app.js">7_receive_request</a>
+                            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express/7_receive_request/app.js">7_receive_request</a>
                             project.
                         </p>
                     </td>
@@ -911,7 +911,7 @@
                                     include-lines="35-38"/>
                         <p>
                             For the full example, see the
-                            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt">7_receive_request</a>
+                            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt">7_receive_request</a>
                             project.
                         </p>
                     </td>
@@ -942,7 +942,7 @@
                                     include-lines="2,17-21"/>
                         <p>
                             For the full example, see the
-                            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/7_receive_request/app.js">7_receive_request</a>
+                            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express/7_receive_request/app.js">7_receive_request</a>
                             project.
                         </p>
                     </td>
@@ -960,7 +960,7 @@
                                     include-lines="39-43"/>
                         <p>
                             For the full example, see the
-                            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt">7_receive_request</a>
+                            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt">7_receive_request</a>
                             project.
                         </p>
                     </td>
@@ -990,7 +990,7 @@
                                     include-lines="2-3,22-27"/>
                         <p>
                             For the full example, see the
-                            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/7_receive_request/app.js">7_receive_request</a>
+                            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express/7_receive_request/app.js">7_receive_request</a>
                             project.
                         </p>
                     </td>
@@ -1009,7 +1009,7 @@
                                     include-lines="44-48"/>
                         <p>
                             For the full example, see the
-                            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt">7_receive
+                            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt">7_receive
                                 request</a>
                             project.
                         </p>
@@ -1045,7 +1045,7 @@
                                     include-lines="4,28-40"/>
                         <p>
                             For the full example, see the
-                            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/7_receive_request/app.js">7_receive_request</a>
+                            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express/7_receive_request/app.js">7_receive_request</a>
                             project.
                         </p>
                     </td>
@@ -1066,7 +1066,7 @@
                                     include-lines="49-75"/>
                         <p>
                             For the full example, see the
-                            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt">7_receive_request</a>
+                            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express-ktor/7_receive_request/src/main/kotlin/com/example/Application.kt">7_receive_request</a>
                             project.
                         </p>
                     </td>
@@ -1095,7 +1095,7 @@
                                 include-lines="1-13"/>
                     <p>
                         For the full example, see the
-                        <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express/8_middleware/app.js">8_middleware</a>
+                        <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express/8_middleware/app.js">8_middleware</a>
                         project.
                     </p>
                 </td>
@@ -1115,7 +1115,7 @@
                                 include-lines="23-29"/>
                     <p>
                         For the full example, see the
-                        <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/migrating-express-ktor/8_middleware/src/main/kotlin/com/example/Application.kt">8_middleware</a>
+                        <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/migrating-express-ktor/8_middleware/src/main/kotlin/com/example/Application.kt">8_middleware</a>
                         project.
                     </p>
                 </td>

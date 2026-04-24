@@ -4,8 +4,8 @@
 
 <tldr>
 <p><b>Code examples</b>:
-<a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-validate-2xx-response">client-validate-2xx-response</a>,
-<a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-validate-non-2xx-response">client-validate-non-2xx-response</a>
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-validate-2xx-response">client-validate-2xx-response</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-validate-non-2xx-response">client-validate-non-2xx-response</a>
 </p>
 </tldr>
 
@@ -74,7 +74,7 @@ The `validateResponse {}` block inspects the response body and throws a custom e
 
 {src="snippets/client-validate-2xx-response/src/main/kotlin/com/example/Application.kt" include-lines="26-36"}
 
-> For the full example, see [client-validate-2xx-response](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-validate-2xx-response).
+> For the full example, see [client-validate-2xx-response](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-validate-2xx-response).
 > 
 {style="tip"}
 
@@ -91,6 +91,6 @@ default `ClientRequestException`:
 
 {src="snippets/client-validate-non-2xx-response/src/main/kotlin/com/example/Application.kt" include-lines="11-40"}
 
-> For the full example, see [client-validate-non-2xx-response](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-validate-non-2xx-response).
+> For the full example, see [client-validate-non-2xx-response](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-validate-non-2xx-response).
 > 
 {style="tip"}

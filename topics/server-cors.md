@@ -61,7 +61,7 @@ To allow such a request on the backend side, you need to configure the `CORS` pl
 {src="snippets/cors/src/main/kotlin/com/example/Application.kt" include-lines="47-50"}
 
 You can find the full example
-here: [cors](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/cors).
+here: [cors](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/cors).
 
 ### Hosts {id="hosts"}
 

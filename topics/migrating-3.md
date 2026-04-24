@@ -640,7 +640,7 @@ This approach transfers data directly from the channel to the file's sink, minim
 allocations and improving performance.
 
 For the full example,
-see [client-download-streaming](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-download-streaming).
+see [client-download-streaming](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-download-streaming).
 
 > For more details on API replacements, refer to the
 > [`kotlinx-io` documentation](https://kotlinlang.org/api/kotlinx-io/).

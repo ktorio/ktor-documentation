@@ -93,7 +93,7 @@ The table below shows the values of different properties exposed by `call.reques
 | `origin.remoteHost`    | _proxy_                  | _client_              |
 | `origin.remotePort`    | _32864_                  | _32864_               |
 
-> You can find the full example here: [forwarded-header](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/forwarded-header).
+> You can find the full example here: [forwarded-header](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/forwarded-header).
 
 
 ## Configure ForwardedHeaders {id="configure"}

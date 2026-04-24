@@ -125,7 +125,7 @@
             <code-block lang="kotlin" src="snippets/server-sse/src/main/kotlin/com/example/Application.kt"
                         include-lines="23-30,53"/>
             <p>For the full example, see
-                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/server-sse">server-sse</a>.
+                <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/server-sse">server-sse</a>.
             </p>
         </chapter>
         <chapter title="SSE Heartbeat" id="heartbeat">
@@ -164,7 +164,7 @@
                 placed in the <code>data</code> field of a <code>ServerSentEvent</code>.
             </p>
             <p>For the full example, see
-                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/server-sse">server-sse</a>.
+                <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/server-sse">server-sse</a>.
             </p>
         </chapter>
     </chapter>

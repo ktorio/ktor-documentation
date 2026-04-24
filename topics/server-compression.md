@@ -99,7 +99,7 @@ all text subtypes using `deflate`:
 {src="snippets/compression/src/main/kotlin/compression/Application.kt" include-lines="12-13,15-19,21-25"}
 
 You can find the full example
-here: [compression](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/compression).
+here: [compression](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/compression).
 
 ### Configure response size {id="configure_response_size"}
 

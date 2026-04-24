@@ -205,7 +205,7 @@
 
         <p>
             For the complete example, see
-            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/embedded-server-multiple-connectors">
+            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server-multiple-connectors">
                 embedded-server-multiple-connectors
             </a>.
         </p>

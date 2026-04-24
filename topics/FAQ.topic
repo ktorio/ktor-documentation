@@ -52,9 +52,7 @@
         <p>
             If you are running an <a href="server-create-and-configure.topic" anchor="engine-main">EngineMain</a>, it will be handled
             automatically.
-            Otherwise, you need to <a
-                href="https://github.com/ktorio/ktor/blob/main/ktor-server/ktor-server-cio/jvmAndNix/src/io/ktor/server/cio/EngineMain.kt#L21">handle
-            it manually</a>.
+            Otherwise, you need to handle it manually.
             You can use the <code>Runtime.getRuntime().addShutdownHook</code> JVM's facility.
         </p>
     </chapter>
@@ -216,7 +214,7 @@
                     <li>Client <a href="https://ktor.io/docs/websocket-client.html">WebSockets</a> and
                         Server <a href="https://ktor.io/docs/websocket.html">WebSockets</a></li>
                     <li>Client <a href="https://ktor.io/docs/serialization-client.html">ContentNegotiation</a> and
-                        Server <a href="https://ktor.io/docs/serialization.html">ContentNegotiation</a></li>
+                        Server <a href="https://ktor.io/docs/server-serialization.html">ContentNegotiation</a></li>
                     <li><a href="https://ktor.io/docs/compression.html">Compression</a></li>
                 </list>
             </step>

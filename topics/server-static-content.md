@@ -4,9 +4,9 @@
 
 <tldr>
 <p><b>Code examples</b>:
-<a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/static-files">static-files</a>,
-<a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/static-resources">static-resources</a>,
-<a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/static-zip">static-zip</a>
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/static-files">static-files</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/static-resources">static-resources</a>,
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/static-zip">static-zip</a>
 </p>
 </tldr>
 
@@ -38,7 +38,7 @@ directory.
 Ktor recursively serves up any file from `files` as long as a URL path and a physical filename match.
 
 For the full example,
-see [static-files](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/static-files).
+see [static-files](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/static-files).
 
 ## ZIP files {id="zipped"}
 
@@ -60,7 +60,7 @@ directory, the ZIP file system is reloaded on the next request. This ensures tha
 up to date without requiring a server restart.
 
 For the full example,
-see [static-zip](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/static-zip).
+see [static-zip](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/static-zip).
 
 ## Resources {id="resources"}
 
@@ -78,7 +78,7 @@ In this case, Ktor recursively serves up any file from the `static` package as l
 match.
 
 For the full example,
-see [static-resources](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/static-resources).
+see [static-resources](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/static-resources).
 
 ## Additional configuration {id="configuration"}
 

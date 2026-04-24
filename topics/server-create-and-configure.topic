@@ -11,9 +11,9 @@
     <tldr>
         <p>
             <b>Code examples</b>:
-            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/embedded-server">embedded-server</a>,
-            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main">engine-main</a>,
-            <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main-yaml">engine-main-yaml</a>
+            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server">embedded-server</a>,
+            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main">engine-main</a>,
+            <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main-yaml">engine-main-yaml</a>
         </p>
     </tldr>
 
@@ -102,7 +102,7 @@
             />
             <p>
                 For the full example, see
-                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/embedded-server">
+                <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server">
                     embedded-server
                 </a>
                 .
@@ -143,11 +143,11 @@
             </note>
             <p>
                 For the full examples, see
-                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main">
+                <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main">
                     engine-main
                 </a>
                 and
-                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main-yaml">
+                <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main-yaml">
                     engine-main-yaml
                 </a>
                 .

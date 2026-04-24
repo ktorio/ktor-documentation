@@ -83,7 +83,7 @@ For example, to install an `oauth` provider with the name "auth-oauth-google" it
 
 This section demonstrates how to configure the `oauth` provider for authorizing users of your application using Google.
 For the complete runnable example,
-see [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-oauth-google).
+see [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-oauth-google).
 
 ### Prerequisites: Create authorization credentials {id="authorization-credentials"}
 
@@ -197,4 +197,4 @@ Then, you can call the function within a `get` route to retrieve a user's inform
 {src="snippets/auth-oauth-google/src/main/kotlin/com/example/oauth/google/Application.kt" include-lines="104-110"}
 
 For the complete runnable example,
-see [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-oauth-google). 
+see [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-oauth-google). 

@@ -53,7 +53,7 @@ val client = HttpClient(CIO) {
 
 ### Basic retry configuration {id="basic_config"}
 
-A [runnable example](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-retry) below shows how to configure the basic retry policy:
+A [runnable example](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-retry) below shows how to configure the basic retry policy:
 
 ```kotlin
 ```

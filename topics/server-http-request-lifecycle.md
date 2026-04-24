@@ -56,7 +56,7 @@ work:
 > [Coroutine cancellation](https://kotlinlang.org/docs/cancellation-and-timeouts.html).
 {style="note"}
 
-> For the full example, see [%example_name%](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/%example_name%).
+> For the full example, see [%example_name%](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/%example_name%).
 
 ## Limitations
 

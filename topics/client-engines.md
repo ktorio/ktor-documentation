@@ -268,7 +268,7 @@ uses [`NSURLSession`](https://developer.apple.com/documentation/foundation/nsurl
    {src="snippets/client-engine-darwin/src/nativeMain/kotlin/Main.kt" include-lines="8-14"}
 
    For the full example,
-   see [client-engine-darwin](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-engine-darwin).
+   see [client-engine-darwin](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-engine-darwin).
 
 ### WinHttp {id="winhttp"}
 
@@ -296,7 +296,7 @@ To use the `WinHttp` engine, follow the steps below:
    {src="snippets/client-engine-winhttp/src/nativeMain/kotlin/Main.kt" include-lines="9-13"}
 
    For the full example,
-   see [client-engine-winhttp](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-engine-winhttp).
+   see [client-engine-winhttp](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-engine-winhttp).
 
 ### Curl {id="curl"}
 
@@ -323,7 +323,7 @@ For desktop platforms, Ktor provides the `Curl` engine. It is supported on `linu
    {src="snippets/client-engine-curl/src/nativeMain/kotlin/Main.kt" include-lines="8-12"}
 
    For the full example,
-   see [client-engine-curl](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-engine-curl).
+   see [client-engine-curl](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-engine-curl).
 
 ## JVM, Android, Native, JS and WasmJs {id="jvm-android-native-wasm-js"}
 
@@ -377,7 +377,7 @@ for Node.js. To use it, follow the steps below:
    ```
 
 For the full example,
-see [client-engine-js](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-engine-js).
+see [client-engine-js](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-engine-js).
 
 ## Limitations {id="limitations"}
 

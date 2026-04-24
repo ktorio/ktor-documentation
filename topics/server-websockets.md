@@ -125,7 +125,7 @@ The example below shows how to create the `echo` WebSocket endpoint to handle a 
 {src="snippets/server-websockets/src/main/kotlin/com/example/Application.kt" include-lines="19,24-36"}
 
 For the full example,
-see [server-websockets](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/server-websockets).
+see [server-websockets](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/server-websockets).
 
 ### Example: Handle multiple sessions {id="handle-multiple-session"}
 
@@ -156,7 +156,7 @@ connections. This approach scales well for applications with many concurrent Web
 reactive way to handle message broadcasting.
 
 For the full example,
-see [server-websockets-sharedflow](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/server-websockets-sharedflow).
+see [server-websockets-sharedflow](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/server-websockets-sharedflow).
 
 ## The WebSocket API and Ktor {id="websocket-api"}
 

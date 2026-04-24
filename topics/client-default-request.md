@@ -170,7 +170,7 @@ The request below made by this client specifies a latter path segment only and a
 ```
 {src="snippets/client-default-request/src/main/kotlin/com/example/Application.kt" include-lines="25-26"}
 
-You can find the full example here: [client-default-request](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-default-request).
+You can find the full example here: [client-default-request](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-default-request).
 
 
 

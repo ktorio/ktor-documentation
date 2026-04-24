@@ -65,7 +65,7 @@ The following example tests a simple Ktor application that responds to `GET /` r
 </tab>
 </tabs>
 
-> For the complete code example, see [engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main).
+> For the complete code example, see [engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main).
 
 ## Set up a JUnit test class {id="junit-test-class"}
 
@@ -174,7 +174,7 @@ The following example adds the `/login-test` endpoint used to initialize a user 
 ```
 {src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="18,31-35,51"}
    
-> For a complete test example, see [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-oauth-google).
+> For a complete test example, see [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-oauth-google).
 
 ### Customize the environment {id="environment"}
 
@@ -205,7 +205,7 @@ The following example simulates a JSON response from a Google API:
 ```
 {src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="17-18,36-47,51"}
 
-> For the full test example, see [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/auth-oauth-google).
+> For the full test example, see [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-oauth-google).
 
 ## Configure a client {id="configure-client"}
 
@@ -229,7 +229,7 @@ The following example tests the `/customer` endpoint that handles `POST` request
 ```
 {src="snippets/json-kotlinx/src/test/kotlin/jsonkotlinx/ApplicationTest.kt" include-lines="31-44,47"}
 
-> For the complete test example, see [json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/json-kotlinx).
+> For the complete test example, see [json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/json-kotlinx).
 
 ## Assert results {id="assert"}
 
@@ -271,7 +271,7 @@ function:
 </tab>
 </tabs>
 
-> For the full code example, see [post-form-parameters](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/post-form-parameters).
+> For the full code example, see [post-form-parameters](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/post-form-parameters).
 
 #### Multipart form data {id="multipart-form-data"}
 
@@ -295,7 +295,7 @@ You can use the `multipart/form-data` content type to build multipart form data 
 </tab>
 </tabs>
 
-> For the full code example, see [upload-file](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/upload-file).
+> For the full code example, see [upload-file](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/upload-file).
 
 ### Send JSON data {id="json-data"}
 
@@ -323,7 +323,7 @@ using the `setBody()` function.
 </tab>
 </tabs>
 
-> For the full example, see [json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/json-kotlinx).
+> For the full example, see [json-kotlinx](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/json-kotlinx).
 
 ## Preserve cookies during testing {id="preserving-cookies"}
 
@@ -350,7 +350,7 @@ In the following example, the reload count increases after each request due to c
 </tab>
 </tabs>
 
-> For the full example, see [session-cookie-client](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/session-cookie-client).
+> For the full example, see [session-cookie-client](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/session-cookie-client).
 
 ## Test HTTPS {id="https"}
 
@@ -360,7 +360,7 @@ To test an [HTTPS endpoint](server-ssl.md), set the request protocol using the [
 ```
 {src="snippets/ssl-engine-main/src/test/kotlin/ApplicationTest.kt" include-symbol="testRoot"}
 
-> For the full example, see [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/ssl-engine-main).
+> For the full example, see [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/ssl-engine-main).
 
 ## Test WebSockets {id="testing-ws"}
 
@@ -381,5 +381,5 @@ In the example below, the HTTP client makes a test request to the `TestServer`:
 ```
 {src="snippets/embedded-server/src/test/kotlin/EmbeddedServerTest.kt"}
 
-> For complete end-to-end testing examples, see [embedded-server](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/embedded-server)
-> and [e2e](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/e2e).
+> For complete end-to-end testing examples, see [embedded-server](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server)
+> and [e2e](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/e2e).

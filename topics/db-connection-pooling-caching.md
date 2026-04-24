@@ -173,4 +173,4 @@ Let's create an instance of `DAOFacadeCacheImpl` and add a sample article to be 
    And that's it. 
    You can now [run the application](db-persistence.md#run_app) and make sure everything works as before.
 
-> You can find the complete example with connection pooling and caching here: [tutorial-website-interactive-persistence-advanced](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/tutorial-website-interactive-persistence-advanced).
+> You can find the complete example with connection pooling and caching here: [tutorial-website-interactive-persistence-advanced](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/tutorial-website-interactive-persistence-advanced).

@@ -26,7 +26,7 @@ Running a Ktor application depends on the way you used to [create a server](serv
 ### Starting EngineMain: Gradle and Maven specifics {id="gradle-maven"}
 
 If you use `EngineMain` to create a server, you need to specify the `main` function for starting a server with the desired [engine](server-engines.md).
-The [example](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main) below demonstrates the `main` function used to run a server with the Netty engine:
+The [example](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main) below demonstrates the `main` function used to run a server with the Netty engine:
 
 ```kotlin
 ```

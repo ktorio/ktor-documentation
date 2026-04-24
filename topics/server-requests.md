@@ -121,7 +121,7 @@ You can receive the body of this request as an object of the specified type in o
 >
 {style="tip"}
 
-> For the full example, see [post-raw-data](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/post-raw-data).
+> For the full example, see [post-raw-data](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/post-raw-data).
 
 
 ### Objects {id="objects"}
@@ -150,7 +150,7 @@ You can obtain parameter values in code as follows:
 ```
 {src="snippets/post-form-parameters/src/main/kotlin/formparameters/Application.kt" include-lines="12-16"}
 
-> For the full example, see [post-form-parameters](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/post-form-parameters).
+> For the full example, see [post-form-parameters](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/post-form-parameters).
 
 ### Multipart form data {id="form_data"}
 
@@ -225,4 +225,4 @@ Once the form processing is complete, each part is disposed of using the `.dispo
 {src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="33"}
 
 > To learn how to run this sample, see
-> [upload-file](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/upload-file).
+> [upload-file](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/upload-file).

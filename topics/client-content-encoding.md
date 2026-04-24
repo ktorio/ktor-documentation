@@ -51,7 +51,7 @@ val client = HttpClient(CIO) {
 
 You can configure which encoders are supported and specify their quality values (used in the `Accept-Encoding` header).
 
-The [example](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-content-encoding) below enables the `deflate` and `gzip` encoders with custom quality values:
+The [example](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-content-encoding) below enables the `deflate` and `gzip` encoders with custom quality values:
 
 ```kotlin
 ```

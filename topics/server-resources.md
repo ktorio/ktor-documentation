@@ -108,7 +108,7 @@ Let's summarize the examples above and create the `Articles` resource for CRUD o
 
 This resource can be used to list all articles, post a new article, edit it, and so on. We'll see how to [define route handlers](#define_route) for this resource in the next chapter.
 
-> You can find the full example here: [resource-routing](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/resource-routing).
+> You can find the full example here: [resource-routing](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/resource-routing).
 
 
 
@@ -166,7 +166,7 @@ Here are several tips on handling requests for each endpoint:
 
    This route handler deletes an article with the specified identifier.
 
-You can find the full example here: [resource-routing](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/resource-routing).
+You can find the full example here: [resource-routing](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/resource-routing).
 
 
 ## Build links from resources {id="resource_links"}
@@ -209,4 +209,4 @@ The example below shows how to add links built from resources to the HTML respon
 ```
 {src="snippets/resource-routing/src/main/kotlin/resourcerouting/Application.kt" include-lines="62-87"}
 
-You can find the full example here: [resource-routing](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/resource-routing).
+You can find the full example here: [resource-routing](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/resource-routing).

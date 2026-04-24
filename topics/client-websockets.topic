@@ -189,7 +189,7 @@
             </code-block>
             <p>For the full example,
                 see
-                <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-websockets">client-websockets</a>.
+                <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-websockets">client-websockets</a>.
             </p>
         </chapter>
     </chapter>

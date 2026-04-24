@@ -73,7 +73,7 @@ In this example, you can see how to handle the `ApplicationStopped` event:
 
 {src="snippets/events/src/main/kotlin/com/example/Application.kt" include-lines="11,16-21,30"}
 
-For the full example, see [events](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/events).
+For the full example, see [events](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/events).
 
 ## Handle events in a custom plugin {id="handle-events-plugin"}
 
@@ -87,7 +87,7 @@ and `ApplicationStopped` events:
 {src="snippets/events/src/main/kotlin/com/example/plugins/ApplicationMonitoringPlugin.kt" include-lines="3-17,23"}
 
 You can find the full example
-here: [events](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/events).
+here: [events](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/events).
 
 ## Custom events {id="custom-events"}
 
@@ -120,4 +120,4 @@ status code for a resource.
    ```
    {src="snippets/events/src/main/kotlin/com/example/Application.kt" include-lines="11-12,22-24,30"}
 
-For the full example, see [events](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/events).
+For the full example, see [events](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/events).

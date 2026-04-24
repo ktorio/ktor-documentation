@@ -65,7 +65,7 @@ Let's summarize the examples above and create the `Articles` resource for CRUD o
 
 This resource can be used to list all articles, post a new article, edit it, and so on. We'll see how to [make type-safe requests](#make_requests) to this resource in the next section.
 
-> You can find the full example here: [client-type-safe-requests](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-type-safe-requests).
+> You can find the full example here: [client-type-safe-requests](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-type-safe-requests).
 
 
 ## Make type-safe requests {id="make_requests"}
@@ -95,4 +95,4 @@ The example below shows how to make typed requests to the `Articles` resource cr
 
 The [defaultRequest](client-default-request.md) function is used to specify a default URL for all requests.
 
-> You can find the full example here: [client-type-safe-requests](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-type-safe-requests).
+> You can find the full example here: [client-type-safe-requests](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-type-safe-requests).

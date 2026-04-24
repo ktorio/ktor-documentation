@@ -9,8 +9,8 @@
 </p>
 <p>
 <b>Code examples</b>: 
-<a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/ssl-engine-main">ssl-engine-main</a>, 
-<a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/ssl-embedded-server">ssl-embedded-server</a>
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/ssl-engine-main">ssl-engine-main</a>, 
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/ssl-embedded-server">ssl-embedded-server</a>
 </p>
 </tldr>
 
@@ -49,7 +49,7 @@ The code snippet below shows how to generate a certificate and save it to a keys
 
 Since Ktor requires a certificate when it starts, you have to create a certificate before starting the server.
 You can find the full example
-here: [ssl-embedded-server](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/ssl-embedded-server).
+here: [ssl-embedded-server](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/ssl-embedded-server).
 
 ### Generate a certificate using keytool {id="self-signed-keytool"}
 
@@ -133,7 +133,7 @@ following [properties](server-configuration-file.topic#predefined-properties):
    </tabs>
 
 For the full example,
-see [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/ssl-engine-main).
+see [ssl-engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/ssl-engine-main).
 
 ### embeddedServer {id="embedded-server"}
 
@@ -150,4 +150,4 @@ using [sslConnector](https://api.ktor.io/ktor-server-core/io.ktor.server.engine/
 {src="snippets/ssl-embedded-server/src/main/kotlin/com/example/Application.kt" include-lines="3-41"}
 
 For the full example,
-see [ssl-embedded-server](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/ssl-embedded-server).
+see [ssl-embedded-server](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/ssl-embedded-server).

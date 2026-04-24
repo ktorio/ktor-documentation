@@ -114,4 +114,4 @@ In this way the Ktor server retrieves the ID of the specified header of the requ
 property of the call.
 
 For the full example,
-see [client-call-id](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/client-call-id)
+see [client-call-id](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-call-id)
