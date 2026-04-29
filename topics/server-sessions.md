@@ -111,6 +111,21 @@ On the client side, you need to append this header to each request to get sessio
 > }
 > ```
 
+### Send session data only when modified {id="send_only_if_modified"}
+
+By default, Ktor sends session data on every response, even if it hasn't changed.
+
+To send session data only when it is modified, enable the `sendOnlyIfModified` flag in the session configuration:
+
+```kotlin
+install(Sessions) {
+    cookie<MySession>("SESSION") {
+        sendOnlyIfModified = true
+    }
+}
+```
+
+This option is available for both [cookie](#cookie) and [header-based](#header) sessions.
 
 ## Store session payload: Client vs Server {id="client_server"}
 

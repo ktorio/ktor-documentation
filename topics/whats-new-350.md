@@ -119,3 +119,19 @@ To help prevent future regressions, our JavaScript test infrastructure now targe
 > * [Support for ES2015 features](https://kotlinlang.org/docs/js-project-setup.html#support-for-es2015-features)
 >
 {style="tip"}
+
+### Send session cookies only when modified
+
+Ktor 3.5.0 introduces a new option for the [Sessions](server-sessions.md) plugin that sends session data only
+when it changes (for example, the `Set-Cookie` header for cookie-based sessions).
+
+By default, session data is sent on every response to preserve existing behavior. To send it only when modified, enable
+the `sendOnlyIfModified` flag in the session cookie configuration:
+
+```kotlin
+install(Sessions) {
+    cookie<MySession>("SESSION") {
+        sendOnlyIfModified = true
+    }
+}
+```
