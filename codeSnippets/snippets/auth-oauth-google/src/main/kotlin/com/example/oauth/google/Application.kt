@@ -36,24 +36,22 @@ fun Application.main(httpClient: HttpClient = applicationHttpClient) {
         oauth("auth-oauth-google") {
             // Configure oauth authentication
             urlProvider = { "http://localhost:8080/callback" }
-            providerLookup = {
-                OAuthServerSettings.OAuth2ServerSettings(
-                    name = "google",
-                    authorizeUrl = "https://accounts.google.com/o/oauth2/auth",
-                    accessTokenUrl = "https://accounts.google.com/o/oauth2/token",
-                    requestMethod = HttpMethod.Post,
-                    clientId = System.getenv("GOOGLE_CLIENT_ID"),
-                    clientSecret = System.getenv("GOOGLE_CLIENT_SECRET"),
-                    defaultScopes = listOf("https://www.googleapis.com/auth/userinfo.profile"),
-                    extraAuthParameters = listOf("access_type" to "offline"),
-                    onStateCreated = { call, state ->
-                        //saves new state with redirect url value
-                        call.request.queryParameters["redirectUrl"]?.let {
-                            redirects[state] = it
-                        }
+            settings = OAuthServerSettings.OAuth2ServerSettings(
+                name = "google",
+                authorizeUrl = "https://accounts.google.com/o/oauth2/auth",
+                accessTokenUrl = "https://accounts.google.com/o/oauth2/token",
+                requestMethod = HttpMethod.Post,
+                clientId = System.getenv("GOOGLE_CLIENT_ID"),
+                clientSecret = System.getenv("GOOGLE_CLIENT_SECRET"),
+                defaultScopes = listOf("https://www.googleapis.com/auth/userinfo.profile"),
+                extraAuthParameters = listOf("access_type" to "offline"),
+                onStateCreated = { call, state ->
+                    //saves new state with redirect url value
+                    call.request.queryParameters["redirectUrl"]?.let {
+                        redirects[state] = it
                     }
-                )
-            }
+                }
+            )
             fallback = { cause ->
                 if (cause is OAuth2RedirectError) {
                     respondRedirect("/login-after-fallback")
