@@ -385,7 +385,7 @@ allows most common data models to be documented without extra effort.
 ### Customize schemas with annotations
 
 You can override automatically generated JSON schema fields by adding [`@JsonSchema`](https://api.ktor.io/ktor-openapi-schema/io.ktor.openapi/-json-schema/index.html)
-annotations to your data classes. This allows you to add descriptions, mark fields as required, and more:
+annotations to your data classes. This allows you to add descriptions, mark properties as required, and more:
 
 ```kotlin
 @JsonSchema.Description("Represents a news article")
@@ -430,6 +430,16 @@ ReflectionJsonSchemaInference(object : SchemaReflectionAdapter {
     }
 })
 ```
+
+### Provide custom schemas {id="custom-schemas"}
+
+If automatic schema inference or annotations are not sufficient, you can construct JSON schemas manually using the
+[`JsonSchema`](https://api.ktor.io/ktor-openapi-schema/io.ktor.openapi/-json-schema/index.html) class.
+
+This allows you to define all supported schema properties explicitly, such as types, formats, nested structures, or
+advanced constructs such as `prefixItems` for tuple-like array definitions.
+
+For the full list of available properties, see the [`JsonSchema` API documentation](https://api.ktor.io/ktor-openapi-schema/io.ktor.openapi/-json-schema/index.html).
 
 ## Generate and serve the specification
 
