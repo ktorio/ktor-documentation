@@ -35,7 +35,7 @@ install(Authentication) {
     oauth("login") {
         client = ...
         urlProvider = ...
-        providerLookup = { ... }
+        settings = ...
         fallback = { cause ->
             if (cause is OAuth2RedirectError) {
                 respondRedirect("/login-after-fallback")
@@ -46,6 +46,15 @@ install(Authentication) {
     }
 }
 ```
+
+### Static OAuth provider settings
+
+Ktor 3.4.0 introduces the `settings` property for the [OAuth](server-oauth.md) authentication provider. Use it to
+configure static OAuth provider settings directly in the `oauth` block. Prefer `settings` over `providerLookup` for
+static provider configurations because it allows Ktor to infer metadata for generated
+[OpenAPI specifications](openapi-spec-generation.md).
+
+The `providerLookup` property remains available for resolving OAuth settings dynamically for a particular call.
 
 ### Zstd compression support
 

@@ -63,12 +63,6 @@ Existing configurations continue to work without changes. However, for new appli
 
 For a complete guide, see [](server-digest-auth.md).
 
-### Documented static OAuth provider settings
-
-The existing `settings` option for the [OAuth](server-oauth.md) authentication provider is now documented and
-recommended for static OAuth provider configuration. Using `settings` allows Ktor to infer authentication metadata
-when generating OpenAPI specifications.
-
 ### Suspending `.authenticate()` overload in custom providers
 
 [Custom authentication providers](server-auth.md#custom-auth-provider) can now implement a suspending version

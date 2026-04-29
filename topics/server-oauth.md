@@ -135,14 +135,15 @@ For a provider with fixed OAuth settings, use the `settings` property.
   > Make sure that this route is added to a list of [**Authorised redirect URIs**](#authorization-credentials).
 * The `settings` property specifies static OAuth settings for the provider. These settings are represented by
   the [OAuthServerSettings](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-o-auth-server-settings/index.html)
-  class and allow Ktor to make automatic requests to the OAuth server. Prefer `settings` for static provider
-  configurations because it also allows Ktor to infer metadata for generated
+  class and allow Ktor to make automatic requests to the OAuth server. Prefer `settings` over `providerLookup` for
+  static provider configurations because it also allows Ktor to infer metadata for generated
   [OpenAPI specifications](openapi-spec-generation.md).
-* The `providerLookup` property is still supported for resolving OAuth settings dynamically for a particular call.
-  Use it when the provider configuration depends on request data, such as tenant-specific credentials or endpoints.
 * The `fallback` property handles OAuth flow errors by responding with a redirect or custom response.
 * The `client` property specifies the [HttpClient](#create-http-client) used by Ktor to make requests to the OAuth
   server.
+
+> The `providerLookup` property is still supported for resolving OAuth settings dynamically for a particular call.
+> Use it when the provider configuration depends on request data, such as tenant-specific credentials or endpoints.
 
 ### Step 3: Add a login route {id="login-route"}
 
