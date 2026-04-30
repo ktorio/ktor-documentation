@@ -79,3 +79,31 @@ install(Authentication) {
   }
 }
 ```
+
+### Root configuration data class mapping
+
+`ApplicationConfig` now provides a `.getAs()` function for deserializing the entire configuration into a data class.
+
+Previously, deserialization was limited to individual properties, requiring access through the `.property()` function.
+With root-level support, you can map the full configuration structure directly to a single data class:
+
+<compare type="top-bottom" first-title="Before" second-title="After">
+
+```kotlin
+@Serializable data class App(val port: Int, val host: String)
+@Serializable data class Security(val clientId: String, val clientSecret: String)
+
+
+val app = ApplicationConfig("application.yaml").property("app").getAs<App>()
+val security = ApplicationConfig("application.yaml").property("security").getAs<Security>()
+```
+
+```kotlin
+@Serializable data class App(val port: Int, val host: String)
+@Serializable data class Security(val clientId: String, val clientSecret: String)
+@Serializable data class Config(val app: App, val security: Security)
+
+val config = ApplicationConfig("application.yaml").getAs<Config>()
+```
+
+</compare>

@@ -436,12 +436,12 @@
     </chapter>
     <chapter title="Read configuration in code" id="read-configuration-in-code">
         <p>
-            Ktor allows you to access property values specified inside a configuration file in code.
-            For example, if you've specified the <code>ktor.deployment.port</code> property,...
+            Ktor allows you to access property values specified in a configuration file from your application code.
+            In the following example, you've specified the <code>ktor.deployment.port</code> property:
         </p>
 
         <tabs group="config">
-            <tab title="application.conf" group-key="hocon" id="config-conf-1">
+            <tab title="application.conf" group-key="hocon" id="config-conf-2">
                 <code-block lang="shell"><![CDATA[
                     ktor {
                         deployment {
@@ -450,7 +450,7 @@
                     }
                 ]]></code-block>
             </tab>
-            <tab title="application.yaml" group-key="yaml" id="config-yaml-1">
+            <tab title="application.yaml" group-key="yaml" id="config-yaml-2">
                 <code-block lang="yaml"><![CDATA[
                     ktor:
                         deployment:
@@ -460,17 +460,14 @@
         </tabs>
 
         <p>
-            ... you can access the application's configuration using
+            You can access the application's configuration using the
             <a href="https://api.ktor.io/ktor-server-core/io.ktor.server.application/-application-environment/config.html">
-                ApplicationEnvironment.config
+                <code>ApplicationEnvironment.config()</code>
             </a>
-            and get the required property value in the following way:
+            function and retrieve property values. Use the <code>.property()</code> function to access required
+            values or <code>.propertyOrNull()</code> for optional ones:
         </p>
         <code-block lang="kotlin"><![CDATA[
-            import io.ktor.server.application.*
-            import io.ktor.server.response.*
-            import io.ktor.server.routing.*
-
             fun Application.module() {
                 val port = environment.config.propertyOrNull("ktor.deployment.port")?.getString() ?: "8080"
                 routing {
@@ -480,9 +477,57 @@
                 }
             }
         ]]></code-block>
+        <chapter title="Read structured configuration" id="structured-config">
+            <p>
+                If your configuration is structured, you can deserialize it into Kotlin data classes using the
+                <code>.getAs()</code> function.
+            </p>
+            <tabs group="config">
+                <tab title="application.conf" group-key="hocon" id="config-conf-1">
+                <code-block lang="shell"><![CDATA[
+                    app {
+                        port = 8080
+                        host = "0.0.0.0"
+                    }
+
+                    security {
+                        clientId = ${?CLIENT_ID}
+                        clientSecret = ${?CLIENT_SECRET}
+                    }
+                ]]></code-block>
+                </tab>
+                <tab title="application.yaml" group-key="yaml" id="config-yaml-1">
+                <code-block lang="yaml"><![CDATA[
+                    app:
+                    port: 8080
+                    host: "0.0.0.0"
+                    security:
+                        clientId: $CLIENT_ID
+                        clientSecret: $CLIENT_SECRET
+                ]]></code-block>
+                </tab>
+            </tabs>
+            <code-block lang="kotlin"><![CDATA[
+            @Serializable
+            data class App(val port: Int, val host: String)
+            @Serializable
+            data class Security(val clientId: String, val clientSecret: String)
+            @Serializable
+            data class Config(val app: App, val security: Security)
+
+            fun Application.module() {
+                val config = environment.config.getAs<Config>()
+
+                val port = config.app.port
+                val host = config.app.host
+
+                println("Starting server on $host:$port")
+            }
+            ]]></code-block>
+        </chapter>
         <p>
-            This is especially useful when you keep <a anchor="custom-property">custom settings</a> in a configuration
-            file and need to access its values.
+            Reading configuration in code is especially useful when you keep <a anchor="custom-property">custom settings</a>
+            in a configuration file and need to access their values.
         </p>
     </chapter>
 
