@@ -79,11 +79,3 @@ install(Authentication) {
   }
 }
 ```
-
-### OpenAPI: JSON schema `prefixItems` support
-
-OpenAPI JSON schema now supports the `prefixItems` property when defining custom schemas. This allows defining tuple-like
-array structures where each position can have its own schema.
-
-The property is available through the [`JsonSchema`](https://api.ktor.io/ktor-openapi-schema/io.ktor.openapi/-json-schema/index.html)
-class and can be used when [manually constructing JSON schemas](openapi-spec-generation.md#custom-schemas).
