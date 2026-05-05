@@ -20,4 +20,5 @@ fun main() {
             println("Read first byte from RawSource: $firstByte")
         }
     }
+    client.close()
 }
