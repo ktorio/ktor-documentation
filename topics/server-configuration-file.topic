@@ -477,10 +477,14 @@
                 }
             }
         ]]></code-block>
-        <chapter title="Read structured configuration" id="structured-config">
+        <chapter title="Deserialize configuration into data classes" id="deserialize-config">
             <p>
-                If your configuration is structured, you can deserialize it into Kotlin data classes using the
-                <code>.getAs()</code> function.
+                You can deserialize configuration into Kotlin data classes using the
+                <code>.getAs()</code> function. This approach provides type-safe access to configuration values.
+            </p>
+            <p>
+                The example below defines <code>app</code> and <code>security</code> configuration sections and maps
+                them to serializable Kotlin data classes.
             </p>
             <tabs group="config">
                 <tab title="application.conf" group-key="hocon" id="config-conf-1">
@@ -518,17 +522,13 @@
             fun Application.module() {
                 val config = environment.config.getAs<Config>()
 
-                val port = config.app.port
-                val host = config.app.host
+                val clientId = config.security.clientId
+                val clientSecret = config.security.clientSecret
 
-                println("Starting server on $host:$port")
+                println("Authorization header: $clientId:$clientSecret")
             }
             ]]></code-block>
         </chapter>
-        <p>
-            Reading configuration in code is especially useful when you keep <a anchor="custom-property">custom settings</a>
-            in a configuration file and need to access their values.
-        </p>
     </chapter>
 
     <chapter title="Command line" id="command-line">
@@ -614,18 +614,21 @@
     </chapter>
 
 
-    <chapter title="Example: How to specify an environment using a custom property" id="custom-property">
+    <chapter title="Example: Specify an environment using a custom property" id="custom-property">
         <p>
-            You might want to do different things depending on whether a server is running locally or on a production
-            machine. To achieve this, you can add a custom property in
-            <path>application.conf</path>
-            /
-            <path>application.yaml</path>
-            and initialize it with a dedicated <a anchor="environment-variables">environment variable</a> whose value
-            depends on whether a server is running locally or on production. In the example below, the
-            <code>KTOR_ENV</code> environment variable is assigned to a custom <code>ktor.environment</code> property.
+            You can use custom configuration properties to change application behavior depending on the environment in
+            which the server is running, such as local development or production.
         </p>
-
+        <p>
+            To do this, define a custom property in
+            <path>application.conf</path>
+            or
+            <path>application.yaml</path>
+            and assign its value from an <a anchor="environment-variables">environment variable</a>. In the example
+            below, the <code>KTOR_ENV</code> environment variable is assigned to the custom <code>ktor.environment</code>
+            property. The value of <code>KTOR_ENV</code> can then be set differently for local and production
+            environments.
+        </p>
         <tabs group="config">
             <tab title="application.conf" group-key="hocon" id="application-conf-5">
                 <code-block src="snippets/engine-main-custom-environment/src/main/resources/application.conf"
@@ -649,7 +652,7 @@
                     src="snippets/engine-main-custom-environment/src/main/kotlin/com/example/Application.kt"
                     include-lines="3-6,9-20"/>
         <p>
-            You can find the full example here:
+            For the full code example, see
             <a href="https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main-custom-environment">
                 engine-main-custom-environment
             </a>.
