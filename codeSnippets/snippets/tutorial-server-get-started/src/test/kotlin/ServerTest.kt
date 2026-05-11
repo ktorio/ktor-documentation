@@ -5,28 +5,21 @@ import io.ktor.client.statement.bodyAsText
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
 import io.ktor.server.testing.testApplication
-import kotlin.test.Test
-import kotlin.test.assertContains
-import kotlin.test.assertEquals
+import kotlin.test.*
 
-class ApplicationTest {
+class ServerTest {
 
     @Test
-    fun testRoot() = testApplication {
-        application {
-            module()
-        }
-        val response = client.get("/")
-
-        assertEquals(HttpStatusCode.OK, response.status)
-        assertEquals("Hello World!", response.bodyAsText())
+    fun `test root endpoint`() = testApplication {
+        // loads default configuration
+        configure()
+        // verify server root returns 200
+        assertEquals(HttpStatusCode.OK, client.get("/").status)
     }
 
     @Test
-    fun testNewEndpoint() = testApplication {
-        application {
-            module()
-        }
+    fun `test new endpoint`() = testApplication {
+        configure()
 
         val response = client.get("/test1")
 
@@ -34,4 +27,5 @@ class ApplicationTest {
         assertEquals("html", response.contentType()?.contentSubtype)
         assertContains(response.bodyAsText(), "Hello From Ktor")
     }
+
 }

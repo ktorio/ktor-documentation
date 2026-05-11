@@ -66,7 +66,7 @@
                         field, enter
                         <path>com.example.ktor-sample</path>
                         as the name of your project artifact.
-                        <img src="ktor_project_generator_new_project_artifact_name.png"
+                        <img src="ktor_343_project_generator_new_project_artifact_name.png"
                              alt="Ktor project generator with Project Artifact Name com.example.ktor-sample"
                              border-effect="line"
                              style="block"
@@ -77,7 +77,7 @@
                     <p>Click
                         <control>Configure</control>
                         to open the settings dropdown menu:
-                        <img src="ktor_project_generator_new_project_configure.png"
+                        <img src="ktor_343_project_generator_new_project_configure.png"
                              style="block"
                              alt="expanded view of Ktor project settings" border-effect="line" width="706"/>
                     </p>
@@ -89,19 +89,10 @@
                             <include from="lib.topic" element-id="generator_project_settings_build_system"/>
                         </li>
                         <li>
-                            <include from="lib.topic" element-id="generator_project_settings_use_version_catalog"/>
-                        </li>
-                        <li>
-                            <include from="lib.topic" element-id="generator_project_settings_ktor_version"/>
-                        </li>
-                        <li>
                             <include from="lib.topic" element-id="generator_project_settings_engine"/>
                         </li>
                         <li>
                             <include from="lib.topic" element-id="generator_project_settings_config"/>
-                        </li>
-                        <li>
-                            <include from="lib.topic" element-id="generator_project_settings_sample_code"/>
                         </li>
                     </list>
                     <p>For this tutorial, you can leave the default values for these settings.</p>
@@ -125,7 +116,7 @@
                         Click the
                         <control>Download</control>
                         button to generate and download your Ktor project.
-                        <img src="ktor_project_generator_new_project_download.png"
+                        <img src="ktor_343_project_generator_new_project_download.png"
                              alt="Ktor project generator download button"
                              border-effect="line"
                              style="block"
@@ -469,7 +460,7 @@
         </chapter>
         <chapter title="Explore the project" id="explore">
             <p>After opening the project, you can see the following structure:</p>
-            <img src="server_get_started_idea_project_view.png" alt="Generated Ktor project view in IDE" width="706"/>
+            <img src="tutorial_server_get_started_idea_project_view.png" alt="Generated Ktor project view in IDE" width="706"/>
             <p>
                 To view the full layout, expand the folders in the <control>Project</control> view by clicking the
                 expand arrows next to each folder.
@@ -482,20 +473,21 @@
                 and
                 <path>Routing.kt</path>
             </p>
-            <img src="server_get_started_idea_main_folder.png" alt="Ktor project src folder structure" width="400"/>
-            <p>The name of the project is configured in
+            <img src="tutorial_server_get_started_idea_main_folder.png" alt="Ktor project src folder structure" width="400"/>
+            <p>The name of the project is configured in the
                 <path>settings.gradle.kts</path>
-                with the following contents:
+                file:
             </p>
             <code-block lang="kotlin"
                         src="snippets/tutorial-server-get-started/settings.gradle.kts"
+                        include-lines="1"
             />
             <p>
                 Configuration files, and other kinds of content, live within the
                 <path>src/main/resources</path>
                 folder.
             </p>
-            <img src="server_get_started_idea_resources_folder.png" alt="Ktor project resources folder structure"
+            <img src="tutorial_server_get_started_idea_resources_folder.png" alt="Ktor project resources folder structure"
                  width="400"/>
         </chapter>
         <chapter title="Run the project" id="run">
@@ -515,14 +507,14 @@
                         <control>run</control>
                         task.
                     </p>
-                    <img src="server_get_started_idea_gradle_run.png" alt="Gradle tab in IntelliJ IDEA"
+                    <img src="tutorial_server_get_started_idea_gradle_run.png" alt="Gradle tab in IntelliJ IDEA"
                          border-effect="line" width="450"/>
                 </step>
                 <step>
                     <p>Your Ktor application starts in the <a
                             href="https://www.jetbrains.com/help/idea/run-tool-window.html">Run tool window</a> at
                         the bottom of the IDE:</p>
-                    <img src="server_get_started_idea_run_terminal.png" alt="Project running in the terminal" width="706"/>
+                    <img src="tutorial_server_get_started_idea_run_terminal.png" alt="Project running in the terminal" width="706"/>
                     <p>The same messages that were previously displayed on the command line will now be visible in the
                         <ui-path>Run</ui-path>
                         tool window.
@@ -621,7 +613,7 @@
                             at the new URL (<a href="http://0.0.0.0:9292">http://0.0.0.0:9292</a>) or
                             <a href="https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html#creating-http-request-files">create
                                 a new HTTP Request file in IntelliJ IDEA</a>:</p>
-                        <img src="server_get_started_port_change.png"
+                        <img src="tutorial_server_get_started_port_change.png"
                              alt="Testing port change with an HTTP request file in IntelliJ IDEA" width="706"/>
                     </step>
                 </procedure>
@@ -641,40 +633,36 @@
                 <procedure id="change-the-default-port-code-procedure">
                     <step>
                         <p>Open the
-                            <path>Application.kt</path>
+                            <path>main.kt</path>
                             file. You should find code similar to the following:
                         </p>
-                        <code-block lang="kotlin">
-                            fun main() {
+                        <code-block lang="kotlin"><![CDATA[
+                            fun main(args: Array<String>) {
                                 embeddedServer(
-                                    Netty,
-                                    port = 8080, // This is the port to which Ktor is listening
+                                    factory = io.ktor.server.netty.Netty,
+                                    port = 8080,
                                     host = "0.0.0.0",
-                                    module = Application::module
+                                    module = Application::rootModule
                                 ).start(wait = true)
                             }
-
-                            fun Application.module() {
-                                configureRouting()
-                            }
-                        </code-block>
+                        ]]></code-block>
                     </step>
                     <step>
                         <p>In the <code>embeddedServer()</code> function, change the <code>port</code> parameter
                             to another number of your choosing, such as <code>9292</code>.</p>
-                        <code-block lang="kotlin">
-                            fun main() {
+                        <code-block lang="kotlin"><![CDATA[
+                            fun main(args: Array<String>) {
                                 embeddedServer(
-                                    Netty,
+                                    factory = io.ktor.server.netty.Netty,
                                     port = 9292,
                                     host = "0.0.0.0",
-                                    module = Application::module
+                                    module = Application::rootModule
                                 ).start(wait = true)
                             }
-                        </code-block>
+                        ]]></code-block>
                     </step>
                     <step>
-                        <p>Click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
+                        <p>Click on the rerun button (<img alt="IntelliJ IDEA rerun button icon"
                                                            src="intellij_idea_rerun_icon.svg" height="16" width="16"/>)
                             to restart the application.</p>
                     </step>
@@ -683,7 +671,7 @@
                             at the new URL (<a href="http://0.0.0.0:9292">http://0.0.0.0:9292</a>), or
                             <a href="https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html#creating-http-request-files">create
                                 a new HTTP Request file in IntelliJ IDEA</a>:</p>
-                        <img src="server_get_started_port_change.png"
+                        <img src="tutorial_server_get_started_port_change.png"
                              alt="Testing port change with an HTTP request file in IntelliJ IDEA" width="706"/>
                     </step>
                 </procedure>
@@ -700,18 +688,9 @@
             <procedure>
                 <step>
                     <p>Open the
-                        <path>Application.kt</path>
-                        file and find the <code>.configureRouting()</code> function.
+                        <path>Routing.kt</path>
+                        file. This is the code you should see:
                     </p>
-                </step>
-                <step>
-                    <p>In IntelliJ IDEA, hold <shortcut>Ctrl</shortcut> (Windows/Linux) or
-                        <shortcut>⌘Cmd</shortcut> (macOS) and click <code>.configureRouting()</code> to navigate to its
-                        definition.
-                    </p>
-                    <p>Alternatively, you can navigate to the function definition by opening the <path>Routing.kt</path>
-                        file.</p>
-                    <p>This is the code you should see:</p>
                     <code-block lang="Kotlin" validate="true">
                         fun Application.configureRouting() {
                             routing {
@@ -748,8 +727,13 @@
                     <img src="server_get_started_add_new_http_endpoint_output.png"
                          alt="A browser screen displaying Hello from Ktor" width="706"/>
                     <p>If you have created an HTTP request file, you can also verify the new endpoint there:</p>
-                    <img src="server_get_started_add_new_http_endpoint.png" alt="An HTTP request file in intelliJ IDEA"
-                         width="450"/>
+                    <code-block lang="http">
+                    GET http://0.0.0.0:9292
+
+                    ###
+
+                    GET http://0.0.0.0:9292/test1
+                    </code-block>
                     <note>Note that a line containing three hashes (<code>###</code>) is needed to separate different
                         requests.</note>
                 </step>
@@ -828,7 +812,7 @@
                                 />
                 </step>
                 <step>
-                    <p>Click on the rerun button (<img alt="intelliJ IDEA rerun button icon"
+                    <p>Click on the rerun button (<img alt="IntelliJ IDEA rerun button icon"
                                                        src="intellij_idea_rerun_icon.svg" height="16" width="16"/>)
                         to restart the application.</p>
                 </step>
@@ -836,7 +820,7 @@
                     <p>When you open your browser at <a href="http://0.0.0.0:9292/content/sample.html">http://0.0.0.0:9292/content/sample.html</a>
                         the content of your sample page should be displayed:</p>
                     <img src="server_get_started_configure_static_content_output.png"
-                         alt="Output of a static page in browser" width="706"/>
+                         alt="Output of a static page in a browser" width="706"/>
                 </step>
             </procedure>
         </chapter>
@@ -849,43 +833,25 @@
             <procedure>
                 <step>
                     <p>
-                        Create a new subdirectory under
-                        <path>src</path>
-                        called <path>test/kotlin</path>.
-                    </p>
-                </step>
-                <step>
-                    <p>
-                        Within
+                        Navigate to the
                         <path>src/test/kotlin</path>
-                        create a new <path>ApplicationTest.kt</path> file.
+                        folder.
                     </p>
                 </step>
                 <step>
-                    <p>Open the <path>ApplicationTest.kt</path> file and add the code below:</p>
+                    <p>Open the <path>ServerTest.kt</path> file. You should see the code below:</p>
                     <code-block lang="kotlin"
-                                src="snippets/tutorial-server-get-started/src/test/kotlin/ApplicationTest.kt"
-                                include-lines="12-23,37"
+                                src="snippets/tutorial-server-get-started/src/test/kotlin/ServerTest.kt"
+                                include-lines="10-18,30-31"
                     />
-                    <p>The <code>testApplication()</code> method creates a new instance of Ktor. This instance is
+                    <p>The <code>testApplication()</code> function creates a new instance of Ktor. This instance is
                         running inside a test environment, as
                         opposed to a server such as Netty.</p>
-                    <p>You can then use the <code>application()</code> method to invoke the same setup that is called
+                    <p>You can then use the <code>configure()</code> function to invoke the same setup that is called
                         from
                         <code>embeddedServer()</code>.</p>
                     <p>Finally, you can use the built-in <code>client</code> object and JUnit assertions to send a
                         sample request and check the response.</p>
-                </step>
-                <step>
-                    <p>Add the following required imports:</p>
-                    <code-block lang="kotlin">
-                        import io.ktor.client.request.get
-                        import io.ktor.client.statement.bodyAsText
-                        import io.ktor.http.HttpStatusCode
-                        import io.ktor.server.testing.testApplication
-                        import kotlin.test.Test
-                        import kotlin.test.assertEquals
-                    </code-block>
                 </step>
             </procedure>
             <p>
@@ -900,13 +866,13 @@
                 add this additional test:
             </p>
             <code-block lang="kotlin"
-                        src="snippets/tutorial-server-get-started/src/test/kotlin/ApplicationTest.kt"
-                        include-lines="25-36"
+                        src="snippets/tutorial-server-get-started/src/test/kotlin/ServerTest.kt"
+                        include-lines="20-29"
             />
             <p>Add the following additional imports:</p>
             <code-block lang="Kotlin">
                 import io.ktor.http.contentType
-                import kotlin.test.assertContains
+                import io.ktor.client.statement.bodyAsText
             </code-block>
         </chapter>
         <chapter title="Register error handlers" id="register-error-handlers">
@@ -937,18 +903,10 @@
                     tool window, navigate to the project root folder and follow the steps:
                 </p>
                 <step>
-                    <p>Open the <path>gradle/libs.versions.toml</path> file and add the following new library:</p>
-                    <code-block lang="toml">
-                    [libraries]
-                    #...
-                    ktor-server-status-pages = { module = "io.ktor:ktor-server-status-pages", version.ref = "ktor" }
-                    </code-block>
-                </step>
-                <step>
                     <p>Open the <path>build.gradle.kts</path> file and add the new dependency as shown below:</p>
                     <code-block lang="kotlin"
                                 src="snippets/tutorial-server-get-started/build.gradle.kts"
-                                include-lines="13-23"
+                                include-lines="18-28"
                     />
                 </step>
                 <step>
@@ -982,7 +940,7 @@
             </p>
             <procedure title="Write sample code to trigger the handler" id="write-sample-code">
                 <step>
-                    <p>Staying within the <code>configureRouting()</code> method, add the additional route as shown
+                    <p>Staying within the <code>.configureRouting()</code> method, add the additional route as shown
                         below:</p>
                     <code-block lang="kotlin"
                                 src="snippets/tutorial-server-get-started/src/main/kotlin/Routing.kt"

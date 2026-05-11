@@ -1,23 +1,28 @@
+
 plugins {
     alias(libs.plugins.kotlin.jvm)
-    alias(libs.plugins.ktor)
+    alias(ktorLibs.plugins.ktor)
 }
 
 group = "com.example"
-version = "0.0.1"
+version = "1.0.0-SNAPSHOT"
 
 application {
     mainClass = "io.ktor.server.netty.EngineMain"
 }
 
+kotlin {
+    jvmToolchain(21)
+}
+
 dependencies {
-    // Added new dependency
-    implementation(libs.ktor.server.status.pages)
-    // Existing dependencies
-    implementation(libs.ktor.server.core)
-    implementation(libs.ktor.server.netty)
+    implementation(ktorLibs.server.config.yaml)
+    implementation(ktorLibs.server.core)
+    implementation(ktorLibs.server.netty)
+    // Add new dependency
+    implementation(ktorLibs.server.statusPages)
     implementation(libs.logback.classic)
-    implementation(libs.ktor.server.config.yaml)
-    testImplementation(libs.ktor.server.test.host)
-    testImplementation(libs.kotlin.test.junit)
+
+    testImplementation(kotlin("test"))
+    testImplementation(ktorLibs.server.testHost)
 }

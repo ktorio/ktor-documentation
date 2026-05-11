@@ -17,7 +17,7 @@ fun Application.configureRouting() {
         staticResources("/content", "mycontent")
 
         get("/") {
-            call.respondText("Hello World!")
+            call.respondText("Hello, World!")
         }
 
         // ...
