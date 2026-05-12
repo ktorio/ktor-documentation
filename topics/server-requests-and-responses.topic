@@ -219,7 +219,7 @@
                 </p>
                 <code-block lang="kotlin"
                             src="snippets/tutorial-server-routing-and-requests/src/main/kotlin/model/TaskRepository.kt"
-                            include-lines="1-8"/>
+                            include-lines="1,4-10"/>
             </step>
         </procedure>
         <procedure title="Add a new route" id="add-a-route">
