@@ -717,7 +717,7 @@
                     file with the following:
                 </p>
                 <code-block
-                        src="snippets/tutorial-server-restful-api/src/test/kotlin/ApplicationTest.kt"
+                        src="snippets/tutorial-server-restful-api/src/test/kotlin/ServerTest.kt"
                         lang="kotlin"/>
 
                 <p>
@@ -766,7 +766,7 @@
                 </p>
                 <code-block
                         src="snippets/tutorial-server-restful-api/build.gradle.kts"
-                        include-lines="32"
+                        include-lines="29"
                         lang="kotlin"/>
             </step>
             <step>
