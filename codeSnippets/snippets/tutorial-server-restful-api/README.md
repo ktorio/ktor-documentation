@@ -1,10 +1,8 @@
 # A RESTful API that generates JSON
 
-A sample project created in
+A sample standalone project created in
 the [Create RESTful APIs that generate JSON](https://ktor.io/docs/create-restful-apis.html)
 tutorial.
-
-> This sample is part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Run
 
