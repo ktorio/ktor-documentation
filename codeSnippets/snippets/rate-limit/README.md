@@ -12,7 +12,7 @@ To run a sample, execute the following command in a repository's root directory:
 
 Then, open and refresh one of the following pages to test rate limiting:
 - [http://localhost:8080/](http://localhost:8080/)
-- [http://localhost:8080/free-api](http://localhost:8080/free-api)
+- [http://localhost:8080/public-api](http://localhost:8080/public-api)
 - [http://localhost:8080/protected-api?login=jetbrains](http://localhost:8080/protected-api?login=jetbrains)
 
 For the latest endpoint, you can change the `login` query parameter to another value to see how a request weight affects rate limiting.
