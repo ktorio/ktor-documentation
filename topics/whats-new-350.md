@@ -117,7 +117,7 @@ Previously, validating required request data often required repetitive null chec
 To improve this workflow, Ktor now provides the following new extension functions:
 
 * `ApplicationCall.requireQueryParameter()` — retrieves a required query parameter from the request URL. Throws if the
-  parameter is missing or empty.
+  parameter is missing.
 * `ApplicationCall.requireHeader()` — retrieves a required HTTP header value. Throws if the header is not present in
   the request.
 * `ApplicationCall.requireCookie()` — retrieves a required cookie value, optionally decoding it using the specified

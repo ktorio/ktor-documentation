@@ -105,7 +105,7 @@ that simplify accessing required request data:
 [//]: # (TODO: Add API links)
 
 * `ApplicationCall.requireQueryParameter()` — retrieves a required query parameter from the request URL. Throws if the
-  parameter is missing or empty.
+  parameter is missing.
 * `ApplicationCall.requireHeader()` — retrieves a required HTTP header value. Throws if the header is not present in
   the request.
 * `ApplicationCall.requireCookie()` — retrieves a required cookie value, optionally decoding it using the specified
