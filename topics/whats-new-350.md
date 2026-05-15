@@ -108,6 +108,56 @@ val config = ApplicationConfig("application.yaml").getAs<Config>()
 
 </compare>
 
+### Require request parameters helper functions
+
+Ktor 3.5.0 introduces a new set of extension functions that simplify accessing required request data from
+an `ApplicationCall`.
+
+Previously, validating required request data often required repetitive null checks and labeled returns.
+To improve this workflow, Ktor now provides the following new extension functions:
+
+* `ApplicationCall.requireQueryParameter()` — retrieves a required query parameter from the request URL. Throws if the
+  parameter is missing or empty.
+* `ApplicationCall.requireHeader()` — retrieves a required HTTP header value. Throws if the header is not present in
+  the request.
+* `ApplicationCall.requireCookie()` — retrieves a required cookie value, optionally decoding it using the specified
+  encoding. Throws if the cookie is missing.
+* `RoutingCall.requirePathParameter()` — retrieves a required path parameter from the route definition. Throws if
+  the parameter is not present in the matched route.
+
+Each function returns a non-null value or throws `MissingRequestParameterException` if the value is missing.
+
+<compare>
+
+```kotlin
+post("/checkout") {
+  val userId = call.request.cookies["userId"]
+    ?: return@post call.respondText(
+      "Login required",
+      status = HttpStatusCode.Forbidden
+    )
+
+  val amount = call.request.queryParameters["amount"]?.toLongOrNull()
+    ?: return@post call.respondText(
+     "Amount missing",
+     status = HttpStatusCode.BadRequest
+  )
+  
+  // Business logic
+}
+```
+
+```kotlin
+post("/checkout") {
+    val userId = call.requireCookie("userId")
+    val amount = call.requireQueryParameter("amount").toLong()
+
+    // Business logic
+}
+```
+
+</compare>
+
 ### ES modules compatibility for `ktor-network`
 
 We’ve fixed issues that made it impossible to use `ktor-network` and all dependent modules when ES modules were enabled.

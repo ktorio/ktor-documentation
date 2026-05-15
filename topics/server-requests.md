@@ -5,18 +5,26 @@
 <link-summary>Learn how to handle incoming requests inside route handlers.</link-summary>
 
 Ktor allows you to handle incoming requests and send [responses](server-responses.md)
-inside [route handlers](server-routing.md#define_route). You can perform various actions when handling requests:
+inside [route handlers](server-routing.md#define_route).
 
-* Get [request information](#request_information), such as headers, cookies, and so on.
-* Get [path parameter](#path_parameters) values.
-* Get parameters of a [query string](#query_parameters).
-* Receive [body contents](#body_contents), for example, data objects, form parameters, and files.
+Route handlers operate on an [`ApplicationCall`](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-application-call/index.html),
+which represents a single HTTP exchange between the client and the server. It is available in route handlers through 
+the `call` property and contains both the incoming request (`ApplicationRequest`) and the outgoing response
+(`ApplicationResponse`).
+
+Within a route handler, you can use the `ApplicationCall` to:
+
+* Access [request information](#request_information), such as headers, cookies, and connection details.
+* Retrieve [path parameter](#path_parameters) values.
+* Retrieve [query parameters](#query_parameters).
+* Receive [request body content](#body_contents), such as data objects, form parameters, and files.
 
 ## General request information {id="request_information"}
-Inside a route handler, you can get access to a request using the [`call.request`](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-application-call/request.html)
-property. This returns the [`ApplicationRequest`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/-application-request/index.html)
-instance and provides access to various request parameters. For example, the code snippet below shows how to get a
-request URI:
+
+You can access request data through the [`call.request`](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-application-call/request.html) property. This returns an [`ApplicationRequest`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/-application-request/index.html)
+instance, which provides access to low-level HTTP request information.
+
+For example, you can retrieve the request URI in a GET request handler using `call.request.uri`:
 
 ```kotlin
 routing {
@@ -26,37 +34,45 @@ routing {
     }
 }
 ```
-The [`call.respondText()`](server-responses.md#plain-text) method is used to send a response back to the client.
 
-The [`ApplicationRequest`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/-application-request/index.html) object allows you to get access to various request data, for example:
+The [`call.respondText()`](server-responses.md#plain-text) function sends a plain text response back to the client.
 
-* **Headers**
+### Headers
 
-  To access all request headers, use the [`ApplicationRequest.headers`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/-application-request/headers.html) property.
-  You can also get access to specific headers using dedicated extension functions, such as `acceptEncoding`,
-  `contentType`, `cacheControl`, and so on.
+To access all HTTP request headers, use the [`ApplicationRequest.headers`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/-application-request/headers.html) property.
 
-* **Cookies**  
+For convenience, Ktor also provides dedicated extension functions for accessing commonly used headers, such as 
+[`.acceptEncoding()`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/accept-encoding.html),
+[`.contentType()`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/content-type.html), and
+[`.cacheControl()`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/cache-control.html).
 
-  The [`ApplicationRequest.cookies`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/-application-request/cookies.html)
-  property provides access to cookies related to a request. To learn how to handle sessions using cookies, see the
-  [Sessions](server-sessions.md) section.
+### Cookies  
 
-* **Connection details**
+To access the cookies sent with the request, use the [`ApplicationRequest.cookies`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/-application-request/cookies.html)
+property.
 
-  Use the [`ApplicationRequest.local`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/-application-request/local.html)
-  property to get access to connection details such as a host name, port, scheme, and so on.
+> For more information on handling sessions using cookies, see the [Sessions](server-sessions.md) section.
+> 
+{style="tip"}
 
-* **`X-Forwarded-` headers**
+### Connection details
 
-  To get information about a request passed through an HTTP proxy or a load balancer, install the [](server-forward-headers.md)
-  plugin and use the [`ApplicationRequest.origin`](https://api.ktor.io/ktor-server-core/io.ktor.server.plugins/origin.html)
-  property.
+Use the [`ApplicationRequest.local`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/-application-request/local.html)
+property to get access to connection details such as a host name, port, and scheme.
+
+### `X-Forwarded-` headers
+
+To obtain information about a request passed through an HTTP proxy or a load balancer, install the [](server-forward-headers.md)
+plugin and use the [`ApplicationRequest.origin`](https://api.ktor.io/ktor-server-core/io.ktor.server.plugins/origin.html)
+property.
 
 
 ## Path parameters {id="path_parameters"}
-When handling requests, you can get access to [path parameter](server-routing.md#path_parameter) values using the `call.parameters` property. For
-example, `call.parameters["login"]` in the code snippet below will return _admin_ for the `/user/admin` path:
+
+When handling requests, you can retrieve [path parameter](server-routing.md#path_parameter) values using the 
+`ApplciationCall.parameters` property.
+
+For example, in the code snippet below, `call.parameters["login"]` returns `"admin"` for the `/user/admin` path:
 
 ```kotlin
 ```
@@ -65,10 +81,11 @@ example, `call.parameters["login"]` in the code snippet below will return _admin
 
 ## Query parameters {id="query_parameters"}
 
-To get access to parameters of a <emphasis tooltip="query_string">query string</emphasis>, you can use the
-[`ApplicationRequest.queryParameters()`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/-application-request/query-parameters.html)
-property. For example, if a request is made to `/products?price=asc`, you can access the `price` query parameter in
-the following way:
+To retrieve parameters of a URL query string, you can use the
+[`ApplicationRequest.queryParameters`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/-application-request/query-parameters.html)
+property.
+
+The following example accesses the `price` query parameter from a request made to `/products?price=asc`:
 
 ```kotlin
 ```
@@ -76,6 +93,37 @@ the following way:
 
 You can also get the entire query string using the [`ApplicationRequest.queryString()`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/query-string.html) function.
 
+## Required request parameters
+
+When handling requests, it is common to extract values from [path parameters](#path_parameters),
+[query parameters](#query_parameters), [headers](#headers), or [cookies](#cookies) and validate that they are present
+before continuing request processing.
+
+Instead of manually checking for missing values in every route handler, Ktor provides the following helper functions
+that simplify accessing required request data:
+
+[//]: # (TODO: Add API links)
+
+* `ApplicationCall.requireQueryParameter()` — retrieves a required query parameter from the request URL. Throws if the
+  parameter is missing or empty.
+* `ApplicationCall.requireHeader()` — retrieves a required HTTP header value. Throws if the header is not present in
+  the request.
+* `ApplicationCall.requireCookie()` — retrieves a required cookie value, optionally decoding it using the specified
+  encoding. Throws if the cookie is missing.
+* `ApplicationCall.requirePathParameter()` — retrieves a required path parameter from the route definition. Throws if
+  the parameter is not present in the matched route.
+
+Each function returns a non-null value or throws `MissingRequestParameterException` if the value is missing.
+
+```kotlin
+post("/checkout/{cartId}") {
+    val userId = call.requireCookie("userId")
+    val cartId = call.requirePathParameter("cartId")
+    val amount = call.requireQueryParameter("amount").toLong()
+
+    // Business logic
+}
+```
 
 ## Body contents {id="body_contents"}
 This section shows how to receive body contents sent with `POST`, `PUT`, or `PATCH`.
