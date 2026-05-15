@@ -188,12 +188,17 @@ install(Sessions) {
 
 ## Ktor Client
 
-### Custom DNS resolvers in the OkHttp engine
+### Custom DNS resolvers in the OkHttp and Apache5 engines
 
-Ktor 3.5.0 adds first-class support for configuring custom DNS resolvers in the OkHttp client engine.
+Ktor 3.5.0 adds first-class support for configuring custom DNS resolvers in the OkHttp and Apache5 client engines.
 
-Previously, configuring a custom DNS implementation required using the `OkHttpConfig.config()` function to access the
-underlying OkHttp client builder. Ktor now exposes a dedicated `OkHttpConfig.dns` property:
+Previously, you configured custom DNS resolution by accessing engine-specific internals, such as `config {}` in OkHttp 
+or `configureConnectionManager { setDnsResolver(...) }` in Apache5. Ktor now exposes dedicated configuration properties
+on each engine to provide a consistent and type-safe API.
+
+#### OkHttp
+
+You can now configure a custom DNS resolver in OkHttp using the `OkHttpConfig.dns` property:
 
 ```kotlin
 HttpClient(OkHttp) {
@@ -204,3 +209,18 @@ HttpClient(OkHttp) {
 ```
 
 If you do not configure the `dns` property, the OkHttp engine continues to use OkHttp’s default `Dns.SYSTEM` resolver.
+
+#### Apache5
+
+You can now configure a custom DNS resolver in Apache5 using the `Apache5EngineConfig.dnsResolver` property:
+
+```kotlin
+HttpClient(Apache5) {
+    engine {
+        dnsResolver = SystemDefaultDnsResolver.INSTANCE
+    }
+}
+```
+
+If the `dnsResolver` property is not configured, the Apache5 engine continues to use the Apache client’s default DNS
+resolver.
