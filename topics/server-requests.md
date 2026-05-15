@@ -37,7 +37,7 @@ routing {
 
 The [`call.respondText()`](server-responses.md#plain-text) function sends a plain text response back to the client.
 
-### Headers
+### Headers {id="headers"}
 
 To access all HTTP request headers, use the [`ApplicationRequest.headers`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/-application-request/headers.html) property.
 
@@ -46,7 +46,7 @@ For convenience, Ktor also provides dedicated extension functions for accessing 
 [`.contentType()`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/content-type.html), and
 [`.cacheControl()`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/cache-control.html).
 
-### Cookies  
+### Cookies {id="cookies"}
 
 To access the cookies sent with the request, use the [`ApplicationRequest.cookies`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/-application-request/cookies.html)
 property.
@@ -70,7 +70,7 @@ property.
 ## Path parameters {id="path_parameters"}
 
 When handling requests, you can retrieve [path parameter](server-routing.md#path_parameter) values using the 
-`ApplciationCall.parameters` property.
+`ApplicationCall.parameters` property.
 
 For example, in the code snippet below, `call.parameters["login"]` returns `"admin"` for the `/user/admin` path:
 
@@ -110,7 +110,7 @@ that simplify accessing required request data:
   the request.
 * `ApplicationCall.requireCookie()` — retrieves a required cookie value, optionally decoding it using the specified
   encoding. Throws if the cookie is missing.
-* `ApplicationCall.requirePathParameter()` — retrieves a required path parameter from the route definition. Throws if
+* `RoutingCall.requirePathParameter()` — retrieves a required path parameter from the route definition. Throws if
   the parameter is not present in the matched route.
 
 Each function returns a non-null value or throws `MissingRequestParameterException` if the value is missing.
