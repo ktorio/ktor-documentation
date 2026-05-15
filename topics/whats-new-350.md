@@ -185,3 +185,22 @@ install(Sessions) {
     }
 }
 ```
+
+## Ktor Client
+
+### Custom DNS resolvers in the OkHttp engine
+
+Ktor 3.5.0 adds first-class support for configuring custom DNS resolvers in the OkHttp client engine.
+
+Previously, configuring a custom DNS implementation required using the `OkHttpConfig.config()` function to access the
+underlying OkHttp client builder. Ktor now exposes a dedicated `OkHttpConfig.dns` property:
+
+```kotlin
+HttpClient(OkHttp) {
+    engine {
+        dns = Dns { hostname -> listOf(InetAddress.getByName("127.0.0.1")) }
+    }
+}
+```
+
+If you do not configure the `dns` property, the OkHttp engine continues to use OkHttp’s default `Dns.SYSTEM` resolver.
