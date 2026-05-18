@@ -94,6 +94,13 @@ If you make the following request using the client with the above configuration,
 ... the resulting URL will be the following: `https://ktor.io/docs/welcome.html`.
 To learn how base and request URLs are merged, see [DefaultRequest](https://api.ktor.io/ktor-client-core/io.ktor.client.plugins/-default-request/index.html).
 
+> The base URL path must end with a trailing slash. Otherwise, the request path replaces the last
+> segment of the base path according to [RFC 3986](https://www.rfc-editor.org/rfc/rfc3986#section-5.2)
+> URL resolution rules — for example, `path("v1")` is treated as a file and dropped when a request
+> path is appended, while `path("v1/")` is preserved as a directory prefix.
+>
+{style="note"}
+
 
 ### URL parameters {id="url-params"}
 
