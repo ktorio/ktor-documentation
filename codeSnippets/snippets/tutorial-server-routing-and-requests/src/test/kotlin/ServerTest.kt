@@ -1,19 +1,21 @@
 package com.example
 
-import io.ktor.client.request.*
-import io.ktor.client.statement.*
-import io.ktor.http.*
-import io.ktor.server.testing.*
-import org.junit.Test
-import kotlin.test.assertContains
-import kotlin.test.assertEquals
+import io.ktor.client.request.get
+import io.ktor.client.request.header
+import io.ktor.client.request.post
+import io.ktor.client.request.setBody
+import io.ktor.client.statement.bodyAsText
+import io.ktor.http.ContentType
+import io.ktor.http.HttpHeaders
+import io.ktor.http.HttpStatusCode
+import io.ktor.http.formUrlEncode
+import io.ktor.server.testing.testApplication
+import kotlin.test.*
 
-class ApplicationTest {
+class ServerTest {
     @Test
     fun tasksCanBeFoundByPriority() = testApplication {
-        application {
-            module()
-        }
+        configure()
 
         val response = client.get("/tasks/byPriority/Medium")
         val body = response.bodyAsText()
@@ -25,9 +27,7 @@ class ApplicationTest {
 
     @Test
     fun invalidPriorityProduces400() = testApplication {
-        application {
-            module()
-        }
+        configure()
 
         val response = client.get("/tasks/byPriority/Invalid")
         assertEquals(HttpStatusCode.BadRequest, response.status)
@@ -35,9 +35,7 @@ class ApplicationTest {
 
     @Test
     fun unusedPriorityProduces404() = testApplication {
-        application {
-            module()
-        }
+        configure()
 
         val response = client.get("/tasks/byPriority/Vital")
         assertEquals(HttpStatusCode.NotFound, response.status)
@@ -45,9 +43,7 @@ class ApplicationTest {
 
     @Test
     fun newTasksCanBeAdded() = testApplication {
-        application {
-            module()
-        }
+        configure()
 
         val response1 = client.post("/tasks") {
             header(

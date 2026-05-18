@@ -1,15 +1,14 @@
-# Task Application
+# Task application
 
-A Task Application built with Ktor by following the steps explained in
+A standalone task application project built with Ktor by following the steps in
 the [Handle requests and generate responses](https://ktor.io/docs/handle-requests-and-generate-responses.html) tutorial.
-> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Run
 
-To run the application, execute the following command in the repository's root directory:
+To run the application, execute the following command from the project's root directory:
 
 ```bash
-./gradlew :tutorial-server-routing-and-requests:run
+./gradlew run
 ```
 Then, you can navigate to the following URLs:
 - [http://0.0.0.0:8080/task-ui/task-form.html](http://0.0.0.0:8080/task-ui/task-form.html) to add a new task.
