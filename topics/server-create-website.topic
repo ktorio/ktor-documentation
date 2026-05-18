@@ -4,12 +4,12 @@
 <topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
        title="Create a website in Kotlin with Ktor" id="server-create-website">
+    <show-structure for="chapter,procedure" depth="3"/>
     <tldr>
         <var name="example_name" value="tutorial-server-web-application"/>
         <include from="lib.topic" element-id="download_example"/>
         <p>
-            <b>Used plugins</b>: <a href="server-routing.md"/>,
-            <a href="server-static-content.md">Static Content</a>,
+            <b>Used plugins</b>: <a href="server-static-content.md">Static Content</a>,
             <a href="server-thymeleaf.md"/>
         </p>
     </tldr>
@@ -25,13 +25,13 @@
     </link-summary>
 
     <p>
-        In this tutorial, we will show you how to build an interactive website in Kotlin with Ktor and
+        In this tutorial, you will learn how to build an interactive website in Kotlin with Ktor and
         <a href="https://www.thymeleaf.org/">Thymeleaf</a> templates.
     </p>
 
     <p>
         In the <a href="server-create-restful-apis.topic">previous tutorial</a>, you learned how to create a RESTful
-        service, which we assumed would be consumed by a Single Page Application (SPA) written in JavaScript. Although
+        service, to be consumed by a Single Page Application (SPA) written in JavaScript. Although
         this is a very popular architecture, it does not suit every project.
     </p>
     <p>
@@ -40,11 +40,11 @@
     </p>
 
     <list>
-        <li>Simplicity - to maintain a single codebase.</li>
-        <li>Security - to prevent placing data or code onto the browser that could provide insight to attackers.
+        <li>Simplicity – to maintain a single codebase.</li>
+        <li>Security – to prevent placing data or code onto the browser that could provide insight to attackers.
         </li>
         <li>
-            Supportability - to allow clients to use as wide a range of clients as possible, including legacy
+            Supportability – to allow clients to use as wide a range of clients as possible, including legacy
             browsers and those with JavaScript disabled.
         </li>
     </list>
@@ -64,14 +64,14 @@
         </p>
     </chapter>
 
-    <chapter title="Hello Task Manager Web Application" id="hello-task-manager">
+    <chapter title="Hello Task Manager web application" id="hello-task-manager">
         <p>
-            In this tutorial, you'll transform the Task Manager you built in the <a
-                href="server-create-restful-apis.topic">previous tutorial</a> into a Web
-            Application. To do this, you'll use several Ktor <a href="server-plugins.md">plugins</a>.
+            In this tutorial, you'll transform the task management application you built in the <a
+                href="server-create-restful-apis.topic">previous tutorial</a> into a web
+            application. To do this, you'll use several Ktor <a href="server-plugins.md">plugins</a>.
         </p>
         <p>
-            While you could manually add these plugins to your existing project, it’s easier to generate a new project
+            While you can manually add these plugins to your existing project, it’s easier to generate a new project
             and gradually incorporate code from the previous tutorial. We'll provide all the necessary code along the
             way, so you don’t need to have the previous projects to hand.
         </p>
@@ -94,7 +94,7 @@
                 </p>
             </step>
             <step>
-                <p> In the next screen, search for and add the following plugins by clicking on the
+                <p> On the next screen, search for and add the following plugins by clicking on the
                     <control>Add</control>
                     button:
                 </p>
@@ -149,7 +149,7 @@
                 <code-block lang="kotlin"
                             src="snippets/tutorial-server-web-application/src/main/kotlin/model/Task.kt"/>
                 <p>
-                    Once again, we want to create <code>Task</code> objects and send them to clients in a form that can
+                    Once again, you want to create <code>Task</code> objects and send them to clients in a form that can
                     be displayed.
                 </p>
                 <p>
@@ -158,49 +158,42 @@
                 <list>
                     <li>
                         In the <a href="server-requests-and-responses.topic">Handle requests and generate responses</a>
-                        tutorial we added handwritten extension
-                        functions to convert Tasks into HTML.
+                        tutorial, you added handwritten extension
+                        functions to convert tasks into HTML.
                     </li>
                     <li>
-                        In the <a href="server-create-restful-apis.topic">Create RESTful APIs</a> tutorial we annotated
-                        the <code>Task</code> class with
+                        In the <a href="server-create-restful-apis.topic">Create RESTful APIs</a> tutorial, you
+                        annotated the <code>Task</code> class with
                         the <code>Serializable</code> type from the <code>kotlinx.serialization</code> library.
                     </li>
                 </list>
                 <p>
-                    In this case, our goal is to create a server page that can write the contents of tasks to the
+                    In this case, the goal is to create a server page that writes the contents of tasks to the
                     browser.
                 </p>
             </step>
             <step>
                 Open the
-                <path>Templating.kt</path>
+                <path>Routing.kt</path>
                 file in
                 <path>src/main/kotlin</path>
                 .
             </step>
             <step>
                 <p>
-                    In the <code>configureTemplating()</code> method, add a route for <code>/tasks</code> as shown
+                    In the <code>.configureRouting()</code> function, add a route for <code>/tasks</code> as shown
                     below:
                 </p>
                 <code-block lang="kotlin"><![CDATA[
-fun Application.configureTemplating() {
-    install(Thymeleaf) {
-        setTemplateResolver(ClassLoaderTemplateResolver().apply {
-            prefix = "templates/thymeleaf/"
-            suffix = ".html"
-            characterEncoding = "utf-8"
-        })
-    }
+fun Application.configureRouting() {
     routing {
-        get("/html-thymeleaf") {
-            call.respond(ThymeleafContent(
-                "index",
-                mapOf("user" to ThymeleafUser(1, "user1"))
-            ))
+        get("/") {
+            call.respondText("Hello, World!")
         }
-        //this is the additional route to add
+        get("/html-thymeleaf") {
+            call.respond(ThymeleafContent("index", mapOf("user" to ThymeleafUser(1, "user1"))))
+        }
+        // Add this additional route
         get("/tasks") {
             val tasks = listOf(
                 Task("cleaning", "Clean the house", Priority.Low),
@@ -210,6 +203,7 @@ fun Application.configureTemplating() {
             )
             call.respond(ThymeleafContent("all-tasks", mapOf("tasks" to tasks)))
         }
+        staticResources("/static", "static")
     }
 }
 ]]>
@@ -217,27 +211,45 @@ fun Application.configureTemplating() {
                 <p>
                     When the server receives a request for <code>/tasks</code>, it creates a list of tasks and then
                     passes it to a Thymeleaf template. The <code>ThymeleafContent</code> type takes the name of the
-                    template we wish to trigger and a table of values we wish to be accessible on the page.
+                    template to be triggered and a table of values to be accessible on the page.
                 </p>
+            </step>
+            <step>
+                Open the
+                <path>Thymeleaf.kt</path>
+                file in
+                <path>src/main/kotlin</path>
+                .
+            </step>
+            <step>
+                <p>You should see the following <code>.configureThymeleaf</code> function:</p>
+                <code-block lang="kotlin"
+                            src="snippets/tutorial-server-web-application/src/main/kotlin/Thymeleaf.kt"
+                            include-lines="9-17"
+                />
                 <p>
-                    Within the initialization of the Thymeleaf plugin at the top of the method, you can see that Ktor
-                    will look inside
+                    Within the initialization of the Thymeleaf plugin, Ktor looks inside the
                     <path>templates/thymeleaf</path>
-                    for server pages. As with static content, it will expect this folder to be inside the
+                    folder for server pages. As with static content, it expects this folder to be inside the
                     <path>resources</path>
-                    directory. It will also expect a
+                    directory. It also expects a
                     <path>.html</path>
                     suffix.
                 </p>
                 <p>
-                    In this case, the name <code>all-tasks</code> will map to the path
+                    In this case, the name <code>all-tasks</code> maps to the path
                     <code>src/main/resources/templates/thymeleaf/all-tasks.html</code>
                 </p>
             </step>
             <step>
-                Navigate to
+                Navigate to the <path>src/main/resources</path>
+                and create a new <path>templates/thymeleaf</path>
+                directory.
+            </step>
+            <step>
+                Within
                 <path>src/main/resources/templates/thymeleaf</path>
-                and create a new
+                , create a new
                 <path>all-tasks.html</path>
                 file.
             </step>
@@ -261,8 +273,8 @@ fun Application.configureTemplating() {
                      alt="A web browser window displaying a list of tasks" border-effect="rounded" width="706"/>
                 <p>
                     Like all server-page frameworks, Thymeleaf templates mix static content (to be sent to the browser)
-                    with dynamic content (to be executed on the server). If we had chosen an alternative framework, such
-                    as <a href="https://freemarker.apache.org/">Freemarker</a>, we could have provided the same
+                    with dynamic content (to be executed on the server). If you had chosen an alternative framework, such
+                    as <a href="https://freemarker.apache.org/">Freemarker</a>, you could have provided the same
                     functionality with a slightly different syntax.
                 </p>
             </step>
@@ -283,7 +295,7 @@ fun Application.configureTemplating() {
             ]]>
         </code-block>
         <p>
-            This means that, for example, a request to <code>/static/index.html</code> will be served content from
+            This means that, for example, a request to <code>/static/index.html</code> is served content from
             the following path:
         </p>
         <code>src/main/resources/static/index.html</code>
@@ -316,18 +328,18 @@ fun Application.configureTemplating() {
                      alt="A web browser displaying an HTML form" border-effect="rounded" width="706"/>
                 <p>
                     Note that when you are filtering tasks by <code>name</code> or <code>priority</code>, you are
-                    submitting an HTML form through a GET request. This means that the parameters will be added to the
+                    submitting an HTML form through a GET request. This means that the parameters are added to the
                     query string after the URL.
                 </p>
                 <p>
-                    For example, if you search for tasks of <code>Medium</code> priority this is the request that
-                    will be sent to the server:
+                    For example, if you search for tasks of <code>Medium</code> priority, the request sent to the server
+                    looks like the following:
                 </p>
                 <code>http://localhost:8080/tasks/byPriority?priority=Medium</code>
             </step>
         </procedure>
 
-        <procedure title="Reuse the TaskRepository" id="task-repository">
+        <procedure title="Reuse the task repository" id="task-repository">
             <p>
                 The repository for tasks can remain identical to the one from the previous tutorial.
             </p>
@@ -348,18 +360,18 @@ fun Application.configureTemplating() {
             </p>
             <step>
                 Navigate to the
-                <path>Templating.kt</path>
+                <path>Routing.kt</path>
                 file in
                 <path>src/main/kotlin</path>
                 .
             </step>
             <step>
                 <p>
-                    Replace the current version of <code>configureTemplating()</code> with the implementation below:
+                    Replace the current version of <code>.configureRouting()</code> with the implementation below:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-server-web-application/src/main/kotlin/Templating.kt"
-                            include-lines="15-69,100-104"/>
+                            src="snippets/tutorial-server-web-application/src/main/kotlin/Routing.kt"
+                            include-lines="14-69,100-102"/>
                 <p>
                     The above code can be summarized as follows:
                 </p>
@@ -434,18 +446,18 @@ fun Application.configureTemplating() {
         <procedure>
             <step>
                 Navigate to the
-                <path>Templating.kt</path>
+                <path>Routing.kt</path>
                 file in
                 <path>src/main/kotlin</path>
                 .
             </step>
             <step>
                 <p>
-                    Add the following <code>post</code> request route within the <code>configureTemplating()</code>
+                    Add the following <code>post</code> request route within the <code>.configureRouting()</code>
                     method:
                 </p>
                 <code-block lang="kotlin"
-                            src="snippets/tutorial-server-web-application/src/main/kotlin/Templating.kt"
+                            src="snippets/tutorial-server-web-application/src/main/kotlin/Routing.kt"
                             include-lines="70-99"/>
             </step>
             <step>
@@ -480,7 +492,7 @@ fun Application.configureTemplating() {
     <chapter title="Next steps" id="next-steps">
         <p>
             Congratulations! You have now completed rebuilding your Task Manager as a web application and
-            learned how to utilize Thymeleaf templates.</p>
+            learned how to use Thymeleaf templates.</p>
         <p>
             Continue to the <a href="server-create-websocket-application.topic">next tutorial</a> to learn how to work with
             Web Sockets.
