@@ -2,14 +2,13 @@
 
 A web application built with Ktor and Thymeleaf templates by following the steps explained in
 the [Create a website](https://ktor.io/docs/server-create-website.html) tutorial.
-> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Run
 
-To run the application, execute the following command in the repository's root directory:
+To run the application, run the following command from the project's root directory:
 
 ```bash
-./gradlew :tutorial-server-web-application:run
+./gradlew run
 ```
 
 Then, you can navigate to the following URLs:
