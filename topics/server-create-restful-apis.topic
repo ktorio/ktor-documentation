@@ -97,7 +97,7 @@
                          style="block"
                          width="706"/>
                     Once you have added the plugins, you will see all
-                    four plugins listed below the project settings.
+                    plugins listed below the project settings.
                     <img src="tutorial_creating_restful_apis_plugins_list.png"
                          alt="Plugins list in the Ktor Project Generator"
                          border-effect="line"
@@ -239,21 +239,21 @@
             </p>
             <code-block lang="kotlin"
                         src="snippets/tutorial-server-restful-api/src/main/kotlin/Serialization.kt"
-                        include-lines="10-12"/>
+                        include-lines="8-12"/>
             <p>
                 This code installs the <code>ContentNegotiation</code> plugin, and also configures the <code>kotlinx.serialization</code>
-                plugin. With this, when clients send requests the server can send back objects serialized as JSON.
+                plugin. With this, when clients send requests, the server can send back objects serialized as JSON.
             </p>
             <p>
-                In the case of the request from the browser the <code>ContentNegotiation</code> plugin knows it can only
+                In the case of the request from the browser, the <code>ContentNegotiation</code> plugin knows it can only
                 return JSON, and the browser will try to display anything it is sent. So the request succeeds.
             </p>
         </chapter>
         <procedure title="Content Negotiation via JavaScript" id="via-javascript">
             <p>
-                In a production environment, you wouldn’t want to display JSON directly in the browser. Instead, there
-                would be JavaScript code running within the browser, which would make the request and then display the
-                data returned as part of a Single Page Application (SPA). Typically, this kind of application would be
+                In a production environment, you typically do not display JSON directly in the browser. Instead,
+                JavaScript code running in the browser makes the request and then displays the
+                returned data as part of a Single Page Application (SPA). Typically, this kind of application is
                 written using a framework like <a href="https://react.dev/">React</a>,
                 <a href="https://angular.io/">Angular</a>,
                 or <a href="https://vuejs.org/">Vue.js</a>.
@@ -271,7 +271,7 @@
                     This page contains an HTML form and an empty table. Upon submitting the form a JavaScript event
                     handler
                     sends a request to the <code>/tasks</code> endpoint, with the <code>Accept</code> header set to
-                    <code>application/json</code>. The data returned is then de-serialized and added to an HTML table.
+                    <code>application/json</code>. The data returned is then deserialized and added to an HTML table.
                 </p>
             </step>
             <step>
@@ -297,9 +297,9 @@
             functionality
             from the <a href="server-requests-and-responses.topic">previous tutorial</a> into this one.
         </p>
-        <chapter title="Reuse the Task Repository" id="task-repository">
+        <chapter title="Reuse the task repository" id="task-repository">
             <p>
-                You can reuse the repository for Tasks without any modification, so let’s do that first.
+                You can reuse the repository for tasks without any modification, so let’s do that first.
             </p>
             <procedure>
                 <step>
@@ -429,7 +429,7 @@
                      border-effect="rounded"
                      width="706"/>
                 <p>
-                    Given that these kinds of requests will typically be coming from JavaScript, more
+                    Given that these kinds of requests typically come from JavaScript, more
                     fine-grained testing is preferable. For this, you can use a specialist tool such as <a
                         href="https://learning.postman.com/docs/sending-requests/requests/">Postman</a>.
                 </p>
@@ -559,11 +559,11 @@
                     import kotlinx.serialization.SerializationException
                 </code-block>
                 <p>
-                    When a POST request is sent to <code>/tasks</code> the <code>kotlinx.serialization</code> framework
+                    When a POST request is sent to <code>/tasks</code>, the <code>kotlinx.serialization</code> framework
                     is used to convert the body of the request into a <code>Task</code> object. If this succeeds, the
-                    task will be added to the repository. If the deserialization process fails the server will need to
-                    handle a <code>SerializationException</code>, whereas if the task is a duplicate it will need to
-                    handle an <code>IllegalStateException</code>.
+                    task is added to the repository. If the deserialization process fails, the server
+                    handles a <code>SerializationException</code>, whereas if the task is a duplicate, it
+                    handles an <code>IllegalStateException</code>.
                 </p>
             </step>
             <step>
@@ -580,7 +580,7 @@
                 <p>
                     In the
                     <ui-path>Body</ui-path>
-                    pane add the following JSON document to represent a new task:
+                    panel add the following JSON document to represent a new task:
                 </p>
                 <code-block lang="json" src="snippets/tutorial-server-restful-api/REST Task Manager.http"
                             include-lines="9-13"/>
@@ -604,8 +604,8 @@
             </step>
             <step>
                 <p>
-                    Within IntelliJ IDEA Ultimate you could perform the same steps by adding the following to your HTTP
-                    Request file:
+                    Within IntelliJ IDEA Ultimate, you can perform the same steps by adding the following to your HTTP
+                    request file:
                 </p>
                 <code-block lang="http" src="snippets/tutorial-server-restful-api/REST Task Manager.http"
                             include-lines="4-14"/>
@@ -614,15 +614,15 @@
     </chapter>
     <chapter title="Add support for removals" id="remove-tasks">
         <p>
-            You have almost finished adding the basic operations to your service. These are often summarized as the CRUD
-            operations - short for Create, Read, Update, and Delete. Now you are going to implement the Delete operation.
+            You have almost finished adding the basic operations to your service. These are often summarized as the CRUD (Create, Read, Update, and Delete)
+            operations. Now you are going to implement the delete operation.
         </p>
         <procedure>
             <step>
                 <p>
                     In the
                     <path>TaskRepository.kt</path>
-                    file add the following method within the <code>TaskRepository</code> object to remove tasks based on
+                    file, add the following method within the <code>TaskRepository</code> object to remove tasks based on
                     their name:
                 </p>
                 <code-block lang="kotlin"
@@ -695,7 +695,7 @@
     </chapter>
     <chapter title="Create unit tests with Ktor Client" id="create-unit-tests">
         <p>
-            So far you have tested your application manually, but, as you’ve already noticed, this approach is
+            So far, you have tested your application manually, but, as you’ve already noticed, this approach is
             time-consuming and will not scale. Instead, you can implement <a href="server-testing.md">JUnit tests</a>,
             using the built-in
             <code>client</code> object to fetch and deserialize JSON.
@@ -704,7 +704,7 @@
             <step>
                 <p>
                     Open the
-                    <path>ApplicationTest.kt</path>
+                    <path>ServerTest.kt</path>
                     file within
                     <path>src/test/kotlin</path>
                     .
@@ -713,11 +713,11 @@
             <step>
                 <p>
                     Replace the contents of the
-                    <path>ApplicationTest.kt</path>
+                    <path>ServerTest.kt</path>
                     file with the following:
                 </p>
                 <code-block
-                        src="snippets/tutorial-server-restful-api/src/test/kotlin/ApplicationTest.kt"
+                        src="snippets/tutorial-server-restful-api/src/test/kotlin/ServerTest.kt"
                         lang="kotlin"/>
 
                 <p>
@@ -729,23 +729,12 @@
             </step>
             <step>
                 <p>
-                    Add the following dependency into your version catalog located in
-                    <path>gradle/libs.versions.toml</path>:
-                </p>
-                <code-block lang="yaml">
-                    [libraries]
-                    # ...
-                    ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
-                </code-block>
-            </step>
-            <step>
-                <p>
-                    Add the new dependency into your
+                    Add the following dependency into your
                     <path>build.gradle.kts</path>
                     file:
                 </p>
                 <code-block lang="kotlin">
-                    testImplementation(libs.ktor.client.content.negotiation)
+                    testImplementation(ktorLibs.client.contentNegotiation)
                 </code-block>
             </step>
         </procedure>
@@ -777,7 +766,7 @@
                 </p>
                 <code-block
                         src="snippets/tutorial-server-restful-api/build.gradle.kts"
-                        include-lines="32"
+                        include-lines="29"
                         lang="kotlin"/>
             </step>
             <step>
