@@ -9,7 +9,7 @@
         <var name="example_name" value="tutorial-server-websockets"/>
         <include from="lib.topic" element-id="download_example"/>
         <p>
-            <b>Used plugins</b>: <a href="server-routing.md"/>,<a href="server-static-content.md">Static Content</a>,
+            <b>Used plugins</b>: <a href="server-static-content.md">Static Content</a>,
             <a href="server-serialization.md">Content Negotiation</a>, <a href="server-websockets.md"/>,
             <a href="https://kotlinlang.org/api/kotlinx.serialization/">kotlinx.serialization</a>
         </p>
@@ -46,11 +46,11 @@
     </chapter>
     <chapter title="Hello WebSockets" id="hello-websockets">
         <p>
-            In this tutorial, you will build on the Task Manager service developed in the <a
+            In this tutorial, you will build on the task manager service developed in the <a
                 href="server-create-restful-apis.topic">Create RESTful APIs</a> tutorial by adding the
             ability to exchange <code>Task</code> objects with a client,
             through a WebSocket connection. To achieve this, you will need to add the <a href="server-websockets.md">WebSockets
-            Plugin</a>. While you could manually add it to your existing project, for the sake of this tutorial, we'll
+            plugin</a>. While you can manually add it to your existing project, for the sake of this tutorial, you'll
             start from scratch by creating a new project.
         </p>
         <chapter title="Create the initial project with plugins" id="create=project">
@@ -93,9 +93,8 @@
                 </step>
                 <step>
                     <p>
-                        Once you have added the plugins, click on the
-                        <control>5 plugins</control>
-                        button at the top right of the plugin section, to display the added plugins.
+                        Once you have added the plugins, they will be displayed in the top right corner of the plugin
+                        section.
                     </p>
                     <p>You will then see a list of all the plugins that will be added to your project:
                         <img src="tutorial_server_websockets_project_plugins.png"
@@ -145,22 +144,21 @@
                         be transferred over the network.
                     </p>
                     <p>
-                        Because you included the WebSockets plugin, a
-                        <path>Sockets.kt</path>
-                        file has been generated within
+                        Because you included the WebSockets plugin, the generator has added a
+                        <path>Websockets.kt</path>
+                        file and a <code>webSocket</code> route in the
+                        <path>Routing.kt</path> file
+                        within
                         <path>src/main/kotlin</path>
                         .
                     </p>
                 </step>
                 <step>
-                    <p>
-                        Open the
-                        <path>Sockets.kt</path>
-                        file and replace the existing <code>Application.configureSockets()</code> function with the
-                        implementation below:
-                    </p>
-                    <code-block lang="kotlin"><![CDATA[
-                        fun Application.configureSockets() {
+                    Open the
+                    <path>Websockets.kt</path>
+                    file and replace the existing <code>.configureWebsockets()</code> function with the following:
+                    <code-block lang="kotlin">
+                        fun Application.configureWebsockets() {
                             install(WebSockets) {
                                 contentConverter = KotlinxWebsocketSerializationConverter(Json)
                                 pingPeriod = 15.seconds
@@ -168,36 +166,47 @@
                                 maxFrameSize = Long.MAX_VALUE
                                 masking = false
                             }
-
-                            routing {
-                                webSocket("/tasks") {
-                                    val tasks = listOf(
-                                        Task("cleaning", "Clean the house", Priority.Low),
-                                        Task("gardening", "Mow the lawn", Priority.Medium),
-                                        Task("shopping", "Buy the groceries", Priority.High),
-                                        Task("painting", "Paint the fence", Priority.Medium)
-                                    )
-
-                                    for (task in tasks) {
-                                        sendSerialized(task)
-                                        delay(1000)
-                                    }
-
-                                    close(CloseReason(CloseReason.Codes.NORMAL, "All done"))
-                                }
-                            }
                         }
-                    ]]></code-block>
-                    <p>
-                        In this code the following steps occur:
-                    </p>
-                    <list type="decimal">
+                    </code-block>
+                    <list>
                         <li>The WebSockets plugin is installed and configured with standard settings.</li>
                         <li>The <code>contentConverter</code> property is set, enabling the plugin to
                             serialize objects sent and received through the <a
-                                    href="https://github.com/Kotlin/kotlinx.serialization">kotlinx.serialization</a>
+                                    href="https://github.com/Kotlin/kotlinx.serialization"><code>kotlinx.serialization</code></a>
                             library.
                         </li>
+                    </list>
+                </step>
+                <step>
+                    <p>
+                        Open the
+                        <path>Routing.kt</path>
+                        file and replace the existing <code>Application.configureRouting()</code> function with the
+                        implementation below:
+                    </p>
+                    <code-block lang="kotlin"><![CDATA[
+                    fun Application.configureRouting() {
+                        routing {
+                            webSocket("/tasks") {
+                                val tasks = listOf(
+                                    Task("cleaning", "Clean the house", Priority.Low),
+                                    Task("gardening", "Mow the lawn", Priority.Medium),
+                                    Task("shopping", "Buy the groceries", Priority.High),
+                                    Task("painting", "Paint the fence", Priority.Medium)
+                                )
+
+                                for (task in tasks) {
+                                    sendSerialized(task)
+                                    delay(1000.milliseconds)
+                                }
+
+                                close(CloseReason(CloseReason.Codes.NORMAL, "All done"))
+                            }
+                            staticResources("/static", "static")
+                        }
+                    }
+                    ]]></code-block>
+                    <list>
                         <li>Routing is configured with a single endpoint, where the relative URL is <code>/tasks</code>.
                         </li>
                         <li>Upon receiving a request, a list of tasks is serialized down the WebSocket connection.</li>
@@ -205,7 +214,7 @@
                     </list>
                     <p>
                         For demonstration purposes, a one-second delay is introduced between sending tasks. This
-                        allows us to observe the tasks appearing incrementally in our client. Without this delay,
+                        allows you to observe the tasks appearing incrementally in the client. Without this delay,
                         the example would appear identical to the <a href="server-create-restful-apis.topic">RESTful
                         service</a> and <a href="server-create-website.topic">Web Application</a> developed in
                         previous articles.
@@ -213,9 +222,9 @@
                     <p>
                         The final step in this iteration is to create a client for this endpoint. Because you included
                         the
-                        <a href="server-static-content.md">Static Content</a> plugin, an
+                        <a href="server-static-content.md">Static Content</a> plugin, the Ktor project generator has added an
                         <path>index.html</path>
-                        file has been generated within
+                        file within
                         <path>src/main/resources/static</path>
                         .
                     </p>
@@ -229,11 +238,11 @@
                     <code-block src="snippets/tutorial-server-websockets/src/main/resources/static/index.html"
                                 lang="html"/>
                     <p>
-                        This page uses the <a href="https://websockets.spec.whatwg.org//#websocket">WebSocket type</a>,
-                        available in all modern browsers. We create this object in JavaScript, passing the URL of
-                        our endpoint into the constructor. Subsequently, we attach event handlers for the
+                        This page uses the <a href="https://websockets.spec.whatwg.org//#websocket"><code>WebSocket</code> type</a>,
+                        available in all modern browsers. You create this object in JavaScript, passing the URL of
+                        the endpoint into the constructor. Subsequently, you attach event handlers for the
                         <code>onopen</code>, <code>onclose</code>,
-                        and <code>onmessage</code> events. Upon triggering the <code>onmessage</code> event, we append a
+                        and <code>onmessage</code> events. Upon triggering the <code>onmessage</code> event, you append a
                         row to a table using the document object's methods.
                     </p>
                 </step>
@@ -250,12 +259,12 @@
                          border-effect="rounded"
                          width="706"/>
                     <p>
-                        When you click on the form, tasks should be loaded from the server, appearing at a rate of one
-                        per second. As a result, the table should be populated incrementally. You can also view the
+                        When you click on the form, tasks are loaded from the server, appearing at a rate of one
+                        per second. As a result, the table is populated incrementally. You can also view the
                         logged messages by opening the
                         <control>JavaScript Console</control>
                         in your browser's
-                        <control>developer tools</control>
+                        <control>Developer Tools</control>
                         .
                     </p>
                     <img src="tutorial_server_websockets_iteration_1_click.gif"
@@ -263,7 +272,7 @@
                          border-effect="rounded"
                          width="706"/>
                     <p>
-                        With this, you can see that the service is performing as expected. A WebSocket connection is
+                        With this, the service is performing as expected. A WebSocket connection is
                         opened, the items are sent to the client, and then the connection is closed. There is a lot of
                         complexity in the underlying networking, but Ktor handles all of this by default.
                     </p>
@@ -273,12 +282,12 @@
     </chapter>
     <chapter title="Understanding WebSockets" id="understanding-websockets">
         <p>
-            Before moving to the next iteration, it may be helpful to review some of the fundamentals of WebSockets.
+            Before moving to the next iteration, it may be helpful to review some fundamentals of WebSockets.
             If you are already familiar with WebSockets, you can continue to <a anchor="improve-design">improve
             the design of your service</a>.
         </p>
         <p>
-            In previous tutorials, your clients were sending HTTP Requests and receiving HTTP Responses. This works well
+            In previous tutorials, your clients were sending HTTP requests and receiving HTTP responses. This works well
             and enables the Internet to be scalable and resilient.
         </p>
         <p>However, it's not suitable for scenarios where:</p>
@@ -295,18 +304,18 @@
         </p>
         <p>
             A WebSocket connection is established over TCP and can last for an extended period. The connection provides
-            ‘full duplex communication’, meaning clients can send messages to the server and receive messages from it
+            <emphasis>full duplex communication</emphasis>, meaning clients can send messages to the server and receive messages from it
             simultaneously.
         </p>
         <p>
             The WebSocket API defines four events (open, message, close, and error) and two actions (send and close).
             How this functionality is accessed can vary across different languages and libraries.
             For example, in Kotlin, you can consume the sequence of incoming messages as a <a
-                href="https://kotlinlang.org/docs/flow.html">Flow</a>.
+                href="https://kotlinlang.org/docs/flow.html"><code>Flow</code></a>.
         </p>
     </chapter>
     <chapter title="Improve the design" id="improve-design">
-        <p>Next, you will refactor your existing code, to make room for more advanced examples.</p>
+        <p>Next, you will refactor your existing code to make room for more advanced examples.</p>
         <procedure>
             <step>
                 <p>
@@ -331,12 +340,12 @@
                 Navigate to
                 <path>src/main/kotlin</path>
                 and open the
-                <path>Sockets.kt</path>
+                <path>Routing.kt</path>
                 file.
             </step>
             <step>
                 <p>
-                    You can now simplify the routing in <code>Application.configureSockets()</code> by utilizing the
+                    You can now simplify the routing in <code>Application.configureRouting()</code> by utilizing the
                     <code>TaskRepository</code>:
                 </p>
                 <code-block lang="kotlin"><![CDATA[
@@ -344,11 +353,11 @@
                         webSocket("/tasks") {
                             for (task in TaskRepository.allTasks()) {
                                 sendSerialized(task)
-                                delay(1000)
+                                delay(1000.milliseconds)
                             }
-
                             close(CloseReason(CloseReason.Codes.NORMAL, "All done"))
                         }
+                        // ...
                     }
                 ]]></code-block>
             </step>
@@ -373,12 +382,12 @@
             <step>
                 <p>
                     In the
-                    <path>Sockets.kt</path>
-                    file, replace the current <code>configureSockets()</code> method with the implementation below:
+                    <path>Routing.kt</path>
+                    file, replace the current <code>.configureRouting()</code> method with the implementation below:
                 </p>
-                <code-block src="snippets/tutorial-server-websockets/src/main/kotlin/Sockets.kt"
+                <code-block src="snippets/tutorial-server-websockets/src/main/kotlin/Routing.kt"
                             lang="kotlin"
-                            include-lines="16-53"
+                            include-lines="14-45"
                 />
                 <p>With this code you have done the following:</p>
                 <list>
@@ -422,9 +431,9 @@
                 />
                 <p>
                     This new page introduces an HTML form, into which the user can enter the information for a new task.
-                    Upon submitting the form, the <code>sendTaskToServer</code> event handler is called. This builds a
+                    Upon submitting the form, the <code>sendTaskToServer()</code> event handler is called. This builds a
                     JavaScript object with the form data and sends it to the server using the
-                    <code>send</code> method of the WebSocket object.
+                    <code>.send()</code> method of the WebSocket object.
                 </p>
             </step>
             <step>
@@ -473,7 +482,7 @@
                 </p>
                 <code-block src="snippets/tutorial-server-websockets/build.gradle.kts"
                             lang="kotlin"
-                            include-lines="35"
+                            include-lines="29"
                 />
             </step>
             <step>
@@ -486,7 +495,7 @@
                     Navigate to
                     <path>src/test/kotlin</path>
                     and open the
-                    <path>ApplicationTest.kt</path>
+                    <path>ServerTest.kt</path>
                     file.
                 </p>
             </step>
@@ -494,7 +503,7 @@
                 <p>
                     Replace the generated test class with the implementation below:
                 </p>
-                <code-block src="snippets/tutorial-server-websockets/src/test/kotlin/ApplicationTest.kt"
+                <code-block src="snippets/tutorial-server-websockets/src/test/kotlin/ServerTest.kt"
                             lang="kotlin"
                 />
                 <p>
@@ -503,10 +512,10 @@
                 <list>
                     <li>
                         Configure your service to run within the test environment and enable the same functionality that
-                        you would have in production, including Routing, JSON Serialization, and WebSockets.
+                        you would have in production, including JSON serialization, and WebSockets.
                     </li>
                     <li>
-                        Configure Content Negotiation and WebSocket support within the <a
+                        Configure content negotiation and WebSocket support within the <a
                             href="client-create-and-configure.md">Ktor Client</a>. Without this, the
                         client wouldn’t know how to (de)serialize objects as JSON when using WebSocket connections.
                     </li>
@@ -514,11 +523,11 @@
                         Declare the list of <code>Tasks</code> you expect the service to send back.
                     </li>
                     <li>
-                        Use the <code>websocket</code> method of the client object to send a request to
+                        Use the <code>.webSocket</code> function of the <code>client</code> object to send a request to
                         <code>/tasks</code>.
                     </li>
                     <li>
-                        Consume the incoming tasks as a <code>flow</code>, incrementally adding them to a list.
+                        Consume the incoming tasks as a <code>Flow</code>, incrementally adding them to a list.
                     </li>
                     <li>
                         Once all tasks have been received, compare the <code>expectedTasks</code> to the <code>actualTasks</code>
