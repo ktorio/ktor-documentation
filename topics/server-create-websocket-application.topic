@@ -395,7 +395,7 @@
                         Refactored the functionality to send all existing tasks into a helper method.
                     </li>
                     <li>
-                        In the <code>routing</code> section, you've created a thread-safe list of <code>session</code>
+                        In the <code>routing {}</code> block, you've created a thread-safe list of <code>session</code>
                         objects to keep track of all clients.
                     </li>
                     <li>
