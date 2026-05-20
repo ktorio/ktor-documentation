@@ -687,7 +687,7 @@
                     add the relevant dependencies in your Gradle build file.
                 </p>
                 <step>
-                    In your <path>gradle/libs.versions.kts</path> file, add the <code>exposed-jdbc</code> and
+                    In your <path>gradle/libs.versions.toml</path> file, add the <code>exposed-jdbc</code> and
                     <code>exposed-dao</code> libraries:
                     <code-block lang="kotlin">
                         [libraries]
