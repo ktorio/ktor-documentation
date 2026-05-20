@@ -8,6 +8,7 @@ import io.ktor.server.websocket.*
 import io.ktor.websocket.*
 import io.ktor.server.http.content.*
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.ensureActive
 import java.util.Collections
 import kotlin.time.Duration.Companion.milliseconds
 
