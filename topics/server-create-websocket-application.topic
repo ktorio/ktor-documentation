@@ -387,7 +387,7 @@
                 </p>
                 <code-block src="snippets/tutorial-server-websockets/src/main/kotlin/Routing.kt"
                             lang="kotlin"
-                            include-lines="14-45"
+                            include-lines="14-46"
                 />
                 <p>With this code you have done the following:</p>
                 <list>

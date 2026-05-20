@@ -26,6 +26,7 @@ fun Application.configureRouting() {
             sendAllTasks()
 
             while(true) {
+                ensureActive()
                 val newTask = receiveDeserialized<Task>()
                 TaskRepository.addTask(newTask)
                 for(session in sessions) {
