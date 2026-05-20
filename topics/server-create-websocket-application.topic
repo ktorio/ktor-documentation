@@ -399,7 +399,7 @@
                         objects to keep track of all clients.
                     </li>
                     <li>
-                        Added a new endpoint with a relative URL of <code>/task2</code>. When a client connects to
+                        Added a new endpoint with a relative URL of <code>/tasks2</code>. When a client connects to
                         this endpoint, the corresponding <code>session</code> object is added to the list. The server
                         then enters an infinite loop in waiting to receive a new task. Upon receiving a new task, the
                         server stores it in the repository and sends a copy to all clients, including the current one.
