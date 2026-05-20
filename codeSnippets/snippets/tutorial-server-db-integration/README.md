@@ -1,8 +1,8 @@
 # Integrate a database
 
 A standalone sample project showing how to integrate a
-database intro a Ktor application using Exposed and PostgreSQL by following
-the tutorial [Integrate a database](https://ktor.io/docs/server-integrate-database.html).
+database into a Ktor application using Exposed and PostgreSQL by following
+the [Integrate a database](https://ktor.io/docs/server-integrate-database.html) tutorial.
 
 ## Install PostgreSQL
 
@@ -15,7 +15,7 @@ in [the tutorial](https://ktor.io/docs/server-integrate-database.html#create-sch
 
 ## Set up the database connection
 
-1. Navigate to `src/main/kotlin/` and open the `Databases.kt` file.
+1. Navigate to `src/main/kotlin/` and open the `Exposed.kt` file.
 2. Replace the attributes in the `Database.connect()` function to correspond to your setup:
 ```kotlin
 fun Application.configureDatabases() {
