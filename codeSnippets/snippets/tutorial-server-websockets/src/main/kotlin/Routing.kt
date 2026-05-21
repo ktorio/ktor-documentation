@@ -1,16 +1,47 @@
 package com.example
 
+import com.example.model.Task
+import com.example.model.TaskRepository
 import io.ktor.server.application.*
-import io.ktor.server.http.content.*
-import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import io.ktor.server.websocket.*
+import io.ktor.websocket.*
+import io.ktor.server.http.content.*
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.ensureActive
+import java.util.Collections
+import kotlin.time.Duration.Companion.milliseconds
 
 fun Application.configureRouting() {
     routing {
-        get("/") {
-            call.respondText("Hello World!")
+        val sessions =
+            Collections.synchronizedList<WebSocketServerSession>(ArrayList())
+
+        webSocket("/tasks") {
+            sendAllTasks()
+            close(CloseReason(CloseReason.Codes.NORMAL, "All done"))
         }
-        // Static plugin. Try to access `/static/index.html`
+
+        webSocket("/tasks2") {
+            sessions.add(this)
+            sendAllTasks()
+
+            while(true) {
+                ensureActive()
+                val newTask = receiveDeserialized<Task>()
+                TaskRepository.addTask(newTask)
+                for(session in sessions) {
+                    session.sendSerialized(newTask)
+                }
+            }
+        }
         staticResources("/static", "static")
+    }
+}
+
+private suspend fun DefaultWebSocketServerSession.sendAllTasks() {
+    for (task in TaskRepository.allTasks()) {
+        sendSerialized(task)
+        delay(1000.milliseconds)
     }
 }

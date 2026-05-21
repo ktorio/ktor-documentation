@@ -1,5 +1,3 @@
-package com.example
-
 import com.example.model.Priority
 import com.example.model.Task
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -18,14 +16,10 @@ import kotlinx.serialization.json.Json
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class ApplicationTest {
+class ServerTest {
     @Test
     fun testRoot() = testApplication {
-        application {
-            configureRouting()
-            configureSerialization()
-            configureSockets()
-        }
+        configure()
 
         val client = createClient {
             install(ContentNegotiation) {

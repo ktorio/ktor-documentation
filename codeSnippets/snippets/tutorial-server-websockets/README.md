@@ -1,15 +1,14 @@
-# Ktor WebSockets Task Application
+# Ktor WebSockets task application
 
-A Task Application built with Ktor by following the steps explained in
+A task application built with Ktor by following the steps explained in
 the [Create a WebSocket application](https://ktor.io/docs/server-create-websocket-application.html) tutorial.
-> This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
 ## Run
 
-To run the application, execute the following command in the repository's root directory:
+To run the application, run the following command from the project's root directory:
 
 ```bash
-./gradlew :tutorial-server-websockets:run
+./gradlew run
 ```
 
 Then, you can navigate to the following URLs:

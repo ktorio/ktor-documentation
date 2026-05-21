@@ -1,36 +1,30 @@
-val ktor_version: String by project
-val kotlin_version: String by project
-val logback_version: String by project
 
 plugins {
-    kotlin("jvm")
-    id("io.ktor.plugin") version "3.5.0"
-    id("org.jetbrains.kotlin.plugin.serialization") version "2.2.20"
+    alias(libs.plugins.kotlin.jvm)
+    alias(ktorLibs.plugins.ktor)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 group = "com.example"
-version = "0.0.1"
+version = "1.0.0-SNAPSHOT"
 
 application {
-    mainClass.set("com.example.ApplicationKt")
-
-    val isDevelopment: Boolean = project.ext.has("development")
-    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
+    mainClass = "io.ktor.server.netty.EngineMain"
 }
 
-repositories {
-    mavenCentral()
+kotlin {
+    jvmToolchain(21)
 }
-
 dependencies {
-    implementation("io.ktor:ktor-server-core-jvm")
-    implementation("io.ktor:ktor-server-host-common-jvm")
-    implementation("io.ktor:ktor-server-websockets-jvm")
-    implementation("io.ktor:ktor-server-content-negotiation-jvm")
-    implementation("io.ktor:ktor-serialization-kotlinx-json-jvm")
-    implementation("io.ktor:ktor-server-netty-jvm")
-    implementation("ch.qos.logback:logback-classic:$logback_version")
-    testImplementation("io.ktor:ktor-server-test-host-jvm")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
-    testImplementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
+    implementation(ktorLibs.serialization.kotlinx.json)
+    implementation(ktorLibs.server.config.yaml)
+    implementation(ktorLibs.server.contentNegotiation)
+    implementation(ktorLibs.server.core)
+    implementation(ktorLibs.server.netty)
+    implementation(ktorLibs.server.websockets)
+    implementation(libs.logback.classic)
+
+    testImplementation(kotlin("test"))
+    testImplementation(ktorLibs.server.testHost)
+    testImplementation(ktorLibs.client.contentNegotiation)
 }
