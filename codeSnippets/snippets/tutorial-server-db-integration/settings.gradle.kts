@@ -1,4 +1,6 @@
-rootProject.name = "ktor-exposed-task-app"
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+}
 
 pluginManagement {
     repositories {
@@ -16,6 +18,4 @@ dependencyResolutionManagement {
     }
 }
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
-}
+rootProject.name = "ktor-exposed-task-app"
