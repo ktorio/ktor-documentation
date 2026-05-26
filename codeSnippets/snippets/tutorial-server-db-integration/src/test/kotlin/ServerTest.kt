@@ -2,22 +2,33 @@ package com.example
 
 import com.example.model.Priority
 import com.example.model.Task
-import com.example.FakeTaskRepository
+import com.example.model.TaskRepository
 import io.ktor.client.call.*
 import io.ktor.client.plugins.contentnegotiation.*
+import io.ktor.server.plugins.di.dependencies
 import io.ktor.client.request.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
+import io.ktor.server.application.*
 import io.ktor.server.testing.*
 import kotlin.test.*
 
-class ApplicationTest {
+suspend fun Application.configureTestApp() {
+    dependencies {
+        provide<TaskRepository> {
+            FakeTaskRepository()
+        }
+    }
+    configureSerialization()
+    configureStatusPages()
+    configureRouting()
+}
+
+class ServerTest {
     @Test
     fun tasksCanBeFoundByPriority() = testApplication {
         application {
-            val repository = FakeTaskRepository()
-            configureSerialization(repository)
-            configureRouting()
+            configureTestApp()
         }
 
         val client = createClient {
@@ -39,9 +50,7 @@ class ApplicationTest {
     @Test
     fun invalidPriorityProduces400() = testApplication {
         application {
-            val repository = FakeTaskRepository()
-            configureSerialization(repository)
-            configureRouting()
+            configureTestApp()
         }
         val response = client.get("/tasks/byPriority/Invalid")
         assertEquals(HttpStatusCode.BadRequest, response.status)
@@ -50,9 +59,7 @@ class ApplicationTest {
     @Test
     fun unusedPriorityProduces404() = testApplication {
         application {
-            val repository = FakeTaskRepository()
-            configureSerialization(repository)
-            configureRouting()
+            configureTestApp()
         }
 
         val response = client.get("/tasks/byPriority/Vital")
@@ -62,9 +69,7 @@ class ApplicationTest {
     @Test
     fun newTasksCanBeAdded() = testApplication {
         application {
-            val repository = FakeTaskRepository()
-            configureSerialization(repository)
-            configureRouting()
+            configureTestApp()
         }
 
         val client = createClient {
