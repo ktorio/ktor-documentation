@@ -1,21 +1,17 @@
 plugins {
     alias(libs.plugins.kotlinJvm)
     alias(libs.plugins.ktor)
-    application
 }
 
-group = "com.example.ktor.full_stack_task_manager"
+group = "com.example.ktor"
 version = "1.0.0"
 application {
-    mainClass.set("com.example.ktor.full_stack_task_manager.ApplicationKt")
-    
-    val isDevelopment: Boolean = project.ext.has("development")
-    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
+    mainClass = "com.example.ktor.ApplicationKt"
 }
 
 dependencies {
     //...
-    implementation(projects.shared)
+    api(projects.core)
     implementation(libs.logback)
     implementation(libs.ktor.serverCore)
     implementation(libs.ktor.serverNetty)

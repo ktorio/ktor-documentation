@@ -1,0 +1,7 @@
+TEAM_ID=
+
+PRODUCT_NAME=full-stack-task-manager
+PRODUCT_BUNDLE_IDENTIFIER=com.example.ktor.full-stack-task-manager$(TEAM_ID)
+
+CURRENT_PROJECT_VERSION=1
+MARKETING_VERSION=1.0
