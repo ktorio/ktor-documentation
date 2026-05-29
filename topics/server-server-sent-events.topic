@@ -123,7 +123,7 @@
             </p>
 
             <code-block lang="kotlin" src="snippets/server-sse/src/main/kotlin/com/example/Application.kt"
-                        include-lines="23-30,53"/>
+                        include-lines="24-31,69"/>
             <p>For the full example, see
                 <a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/server-sse">server-sse</a>.
             </p>
@@ -142,10 +142,24 @@
                 function within an SSE route handler:
             </p>
             <code-block lang="kotlin" src="snippets/server-sse/src/main/kotlin/com/example/Application.kt"
-                        include-lines="24,42-47,52-53"/>
+                        include-lines="43-48,53-54"/>
             <p>
                 In this example, a heartbeat event is sent every 10 milliseconds to maintain the
                 connection.
+            </p>
+            <p>
+                You can also dynamically generate heartbeat events using the <code>eventProvider</code> property:
+            </p>
+            <code-block lang="kotlin" src="snippets/server-sse/src/main/kotlin/com/example/Application.kt"
+                        include-lines="56-63,68"/>
+            <p>
+                When set, <code>eventProvider</code> is invoked on each heartbeat tick to produce a
+                <code>ServerSentEvent</code>. This allows heartbeat events to include dynamic content, such as timestamps
+                or status information.
+            </p>
+            <p>
+                If both <code>event</code> and <code>eventProvider</code> are configured, <code>eventProvider</code>
+                takes precedence over <code>event</code>.
             </p>
         </chapter>
         <chapter title="Serialization" id="serialization">
@@ -158,7 +172,7 @@
                 class to send serialized events:
             </p>
             <code-block lang="kotlin" src="snippets/server-sse/src/main/kotlin/com/example/Application.kt"
-                        include-lines="12-17,20-24,32-39,53-54"/>
+                        include-lines="13-18,21-25,33-40,69-70"/>
             <p>
                 The <code>serialize</code> function in this example is responsible for converting data objects into JSON, which is then
                 placed in the <code>data</code> field of a <code>ServerSentEvent</code>.

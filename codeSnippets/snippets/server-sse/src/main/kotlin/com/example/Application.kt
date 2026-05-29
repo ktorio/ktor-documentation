@@ -8,6 +8,7 @@ import kotlinx.coroutines.*
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.serializer
+import kotlin.time.Clock
 import kotlin.time.Duration.Companion.milliseconds
 
 @Serializable
@@ -47,6 +48,21 @@ fun Application.module() {
             // ...
             repeat(4) {
                 send(ServerSentEvent("Hello"))
+                delay(10.milliseconds)
+            }
+        }
+
+        // example with custom heartbeat
+        sse("/heartbeat-custom") {
+            heartbeat {
+                period = 30.milliseconds
+                eventProvider = {
+                    ServerSentEvent(data = "ts=${Clock.System.now()}")
+                }
+            }
+            // ...
+            repeat(4) {
+                send("Hello")
                 delay(10.milliseconds)
             }
         }
