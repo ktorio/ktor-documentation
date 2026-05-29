@@ -1,5 +1,13 @@
 [//]: # (title: I/O Interoperability)
 
+<tldr>
+<p>
+<b>Code examples</b>: 
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-io-interop">client-io-interop</a>, 
+<a href="https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/server-io-interop">server-io-interop</a>
+</p>
+</tldr>
+
 <show-structure for="chapter" depth="2"/>
 
 <link-summary>
@@ -26,18 +34,16 @@ types.
 To convert a `ByteReadChannel` into a `RawSource`, use the `.asSource()` extension function:
 
 ```kotlin
-val channel: ByteReadChannel = response.bodyAsChannel()
-val source: RawSource = channel.asSource()
 ```
+{src="snippets/client-io-interop/src/main/kotlin/com/example/Application.kt" include-lines="15-21"}
 
 ## Convert `ByteWriteChannel` to `RawSink`
 
 To convert a suspending `ByteWriteChannel` into a `RawSink`, use the `.asSink()` extension function:
 
 ```kotlin
-val channel: ByteWriteChannel = ...
-val sink: RawSink = channel.asSink()
 ```
+{src="snippets/server-io-interop/src/main/kotlin/com/example/Application.kt" include-lines="23-30"}
 
 The `RawSink` produced by this adapter uses `runBlocking` internally when flushing data, so flush operations may block
 the calling thread.
@@ -47,12 +53,8 @@ the calling thread.
 To wrap a `RawSink` as a suspending `ByteWriteChannel`, use the `.asByteWriteChannel()` extension function:
 
 ```kotlin
-val sink: RawSink = ...
-val channel: ByteWriteChannel = sink.asByteWriteChannel()
-
-channel.writeByte(42)
-channel.flushAndClose()
 ```
+{src="snippets/server-io-interop/src/main/kotlin/com/example/Application.kt" include-lines="32-39"}
 
 This enables asynchronous writing to sinks from suspending functions. The returned channel is buffered. Use `.flush()`
 or `.flushAndClose()` to ensure that all data is written.
@@ -62,12 +64,8 @@ or `.flushAndClose()` to ensure that all data is written.
 To convert a Java `OutputStream` to a `ByteWriteChannel`, use the `.asByteWriteChannel()` extension function:
 
 ```kotlin
-val outputStream: OutputStream = FileOutputStream("output.txt")
-val channel: ByteWriteChannel = outputStream.asByteWriteChannel()
-
-channel.writeFully("Hello, World!".toByteArray())
-channel.flushAndClose()
 ```
+{src="snippets/server-io-interop/src/main/kotlin/com/example/Application.kt" include-lines="41-47"}
 
 All operations on the `ByteWriteChannel` are buffered. The underlying `OutputStream` receives data only when `.flush()`
 is called on the `ByteWriteChannel`.
