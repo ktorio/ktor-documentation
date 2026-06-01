@@ -1,6 +1,6 @@
 [versions]
 kotlin = "2.3.21"
-logback = "1.5.21"
+logback = "1.5.33"
 
 [libraries]
 logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
