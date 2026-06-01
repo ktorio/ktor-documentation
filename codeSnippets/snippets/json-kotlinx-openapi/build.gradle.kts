@@ -1,5 +1,5 @@
 val ktor_version: String by project
-val kotlin_version = "2.2.20"
+val kotlin_version = "2.4.20-tethys-25"
 val logback_version: String by project
 val swagger_codegen_version: String by project
 

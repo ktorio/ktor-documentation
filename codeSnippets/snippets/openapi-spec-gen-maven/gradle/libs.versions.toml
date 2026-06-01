@@ -1,5 +1,5 @@
 [versions]
-kotlin = "2.3.21"
+kotlin = "2.4.20-tethys-25"
 ktor = "3.5.0"
 logback = "1.4.14"
 
