@@ -1,7 +1,7 @@
 [versions]
 kotlin = "2.3.21"
 ktor = "3.5.0"
-logback = "1.4.14"
+logback = "1.5.33"
 opentelemetry = "2.18.1-alpha"
 opentelemetry_semconv = "1.34.0"
 opentelemetry_exporter_otlp = "1.52.0"
