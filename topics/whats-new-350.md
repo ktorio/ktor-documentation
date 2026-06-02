@@ -207,6 +207,27 @@ heartbeat {
 
 This makes it possible to send custom heartbeat payloads at regular intervals, such as timestamps and status information.
 
+### SNI validation configuration in the Jetty engine
+
+This release adds a new `secureRequestCustomizer` configuration option to the Jetty engine, providing direct access to
+Jetty's `SecureRequestCustomizer` instance.
+
+This allows you to customize HTTPS request handling, including Server Name Indication (SNI) validation behavior.
+For example, when testing locally with custom host mappings or self-signed certificates, you can disable SNI host checks
+and SNI requirements:
+
+```kotlin
+embeddedServer(
+      Jetty,
+      configure = {
+          secureRequestCustomizer = {
+              isSniHostCheck = false
+              isSniRequired = false
+          }
+      }
+)
+```
+
 ## Ktor Client
 
 ### Custom DNS resolvers in the OkHttp and Apache5 engines {id="custom-dns-resolvers"}
