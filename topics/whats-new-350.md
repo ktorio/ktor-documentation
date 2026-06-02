@@ -193,6 +193,20 @@ install(Sessions) {
 }
 ```
 
+### Custom SSE heartbeat events
+
+This release introduces a new option for Ktor server-side SSE support that lets you fully customize heartbeat events
+using an event provider function:
+
+```kotlin
+heartbeat {
+    period = 30.milliseconds
+    eventProvider = { ServerSentEvent(data = "ts=${Clock.System.now()}") }
+}
+```
+
+This makes it possible to send custom heartbeat payloads at regular intervals, such as timestamps and status information.
+
 ## Ktor Client
 
 ### Custom DNS resolvers in the OkHttp and Apache5 engines {id="custom-dns-resolvers"}
