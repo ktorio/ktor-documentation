@@ -29,7 +29,7 @@
     </tldr>
     <p>
         In this article, you will learn how to develop a full-stack application in Kotlin that runs on Android, iOS,
-        and desktop platforms, all while leveraging Ktor for seamless data handling.
+        Web, and Desktop platforms, all while leveraging Ktor for seamless data handling.
     </p>
     <p>By the end of this tutorial, you’ll know how to do the following:</p>
     <list>
@@ -53,7 +53,7 @@
         fundamentals of Ktor.
     </p>
     <p>
-        You will create a client that will target the Android, iOS, and desktop platforms, using a Ktor service to
+        You will create a client that will target the Android, iOS, Web, and Desktop platforms, using a Ktor service to
         acquire the data to be displayed. Wherever possible you will share data types between the client and the server,
         speeding up development and reducing the potential for errors.
     </p>
@@ -63,7 +63,8 @@
             environment, see the
             <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/quickstart.html">
                 Kotlin Multiplatform quickstart
-            </a> guide.
+            </a>
+            .
         </p>
         <p>
             If this is the first time you use Compose Multiplatform, we recommend that you complete the
@@ -118,7 +119,9 @@
                     <ui-path>Android</ui-path>
                     ,
                     <ui-path>Desktop</ui-path>
-                    , Web, and
+                    ,
+                    <ui-path>Web</ui-path>
+                    , and
                     <ui-path>Server</ui-path>
                     as the targeted platforms.
                 </p>
@@ -146,22 +149,21 @@
     <chapter title="Run the service" id="run-service">
         <procedure id="run-service-procedure">
             <step>
-                In the
-                <ui-path>Project</ui-path>
-                view, navigate to
-                <path>server/src/main/kotlin/com/example/ktor</path>
-                and open the
-                <path>Application.kt</path>
-                file.
+                In IntelliJ IDEA, select the
+                <path>ApplicationKt</path>
+                run configuration.
+                <img src="full_stack_development_tutorial_server_run_configuration.png"
+                     alt="Run &amp; Debug window" width="300"
+                     border-effect="line" style="block"/>
             </step>
             <step>
-                Click on the
+                Click the
                 <ui-path>Run</ui-path>
                 button
                 (<img src="intellij_idea_run_icon.svg"
                       style="inline" height="16" width="16"
                       alt="IntelliJ IDEA run icon"/>)
-                next to the <code>main()</code> function to start the application.
+                to run the configuration.
                 <p>
                     A new tab in the
                     <ui-path>Run</ui-path>
@@ -222,8 +224,8 @@
             platforms.
         </p>
         <p>
-           If you open the <path>Greeting.kt</path> file within the <path>app/shared/commonMain</path> module, you will
-            see the <code>sayHello()</code> function is used there as well:
+           Open the <path>Greeting.kt</path> file within the <path>app/shared/src/commonMain</path> module to see the
+            <code>sayHello()</code> function is used there as well:
         </p>
         <code-block lang="kotlin">
             class Greeting {
@@ -235,66 +237,76 @@
             }
         </code-block>
         <p>
-            The <path>app</path> module contains platform-specific code for the Android, iOS, web and desktop client apps.
-            However, none of these client apps are linked to the Ktor service at the moment.
+            The <path>app</path> module contains the following submodules:
         </p>
-        <p>
-            The
-            <path>shared</path>
-            sub-module contains a source set for each platform where you wish to provide a client. This is because
-            types declared within
-            <path>commonMain</path>
-            may require functionality that varies by target platform.
-            For example, in the <code>Greeting</code> type, you want to get the name of the current platform using platform-specific API.
-            This is achieved through <a
-                href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-connect-to-apis.html">expected
-            and actual declarations</a>.
-        </p>
-        <p>
-            In the
-            <path>commonMain</path>
-            source set of the
-            <path>shared</path>
-            module, you declare a <code>getPlatform()</code> function with the <code>expect</code> keyword:
-        </p>
-        <tabs>
-            <tab title="commonMain/Platform.kt" id="commonMain">
+        <list>
+            <li>
+                The <path>androidApp</path>, <path>desktopApp</path>, <path>iosApp</path>, and <path>webApp</path> submodules
+                contain platform-specific code for the Android, Desktop, iOS, and Web client apps respectively. None of
+                these client apps are linked to the Ktor service at the moment.
+            </li>
+            <li>
+                <p>
+                    The
+                    <path>shared</path>
+                    submodule contains a source set for each platform where you wish to provide a client. This is because
+                    types declared within
+                    <path>commonMain</path>
+                    require functionality that varies by target platform.
+                </p>
+                <p>
+                    For example, in the <code>Greeting</code> type, the name of the current platform is retrieved
+                    using platform-specific API, through <a
+                        href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-connect-to-apis.html">expected
+                    and actual declarations</a>.
+                </p>
+                <p>
+                    In the
+                    <path>commonMain</path>
+                    source set of the
+                    <path>shared</path>
+                    submodule, the <code>getPlatform()</code> function is declared with the <code>expect</code> keyword:
+                </p>
+                <tabs>
+                    <tab title="commonMain/Platform.kt" id="commonMain">
                 <code-block lang="kotlin"
                             src="snippets/full-stack-task-manager/app/shared/src/commonMain/kotlin/com/example/ktor/Platform.kt"
                 />
-            </tab>
-        </tabs>
-        <p>
-            Then, each target platform must provide an <code>actual</code> declaration of the <code>getPlatform()</code>
-            function, as shown below:
-        </p>
-        <tabs>
-            <tab title="Platform.ios.kt" id="iosMain">
+                    </tab>
+                </tabs>
+                <p>
+                    Then, each target platform provides an <code>actual</code> declaration of the <code>getPlatform()</code>
+                    function, as shown below:
+                </p>
+                <tabs>
+                    <tab title="Platform.ios.kt" id="iosMain">
                 <code-block lang="kotlin"
                             src="snippets/full-stack-task-manager/app/shared/src/iosMain/kotlin/com/example/ktor/Platform.ios.kt"
                 />
-            </tab>
-            <tab title="Platform.android.kt" id="androidMain">
+                    </tab>
+                    <tab title="Platform.android.kt" id="androidMain">
                 <code-block lang="kotlin"
                             src="snippets/full-stack-task-manager/app/shared/src/androidMain/kotlin/com/example/ktor/Platform.android.kt"
                 />
-            </tab>
-            <tab title="Platform.jvm.kt" id="jvmMain">
+                    </tab>
+                    <tab title="Platform.jvm.kt" id="jvmMain">
                 <code-block lang="kotlin"
                             src="snippets/full-stack-task-manager/app/shared/src/jvmMain/kotlin/com/example/ktor/Platform.jvm.kt"
                 />
-            </tab>
-            <tab title="Platform.wasmJs.kt" id="wasmJsMain">
+                    </tab>
+                    <tab title="Platform.wasmJs.kt" id="wasmJsMain">
                 <code-block lang="kotlin"
                             src="snippets/full-stack-task-manager/app/shared/src/wasmJsMain/kotlin/com/example/ktor/Platform.wasmJs.kt"
                 />
-            </tab>
-        </tabs>
+                    </tab>
+                </tabs>
+            </li>
+        </list>
     </chapter>
     <chapter title="Run a client application" id="run-client-app">
         <p>
             You can run a client application by executing the run configuration for the target. To run the
-            application on an iOS simulator, follow the steps below:
+            application on an iOS Simulator, follow the steps below:
         </p>
         <procedure id="run-ios-app-procedure">
             <step>
@@ -316,7 +328,7 @@
             </step>
             <step>
                 <p>
-                    When you run the iOS app, it is built with Xcode under the hood and launched in the iOS simulator.
+                    When you run the iOS app, it is built with Xcode under the hood and launched in the iOS Simulator.
                     The app displays a button that toggles an image on click.
                     <img style="block" src="full_stack_development_tutorial_run_ios.gif"
                          alt="Running the app in the iOS Simulator" width="300" border-effect="rounded"/>
@@ -324,7 +336,7 @@
                 <p>
                     When the button is pressed for the first time, the details of the current platform are added
                     to its text. The code to achieve this is found in
-                    <path>app/shared/commonMain/kotlin/com/example/ktor/App.kt</path>
+                    <path>app/shared/src/commonMain/kotlin/com/example/ktor/App.kt</path>
                     :
                 </p>
                 <code-block lang="kotlin"><![CDATA[
@@ -377,31 +389,12 @@
         <procedure id="add-model-types-procedure">
             <step>
                 Navigate to
-                <path>core/src/commonMain/kotlin/com/example/ktor</path>
-                and create a new package called
-                <path>model</path>
-                .
-            </step>
-            <step>
-                Inside the new package, create a new file called
-                <path>Task.kt</path>
-                .
-            </step>
-            <step>
-                <p>
-                    Add an <code>enum</code> to represent priorities and a <code>class</code> to represent tasks. The
-                    <code>Task</code>
-                    class is annotated with the <code>Serializable</code> type from the
-                    <code>kotlinx.serialization</code>
-                    library:
-                </p>
-                <code-block lang="kotlin"
-                            src="snippets/full-stack-task-manager/core/src/commonMain/kotlin/com/example/ktor/model/Task.kt"
+                <path>gradle/libs.versions.toml</path>
+                and define the following <code>kotlinx.serialization</code> dependencies:
+                <code-block lang="toml"
+                            src="snippets/full-stack-task-manager/gradle/libs.versions.toml"
+                            include-lines="1,20,21-22,41,57-58,65"
                 />
-                <p>
-                    You will notice that neither the import nor the annotation compiles. This is because the project doesn't have
-                    a dependency on the <code>kotlinx.serialization</code> library yet.
-                </p>
             </step>
             <step>
                 <p>
@@ -426,21 +419,35 @@
                 />
             </step>
             <step>
-                Navigate to
-                <path>gradle/libs.versions.toml</path>
-                and define the following:
-                <code-block lang="toml"
-                            src="snippets/full-stack-task-manager/gradle/libs.versions.toml"
-                            include-lines="1,20,21-22,41"
-                />
-            </step>
-            <!-- the plugin version can also be set in the version catalog -->
-            <step>
                 In IntelliJ IDEA, select
                 <ui-path>Build | Sync Project with Gradle Files</ui-path>
                 to apply the update. Once Gradle import has finished, you should find that your
                 <path>Task.kt</path>
                 file compiles successfully.
+            </step>
+            <step>
+                Navigate to
+                <path>core/src/commonMain/kotlin/com/example/ktor</path>
+                and create a new package called
+                <path>model</path>
+                .
+            </step>
+            <step>
+                Inside the new package, create a new file called
+                <path>Task.kt</path>
+                .
+            </step>
+            <step>
+                <p>
+                    Add an enum to represent priorities and a class to represent tasks. The
+                    <code>Task</code>
+                    class is annotated with the <code>Serializable</code> type from the
+                    <code>kotlinx.serialization</code>
+                    library:
+                </p>
+                <code-block lang="kotlin"
+                            src="snippets/full-stack-task-manager/core/src/commonMain/kotlin/com/example/ktor/model/Task.kt"
+                />
             </step>
         </procedure>
     </chapter>
@@ -502,7 +509,7 @@
                 file and define the following libraries:
                 <code-block lang="toml"
                             src="snippets/full-stack-task-manager/gradle/libs.versions.toml"
-                            include-lines="22,43-45"
+                            include-lines="22,47-49"
                 />
             </step>
             <step>
@@ -584,7 +591,7 @@
                 <p>
                     Inside the new package, create a new
                     <path>HttpClientManager.kt</path>
-                    for the client configuration:
+                    file for the client configuration:
                 </p>
                 <code-block lang="kotlin"
                             src="snippets/full-stack-task-manager/app/shared/src/commonMain/kotlin/com/example/ktor/network/HttpClientManager.kt"
@@ -592,8 +599,8 @@
                 <p>
                     Replace <code>1.2.3.4</code> with the IP address of your current machine. You will
                     not be able to make calls to <code>0.0.0.0</code> or <code>localhost</code> from code running on an
-                    Android virtual device or
-                    the iOS simulator.
+                    Android Virtual Device or
+                    the iOS Simulator.
                 </p>
                 <tip>
                     <p><b>Finding your IP address:</b></p>
@@ -624,7 +631,7 @@
                 <p>
                     Navigate to
                     <path>app/shared/.../App.kt</path>
-                    and replace the App composable with the implementation below.
+                    and replace the code with the implementation below.
                     This will use the <code>TaskApi</code> type to retrieve the list of tasks from the server, and then
                     display the name of each one in a column:
                 </p>
@@ -675,7 +682,7 @@
                     Run the Android application using the <ui-path>app.androidApp</ui-path> run configuration.
                     You should now find that your Android client runs as well:
                     <img style="block" src="full_stack_development_tutorial_run_android.png"
-                         alt="App running on Android" width="350" border-effect="rounded"/>
+                         alt="App running on Android" width="350" />
                 </p>
             </step>
             <step>
@@ -710,7 +717,7 @@
                     </li>
                 </list>
                 <img style="block" src="full_stack_development_tutorial_run_web.png"
-                     alt="App running on desktop" width="400" border-effect="rounded"/>
+                     alt="App running on web" width="400" border-effect="rounded"/>
             </step>
         </procedure>
     </chapter>
