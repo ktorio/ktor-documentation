@@ -224,7 +224,7 @@
             platforms.
         </p>
         <p>
-           Open the <path>Greeting.kt</path> file within the <path>app/shared/src/commonMain</path> module to see the
+           Open the <path>Greeting.kt</path> file within the <path>app/shared/src/commonMain</path> module to see that the
             <code>sayHello()</code> function is used there as well:
         </p>
         <code-block lang="kotlin">
