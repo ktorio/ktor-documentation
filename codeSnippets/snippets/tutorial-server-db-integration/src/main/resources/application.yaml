@@ -3,7 +3,7 @@ ktor:
     port: 8080
   application:
     modules:
-      - com.example.MainKt.configureDependencies
+      - com.example.DIKt.configureDependencyInjection
       - com.example.SerializationKt.configureSerialization
       - com.example.ExposedKt.configureExposed
       - com.example.StatusPagesKt.configureStatusPages
