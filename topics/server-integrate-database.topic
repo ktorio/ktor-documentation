@@ -12,6 +12,7 @@
             <b>Used plugins</b>: <a href="server-static-content.md">Static Content</a>,
             <a href="server-serialization.md">Content Negotiation</a>, <a href="server-status-pages.md"/>,
             <a href="server-serialization.md">kotlinx.serialization</a>,
+            <a href="server-dependency-injection.md">Dependency Injection</a>
             <a href="https://github.com/ktorio/ktor-plugin-registry/tree/main/repository/org.jetbrains/server-exposed">Exposed</a>,
             <a href="https://github.com/ktorio/ktor-plugin-registry/tree/main/repository/org.jetbrains/server-postgres">PostgreSQL</a>
         </p>
@@ -135,6 +136,7 @@
                         <li>kotlinx.serialization</li>
                         <li>Static Content</li>
                         <li>Status Pages</li>
+                        <li>Dependency Injection</li>
                         <li>Exposed</li>
                         <li>PostgreSQL</li>
                     </list>
@@ -149,7 +151,7 @@
                 <step>
                     <p>
                         Once you have added the plugins, click on the
-                        <control>6 plugins</control>
+                        <control>7 plugins</control>
                         button at the top right of the plugins section to see the added plugins.
                     </p>
                     <p>You will then see a list of all the plugins that will be added to your project:
@@ -177,6 +179,7 @@
                         and delete the
                         <path>CitySchema.kt</path>,
                         <path>UsersService.kt</path>,
+                        <path>GreetingService.kt</path>
                         and <path>Postgres.kt</path>
                         files.
                     </p>
@@ -228,7 +231,7 @@
                     <p>
                         Open
                         <path>Task.kt</path>
-                        and add an <code>enum</code> to represent priorities and a <code>class</code> to represent
+                        and add an enum to represent priorities and a class to represent
                         tasks.
                     </p>
                     <code-block src="snippets/tutorial-server-db-integration/src/main/kotlin/model/Task.kt"
@@ -239,7 +242,7 @@
                     </p>
                     <p>
                         As in previous tutorials, you will create an in-memory repository. However, this time the
-                        repository will implement an <code>interface</code> so that you can easily replace it later.
+                        repository will implement an interface so that you can easily replace it later.
                     </p>
                 </step>
                 <step>
@@ -253,7 +256,7 @@
                     <p>
                         Open
                         <path>TaskRepository.kt</path>
-                        and add the following <code>interface</code>:
+                        and add the following interface:
                     </p>
                     <code-block lang="kotlin"><![CDATA[
                         package com.example.model
@@ -276,7 +279,7 @@
                     <p>
                         Open
                         <path>FakeTaskRepository.kt</path>
-                        and add the following <code>class</code>:
+                        and add the following class:
                     </p>
                     <code-block lang="kotlin"><![CDATA[
                         package com.example.model
@@ -348,23 +351,21 @@
                 </step>
                 <step>
                     Open the
-                    <path>main.kt</path>
+                    <path>DI.kt</path>
                     file within
                     <path>src/main/kotlin</path>
                     .
                 </step>
                 <step>
                     <p>
-                        Create a new <code>.configureDependencies()</code> function with the implementation below:
+                        Replace the contents of the <code>.configureDependencyInjection()</code> function with the implementation below:
                     </p>
                     <code-block lang="kotlin"><![CDATA[
                     import com.example.model.FakeTaskRepository
                     import com.example.model.TaskRepository
-                    import io.ktor.server.plugins.di.dependencies
-
                     // ...
 
-                    fun Application.configureDependencies() {
+                    fun Application.configureDependencyInjection() {
                         dependencies {
                             provide<TaskRepository> {
                                 FakeTaskRepository()
@@ -379,17 +380,8 @@
                     </p>
                 </step>
                 <step>
-                    Open your <path>build.gradle.kts</path> file and the missing dependency:
-                    <code-block lang="kotlin">
-                        dependencies {
-                            // ...
-                            implementation(ktorLibs.server.di)
-                        }
-                    </code-block>
-                </step>
-                <step>
                     Open your <path>application.yaml</path> file located within the <path>src/main/resources</path> folder
-                    and add the <code>.configureDependencies()</code> function into the module list before
+                    and ensure the <code>.configureDependencyInjection()</code> function is listed before
                     <code>.configureSerialization()</code>:
                     <code-block lang="yaml">
                         ktor:
@@ -397,7 +389,7 @@
                             port: 8080
                         application:
                             modules:
-                                - com.example.MainKt.configureDependencies
+                                - com.example.DIKt.configureDependencyInjection
                                 - com.example.SerializationKt.configureSerialization
                                 - com.example.ExposedKt.configureExposed
                                 - com.example.StatusPagesKt.configureStatusPages

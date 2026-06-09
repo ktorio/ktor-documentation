@@ -18,7 +18,7 @@ in [the tutorial](https://ktor.io/docs/server-integrate-database.html#create-sch
 1. Navigate to `src/main/kotlin/` and open the `Exposed.kt` file.
 2. Replace the attributes in the `Database.connect()` function to correspond to your setup:
 ```kotlin
-fun Application.configureDatabases() {
+suspend fun Application.configureExposed() {
     Database.connect(
         "jdbc:postgresql://localhost:5432/ktor_tutorial_db",
         user = "postgresql",
