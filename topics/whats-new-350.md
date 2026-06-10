@@ -182,10 +182,10 @@ To help prevent future regressions, our JavaScript test infrastructure now targe
 Ktor 3.5.0 improves session handling in the [Sessions](server-sessions.md) plugin with new configuration options that give you
 more control over session lifecycle, identity generation, and network behavior.
 
-#### Send session cookies only when modified {id="session-cookies"}
+#### Send session data only when modified {id="session-cookies"}
 
-You can now configure sessions to send cookie updates only when the session changes (for example, the `Set-Cookie` 
-header for cookie-based sessions).
+You can now configure sessions to send session data only when it changes. For cookie-based sessions, this means the
+`Set-Cookie` header is sent only on modification. This optimization applies to both cookie and header-based sessions.
 
 By default, session data is sent on every response to preserve existing behavior. To send it only when modified, enable
 the `sendOnlyIfModified` option in the session cookie configuration:
@@ -198,7 +198,7 @@ install(Sessions) {
 }
 ```
 
-### Generate session IDs from request data
+#### Generate session IDs from request data
 
 The `CookieIdSessionBuilder.identity()` function now accepts an `ApplicationCall`, allowing session IDs to be derived from the current
 application call. This enables use cases such as binding sessions to authenticated users or request metadata.
@@ -215,6 +215,21 @@ install(Sessions) {
 
 The previous `identity()` function is deprecated in favor of the call-aware overload.
 
+#### Clear sessions by ID
+
+You can now invalidate a session by its storage ID without requiring an active call using the `call.sessions.clear<UserSession>()`
+and `CurrentSession.clear()` convenience functions. Both functions delegate to `SessionTrackerById.clearById()`.
+
+```kotlin
+post("/logout/{sessionId}") {
+    val sessionId = call.requirePathParameter("sessionId")
+    call.sessions.clear<UserSession>(sessionId)
+    call.respond(HttpStatusCode.OK)
+}
+```
+
+This is useful for scenarios such as logging out all devices for a user or expiring sessions from background jobs.
+
 ### Custom SSE heartbeat events
 
 This release introduces a new option for Ktor server-side SSE support that lets you fully customize heartbeat events
@@ -228,21 +243,6 @@ heartbeat {
 ```
 
 This makes it possible to send custom heartbeat payloads at regular intervals, such as timestamps and status information.
-
-### Clear sessions by ID
-
-You can now use the new `CurrentSession.clear()` and `SessionTrackerById.clearById()` functions to invalidate a session
-by its storage ID without requiring an active call:
-
-```kotlin
-post("/logout/{sessionId}") {
-    val sessionId = call.parameters["sessionId"]!!
-    call.sessions.clear<UserSession>(sessionId)
-    call.respond(HttpStatusCode.OK)
-}
-```
-
-This is useful for scenarios such as logging out all devices for a user or expiring sessions from background jobs.
 
 ## Ktor Client
 
