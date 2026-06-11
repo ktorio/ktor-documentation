@@ -9,7 +9,7 @@ by following the steps in the [Full-stack development with Kotlin Multiplatform
 Because it's not possible to make calls to `0.0.0.0` or `localhost` from code running on an Android Virtual Device or the
 iPhone simulator, you need to specify a host address for the HTTP client.
 
-1. Navigate to the `HttpClientManager.kt` file in `composeApp/src/commonMain/kotlin/com/example/ktor/full_stack_task_manager/network`.
+1. Navigate to the `HttpClientManager.kt` file in `app/shared/src/commonMain/kotlin/com/example/ktor/network`.
 2. In the `defaultRequest` function replace the value of the `host` property with the IP address of your machine.
 
 ## Run the server
@@ -30,7 +30,7 @@ The server will then run at [http://0.0.0.0:8080/](). To test the endpoints, nav
 
 In IntelliJ IDEA, choose from the following run configurations:
 
-- `iOSApp` to run the app on iOS
-- `composeApp` to run the app on Android
-- `composeApp [desktop]` to run the app on Desktop
-- `composeApp [wasmJs]` to run the app on Web
+- `iosApp` to run the app on iOS
+- `app.androidApp` to run the app on Android
+- `app [hot] 🔥` to run the app on Desktop
+- `app [wasmJs]` or `app [js]` to run the app on Web
