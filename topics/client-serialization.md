@@ -79,9 +79,6 @@ To serialize/deserialize XML, add the `ktor-serialization-kotlinx-xml` in the bu
 <var name="artifact_name" value="ktor-serialization-kotlinx-xml"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
-> Note that XML serialization [is not supported on `jsNode` target](https://github.com/pdvrieze/xmlutil/issues/83).
-{style="note"}
-
 #### CBOR {id="add_cbor_dependency"}
 
 To serialize/deserialize CBOR, add the `ktor-serialization-kotlinx-cbor` in the build script:
