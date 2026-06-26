@@ -19,7 +19,7 @@ fun main(args: Array<String>) {
                 sendChannel.writeStringUtf8("Please enter your name\n")
                 try {
                     while (true) {
-                        val name = receiveChannel.readUTF8Line()
+                        val name = receiveChannel.readLine()
                         sendChannel.writeStringUtf8("Hello, $name!\n")
                     }
                 } catch (e: Throwable) {

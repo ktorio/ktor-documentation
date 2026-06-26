@@ -17,7 +17,7 @@ val DataTransformationPlugin = createClientPlugin("DataTransformationPlugin") {
     }
     transformResponseBody { response, content, requestedType ->
         if (requestedType.type == User::class) {
-            val receivedContent = content.readUTF8Line()!!.split(";")
+            val receivedContent = content.readLine()!!.split(";")
             User(receivedContent[0], receivedContent[1].toInt())
         } else {
             content
