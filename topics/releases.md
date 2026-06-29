@@ -33,6 +33,15 @@ The following table lists details of the latest Ktor releases.
 
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
+<tr><td>3.5.1</td><td>June 26, 2026</td><td>
+<p>
+A patch release including OpenAPI plugin improvements, expanded authentication KDoc documentation, and a wide range of
+bug fixes covering Kotlin 2.4 compiler compatibility, HTTP and caching behavior, authentication, WebRTC stability, and
+platform-specific issues across JVM, Darwin, Android, and Windows.
+</p>
+<var name="version" value="3.5.1"/>
+<include from="lib.topic" element-id="release_details_link"/>
+</td></tr>
 <tr><td>3.5.0</td><td>May 15, 2026</td><td>
 <p>
 A minor release that introduces RFC 7616 Digest authentication support, custom DNS resolver configuration for OkHttp

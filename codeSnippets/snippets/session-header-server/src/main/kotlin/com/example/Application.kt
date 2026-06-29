@@ -13,7 +13,7 @@ data class CartSession(val userID: String, val productIDs: MutableList<Int>)
 
 fun Application.main() {
     install(Sessions) {
-        val secretSignKey = hex("6819b57a326945c1968f45236589")
+        val secretSignKey = "6819b57a326945c1968f45236589".hexToByteArray()
         header<CartSession>("cart_session", directorySessionStorage(File("build/.sessions"))) {
             transform(SessionTransportTransformerMessageAuthentication(secretSignKey))
         }

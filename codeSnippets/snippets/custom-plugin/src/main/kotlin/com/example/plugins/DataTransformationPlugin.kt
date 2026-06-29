@@ -7,7 +7,7 @@ val DataTransformationPlugin = createApplicationPlugin(name = "DataTransformatio
     onCallReceive { call ->
         transformBody { data ->
             if (requestedType?.type == Int::class) {
-                val line = data.readUTF8Line() ?: "1"
+                val line = data.readLine() ?: "1"
                 line.toInt() + 1
             } else {
                 data

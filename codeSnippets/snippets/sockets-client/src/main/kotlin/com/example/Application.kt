@@ -16,7 +16,7 @@ fun main(args: Array<String>) {
 
         launch(Dispatchers.IO) {
             while (true) {
-                val greeting = receiveChannel.readUTF8Line()
+                val greeting = receiveChannel.readLine()
                 if (greeting != null) {
                     println(greeting)
                 } else {

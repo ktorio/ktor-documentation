@@ -19,7 +19,7 @@ repositories {
 
 dependencies {
     implementation("io.ktor:ktor-client-core:$ktor_version")
-    implementation("io.ktor:ktor-client-apache:$ktor_version")
+    implementation("io.ktor:ktor-client-apache5:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
     testImplementation("junit:junit:$junit_version")
     testImplementation("org.hamcrest:hamcrest:$hamcrest_version")

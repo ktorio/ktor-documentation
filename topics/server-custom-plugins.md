@@ -142,7 +142,7 @@ handle `transformBody` inside `onCallReceive` as follows:
    used to check the requested data type.
 2. `data` is a lambda argument that allows you to receive a request body
    as [ByteReadChannel](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) and convert it to
-   the required type. In the example above, `ByteReadChannel.readUTF8Line` is used to read a request body.
+   the required type. In the example above, `ByteReadChannel.readLine()` is used to read a request body.
 3. Finally, you need to transform and return data. In our example, `1` is added to the received integer value.
 
 You can find the full example

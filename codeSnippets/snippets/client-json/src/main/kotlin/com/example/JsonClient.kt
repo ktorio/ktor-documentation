@@ -2,7 +2,7 @@ package com.example
 
 import io.ktor.client.*
 import io.ktor.client.call.*
-import io.ktor.client.engine.apache.*
+import io.ktor.client.engine.apache5.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.request.*
 import io.ktor.serialization.gson.*
@@ -12,7 +12,7 @@ data class Model(val name: String, val items: List<Item>)
 data class Item(val key: String, val value: String)
 
 fun main(args: Array<String>) = runBlocking<Unit> {
-    val client = HttpClient(Apache) {
+    val client = HttpClient(Apache5) {
         install(ContentNegotiation) {
             gson()
         }

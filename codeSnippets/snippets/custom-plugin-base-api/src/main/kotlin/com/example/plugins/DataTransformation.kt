@@ -13,7 +13,7 @@ class DataTransformation {
         override fun install(pipeline: ApplicationCallPipeline, configure: Configuration.() -> Unit): DataTransformation {
             val plugin = DataTransformation()
             pipeline.receivePipeline.intercept(ApplicationReceivePipeline.Transform) { data ->
-                val newValue = (data as ByteReadChannel).readUTF8Line()?.toInt()?.plus(1)
+                val newValue = (data as ByteReadChannel).readLine()?.toInt()?.plus(1)
                 if (newValue != null) {
                     proceedWith(newValue)
                 }
