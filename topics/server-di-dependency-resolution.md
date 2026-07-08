@@ -18,7 +18,7 @@ or [direct resolution](#direct-resolution).
 
 ### Use property delegation {id="property-delegation"}
 
-When using property delegation, the dependency is resolved lazily when the property is first accessed:
+When using property delegation, the dependency will only be resolved during the startup validation phase:
 
 ```kotlin
 val service: GreetingService by dependencies
