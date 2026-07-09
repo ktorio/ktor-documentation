@@ -45,8 +45,6 @@ To include Zstandard compression, add the `ktor-server-compression-zstd` depende
 <include from="lib.topic" element-id="install_plugin"/>
 
 This enables the `gzip`, `deflate`, and `identity` encoders on a server.
-In the next chapter, we'll see how to enable only specific encoders and configure conditions for compressing data.
-Note that every added encoder will be used to decompress request body if needed.
 
 ## Configure compression settings {id="configure"}
 
@@ -146,7 +144,7 @@ install(Compression) {
 }
 ```
 
-## Zstandard compression Level {id="compression_level"}
+## Zstandard compression level {id="compression_level"}
 
 You can configure the compression level for `zstd` using the `level` parameter. The default compression level is `3`, but you can adjust it based on your needs.
 
@@ -156,6 +154,22 @@ install(Compression) {
     zstd(level = 20)
 }
 ```
+
+## Decompression {id="decompression"}
+
+By default, the `Compression` plugin compresses server responses. To enable request decompression, set the `mode` property
+to `CompressionConfig.Mode.DecompressRequest`:
+
+```kotlin
+install(Compression) { 
+    mode = CompressionConfig.Mode.DecompressRequest
+    gzip()
+}
+```
+
+When request decompression is enabled, the plugin uses the configured encoders to decompress the request body with the
+corresponding `Content-Encoding` value before it is processed by other receive transformations, such as deserialization
+and multipart processing.
 
 ## Implement custom encoder {id="custom_encoder"}
 
