@@ -167,9 +167,8 @@ install(Compression) {
 }
 ```
 
-When request decompression is enabled, the plugin uses the configured encoders to decompress the request body with the
-corresponding `Content-Encoding` value before it is processed by other receive transformations, such as deserialization
-and multipart processing.
+When request decompression is enabled, the plugin uses the configured decoders to decompress the request body before it
+is processed by other receive transformations, such as deserialization and multipart processing.
 
 ## Implement custom encoder {id="custom_encoder"}
 
