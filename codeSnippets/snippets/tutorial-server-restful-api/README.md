@@ -6,10 +6,10 @@ tutorial.
 
 ## Run
 
-To run the sample, execute the following command in a repository's root directory:
+To run the sample, execute the following command in the project's root directory:
 
 ```bash
-./gradlew :tutorial-server-restful-api:run
+./gradlew run
 ```
 
 Navigate to the following URLs:
