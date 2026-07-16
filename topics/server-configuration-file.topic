@@ -511,7 +511,7 @@
                 </tab>
             </tabs>
             <p>
-                Use the <code>Application.property()</code> function to deserialize a specific configuration section:
+                Use the <code>Application.property()</code> or <code>Application.propertyOrNull()</code> function to deserialize a specific configuration section:
             </p>
             <code-block lang="kotlin"><![CDATA[
             @Serializable
