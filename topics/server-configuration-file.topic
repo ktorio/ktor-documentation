@@ -479,8 +479,7 @@
         ]]></code-block>
         <chapter title="Deserialize configuration into data classes" id="deserialize-config">
             <p>
-                You can deserialize configuration into Kotlin data classes using the
-                <code>.getAs()</code> function. This approach provides type-safe access to configuration values.
+                You can deserialize configuration into Kotlin data classes for type-safe access to configuration values.
             </p>
             <p>
                 The example below defines <code>app</code> and <code>security</code> configuration sections and maps
@@ -511,6 +510,23 @@
                 ]]></code-block>
                 </tab>
             </tabs>
+            <p>
+                Use the <code>Application.property()</code> function to deserialize a specific configuration section:
+            </p>
+            <code-block lang="kotlin"><![CDATA[
+            @Serializable
+            data class Security(val clientId: String, val clientSecret: String)
+
+            fun Application.module() {
+                val securityConfig: Security = property("security")
+
+                println("Authorization header: ${securityConfig.clientId}:${securityConfig.clientSecret}")
+            }
+            ]]></code-block>
+            <p>
+                If you need to deserialize an entire <code>ApplicationConfig</code>, use the
+                <code>ApplicationConfig.getAs()</code> function:
+            </p>
             <code-block lang="kotlin"><![CDATA[
             @Serializable
             data class App(val port: Int, val host: String)
