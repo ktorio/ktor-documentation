@@ -479,7 +479,7 @@
         ]]></code-block>
         <chapter title="Deserialize configuration into data classes" id="deserialize-config">
             <p>
-                You can deserialize configuration into Kotlin data classes for type-safe access to configuration values.
+                You can deserialize configuration into Kotlin classes for type-safe access to configuration values.
             </p>
             <p>
                 The example below defines <code>app</code> and <code>security</code> configuration sections and maps
