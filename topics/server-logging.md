@@ -29,7 +29,7 @@ For example, Logback requires the following dependency:
 <var name="version" value="logback_version"/>
 <include from="lib.topic" element-id="add_artifact"/>
 
-To use Log4j, you need to add the `org.apache.logging.log4j:log4j-core` and `org.apache.logging.log4j:log4j-slf4j-impl` artifacts.
+To use Log4j, you need to add the `org.apache.logging.log4j:log4j-core` and `org.apache.logging.log4j:log4j-slf4j2-impl` artifacts.
 
 
 ### Configure logger {id="configure-logger"}

@@ -24,5 +24,5 @@ dependencies {
     implementation("io.ktor:ktor-server-call-logging:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
 /*    implementation("org.apache.logging.log4j:log4j-core:$log4j_version")
-    implementation("org.apache.logging.log4j:log4j-slf4j-impl:$log4j_version")*/
+    implementation("org.apache.logging.log4j:log4j-slf4j2-impl:$log4j_version")*/
 }
