@@ -98,6 +98,12 @@ application.
 By default, documentation is rendered using `StaticHtml2Codegen`. You can customize the renderer inside the `openAPI {}`
 block:
 
+> `StaticHtmlCodegen` and `StaticHtml2Codegen` support only OpenAPI 3.0.x documents. Using them with OpenAPI 3.1 documents may
+> produce incomplete or incorrect HTML. For OpenAPI 3.1, use the [`swaggerUI()`](server-swagger-ui.md) function with Swagger UI
+> 5.x. If you need to keep using the OpenAPI plugin's HTML renderer, keep the specification at OpenAPI 3.0.3.
+>
+{style="note"}
+
 ```kotlin
 ```
 {src="snippets/json-kotlinx-openapi/src/main/kotlin/com/example/Application.kt" include-lines="40,56-58,59"}

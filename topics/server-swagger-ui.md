@@ -82,11 +82,16 @@ the application.
 
 ## Configure Swagger UI
 
-You can customize Swagger UI within the `swaggerUI {}` block, for example, by specifying a custom Swagger UI version:
+You can customize Swagger UI within the `swaggerUI {}` block, for example, by overriding the default Swagger UI
+version:
 
 ```kotlin
 ```
 {src="snippets/json-kotlinx-openapi/src/main/kotlin/com/example/Application.kt" include-lines="40,53-55,59"}
+
+> Swagger UI 5.x is required for OpenAPI 3.1.x documents, while Swagger UI 4.x only supports OpenAPI 3.0.x.
+>
+{style="note"}
 
 ## Configure CORS {id="configure-cors"}
 

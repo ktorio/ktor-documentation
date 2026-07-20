@@ -51,7 +51,7 @@ fun Application.main() {
         }
 
         swaggerUI(path = "swagger", swaggerFile = "openapi/documentation.yaml") {
-            version = "4.15.5"
+            version = "5.31.0"
         }
         openAPI(path="openapi", swaggerFile = "openapi/documentation.yaml") {
             codegen = StaticHtmlCodegen()
