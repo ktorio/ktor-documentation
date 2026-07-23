@@ -5,7 +5,7 @@ A sample project demonstrating how to run a Ktor server in a Kotlin/Native appli
 
 ## Running
 
-To run a sample, execute the following command in a repository's root directory:
+To run the sample, execute the following command in the repository's root directory:
 ```bash
 ./gradlew :embedded-server-native:runReleaseExecutableNative
 ```

@@ -16,22 +16,24 @@ Ktor supports [Kotlin/Native](https://kotlinlang.org/docs/native-overview.html) 
 
 <include from="client-engines.md" element-id="newmm-note"/>
 
-
-
-
 ## Add dependencies {id="add-dependencies"}
 
-Ktor server in a Kotlin/Native project requires at least two dependencies: a `ktor-server-core` dependency and an engine dependency (CIO). The code snippet below shows how to add dependencies to the `nativeMain` source set in the `build.gradle.kts` file:
+Ktor server in a Kotlin/Native project requires at least two dependencies:
+* `ktor-server-core` (core dependency)
+* `ktor-server-cio` (the CIO engine)
+
+The code snippet below shows how to add dependencies to the `nativeMain` source set in your
+<path>build.gradle.kts</path> file:
 
 ```kotlin
 ```
-{src="snippets/embedded-server-native/build.gradle.kts" include-lines="33-39,46"}
+{src="snippets/embedded-server-native/build.gradle.kts" include-lines="14,34-38,43-44"}
 
 To [test](server-testing.md) a Native server, add the `ktor-server-test-host` artifact to the `nativeTest` source set:
 
 ```kotlin
 ```
-{src="snippets/embedded-server-native/build.gradle.kts" include-lines="33,40-46"}
+{src="snippets/embedded-server-native/build.gradle.kts" include-lines="14,34,39-44"}
 
 ## Configure native targets {id="native-target"}
 
@@ -39,12 +41,14 @@ Specify the required native targets and [declare a native binary](https://kotlin
 
 ```kotlin
 ```
-{src="snippets/embedded-server-native/build.gradle.kts" include-lines="16-32"}
+{src="snippets/embedded-server-native/build.gradle.kts" include-lines="14-33,44"}
 
-You can find the full example here: [embedded-server-native](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server-native).
+> For the full example, see [embedded-server-native](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server-native).
+>
+{style="tip"}
 
-## Create a server {id="create-server"}
+## Next steps {id="create-server"}
 
-After configuring your Gradle build script, you can create a Ktor server as described here: [](server-create-and-configure.topic).
+After configuring your Gradle build script, you can continue to [create a Ktor server](server-create-and-configure.topic).
 
 
