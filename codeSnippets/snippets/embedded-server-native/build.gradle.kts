@@ -32,17 +32,13 @@ kotlin {
         }
     }
     sourceSets {
-        val nativeMain by getting {
-            dependencies {
-                implementation("io.ktor:ktor-server-core:$ktor_version")
-                implementation("io.ktor:ktor-server-cio:$ktor_version")
-            }
+        nativeMain.dependencies {
+            implementation("io.ktor:ktor-server-core:$ktor_version")
+            implementation("io.ktor:ktor-server-cio:$ktor_version")
         }
-        val nativeTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-                implementation("io.ktor:ktor-server-test-host:$ktor_version")
-            }
+        nativeTest.dependencies {
+            implementation(kotlin("test"))
+            implementation("io.ktor:ktor-server-test-host:$ktor_version")
         }
     }
 }
