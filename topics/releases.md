@@ -33,6 +33,14 @@ The following table lists details of the latest Ktor releases.
 
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
+<tr><td>3.5.2</td><td>August 4, 2026</td><td>
+<p>
+A patch release focused on stability and performance, with enhanced rate limiting support, restored text processing 
+performance, and fixes for I/O handling, OpenAPI, and configuration issues.
+</p>
+<var name="version" value="3.5.2"/>
+<include from="lib.topic" element-id="release_details_link"/>
+</td></tr>
 <tr><td>3.5.1</td><td>June 26, 2026</td><td>
 <p>
 A patch release including OpenAPI plugin improvements, expanded authentication KDoc documentation, and a wide range of
