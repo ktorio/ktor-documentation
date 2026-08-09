@@ -1,4 +1,3 @@
-val ktor_version: String by project
 val kotlin_version: String by project
 val logback_version: String by project
 
@@ -33,12 +32,12 @@ kotlin {
     }
     sourceSets {
         nativeMain.dependencies {
-            implementation("io.ktor:ktor-server-core:$ktor_version")
-            implementation("io.ktor:ktor-server-cio:$ktor_version")
+            implementation(ktorLibs.server.core)
+            implementation(ktorLibs.server.cio)
         }
         nativeTest.dependencies {
             implementation(kotlin("test"))
-            implementation("io.ktor:ktor-server-test-host:$ktor_version")
+            implementation(ktorLibs.server.testHost)
         }
     }
 }
