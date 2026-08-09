@@ -1,4 +1,3 @@
-val ktor_version: String by project
 val logback_version: String by project
 
 plugins {
@@ -16,9 +15,9 @@ repositories {
 }
 
 dependencies {
-    implementation("io.ktor:ktor-client-core:$ktor_version")
-    implementation("io.ktor:ktor-client-apache5:$ktor_version")
-    implementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
-    implementation("io.ktor:ktor-serialization-gson:$ktor_version")
+    implementation(ktorLibs.client.core)
+    implementation(ktorLibs.client.apache5)
+    implementation(ktorLibs.client.contentNegotiation)
+    implementation(ktorLibs.serialization.gson)
     implementation("ch.qos.logback:logback-classic:$logback_version")
 }

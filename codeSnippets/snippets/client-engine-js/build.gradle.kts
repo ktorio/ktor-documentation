@@ -1,4 +1,3 @@
-val ktor_version: String by project
 val kotlinx_html_version: String by project
 
 plugins {
@@ -27,10 +26,11 @@ kotlin {
         val jsMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-html:$kotlinx_html_version")
-                implementation("io.ktor:ktor-client-core:$ktor_version")
-                implementation("io.ktor:ktor-client-js:$ktor_version")
-                implementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
-                implementation("io.ktor:ktor-serialization-kotlinx-json:$ktor_version")            }
+                implementation(ktorLibs.client.core)
+                implementation(ktorLibs.client.js)
+                implementation(ktorLibs.client.contentNegotiation)
+                implementation(ktorLibs.serialization.kotlinx.json)
+            }
         }
     }
 }
