@@ -1,11 +1,10 @@
-val ktor_version: String by project
 val kotlin_version = "2.2.20"
 val logback_version: String by project
 
 plugins {
     application
     kotlin("jvm")
-    id("io.ktor.plugin") version "3.5.2"
+    alias(ktorLibs.plugins.ktor)
 }
 
 application {
@@ -27,14 +26,14 @@ ktor {
 
 
 dependencies {
-    implementation("io.ktor:ktor-server-core:$ktor_version")
-    implementation("io.ktor:ktor-server-routing-openapi:$ktor_version")
-    implementation("io.ktor:ktor-server-openapi:$ktor_version")
-    implementation("io.ktor:ktor-server-content-negotiation:${ktor_version}")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:${ktor_version}")
-    implementation("io.ktor:ktor-server-swagger:${ktor_version}")
-    implementation("io.ktor:ktor-server-netty:$ktor_version")
+    implementation(ktorLibs.server.core)
+    implementation(ktorLibs.server.routingOpenapi)
+    implementation(ktorLibs.server.openapi)
+    implementation(ktorLibs.server.contentNegotiation)
+    implementation(ktorLibs.serialization.kotlinx.json)
+    implementation(ktorLibs.server.swagger)
+    implementation(ktorLibs.server.netty)
     implementation("ch.qos.logback:logback-classic:$logback_version")
-    testImplementation("io.ktor:ktor-server-test-host-jvm:$ktor_version")
+    testImplementation(ktorLibs.server.testHost)
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }

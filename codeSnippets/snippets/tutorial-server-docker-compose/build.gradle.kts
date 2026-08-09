@@ -1,4 +1,3 @@
-val ktor_version: String by project
 val kotlin_version: String by project
 val logback_version: String by project
 val postgres_version: String by project
@@ -8,7 +7,7 @@ val h2_version: String by project
 plugins {
     application
     kotlin("jvm")
-    id("io.ktor.plugin") version "3.5.2"
+    alias(ktorLibs.plugins.ktor)
     id("org.jetbrains.kotlin.plugin.serialization") version "2.2.20"
 }
 
@@ -25,20 +24,20 @@ repositories {
 }
 
 dependencies {
-    implementation("io.ktor:ktor-server-core-jvm")
-    implementation("io.ktor:ktor-server-host-common-jvm")
-    implementation("io.ktor:ktor-server-status-pages-jvm")
-    implementation("io.ktor:ktor-serialization-kotlinx-json-jvm")
-    implementation("io.ktor:ktor-server-content-negotiation-jvm")
+    implementation(ktorLibs.server.core)
+    implementation("io.ktor:ktor-server-host-common:${ktorLibs.versions.ktor.get()}")
+    implementation(ktorLibs.server.statusPages)
+    implementation(ktorLibs.serialization.kotlinx.json)
+    implementation(ktorLibs.server.contentNegotiation)
     implementation("org.postgresql:postgresql:$postgres_version")
     implementation("com.h2database:h2:$h2_version")
     implementation("org.jetbrains.exposed:exposed-core:$exposed_version")
     implementation("org.jetbrains.exposed:exposed-jdbc:$exposed_version")
     implementation("org.jetbrains.exposed:exposed-dao:$exposed_version")
-    implementation("io.ktor:ktor-server-netty-jvm")
+    implementation(ktorLibs.server.netty)
     implementation("ch.qos.logback:logback-classic:$logback_version")
-    implementation("io.ktor:ktor-server-config-yaml:$ktor_version")
-    testImplementation("io.ktor:ktor-server-test-host-jvm")
-    testImplementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
+    implementation(ktorLibs.server.config.yaml)
+    testImplementation(ktorLibs.server.testHost)
+    testImplementation(ktorLibs.client.contentNegotiation)
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 }

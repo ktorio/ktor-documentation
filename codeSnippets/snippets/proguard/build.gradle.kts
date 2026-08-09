@@ -17,7 +17,7 @@ buildscript {
 plugins {
     application
     kotlin("jvm")
-    id("io.ktor.plugin") version "3.5.2"
+    alias(ktorLibs.plugins.ktor)
 }
 
 application {
@@ -31,8 +31,8 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
-    implementation("io.ktor:ktor-server-core-jvm")
-    implementation("io.ktor:ktor-server-netty-jvm")
+    implementation(ktorLibs.server.core)
+    implementation(ktorLibs.server.netty)
     implementation("ch.qos.logback:logback-classic:$logback_version")
 }
 

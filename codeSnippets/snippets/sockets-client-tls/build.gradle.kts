@@ -1,4 +1,3 @@
-val ktor_version: String by project
 val kotlin_version: String by project
 val logback_version: String by project
 
@@ -22,7 +21,7 @@ tasks.named<JavaExec>("run") {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
-    implementation("io.ktor:ktor-network:$ktor_version")
-    implementation("io.ktor:ktor-network-tls:$ktor_version")
+    implementation(ktorLibs.network)
+    implementation(ktorLibs.network.tls)
     implementation("ch.qos.logback:logback-classic:$logback_version")
 }
