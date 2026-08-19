@@ -50,4 +50,21 @@ swaggerUI("/swagger") {
 
 The tag description is added to the top-level metadata of the generated OpenAPI document.
 
+### New `ApplicationCall.respondHtmlPartial()` function
+
+The new `.respondHtmlPartial()` function replaces `.respondHtmlFragment()` for responding
+with partial HTML content.
+
+It uses `TagConsumer<Appendable>` as the lambda receiver, which allows you to return unrestricted HTML content,
+such as table cells:
+
+```kotlin
+call.respondHtmlPartial(HttpStatusCode.Created) {
+    td { +"Created!" } 
+}
+```
+
+The previous `.respondHtmlFragment()` function uses `FlowContent`, which restricts the HTML elements that can be returned.
+It is now deprecated in favor of `.respondHtmlPartial()`.
+
 ## Ktor Client
