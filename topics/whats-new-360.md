@@ -33,5 +33,21 @@ get {
 }
 ```
 
+### OpenAPI tag descriptions
+
+You can now define descriptions for OpenAPI tags directly in the [`openAPI {}`](server-openapi.md) and [`swaggerUI {}`](server-swagger-ui.md)
+configuration blocks:
+
+```kotlin
+swaggerUI("/swagger") {
+    info = OpenApiInfo("Books API from routes", "1.0.0")
+    tag(
+        name = "Books",
+        description = "Operations on books"
+    )
+}
+```
+
+The tag description is added to the top-level metadata of the generated OpenAPI document.
 
 ## Ktor Client

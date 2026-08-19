@@ -33,12 +33,6 @@ Serving Swagger UI requires adding the `%artifact_name%` artifact in the build s
 
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
-> In Ktor 3.4.0, the `SwaggerUI` plugin requires the `ktor-server-routing-openapi` dependency.
-> This was not an intentional breaking change and will be corrected in Ktor 3.4.1.
-> Add the dependency manually if you are using Ktor 3.4.0 to avoid runtime errors.
-> 
-{style="warning"}
-
 ## Use a static OpenAPI file {id="static-openapi-file"}
 
 To serve Swagger UI from an existing OpenAPI specification file, use the [`swaggerUI()`](%plugin_api_link%) function and
@@ -82,8 +76,34 @@ the application.
 
 ## Configure Swagger UI
 
-You can customize Swagger UI within the `swaggerUI {}` block, for example, by overriding the default Swagger UI
-version:
+The `swaggerUI {}` configuration block lets you configure the OpenAPI document and customize Swagger UI.
+
+### Configure document metadata
+
+You can define top-level OpenAPI metadata directly in the configuration block.
+
+For example, use `info` to specify general API information and `tag()` to define tags and their descriptions:
+
+```kotlin
+swaggerUI("/swagger") {
+    info = OpenApiInfo("Books API from routes", "1.0.0")
+    tag(
+        name = "Books",
+        description = "Operations on books"
+    )
+}
+```
+You can also configure other top-level OpenAPI properties, such as servers, security requirements, reusable components,
+external documentation, and specification extensions.
+
+> For the complete set of available options, see the [`SwaggerConfig`](https://api.ktor.io/ktor-server-swagger/io.ktor.server.plugins.swagger/-swagger-config/index.html)
+> API reference.
+> 
+{style="tip"}
+
+### Configure the Swagger UI version
+
+By default, Ktor uses a predefined Swagger UI version. To use a different version, set the `version` property:
 
 ```kotlin
 ```
