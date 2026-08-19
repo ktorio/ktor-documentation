@@ -44,12 +44,6 @@ In both cases, the OpenAPI plugin assembles the specification on the server and 
 
   You can replace `$swagger_codegen_version` with the required version of the `swagger-codegen-generators` artifact, for example, `%swagger_codegen_version%`.
 
-> In Ktor 3.4.0, the `OpenAPI` plugin requires the `ktor-server-routing-openapi` dependency.
-> This was not an intentional breaking change and will be corrected in Ktor 3.4.1.
-> Add the dependency manually if you are using Ktor 3.4.0 to avoid runtime errors.
->
-{style="warning"}
-
 ## Use a static OpenAPI file {id="static-openapi-file"}
 
 To serve OpenAPI documentation from an existing specification, use the [`openAPI()`](%plugin_api_link%) function with
@@ -95,15 +89,45 @@ application.
 
 ## Configure OpenAPI {id="configure-openapi"}
 
-By default, documentation is rendered using `StaticHtml2Codegen`. You can customize the renderer inside the `openAPI {}`
-block:
+The `openAPI {}` configuration block lets you configure the generated OpenAPI document and how Ktor renders the
+documentation.
+
+### Configure document metadata
+
+You can define top-level OpenAPI metadata directly in the configuration block.
+
+For example, use `info` to specify general API information and `tag()` to define tags and their descriptions:
+
+```kotlin
+openAPI("openapi") {
+    info = OpenApiInfo("Books API from routes", "1.0.0")
+    tag(
+        name = "Books",
+        description = "Operations on books"
+    )
+}
+```
+
+You can also configure other top-level OpenAPI properties, such as servers, security requirements, reusable components,
+external documentation, and specification extensions.
+
+> For the complete set of available options, see the [`OpenAPIConfig`](https://api.ktor.io/ktor-server-openapi/io.ktor.server.plugins.openapi/-open-a-p-i-config/index.html)
+> API reference.
+>
+{style="tip"}
+
+### Configure the document renderer
+
+By default, documentation is rendered using `StaticHtml2Codegen`.
+
+To use a different renderer, assign it to the `codegen` property:
+
+```kotlin
+```
+{src="snippets/json-kotlinx-openapi/src/main/kotlin/com/example/Application.kt" include-lines="40,56-58,59"}
 
 > `StaticHtmlCodegen` and `StaticHtml2Codegen` support only OpenAPI 3.0.x documents. Using them with OpenAPI 3.1 documents may
 > produce incomplete or incorrect HTML. For OpenAPI 3.1, use the [`swaggerUI()`](server-swagger-ui.md) function with Swagger UI
 > 5.x. If you need to keep using the OpenAPI plugin's HTML renderer, keep the specification at OpenAPI 3.0.3.
 >
 {style="note"}
-
-```kotlin
-```
-{src="snippets/json-kotlinx-openapi/src/main/kotlin/com/example/Application.kt" include-lines="40,56-58,59"}
