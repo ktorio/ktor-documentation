@@ -69,6 +69,40 @@ It is now deprecated in favor of `.respondHtmlPartial()`.
 
 ## Ktor Client
 
+### Default client engines for multiplatform projects
+
+Ktor 3.6.0 introduces the `ktor-client-engine-defaults` artifact, which provides a curated set of HTTP [client engines](client-engines.md)
+for [Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform/get-started.html) projects.
+
+Add the dependency to the `commonMain` source set:
+
+```kotlin
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                api("io.ktor:ktor-client-engine-defaults:3.6.0-SNAPSHOT")
+            }
+        }
+    }
+}
+```
+
+You can then create an HttpClient without specifying an engine:
+
+```kotlin
+val client = HttpClient()
+```
+
+For each target platform, Ktor uses the default engine provided by `ktor-client-engine-defaults`. This removes the
+need to declare separate engine dependencies for each platform in most multiplatform projects.
+
+If your multiplatform project currently uses `CIO` across all supported targets, consider replacing the `CIO` dependency
+with `ktor-client-engine-defaults`. This lets Ktor provide a curated default engine for each platform while keeping
+engine selection out of your common source set.
+
+You can still declare a specific client engine when you need engine-specific configuration or behavior.
+
 ### WebRTC client support for JVM
 <primary-label ref="experimental"/>
 

@@ -63,33 +63,59 @@ Then, add `ktor-client-core` as a dependency to the `commonMain` source set:
 
 ### Engine dependency {id="engine-dependency"}
 
-An [engine](client-engines.md) is responsible for processing network requests. There are different client engines
-available for various platforms, such as Apache, CIO, Android, iOS, and so on. For example, you can add a `CIO` engine
-dependency as follows:
+An [engine](client-engines.md) is responsible for processing network requests. Ktor provides different client engines for
+different platforms.
+
+For example, you can add the `CIO` engine as follows:
 
 <var name="artifact_name" value="ktor-client-cio"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 #### Multiplatform {id="engine-dependency-multiplatform"}
 
-For a multiplatform project, you need to add a dependency for the required engine to a corresponding source set.
+##### Use default engines
 
-For example, to add the `OkHttp` engine dependency for Android, you can first define the Ktor version and
-the `ktor-client-okhttp` artifact in the `gradle/libs.versions.toml` file:
+For a multiplatform project, you can use the `ktor-client-engine-defaults` artifact to provide a curated client engine
+for each target platform.
 
-```kotlin
+First, define the artifact in your `gradle/libs.versions.toml` file:
+
+```toml
+[libraries]
+ktor-client-engine-defaults = { module = "io.ktor:ktor-client-engine-defaults", version.ref = "ktor" }
 ```
 
-{src="snippets/tutorial-client-kmp/gradle/libs.versions.toml" include-lines="1,15,17-18,30"}
+Then, add it to the commonMain source set:
 
-Then, add `ktor-client-okhttp` as a dependency to the `androidMain` source set:
+```kotlin
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                api(libs.ktor.client.engine.defaults)
+            }
+        }
+    }
+}
+```
+
+##### Use a specific engine
+
+If you need a specific engine, add its dependency to the corresponding platform source set instead. For example, to use
+`OkHttp` on Android, define the `ktor-client-okhttp` artifact:
+
+```toml
+```
+{src="snippets/tutorial-client-kmp/gradle/libs.versions.toml" include-lines="18,30"}
+
+Then, add it as a dependency to the `androidMain` source set:
 
 ```kotlin
 ```
 
 {src="snippets/tutorial-client-kmp/shared/build.gradle.kts" include-lines="25,30-32,39"}
 
-For a full list of dependencies required for a specific engine, see [](client-engines.md#dependencies).
+For the dependencies required by each engine, see [](client-engines.md#dependencies).
 
 ### Logging dependency
 

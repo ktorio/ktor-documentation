@@ -9,10 +9,13 @@ Learn about engines that process network requests.
 The [Ktor HTTP client](client-create-and-configure.md) is multiplatform and runs on JVM,
 [Android](https://kotlinlang.org/docs/android-overview.html), [JavaScript](https://kotlinlang.org/docs/js-overview.html)
 (including WebAssembly), and [Native](https://kotlinlang.org/docs/native-overview.html) targets. Each platform requires
-a specific engine to process network requests.
-For example, you can use `Apache` or `Jetty` for JVM applications, `OkHttp` or `Android`
-for Android, `Curl` for desktop applications targeting Kotlin/Native. Every engine differs slightly in features and
-configuration, so you can choose the one that best meets your platform and use-case needs.
+a specific client engine to process network requests.
+
+Ktor provides several engines for different platforms. For example, you can use `Apache` or `Jetty` for JVM applications,
+`OkHttp` or `Android` for Android, `Curl` for desktop applications targeting Kotlin/Native.
+
+Each engine supports different features and configuration options. For multiplatform projects, you can use Ktor's default
+engines or select specific engines for individual targets.
 
 ## Supported platforms {id="platforms"}
 
@@ -50,7 +53,31 @@ enable [Java 8 API desugaring](https://developer.android.com/studio/write/java8-
 ## Add an engine dependency {id="dependencies"}
 
 In addition to the [`ktor-client-core`](client-dependencies.md) artifact, the Ktor client requires a dependency for a
-specific engine. Each supported platform has a set of available engines, described in the corresponding sections:
+specific engine.
+
+### Use default engines in multiplatform projects {id="default-engines"}
+
+For most Kotlin Multiplatform projects, use the `ktor-client-engine-defaults` artifact. It provides a curated client
+engine for each target platform, so you don't need to declare separate engine dependencies in platform-specific
+source sets.
+
+Add the `ktor-client-engine-defaults` artifact to your `commonMain` source set:
+
+```kotlin
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                api("io.ktor:ktor-client-engine-defaults:%ktor_version%")
+            }
+        }
+    }
+}
+```
+
+### Use a specific engine
+
+Each supported platform has a set of available engines, described in the corresponding sections:
 
 * [JVM](#jvm)
 * [JVM and Android](#jvm-android)
@@ -84,10 +111,9 @@ If you omit the engine argument, the client will choose an engine automatically 
 
 {src="snippets/_misc_client/DefaultEngineCreate.kt"}
 
-This is especially useful in multiplatform projects. For example, for a project targeting
-both [Android and iOS](client-create-multiplatform-application.md), you can add the [Android](#jvm-android) dependency
-to the `androidMain` source set and the [Darwin](#darwin) dependency to the `iosMain` source set. The appropriate
-engine is selected at run time upon `HttpClient` creation. 
+For Kotlin Multiplatform projects, the [`ktor-client-engine-defaults` dependency](#default-engines) provides a default
+engine for each target. Alternatively, you can [add specific engine dependencies](#use-a-specific-engine) to the 
+corresponding platform source sets.
 
 ## Configure an engine {id="configure"}
 
