@@ -88,7 +88,7 @@ kotlin {
 }
 ```
 
-You can then create an HttpClient without specifying an engine:
+You can then create an `HttpClient` without specifying an engine:
 
 ```kotlin
 val client = HttpClient()
@@ -101,7 +101,8 @@ If your multiplatform project currently uses `CIO` across all supported targets,
 with `ktor-client-engine-defaults`. This lets Ktor provide a curated default engine for each platform while keeping
 engine selection out of your common source set.
 
-You can still declare a specific client engine when you need engine-specific configuration or behavior.
+You can still [declare a specific client engine](client-dependencies.md#kmp-specific-engine) when you need engine-specific
+configuration or behavior.
 
 ### WebRTC client support for JVM
 <primary-label ref="experimental"/>

@@ -85,7 +85,7 @@ First, define the artifact in your `gradle/libs.versions.toml` file:
 ktor-client-engine-defaults = { module = "io.ktor:ktor-client-engine-defaults", version.ref = "ktor" }
 ```
 
-Then, add it to the commonMain source set:
+Then, add it to the `commonMain` source set:
 
 ```kotlin
 kotlin {
@@ -99,7 +99,7 @@ kotlin {
 }
 ```
 
-##### Use a specific engine
+##### Use a specific engine {id="kmp-specific-engine"}
 
 If you need a specific engine, add its dependency to the corresponding platform source set instead. For example, to use
 `OkHttp` on Android, define the `ktor-client-okhttp` artifact:
