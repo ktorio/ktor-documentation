@@ -81,7 +81,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api("io.ktor:ktor-client-engine-defaults:3.6.0-SNAPSHOT")
+                api("io.ktor:ktor-client-engine-defaults:3.6.0")
             }
         }
     }
