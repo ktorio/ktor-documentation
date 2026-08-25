@@ -9,7 +9,7 @@
         <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>
     </p>
     <p>
-        <b>Supported platforms</b>: JS/Wasm, Android
+        <b>Supported platforms</b>: JS/Wasm, Android, iOS, JVM
     </p>   
     <p>
         <b>Code example</b>: <a href="https://github.com/ktorio/ktor-chat/">ktor-chat</a>
@@ -25,10 +25,10 @@ browsers and native apps.
 The WebRTC client in Ktor enables real-time peer-to-peer communication in multiplatform projects. With WebRTC, you can
 build features such as:
 
-- Video and voice calls
-- Multiplayer games
-- Collaborative applications (whiteboards, editors, etc.)
-- Low-latency data exchange between clients
+* Video and voice calls
+* Multiplayer games
+* Collaborative applications, such as whiteboards and editors
+* Low-latency data exchange between clients
 
 ## Add dependencies {id="add-dependencies"}
 
@@ -40,10 +40,11 @@ To use `WebRtcClient`, you need to include the `%artifact_name%` artifact in the
 
 When creating a `WebRtcClient`, choose an engine based on your target platform:
 
-- JS/Wasm: `JsWebRtc` – uses [WebRTC](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API), 
-[Media Capture and Streams](https://developer.mozilla.org/en-US/docs/Web/API/Media_Capture_and_Streams_API) browser APIs.
-- Android: `AndroidWebRtc` – uses a pre-compiled WebRTC library for Android by [Stream](https://github.com/GetStream/webrtc-android) and Android media APIs.
-- iOS: `IosWebRtc` - uses [WebRTC SDK](https://github.com/webrtc-sdk) for iOS and native [AVFoundation](https://developer.apple.com/documentation/avfoundation) framework.
+* JS/Wasm: `JsWebRtc` uses the browser [WebRTC](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API) and
+[Media Capture and Streams](https://developer.mozilla.org/en-US/docs/Web/API/Media_Capture_and_Streams_API) APIs.
+* Android: `AndroidWebRtc` uses the precompiled [Stream WebRTC library for Android](https://github.com/GetStream/webrtc-android) and Android media APIs.
+* iOS: `IosWebRtc` uses the [WebRTC SDK](https://github.com/webrtc-sdk) and the native [AVFoundation](https://developer.apple.com/documentation/avfoundation) framework.
+* JVM: `JvmWebRtc` uses native WebRTC bindings provided by [webrtc-java](https://github.com/devopvoid/webrtc-java).
 
 You can then provide platform-specific configuration similar to `HttpClient`. STUN/TURN servers are required for
 [ICE](#ice) to work correctly. You can use existing solutions such as [coturn](https://github.com/coturn/coturn):
@@ -78,6 +79,18 @@ val androidClient = WebRtcClient(AndroidWebRtc) {
 ```kotlin
 val iosClient = WebRtcClient(IosWebRtc) {
     // the same configuration, no extra context needed
+}
+```
+
+</tab>
+
+<tab title="JVM" group-key="jvm">
+
+```kotlin
+val jvmClient = WebRtcClient(JvmWebRtc) {
+    defaultConnectionConfig = {
+        iceServers = listOf(WebRtc.IceServer("stun:stun.l.google.com:19302"))
+    }
 }
 ```
 
@@ -123,9 +136,9 @@ Once SDP negotiation is complete, peers still need to discover how to connect ac
 Establishment (ICE)](https://en.wikipedia.org/wiki/Interactive_Connectivity_Establishment) allows peers to find network
 paths to each other.
 
-- Each peer gathers its own ICE candidates.
-- These candidates must be sent to the other peer through your chosen signaling channel.
-- Once both peers add each other’s candidates, the connection can succeed.
+* Each peer gathers its own ICE candidates.
+* These candidates must be sent to the other peer through your chosen signaling channel.
+* Once both peers add each other’s candidates, the connection can succeed.
 
 ```kotlin
 // Collect and send local candidates
@@ -167,11 +180,31 @@ scope.launch {
     callee.dataChannelEvents.collect { event ->
         when (event) {
             is DataChannelEvent.Open -> println("Channel opened: ${event.channel}")
-            is DataChannelEvent.Closed -> println("Channel closed")
-            else -> {}
+            is DataChannelEvent.Closing -> println("Channel closing: ${event.channel}")
+            is DataChannelEvent.Closed -> println("Channel closed: ${event.channel}")
+            is DataChannelEvent.BufferedAmountLow ->
+                println("Buffered amount is low: ${event.channel}")
+            is DataChannelEvent.Error ->
+                println("Channel error: ${event.reason}")
         }
     }
 }
+```
+
+`DataChannelEvent` can represent the following events:
+
+* `Open`: The channel is ready to send and receive data.
+* `Closing`: The channel has started closing.
+* `Closed`: he channel is closed.
+* `BufferedAmountLow`: The amount of buffered outgoing data has dropped to or below `bufferedAmountLowThreshold`.
+  This event is not emitted on JVM.
+* `Error`: An error occurred on the channel. This event is not emitted on JVM. Send failures throw
+  `WebRtc.IOException` instead.
+
+To receive `BufferedAmountLow` on platforms that support it, set a threshold on the channel:
+
+```kotlin
+channel.setBufferedAmountLowThreshold(16 * 1024)
 ```
 
 ### Sending and receiving messages
@@ -209,12 +242,20 @@ pc.addTrack(audio)
 pc.addTrack(video)
 ```
 
-On the web, this uses `navigator.mediaDevices.getUserMedia`. On Android, it uses the Camera2 API and you must request
-microphone/camera permissions manually. On iOS, it uses AVFoundation API and you should also request any permissions manually.
-The client will try to find the most suitable media device according to the specified constraints or throw `WebRtcMedia.DeviceException`.
+Media capture is platform-specific:
 
-> `WebRtcClient`, `WebRtcPeerConnection`, `WebRtcMedia.Track` and other interfaces are `AutoCloseable`.
-> Make sure to call the `close()` method to free resources when no longer needed.
+* On the web, it uses `navigator.mediaDevices.getUserMedia`.
+* On Android, it uses the Camera2 API. You need to request camera and microphone permissions separately.
+* On iOS, it uses the AVFoundation API. You also need to request the required permissions separately.
+* On JVM, it uses [webrtc-java](https://github.com/devopvoid/webrtc-java) to access the system camera and microphone. The operating system may prompt the
+  user for permission.
+
+The client selects the most suitable media device based on the specified constraints. If no suitable device is available,
+it throws `WebRtcMedia.DeviceException`.
+
+> `WebRtcClient`, `WebRtcPeerConnection`, `WebRtcMedia.Track`, and other interfaces implement `AutoCloseable`.
+> Call the `close()` function to free resources when you no longer need them.
+> 
 {style="note"}
 
 
@@ -316,10 +357,25 @@ kotlin {
 ```
 
 </tab>
+
+<tab title="JVM" group-key="jvm">
+
+```kotlin
+val videoTrack = rtcClient.createVideoTrack()
+val nativeTrack: dev.onvoid.webrtc.media.video.VideoTrack = videoTrack.getNative()
+
+// There is no built-in video view. Attach a sink and render frames
+// with Swing, JavaFX, Compose, or another UI toolkit.
+nativeTrack.addSink { frame ->
+    // draw frame.buffer to your UI, then frame.release()
+}
+```
+
+</tab>
 </tabs>
 
 ```kotlin
-// On Android and iOS, audio track playback can be started/stopped without using `getNative()`
+// On Android, iOS, and JVM, audio track playback can be started/stopped without using `getNative()`
 // In browser, you still should create an <audio/> element.
 
 val audio = rtcClient.createAudioTrack()
@@ -330,18 +386,24 @@ audio.enable(false)
 ```
 
 
-> These snippets can be used with Compose Multiplatform, but don't account for its lifecycle. For a complete integration, see the [Ktor Chat](https://github.com/ktorio/ktor-chat) example.
+> These snippets can be used with Compose Multiplatform, but don't account for its lifecycle. For a complete integration,
+> see the [Ktor Chat](https://github.com/ktorio/ktor-chat) example.
+> 
 {style="note"}
 
 ## Limitations
 
 The WebRTC client is experimental and has the following limitations:
 
-- Signaling is not included. You need to implement your own signaling (for example, with WebSockets or HTTP).
-- Supported platforms are JavaScript/Wasm, Android and iOS. JVM desktop, and Kotlin/Native support are planned in future
-  releases.
-- Permissions must be handled by your application. Browsers prompt users for microphone and camera access, while
-  Android and iOS require runtime permission requests.
-- Only basic audio and video tracks are supported. Screen sharing, device selection, simulcast, and advanced RTP
-  features are not yet available.
-- Connection statistics are available but differ across platforms and do not follow a unified schema.
+* **Signaling:** Signaling is not included. You need to implement it separately, for example, with WebSockets or HTTP.
+* **Platform support:** The client supports JavaScript/Wasm, Android, iOS, and JVM desktop. Kotlin/Native support is
+  planned for a future release.
+* **Permissions:** Permissions must be handled by your application. Browsers prompt users for microphone and camera access.
+  Android and iOS require runtime permission requests. On JVM, camera and microphone access are granted at the
+  operating-system level.
+* **JVM limitations:** Candidate prefetching is not supported. `iceCandidatePoolSize` must be `0` or
+  omitted. The `facingMode`, `aspectRatio`, and `resizeMode` video constraints are not supported and throw an exception 
+  if set. `DataChannelEvent.Error` and `DataChannelEvent.BufferedAmountLow` are not emitted.
+* **Media features:** Only basic audio and video tracks are supported. Screen sharing, device selection, simulcast, and
+  advanced RTP features are not yet available.
+* **Connection statistics:** Statistics are available but differ across platforms and do not follow a unified schema.

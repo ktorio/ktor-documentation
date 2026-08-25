@@ -68,3 +68,14 @@ The previous `.respondHtmlFragment()` function uses `FlowContent`, which restric
 It is now deprecated in favor of `.respondHtmlPartial()`.
 
 ## Ktor Client
+
+### WebRTC client support for JVM
+<primary-label ref="experimental"/>
+
+The experimental [WebRTC client](client-webrtc.md) now supports JVM desktop applications.
+
+The JVM implementation uses [webrtc-java](https://github.com/devopvoid/webrtc-java) native WebRTC bindings and provides
+support for peer connections, audio and video tracks, data channels, and connection statistics.
+
+JVM support currently has several platform-specific limitations. For more information, see the
+[WebRTC client](client-webrtc.md) documentation.
