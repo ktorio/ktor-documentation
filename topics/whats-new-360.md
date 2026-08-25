@@ -109,3 +109,24 @@ val client = HttpClient {
 </compare>
 
 This replaces the JVM-specific setup that creates a `File` before passing it to `FileStorage()`.
+
+### Control `Accept` header merging in `ContentNegotiation`
+
+You can now control how the client [`ContentNegotiation`](client-serialization.md) plugin merges registered content types
+with an existing `Accept` header.
+
+By default, the `ContentNegotiation` plugin adds registered content types that aren't already represented in the request's
+`Accept` header.
+
+If you set an `Accept` header explicitly and don't want the plugin to add registered content types, set
+the `acceptHeaderMergeStrategy` property to `ContentTypeMergeStrategy.SkipIfPresent`:
+
+```kotlin
+install(ContentNegotiation) {
+    register(ContentType.Application.Json, noOpJsonConverter)
+    acceptHeaderMergeStrategy = ContentTypeMergeStrategy.SkipIfPresent
+}
+```
+
+With `SkipIfPresent`, the plugin preserves an existing `Accept` header. If the request doesn't contain an `Accept` header,
+the plugin adds the registered content types as usual.
