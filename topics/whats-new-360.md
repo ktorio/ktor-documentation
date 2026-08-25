@@ -79,3 +79,33 @@ support for peer connections, audio and video tracks, data channels, and connect
 
 JVM support currently has several platform-specific limitations. For more information, see the
 [WebRTC client](client-webrtc.md) documentation.
+
+### Multiplatform file storage for HTTP caching
+
+The [`HttpCache`](client-caching.md) plugin now supports multiplatform file storage.
+
+Previously, the `FileStorage()` function was available only on JVM and required a `java.io.File`. It now uses
+`kotlinx-io`, which allows you to configure persistent file-based caching on any supported platform using `Path`.
+
+<compare type="top-bottom" first-title="3.5.x" second-title="3.6.0">
+
+```kotlin
+val client = HttpClient(CIO) {
+    install(HttpCache) {
+        val cacheFile = Files.createDirectories(Paths.get("build/cache")).toFile()
+        publicStorage(FileStorage(cacheFile))
+    }
+}
+```
+
+```kotlin
+val client = HttpClient(CIO) {
+    install(HttpCache) {
+        publicStorage(FileStorage(Path("build/cache")))
+    }
+}
+```
+
+</compare>
+
+This replaces the JVM-specific setup that creates a `File` before passing it to `FileStorage()`.
