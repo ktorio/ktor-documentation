@@ -120,6 +120,9 @@ routing {
 }
 ```
 
+You can also place `rateLimit()` outside `authenticate()` to apply rate limiting before authentication. Use this approach
+when the rate limit doesn't depend on an authenticated principal.
+
 ## Ktor Client
 
 ### Default client engines for multiplatform projects

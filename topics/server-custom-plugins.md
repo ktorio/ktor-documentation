@@ -37,7 +37,7 @@ You can use an application created in the [](server-create-a-new-project.topic) 
    >
    {style="tip"}
 
-2. To [install a plugin](server-plugins.md#install), pass the created `ApplicationPlugin` instance to the `install()` function in
+2. To [install a plugin](server-plugins.md#install), pass the created `ApplicationPlugin` instance to the `Application.install()` function in
    your application's initialization code:
 
    ```kotlin
@@ -294,7 +294,7 @@ To make this plugin reusable, define a configuration that lets users specify the
    ```
    {src="snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt" include-lines="18-21"}
 
-2. Pass  configuration class reference to `createApplicationPlugin()`:
+2. Pass the configuration class reference to `createApplicationPlugin()`:
 
    ```kotlin
    ```
@@ -437,7 +437,7 @@ To call a blocking database API, create a separate
 [`CoroutineContext`](https://kotlinlang.org/docs/coroutine-context-and-dispatchers.html) for blocking work:
 
 ```kotlin
-val databaseContext = newSingleThreadContext("DatabaseThread")
+val databaseContext = Dispatchers.IO
 ```
 
 Then wrap each blocking database call in `withContext()`:
@@ -445,7 +445,7 @@ Then wrap each blocking database call in `withContext()`:
 ```kotlin
 onCall {
    withContext(databaseContext) {
-       database.access(...) // some call to your database
+       database.access(...) // A call to your database
    }
 }
 ```

@@ -26,7 +26,7 @@ To create a custom plugin with the base API:
 
 ### Create a companion object {id="create-companion"}
 
-A custom plugin's class muat have a companion object that implements one of the following interfaces:
+A custom plugin's class must have a companion object that implements one of the following interfaces:
 
 * [`BaseApplicationPlugin`](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-base-application-plugin/index.html) for application-level plugins.
 * [`BaseRouteScopedPlugin`](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-base-route-scoped-plugin/index.html) for plugins that are [installed on a specific route](server-plugins.md#install-route).
@@ -118,7 +118,7 @@ First, define a configuration class inside the plugin class:
 ```
 {src="snippets/custom-plugin-base-api/src/main/kotlin/com/example/plugins/CustomHeader.kt" include-lines="11-14"}
 
-Plugin configuration properties are mutable during plugin installation. If the plugin uses these values in interceptors,
+You can update plugin configuration properties during plugin installation. If the plugin uses these values in interceptors,
 store them in local variables inside the `install()` function:
 
 ```kotlin
@@ -133,7 +133,8 @@ Then, in the `install()` function, read the configuration and use its properties
 
 ### Install a plugin {id="install"}
 
-To [install](server-plugins.md#install) a custom plugin to your application, call the `install()` function and pass the required [configuration](#plugin-configuration) parameters:
+To [install](server-plugins.md#install) a custom plugin to your application, call the `Application.install()` function and pass the required
+[configuration](#plugin-configuration) parameters:
 
 ```kotlin
 ```
