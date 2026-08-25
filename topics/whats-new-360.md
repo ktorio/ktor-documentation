@@ -90,7 +90,7 @@ Previously, the `FileStorage()` function was available only on JVM and required 
 <compare type="top-bottom" first-title="3.5.x" second-title="3.6.0">
 
 ```kotlin
-val client = HttpClient(CIO) {
+val client = HttpClient {
     install(HttpCache) {
         val cacheFile = Files.createDirectories(Paths.get("build/cache")).toFile()
         publicStorage(FileStorage(cacheFile))
@@ -99,7 +99,7 @@ val client = HttpClient(CIO) {
 ```
 
 ```kotlin
-val client = HttpClient(CIO) {
+val client = HttpClient {
     install(HttpCache) {
         publicStorage(FileStorage(Path("build/cache")))
     }
