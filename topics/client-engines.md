@@ -383,16 +383,18 @@ WebAssembly JavaScript (WasmJs) platforms. It currently supports HTTP/1.x only. 
 
 ## JavaScript {id="js"}
 
-The `Js` engine can be used for [JavaScript projects](https://kotlinlang.org/docs/js-overview.html). It uses
-[fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) for browser applications and `node-fetch`
-for Node.js. To use it, follow the steps below:
+The `Js` engine can be used in [Kotlin/JS](https://kotlinlang.org/docs/js-overview.html) projects. It uses the
+[Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) in browser applications and `node-fetch`
+in Node.js.
+
+To use the `Js` engine, follow the steps below:
 
 1. Add the `ktor-client-js` dependency:
 
    <var name="artifact_name" value="ktor-client-js"/>
    <var name="target" value=""/>
    <include from="lib.topic" element-id="add_ktor_artifact_mpp"/>
-2. Pass the `Js` class as an argument to the `HttpClient` constructor:
+2. Pass the `Js` class as an argument to the `HttpClient()` constructor:
    ```kotlin
    import io.ktor.client.*
    import io.ktor.client.engine.js.*
@@ -400,15 +402,33 @@ for Node.js. To use it, follow the steps below:
    val client = HttpClient(Js)
    ```
 
-   You can also call the `JsClient()` function to get the `Js` engine singleton:
+   Alternatively, call the `JsClient()` function to get the `Js` engine singleton:
    ```kotlin
    import io.ktor.client.engine.js.*
 
    val client = JsClient()
    ```
 
-For the full example,
-see [client-engine-js](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-engine-js).
+   > For the full example, see [client-engine-js](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-engine-js).
+   > 
+   {style="tip"}
+
+### Override fetch {id="js-custom-fetch"}
+
+By default, the `Js` engine uses the global `fetch()` function. To use a custom implementation, set the `fetch` property
+in the engine configuration:
+
+```kotlin
+val client = HttpClient(Js) {
+    engine {
+        fetch = { url, init ->
+            Promise.reject(IllegalStateException("Networking not available"))
+        }
+    }
+}
+```
+
+This is useful when integrating with JavaScript libraries that provide their own `fetch()` implementation or wrapper.
 
 ## Limitations {id="limitations"}
 
