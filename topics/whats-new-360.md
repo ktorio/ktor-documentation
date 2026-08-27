@@ -67,6 +67,31 @@ call.respondHtmlPartial(HttpStatusCode.Created) {
 The previous `.respondHtmlFragment()` function uses `FlowContent`, which restricts the HTML elements that can be returned.
 It is now deprecated in favor of `.respondHtmlPartial()`.
 
+### Use h2c alongside HTTP/2 over TLS
+
+The Netty server engine can now serve [HTTP/2 over cleartext (h2c)](server-http2.md#h2c) and HTTP/2 over TLS on the
+same server.
+
+This allows you to configure a cleartext connector and an SSL connector, then enable both HTTP/2 and h2c:
+
+```kotlin
+embeddedServer(Netty, configure = {
+    connector {
+        port = 8080
+    }
+    sslConnector(...) {
+        port = 8443
+    }
+
+    enableHttp2 = true
+    enableH2c = true
+}) {
+    // ...
+}
+```
+
+The cleartext connector accepts h2c connections, while the SSL connector serves HTTP/2 over TLS.
+
 ## Ktor Client
 
 ### Default client engines for multiplatform projects
