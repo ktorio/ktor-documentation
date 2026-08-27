@@ -22,5 +22,9 @@ val client = HttpClient(CIO) {
             random = mySecureRandom
             addKeyStore(myKeyStore, myKeyStorePassword)
         }
+        dnsResolver = CioDnsResolver(
+            server = "1.1.1.1",
+            timeout = 3.seconds
+        )
     }
 }

@@ -166,3 +166,24 @@ install(ContentNegotiation) {
 
 With `SkipIfPresent`, the plugin preserves an existing `Accept` header. If the request doesn't contain an `Accept` header,
 the plugin adds the registered content types as usual.
+
+### Asynchronous DNS resolution in the CIO client engine
+
+This release adds support for custom DNS resolution in the [`CIO` client engine](client-engines.md#cio).
+
+On JVM, the `CIO` engine previously relied on system DNS resolution, which can block threads. You can now override DNS
+resolution using the `dnsResolver` property in the `CIO` engine configuration.
+
+For example, use the `CioDnsResolver()` function to resolve hostnames asynchronously through a specific DNS server and
+configure a timeout:
+
+```kotlin
+HttpClient(CIO) {
+    engine {
+        dnsResolver = CioDnsResolver(
+            server = "1.1.1.1",
+            timeout = 3.seconds
+        )
+    }
+}
+```
