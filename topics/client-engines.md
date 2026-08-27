@@ -55,6 +55,21 @@ enable [Java 8 API desugaring](https://developer.android.com/studio/write/java8-
 In addition to the [`ktor-client-core`](client-dependencies.md) artifact, the Ktor client requires a dependency for a
 specific engine.
 
+### Use a specific engine
+
+Each supported platform has a set of available engines, described in the corresponding sections:
+
+* [JVM](#jvm)
+* [JVM and Android](#jvm-android)
+* [JavaScript](#js)
+* [Native](#native)
+
+> Ktor provides platform-specific artifacts with suffixes such as `-jvm` or `-js`. For example, `ktor-client-cio-jvm`.
+> Dependency resolution differs by build tool. While Gradle resolves artifacts appropriate for a given platform, Maven
+> doesn't support this capability. This means that for Maven, you need to specify the platform suffix manually.
+>
+{type="note"}
+
 ### Use default engines in multiplatform projects {id="default-engines"}
 
 For most Kotlin Multiplatform projects, use the `ktor-client-engine-defaults` artifact. It provides a curated client
@@ -75,21 +90,6 @@ kotlin {
 }
 ```
 
-### Use a specific engine
-
-Each supported platform has a set of available engines, described in the corresponding sections:
-
-* [JVM](#jvm)
-* [JVM and Android](#jvm-android)
-* [JavaScript](#js)
-* [Native](#native)
-
-> Ktor provides platform-specific artifacts with suffixes such as `-jvm` or `-js`. For example, `ktor-client-cio-jvm`.
-> Dependency resolution differs by build tool. While Gradle resolves artifacts appropriate for a given platform, Maven
-> doesn't support this capability. This means that for Maven, you need to specify the platform suffix manually.
->
-{type="note"}
-
 ## Specify an engine {id="create"}
 
 To use a specific engine, pass the engine class to the [
@@ -101,15 +101,20 @@ following example creates a client with the `CIO` engine:
 
 {src="snippets/_misc_client/CioCreate.kt"}
 
-## Default engine {id="default"}
+## Automatic engine selection {id="default"}
 
-If you omit the engine argument, the client will choose an engine automatically based on the dependencies
+If you omit the engine argument, the client chooses an engine automatically from the engine dependencies available
 [in your build script](#dependencies).
 
 ```kotlin
 ```
-
 {src="snippets/_misc_client/DefaultEngineCreate.kt"}
+
+If only one engine is available for the target platform, Ktor uses that engine. If multiple engines are available, Ktor
+selects the engine with the highest priority.
+
+By default, `CIO` has the lowest priority. This means that if `CIO` and another supported engine are available for the
+same platform, Ktor selects the other engine. `CIO` is used when no higher-priority engine is available.
 
 For Kotlin Multiplatform projects, the [`ktor-client-engine-defaults` dependency](#default-engines) provides a default
 engine for each target. Alternatively, you can [add specific engine dependencies](#use-a-specific-engine) to the 

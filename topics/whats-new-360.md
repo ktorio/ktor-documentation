@@ -94,8 +94,9 @@ You can then create an `HttpClient` without specifying an engine:
 val client = HttpClient()
 ```
 
-For each target platform, Ktor uses the default engine provided by `ktor-client-engine-defaults`. This removes the
-need to declare separate engine dependencies for each platform in most multiplatform projects.
+For each target platform, Ktor uses the default engine provided by `ktor-client-engine-defaults`. If more than one engine
+is available, the client selects the engine with the highest priority. `CIO` has the lowest priority by default, so the
+client selects another available engine over `CIO`.
 
 If your multiplatform project currently uses `CIO` across all supported targets, consider replacing the `CIO` dependency
 with `ktor-client-engine-defaults`. This lets Ktor provide a curated default engine for each platform while keeping
