@@ -187,3 +187,22 @@ HttpClient(CIO) {
     }
 }
 ```
+
+### Override `fetch()` in the JavaScript client engine
+
+You can now override the global `fetch()` function used by the [JavaScript client engine](client-engines.md#js).
+
+To provide a custom implementation, set the `fetch` property in the `Js` engine configuration:
+
+```kotlin
+val client = HttpClient(Js) {
+    engine {
+        fetch = { url, init ->
+            Promise.reject(IllegalStateException("Networking not available"))
+        }
+    }
+}
+```
+
+This is useful when integrating with JavaScript libraries that provide their own `fetch()` wrapper, such as [AWS WAF](https://aws.amazon.com/waf/).
+If you don't configure `fetch`, the engine continues to use the global `fetch()` function.
