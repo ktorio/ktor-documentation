@@ -29,7 +29,7 @@ To define custom fallback behaviour, use the `fallback()` function within `stati
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="26,29-36,49"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="31,34-41,54"}
 
 ### LastModified and Etag headers for static content
 
@@ -40,7 +40,7 @@ the last request:
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="51-54"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="56-59"}
 
 The values are calculated dynamically based on each resource and applied to the response.
 
@@ -50,7 +50,7 @@ content:
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="56-58"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="61-63"}
 
 ### Development mode auto-reload limitations
 

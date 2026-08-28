@@ -18,7 +18,12 @@ fun Application.module() {
         staticFiles("/resources", File("files"))
         staticFiles("/", File("files")) {
             default("index.html")
-            preCompressed(CompressedFileType.BROTLI, CompressedFileType.GZIP)
+            preCompressed(
+                CompressedFileType.BROTLI,
+                CompressedFileType.GZIP,
+                CompressedFileType.ZSTD,
+                CompressedFileType.DEFLATE
+            )
             modify { file, call ->
                 call.response.headers.append(HttpHeaders.ETag, file.name.toString())
             }
