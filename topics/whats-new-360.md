@@ -1,6 +1,6 @@
 [//]: # (title: What's new in Ktor 3.6.0)
 
-<show-structure for="chapter,procedure" depth="2"/>
+<show-structure for="chapter,procedure" depth="3"/>
 
 [//]: # (TODO: Ensure release date is correct)
 _[Released: August 26, 2026](releases.md#release-details)_
@@ -67,7 +67,46 @@ call.respondHtmlPartial(HttpStatusCode.Created) {
 The previous `.respondHtmlFragment()` function uses `FlowContent`, which restricts the HTML elements that can be returned.
 It is now deprecated in favor of `.respondHtmlPartial()`.
 
-### Use h2c alongside HTTP/2 over TLS
+### Netty
+
+#### HTTP/3 support
+
+The Netty server engine now includes experimental support for [](server-http3.md) over QUIC.
+
+To enable HTTP/3, configure an SSL connector and call the `enableHttp3()` function in the Netty engine configuration:
+
+```kotlin
+embeddedServer(Netty, environment, {
+    // SSL connector is required
+    sslConnector(
+        keyStore = keyStore,
+        keyAlias = "server",
+        keyStorePassword = { "changeit".toCharArray() },
+        privateKeyPassword = { "changeit".toCharArray() }
+    ) {
+        port = 8443
+        host = "0.0.0.0"
+    }
+
+    enableHttp3 {
+        quicTokenHandler = HmacQuicTokenHandler() // Optional
+        quicMaxIdleTimeout = 30.seconds
+        quicInitialMaxData = 10_000_000
+        quicInitialMaxStreamDataBidirectionalLocal = 1_000_000
+        quicInitialMaxStreamDataBidirectionalRemote = 1_000_000
+        quicInitialMaxStreamsBidirectional = 100
+        udpSocketCount = 1
+        udpReceiveBufferSize = 0
+        udpSendBufferSize = 0
+        configureQuicServerCodec = { /* Optional low-level Netty tuning */ }
+    }
+}) { /* Application */ }.start(wait = true)
+```
+
+You can also use the `enableHttp3 {}` block to configure QUIC-specific options such as connection timeouts,
+flow-control limits, and UDP socket settings.
+
+#### Use h2c alongside HTTP/2 over TLS
 
 The Netty server engine can now serve [HTTP/2 over cleartext (h2c)](server-http2.md#h2c) and HTTP/2 over TLS on the
 same server.
