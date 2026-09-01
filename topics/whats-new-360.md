@@ -92,6 +92,37 @@ embeddedServer(Netty, configure = {
 
 The cleartext connector accepts h2c connections, while the SSL connector serves HTTP/2 over TLS.
 
+### Rate limiting with authenticated principals
+
+The [`RateLimit`](server-rate-limit.md) plugin can now access authentication principals during request validation.
+
+This allows you to nest the `rateLimit()` function inside `authenticate()` and use `call.principal()` in the
+`requestKey()` function to apply rate limits per authenticated user:
+
+```kotlin
+install(Authentication) {
+    basic("auth") { validate { UserIdPrincipal(it.name) } }
+}
+
+install(RateLimit) {
+    register(RateLimitName("per-user")) {
+        rateLimiter(limit = 10, refillPeriod = 60.seconds)
+        requestKey { call.principal<UserIdPrincipal>()?.name ?: "anonymous" }
+    }
+}
+
+routing {
+    authenticate("auth") {
+        rateLimit(RateLimitName("per-user")) {
+            get("/api") { call.respondText("OK") }
+        }
+    }
+}
+```
+
+You can also place `rateLimit()` outside `authenticate()` to apply rate limiting before authentication. Use this approach
+when the rate limit doesn't depend on an authenticated principal.
+
 ## Ktor Client
 
 ### Default client engines for multiplatform projects
