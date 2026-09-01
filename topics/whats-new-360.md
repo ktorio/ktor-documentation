@@ -123,6 +123,58 @@ routing {
 You can also place `rateLimit()` outside `authenticate()` to apply rate limiting before authentication. Use this approach
 when the rate limit doesn't depend on an authenticated principal.
 
+### Nullable request bodies with `ApplicationCall.receive()`
+
+Ktor now supports nullable type arguments with the `ApplicationCall.receive()` function.
+
+The `.receiveNullable()` function is deprecated. Use `.receive()` with a nullable type when a request body can be `null`:
+
+<compare first-title="3.5.x" second-title="3.6.0">
+
+```kotlin
+ post("/") {
+    val payload = call.receiveNullable<Payload>()
+}
+```
+
+```kotlin
+ post("/") {
+    val payload = call.receive<Payload?>()
+}
+```
+
+</compare>
+
+This makes the expected request contract explicit in the type:
+
+* `receive<MyType>()` requires a non-null value.
+* `receive<MyType?>()` accepts a value or `null`.
+
+For example, an endpoint can use `null` to clear existing notification preferences:
+
+```kotlin
+@Serializable
+data class NotificationPreferences(
+    val emailEnabled: Boolean,
+    val pushEnabled: Boolean,
+)
+
+put("/users/{userId}/notification-preferences") {
+    val userId = call.parameters.getOrFail("userId")
+    val preferences = call.receive<NotificationPreferences?>()
+
+    if (preferences == null) {
+        preferenceService.clear(userId)
+    } else {
+        preferenceService.update(userId, preferences)
+    }
+
+    call.respond(HttpStatusCode.NoContent)
+}
+```
+
+Non-nullable calls to `.receive()` continue to work unchanged. Response APIs are unaffected.
+
 ## Ktor Client
 
 ### Default client engines for multiplatform projects
