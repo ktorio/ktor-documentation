@@ -262,3 +262,26 @@ val client = HttpClient(Js) {
 
 This is useful when integrating with JavaScript libraries that provide their own `fetch()` wrapper, such as [AWS WAF](https://aws.amazon.com/waf/).
 If you don't configure `fetch`, the engine continues to use the global `fetch()` function.
+
+## Shared
+
+### Preserve duplicate cookies when parsing cookie headers
+
+You can now use the `parseClientCookies()` function to parse `Cookie` headers that contain multiple cookies with the
+same name.
+
+Unlike the `parseClientCookiesHeader()` function, which returns a `Map<String, String>` and keeps only the last value
+for duplicate names, the `parseClientCookies()` function returns a `List<Pair<String, String>>` and preserves duplicate
+cookie entries:
+
+```kotlin
+val header = "name=value1; name=value2"
+
+val cookies = parseClientCookies(header)
+// [("name", "value1"), ("name", "value2")]
+
+val cookieMap = parseClientCookiesHeader(header)
+// {"name"="value2"}
+```
+
+Use `parseClientCookies()` when duplicate cookie names need to be preserved.
