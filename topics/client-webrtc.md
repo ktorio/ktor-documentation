@@ -195,13 +195,12 @@ scope.launch {
 
 * `Open`: The channel is ready to send and receive data.
 * `Closing`: The channel has started closing.
-* `Closed`: he channel is closed.
+* `Closed`: The channel is closed.
 * `BufferedAmountLow`: The amount of buffered outgoing data has dropped to or below `bufferedAmountLowThreshold`.
-  This event is not emitted on JVM.
 * `Error`: An error occurred on the channel. This event is not emitted on JVM. Send failures throw
   `WebRtc.IOException` instead.
 
-To receive `BufferedAmountLow` on platforms that support it, set a threshold on the channel:
+To receive `BufferedAmountLow` set a threshold on the channel:
 
 ```kotlin
 channel.setBufferedAmountLowThreshold(16 * 1024)
@@ -403,7 +402,7 @@ The WebRTC client is experimental and has the following limitations:
   operating-system level.
 * **JVM limitations:** Candidate prefetching is not supported. `iceCandidatePoolSize` must be `0` or
   omitted. The `facingMode`, `aspectRatio`, and `resizeMode` video constraints are not supported and throw an exception 
-  if set. `DataChannelEvent.Error` and `DataChannelEvent.BufferedAmountLow` are not emitted.
+  if set. `DataChannelEvent.Error` is not emitted.
 * **Media features:** Only basic audio and video tracks are supported. Screen sharing, device selection, simulcast, and
   advanced RTP features are not yet available.
 * **Connection statistics:** Statistics are available but differ across platforms and do not follow a unified schema.
