@@ -133,7 +133,7 @@ The `.receiveNullable()` function is deprecated. Use `.receive()` with a nullabl
 
 ```kotlin
  post("/") {
-    val payload = call.receiveNullable<Payload>()
+    val payload = call.receiveNullable<Payload?>()
 }
 ```
 
