@@ -1,4 +1,3 @@
-val ktor_version: String by project
 val kotlin_version: String by project
 val logback_version: String by project
 val junit_version: String by project
@@ -19,11 +18,11 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
-    implementation("io.ktor:ktor-server-core:$ktor_version")
-    implementation("io.ktor:ktor-server-netty:$ktor_version")
+    implementation(ktorLibs.server.core)
+    implementation(ktorLibs.server.netty)
     implementation("ch.qos.logback:logback-classic:$logback_version")
-    implementation("io.ktor:ktor-server-config-yaml:$ktor_version")
+    implementation(ktorLibs.server.config.yaml)
     testImplementation("junit:junit:$junit_version")
     testImplementation("com.typesafe:config:1.4.8")
-    testImplementation("io.ktor:ktor-server-test-host-jvm:$ktor_version")
+    testImplementation(ktorLibs.server.testHost)
 }

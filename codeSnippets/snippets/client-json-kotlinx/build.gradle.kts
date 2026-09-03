@@ -1,4 +1,3 @@
-val ktor_version: String by project
 val logback_version: String by project
 val junit_version: String by project
 val hamcrest_version: String by project
@@ -19,14 +18,14 @@ repositories {
 }
 
 dependencies {
-    implementation("io.ktor:ktor-client-core:$ktor_version")
-    implementation("io.ktor:ktor-client-cio:$ktor_version")
-    implementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:$ktor_version")
-    implementation("io.ktor:ktor-serialization-kotlinx-xml:$ktor_version")
-    implementation("io.ktor:ktor-serialization-kotlinx-cbor:$ktor_version")
-    implementation("io.ktor:ktor-serialization-kotlinx-protobuf:$ktor_version")
-    implementation("io.ktor:ktor-client-logging:$ktor_version")
+    implementation(ktorLibs.client.core)
+    implementation(ktorLibs.client.cio)
+    implementation(ktorLibs.client.contentNegotiation)
+    implementation(ktorLibs.serialization.kotlinx.json)
+    implementation(ktorLibs.serialization.kotlinx.xml)
+    implementation(ktorLibs.serialization.kotlinx.cbor)
+    implementation(ktorLibs.serialization.kotlinx.protobuf)
+    implementation(ktorLibs.client.logging)
     implementation("ch.qos.logback:logback-classic:$logback_version")
     implementation(project(":json-kotlinx"))
     implementation(project(":e2e"))

@@ -1,4 +1,3 @@
-val ktor_version: String by project
 val junit_version: String by project
 
 plugins {
@@ -12,8 +11,8 @@ repositories {
 
 dependencies {
     implementation("junit:junit:$junit_version")
-    api("io.ktor:ktor-server-core:$ktor_version")
-    api("io.ktor:ktor-server-cio:$ktor_version")
+    api(ktorLibs.server.core)
+    api(ktorLibs.server.cio)
 }
 
 kotlin {

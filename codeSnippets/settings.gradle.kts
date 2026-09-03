@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage") // Added for dependencyResolutionManagement.repositories
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -9,6 +11,17 @@ pluginManagement {
             if (requested.id.id.startsWith("com.google.cloud.tools.appengine")) {
                 useModule("com.google.cloud.tools:appengine-gradle-plugin:${requested.version}")
             }
+        }
+    }
+}
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+    versionCatalogs {
+        create("ktorLibs") {
+            from("io.ktor:ktor-version-catalog:${providers.gradleProperty("ktor_version").get()}")
         }
     }
 }
