@@ -33,6 +33,22 @@ get {
 }
 ```
 
+### Zstandard (zstd) and DEFLATE support for pre-compressed static files
+
+Ktor can now serve pre-compressed static content in Zstandard (zstd) and DEFLATE formats.
+
+To enable the new formats, use `CompressedFileType.ZSTD` and `CompressedFileType.DEFLATE` with the `preCompressed()`
+function:
+
+```kotlin
+staticResources("staticResources", "public") {
+    preCompressed(
+        CompressedFileType.ZSTD,
+        CompressedFileType.DEFLATE
+    )
+}
+```
+
 ### OpenAPI tag descriptions
 
 You can now define descriptions for OpenAPI tags directly in the [`openAPI {}`](server-openapi.md) and [`swaggerUI {}`](server-swagger-ui.md)

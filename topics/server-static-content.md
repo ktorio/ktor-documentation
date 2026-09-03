@@ -31,7 +31,7 @@ function. In this case, relative paths are resolved using the current working di
  ```kotlin
  ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="17-18,59"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="17-18,64"}
 
 In the example above, any request from `/resources` is mapped to the `files` physical folder in the current working
 directory.
@@ -98,15 +98,20 @@ In this case, when `/custom` is requested, Ktor serves `/custom_index.html`.
 
 ### Pre-compressed files {id="precompressed"}
 
-Ktor provides the ability to serve pre-compressed files and avoid using [dynamic compression](server-compression.md).
-To use this functionality, define the `preCompressed()` function inside a block statement:
+Ktor can serve pre-compressed static files instead of compressing responses dynamically with the [Compression](server-compression.md)
+plugin.
+
+To enable this functionality, use the `preCompressed()` function and specify the supported compression formats:
 
 ```kotlin
 ```
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="19,21-26,30"}
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="19,21,25"}
+When a client requests a static file, Ktor checks the client's supported content encodings and serves a matching
+pre-compressed version when available.
 
-In this example, for a request made to `/js/script.js`, Ktor can serve `/js/script.js.br` or `/js/script.js.gz`.
+For example, for a request to `/js/script.js`, Ktor can serve a pre-compressed variant such as `/js/script.js.br` or
+`/js/script.js.gz`.
 
 ### HEAD requests {id="autohead"}
 
@@ -126,7 +131,7 @@ corresponding file.
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="19-20,25"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="19-20,30"}
 
 In this example when the client requests a resource that doesn't exist, the `index.html` file will
 be served as a response.
@@ -139,7 +144,7 @@ the `contentType()` function to set the `Content-Type` header explicitly.
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="26,37-42,49"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="31,42-47,54"}
 
 In this example, the response for the file `html-file.txt` will have the `Content-Type: text/html` header, and for every
 other file the default behavior will be applied.
@@ -151,7 +156,7 @@ The `cacheControl()` function allows you to configure the `Cache-Control` header
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="16-17,26,43-49,59-60,62-64"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="15,17,31,48-54,64-65,67-69"}
 
 When the [`ConditionalHeaders`](server-conditional-headers.md) plugin is installed, Ktor can serve static resources with 
 `ETag` and `LastModified` headers and process conditional headers to avoid sending the body of content if it hasn't changed
@@ -160,7 +165,7 @@ since the last request:
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="51-54"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="56-59"}
 
 In this example, the `etag` and `lastModified` values are calculated dynamically based on each resource and applied to the response.
 
@@ -169,7 +174,7 @@ To simplify `ETag` generation, you can also use a predefined provider:
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="56-58"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="61-63"}
 
 In this example, a strong `ETag` is generated using the SHA‑256 hash of the resource content.
 If an I/O error occurs, no `ETag` is generated.
@@ -186,7 +191,7 @@ the server will respond with a `403 Forbidden` status code.
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="26,28,49"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="31,33,54"}
 
 ### File extensions fallbacks {id="extensions"}
 
@@ -213,7 +218,7 @@ The example below shows how to redirect certain extensions, return a custom stat
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="26,29-36,49"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="31,34-41,54"}
 
 ### Custom modifications {id="modify"}
 
@@ -222,7 +227,7 @@ The `modify()` function allows you to apply custom modification to a resulting r
 ```kotlin
 ```
 
-{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="19,22-25"}
+{src="snippets/static-files/src/main/kotlin/com/example/Application.kt" include-lines="19,27-30"}
 
 ## Handle errors {id="errors"}
 
