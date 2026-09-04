@@ -19,7 +19,7 @@ For HTTP/2 over TLS, you typically need:
 * [An SSL certificate](#ssl_certificate), which can be self-signed.
 * [An ALPN implementation](#apln_implementation) supported by the selected engine.
 
-[HTTP/2 over cleartext (h2c)](#h2c) is available with the Netty engine and doesn't require SSL or ALPN configuration.
+[HTTP/2 over cleartext (h2c)](#http2-without-tls) is available with the Netty engine and doesn't require SSL or ALPN configuration.
 
 ## Configure an SSL certificate {id="ssl_certificate"}
 
@@ -88,7 +88,7 @@ The `tc.native.classifier` can be `linux-x86_64`, `osx-x86_64`, or `windows-x86_
 > 
 {style="tip"}
 
-## HTTP/2 without TLS {id="h2c"}
+## HTTP/2 without TLS {id="http2-without-tls"}
 
 The Netty engine supports [HTTP/2 over cleartext (h2c)](https://httpwg.org/specs/rfc7540.html#discover-http), which allows HTTP/2 communication without TLS.
 This can be useful within private networks where encryption is not required. 

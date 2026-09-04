@@ -124,7 +124,7 @@ flow-control limits, and UDP socket settings.
 
 #### Use h2c alongside HTTP/2 over TLS
 
-The Netty server engine can now serve [HTTP/2 over cleartext (h2c)](server-http2.md#h2c) and HTTP/2 over TLS on the
+The Netty server engine can now serve [HTTP/2 over cleartext (h2c)](server-http2.md#http2-without-tls) and HTTP/2 over TLS on the
 same server.
 
 This allows you to configure a cleartext connector and an SSL connector, then enable both HTTP/2 and h2c:

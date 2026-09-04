@@ -42,7 +42,7 @@ You can use an application created in the [](server-create-a-new-project.topic) 
 
    ```kotlin
    ```
-   {src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" include-lines="11-12,32"}
+   {src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" include-lines="11-12,38"}
 
 3. [Run](server-run.md) your application to see the plugin message in the console output:
 

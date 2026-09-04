@@ -164,7 +164,7 @@ val client = HttpClient(CIO) {
 }
 ```
 
-To customize Gson serialization, pass a `Json` configuration in the `gson()` constructor. For available configuration
+To customize Gson serialization, pass a configuration block to the `gson()` function. For available configuration
 options, see [`GsonBuilder`](https://www.javadoc.io/doc/com.google.code.gson/gson/latest/com.google.gson/com/google/gson/GsonBuilder.html).
 
 </tab>
