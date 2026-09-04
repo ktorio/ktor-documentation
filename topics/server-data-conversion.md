@@ -20,8 +20,10 @@ The %plugin_name% plugin for the Ktor server allows you to add custom converters
 </link-summary>
 
 The [%plugin_name%](https://api.ktor.io/ktor-utils/io.ktor.util.converters/-data-conversion/index.html) plugin
-allows you to serialize and deserialize a list of values. By default, Ktor handles primitive types and enums through the
-[DefaultConversionService](https://api.ktor.io/ktor-utils/io.ktor.util.converters/-default-conversion-service/index.html).
+allows you to serialize and deserialize a list of values. By default, Ktor handles strings and common types,
+including numeric types, unsigned integer types, `Uuid`, and enums through
+[`DefaultConversionService`](https://api.ktor.io/ktor-utils/io.ktor.util.converters/-default-conversion-service/index.html).
+
 You can extend this service to handle additional types by installing and configuring the `%plugin_name%` plugin.
 
 ## Add dependencies {id="add_dependencies"}
@@ -57,9 +59,7 @@ functions to serialize and deserialize a list of values:
       }
   ```
 
-## Access the service
-
-{id="service"}
+## Access the service {id="service"}
 
 You can access the `%plugin_name%` service from the current context:
 

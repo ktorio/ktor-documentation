@@ -69,6 +69,7 @@
                              toc-title="SSL and certificates"
                              accepts-web-file-names="certificates.html,self-signed-certificate.html,ssl.html"/>
                 <toc-element topic="server-http2.md" accepts-web-file-names="advanced-http2.html,http2.html"/>
+                <toc-element topic="server-http3.md"/>
                 <toc-element topic="server-development-mode.topic"
                              accepts-web-file-names="development-mode.html"/>
                 <toc-element topic="server-logging.md"
@@ -405,6 +406,7 @@
 
     <toc-element toc-title="Releases">
         <toc-element topic="releases.md"/>
+        <toc-element topic="whats-new-360.md"/>
         <toc-element topic="whats-new-350.md"/>
         <toc-element topic="whats-new-340.md"/>
         <toc-element topic="whats-new-330.md"/>

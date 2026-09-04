@@ -82,7 +82,7 @@ For the full example, see [auth-form-html-dsl](https://github.com/ktorio/ktor-do
 
 ## Send partial HTML {id="html_fragments"}
 
-In addition to generating full HTML documents, you can also respond with HTML fragments using the `.respondHtmlFragment()`
+In addition to generating full HTML documents, you can also respond with HTML fragments using the `.respondHtmlPartial()`
 function.
 
 HTML fragments are useful when returning partial markup that does not require a full `<html>` document, such as dynamic
