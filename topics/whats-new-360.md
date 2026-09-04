@@ -3,11 +3,14 @@
 <show-structure for="chapter,procedure" depth="3"/>
 
 [//]: # (TODO: Ensure release date is correct)
-_[Released: August 26, 2026](releases.md#release-details)_
+_[Released: September 9, 2026](releases.md#release-details)_
 
 Ktor 3.6.0 delivers a range of improvements across server and client. Highlights of this feature release include:
 
-[//]: # (TODO: Add a bullet list with highlights)
+* [Experimental HTTP/3 support in the Netty server engine](#http3)
+* [Rate limiting with authenticated principals](#rate-limiting-with-auth)
+* [Default client engines for Kotlin Multiplatform](#default-engines)
+* [WebRTC client support on JVM](#webrtc-jvm-support)
 
 ## Ktor Server
 
@@ -85,7 +88,7 @@ It is now deprecated in favor of `.respondHtmlPartial()`.
 
 ### Netty
 
-#### HTTP/3 support
+#### HTTP/3 support {id="http3"}
 
 The Netty server engine now includes experimental support for [](server-http3.md) over QUIC.
 
@@ -147,7 +150,7 @@ embeddedServer(Netty, configure = {
 
 The cleartext connector accepts h2c connections, while the SSL connector serves HTTP/2 over TLS.
 
-### Rate limiting with authenticated principals
+### Rate limiting with authenticated principals {id="rate-limiting-with-auth"}
 
 The [`RateLimit`](server-rate-limit.md) plugin can now access authentication principals during request validation.
 
@@ -232,7 +235,7 @@ Non-nullable calls to `.receive()` continue to work unchanged. Response APIs are
 
 ## Ktor Client
 
-### Default client engines for multiplatform projects
+### Default client engines for multiplatform projects {id="default-engines"}
 
 Ktor 3.6.0 introduces the `ktor-client-engine-defaults` artifact, which provides a curated set of HTTP [client engines](client-engines.md)
 for [Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform/get-started.html) projects.
@@ -268,7 +271,7 @@ engine selection out of your common source set.
 You can still [declare a specific client engine](client-dependencies.md#kmp-specific-engine) when you need engine-specific
 configuration or behavior.
 
-### WebRTC client support for JVM
+### WebRTC client support for JVM {id="webrtc-jvm-support"}
 <primary-label ref="experimental"/>
 
 The experimental [WebRTC client](client-webrtc.md) now supports JVM desktop applications.
