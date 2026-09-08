@@ -75,6 +75,9 @@ The `validate` function will be used to check user credentials.
 
 To authenticate an LDAP user, you need to call the [ldapAuthenticate](https://api.ktor.io/ktor-server-auth-ldap/io.ktor.server.auth.ldap/ldap-authenticate.html) function. This function accepts [UserPasswordCredential](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-user-password-credential/index.html) and validates it against a specified LDAP server.
 
+<tabs group="auth-dsl">
+<tab title="Classic" group-key="classic">
+
 ```kotlin
 ```
 {src="snippets/auth-ldap/src/main/kotlin/com/example/Application.kt" include-lines="10-16"}
@@ -87,7 +90,9 @@ Optionally, you can add additional validation for an authenticated user.
 install(Authentication) {
     basic("auth-ldap") {
         validate { credentials ->
-            ldapAuthenticate(credentials, "ldap://localhost:389", "cn=%s,dc=ktor,dc=io") {
+            val url = "ldap://localhost:389"
+            val userDNFormat = "cn=%s,dc=ktor,dc=io"
+            ldapAuthenticate(credentials, url, userDNFormat) {
                 if (it.name == it.password) {
                     UserIdPrincipal(it.name)
                 } else {
@@ -99,14 +104,83 @@ install(Authentication) {
 }
 ```
 
+</tab>
+<tab title="Type-safe" group-key="typed">
+
+<include from="lib.topic" element-id="typed_auth_experimental"/>
+
+There is no LDAP-specific type-safe scheme. Call `ldapAuthenticate` inside the `validate` block of a type-safe
+[`basic`](server-basic-auth.md), [`digest`](server-digest-auth.md), or [`form`](server-form-based-auth.md) scheme.
+
+Pass a block to `ldapAuthenticate` to return your own principal type:
+
+```kotlin
+data class User(val name: String)
+
+val ldapAuth = basic<User>("auth-ldap") {
+    validate { credentials ->
+        val url = "ldap://0.0.0.0:389"
+        val userDNFormat = "cn=%s,dc=ktor,dc=io"
+        ldapAuthenticate(credentials, url, userDNFormat) {
+            User(it.name)
+        }
+    }
+}
+```
+
+The block also lets you add validation for an authenticated user:
+
+```kotlin
+val ldapAuth = basic<User>("auth-ldap") {
+    validate { credentials ->
+        val url = "ldap://localhost:389"
+        val userDNFormat = "cn=%s,dc=ktor,dc=io"
+        ldapAuthenticate(credentials, url, userDNFormat) {
+            if (it.name == it.password) {
+                User(it.name)
+            } else {
+                null
+            }
+        }
+    }
+}
+```
+
+For the full API, see [](server-typed-auth.md).
+
+</tab>
+</tabs>
+
 
 ### Step 3: Protect specific resources {id="authenticate-route"}
+
+<tabs group="auth-dsl">
+<tab title="Classic" group-key="classic">
 
 After configuring LDAP, you can protect specific resources in our application using the **[authenticate](server-auth.md#authenticate-route)** function. In the case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html) inside a route handler using the `call.principal` function and get a name of an authenticated user.
 
 ```kotlin
 ```
 {src="snippets/auth-ldap/src/main/kotlin/com/example/Application.kt" include-lines="17-23"}
+
+</tab>
+<tab title="Type-safe" group-key="typed">
+
+Pass the scheme to `authenticateWith()`. Inside the block, `call.principal` is your principal type and is never
+`null`, so no cast or null check is needed:
+
+```kotlin
+routing {
+    authenticateWith(ldapAuth) {
+        get("/") {
+            call.respondText("Hello, ${call.principal.name}!")
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
 
 You can find the complete runnable example here: [auth-ldap](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-ldap).
 

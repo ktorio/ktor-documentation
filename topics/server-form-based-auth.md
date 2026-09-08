@@ -64,6 +64,10 @@ You can optionally specify a [provider name](server-auth.md#provider-name) that 
 ## Configure form authentication {id="configure"}
 
 ### Step 1: Configure a form provider {id="configure-provider"}
+
+<tabs group="auth-dsl">
+<tab title="Classic" group-key="classic">
+
 The `form` authentication provider exposes its settings via the [FormAuthenticationProvider.Config](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-form-authentication-provider/-config/index.html) class. In the example below, the following settings are specified:
 * The `userParamName` and `passwordParamName` properties specify parameter names used to fetch a username and password.
 * The `validate` function validates a username and password.
@@ -74,11 +78,45 @@ The `form` authentication provider exposes its settings via the [FormAuthenticat
 ```
 {src="snippets/auth-form-html-dsl/src/main/kotlin/com/example/Application.kt" include-lines="12-27"}
 
+</tab>
+<tab title="Type-safe" group-key="typed">
 
+<include from="lib.topic" element-id="typed_auth_experimental"/>
+
+The `form()` function creates a scheme for a principal type of your choice. There is no `install(Authentication)`
+step: the scheme is a value you pass to the routes that need it.
+
+```kotlin
+data class User(val name: String)
+
+val formAuth = form<User>("auth-form") {
+    usernameField = "username"
+    passwordField = "password"
+    validate { credentials ->
+        val isValid = credentials.name == "jetbrains" &&
+            credentials.password == "foobar"
+        if (isValid) User(credentials.name) else null
+    }
+    onUnauthorized = {
+        val message = "Credentials are not valid"
+        call.respond(HttpStatusCode.Unauthorized, message)
+    }
+}
+```
+
+Two names differ from the classic provider. The form fields are `usernameField` and `passwordField` rather than
+`userParamName` and `passwordParamName`. The failure handler is `onUnauthorized` rather than `challenge`. For the
+full API, see [](server-typed-auth.md).
+
+</tab>
+</tabs>
 
 > As for the `basic` authentication, you can also use [UserHashedTableAuth](server-basic-auth.md#validate-user-hash) to validate users stored in an in-memory table that keeps usernames and password hashes.
 
 ### Step 2: Protect specific resources {id="authenticate-route"}
+
+<tabs group="auth-dsl">
+<tab title="Classic" group-key="classic">
 
 After configuring the `form` provider, you need to define a `post` route where the data gets sent.
 Then, add this route inside the **[authenticate](server-auth.md#authenticate-route)** function.
@@ -87,6 +125,25 @@ In the case of successful authentication, you can retrieve an authenticated [Use
 ```kotlin
 ```
 {src="snippets/auth-form-html-dsl/src/main/kotlin/com/example/Application.kt" include-lines="29-34,55"}
+
+</tab>
+<tab title="Type-safe" group-key="typed">
+
+Define the `post` route where the form data is sent, and wrap it in `authenticateWith()`. Inside the block,
+`call.principal` is your principal type and is never `null`:
+
+```kotlin
+routing {
+    authenticateWith(formAuth) {
+        post("/login") {
+            call.respondText("Hello, ${call.principal.name}!")
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
 
 You can use [Session authentication](server-session-auth.md) to store a logged-in user's ID.
 For example, when a user logs in using a web form for the first time, you can save a username to a cookie session and authorize this user on subsequent requests using the `session` provider.

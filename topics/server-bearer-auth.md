@@ -61,6 +61,9 @@ To get a general idea of how to configure different authentication providers in 
 
 ### Step 1: Configure a bearer provider {id="configure-provider"}
 
+<tabs group="auth-dsl">
+<tab title="Classic" group-key="classic">
+
 The `bearer` authentication provider exposes its settings via the [BearerAuthenticationProvider.Configuration](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-bearer-authentication-provider/-config/index.html) class. In the example below, the following settings are specified:
 * The `realm` property sets the realm to be passed in the `WWW-Authenticate` header.
 * The `authenticate` function checks the token sent by the client and returns a `UserIdPrincipal` in the case of successful authentication or `null` if authentication fails.
@@ -69,11 +72,64 @@ The `bearer` authentication provider exposes its settings via the [BearerAuthent
 ```
 {src="snippets/auth-bearer/src/main/kotlin/com/example/Application.kt" include-lines="9-20"}
 
+</tab>
+<tab title="Type-safe" group-key="typed">
+
+<include from="lib.topic" element-id="typed_auth_experimental"/>
+
+The `bearer()` function creates a scheme for a principal type of your choice. There is no `install(Authentication)`
+step: the scheme is a value you pass to the routes that need it.
+
+```kotlin
+data class User(val name: String)
+
+val bearerAuth = bearer<User>("auth-bearer") {
+    realm = "Access to the '/' path"
+    validate { tokenCredential ->
+        if (tokenCredential.token == "abc123") {
+            User("jetbrains")
+        } else {
+            null
+        }
+    }
+}
+```
+
+Note the name change: the classic provider uses `authenticate`, while the type-safe scheme uses `validate`, like
+every other type-safe scheme. It returns your principal type, or `null` if authentication fails.
+
+You can also set `authHeader` to read the token from somewhere other than the `Authorization` header, and
+`authSchemes` to accept schemes other than `Bearer`. For the full API, see [](server-typed-auth.md).
+
+</tab>
+</tabs>
 
 ### Step 2: Protect specific resources {id="authenticate-route"}
+
+<tabs group="auth-dsl">
+<tab title="Classic" group-key="classic">
 
 After configuring the `bearer` provider, you can protect specific resources in our application using the **[authenticate](server-auth.md#authenticate-route)** function. In the case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html) inside a route handler using the `call.principal` function and get a name of an authenticated user.
 
 ```kotlin
 ```
 {src="snippets/auth-bearer/src/main/kotlin/com/example/Application.kt" include-lines="21-27"}
+
+</tab>
+<tab title="Type-safe" group-key="typed">
+
+Pass the scheme to `authenticateWith()`. Inside the block, `call.principal` is your principal type and is never
+`null`, so no cast or null check is needed:
+
+```kotlin
+routing {
+    authenticateWith(bearerAuth) {
+        get("/") {
+            call.respondText("Hello, ${call.principal.name}!")
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
