@@ -142,6 +142,25 @@ routing {
 </tab>
 </tabs>
 
+</tab>
+<tab title="Type-safe" group-key="typed">
+
+Pass the scheme to `authenticateWith()`. Inside the block, `call.principal` is your principal type and is never
+`null`, so no cast or null check is needed:
+
+```kotlin
+routing {
+    authenticateWith(basicAuth) {
+        get("/") {
+            call.respondText("Hello, ${call.principal.name}!")
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
 
 ## Validate with UserHashedTableAuth {id="validate-user-hash"}
 

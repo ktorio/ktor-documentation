@@ -55,6 +55,16 @@ HTTP provides a [general framework](https://developer.mozilla.org/en-US/docs/Web
 ### Session {id="sessions"}
 [Sessions](server-sessions.md) provide a mechanism to persist data between different HTTP requests. Typical use cases include storing a logged-in user's ID, the contents of a shopping basket, or keeping user preferences on the client. In Ktor, a user that already has an associated session can be authenticated using the `session` provider. Learn how to do this from [](server-session-auth.md).
 
+### Type-safe {id="type-safe"}
+
+Ktor also provides a [type-safe authentication API](server-typed-auth.md) that binds a scheme to a principal type.
+Inside a protected route, `call.principal` is your own type and is never `null`, so no cast or null check is needed.
+The API also adds opt-in [role checks](server-typed-auth.md#roles), an
+[anonymous fallback](server-typed-auth.md#anonymous), and typed
+[sessions](server-typed-session-auth.md) and [OAuth 2.0 flows](server-oauth2-flows.md).
+
+The API is experimental. It works alongside the classic API described below, and you can move one route at a time.
+
 ### Custom {id="custom"}
 
 Ktor provides two ways to customize authentication and authorization behavior:

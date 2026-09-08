@@ -145,5 +145,24 @@ routing {
 </tab>
 </tabs>
 
+</tab>
+<tab title="Type-safe" group-key="typed">
+
+Define the `post` route where the form data is sent, and wrap it in `authenticateWith()`. Inside the block,
+`call.principal` is your principal type and is never `null`:
+
+```kotlin
+routing {
+    authenticateWith(formAuth) {
+        post("/login") {
+            call.respondText("Hello, ${call.principal.name}!")
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
 You can use [Session authentication](server-session-auth.md) to store a logged-in user's ID.
 For example, when a user logs in using a web form for the first time, you can save a username to a cookie session and authorize this user on subsequent requests using the `session` provider.
