@@ -23,6 +23,12 @@ will automatically make a request to a specified authorization server with the n
 
 > You can get general information about authentication and authorization in Ktor in the [](server-auth.md) section.
 
+> Ktor also provides typed OAuth 2.0 flows. Instead of configuring a named provider, you create a flow value and
+> install it, and Ktor creates the login and callback routes for you. The `oauth2Session` flow also gives you a
+> scheme for protecting your application routes after sign-in. See [](server-oauth2-flows.md).
+>
+{style="tip"}
+
 ## Add dependencies {id="add_dependencies"}
 
 <include from="lib.topic" element-id="add_ktor_artifact_intro"/>

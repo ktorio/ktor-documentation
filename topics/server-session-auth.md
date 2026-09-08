@@ -18,6 +18,12 @@ In Ktor, a user that already has an associated session can be authenticated usin
 
 > You can get general information about authentication and authorization in Ktor in the [](server-auth.md) section.
 
+> Ktor also provides a type-safe session scheme. It gives route handlers a non-null principal and read-write access
+> to the stored session, and keeps the session type separate from the principal type. See
+> [](server-typed-session-auth.md).
+>
+{style="tip"}
+
 ## Add dependencies {id="add_dependencies"}
 To enable `session` authentication, you need to include the following artifacts in the build script:
 

@@ -100,6 +100,9 @@ In this section, we'll see the configuration specifics of the `apiKey` authentic
 
 ### Step 1: Configure an API Key provider {id="configure-provider"}
 
+<tabs group="auth-dsl">
+<tab title="Classic" group-key="classic">
+
 The `apiKey` authentication provider exposes its settings via
 the [`ApiKeyAuthenticationProvider.Config`](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-api-key-authentication-provider/-config/index.html)
 class. In the example below, the following settings are specified:
@@ -124,11 +127,40 @@ install(Authentication) {
 }
 ```
 
+</tab>
+<tab title="Type-safe" group-key="typed">
+
+<include from="lib.topic" element-id="typed_auth_experimental"/>
+
+The `apiKey()` function creates a scheme for a principal type of your choice. There is no `install(Authentication)`
+step: the scheme is a value you pass to the routes that need it.
+
+```kotlin
+data class AppPrincipal(val key: String)
+
+val apiKeyAuth = apiKey<AppPrincipal>("api-key") {
+    validate { keyFromHeader ->
+        val expectedApiKey = "this-is-expected-key"
+        keyFromHeader
+            .takeIf { it == expectedApiKey }
+            ?.let { AppPrincipal(it) }
+    }
+}
+```
+
+Unlike the classic provider, a name is required. For the full API, see [](server-typed-auth.md).
+
+</tab>
+</tabs>
+
 #### Customize key location {id="key-location"}
 
 By default, the `apiKey` provider looks for the API key in the `X-API-Key` header.
 
 You can use `headerName` to specify a custom header:
+
+<tabs group="auth-dsl">
+<tab title="Classic" group-key="classic">
 
 ```kotlin
 apiKey("api-key-header") {
@@ -138,6 +170,21 @@ apiKey("api-key-header") {
     }
 }
 ```
+
+</tab>
+<tab title="Type-safe" group-key="typed">
+
+```kotlin
+val apiKeyAuth = apiKey<AppPrincipal>("api-key-header") {
+    headerName = "X-Secret-Key"
+    validate { key ->
+        // ...
+    }
+}
+```
+
+</tab>
+</tabs>
 
 ### Step 2: Validate API keys {id="validate"}
 
@@ -150,7 +197,8 @@ For simple cases, you can compare against a predefined key:
 ```kotlin
 apiKey {
     validate { keyFromHeader ->
-        val expectedApiKey = environment.config.property("api.key").getString()
+        val expectedApiKey = 
+            environment.config.property("api.key").getString()
         keyFromHeader
             .takeIf { it == expectedApiKey }
             ?.let { AppPrincipal(it) }
@@ -218,6 +266,9 @@ apiKey {
 
 ### Step 4: Protect specific resources {id="authenticate-route"}
 
+<tabs group="auth-dsl">
+<tab title="Classic" group-key="classic">
+
 After configuring the `apiKey` provider, you can protect specific resources in your application using the
 [`authenticate`](server-auth.md#authenticate-route) function. In the case of successful authentication, you can
 retrieve an authenticated principal inside a route handler using the `call.principal` function.
@@ -227,11 +278,32 @@ routing {
     authenticate {
         get("/") {
             val principal = call.principal<AppPrincipal>()!!
-            call.respondText("Hello, authenticated client! Your key: ${principal.key}")
+            val key = principal.key
+            call.respondText("Hello! Your key: $key")
         }
     }
 }
 ```
+
+</tab>
+<tab title="Type-safe" group-key="typed">
+
+Pass the scheme to `authenticateWith()`. Inside the block, `call.principal` is your principal type and is never
+`null`, so the `!!` is not needed:
+
+```kotlin
+routing {
+    authenticateWith(apiKeyAuth) {
+        get("/") {
+            val key = call.principal.key
+            call.respondText("Hello! Your key: $key")
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
 
 ## API Key authentication example {id="complete-example"}
 

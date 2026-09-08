@@ -216,6 +216,9 @@ The `verifier` function allows you to verify a token format and its signature:
 
 ### Step 5: Validate JWT payload {id="validate-payload"}
 
+<tabs group="auth-dsl">
+<tab title="Classic" group-key="classic">
+
 1. The `validate` function allows you to perform validations on the JWT payload. This function is required: if you don't configure it, provider initialization throws an `IllegalArgumentException`. Check the `credential` parameter, which represents a [JWTCredential](https://api.ktor.io/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-credential/index.html) object and contains the JWT payload. In the example below, the value of a custom `username` claim is checked.
    ```kotlin
    ```
@@ -227,6 +230,49 @@ The `verifier` function allows you to verify a token format and its signature:
    ```
    {style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="28-29,43-47"}
 
+</tab>
+<tab title="Type-safe" group-key="typed">
+
+<include from="lib.topic" element-id="typed_auth_experimental"/>
+
+The `jwt()` function creates a scheme for a principal type of your choice. There is no `install(Authentication)`
+step: the scheme is a value you pass to the routes that need it.
+
+Read the claims you need inside `validate` and return your own type. The route handlers then work with that type
+instead of a `JWTPrincipal`:
+
+```kotlin
+data class User(val username: String, val expiresAt: Long?)
+
+val jwtAuth = jwt<User>("auth-jwt") {
+    realm = myRealm
+    verifier(
+        JWT.require(Algorithm.HMAC256(secret))
+            .withAudience(audience)
+            .withIssuer(issuer)
+            .build()
+    )
+    validate { credential ->
+        val payload = credential.payload
+        val username = payload.getClaim("username").asString()
+        if (username != "") {
+            User(username, credential.expiresAt?.time)
+        } else {
+            null
+        }
+    }
+    onUnauthorized = {
+        val message = "Token is not valid or has expired"
+        call.respond(HttpStatusCode.Unauthorized, message)
+    }
+}
+```
+
+The failure handler is `onUnauthorized` rather than `challenge`. For the full API, see [](server-typed-auth.md).
+
+</tab>
+</tabs>
+
 
 
 
@@ -235,8 +281,36 @@ The `verifier` function allows you to verify a token format and its signature:
 
 ### Step 6: Protect specific resources {id="authenticate-route"}
 
+<tabs group="auth-dsl">
+<tab title="Classic" group-key="classic">
+
 After configuring the `jwt` provider, you can protect specific resources in our application using the **[authenticate](server-auth.md#authenticate-route)** function. In the case of successful authentication, you can retrieve an authenticated [JWTPrincipal](https://api.ktor.io/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-principal/index.html) inside a route handler using the `call.principal` function and get the JWT payload. In the example below, the value of a custom `username` claim and a token expiration time are retrieved.
 
 ```kotlin
 ```
 {style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="49,63-71"}
+
+</tab>
+<tab title="Type-safe" group-key="typed">
+
+Pass the scheme to `authenticateWith()`. The claims were already read in `validate`, so the handler works with your
+own type and needs no null check:
+
+```kotlin
+routing {
+    authenticateWith(jwtAuth) {
+        get("/hello") {
+            val user = call.principal
+            val now = System.currentTimeMillis()
+            val expiresIn = user.expiresAt?.minus(now)
+            call.respondText(
+                "Hello, ${user.username}! " +
+                    "Token is expired at $expiresIn ms."
+            )
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
