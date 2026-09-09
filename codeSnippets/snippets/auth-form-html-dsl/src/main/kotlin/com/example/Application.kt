@@ -14,14 +14,18 @@ fun Application.main() {
             userParamName = "username"
             passwordParamName = "password"
             validate { credentials ->
-                if (credentials.name == "jetbrains" && credentials.password == "foobar") {
+                val isValid = credentials.name == "jetbrains" &&
+                    credentials.password == "foobar"
+                if (isValid) {
                     UserIdPrincipal(credentials.name)
                 } else {
                     null
                 }
             }
             challenge {
-                call.respond(HttpStatusCode.Unauthorized, "Credentials are not valid")
+                val message = "Credentials are not valid"
+                val status = HttpStatusCode.Unauthorized
+                call.respond(status, message)
             }
         }
     }
@@ -29,14 +33,21 @@ fun Application.main() {
     routing {
         authenticate("auth-form") {
             post("/login") {
-                call.respondText("Hello, ${call.principal<UserIdPrincipal>()?.name}!")
+                val user = call.principal<UserIdPrincipal>()
+                call.respondText("Hello, ${user?.name}!")
             }
         }
 
         get("/login") {
             call.respondHtml {
                 body {
-                    form(action = "/login", encType = FormEncType.applicationXWwwFormUrlEncoded, method = FormMethod.post) {
+                    val urlEncoded = FormEncType
+                        .applicationXWwwFormUrlEncoded
+                    form(
+                        action = "/login",
+                        encType = urlEncoded,
+                        method = FormMethod.post
+                    ) {
                         p {
                             +"Username:"
                             textInput(name = "username")

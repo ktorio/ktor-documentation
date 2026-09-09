@@ -21,7 +21,8 @@ fun Application.main() {
     routing {
         authenticate("auth-bearer") {
             get("/") {
-                call.respondText("Hello, ${call.principal<UserIdPrincipal>()?.name}!")
+                val user = call.principal<UserIdPrincipal>()
+                call.respondText("Hello, ${user?.name}!")
             }
         }
     }

@@ -155,7 +155,7 @@ is [`validate()`](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-basi
 
 ```kotlin
 ```
-{src="snippets/auth-basic/src/main/kotlin/authbasic/Application.kt" include-lines="9-20"}
+{src="snippets/auth-basic/src/main/kotlin/authbasic/Application.kt" include-lines="9-22"}
 
 To understand how the `validate()` function works, we need to introduce two terms:
 
@@ -251,7 +251,7 @@ principal type returned by the [configured authentication provider](#configure-p
 
 ```kotlin
 ```
-{src="snippets/auth-basic/src/main/kotlin/authbasic/Application.kt" include-lines="21-27"}
+{src="snippets/auth-basic/src/main/kotlin/authbasic/Application.kt" include-lines="23-30"}
 
 
 If you use [session authentication](server-session-auth.md), a principal might be a data class that stores session data.
@@ -259,7 +259,7 @@ So, you need to pass this data class to `call.principal()`:
 
 ```kotlin
 ```
-{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="77-79,82-83"}
+{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="91-93,102-103"}
 
 In the case of [nested authentication providers](#authenticate-route),
 you can pass a [provider name](#provider-name) to `call.principal()` to get a principal for the desired provider.
@@ -268,7 +268,7 @@ In the example below, the `"auth-session"` value is passed to get a principal fo
 
 ```kotlin
 ```
-{src="snippets/auth-form-session-nested/src/main/kotlin/com/example/Application.kt" include-lines="87,93-95,97-99"}
+{src="snippets/auth-form-session-nested/src/main/kotlin/com/example/Application.kt" include-lines="103-104,116-121,126-128"}
 
 ## Custom authentication provider {id="custom-auth-provider"}
 
