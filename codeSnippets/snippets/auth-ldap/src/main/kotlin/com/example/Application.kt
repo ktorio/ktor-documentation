@@ -10,14 +10,17 @@ fun Application.main() {
     install(Authentication) {
         basic("auth-ldap") {
             validate { credentials ->
-                ldapAuthenticate(credentials, "ldap://0.0.0.0:389", "cn=%s,dc=ktor,dc=io")
+                val url = "ldap://0.0.0.0:389"
+                val userDNFormat = "cn=%s,dc=ktor,dc=io"
+                ldapAuthenticate(credentials, url, userDNFormat)
             }
         }
     }
     routing {
         authenticate("auth-ldap") {
             get("/") {
-                call.respondText("Hello, ${call.principal<UserIdPrincipal>()?.name}!")
+                val user = call.principal<UserIdPrincipal>()
+                call.respondText("Hello, ${user?.name}!")
             }
         }
     }

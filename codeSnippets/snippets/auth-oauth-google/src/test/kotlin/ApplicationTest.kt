@@ -17,7 +17,9 @@ class ApplicationTest {
     @Test
     fun testHello() = testApplication {
         environment {
-            config = ApplicationConfig("application-custom.conf")
+            config = ApplicationConfig(
+                "application-custom.conf"
+            )
         }
         val testHttpClient = createClient {
             install(HttpCookies)
@@ -30,23 +32,32 @@ class ApplicationTest {
         }
         routing {
             get("/login-test") {
-                call.sessions.set(UserSession("xyzABC123","abc123"))
+                val session = UserSession("xyzABC123", "abc123")
+                call.sessions.set(session)
             }
         }
         externalServices {
             hosts("https://www.googleapis.com") {
-                install(io.ktor.server.plugins.contentnegotiation.ContentNegotiation) {
+                install(
+                    io.ktor.server.plugins.contentnegotiation
+                        .ContentNegotiation
+                ) {
                     json()
                 }
                 routing {
                     get("oauth2/v2/userinfo") {
-                        call.respond(UserInfo("1", "JetBrains", "", ""))
+                        val info =
+                            UserInfo("1", "JetBrains", "", "")
+                        call.respond(info)
                     }
                 }
             }
         }
         val loginResponse = testHttpClient.get("/login-test")
         val helloResponse = testHttpClient.get("/hello")
-        assertEquals("Hello, JetBrains!", helloResponse.bodyAsText())
+        assertEquals(
+            "Hello, JetBrains!",
+            helloResponse.bodyAsText()
+        )
     }
 }

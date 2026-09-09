@@ -10,7 +10,9 @@ fun Application.main() {
         basic("auth-basic") {
             realm = "Access to the '/' path"
             validate { credentials ->
-                if (credentials.name == "jetbrains" && credentials.password == "foobar") {
+                val isValid = credentials.name == "jetbrains" &&
+                    credentials.password == "foobar"
+                if (isValid) {
                     UserIdPrincipal(credentials.name)
                 } else {
                     null
@@ -21,7 +23,8 @@ fun Application.main() {
     routing {
         authenticate("auth-basic") {
             get("/") {
-                call.respondText("Hello, ${call.principal<UserIdPrincipal>()?.name}!")
+                val user = call.principal<UserIdPrincipal>()
+                call.respondText("Hello, ${user?.name}!")
             }
         }
     }

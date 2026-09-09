@@ -80,7 +80,7 @@ The `basic` authentication provider exposes its settings via the [BasicAuthentic
 
 ```kotlin
 ```
-{src="snippets/auth-basic/src/main/kotlin/authbasic/Application.kt" include-lines="9-20"}
+{src="snippets/auth-basic/src/main/kotlin/authbasic/Application.kt" include-lines="9-22"}
    
 The `validate` function checks `UserPasswordCredential` and returns a `UserIdPrincipal` in the case of successful authentication or `null` if authentication fails. 
 > You can also use [UserHashedTableAuth](#validate-user-hash) to validate users stored in an in-memory table that keeps usernames and password hashes.
@@ -121,7 +121,7 @@ After configuring the `basic` provider, you can protect specific resources in ou
 
 ```kotlin
 ```
-{src="snippets/auth-basic/src/main/kotlin/authbasic/Application.kt" include-lines="21-27"}
+{src="snippets/auth-basic/src/main/kotlin/authbasic/Application.kt" include-lines="23-30"}
 
 </tab>
 <tab title="Type-safe" group-key="typed">
@@ -153,7 +153,7 @@ To use `UserHashedTableAuth` for validating users, follow the steps below:
    
    ```kotlin
    ```
-   {src="snippets/auth-basic-hash-table/src/main/kotlin/com/example/Application.kt" include-lines="9"}
+   {src="snippets/auth-basic-hash-table/src/main/kotlin/com/example/Application.kt" include-lines="9-11"}
 
 2. Initialize a new instance of `UserHashedTableAuth` and specify the following properties:
    * Provide a table of usernames and hashed passwords using the `table` property.
@@ -161,10 +161,10 @@ To use `UserHashedTableAuth` for validating users, follow the steps below:
    
    ```kotlin
    ```
-   {src="snippets/auth-basic-hash-table/src/main/kotlin/com/example/Application.kt" include-lines="10-16"}
+   {src="snippets/auth-basic-hash-table/src/main/kotlin/com/example/Application.kt" include-lines="12-18"}
    
 3. Inside the `validate` function, call the [UserHashedTableAuth.authenticate](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-user-hashed-table-auth/authenticate.html) function to authenticate a user and return an instance of `UserIdPrincipal` if the credentials are valid:
 
    ```kotlin
    ```
-   {src="snippets/auth-basic-hash-table/src/main/kotlin/com/example/Application.kt" include-lines="19-26"}
+   {src="snippets/auth-basic-hash-table/src/main/kotlin/com/example/Application.kt" include-lines="21-28"}

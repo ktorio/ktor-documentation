@@ -54,7 +54,7 @@ The following example shows how to respond with an HTML form used to collect [cr
 
 ```kotlin
 ```
-{src="snippets/auth-form-html-dsl/src/main/kotlin/com/example/Application.kt" include-lines="36-54"}
+{src="snippets/auth-form-html-dsl/src/main/kotlin/com/example/Application.kt" include-lines="41-65"}
 
 </tab>
 <tab title="HTML">

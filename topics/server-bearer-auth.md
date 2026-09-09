@@ -113,7 +113,7 @@ After configuring the `bearer` provider, you can protect specific resources in o
 
 ```kotlin
 ```
-{src="snippets/auth-bearer/src/main/kotlin/com/example/Application.kt" include-lines="21-27"}
+{src="snippets/auth-bearer/src/main/kotlin/com/example/Application.kt" include-lines="21-28"}
 
 </tab>
 <tab title="Type-safe" group-key="typed">

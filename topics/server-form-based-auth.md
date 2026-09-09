@@ -76,7 +76,7 @@ The `form` authentication provider exposes its settings via the [FormAuthenticat
 
 ```kotlin
 ```
-{src="snippets/auth-form-html-dsl/src/main/kotlin/com/example/Application.kt" include-lines="12-27"}
+{src="snippets/auth-form-html-dsl/src/main/kotlin/com/example/Application.kt" include-lines="12-31"}
 
 </tab>
 <tab title="Type-safe" group-key="typed">
@@ -124,7 +124,7 @@ In the case of successful authentication, you can retrieve an authenticated [Use
 
 ```kotlin
 ```
-{src="snippets/auth-form-html-dsl/src/main/kotlin/com/example/Application.kt" include-lines="29-34,55"}
+{src="snippets/auth-form-html-dsl/src/main/kotlin/com/example/Application.kt" include-lines="33-39,66"}
 
 </tab>
 <tab title="Type-safe" group-key="typed">

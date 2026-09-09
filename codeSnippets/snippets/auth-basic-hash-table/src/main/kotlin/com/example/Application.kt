@@ -6,7 +6,9 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.util.*
 
-val digestFunction = getDigestFunction("SHA-256") { "ktor${it.length}" }
+val digestFunction = getDigestFunction("SHA-256") {
+    "ktor${it.length}"
+}
 val hashedUserTable = UserHashedTableAuth(
     table = mapOf(
         "jetbrains" to digestFunction("foobar"),
@@ -27,7 +29,8 @@ fun Application.main() {
     routing {
         authenticate("auth-basic-hashed") {
             get("/") {
-                call.respondText("Hello, ${call.principal<UserIdPrincipal>()?.name}!")
+                val user = call.principal<UserIdPrincipal>()
+                call.respondText("Hello, ${user?.name}!")
             }
         }
     }

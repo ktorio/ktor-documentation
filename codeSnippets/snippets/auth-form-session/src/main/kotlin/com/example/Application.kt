@@ -24,7 +24,9 @@ fun Application.main() {
             userParamName = "username"
             passwordParamName = "password"
             validate { credentials ->
-                if (credentials.name == "jetbrains" && credentials.password == "foobar") {
+                val isValid = credentials.name == "jetbrains" &&
+                    credentials.password == "foobar"
+                if (isValid) {
                     UserIdPrincipal(credentials.name)
                 } else {
                     null
@@ -49,7 +51,13 @@ fun Application.main() {
         get("/login") {
             call.respondHtml {
                 body {
-                    form(action = "/login", encType = FormEncType.applicationXWwwFormUrlEncoded, method = FormMethod.post) {
+                    val urlEncoded = FormEncType
+                        .applicationXWwwFormUrlEncoded
+                    form(
+                        action = "/login",
+                        encType = urlEncoded,
+                        method = FormMethod.post
+                    ) {
                         p {
                             +"Username:"
                             textInput(name = "username")
@@ -68,8 +76,14 @@ fun Application.main() {
 
         authenticate("auth-form") {
             post("/login") {
-                val userName = call.principal<UserIdPrincipal>()?.name.toString()
-                call.sessions.set(UserSession(name = userName, count = 1))
+                val principal =
+                    call.principal<UserIdPrincipal>()
+                val userName = principal?.name.toString()
+                val session = UserSession(
+                    name = userName,
+                    count = 1
+                )
+                call.sessions.set(session)
                 call.respondRedirect("/hello")
             }
         }
@@ -77,8 +91,14 @@ fun Application.main() {
         authenticate("auth-session") {
             get("/hello") {
                 val userSession = call.principal<UserSession>()
-                call.sessions.set(userSession?.copy(count = userSession.count + 1))
-                call.respondText("Hello, ${userSession?.name}! Visit count is ${userSession?.count}.")
+                val next = userSession?.copy(
+                    count = userSession.count + 1
+                )
+                call.sessions.set(next)
+                call.respondText(
+                    "Hello, ${userSession?.name}! " +
+                        "Visit count is ${userSession?.count}."
+                )
             }
         }
 

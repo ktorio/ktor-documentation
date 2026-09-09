@@ -80,7 +80,7 @@ To authenticate an LDAP user, you need to call the [ldapAuthenticate](https://ap
 
 ```kotlin
 ```
-{src="snippets/auth-ldap/src/main/kotlin/com/example/Application.kt" include-lines="10-16"}
+{src="snippets/auth-ldap/src/main/kotlin/com/example/Application.kt" include-lines="10-18"}
 
 The `validate` function returns a [UserIdPrincipal](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html) in the case of successful authentication or `null` if authentication fails.
 
@@ -161,7 +161,7 @@ After configuring LDAP, you can protect specific resources in our application us
 
 ```kotlin
 ```
-{src="snippets/auth-ldap/src/main/kotlin/com/example/Application.kt" include-lines="17-23"}
+{src="snippets/auth-ldap/src/main/kotlin/com/example/Application.kt" include-lines="19-26"}
 
 </tab>
 <tab title="Type-safe" group-key="typed">

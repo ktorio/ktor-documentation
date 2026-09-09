@@ -137,14 +137,14 @@ You can [access these settings in code](server-configuration-file.topic#read-con
 
 ```kotlin
 ```
-{style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="24-27"}
+{style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="24-29"}
 
 </tab>
 <tab title="RS256" group-key="rs256">
 
 ```kotlin
 ```
-{style="block" src="snippets/auth-jwt-rs256/src/main/kotlin/com/example/Application.kt" include-lines="31-34"}
+{style="block" src="snippets/auth-jwt-rs256/src/main/kotlin/com/example/Application.kt" include-lines="31-37"}
 
 </tab>
 </tabs>
@@ -160,14 +160,14 @@ To generate a JSON web token, you can use [JWTCreator.Builder](https://javadoc.i
 
 ```kotlin
 ```
-{style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="50-61"}
+{style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="56-68"}
 
 </tab>
 <tab title="RS256" group-key="rs256">
 
 ```kotlin
 ```
-{style="block" src="snippets/auth-jwt-rs256/src/main/kotlin/com/example/Application.kt" include-lines="58-72"}
+{style="block" src="snippets/auth-jwt-rs256/src/main/kotlin/com/example/Application.kt" include-lines="65-88"}
 
 </tab>
 </tabs>
@@ -186,7 +186,7 @@ The `realm` property allows you to set the realm to be passed in the `WWW-Authen
 
 ```kotlin
 ```
-{style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="27-30,46-47"}
+{style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="29-32,52-53"}
 
 
 ### Step 4: Configure a token verifier {id="configure-verifier"}
@@ -201,14 +201,14 @@ The `verifier` function allows you to verify a token format and its signature:
 
 ```kotlin
 ```
-{style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="24-35,46-47"}
+{style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="24-37,52-53"}
 
 </tab>
 <tab title="RS256" group-key="rs256">
 
 ```kotlin
 ```
-{style="block" src="snippets/auth-jwt-rs256/src/main/kotlin/com/example/Application.kt" include-lines="32-44,55-56"}
+{style="block" src="snippets/auth-jwt-rs256/src/main/kotlin/com/example/Application.kt" include-lines="34-47,62-63"}
 
 </tab>
 </tabs>
@@ -222,13 +222,13 @@ The `verifier` function allows you to verify a token format and its signature:
 1. The `validate` function allows you to perform validations on the JWT payload. This function is required: if you don't configure it, provider initialization throws an `IllegalArgumentException`. Check the `credential` parameter, which represents a [JWTCredential](https://api.ktor.io/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-credential/index.html) object and contains the JWT payload. In the example below, the value of a custom `username` claim is checked.
    ```kotlin
    ```
-   {style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="28-29,36-42,46-47"}
+   {style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="30-31,38-46,52-53"}
    
    In the case of successful authentication, return [JWTPrincipal](https://api.ktor.io/ktor-server-auth-jwt/io.ktor.server.auth.jwt/-j-w-t-principal/index.html). 
 2. The `challenge` function allows you to configure a response to be sent if authentication fails.
    ```kotlin
    ```
-   {style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="28-29,43-47"}
+   {style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="30-31,47-53"}
 
 </tab>
 <tab title="Type-safe" group-key="typed">
@@ -288,7 +288,7 @@ After configuring the `jwt` provider, you can protect specific resources in our 
 
 ```kotlin
 ```
-{style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="49,63-71"}
+{style="block" src="snippets/auth-jwt-hs256/src/main/kotlin/com/example/Application.kt" include-lines="55,70-85"}
 
 </tab>
 <tab title="Type-safe" group-key="typed">

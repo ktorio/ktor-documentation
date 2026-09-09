@@ -135,7 +135,7 @@ file for your test:
 
 ```kotlin
 ```
-{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="17-21,51"}
+{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="17-23,62"}
 
 This method is useful when you need to mimic different environments or use custom configuration settings during testing.
 
@@ -172,7 +172,7 @@ The following example adds the `/login-test` endpoint used to initialize a user 
 
 ```kotlin
 ```
-{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="18,31-35,51"}
+{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="18,33-38,62"}
    
 > For a complete test example, see [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-oauth-google).
 
@@ -184,7 +184,7 @@ For example, to load a configuration file from the `test/resources` folder:
 
 ```kotlin
 ```
-{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="17-21,51"}
+{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="17-23,62"}
 
 Alternatively, you can provide configuration properties programmatically using [`MapApplicationConfig`](https://api.ktor.io/ktor-server-core/io.ktor.server.config/-map-application-config/index.html).
 This is useful when you need access to application configuration before the application starts.
@@ -203,7 +203,7 @@ The following example simulates a JSON response from a Google API:
 
 ```kotlin
 ```
-{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="17-18,36-47,51"}
+{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="17-18,39-55,62"}
 
 > For the full test example, see [auth-oauth-google](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-oauth-google).
 

@@ -21,10 +21,12 @@ fun Application.main() {
     install(ContentNegotiation) {
         json()
     }
-    val secret = environment.config.property("jwt.secret").getString()
-    val issuer = environment.config.property("jwt.issuer").getString()
-    val audience = environment.config.property("jwt.audience").getString()
-    val myRealm = environment.config.property("jwt.realm").getString()
+    val jwtConfig = environment.config
+    val secret = jwtConfig.property("jwt.secret").getString()
+    val issuer = jwtConfig.property("jwt.issuer").getString()
+    val audience = jwtConfig
+        .property("jwt.audience").getString()
+    val myRealm = jwtConfig.property("jwt.realm").getString()
     install(Authentication) {
         jwt("auth-jwt") {
             realm = myRealm
@@ -34,14 +36,18 @@ fun Application.main() {
                     .withIssuer(issuer)
                     .build())
             validate { credential ->
-                if (credential.payload.getClaim("username").asString() != "") {
+                val payload = credential.payload
+                val claim = payload.getClaim("username")
+                if (claim.asString() != "") {
                     JWTPrincipal(credential.payload)
                 } else {
                     null
                 }
             }
             challenge { defaultScheme, realm ->
-                call.respond(HttpStatusCode.Unauthorized, "Token is not valid or has expired")
+                val text = "Token is not valid or has expired"
+                val status = HttpStatusCode.Unauthorized
+                call.respond(status, text)
             }
         }
     }
@@ -51,11 +57,12 @@ fun Application.main() {
             val user = call.receive<User>()
             // Check username and password
             // ...
+            val expiresAt = System.currentTimeMillis() + 60000
             val token = JWT.create()
                 .withAudience(audience)
                 .withIssuer(issuer)
                 .withClaim("username", user.username)
-                .withExpiresAt(Date(System.currentTimeMillis() + 60000))
+                .withExpiresAt(Date(expiresAt))
                 .sign(Algorithm.HMAC256(secret))
             call.respond(hashMapOf("token" to token))
         }
@@ -63,9 +70,16 @@ fun Application.main() {
         authenticate("auth-jwt") {
             get("/hello") {
                 val principal = call.principal<JWTPrincipal>()
-                val username = principal!!.payload.getClaim("username").asString()
-                val expiresAt = principal.expiresAt?.time?.minus(System.currentTimeMillis())
-                call.respondText("Hello, $username! Token is expired at $expiresAt ms.")
+                val payload = principal!!.payload
+                val username = payload.getClaim("username")
+                    .asString()
+                val now = System.currentTimeMillis()
+                val expiresAt = principal.expiresAt?.time
+                    ?.minus(now)
+                call.respondText(
+                    "Hello, $username! " +
+                        "Token is expired at $expiresAt ms."
+                )
             }
         }
     }
