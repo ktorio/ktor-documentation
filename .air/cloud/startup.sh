@@ -261,6 +261,13 @@ prime_node_projects() {
 # declare resolve, a sample compiles and passes its test, and the sample server it
 # documents actually serves over HTTP.
 # ---------------------------------------------------------------------------
+# `ss`/`netstat` are not guaranteed to exist in the image, so probe the port with curl:
+# exit code 7 means "connection refused", i.e. nothing is listening.
+port_in_use() {
+  curl -sS --noproxy '*' --max-time 3 -o /dev/null "http://127.0.0.1:$SMOKE_PORT/" 2>/dev/null
+  [ $? -ne 7 ]
+}
+
 healthcheck() {
   local rc
 
@@ -275,7 +282,7 @@ healthcheck() {
     return 1
   }
 
-  if command -v ss >/dev/null 2>&1 && ss -ltn 2>/dev/null | grep -q ":$SMOKE_PORT "; then
+  if port_in_use; then
     log "healthcheck FAILED: port $SMOKE_PORT is already in use"
     return 1
   fi
@@ -318,10 +325,12 @@ healthcheck() {
   wait "$server_pid" 2>/dev/null
   # `gradle run` forks the application into its own JVM, which outlives the launcher.
   pkill -f 'io[.]ktor[.]server[.]netty[.]EngineMain' 2>/dev/null
-  while command -v ss >/dev/null 2>&1 && ss -ltn 2>/dev/null | grep -q ":$SMOKE_PORT "; do
+  while port_in_use; do
     log "healthcheck: waiting for port $SMOKE_PORT to be released ..."
+    pkill -f 'io[.]ktor[.]server[.]netty[.]EngineMain' 2>/dev/null
     sleep 2
   done
+  log "healthcheck: port $SMOKE_PORT released"
 
   [ $rc -eq 0 ] && log "healthcheck: PASSED"
   return $rc
