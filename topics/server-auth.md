@@ -63,17 +63,17 @@ Ktor provides two ways to customize authentication and authorization behavior:
 * Use [custom plugins](server-custom-plugins.md) to implement authorization logic. For example, you can use the `AuthenticationChecked` [hook](server-custom-plugins.md#call-handling)
   to verify access. For more information, see the [custom-plugin-authorization](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/custom-plugin-authorization) example.
 
-## Type-safe Scheme API {id="type-safe"}
+## Type-safe Authentication Scheme API {id="type-safe"}
 
 <primary-label ref="experimental"/>
 
-Ktor also provides a [type-safe authentication API](server-typed-auth.md) that binds a scheme to a principal type.
+Ktor also provides a [type-safe authentication scheme API](server-typed-auth.md) that binds a scheme to a principal type.
 Inside a protected route, `call.principal` is the principal type and is guaranteed to be non-`null`, so no cast or null check is required.
 The API also supports opt-in [role checks](server-typed-auth.md#roles), an
 [anonymous fallback](server-typed-auth.md#anonymous), typed
 [sessions](server-typed-session-auth.md), and [OAuth 2.0 flows](server-oauth2-flows.md).
 
-The type-safe scheme API is experimental. It works alongside the provider API described below, so you can adopt it incrementally.
+The type-safe authentication scheme API is experimental. It works alongside the provider API described below, so you can adopt it incrementally.
 
 ## Add dependencies {id="add_dependencies"}
 

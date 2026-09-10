@@ -12,11 +12,11 @@
 </tldr>
 
 <link-summary>
-The session scheme of the type-safe authentication API gives routes a non-null principal and read-write access to the
+The session scheme of the type-safe authentication scheme API gives routes a non-null principal and read-write access to the
 stored session.
 </link-summary>
 
-The `session` scheme is part of the [type-safe authentication API](server-typed-auth.md). It separates two things that
+The `session` scheme is part of the [type-safe authentication scheme API](server-typed-auth.md). It separates two things that
 the classic [session authentication](server-session-auth.md) keeps together:
 
 * The **session** is the value you store for the caller, such as an access token or a user ID.

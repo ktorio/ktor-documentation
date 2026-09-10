@@ -125,9 +125,9 @@ routing {
 You can also place `rateLimit()` outside `authenticate()` to apply rate limiting before authentication. Use this
 approach when the rate limit doesn't depend on an authenticated principal.
 
-### Type-safe authentication DSL
+### Type-safe authentication scheme API
 
-Ktor 3.6.0 introduces an experimental [type-safe authentication API](server-typed-auth.md). Instead of installing a
+Ktor 3.6.0 introduces an experimental [type-safe authentication scheme API](server-typed-auth.md). Instead of installing a
 named provider and referring to it by string, you create a scheme value and pass it to the routes that need it. Inside a
 protected route, `call.principal` has the scheme's principal type and is guaranteed to be non-`null`:
 
@@ -158,7 +158,7 @@ The API also adds opt-in [role checks](server-typed-auth.md#roles),
 an [anonymous fallback](server-typed-auth.md#anonymous), typed
 [session,](server-typed-session-auth.md) and [OAuth 2.0](server-oauth2-flows.md) support.
 
-The type-safe authentication API is marked with `@ExperimentalKtorApi` and uses Kotlin context parameters, which require Kotlin 2.4.0 or the
+The type-safe authentication scheme API is marked with `@ExperimentalKtorApi` and uses Kotlin context parameters, which require Kotlin 2.4.0 or the
 `-Xcontext-parameters` compiler option. The existing `install(Authentication)` API remains supported, and you can use both APIs in
 the same application.
 
