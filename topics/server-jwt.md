@@ -29,6 +29,12 @@ Ktor handles JWTs passed in the `Authorization` header using the `Bearer` schema
 
 > You can get general information about authentication and authorization in Ktor in the [](server-auth.md) section.
 
+> If the tokens come from an OpenID Connect provider, the `Oidc` plugin resolves the JWKS endpoint from the issuer
+> URL and refreshes it when keys rotate, so you do not configure a `JwkProvider` by hand. It also rejects ID tokens
+> presented as access tokens. See [](server-oidc-resource-server.md).
+>
+{style="tip"}
+
 
 ## Add dependencies {id="add_dependencies"}
 To enable `JWT`authentication, you need to include the `ktor-server-auth` and `ktor-server-auth-jwt` artifacts in the build script:

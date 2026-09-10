@@ -531,3 +531,9 @@ Claim parsing moves from the route handler into `validate`. The route handler th
   available inside it.
 * There is no type-safe equivalent of the LDAP provider. Call
   [`ldapAuthenticate()`](server-ldap.md) inside a typed `validate` block instead.
+
+## What's next {id="next"}
+
+* [](server-typed-session-auth.md) covers sessions, transport, and signing users out.
+* [](server-oauth2-flows.md) covers typed OAuth 2.0 login and callback flows.
+* [](server-oidc.md) builds on these schemes to configure an OpenID Connect provider from its issuer URL.

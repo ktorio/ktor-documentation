@@ -240,3 +240,4 @@ another scheme, such as [`jwt`](server-jwt.md).
 
 * [](server-typed-auth.md) covers roles, optional authentication, and the rest of the API.
 * [](server-typed-session-auth.md) covers sessions, transports, and signing users out.
+* [](server-oidc.md) configures these flows for you from an OpenID Connect issuer URL.

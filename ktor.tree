@@ -177,6 +177,13 @@
                              toc-title="Type-safe session authentication"/>
                 <toc-element topic="server-oauth2-flows.md"
                              toc-title="OAuth 2.0 flows"/>
+                <toc-element topic="server-oidc.md"
+                             toc-title="OpenID Connect">
+                    <toc-element topic="server-oidc-resource-server.md"
+                                 toc-title="Resource server"/>
+                    <toc-element topic="server-oidc-browser-login.md"
+                                 toc-title="Browser login"/>
+                </toc-element>
             </toc-element>
 
             <toc-element topic="server-sessions.md"
