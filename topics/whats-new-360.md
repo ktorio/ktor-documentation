@@ -129,7 +129,7 @@ approach when the rate limit doesn't depend on an authenticated principal.
 
 Ktor 3.6.0 introduces an experimental [type-safe authentication API](server-typed-auth.md). Instead of installing a
 named provider and referring to it by string, you create a scheme value and pass it to the routes that need it. Inside a
-protected route, `call.principal` is your own type and is never `null`:
+protected route, `call.principal` has the scheme's principal type and is guaranteed to be non-`null`:
 
 ```kotlin
 data class User(val id: String, val email: String)
@@ -154,11 +154,12 @@ routing {
 }
 ```
 
-The API also adds opt-in role checks through `withRoles()`, an anonymous fallback through `orAnonymous()`, typed
+The API also adds opt-in [role checks](server-typed-auth.md#roles),
+an [anonymous fallback](server-typed-auth.md#anonymous), typed
 [session,](server-typed-session-auth.md) and [OAuth 2.0](server-oauth2-flows.md) support.
 
-The API is marked with `@ExperimentalKtorApi` and uses Kotlin context parameters, which need Kotlin 2.4.0 or the
-`-Xcontext-parameters` compiler option. The classic `install(Authentication)` API keeps working, and both can be used in
+The type-safe authentication API is marked with `@ExperimentalKtorApi` and uses Kotlin context parameters, which require Kotlin 2.4.0 or the
+`-Xcontext-parameters` compiler option. The existing `install(Authentication)` API remains supported, and you can use both APIs in
 the same application.
 
 ## Ktor Client

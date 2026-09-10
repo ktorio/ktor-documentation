@@ -283,10 +283,9 @@
     <snippet id="typed_auth_experimental">
         <note>
             <p>
-                The <a href="server-typed-auth.md">type-safe authentication API</a> is experimental.
-                It requires <code>@OptIn(ExperimentalKtorApi::class)</code> and Kotlin context parameters.
-                Kotlin 2.4.0 enables context parameters by default. On earlier versions, add
-                <code>-Xcontext-parameters</code> to <code>freeCompilerArgs</code>.
+                The type-safe authentication API is experimental. It may be dropped or changed at any time.
+                Opt-in is required. For more information, see
+                <a href="server-typed-auth.md#prerequisites"/>.
             </p>
         </note>
     </snippet>

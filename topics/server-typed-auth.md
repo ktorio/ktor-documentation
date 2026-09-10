@@ -22,29 +22,6 @@ scheme once, pass that scheme to a route, and read the principal without a cast 
 This API is an alternative to the [`install(Authentication)`](server-auth.md) approach. Both work in the same
 application, and you can nest routes that use one API inside routes that use the other.
 
-## Why use the type-safe API {id="why"}
-
-**The principal is nullable.** Inside `authenticate("my-jwt")`, `call.principal<User>()` still returns `User?`. Every
-route handler needs a null check that can never fail:
-
-```kotlin
-authenticate("my-jwt") {
-    get("/profile") {
-        val user = call.principal<User>()
-            ?: return@get call.respond(HttpStatusCode.Unauthorized)
-        call.respond(user.email)
-    }
-}
-```
-
-**Provider names are plain strings.** The name in `jwt("my-jwt")` and the name in `authenticate("my-jwt")` are not
-connected. A typo compiles and fails at runtime.
-
-**There is no role model.** Projects write their own route wrappers to check roles or claims.
-
-**Role APIs tend to be global.** When a role API exists, it is usually available on every route, including routes where
-no roles are resolved.
-
 ## Add dependencies {id="add_dependencies"}
 
 The core API lives in `ktor-server-auth`:
@@ -66,7 +43,7 @@ fun Application.module() {
 ```
 
 The route builders use Kotlin [context parameters](https://kotlinlang.org/docs/context-parameters.html). Kotlin 2.4.0
-enables context parameters by default. On earlier versions, enable them in your build script:
+enables context parameters by default. With Kotlin 2.2.x or 2.3.x, enable them in your build script:
 
 ```kotlin
 kotlin {
@@ -75,66 +52,6 @@ kotlin {
     }
 }
 ```
-
-## The two APIs side by side {id="comparison"}
-
-The same basic authentication, written both ways:
-
-<tabs group="auth-dsl">
-<tab title="Classic" group-key="classic">
-
-```kotlin
-install(Authentication) {
-    basic("auth-basic") {
-        realm = "Access to the '/' path"
-        validate { credentials ->
-            val isValid = credentials.name == "jetbrains" &&
-                    credentials.password == "foobar"
-            val name = credentials.name
-            if (isValid) UserIdPrincipal(name) else null
-        }
-    }
-}
-
-routing {
-    authenticate("auth-basic") {
-        get("/hello") {
-            val user = call.principal<UserIdPrincipal>()
-            call.respondText("Hello, ${user?.name}!")
-        }
-    }
-}
-```
-
-</tab>
-<tab title="Type-safe" group-key="typed">
-
-```kotlin
-data class User(val name: String)
-
-val basicAuth = basic<User>("auth-basic") {
-    realm = "Access to the '/' path"
-    validate { credentials ->
-        val isValid = credentials.name == "jetbrains" &&
-                credentials.password == "foobar"
-        if (isValid) User(credentials.name) else null
-    }
-}
-
-routing {
-    authenticateWith(basicAuth) {
-        get("/hello") {
-            val user = call.principal
-            call.respondText("Hello, ${user.name}!")
-        }
-    }
-}
-```
-
-</tab>
-</tabs>
-
-There is no `install(Authentication)` step. The scheme registers its provider the first time a route uses it.
 
 ## Define a principal {id="principal"}
 
@@ -184,8 +101,8 @@ tries to use it.
 
 ## Protect routes {id="protect-routes"}
 
-Pass a scheme to `authenticateWith()`. Inside the block, `call.principal` is the type you chose, and it is never
-`null`:
+Pass a scheme to the `authenticateWith()` function. Inside the block, `call.principal` is the type you chose, and it is
+never `null`:
 
 ```kotlin
 routing {
@@ -200,8 +117,8 @@ routing {
 
 ## Make authentication optional {id="optional"}
 
-Use `authenticateWithOptional()` when a route should serve both signed-in and anonymous callers. Inside the block, read
-`call.principalOrNull`:
+Use the `authenticateWithOptional()` function when a route should serve both signed-in and anonymous callers. Inside the
+block, read:
 
 ```kotlin
 routing {
@@ -219,8 +136,8 @@ still fails.
 
 ## Accept several schemes {id="any-of"}
 
-Use `authenticateWithAnyOf()` to accept more than one scheme on the same route. Ktor tries the schemes in the order you
-list them, and the first one that succeeds provides the principal.
+Use the `authenticateWithAnyOf()` function to accept more than one scheme on the same route. Ktor tries the schemes in
+the order you list them, and the first one that succeeds provides the principal.
 
 All schemes must produce a principal that fits a common type, which you declare on the call:
 
@@ -256,8 +173,8 @@ routing {
 
 ## Allow anonymous callers {id="anonymous"}
 
-Use `orAnonymous()` to build a scheme that serves callers without credentials. A request without credentials gets the
-principal your block returns. A request with invalid credentials still fails.
+Use the `orAnonymous()` function to build a scheme that serves callers without credentials. A request without
+credentials gets the principal your block returns. A request with invalid credentials still fails.
 
 The result is a scheme whose principal type is a common supertype of the two:
 
@@ -290,8 +207,8 @@ routing {
 
 ## Transform a principal {id="map-principal"}
 
-Use `mapPrincipal()` to convert the principal into another type, for example, by loading a user record from your
-database:
+Use the `mapPrincipal()` function to convert the principal into another type, for example, by loading a user record from
+your database:
 
 ```kotlin
 data class AppUser(val id: String, val email: String)
@@ -437,91 +354,28 @@ routing {
     authenticate("auth-session") {
         authenticateWith(basicAuth) {
             get("/admin") {
-                call.respondText(call.principal.name)
+                val basicUser = call.principal
+                val sessionUser = 
+                    checkNotNull(call.principal<SessionUser>())
+                if (basicUser.name == sessionUser.name) {
+                    call.respondText("You are ${basicUser.name}!")
+                } else {
+                    call.respondText("Who are you?")
+                }
             }
+        }
+    }
+
+    authenticate(basicAuth.name) {
+        get("/hello") {
+            val user = checkNotNull(call.principal<BasicUser>())
+            call.respondText("Hello ${user.name}!")
         }
     }
 }
 ```
 
 Nested layers apply in turn.
-
-## Migrate from the classic API {id="migrate"}
-
-Nothing breaks when you upgrade. The classic API still works, and you can move one route at a time.
-
-| Classic                                             | Type-safe                                          |
-|-----------------------------------------------------|----------------------------------------------------|
-| `install(Authentication) { jwt("my-jwt") { … } }`   | `val myJwt = jwt<User>("my-jwt") { … }`            |
-| `validate { … UserIdPrincipal(name) }`              | `validate { … User(name) }`                        |
-| `authenticate("my-jwt") { … }`                      | `authenticateWith(myJwt) { … }`                    |
-| `authenticate("a", "b") { … }`                      | `authenticateWithAnyOf<T>(a, b) { … }`             |
-| `authenticate("my-jwt", optional = true) { … }`     | `authenticateWithOptional(myJwt) { … }`            |
-| `call.principal<User>() ?: return@get …`            | `call.principal`                                   |
-| A custom route wrapper that checks roles            | `scheme.withRoles { … }` and `roles = setOf(…)`    |
-| `install(Authentication) { oauth("google") { … } }` | `oauth2Session<User, UserSession>("google") { … }` |
-
-A full example, before and after:
-
-<tabs group="auth-dsl">
-<tab title="Classic" group-key="classic">
-
-```kotlin
-install(Authentication) {
-    jwt("my-jwt") {
-        realm = "my-app"
-        verifier(jwkProvider, issuer)
-        validate { credential ->
-            JWTPrincipal(credential.payload)
-        }
-    }
-}
-
-routing {
-    authenticate("my-jwt") {
-        get("/profile") {
-            val principal = call.principal<JWTPrincipal>()
-                ?: return@get call.respond(
-                    HttpStatusCode.Unauthorized
-                )
-            val emailClaim = principal.payload.getClaim("email")
-            call.respondText(emailClaim.asString())
-        }
-    }
-}
-```
-
-</tab>
-<tab title="Type-safe" group-key="typed">
-
-```kotlin
-data class User(val id: String, val email: String)
-
-val myJwt = jwt<User>("my-jwt") {
-    realm = "my-app"
-    verifier(jwkProvider, issuer)
-    validate { credential ->
-        val payload = credential.payload
-        User(
-            id = payload.subject,
-            email = payload.getClaim("email").asString()
-        )
-    }
-}
-
-routing {
-    authenticateWith(myJwt) {
-        get("/profile") {
-            call.respondText(call.principal.email)
-        }
-    }
-}
-```
-
-</tab>
-</tabs>
-
-Claim parsing moves from the route handler into `validate`. The route handler then works with your own type.
 
 ## Limitations {id="limitations"}
 

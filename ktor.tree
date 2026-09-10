@@ -160,23 +160,26 @@
                 <toc-element topic="server-form-based-auth.md"
                              toc-title="Form-based authentication"
                              accepts-web-file-names="form.html"/>
-                <toc-element topic="server-session-auth.md"
-                             toc-title="Session authentication"
-                             accepts-web-file-names="session-auth.html"/>
                 <toc-element topic="server-ldap.md"
                              accepts-web-file-names="ldap.html"/>
                 <toc-element topic="server-jwt.md"
                              accepts-web-file-names="jwt.html">
                     <toc-element topic="rsa-keys-generation.md"/>
                 </toc-element>
-                <toc-element topic="server-oauth.md"
-                             accepts-web-file-names="authentication-oauth.html,oauth.html"/>
-                <toc-element topic="server-typed-auth.md"
-                             toc-title="Type-safe authentication"/>
-                <toc-element topic="server-typed-session-auth.md"
-                             toc-title="Type-safe session authentication"/>
-                <toc-element topic="server-oauth2-flows.md"
-                             toc-title="OAuth 2.0 flows"/>
+                <toc-element toc-title="Sessions">
+                    <toc-element topic="server-session-auth.md"
+                                 toc-title="Session authentication"
+                                 accepts-web-file-names="session-auth.html"/>
+                    <toc-element topic="server-typed-session-auth.md"/>
+                </toc-element>
+                <toc-element toc-title="OAuth">
+                    <toc-element topic="server-oauth.md"
+                                 toc-title="OAuth authentication"
+                                 accepts-web-file-names="authentication-oauth.html,oauth.html"/>
+                    <toc-element topic="server-oauth2-flows.md"
+                                 toc-title="Type-safe OAuth 2.0 flows"/>
+                </toc-element>
+                <toc-element topic="server-typed-auth.md"/>
             </toc-element>
 
             <toc-element topic="server-sessions.md"
