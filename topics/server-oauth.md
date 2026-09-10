@@ -29,6 +29,12 @@ will automatically make a request to a specified authorization server with the n
 >
 {style="tip"}
 
+> If your provider supports OpenID Connect, the `Oidc` plugin goes further. It reads the provider's discovery
+> document, so you configure an issuer URL instead of authorization, token, and JWKS endpoints, and it handles PKCE,
+> ID token validation, sessions, and logout for you. See [](server-oidc.md).
+>
+{style="tip"}
+
 ## Add dependencies {id="add_dependencies"}
 
 <include from="lib.topic" element-id="add_ktor_artifact_intro"/>

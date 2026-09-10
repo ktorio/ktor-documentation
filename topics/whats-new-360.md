@@ -220,6 +220,38 @@ The type-safe authentication scheme API is marked with `@ExperimentalKtorApi` an
 `-Xcontext-parameters` compiler option. The existing `install(Authentication)` API remains supported, and you can use both APIs in
 the same application.
 
+### OpenID Connect plugin
+
+Ktor 3.6.0 adds an experimental [OpenID Connect plugin](server-oidc.md). Instead of wiring up discovery, JWKS
+resolution, JWT validation, and OAuth callbacks yourself, you register a provider by its issuer URL and get typed
+authentication schemes back:
+
+```kotlin
+suspend fun Application.module() {
+    val oidc = install(Oidc)
+
+    val google = oidc.identityProvider("google") {
+        issuer = "https://accounts.google.com"
+        bearer { audience = setOf("my-api") }
+    }
+
+    routing {
+        authenticateWith(google.jwtBearer) {
+            get("/me") {
+                call.respond(call.principal.userInfo)
+            }
+        }
+    }
+}
+```
+
+The plugin covers both [resource servers](server-oidc-resource-server.md) that validate incoming access tokens and
+[browser login](server-oidc-browser-login.md) with sessions, logout, and token refresh. It implements the authorization
+code flow with PKCE, token introspection (RFC 7662), resource indicators (RFC 8707), and protected resource metadata
+(RFC 9728).
+
+The plugin is marked with `@ExperimentalKtorApi`, builds on the type-safe scheme API, and is available for the JVM only.
+
 ### Nullable request bodies with `ApplicationCall.receive()`
 
 Ktor now supports nullable type arguments with the `ApplicationCall.receive()` function.
