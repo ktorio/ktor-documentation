@@ -316,7 +316,12 @@ healthcheck() {
   pkill -P "$server_pid" 2>/dev/null
   kill "$server_pid" 2>/dev/null
   wait "$server_pid" 2>/dev/null
-  pkill -f "$SMOKE_MODULE.*ApplicationKt\|io.ktor.server.netty.EngineMain" 2>/dev/null
+  # `gradle run` forks the application into its own JVM, which outlives the launcher.
+  pkill -f 'io[.]ktor[.]server[.]netty[.]EngineMain' 2>/dev/null
+  while command -v ss >/dev/null 2>&1 && ss -ltn 2>/dev/null | grep -q ":$SMOKE_PORT "; do
+    log "healthcheck: waiting for port $SMOKE_PORT to be released ..."
+    sleep 2
+  done
 
   [ $rc -eq 0 ] && log "healthcheck: PASSED"
   return $rc
