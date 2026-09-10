@@ -95,8 +95,8 @@ val bearerAuth = bearer<User>("auth-bearer") {
 }
 ```
 
-Note the name change: the classic provider uses `authenticate`, while the type-safe scheme uses `validate`, like
-every other type-safe scheme. It returns your principal type, or `null` if authentication fails.
+Note the name change: the classic provider uses `authenticate`, while the type-safe scheme uses `validate`, like other
+type-safe schemes. It returns your principal type, or `null` if authentication fails.
 
 You can also set `authHeader` to read the token from somewhere other than the `Authorization` header, and
 `authSchemes` to accept schemes other than `Bearer`. For the full API, see [](server-typed-auth.md).

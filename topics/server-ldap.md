@@ -109,8 +109,9 @@ install(Authentication) {
 
 <include from="lib.topic" element-id="typed_auth_experimental"/>
 
-There is no LDAP-specific type-safe scheme. Call `ldapAuthenticate` inside the `validate` block of a type-safe
-[`basic`](server-basic-auth.md), [`digest`](server-digest-auth.md), or [`form`](server-form-based-auth.md) scheme.
+There is no LDAP-specific type-safe authentication scheme. Call `ldapAuthenticate` inside the `validate` block of a 
+type-safe [`basic`](server-basic-auth.md), [`digest`](server-digest-auth.md), or [`form`](server-form-based-auth.md)
+scheme.
 
 Pass a block to `ldapAuthenticate` to return your own principal type:
 

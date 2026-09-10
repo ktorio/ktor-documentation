@@ -16,7 +16,7 @@ Typed OAuth 2.0 flows install their own login and callback routes, and can keep 
 session.
 </link-summary>
 
-Ktor provides two typed OAuth 2.0 flows as part of the [type-safe authentication API](server-typed-auth.md):
+Ktor provides two typed OAuth 2.0 flows as part of the [type-safe authentication scheme API](server-typed-auth.md):
 
 * `oauth2Session` signs the user in, stores a session, and gives you a scheme for protecting your application
   routes. Use this one unless you have a reason not to.

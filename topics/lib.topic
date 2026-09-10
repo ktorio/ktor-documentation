@@ -283,7 +283,7 @@
     <snippet id="typed_auth_experimental">
         <note>
             <p>
-                The type-safe authentication API is experimental. It may be dropped or changed at any time.
+                The type-safe authentication scheme API is experimental. It may be dropped or changed at any time.
                 Opt-in is required. For more information, see
                 <a href="server-typed-auth.md#prerequisites"/>.
             </p>

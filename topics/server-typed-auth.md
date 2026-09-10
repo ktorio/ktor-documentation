@@ -12,11 +12,11 @@
 </tldr>
 
 <link-summary>
-The type-safe authentication API binds the principal type to the route, so you can read a non-null principal without
+The type-safe authentication scheme API binds the principal type to the route, so you can read a non-null principal without
 casts or null checks.
 </link-summary>
 
-Ktor provides a type-safe authentication API that binds an authentication scheme to a principal type. You create a
+Ktor provides a type-safe authentication scheme API that binds an authentication scheme to a principal type. You create a
 scheme once, pass that scheme to a route, and read the principal without a cast or a null check.
 
 This API is an alternative to the [`install(Authentication)`](server-auth.md) approach. Both work in the same
