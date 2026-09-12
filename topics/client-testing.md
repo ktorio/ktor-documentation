@@ -1,6 +1,6 @@
 [//]: # (title: Testing in Ktor Client)
 
-<show-structure for="chapter" depth="2"/>
+<show-structure for="chapter" depth="3"/>
 
 <var name="artifact_name" value="ktor-client-mock"/>
 
@@ -40,13 +40,13 @@ To test this client, its configuration needs to be shared with a test client, wh
 
 ```kotlin
 ```
-{src="snippets/client-testing-mock/src/main/kotlin/com/example/Application.kt" include-lines="13-15,24-32"}
+{src="snippets/client-testing-mock/src/main/kotlin/com/example/Application.kt" include-lines="13-14,24-36"}
 
 Then, you can use the `ApiClient` as follows to create an HTTP client with the `CIO` engine and make a request.
 
 ```kotlin
 ```
-{src="snippets/client-testing-mock/src/main/kotlin/com/example/Application.kt" include-lines="16-22"}
+{src="snippets/client-testing-mock/src/main/kotlin/com/example/Application.kt" include-lines="16-21"}
 
 ### Test a client {id="test-client"}
 
@@ -54,12 +54,44 @@ To test a client, you need to create a `MockEngine` instance with a handler that
 
 ```kotlin
 ```
-{src="snippets/client-testing-mock/src/test/kotlin/ApplicationTest.kt" include-lines="14-20"}
+{src="snippets/client-testing-mock/src/test/kotlin/ApplicationTest.kt" include-lines="19-25"}
 
 Then, you can pass the created `MockEngine` to initialize `ApiClient` and make required assertions.
 
 ```kotlin
 ```
-{src="snippets/client-testing-mock/src/test/kotlin/ApplicationTest.kt" include-lines="10-26"}
+{src="snippets/client-testing-mock/src/test/kotlin/ApplicationTest.kt" include-lines="15-30"}
+
+### Mock multiple endpoints {id="multiple-endpoints"}
+
+When a client calls several URLs, use a single reusable handler and branch on the request
+(for example, `request.url.encodedPath` or the host). This keeps mocks independent of call order:
+
+```kotlin
+```
+{src="snippets/client-testing-mock/src/test/kotlin/ApplicationTest.kt" include-lines="35-41"}
+
+In the `else` branch, fail on unexpected URLs so tests do not silently accept missing mocks.
+You can also match on `request.url.host` when the same path is used on different hosts.
+
+### Mock a call chain {id="call-chain"}
+
+To return different responses for consecutive calls in a fixed order, register multiple handlers with
+[`addHandler`](https://api.ktor.io/ktor-client-mock/io.ktor.client.engine.mock/-mock-engine-config/add-handler.html)
+and set `reuseHandlers = false` so each handler is used once:
+
+```kotlin
+```
+{src="snippets/client-testing-mock/src/test/kotlin/ApplicationTest.kt" include-lines="52-56"}
+
+By default, `reuseHandlers` is `true` and handlers are reused in a cycle. With `reuseHandlers = false`,
+a further request after the last handler fails with an “Unhandled …” error.
+
+For tests that build the client first and enqueue responses later, use
+[`MockEngine.Queue`](https://api.ktor.io/ktor-client-mock/io.ktor.client.engine.mock/-mock-engine/-queue/index.html):
+
+```kotlin
+```
+{src="snippets/client-testing-mock/src/test/kotlin/ApplicationTest.kt" include-lines="70-74"}
 
 You can find the full example here: [client-testing-mock](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-testing-mock).
