@@ -18,7 +18,7 @@
 </tldr>
 
 <link-summary>
-%plugin_name% provides the ability to validate a body of incoming requests.
+%plugin_name% limits how many requests a client can make within a time period.
 </link-summary>
 
 The [`%plugin_name%`](%plugin_api_link%) plugin allows you to limit the number of [requests](server-requests.md) 
@@ -27,7 +27,7 @@ a client can make within a specified time period.
 Ktor provides several ways to configure rate limiting:
 
 * Apply a rate limit globally to the entire application or configure different limits for specific [resources](server-routing.md).
-* Apply rate limits based on request parameters, such as an IP address, API key or access token.
+* Apply rate limits based on a [request key](#request-key), such as an [IP address](#client-ip), an [API key](#api-key), or an [access token](#access-token).
 
 ## Add dependencies {id="add_dependencies"}
 
@@ -71,7 +71,7 @@ You can apply rate limiting globally to the entire application or register a rat
 
    ```kotlin
    ```
-   {src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="14-17,33"}
+   {src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="15-18,46"}
 
 The examples above show the minimal configuration required for the `%plugin_name%` plugin.
 If you use `register()`, you also need to apply the registered rate limiter to a [specific route](#rate-limiting-scope).
@@ -105,24 +105,64 @@ The following example allows up to 30 requests per minute:
 
 ```kotlin
 ```
-{src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="21-22,32"}
+{src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="22-23,33"}
 
-#### Distinguish requests by key
+#### Distinguish requests by key {id="request-key"}
 
 Use the `requestKey()` function to return a key for each request. Requests with different keys have independent
-rate limits.
-
-The following example uses the `login` [query parameter](server-requests.md#query_parameters) to distinguish between users:
-
-```kotlin
-```
-{src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="21,23-25,32"}
+rate limits. By default, all requests share the same bucket.
 
 > Ensure that request keys have appropriate `equals` and `hashCode` implementations.
 > 
 {style="tip"}
 
-#### Rate limit authenticated users
+##### Query parameter {id="query-parameter"}
+
+The following example uses the `login` [query parameter](server-requests.md#query_parameters) to distinguish between users:
+
+```kotlin
+```
+{src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="22,24-26,33"}
+
+##### Client IP address {id="client-ip"}
+
+To apply a separate rate limit per client IP address, use
+[`call.request.origin.remoteHost`](https://api.ktor.io/ktor-http/io.ktor.http/-request-connection-point/remote-host.html)
+as the request key:
+
+```kotlin
+```
+{src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="34-39"}
+
+If the application sits behind a proxy or load balancer, install the
+[Forwarded headers](server-forward-headers.md) plugin so that `origin.remoteHost` reflects the original client
+rather than the proxy.
+
+##### API key header {id="api-key"}
+
+To rate-limit by an API key sent in a header, return that header value from `requestKey()`:
+
+```kotlin
+```
+{src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="40-45"}
+
+You can also combine this approach with [API key authentication](server-api-key-auth.md) and use the authenticated
+identity instead of the raw header value.
+
+##### Access token or Bearer token {id="access-token"}
+
+For a raw bearer token in the `Authorization` header:
+
+```kotlin
+requestKey { call ->
+    call.request.authorization()?.removePrefix("Bearer ") ?: "anonymous"
+}
+```
+
+When you already authenticate requests, prefer using the
+[authentication principal](#rate-limit-authenticated-users) as the request key instead of the raw token.
+
+#### Rate limit authenticated users {id="rate-limit-authenticated-users"}
 
 You can use an authentication principal as a request key to apply rate limits per authenticated user.
 
@@ -157,7 +197,7 @@ In the following example, requests with the `jetbrains` key consume one token, w
 
 ```kotlin
 ```
-{src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="21,23-32"}
+{src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="22,24-33"}
 
 #### Customize the response
 
@@ -183,7 +223,7 @@ Use the `rateLimit()` function without a name to apply the default registered ra
 
 ```kotlin
 ```
-{src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="40-46,60"}
+{src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="53-59,87"}
 
 #### Apply a named rate limiter
 
@@ -191,7 +231,7 @@ Pass a `RateLimitName` to the `rateLimit()` function to apply a [named rate limi
 
 ```kotlin
 ```
-{src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="40,53-60"}
+{src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="53,66-72,87"}
 
 ## Example {id="example"}
 
@@ -201,6 +241,7 @@ It configures:
 * A default rate limiter for the home page.
 * A named public rate limiter for the public API.
 * A named protected rate limiter that uses request keys and weights.
+* Named rate limiters keyed by client IP and by an `X-Api-Key` header.
 * The [`StatusPages`](server-status-pages.md) plugin to customize responses for requests rejected with a `429 Too Many Requests` response.
 
 ```kotlin
