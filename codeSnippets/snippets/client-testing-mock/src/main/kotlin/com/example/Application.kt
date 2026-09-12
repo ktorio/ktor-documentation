@@ -5,8 +5,8 @@ import io.ktor.client.call.*
 import io.ktor.client.engine.*
 import io.ktor.client.engine.cio.*
 import io.ktor.client.plugins.contentnegotiation.*
-import io.ktor.serialization.kotlinx.json.*
 import io.ktor.client.request.*
+import io.ktor.serialization.kotlinx.json.*
 import kotlinx.coroutines.*
 import kotlinx.serialization.*
 
@@ -29,4 +29,8 @@ class ApiClient(engine: HttpClientEngine) {
     }
 
     suspend fun getIp(): IpResponse = httpClient.get("https://api.ipify.org/?format=json").body()
+
+    suspend fun getUser(): String = httpClient.get("https://api.example.com/user").body()
+
+    suspend fun getOrders(): String = httpClient.get("https://api.example.com/orders").body()
 }
