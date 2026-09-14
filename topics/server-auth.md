@@ -52,6 +52,15 @@ HTTP provides a [general framework](https://developer.mozilla.org/en-US/docs/Web
 ### OAuth {id="oauth"}
 [OAuth](server-oauth.md) is an open standard for securing access to APIs. The `oauth` provider in Ktor allows you to implement authentication using external providers such as Google, Facebook, Twitter, and so on.
 
+### OpenID Connect {id="oidc"}
+
+[OpenID Connect](server-oidc.md) is an identity layer on top of OAuth 2.0. The `Oidc` plugin reads a provider's
+discovery document, so you configure an issuer URL instead of endpoints and signing keys. It can validate access
+tokens in an [API](server-oidc-resource-server.md) and run [browser sign-in](server-oidc-browser-login.md), including PKCE,
+sessions, and logout.
+
+The plugin is experimental and available on the JVM only.
+
 ### Session {id="sessions"}
 [Sessions](server-sessions.md) provide a mechanism to persist data between different HTTP requests. Typical use cases include storing a logged-in user's ID, the contents of a shopping basket, or keeping user preferences on the client. In Ktor, a user that already has an associated session can be authenticated using the `session` provider. Learn how to do this from [](server-session-auth.md).
 
@@ -73,7 +82,10 @@ The API also supports opt-in [role checks](server-typed-auth.md#roles), an
 [anonymous fallback](server-typed-auth.md#anonymous), typed
 [sessions](server-typed-session-auth.md), and [OAuth 2.0 flows](server-oauth2-flows.md).
 
-The type-safe authentication scheme API is experimental. It works alongside the provider API described below, so you can adopt it incrementally.
+> This API is an alternative to the named provider approach described in this topic.
+> Both APIs can be used in the same application. For more information, see [](server-typed-auth.md).
+>
+{style="note"}
 
 ## Add dependencies {id="add_dependencies"}
 
@@ -82,12 +94,9 @@ The type-safe authentication scheme API is experimental. It works alongside the 
 
 Note that some authentication providers, such as [JWT](server-jwt.md) and [LDAP](server-ldap.md), require additional artifacts.
 
-
-
 ## Install Authentication {id="install"}
 
 <include from="lib.topic" element-id="install_plugin"/>
-
 
 ## Configure Authentication {id="configure"}
 After [installing Authentication](#install), you can configure and use `Authentication` as follows:
