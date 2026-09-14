@@ -35,6 +35,8 @@ endpoints, signing keys, and supported algorithms.
 
 ## Add dependencies {id="add_dependencies"}
 
+To use the `Oidc` plugin, add the `%artifact_name%` artifact to your build script:
+
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 > This artifact is available for the JVM only.
@@ -253,7 +255,7 @@ Your application determines where the values come from and how they are applied.
 
 ## Configure token validation {id="jwt-config"}
 
-Use the `jwt { }` block to configure how tokens are verified. The defaults are secure, so change them only when required:
+Use the `jwt {}` block to configure how tokens are verified. The defaults are secure, so change them only when required:
 
 ```kotlin
 oidc.identityProvider("google") {

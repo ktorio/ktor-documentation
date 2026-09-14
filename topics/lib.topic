@@ -284,8 +284,8 @@
         <note>
             <p>
                 The type-safe authentication scheme API is experimental. It may be dropped or changed at any time.
-                Opt-in is required. For more information, see
-                <a href="server-typed-auth.md#prerequisites"/>.
+                Opt-in is required. For more details, see
+                <a href="server-typed-auth.md#prerequisites">the type-safe authentication documentation</a>.
             </p>
         </note>
     </snippet>
@@ -293,11 +293,10 @@
     <snippet id="oidc_experimental">
         <note>
             <p>
-                The OpenID Connect plugin is experimental and available on the JVM only. It requires
-                <code>@OptIn(ExperimentalKtorApi::class)</code> and builds on the
-                <a href="server-typed-auth.md">type-safe authentication API</a>, so it also needs Kotlin context
-                parameters. Kotlin 2.4.0 enables them by default. On earlier versions, add
-                <code>-Xcontext-parameters</code> to <code>freeCompilerArgs</code>.
+                The OpenID Connect plugin is experimental, available on the JVM only, and requires
+                <code>@OptIn(ExperimentalKtorApi::class)</code>. It uses the
+                <a href="server-typed-auth.md">type-safe authentication API</a>, which requires Kotlin context
+                parameters.
             </p>
         </note>
     </snippet>

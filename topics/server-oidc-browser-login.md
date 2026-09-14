@@ -17,7 +17,8 @@ Sign users in through an OpenID Connect provider. The plugin creates the login a
 signed in with a session.
 </link-summary>
 
-This topic explains how to sign users in from a browser. 
+This topic explains how to use OpenID Connect to sign users in from a browser, manage their sessions, and handle logout
+and token refresh.
 
 > To validate tokens issued by an OpenID Connect provider, see[](server-oidc-resource-server.md).
 > 

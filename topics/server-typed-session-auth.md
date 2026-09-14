@@ -17,7 +17,7 @@ stored session.
 </link-summary>
 
 The `session` scheme is part of the [type-safe authentication scheme API](server-typed-auth.md). It separates two things that
-the classic [session authentication](server-session-auth.md) keeps together:
+the named provider [session authentication](server-session-auth.md) keeps together:
 
 * The **session** is the value you store for the caller, such as an access token or a user ID.
 * The **principal** is what your route handlers work with, such as a full user record.
@@ -32,8 +32,8 @@ are non-null and correctly typed.
 The `session<S, P>()` factory takes the session type first and the principal type second. The `validate` block turns a
 session into a principal or returns `null` to reject the session.
 
-By default, a request without a valid session gets `401 Unauthorized`. For a browser application, a redirect to the
-sign-in page is usually better. Set `onUnauthorized` to change the response:
+By default, a request without a valid session receives `401 Unauthorized`. For a browser application, you can redirect the
+caller to the sign-in page instead. Set the `onUnauthorized` handler to change the response:
 
 ```kotlin
 data class UserSession(val userId: String)
@@ -49,8 +49,8 @@ val sessionAuth = session<UserSession, User>("auth-session") {
 }
 ```
 
-A handler passed to `authenticateWith()` overrides this one for that route. See
-[](server-typed-auth.md#failures) for the full order.
+A handler passed to `authenticateWith()` overrides this one for that route. For the complete order, see
+[](server-typed-auth.md#failures).
 
 ## Choose a transport {id="transport"}
 
@@ -254,8 +254,8 @@ val sessionAuth = session<UserSession, User>("auth-session") {
 
 ## Add CSRF protection {id="csrf"}
 
-Cookie transports send the session automatically on every request, including requests started by another site. Use
-`csrfProtection` to install the
+Cookie transports send the session automatically on every request, including requests started by another site. Use the
+`csrfProtection {}` block to install the
 [CSRF](https://api.ktor.io/ktor-server/ktor-server-plugins/ktor-server-csrf/io.ktor.server.plugins.csrf/-c-s-r-f.html)
 plugin for the routes this scheme protects:
 
@@ -271,8 +271,8 @@ val sessionAuth = session<UserSession, User>("auth-session") {
 }
 ```
 
-## What's next {id="next"}
-
-* [](server-typed-auth.md) covers roles, optional authentication, and the rest of the API.
-* [](server-oauth2-flows.md) uses a session scheme to keep users signed in after an OAuth sign-in.
-* [](server-sessions.md) covers the Sessions plugin, storages, and transformers in detail.
+> To learn more about roles, optional authentication, and the rest of the API, see [](server-typed-auth.md).
+> 
+> For more details on working with the `Sessions` plugin, see [](server-sessions.md).
+> 
+{style="tip"}
