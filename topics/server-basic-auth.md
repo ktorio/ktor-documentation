@@ -72,7 +72,7 @@ To get a general idea of how to configure different authentication providers in 
 ### Step 1: Configure a basic provider {id="configure-provider"}
 
 <tabs group="auth-dsl">
-<tab title="Classic" group-key="classic">
+<tab title="Named provider" group-key="classic">
 
 The `basic` authentication provider exposes its settings via the [BasicAuthenticationProvider.Configuration](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-basic-authentication-provider/-config/index.html) class. In the example below, the following settings are specified:
 * The `realm` property sets the realm to be passed in the `WWW-Authenticate` header.
@@ -115,32 +115,13 @@ authentication fails. For the full API, see [](server-typed-auth.md).
 ### Step 2: Protect specific resources {id="authenticate-route"}
 
 <tabs group="auth-dsl">
-<tab title="Classic" group-key="classic">
+<tab title="Named provider" group-key="classic">
 
 After configuring the `basic` provider, you can protect specific resources in our application using the **[authenticate](server-auth.md#authenticate-route)** function. In the case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html) inside a route handler using the `call.principal` function and get a name of an authenticated user.
 
 ```kotlin
 ```
 {src="snippets/auth-basic/src/main/kotlin/authbasic/Application.kt" include-lines="23-30"}
-
-</tab>
-<tab title="Type-safe" group-key="typed">
-
-Pass the scheme to `authenticateWith()`. Inside the block, `call.principal` is your principal type and is never
-`null`, so no cast or null check is needed:
-
-```kotlin
-routing {
-    authenticateWith(basicAuth) {
-        get("/") {
-            call.respondText("Hello, ${call.principal.name}!")
-        }
-    }
-}
-```
-
-</tab>
-</tabs>
 
 </tab>
 <tab title="Type-safe" group-key="typed">

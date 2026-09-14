@@ -66,7 +66,7 @@ You can optionally specify a [provider name](server-auth.md#provider-name) that 
 ### Step 1: Configure a form provider {id="configure-provider"}
 
 <tabs group="auth-dsl">
-<tab title="Classic" group-key="classic">
+<tab title="Named provider" group-key="classic">
 
 The `form` authentication provider exposes its settings via the [FormAuthenticationProvider.Config](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-form-authentication-provider/-config/index.html) class. In the example below, the following settings are specified:
 * The `userParamName` and `passwordParamName` properties specify parameter names used to fetch a username and password.
@@ -116,7 +116,7 @@ full API, see [](server-typed-auth.md).
 ### Step 2: Protect specific resources {id="authenticate-route"}
 
 <tabs group="auth-dsl">
-<tab title="Classic" group-key="classic">
+<tab title="Named provider" group-key="classic">
 
 After configuring the `form` provider, you need to define a `post` route where the data gets sent.
 Then, add this route inside the **[authenticate](server-auth.md#authenticate-route)** function.
@@ -125,25 +125,6 @@ In the case of successful authentication, you can retrieve an authenticated [Use
 ```kotlin
 ```
 {src="snippets/auth-form-html-dsl/src/main/kotlin/com/example/Application.kt" include-lines="33-39,66"}
-
-</tab>
-<tab title="Type-safe" group-key="typed">
-
-Define the `post` route where the form data is sent, and wrap it in `authenticateWith()`. Inside the block,
-`call.principal` is your principal type and is never `null`:
-
-```kotlin
-routing {
-    authenticateWith(formAuth) {
-        post("/login") {
-            call.respondText("Hello, ${call.principal.name}!")
-        }
-    }
-}
-```
-
-</tab>
-</tabs>
 
 </tab>
 <tab title="Type-safe" group-key="typed">

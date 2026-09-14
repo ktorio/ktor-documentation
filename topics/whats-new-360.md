@@ -3,13 +3,14 @@
 <show-structure for="chapter,procedure" depth="3"/>
 
 [//]: # (TODO: Ensure release date is correct)
-_[Released: September 9, 2026](releases.md#release-details)_
+_[Released: September 16, 2026](releases.md#release-details)_
 
 Ktor 3.6.0 delivers a range of improvements across server and client. Highlights of this feature release include:
 
 * [Experimental HTTP/3 support in the Netty server engine](#http3)
-* [Rate limiting with authenticated principals](#rate-limiting-with-auth)
 * [Default client engines for Kotlin Multiplatform](#default-engines)
+* [Experimental typed authentication support](#typed-auth)
+* [Experimental OpenID Connect plugin](#oidc)
 * [WebRTC client support on JVM](#webrtc-jvm-support)
 
 ## Ktor Server
@@ -183,7 +184,7 @@ routing {
 You can also place `rateLimit()` outside `authenticate()` to apply rate limiting before authentication. Use this
 approach when the rate limit doesn't depend on an authenticated principal.
 
-### Type-safe authentication scheme API
+### Type-safe authentication scheme API {id="typed-auth"}
 <primary-label ref="experimental"/>
 
 Ktor 3.6.0 introduces an experimental [type-safe authentication scheme API](server-typed-auth.md). Instead of installing a
@@ -223,7 +224,7 @@ an [anonymous fallback](server-typed-auth.md#anonymous), typed
 > 
 {style="note"}
 
-### OpenID Connect plugin
+### OpenID Connect plugin {id="oidc"}
 <primary-label ref="experimental"/>
 
 Ktor 3.6.0 adds an experimental [OpenID Connect plugin](server-oidc.md). Instead of configuring discovery, JWKS
