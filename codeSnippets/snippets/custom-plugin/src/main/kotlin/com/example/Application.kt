@@ -28,5 +28,11 @@ fun Application.module() {
             val data = call.receive<Int>()
             call.respond(data)
         }
+        authenticate("auth") {
+            install(UserValidationPlugin)
+            get("/api") {
+                call.respondText("OK")
+            }
+        }
     }
 }

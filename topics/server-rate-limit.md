@@ -1,6 +1,6 @@
 [//]: # (title: Rate limiting)
 
-<show-structure for="chapter" depth="2"/>
+<show-structure for="chapter" depth="3"/>
 <primary-label ref="server-plugin"/>
 
 <var name="plugin_name" value="RateLimit"/>
@@ -21,42 +21,44 @@
 %plugin_name% provides the ability to validate a body of incoming requests.
 </link-summary>
 
-The [%plugin_name%](%plugin_api_link%) plugin allows you to limit the number of [requests](server-requests.md) 
-a client can make within a certain time period.
-Ktor provides different means for configuring rate limiting, for example:
-- You can enable rate limiting globally for a whole application or configure different rate limits for different [resources](server-routing.md).
-- You can configure rate limiting based on specific request parameters: an IP address, an API key or access token, and so on.
+The [`%plugin_name%`](%plugin_api_link%) plugin allows you to limit the number of [requests](server-requests.md) 
+a client can make within a specified time period.
 
+Ktor provides several ways to configure rate limiting:
+
+* Apply a rate limit globally to the entire application or configure different limits for specific [resources](server-routing.md).
+* Apply rate limits based on request parameters, such as an IP address, API key or access token.
 
 ## Add dependencies {id="add_dependencies"}
 
 <include from="lib.topic" element-id="add_ktor_artifact_intro"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
-
 ## Install %plugin_name% {id="install_plugin"}
 
 <include from="lib.topic" element-id="install_plugin"/>
-
 
 ## Configure %plugin_name% {id="configure"}
 
 ### Overview {id="overview"}
 
 Ktor uses the _token bucket_ algorithm for rate limiting, which works as follows:
-1. In the beginning, we have a bucket defined by its capacity - the number of tokens.
-2. Each incoming request tries to consume one token from the bucket:
-    - If there is enough capacity, the server handles a request and sends a response with the following headers:
-        - `X-RateLimit-Limit`: a specified bucket capacity.
-        - `X-RateLimit-Remaining`: the number of tokens remaining in a bucket.
-        - `X-RateLimit-Reset`: a UTC timestamp (in seconds) that specifies the time of refilling a bucket.
-    - If there is insufficient capacity, the server rejects a request using a `429 Too Many Requests` response and adds the `Retry-After` header, indicating how long the client should wait (in seconds) before making a follow-up request.
-3. After a specified period of time, a bucket capacity is refilled.
-
+1. A bucket is created with a specified capacity, which defines the number of available tokens.
+2. Each incoming request consumes one token from the bucket:
+   * If there is enough capacity, the server processes the request and includes the following headers in the response:
+     * `X-RateLimit-Limit`: the bucket capacity.
+     * `X-RateLimit-Remaining`: the number of tokens remaining in the bucket.
+     * `X-RateLimit-Reset`: the UTC timestamp, in seconds, that specifies when the bucket is refilled.
+   * If there is insufficient capacity, the server rejects a request using a `429 Too Many Requests` response. The response
+     includes the `Retry-After` header, indicating how many seconds the client should wait before sending another request.
+3. After the specified refill period, the bucket is refilled.
 
 ### Register a rate limiter {id="register"}
-Ktor allows you to apply rate limiting globally to a whole application or to specific routes:
-- To apply rate limiting to a whole application, call the `global` method and pass a configured rate limiter.
+
+You can apply rate limiting globally to the entire application or register a rate limiter for specific routes:
+
+* To apply rate limiting globally, call the `global()` function and configure the rate limiter:
+
    ```kotlin
    install(RateLimit) {
        global {
@@ -65,86 +67,146 @@ Ktor allows you to apply rate limiting globally to a whole application or to spe
    }
    ```
 
-- The `register` method registers a rate limiter that can be applied to specific routes.
+* To configure rate limiting for specific routes, use the `register()` function to register a rate limiter:
+
    ```kotlin
    ```
    {src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="14-17,33"}
 
-Code samples above demonstrate minimal configurations for the `%plugin_name%` plugin, 
-but for a rate limiter registered using the `register` method you also need to apply it to a [specific route](#rate-limiting-scope).
+The examples above show the minimal configuration required for the `%plugin_name%` plugin.
+If you use `register()`, you also need to apply the registered rate limiter to a [specific route](#rate-limiting-scope).
 
 
 ### Configure rate limiting {id="configure-rate-limiting"}
 
-In this section, we'll see how to configure rate limiting:
+You can configure a rate limiter using the options below.
 
-1. (Optional) The `register` method allows you to specify a rate limiter name that can be used to
-   apply rate limiting rules to [specific routes](#rate-limiting-scope):
-   ```kotlin
-       install(RateLimit) {
-           register(RateLimitName("protected")) {
-               // ...
-           }
-       }
-   ```
+#### Name a rate limiter
 
-2. The `rateLimiter` method creates a rate limiter with two parameters: 
-   `limit` defines the bucket capacity, while `refillPeriod` specifies a refill period for this bucket.
-   A rate limiter in the example below allows handling 30 requests per minute:
-   ```kotlin
-   ```
-   {src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="21-22,32"}
+Use the `register()` function to assign a name to a rate limiter. You can then apply the named rate limiter to
+[specific routes](#rate-limiting-scope):
 
-3. (Optional) `requestKey` allows you to specify a function that returns a key for a request.
-   Requests with different keys have independent rate limits.
-   In the example below, the `login` [query parameter](server-requests.md#query_parameters) is a key 
-   used to distinguish different users:
-   ```kotlin
-   ```
-   {src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="21,23-25,32"}
+```kotlin
+    install(RateLimit) {
+        register(RateLimitName("protected")) {
+            // ...
+        }
+    }
+```
 
-   > Note that keys should have good `equals` and `hashCode` implementations.
+#### Set the limit and refill period
 
-4. (Optional) `requestWeight` sets a function that returns how many tokens are consumed by a request.
-   In the example below, a request key is used to configure a request weight:
-   ```kotlin
-   ```
-   {src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="21,23-32"}
+Use the `rateLimiter()` function to configure the bucket capacity and refill period:
 
-5. (Optional) `modifyResponse` allows you to override default `X-RateLimit-*` headers sent with each request:
-   ```kotlin
-   register(RateLimitName("protected")) {
-       modifyResponse { applicationCall, state ->
-           applicationCall.response.header("X-RateLimit-Custom-Header", "Some value")
-       }
-   }
-   ```
+* `limit` specifies the number of available tokens.
+* `refillPeriod` specifies how often the bucket is refilled.
 
+The following example allows up to 30 requests per minute:
+
+```kotlin
+```
+{src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="21-22,32"}
+
+#### Distinguish requests by key
+
+Use the `requestKey()` function to return a key for each request. Requests with different keys have independent
+rate limits.
+
+The following example uses the `login` [query parameter](server-requests.md#query_parameters) to distinguish between users:
+
+```kotlin
+```
+{src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="21,23-25,32"}
+
+> Ensure that request keys have appropriate `equals` and `hashCode` implementations.
+> 
+{style="tip"}
+
+#### Rate limit authenticated users
+
+You can use an authentication principal as a request key to apply rate limits per authenticated user.
+
+Nest `rateLimit()` inside `authenticate()`, then access the principal from `requestKey()`:
+
+```kotlin
+install(Authentication) {
+    basic("auth") { validate { UserIdPrincipal(it.name) } }
+}
+install(RateLimit) {
+    register(RateLimitName("per-user")) {
+        rateLimiter(limit = 10, refillPeriod = 60.seconds)
+        requestKey { call.principal<UserIdPrincipal>()?.name ?: "anonymous" }
+    }
+}
+
+routing {
+    authenticate("auth") {
+        rateLimit(RateLimitName("per-user")) {
+            get("/api") { call.respondText("OK") }
+        }
+    }
+}
+```
+
+#### Set the request weight
+
+Use the `requestWeight()` function to specify how many tokens each request consumes. The function receives the
+application call and the request key.
+
+In the following example, requests with the `jetbrains` key consume one token, while all other requests consume two:
+
+```kotlin
+```
+{src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="21,23-32"}
+
+#### Customize the response
+
+Use the `modifyResponse()` function to customize the response when rate limiting is applied.
+
+For example, you can add custom rate-limit headers:
+
+```kotlin
+register(RateLimitName("protected")) {
+    modifyResponse { applicationCall, state ->
+        applicationCall.response.header("X-RateLimit-Custom-Header", "Some value")
+    }
+}
+```
 
 ### Define rate limiting scope {id="rate-limiting-scope"}
 
-After configuring a rate limiter, you can apply its rules to specific routes using the `rateLimit` method:
+After configuring a rate limiter, you can use the `rateLimit()` function to apply it to specific routes.
+
+#### Apply the default rate limiter
+
+Use the `rateLimit()` function without a name to apply the default registered rate limiter:
 
 ```kotlin
 ```
 {src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="40-46,60"}
 
-This method can also accept a [rate limiter name](#configure-rate-limiting):
+#### Apply a named rate limiter
+
+Pass a `RateLimitName` to the `rateLimit()` function to apply a [named rate limiter](#configure-rate-limiting):
 
 ```kotlin
 ```
 {src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="40,53-60"}
 
-
 ## Example {id="example"}
 
-The code sample below demonstrates how to use the `RateLimit` plugin to apply different rate limiters to different resources.
-The [StatusPages](server-status-pages.md) plugin is used to handle rejected requests,
-for which the `429 Too Many Requests` response was sent.
+The following example shows how to apply different rate limiters to different routes.
+It configures:
+
+* A default rate limiter for the home page.
+* A named public rate limiter for the public API.
+* A named protected rate limiter that uses request keys and weights.
+* The [`StatusPages`](server-status-pages.md) plugin to customize responses for requests rejected with a `429 Too Many Requests` response.
 
 ```kotlin
 ```
 {src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt"}
 
-
-You can find the full example here: [rate-limit](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/rate-limit).
+> For the full example, see [rate-limit](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/rate-limit).
+>
+{style="tip"}

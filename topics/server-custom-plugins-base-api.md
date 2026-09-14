@@ -7,33 +7,35 @@
 <include from="lib.topic" element-id="download_example"/>
 </tldr>
 
-> Starting with v2.0.0, Ktor provides a new simplified API for [creating custom plugins](server-custom-plugins.md).
->
-{type="note"}
+Ktor provides a base API for developing custom [plugins](server-plugins.md) that implement reusable functionality across
+multiple applications.
 
-Ktor exposes API for developing custom [plugins](server-plugins.md) that implement common functionalities and can be reused in multiple applications. 
-This API allows you to intercept different [pipeline](#pipelines) phases to add custom logic to request/response processing.
-For example, you can intercept the `Monitoring` phase to log incoming requests or collect metrics.
+The base API lets you intercept different [pipeline](#pipelines) phases and add custom logic to request and response
+processing. For example, you can intercept the `Monitoring` phase to log incoming requests or collect metrics.
 
 ## Create a plugin {id="create"}
-To create a custom plugin, follow the steps below:
 
-1. Create a plugin class and [declare a companion object](#create-companion) that implements one of the following interfaces:
-   - [BaseApplicationPlugin](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-base-application-plugin/index.html) if a plugin should work on an application level.
-   - [BaseRouteScopedPlugin](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-base-route-scoped-plugin/index.html) if a plugin can be [installed to a specific route](server-plugins.md#install-route).
-2. [Implement](#implement) the `key` and `install` members of this companion object.
+To create a custom plugin with the base API:
+
+1. Create a plugin class and [declare a companion object](#create-companion) that implements a plugin interface.
+2. [Implement](#implement) the `key` property and the `install()` function in the companion object.
 3. Provide a [plugin configuration](#plugin-configuration).
-4. [Handle calls](#call-handling) by intercepting the required pipeline phases. 
-5. [Install a plugin](#install).
+4. [Handle calls](#call-handling) by intercepting the required pipeline phases.
+5. [Install the plugin](#install).
 
 
 ### Create a companion object {id="create-companion"}
 
-A custom plugin's class should have a companion object that implements the `BaseApplicationPlugin` or `BaseRouteScopedPlugin` interface.
-The `BaseApplicationPlugin` interface accepts three type parameters:
-- A type of pipeline this plugin is compatible with.
-- A [configuration object type](#plugin-configuration) for this plugin.
-- An instance type of the plugin object.
+A custom plugin's class must have a companion object that implements one of the following interfaces:
+
+* [`BaseApplicationPlugin`](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-base-application-plugin/index.html) for application-level plugins.
+* [`BaseRouteScopedPlugin`](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-base-route-scoped-plugin/index.html) for plugins that are [installed on a specific route](server-plugins.md#install-route).
+
+The `BaseApplicationPlugin` interface accepts the following type parameters:
+
+* The pipeline type that the plugin supports.
+* The [configuration type](#plugin-configuration) for the plugin.
+* The plugin instance type.
 
 ```kotlin
 class CustomHeader() {
@@ -43,11 +45,14 @@ class CustomHeader() {
 }
 ```
 
-### Implement the 'key' and 'install' members {id="implement"}
+### Implement the 'key' property and 'install()' function {id="implement"}
 
-As a descendant of the `BaseApplicationPlugin` interface, a companion object should implement two members:
-- The `key` property is used to identify a plugin. Ktor has a map of all attributes, and each plugin adds itself to this map using the specified key.
-- The `install` function allows you to configure how your plugin works. Here you need to intercept a pipeline and return a plugin instance. We'll take a look at how to intercept a pipeline and handle calls in the [next chapter](#call-handling).
+A companion object that implements `BaseApplicationPlugin` must define the following:
+
+* The `key` property identifies the plugin. Ktor stores plugin instances in the application's attributes and uses this key
+  to access the plugin instance.
+* The `install()` function configures the plugin. In this function, intercept the required pipeline phases and return the
+  plugin instance. The [Handle calls](#call-handling) section shows how to intercept a pipeline phase.
 
 ```kotlin
 class CustomHeader() {
@@ -64,13 +69,20 @@ class CustomHeader() {
 
 ### Handle calls {id="call-handling"}
 
-In your custom plugin, you can handle requests and responses by intercepting [existing pipeline phases](#pipelines) or newly defined ones. For example, the [Authentication](server-auth.md) plugin adds the `Authenticate` and `Challenge` custom phases to the default pipeline. So, intercepting a specific pipeline allows you to access different stages of a call, for instance:
+In a custom plugin, you can handle requests and responses by intercepting [existing pipeline phases](#pipelines) or newly defined
+ones. For example, the [Authentication](server-auth.md) plugin adds the `Authenticate` and `Challenge` custom phases to the default
+pipeline.
 
-- `ApplicationCallPipeline.Monitoring`: intercepting this phase can be used for request logging or collecting metrics.
-- `ApplicationCallPipeline.Plugins`: can be used to modify response parameters, for instance, append custom headers.
-- `ApplicationReceivePipeline.Transform` and `ApplicationSendPipeline.Transform`: allow you to obtain and [transform data](#transform) received from the client and transform data before sending it back.
+Intercepting a specific phase gives you access to a specific stage of call processing:
 
-The example below demonstrates how to intercept the `ApplicationCallPipeline.Plugins` phase and append a custom header to each response:
+* `ApplicationCallPipeline.Monitoring`: use this phase for request logging, metrics, tracing, and similar monitoring
+  tasks.
+* `ApplicationCallPipeline.Plugins`: use this phase to handle calls or modify response parameters, such as appending
+  custom headers.
+* `ApplicationReceivePipeline.Transform` and `ApplicationSendPipeline.Transform`: use these phases to access and
+  [transform](#transform) data received from the client or sent to the client.
+
+The following example intercepts the `ApplicationCallPipeline.Plugins` phase and appends a custom header to each response:
 
 ```kotlin
 class CustomHeader() {
@@ -87,36 +99,42 @@ class CustomHeader() {
 }
 ```
 
-Note that a custom header name and value in this plugin are hardcoded. You can make this plugin more flexible by [providing a configuration](#plugin-configuration) for passing the required custom header name/value.
+In this example, the header name and value are hardcoded. To make the plugin reusable, [provide a configuration](#plugin-configuration)
+that lets users specify the header name and value.
 
-> Custom plugins allow you to share any value related to a call, so you can access this value inside any handler processing this call. You can learn more from [](server-custom-plugins.md#call-state).
-
+> Custom plugins can share values associated with a call between different handlers. To learn more, see
+> [](server-custom-plugins.md#call-state).
+>
+{style="tip"}
 
 ### Provide plugin configuration {id="plugin-configuration"}
 
-The [previous chapter](#call-handling) shows how to create a plugin that appends a predefined custom header to each response. Let's make this plugin more useful and provide a configuration for passing the required custom header name/value. First, you need to define a configuration class inside a plugin's class:
+The [previous section](#call-handling) shows how to create a plugin that appends a predefined custom header to each
+response. To make this plugin reusable, define a configuration that lets users specify the header name and value.
+
+First, define a configuration class inside the plugin class:
 
 ```kotlin
 ```
 {src="snippets/custom-plugin-base-api/src/main/kotlin/com/example/plugins/CustomHeader.kt" include-lines="11-14"}
 
-Given that plugin configuration fields are mutable, saving them in local variables is recommended:
+You can update plugin configuration properties during plugin installation. If the plugin uses these values in interceptors,
+store them in local variables inside the `install()` function:
 
 ```kotlin
 ```
 {src="snippets/custom-plugin-base-api/src/main/kotlin/com/example/plugins/CustomHeader.kt" include-lines="7-14,27"}
 
-Finally, in the `install` function, you can get this configuration and use its properties 
+Then, in the `install()` function, read the configuration and use its properties:
 
 ```kotlin
 ```
 {src="snippets/custom-plugin-base-api/src/main/kotlin/com/example/plugins/CustomHeader.kt" include-lines="7-27"}
 
-
-
 ### Install a plugin {id="install"}
 
-To [install](server-plugins.md#install) a custom plugin to your application, call the `install` function and pass the desired [configuration](#plugin-configuration) parameters:
+To [install](server-plugins.md#install) a custom plugin to your application, call the `Application.install()` function and pass the required
+[configuration](#plugin-configuration) parameters:
 
 ```kotlin
 ```
@@ -125,12 +143,15 @@ To [install](server-plugins.md#install) a custom plugin to your application, cal
 
 ## Examples {id="examples"}
 
-The code snippets below demonstrate several examples of custom plugins.
-You can find the runnable project here: [custom-plugin-base-api](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/custom-plugin-base-api)
+The following examples show several custom plugins built with the base API.
+
+> For the full runnable project, see [custom-plugin-base-api](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/custom-plugin-base-api).
+>
+{style="tip"}
 
 ### Request logging {id="request-logging"}
 
-The example below shows how to create a custom plugin for logging incoming requests:
+The following example creates a custom plugin that logs incoming requests:
 
 ```kotlin
 ```
@@ -138,7 +159,7 @@ The example below shows how to create a custom plugin for logging incoming reque
 
 ### Custom header {id="custom-header"}
 
-This example demonstrates how to create a plugin that appends a custom header to each response:
+The following example creates a plugin that appends a custom header to each response:
 
 ```kotlin
 ```
@@ -147,9 +168,7 @@ This example demonstrates how to create a plugin that appends a custom header to
 
 ### Body transformation {id="transform"}
 
-The example below shows how to:
-- transform data received from the client; 
-- transform data to be sent to the client.
+The following example creates a plugin that transforms request and response bodies:
 
 ```kotlin
 ```
@@ -157,31 +176,37 @@ The example below shows how to:
 
 ## Pipelines {id="pipelines"}
 
-A [Pipeline](https://api.ktor.io/ktor-utils/io.ktor.util.pipeline/-pipeline/index.html) in Ktor is a collection of interceptors, grouped in one or more ordered phases. Each interceptor can perform custom logic before and after processing a request.
+A [`Pipeline`](https://api.ktor.io/ktor-utils/io.ktor.util.pipeline/-pipeline/index.html) in Ktor is a collection of
+interceptors grouped into one or more ordered phases. Each interceptor can run custom logic before and after request
+processing continues.
 
-[ApplicationCallPipeline](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-application-call-pipeline/index.html) is a pipeline for executing application calls. This pipeline defines 5 phases:
+[`ApplicationCallPipeline`](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-application-call-pipeline/index.html)
+executes application calls. It defines the following phases:
 
-- `Setup`: a phase used for preparing a call and its attributes for processing.
-- `Monitoring`: a phase for tracing calls. It might be useful for request logging, collecting metrics, error handling, and so on.
-- `Plugins`: a phase used to [handle calls](#call-handling). Most plugins intercept at this phase.
-- `Call`: a phase used to complete a call.
-- `Fallback`: a phase for handling unprocessed calls.
-
+* `Setup`: prepares a call and its attributes for processing.
+* `Monitoring`: traces calls. Use this phase for request logging, metrics, error handling, and similar tasks.
+* `Plugins`: handles calls. Most plugins intercept this phase.
+* `Call`: completes a call.
+* `Fallback`: handles calls that were not processed by earlier phases.
 
 ## Mapping of pipeline phases to new API handlers {id="mapping"}
 
-Starting with v2.0.0, Ktor provides a new simplified API for [creating custom plugins](server-custom-plugins.md).
-In general, this API doesn't require an understanding of internal Ktor concepts, such as pipelines, phases, and so on. Instead, you have access to different stages of [handling requests and responses](#call-handling) using various handlers, such as `onCall`, `onCallReceive`, `onCallRespond`, and so on.
-The table below shows how pipeline phases map to handlers in a new API.
+You can use the simplified [custom plugins API](server-custom-plugins.md) to create custom
+plugins. In most cases, this API does not require direct knowledge of internal Ktor concepts, such as pipelines and phases.
+Instead, it provides handlers such as `onCall()`, `onCallReceive()`, and `onCallRespond()` for different stages of
+[request and response handling](server-custom-plugins.md#call-handling).
 
-| Base API                               | New API                                                 |
-|----------------------------------------|---------------------------------------------------------|
-| before `ApplicationCallPipeline.Setup` | [on(CallFailed)](server-custom-plugins.md#other)               |
-| `ApplicationCallPipeline.Setup`        | [on(CallSetup)](server-custom-plugins.md#other)                |
-| `ApplicationCallPipeline.Plugins`      | [onCall](server-custom-plugins.md#on-call)                     |
-| `ApplicationReceivePipeline.Transform` | [onCallReceive](server-custom-plugins.md#on-call-receive)      |
-| `ApplicationSendPipeline.Transform`    | [onCallRespond](server-custom-plugins.md#on-call-respond)      |
-| `ApplicationSendPipeline.After`        | [on(ResponseBodyReadyForSend)](server-custom-plugins.md#other) |
-| `ApplicationSendPipeline.Engine`       | [on(ResponseSent)](server-custom-plugins.md#other)             |
-| after `Authentication.ChallengePhase`  | [on(AuthenticationChecked)](server-custom-plugins.md#other)    |
+The following table shows how base API pipeline phases map to simplified API handlers:
+
+| Base API                               | New API                                                             |
+|----------------------------------------|---------------------------------------------------------------------|
+| before `ApplicationCallPipeline.Setup` | [`on(CallFailed)`](server-custom-plugins.md#other)                  |
+| `ApplicationCallPipeline.Setup`        | [`on(CallSetup)`](server-custom-plugins.md#other)                   |
+| `ApplicationCallPipeline.Plugins`      | [`onCall()`](server-custom-plugins.md#on-call)                      |
+| `ApplicationCallPipeline.Call`         | [`onCallValidators()`](server-custom-plugins.md#on-call-validators) |
+| `ApplicationReceivePipeline.Transform` | [`onCallReceive()`](server-custom-plugins.md#on-call-receive)       |
+| `ApplicationSendPipeline.Transform`    | [`onCallRespond()`](server-custom-plugins.md#on-call-respond)       |
+| `ApplicationSendPipeline.After`        | [`on(ResponseBodyReadyForSend)`](server-custom-plugins.md#other)    |
+| `ApplicationSendPipeline.Engine`       | [`on(ResponseSent)`](server-custom-plugins.md#other)                |
+| after `Authentication.ChallengePhase`  | [`on(AuthenticationChecked)`](server-custom-plugins.md#other)       |
 

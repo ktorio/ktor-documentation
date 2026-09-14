@@ -52,6 +52,15 @@ HTTP provides a [general framework](https://developer.mozilla.org/en-US/docs/Web
 ### OAuth {id="oauth"}
 [OAuth](server-oauth.md) is an open standard for securing access to APIs. The `oauth` provider in Ktor allows you to implement authentication using external providers such as Google, Facebook, Twitter, and so on.
 
+### OpenID Connect {id="oidc"}
+
+[OpenID Connect](server-oidc.md) is an identity layer on top of OAuth 2.0. The `Oidc` plugin reads a provider's
+discovery document, so you configure an issuer URL instead of endpoints and signing keys. It can validate access
+tokens in an [API](server-oidc-resource-server.md) and run [browser sign-in](server-oidc-browser-login.md), including PKCE,
+sessions, and logout.
+
+The plugin is experimental and available on the JVM only.
+
 ### Session {id="sessions"}
 [Sessions](server-sessions.md) provide a mechanism to persist data between different HTTP requests. Typical use cases include storing a logged-in user's ID, the contents of a shopping basket, or keeping user preferences on the client. In Ktor, a user that already has an associated session can be authenticated using the `session` provider. Learn how to do this from [](server-session-auth.md).
 
@@ -63,6 +72,21 @@ Ktor provides two ways to customize authentication and authorization behavior:
 * Use [custom plugins](server-custom-plugins.md) to implement authorization logic. For example, you can use the `AuthenticationChecked` [hook](server-custom-plugins.md#call-handling)
   to verify access. For more information, see the [custom-plugin-authorization](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/custom-plugin-authorization) example.
 
+## Type-safe Authentication Scheme API {id="type-safe"}
+
+<primary-label ref="experimental"/>
+
+Ktor also provides a [type-safe authentication scheme API](server-typed-auth.md) that binds a scheme to a principal type.
+Inside a protected route, `call.principal` is the principal type and is guaranteed to be non-`null`, so no cast or null check is required.
+The API also supports opt-in [role checks](server-typed-auth.md#roles), an
+[anonymous fallback](server-typed-auth.md#anonymous), typed
+[sessions](server-typed-session-auth.md), and [OAuth 2.0 flows](server-oauth2-flows.md).
+
+> This API is an alternative to the named provider approach described in this topic.
+> Both APIs can be used in the same application. For more information, see [](server-typed-auth.md).
+>
+{style="note"}
+
 ## Add dependencies {id="add_dependencies"}
 
 <include from="lib.topic" element-id="add_ktor_artifact_intro"/>
@@ -70,12 +94,9 @@ Ktor provides two ways to customize authentication and authorization behavior:
 
 Note that some authentication providers, such as [JWT](server-jwt.md) and [LDAP](server-ldap.md), require additional artifacts.
 
-
-
 ## Install Authentication {id="install"}
 
 <include from="lib.topic" element-id="install_plugin"/>
-
 
 ## Configure Authentication {id="configure"}
 After [installing Authentication](#install), you can configure and use `Authentication` as follows:
@@ -145,7 +166,7 @@ is [`validate()`](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-basi
 
 ```kotlin
 ```
-{src="snippets/auth-basic/src/main/kotlin/authbasic/Application.kt" include-lines="9-20"}
+{src="snippets/auth-basic/src/main/kotlin/authbasic/Application.kt" include-lines="9-22"}
 
 To understand how the `validate()` function works, we need to introduce two terms:
 
@@ -213,15 +234,16 @@ function. This function accepts two optional parameters:
   can try to access the `/admin` route using basic authentication:
    ```kotlin
    routing {
-       authenticate("auth-session", strategy = AuthenticationStrategy.Required) {
+       val required = AuthenticationStrategy.Required
+       authenticate("auth-session", strategy = required) {
            get("/hello") {
                // ...
-           }    
-           authenticate("auth-basic", strategy = AuthenticationStrategy.Required) {
+           }
+           authenticate("auth-basic", strategy = required) {
                get("/admin") {
                    // ...
                }
-           }  
+           }
        }
    }
    ```
@@ -240,7 +262,7 @@ principal type returned by the [configured authentication provider](#configure-p
 
 ```kotlin
 ```
-{src="snippets/auth-basic/src/main/kotlin/authbasic/Application.kt" include-lines="21-27"}
+{src="snippets/auth-basic/src/main/kotlin/authbasic/Application.kt" include-lines="23-30"}
 
 
 If you use [session authentication](server-session-auth.md), a principal might be a data class that stores session data.
@@ -248,7 +270,7 @@ So, you need to pass this data class to `call.principal()`:
 
 ```kotlin
 ```
-{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="77-79,82-83"}
+{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="91-93,102-103"}
 
 In the case of [nested authentication providers](#authenticate-route),
 you can pass a [provider name](#provider-name) to `call.principal()` to get a principal for the desired provider.
@@ -257,7 +279,7 @@ In the example below, the `"auth-session"` value is passed to get a principal fo
 
 ```kotlin
 ```
-{src="snippets/auth-form-session-nested/src/main/kotlin/com/example/Application.kt" include-lines="87,93-95,97-99"}
+{src="snippets/auth-form-session-nested/src/main/kotlin/com/example/Application.kt" include-lines="103-104,116-121,126-128"}
 
 ## Custom authentication provider {id="custom-auth-provider"}
 
@@ -267,9 +289,11 @@ function to implement custom authentication logic when built-in providers do not
 ```kotlin
 provider("custom") {
   authenticate { context ->
-    val exampleHeader = context.call.request.headers["Example-Header"]
+    val headers = context.call.request.headers
+    val exampleHeader = headers["Example-Header"]
     if (exampleHeader == null) {
-      val cause = AuthenticationFailedCause.Error("No example header found")
+      val message = "No example header found"
+      val cause = AuthenticationFailedCause.Error(message)
       context.challenge(key = this, cause) { challenge, call ->
         call.respondText("Challenge")
         challenge.complete()

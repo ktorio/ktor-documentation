@@ -26,7 +26,7 @@ fun Application.module() {
             }
         }
         get("/fragment") {
-            call.respondHtmlFragment(HttpStatusCode.Created) {
+            call.respondHtmlPartial(HttpStatusCode.Created) {
                 div("fragment") {
                     span { +"Created!" }
                 }
