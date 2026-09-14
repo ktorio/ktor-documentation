@@ -64,16 +64,6 @@ The plugin is experimental and available on the JVM only.
 ### Session {id="sessions"}
 [Sessions](server-sessions.md) provide a mechanism to persist data between different HTTP requests. Typical use cases include storing a logged-in user's ID, the contents of a shopping basket, or keeping user preferences on the client. In Ktor, a user that already has an associated session can be authenticated using the `session` provider. Learn how to do this from [](server-session-auth.md).
 
-### Type-safe {id="type-safe"}
-
-Ktor also provides a [type-safe authentication API](server-typed-auth.md) that binds a scheme to a principal type.
-Inside a protected route, `call.principal` is your own type and is never `null`, so no cast or null check is needed.
-The API also adds opt-in [role checks](server-typed-auth.md#roles), an
-[anonymous fallback](server-typed-auth.md#anonymous), and typed
-[sessions](server-typed-session-auth.md) and [OAuth 2.0 flows](server-oauth2-flows.md).
-
-The API is experimental. It works alongside the classic API described below, and you can move one route at a time.
-
 ### Custom {id="custom"}
 
 Ktor provides two ways to customize authentication and authorization behavior:
@@ -92,7 +82,10 @@ The API also supports opt-in [role checks](server-typed-auth.md#roles), an
 [anonymous fallback](server-typed-auth.md#anonymous), typed
 [sessions](server-typed-session-auth.md), and [OAuth 2.0 flows](server-oauth2-flows.md).
 
-The type-safe authentication scheme API is experimental. It works alongside the provider API described below, so you can adopt it incrementally.
+> This API is an alternative to the named provider approach described in this topic.
+> Both APIs can be used in the same application. For more information, see [](server-typed-auth.md).
+>
+{style="note"}
 
 ## Add dependencies {id="add_dependencies"}
 
@@ -101,12 +94,9 @@ The type-safe authentication scheme API is experimental. It works alongside the 
 
 Note that some authentication providers, such as [JWT](server-jwt.md) and [LDAP](server-ldap.md), require additional artifacts.
 
-
-
 ## Install Authentication {id="install"}
 
 <include from="lib.topic" element-id="install_plugin"/>
-
 
 ## Configure Authentication {id="configure"}
 After [installing Authentication](#install), you can configure and use `Authentication` as follows:

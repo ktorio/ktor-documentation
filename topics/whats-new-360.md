@@ -184,6 +184,7 @@ You can also place `rateLimit()` outside `authenticate()` to apply rate limiting
 approach when the rate limit doesn't depend on an authenticated principal.
 
 ### Type-safe authentication scheme API
+<primary-label ref="experimental"/>
 
 Ktor 3.6.0 introduces an experimental [type-safe authentication scheme API](server-typed-auth.md). Instead of installing a
 named provider and referring to it by string, you create a scheme value and pass it to the routes that need it. Inside a
@@ -216,15 +217,18 @@ The API also adds opt-in [role checks](server-typed-auth.md#roles),
 an [anonymous fallback](server-typed-auth.md#anonymous), typed
 [session,](server-typed-session-auth.md) and [OAuth 2.0](server-oauth2-flows.md) support.
 
-The type-safe authentication scheme API is marked with `@ExperimentalKtorApi` and uses Kotlin context parameters, which require Kotlin 2.4.0 or the
-`-Xcontext-parameters` compiler option. The existing `install(Authentication)` API remains supported, and you can use both APIs in
-the same application.
+> The type-safe authentication scheme API is marked with `@ExperimentalKtorApi` and uses Kotlin context parameters, which
+> require Kotlin 2.4.0 or the `-Xcontext-parameters` compiler option. The existing [`install(Authentication)` API](server-auth.md)
+> remains supported, and you can use both APIs in the same application.
+> 
+{style="note"}
 
 ### OpenID Connect plugin
+<primary-label ref="experimental"/>
 
-Ktor 3.6.0 adds an experimental [OpenID Connect plugin](server-oidc.md). Instead of wiring up discovery, JWKS
-resolution, JWT validation, and OAuth callbacks yourself, you register a provider by its issuer URL and get typed
-authentication schemes back:
+Ktor 3.6.0 adds an experimental [OpenID Connect plugin](server-oidc.md). Instead of configuring discovery, JWKS
+resolution, JWT validation, and OAuth callbacks separately, you register a provider using its issuer URL and get typed
+authentication schemes:
 
 ```kotlin
 suspend fun Application.module() {
@@ -245,12 +249,14 @@ suspend fun Application.module() {
 }
 ```
 
-The plugin covers both [resource servers](server-oidc-resource-server.md) that validate incoming access tokens and
+The plugin supports both [resource servers](server-oidc-resource-server.md) that validate incoming access tokens and
 [browser login](server-oidc-browser-login.md) with sessions, logout, and token refresh. It implements the authorization
 code flow with PKCE, token introspection (RFC 7662), resource indicators (RFC 8707), and protected resource metadata
 (RFC 9728).
 
-The plugin is marked with `@ExperimentalKtorApi`, builds on the type-safe scheme API, and is available for the JVM only.
+> The plugin is marked with `@ExperimentalKtorApi`, builds on the type-safe scheme API, and is available for the JVM only.
+> 
+{style="note"}
 
 ### Nullable request bodies with `ApplicationCall.receive()`
 
