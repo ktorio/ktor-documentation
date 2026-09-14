@@ -19,21 +19,30 @@ casts or null checks.
 Ktor provides a type-safe authentication scheme API that binds an authentication scheme to a principal type. You create a
 scheme once, pass that scheme to a route, and read the principal without a cast or a null check.
 
-This API is an alternative to the [`install(Authentication)`](server-auth.md) approach. Both work in the same
-application, and you can nest routes that use one API inside routes that use the other.
+> This API is an alternative to the [`install(Authentication)`](server-auth.md) approach. Both APIs can be used in the same
+> application, and you can nest routes that use one API inside routes that use the other.
+> 
+{style="tip"}
 
 ## Add dependencies {id="add_dependencies"}
 
-The core API lives in `ktor-server-auth`:
+To use typed authentication, add the `ktor-server-auth` artifact to your build script:
 
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
-Some schemes need an extra artifact: `jwt` needs `ktor-server-auth-jwt`, and `apiKey` needs
-`ktor-server-auth-api-key`.
+If using the `jwt` scheme, add the `ktor-server-auth-jwt` artifact:
+
+<var name="artifact_name" value="ktor-server-auth-jwt"/>
+<include from="lib.topic" element-id="add_ktor_artifact"/>
+
+If using the `apiKey` scheme, add the `ktor-server-auth-api-key` artifact:
+
+<var name="artifact_name" value="ktor-server-auth-api-key"/>
+<include from="lib.topic" element-id="add_ktor_artifact"/>
 
 ## Enable the API {id="prerequisites"}
 
-The API is marked with `@ExperimentalKtorApi`, so you need to opt in:
+The API is marked with `@ExperimentalKtorApi`, so you must opt in:
 
 ```kotlin
 @OptIn(ExperimentalKtorApi::class)
@@ -55,7 +64,8 @@ kotlin {
 
 ## Define a principal {id="principal"}
 
-A principal is whatever your application wants to know about the caller. Any type works, as long as it is not nullable.
+A principal represents the identity or other information that your application associates with an authenticated caller.
+The principal type must be non-null.
 
 ```kotlin
 data class User(
@@ -66,8 +76,8 @@ data class User(
 
 ## Create a scheme {id="create-scheme"}
 
-Each authentication method has a factory function that takes a principal type, a name, and a configuration block. The
-`validate` block returns your principal type, or `null` when the credentials are rejected:
+Each authentication method provides a factory function that takes a principal type, a name, and a configuration block. The
+`validate {}` block returns your principal type, or `null` when the credentials are rejected:
 
 ```kotlin
 val jwtAuth = jwt<User>("my-jwt") {
@@ -83,7 +93,7 @@ val jwtAuth = jwt<User>("my-jwt") {
 }
 ```
 
-The factory returns a value. Store it and pass it to the routes that need it.
+The factory returns a value. Store it and pass it to the routes that require it.
 
 | Factory                             | Artifact                   | Notes                                   |
 |-------------------------------------|----------------------------|-----------------------------------------|
@@ -101,8 +111,8 @@ tries to use it.
 
 ## Protect routes {id="protect-routes"}
 
-Pass a scheme to the `authenticateWith()` function. Inside the block, `call.principal` is the type you chose, and it is
-never `null`:
+To protect routes, pass a scheme to the `authenticateWith()` function. Inside the block, `call.principal` has the principal
+type defined by the scheme and is guaranteed to be non-null:
 
 ```kotlin
 routing {
@@ -118,7 +128,7 @@ routing {
 ## Make authentication optional {id="optional"}
 
 Use the `authenticateWithOptional()` function when a route should serve both signed-in and anonymous callers. Inside the
-block, read:
+block, use `call.principalOrNull` to access the principal:
 
 ```kotlin
 routing {
@@ -134,7 +144,7 @@ routing {
 A request without credentials succeeds and leaves `call.principalOrNull` as `null`. A request with invalid credentials
 still fails.
 
-## Accept several schemes {id="any-of"}
+## Accept multiple schemes {id="any-of"}
 
 Use the `authenticateWithAnyOf()` function to accept more than one scheme on the same route. Ktor tries the schemes in
 the order you list them, and the first one that succeeds provides the principal.
@@ -238,7 +248,7 @@ val roleAuth = jwtAuth.withRoles { user ->
 }
 ```
 
-The `withRoles()` block runs on every request, after authentication succeeds. Use it to load roles from a database, a
+The `withRoles {}` block runs on every request, after authentication succeeds. Use it to load roles from a database, a
 cache, or the principal itself.
 
 Declare the roles a route requires with the `roles` parameter:
@@ -254,7 +264,7 @@ routing {
 }
 ```
 
-A caller who authenticates but lacks a required role gets `403 Forbidden`. A caller must have every role in the set, not
+A caller who authenticates but lacks a required role receives a `403 Forbidden`. A caller must have every role in the set, not
 just one of them.
 
 Pass `roles = null` to resolve roles without requiring any. This is useful when the handler decides for itself:
@@ -321,10 +331,10 @@ authenticateWith(
 }
 ```
 
-Ktor looks for an unauthorized handler in this order:
+Ktor looks for an unauthorized handler in the following order:
 
 1. The handler passed to `authenticateWith()`.
-2. The `onUnauthorized` set on the scheme.
+2. The `onUnauthorized` handler configured on the scheme.
 3. The provider's default challenge.
 
 If none of them responds, the request fails with `401 Unauthorized`.
@@ -347,7 +357,8 @@ authenticateWithAnyOf<AppUser>(
 
 ## Combine with the classic API {id="mixing"}
 
-Both APIs work in the same application. You can nest a type-safe route inside a classic one, or the other way round:
+Both authentication APIs can be used in the same application. You can nest a type-safe route inside a route protected by
+the named provider API, or nest a provider-based route inside a type-safe route:
 
 ```kotlin
 routing {
@@ -375,13 +386,13 @@ routing {
 }
 ```
 
-Nested layers apply in turn.
+Nested authentication layers are applied in order.
 
 ## Limitations {id="limitations"}
 
 * The API is experimental. It may change in a minor release.
-* It needs Kotlin context parameters, which require Kotlin 2.4.0 or the `-Xcontext-parameters` compiler option.
-* `authenticateWithAnyOf()` provides only `call.principal`. Scheme-specific extras such as `call.session` are not
-  available inside it.
+* The API uses Kotlin context parameters, which require Kotlin 2.4.0 or the `-Xcontext-parameters` compiler option.
+* The `authenticateWithAnyOf()` function provides only `call.principal`. Scheme-specific properties such as `call.session`
+  are not available inside it.
 * There is no type-safe equivalent of the LDAP provider. Call
-  [`ldapAuthenticate()`](server-ldap.md) inside a typed `validate` block instead.
+  [`ldapAuthenticate()`](server-ldap.md) inside a typed `validate {}` block instead.
