@@ -16,18 +16,22 @@
 Validate access tokens issued by an OpenID Connect provider, either locally as JWTs or through token introspection.
 </link-summary>
 
-A resource server is an API that accepts tokens somebody else issued. It has no login page and no cookies. A client
-sends an access token, and the server decides whether to trust it.
+A resource server is an API that accepts tokens somebody else issued. It does not provide a login page or
+use browser sessions. A client sends an access token, and the server validates it before allowing access to protected
+resources.
 
-This topic covers that case. For browser sign-in, see [](server-oidc-browser-login.md). For discovery, token types, and
-plugin setup, see [](server-oidc.md).
+> For browser sign-in, see [](server-oidc-browser-login.md).
+> 
+> For discovery, token types, and plugin setup, see [](server-oidc.md).
+> 
+{style="tip"}
 
 <include from="lib.topic" element-id="oidc_experimental"/>
 
 ## Validate JWT access tokens {id="jwt-bearer"}
 
-Most providers issue access tokens as signed JWTs. Configure the audience your API expects, then protect routes with
-`provider.jwtBearer`:
+Many providers issue access tokens as signed JSON Web Tokens (JWTs). Configure the audience your API expects, then
+protect routes with `provider.jwtBearer`:
 
 ```kotlin
 suspend fun Application.module() {
@@ -51,23 +55,22 @@ suspend fun Application.module() {
 }
 ```
 
-`audience` is required and must not be empty. It is the identifier your API is known by at the provider, which is
-usually a different string as your client ID.
+The `audience` property is required and must not be empty. It identifies your API at the provider and is usually
+different from the OAuth client ID.
 
-The plugin reads the token from the `Authorization: Bearer` header, fetches the signing key from the provider's JWKS
-endpoint, and checks the signature, issuer, audience, and expiry. Nothing else is needed.
+The plugin reads the token from the `Authorization: Bearer` header, retrieves the signing key from the provider's JWKS
+endpoint, and checks the signature, issuer, audience, and expiry.
 
 ## Validate opaque tokens {id="introspection"}
 
-Not every provider issues JWTs. An **opaque** token is a random string with no readable content, so your server cannot
-check it on its own. That is a deliberate trade-off: an opaque token leaks nothing if it is intercepted, and because the
-provider is consulted on every use it can be revoked and stop working immediately. A JWT stays valid until it expires,
-whatever happens at the provider.
+Not all providers issue JWTs. An _opaque_ token is a random string with no readable content, so your server cannot
+validate it locally. That is a deliberate trade-off: an opaque token leaks nothing if it is intercepted, and because the
+provider is consulted on every use, it can be revoked and stop working immediately. A JWT stays valid until it expires.
 
-Asking the provider is standardized as **token introspection**,
-[RFC 7662](https://www.rfc-editor.org/rfc/rfc7662). Your server posts the token to an introspection endpoint,
-authenticating as itself, and the provider answers with `active: true` or `false` plus whatever metadata it chooses to
-share, such as the subject, scope, client, and expiry.
+To validate an opaque token, the server uses _token introspection_, as defined by 
+[RFC 7662](https://www.rfc-editor.org/rfc/rfc7662). Your server sends the token to an introspection endpoint,
+authenticates itself, and receives a response that indicates whether the token is active and any relevant metadata, such
+as the subject, scope, client, and expiry.
 
 Add an `introspection { }` block and use `provider.introspectionBearer`:
 
@@ -96,25 +99,27 @@ routing {
 }
 ```
 
-The introspection endpoint is **not** part of the OpenID Connect discovery document, so the plugin cannot find it for
-you. Look it up in your provider's documentation and set it explicitly. Note that the issuer URL is held in a local
-value: inside `introspection { }` the outer `issuer` property is out of scope.
+The introspection endpoint is not part of the OpenID Connect discovery document, so configure it explicitly, according to
+the provider's documentation. In the example above, the issuer URL is stored in a local variable because the outer `issuer`
+property is not available in the `introspection { }` block.
 
-The `clientId` and `clientSecret` here identify **your API** to the provider, not the user. Introspection is a
-privileged operation, so most providers require a separate client that is allowed to perform it. The plugin
-authenticates with HTTP Basic by default; set `authMethod = ClientAuthenticationMethod.ClientSecretPost` to send the
-credentials in the form body instead.
+The `clientId` and `clientSecret` properties identify your API to the provider, not the user. Introspection is a
+privileged operation, so most providers require a separate client that is allowed to perform it. 
 
-A token is accepted only when the response says `active: true`, its audience intersects your configured `audience`, and
-any `iss`, `exp`, and `nbf` it returns check out.
+By default, the plugin uses HTTP Basic authentication. To send the credentials in the form body instead, set
+`authMethod = ClientAuthenticationMethod.ClientSecretPost`.
 
-The cost is a network round trip on every request, and your API stops working when the provider does. Prefer
+A token is accepted only when the response contains `active: true`, its audience intersects your configured `audience`, and
+any `iss`, `exp`, and `nbf` values it returns are valid.
+
+Introspection requires a network request for each authentication attempt and depends on provider availability. Prefer
 [JWT validation](#jwt-bearer) when your provider issues JWTs, and use introspection when it does not, or when immediate
 revocation matters more than latency.
 
-## Read the token from somewhere else {id="token-extractor"}
+## Read the token from another location {id="token-extractor"}
 
-If your clients do not use the `Authorization` header, supply your own extractor:
+By default, the plugin reads the token from the `Authorization` header. To read it from another location, configure a
+custom extractor:
 
 ```kotlin
 bearer {
@@ -123,12 +128,14 @@ bearer {
 }
 ```
 
-Return `null` when there is no token. The request then fails as unauthenticated.
+Return `null` when no token is available. The request then fails as unauthenticated.
 
 ## Publish protected resource metadata {id="protected-resource"}
 
 [RFC 9728](https://www.rfc-editor.org/rfc/rfc9728) lets a client discover which authorization servers your API trusts,
-instead of being configured with them ahead of time. This matters for machine-to-machine clients and for MCP servers.
+instead of being configured with them ahead of time. This can be useful for machine-to-machine clients and MCP servers.
+
+Configure protected resource metadata when installing the plugin:
 
 ```kotlin
 val oidc = install(Oidc) {
@@ -138,17 +145,17 @@ val oidc = install(Oidc) {
 }
 ```
 
-This serves a document at `/.well-known/oauth-protected-resource`. Most of it is filled in from the providers you
-registered:
+This serves a document at `/.well-known/oauth-protected-resource`.The plugin derives the following values
+from registered providers:
 
-* `authorizationServers` — the issuers of every provider that has a `bearer { }` block
-* `scopesSupported` — the scopes those providers request
-* `bearerMethodsSupported` — `header`, when a provider reads the standard header
+* `authorizationServers` — the issuers of every provider that has a `bearer { }` block.
+* `scopesSupported` — the scopes those providers request.
+* `bearerMethodsSupported` — `header`, when a provider reads the standard authorization header.
 
-Set any of these explicitly to override what was derived.
+Set any of these properties explicitly to override the derived value.
 
-Configuring a protected resource also changes the challenge. Instead of a bare `WWW-Authenticate: Bearer`, rejected
-requests get a pointer to the metadata document:
+Configuring a protected resource also changes the challenge. Instead of a `WWW-Authenticate: Bearer` header, rejected
+requests include a pointer to the metadata document:
 
 ```http
 WWW-Authenticate: Bearer resource_metadata="https://api.example.com/.well-known/oauth-protected-resource"
@@ -156,16 +163,15 @@ WWW-Authenticate: Bearer resource_metadata="https://api.example.com/.well-known/
 
 ## Handle authentication errors {id="errors"}
 
-### What a client sees {id="errors-response"}
+### Authentication error responses {id="errors-response"}
 
 A rejected token produces `401 Unauthorized` with a `WWW-Authenticate: Bearer` header.
 
-The challenge carries no `error` or `error_description` parameter and no `realm`. A client cannot tell a missing token
-from an expired one, or a bad signature from a wrong audience. This is deliberate: the details would tell an attacker
-which part of a forged token to fix. It also means **you** cannot debug from the response either — see
-[](#errors-logging).
+The challenge does not include an `error`, `error_description`, and `realm` parameter. As a result, a client cannot
+distinguish between a missing token and an expired one, or a bad signature from a wrong audience. For details about
+diagnosing rejected tokens, see [](#errors-logging).
 
-These all produce a plain 401:
+The following conditions produce `401 Unauthorized`:
 
 | Cause                                              | Notes                                              |
 |----------------------------------------------------|----------------------------------------------------|
@@ -179,14 +185,13 @@ These all produce a plain 401:
 | Introspection returned `active: false`             |                                                    |
 | Introspection returned a wrong or expired audience |                                                    |
 
-An unknown `kid` is a statement about the token, so it is a 401. A `kid` that cannot be looked up **at all** is a
-different thing, covered next.
+An unknown `kid` indicates that the token references a key that is not present in the retrieved JWKS document and
+therefore results in `401 Unauthorized`.
 
-### When the server returns 500 {id="errors-500"}
+### Handle server-side validation failures {id="errors-500"}
 
-Some failures say nothing about the caller's token. The plugin could not complete a check, which is the server's problem
-and not the caller's. Answering `401` would tell the caller their token is invalid, which is not something the server
-has established. These surface as `500 Internal Server Error` instead:
+Some failures prevent the plugin from completing token validation without establishing that the token itself is invalid.
+These failures result in `500 Internal Server Error`:
 
 | Failure                                                                    | Exception                                                      |
 |----------------------------------------------------------------------------|----------------------------------------------------------------|
@@ -197,15 +202,22 @@ has established. These surface as `500 Internal Server Error` instead:
 | A `fetchUserInfo` request fails at the transport level                     | As above                                                       |
 | A session token refresh fails at the transport level                       | As above. See [](server-oidc-browser-login.md#errors)          |
 
-The practical consequence is that **an outage at your identity provider turns authenticated requests into 500s**, which
-is worth knowing before it happens at 3am.
+An identity provider outage can therefore cause authenticated requests to fail with
+`500 Internal Server Error`.
 
-The rate limit deserves particular attention, because it is on by default and easy to trip. Key lookups are limited to
-10 per minute, and a lookup for a `kid` that is not in the cache counts against it. A burst of tokens signed with
-unknown keys, which is what a key rotation looks like, can exhaust the bucket. Raise it with
-`jwt { jwkRateLimit(bucketSize = 60) }` if you see this.
+JWK request rate limiting is enabled by default and can also cause signing-key lookup failures. Key lookups are limited
+to 10 requests per minute, and a lookup for a kid that is not present in the cache counts toward the limit. A burst of
+tokens signed with previously unseen keys, such as during key rotation, can exhaust the limit.
 
-Install [](server-status-pages.md) to answer with something better than `500`:
+To increase the limit, configure `jwkRateLimit`:
+
+```kotlin
+jwt { 
+    jwkRateLimit(bucketSize = 60)
+}
+```
+
+To return a more appropriate response, install the [`StatusPages`](server-status-pages.md) plugin:
 
 ```kotlin
 install(StatusPages) {
@@ -217,19 +229,18 @@ install(StatusPages) {
 }
 ```
 
-`503` is the better answer because the request is likely to succeed once the provider recovers.
+`503 Service Unavailable` indicates that the request may succeed after the identity provider recovers.
 
 Only the signing-key failure has a dedicated exception type, and it is the only one worth catching globally like this.
-The rest surface as `ResponseException` or `IOException`, which are **not** specific to this plugin. Any
-[HTTP client](client-create-and-configure.md) call anywhere in your application throws those same types, so a global
-handler would swallow unrelated failures and report them as a provider outage. Handle those nearer to where they happen,
-or leave them as `500`.
+The rest surface as `ResponseException` or `IOException`, which are also used by other
+[HTTP client](client-create-and-configure.md) operations. Avoid handling these exception types globally
+as this could result in unrelated failures being reported as provider outages. Handle them close to the operation that
+can produce them, or allow them to result in `500 Internal Server Error`.
 
 ### Find out why a token was rejected {id="errors-logging"}
 
-The reason is logged at `TRACE` level, and nowhere else. Turn it on for the plugin's package in your
-[logger configuration](server-logging.md#configure-logger), which for Logback is `logback.xml` in the root of the
-classpath, usually `src/main/resources/logback.xml`:
+Token rejection details are logged at the ` TRACE ` level. To enable them, configure logging for the plugin package. With
+Logback, add the following to <path>logback.xml</path>, typically located at <path>src/main/resources/logback.xml</path>:
 
 ```xml
 
@@ -241,12 +252,13 @@ classpath, usually `src/main/resources/logback.xml`:
 Each provider logs under `io.ktor.server.auth.oidc.OidcProvider[<name>]`, so you can raise the level for a single
 provider without the noise from the rest.
 
-Messages name the specific check that failed, for example
+Log messages identify the failed validation check, for example:
 `JWT algorithm HS256 is not accepted` or `JWT kid abc123 does not match any JWK`.
 
-### Customize the 401 {id="errors-custom"}
+### Customize the 401 response {id="errors-custom"}
 
-There is no failure handler inside `bearer { }`. Set one on the route instead:
+The `bearer {}` configuration does not provide an authentication failure handler. To customize the response, set the
+`onUnauthorized` handler on the protected route:
 
 ```kotlin
 routing {
@@ -267,17 +279,17 @@ routing {
 ```
 
 A route-level handler replaces the built-in response completely, including the `WWW-Authenticate` header. If you
-configured [protected resource metadata](#protected-resource), the `resource_metadata` hint disappears with it, so add
-the header back yourself if clients rely on it.
+configured [protected resource metadata](#protected-resource), the `resource_metadata` parameter is also removed. Add the header
+explicitly if clients depend on it.
 
-Use `authenticateWithAnyOf(..., onUnauthorized = ...)` for the multi-scheme form.
+For routes that accept multiple authentication schemes, use `authenticateWithAnyOf(..., onUnauthorized = ...)`.
 
 ### Do not reuse your client ID as the audience {id="audience-overlap"}
 
 If `bearer { audience }` contains the `clientId` from your `oauth { }` block, an ID token issued for login can pass as
 an access token for your API, unless the provider marks it with a `token_use` or `typ` claim. Not all providers do.
 
-Give your API its own resource identifier:
+Assign your API its own resource identifier:
 
 ```kotlin
 oidc.identityProvider("auth0") {
@@ -293,9 +305,10 @@ oidc.identityProvider("auth0") {
 }
 ```
 
-The plugin logs a warning at startup when it spots this overlap.
+The plugin logs a warning at startup when it detects an overlap between the API audience and the OAuth client ID.
 
-## What's next {id="next"}
-
-* [](server-oidc.md) covers discovery, token validation settings, and testing.
-* [](server-oidc-browser-login.md) covers browser sign-in with the same provider.
+> To learn about discovery, token validation settings, and testing, see [](server-oidc.md).
+> 
+> For browser sign-in with the same provider, see [](server-oidc-browser-login.md).
+> 
+{style="tip"}

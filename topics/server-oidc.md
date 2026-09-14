@@ -13,25 +13,23 @@
 </tldr>
 
 <link-summary>
-The OpenID Connect plugin configures token validation and browser login from an issuer URL, using the provider's
-discovery document.
+The OpenID Connect plugin allows you to configure token validation and browser login from an issuer URL, using the 
+provider'sdiscovery document.
 </link-summary>
 
-## What OpenID Connect is {id="what"}
-
 [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC) is an identity layer on top of OAuth 2.0.
-OAuth 2.0 answers "what is this caller allowed to do". OpenID Connect adds "who is this caller", in the form of a signed
-**ID token**.
+While OAuth 2.0 provides a framework for delegated authorization, OIDC adds authentication by allowing clients to verify
+the identity of an end user. It provides identity information in an ID token.
 
-The Ktor plugin covers the two things applications usually need:
+The `Oidc` plugin supports the following typical scenarios:
 
-* **Protect an API.** Someone else issued a token, and your server has to check it. See
-  [](server-oidc-resource-server.md).
-* **Sign users in.** Your server sends the user to the provider and gets them back signed in. See
-  [](server-oidc-browser-login.md).
+* **Protect an API.** Validate tokens issued by an OpenID Connect provider before allowing access to protected routes. For
+  more information, see [](server-oidc-resource-server.md).
+* **Sign users in.** Redirect users to an OpenID Connect provider for authentication and handle the callback after
+  sign-in. For more information, see [](server-oidc-browser-login.md).
 
-Both start from one thing: the issuer URL. The plugin reads the provider's discovery document and works out the
-endpoints, signing keys, and supported algorithms for you.
+Both scenarios start with the provider's issuer URL. The plugin reads the provider's discovery document and works out the
+endpoints, signing keys, and supported algorithms.
 
 <include from="lib.topic" element-id="oidc_experimental"/>
 
@@ -39,11 +37,13 @@ endpoints, signing keys, and supported algorithms for you.
 
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
-This artifact is available for the JVM only.
+> This artifact is available for the JVM only.
+> 
+{style="note"}
 
 ## Register an identity provider {id="register"}
 
-Install the plugin, then register one provider per issuer:
+Install the `Oidc` plugin and register an identity provider for each issuer:
 
 ```kotlin
 suspend fun Application.module() {
@@ -58,17 +58,18 @@ suspend fun Application.module() {
 }
 ```
 
-Note that the module function is `suspend`. `identityProvider()` fetches the discovery document before it returns, so it
-has to be called from a suspending function. See [](server-modules.md#concurrent-modules).
+The `identityProvider()` function retrieves the discovery document before returning, so it
+has to be called from a suspending function, such as a [suspend application module](server-modules.md#concurrent-modules).
 
-The provider name appears in generated route paths and scheme names, so it has to be URL-friendly: lowercase letters,
-digits, and hyphen-separated segments. `google` and `my-idp` work; `Google` and `my_idp` do not.
+The provider name is used in generated route paths and authentication scheme names. It must contain lowercase letters,
+digits, and hyphen-separated segments. For example, `google` and `my-idp` are valid names, while `Google` and `my_idp`
+are not.
 
-Each name and each issuer can be registered only once. Registering the same issuer twice fails with
+Each provider name and issuer must be unique. Registering the same name or issuer more than once throws an
 `IllegalArgumentException`.
 
-`identityProvider()` returns an `OidcProvider`, and that value is how you protect routes. Depending on what you
-configured, it exposes up to three **authentication schemes** — the values you pass to `authenticateWith()`:
+The `identityProvider()` function returns an `OidcProvider`, which you use to protect routes with. Depending on its
+configuration, the provider exposes up to three authentication schemes to use with `authenticateWith()`:
 
 | Configured with                | Scheme                         | Protects                              |
 |--------------------------------|--------------------------------|---------------------------------------|
@@ -76,19 +77,23 @@ configured, it exposes up to three **authentication schemes** — the values you
 | `bearer { introspection { } }` | `provider.introspectionBearer` | An API receiving opaque access tokens |
 | `oauth { }`                    | `provider.session`             | Routes behind a browser login         |
 
-Reading a scheme you did not configure throws `IllegalStateException`, with a message naming the block to add. The
-sibling topics cover each one in full: [](server-oidc-resource-server.md) and [](server-oidc-browser-login.md).
+Reading a scheme that has not been configured throws an `IllegalStateException`. The exception message identifies the
+configuration block required to enable the scheme. 
+
+> For more details, see [](server-oidc-resource-server.md) and [](server-oidc-browser-login.md).
+> 
+{style="tip"}
 
 ## How discovery works {id="discovery"}
 
-The plugin fetches `<issuer>/.well-known/openid-configuration`, then reads the endpoints and signing keys from it. You
-don't need to configure an authorization endpoint, token endpoint, or JWKS URL by hand.
+The plugin retrieves `<issuer>/.well-known/openid-configuration`, then reads the provider endpoints and signing keys from
+it. You do not need to configure the authorization endpoint, token endpoint, or JWKS URL manually.
 
-The `issuer` value in that document must match your configured `issuer` **exactly**, including any trailing slash. This
-is a security check, so the plugin does not normalize either side.
+The `issuer` value in the discovery document must exactly match your configured `issuer`, including any trailing slash. This
+comparison is a security check, so the plugin does not normalize either value.
 
-After the first fetch, the plugin re-reads the document every `discoveryRefreshInterval`, which defaults to 15 minutes.
-This is how key rotation reaches your application without a restart.
+After the initial request, the plugin re-reads the document at the interval specified by `discoveryRefreshInterval`, which
+defaults to 15 minutes. This allows key rotation to reach your application without a restart:
 
 ```kotlin
 val oidc = install(Oidc) {
@@ -98,19 +103,19 @@ val oidc = install(Oidc) {
 }
 ```
 
-Set `discoveryRefreshInterval` to `Duration.ZERO` to turn periodic refresh off.
+To disable periodic discovery refresh, set `discoveryRefreshInterval` to `Duration.ZERO`.
 
 ## Handle discovery failures {id="discovery-errors"}
 
-Discovery can fail at two very different moments, and they need different handling.
+Discovery failures are handled differently [during application startup](#discovery-errors-startup) and [while the application is running](#discovery-errors-runtime).
 
 ### At startup {id="discovery-errors-startup"}
 
-If the first fetch fails, `identityProvider()` throws `OidcDiscoveryException`. The exception leaves your module
-function, so **the application does not start**.
+If the initial discovery request fails, `identityProvider()` throws `OidcDiscoveryException`. The exception leaves your
+module function, and the application does not start.
 
-By default, the plugin tries once. If your provider is sometimes slow to answer when both start at the same time, raise
-the attempt count:
+By default, the plugin makes one discovery attempt. If your provider may be temporarily unavailable during startup, increase
+the number of attempts:
 
 ```kotlin
 val oidc = install(Oidc) {
@@ -119,17 +124,15 @@ val oidc = install(Oidc) {
 }
 ```
 
-Retries cover network and HTTP errors. They do **not** cover a mismatched issuer or a document that is missing a
-required endpoint: those are configuration mistakes, so they fail immediately with `IllegalArgumentException` and
-retrying would not help.
+Retries apply to network and HTTP errors. They do not apply to configuration errors, such as an issuer mismatch, or a 
+discovery document that is missing a required endpoint. These errors fail immediately with an `IllegalArgumentException`.
 
 ### While running {id="discovery-errors-runtime"}
 
-A failed refresh does not affect requests. The plugin keeps the last document it successfully fetched and retries every
-`discoveryRefreshFailureDelay`, which defaults to one minute. It never gives up.
+If a periodic refresh fails, the plugin continues to use the most recently retrieved discovery document. It retries
+after `discoveryRefreshFailureDelay`, which defaults to one minute, and continues retrying until it succeeds.
 
-There is a catch worth knowing about: **a failed refresh writes nothing to the log**. Unless you subscribe to the event,
-a provider that has been unreachable for hours looks exactly like one that is healthy.
+Refresh failures are not logged by default. To monitor them, subscribe to the `OidcMetadataRefreshFailed` event:
 
 ```kotlin
 monitor.subscribe(OidcMetadataRefreshFailed) { failure ->
@@ -142,9 +145,10 @@ monitor.subscribe(OidcMetadataRefreshFailed) { failure ->
 }
 ```
 
-## Skip discovery with static metadata {id="static-metadata"}
+## Configure static metadata {id="static-metadata"}
 
-If you already know the endpoints, or you are writing a test, set the metadata yourself:
+If the provider endpoints are known in advance, or you need a static configuration for testing, use the `metadata`
+property:
 
 ```kotlin
 val provider = oidc.identityProvider("static") {
@@ -158,15 +162,15 @@ val provider = oidc.identityProvider("static") {
 }
 ```
 
-Setting `metadata` skips the startup fetch **and turns off periodic refresh** for that provider. You take over
-responsibility for keeping the values current, including after a key rotation.
+Setting `metadata` skips the initial discovery request and disables periodic discovery refresh for that provider. Your
+application is then responsible for keeping the metadata current, including after key rotation.
 
-The issuer in the static document still has to match the configured `issuer`. The JWKS endpoint is still fetched over
-HTTP; to avoid that too, see [](#testing).
+The issuer in the static document must still match the configured `issuer`. The JWKS endpoint is still accessed over
+HTTP. To avoid that request during tests, see [](#testing).
 
 ## Token types {id="tokens"}
 
-Each of those [schemes](#register) produces its own principal type, so a route always knows what it is holding:
+Each authentication [scheme](#register) produces a specific principal type, so a route always knows what it is holding:
 
 | Scheme                         | Principal                | Comes from                              |
 |--------------------------------|--------------------------|-----------------------------------------|
@@ -174,13 +178,13 @@ Each of those [schemes](#register) produces its own principal type, so a route a
 | `provider.jwtBearer`           | `OidcToken.Access`       | A JWT access token verified locally     |
 | `provider.introspectionBearer` | `OidcToken.Introspected` | An access token checked by the provider |
 
-`OidcToken.Id` and `OidcToken.Access` both expose `claims` for the raw JWT claims and `userInfo` for the normalized user
-fields (`subject`, `name`, `email`, and so on). `OidcToken.Introspected` exposes `introspection` instead.
+`OidcToken.Id` and `OidcToken.Access` expose `claims` for the raw JWT claims and `userInfo` for the normalized user
+fields such as `subject`, `name`, and `email`. `OidcToken.Introspected` exposes `introspection` instead.
 
-## Map a token to your own principal {id="map-principal"}
+## Map a token to an application principal {id="map-principal"}
 
-Routes usually want your own user type rather than a token. `mapPrincipal` returns a new scheme that produces your
-type, so name the result after the scheme rather than after a user:
+Routes often work with an application-specific principal rather than an OIDC token. Use the `.mapPrincipal()` function to
+create a new authentication scheme that produces your application type:
 
 ```kotlin
 data class AppUser(val id: String, val email: String?)
@@ -199,15 +203,17 @@ routing {
 }
 ```
 
-Returning `null` rejects the request, so this is also the place to reject a valid token for an account you no longer
-recognize.
+Returning `null` rejects the request. You can use this behavior to reject a valid token when the corresponding
+application account no longer exists.
 
-Mapping runs when a scheme authenticates a route, not during the OAuth callback. A user who is signed in but has since
-been deleted from your database is rejected on their next request, not left with a working session.
+Principle mapping runs when the scheme authenticates a route, not during the OAuth callback. For example, if a signed-in
+user is later removed from your database, the user is rejected on the next request instead of retaining a valid
+application session.
 
 ## Configure from a configuration file {id="config-file"}
 
-Client secrets belong in configuration, not in code. Put the values in `application.yaml`:
+Store client secrets in a configuration file instead of source code. For example, in your
+<path>application.yaml</path> file:
 
 ```yaml
 ktor:
@@ -219,9 +225,13 @@ ktor:
       scopes: ["openid", "profile", "email"]
 ```
 
-`$GOOGLE_CLIENT_ID` reads an environment variable. See [](server-configuration-file.topic).
+`$GOOGLE_CLIENT_ID` and `$GOOGLE_CLIENT_SECRET` reference environment variables.
 
-Then read them with `OidcEnvConfig`:
+> For more information on working with configuration files, see [](server-configuration-file.topic).
+> 
+{style="tip"}
+
+You can then read the configuration as `OidcEnvConfig`:
 
 ```kotlin
 val env = environment.config
@@ -238,12 +248,12 @@ val google = oidc.identityProvider("google") {
 }
 ```
 
-The plugin does not read this configuration on its own. `OidcEnvConfig` is a convenience type; you decide where the
-values come from and how they are applied.
+The plugin does not load this configuration automatically. `OidcEnvConfig` is a convenience type for reading the values.
+Your application determines where the values come from and how they are applied.
 
-## Tune token validation {id="jwt-config"}
+## Configure token validation {id="jwt-config"}
 
-The `jwt { }` block controls how tokens are verified. The defaults are safe, so change them only when you have a reason:
+Use the `jwt { }` block to configure how tokens are verified. The defaults are secure, so change them only when required:
 
 ```kotlin
 oidc.identityProvider("google") {
@@ -259,23 +269,23 @@ oidc.identityProvider("google") {
 }
 ```
 
-* `clockSkew` is the leeway applied to `exp` and `nbf`. It defaults to 60 seconds.
-* `allowedAlgorithms` restricts which signature algorithms are accepted. When it is unset, ID tokens fall back to the
-  algorithms the discovery document advertises. Only RSA and EC algorithms can be listed here.
-* `jwkCache` and `jwkRateLimit` control how often the JWKS endpoint is queried. Rate limiting is on by default at
-  10 requests per minute. Exhausting it fails the request with `OidcSigningKeyUnavailableException` rather than
-  rejecting the token, so size it for your peak cache-miss traffic. See
+* `clockSkew` specifies the leeway applied to `exp` and `nbf`. It defaults to 60 seconds.
+* `allowedAlgorithms` restricts which signature algorithms are accepted. When this option is not set, ID tokens fall back to the
+  algorithms the discovery document advertises. Only RSA and EC algorithms can be specified.
+* `jwkCache` and `jwkRateLimit` control how often the JWKS endpoint is queried. Rate limiting is enabled by default at
+  10 requests per minute. If the limit is exceeded, the request fails with an `OidcSigningKeyUnavailableException` rather than
+  rejecting the token. Configure the limit to accommodate expected peak cache-miss traffic. For more information, see
   [](server-oidc-resource-server.md#errors-500).
 
-The `none` algorithm and all HMAC algorithms (`HS256`, `HS384`, `HS512`) are always rejected, whatever you configure. A
-shared secret is not a safe way to verify a token that a third party issued.
+The `none` algorithm and all HMAC algorithms (`HS256`, `HS384`, `HS512`) are always rejected, regardless of the configuration.
+A shared secret is not a safe way to verify a token issued by a third party.
 
-`jwkProviderFactory` cannot be combined with `jwkCache` or `jwkRateLimit`. If you supply your own factory, caching is
-your responsibility.
+`jwkProviderFactory` cannot be combined with `jwkCache` or `jwkRateLimit`. If you provide a custom JWK provider factory,
+your application is responsible for caching.
 
-## Test without a real provider {id="testing"}
+## Test without an external provider {id="testing"}
 
-`OpenIdTestKeys` generates a key pair in memory and issues tokens signed with it. Combined with static metadata, this
+`OpenIdTestKeys` generates an in-memory key pair and issues tokens signed with that key. Combined with static metadata, this
 gives you a complete OIDC setup with no network calls, while still running the real issuer, audience, algorithm, and
 signature checks:
 
@@ -324,42 +334,43 @@ fun `rejects a token for another audience`() = testApplication {
 }
 ```
 
-`jwt(keys)` points the verifier at the in-memory public key and pins the allowed algorithm, so no JWKS request is made
-either. Use `keys.accessToken { }` for access tokens and `keys.idToken(subject) { }` for ID tokens; both accept
+The `jwt(keys)` function configures the verifier to use an in-memory public key and restricts the allowed algorithm, so
+no JWKS request is made.
+
+Use `keys.accessToken { }` to create access tokens and `keys.idToken(subject) { }` for ID tokens. Both accept
 `issuer`, `audience`, `expiresAt`, and custom `claim()` values.
 
-Use `OpenIdTestKeys.ec()` instead of `rsa()` to test EC signatures.
+To test EC signatures, use the `OpenIdTestKeys.ec()` function instead of the `rsa()` function.
 
-## Security defaults and production checklist {id="production"}
+## Review security settings for production {id="production"}
 
-The plugin sets these for you. Do not weaken them without a specific reason:
+The plugin applies the following security defaults:
 
-* PKCE is on for every login, using `S256`.
-* The authorization state is kept in an AES-256-GCM encrypted cookie with a 10-minute lifetime.
+* PKCE is enabled for every login and uses `S256`.
+* The authorization state is stored in an AES-256-GCM encrypted cookie with a 10-minute lifetime.
 * Session cookies are `HttpOnly` and `SameSite=Lax`, and `Secure` outside development mode.
-* CSRF protection is on for the routes the plugin generates.
+* CSRF protection is enabled for the routes generated by the plugin.
 * `nonce` and `at_hash` are checked on every ID token.
 
-These are the settings worth reviewing before you deploy:
+Review the following settings before deploying to production:
 
 | Setting                        | Default                      | Why change it                                                                                   |
 |--------------------------------|------------------------------|-------------------------------------------------------------------------------------------------|
 | `oauth { stateEncryptionKey }` | A new random key per process | In-flight logins break on restart and fail across instances                                     |
 | `sessions { storage }`         | `SessionStorageMemory()`     | Sessions are lost on restart and are not shared between instances                               |
 | `bearer { audience }`          | —                            | Must not contain your OAuth `clientId`. See [](server-oidc-resource-server.md#audience-overlap) |
-| `initialDiscoveryAttempts`     | `1`                          | A single slow response from the provider stops your application from starting                   |
-| `jwt { clockSkew }`            | `60.seconds`                 | Lower it if your clocks are tightly synchronized                                                |
-| `discoveryRefreshInterval`     | `15.minutes`                 | Shorten it if your provider rotates keys often                                                  |
-| `codeChallengeMethod`          | `S256`                       | Leave PKCE on                                                                                   |
-| `sessions { csrfProtection }`  | `originMatchesHost()`        | Leave CSRF protection on                                                                        |
+| `initialDiscoveryAttempts`     | `1`                          | A single slow response from the provider can prevent your application from starting             |
+| `jwt { clockSkew }`            | `60.seconds`                 | Lower the value if your clocks are tightly synchronized                                         |
+| `discoveryRefreshInterval`     | `15.minutes`                 | Shorten the interval if your provider rotates keys often                                        |
+| `codeChallengeMethod`          | `S256`                       | Keep PKCE enabled                                                                               |
+| `sessions { csrfProtection }`  | `originMatchesHost()`        | Keep CSRF protection enabled                                                                    |
 
-The plugin logs a warning at startup for the first three. Those warnings are worth treating as errors in a production
-build.
+The plugin logs a warning at startup for the first three settings when they use these defaults. Consider treating these
+warnings as errors in production environments.
 
 ## Implemented specifications {id="specs"}
 
-The plugin implements the authorization code flow and the pieces built around it. Each is explained where it is
-used; this is the summary.
+The plugin implements the authorization code flow and the related specifications used by its features:
 
 * [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html) — ID token validation, including
   `nonce`, `azp`, and `at_hash`
@@ -386,10 +397,4 @@ used; this is the summary.
 * Encrypted (JWE) UserInfo responses are not supported.
 * A login callback that returns no ID token is not supported. For access-token-only login against a provider that does
   not implement OIDC, use the [`oauth`](server-oauth.md) provider.
-* The introspection endpoint is not read from discovery. You have to configure it explicitly.
-
-## What's next {id="next"}
-
-* [](server-oidc-resource-server.md) covers validating tokens in an API.
-* [](server-oidc-browser-login.md) covers signing users in from a browser.
-* [](server-typed-auth.md) covers the type-safe authentication API these schemes are built on.
+* The introspection endpoint is not read from discovery. You must configure it explicitly.

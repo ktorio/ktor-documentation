@@ -17,21 +17,26 @@ Sign users in through an OpenID Connect provider. The plugin creates the login a
 signed in with a session.
 </link-summary>
 
-This topic covers signing users in from a browser. For an API that validates tokens somebody else issued, see
-[](server-oidc-resource-server.md). For discovery and plugin setup, see [](server-oidc.md).
+This topic explains how to sign users in from a browser. 
+
+> To validate tokens issued by an OpenID Connect provider, see[](server-oidc-resource-server.md).
+> 
+> For discovery and plugin setup, see [](server-oidc.md).
+> 
+{style="tip"}
 
 <include from="lib.topic" element-id="oidc_experimental"/>
 
 ## How the flow works {id="flow"}
 
 1. The user opens `/oidc/{name}/login`.
-2. Ktor redirects them to the provider, with a `state`, a `nonce`, and a PKCE challenge.
-3. The user signs in at the provider and approves the requested scopes.
+2. Ktor redirects the user to the provider, with a `state`, a `nonce`, and a PKCE challenge.
+3. The user signs in with the provider and approves the requested scopes.
 4. The provider sends them back to `/oidc/{name}/callback` with an authorization code.
 5. Ktor exchanges the code for tokens, validates the ID token, and stores a session.
-6. Your `onAuthenticated` handler runs.
+6. The `onAuthenticated` handler runs.
 
-You write step 6. The plugin creates these routes for you:
+The plugin creates the following routes:
 
 | Route                   | Method | Created                   |
 |-------------------------|--------|---------------------------|
@@ -43,6 +48,8 @@ You write step 6. The plugin creates these routes for you:
 Register the callback route with your provider as an allowed redirect URI.
 
 ## Sign users in {id="oauth"}
+
+To handle a successful sign-in, configure OAuth credentials and use the `onAuthenticated` handler:
 
 ```kotlin
 suspend fun Application.module() {
@@ -63,11 +70,11 @@ suspend fun Application.module() {
 }
 ```
 
-`onAuthenticated` runs once, at the end of a successful callback, and the session is already stored by the time it runs.
-Without it a successful login responds `200 OK` with an empty body, which is rarely what a browser user wants.
+The `onAuthenticated` handler runs once at the end of a successful callback, after the session has been stored.
+Without this handler, a successful login responds with `200 OK` and an empty body.
 
-`scopes` defaults to `listOf("openid", "profile", "email")`. Assigning it **replaces** that list rather than adding to
-it, and the result must still contain `openid`:
+The `scopes` property defaults to `listOf("openid", "profile", "email")`. Assigning a value replaces the default list 
+rather than adding to it, and the resulting list must still contain `openid`:
 
 ```kotlin
 oauth {
@@ -77,15 +84,17 @@ oauth {
 }
 ```
 
-Set `fetchUserInfo = true` if you need claims the provider keeps out of the ID token. This adds a request to the
-UserInfo endpoint on every login.
+Set `fetchUserInfo = true` to retrieve claims that the provider does not include in the ID token. This adds a request to
+the UserInfo endpoint on every login.
 
-Keep secrets out of a source. See [](server-oidc.md#config-file).
+> Store client secrets outside source code and in a configuration file. For more information, see [](server-oidc.md#config-file).
+>
+{style="tip"}
 
 ## Customize the routes {id="paths"}
 
-All four generated paths can be moved. `loginUri` and `redirectUri` take a `URLBuilder` block, while `logout()` and
-`refresh()` take a plain `path`:
+You can customize all generated paths. The `loginUri` and `redirectUri` properties accept a `URLBuilder` block, while 
+`logout()` and `refresh()` accept a `path`:
 
 ```kotlin
 oauth {
@@ -98,12 +107,14 @@ oauth {
 }
 ```
 
-`redirectUri` has to match a redirect URI registered with your provider, so change it there at the same time. None of
-these builders may add query parameters; the plugin rejects a path that does.
+The `redirectUri` property must match a redirect URI registered with your provider. Update the registered redirect URI 
+when you change this value.
+
+None of these builders support query parameters. The plugin rejects paths that include them.
 
 ## Protect routes with the session {id="session"}
 
-`provider.session` authenticates users who are already signed in. Inside the block, `call.principal` is an
+The `provider.session` scheme authenticates users with an existing session. Inside the block, `call.principal` is an
 `OidcToken.Id`:
 
 ```kotlin
@@ -117,7 +128,7 @@ routing {
 }
 ```
 
-Most applications map the token to their own user type. See [](server-oidc.md#map-principal):
+To work with an application-specific principal instead of the OIDC token, map the scheme with `mapPrincipal()`:
 
 ```kotlin
 data class AppUser(val id: String, val email: String?)
@@ -131,9 +142,13 @@ val sessionAuth = google.session.mapPrincipal { token ->
 }
 ```
 
+> For more information, see [](server-oidc.md#map-principal).
+> 
+{style="tip"}
+
 ## Configure the session {id="sessions"}
 
-Sessions are on by default. Use `sessions { }` to change the cookie name or the storage:
+Sessions are enabled by default. Use the `sessions { }` block to configure the cookie name or session storage:
 
 ```kotlin
 oauth {
@@ -153,17 +168,21 @@ oauth {
 ```
 
 The cookie name defaults to `{PROVIDER_NAME}_SESSION`. The plugin sets `HttpOnly`, `SameSite=Lax`, and `Secure`
-outside development mode; override these only if you know why.
+outside development mode. Override these settings only when required.
 
-The transport is always `SessionTransportType.CookieId` and cannot be changed. Only a session id travels to the browser;
-the ID token, access token, and refresh token stay server-side in `storage`.
+The transport is always `SessionTransportType.CookieId` and cannot be changed. Only the session ID is sent to the browser.
+The ID token, access token, and refresh token remain server-side in `storage`.
 
-Storage defaults to `SessionStorageMemory()`, which loses every session on restart and shares nothing between instances.
-Configure real storage before you deploy. See [](server-sessions.md).
+Session storage defaults to `SessionStorageMemory()`, which loses all sessions when the application restarts and does not
+share sessions between instances. Configure persistent or shared storage before deploying to production.
+
+> For more information on working with sessions, see [](server-sessions.md).
+> 
+{style="tip"}
 
 ## Protect against CSRF {id="csrf"}
 
-The routes the plugin generates are protected by origin checks:
+The routes generated by the plugin are protected by origin checks:
 
 ```kotlin
 sessions {
@@ -173,11 +192,15 @@ sessions {
 }
 ```
 
-That is the default, so you only need this block to change it. `disableCsrfProtection()` exists, but the logout and
-refresh routes accept `POST` from a browser that is carrying a session cookie, which is exactly what CSRF protection is
-for.
+This protection is enabled by default, so configure this block only when you need to change it.
+
+You can disable CSRF protection with the `disableCsrfProtection()` function. However, the logout and
+refresh routes accept `POST` requests from browsers that include the session cookie, so these routes should remain protected
+against CSRF.
 
 ## Sign users out {id="logout"}
+
+To sign users out, use the `logout()` function:
 
 ```kotlin
 oauth {
@@ -189,14 +212,14 @@ oauth {
 }
 ```
 
-`POST /oidc/google/logout` clears the session and responds `303 See Other`, pointing at the provider's
-`end_session_endpoint` so the user is signed out there too.
+A `POST` request to `/oidc/google/logout` clears the session and responds with `303 See Other`, redirecting the user to
+the provider's `end_session_endpoint`.
 
-The provider must advertise `end_session_endpoint` in its discovery document. This is checked when routes are
-registered, so **a provider without it makes your application fail to start** rather than failing at sign-out time. If
-your provider does not support it, clear the session yourself instead of calling `logout()`.
+The provider must advertise `end_session_endpoint` in its discovery document. Ktor checks this when routes are
+registered, so a provider without it makes your application fail to start rather than failing at sign-out time. If
+your provider does not support this endpoint, clear the session directly instead of calling `logout()`.
 
-Pass a handler to run your own code, or to respond yourself instead of redirecting:
+Pass a handler to run additional logic or provide a custom response instead of redirecting:
 
 ```kotlin
 logout {
@@ -208,10 +231,10 @@ Signing out does not revoke the refresh token at the provider.
 
 ## Keep sessions fresh {id="refresh"}
 
-ID tokens expire. By default, the plugin does nothing about it: once the token is past `exp`, the session is cleared and
-the user has to sign in again.
+ID tokens expire. By default, the plugin does not refresh them. Once the token is past its `exp` value, the session is
+cleared and the user must sign in again.
 
-To refresh automatically, set a strategy:
+To refresh tokens automatically, configure a refresh strategy:
 
 ```kotlin
 sessions {
@@ -221,10 +244,9 @@ sessions {
 }
 ```
 
-The refreshed token has to keep the same `sub`, or it is discarded.
+The refreshed token must have the same `sub` value as the existing token. Otherwise, the refreshed token is discarded.
 
-`Auto` covers the usual case. For anything else, `Custom` hands you every session-authenticated request and lets you
-decide:
+For automatic refreshes, use `OidcTokenRefreshStrategy.Auto`. For custom refresh behavior, use `OidcTokenRefreshStrategy.Custom`:
 
 ```kotlin
 sessions {
@@ -242,18 +264,18 @@ sessions {
 }
 ```
 
-Return `token` to leave the session as it is, a new `OidcToken.Id` to replace the stored session, or `null` when no
-refreshed token is available. On `null`, and if you throw, the session is kept while the current token is still valid
-and cleared once it has expired. To end a session immediately, clear it with the
+Return `token` to keep the existing session, a new `OidcToken.Id` to replace the stored session, or `null` when no
+refreshed token is available. If the callback returns `null` or throws an exception, the session remains available while
+the current token is valid and is cleared once it expires. To end a session immediately, clear it with the
 [Sessions](server-sessions.md) plugin instead.
 
-The callback runs on **every** session-authenticated request, so keep it cheap. Read the time from the `now`
-parameter rather than the clock, so all checks within one request agree.
+The callback runs for every request authenticated with the session scheme, so keep its work lightweight. Use the `now`
+parameter instead of reading the clock directly, so all time comparisons within the request use the same value.
 
-`now` and `claims.expiresAt` are `kotlin.time.Instant`, which is still experimental, so a strategy that compares them
-needs `@OptIn(ExperimentalTime::class)` as well as the opt-in the plugin already requires.
+The `now` parameter and `claims.expiresAt` are `kotlin.time.Instant`, which is experimental. A strategy that compares them
+needs `@OptIn(ExperimentalTime::class)` in addition to the opt-in required by the plugin.
 
-You can also refresh on demand by adding the route:
+You can also add a route for on-demand refresh:
 
 ```kotlin
 oauth {
@@ -263,13 +285,13 @@ oauth {
 }
 ```
 
-`POST /oidc/google/refresh` responds `200 OK` on success and `401 Unauthorized` when the session cannot be refreshed. On
-a 401 the existing session is left alone, so the user stays signed in until their token actually expires.
+A `POST` request to `/oidc/google/refresh` responds with `200 OK` on success and `401 Unauthorized` when the session 
+cannot be refreshed. On a `401` response, the existing session remains unchanged until its token expires.
 
-### Refresh it yourself {id="manual-refresh"}
+### Refresh tokens manually {id="manual-refresh"}
 
-For anything the route does not cover, such as a scheduled job or refreshing before calling a downstream API, call
-`refreshToken()` on the provider:
+For cases that do not use the generated refresh route, such as a scheduled job or a refresh before calling a downstream
+API, call the `refreshToken()` function on the provider:
 
 ```kotlin
 val refreshToken = call.principal.refreshToken
@@ -283,24 +305,25 @@ if (refreshToken != null) {
 ```
 
 `OidcTokenRefreshResult` carries the raw token response: `accessToken`, `refreshToken`, `expiresIn`, `tokenType`, and
-`scope`. Its `idToken` is null when the provider did not return one, which is common, so check it before storing a
+`scope`. The `idToken` property is null when the provider does not return an ID token, so check it before storing a
 session.
 
-Expect `ResponseException` when the provider rejects the request,
-`OidcTokenRejectedException` when the returned tokens fail validation, and `OidcSigningKeyUnavailableException` when the
-ID token cannot be verified. See [](server-oidc-resource-server.md#errors-500).
+The provider can throw the following exceptions during refresh:
+* `ResponseException` when the provider rejects the request.
+* `OidcTokenRejectedException` when the returned tokens fail validation.
+* `OidcSigningKeyUnavailableException` when the ID token cannot be verified. For more information, see [](server-oidc-resource-server.md#errors-500).
 
-Concurrent calls with the same refresh token share a single request to the provider, and the result is reused for
-`tokenRefreshCacheTtl` afterwards, so you do not need to coordinate this yourself.
+Concurrent calls with the same refresh token share a single request to the provider. The result is reused for
+`tokenRefreshCacheTtl`, so no additional synchronization is required.
 
-> An ID token with no `exp` claim is never treated as expired and never refreshed. Such a session lasts as long as
-> the cookie does.
+> An ID token without an `exp` claim is never treated as expired or refreshed. The session remains valid for as long as
+> the cookie remains valid.
 >
 {style="note"}
 
 ## Sign in without a session {id="no-session"}
 
-If you manage your own session or issue your own token, turn the plugin's session off:
+If you manage your own session or issue your own token, disable the plugin's session support:
 
 ```kotlin
 oauth {
@@ -314,12 +337,12 @@ oauth {
 }
 ```
 
-`onAuthenticated` becomes required, because nothing else would happen otherwise. `provider.session`, `logout()`, and
-`refresh()` are unavailable in this mode.
+When sessions are disabled, `onAuthenticated` is required. The `provider.session`, `logout()`, and
+`refresh()` functions are not available in this mode.
 
-## Use several providers {id="multiple"}
+## Use multiple providers {id="multiple"}
 
-Register one provider per issuer. Each gets its own routes, cookies, and schemes:
+Register one identity provider for each issuer. Each provider has its own routes, cookies, and authentication schemes:
 
 ```kotlin
 val google = oidc.identityProvider("google") {
@@ -339,13 +362,12 @@ val github = oidc.identityProvider("github-idp") {
 }
 ```
 
-Your login page links to `/oidc/google/login` and `/oidc/github-idp/login`. To let either provider open the same route,
-map both to a shared principal type and use `authenticateWithAnyOf`.
+In the above example, the login page links to `/oidc/google/login` and `/oidc/github-idp/login`. To allow either provider
+to authenticate the same route, map both to a shared principal type and use the `authenticateWithAnyOf()` function.
 
 ## Request scoped tokens {id="resource-indicators"}
 
-`resourceIndicators` ([RFC 8707](https://www.rfc-editor.org/rfc/rfc8707)) asks the provider for an access token that is
-valid for a specific API, rather than one that works everywhere:
+Use the `resourceIndicators` property ([RFC 8707](https://www.rfc-editor.org/rfc/rfc8707)) to request an access token for a specific API:
 
 ```kotlin
 oauth {
@@ -355,33 +377,33 @@ oauth {
 }
 ```
 
-The value should match the identifier the API publishes as its
+The value should match the identifier the API publishes in its
 [protected resource metadata](server-oidc-resource-server.md#protected-resource).
 
-## Why the code is exchanged with PKCE {id="pkce"}
+## Understand PKCE {id="pkce"}
 
-The authorization code travels back through the user's browser, which means it passes through software you do not
-control. Anything able to read that redirect, a malicious app registered for the same URL scheme or a logging proxy,
-could take the code and try to redeem it for tokens.
+The authorization code returns through the user's browser and passes through software outside your
+control. Another application, such as a malicious app registered for the same URL scheme or a logging proxy,
+could get the code and attempt to redeem it for tokens.
 
-PKCE ([RFC 7636](https://www.rfc-editor.org/rfc/rfc7636)) closes that hole. Before sending the user away, Ktor generates
-a random secret called the **verifier** and sends only its SHA-256 hash, the **challenge**, to the provider. When Ktor
-later exchanges the code, it presents the verifier, and the provider checks that it hashes to the challenge it stored. A
-stolen code on its own is worthless, because whoever took it cannot produce the verifier.
+PKCE ([RFC 7636](https://www.rfc-editor.org/rfc/rfc7636)) prevents the authorization code from being used without an
+additional secret. Before redirecting the user, Ktor generates
+a random secret called the _verifier_ and sends only its SHA-256 hash, the _challenge_, to the provider. When Ktor
+later exchanges the code, it presents the verifier, and the provider checks that it hashes to the challenge it stored.
 
-The verifier is never sent to the provider up front, and the browser cannot read it. It is stored alongside the
-`state` and `nonce` in the AES-256-GCM encrypted cookie the plugin sets, so the browser holds only ciphertext it has no
-key for. Recovering it requires your `stateEncryptionKey`.
+The verifier is not sent to the provider during the authorization request and cannot be read by browser scripts. Ktor stores
+it alongside the `state` and `nonce` values in the AES-256-GCM encrypted cookie the plugin sets, so the browser holds
+only ciphertext it has no key for. Decrypting the cookie requires your `stateEncryptionKey`.
 
-Ktor does this on every login and there is nothing to configure. `codeChallengeMethod` defaults to
-`CodeChallengeMethod.S256`, and only `S256` is supported; custom methods are rejected. Because the verifier lives in
-that cookie, the login has a time limit. See [](#errors-state).
+Ktor uses PKCE for every login. The `codeChallengeMethod` defaults to
+`CodeChallengeMethod.S256`, and only `S256` is supported. Custom challenge methods are rejected. Because the verifier 
+is stored in that cookie, the login has [a time limit](#errors-state).
 
 ## Handle sign-in errors {id="errors"}
 
 ### Respond to a failed login {id="errors-handler"}
 
-`onAuthenticationFailed` runs when a callback cannot be completed:
+The `onAuthenticationFailed` handler runs when a callback cannot be completed:
 
 ```kotlin
 oauth {
@@ -396,27 +418,25 @@ oauth {
 }
 ```
 
-The handler receives an `AuthenticationFailedCause`, not an exception. The useful case is
-`AuthenticationFailedCause.Error`, whose `message` is the only detail available.
+The handler receives an `AuthenticationFailedCause`, not an exception.
+`AuthenticationFailedCause.Error` provides a `message` with details about the failure.
 
-Without a handler, a failed login responds with a bare `401` and empty body. That is a confusing thing for a user to hit
-in a browser, so it is worth replacing. Sending them back to the login route restarts the flow cleanly, which is the
-right outcome for the most common failure, described next.
+Without a handler, a failed login responds with a `401 Unauthorized` and an empty body. For browser applications, you can
+redirect the user to the login route to start a new authentication flow.
 
-Your handler should respond. If it does not, Ktor falls back to whatever challenge the failure registered, and otherwise
-to the same bare `401`.
+The handler should produce a response. If it does not, Ktor falls back to the challenge the failure registered, or responds
+with a `401 Unauthorized` when no challenge is available.
 
-One failure behaves differently. When the token endpoint rejects the authorization code as `invalid_grant`, which
-happens when a code has expired or was already used, a redirect back to the provider is registered as the fallback. A
-handler that does not respond therefore restarts the login rather than showing an error.
+When the token endpoint rejects the authorization code as `invalid_grant`, which
+happens when a code has expired or has already been used, a redirect back to the provider is registered as the fallback.
+If the handler does not respond, the login flow starts again.
 
-That retry is usually what you want. A user who reloads the callback page sends the same code twice, and starting over
-gets them a fresh one. The risk is that it repeats. If something makes *every* code fail, such as a wrong client secret
-or a clock far enough out that codes look expired on arrival, each restart produces another failure and the user bounces
-between your application and the provider.
+Restarting the flow is useful when, for example, a user reloads the callback page and attempts to reuse the same code.
+The risk is that it repeats. However, repeated invalid_grant responses can create a redirect loop. This can happen when every authorization code
+fails, for example because the client secret is incorrect or the system clock causes codes to appear expired.
 
-Responding inside the handler is what prevents that, because the fallback never runs. If you want the retry anyway,
-allow one and no more:
+To prevent the fallback redirect, respond inside the handler. To allow a single retry, track whether a retry
+has already occurred:
 
 ```kotlin
 onAuthenticationFailed { cause ->
@@ -444,8 +464,8 @@ onAuthenticationFailed { cause ->
 }
 ```
 
-A short-lived cookie marks that a retry already happened, so the second failure shows an error instead of redirecting
-again. The cookie is cleared on that error, and expires by itself after two minutes so a later genuine login is not
+A short-lived cookie records whether a retry has already occurred. A second failure returns an error instead of redirecting
+again. The cookie is cleared on that error, and expires automatically after two minutes so the next login is not
 affected.
 
 ### The login window is 10 minutes {id="errors-state"}
@@ -454,7 +474,7 @@ The `state`, `nonce`, and PKCE verifier live in an encrypted cookie that expires
 configurable.
 
 A user who opens the login page, walks away, and comes back an hour later gets a failed callback. So does a user whose
-login was in flight when you restarted the application, unless you configured `stateEncryptionKey`:
+login was in progress when the application , unless you configured `stateEncryptionKey`:
 
 ```kotlin
 oauth {
@@ -464,14 +484,15 @@ oauth {
 }
 ```
 
-The key must be exactly 32 bytes. Without it the plugin generates one per process, so in-flight logins break on every
-restart and fail outright behind a load balancer. `OidcStateEncryptionKey.rotating(current, previous)` lets you change
-the key without breaking logins that are already under way.
+The key must be exactly 32 bytes. Without an explicit key, the plugin generates a new key for each process. As a result,
+in-progress logins fail after an application restart and cannot continue across instances behind a load balancer. You can
+use `OidcStateEncryptionKey.rotating(current, previous)` to change the key without invalidating login flows that are
+already in progress.
 
-An expired login and a forged callback produce the same failure, so the handler cannot tell them apart. This is why
-redirecting back to the login route is the right default.
+An expired login and a forged callback produce the same failure, so the handler cannot distinguish between them. This is
+why redirecting back to the login route is the default.
 
-### What routes to the handler {id="errors-causes"}
+### Authentication failure causes {id="errors-causes"}
 
 | Cause                                  | Typical reason                                                                  |
 |----------------------------------------|---------------------------------------------------------------------------------|
@@ -485,13 +506,13 @@ redirecting back to the login route is the right default.
 | ID token validation failed             | Signature, issuer, audience, `exp`, `iat`, `azp`, or `sub`                      |
 | The token endpoint returned an error   | An expired or reused authorization code                                         |
 
-### When the provider is unreachable {id="errors-500"}
+### Handle provider availability errors {id="errors-500"}
 
-Some failures never reach `onAuthenticationFailed` and surface as `500 Internal Server Error` instead, see
-[](server-oidc-resource-server.md#errors-500).
+Some failures never reach `onAuthenticationFailed` and surface as `500 Internal Server Error` instead. For more information,
+see [](server-oidc-resource-server.md#errors-500).
 
-The refresh cases are the ones to plan for here. With `OidcTokenRefreshStrategy.Auto` a refresh runs while handling an
-ordinary request, so an unreachable provider turns your signed-in users' requests into 500s.
+This can occur during automatic token refresh. With `OidcTokenRefreshStrategy.Auto` a refresh runs while handling an
+ordinary request. If the provider is unavailable, the request can therefore fail with a `500` response.
 
 What happens to the session depends on why the refresh failed:
 
@@ -501,11 +522,12 @@ What happens to the session depends on why the refresh failed:
 | The provider is unreachable or returns an error | Kept, unless already expired                 | The exception propagates, so `500`                                |
 | No ID token in the response, or `sub` changed   | Kept while still valid, cleared once expired | Works until the old token expires                                 |
 
-A cleared session makes the next request unauthenticated, so the user goes back through login. That is the intended
-outcome; the alternative is a session that fails on every request forever.
+After a session is cleared, the next protected request is unauthenticated and the user must sign in again.
 
-## What's next {id="next"}
-
-* [](server-oidc.md) covers discovery, session security defaults, and testing.
-* [](server-oidc-resource-server.md) covers validating tokens in an API.
-* [](server-sessions.md) covers session storage and cookie configuration.
+> To learn more about discovery, session security defaults, and testing, see [](server-oidc.md).
+> 
+> For validating tokens in an API, see [](server-oidc-resource-server.md).
+> 
+> For session storage and cookie configuration, see[](server-sessions.md).
+> 
+{style="tip"}
