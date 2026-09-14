@@ -27,10 +27,22 @@ val applicationHttpClient = HttpClient(CIO) {
     }
 }
 
-fun Application.main(httpClient: HttpClient = applicationHttpClient) {
+fun Application.main(
+    httpClient: HttpClient = applicationHttpClient
+) {
     install(Sessions) {
         cookie<UserSession>("user_session")
     }
+    val googleAuthorizeUrl =
+        "https://accounts.google.com/o/oauth2/auth"
+    val googleTokenUrl =
+        "https://accounts.google.com/o/oauth2/token"
+    val profileScope =
+        "https://www.googleapis.com/auth/userinfo.profile"
+    val googleClientId =
+        System.getenv("GOOGLE_CLIENT_ID").orEmpty()
+    val googleClientSecret =
+        System.getenv("GOOGLE_CLIENT_SECRET").orEmpty()
     val redirects = ConcurrentMap<String, String>()
     install(Authentication) {
         oauth("auth-oauth-google") {
@@ -38,16 +50,18 @@ fun Application.main(httpClient: HttpClient = applicationHttpClient) {
             urlProvider = { "http://localhost:8080/callback" }
             settings = OAuthServerSettings.OAuth2ServerSettings(
                     name = "google",
-                    authorizeUrl = "https://accounts.google.com/o/oauth2/auth",
-                    accessTokenUrl = "https://accounts.google.com/o/oauth2/token",
+                    authorizeUrl = googleAuthorizeUrl,
+                    accessTokenUrl = googleTokenUrl,
                     requestMethod = HttpMethod.Post,
-                    clientId = System.getenv("GOOGLE_CLIENT_ID").orEmpty(),
-                    clientSecret = System.getenv("GOOGLE_CLIENT_SECRET").orEmpty(),
-                    defaultScopes = listOf("https://www.googleapis.com/auth/userinfo.profile"),
-                    extraAuthParameters = listOf("access_type" to "offline"),
+                    clientId = googleClientId,
+                    clientSecret = googleClientSecret,
+                    defaultScopes = listOf(profileScope),
+                    extraAuthParameters =
+                        listOf("access_type" to "offline"),
                     onStateCreated = { call, state ->
-                        //saves new state with redirect url value
-                        call.request.queryParameters["redirectUrl"]?.let {
+                        // saves new state with redirect url
+                        val query = call.request.queryParameters
+                        query["redirectUrl"]?.let {
                             redirects[state] = it
                         }
                     }
@@ -56,7 +70,10 @@ fun Application.main(httpClient: HttpClient = applicationHttpClient) {
                 if (cause is OAuth2RedirectError) {
                     respondRedirect("/login-after-fallback")
                 } else {
-                    respond(HttpStatusCode.Forbidden, cause.message)
+                    respond(
+                        HttpStatusCode.Forbidden,
+                        cause.message
+                    )
                 }
             }
             client = httpClient
@@ -69,13 +86,20 @@ fun Application.main(httpClient: HttpClient = applicationHttpClient) {
             }
 
             get("/callback") {
-                val currentPrincipal: OAuthAccessTokenResponse.OAuth2? = call.principal()
-                // redirects home if the url is not found before authorization
+                val currentPrincipal:
+                    OAuthAccessTokenResponse.OAuth2? =
+                        call.principal()
+                // redirects home if the url is not found
+                // before authorization
                 currentPrincipal?.let { principal ->
                     principal.state?.let { state ->
-                        call.sessions.set(UserSession(state, principal.accessToken))
-                        redirects.remove(state)?.let { redirect ->
-                            call.respondRedirect(redirect)
+                        val session = UserSession(
+                            state,
+                            principal.accessToken
+                        )
+                        call.sessions.set(session)
+                        redirects.remove(state)?.let { url ->
+                            call.respondRedirect(url)
                             return@get
                         }
                     }
@@ -95,14 +119,17 @@ fun Application.main(httpClient: HttpClient = applicationHttpClient) {
         get("/home") {
             val userSession: UserSession? = getSession(call)
             if (userSession != null) {
-                val userInfo: UserInfo = getPersonalGreeting(httpClient, userSession)
-                call.respondText("Hello, ${userInfo.name}! Welcome home!")
+                val userInfo: UserInfo =
+                    getPersonalGreeting(httpClient, userSession)
+                val name = userInfo.name
+                call.respondText("Hello, $name! Welcome home!")
             }
         }
         get("/{path}") {
             val userSession: UserSession? = getSession(call)
             if (userSession != null) {
-                val userInfo: UserInfo = getPersonalGreeting(httpClient, userSession)
+                val userInfo: UserInfo =
+                    getPersonalGreeting(httpClient, userSession)
                 call.respondText("Hello, ${userInfo.name}!")
             }
         }
@@ -115,9 +142,12 @@ fun Application.main(httpClient: HttpClient = applicationHttpClient) {
 private suspend fun getPersonalGreeting(
     httpClient: HttpClient,
     userSession: UserSession
-): UserInfo = httpClient.get("https://www.googleapis.com/oauth2/v2/userinfo") {
+): UserInfo = httpClient.get(
+    "https://www.googleapis.com/oauth2/v2/userinfo"
+) {
     headers {
-        append(HttpHeaders.Authorization, "Bearer ${userSession.token}")
+        val bearer = "Bearer ${userSession.token}"
+        append(HttpHeaders.Authorization, bearer)
     }
 }.body()
 
@@ -127,7 +157,8 @@ private suspend fun getSession(
     val userSession: UserSession? = call.sessions.get()
     //if there is no session, redirect to login
     if (userSession == null) {
-        val redirectUrl = URLBuilder("http://localhost:8080/login").run {
+        val loginUrl = "http://localhost:8080/login"
+        val redirectUrl = URLBuilder(loginUrl).run {
             parameters.append("redirectUrl", call.request.uri)
             build()
         }

@@ -13,15 +13,24 @@
 <include from="lib.topic" element-id="native_server_not_supported"/>
 </tldr>
 
-The Digest authentication scheme is a part of the [HTTP framework](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) used for access control and authentication. In this scheme, a hash function is applied to a username and password before sending them over the network.
+The Digest authentication scheme is a part of
+the [HTTP framework](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) used for access control and
+authentication. In this scheme, a hash function is applied to a username and password before sending them over the
+network.
 
-Ktor supports [RFC 7616](https://datatracker.ietf.org/doc/html/rfc7616) (HTTP Digest Access Authentication), which enhances the older RFC 2617 with modern security features including stronger hash algorithms, quality of protection options, and username hashing for privacy.
+Ktor supports [RFC 7616](https://datatracker.ietf.org/doc/html/rfc7616) (HTTP Digest Access Authentication), which
+enhances the older RFC 2617 with modern security features including stronger hash algorithms, quality of protection
+options, and username hashing for privacy.
 
-Ktor allows you to use digest authentication for logging in users and protecting specific [routes](server-routing.md). You can get general information about authentication in Ktor in the [](server-auth.md) section.
+Ktor allows you to use digest authentication for logging in users and protecting specific [routes](server-routing.md).
+You can get general information about authentication in Ktor in the [](server-auth.md) section.
 
-> Digest authentication provides stronger security than [Basic authentication](server-basic-auth.md) since passwords are never sent in clear text. However, it is recommended to use [HTTPS/TLS](server-ssl.md) in production for added transport-level security.
+> Digest authentication provides stronger security than [Basic authentication](server-basic-auth.md) since passwords are
+> never sent in clear text. However, it is recommended to use [HTTPS/TLS](server-ssl.md) in production for added
+> transport-level security.
 
 ## Add dependencies {id="add_dependencies"}
+
 To enable `digest` authentication, you need to include the `%artifact_name%` artifact in the build script:
 
 <include from="lib.topic" element-id="add_ktor_artifact"/>
@@ -30,8 +39,11 @@ To enable `digest` authentication, you need to include the `%artifact_name%` art
 
 The digest authentication flow looks as follows:
 
-1. A client makes a request without the `Authorization` header to a specific [route](server-routing.md) in a server application.
-2. A server responds to a client with a `401` (Unauthorized) response status and uses a `WWW-Authenticate` response header to provide information that the digest authentication scheme is used to protect a route. A typical `WWW-Authenticate` header looks like this:
+1. A client makes a request without the `Authorization` header to a specific [route](server-routing.md) in a server
+   application.
+2. A server responds to a client with a `401` (Unauthorized) response status and uses a `WWW-Authenticate` response
+   header to provide information that the digest authentication scheme is used to protect a route. A typical
+   `WWW-Authenticate` header looks like this:
 
    ```
    WWW-Authenticate: Digest
@@ -42,9 +54,11 @@ The digest authentication flow looks as follows:
    ```
    {style="block"}
 
-   In Ktor, you can specify the realm, supported algorithms, quality of protection, and the way of generating a nonce value when [configuring](#configure-provider) the `digest` authentication provider.
+   In Ktor, you can specify the realm, supported algorithms, quality of protection, and the way of generating a nonce
+   value when [configuring](#configure-provider) the `digest` authentication provider.
 
-3. Usually a client displays a login dialog where a user can enter credentials. Then, a client makes a request with the following `Authorization` header:
+3. Usually a client displays a login dialog where a user can enter credentials. Then, a client makes a request with the
+   following `Authorization` header:
 
    ```
    Authorization: Digest username="jetbrains",
@@ -61,18 +75,21 @@ The digest authentication flow looks as follows:
 
    The `response` value is generated in the following way:
 
-   * `HA1 = H(username:realm:password)` where `H` is the configured hash algorithm (e.g., SHA-512-256)
+    * `HA1 = H(username:realm:password)` where `H` is the configured hash algorithm (e.g., SHA-512-256)
    > This part [is stored](#digest-table) on a server and can be used by Ktor to validate user credentials.
 
-   * `HA2 = H(method:digestURI)` (for `qop=auth`) or `HA2 = H(method:digestURI:H(entityBody))` (for `qop=auth-int`)
+    * `HA2 = H(method:digestURI)` (for `qop=auth`) or `HA2 = H(method:digestURI:H(entityBody))` (for `qop=auth-int`)
 
-   * `response = H(HA1:nonce:nc:cnonce:qop:HA2)`
+    * `response = H(HA1:nonce:nc:cnonce:qop:HA2)`
 
-4. A server [validates](#configure-provider) the credentials sent by a client and responds with the requested content. On successful authentication with QoP, the server also returns an `Authentication-Info` header for mutual authentication.
-
+4. A server [validates](#configure-provider) the credentials sent by a client and responds with the requested content.
+   On successful authentication with QoP, the server also returns an `Authentication-Info` header for mutual
+   authentication.
 
 ## Install digest authentication {id="install"}
-To install the `digest` authentication provider, call the [digest](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/digest.html) function inside the `install` block:
+
+To install the `digest` authentication provider, call
+the [digest](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/digest.html) function inside the `install` block:
 
 ```kotlin
 import io.ktor.server.application.*
@@ -84,15 +101,19 @@ install(Authentication) {
     }
 }
 ```
-You can optionally specify a [provider name](server-auth.md#provider-name) that can be used to [authenticate a specified route](#authenticate-route).
+
+You can optionally specify a [provider name](server-auth.md#provider-name) that can be used
+to [authenticate a specified route](#authenticate-route).
 
 ## Configure digest authentication {id="configure"}
 
-To get a general idea of how to configure different authentication providers in Ktor, see [](server-auth.md#configure). In this section, we'll see on configuration specifics of the `digest` authentication provider.
+To get a general idea of how to configure different authentication providers in Ktor, see [](server-auth.md#configure).
+In this section, we'll see on configuration specifics of the `digest` authentication provider.
 
 ### Step 1: Choose hash algorithms {id="choose-algorithms"}
 
-Ktor supports multiple hash algorithms for digest authentication. You can configure which algorithms your server accepts using the `algorithms` property:
+Ktor supports multiple hash algorithms for digest authentication. You can configure which algorithms your server accepts
+using the `algorithms` property:
 
 | Algorithm        | Constant                           | Security Level  | Notes                                           |
 |------------------|------------------------------------|-----------------|-------------------------------------------------|
@@ -107,43 +128,60 @@ Ktor supports multiple hash algorithms for digest authentication. You can config
 install(Authentication) {
     digest("auth-digest") {
         realm = "Access to the '/' path"
-        algorithms = listOf(DigestAlgorithm.SHA_512_256, DigestAlgorithm.MD5)
+        algorithms = listOf(
+            DigestAlgorithm.SHA_512_256,
+            DigestAlgorithm.MD5
+        )
         // ...
     }
 }
 ```
 
-When multiple algorithms are configured, the server sends multiple `WWW-Authenticate` headers, allowing clients to choose the strongest algorithm they support.
+When multiple algorithms are configured, the server sends multiple `WWW-Authenticate` headers, allowing clients to
+choose the strongest algorithm they support.
 
 > The default algorithms are `SHA-512-256` and `MD5` (for backward compatibility with older clients).
 
 #### Session algorithms (-sess variants) {id="sess-algorithms"}
 
-The `-sess` algorithm variants (e.g., `SHA-512-256-sess`, `SHA-256-sess`, `MD5-sess`) modify how the `HA1` hash is computed. Instead of storing `H(username:realm:password)`, session algorithms compute `H(H(username:realm:password):nonce:cnonce)`, where `cnonce` is client-provided nonce.
+The `-sess` algorithm variants (e.g., `SHA-512-256-sess`, `SHA-256-sess`, `MD5-sess`) modify how the `HA1` hash is
+computed. Instead of storing `H(username:realm:password)`, session algorithms compute
+`H(H(username:realm:password):nonce:cnonce)`, where `cnonce` is client-provided nonce.
 
 **Benefits:**
+
 - The session-specific hash prevents pre-computed dictionary attacks
 - Compromising one session's hash doesn't reveal the password or help with other sessions
 
 **Drawback:**
+
 - The server must compute the hash for each authentication request (cannot use pre-computed values)
 
-For most applications, the standard (non-session) algorithms are sufficient, especially when used with strong hash functions like SHA-512-256.
+For most applications, the standard (non-session) algorithms are sufficient, especially when used with strong hash
+functions like SHA-512-256.
 
 ### Step 2: Provide a user table with digests {id="digest-table"}
 
-The `digest` authentication provider validates user credentials using the `HA1` part of a digest message, so you can provide a user table that contains usernames and their corresponding `HA1` hashes.
+The `digest` authentication provider validates user credentials using the `HA1` part of a digest message, so you can
+provide a user table that contains usernames and their corresponding `HA1` hashes.
 
-Since different algorithms produce different hash values, you need to store the appropriate hash for each algorithm you support or compute the hash dynamically based on the algorithm requested by the client:
+Since different algorithms produce different hash values, you need to store the appropriate hash for each algorithm you
+support or compute the hash dynamically based on the algorithm requested by the client:
 
 ```kotlin
 ```
-{src="snippets/auth-digest/src/main/kotlin/authdigest/Application.kt" include-lines="11-18"}
 
+{src="snippets/auth-digest/src/main/kotlin/authdigest/Application.kt" include-lines="11-23"}
 
 ### Step 3: Configure a digest provider {id="configure-provider"}
 
-The `digest` authentication provider exposes its settings via the [DigestAuthenticationProvider.Config](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-digest-authentication-provider/-config/index.html) class. In the example below, the following settings are specified:
+<tabs group="auth-dsl">
+<tab title="Classic" group-key="classic">
+
+The `digest` authentication provider exposes its settings via
+the [DigestAuthenticationProvider.Config](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-digest-authentication-provider/-config/index.html)
+class. In the example below, the following settings are specified:
+
 * The `realm` property sets the realm to be passed in the `WWW-Authenticate` header.
 * The `algorithms` property specifies which hash algorithms to accept.
 * The `digestProvider` function fetches the `HA1` part of digest for a specified username and algorithm.
@@ -151,51 +189,133 @@ The `digest` authentication provider exposes its settings via the [DigestAuthent
 
 ```kotlin
 ```
-{src="snippets/auth-digest/src/main/kotlin/authdigest/Application.kt" include-lines="19-39,47-49"}
+
+{src="snippets/auth-digest/src/main/kotlin/authdigest/Application.kt" include-lines="26-55"}
+
+</tab>
+<tab title="Type-safe" group-key="typed">
+
+<include from="lib.topic" element-id="typed_auth_experimental"/>
+
+The `digest()` function creates a scheme for a principal type of your choice. There is no `install(Authentication)`
+step: the scheme is a value you pass to the routes that need it.
+
+```kotlin
+data class CustomPrincipal(
+    val userName: String,
+    val realm: String
+)
+
+val digestAuth = digest<CustomPrincipal>("auth-digest") {
+    realm = myRealm
+    // Support both modern SHA-512-256
+    // and legacy MD5 clients
+    algorithms = listOf(
+        DigestAlgorithm.SHA_512_256,
+        DigestAlgorithm.MD5
+    )
+    digestProvider { userName, realm, algorithm ->
+        // Compute H(username:realm:password)
+        // using the requested algorithm
+        userPasswords[userName]?.let { password ->
+            computeHash(userName, realm, password, algorithm)
+        }
+    }
+    validate { credentials ->
+        if (credentials.userName.isNotEmpty()) {
+            CustomPrincipal(
+                credentials.userName,
+                credentials.realm
+            )
+        } else {
+            null
+        }
+    }
+}
+```
+
+The type-safe `digest()` function is available on the JVM only. For the full API, see [](server-typed-auth.md).
+
+</tab>
+</tabs>
 
 The `digestProvider` function receives three parameters:
-- `userName` - the username from the client's request
+
+- `userName` – the username from the client's request
 - `realm` - the configured realm
-- `algorithm` - the hash algorithm the client is using
+- `algorithm` – the hash algorithm the client is using
 
 You should return the `HA1` hash computed with the specified algorithm, or `null` if the user is not found.
 
-You can also use the [nonceManager](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-digest-authentication-provider/-config/nonce-manager.html) property to specify how to generate nonce values.
+You can also use
+the [nonceManager](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-digest-authentication-provider/-config/nonce-manager.html)
+property to specify how to generate nonce values.
 
 ### Step 4: Configure Quality of Protection {id="configure-qop"}
 
 Quality of Protection (QoP) determines what is included in the digest calculation:
 
-- `DigestQop.AUTH` - Authentication only (default). The digest includes the request method and URI.
-- `DigestQop.AUTH_INT` - Authentication with integrity protection. The digest also includes the request body, providing protection against tampering.
+- `DigestQop.AUTH` – Authentication only (default). The digest includes the request method and URI.
+- `DigestQop.AUTH_INT` – Authentication with integrity protection. The digest also includes the request body, providing
+  protection against tampering.
 
 ```kotlin
 install(Authentication) {
     digest("auth-digest") {
         realm = "Secure API"
-        supportedQop = listOf(DigestQop.AUTH, DigestQop.AUTH_INT)
+        supportedQop = listOf(
+            DigestQop.AUTH,
+            DigestQop.AUTH_INT
+        )
         // ...
     }
 }
 ```
 
-> When using `auth-int`, the request body is consumed during authentication. If you need to access the body in your route handler, install the [DoubleReceive](server-double-receive.md) plugin.
-
+> When using `auth-int`, the request body is consumed during authentication. If you need to access the body in your
+> route handler, install the [DoubleReceive](server-double-receive.md) plugin.
 
 ### Step 5: Protect specific resources {id="authenticate-route"}
 
-After configuring the `digest` provider, you can protect specific resources in our application using the **[authenticate](server-auth.md#authenticate-route)** function. In the case of successful authentication, you can retrieve an authenticated [Principal](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-principal/index.html) inside a route handler using the `call.principal` function and get a name of an authenticated user.
+<tabs group="auth-dsl">
+<tab title="Classic" group-key="classic">
+
+After configuring the `digest` provider, you can protect specific resources in our application using the
+**[authenticate](server-auth.md#authenticate-route)** function. In the case of successful authentication, you can
+retrieve an authenticated [Principal](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-principal/index.html)
+inside a route handler using the `call.principal` function and get a name of an authenticated user.
 
 ```kotlin
 ```
-{src="snippets/auth-digest/src/main/kotlin/authdigest/Application.kt" include-lines="41-49"}
 
+{src="snippets/auth-digest/src/main/kotlin/authdigest/Application.kt" include-lines="56-63"}
+
+</tab>
+<tab title="Type-safe" group-key="typed">
+
+Pass the scheme to `authenticateWith()`. Inside the block, `call.principal` is your principal type and is never
+`null`, so no cast or null check is needed:
+
+```kotlin
+routing {
+    authenticateWith(digestAuth) {
+        get("/") {
+            val user = call.principal
+            call.respondText("Hello, ${user.userName}!")
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
 
 ## Advanced configuration {id="advanced"}
 
 ### User hash support {id="userhash"}
 
-RFC 7616 introduces username hashing (`userhash`) for privacy protection. When enabled, clients can send a hashed version of the username instead of the plaintext username.
+RFC 7616 introduces username hashing (`userhash`) for privacy protection. When enabled, clients can send a hashed
+version of the username instead of the plaintext username.
 
 To support username hashing, configure a `userHashResolver`:
 
@@ -209,8 +329,8 @@ install(Authentication) {
             // Find the actual username from the hash
             users.find { username ->
                 val digester = algorithm.toDigester()
-                val computedHash = hex(digester.digest("$username:$realm".toByteArray()))
-                computedHash == userhash
+                val bytes = "$username:$realm".toByteArray()
+                hex(digester.digest(bytes)) == userhash
             }
         }
         digestProvider { userName, realm, algorithm ->
@@ -239,6 +359,7 @@ install(Authentication) {
 ```
 
 Strict mode:
+
 - Removes MD5 algorithms (only allows SHA-256, SHA-512-256, and their session variants)
 - Enforces UTF-8 charset
 
@@ -259,12 +380,12 @@ install(Authentication) {
 ### Authentication-Info header {id="auth-info"}
 
 On successful authentication with QoP, the server automatically returns an `Authentication-Info` header containing:
+
 - `rspauth` - Response authentication value for mutual authentication
 - `nextnonce` - Next nonce for the client to use
 - `qop`, `nc`, `cnonce` - Echo of authentication parameters
 
 This allows clients to verify the server's identity (mutual authentication).
-
 
 ## Security recommendations {id="security"}
 
@@ -272,7 +393,8 @@ This allows clients to verify the server's identity (mutual authentication).
 
 2. **Use `strictRfc7616Mode()`** - For new applications without legacy client requirements.
 
-3. **Implement proper nonce management** – Use a custom `NonceManager` to prevent replay attacks in distributed environments.
+3. **Implement proper nonce management** – Use a custom `NonceManager` to prevent replay attacks in distributed
+   environments.
 
 4. **Consider `auth-int`** - When request body integrity is important for your application.
 

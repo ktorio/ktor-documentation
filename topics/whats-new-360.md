@@ -54,7 +54,8 @@ staticResources("staticResources", "public") {
 
 ### OpenAPI tag descriptions
 
-You can now define descriptions for OpenAPI tags directly in the [`openAPI {}`](server-openapi.md) and [`swaggerUI {}`](server-swagger-ui.md)
+You can now define descriptions for OpenAPI tags directly in the [`openAPI {}`](server-openapi.md) and [
+`swaggerUI {}`](server-swagger-ui.md)
 configuration blocks:
 
 ```kotlin
@@ -71,20 +72,19 @@ The tag description is added to the top-level metadata of the generated OpenAPI 
 
 ### New `ApplicationCall.respondHtmlPartial()` function
 
-The new `.respondHtmlPartial()` function replaces `.respondHtmlFragment()` for responding
-with partial HTML content.
+The new `.respondHtmlPartial()` function replaces `.respondHtmlFragment()` for responding with partial HTML content.
 
-It uses `TagConsumer<Appendable>` as the lambda receiver, which allows you to return unrestricted HTML content,
-such as table cells:
+It uses `TagConsumer<Appendable>` as the lambda receiver, which allows you to return unrestricted HTML content, such as
+table cells:
 
 ```kotlin
 call.respondHtmlPartial(HttpStatusCode.Created) {
-    td { +"Created!" } 
+    td { +"Created!" }
 }
 ```
 
-The previous `.respondHtmlFragment()` function uses `FlowContent`, which restricts the HTML elements that can be returned.
-It is now deprecated in favor of `.respondHtmlPartial()`.
+The previous `.respondHtmlFragment()` function uses `FlowContent`, which restricts the HTML elements that can be
+returned. It is now deprecated in favor of `.respondHtmlPartial()`.
 
 ### Netty
 
@@ -165,7 +165,9 @@ install(Authentication) {
 install(RateLimit) {
     register(RateLimitName("per-user")) {
         rateLimiter(limit = 10, refillPeriod = 60.seconds)
-        requestKey { call.principal<UserIdPrincipal>()?.name ?: "anonymous" }
+        requestKey {
+            call.principal<UserIdPrincipal>()?.name ?: "anonymous"
+        }
     }
 }
 
@@ -178,8 +180,45 @@ routing {
 }
 ```
 
-You can also place `rateLimit()` outside `authenticate()` to apply rate limiting before authentication. Use this approach
-when the rate limit doesn't depend on an authenticated principal.
+You can also place `rateLimit()` outside `authenticate()` to apply rate limiting before authentication. Use this
+approach when the rate limit doesn't depend on an authenticated principal.
+
+### Type-safe authentication scheme API
+
+Ktor 3.6.0 introduces an experimental [type-safe authentication scheme API](server-typed-auth.md). Instead of installing a
+named provider and referring to it by string, you create a scheme value and pass it to the routes that need it. Inside a
+protected route, `call.principal` has the scheme's principal type and is guaranteed to be non-`null`:
+
+```kotlin
+data class User(val id: String, val email: String)
+
+val jwtAuth = jwt<User>("my-jwt") {
+    verifier(jwkProvider, issuer)
+    validate { credential ->
+        val payload = credential.payload
+        User(
+            id = payload.subject,
+            email = payload.getClaim("email").asString()
+        )
+    }
+}
+
+routing {
+    authenticateWith(jwtAuth) {
+        get("/profile") {
+            call.respondText(call.principal.email)
+        }
+    }
+}
+```
+
+The API also adds opt-in [role checks](server-typed-auth.md#roles),
+an [anonymous fallback](server-typed-auth.md#anonymous), typed
+[session,](server-typed-session-auth.md) and [OAuth 2.0](server-oauth2-flows.md) support.
+
+The type-safe authentication scheme API is marked with `@ExperimentalKtorApi` and uses Kotlin context parameters, which require Kotlin 2.4.0 or the
+`-Xcontext-parameters` compiler option. The existing `install(Authentication)` API remains supported, and you can use both APIs in
+the same application.
 
 ### Nullable request bodies with `ApplicationCall.receive()`
 
@@ -237,7 +276,8 @@ Non-nullable calls to `.receive()` continue to work unchanged. Response APIs are
 
 ### Default client engines for multiplatform projects {id="default-engines"}
 
-Ktor 3.6.0 introduces the `ktor-client-engine-defaults` artifact, which provides a curated set of HTTP [client engines](client-engines.md)
+Ktor 3.6.0 introduces the `ktor-client-engine-defaults` artifact, which provides a curated set of
+HTTP [client engines](client-engines.md)
 for [Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform/get-started.html) projects.
 
 Add the dependency to the `commonMain` source set:
@@ -260,27 +300,27 @@ You can then create an `HttpClient` without specifying an engine:
 val client = HttpClient()
 ```
 
-For each target platform, Ktor uses the default engine provided by `ktor-client-engine-defaults`. If more than one engine
-is available, the client selects the engine with the highest priority. `CIO` has the lowest priority by default, so the
-client selects another available engine over `CIO`.
+For each target platform, Ktor uses the default engine provided by `ktor-client-engine-defaults`. If more than one
+engine is available, the client selects the engine with the highest priority. `CIO` has the lowest priority by default,
+so the client selects another available engine over `CIO`.
 
 If your multiplatform project currently uses `CIO` across all supported targets, consider replacing the `CIO` dependency
 with `ktor-client-engine-defaults`. This lets Ktor provide a curated default engine for each platform while keeping
 engine selection out of your common source set.
 
-You can still [declare a specific client engine](client-dependencies.md#kmp-specific-engine) when you need engine-specific
-configuration or behavior.
+You can still [declare a specific client engine](client-dependencies.md#kmp-specific-engine) when you need
+engine-specific configuration or behavior.
 
 ### WebRTC client support for JVM {id="webrtc-jvm-support"}
 <primary-label ref="experimental"/>
 
-The experimental [WebRTC client](client-webrtc.md) now supports JVM desktop applications.
+The experimental [](client-webrtc.md)now supports JVM desktop applications.
 
 The JVM implementation uses [webrtc-java](https://github.com/devopvoid/webrtc-java) native WebRTC bindings and provides
 support for peer connections, audio and video tracks, data channels, and connection statistics.
 
 JVM support currently has several platform-specific limitations. For more information, see the
-[WebRTC client](client-webrtc.md) documentation.
+[](client-webrtc.md) documentation.
 
 ### Multiplatform file storage for HTTP caching
 
@@ -314,14 +354,15 @@ This replaces the JVM-specific setup that creates a `File` before passing it to 
 
 ### Control `Accept` header merging in `ContentNegotiation`
 
-You can now control how the client [`ContentNegotiation`](client-serialization.md) plugin merges registered content types
-with an existing `Accept` header.
+You can now control how the client [`ContentNegotiation`](client-serialization.md) plugin merges registered content
+types with an existing `Accept` header.
 
-By default, the `ContentNegotiation` plugin adds registered content types that aren't already represented in the request's
+By default, the `ContentNegotiation` plugin adds registered content types that aren't already represented in the
+request's
 `Accept` header.
 
-If you set an `Accept` header explicitly and don't want the plugin to add registered content types, set
-the `acceptHeaderMergeStrategy` property to `ContentTypeMergeStrategy.SkipIfPresent`:
+If you set an `Accept` header explicitly and don't want the plugin to add registered content types, set the
+`acceptHeaderMergeStrategy` property to `ContentTypeMergeStrategy.SkipIfPresent`:
 
 ```kotlin
 install(ContentNegotiation) {
@@ -330,8 +371,8 @@ install(ContentNegotiation) {
 }
 ```
 
-With `SkipIfPresent`, the plugin preserves an existing `Accept` header. If the request doesn't contain an `Accept` header,
-the plugin adds the registered content types as usual.
+With `SkipIfPresent`, the plugin preserves an existing `Accept` header. If the request doesn't contain an `Accept`
+header, the plugin adds the registered content types as usual.
 
 ### Asynchronous DNS resolution in the CIO client engine
 
@@ -370,8 +411,9 @@ val client = HttpClient(Js) {
 }
 ```
 
-This is useful when integrating with JavaScript libraries that provide their own `fetch()` wrapper, such as [AWS WAF](https://aws.amazon.com/waf/).
-If you don't configure `fetch`, the engine continues to use the global `fetch()` function.
+This is useful when integrating with JavaScript libraries that provide their own `fetch()` wrapper, such
+as [AWS WAF](https://aws.amazon.com/waf/). If you don't configure `fetch`, the engine continues to use the global
+`fetch()` function.
 
 ## Shared
 
