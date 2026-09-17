@@ -2,6 +2,7 @@ package com.example
 
 import io.ktor.http.*
 import io.ktor.server.application.*
+import io.ktor.server.plugins.*
 import io.ktor.server.plugins.ratelimit.*
 import io.ktor.server.plugins.statuspages.*
 import io.ktor.server.response.*
@@ -24,10 +25,22 @@ fun Application.module() {
                 applicationCall.request.queryParameters["login"]!!
             }
             requestWeight { applicationCall, key ->
-                when(key) {
+                when (key) {
                     "jetbrains" -> 1
                     else -> 2
                 }
+            }
+        }
+        register(RateLimitName("per-ip")) {
+            rateLimiter(limit = 5, refillPeriod = 60.seconds)
+            requestKey { call ->
+                call.request.origin.remoteHost
+            }
+        }
+        register(RateLimitName("per-api-key")) {
+            rateLimiter(limit = 5, refillPeriod = 60.seconds)
+            requestKey { call ->
+                call.request.headers["X-Api-Key"] ?: "anonymous"
             }
         }
     }
@@ -55,6 +68,20 @@ fun Application.module() {
                 val requestsLeft = call.response.headers["X-RateLimit-Remaining"]
                 val login = call.request.queryParameters["login"]
                 call.respondText("Welcome to protected API, $login! $requestsLeft requests left.")
+            }
+        }
+        rateLimit(RateLimitName("per-ip")) {
+            get("/ip-api") {
+                val requestsLeft = call.response.headers["X-RateLimit-Remaining"]
+                val clientHost = call.request.origin.remoteHost
+                call.respondText("Welcome to IP API, $clientHost! $requestsLeft requests left.")
+            }
+        }
+        rateLimit(RateLimitName("per-api-key")) {
+            get("/keyed-api") {
+                val requestsLeft = call.response.headers["X-RateLimit-Remaining"]
+                val apiKey = call.request.headers["X-Api-Key"] ?: "anonymous"
+                call.respondText("Welcome to keyed API, $apiKey! $requestsLeft requests left.")
             }
         }
     }

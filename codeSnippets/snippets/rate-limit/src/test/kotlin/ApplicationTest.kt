@@ -32,5 +32,31 @@ class ApplicationTest {
         client.get("/protected-api?login=jetbrains").let {
             assertEquals(HttpStatusCode.OK, it.status)
         }
+
+        repeat(5) {
+            val response = client.get("/ip-api")
+            assertEquals(HttpStatusCode.OK, response.status)
+        }
+        client.get("/ip-api").let {
+            assertEquals(HttpStatusCode.TooManyRequests, it.status)
+        }
+
+        repeat(5) {
+            val response = client.get("/keyed-api") {
+                header("X-Api-Key", "demo-key")
+            }
+            assertEquals(HttpStatusCode.OK, response.status)
+        }
+        client.get("/keyed-api") {
+            header("X-Api-Key", "demo-key")
+        }.let {
+            assertEquals(HttpStatusCode.TooManyRequests, it.status)
+        }
+
+        client.get("/keyed-api") {
+            header("X-Api-Key", "other-key")
+        }.let {
+            assertEquals(HttpStatusCode.OK, it.status)
+        }
     }
 }

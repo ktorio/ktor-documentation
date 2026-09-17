@@ -14,5 +14,7 @@ Then, open and refresh one of the following pages to test rate limiting:
 - [http://localhost:8080/](http://localhost:8080/)
 - [http://localhost:8080/public-api](http://localhost:8080/public-api)
 - [http://localhost:8080/protected-api?login=jetbrains](http://localhost:8080/protected-api?login=jetbrains)
+- [http://localhost:8080/ip-api](http://localhost:8080/ip-api) (rate-limited per client IP)
+- [http://localhost:8080/keyed-api](http://localhost:8080/keyed-api) (send an `X-Api-Key` header; each key has its own limit)
 
-For the latest endpoint, you can change the `login` query parameter to another value to see how a request weight affects rate limiting.
+For `/protected-api`, change the `login` query parameter to another value to see how a request weight affects rate limiting.
