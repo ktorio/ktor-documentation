@@ -9,7 +9,7 @@
 </tldr>
 
 <link-summary>
-Learn how to enable and configure experimental HTTP/3 support with the Netty server engine in Ktor.
+Learn how to enable and configure experimental HTTP/3 support in Ktor with the Netty server engine.
 </link-summary>
 
 [HTTP/3](https://www.rfc-editor.org/rfc/rfc9114.html) is an HTTP protocol that runs over [QUIC](https://www.rfc-editor.org/rfc/rfc9000.html)
@@ -54,7 +54,7 @@ The following options are available:
 
 Defaults to `null`.
 
-Specifies a `QuicTokenHandler` for QUIC address validation. Use `HmacQuicTokenHandler` to enable HMAC-based Retry tokens.
+Specifies a `QuicTokenHandler` for QUIC address validation. Use `HmacQuicTokenHandler` to enable HMAC-based retry tokens.
 </def>
 <def>
 <title><code>quicMaxIdleTimeout</code></title>
@@ -103,14 +103,14 @@ Specifies the number of UDP sockets for the HTTP/3 endpoint. Values greater than
 
 Defaults to `0`.
 
-Specifies the UDP receive buffer (`SO_RCVBUF`) size in bytes. `0` uses the operating system default.
+Specifies the UDP receive buffer (`SO_RCVBUF`) size in bytes. If you set `0`, the operating system uses its default.
 </def>
 <def>
 <title><code>udpSendBufferSize</code></title>
 
 Defaults to `0`.
 
-Specifies the UDP send buffer (`SO_SNDBUF`) size in bytes. `0` uses the operating system default.
+Specifies the UDP send buffer (`SO_SNDBUF`) size in bytes. If you set `0`, the operating system uses its default.
 </def>
 </deflist>
 

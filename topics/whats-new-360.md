@@ -21,13 +21,13 @@ Ktor 3.6.0 expands the set of types supported by default when converting request
 
 The following types are now supported:
 
-* `Uuid`
 * `Byte`
 * `java.lang.Byte`
 * `UByte`
-* `UShort`
 * `UInt`
+* `UShort`
 * `ULong`
+* `Uuid`
 
 For example, you can retrieve a `Uuid` parameter directly inside a route handler through property delegation:
 
@@ -41,8 +41,8 @@ get {
 
 Ktor can now serve pre-compressed static content in Zstandard (zstd) and DEFLATE formats.
 
-To enable the new formats, use `CompressedFileType.ZSTD` and `CompressedFileType.DEFLATE` with the `preCompressed()`
-function:
+To enable the new formats, use the `CompressedFileType.ZSTD` and `CompressedFileType.DEFLATE` enum constants with the
+`preCompressed()` function:
 
 ```kotlin
 staticResources("staticResources", "public") {
@@ -84,7 +84,7 @@ call.respondHtmlPartial(HttpStatusCode.Created) {
 }
 ```
 
-The previous `.respondHtmlFragment()` function uses `FlowContent`, which restricts the HTML elements that can be
+The deprecated `.respondHtmlFragment()` function uses `FlowContent`, which restricts the HTML elements that can be
 returned. It is now deprecated in favor of `.respondHtmlPartial()`.
 
 ### Netty
@@ -309,7 +309,7 @@ put("/users/{userId}/notification-preferences") {
 }
 ```
 
-Non-nullable calls to `.receive()` continue to work unchanged. Response APIs are unaffected.
+Non-nullable calls to `.receive()` continue to work as before. Response APIs are unaffected.
 
 ## Ktor Client
 
@@ -353,7 +353,7 @@ engine-specific configuration or behavior.
 ### WebRTC client support for JVM {id="webrtc-jvm-support"}
 <primary-label ref="experimental"/>
 
-The experimental [](client-webrtc.md)now supports JVM desktop applications.
+The experimental [](client-webrtc.md) now supports JVM desktop applications.
 
 The JVM implementation uses [webrtc-java](https://github.com/devopvoid/webrtc-java) native WebRTC bindings and provides
 support for peer connections, audio and video tracks, data channels, and connection statistics.
@@ -365,8 +365,8 @@ JVM support currently has several platform-specific limitations. For more inform
 
 The [`HttpCache`](client-caching.md) plugin now supports multiplatform file storage.
 
-Previously, the `FileStorage()` function was available only on JVM and required a `java.io.File`. It now uses
-`kotlinx-io`, which allows you to configure persistent file-based caching on any supported platform using `Path`.
+Previously, the `FileStorage()` function was available only on the JVM and required a `java.io.File`. It now uses the
+`kotlinx-io` library, which allows you to configure persistent file-based caching on any supported platform using `Path`.
 
 <compare type="top-bottom" first-title="3.5.x" second-title="3.6.0">
 
@@ -417,8 +417,8 @@ header, the plugin adds the registered content types as usual.
 
 This release adds support for custom DNS resolution in the [`CIO` client engine](client-engines.md#cio).
 
-On JVM, the `CIO` engine previously relied on system DNS resolution, which can block threads. You can now override DNS
-resolution using the `dnsResolver` property in the `CIO` engine configuration.
+On the JVM, the `CIO` engine previously relied on system DNS resolution, which can block threads. You can now override
+the DNS resolution using the `dnsResolver` property in the `CIO` engine configuration.
 
 For example, use the `CioDnsResolver()` function to resolve hostnames asynchronously through a specific DNS server and
 configure a timeout:
