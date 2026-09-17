@@ -42,7 +42,7 @@ You can use an application created in the [](server-create-a-new-project.topic) 
 
    ```kotlin
    ```
-   {src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" include-lines="11-12,38"}
+   {src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" include-lines="15,21,47"}
 
 3. [Run](server-run.md) your application to see the plugin message in the console output:
 
@@ -135,7 +135,7 @@ requests and call `call.receive()` with the `Int` parameter:
 ```kotlin
 ```
 
-{src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" include-lines="27-28,30"}
+{src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" include-lines="36-37,39"}
 
 The following plugin receives a body as an integer value and adds `1` to it:
 
@@ -166,7 +166,7 @@ For example, consider the following route:
 
 ```kotlin
 ```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" include-lines="27-30"}
+{src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" include-lines="36-39"}
 
 Calling `call.respond` invokes `onCallRespond()`, which in turn allows you to transform data to be sent to the client.
 
@@ -199,7 +199,7 @@ Install the plugin inside the authenticated route to run it after authentication
 
 ```kotlin
 ```
-{src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" include-lines="20,31-37"}
+{src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" include-lines="29,40-46"}
 
 Use `onCallValidators()` when the order of route-scoped validation matters. For general request and response processing
 that does not depend on other validators, use `onCall()` instead.
@@ -307,7 +307,7 @@ To make this plugin reusable, define a configuration that lets users specify the
 
    ```kotlin
    ```
-   {src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" include-lines="15-18"}
+   {src="snippets/custom-plugin/src/main/kotlin/com/example/Application.kt" include-lines="24-27"}
 
 > For the full example, see [CustomHeaderPlugin.kt](https://github.com/ktorio/ktor-documentation/blob/%ktor_version%/codeSnippets/snippets/custom-plugin/src/main/kotlin/com/example/plugins/CustomHeaderPlugin.kt).
 >

@@ -2,6 +2,10 @@ package com.example
 
 import com.example.plugins.*
 import io.ktor.server.application.*
+import io.ktor.server.auth.Authentication
+import io.ktor.server.auth.UserIdPrincipal
+import io.ktor.server.auth.authenticate
+import io.ktor.server.auth.basic
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
@@ -9,6 +13,11 @@ import io.ktor.server.routing.*
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
 fun Application.module() {
+    install(Authentication) {
+        basic("auth") {
+            validate { credentials -> UserIdPrincipal(credentials.name) }
+        }
+    }
     install(SimplePlugin)
     install(RequestLoggingPlugin)
     install(DataTransformationPlugin)

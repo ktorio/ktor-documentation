@@ -2,8 +2,7 @@
 
 <show-structure for="chapter,procedure" depth="3"/>
 
-[//]: # (TODO: Ensure release date is correct)
-_[Released: September 16, 2026](releases.md#release-details)_
+_[Released: September 17, 2026](releases.md#release-details)_
 
 Ktor 3.6.0 delivers a range of improvements across server and client. Highlights of this feature release include:
 
