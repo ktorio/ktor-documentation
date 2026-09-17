@@ -9,9 +9,9 @@ import java.nio.file.Paths
 fun Application.module() {
     routing {
         /*
-        staticZip("/", "", Paths.get("files/text-files.zip"))
+        staticZip("/", "/", Paths.get("files/text-files.zip"))
         */
-        staticZip("/", "", Paths.get("files/text-files.zip")) {
+        staticZip("/", "/", Paths.get("files/text-files.zip")) {
             default("file.txt")
             modify { path, call ->
                 call.response.headers.append(HttpHeaders.ETag, path.fileName.toString())
