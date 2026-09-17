@@ -44,6 +44,8 @@
         <primary-color>iris</primary-color>
     </variables>
 
+    <llms-txt/>
+
     <build-profile instance="ktor"/>
 
     <footer>
