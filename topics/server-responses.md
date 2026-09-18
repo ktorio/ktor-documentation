@@ -10,6 +10,7 @@ configure various [response parameters](#parameters), such as content type, head
 
 Inside a route handler, the following API is available for working with responses:
 * A set of functions for [sending specific content types](#payload), such as [`call.respondText()`](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond-text.html) and [`call.respondHtml()`](https://api.ktor.io/ktor-server-html-builder/io.ktor.server.html/respond-html.html). 
+* Functions for [streaming text](#streaming-text) and [streaming binary](#streaming-binary) responses, such as [`call.respondTextWriter()`](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond-text-writer.html), [`call.respondOutputStream()`](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond-output-stream.html), and [`call.respondBytesWriter()`](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond-bytes-writer.html).
 * The [`call.respond()`](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond.html) function that allows you to [send any data type](#payload) inside a response. When the [ContentNegotiation](server-serialization.md) plugin is installed, you can send a data object serialized in a specific format.
 * The [`call.response()`](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-application-call/response.html) property that returns the [`ApplicationResponse`](https://api.ktor.io/ktor-server-core/io.ktor.server.response/-application-response/index.html) object, providing access to [response parameters](#parameters) for setting the status code, adding headers, and configuring cookies.
 * The [`call.respondRedirect()`](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond-redirect.html) function for sending redirect responses.
@@ -26,6 +27,32 @@ get("/") {
 }
 ```
 
+### Streaming text {id="streaming-text"}
+
+To stream text incrementally on JVM, use the [`call.respondTextWriter()`](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond-text-writer.html) function.
+Ktor provides a [`Writer`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Writer.html) and closes it automatically when the block completes.
+This is useful when you generate content gradually and want to flush parts of the response as they become available:
+
+```kotlin
+```
+{src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="37-44"}
+
+### Streaming binary {id="streaming-binary"}
+
+To stream binary data on JVM, use the [`call.respondOutputStream()`](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond-output-stream.html) function.
+Ktor provides an [`OutputStream`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html) and closes it automatically when the block completes:
+
+```kotlin
+```
+{src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="45-52"}
+
+For multiplatform byte streaming, use the [`call.respondBytesWriter()`](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond-bytes-writer.html) function.
+It provides a [`ByteWriteChannel`](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-write-channel/index.html) that is closed automatically:
+
+```kotlin
+```
+{src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="53-60"}
+
 ### HTML {id="html"}
 
 Ktor provides two main mechanisms for generating HTML responses:
@@ -38,7 +65,7 @@ To send full HTML documents built with Kotlin DSL, use the [`call.respondHtml()`
 
 ```kotlin
 ```
-{src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="13-27"}
+{src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="15-29"}
 
 #### Partial HTML fragments
 
@@ -47,7 +74,7 @@ If you need to return only a fragment of HTML, without wrapping it in `<html>`, 
 
 ```kotlin
 ```
-{src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="28-35"}
+{src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="30-36"}
 
 #### Templates
 
