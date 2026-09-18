@@ -69,6 +69,7 @@
                              toc-title="SSL and certificates"
                              accepts-web-file-names="certificates.html,self-signed-certificate.html,ssl.html"/>
                 <toc-element topic="server-http2.md" accepts-web-file-names="advanced-http2.html,http2.html"/>
+                <toc-element topic="server-http3.md"/>
                 <toc-element topic="server-development-mode.topic"
                              accepts-web-file-names="development-mode.html"/>
                 <toc-element topic="server-logging.md"
@@ -160,17 +161,33 @@
                 <toc-element topic="server-form-based-auth.md"
                              toc-title="Form-based authentication"
                              accepts-web-file-names="form.html"/>
-                <toc-element topic="server-session-auth.md"
-                             toc-title="Session authentication"
-                             accepts-web-file-names="session-auth.html"/>
                 <toc-element topic="server-ldap.md"
                              accepts-web-file-names="ldap.html"/>
                 <toc-element topic="server-jwt.md"
                              accepts-web-file-names="jwt.html">
                     <toc-element topic="rsa-keys-generation.md"/>
                 </toc-element>
-                <toc-element topic="server-oauth.md"
-                             accepts-web-file-names="authentication-oauth.html,oauth.html"/>
+                <toc-element toc-title="Sessions">
+                    <toc-element topic="server-session-auth.md"
+                                 toc-title="Session authentication"
+                                 accepts-web-file-names="session-auth.html"/>
+                    <toc-element topic="server-typed-session-auth.md"/>
+                </toc-element>
+                <toc-element toc-title="OAuth">
+                    <toc-element topic="server-oauth.md"
+                                 toc-title="OAuth authentication"
+                                 accepts-web-file-names="authentication-oauth.html,oauth.html"/>
+                    <toc-element topic="server-oauth2-flows.md"
+                                 toc-title="Type-safe OAuth 2.0 flows"/>
+                </toc-element>
+                <toc-element topic="server-oidc.md"
+                             toc-title="OpenID Connect">
+                    <toc-element topic="server-oidc-resource-server.md"
+                                 toc-title="Resource server"/>
+                    <toc-element topic="server-oidc-browser-login.md"
+                                 toc-title="Browser login"/>
+                </toc-element>
+                <toc-element topic="server-typed-auth.md"/>
             </toc-element>
 
             <toc-element topic="server-sessions.md"
@@ -405,6 +422,7 @@
 
     <toc-element toc-title="Releases">
         <toc-element topic="releases.md"/>
+        <toc-element topic="whats-new-360.md"/>
         <toc-element topic="whats-new-350.md"/>
         <toc-element topic="whats-new-340.md"/>
         <toc-element topic="whats-new-330.md"/>

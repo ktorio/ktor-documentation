@@ -54,7 +54,7 @@ The following example shows how to respond with an HTML form used to collect [cr
 
 ```kotlin
 ```
-{src="snippets/auth-form-html-dsl/src/main/kotlin/com/example/Application.kt" include-lines="36-54"}
+{src="snippets/auth-form-html-dsl/src/main/kotlin/com/example/Application.kt" include-lines="41-65"}
 
 </tab>
 <tab title="HTML">
@@ -82,7 +82,7 @@ For the full example, see [auth-form-html-dsl](https://github.com/ktorio/ktor-do
 
 ## Send partial HTML {id="html_fragments"}
 
-In addition to generating full HTML documents, you can also respond with HTML fragments using the `.respondHtmlFragment()`
+In addition to generating full HTML documents, you can also respond with HTML fragments using the `.respondHtmlPartial()`
 function.
 
 HTML fragments are useful when returning partial markup that does not require a full `<html>` document, such as dynamic

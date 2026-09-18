@@ -18,16 +18,21 @@
 Learn how to make type-safe requests using the Resources plugin.
 </link-summary>
 
-Ktor provides the `%plugin_name%` plugin that allows you to implement type-safe [requests](client-requests.md). To accomplish this, you need to create a class that describes resources available on a server and then annotate this class using the `@Resource` keyword. Note that the `@Resource` annotation has `@Serializable` behavior provided by the kotlinx.serialization library.
+Ktor provides the `%plugin_name%` plugin for making type-safe [client requests](client-requests.md).
+To achieve this, you define classes that represent server endpoints and annotate them with the `@Resource` keyword.
 
-> The Ktor server provides the capability to implement [type-safe routing](server-resources.md).
+Resource classes use `kotlinx.serialization` to convert their properties to path and query parameters.
 
+> On the server, Ktor provides [type-safe routing](server-resources.md).
+>
+{style="tip"}
 
 ## Add dependencies {id="add_dependencies"}
 
 ### Add kotlinx.serialization {id="add_serialization"}
 
-Given that [resource classes](#resource_classes) should have `@Serializable` behavior, you need to add the Kotlin serialization plugin as described in the [Setup](https://github.com/Kotlin/kotlinx.serialization#setup) section.
+The `Resources` plugin relies on `kotlinx.serialization`. Enable the Kotlin serialization plugin as described in the
+[`kotlinx.serialization` setup guide](https://github.com/Kotlin/kotlinx.serialization#setup).
 
 ### Add %plugin_name% dependencies {id="add_plugin_dependencies"}
 
@@ -38,7 +43,8 @@ Given that [resource classes](#resource_classes) should have `@Serializable` beh
 
 ## Install %plugin_name% {id="install_plugin"}
 
-To install `%plugin_name%`, pass it to the `install` function inside a [client configuration block](client-create-and-configure.md#configure-client):
+To install the `%plugin_name%` plugin, pass it to the `install` function in the [client configuration block](client-create-and-configure.md#configure-client):
+
 ```kotlin
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
@@ -49,28 +55,32 @@ val client = HttpClient(CIO) {
 }
 ```
 
-
 ## Create resource classes {id="resource_classes"}
 
 <include from="server-resources.md" element-id="resource_classes_server"/>
 
-
 ### Example: A resource for CRUD operations {id="example_crud"}
 
-Let's summarize the examples above and create the `Articles` resource for CRUD operations.
+The following example creates the `Articles` resource for CRUD operations:
 
 ```kotlin
 ```
 {src="snippets/client-type-safe-requests/src/main/kotlin/com/example/Application.kt" include-lines="18-28"}
 
-This resource can be used to list all articles, post a new article, edit it, and so on. We'll see how to [make type-safe requests](#make_requests) to this resource in the next section.
+This resource can be used to list all articles, post a new article, and edit an existing one.
 
-> You can find the full example here: [client-type-safe-requests](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-type-safe-requests).
+The next section shows how to [make type-safe requests](#make_requests) using this resource.
 
+> For the full example, see [client-type-safe-requests](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-type-safe-requests).
+>
+{style="tip"}
 
 ## Make type-safe requests {id="make_requests"}
 
-To [make a request](client-requests.md) to a typed resource, you need to pass a resource class instance to a request function (`request`, `get`, `post`, `put`, and so on). For example, the sample below shows how to make a request to the `/articles` path.
+To [make a request](client-requests.md) to a typed resource, pass a resource class instance to a request function, such as `request()`,
+`get()`, `post()`, or `put()`.
+
+The following example makes a request to the `/articles` path:
 
 ```kotlin
 @Resource("/articles")
@@ -87,12 +97,25 @@ fun main() {
 }
 ```
 
-The example below shows how to make typed requests to the `Articles` resource created in [](#example_crud). 
+The following example makes typed requests to the `Articles` resource created in [](#example_crud). 
 
 ```kotlin
 ```
 {src="snippets/client-type-safe-requests/src/main/kotlin/com/example/Application.kt" include-lines="30-48,60"}
 
-The [defaultRequest](client-default-request.md) function is used to specify a default URL for all requests.
+The [`defaultRequest()`](client-default-request.md) function specifies a default URL for all requests.
 
-> You can find the full example here: [client-type-safe-requests](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-type-safe-requests).
+> When developing client plugins or instrumentation, you can access the resource instance used for a type-safe request
+> through the `RESOURCE` request attribute:
+>  ```kotlin
+>  onRequest { call, _ ->
+>    val resource = call.attributes.getOrNull(RESOURCE)
+>  }
+>  ```
+> 
+{style="tip"}
+
+
+> For the full example, see [client-type-safe-requests](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-type-safe-requests).
+>
+{style="tip"}

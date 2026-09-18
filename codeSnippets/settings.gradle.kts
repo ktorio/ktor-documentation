@@ -162,6 +162,7 @@ module("snippets", "htmx-integration")
 module("snippets", "server-http-request-lifecycle")
 module("snippets", "openapi-spec-gen")
 module("snippets", "server-di")
+module("snippets", "http3-netty")
 
 if(!System.getProperty("os.name").startsWith("Windows")) {
     module("snippets", "embedded-server-native")

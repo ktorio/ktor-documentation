@@ -43,7 +43,7 @@ To send full HTML documents built with Kotlin DSL, use the [`call.respondHtml()`
 #### Partial HTML fragments
 
 If you need to return only a fragment of HTML, without wrapping it in `<html>`, `<head>`, or `<body>`, you can use
-`call.respondHtmlFragment()`:
+`call.respondHtmlPartial()`:
 
 ```kotlin
 ```

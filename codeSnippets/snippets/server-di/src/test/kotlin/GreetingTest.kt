@@ -2,6 +2,7 @@ package com.example
 
 import io.ktor.client.request.get
 import io.ktor.client.statement.bodyAsText
+import io.ktor.server.plugins.di.dependencies
 import io.ktor.server.testing.*
 import kotlin.test.*
 
@@ -9,6 +10,7 @@ class GreetingTest {
     @Test
     fun testGreeting() = testApplication {
         application {
+            dependencies {}
             module(
                 greetingService = FakeGreetingService(),
                 userRepository = FakeUserRepository(),

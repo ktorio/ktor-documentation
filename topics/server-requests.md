@@ -5,17 +5,16 @@
 <link-summary>Learn how to handle incoming requests inside route handlers.</link-summary>
 
 Ktor allows you to handle incoming requests and send [responses](server-responses.md)
-inside [route handlers](server-routing.md#define_route).
+from [route handlers](server-routing.md#define_route).
 
-Route handlers operate on an [`ApplicationCall`](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-application-call/index.html),
-which represents a single HTTP exchange between the client and the server. It is available in route handlers through 
-the `call` property and contains both the incoming request (`ApplicationRequest`) and the outgoing response
-(`ApplicationResponse`).
+Each route handler provides an [`ApplicationCall`](https://api.ktor.io/ktor-server-core/io.ktor.server.application/-application-call/index.html)
+through the `call` property. An `ApplicationCall` represents a single HTTP exchange and provides access to both the
+incoming request and the outgoing response.
 
-Within a route handler, you can use the `ApplicationCall` to:
+Within a route handler, you can use `ApplicationCall` to perform the following:
 
 * Access [request information](#request_information), such as headers, cookies, and connection details.
-* Retrieve [path parameter](#path_parameters) values.
+* Retrieve [path parameters](#path_parameters).
 * Retrieve [query parameters](#query_parameters).
 * Receive [request body content](#body_contents), such as data objects, form parameters, and files.
 
@@ -48,7 +47,7 @@ For convenience, Ktor also provides dedicated extension functions for accessing 
 
 ### Cookies {id="cookies"}
 
-To access the cookies sent with the request, use the [`ApplicationRequest.cookies`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/-application-request/cookies.html)
+To access cookies sent with the request, use the [`ApplicationRequest.cookies`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/-application-request/cookies.html)
 property.
 
 > For more information on handling sessions using cookies, see the [Sessions](server-sessions.md) section.
@@ -58,30 +57,28 @@ property.
 ### Connection details
 
 Use the [`ApplicationRequest.local`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/-application-request/local.html)
-property to get access to connection details such as a host name, port, and scheme.
+property to access connection details such as the host, port, and scheme.
 
 ### `X-Forwarded-` headers
 
-To obtain information about a request passed through an HTTP proxy or a load balancer, install the [](server-forward-headers.md)
-plugin and use the [`ApplicationRequest.origin`](https://api.ktor.io/ktor-server-core/io.ktor.server.plugins/origin.html)
+To collect information about a request passed through an HTTP proxy or a load balancer, install the [](server-forward-headers.md)
+plugin. You can then access this information through the [`ApplicationRequest.origin`](https://api.ktor.io/ktor-server-core/io.ktor.server.plugins/origin.html)
 property.
-
 
 ## Path parameters {id="path_parameters"}
 
 When handling requests, you can retrieve [path parameter](server-routing.md#path_parameter) values using the 
 `ApplicationCall.parameters` property.
 
-For example, in the code snippet below, `call.parameters["login"]` returns `"admin"` for the `/user/admin` path:
+For example, `call.parameters["login"]` returns `"admin"` for a request to `/user/admin`:
 
 ```kotlin
 ```
 {src="snippets/_misc/RouteParameter.kt"}
 
-
 ## Query parameters {id="query_parameters"}
 
-To retrieve parameters of a URL query string, you can use the
+To retrieve parameters of a URL query string, use the
 [`ApplicationRequest.queryParameters`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/-application-request/query-parameters.html)
 property.
 
@@ -102,18 +99,16 @@ before continuing request processing.
 Instead of manually checking for missing values in every route handler, Ktor provides the following helper functions
 that simplify accessing required request data:
 
-[//]: # (TODO: Add API links)
+* [`.requireQueryParameter()`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/require-query-parameter.html)
+  retrieves a required query parameter from the request URL.
+* [`.requireHeader()`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/require-header.html) retrieves a required
+  HTTP header value.
+* [`.requireCookie()`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/require-cookie.html) retrieves a required
+  cookie value, optionally decoding it using the specified encoding.
+* [`.requirePathParameter()`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/require-path-parameter.html)
+  retrieves a required path parameter from the route definition.
 
-* `ApplicationCall.requireQueryParameter()` — retrieves a required query parameter from the request URL. Throws if the
-  parameter is missing.
-* `ApplicationCall.requireHeader()` — retrieves a required HTTP header value. Throws if the header is not present in
-  the request.
-* `ApplicationCall.requireCookie()` — retrieves a required cookie value, optionally decoding it using the specified
-  encoding. Throws if the cookie is missing.
-* `RoutingCall.requirePathParameter()` — retrieves a required path parameter from the route definition. Throws if
-  the parameter is not present in the matched route.
-
-Each function returns a non-null value or throws `MissingRequestParameterException` if the value is missing.
+Each function returns a non-null value or throws `MissingRequestParameterException` if the requested value is missing.
 
 ```kotlin
 post("/checkout/{cartId}") {
@@ -126,43 +121,52 @@ post("/checkout/{cartId}") {
 ```
 
 ## Body contents {id="body_contents"}
-This section shows how to receive body contents sent with `POST`, `PUT`, or `PATCH`.
+
+To access the request body, use Ktor's receive functions. The appropriate function depends on whether you need
+[raw content](#raw), [a deserialized object](#objects), [form parameters](#form_parameters), or [multipart data](#form_data).
 
 ### Raw payload {id="raw"}
 
 To access the raw body payload and parse it manually, use the [`ApplicationCall.receive()`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/receive.html) function that accepts
-a type of payload to be received. Suppose you have the following HTTP request:
+a type of payload to be received.
+
+Suppose a client sends the following HTTP request:
 
 ```HTTP
 ```
 {src="snippets/post-raw-data/post.http" include-lines="1-4"}
 
-You can receive the body of this request as an object of the specified type in one of the following ways:
+You can receive the request body as a [`String`](#string), [`ByteArray`](#bytearray), or [`ByteReadChannel`](#bytereadchannel).
 
-- **String**
+#### `String`
 
-   To receive a request body as a String value, use `call.receive<String>()`.
-   You can also use [`.receiveText()`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/receive-text.html) to achieve the same result:
-   ```kotlin
-   ```
-   {src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="14-17"}
-- **ByteArray**
+To receive a request body as text, use the `.receive<String>()` or [`.receiveText()`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/receive-text.html) function:
+```kotlin
+```
+{src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="14-17"}
 
-   To receive the body of a request as a byte array, call `call.receive<ByteArray>()`:
-   ```kotlin
-   ```
-   {src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="19-23"}
-- **ByteReadChannel**
+#### `ByteArray`
 
-   You can use `call.receive<ByteReadChannel>()` or [`.receiveChannel()`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/receive-channel.html) to receive [`ByteReadChannel`](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html) that enables asynchronous reading of byte sequences:
-   ```kotlin
-   ```
-   {src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="24-28"}
+To receive the body of a request as a byte array, use the `.receive<ByteArray>()` function:
 
-   The sample below shows how to use `ByteReadChannel` to upload a file:
-   ```kotlin
-   ```
-   {src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="30-34"}
+```kotlin
+```
+{src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="19-23"}
+
+#### `ByteReadChannel`
+
+To read the body asynchronously as a [`ByteReadChannel`](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-read-channel/index.html),
+use the `.receive<ByteReadChannel>()` or [`.receiveChannel()`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/receive-channel.html) function:
+
+```kotlin
+```
+{src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="24-28"}
+
+You can also use a `ByteReadChannel` to upload a file:
+
+```kotlin
+```
+{src="snippets/post-raw-data/src/main/kotlin/com/example/Application.kt" include-lines="30-34"}
 
 > For converting between Ktor channels and types like `RawSink`, `RawSource`, or `OutputStream`, see
 > [I/O interoperability](io-interoperability.md).
@@ -170,91 +174,102 @@ You can receive the body of this request as an object of the specified type in o
 {style="tip"}
 
 > For the full example, see [post-raw-data](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/post-raw-data).
-
+> 
+{style="tip"}
 
 ### Objects {id="objects"}
 
-Ktor provides a [ContentNegotiation](server-serialization.md) plugin to negotiate the media type of request and
+Ktor provides the [`ContentNegotiation`](server-serialization.md) plugin to negotiate the media type of request and
 deserialize content to an object of a required type.
 
-To receive and convert content for a request, call the
-[`ApplicationCall.receive()`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/receive.html) function that
-accepts a data class as a parameter:
+To receive and convert content for a request, use the
+[`ApplicationCall.receive()`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/receive.html) function with
+the expected type:
 
 ```kotlin
 ```
 {src="snippets/json-kotlinx/src/main/kotlin/jsonkotlinx/Application.kt" include-lines="39-43"}
 
+If the request content can deserialize to `null`, use a nullable type argument:
+
+```kotlin
+val customer = call.receive<Customer?>()
+```
+
 > For more information, see [](server-serialization.md).
+> 
+{style="tip"}
 
 ### Form parameters {id="form_parameters"}
-Ktor allows you to receive form parameters sent with both `x-www-form-urlencoded` and `multipart/form-data` types using the [receiveParameters](https://api.ktor.io/ktor-server-core/io.ktor.server.request/receive-parameters.html) function. The example below shows an [HTTP client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html) `POST` request with form parameters passed in a body:
+
+You can receive form parameters sent with both `x-www-form-urlencoded` and `multipart/form-data` types using the
+[`.receiveParameters()`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/receive-parameters.html) function.
+
+For example, suppose a client sends the following request:
+
 ```HTTP
 ```
 {src="snippets/post-form-parameters/post.http"}
 
-You can obtain parameter values in code as follows:
+You can access parameter values in code as follows:
+
 ```kotlin
 ```
 {src="snippets/post-form-parameters/src/main/kotlin/formparameters/Application.kt" include-lines="12-16"}
 
-> For the full example, see [post-form-parameters](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/post-form-parameters).
+> For the complete example, see [post-form-parameters](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/post-form-parameters).
+> 
+{style="tip"}
 
 ### Multipart form data {id="form_data"}
 
-To receive a file sent as a part of a multipart request, call
+To receive a file sent as a part of a multipart request, use
 the [`.receiveMultipart()`](https://api.ktor.io/ktor-server-core/io.ktor.server.request/receive-multipart.html)
-function and then loop over each part as required.
+function.
 
-Multipart request data is processed sequentially, so you can't directly access a specific part of it. Additionally,
-these requests can contain different types of parts, such as form fields, files, or binary data, which need to
-be handled differently.
+Multipart request data is processed sequentially, so you can't directly access a specific part of it.
+Each part can represent a form field, a file, or other binary content, so handle each type separately.
 
-The example demonstrates how to receive a file and save it to a file system:
+The following example receives a form field and a file, then saves the file to the local file system:
 
 ```kotlin
 ```
-
 {src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="3-39"}
 
 #### Default file size limit
 
-By default, the allowed size for binary and file items that can be received is limited to 50MiB. If a received file
-or binary item exceeds the 50MiB limit, an `IOException` is thrown.
+By default, binary and file parts are limited to 50MiB. If a part exceeds this limit, Ktor throws an `IOException`.
 
-To override the default form field limit, pass the `formFieldLimit` parameter when calling `.receiveMultipart()`:
+To override the default limit for a call, pass the `formFieldLimit` parameter to the `.receiveMultipart()` function:
 
 ```kotlin
 ```
-
 {src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="17"}
 
-In this example, the new limit is set to 100MiB.
+This example sets the limit to 100 MiB.
 
 #### Form fields
 
-`PartData.FormItem` represents a form field, which values can be accessed through the `value` property:
+`PartData.FormItem` represents a form field. You can access its value through the `value` property:
 
 ```kotlin
 ```
-
 {src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="20-23,32"}
 
 #### File uploads
 
-`PartData.FileItem` represents a file item. You can handle file uploads as byte streams:
+`PartData.FileItem` represents an uploaded file. You can handle file uploads as byte streams. Use the [`.provider()`](https://api.ktor.io/ktor-http/io.ktor.http.content/-part-data/-file-item/provider.html)
+function to access the file content as a `ByteReadChannel` and stream it to a destination:
 
 ```kotlin
 ```
-
 {src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="20,25-29,32"}
 
-The [`.provider()`](https://api.ktor.io/ktor-http/io.ktor.http.content/-part-data/-file-item/provider.html)
-function returns a `ByteReadChannel`, which allows you to read data incrementally.
-Using the `.copyAndClose()` function, you then write the file content to the specified destination
-while ensuring proper resource cleanup.
+With the `.copyAndClose()` function, you write the file content to the specified destination while ensuring proper
+resource cleanup.
 
-To determine the uploaded file size, you can get the `Content-Length` [header value](#request_information) inside the `post` handler:
+If the request includes a `Content-Length` [header value](#request_information), you can use it to inspect the size of the complete
+request body:
 
 ```kotlin
 post("/upload") {
@@ -263,14 +278,18 @@ post("/upload") {
 }
 ```
 
+For multipart requests, `Content-Length` represents the entire multipart body, not the size of an individual uploaded
+file.
+
 #### Resource cleanup
 
-Once the form processing is complete, each part is disposed of using the `.dispose()` function to free resources.
+Once form processing is complete, dispose of each multipart part using the `.dispose()` function to free its
+resources:
 
 ```kotlin
 ```
-
 {src="snippets/upload-file/src/main/kotlin/uploadfile/UploadFile.kt" include-lines="33"}
 
-> To learn how to run this sample, see
-> [upload-file](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/upload-file).
+> To learn how to run this sample, see [upload-file](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/upload-file).
+> 
+{style="tip"}

@@ -18,6 +18,12 @@ In Ktor, a user that already has an associated session can be authenticated usin
 
 > You can get general information about authentication and authorization in Ktor in the [](server-auth.md) section.
 
+> Ktor also provides a type-safe session authentication scheme. It gives route handlers a non-null principal and read-write access
+> to the stored session and keeps the session type separate from the principal type. See
+> [](server-typed-session-auth.md).
+>
+{style="tip"}
+
 ## Add dependencies {id="add_dependencies"}
 To enable `session` authentication, you need to include the following artifacts in the build script:
 
@@ -101,7 +107,7 @@ class. In the example below, the following settings are specified:
 
 ```kotlin
 ```
-{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="22,34-46"}
+{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="22,36-48"}
 
 
 ### Step 4: Save user data in a session {id="save-session"}
@@ -115,7 +121,7 @@ The following example shows a simple authentication flow using a web form:
 ```kotlin
 ```
 
-{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="69-75"}
+{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="77-89"}
 
 > For more details on the form-based authentication flow, refer to
 the [Form-based authentication](server-form-based-auth.md) documentation.
@@ -132,7 +138,7 @@ using the `call.principal()` function inside a route handler:
 ```kotlin
 ```
 
-{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="77-83"}
+{src="snippets/auth-form-session/src/main/kotlin/com/example/Application.kt" include-lines="91-103"}
 
 > For the full example, see
 > [auth-form-session](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/auth-form-session).

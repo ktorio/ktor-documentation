@@ -28,10 +28,13 @@ fun Application.main() {
     install(ContentNegotiation) {
         json()
     }
-    val privateKeyString = environment.config.property("jwt.privateKey").getString()
-    val issuer = environment.config.property("jwt.issuer").getString()
-    val audience = environment.config.property("jwt.audience").getString()
-    val myRealm = environment.config.property("jwt.realm").getString()
+    val jwtConfig = environment.config
+    val privateKeyString = jwtConfig
+        .property("jwt.privateKey").getString()
+    val issuer = jwtConfig.property("jwt.issuer").getString()
+    val audience = jwtConfig
+        .property("jwt.audience").getString()
+    val myRealm = jwtConfig.property("jwt.realm").getString()
     val jwkProvider = JwkProviderBuilder(issuer)
         .cached(10, 24, TimeUnit.HOURS)
         .rateLimited(10, 1, TimeUnit.MINUTES)
@@ -43,14 +46,18 @@ fun Application.main() {
                 acceptLeeway(3)
             }
             validate { credential ->
-                if (credential.payload.getClaim("username").asString() != "") {
+                val payload = credential.payload
+                val claim = payload.getClaim("username")
+                if (claim.asString() != "") {
                     JWTPrincipal(credential.payload)
                 } else {
                     null
                 }
             }
             challenge { defaultScheme, realm ->
-                call.respond(HttpStatusCode.Unauthorized, "Token is not valid or has expired")
+                val text = "Token is not valid or has expired"
+                val status = HttpStatusCode.Unauthorized
+                call.respond(status, text)
             }
         }
     }
@@ -59,24 +66,40 @@ fun Application.main() {
             val user = call.receive<User>()
             // Check username and password
             // ...
-            val publicKey = jwkProvider.get("6f8856ed-9189-488f-9011-0ff4b6c08edc").publicKey
-            val keySpecPKCS8 = PKCS8EncodedKeySpec(Base64.getDecoder().decode(privateKeyString))
-            val privateKey = KeyFactory.getInstance("RSA").generatePrivate(keySpecPKCS8)
+            val keyId = "6f8856ed-9189-488f-9011-0ff4b6c08edc"
+            val publicKey = jwkProvider.get(keyId).publicKey
+            val decoded = Base64.getDecoder()
+                .decode(privateKeyString)
+            val keySpecPKCS8 = PKCS8EncodedKeySpec(decoded)
+            val privateKey = KeyFactory.getInstance("RSA")
+                .generatePrivate(keySpecPKCS8)
+            val algorithm = Algorithm.RSA256(
+                publicKey as RSAPublicKey,
+                privateKey as RSAPrivateKey
+            )
+            val expiresAt = System.currentTimeMillis() + 60000
             val token = JWT.create()
                 .withAudience(audience)
                 .withIssuer(issuer)
                 .withClaim("username", user.username)
-                .withExpiresAt(Date(System.currentTimeMillis() + 60000))
-                .sign(Algorithm.RSA256(publicKey as RSAPublicKey, privateKey as RSAPrivateKey))
+                .withExpiresAt(Date(expiresAt))
+                .sign(algorithm)
             call.respond(hashMapOf("token" to token))
         }
 
         authenticate("auth-jwt") {
             get("/hello") {
                 val principal = call.principal<JWTPrincipal>()
-                val username = principal!!.payload.getClaim("username").asString()
-                val expiresAt = principal.expiresAt?.time?.minus(System.currentTimeMillis())
-                call.respondText("Hello, $username! Token is expired at $expiresAt ms.")
+                val payload = principal!!.payload
+                val username = payload.getClaim("username")
+                    .asString()
+                val now = System.currentTimeMillis()
+                val expiresAt = principal.expiresAt?.time
+                    ?.minus(now)
+                call.respondText(
+                    "Hello, $username! " +
+                        "Token is expired at $expiresAt ms."
+                )
             }
         }
         staticFiles(".well-known", File("certs"), "jwks.json")

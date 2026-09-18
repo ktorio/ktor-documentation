@@ -71,24 +71,76 @@ To get a general idea of how to configure different authentication providers in 
 
 ### Step 1: Configure a basic provider {id="configure-provider"}
 
+<tabs group="auth-dsl">
+<tab title="Named provider" group-key="classic">
+
 The `basic` authentication provider exposes its settings via the [BasicAuthenticationProvider.Configuration](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-basic-authentication-provider/-config/index.html) class. In the example below, the following settings are specified:
 * The `realm` property sets the realm to be passed in the `WWW-Authenticate` header.
 * The `validate` function validates a username and password.
 
 ```kotlin
 ```
-{src="snippets/auth-basic/src/main/kotlin/authbasic/Application.kt" include-lines="9-20"}
+{src="snippets/auth-basic/src/main/kotlin/authbasic/Application.kt" include-lines="9-22"}
    
 The `validate` function checks `UserPasswordCredential` and returns a `UserIdPrincipal` in the case of successful authentication or `null` if authentication fails. 
 > You can also use [UserHashedTableAuth](#validate-user-hash) to validate users stored in an in-memory table that keeps usernames and password hashes.
 
+</tab>
+<tab title="Type-safe" group-key="typed">
+
+<include from="lib.topic" element-id="typed_auth_experimental"/>
+
+The `basic()` function creates a scheme for a principal type of your choice. There is no `install(Authentication)`
+step: the scheme is a value you pass to the routes that need it.
+
+```kotlin
+data class User(val name: String)
+
+val basicAuth = basic<User>("auth-basic") {
+    realm = "Access to the '/' path"
+    validate { credentials ->
+        val isValid = credentials.name == "jetbrains" &&
+            credentials.password == "foobar"
+        if (isValid) User(credentials.name) else null
+    }
+}
+```
+
+The `validate` function checks `UserPasswordCredential` and returns your principal type, or `null` if
+authentication fails. For the full API, see [](server-typed-auth.md).
+
+</tab>
+</tabs>
+
 ### Step 2: Protect specific resources {id="authenticate-route"}
+
+<tabs group="auth-dsl">
+<tab title="Named provider" group-key="classic">
 
 After configuring the `basic` provider, you can protect specific resources in our application using the **[authenticate](server-auth.md#authenticate-route)** function. In the case of successful authentication, you can retrieve an authenticated [UserIdPrincipal](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-user-id-principal/index.html) inside a route handler using the `call.principal` function and get a name of an authenticated user.
 
 ```kotlin
 ```
-{src="snippets/auth-basic/src/main/kotlin/authbasic/Application.kt" include-lines="21-27"}
+{src="snippets/auth-basic/src/main/kotlin/authbasic/Application.kt" include-lines="23-30"}
+
+</tab>
+<tab title="Type-safe" group-key="typed">
+
+Pass the scheme to `authenticateWith()`. Inside the block, `call.principal` is your principal type and is never
+`null`, so no cast or null check is needed:
+
+```kotlin
+routing {
+    authenticateWith(basicAuth) {
+        get("/") {
+            call.respondText("Hello, ${call.principal.name}!")
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
 
 
 ## Validate with UserHashedTableAuth {id="validate-user-hash"}
@@ -101,7 +153,7 @@ To use `UserHashedTableAuth` for validating users, follow the steps below:
    
    ```kotlin
    ```
-   {src="snippets/auth-basic-hash-table/src/main/kotlin/com/example/Application.kt" include-lines="9"}
+   {src="snippets/auth-basic-hash-table/src/main/kotlin/com/example/Application.kt" include-lines="9-11"}
 
 2. Initialize a new instance of `UserHashedTableAuth` and specify the following properties:
    * Provide a table of usernames and hashed passwords using the `table` property.
@@ -109,10 +161,10 @@ To use `UserHashedTableAuth` for validating users, follow the steps below:
    
    ```kotlin
    ```
-   {src="snippets/auth-basic-hash-table/src/main/kotlin/com/example/Application.kt" include-lines="10-16"}
+   {src="snippets/auth-basic-hash-table/src/main/kotlin/com/example/Application.kt" include-lines="12-18"}
    
 3. Inside the `validate` function, call the [UserHashedTableAuth.authenticate](https://api.ktor.io/ktor-server-auth/io.ktor.server.auth/-user-hashed-table-auth/authenticate.html) function to authenticate a user and return an instance of `UserIdPrincipal` if the credentials are valid:
 
    ```kotlin
    ```
-   {src="snippets/auth-basic-hash-table/src/main/kotlin/com/example/Application.kt" include-lines="19-26"}
+   {src="snippets/auth-basic-hash-table/src/main/kotlin/com/example/Application.kt" include-lines="21-28"}

@@ -291,7 +291,7 @@ file for your test.
 ```kotlin
 ```
 
-{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="17-21,51"}
+{src="snippets/auth-oauth-google/src/test/kotlin/ApplicationTest.kt" include-lines="17-23,62"}
 
 For more information on configuring the test application, see the [](server-testing.md) section.
 
