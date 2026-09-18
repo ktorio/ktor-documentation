@@ -89,6 +89,7 @@ returned. It is now deprecated in favor of `.respondHtmlPartial()`.
 ### Netty
 
 #### HTTP/3 support {id="http3"}
+<primary-label ref="experimental"/>
 
 The Netty server engine now includes experimental support for [](server-http3.md) over QUIC.
 
