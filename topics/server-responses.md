@@ -29,9 +29,10 @@ get("/") {
 
 ### Streaming text {id="streaming-text"}
 
-To stream text incrementally on JVM, use the [`call.respondTextWriter()`](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond-text-writer.html) function.
+To stream text incrementally on the JVM, use the [`call.respondTextWriter()`](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond-text-writer.html) function.
 Ktor provides a [`Writer`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Writer.html) and closes it automatically when the block completes.
-This is useful when you generate content gradually and want to flush parts of the response as they become available:
+
+Call the `flush()` function when you want to make buffered output available to the underlying response channel:
 
 ```kotlin
 ```
@@ -39,15 +40,15 @@ This is useful when you generate content gradually and want to flush parts of th
 
 ### Streaming binary {id="streaming-binary"}
 
-To stream binary data on JVM, use the [`call.respondOutputStream()`](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond-output-stream.html) function.
+To stream binary data on the JVM, use the [`call.respondOutputStream()`](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond-output-stream.html) function.
 Ktor provides an [`OutputStream`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html) and closes it automatically when the block completes:
 
 ```kotlin
 ```
 {src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="45-52"}
 
-For multiplatform byte streaming, use the [`call.respondBytesWriter()`](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond-bytes-writer.html) function.
-It provides a [`ByteWriteChannel`](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-write-channel/index.html) that is closed automatically:
+For multiplatform applications, use the [`call.respondBytesWriter()`](https://api.ktor.io/ktor-server-core/io.ktor.server.response/respond-bytes-writer.html) function.
+It provides a [`ByteWriteChannel`](https://api.ktor.io/ktor-io/io.ktor.utils.io/-byte-write-channel/index.html) that Ktor closes automatically when the block completes:
 
 ```kotlin
 ```
