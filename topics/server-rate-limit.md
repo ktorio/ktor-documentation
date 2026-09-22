@@ -1,6 +1,6 @@
 [//]: # (title: Rate limiting)
 
-<show-structure for="chapter" depth="3"/>
+<show-structure for="chapter" depth="4"/>
 <primary-label ref="server-plugin"/>
 
 <var name="plugin_name" value="RateLimit"/>
@@ -114,7 +114,7 @@ rate limits. By default, all requests share the same bucket.
 
 > Ensure that request keys have appropriate `equals` and `hashCode` implementations.
 > 
-{style="tip"}
+{style="note"}
 
 ##### Query parameter {id="query-parameter"}
 
@@ -126,7 +126,7 @@ The following example uses the `login` [query parameter](server-requests.md#quer
 
 ##### Client IP address {id="client-ip"}
 
-To apply a separate rate limit per client IP address, use
+To apply a separate rate limit to each client IP address, use
 [`call.request.origin.remoteHost`](https://api.ktor.io/ktor-http/io.ktor.http/-request-connection-point/remote-host.html)
 as the request key:
 
@@ -134,24 +134,25 @@ as the request key:
 ```
 {src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="34-39"}
 
-If the application sits behind a proxy or load balancer, install the
-[Forwarded headers](server-forward-headers.md) plugin so that `origin.remoteHost` reflects the original client
-rather than the proxy.
+If the application runs behind a proxy or load balancer, configure the
+[Forwarded headers](server-forward-headers.md) plugin so that `origin.remoteHost` represents the original client
+address rather than the proxy.
 
 ##### API key header {id="api-key"}
 
-To rate-limit by an API key sent in a header, return that header value from `requestKey()`:
+To rate-limit requests by an API key sent in a header, return that header value from `requestKey()`:
 
 ```kotlin
 ```
 {src="snippets/rate-limit/src/main/kotlin/com/example/Application.kt" include-lines="40-45"}
 
 You can also combine this approach with [API key authentication](server-api-key-auth.md) and use the authenticated
-identity instead of the raw header value.
+principal as the request key instead of the raw header value.
 
 ##### Access token or Bearer token {id="access-token"}
 
-For a raw bearer token in the `Authorization` header:
+To apply a separate rate limit to each bearer token, return the raw token from the `Authorization` header as the request
+key:
 
 ```kotlin
 requestKey { call ->
@@ -159,8 +160,9 @@ requestKey { call ->
 }
 ```
 
-When you already authenticate requests, prefer using the
-[authentication principal](#rate-limit-authenticated-users) as the request key instead of the raw token.
+When requests are authenticated, prefer using the
+[authentication principal](#rate-limit-authenticated-users) as the request key to apply a separate rate limit to each
+authenticated identity.
 
 #### Rate limit authenticated users {id="rate-limit-authenticated-users"}
 
