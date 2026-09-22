@@ -28,7 +28,7 @@ The example below shows a sample HTML DSL and a corresponding HTML to be sent to
 
 ```kotlin
 ```
-{src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="3-8,11-27,35-36"}
+{src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="3-10,13-29,61-62"}
 
 </tab>
 <tab title="HTML">
@@ -93,7 +93,7 @@ updates used by libraries like HTMX.
 
 ```kotlin
 ```
-{src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="3-8,11-12,28-36"}
+{src="snippets/html/src/main/kotlin/com/example/Application.kt" include-lines="3-10,13-14,30-36,61-62"}
 
 </tab>
 <tab title="HTML">
