@@ -7,7 +7,7 @@ import io.ktor.client.engine.mock.*
 import io.ktor.client.request.*
 import io.ktor.http.*
 import io.ktor.utils.io.*
-import kotlinx.coroutines.*
+import kotlinx.coroutines.test.*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
@@ -15,7 +15,7 @@ import kotlin.test.assertFailsWith
 class ApiClientTest {
     @Test
     fun sampleClientTest() {
-        runBlocking {
+        runTest {
             val mockEngine = MockEngine { request ->
                 respond(
                     content = ByteReadChannel("""{"ip":"127.0.0.1"}"""),
@@ -31,7 +31,7 @@ class ApiClientTest {
 
     @Test
     fun mockMultipleEndpoints() {
-        runBlocking {
+        runTest {
             val mockEngine = MockEngine { request ->
                 when (request.url.encodedPath) {
                     "/user" -> respondOk("user-1")
@@ -48,7 +48,7 @@ class ApiClientTest {
 
     @Test
     fun mockCallChain() {
-        runBlocking {
+        runTest {
             val mockEngine = MockEngine.config {
                 reuseHandlers = false
                 addHandler { respondOk("step-1") }
@@ -66,7 +66,7 @@ class ApiClientTest {
 
     @Test
     fun mockCallChainWithQueue() {
-        runBlocking {
+        runTest {
             val engine = MockEngine.Queue()
             val client = HttpClient(engine)
 
