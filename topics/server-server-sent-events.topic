@@ -11,6 +11,7 @@
     <var name="example_name" value="server-sse"/>
     <var name="package_name" value="io.ktor.server.sse"/>
     <var name="artifact_name" value="ktor-server-sse"/>
+    <var name="ktor_version_catalog_name" value="ktorLibs.server.sse"/>
     <tldr>
         <p>
             <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>

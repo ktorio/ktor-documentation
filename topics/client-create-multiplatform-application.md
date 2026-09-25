@@ -52,25 +52,13 @@ multiplatform project which you can expand with clients and services.
 To use the Ktor HTTP client in your project, you need to add at least two dependencies: a client dependency and an
 [engine](client-engines.md) dependency.
 
-1. Open the
-    <path>gradle/libs.versions.toml</path>
-    file add the Ktor version:
-    
+1. Open <path>settings.gradle.kts</path> and import the Ktor version catalog:
+
     ```kotlin
     ```
-    
-    {src="snippets/tutorial-client-kmp/gradle/libs.versions.toml" include-lines="1,15"}
+    {src="snippets/tutorial-client-kmp/settings.gradle.kts" include-lines="18-21,33"}
 
-2. In the same
-    <path>gradle/libs.versions.toml</path>
-    define the Ktor client and engine libraries:
-    
-    ```kotlin
-    ```
-    
-    {src="snippets/tutorial-client-kmp/gradle/libs.versions.toml" include-lines="18,29-31"}
-
-3. Open the
+2. Open the
     <path>shared/build.gradle.kts</path>
     file and add the following dependencies:
     
@@ -79,8 +67,8 @@ To use the Ktor HTTP client in your project, you need to add at least two depend
     
     {src="snippets/tutorial-client-kmp/shared/build.gradle.kts" include-lines="25-27,29-35,39"}
     
-    - Add the `ktor-client-core` to the `commonMain` source set to enable Ktor client functionality in shared code.
-    - In the `androidMain` source set, include the `ktor-client-okhttp` dependency to use the `OkHttp` engine on Android.
+    - Add the `ktor-client-core`(`ktorLibs.client.core`) dependency to the `commonMain` source set to enable Ktor client functionality in shared code.
+    - In the `androidMain` source set, include the `ktor-client-okhttp`(`ktorLibs.client.okhttp`) dependency to use the `OkHttp` engine on Android.
       Alternatively, you can choose from [other available Android/JVM engines](client-engines.md#jvm-android).
     - In the `iosMain` source set, add the `ktor-client-darwin` dependency to use the Darwin engine on iOS.
 
@@ -92,9 +80,9 @@ To use coroutines in [Android code](#android-activity), you need to add `kotlinx
    <path>gradle/libs.versions.toml</path>
    file and specify the coroutines version and libraries:
 
-    ```kotlin
+    ```toml
     ```
-   {src="snippets/tutorial-client-kmp/gradle/libs.versions.toml" include-lines="1,16-18,32-33"}
+   {src="snippets/tutorial-client-kmp/gradle/libs.versions.toml" include-lines="1,15-17,28-29"}
 
 2. Open the
    <path>shared/build.gradle.kts</path>

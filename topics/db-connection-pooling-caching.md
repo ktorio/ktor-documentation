@@ -19,17 +19,20 @@ In this tutorial, we'll look at how to implement database connection pooling and
 ## Add dependencies {id="add-dependencies"}
 
 First, you need to add dependencies for the HikariCP and Ehcache libraries. 
-Open the `gradle.properties` file and specify library versions:
+Open the `gradle/libs.versions.toml` file and define the library versions and aliases:
 
-```kotlin
+```toml
 ```
-{src="gradle.properties" include-lines="16-17"}
+{src="gradle/libs.versions.toml" include-lines="1,6,15,33,36,44"}
 
 Then, open `build.gradle.kts` and add the following dependencies:
 
 ```kotlin
+dependencies {
+    implementation(libs.hikaricp)
+    implementation(libs.ehcache)
+}
 ```
-{src="snippets/tutorial-website-interactive-persistence-advanced/build.gradle.kts" include-lines="5-6,22-23,31-32,36"}
 
 Click the **Load Gradle Changes** icon in the top right corner of the `build.gradle.kts` file to install newly added dependencies.
 

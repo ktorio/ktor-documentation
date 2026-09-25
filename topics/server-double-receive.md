@@ -5,6 +5,7 @@
 <var name="plugin_name" value="DoubleReceive"/>
 <var name="package_name" value="io.ktor.server.plugins.doublereceive"/>
 <var name="artifact_name" value="ktor-server-double-receive"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.double.receive"/>
 
 <tldr>
 <p>

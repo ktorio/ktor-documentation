@@ -1,7 +1,5 @@
-val junit_version: String by project
-
 plugins {
-    kotlin("jvm")
+    alias(libs.plugins.kotlin.jvm)
 }
 
 repositories {
@@ -10,7 +8,7 @@ repositories {
 }
 
 dependencies {
-    implementation("junit:junit:$junit_version")
+    implementation(libs.junit)
     api(ktorLibs.server.core)
     api(ktorLibs.server.cio)
 }

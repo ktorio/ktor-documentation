@@ -6,6 +6,7 @@
 <var name="plugin_name" value="CallLogging"/>
 <var name="package_name" value="io.ktor.server.plugins.calllogging"/>
 <var name="artifact_name" value="ktor-server-call-logging"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.call.logging"/>
 
 <tldr>
 <p>

@@ -5,6 +5,7 @@
 
 <var name="plugin_name" value="Resources"/>
 <var name="artifact_name" value="ktor-client-resources"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.client.resources"/>
 
 <tldr>
 <p>

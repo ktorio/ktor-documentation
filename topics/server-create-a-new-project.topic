@@ -906,7 +906,7 @@
                     <p>Open the <path>build.gradle.kts</path> file and add the new dependency as shown below:</p>
                     <code-block lang="kotlin"
                                 src="snippets/tutorial-server-get-started/build.gradle.kts"
-                                include-lines="18-28"
+                                include-lines="17-27"
                     />
                 </step>
                 <step>

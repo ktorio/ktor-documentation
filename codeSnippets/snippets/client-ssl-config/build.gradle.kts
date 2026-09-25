@@ -1,10 +1,6 @@
-val logback_version: String by project
-val junit_version: String by project
-val slf4j_version: String by project
-
 plugins {
     application
-    kotlin("jvm")
+    alias(libs.plugins.kotlin.jvm)
 }
 
 application {
@@ -21,7 +17,7 @@ dependencies {
     implementation(ktorLibs.client.apache5)
     implementation(ktorLibs.client.java)
     implementation(ktorLibs.client.jetty)
-    implementation("org.eclipse.jetty:jetty-alpn-java-client:11.0.20")
+    implementation(libs.jetty.alpn.java.client)
     implementation(ktorLibs.client.cio)
     implementation(ktorLibs.client.android)
     implementation(ktorLibs.client.okhttp)

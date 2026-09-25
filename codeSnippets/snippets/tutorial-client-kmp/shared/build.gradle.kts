@@ -24,14 +24,14 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.ktor.client.core)
+            implementation(ktorLibs.client.core)
             implementation(libs.kotlinx.coroutines.core)
         }
         androidMain.dependencies {
-            implementation(libs.ktor.client.okhttp)
+            implementation(ktorLibs.client.okhttp)
         }
         iosMain.dependencies {
-            implementation(libs.ktor.client.darwin)
+            implementation(ktorLibs.client.darwin)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

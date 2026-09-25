@@ -1,8 +1,6 @@
-val napier_version: String by project
-
 plugins {
     application
-    kotlin("jvm")
+    alias(libs.plugins.kotlin.jvm)
 }
 
 application {
@@ -18,5 +16,5 @@ dependencies {
     implementation(ktorLibs.client.core)
     implementation(ktorLibs.client.cio)
     implementation(ktorLibs.client.logging)
-    implementation("io.github.aakira:napier:$napier_version")
+    implementation(libs.napier)
 }

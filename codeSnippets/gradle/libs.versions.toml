@@ -1,0 +1,74 @@
+[versions]
+appengine = "2.8.0"
+bootstrap = "5.2.3"
+config = "1.4.9"
+dropwizard = "4.2.40"
+ehcache = "3.10.8"
+exposed = "1.3.0"
+gce-logback = "0.131.12-alpha"
+gretty = "5.0.1"
+guice = "5.1.0"
+h2 = "2.4.240"
+hamcrest = "2.2"
+jackson = "2.17.2"
+jetty-alpn-java-client = "11.0.20"
+hikaricp = "5.1.0"
+jte = "3.2.4"
+junit = "4.13.2"
+kotlin = "2.4.0"
+kotlin-css = "1.0.0-pre.721"
+kotlinx-coroutines = "1.11.0"
+kotlinx-html = "0.12.0"
+log4j = "2.19.0"
+logback = "1.5.37"
+napier = "2.7.1"
+postgres = "42.7.10"
+proguard-gradle = "7.5.0"
+prometheus = "1.12.4"
+shadow = "8.3.10"
+slf4j = "2.0.16"
+swagger-codegen = "1.0.47"
+tcnative = "2.0.72.Final"
+
+[libraries]
+bootstrap = { module = "org.webjars:bootstrap", version.ref = "bootstrap" }
+config = { module = "com.typesafe:config", version.ref = "config" }
+ehcache = { module = "org.ehcache:ehcache", version.ref = "ehcache" }
+exposed-core = { module = "org.jetbrains.exposed:exposed-core", version.ref = "exposed" }
+exposed-dao = { module = "org.jetbrains.exposed:exposed-dao", version.ref = "exposed" }
+exposed-jdbc = { module = "org.jetbrains.exposed:exposed-jdbc", version.ref = "exposed" }
+google-cloud-logging-logback = { module = "com.google.cloud:google-cloud-logging-logback", version.ref = "gce-logback" }
+guice = { module = "com.google.inject:guice", version.ref = "guice" }
+h2 = { module = "com.h2database:h2", version.ref = "h2" }
+hamcrest = { module = "org.hamcrest:hamcrest", version.ref = "hamcrest" }
+hikaricp = { module = "com.zaxxer:HikariCP", version.ref = "hikaricp" }
+jackson-datatype-jsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson" }
+jetty-alpn-java-client = { module = "org.eclipse.jetty:jetty-alpn-java-client", version.ref = "jetty-alpn-java-client" }
+jte-kotlin = { module = "gg.jte:jte-kotlin", version.ref = "jte" }
+junit = { module = "junit:junit", version.ref = "junit" }
+kotlin-css = { module = "org.jetbrains.kotlin-wrappers:kotlin-css", version.ref = "kotlin-css" }
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
+kotlinx-html = { module = "org.jetbrains.kotlinx:kotlinx-html", version.ref = "kotlinx-html" }
+log4j-core = { module = "org.apache.logging.log4j:log4j-core", version.ref = "log4j" }
+log4j-slf4j2-impl = { module = "org.apache.logging.log4j:log4j-slf4j2-impl", version.ref = "log4j" }
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+metrics-jmx = { module = "io.dropwizard.metrics:metrics-jmx", version.ref = "dropwizard" }
+micrometer-registry-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version.ref = "prometheus" }
+napier = { module = "io.github.aakira:napier", version.ref = "napier" }
+netty-tcnative-boringssl-static = { module = "io.netty:netty-tcnative-boringssl-static", version.ref = "tcnative" }
+postgresql = { module = "org.postgresql:postgresql", version.ref = "postgres" }
+proguard-gradle = { module = "com.guardsquare:proguard-gradle", version.ref = "proguard-gradle" }
+slf4j-jdk14 = { module = "org.slf4j:slf4j-jdk14", version.ref = "slf4j" }
+swagger-codegen-generators = { module = "io.swagger.codegen.v3:swagger-codegen-generators", version.ref = "swagger-codegen" }
+
+[plugins]
+appengine = { id = "com.google.cloud.tools.appengine", version.ref = "appengine" }
+gretty = { id = "org.gretty", version.ref = "gretty" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }

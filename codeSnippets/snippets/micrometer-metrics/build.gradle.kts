@@ -1,10 +1,6 @@
-val kotlin_version: String by project
-val logback_version: String by project
-val prometheus_version: String by project
-
 plugins {
     application
-    kotlin("jvm")
+    alias(libs.plugins.kotlin.jvm)
 }
 
 application {
@@ -17,12 +13,12 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
+    implementation(libs.kotlin.stdlib.jdk8)
     implementation(ktorLibs.server.core)
     implementation(ktorLibs.server.netty)
     implementation(ktorLibs.server.metrics.micrometer)
-    implementation("ch.qos.logback:logback-classic:$logback_version")
-    implementation("io.micrometer:micrometer-registry-prometheus:$prometheus_version")
+    implementation(libs.logback.classic)
+    implementation(libs.micrometer.registry.prometheus)
     testImplementation(ktorLibs.server.testHost)
-    testImplementation("org.jetbrains.kotlin:kotlin-test")
+    testImplementation(libs.kotlin.test)
 }

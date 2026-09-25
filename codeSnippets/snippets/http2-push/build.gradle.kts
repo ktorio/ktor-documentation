@@ -1,10 +1,6 @@
-val kotlin_version: String by project
-val logback_version: String by project
-val tcnative_version = "2.0.72.Final"
-
 plugins {
     application
-    kotlin("jvm")
+    alias(libs.plugins.kotlin.jvm)
 }
 
 application {
@@ -25,7 +21,7 @@ val tcnative_classifier = when {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
+    implementation(libs.kotlin.stdlib.jdk8)
     implementation(ktorLibs.server.core)
     implementation(ktorLibs.server.netty)
     implementation(ktorLibs.server.htmlBuilder)
@@ -33,10 +29,10 @@ dependencies {
     implementation(ktorLibs.server.callLogging)
     implementation(ktorLibs.network.tls)
     implementation(ktorLibs.network.tls.certificates)
-    implementation("ch.qos.logback:logback-classic:$logback_version")
+    implementation(libs.logback.classic)
     if (tcnative_classifier != null) {
-        implementation("io.netty:netty-tcnative-boringssl-static:$tcnative_version:$tcnative_classifier")
+        implementation(variantOf(libs.netty.tcnative.boringssl.static) { classifier(tcnative_classifier) })
     } else {
-        implementation("io.netty:netty-tcnative-boringssl-static:$tcnative_version")
+        implementation(libs.netty.tcnative.boringssl.static)
     }
 }

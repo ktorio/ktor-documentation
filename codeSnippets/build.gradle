@@ -32,9 +32,12 @@ buildscript {
         mavenCentral()
         google()
     }
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
+}
+
+plugins {
+    alias(libs.plugins.kotlin.jvm) apply false
+    alias(libs.plugins.kotlin.multiplatform) apply false
+    alias(libs.plugins.kotlin.serialization) apply false
 }
 
 // --------------------------
@@ -112,7 +115,7 @@ configure(subprojects.findAll { it.name.startsWith("maven-") }) {
     def mvnw = System.getProperty('os.name').toLowerCase(Locale.US).contains('windows') ?
             [ 'cmd', '/c', 'mvnw.cmd' ] : [ './mvnw' ]
 
-    mvnw += "-Dkotlin.version=$kotlin_version"
+    mvnw += "-Dkotlin.version=${libs.versions.kotlin.get()}"
     mvnw += "-Dktor.version=$ktor_version"
 
     if (ktorRepositoryDir.exists()) {

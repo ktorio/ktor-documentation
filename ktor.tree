@@ -291,11 +291,12 @@
             <toc-element toc-title="Publishing">
                 <toc-element topic="azure-app-service.md"/>
                 <toc-element topic="google-app-engine.md"
+                             toc-title="Google App Engine"
                              accepts-web-file-names="hosting.html"/>
                 <toc-element topic="heroku.md"/>
                 <toc-element topic="dokku.md"/>
                 <toc-element topic="sevalla.md"/>
-                <toc-element topic="elastic-beanstalk.md"/>
+                <toc-element topic="elastic-beanstalk.md" toc-title="AWS Elastic Beanstalk"/>
             </toc-element>
         </toc-element>
 

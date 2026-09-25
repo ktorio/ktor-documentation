@@ -1,11 +1,7 @@
-val logback_version: String by project
-val junit_version: String by project
-val hamcrest_version: String by project
-
 plugins {
     application
-    kotlin("jvm")
-    kotlin("plugin.serialization").version("2.2.20")
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 application {
@@ -30,7 +26,7 @@ dependencies {
     implementation(ktorLibs.serialization.kotlinx.json)
     implementation(ktorLibs.server.core)
     implementation(ktorLibs.server.netty)
-    implementation("ch.qos.logback:logback-classic:$logback_version")
-    testImplementation("junit:junit:$junit_version")
+    implementation(libs.logback.classic)
+    testImplementation(libs.junit)
     testImplementation(ktorLibs.client.mock)
 }

@@ -40,19 +40,17 @@ The main client functionality is available in the `ktor-client-core` artifact. D
 add it in the following way:
 
 <var name="artifact_name" value="ktor-client-core"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.client.core"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
-
-You can replace `$ktor_version` with the required Ktor version, for example, `%ktor_version%`.
 
 #### Multiplatform {id="client-dependency-multiplatform"}
 
-For a multiplatform project, you can define the Ktor version and the `ktor-client-core` artifact in
-the `gradle/libs.versions.toml` file:
+For a multiplatform project, import the Ktor version catalog in your <path>settings.gradle.kts</path> file:
 
 ```kotlin
 ```
 
-{src="snippets/tutorial-client-kmp/gradle/libs.versions.toml" include-lines="1,15,17-18,29"}
+{src="snippets/tutorial-client-kmp/settings.gradle.kts" include-lines="18-21,33"}
 
 Then, add `ktor-client-core` as a dependency to the `commonMain` source set:
 
@@ -69,6 +67,7 @@ different platforms.
 For example, you can add the `CIO` engine as follows:
 
 <var name="artifact_name" value="ktor-client-cio"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.client.cio"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 #### Multiplatform {id="engine-dependency-multiplatform"}
@@ -78,44 +77,35 @@ For example, you can add the `CIO` engine as follows:
 For a multiplatform project, you can use the `ktor-client-engine-defaults` artifact to provide a curated client engine
 for each target platform.
 
-First, define the artifact in your `gradle/libs.versions.toml` file:
-
-```toml
-[libraries]
-ktor-client-engine-defaults = { module = "io.ktor:ktor-client-engine-defaults", version.ref = "ktor" }
-```
-
-Then, add it to the `commonMain` source set:
+Add the artifact dependency to the `commonMain` source set:
 
 ```kotlin
 kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api(libs.ktor.client.engine.defaults)
+                api(ktorLibs.client.engineDefaults)
             }
         }
     }
 }
 ```
+<include from="lib.topic" element-id="code_with_ktor_version_catalog"/>
 
 ##### Use a specific engine {id="kmp-specific-engine"}
 
 If you need a specific engine, add its dependency to the corresponding platform source set instead. For example, to use
-`OkHttp` on Android, define the `ktor-client-okhttp` artifact:
-
-```toml
-```
-{src="snippets/tutorial-client-kmp/gradle/libs.versions.toml" include-lines="18,30"}
-
-Then, add it as a dependency to the `androidMain` source set:
+`OkHttp` on Android, add `ktorLibs.client.okhttp` to the `androidMain` source set:
 
 ```kotlin
 ```
-
 {src="snippets/tutorial-client-kmp/shared/build.gradle.kts" include-lines="25,30-32,39"}
 
-For the dependencies required by each engine, see [](client-engines.md#dependencies).
+<include from="lib.topic" element-id="code_with_ktor_version_catalog"/>
+
+> For the dependencies required by each engine, see [](client-engines.md#dependencies).
+> 
+{style="tip"}
 
 ### Logging dependency
 

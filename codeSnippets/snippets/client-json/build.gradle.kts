@@ -1,8 +1,6 @@
-val logback_version: String by project
-
 plugins {
     application
-    kotlin("jvm")
+    alias(libs.plugins.kotlin.jvm)
 }
 
 application {
@@ -19,5 +17,5 @@ dependencies {
     implementation(ktorLibs.client.apache5)
     implementation(ktorLibs.client.contentNegotiation)
     implementation(ktorLibs.serialization.gson)
-    implementation("ch.qos.logback:logback-classic:$logback_version")
+    implementation(libs.logback.classic)
 }

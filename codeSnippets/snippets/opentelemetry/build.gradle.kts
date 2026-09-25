@@ -1,5 +1,5 @@
 plugins {
-    id("com.avast.gradle.docker-compose") version "0.17.21"
+    alias(libs.plugins.docker.compose)
 }
 
 subprojects {

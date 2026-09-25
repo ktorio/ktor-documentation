@@ -4,6 +4,7 @@
 <primary-label ref="experimental"/>
 
 <var name="artifact_name" value="ktor-server-auth"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.auth"/>
 
 <tldr>
 <p>
@@ -33,11 +34,13 @@ To use typed authentication, add the `ktor-server-auth` artifact to your build s
 If using the `jwt` scheme, add the `ktor-server-auth-jwt` artifact:
 
 <var name="artifact_name" value="ktor-server-auth-jwt"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.auth.jwt"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 If using the `apiKey` scheme, add the `ktor-server-auth-api-key` artifact:
 
 <var name="artifact_name" value="ktor-server-auth-api-key"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.auth.api.key"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 ## Enable the API {id="prerequisites"}
