@@ -1,6 +1,7 @@
 [//]: # (title: HTML DSL)
 
 <var name="artifact_name" value="ktor-server-html-builder"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.html.builder"/>
 <tldr>
 <p>
 <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>

@@ -372,16 +372,38 @@
             </p>
             <procedure id="configure-build-files">
                 <step>
+                    <p>
+                        Open or create <path>gradle/libs.versions.toml</path> and define the Kotlin,
+                        <code>kotlinx.rpc</code>, and Logback versions, as well as the library and plugin aliases:
+                    </p>
+                    <code-block lang="toml"
+                                src="snippets/tutorial-kotlin-rpc-app/gradle/libs.versions.toml"
+                    />
+                    <p>
+                        Gradle automatically makes these aliases available through <code>libs</code> in your build file.
+                    </p>
+                </step>
+                <step>
+                    <p>
+                        Open the <path>settings.gradle.kts</path> file and import the Ktor version catalog:
+                    </p>
+                    <code-block lang="kotlin"
+                                src="snippets/tutorial-kotlin-rpc-app/settings.gradle.kts"
+                                include-lines="7-14"
+                    />
+                    <p>
+                        This catalog provides the Ktor plugin and dependency aliases through <code>ktorLibs</code>.
+                        The version in the catalog coordinate determines the Ktor version used by these aliases.
+                    </p>
+                </step>
+                <step>
                     In the
                     <path>build.gradle.kts</path>
                     file, add the following plugins:
                     <code-block lang="kotlin"
                                 src="snippets/tutorial-kotlin-rpc-app/build.gradle.kts"
-                                include-lines="1-7"
+                                include-lines="1-6"
                     />
-                    <p>
-                        The reason for the Kotlin plugin is obvious. To explain the others:
-                    </p>
                     <list>
                         <li>
                             The <code>kotlinx.serialization</code> plugin is required to generate the helper types for
@@ -400,7 +422,7 @@
                     Add the following dependencies:
                     <code-block lang="kotlin"
                                 src="snippets/tutorial-kotlin-rpc-app/build.gradle.kts"
-                                include-lines="16-26"
+                                include-lines="15-25"
                     />
                     <p>
                         This adds the Ktor client and server, the client and server parts of the

@@ -1,8 +1,5 @@
-val kotlin_version: String by project
-val logback_version: String by project
-
 plugins {
-    kotlin("multiplatform")
+    alias(libs.plugins.kotlin.multiplatform)
 }
 
 repositories {
@@ -35,7 +32,7 @@ kotlin {
         }
         val nativeTest by getting {
             dependencies {
-                implementation(kotlin("test"))
+                implementation(libs.kotlin.test)
             }
         }
     }

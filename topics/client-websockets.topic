@@ -8,6 +8,7 @@
     <primary-label ref="client-plugin"/>
     <var name="example_name" value="client-websockets"/>
     <var name="artifact_name" value="ktor-client-websockets"/>
+    <var name="ktor_version_catalog_name" value="ktorLibs.client.websockets"/>
     <tldr>
         <p>
             <b>Required dependencies</b>: <code>io.ktor:ktor-client-websockets</code>

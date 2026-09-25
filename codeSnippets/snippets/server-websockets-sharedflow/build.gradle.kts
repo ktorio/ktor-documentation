@@ -1,11 +1,8 @@
-val kotlin_version: String by project
-val logback_version: String by project
-
 plugins {
     application
-    kotlin("jvm")
+    alias(libs.plugins.kotlin.jvm)
     alias(ktorLibs.plugins.ktor)
-    kotlin("plugin.serialization").version("2.2.20")
+    alias(libs.plugins.kotlin.serialization)
 }
 
 application {
@@ -22,7 +19,7 @@ dependencies {
     implementation(ktorLibs.server.websockets)
     implementation(ktorLibs.server.netty)
     implementation(ktorLibs.serialization.kotlinx.json)
-    implementation("ch.qos.logback:logback-classic:$logback_version")
+    implementation(libs.logback.classic)
     testImplementation(ktorLibs.server.testHost)
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
+    testImplementation(libs.kotlin.test.junit)
 }

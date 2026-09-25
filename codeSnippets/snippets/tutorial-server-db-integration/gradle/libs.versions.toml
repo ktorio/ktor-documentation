@@ -5,6 +5,7 @@ kotlin = "2.4.0"
 logback = "1.6.3"
 
 [libraries]
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 exposed-core = { module = "org.jetbrains.exposed:exposed-core", version.ref = "exposed" }
 exposed-jdbc = { module = "org.jetbrains.exposed:exposed-jdbc", version.ref = "exposed" }
 exposed-dao = { module = "org.jetbrains.exposed:exposed-dao", version.ref = "exposed" }

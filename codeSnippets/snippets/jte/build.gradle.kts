@@ -1,10 +1,6 @@
-val kotlin_version: String by project
-val logback_version: String by project
-val jte_version: String by project
-
 plugins {
     application
-    kotlin("jvm")
+    alias(libs.plugins.kotlin.jvm)
 }
 
 application {
@@ -20,10 +16,10 @@ dependencies {
     implementation(ktorLibs.server.core)
     implementation(ktorLibs.server.netty)
     implementation(ktorLibs.server.jte)
-    implementation("gg.jte:jte-kotlin:$jte_version")
-    implementation("ch.qos.logback:logback-classic:$logback_version")
+    implementation(libs.jte.kotlin)
+    implementation(libs.logback.classic)
     testImplementation(ktorLibs.server.testHost)
-    testImplementation("org.jetbrains.kotlin:kotlin-test")
+    testImplementation(libs.kotlin.test)
 }
 
 kotlin {

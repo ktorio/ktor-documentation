@@ -41,6 +41,7 @@ following HTTP authentication schemes:
 To enable authentication, include the `ktor-client-auth` artifact in the build script:
 
 <var name="artifact_name" value="ktor-client-auth"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.client.auth"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 <include from="lib.topic" element-id="add_ktor_client_artifact_tip"/>
 

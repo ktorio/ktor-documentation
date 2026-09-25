@@ -4,6 +4,7 @@
 <primary-label ref="experimental"/>
 
 <var name="artifact_name" value="ktor-client-webrtc"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.client.webrtc"/>
 <tldr>
     <p>
         <b>Required dependencies</b>: <code>io.ktor:%artifact_name%</code>

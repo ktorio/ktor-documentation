@@ -6,6 +6,7 @@
 <var name="plugin_name" value="RequestValidation"/>
 <var name="package_name" value="io.ktor.server.plugins.requestvalidation"/>
 <var name="artifact_name" value="ktor-server-request-validation"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.request.validation"/>
 
 <tldr>
 <p>

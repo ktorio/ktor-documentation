@@ -1,11 +1,7 @@
-val kotlin_version = "2.2.20"
-val logback_version: String by project
-val swagger_codegen_version: String by project
-
 plugins {
     application
-    kotlin("jvm")
-    kotlin("plugin.serialization").version("2.2.20")
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 application {
@@ -18,7 +14,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
+    implementation(libs.kotlin.stdlib.jdk8)
     implementation(ktorLibs.server.core)
     implementation(ktorLibs.server.netty)
     implementation(ktorLibs.server.swagger)
@@ -28,8 +24,8 @@ dependencies {
     implementation(ktorLibs.serialization.kotlinx.json)
     implementation(ktorLibs.client.contentNegotiation)
     implementation(ktorLibs.server.routingOpenapi)
-    implementation("io.swagger.codegen.v3:swagger-codegen-generators:$swagger_codegen_version")
-    implementation("ch.qos.logback:logback-classic:$logback_version")
+    implementation(libs.swagger.codegen.generators)
+    implementation(libs.logback.classic)
     testImplementation(ktorLibs.server.testHost)
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
+    testImplementation(libs.kotlin.test.junit)
 }

@@ -82,6 +82,7 @@ a [custom logger](#custom_logger), such as [Napier](https://github.com/AAkira/Na
 To add the `Logging` plugin, include the following artifact to your build script:
 
   <var name="artifact_name" value="ktor-client-logging"/>
+  <var name="ktor_version_catalog_name" value="ktorLibs.client.logging"/>
   <include from="lib.topic" element-id="add_ktor_artifact"/>
   <include from="lib.topic" element-id="add_ktor_client_artifact_tip"/>
 

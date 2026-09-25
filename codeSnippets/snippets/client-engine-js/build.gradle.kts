@@ -1,8 +1,6 @@
-val kotlinx_html_version: String by project
-
 plugins {
-    kotlin("multiplatform")
-    kotlin("plugin.serialization").version("2.2.20")
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 repositories {
@@ -25,7 +23,7 @@ kotlin {
     sourceSets {
         val jsMain by getting {
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-html:$kotlinx_html_version")
+                implementation(libs.kotlinx.html)
                 implementation(ktorLibs.client.core)
                 implementation(ktorLibs.client.js)
                 implementation(ktorLibs.client.contentNegotiation)

@@ -1,9 +1,6 @@
-val kotlin_version: String by project
-val junit_version: String by project
-
 plugins {
     application
-    kotlin("jvm")
+    alias(libs.plugins.kotlin.jvm)
 }
 
 application {
@@ -19,5 +16,5 @@ dependencies {
     implementation(ktorLibs.client.core)
     implementation(ktorLibs.client.apache)
     testImplementation(ktorLibs.client.mock)
-    testImplementation("junit:junit:$junit_version")
+    testImplementation(libs.junit)
 }

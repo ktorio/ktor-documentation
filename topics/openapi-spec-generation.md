@@ -4,6 +4,7 @@
 <secondary-label ref="server-feature"/>
 
 <var name="artifact_name" value="ktor-server-routing-openapi"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.routing.openapi"/>
 <var name="package_name" value="io.ktor.server.routing.openapi"/>
 
 <tldr>
@@ -191,7 +192,7 @@ file:
 
 ```kotlin
 ```
-{src="snippets/openapi-spec-gen/build.gradle.kts" include-lines="20-26"}
+{src="snippets/openapi-spec-gen/build.gradle.kts" include-lines="16-22"}
 
 ### Configuration options
 

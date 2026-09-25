@@ -1,10 +1,6 @@
-val logback_version: String by project
-val junit_version: String by project
-val hamcrest_version: String by project
-
 plugins {
     application
-    kotlin("jvm")
+    alias(libs.plugins.kotlin.jvm)
 }
 
 application {
@@ -21,9 +17,9 @@ dependencies {
     implementation(ktorLibs.client.cio)
     implementation(ktorLibs.client.logging)
     implementation(ktorLibs.client.auth)
-    implementation("ch.qos.logback:logback-classic:$logback_version")
+    implementation(libs.logback.classic)
     implementation(project(":auth-basic"))
     implementation(project(":e2e"))
-    testImplementation("junit:junit:$junit_version")
-    testImplementation("org.hamcrest:hamcrest:$hamcrest_version")
+    testImplementation(libs.junit)
+    testImplementation(libs.hamcrest)
 }

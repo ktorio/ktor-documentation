@@ -38,6 +38,7 @@ your [build script](server-dependencies.topic):
 Below are examples of adding a dependency for Netty:
 
 <var name="artifact_name" value="ktor-server-netty"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.netty"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 ## Choose how to create a server {id="choose-create-server"}

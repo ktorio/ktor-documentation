@@ -1,10 +1,6 @@
-val kotlin_version: String by project
-val logback_version: String by project
-val junit_version: String by project
-
 plugins {
     application
-    kotlin("jvm")
+    alias(libs.plugins.kotlin.jvm)
 }
 
 application {
@@ -25,12 +21,12 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
+    implementation(libs.kotlin.stdlib.jdk8)
     implementation(ktorLibs.server.core)
     implementation(ktorLibs.server.netty)
-    implementation("ch.qos.logback:logback-classic:$logback_version")
+    implementation(libs.logback.classic)
 
-    testImplementation("junit:junit:$junit_version")
+    testImplementation(libs.junit)
     testImplementation(project(":e2e"))
 
     testImplementation(ktorLibs.client.core)
