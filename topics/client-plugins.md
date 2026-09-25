@@ -14,6 +14,7 @@ Some plugins require an additional [dependency](client-dependencies.md). For exa
 `ktor-client-logging` artifact in your build script:
 
 <var name="artifact_name" value="ktor-client-logging"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.client.logging"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 Each plugin’s documentation specifies any required dependencies.

@@ -1,10 +1,6 @@
-
-val kotlin_version: String by project
-val logback_version: String by project
-
 plugins {
-    kotlin("jvm")
-    id("io.ktor.plugin") version "3.6.0"
+    alias(libs.plugins.kotlin.jvm)
+    alias(ktorLibs.plugins.ktor)
 }
 
 group = "com.example"
@@ -19,15 +15,15 @@ repositories {
 }
 
 dependencies {
-    implementation("io.ktor:ktor-server-core-jvm")
-    implementation("io.ktor:ktor-server-netty")
-    implementation("ch.qos.logback:logback-classic:$logback_version")
-    implementation("io.ktor:ktor-server-core")
-    implementation("io.ktor:ktor-server-htmx")
-    implementation("io.ktor:ktor-htmx")
-    implementation("io.ktor:ktor-htmx-html")
-    implementation("io.ktor:ktor-server-html-builder")
-    implementation("io.ktor:ktor-server-config-yaml")
-    testImplementation("io.ktor:ktor-server-test-host")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
+    implementation(ktorLibs.server.core)
+    implementation(ktorLibs.server.netty)
+    implementation(libs.logback.classic)
+    implementation(ktorLibs.server.core)
+    implementation(ktorLibs.server.htmx)
+    implementation(ktorLibs.htmx)
+    implementation(ktorLibs.htmx.html)
+    implementation(ktorLibs.server.htmlBuilder)
+    implementation(ktorLibs.server.config.yaml)
+    testImplementation(ktorLibs.server.testHost)
+    testImplementation(libs.kotlin.test.junit)
 }

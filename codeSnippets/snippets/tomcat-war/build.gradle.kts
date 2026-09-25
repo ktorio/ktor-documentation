@@ -1,11 +1,7 @@
-val ktor_version: String by project
-val kotlin_version: String by project
-val slf4j_version: String by project
-
 plugins {
     application
-    kotlin("jvm")
-    id("org.gretty") version "5.0.1"
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.gretty)
     id("war")
 }
 
@@ -20,10 +16,10 @@ repositories {
 }
 
 dependencies {
-    implementation("io.ktor:ktor-server-servlet-jakarta:$ktor_version")
-    implementation("org.slf4j:slf4j-jdk14:$slf4j_version")
-    testImplementation("io.ktor:ktor-server-test-host-jvm:$ktor_version")
-    testImplementation("org.jetbrains.kotlin:kotlin-test")
+    implementation(ktorLibs.server.servlet)
+    implementation(libs.slf4j.jdk14)
+    testImplementation(ktorLibs.server.testHost)
+    testImplementation(libs.kotlin.test)
 }
 
 afterEvaluate {

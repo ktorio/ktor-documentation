@@ -4,6 +4,7 @@
 <primary-label ref="experimental"/>
 
 <var name="artifact_name" value="ktor-server-auth-oidc"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.auth.oidc"/>
 
 <tldr>
 <p>

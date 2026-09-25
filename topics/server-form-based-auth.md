@@ -3,6 +3,7 @@
 <show-structure for="chapter" depth="2"/>
 
 <var name="artifact_name" value="ktor-server-auth"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.auth"/>
 
 <tldr>
 <p>

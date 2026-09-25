@@ -75,12 +75,12 @@
         <tabs group="languages">
             <tab title="Gradle (Kotlin)" group-key="kotlin">
                 <code-block lang="Kotlin">
-                    implementation("io.ktor:%artifact_name%:$ktor_version")
+                    implementation(%ktor_version_catalog_name%)
                 </code-block>
             </tab>
             <tab title="Gradle (Groovy)" group-key="groovy">
                 <code-block lang="Groovy">
-                    implementation "io.ktor:%artifact_name%:$ktor_version"
+                    implementation %ktor_version_catalog_name%
                 </code-block>
             </tab>
             <tab title="Maven" group-key="maven">
@@ -481,6 +481,13 @@
                                                            alt="intelliJ IDEA rerun icon"/>) to restart the
             application.
         </p>
+    </snippet>
+
+    <snippet id="code_with_ktor_version_catalog">
+        <note>
+            The above code snippet uses the <a href="server-dependencies.topic#using-version-catalog">
+            Ktor version catalog</a> to specify Ktor dependencies.
+        </note>
     </snippet>
 </topic>
 

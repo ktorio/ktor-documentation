@@ -393,7 +393,7 @@
                 and define the following <code>kotlinx.serialization</code> dependencies:
                 <code-block lang="toml"
                             src="snippets/full-stack-task-manager/gradle/libs.versions.toml"
-                            include-lines="1,20,21-22,41,57-58,65"
+                            include-lines="1,19-21,40,43-44,51"
                 />
             </step>
             <step>
@@ -504,12 +504,10 @@
                 </p>
             </step>
             <step>
-                Open the
-                <path>gradle/libs.versions.toml</path>
-                file and define the following libraries:
-                <code-block lang="toml"
-                            src="snippets/full-stack-task-manager/gradle/libs.versions.toml"
-                            include-lines="22,47-49"
+                Open <path>settings.gradle.kts</path> and import the Ktor version catalog:
+                <code-block lang="kotlin"
+                            src="snippets/full-stack-task-manager/settings.gradle.kts"
+                            include-lines="18-21,33"
                 />
             </step>
             <step>
@@ -553,15 +551,6 @@
             <li>Support for content negotiation and serialization.</li>
         </list>
         <procedure id="create-client-procedure">
-            <step>
-                In the
-                <path>gradle/libs.versions.toml</path>
-                file, add the following libraries:
-                <code-block lang="toml"
-                            src="snippets/full-stack-task-manager/gradle/libs.versions.toml"
-                            include-lines="22,50-56"
-                />
-            </step>
             <step>
                 Navigate to
                 <path>app/shared/build.gradle.kts</path>

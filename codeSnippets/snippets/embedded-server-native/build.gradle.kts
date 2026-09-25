@@ -1,9 +1,5 @@
-val ktor_version: String by project
-val kotlin_version: String by project
-val logback_version: String by project
-
 plugins {
-    kotlin("multiplatform")
+    alias(libs.plugins.kotlin.multiplatform)
 }
 
 repositories {
@@ -33,12 +29,12 @@ kotlin {
     }
     sourceSets {
         nativeMain.dependencies {
-            implementation("io.ktor:ktor-server-core:$ktor_version")
-            implementation("io.ktor:ktor-server-cio:$ktor_version")
+            implementation(ktorLibs.server.core)
+            implementation(ktorLibs.server.cio)
         }
         nativeTest.dependencies {
-            implementation(kotlin("test"))
-            implementation("io.ktor:ktor-server-test-host:$ktor_version")
+            implementation(libs.kotlin.test)
+            implementation(ktorLibs.server.testHost)
         }
     }
 }

@@ -6,6 +6,7 @@
 <var name="plugin_name" value="DropwizardMetrics"/>
 <var name="package_name" value="io.ktor.server.metrics.dropwizard"/>
 <var name="artifact_name" value="ktor-server-metrics"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.metrics"/>
 
 <tldr>
 <p>

@@ -1,12 +1,8 @@
-val ktor_version: String by project
-val kotlin_version: String by project
-val logback_version: String by project
-
 plugins {
     application
-    kotlin("jvm")
-    id("io.ktor.plugin") version "3.6.0"
-    kotlin("plugin.serialization").version("2.2.20")
+    alias(libs.plugins.kotlin.jvm)
+    alias(ktorLibs.plugins.ktor)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 application {
@@ -19,11 +15,11 @@ repositories {
 }
 
 dependencies {
-    implementation("io.ktor:ktor-server-core-jvm")
-    implementation("io.ktor:ktor-server-websockets-jvm")
-    implementation("io.ktor:ktor-server-netty-jvm")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:$ktor_version")
-    implementation("ch.qos.logback:logback-classic:$logback_version")
-    testImplementation("io.ktor:ktor-server-test-host-jvm")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
+    implementation(ktorLibs.server.core)
+    implementation(ktorLibs.server.websockets)
+    implementation(ktorLibs.server.netty)
+    implementation(ktorLibs.serialization.kotlinx.json)
+    implementation(libs.logback.classic)
+    testImplementation(ktorLibs.server.testHost)
+    testImplementation(libs.kotlin.test.junit)
 }

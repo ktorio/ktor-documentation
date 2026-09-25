@@ -8,6 +8,7 @@
 <var name="plugin_name" value="Velocity"/>
 <var name="package_name" value="io.ktor.server.velocity"/>
 <var name="artifact_name" value="ktor-server-velocity"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.velocity"/>
 
 <tldr>
 <p>

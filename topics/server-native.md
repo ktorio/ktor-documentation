@@ -22,18 +22,20 @@ Ktor server in a Kotlin/Native project requires at least two dependencies:
 * `ktor-server-core` (core dependency)
 * `ktor-server-cio` (the CIO engine)
 
-The code snippet below shows how to add dependencies to the `nativeMain` source set in your
+The following example adds dependencies to the `nativeMain` source set in your
 <path>build.gradle.kts</path> file:
 
 ```kotlin
 ```
-{src="snippets/embedded-server-native/build.gradle.kts" include-lines="14,34-38,43-44"}
+{src="snippets/embedded-server-native/build.gradle.kts" include-lines="10,30-34,39-40"}
+
+<include from="lib.topic" element-id="code_with_ktor_version_catalog"/>
 
 To [test](server-testing.md) a Native server, add the `ktor-server-test-host` artifact to the `nativeTest` source set:
 
 ```kotlin
 ```
-{src="snippets/embedded-server-native/build.gradle.kts" include-lines="14,34,39-44"}
+{src="snippets/embedded-server-native/build.gradle.kts" include-lines="10,30,35-40"}
 
 ## Configure native targets {id="native-target"}
 
@@ -41,7 +43,7 @@ Specify the required native targets and [declare a native binary](https://kotlin
 
 ```kotlin
 ```
-{src="snippets/embedded-server-native/build.gradle.kts" include-lines="14-33,44"}
+{src="snippets/embedded-server-native/build.gradle.kts" include-lines="10-29,40"}
 
 > For the full example, see [embedded-server-native](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server-native).
 >

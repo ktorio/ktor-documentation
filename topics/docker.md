@@ -15,37 +15,32 @@ Learn how to deploy a Ktor application to a Docker container, which can then be 
 Learn how to deploy your application to a Docker container.
 </link-summary>
 
-In this section, we'll see how to use the [Ktor Gradle plugin](https://github.com/ktorio/ktor-build-plugins) for
-packaging, running, and deploying applications using [Docker](https://www.docker.com).
+In this section, you'll learn how to use the [Ktor Gradle plugin](https://github.com/ktorio/ktor-build-plugins) for
+packaging, running, and deploying applications with [Docker](https://www.docker.com).
 
 ## Install the Ktor plugin {id="install-plugin"}
-
-To install the Ktor plugin, add it to the `plugins` block of your `build.gradle.(kts)` file:
 
 <tabs group="languages">
 <tab title="Gradle (Kotlin)" group-key="kotlin">
 
 ```kotlin
 plugins {
-    id("io.ktor.plugin") version "%ktor_version%"
+    alias(ktorLibs.plugins.ktor)
 }
 ```
-
-{interpolate-variables="true"}
 
 </tab>
 <tab title="Gradle (Groovy)" group-key="groovy">
 
 ```groovy
 plugins {
-    id "io.ktor.plugin" version "%ktor_version%"
+    alias(ktorLibs.plugins.ktor)
 }
 ```
 
-{interpolate-variables="true"}
-
 </tab>
 </tabs>
+<include from="lib.topic" element-id="code_with_ktor_version_catalog"/>
 
 > The Docker integration is automatically disabled if you apply the Ktor Gradle plugin along with the Kotlin Multiplatform Gradle plugin.
 > To be able to use them together:
@@ -99,7 +94,7 @@ The `jreVersion` property specifies the JRE version to use in the image:
 ```kotlin
 ```
 
-{src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="28,33-34,52-53"}
+{src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="25,30-31,49-50"}
 
 ### Image name and tag {id="name-tag"}
 
@@ -108,7 +103,7 @@ If you need to customize the image name and tag, use the `localImageName` and `i
 ```kotlin
 ```
 
-{src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="28,33,35-36,52-53"}
+{src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="25,30,32-33,49-50"}
 
 ### Port mapping {id="port-mapping"}
 
@@ -122,7 +117,7 @@ The example below shows how to map the `8080` container port to the `80` Docker 
 ```kotlin
 ```
 
-{src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="28,33,37-43,52-53"}
+{src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="25,30,34-40,49-50"}
 
 In this case, you can access the server on `http://0.0.0.0:80`.
 
@@ -141,7 +136,7 @@ The example below shows how to configure the Docker Hub registry:
 ```kotlin
 ```
 
-{src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="28,33,45-53"}
+{src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="25,30,42-50"}
 
 Note that the Docker Hub name and password are fetched from the environment variables, so you need to set these values
 before running the `publishImage` task:

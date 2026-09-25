@@ -1,4 +1,4 @@
-[//]: # (title: AWS Elastic Beanstalk)
+[//]: # (title: Deploy a Ktor application to AWS Elastic Beanstalk)
 
 <show-structure for="chapter" depth="2"/>
 
@@ -12,16 +12,18 @@
 </p>
 </tldr>
 
-In this tutorial, we'll show you how to prepare and deploy a Ktor application to AWS Elastic Beanstalk. You can use one of the following initial projects depending on the way used to [create a Ktor server](server-create-and-configure.topic):
+In this tutorial, you'll learn how to prepare and deploy a Ktor application to Amazon Web Services (AWS) Elastic Beanstalk.
+You can use one of the following initial projects depending on the way used to [create a Ktor server](server-create-and-configure.topic):
 * [embedded-server](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/embedded-server)
 * [engine-main](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/engine-main)
 
-> Learn more about deploying Java applications from [Elastic Beanstalk docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Java.html).
-
+> To learn more about deploying Java applications to AWS Elastic Beanstalk, see the [Elastic Beanstalk documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Java.html).
+>
+{style="tip"}
 
 ## Prerequisites {id="prerequisites"}
-Before starting this tutorial, you need to create an AWS account.
 
+Before starting this tutorial, you need to create an AWS account.
 
 ## Clone a sample application {id="clone"}
 To open a sample application, follow the steps below:
@@ -49,19 +51,26 @@ First, you need to specify a port used to listen for incoming requests. Elastic 
   {src="snippets/aws-elastic-beanstalk/src/main/resources/application.conf" include-lines="1-5,9" style="block"}
 
 ### Step 2: Apply the Ktor plugin {id="configure-ktor-plugin"}
-This tutorial shows how to deploy the application to Elastic Beanstalk using a [fat JAR](server-fatjar.md). To generate fat JARs, you need to apply the Ktor plugin. Open the `build.gradle.kts` file and add the plugin to the `plugins` block:
+
+This tutorial shows how to deploy your application to AWS Elastic Beanstalk using a [fat JAR](server-fatjar.md). To
+generate fat JARs, you need to apply the Ktor plugin.
+
+Open the <path>build.gradle.kts</path> file and add the plugin to the `plugins {}` block:
 ```groovy
 ```
-{src="snippets/aws-elastic-beanstalk/build.gradle.kts" include-lines="3,6-7"}
+{src="snippets/aws-elastic-beanstalk/build.gradle.kts" include-lines="1,4-5"}
+
+<include from="lib.topic" element-id="code_with_ktor_version_catalog"/>
 
 Then, make sure that the [main application class](server-dependencies.topic#create-entry-point) is configured:
 ```kotlin
 ```
-{src="snippets/aws-elastic-beanstalk/build.gradle.kts" include-lines="9-11"}
+{src="snippets/aws-elastic-beanstalk/build.gradle.kts" include-lines="7-9"}
 
 
 ## Build a Fat JAR {id="build"}
-To build a Fat JAR, open the terminal and execute the `buildFatJar` task provided by the [Ktor plugin](#configure-ktor-plugin):
+
+To build a Fat JAR, open the terminal and run the `buildFatJar` task provided by the [Ktor plugin](#configure-ktor-plugin):
 
 <tabs group="os">
 <tab title="Linux/macOS" group-key="unix">
@@ -72,8 +81,7 @@ To build a Fat JAR, open the terminal and execute the `buildFatJar` task provide
 </tab>
 </tabs>
 
-When this build completes, you should see the `aws-elastic-beanstalk-all.jar` file in the `build/libs` directory.
-
+When this build completes, you should see the `aws-elastic-beanstalk-all.jar` file in the <path>build/libs</path> directory.
 
 ## Deploy an application {id="deploy-app"}
 To deploy the application, sign in to [AWS Management Console](https://aws.amazon.com/console/) and follow the steps below:

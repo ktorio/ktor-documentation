@@ -151,6 +151,7 @@ This is the recommended Apache-based engine for new projects.
 1. Add the `ktor-client-apache5` dependency:
 
    <var name="artifact_name" value="ktor-client-apache5"/>
+   <var name="ktor_version_catalog_name" value="ktorLibs.client.apache5"/>
    <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 2. Pass the `Apache5` class as an argument to the `HttpClient` constructor:
@@ -178,6 +179,7 @@ Java 11. To use it, follow the steps below:
 1. Add the `ktor-client-java` dependency:
 
    <var name="artifact_name" value="ktor-client-java"/>
+   <var name="ktor_version_catalog_name" value="ktorLibs.client.java"/>
    <include from="lib.topic" element-id="add_ktor_artifact"/>
 2. Pass the [Java](https://api.ktor.io/ktor-client-java/io.ktor.client.engine.java/-java/index.html) class
    as an argument to the `HttpClient` constructor:
@@ -198,6 +200,7 @@ The `Jetty` engine supports only HTTP/2 and can be configured in the following w
 1. Add the `ktor-client-jetty-jakarta` dependency:
 
    <var name="artifact_name" value="ktor-client-jetty-jakarta"/>
+   <var name="ktor_version_catalog_name" value="ktorLibs.client.jetty.jakarta"/>
    <include from="lib.topic" element-id="add_ktor_artifact"/>
 2. Pass the
    [`Jetty`](https://api.ktor.io/ktor-client-jetty-jakarta/io.ktor.client.engine.jetty.jakarta/-jetty/index.html)
@@ -223,6 +226,7 @@ The `Android` engine targets Android and can be configured in the following way:
 1. Add the `ktor-client-android` dependency:
 
    <var name="artifact_name" value="ktor-client-android"/>
+   <var name="ktor_version_catalog_name" value="ktorLibs.client.android"/>
    <include from="lib.topic" element-id="add_ktor_artifact"/>
 2. Pass the
    [`Android`](https://api.ktor.io/ktor-client-android/io.ktor.client.engine.android/-android/index.html)
@@ -245,6 +249,7 @@ The `OkHttp` engine is based on OkHttp and can be configured in the following wa
 1. Add the `ktor-client-okhttp` dependency:
 
    <var name="artifact_name" value="ktor-client-okhttp"/>
+   <var name="ktor_version_catalog_name" value="ktorLibs.client.okhttp"/>
    <include from="lib.topic" element-id="add_ktor_artifact"/>
 2. Pass
    the [`OkHttp`](https://api.ktor.io/ktor-client-okhttp/io.ktor.client.engine.okhttp/-ok-http/index.html)
@@ -366,6 +371,7 @@ WebAssembly JavaScript (WasmJs) platforms. It currently supports HTTP/1.x only. 
 1. Add the `ktor-client-cio` dependency:
 
    <var name="artifact_name" value="ktor-client-cio"/>
+   <var name="ktor_version_catalog_name" value="ktorLibs.client.cio"/>
    <include from="lib.topic" element-id="add_ktor_artifact"/>
 2. Pass the [`CIO`](https://api.ktor.io/ktor-client-cio/io.ktor.client.engine.cio/-c-i-o/index.html) class
    as

@@ -4,6 +4,7 @@
 <primary-label ref="server-plugin"/>
 
 <var name="artifact_name" value="ktor-server-forwarded-header"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.forwarded.header"/>
 <var name="package_name" value="io.ktor.server.plugins.forwardedheaders"/>
 
 <tldr>

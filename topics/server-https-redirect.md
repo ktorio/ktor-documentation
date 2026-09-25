@@ -5,6 +5,7 @@
 <var name="plugin_name" value="HttpsRedirect"/>
 <var name="package_name" value="io.ktor.server.plugins.httpsredirect"/>
 <var name="artifact_name" value="ktor-server-http-redirect"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.http.redirect"/>
 
 <tldr>
 <p>
