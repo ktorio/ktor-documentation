@@ -10,7 +10,7 @@ repositories {
 }
 
 kotlin {
-    js(IR) {
+    js {
         binaries.executable()
         browser {
             commonWebpackConfig {
@@ -21,7 +21,7 @@ kotlin {
         }
     }
     sourceSets {
-        val jsMain by getting {
+        getByName("jsMain") {
             dependencies {
                 implementation(libs.kotlinx.html)
                 implementation(ktorLibs.client.core)

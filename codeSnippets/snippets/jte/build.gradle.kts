@@ -24,5 +24,5 @@ dependencies {
 
 kotlin {
     // The minimal JDK version required for jte 3.0+
-    jvmToolchain(17)
+    jvmToolchain(21)
 }

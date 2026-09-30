@@ -7,10 +7,10 @@ buildscript {
      * Additionally, mavenLocal and Sonatype snapshots are added to repository list and stress tests are disabled.
      * DO NOT change the name of these properties without adapting kotlinx.train build chain.
      */
-    def prop = rootProject.properties['build_snapshot_train']
+    def prop = providers.gradleProperty('build_snapshot_train').orNull
     ext.build_snapshot_train = prop != null && prop != ""
-    if (build_snapshot_train) {
-        ext.kotlin_version = rootProject.properties['kotlin_snapshot_version']
+    if (rootProject.ext.build_snapshot_train) {
+        ext.kotlin_version = providers.gradleProperty('kotlin_snapshot_version').orNull
         if (kotlin_version == null) {
             throw new IllegalArgumentException("'kotlin_snapshot_version' should be defined when building with snapshot compiler")
         }
@@ -57,20 +57,20 @@ def check(Object version, String libVersion, String libName) {
 }
 
 allprojects {
-    if (build_snapshot_train) {
-        ext.kotlin_version = rootProject.properties['kotlin_snapshot_version']
+    if (rootProject.ext.build_snapshot_train) {
+        ext.kotlin_version = providers.gradleProperty('kotlin_snapshot_version').orNull
         println "Using Kotlin $kotlin_version for project $it"
-        def deployVersion = properties['DeployVersion']
+        def deployVersion = providers.gradleProperty('DeployVersion').orNull
         if (deployVersion != null) version = deployVersion
 
-        def skipSnapshotChecks = rootProject.properties['skip_snapshot_checks'] != null
+        def skipSnapshotChecks = providers.gradleProperty('skip_snapshot_checks').isPresent()
         if (!skipSnapshotChecks) {
             check(version, atomicfu_version, "atomicfu")
             check(version, coroutines_version, "coroutines")
             check(version, serialization_version, "serialization")
             check(version, ktor_version, "ktor")
         }
-        kotlin_version = rootProject.properties['kotlin_snapshot_version']
+        kotlin_version = providers.gradleProperty('kotlin_snapshot_version').orNull
         repositories {
             mavenLocal()
             maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
@@ -87,7 +87,7 @@ allprojects {
 
 // Here we inject maven local repository that is used for integration testing on CI
 
-def ktorRepositoryDir = file("$buildDir/m2")
+def ktorRepositoryDir = layout.buildDirectory.dir("m2").get().asFile
 
 if (ktorRepositoryDir.exists()) {
     allprojects {
@@ -145,7 +145,7 @@ configure(subprojects.findAll { it.name.startsWith("maven-") }) {
 }
 
 
-if (build_snapshot_train) {
+if (rootProject.ext.build_snapshot_train) {
     println "Hacking test tasks, removing stress and flaky tests"
     allprojects {
         tasks.withType(Test).all {
