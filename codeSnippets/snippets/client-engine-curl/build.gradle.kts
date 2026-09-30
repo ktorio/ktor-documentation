@@ -28,13 +28,13 @@ kotlin {
         }
     }
     sourceSets {
-        val nativeMain by getting {
+        getByName("nativeMain") {
             dependencies {
                 implementation(ktorLibs.client.core)
                 implementation(ktorLibs.client.curl)
             }
         }
-        val nativeTest by getting {
+        getByName("nativeTest") {
             dependencies {
                 implementation(libs.kotlin.test)
             }
