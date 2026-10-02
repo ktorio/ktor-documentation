@@ -78,7 +78,7 @@ You can also match on `request.url.host` when the same path is used on different
 
 To return different responses for consecutive calls in a fixed order, register multiple handlers with
 the [`addHandler()`](https://api.ktor.io/ktor-client-mock/io.ktor.client.engine.mock/-mock-engine-config/add-handler.html) function
-and set `reuseHandlers = false` so each handler is used once:
+and set the `reuseHandlers` property to `false` to use each handler once:
 
 ```kotlin
 ```
