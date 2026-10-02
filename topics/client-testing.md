@@ -84,7 +84,7 @@ and set the `reuseHandlers` property to `false` to use each handler once:
 ```
 {src="snippets/client-testing-mock/src/test/kotlin/ApplicationTest.kt" include-lines="52-56"}
 
-By default, `reuseHandlers` is `true` and handlers are reused in a cycle. With `reuseHandlers = false`,
+By default, the `reuseHandlers` property is  set to `true` and handlers are reused in a cycle. With the `reuseHandlers` property set to `false`,
 a further request after the last handler fails with an “Unhandled …” error.
 
 For tests that build the client first and enqueue responses later, use
