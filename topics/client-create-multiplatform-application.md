@@ -37,11 +37,12 @@ multiplatform project which you can expand with clients and services.
 3. In the panel on the left, select **Kotlin Multiplatform**.
 4. Specify the following fields in the **New Project** window:
     * **Name**: KmpKtor
-    * **Group**: com.example.ktor
+    * **Group**: org.example.ktor
       ![Kotlin Multiplatform wizard settings](tutorial_client_kmp_create_project.png){ width="450" width="706" border-effect="rounded" style="block" }
-5. Select **Android** and **iOS** targets.
-6. For iOS, select the **Do not share UI** option to keep the UI native.
-7. Click the **Create** button and wait for the IDE to generate and import the project.
+5. Select the **Gradle** build system.
+6. Select **Android** and **iOS** targets.
+7. For iOS, select the **Do not share UI** option to keep the UI native.
+8. Click the **Create** button and wait for the IDE to generate and import the project.
 
 </procedure>
 
@@ -52,25 +53,21 @@ multiplatform project which you can expand with clients and services.
 To use the Ktor HTTP client in your project, you need to add at least two dependencies: a client dependency and an
 [engine](client-engines.md) dependency.
 
-1. Open <path>settings.gradle.kts</path> and import the Ktor version catalog:
+1. Open the <path>settings.gradle.kts</path> file and import the Ktor version catalog:
 
     ```kotlin
     ```
-    {src="snippets/tutorial-client-kmp/settings.gradle.kts" include-lines="18-21,33"}
+    {src="snippets/tutorial-client-kmp/settings.gradle.kts" include-lines="17-20,31"}
 
 2. Open the
-    <path>shared/build.gradle.kts</path>
-    file and add the following dependencies:
+    <path>sharedLogic/build.gradle.kts</path>
+    file and add the default engines dependency to the `commonMain` source set:
     
     ```kotlin
     ```
-    
-    {src="snippets/tutorial-client-kmp/shared/build.gradle.kts" include-lines="25-27,29-35,39"}
-    
-    - Add the `ktor-client-core`(`ktorLibs.client.core`) dependency to the `commonMain` source set to enable Ktor client functionality in shared code.
-    - In the `androidMain` source set, include the `ktor-client-okhttp`(`ktorLibs.client.okhttp`) dependency to use the `OkHttp` engine on Android.
-      Alternatively, you can choose from [other available Android/JVM engines](client-engines.md#jvm-android).
-    - In the `iosMain` source set, add the `ktor-client-darwin` dependency to use the Darwin engine on iOS.
+    {src="snippets/tutorial-client-kmp/sharedLogic/build.gradle.kts" include-lines="35-37,39,43"}
+
+   For each target platform, Ktor uses the default engine provided by `ktor-client-engine-defaults`.
 
 ### Add coroutines {id="coroutines"}
 
@@ -82,23 +79,23 @@ To use coroutines in [Android code](#android-activity), you need to add `kotlinx
 
     ```toml
     ```
-   {src="snippets/tutorial-client-kmp/gradle/libs.versions.toml" include-lines="1,15-17,28-29"}
+   {src="snippets/tutorial-client-kmp/gradle/libs.versions.toml" include-lines="1,16-18,36-37"}
 
 2. Open the
-   <path>shared/build.gradle.kts</path>
+   <path>sharedLogic/build.gradle.kts</path>
    file and add the `kotlinx-coroutines-core` dependency to the `commonMain` source set:
 
     ```kotlin
     ```
-   {src="snippets/tutorial-client-kmp/shared/build.gradle.kts" include-lines="25-29,39"}
+   {src="snippets/tutorial-client-kmp/sharedLogic/build.gradle.kts" include-lines="35-39,43"}
 
 3. Then, open the
-   <path>composeApp/build.gradle.kts</path>
+   <path>androidApp/build.gradle.kts</path>
    file and add the `kotlinx-coroutines-android` dependency to the `androidMain` source set:
 
    ```kotlin
    ```
-   {src="snippets/tutorial-client-kmp/composeApp/build.gradle.kts" include-lines="18-19,22-24,39"}
+   {src="snippets/tutorial-client-kmp/androidApp/build.gradle.kts" include-lines="13,17,21"}
 
 4. Select **Build | Sync Project with Gradle Files** to install the added dependencies.
 
@@ -107,28 +104,28 @@ To use coroutines in [Android code](#android-activity), you need to add `kotlinx
 ### Shared code {id="shared-code"}
 
 To update the code shared between Android and iOS, open the
-<path>shared/src/commonMain/kotlin/com/example/ktor/kmpktor/Greeting.kt</path>
+<path>sharedLogic/src/commonMain/kotlin/org/example/ktor/Greeting.kt</path>
 file and add the following code to the `Greeting` class:
 
 ```kotlin
 ```
 
-{src="snippets/tutorial-client-kmp/shared/src/commonMain/kotlin/com/example/ktor/kmpktor/Greeting.kt"}
+{src="snippets/tutorial-client-kmp/sharedLogic/src/commonMain/kotlin/org/example/ktor/Greeting.kt"}
 
-- The `HttpClient` constructor creates the HTTP client.
-- The suspending `greet()` function makes a [request](client-requests.md) and receives the body of
+* The `HttpClient()` constructor creates the HTTP client.
+* The suspending `greet()` function makes a [request](client-requests.md) and receives the body of
   a [response](client-responses.md) as a string value.
 
 ### Android code {id="android-activity"}
 
 Open the
-<path>composeApp/src/androidMain/kotlin/com/example/ktor/kmpktor/App.kt</path>
+<path>sharedUI/src/commonMain/kotlin/org/example/ktor/App.kt</path>
 file and update the code as follows:
 
 ```kotlin
 ```
 
-{src="snippets/tutorial-client-kmp/composeApp/src/androidMain/kotlin/com/example/ktor/kmpktor/App.kt"}
+{src="snippets/tutorial-client-kmp/sharedUI/src/commonMain/kotlin/org/example/ktor/App.kt"}
 
 `LaunchedEffect()` launches a coroutine tied to the composable’s lifecycle. Within this coroutine, the shared `greet()`
 function is called, its result is assigned to `text`, and any exceptions are caught and handled.
@@ -150,8 +147,8 @@ On iOS, the `greet()` suspending function is available as a function with a call
 
 The final step is to enable internet access for the Android application.
 Open the
-<path>composeApp/src/androidMain/AndroidManifest.xml</path>
-file and enable the required permission using the `&lt;uses-permission&gt;` element:
+<path>androidApp/src/main/AndroidManifest.xml</path>
+file and enable the required permission using the `<uses-permission>` element:
 
 ```xml
 <manifest>
@@ -164,9 +161,9 @@ file and enable the required permission using the `&lt;uses-permission&gt;` elem
 
 ## Run your application on Android {id="run-android"}
 
-1. In IntelliJ IDEA, select **composeApp** in the list of run configurations.
+1. In IntelliJ IDEA, select **androidApp** in the list of run configurations.
 2. Choose an Android virtual device next to the list of configurations and click **Run**.
-   ![composeApp selected with a Pixel 8 API device](tutorial_client_kmp_run_android.png){width="381" style="block"}
+   ![androidApp selected with a Pixel 8 API device](tutorial_client_kmp_run_android.png){width="381" style="block"}
 
    If you don't have a device in the list, create
    a [new Android virtual device](https://developer.android.com/studio/run/managing-avds#createavd).
