@@ -1,5 +1,4 @@
-rootProject.name = "kmpktor"
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+rootProject.name = "KmpKtor"
 
 pluginManagement {
     repositories {
@@ -19,7 +18,6 @@ dependencyResolutionManagement {
     versionCatalogs {
         create("ktorLibs").from("io.ktor:ktor-version-catalog:3.6.0")
     }
-
     repositories {
         google {
             mavenContent {
@@ -32,5 +30,6 @@ dependencyResolutionManagement {
     }
 }
 
-include(":composeApp")
-include(":shared")
+include(":androidApp")
+include(":sharedLogic")
+include(":sharedUI")
