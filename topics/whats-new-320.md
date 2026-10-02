@@ -146,6 +146,7 @@ from your configuration files and application code. The new DI plugin simplifies
 loading, provides automatic cleanup, and integrates smoothly with testing.
 
 <var name="artifact_name" value="ktor-server-di" />
+<var name="ktor_version_catalog_name" value="ktorLibs.server.di"/>
 
 To use DI, include the `%artifact_name%` artifact in your build script:
 

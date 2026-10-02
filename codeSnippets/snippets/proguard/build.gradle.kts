@@ -2,22 +2,19 @@ import java.nio.file.Files
 import java.nio.file.NoSuchFileException
 import java.nio.file.Paths
 
-val kotlin_version: String by project
-val logback_version: String by project
-
 buildscript {
     repositories {
         maven("https://plugins.gradle.org/m2")
     }
     dependencies {
-        classpath("com.guardsquare:proguard-gradle:7.5.0")
+        classpath(libs.proguard.gradle)
     }
 }
 
 plugins {
     application
-    kotlin("jvm")
-    id("io.ktor.plugin") version "3.6.0"
+    alias(libs.plugins.kotlin.jvm)
+    alias(ktorLibs.plugins.ktor)
 }
 
 application {
@@ -30,10 +27,10 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
-    implementation("io.ktor:ktor-server-core-jvm")
-    implementation("io.ktor:ktor-server-netty-jvm")
-    implementation("ch.qos.logback:logback-classic:$logback_version")
+    implementation(libs.kotlin.stdlib.jdk8)
+    implementation(ktorLibs.server.core)
+    implementation(ktorLibs.server.netty)
+    implementation(libs.logback.classic)
 }
 
 ktor {

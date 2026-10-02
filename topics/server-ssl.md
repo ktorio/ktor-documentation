@@ -38,6 +38,7 @@ a [KeyStore](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/s
 To use this function, you need to add the `ktor-network-tls-certificates` artifact in the build script:
 
 <var name="artifact_name" value="ktor-network-tls-certificates"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.network.tls.certificates"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 The code snippet below shows how to generate a certificate and save it to a keystore file:

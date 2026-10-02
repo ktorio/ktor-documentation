@@ -1,6 +1,6 @@
 plugins {
     alias(libs.plugins.kotlin.jvm)
-    alias(libs.plugins.ktor)
+    alias(ktorLibs.plugins.ktor)
 }
 
 application {
@@ -9,8 +9,8 @@ application {
 
 dependencies {
     implementation(project(":core"))
-    implementation(libs.ktor.client.core)
-    implementation(libs.ktor.client.cio)
-    implementation(libs.ktor.client.websockets)
+    implementation(ktorLibs.client.core)
+    implementation(ktorLibs.client.cio)
+    implementation(ktorLibs.client.websockets)
     implementation(libs.opentelemetry.ktor)
 }

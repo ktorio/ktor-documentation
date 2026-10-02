@@ -50,7 +50,7 @@ kotlin {
         androidMain.dependencies {
             //...
             implementation(libs.compose.uiToolingPreview)
-            implementation(libs.ktor.client.android)
+            implementation(ktorLibs.client.android)
         }
         commonMain.dependencies {
             //...
@@ -63,9 +63,9 @@ kotlin {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
-            implementation(libs.ktor.client.core)
-            implementation(libs.ktor.client.content.negotiation)
-            implementation(libs.ktor.serialization.kotlinx.json)
+            implementation(ktorLibs.client.core)
+            implementation(ktorLibs.client.contentNegotiation)
+            implementation(ktorLibs.serialization.kotlinx.json)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -74,13 +74,13 @@ kotlin {
             implementation(libs.wrappers.browser)
         }
         jvmMain.dependencies {
-            implementation(libs.ktor.client.cio)
+            implementation(ktorLibs.client.cio)
         }
         iosMain.dependencies {
-            implementation(libs.ktor.client.darwin)
+            implementation(ktorLibs.client.darwin)
         }
         wasmJsMain.dependencies {
-            implementation(libs.ktor.client.wasm)
+            implementation(ktorLibs.client.js)
         }
     }
 }

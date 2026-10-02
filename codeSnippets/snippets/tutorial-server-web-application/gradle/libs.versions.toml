@@ -1,8 +1,9 @@
 [versions]
-kotlin = "2.3.21"
-logback = "1.5.33"
+kotlin = "2.4.0"
+logback = "1.6.3"
 
 [libraries]
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 
 [plugins]

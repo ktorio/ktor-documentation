@@ -19,6 +19,7 @@ CSS DSL doesn't need [installation](server-plugins.md#install), but requires inc
 1. The `ktor-server-html-builder` artifact for HTML DSL:
 
    <var name="artifact_name" value="ktor-server-html-builder"/>
+   <var name="ktor_version_catalog_name" value="ktorLibs.server.html.builder"/>
    <include from="lib.topic" element-id="add_ktor_artifact"/>
    
 2. The `kotlin-css-jvm` artifact for building CSS:

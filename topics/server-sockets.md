@@ -27,6 +27,7 @@ It exposes a suspending API that uses [java.nio](https://docs.oracle.com/javase/
 ## Add dependencies {id="add_dependencies"}
 
 <var name="artifact_name" value="ktor-network"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.network"/>
 <include from="lib.topic" element-id="add_ktor_artifact_intro"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 

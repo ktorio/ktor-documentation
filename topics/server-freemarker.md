@@ -8,6 +8,7 @@
 <var name="plugin_name" value="FreeMarker"/>
 <var name="package_name" value="io.ktor.server.freemarker"/>
 <var name="artifact_name" value="ktor-server-freemarker"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.freemarker"/>
 
 <tldr>
 <p>

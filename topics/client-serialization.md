@@ -5,6 +5,7 @@
 
 <var name="plugin_name" value="ContentNegotiation"/>
 <var name="artifact_name" value="ktor-client-content-negotiation"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.client.content.negotiation"/>
 
 <tldr>
 <p>
@@ -62,6 +63,7 @@ To serialize and deserialize JSON data, add a serialization library to your proj
 Add the `ktor-serialization-kotlinx-json` artifact in your build script:
 
 <var name="artifact_name" value="ktor-serialization-kotlinx-json"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.serialization.kotlinx.json"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 </tab>
@@ -70,6 +72,7 @@ Add the `ktor-serialization-kotlinx-json` artifact in your build script:
 Add the `ktor-serialization-gson` artifact in your build script:
 
 <var name="artifact_name" value="ktor-serialization-gson"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.serialization.gson"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 </tab>
@@ -78,6 +81,7 @@ Add the `ktor-serialization-gson` artifact in your build script:
 Add the `ktor-serialization-jackson` artifact in your build script:
 
 <var name="artifact_name" value="ktor-serialization-jackson"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.serialization.jackson"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 </tab>
@@ -88,6 +92,7 @@ Add the `ktor-serialization-jackson` artifact in your build script:
 To serialize and deserialize XML, add the `ktor-serialization-kotlinx-xml` artifact in your build script:
 
 <var name="artifact_name" value="ktor-serialization-kotlinx-xml"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.serialization.kotlinx.xml"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 #### CBOR {id="add_cbor_dependency"}
@@ -95,6 +100,7 @@ To serialize and deserialize XML, add the `ktor-serialization-kotlinx-xml` artif
 To serialize and deserialize CBOR, add the `ktor-serialization-kotlinx-cbor` artifact in your build script:
 
 <var name="artifact_name" value="ktor-serialization-kotlinx-cbor"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.serialization.kotlinx.cbor"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 #### ProtoBuf {id="add_protobuf_dependency"}
@@ -102,6 +108,7 @@ To serialize and deserialize CBOR, add the `ktor-serialization-kotlinx-cbor` art
 To serialize and deserialize ProtoBuf, add the `ktor-serialization-kotlinx-protobuf` artifact in your build script:
 
 <var name="artifact_name" value="ktor-serialization-kotlinx-protobuf"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.serialization.kotlinx.protobuf"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 ## Install `ContentNegotiation` {id="install_plugin"}

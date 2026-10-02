@@ -1,12 +1,7 @@
-val ktor_version: String by project
-val logback_version: String by project
-val junit_version: String by project
-val hamcrest_version: String by project
-
 plugins {
     application
-    kotlin("jvm")
-    kotlin("plugin.serialization").version("2.2.20")
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 application {
@@ -23,15 +18,15 @@ tasks.named<JavaExec>("run") {
 }
 
 dependencies {
-    implementation("io.ktor:ktor-client-core:$ktor_version")
-    implementation("io.ktor:ktor-client-cio:$ktor_version")
-    implementation("io.ktor:ktor-client-auth:$ktor_version")
-    implementation("io.ktor:ktor-client-logging:$ktor_version")
-    implementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:$ktor_version")
-    implementation("io.ktor:ktor-server-core:$ktor_version")
-    implementation("io.ktor:ktor-server-netty:$ktor_version")
-    implementation("ch.qos.logback:logback-classic:$logback_version")
-    testImplementation("junit:junit:$junit_version")
-    testImplementation("io.ktor:ktor-client-mock:$ktor_version")
+    implementation(ktorLibs.client.core)
+    implementation(ktorLibs.client.cio)
+    implementation(ktorLibs.client.auth)
+    implementation(ktorLibs.client.logging)
+    implementation(ktorLibs.client.contentNegotiation)
+    implementation(ktorLibs.serialization.kotlinx.json)
+    implementation(ktorLibs.server.core)
+    implementation(ktorLibs.server.netty)
+    implementation(libs.logback.classic)
+    testImplementation(libs.junit)
+    testImplementation(ktorLibs.client.mock)
 }

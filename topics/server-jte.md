@@ -6,6 +6,7 @@
 <var name="plugin_name" value="Jte"/>
 <var name="package_name" value="io.ktor.server.jte"/>
 <var name="artifact_name" value="ktor-server-jte"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.jte"/>
 
 <tldr>
 <p>

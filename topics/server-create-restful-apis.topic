@@ -760,13 +760,23 @@
             library.</p>
         <procedure>
             <step>
+                <p>
+                    Open the <path>gradle/libs.versions.toml</path> file and define the JSONPath version in
+                    and its library alias:
+                </p>
+                <code-block
+                        src="snippets/tutorial-server-restful-api/gradle/libs.versions.toml"
+                        include-lines="1-2,6,8"
+                        lang="toml"/>
+            </step>
+            <step>
                 <p>In your
                     <path>build.gradle.kts</path>
                     file, add the JSONPath library to the <code>dependencies</code> block:
                 </p>
                 <code-block
                         src="snippets/tutorial-server-restful-api/build.gradle.kts"
-                        include-lines="29"
+                        include-lines="28"
                         lang="kotlin"/>
             </step>
             <step>

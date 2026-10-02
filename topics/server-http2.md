@@ -80,7 +80,7 @@ The following example adds the statically linked BoringSSL implementation to the
 
 ```kotlin
 ```
-{src="snippets/http2-netty/build.gradle.kts" include-lines="20-28,34-39"}
+{src="snippets/http2-netty/build.gradle.kts" include-lines="15-21,23,29-34"}
 
 The `tc.native.classifier` can be `linux-x86_64`, `osx-x86_64`, or `windows-x86_64`.
 

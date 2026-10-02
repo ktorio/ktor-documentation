@@ -45,6 +45,7 @@ engine, which delegates control of your application to the servlet container.
 To use Ktor in a servlet application, add the `ktor-server-servlet-jakarta` artifact to your build script:
 
 <var name="artifact_name" value="ktor-server-servlet-jakarta"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.servlet.jakarta"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 You do not need to add separate [Jetty or Tomcat engine dependencies](server-engines.md#dependencies) when deploying to
@@ -91,28 +92,34 @@ Then, configure the URL pattern for this servlet:
 
 The [Gretty](https://plugins.gradle.org/plugin/org.gretty) plugin allows you to [run](#run) a servlet application on Jetty and Tomcat.
 
-To apply the plugin, open your <path>build.gradle.kts</path> file and add the following entry to the
-`plugins` block:
+First, open the <path>gradle/libs.versions.toml</path> file and define the Gretty version and its plugin alias:
+
+```toml
+```
+{src="gradle/libs.versions.toml" include-lines="1,9,68,70"}
+
+In your <path>build.gradle.kts</path> file, add the following entry to the
+`plugins {}` block:
 
 ```groovy
 ```
-{src="snippets/jetty-war/build.gradle.kts" include-lines="5,8,10"}
+{src="snippets/jetty-war/build.gradle.kts" include-lines="1,4,6"}
 
-Then, you can configure it in the `gretty` block as follows:
+You can then configure Gretty in the `gretty {}` block:
 
 <tabs>
 <tab title="Jetty">
 
 ```groovy
 ```
-{src="snippets/jetty-war/build.gradle.kts" include-lines="12-15"}
+{src="snippets/jetty-war/build.gradle.kts" include-lines="8-11"}
 
 </tab>
 <tab title="Tomcat">
 
 ```groovy
 ```
-{src="snippets/tomcat-war/build.gradle.kts" include-lines="12-15"}
+{src="snippets/tomcat-war/build.gradle.kts" include-lines="8-11"}
 
 </tab>
 </tabs>
@@ -121,17 +128,17 @@ Finally, configure the `run` task:
 
 ```groovy
 ```
-{src="snippets/jetty-war/build.gradle.kts" include-lines="31-35"}
+{src="snippets/jetty-war/build.gradle.kts" include-lines="27-31"}
 
 ## Configure the War plugin {id="configure-war"}
 
 The War plugin allows you to [generate](#generate-war) a WAR archive for deployment to a servlet container.
 
-To apply the plugin, open your <path>build.gradle.kts</path> file and add the following entry to the `plugins` block :
+To apply the plugin, open your <path>build.gradle.kts</path> file and add the following entry to the `plugins {}` block:
 
 ```groovy
 ```
-{src="snippets/jetty-war/build.gradle.kts" include-lines="5,9-10"}
+{src="snippets/jetty-war/build.gradle.kts" include-lines="1,5-6"}
 
 ## Run the application {id="run"}
 
@@ -175,4 +182,6 @@ The following `Dockerfile` example shows how to run the generated WAR file insid
 </tab>
 </tabs>
 
-For the complete examples, see [jetty-war](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/jetty-war) and [tomcat-war](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/tomcat-war).
+> For complete code examples, see [jetty-war](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/jetty-war) and [tomcat-war](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/tomcat-war).
+>
+{style="tip"}

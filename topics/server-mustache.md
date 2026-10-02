@@ -8,6 +8,7 @@
 <var name="plugin_name" value="Mustache"/>
 <var name="package_name" value="io.ktor.server.mustache"/>
 <var name="artifact_name" value="ktor-server-mustache"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.mustache"/>
 
 <tldr>
 <p>

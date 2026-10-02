@@ -4,6 +4,7 @@
 <primary-label ref="server-plugin"/>
 
 <var name="artifact_name" value="ktor-server-default-headers"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.default.headers"/>
 <var name="package_name" value="io.ktor.server.plugins.defaultheaders"/>
 <var name="plugin_name" value="DefaultHeaders"/>
 <var name="plugin_api_link" value="https://api.ktor.io/ktor-server-default-headers/io.ktor.server.plugins.defaultheaders/-default-headers.html"/>

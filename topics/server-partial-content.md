@@ -3,6 +3,7 @@
 <primary-label ref="server-plugin"/>
 
 <var name="artifact_name" value="ktor-server-partial-content"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.partial.content"/>
 <var name="package_name" value="io.ktor.server.plugins.partialcontent"/>
 <var name="plugin_name" value="PartialContent"/>
 

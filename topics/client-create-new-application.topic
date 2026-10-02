@@ -140,12 +140,13 @@
                     file and add the following artifacts to the dependencies block:
                 </p>
                 <code-block lang="kotlin" src="snippets/tutorial-client-get-started/build.gradle.kts"
-                            include-lines="1,17-20,22"/>
+                            include-lines="15-19"/>
                 <list>
-                    <li><code>ktor-client-core</code> is a core dependency that provides the main client functionality,
+                    <li><code>ktor-client-core</code> (<code>ktorLibs.client.core</code>) is a core dependency that
+                        provides the main client functionality,
                     </li>
                     <li>
-                        <code>ktor-client-cio</code> is a dependency for an <a href="client-engines.md">engine</a>
+                        <code>ktor-client-cio</code>(<code>ktorLibs.client.cio</code>) is a dependency for an <a href="client-engines.md">engine</a>
                         processing network requests.
                     </li>
                 </list>

@@ -1,6 +1,7 @@
 [//]: # (title: BOM remover)
 
 <var name="artifact_name" value="ktor-client-bom-remover"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.client.bom.remover"/>
 <primary-label ref="client-plugin"/>
 
 <tldr>

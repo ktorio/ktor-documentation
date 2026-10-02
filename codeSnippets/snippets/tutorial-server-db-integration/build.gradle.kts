@@ -1,4 +1,3 @@
-
 plugins {
     alias(libs.plugins.kotlin.jvm)
     alias(ktorLibs.plugins.ktor)
@@ -30,7 +29,7 @@ dependencies {
     implementation(libs.logback.classic)
     implementation(libs.postgresql)
 
-    testImplementation(kotlin("test"))
+    testImplementation(libs.kotlin.test)
     testImplementation(ktorLibs.server.testHost)
     testImplementation(ktorLibs.client.contentNegotiation)
 }

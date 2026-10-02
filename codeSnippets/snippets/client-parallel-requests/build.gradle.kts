@@ -1,11 +1,6 @@
-val ktor_version: String by project
-val logback_version: String by project
-val junit_version: String by project
-val hamcrest_version: String by project
-
 plugins {
     application
-    kotlin("jvm")
+    alias(libs.plugins.kotlin.jvm)
 }
 
 application {
@@ -18,13 +13,13 @@ repositories {
 }
 
 dependencies {
-    implementation("io.ktor:ktor-client-core:$ktor_version")
-    implementation("io.ktor:ktor-client-cio:$ktor_version")
-    implementation("io.ktor:ktor-client-logging:$ktor_version")
-    implementation("ch.qos.logback:logback-classic:$logback_version")
-    testImplementation("io.ktor:ktor-server-core:$ktor_version")
-    testImplementation("io.ktor:ktor-server-cio:$ktor_version")
-    testImplementation("junit:junit:$junit_version")
-    testImplementation("org.hamcrest:hamcrest:$hamcrest_version")
+    implementation(ktorLibs.client.core)
+    implementation(ktorLibs.client.cio)
+    implementation(ktorLibs.client.logging)
+    implementation(libs.logback.classic)
+    testImplementation(ktorLibs.server.core)
+    testImplementation(ktorLibs.server.cio)
+    testImplementation(libs.junit)
+    testImplementation(libs.hamcrest)
     testImplementation(project(":e2e"))
 }

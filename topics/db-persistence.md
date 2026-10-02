@@ -21,17 +21,22 @@ In this series of tutorials, we'll show you how to create a simple blog applicat
 
 ## Add dependencies {id="add-dependencies"}
 
-First, you need to add dependencies for the Exposed and H2 libraries. Open the `gradle.properties` file and specify library versions:
+First, you need to add dependencies for the Exposed and H2 libraries. Open the `gradle/libs.versions.toml` file and define the library versions and aliases:
 
-```kotlin
+```toml
 ```
-{src="gradle.properties" include-lines="13-14"}
+{src="gradle/libs.versions.toml" include-lines="1,7,11,33,37-39,42"}
 
 Then, open `build.gradle.kts` and add the following dependencies:
 
 ```kotlin
+dependencies {
+    implementation(libs.exposed.core)
+    implementation(libs.exposed.dao)
+    implementation(libs.exposed.jdbc)
+    implementation(libs.h2)
+}
 ```
-{src="snippets/tutorial-website-interactive-persistence/build.gradle.kts" include-lines="2-3,20-21,25-28,32"}
 
 Click the **Load Gradle Changes** icon in the top right corner of the `build.gradle.kts` file to install newly added dependencies.
 

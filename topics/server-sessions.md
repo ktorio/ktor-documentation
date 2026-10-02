@@ -6,6 +6,7 @@
 <var name="plugin_name" value="Sessions"/>
 <var name="package_name" value="io.ktor.server.sessions"/>
 <var name="artifact_name" value="ktor-server-sessions"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.sessions"/>
 
 <tldr>
 <p>

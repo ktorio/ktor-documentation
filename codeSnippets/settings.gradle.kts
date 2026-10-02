@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage") // Added for dependencyResolutionManagement.repositories
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -9,6 +11,25 @@ pluginManagement {
             if (requested.id.id.startsWith("com.google.cloud.tools.appengine")) {
                 useModule("com.google.cloud.tools:appengine-gradle-plugin:${requested.version}")
             }
+        }
+    }
+}
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+    versionCatalogs {
+        if (!providers.gradleProperty("build_snapshot_train").orNull.isNullOrEmpty()) {
+            create("libs") {
+                version("kotlin", providers.gradleProperty("kotlin_snapshot_version").get())
+                providers.gradleProperty("coroutines_version").orNull?.let {
+                    version("kotlinx-coroutines", it)
+                }
+            }
+        }
+        create("ktorLibs") {
+            from("io.ktor:ktor-version-catalog:${providers.gradleProperty("ktor_version").get()}")
         }
     }
 }
