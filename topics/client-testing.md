@@ -64,7 +64,7 @@ Then, you can pass the created `MockEngine` to initialize `ApiClient` and make r
 
 ### Mock multiple endpoints {id="multiple-endpoints"}
 
-When a client calls several URLs, use a single reusable handler and branch on the request
+When a client calls multiple URLs, use a single reusable handler and branch on the request
 (for example, `request.url.encodedPath` or the host). This keeps mocks independent of call order:
 
 ```kotlin
