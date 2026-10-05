@@ -84,8 +84,10 @@ and set the `reuseHandlers` property to `false` to use each handler once:
 ```
 {src="snippets/client-testing-mock/src/test/kotlin/ApplicationTest.kt" include-lines="52-56"}
 
-By default, the `reuseHandlers` property is  set to `true` and handlers are reused in a cycle. With the `reuseHandlers` property set to `false`,
-any subsequent requests after the last handler fail with an error.
+By default, the `reuseHandlers` property is  set to `true` and handlers are reused in a cycle.
+
+With the `reuseHandlers` property set to `false`, handlers are used only once. If all handlers have been used, the next
+request is rejected by throwing an error.
 
 For tests that build the client first and enqueue responses later, use
 [`MockEngine.Queue`](https://api.ktor.io/ktor-client-mock/io.ktor.client.engine.mock/-mock-engine/-queue/index.html):
