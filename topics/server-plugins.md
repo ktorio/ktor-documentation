@@ -8,53 +8,59 @@ Plugins provide common functionality, such as serialization, content encoding, c
 
 A typical request/response pipeline in Ktor looks like the following:
 
-
-
 ![Request Response Pipeline](request-response-pipeline.png){width="600"}
 
+A request is received by the server and processed through the request pipeline. Ktor routes the request to the appropriate
+handler, where your application logic processes it. The response then passes through the response pipeline before being
+sent to the client.
 
+## Add functionality with plugins {id="add_functionality"}
 
-It starts with a request, which is routed to a specific handler, processed by our application logic, and finally responded to. 
+Many applications require functionality that is separate from the application logic. This includes authentication,
+serialization and content encoding, compression, headers, cookies, and more. In Ktor, this functionality is
+provided by _plugins_. 
 
-## Add functionality with Plugins {id="add_functionality"}
-
-Many applications require common functionality that is out of scope of the application logic. This could be things like 
-serialization and content encoding, compression, headers, cookie support, etc. All of these are provided in Ktor by means of 
-what we call **Plugins**. 
-
-If we look at the previous pipeline diagram, Plugins sit between the request/response and the application logic:
-
-
+Plugins can intercept different stages of request and response processing. They can therefore be applied at different
+points in the request/response pipeline:
 
 ![Plugin pipeline](plugin-pipeline.png){width="600"}
 
+The exact stage at which a plugin runs depends on the plugin and the hooks or pipeline phases it uses. In general, a 
+request can be processed as follows:
 
+* The routing mechanism determines which handler should process the request.
+* Before being handed off to the handler, the request is processed by one or more plugins.
+* The handler uses the application logic to generate a response.
+* Before the response is sent to the client, the response is processed by one or more plugins.
 
-As a request comes in:
+## Routing is a plugin {id="routing"}
 
-* It is routed to the correct handler via the routing mechanism 
-* before being handed off to the handler, it goes through one or more Plugins
-* the handler (application logic) handles the request
-* before the response is sent to the client, it goes through one or more Plugins
-
-## Routing is a Plugin {id="routing"}
-
-Plugins have been designed in a way to offer maximum flexibility, and allow them to be present in any segment of the request/response pipeline.
-In fact, what we've been calling `routing` until now, is nothing more than a Plugin. 
-
-
+Plugins are designed to provide maximum flexibility, and to be present in any segment of the request/response pipeline.
+In Ktor, `routing` is itself implemented as a plugin: 
 
 ![Routing as a Plugin](plugin-pipeline-routing.png){width="600"}
 
-## Add Plugin dependency {id="dependency"}
-Most of the plugins require a specific dependency. For example, the `CORS` plugin requires adding the `ktor-server-cors` artifact in the build script:
+## Add a plugin dependency {id="dependency"}
+
+Most plugins require a separate dependency. For example, the [`CORS`](server-cors.md) plugin requires the `ktor-server-cors`
+artifact in the build script:
 
 <var name="artifact_name" value="ktor-server-cors"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
-## Install Plugins {id="install"}
+> For a complete list of available plugins, see the [Ktor Project Generator](https://start.ktor.io/settings). For the
+> dependency required by a specific plugin, see the corresponding plugin documentation.
+> 
+{style="tip"}
 
-Plugins are generally configured during the initialization phase of the server using the `install` function which takes a Plugin as a parameter. Depending on the way you used to [create a server](server-create-and-configure.topic), you can install a plugin inside the `embeddedServer` call ...
+## Install plugins {id="install"}
+
+Plugins are generally configured during the initialization phase of the server using the `install()` function. Depending
+on how you [create a server](server-create-and-configure.topic), you can install a plugin inside the
+`embeddedServer()` function or in an [application module](server-modules.md):
+
+<tabs>
+<tab title="embeddedServer()">
 
 ```kotlin
 import io.ktor.server.application.*
@@ -70,7 +76,8 @@ fun main() {
 }
 ```
 
-... or a specified [module](server-modules.md):
+</tab>
+<tab title="Application.module()">
 
 ```kotlin
 import io.ktor.server.application.*
@@ -84,9 +91,13 @@ fun Application.module() {
 }
 ```
 
-In addition to intercepting requests and responses, Plugins can have an option configuration section which is configured during this step.
+</tab>
+</tabs>
 
-For instance, when installing [Cookies](server-sessions.md#cookie) we can set certain parameters such as where we want cookies to be stored, or their name:
+You can configure a plugin when you install it by passing a configuration block to the `install()` function.
+
+For instance, when installing [`Sessions` plugin](server-sessions.md), you can configure a cookie-based session by
+specifying the session type and cookie name:
 
 ```kotlin
 install(Sessions) {
@@ -94,44 +105,52 @@ install(Sessions) {
 } 
 ```
 
-### Install Plugins to specific routes {id="install-route"}
+### Install plugins to specific routes {id="install-route"}
 
-In Ktor, you can install plugins not only globally but also to specific [routes](server-routing.md). This might be useful if you need different plugin configurations for different application resources. For instance, the [example](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/caching-headers-routes) below shows how to add the specified [caching header](server-caching-headers.md) for the `/index` route:
+In Ktor, you can install plugins not only globally, but also on specific [routes](server-routing.md). This is useful when different
+resources require different plugin configurations.
+
+For example, the following code shows installs the [`CachingHeader` plugin](server-caching-headers.md) on the `/index`
+route and configures it to add caching headers:
 
 ```kotlin
 ```
 {src="snippets/caching-headers/src/main/kotlin/cachingheaders/Application.kt" include-lines="25-32"}
 
-Note that the following rules are applied to several installations of the same plugin:
-* Configuration of a plugin installed to a specific route overrides its [global configuration](#install).
-* Routing merges installations for the same route, and the last installation wins. For example, for such an application ... 
+When the same plugin is installed at multiple levels, Ktor applies the following rules:
+
+* Configuration of a plugin installed to a specific route overrides the corresponding [global plugin configuration](#install).
+* If the same route is defined multiple times and contains multiple installations of the same plugin, routing merges the
+  installations for that route. The last installation takes precedence.
+
+In the following example both calls to `/index/a` and `/index/b` are handled by the second `CachingHeaders` installation
+only:
    
-   ```kotlin
-   routing {
-       route("index") {
-           install(CachingHeaders) { /* First configuration */ }
-           get("a") {
-               // ...
-           }
-       }
-       route("index") {
-           install(CachingHeaders) { /* Second configuration */ }
-           get("b") {
-               // ...
-           }
-       }
-   }
-   ```
-   {initial-collapse-state="collapsed" collapsed-title="install(CachingHeaders) { // First configuration }"}
-   
-   ... both calls to `/index/a` and `/index/b` are handled by only second installation of the plugin.
+ ```kotlin
+ routing {
+     route("index") {
+         install(CachingHeaders) { /* First configuration */ }
+         get("a") {
+             // ...
+         }
+     }
+     route("index") {
+         install(CachingHeaders) { /* Second configuration */ }
+         get("b") {
+             // ...
+         }
+     }
+ }
+ ```
+ {initial-collapse-state="collapsed" collapsed-title="install(CachingHeaders) { // First configuration }"}
 
-## Default, available, and custom Plugins {id="default_available_custom"}
+## Default, available, and custom plugins {id="default_available_custom"}
 
-By default, Ktor does not activate any plugins, so it's up to you to install the plugins for the functionality your
-application needs.
+Ktor does not install application plugins by default. Install the plugins that provide the functionality required by
+your application.
 
-Ktor does, however, provide a variety of plugins that ship out of the box. You can see a complete list of these in
-the [Ktor Plugin Registry](https://github.com/ktorio/ktor-plugin-registry/tree/main/plugins/server).
+Ktor provides a wide range of plugins. You can find a complete list of the available plugins in
+the [Ktor Project Generator](https://start.ktor.io/settings).
 
-In addition, you can also create your own [custom plugins](server-custom-plugins.md).
+You can also create your own [custom plugins](server-custom-plugins.md) to encapsulate functionality that can be reused across your
+application or shared with other applications.
