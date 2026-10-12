@@ -169,6 +169,37 @@ Here are several tips on handling requests for each endpoint:
 You can find the full example here: [resource-routing](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/resource-routing).
 
 
+## Handle invalid resource parameters {id="resource_errors"}
+
+When Ktor decodes request parameters into a resource instance, two kinds of failures can occur:
+
+- The parameters can't be decoded into the resource's property types, for example a required parameter is missing or a value can't be converted, such as passing `abc` for a `Double` property. In this case, Ktor throws [BadRequestException](https://api.ktor.io/ktor-server-core/io.ktor.server.plugins/-bad-request-exception/index.html) and responds with the `400 Bad Request` status code.
+- The resource class itself can throw a custom exception while being constructed, for example from an `init` block that validates the decoded values. This exception propagates with its original type, so you can handle it using the [StatusPages](server-status-pages.md) plugin exactly like any other exception raised in a route handler.
+
+The example below defines a `Viewport` resource that validates its bounding-box coordinates in an `init` block:
+
+```kotlin
+@Resource("/viewport")
+class Viewport(val west: Double, val south: Double, val east: Double, val north: Double) {
+    init {
+        require(east > west) { "east ($east) must be greater than west ($west)" }
+        require(north > south) { "north ($north) must be greater than south ($south)" }
+    }
+}
+```
+
+Register a `StatusPages` handler for the exception type thrown from `init` to return a meaningful error response instead of the generic `400 Bad Request` used for decoding failures:
+
+```kotlin
+install(StatusPages) {
+    exception<IllegalArgumentException> { call, cause ->
+        call.respondText(cause.message ?: "Invalid viewport", status = HttpStatusCode.BadRequest)
+    }
+}
+```
+
+> You can also throw `RequestValidationException` from the [RequestValidation](server-request-validation.md) plugin from an `init` block, for consistency with body validation elsewhere in your application.
+
 ## Build links from resources {id="resource_links"}
 
 Besides using resource definitions for routing, they can also be used to build links.
