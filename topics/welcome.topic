@@ -32,7 +32,7 @@
             <card href="server-create-websocket-application.topic">
                 Create a WebSocket application
             </card>
-            <card href="server-integrate-database.topic">Integrate a database</card>
+            <card href="server-integrate-database.md">Integrate a database</card>
         </primary>
         <misc>
             <links narrow="true">

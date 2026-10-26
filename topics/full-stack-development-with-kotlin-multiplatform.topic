@@ -48,7 +48,7 @@
         In previous tutorials, we used the Task Manager example to
         <a href="server-requests-and-responses.topic">handle requests</a>,
         <a href="server-create-restful-apis.topic">create RESTful APIs</a>, and
-        <a href="server-integrate-database.topic">integrate a database with Exposed</a>.
+        <a href="server-integrate-database.md">integrate a database with Exposed</a>.
         Client applications were kept as minimal as possible, so you could focus on learning the
         fundamentals of Ktor.
     </p>

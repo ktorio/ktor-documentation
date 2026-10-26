@@ -1,3 +1,4 @@
+
 plugins {
     alias(libs.plugins.kotlin.jvm)
     alias(ktorLibs.plugins.ktor)
@@ -19,9 +20,9 @@ dependencies {
     implementation(ktorLibs.server.config.yaml)
     implementation(ktorLibs.server.contentNegotiation)
     implementation(ktorLibs.server.core)
+    implementation(ktorLibs.server.di)
     implementation(ktorLibs.server.netty)
     implementation(ktorLibs.server.statusPages)
-    implementation(ktorLibs.server.di)
     implementation(libs.exposed.core)
     implementation(libs.exposed.jdbc)
     implementation(libs.exposed.dao)
@@ -29,7 +30,7 @@ dependencies {
     implementation(libs.logback.classic)
     implementation(libs.postgresql)
 
-    testImplementation(libs.kotlin.test)
+    testImplementation(kotlin("test"))
     testImplementation(ktorLibs.server.testHost)
     testImplementation(ktorLibs.client.contentNegotiation)
 }
