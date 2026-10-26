@@ -417,7 +417,7 @@
         <toc-element topic="full-stack-development-with-kotlin-multiplatform.topic"/>
         <toc-element topic="htmx-integration.md"/>
         <toc-element topic="openapi-spec-generation.md"/>
-        <toc-element topic="tutorial-first-steps-with-kotlin-rpc.topic"/>
+        <toc-element topic="tutorial-first-steps-with-kotlin-rpc.md"/>
     </toc-element>
     <toc-element topic="io-interoperability.md"/>
 

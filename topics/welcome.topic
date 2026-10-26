@@ -133,7 +133,7 @@
             <cards>
                 <title>Integrations</title>
                 <card href="full-stack-development-with-kotlin-multiplatform.topic"/>
-                <card href="tutorial-first-steps-with-kotlin-rpc.topic"/>
+                <card href="tutorial-first-steps-with-kotlin-rpc.md"/>
             </cards>
         </misc>
 
