@@ -5,7 +5,7 @@
 
 <var name="plugin_name" value="ContentNegotiation"/>
 <var name="artifact_name" value="ktor-client-content-negotiation"/>
-<var name="ktor_version_catalog_name" value="ktorLibs.client.content.negotiation"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.client.contentNegotiation"/>
 
 <tldr>
 <p>

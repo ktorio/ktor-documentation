@@ -4,7 +4,7 @@
 <secondary-label ref="server-feature"/>
 
 <var name="artifact_name" value="ktor-server-routing-openapi"/>
-<var name="ktor_version_catalog_name" value="ktorLibs.server.routing.openapi"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.routingOpenapi"/>
 <var name="package_name" value="io.ktor.server.routing.openapi"/>
 
 <tldr>

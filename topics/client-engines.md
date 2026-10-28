@@ -200,7 +200,7 @@ The `Jetty` engine supports only HTTP/2 and can be configured in the following w
 1. Add the `ktor-client-jetty-jakarta` dependency:
 
    <var name="artifact_name" value="ktor-client-jetty-jakarta"/>
-   <var name="ktor_version_catalog_name" value="ktorLibs.client.jetty.jakarta"/>
+   <var name="ktor_version_catalog_name" value="ktorLibs.client.jetty"/>
    <include from="lib.topic" element-id="add_ktor_artifact"/>
 2. Pass the
    [`Jetty`](https://api.ktor.io/ktor-client-jetty-jakarta/io.ktor.client.engine.jetty.jakarta/-jetty/index.html)

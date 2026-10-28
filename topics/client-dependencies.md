@@ -50,14 +50,21 @@ For a multiplatform project, import the Ktor version catalog in your <path>setti
 ```kotlin
 ```
 
-{src="snippets/tutorial-client-kmp/settings.gradle.kts" include-lines="18-21,33"}
+{src="snippets/tutorial-client-kmp/settings.gradle.kts" include-lines="17-20,31"}
 
 Then, add `ktor-client-core` as a dependency to the `commonMain` source set:
 
 ```kotlin
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                ktorLibs.client.core
+            }
+        }
+    }
+}
 ```
-
-{src="snippets/tutorial-client-kmp/shared/build.gradle.kts" include-lines="25-27,29,39"}
 
 ### Engine dependency {id="engine-dependency"}
 
@@ -98,8 +105,12 @@ If you need a specific engine, add its dependency to the corresponding platform 
 `OkHttp` on Android, add `ktorLibs.client.okhttp` to the `androidMain` source set:
 
 ```kotlin
+sourceSets {
+    androidMain.dependencies {
+        implementation(libs.ktor.client.okhttp)
+    }
+}
 ```
-{src="snippets/tutorial-client-kmp/shared/build.gradle.kts" include-lines="25,30-32,39"}
 
 <include from="lib.topic" element-id="code_with_ktor_version_catalog"/>
 

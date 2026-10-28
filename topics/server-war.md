@@ -45,7 +45,7 @@ engine, which delegates control of your application to the servlet container.
 To use Ktor in a servlet application, add the `ktor-server-servlet-jakarta` artifact to your build script:
 
 <var name="artifact_name" value="ktor-server-servlet-jakarta"/>
-<var name="ktor_version_catalog_name" value="ktorLibs.server.servlet.jakarta"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.servlet"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 You do not need to add separate [Jetty or Tomcat engine dependencies](server-engines.md#dependencies) when deploying to

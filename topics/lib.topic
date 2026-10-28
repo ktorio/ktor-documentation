@@ -77,11 +77,13 @@
                 <code-block lang="Kotlin">
                     implementation(%ktor_version_catalog_name%)
                 </code-block>
+                <include from="lib.topic" element-id="code_with_ktor_version_catalog"/>
             </tab>
             <tab title="Gradle (Groovy)" group-key="groovy">
                 <code-block lang="Groovy">
                     implementation %ktor_version_catalog_name%
                 </code-block>
+                <include from="lib.topic" element-id="code_with_ktor_version_catalog"/>
             </tab>
             <tab title="Maven" group-key="maven">
                 <code-block lang="XML">
