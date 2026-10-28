@@ -59,7 +59,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                ktorLibs.client.core
+              implementation(ktorLibs.client.core)
             }
         }
     }
@@ -107,7 +107,7 @@ If you need a specific engine, add its dependency to the corresponding platform 
 ```kotlin
 sourceSets {
     androidMain.dependencies {
-        implementation(libs.ktor.client.okhttp)
+        implementation(ktorLibs.client.okhttp)
     }
 }
 ```
