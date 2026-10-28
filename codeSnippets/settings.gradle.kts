@@ -2,6 +2,10 @@
 
 pluginManagement {
     repositories {
+        if (!providers.gradleProperty("build_snapshot_train").orNull.isNullOrEmpty()) {
+            mavenLocal()
+            maven("https://redirector.kotlinlang.org/maven/dev")
+        }
         gradlePluginPortal()
         mavenCentral()
         maven("https://redirector.kotlinlang.org/maven/ktor-eap")
@@ -18,6 +22,7 @@ pluginManagement {
 dependencyResolutionManagement {
     repositories {
         mavenCentral()
+        maven("https://redirector.kotlinlang.org/maven/ktor-eap")
     }
     versionCatalogs {
         if (!providers.gradleProperty("build_snapshot_train").orNull.isNullOrEmpty()) {

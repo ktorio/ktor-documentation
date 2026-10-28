@@ -5,6 +5,7 @@ buildscript {
      * When build_snapshot_train is set to true, kotlin_version property is overridden with kotlin_snapshot_version,
      * atomicfu_version, coroutines_version, serialization_version and kotlinx_io_version are overwritten by TeamCity environment.
      * Additionally, mavenLocal and Sonatype snapshots are added to repository list and stress tests are disabled.
+     * The Kotlin plugin version and its snapshot repositories are configured in settings.gradle.kts.
      * DO NOT change the name of these properties without adapting kotlinx.train build chain.
      */
     def prop = providers.gradleProperty('build_snapshot_train').orNull
@@ -14,23 +15,6 @@ buildscript {
         if (kotlin_version == null) {
             throw new IllegalArgumentException("'kotlin_snapshot_version' should be defined when building with snapshot compiler")
         }
-        repositories {
-            mavenLocal()
-            maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
-        }
-
-        configurations.classpath {
-            resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-                if (details.requested.group == 'org.jetbrains.kotlin') {
-                    details.useVersion kotlin_version
-                }
-            }
-        }
-    }
-
-    repositories {
-        mavenCentral()
-        google()
     }
 }
 
