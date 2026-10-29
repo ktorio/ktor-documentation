@@ -59,15 +59,15 @@ fun main() {
                 }
             }
         }
-        val response: HttpResponse = cioClient.get("https://localhost:8443/")
+        val response: HttpResponse = apacheClient.get("https://localhost:8443/")
         println(response.bodyAsText())
-        cioClient.close()
+        apacheClient.close()
     }
 }
 
 object SslSettings {
     fun getKeyStore(): KeyStore {
-        val keyStoreFile = FileInputStream("../ssl-engine-main/keystore.jks")
+        val keyStoreFile = FileInputStream("keystore.jks")
         val keyStorePassword = "foobar".toCharArray()
         val keyStore: KeyStore = KeyStore.getInstance(KeyStore.getDefaultType())
         keyStore.load(keyStoreFile, keyStorePassword)
