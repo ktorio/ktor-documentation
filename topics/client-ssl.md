@@ -21,14 +21,15 @@ In this topic, you'll learn how to add an SSL certificate for engines that targe
 In this topic, the Ktor client is using a certificate loaded from an existing KeyStore file (`keystore.jks`) generated
 for the server.
 
-Given that every engine uses different [JSSE API](https://docs.oracle.com/en/java/javase/17/security/java-secure-socket-extension-jsse-reference-guide.html#GUID-B7AB25FA-7F0C-4EFA-A827-813B2CE7FBDC) to configure SSL (for example, `SSLContext` for Apache or
-`TrustManager` for Jetty), you need to have the capability to obtain corresponding SSL configurations.
+Given that every engine uses different [JSSE API](https://docs.oracle.com/en/java/javase/17/security/java-secure-socket-extension-jsse-reference-guide.html#GUID-B7AB25FA-7F0C-4EFA-A827-813B2CE7FBDC) to configure SSL (for example, [`SSLContext`](https://docs.oracle.com/javase/8/docs/api/javax/net/ssl/SSLContext.html)for Apache or
+[`TrustManager`](https://docs.oracle.com/javase/8/docs/api/javax/net/ssl/TrustManager.html) for Jetty), you need to have
+the capability to obtain corresponding SSL configurations.
 
 The code snippet below creates the `SslSettings` object that loads a certificate from an existing KeyStore file (`keystore.jks`)
 and provides functions for loading SSL configurations.
 
-The same KeyStore is used to trust the server certificate and, through `KeyManagerFactory`, to present a client certificate,
-which is required by a server that has a trust store configured:
+The same KeyStore is used to trust the server certificate and, through [`KeyManagerFactory`](https://docs.oracle.com/javase/8/docs/api/javax/net/ssl/KeyManagerFactory.html),
+to present a client certificate, which is required by a server that has a trust store configured:
 
 ```kotlin
 ```
@@ -41,9 +42,10 @@ each engine.
 
 ### JVM {id="jvm"}
 
-#### Apache {id="apache"}
+#### Apache and Apache5 {id="apache"}
 
-To enable SSL for the Apache client, configure an `SSLContext` using the `sslContext` parameter:
+To enable SSL for the Apache and Apache 5 clients, configure an `SSLContext` using the [`sslContext`](https://api.ktor.io/ktor-client-apache5/io.ktor.client.engine.apache5/-apache5-engine-config/ssl-context.html)
+parameter:
 
 ```kotlin
 ```
@@ -59,7 +61,8 @@ For the Java client, configure an `SSLContext` using the `sslContext()` function
 
 #### Jetty {id="jetty"}
 
-For the Jetty client, create an instance of `SslContextFactory` and pass `SSLContext`:
+For the Jetty client, use the [`sslContextFactory`](https://api.ktor.io/ktor-client-jetty/io.ktor.client.engine.jetty/-jetty-engine-config/ssl-context-factory.html)
+parameter to create an instance of `SslContextFactory` and pass `SSLContext`:
 
 ```kotlin
 ```
@@ -76,7 +79,7 @@ For the Jetty client, create an instance of `SslContextFactory` and pass `SSLCon
 The CIO engine allows you to configure HTTPS settings inside the `https {}` block.
 Inside this block, you can access TLS parameters provided by [`TLSConfigBuilder`](https://api.ktor.io/ktor-network-tls/io.ktor.network.tls/-t-l-s-config-builder/index.html).
 
-In the following example, a `TrustManager` instance is used to trust the server certificate, and the `addKeyStore()` 
+In the following example, a `TrustManager` instance is used to trust the server certificate, and the [`addKeyStore()`](https://api.ktor.io/ktor-network-tls/io.ktor.network.tls/add-key-store.html)
 function adds a client certificate:
 
 ```kotlin
@@ -90,7 +93,8 @@ function adds a client certificate:
 
 #### Android {id="android"}
 
-The Android engine uses the `sslManager` property to configure SSL settings. 
+The Android engine uses the [`sslManager`](https://api.ktor.io/ktor-client-android/io.ktor.client.engine.android/-android-engine-config/ssl-manager.html)
+property to configure SSL settings. 
 This property accepts `HttpsURLConnection` as a parameter that allows you to pass `SSLSocketFactory`:
 
 ```kotlin
@@ -99,7 +103,8 @@ This property accepts `HttpsURLConnection` as a parameter that allows you to pas
 
 #### OkHttp {id="okhttp"}
 
-To configure OkHttp for using SSL, pass a `SSLSocketFactory` and `X509TrustManager` to the `sslSocketFactory()` function:
+To configure SSL for the OkHttp client engine, pass a `SSLSocketFactory` and `X509TrustManager` to the `sslSocketFactory()`
+function within the `config {}` block:
 
 ```kotlin
 ```
