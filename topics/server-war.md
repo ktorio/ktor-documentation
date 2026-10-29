@@ -96,7 +96,7 @@ First, open the <path>gradle/libs.versions.toml</path> file and define the Grett
 
 ```toml
 ```
-{src="gradle/libs.versions.toml" include-lines="1,9,68,70"}
+{src="gradle/libs.versions.toml" include-lines="1,9,66-67,69"}
 
 In your <path>build.gradle.kts</path> file, add the following entry to the
 `plugins {}` block:

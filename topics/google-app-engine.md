@@ -54,7 +54,7 @@ First, open your <path>gradle/libs.versions.toml</path> file and define the Shad
 
 ```toml
 ```
-{src="gradle/libs.versions.toml" include-lines="1,28,68,74"}
+{src="gradle/libs.versions.toml" include-lines="1,28,66-67,73"}
 
 Then, open the <path>build.gradle.kts</path> file and add the plugin to the `plugins` block:
 ```kotlin
