@@ -9,6 +9,7 @@ import io.ktor.client.engine.jetty.jakarta.*
 import io.ktor.client.engine.okhttp.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
+import io.ktor.network.tls.*
 import kotlinx.coroutines.*
 import org.eclipse.jetty.util.ssl.*
 import java.io.*
@@ -40,6 +41,7 @@ fun main() {
             engine {
                 https {
                     trustManager = SslSettings.getTrustManager()
+                    addKeyStore(SslSettings.getKeyStore(), "foobar".toCharArray())
                 }
             }
         }
@@ -57,15 +59,15 @@ fun main() {
                 }
             }
         }
-        val response: HttpResponse = apacheClient.get("https://localhost:8443/")
+        val response: HttpResponse = cioClient.get("https://localhost:8443/")
         println(response.bodyAsText())
-        apacheClient.close()
+        cioClient.close()
     }
 }
 
 object SslSettings {
     fun getKeyStore(): KeyStore {
-        val keyStoreFile = FileInputStream("keystore.jks")
+        val keyStoreFile = FileInputStream("../ssl-engine-main/keystore.jks")
         val keyStorePassword = "foobar".toCharArray()
         val keyStore: KeyStore = KeyStore.getInstance(KeyStore.getDefaultType())
         keyStore.load(keyStoreFile, keyStorePassword)
@@ -78,9 +80,15 @@ object SslSettings {
         return trustManagerFactory
     }
 
+    fun getKeyManagerFactory(): KeyManagerFactory? {
+        val keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm())
+        keyManagerFactory.init(getKeyStore(), "foobar".toCharArray())
+        return keyManagerFactory
+    }
+
     fun getSslContext(): SSLContext? {
         val sslContext = SSLContext.getInstance("TLS")
-        sslContext.init(null, getTrustManagerFactory()?.trustManagers, null)
+        sslContext.init(getKeyManagerFactory()?.keyManagers, getTrustManagerFactory()?.trustManagers, null)
         return sslContext
     }
 
