@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    implementation(libs.kotlin.stdlib.jdk8)
+    implementation(libs.kotlin.stdlib)
     implementation(ktorLibs.server.core)
     implementation(ktorLibs.server.jetty)
     implementation(ktorLibs.server.htmlBuilder)

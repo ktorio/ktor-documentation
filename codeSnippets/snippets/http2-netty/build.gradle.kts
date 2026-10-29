@@ -21,7 +21,7 @@ val tcnative_classifier = when {
 }
 
 dependencies {
-    implementation(libs.kotlin.stdlib.jdk8)
+    implementation(libs.kotlin.stdlib)
     implementation(ktorLibs.server.core)
     implementation(ktorLibs.server.netty)
     implementation(ktorLibs.server.htmlBuilder)

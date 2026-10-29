@@ -17,7 +17,7 @@ tasks.named<JavaExec>("run") {
 }
 
 dependencies {
-    implementation(libs.kotlin.stdlib.jdk8)
+    implementation(libs.kotlin.stdlib)
     implementation(ktorLibs.network)
     implementation(ktorLibs.network.tls)
     implementation(libs.logback.classic)

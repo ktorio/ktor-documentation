@@ -17,7 +17,6 @@ dependencies {
     implementation(ktorLibs.client.apache5)
     implementation(ktorLibs.client.java)
     implementation(ktorLibs.client.jetty)
-    implementation(libs.jetty.alpn.java.client)
     implementation(ktorLibs.client.cio)
     implementation(ktorLibs.client.android)
     implementation(ktorLibs.client.okhttp)
