@@ -5,7 +5,7 @@
         function readAndDisplayAllTasks() {
             clearTable();
 
-            const serverURL = 'ws://0.0.0.0:8080/tasks';
+            const serverURL = 'ws://localhost:8080/tasks';
             const socket = new WebSocket(serverURL);
 
             socket.onopen = logOpenToConsole;
