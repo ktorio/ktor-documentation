@@ -19,14 +19,14 @@
     </tldr>
     <p>In this topic, we'll show you how to run a server Ktor application under
         <a href="https://docs.docker.com/compose/">Docker Compose</a>. We'll be using a project created in the
-        <a href="server-integrate-database.topic">Integrate a Database</a> tutorial, which uses
+        <a href="server-integrate-database.md">Integrate a Database</a> tutorial, which uses
         <a href="https://github.com/JetBrains/Exposed">Exposed</a> to
         connect to a <a href="https://www.postgresql.org/docs/">PostgreSQL</a> database where the database and the web
         application run separately.</p>
     <chapter title="Get the application ready" id="prepare-app">
         <chapter title="Extract database settings" id="extract-db-settings">
             <p>
-                The project created in the <a href="server-integrate-database.topic#config-db-connection">Integrate a
+                The project created in the <a href="server-integrate-database.md#config-db-connection">Integrate a
                 Database</a> tutorial uses hardcoded attributes to establish a database connection.</p>
             <p>
                 Let's extract connection settings for the PostgreSQL database to
@@ -93,8 +93,7 @@
                 file.
             </p>
             <code-block lang="kotlin" src="snippets/tutorial-server-docker-compose/build.gradle.kts"
-                        include-lines="8-13">
-            </code-block>
+                        include-lines="1-6"/>
         </chapter>
     </chapter>
     <chapter title="Configure Docker" id="configure-docker">

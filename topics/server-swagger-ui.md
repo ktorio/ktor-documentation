@@ -3,6 +3,7 @@
 <primary-label ref="server-plugin"/>
 
 <var name="artifact_name" value="ktor-server-swagger"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.swagger"/>
 <var name="package_name" value="io.ktor.server.plugins.swagger"/>
 <var name="plugin_api_link" value="https://api.ktor.io/ktor-server-swagger/io.ktor.server.plugins.swagger/swagger-u-i.html"/>
 

@@ -3,6 +3,7 @@
 <primary-label ref="client-plugin"/>
 
 <var name="artifact_name" value="ktor-client-encoding"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.client.encoding"/>
 
 <tldr>
 <p>

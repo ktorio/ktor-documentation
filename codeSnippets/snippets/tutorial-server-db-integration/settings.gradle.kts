@@ -1,7 +1,5 @@
-
 pluginManagement {
     repositories {
-        mavenCentral()
         gradlePluginPortal()
     }
 }
@@ -20,3 +18,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "ktor-exposed-task-app"
+

@@ -1,14 +1,11 @@
 import com.google.cloud.tools.gradle.appengine.appyaml.AppEngineAppYamlExtension
 
-val ktor_version: String by project
-val kotlin_version: String by project
-val gce_logback_version: String by project
 
 plugins {
     application
-    kotlin("jvm")
-    id("com.google.cloud.tools.appengine") version "2.8.0"
-    id("com.gradleup.shadow") version "8.3.10"
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.appengine)
+    alias(libs.plugins.shadow)
 }
 
 application {
@@ -31,10 +28,10 @@ configure<AppEngineAppYamlExtension> {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib")
-    implementation("io.ktor:ktor-server-core:$ktor_version")
-    implementation("io.ktor:ktor-server-netty:$ktor_version")
-    implementation("com.google.cloud:google-cloud-logging-logback:$gce_logback_version")
-    testImplementation("io.ktor:ktor-server-test-host-jvm:$ktor_version")
-    testImplementation("org.jetbrains.kotlin:kotlin-test")
+    implementation(libs.kotlin.stdlib)
+    implementation(ktorLibs.server.core)
+    implementation(ktorLibs.server.netty)
+    implementation(libs.google.cloud.logging.logback)
+    testImplementation(ktorLibs.server.testHost)
+    testImplementation(libs.kotlin.test)
 }

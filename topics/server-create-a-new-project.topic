@@ -35,7 +35,7 @@
         <li><a href="server-create-restful-apis.topic">Create a RESTful API that generates JSON</a>.</li>
         <li><a href="server-create-website.topic">Create a website using Thymeleaf templates</a>.</li>
         <li><a href="server-create-websocket-application.topic">Create a WebSocket application</a>.</li>
-        <li><a href="server-integrate-database.topic">Integrate a database with Exposed</a>.</li>
+        <li><a href="server-integrate-database.md">Integrate a database with Exposed</a>.</li>
     </list>
     <chapter id="create-project" title="Create a new Ktor project">
         <p>
@@ -906,7 +906,7 @@
                     <p>Open the <path>build.gradle.kts</path> file and add the new dependency as shown below:</p>
                     <code-block lang="kotlin"
                                 src="snippets/tutorial-server-get-started/build.gradle.kts"
-                                include-lines="18-28"
+                                include-lines="17-27"
                     />
                 </step>
                 <step>

@@ -4,6 +4,7 @@
 <primary-label ref="server-plugin"/>
 
 <var name="artifact_name" value="ktor-server-compression"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.compression"/>
 <var name="package_name" value="io.ktor.server.plugins.compression"/>
 <var name="plugin_name" value="Compression"/>
 
@@ -38,6 +39,7 @@ With the `Compression` plugin, you can:
 To include Zstandard compression, add the `ktor-server-compression-zstd` dependency:
 
    <var name="artifact_name" value="ktor-server-compression-zstd"/>
+   <var name="ktor_version_catalog_name" value="ktorLibs.server.compression.zstd"/>
    <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 ## Install %plugin_name% {id="install_plugin"}

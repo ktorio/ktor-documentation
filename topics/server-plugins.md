@@ -46,6 +46,7 @@ Most plugins require a separate dependency. For example, the [`CORS`](server-cor
 artifact in the build script:
 
 <var name="artifact_name" value="ktor-server-cors"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.server.cors"/>
 <include from="lib.topic" element-id="add_ktor_artifact"/>
 
 > For a complete list of available plugins, see the [Ktor Project Generator](https://start.ktor.io/settings). For the

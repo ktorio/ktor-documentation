@@ -4,6 +4,7 @@
 <primary-label ref="client-plugin"/>
 
 <var name="artifact_name" value="ktor-client-call-id"/>
+<var name="ktor_version_catalog_name" value="ktorLibs.client.callId"/>
 <var name="package_name" value="io.ktor.client.plugins.callid"/>
 <var name="plugin_name" value="CallId"/>
 

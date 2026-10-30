@@ -1,5 +1,5 @@
+import SharedLogic
 import SwiftUI
-import Shared
 
 struct ContentView: View {
     @StateObject private var viewModel = ViewModel()

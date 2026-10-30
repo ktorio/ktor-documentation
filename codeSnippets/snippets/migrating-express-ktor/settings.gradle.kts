@@ -9,3 +9,12 @@ include("5_send_response")
 include("6_templates")
 include("7_receive_request")
 include("8_middleware")
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+    versionCatalogs {
+        create("ktorLibs").from("io.ktor:ktor-version-catalog:3.6.0")
+    }
+}

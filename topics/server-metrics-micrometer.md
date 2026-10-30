@@ -25,6 +25,7 @@ To enable `MicrometerMetrics`, you need to include the following artifacts in th
 * Add the `ktor-server-metrics-micrometer` dependency:
 
   <var name="artifact_name" value="ktor-server-metrics-micrometer"/>
+  <var name="ktor_version_catalog_name" value="ktorLibs.server.metrics.micrometer"/>
   <include from="lib.topic" element-id="add_ktor_artifact"/>
   
 * Add a dependency required for a monitoring system. The example below shows how to add an artifact for Prometheus:

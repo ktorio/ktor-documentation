@@ -13,20 +13,22 @@ The [Ktor Gradle plugin](https://github.com/ktorio/ktor-build-plugins) allows yo
 
 To build a fat JAR, you need to configure the Ktor plugin first:
 
-1. Open the `build.gradle.kts` file and add the plugin to the `plugins` block:
+1. Open the <path>build.gradle.kts</path> file and add the Ktor plugin to the `plugins {}` block:
    ```kotlin
    ```
-   {src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="4,7-8"}
+   {src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="1,4-5"}
 
-2. Make sure the [main application class](server-dependencies.topic#create-entry-point) is configured:
+   <include from="lib.topic" element-id="code_with_ktor_version_catalog"/>
+
+2. Ensure that the [main application class](server-dependencies.topic#create-entry-point) is configured:
    ```kotlin
    ```
-   {src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="10-12"}
+   {src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="7-9"}
 
 3. Optionally, you can configure the name of the fat JAR to be generated using the `ktor.fatJar` extension:
    ```kotlin
    ```
-   {src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="28-31,53"}
+   {src="snippets/deployment-ktor-plugin/build.gradle.kts" include-lines="25-28,50"}
 
 > The fat JAR creation feature is automatically disabled if you apply the Ktor Gradle plugin along with the Kotlin Multiplatform Gradle plugin.
 > To be able to use them together:

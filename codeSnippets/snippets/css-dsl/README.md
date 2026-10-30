@@ -1,10 +1,13 @@
 # CSS DSL
+
 A sample project demonstrating how to use [CSS DSL](https://ktor.io/docs/css-dsl.html) to author stylesheets in Kotlin.
 
 > This sample is a part of the [codeSnippets](../../README.md) Gradle project.
 
-## Running
-To run this sample, execute the following command in a repository's root directory:
+## Run
+
+To run this sample, execute the following command from the `codeSnippets` directory:
+
 ```bash
 ./gradlew :css-dsl:run
 ```

@@ -32,7 +32,7 @@
             <card href="server-create-websocket-application.topic">
                 Create a WebSocket application
             </card>
-            <card href="server-integrate-database.topic">Integrate a database</card>
+            <card href="server-integrate-database.md">Integrate a database</card>
         </primary>
         <misc>
             <links narrow="true">
@@ -133,7 +133,7 @@
             <cards>
                 <title>Integrations</title>
                 <card href="full-stack-development-with-kotlin-multiplatform.topic"/>
-                <card href="tutorial-first-steps-with-kotlin-rpc.topic"/>
+                <card href="tutorial-first-steps-with-kotlin-rpc.md"/>
             </cards>
         </misc>
 

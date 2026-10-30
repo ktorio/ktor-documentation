@@ -26,7 +26,7 @@
                          toc-title="Create a WebSocket application"
                          accepts-web-file-names="creating-web-socket-chat.html,server-create-websocket-chat.html,
                          getting-started-ktor-client-chat.html, client-create-websocket-chat.html"/>
-            <toc-element topic="server-integrate-database.topic"
+            <toc-element topic="server-integrate-database.md"
                          toc-title="Integrate a database"
                          accepts-web-file-names="db-persistence.html, interactive-website-add-persistence.html,
                          db-connection-pooling-caching.html, connection-pooling-caching.html"/>
@@ -291,11 +291,12 @@
             <toc-element toc-title="Publishing">
                 <toc-element topic="azure-app-service.md"/>
                 <toc-element topic="google-app-engine.md"
+                             toc-title="Google App Engine"
                              accepts-web-file-names="hosting.html"/>
                 <toc-element topic="heroku.md"/>
                 <toc-element topic="dokku.md"/>
                 <toc-element topic="sevalla.md"/>
-                <toc-element topic="elastic-beanstalk.md"/>
+                <toc-element topic="elastic-beanstalk.md" toc-title="AWS Elastic Beanstalk"/>
             </toc-element>
         </toc-element>
 
@@ -416,7 +417,7 @@
         <toc-element topic="full-stack-development-with-kotlin-multiplatform.topic"/>
         <toc-element topic="htmx-integration.md"/>
         <toc-element topic="openapi-spec-generation.md"/>
-        <toc-element topic="tutorial-first-steps-with-kotlin-rpc.topic"/>
+        <toc-element topic="tutorial-first-steps-with-kotlin-rpc.md"/>
     </toc-element>
     <toc-element topic="io-interoperability.md"/>
 
