@@ -33,6 +33,14 @@ The following table lists details of the latest Ktor releases.
 
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
+<tr><td>3.6.1</td><td>October 30, 2026</td><td>
+<p>
+A patch release that fixes various issues with connection management, request cancellation, streaming, WebSockets, and
+platform-specific engines, while bringing improvements to routing, HTTP compliance, and resource handling.
+</p>
+<var name="version" value="3.6.1"/>
+<include from="lib.topic" element-id="release_details_link"/>
+</td></tr>
 <tr><td>3.6.0</td><td>September 17, 2026</td><td>
 <p>
 A minor release that adds experimental HTTP/3 support for Netty, default client engines for Kotlin Multiplatform, 
