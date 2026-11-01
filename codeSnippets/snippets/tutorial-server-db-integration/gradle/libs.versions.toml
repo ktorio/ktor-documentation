@@ -2,7 +2,7 @@
 exposed = "1.6.0"
 h2 = "2.4.240"
 h2-r2dbc = "1.1.0.RELEASE"
-kotlin = "2.4.0"
+kotlin = "2.5.0-saturn-677"
 logback = "1.5.37"
 postgresql = "42.7.13"
 

@@ -11,7 +11,7 @@ androidx-lifecycle = "2.11.0"
 androidx-testExt = "1.3.0"
 composeMultiplatform = "1.12.1"
 junit = "4.13.2"
-kotlin = "2.4.20"
+kotlin = "2.5.0-saturn-677"
 material3 = "1.12.0-alpha03"
 kotlinx-coroutines = "1.11.0"
 

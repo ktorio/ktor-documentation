@@ -1,6 +1,6 @@
 [versions]
 docker-compose = "0.17.21"
-kotlin = "2.4.0"
+kotlin = "2.5.0-saturn-677"
 logback = "1.6.3"
 opentelemetry = "2.18.1-alpha"
 opentelemetry_semconv = "1.34.0"

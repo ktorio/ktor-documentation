@@ -1,6 +1,6 @@
 [versions]
 json-path = "2.9.0"
-kotlin = "2.4.0"
+kotlin = "2.5.0-saturn-677"
 logback = "1.6.3"
 
 [libraries]

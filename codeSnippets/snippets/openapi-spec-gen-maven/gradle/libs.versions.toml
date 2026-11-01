@@ -1,5 +1,5 @@
 [versions]
-kotlin = "2.4.0"
+kotlin = "2.5.0-saturn-677"
 ktor = "3.6.1"
 logback = "1.6.3"
 
