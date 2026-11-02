@@ -61,7 +61,7 @@ For the Java client, configure an `SSLContext` using the `sslContext()` function
 
 #### Jetty {id="jetty"}
 
-For the Jetty client, use the [`sslContextFactory`](https://api.ktor.io/ktor-client-jetty/io.ktor.client.engine.jetty/-jetty-engine-config/ssl-context-factory.html)
+For the Jetty client, use the [`sslContextFactory`](https://api.ktor.io/ktor-client-jetty-jakarta/io.ktor.client.engine.jetty.jakarta/-jetty-engine-config/ssl-context-factory.html)
 parameter to create an instance of `SslContextFactory` and pass `SSLContext`:
 
 ```kotlin
