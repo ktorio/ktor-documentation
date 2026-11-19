@@ -141,6 +141,52 @@ You can configure a URL fragment using the `fragment` property.
 By default, `fragment` [encodes][percent_encoding] a URL fragment.
 To disable encoding, use `encodedFragment()` instead.
 
+### Parsing a URL string {id="url-parsing"}
+
+Passing a string to the
+[`URLBuilder`](https://api.ktor.io/ktor-http/io.ktor.http/-u-r-l-builder/index.html) factory function parses it the same
+way as `takeFrom()`: how the string is interpreted depends on its shape.
+
+* If the string starts with a scheme, such as `https://example.com:8080/api`, the scheme, host, port, and path are
+  extracted into the builder.
+* If the string starts with `//`, such as `//example.com/api`, the host, port, and path are extracted, and the protocol
+  stays unchanged. This allows building a URL from a host without specifying the scheme.
+* Any other string, such as `localhost` or `example.com/api/v1`, is treated as a relative path: its segments are
+  appended to the path already stored in the builder.
+
+```kotlin
+import io.ktor.http.*
+
+URLBuilder("https://example.com:8080/api").buildString()
+// https://example.com:8080/api
+
+URLBuilder("//localhost:8080").buildString()
+// http://localhost:8080
+
+URLBuilder("localhost").buildString()
+// http://localhost/localhost
+```
+
+> The text before the first `:` is always treated as a scheme, even when it is not a known protocol. For example,
+> `URLBuilder("localhost:8080")` parses `localhost` as a scheme and `8080` as a relative path, producing
+> `localhost://localhost/8080`.
+{style="note"}
+
+> A schemeless host string such as `localhost` does **not** become the host of the resulting URL. Without a scheme or a
+> leading `//`, it is appended to the path instead, which produces `http://localhost/localhost`.
+> To build a URL from a bare host, prepend `//` or configure the `host` and `port` properties directly.
+> There is a proposal to parse schemeless strings as hosts instead
+> ([KTOR-2832](https://youtrack.jetbrains.com/issue/KTOR-2832)), but it is not implemented in released versions.
+{style="note"}
+
+When `takeFrom()` is called on an existing builder, a relative string is resolved against the builder's current state:
+
+```kotlin
+val builder = URLBuilder("https://example.com/base/")
+builder.takeFrom("relative/path").buildString()
+// https://example.com/base/relative/path
+```
+
 ## Specify a Unix domain socket
 
 > Unix domain sockets are supported only in the CIO engine.
