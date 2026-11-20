@@ -3,8 +3,6 @@
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <variables>
         <web-root>https://ktor.io</web-root>
-        <download-page>https://ktor.io/create/</download-page>
-        <showDownloadButton>false</showDownloadButton>
         <enable-browser-edits>true</enable-browser-edits>
         <browser-edits-url>https://github.com/ktorio/ktor-documentation/edit/main/</browser-edits-url>
         <search-scope/>
@@ -42,6 +40,7 @@
             https://resources.jetbrains.com/storage/products/company/brand/logos/Ktor_icon.png
         </custom-favicons>
         <primary-color>iris</primary-color>
+        <custom-css>custom.css</custom-css>
     </variables>
 
     <llms-txt/>

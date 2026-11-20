@@ -6,445 +6,427 @@
                   status="release"
                   start-page="welcome.topic">
 
-    <toc-element topic="welcome.topic"
-                 accepts-web-file-names-ref="kotlin_docs"/>
+    <toc-element accepts-web-file-names-ref="kotlin_docs" topic="welcome.topic" toc-title="Home"/>
+    <toc-element toc-title="What's new">
+        <toc-element topic="whats-new-360.md" toc-title="3.6.0"/>
+        <toc-element topic="whats-new-350.md" toc-title="3.5.0"/>
+        <toc-element topic="whats-new-340.md" toc-title="3.4.0"/>
+        <toc-element topic="whats-new-330.md" toc-title="3.3.0"/>
+        <toc-element topic="whats-new-320.md" toc-title="3.2.0"/>
+    </toc-element>
+    <!--    ================================  Ktor Server section  ================================  -->
 
-    <toc-element toc-title="Ktor Server">
-        <toc-element toc-title="Getting started with Ktor Server">
-            <toc-element topic="server-create-a-new-project.topic"
-                         accepts-web-file-names="getting-started.html, intellij-idea.html"/>
-            <toc-element topic="server-requests-and-responses.topic"
-                         toc-title="Handle requests and generate responses"
-                         accepts-web-file-names-ref="tutorials"/>
-            <toc-element topic="server-create-restful-apis.topic" toc-title="Create a RESTful API"
-                         accepts-web-file-names="creating-http-apis.html, server-create-http-apis.html"/>
-            <toc-element topic="server-create-website.topic"
-                         toc-title="Create a website"
-                         accepts-web-file-names="creating-static-website.html,creating-interactive-website.html,
-                         server-create-static-website.html, server-create-interactive-website.html"/>
-            <toc-element topic="server-create-websocket-application.topic"
-                         toc-title="Create a WebSocket application"
-                         accepts-web-file-names="creating-web-socket-chat.html,server-create-websocket-chat.html,
-                         getting-started-ktor-client-chat.html, client-create-websocket-chat.html"/>
-            <toc-element topic="server-integrate-database.md"
-                         toc-title="Integrate a database"
-                         accepts-web-file-names="db-persistence.html, interactive-website-add-persistence.html,
-                         db-connection-pooling-caching.html, connection-pooling-caching.html"/>
+    <toc-element toc-title="Ktor Server"/>
+    <toc-element toc-title="Get started with Ktor Server">
+        <toc-element topic="server-create-a-new-project.topic"
+                     accepts-web-file-names="getting-started.html, intellij-idea.html"/>
+        <toc-element topic="server-requests-and-responses.topic"
+                     toc-title="Handle requests and generate responses"
+                     accepts-web-file-names-ref="tutorials"/>
+        <toc-element topic="server-create-restful-apis.topic" toc-title="Create a RESTful API"
+                     accepts-web-file-names="creating-http-apis.html, server-create-http-apis.html"/>
+        <toc-element topic="server-create-website.topic"
+                     toc-title="Create a website"
+                     accepts-web-file-names="creating-static-website.html,creating-interactive-website.html,
+                     server-create-static-website.html, server-create-interactive-website.html"/>
+        <toc-element topic="server-create-websocket-application.topic"
+                     toc-title="Create a WebSocket application"
+                     accepts-web-file-names="creating-web-socket-chat.html,server-create-websocket-chat.html,
+                     getting-started-ktor-client-chat.html, client-create-websocket-chat.html"/>
+        <toc-element topic="server-integrate-database.md"
+                     toc-title="Integrate a database"
+                     accepts-web-file-names="db-persistence.html, interactive-website-add-persistence.html,
+                     db-connection-pooling-caching.html, connection-pooling-caching.html"/>
+    </toc-element>
+    <toc-element topic="server-application-structure.md" />
+
+    <toc-element toc-title="Creating and configuring a server">
+        <toc-element topic="server-platforms.md"
+                     accepts-web-file-names="supported-platforms.html"/>
+        <toc-element topic="server-dependencies.topic"
+                     toc-title="Adding dependencies"
+                     accepts-web-file-names="artifacts.html,maven.html,gradle.html">
+            <toc-element topic="server-native.md"
+                         accepts-web-file-names="native-server.html"/>
         </toc-element>
-
-        <toc-element toc-title="Developing applications">
-            <toc-element topic="server-application-structure.md" />
-            <toc-element toc-title="Creating and configuring a server">
-                <toc-element topic="server-platforms.md"
-                             accepts-web-file-names="supported-platforms.html"/>
-                <toc-element topic="server-dependencies.topic"
-                             toc-title="Adding dependencies"
-                             accepts-web-file-names="artifacts.html,maven.html,gradle.html">
-                    <toc-element topic="server-native.md"
-                                 accepts-web-file-names="native-server.html"/>
-                </toc-element>
-                <toc-element topic="server-create-and-configure.topic"
-                             accepts-web-file-names="create-server.html"/>
-                <toc-element topic="server-engines.md"
-                             toc-title="Engines"
-                             accepts-web-file-names="custom-engines.html,engines.html"/>
-                <toc-element topic="server-configuration-code.topic"
-                             accepts-web-file-names="configuration-code.html"/>
-                <toc-element topic="server-configuration-file.topic"
-                             accepts-web-file-names="configuration.html,configurations.html,environments.html,configuration-file.html"/>
-                <toc-element topic="server-modules.md"
-                             accepts-web-file-names="modules.html"/>
-                <toc-element toc-title="Dependency injection">
-                    <toc-element topic="server-dependency-injection.md" toc-title="Overview"/>
-                    <toc-element topic="server-di-configuration.md" toc-title="Configuration"/>
-                    <toc-element topic="server-di-dependency-registration.md"/>
-                    <toc-element topic="server-di-dependency-resolution.md"/>
-                    <toc-element topic="server-di-resource-lifecycle-management.md"/>
-                    <toc-element topic="server-di-testing.md" toc-title="Testing"/>
-                </toc-element>
-                <toc-element topic="server-plugins.md"
-                             toc-title="Plugins"
-                             accepts-web-file-names="zfeatures.html,features.html,plugins.html"/>
-                <toc-element topic="server-ssl.md"
-                             toc-title="SSL and certificates"
-                             accepts-web-file-names="certificates.html,self-signed-certificate.html,ssl.html"/>
-                <toc-element topic="server-http2.md" accepts-web-file-names="advanced-http2.html,http2.html"/>
-                <toc-element topic="server-http3.md"/>
-                <toc-element topic="server-development-mode.topic"
-                             accepts-web-file-names="development-mode.html"/>
-                <toc-element topic="server-logging.md"
-                             toc-title="Logging"
-                             accepts-web-file-names="servers-logging.html,logging.html"/>
-            </toc-element>
-
-            <toc-element toc-title="Routing">
-                <toc-element topic="server-routing.md"
-                             accepts-web-file-names="routing.html,tracing-routes.html,resolution-algorithms.html,routing-in-ktor.html"/>
-                <toc-element topic="server-resources.md"
-                             accepts-web-file-names="type-safe-routing.html, features-locations.html,locations.html, server-locations.html"/>
-                <toc-element topic="server-routing-organization.md"
-                             accepts-web-file-names="structure.html,structuring-applications.html"/>
-                <toc-element topic="server-autoheadresponse.md"
-                             accepts-web-file-names="autoheadresponse.html"/>
-                <toc-element topic="server-method-override.md"
-                             accepts-web-file-names="x-http-method-override.html"/>
-            </toc-element>
-
-            <toc-element toc-title="Requests">
-                <toc-element topic="server-requests.md"
-                             accepts-web-file-names="multipart-support.html,uploads.html,calls.html,requests.html"/>
-                <toc-element topic="server-request-validation.md"
-                             accepts-web-file-names="request-validation.html"/>
-                <toc-element topic="server-rate-limit.md"
-                             accepts-web-file-names="rate-limit.html"/>
-                <toc-element topic="server-http-request-lifecycle.md"/>
-                <toc-element topic="server-double-receive.md"
-                             accepts-web-file-names="double-receive.html"/>
-            </toc-element>
-
-            <toc-element toc-title="Responses">
-                <toc-element topic="server-responses.md"
-                             accepts-web-file-names="responses.html"/>
-                <toc-element topic="server-status-pages.md"
-                             accepts-web-file-names="status-pages.html"/>
-            </toc-element>
-
-            <toc-element topic="server-serialization.md"
-                         toc-title="Content negotiation and serialization"
-                         accepts-web-file-names="serialization.html"
-                         accepts-web-file-names-ref="serialization_server"/>
-
-            <toc-element toc-title="Serving content">
-                <toc-element topic="server-static-content.md"
-                             accepts-web-file-names="static-content.html,serving-static-content.html"/>
-                <toc-element topic="server-serving-spa.md"
-                             accepts-web-file-names="serving-spa.html"/>
-                <toc-element topic="server-webjars.md"
-                             accepts-web-file-names="webjars.html"/>
-            </toc-element>
-
-            <toc-element topic="server-templating.md"
-                         accepts-web-file-names="templates.html,working-with-views.html,templating.html">
-                <toc-element topic="server-html-dsl.md"
-                             accepts-web-file-names="html-dsl.html"/>
-                <toc-element topic="server-css-dsl.md"
-                             accepts-web-file-names="css-dsl.html"/>
-                <toc-element topic="server-freemarker.md"
-                             accepts-web-file-names="freemarker.html"/>
-                <toc-element topic="server-velocity.md"
-                             accepts-web-file-names="velocity.html"/>
-                <toc-element topic="server-mustache.md"
-                             accepts-web-file-names="mustache.html"/>
-                <toc-element topic="server-thymeleaf.md"
-                             accepts-web-file-names="thymeleaf.html"/>
-                <toc-element topic="server-pebble.md"
-                             accepts-web-file-names="pebble.html"/>
-                <toc-element topic="server-jte.md"
-                             accepts-web-file-names="jte.html"/>
-            </toc-element>
-
-            <toc-element topic="server-auth.md"
-                         toc-title="Authentication and authorization"
-                         accepts-web-file-names="features-authentication.html,authentication.html">
-                <toc-element topic="server-basic-auth.md"
-                             toc-title="Basic authentication"
-                             accepts-web-file-names="basic.html"/>
-                <toc-element topic="server-digest-auth.md"
-                             toc-title="Digest authentication"
-                             accepts-web-file-names="digest.html"/>
-                <toc-element topic="server-bearer-auth.md"
-                             toc-title="Bearer authentication"
-                             accepts-web-file-names="bearer.html"/>
-                <toc-element topic="server-api-key-auth.md"
-                             toc-title="API Key authentication"
-                             accepts-web-file-names="api-key.html"/>
-                <toc-element topic="server-form-based-auth.md"
-                             toc-title="Form-based authentication"
-                             accepts-web-file-names="form.html"/>
-                <toc-element topic="server-ldap.md"
-                             accepts-web-file-names="ldap.html"/>
-                <toc-element topic="server-jwt.md"
-                             accepts-web-file-names="jwt.html">
-                    <toc-element topic="rsa-keys-generation.md"/>
-                </toc-element>
-                <toc-element toc-title="Sessions">
-                    <toc-element topic="server-session-auth.md"
-                                 toc-title="Session authentication"
-                                 accepts-web-file-names="session-auth.html"/>
-                    <toc-element topic="server-typed-session-auth.md"/>
-                </toc-element>
-                <toc-element toc-title="OAuth">
-                    <toc-element topic="server-oauth.md"
-                                 toc-title="OAuth authentication"
-                                 accepts-web-file-names="authentication-oauth.html,oauth.html"/>
-                    <toc-element topic="server-oauth2-flows.md"
-                                 toc-title="Type-safe OAuth 2.0 flows"/>
-                </toc-element>
-                <toc-element topic="server-oidc.md"
-                             toc-title="OpenID Connect">
-                    <toc-element topic="server-oidc-resource-server.md"
-                                 toc-title="Resource server"/>
-                    <toc-element topic="server-oidc-browser-login.md"
-                                 toc-title="Browser login"/>
-                </toc-element>
-                <toc-element topic="server-typed-auth.md"/>
-            </toc-element>
-
-            <toc-element topic="server-sessions.md"
-                         accepts-web-file-names="cookie-header.html,client-server.html,serializers.html,storages.html,transformers.html,sessions.html"/>
-
-            <toc-element toc-title="HTTP">
-                <toc-element topic="server-swagger-ui.md"
-                             accepts-web-file-names="openapi-swagger.html,swagger-ui.html"/>
-                <toc-element topic="server-openapi.md"
-                             accepts-web-file-names="openapi.html"/>
-                <toc-element topic="server-default-headers.md"
-                             accepts-web-file-names="default-headers.html"/>
-                <toc-element topic="server-compression.md"
-                             accepts-web-file-names="compression.html"/>
-                <toc-element topic="server-caching-headers.md"
-                             accepts-web-file-names="caching-headers.html,caching.html"/>
-                <toc-element topic="server-conditional-headers.md"
-                             accepts-web-file-names="conditional-headers.html"/>
-                <toc-element topic="server-cors.md"
-                             accepts-web-file-names="cors.html"/>
-
-                <toc-element topic="server-forward-headers.md"
-                             accepts-web-file-names="forward-headers.html"/>
-                <toc-element topic="server-hsts.md"
-                             accepts-web-file-names="hsts.html"/>
-                <toc-element topic="server-https-redirect.md"
-                             accepts-web-file-names="https-redirect.html"/>
-                <toc-element topic="server-partial-content.md"
-                             accepts-web-file-names="partial-content.html"/>
-                <toc-element topic="server-data-conversion.md"/>
-            </toc-element>
-
-            <toc-element topic="server-websockets.md"
-                         toc-title="WebSockets"
-                         accepts-web-file-names="servers-features-websockets.html,websocket.html">
-                <toc-element topic="server-websocket-serialization.md"
-                             toc-title="WebSockets serialization"
-                             accepts-web-file-names="websocket-serialization.html"/>
-                <toc-element topic="server-websocket-deflate.md"
-                             accepts-web-file-names="websocket-deflate-extension.html"/>
-                <toc-element topic="server-websocket-extensions.md"
-                             accepts-web-file-names="websocket-extensions-api.html"/>
-            </toc-element>
-            <toc-element topic="server-server-sent-events.topic"
-                         toc-title="Server-Sent Events"
-                         accepts-web-file-names="sse-server.html"/>
-
-            <toc-element topic="server-sockets.md"
-                         accepts-web-file-names="servers-raw-sockets.html"/>
-
-            <toc-element toc-title="Monitoring">
-                <toc-element topic="server-call-logging.md"
-                             accepts-web-file-names="call-logging.html"/>
-                <toc-element topic="server-call-id.md"
-                             toc-title="Tracing requests"
-                             accepts-web-file-names="call-id.html"/>
-                <toc-element topic="server-metrics-micrometer.md"
-                             accepts-web-file-names="metrics-micrometer.html,micrometer-metrics.html"/>
-                <toc-element topic="server-opentelemetry.md"
-                             toc-title="Distributed tracing with OpenTelemetry"/>
-                <toc-element topic="server-metrics-dropwizard.md"
-                             accepts-web-file-names="features-metrics.html,dropwizard-metrics.html"/>
-            </toc-element>
-
-            <toc-element toc-title="Administration">
-                <toc-element topic="server-shutdown-url.md"
-                             accepts-web-file-names="shutdown-url.html"/>
-            </toc-element>
+        <toc-element topic="server-create-and-configure.topic"
+                     accepts-web-file-names="create-server.html"/>
+        <toc-element topic="server-engines.md"
+                     toc-title="Engines"
+                     accepts-web-file-names="custom-engines.html,engines.html"/>
+        <toc-element topic="server-configuration-code.topic"
+                     accepts-web-file-names="configuration-code.html"/>
+        <toc-element topic="server-configuration-file.topic"
+                     accepts-web-file-names="configuration.html,configurations.html,environments.html,configuration-file.html"/>
+        <toc-element topic="server-modules.md"
+                     accepts-web-file-names="modules.html"/>
+        <toc-element toc-title="Dependency injection">
+            <toc-element topic="server-dependency-injection.md" toc-title="Overview"/>
+            <toc-element topic="server-di-configuration.md" toc-title="Configuration"/>
+            <toc-element topic="server-di-dependency-registration.md"/>
+            <toc-element topic="server-di-dependency-resolution.md"/>
+            <toc-element topic="server-di-resource-lifecycle-management.md"/>
+            <toc-element topic="server-di-testing.md" toc-title="Testing"/>
         </toc-element>
+        <toc-element topic="server-plugins.md"
+                     toc-title="Plugins"
+                     accepts-web-file-names="zfeatures.html,features.html,plugins.html"/>
+        <toc-element topic="server-ssl.md"
+                     toc-title="SSL and certificates"
+                     accepts-web-file-names="certificates.html,self-signed-certificate.html,ssl.html"/>
+        <toc-element topic="server-http2.md" accepts-web-file-names="advanced-http2.html,http2.html"/>
+        <toc-element topic="server-http3.md"/>
+        <toc-element topic="server-development-mode.topic"
+                     accepts-web-file-names="development-mode.html"/>
+        <toc-element topic="server-logging.md"
+                     toc-title="Logging"
+                     accepts-web-file-names="servers-logging.html,logging.html"/>
+    </toc-element>
 
-
-        <toc-element toc-title="Running and debugging">
-            <toc-element topic="server-run.md"
-                         accepts-web-file-names="engine.html,running.html"/>
-            <toc-element topic="server-auto-reload.topic" accepts-web-file-names="autoreload.html,auto-reload.html"/>
-        </toc-element>
-
-        <toc-element topic="server-testing.md"
-                     toc-title="Testing"
-                     accepts-web-file-names="servers-testing.html,testing.html"/>
-
-        <toc-element topic="server-deployment.md"
-                     accepts-web-file-names="deploy.html">
-            <toc-element toc-title="Packaging">
-                <toc-element toc-title="Creating fat JARs">
-                    <toc-element topic="server-fatjar.md"
-                                 accepts-web-file-names="proguard.html,deploy-proguard.html,fatjar.html"/>
-                    <toc-element topic="maven-assembly-plugin.md"/>
-                </toc-element>
-                <toc-element topic="server-packaging.md"
-                             accepts-web-file-names="packing.html,gradle-application-plugin.html"/>
-                <toc-element topic="server-war.md"
-                             accepts-web-file-names="war.html"/>
-                <toc-element topic="graalvm.md"/>
-            </toc-element>
-            <toc-element toc-title="Containerizing">
-                <toc-element topic="docker.md"
-                             accepts-web-file-names="containers.html"/>
-                <toc-element topic="docker-compose.topic"/>
-            </toc-element>
-            <toc-element toc-title="Publishing">
-                <toc-element topic="azure-app-service.md"/>
-                <toc-element topic="google-app-engine.md"
-                             toc-title="Google App Engine"
-                             accepts-web-file-names="hosting.html"/>
-                <toc-element topic="heroku.md"/>
-                <toc-element topic="dokku.md"/>
-                <toc-element topic="sevalla.md"/>
-                <toc-element topic="elastic-beanstalk.md" toc-title="AWS Elastic Beanstalk"/>
-            </toc-element>
-        </toc-element>
-
-        <toc-element toc-title="Extending Ktor">
-            <toc-element topic="server-custom-plugins.md"
-                         toc-title="Custom plugins"
-                         accepts-web-file-names="advanced-index.html,advanced-features.html,creating-custom-features.html,attributes.html,intercepting-routes.html,route.html,custom-plugins.html"/>
-            <toc-element topic="server-custom-plugins-base-api.md"
-                         accepts-web-file-names="creating-custom-plugins.html,advanced-authentication.html,pipelines.html,pipeline.html,custom-plugins-base-api.html"/>
-            <toc-element topic="server-events.md"
-                         accepts-web-file-names="events.html"/>
+    <toc-element toc-title="Routing">
+        <toc-element topic="server-routing.md"
+                     accepts-web-file-names="routing.html,tracing-routes.html,resolution-algorithms.html,routing-in-ktor.html"/>
+        <toc-element topic="server-resources.md"
+                     accepts-web-file-names="type-safe-routing.html, features-locations.html,locations.html, server-locations.html"/>
+        <toc-element topic="server-routing-organization.md"
+                     accepts-web-file-names="structure.html,structuring-applications.html"/>
+        <toc-element toc-title="Serving content">
+            <toc-element topic="server-static-content.md"
+                         accepts-web-file-names="static-content.html,serving-static-content.html"/>
+            <toc-element topic="server-serving-spa.md"
+                         accepts-web-file-names="serving-spa.html"/>
+            <toc-element topic="server-webjars.md"
+                         accepts-web-file-names="webjars.html"/>
         </toc-element>
     </toc-element>
 
-
-    <toc-element toc-title="Ktor Client">
-        <toc-element toc-title="Getting started with Ktor Client">
-            <toc-element topic="client-create-new-application.topic"
-                         accepts-web-file-names="getting-started-ktor-client.html"/>
-            <toc-element topic="client-create-multiplatform-application.md"
-                         accepts-web-file-names="getting-started-ktor-client-multiplatform-mobile.html"/>
-        </toc-element>
-        <toc-element toc-title="Developing applications">
-            <toc-element toc-title="Setting up a client">
-                <toc-element topic="client-supported-platforms.md"/>
-                <toc-element topic="client-dependencies.md" toc-title="Adding dependencies"/>
-                <toc-element topic="client-create-and-configure.md"
-                             accepts-web-file-names="client.html,clients-index.html,quick-start.html,create-client.html"/>
-                <toc-element topic="client-webrtc.md"/>
-                <toc-element topic="client-engines.md"
-                             toc-title="Engines"
-                             accepts-web-file-names="http-client-multiplatform.html,http-client-engines.html"/>
-                <toc-element topic="client-plugins.md"
-                             toc-title="Plugins"
-                             accepts-web-file-names="http-client-features.html,http-client-plugins.html"/>
-                <toc-element topic="client-ssl.md" toc-title="SSL"/>
-                <toc-element topic="client-proxy.md"
-                             accepts-web-file-names="proxy.html"/>
-            </toc-element>
-
-            <toc-element toc-title="Requests">
-                <toc-element topic="client-requests.md" accepts-web-file-names="utilities.html,request.html"/>
-                <toc-element topic="client-resources.md"
-                             accepts-web-file-names="type-safe-request.html"/>
-                <toc-element topic="client-default-request.md"
-                             accepts-web-file-names="default-request.html"/>
-                <toc-element topic="client-user-agent.md"
-                             accepts-web-file-names="user-agent.html"/>
-                <toc-element topic="client-request-retry.md"
-                             accepts-web-file-names="client-retry.html"/>
-                <toc-element topic="client-http-send.md"
-                             accepts-web-file-names="http-send.html"/>
-            </toc-element>
-            <toc-element toc-title="Responses">
-                <toc-element topic="client-responses.md"
-                             accepts-web-file-names="streaming.html,response.html"/>
-                <toc-element topic="client-response-validation.md"
-                             accepts-web-file-names="response-validation.html"/>
-                <toc-element topic="client-redirect.md"
-                             accepts-web-file-names="http-redirect.html"/>
-            </toc-element>
-            <toc-element topic="client-serialization.md"
-                         toc-title="Content negotiation and serialization"
-                         accepts-web-file-names="json-feature.html,json.html,serialization-client.html"/>
-            <toc-element topic="client-auth.md"
-                         toc-title="Authentication and authorization"
-                         accepts-web-file-names="features-auth.html,auth.html">
-                <toc-element topic="client-basic-auth.md"
-                             toc-title="Basic authentication"
-                             accepts-web-file-names="basic-client.html"/>
-                <toc-element topic="client-digest-auth.md"
-                             toc-title="Digest authentication"
-                             accepts-web-file-names="digest-client.html"/>
-                <toc-element topic="client-bearer-auth.md"
-                             toc-title="Bearer authentication"
-                             accepts-web-file-names="bearer-client.html"/>
-            </toc-element>
-            <toc-element topic="client-cookies.md"
-                         accepts-web-file-names="http-cookies.html"/>
-            <toc-element topic="client-content-encoding.md"
-                         accepts-web-file-names="content-encoding.html"/>
-            <toc-element topic="client-bom-remover.md"
-                         accepts-web-file-names="bom-remover.html"/>
-            <toc-element topic="client-caching.md"/>
-            <toc-element topic="client-text-and-charsets.md"
-                         accepts-web-file-names="http-plain-text.html"/>
-            <toc-element topic="client-timeout.md"
-                         accepts-web-file-names="timeout.html"/>
-            <toc-element topic="client-logging.md"
-                         toc-title="Logging"
-                         accepts-web-file-names="features-logging.html"/>
-            <toc-element topic="client-websockets.topic"
-                         toc-title="WebSockets"
-                         accepts-web-file-names="websocket-client.html,http-client-features-websockets.html,clients-websockets.html">
-                <toc-element topic="client-websocket-serialization.md"
-                             toc-title="WebSockets serialization"
-                             accepts-web-file-names="websocket-client-serialization.html"/>
-            </toc-element>
-            <toc-element topic="client-server-sent-events.topic"
-                         toc-title="Server-Sent Events"
-                         accepts-web-file-names="sse-client.html"/>
-            <toc-element toc-title="Monitoring">
-                <toc-element topic="client-call-id.md"
-                             toc-title="Tracing requests"/>
-                <toc-element topic="client-opentelemetry.md"
-                             toc-title="Distributed tracing with OpenTelemetry"/>
-            </toc-element>
-            <toc-element topic="client-custom-plugins.md"
-                         toc-title="Custom plugins"/>
-        </toc-element>
-
-        <toc-element topic="client-testing.md"
-                     toc-title="Testing"
-                     accepts-web-file-names="http-client-testing.html"/>
+    <toc-element toc-title="Requests and responses">
+        <toc-element topic="server-requests.md"
+                     accepts-web-file-names="multipart-support.html,uploads.html,calls.html,requests.html"/>
+        <toc-element topic="server-request-validation.md"
+                     accepts-web-file-names="request-validation.html"/>
+        <toc-element topic="server-rate-limit.md"
+                     accepts-web-file-names="rate-limit.html"/>
+        <toc-element topic="server-http-request-lifecycle.md"/>
+        <toc-element topic="server-double-receive.md"
+                     accepts-web-file-names="double-receive.html"/>
+        <toc-element topic="server-responses.md"
+                     accepts-web-file-names="responses.html"/>
+        <toc-element topic="server-status-pages.md"
+                     accepts-web-file-names="status-pages.html"/>
     </toc-element>
 
-    <toc-element toc-title="Integrations">
-        <toc-element topic="full-stack-development-with-kotlin-multiplatform.topic"/>
-        <toc-element topic="htmx-integration.md"/>
-        <toc-element topic="openapi-spec-generation.md"/>
-        <toc-element topic="tutorial-first-steps-with-kotlin-rpc.md"/>
+    <toc-element toc-title="Developing applications">
+        <toc-element topic="server-serialization.md"
+                     toc-title="Content negotiation and serialization"
+                     accepts-web-file-names="serialization.html"
+                     accepts-web-file-names-ref="serialization_server"/>
+
+        <toc-element topic="server-templating.md"
+                     accepts-web-file-names="templates.html,working-with-views.html,templating.html">
+            <toc-element topic="server-html-dsl.md"
+                         accepts-web-file-names="html-dsl.html"/>
+            <toc-element topic="server-css-dsl.md"
+                         accepts-web-file-names="css-dsl.html"/>
+            <toc-element topic="server-freemarker.md"
+                         accepts-web-file-names="freemarker.html"/>
+            <toc-element topic="server-velocity.md"
+                         accepts-web-file-names="velocity.html"/>
+            <toc-element topic="server-mustache.md"
+                         accepts-web-file-names="mustache.html"/>
+            <toc-element topic="server-thymeleaf.md"
+                         accepts-web-file-names="thymeleaf.html"/>
+            <toc-element topic="server-pebble.md"
+                         accepts-web-file-names="pebble.html"/>
+            <toc-element topic="server-jte.md"
+                         accepts-web-file-names="jte.html"/>
+        </toc-element>
+
+        <toc-element topic="server-auth.md"
+                     toc-title="Authentication and authorization"
+                     accepts-web-file-names="features-authentication.html,authentication.html">
+            <toc-element topic="server-basic-auth.md"
+                         toc-title="Basic authentication"
+                         accepts-web-file-names="basic.html"/>
+            <toc-element topic="server-digest-auth.md"
+                         toc-title="Digest authentication"
+                         accepts-web-file-names="digest.html"/>
+            <toc-element topic="server-bearer-auth.md"
+                         toc-title="Bearer authentication"
+                         accepts-web-file-names="bearer.html"/>
+            <toc-element topic="server-api-key-auth.md"
+                         toc-title="API Key authentication"
+                         accepts-web-file-names="api-key.html"/>
+            <toc-element topic="server-form-based-auth.md"
+                         toc-title="Form-based authentication"
+                         accepts-web-file-names="form.html"/>
+            <toc-element topic="server-ldap.md"
+                         accepts-web-file-names="ldap.html"/>
+            <toc-element topic="server-jwt.md"
+                         accepts-web-file-names="jwt.html">
+                <toc-element topic="rsa-keys-generation.md"/>
+            </toc-element>
+            <toc-element toc-title="Sessions">
+                <toc-element topic="server-session-auth.md"
+                             toc-title="Session authentication"
+                             accepts-web-file-names="session-auth.html"/>
+                <toc-element topic="server-typed-session-auth.md"/>
+            </toc-element>
+            <toc-element toc-title="OAuth">
+                <toc-element topic="server-oauth.md"
+                             toc-title="OAuth authentication"
+                             accepts-web-file-names="authentication-oauth.html,oauth.html"/>
+                <toc-element topic="server-oauth2-flows.md"
+                             toc-title="Type-safe OAuth 2.0 flows"/>
+            </toc-element>
+            <toc-element topic="server-oidc.md"
+                         toc-title="OpenID Connect">
+                <toc-element topic="server-oidc-resource-server.md"
+                             toc-title="Resource server"/>
+                <toc-element topic="server-oidc-browser-login.md"
+                             toc-title="Browser login"/>
+            </toc-element>
+            <toc-element topic="server-typed-auth.md"/>
+        </toc-element>
+
+        <toc-element topic="server-sessions.md"
+                     accepts-web-file-names="cookie-header.html,client-server.html,serializers.html,storages.html,transformers.html,sessions.html"/>
+
+        <toc-element toc-title="HTTP">
+            <toc-element topic="server-default-headers.md"
+                         accepts-web-file-names="default-headers.html"/>
+            <toc-element topic="server-compression.md"
+                         accepts-web-file-names="compression.html"/>
+            <toc-element topic="server-caching-headers.md"
+                         accepts-web-file-names="caching-headers.html,caching.html"/>
+            <toc-element topic="server-conditional-headers.md"
+                         accepts-web-file-names="conditional-headers.html"/>
+            <toc-element topic="server-forward-headers.md"
+                         accepts-web-file-names="forward-headers.html"/>
+            <toc-element topic="server-cors.md"
+                         accepts-web-file-names="cors.html"/>
+            <toc-element topic="server-hsts.md"
+                         accepts-web-file-names="hsts.html"/>
+            <toc-element topic="server-https-redirect.md"
+                         accepts-web-file-names="https-redirect.html"/>
+            <toc-element topic="server-autoheadresponse.md"
+                         accepts-web-file-names="autoheadresponse.html"/>
+            <toc-element topic="server-method-override.md"
+                         accepts-web-file-names="x-http-method-override.html"/>
+            <toc-element topic="server-partial-content.md"
+                         accepts-web-file-names="partial-content.html"/>
+            <toc-element topic="server-data-conversion.md"/>
+        </toc-element>
+
+        <toc-element topic="server-websockets.md"
+                     toc-title="WebSockets"
+                     accepts-web-file-names="servers-features-websockets.html,websocket.html">
+            <toc-element topic="server-websocket-serialization.md"
+                         toc-title="WebSockets serialization"
+                         accepts-web-file-names="websocket-serialization.html"/>
+            <toc-element topic="server-websocket-deflate.md"
+                         accepts-web-file-names="websocket-deflate-extension.html"/>
+            <toc-element topic="server-websocket-extensions.md"
+                         accepts-web-file-names="websocket-extensions-api.html"/>
+        </toc-element>
+        <toc-element topic="server-server-sent-events.topic"
+                     toc-title="Server-Sent Events"
+                     accepts-web-file-names="sse-server.html"/>
+
+        <toc-element topic="server-sockets.md"
+                     accepts-web-file-names="servers-raw-sockets.html"/>
+
+        <toc-element toc-title="Monitoring">
+            <toc-element topic="server-call-logging.md"
+                         accepts-web-file-names="call-logging.html"/>
+            <toc-element topic="server-call-id.md"
+                         toc-title="Tracing requests"
+                         accepts-web-file-names="call-id.html"/>
+            <toc-element topic="server-metrics-micrometer.md"
+                         accepts-web-file-names="metrics-micrometer.html,micrometer-metrics.html"/>
+            <toc-element topic="server-opentelemetry.md"
+                         toc-title="Distributed tracing with OpenTelemetry"/>
+            <toc-element topic="server-metrics-dropwizard.md"
+                         accepts-web-file-names="features-metrics.html,dropwizard-metrics.html"/>
+        </toc-element>
+
+        <toc-element toc-title="API documentation">
+            <toc-element topic="server-openapi.md"
+                         accepts-web-file-names="openapi.html"/>
+            <toc-element topic="openapi-spec-generation.md"/>
+            <toc-element topic="server-swagger-ui.md"
+                         accepts-web-file-names="openapi-swagger.html,swagger-ui.html"/>
+        </toc-element>
     </toc-element>
+
+    <toc-element toc-title="Application lifecycle">
+        <toc-element topic="server-events.md"
+                     accepts-web-file-names="events.html"/>
+        <toc-element topic="server-shutdown-url.md"
+                     accepts-web-file-names="shutdown-url.html"/>
+    </toc-element>
+
+    <toc-element toc-title="Running and debugging">
+        <toc-element topic="server-run.md"
+                     accepts-web-file-names="engine.html,running.html"/>
+        <toc-element topic="server-auto-reload.topic" accepts-web-file-names="autoreload.html,auto-reload.html"/>
+    </toc-element>
+
+    <toc-element topic="server-testing.md"
+                 toc-title="Testing"
+                 accepts-web-file-names="servers-testing.html,testing.html"/>
+
+    <toc-element topic="server-deployment.md"
+                 accepts-web-file-names="deploy.html">
+        <toc-element toc-title="Packaging">
+            <toc-element toc-title="Creating fat JARs">
+                <toc-element topic="server-fatjar.md"
+                             accepts-web-file-names="proguard.html,deploy-proguard.html,fatjar.html"/>
+                <toc-element topic="maven-assembly-plugin.md"/>
+            </toc-element>
+            <toc-element topic="server-packaging.md"
+                         accepts-web-file-names="packing.html,gradle-application-plugin.html"/>
+            <toc-element topic="server-war.md"
+                         accepts-web-file-names="war.html"/>
+            <toc-element topic="graalvm.md"/>
+        </toc-element>
+        <toc-element toc-title="Containerizing">
+            <toc-element topic="docker.md"
+                         accepts-web-file-names="containers.html"/>
+            <toc-element topic="docker-compose.topic"/>
+        </toc-element>
+        <toc-element toc-title="Publishing">
+            <toc-element topic="azure-app-service.md"/>
+            <toc-element topic="google-app-engine.md"
+                         toc-title="Google App Engine"
+                         accepts-web-file-names="hosting.html"/>
+            <toc-element topic="heroku.md"/>
+            <toc-element topic="dokku.md"/>
+            <toc-element topic="sevalla.md"/>
+            <toc-element topic="elastic-beanstalk.md" toc-title="AWS Elastic Beanstalk"/>
+        </toc-element>
+    </toc-element>
+
+    <toc-element toc-title="Custom plugins">
+        <toc-element topic="server-custom-plugins.md"
+                     toc-title="Custom plugins"
+                     accepts-web-file-names="advanced-index.html,advanced-features.html,creating-custom-features.html,attributes.html,intercepting-routes.html,route.html,custom-plugins.html"/>
+        <toc-element topic="server-custom-plugins-base-api.md"
+                     accepts-web-file-names="creating-custom-plugins.html,advanced-authentication.html,pipelines.html,pipeline.html,custom-plugins-base-api.html"/>
+
+    </toc-element>
+
+    <!--    ================================  Ktor Client section  ================================  -->
+
+    <toc-element toc-title="Ktor Client"/>
+
+    <toc-element toc-title="Get started with Ktor Client">
+        <toc-element accepts-web-file-names="getting-started-ktor-client.html"
+                     topic="client-create-new-application.topic"/>
+    </toc-element>
+
+    <toc-element toc-title="Setting up a client">
+        <toc-element topic="client-supported-platforms.md"/>
+        <toc-element toc-title="Adding dependencies" topic="client-dependencies.md"/>
+        <toc-element accepts-web-file-names="client.html,clients-index.html,quick-start.html,create-client.html"
+                     topic="client-create-and-configure.md"/>
+        <toc-element topic="client-webrtc.md"/>
+        <toc-element accepts-web-file-names="http-client-multiplatform.html,http-client-engines.html"
+                     toc-title="Engines" topic="client-engines.md"/>
+        <toc-element accepts-web-file-names="http-client-features.html,http-client-plugins.html" toc-title="Plugins"
+                     topic="client-plugins.md"/>
+        <toc-element toc-title="SSL" topic="client-ssl.md"/>
+        <toc-element accepts-web-file-names="proxy.html" topic="client-proxy.md"/>
+    </toc-element>
+
+    <toc-element toc-title="Requests and responses">
+        <toc-element accepts-web-file-names="utilities.html,request.html" topic="client-requests.md"/>
+        <toc-element accepts-web-file-names="type-safe-request.html" topic="client-resources.md"/>
+        <toc-element accepts-web-file-names="default-request.html" topic="client-default-request.md"/>
+        <toc-element accepts-web-file-names="user-agent.html" topic="client-user-agent.md"/>
+        <toc-element accepts-web-file-names="client-retry.html" topic="client-request-retry.md"/>
+        <toc-element accepts-web-file-names="http-send.html" topic="client-http-send.md"/>
+        <toc-element accepts-web-file-names="streaming.html,response.html" topic="client-responses.md"/>
+        <toc-element accepts-web-file-names="response-validation.html" topic="client-response-validation.md"/>
+        <toc-element accepts-web-file-names="http-redirect.html" topic="client-redirect.md"/>
+    </toc-element>
+
+    <toc-element toc-title="Developing applications">
+        <toc-element toc-title="Content negotiation and serialization"
+                     topic="client-serialization.md"
+                     accepts-web-file-names="json-feature.html,json.html,serialization-client.html" />
+        <toc-element accepts-web-file-names="features-auth.html,auth.html" toc-title="Authentication and authorization"
+                     topic="client-auth.md">
+            <toc-element accepts-web-file-names="basic-client.html" toc-title="Basic authentication"
+                         topic="client-basic-auth.md"/>
+            <toc-element accepts-web-file-names="digest-client.html" toc-title="Digest authentication"
+                         topic="client-digest-auth.md"/>
+            <toc-element accepts-web-file-names="bearer-client.html" toc-title="Bearer authentication"
+                         topic="client-bearer-auth.md"/>
+        </toc-element>
+        <toc-element accepts-web-file-names="http-cookies.html" topic="client-cookies.md"/>
+        <toc-element accepts-web-file-names="content-encoding.html" topic="client-content-encoding.md"/>
+        <toc-element accepts-web-file-names="bom-remover.html" topic="client-bom-remover.md"/>
+        <toc-element topic="client-caching.md"/>
+        <toc-element accepts-web-file-names="http-plain-text.html" topic="client-text-and-charsets.md"/>
+        <toc-element accepts-web-file-names="timeout.html" topic="client-timeout.md"/>
+        <toc-element accepts-web-file-names="features-logging.html" toc-title="Logging" topic="client-logging.md"/>
+        <toc-element
+                accepts-web-file-names="websocket-client.html,http-client-features-websockets.html,clients-websockets.html"
+                toc-title="WebSockets" topic="client-websockets.topic">
+            <toc-element accepts-web-file-names="websocket-client-serialization.html"
+                         toc-title="WebSockets serialization" topic="client-websocket-serialization.md"/>
+        </toc-element>
+        <toc-element accepts-web-file-names="sse-client.html" toc-title="Server-Sent Events"
+                     topic="client-server-sent-events.topic"/>
+        <toc-element toc-title="Monitoring">
+            <toc-element toc-title="Tracing requests" topic="client-call-id.md"/>
+            <toc-element toc-title="Distributed tracing with OpenTelemetry" topic="client-opentelemetry.md"/>
+        </toc-element>
+    </toc-element>
+    <toc-element accepts-web-file-names="http-client-testing.html" toc-title="Testing" topic="client-testing.md"/>
+    <toc-element toc-title="Custom plugins" topic="client-custom-plugins.md"/>
+
+    <!--    ================================  Multiplatform section  ================================  -->
+
+    <toc-element toc-title="Multiplatform"/>
+    <toc-element topic="full-stack-development-with-kotlin-multiplatform.topic"/>
+    <toc-element accepts-web-file-names="getting-started-ktor-client-multiplatform-mobile.html"
+                 topic="client-create-multiplatform-application.md"/>
+
+    <!--    ================================  Shared section  ================================  -->
+
+    <toc-element toc-title="Shared"/>
     <toc-element topic="io-interoperability.md"/>
 
-    <toc-element toc-title="Releases">
-        <toc-element topic="releases.md"/>
-        <toc-element topic="whats-new-360.md"/>
-        <toc-element topic="whats-new-350.md"/>
-        <toc-element topic="whats-new-340.md"/>
-        <toc-element topic="whats-new-330.md"/>
-        <toc-element topic="whats-new-320.md"/>
-        <toc-element topic="migration-to-20x.md"
-                     accepts-web-file-names="migrating-2.html"/>
+    <!--    ================================  Integrations section  ================================  -->
+
+    <toc-element toc-title="Integrations"/>
+    <toc-element topic="htmx-integration.md"/>
+    <toc-element topic="tutorial-first-steps-with-kotlin-rpc.md"/>
+
+
+    <!--    ================================  Reference and resources section  ================================  -->
+
+    <toc-element toc-title="Reference and resources"/>
+    <toc-element topic="releases.md"/>
+    <toc-element toc-title="Migration guides">
+        <toc-element topic="migrating-3.md"/>
         <toc-element topic="migration-to-22x.md"
                      accepts-web-file-names="migrating-2-2.html"/>
-        <toc-element topic="migrating-3.md"/>
-    </toc-element>
-
-    <toc-element toc-title="Migrating from other frameworks">
+        <toc-element topic="migration-to-20x.md"
+                     accepts-web-file-names="migrating-2.html"/>
         <toc-element topic="migration-from-express-js.topic"
                      accepts-web-file-names="express-js.html"/>
     </toc-element>
-
     <toc-element topic="FAQ.topic"
                  accepts-web-file-names="zfaq.html"/>
     <toc-element toc-title="Other Resources">
         <toc-element toc-title="Community Resources" href="https://github.com/mjovanc/awesome-ktor"/>
     </toc-element>
+
+    <!--    ================================  Hidden redirects section  ================================  -->
+
     <toc-element hidden="true" accepts-web-file-names="generator.html" toc-title="geenrator"
                  target-for-accept-web-file-names="https://start.ktor.io/"/>
     <toc-element hidden="true" toc-title="samples" accepts-web-file-names-ref="samples"

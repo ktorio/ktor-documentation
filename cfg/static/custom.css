@@ -1,0 +1,7 @@
+/* styles for the the empty toc-elements */
+.toc-item--empty, .toc-item--empty:hover {
+    padding-top: 32px;
+    font-size: 16px;
+    font-weight: 500;
+    text-indent: -16px;
+}
