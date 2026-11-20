@@ -1,4 +1,4 @@
-[//]: # (title: Webjars)
+[//]: # (title: Serving web assets with WebJars)
 
 <primary-label ref="server-plugin"/>
 

@@ -1,4 +1,4 @@
-[//]: # (title: Intercepting requests using HttpSend)
+[//]: # (title: Intercepting requests)
 
 <primary-label ref="client-plugin"/>
 

@@ -1,4 +1,4 @@
-[//]: # (title: Creating a cross-platform mobile application)
+[//]: # (title: Create a cross-platform mobile application)
 
 <show-structure for="chapter" depth="2"/>
 

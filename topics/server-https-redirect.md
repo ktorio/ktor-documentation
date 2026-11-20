@@ -1,4 +1,4 @@
-[//]: # (title: HttpsRedirect)
+[//]: # (title: HTTPS redirect)
 
 <primary-label ref="server-plugin"/>
 

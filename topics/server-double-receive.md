@@ -1,4 +1,4 @@
-[//]: # (title: DoubleReceive)
+[//]: # (title: Double receive)
 
 <primary-label ref="server-plugin"/>
 

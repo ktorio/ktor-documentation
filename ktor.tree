@@ -95,7 +95,7 @@
                          accepts-web-file-names="static-content.html,serving-static-content.html"/>
             <toc-element topic="server-serving-spa.md"
                          accepts-web-file-names="serving-spa.html"/>
-            <toc-element topic="server-webjars.md"
+            <toc-element topic="server-webjars.md" toc-title="WebJars"
                          accepts-web-file-names="webjars.html"/>
         </toc-element>
     </toc-element>

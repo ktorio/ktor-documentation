@@ -1,4 +1,4 @@
-[//]: # (title: AutoHeadResponse)
+[//]: # (title: Auto HEAD response)
 
 <var name="plugin_name" value="AutoHeadResponse"/>
 <var name="artifact_name" value="ktor-server-auto-head-response"/>

@@ -1,4 +1,4 @@
-[//]: # (title: XHttpMethodOverride)
+[//]: # (title: HTTP method override)
 
 <primary-label ref="server-plugin"/>
 
