@@ -322,6 +322,43 @@ You can also construct a `MultiPartFormDataContent` with a custom boundary and c
 For the full example, see
 [client-upload-progress](https://github.com/ktorio/ktor-documentation/tree/main/codeSnippets/snippets/client-upload-progress).
 
+#### Using `appendBlob()` in the browser {id="upload_file_append_blob"}
+
+In browser applications built with Kotlin/JS or Kotlin/WasmJS, you can append a `File` or `Blob` object, such as a file
+selected in an `<input type="file">` element, directly to the form data using the
+[`appendBlob()`](https://api.ktor.io/ktor-client-core/io.ktor.client.request.forms/append-blob.html) function:
+
+```kotlin
+val file: File = document.querySelector<HTMLInputElement>("#upload")!!.files!!.item(0)!!
+
+client.submitFormWithBinaryData(
+    url = "https://example.com/upload",
+    formData = formData {
+        appendBlob("document", file, file.name, ContentType.Application.Pdf)
+    }
+)
+```
+
+The `appendBlob()` function provides two overloads:
+
+* The first accepts the part key, the `Blob` payload, and optional part headers.
+* The second additionally takes a filename and a content type, which are sent in the `Content-Disposition` and
+  `Content-Type` part headers.
+
+To append a `Blob` without a filename, use the first overload:
+
+```kotlin
+client.submitFormWithBinaryData(
+    url = "https://example.com/upload",
+    formData = formData {
+        appendBlob("data", blob)
+    }
+)
+```
+
+> The `appendBlob()` function is available since Ktor 3.6.0. Because the content of a `Blob` is read into memory when
+> the part is sent, prefer it for small and medium-sized files.
+
 ### Binary data {id="binary"}
 
 To send binary data with the `application/octet-stream` content type, pass the
