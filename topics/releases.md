@@ -33,6 +33,13 @@ The following table lists details of the latest Ktor releases.
 
 <table>
 <tr><td>Version</td><td>Release Date</td><td>Highlights</td></tr>
+<tr><td>3.6.2</td><td>November 25, 2026</td><td>
+<p>
+A patch release that includes multiple bug fixes across client and server, improving connection handling, WebSocket behavior, HTTP response processing, rate limiting, and engine-specific networking.
+</p>
+<var name="version" value="3.6.2"/>
+<include from="lib.topic" element-id="release_details_link"/>
+</td></tr>
 <tr><td>3.6.1</td><td>October 30, 2026</td><td>
 <p>
 A patch release that fixes various issues with connection management, request cancellation, streaming, WebSockets, and

@@ -17,7 +17,7 @@ pluginManagement {
 
 dependencyResolutionManagement {
     versionCatalogs {
-        create("ktorLibs").from("io.ktor:ktor-version-catalog:3.6.1")
+        create("ktorLibs").from("io.ktor:ktor-version-catalog:3.6.2")
     }
 
     repositories {
