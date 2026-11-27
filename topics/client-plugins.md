@@ -50,7 +50,7 @@ messages:
 
 ```kotlin
 ```
-{src="snippets/client-logging/src/main/kotlin/com/example/Application.kt" include-symbol="client"}
+{src="snippets/client-logging/src/main/kotlin/com/example/Application.kt" include-symbol="createClient"}
 
 
 ## Create a custom plugin {id="custom"}

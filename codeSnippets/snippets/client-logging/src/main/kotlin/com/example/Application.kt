@@ -8,20 +8,23 @@ import io.ktor.client.statement.*
 import io.ktor.http.*
 import kotlinx.coroutines.runBlocking
 
-fun main() {
-    runBlocking {
-        val client = HttpClient(CIO) {
-            install(Logging) {
-                logger = Logger.DEFAULT
-                level = LogLevel.HEADERS
-                filter { request ->
-                    request.url.host.contains("ktor.io")
-                }
-                sanitizeHeader { header -> header == HttpHeaders.Authorization }
-            }
+fun createClient(isDevelopment: Boolean): HttpClient = HttpClient(CIO) {
+    install(Logging) {
+        logger = Logger.DEFAULT
+        level = if (isDevelopment) LogLevel.HEADERS else LogLevel.NONE
+        filter { request ->
+            request.url.host.contains("ktor.io")
         }
+        sanitizeHeader { header -> header.equals(HttpHeaders.Authorization, ignoreCase = true) }
+    }
+}
 
-        val response1: HttpResponse = client.get("https://ktor.io/")
-        val response2: HttpResponse = client.get("https://jetbrains.com/")
+fun main(args: Array<String>) {
+    val isDevelopment = "--development" in args
+    runBlocking {
+        createClient(isDevelopment).use { client ->
+            val response1: HttpResponse = client.get("https://ktor.io/")
+            val response2: HttpResponse = client.get("https://jetbrains.com/")
+        }
     }
 }
