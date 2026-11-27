@@ -3,7 +3,7 @@
 <show-structure for="chapter" depth="2"/>
 <primary-label ref="server-plugin"/>
 
-[micrometer_jvm_metrics]: https://micrometer.io/docs/ref/jvm
+[micrometer_jvm_metrics]: https://docs.micrometer.io/micrometer/reference/reference/jvm.html
 
 <var name="package_name" value="io.ktor.server.metrics.micrometer"/>
 
@@ -44,18 +44,18 @@ To enable `MicrometerMetrics`, you need to include the following artifacts in th
 
 ### Exposed metrics {id="ktor_metrics"}
 Ktor exposes the following metrics for monitoring HTTP requests:
-* `ktor.http.server.requests.active`: a [gauge](https://micrometer.io/docs/concepts#_gauges) that counts the number of concurrent HTTP requests. This metric doesn't provide any tags.
-* `ktor.http.server.requests`: a [timer](https://micrometer.io/docs/concepts#_timers) for measuring the time of each request. This metric provides a set of tags for monitoring request data, including `address` for a requested URL, `method` for an HTTP method, `route` for a Ktor route handling requests, and so on.
+* `ktor.http.server.requests.active`: a [gauge](https://docs.micrometer.io/micrometer/reference/concepts/gauges.html) that counts the number of concurrent HTTP requests. This metric doesn't provide any tags.
+* `ktor.http.server.requests`: a [timer](https://docs.micrometer.io/micrometer/reference/concepts/timers.html) for measuring the time of each request. This metric provides a set of tags for monitoring request data, including `address` for a requested URL, `method` for an HTTP method, `route` for a Ktor route handling requests, and so on.
 
 You can customize the default `ktor.http.server.requests` prefix using the `metricName` [configuration](#configure_metrics) property.
 
-> The metric names may be [different](https://micrometer.io/docs/concepts#_naming_meters) depending on the configured monitoring system.
+> The metric names may be [different](https://docs.micrometer.io/micrometer/reference/concepts/naming.html) depending on the configured monitoring system.
 
 In addition to HTTP metrics, Ktor exposes a set of metrics for [monitoring the JVM](#jvm_metrics).
 
 ## Create a registry {id="create_registry"}
 
-After installing `MicrometerMetrics`, you need to create a [registry for your monitoring system](https://micrometer.io/docs/concepts#_registry) and assign it to the `registry` property. In the example below, the `PrometheusMeterRegistry` is created outside the `install` block to have the capability to reuse this registry in different [route handlers](server-routing.md):
+After installing `MicrometerMetrics`, you need to create a [registry for your monitoring system](https://docs.micrometer.io/micrometer/reference/concepts/registry.html) and assign it to the `registry` property. In the example below, the `PrometheusMeterRegistry` is created outside the `install` block to have the capability to reuse this registry in different [route handlers](server-routing.md):
 
 ```kotlin
 ```
@@ -79,7 +79,7 @@ install(MicrometerMetrics) {
 ```
 
 ### Distribution statistics {id="distribution_statistics"}
-You configure [distribution statistics](https://micrometer.io/docs/concepts#_configuring_distribution_statistics) using the `distributionStatisticConfig` property, for example:
+You configure [distribution statistics](https://docs.micrometer.io/micrometer/reference/concepts/histogram-quantiles.html) using the `distributionStatisticConfig` property, for example:
 
 ```kotlin
 ```
